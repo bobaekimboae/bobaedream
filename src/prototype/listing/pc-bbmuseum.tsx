@@ -548,15 +548,18 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
     setView({ stage: "generation", maker: makerName, model: row.name });
   };
 
-  return (
-    <div className={`bbm-maker-grade${referenceStyle ? " is-reference" : ""}`}>
-      {pathRows.length ? <div className="bbm-selection-path" aria-label="선택한 제조사·모델·세부모델">
+  const selectionPath = pathRows.length ? <div className="bbm-selection-path" aria-label="선택한 제조사·모델·세부모델">
         {pathRows.map((row) => <div key={row.key} className="bbm-selection-row">
           <button type="button" className="bbm-selection-label" onClick={row.onOpen}><span>{row.label}</span>{"sublabel" in row && row.sublabel ? <small>{compactReferenceYears(row.sublabel)}</small> : null}</button>
           <button type="button" className="bbm-selection-clear" aria-label={`${row.label} 선택 해제`} onClick={row.onClear}><BbAssetIcon name="circle-close" size={20} /></button>
         </div>)}
-      </div> : null}
+      </div> : null;
+
+  return (
+    <div className={`bbm-maker-grade${referenceStyle ? " is-reference" : ""}`}>
+      {!referenceStyle ? selectionPath : null}
       <div className="bbm-catalog" ref={catalogRef}>
+        {referenceStyle ? selectionPath : null}
         {view.stage === "maker" ? makerSections.map((section) => (
           <div key={section.title} className="bbm-catalog-section">
             <p className="bbm-catalog-title">{section.title}</p>
@@ -572,7 +575,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
               const selected = maker === view.maker && model === row.name;
               return <button key={`popular-${row.name}`} type="button" className={`bbm-catalog-row${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => chooseModelRow(view.maker, row)}><span>{row.label}</span>{count(row.count)}</button>;
             })}</div> : null}
-            {modelRows.length ? <div className="bbm-model-group"><p className="bbm-catalog-title">전체</p>{modelRows.map((row) => {
+            {modelRows.length ? <div className="bbm-model-group"><p className="bbm-catalog-title">{referenceStyle ? "모델" : "전체"}</p>{modelRows.map((row) => {
               const selected = maker === view.maker && model === row.name;
               return <button key={row.name} type="button" className={`bbm-catalog-row${selected ? " is-selected" : ""}`} aria-pressed={selected} onClick={() => chooseModelRow(view.maker, row)}><span>{row.label}</span>{count(row.count)}</button>;
             })}</div> : <p className="bbm-catalog-empty">모델 정보 없음</p>}
@@ -649,7 +652,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
   );
 }
 
-type BbTruckView = "format" | "subtype" | "spec";
+type BbTruckView = "format" | "subtype" | "spec" | "complete";
 
 const inlineTruckPayloadSubtypes = new Set(["경형", "소형"]);
 
@@ -663,7 +666,7 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
     : !value.subtype
       ? "subtype"
       : referenceStyle
-        ? value.specGroups.length ? "spec" : "subtype"
+        ? value.specGroups.length ? "spec" : "complete"
         : inlineTruckPayloadSubtypes.has(value.subtype)
           ? "subtype"
           : value.specGroups.length ? "spec" : "subtype";
@@ -692,7 +695,7 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
             </button>
             {view === "subtype" ? <>
               <p className="bbm-catalog-title">세부형식</p>
-              {value.subtypes.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView(value.specGroups.length ? "spec" : "subtype"); }}>
+              {value.subtypes.map((option) => <button key={option.name} type="button" className={`bbm-catalog-row${value.subtype === option.name ? " is-selected" : ""}`} aria-pressed={value.subtype === option.name} onClick={() => { value.onChooseSubtype(option.name); setView("complete"); }}>
                 <BbTruckOptionLabel name={option.name} image={null} />
                 {count(option.count)}
               </button>)}
@@ -704,7 +707,7 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
                 <p className="bbm-catalog-title">{group.label.replace(/\s*\([^)]*\)\s*$/, "")}</p>
                 <div className="bbm-truck-spec-list">{group.options.map((option) => {
                   const selected = value.spec === option.name;
-                  return <button key={`${group.label}-${option.name}`} type="button" role="checkbox" aria-checked={selected} className={selected ? "is-selected" : ""} onClick={() => value.onChooseSpec(option.name)}>
+                  return <button key={`${group.label}-${option.name}`} type="button" role="checkbox" aria-checked={selected} disabled={option.count === 0} className={selected ? "is-selected" : ""} onClick={() => value.onChooseSpec(option.name)}>
                     <span className="bbm-encar-checkbox" aria-hidden="true">{selected ? "✓" : ""}</span><span className="bbm-truck-spec-name">{option.name}</span>{count(option.count)}
                   </button>;
                 })}</div>
@@ -781,7 +784,7 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
   }, [resetSignal]);
   const truckFilterLabel = "형식/적재용량";
   const hasTruckFilter = Boolean(truckFilter);
-  const [openItems, setOpenItems] = useState<string[]>(() => truckFilter ? [truckFilterLabel] : makerOpenByDefault ? [bbMakerItem] : []);
+  const [openItems, setOpenItems] = useState<string[]>(() => truckFilter ? [truckFilterLabel, ...(makerOpenByDefault ? [bbMakerItem] : [])] : makerOpenByDefault ? [bbMakerItem] : []);
   useEffect(() => {
     if (!makerOpenByDefault) return;
     setOpenItems((current) => current.includes(bbMakerItem) ? current : singleOpen ? [bbMakerItem] : [...current, bbMakerItem]);
@@ -805,7 +808,7 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
           ? { stage: "model", maker }
           : { stage: "maker" });
   }, [maker, model, selection.generation]);
-  const toggle = (label: string) => setOpenItems((current) => current.includes(label) ? current.filter((item) => item !== label) : truckFilter || singleOpen ? [label] : [...current, label]);
+  const toggle = (label: string) => setOpenItems((current) => current.includes(label) ? current.filter((item) => item !== label) : singleOpen && !hasTruckFilter ? [label] : [...current, label]);
   const collapsedPath = [
     maker ? bbMakerLabel(maker) : null,
     maker && model ? selection.modelLabel ?? model : null,

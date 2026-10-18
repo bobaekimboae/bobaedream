@@ -2919,6 +2919,19 @@ export const truckSpecSourceTabs = {
   "기타": "13_기타"
 } as const;
 
+const normalizeTruckSpecGroups = (groups: readonly TruckSpecGroup[]): readonly TruckSpecGroup[] => {
+  const merged = new Map<string, string[]>();
+  groups.forEach((group) => {
+    const label = group.label.replace(/\s*\([^)]*\)\s*$/, "").trim();
+    const options = merged.get(label) ?? [];
+    group.options.forEach((option) => {
+      if (!options.includes(option)) options.push(option);
+    });
+    merged.set(label, options);
+  });
+  return [...merged.entries()].map(([label, options]) => ({ label, options }));
+};
+
 export const truckSpecGroupsFor = (format: string | null, subtype: string | null): readonly TruckSpecGroup[] => {
   if (!format || !subtype) return [];
   if (format === "카고(화물)트럭") {
@@ -2973,7 +2986,8 @@ export const truckSpecGroupsFor = (format: string | null, subtype: string | null
     "평판 트레일러": "평판트레일러",
   };
   const sourceSubtype = subtypeAliases[subtype] ?? subtype;
-  return (truckSpecCatalog as Record<string, Record<string, readonly TruckSpecGroup[]>>)[format]?.[sourceSubtype] ?? [];
+  const groups = (truckSpecCatalog as Record<string, Record<string, readonly TruckSpecGroup[]>>)[format]?.[sourceSubtype] ?? [];
+  return normalizeTruckSpecGroups(groups);
 };
 
 export const truckSpecOptionsFor = (format: string | null, subtype: string | null): readonly string[] =>

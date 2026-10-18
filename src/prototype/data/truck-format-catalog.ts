@@ -20,23 +20,23 @@ export const truckTypeTree: readonly TruckTypeNode[] = [
   branch("윙바디/탑", [
     leaf("윙바디"), leaf("윙바디 파워게이트"), leaf("상승 윙바디"), leaf("저상형 윙바디"),
     leaf("냉동윙"), leaf("냉장윙"), leaf("보냉윙"), leaf("보온윙"), leaf("내장탑"), leaf("상승내장탑"),
-    leaf("내장탑 파워게이트"), leaf("저상 내장탑"), leaf("저상형 내장탑 파워게이트"), leaf("익스(하이)탑"),
+    leaf("내장탑 파워게이트"), leaf("저상형 내장탑"), leaf("저상형 내장탑 파워게이트"), leaf("익스(하이)내장탑"),
     leaf("익스(하이)내장탑 파워게이트"), leaf("냉동탑"), leaf("냉동탑 파워게이트"), leaf("익스(하이)냉동탑"),
     leaf("익스(하이)냉동탑 파워게이트"), leaf("저상형 냉동탑"), leaf("냉장탑"), leaf("냉장탑 파워게이트"),
     leaf("익스(하이)냉장탑"), leaf("익스(하이)냉장탑 파워게이트"), leaf("저상형 냉장탑"), leaf("저상형 냉장탑 파워게이트"),
-    leaf("보냉탑"), leaf("냉온장탑"), leaf("다용도탑"), leaf("씨티밴(워크스루밴)"), leaf("이동·광고·응급차"),
+    leaf("보냉탑"), leaf("냉온장탑"), leaf("다용도탑"), leaf("씨티/워크스루밴"), leaf("이동/광고/응급차"),
     leaf("이동식 목욕차"), leaf("기타"),
   ]),
   branch("버스", [leaf("버스"), leaf("기타")]),
   branch("덤프/건설/중기", [leaf("덤프"), leaf("레미콘"), leaf("지게차"), leaf("굴삭기"), leaf("기타")]),
-  branch("크레인 형태", [leaf("고소작업차"), leaf("사다리차"), leaf("오가크레인"), leaf("집게차"), leaf("카고크레인"), leaf("활선차"), leaf("기타")]),
-  branch("탱크로리", [leaf("LPG 탱크로리"), leaf("버큠로리"), leaf("사료운반차"), leaf("살수차"), leaf("유류 탱크로리"), leaf("이동방제차"), leaf("분말(벌크) 탱크로리"), leaf("특수/케미컬(VOC,테플론)탱크로리"), leaf("기타")]),
+  branch("크레인 형태", [leaf("바가지차"), leaf("사다리차"), leaf("오가크레인"), leaf("집게차"), leaf("카고크레인"), leaf("활선차(고소작업)"), leaf("기타")]),
+  branch("탱크로리", [leaf("LPG/LNG탱크로리"), leaf("버큠로리"), leaf("사료운반차"), leaf("살수차"), leaf("유류/액상탱크로리"), leaf("이동방제차"), leaf("주정운반차"), leaf("소맥분/분말탱크로리"), leaf("특수/케미컬(VOC,테플론)탱크로리"), leaf("기타")]),
   branch("캠핑카/캠핑 트레일러", [leaf("캠핑카"), leaf("캠핑트레일러")]),
-  branch("폐기/음식물수송", [leaf("암롤"), leaf("압착진개"), leaf("압축진개"), leaf("진개덤프"), leaf("음식물수거차"), leaf("노면청소차"), leaf("준설차"), leaf("재활용품수거차"), leaf("워킹플로어"), leaf("톱밥운반차"), leaf("기타")]),
+  branch("폐기/음식물수송", [leaf("암롤/롤온"), leaf("압착진개"), leaf("압축진개"), leaf("진개덤프"), leaf("음식물수거"), leaf("노면청소차"), leaf("준설차"), leaf("재활용품수집차"), leaf("워킹플로어"), leaf("톱밥운반차"), leaf("기타")]),
   branch("활어차", [leaf("활어차")]),
-  branch("차량견인/운송", [leaf("셀프로더"), leaf("언더리프트(렉카·구난)"), leaf("카캐리어"), leaf("기타")]),
-  branch("트렉터", [leaf("트랙터")]),
-  branch("트레일러", [leaf("LPG 트레일러"), leaf("곡물 트레일러"), leaf("덤프 트레일러"), leaf("로우베드"), leaf("BCT 벌크(벌크시멘트)"), leaf("윙 트레일러"), leaf("유류 탱크 트레일러"), leaf("컨테이너 샤시"), leaf("평판 트레일러"), leaf("기타")]),
+  branch("차량견인/운송", [leaf("셀프로더"), leaf("언더리프트"), leaf("카케리어"), leaf("기타")]),
+  branch("트렉터", [leaf("트렉터")]),
+  branch("트레일러", [leaf("LPG/LNG트레일러"), leaf("곡물트레일러"), leaf("덤프트레일러"), leaf("로우베드/릴리리"), leaf("벌크시멘트트레일러"), leaf("윙트레일러"), leaf("유류/액상탱크트레일러"), leaf("컨테이너 샤시"), leaf("평판트레일러"), leaf("기타")]),
   branch("기타", [leaf("기타")]),
 ];
 
@@ -330,28 +330,28 @@ export const normalizeTruckFormatSelection = (format: string | null, subtype: st
     if (!aliasedSubtype || legacyCargo.has(aliasedSubtype)) aliasedSubtype = "카고(화물)트럭";
   } else if (aliasedFormat === "윙바디/탑") {
     aliasedSubtype = ({
-      "내장탑 - 일반": "내장탑", "내장탑 - 하이탑·익스탑": "익스(하이)탑", "내장탑 - 저상형": "저상 내장탑", "내장탑 - 상승형": "상승내장탑",
+      "내장탑 - 일반": "내장탑", "내장탑 - 하이탑·익스탑": "익스(하이)내장탑", "내장탑 - 저상형": "저상형 내장탑", "내장탑 - 상승형": "상승내장탑",
       "냉동탑 - 일반": "냉동탑", "냉동탑 - 하이탑·익스탑": "익스(하이)냉동탑", "냉동탑 - 저상형": "저상형 냉동탑",
-      "저상형 내장탑": "저상 내장탑", "익스(하이)내장탑": "익스(하이)탑", "씨티/워크스루밴": "씨티밴(워크스루밴)", "이동/광고/응급차": "이동·광고·응급차",
+      "저상 내장탑": "저상형 내장탑", "익스(하이)탑": "익스(하이)내장탑", "씨티밴(워크스루밴)": "씨티/워크스루밴", "이동·광고·응급차": "이동/광고/응급차",
     } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "버스") {
     if (!aliasedSubtype || ["소형버스", "준중형버스", "중형버스", "대형버스", "특수버스"].includes(aliasedSubtype)) aliasedSubtype = "버스";
   } else if (aliasedFormat === "덤프/건설/중기") {
     aliasedSubtype = ({ "레미콘·믹서트럭": "레미콘", "콘크리트 펌프카": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "크레인 형태") {
-    aliasedSubtype = ({ "바가지차": "고소작업차", "오거크레인": "오가크레인", "활선차(고소작업)": "활선차", "셀프크레인": "카고크레인", "기타 크레인·작업차": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
+    aliasedSubtype = ({ "고소작업차": "바가지차", "오거크레인": "오가크레인", "활선차": "활선차(고소작업)", "셀프크레인": "카고크레인", "기타 크레인·작업차": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "탱크로리") {
-    aliasedSubtype = ({ "LPG·LNG 탱크로리": "LPG 탱크로리", "LPG/LNG탱크로리": "LPG 탱크로리", "유류/액상탱크로리": "유류 탱크로리", "벌크 탱크로리": "분말(벌크) 탱크로리", "소맥분/분말탱크로리": "분말(벌크) 탱크로리", "분말 탱크로리": "분말(벌크) 탱크로리", "케미컬 탱크로리": "특수/케미컬(VOC,테플론)탱크로리", "기타 탱크로리": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
+    aliasedSubtype = ({ "LPG·LNG 탱크로리": "LPG/LNG탱크로리", "LPG 탱크로리": "LPG/LNG탱크로리", "유류 탱크로리": "유류/액상탱크로리", "벌크 탱크로리": "소맥분/분말탱크로리", "분말(벌크) 탱크로리": "소맥분/분말탱크로리", "분말 탱크로리": "소맥분/분말탱크로리", "케미컬 탱크로리": "특수/케미컬(VOC,테플론)탱크로리", "기타 탱크로리": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "캠핑카/캠핑 트레일러") {
     aliasedSubtype = ({ "일체형 캠핑카 - 캠퍼밴": "캠핑카", "카라반·캠핑트레일러": "캠핑트레일러", "기타 캠핑차": "캠핑카" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "폐기/음식물수송") {
-    aliasedSubtype = ({ "암롤/롤온": "암롤", "압착진개차": "압착진개", "압축진개차": "압축진개", "음식물수거": "음식물수거차", "재활용품수집차": "재활용품수거차", "무빙플로어": "워킹플로어", "우드칩·톱밥 운반차": "톱밥운반차", "진공흡입·세정차": "기타", "기타 환경차": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
+    aliasedSubtype = ({ "암롤": "암롤/롤온", "압착진개차": "압착진개", "압축진개차": "압축진개", "음식물수거차": "음식물수거", "재활용품수거차": "재활용품수집차", "무빙플로어": "워킹플로어", "우드칩·톱밥 운반차": "톱밥운반차", "진공흡입·세정차": "기타", "기타 환경차": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "차량견인/운송") {
-    aliasedSubtype = ({ "레커·구난차": "언더리프트(렉카·구난)", "언더리프트": "언더리프트(렉카·구난)", "카케리어": "카캐리어", "세이프티로더": "셀프로더", "기타 견인·운송차": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
+    aliasedSubtype = ({ "레커·구난차": "언더리프트", "언더리프트(렉카·구난)": "언더리프트", "카캐리어": "카케리어", "세이프티로더": "셀프로더", "기타 견인·운송차": "기타" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "트렉터") {
-    aliasedSubtype = "트랙터";
+    aliasedSubtype = "트렉터";
   } else if (aliasedFormat === "트레일러") {
-    aliasedSubtype = ({ "LPG/LNG트레일러": "LPG 트레일러", "LPG·LNG 탱크 트레일러": "LPG 트레일러", "곡물트레일러": "곡물 트레일러", "호퍼·곡물 트레일러": "곡물 트레일러", "덤프트레일러": "덤프 트레일러", "로우베드/릴리리": "로우베드", "저상·로우베드 트레일러": "로우베드", "벌크시멘트트레일러": "BCT 벌크(벌크시멘트)", "윙트레일러": "윙 트레일러", "윙·탑 트레일러": "윙 트레일러", "유류/액상탱크트레일러": "유류 탱크 트레일러", "유류·액상 탱크 트레일러": "유류 탱크 트레일러", "컨테이너 섀시": "컨테이너 샤시", "평판트레일러": "평판 트레일러", "기타 트레일러": "기타", "차량·장비운반 트레일러": "로우베드", "코일·철판운송 트레일러": "평판 트레일러", "냉장·냉동 트레일러": "윙 트레일러" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
+    aliasedSubtype = ({ "LPG 트레일러": "LPG/LNG트레일러", "LPG·LNG 탱크 트레일러": "LPG/LNG트레일러", "곡물 트레일러": "곡물트레일러", "호퍼·곡물 트레일러": "곡물트레일러", "덤프 트레일러": "덤프트레일러", "로우베드": "로우베드/릴리리", "저상·로우베드 트레일러": "로우베드/릴리리", "BCT 벌크(벌크시멘트)": "벌크시멘트트레일러", "윙 트레일러": "윙트레일러", "윙·탑 트레일러": "윙트레일러", "유류 탱크 트레일러": "유류/액상탱크트레일러", "유류·액상 탱크 트레일러": "유류/액상탱크트레일러", "컨테이너 섀시": "컨테이너 샤시", "평판 트레일러": "평판트레일러", "기타 트레일러": "기타", "차량·장비운반 트레일러": "로우베드/릴리리", "코일·철판운송 트레일러": "평판트레일러", "냉장·냉동 트레일러": "윙트레일러" } as Record<string, string>)[aliasedSubtype ?? ""] ?? aliasedSubtype;
   } else if (aliasedFormat === "활어차") {
     aliasedSubtype = "활어차";
   } else if (aliasedFormat === "기타") {

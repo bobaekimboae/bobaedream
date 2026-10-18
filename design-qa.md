@@ -30,6 +30,40 @@ final result: passed
 
 ---
 
+## 2026-10-19 엔카 트럭 좌측 필터 — 버스/현대 회귀 검수
+
+- Source visual truth: `https://www.encar.com/tr/tr_carsearchlist.do#!` (Codex 인앱 브라우저 tab 20, 버스 → 버스 → 현대 상태 직접 조작 캡처)
+- Implementation screenshot: `artifacts/qa/truck-encar-regression.png`
+- Implementation URL: `http://127.0.0.1:4342/?qf=guazi&pc=1&filterLayout=compact&category=트럭%20·%20특장&truckFormat=버스&truckSubtype=버스&maker=현대`
+- Viewport/density: source/implementation focused capture `1280×720 CSS px`; implementation full-page `1280×1400`, `deviceScaleFactor: 1`, 리샘플링 없음
+- State: PC · light · 비로그인 · 트럭/특장 · 버스 → 버스 → 현대
+- Full-view evidence: 같은 인앱 브라우저 세션에서 원본과 구현을 1280px 폭으로 캡처해 좌측 열과 오른쪽 목록 시작선, 두 열린 섹션의 흐름을 비교했다.
+- Focused evidence: 형식 완료 행, 제조사 선택 경로, 모델 목록, 섹션 스크롤과 행 수치를 별도로 확대 확인했다.
+
+### Comparison history
+
+- Iteration 1 [P1]: 완료 뒤 `세부형식` 목록 반복 → `complete` 단계 추가로 `버스 × / 버스 ×`만 유지.
+- Iteration 1 [P1]: 형식을 열면 제조사가 접힘 → 두 섹션 독립 다중 열림 및 초기 동시 열림으로 수정.
+- Iteration 1 [P1]: 현대 버스에 포터·마이티·트라고 혼입 → 엔카 현대 버스 모델 9종으로 범위 제한.
+- Iteration 1 [P2]: 선택 경로가 스크롤 밖에 있어 다음 섹션이 밀림 → 선택 경로를 400px 카탈로그 안으로 이동.
+- Iteration 1 [P2]: 228px 열에서 `필터`가 두 줄로 깨짐 → 최근 필터 기록을 숨기고 제목 줄바꿈 금지.
+- Iteration 2: 수정 화면 재캡처 후 P0/P1/P2 잔여 없음.
+
+### Required fidelity surfaces
+
+- Typography: 행 `14/22px`, 섹션 제목 `15/22px`, 줄바꿈/잘림 없음 — passed.
+- Spacing/layout: 좌측 `228px`, 본문 간격 `24px`, 제목 `55px`, 카탈로그 `400px`, 행 `34px` — passed.
+- Colors/tokens: 중립 필터 톤과 보배드림 파랑의 역할 분리 — passed.
+- Image quality/assets: 필터에 원본과 동일하게 별도 브랜드 로고·형식 이미지를 넣지 않음 — passed.
+- Copy/content: 엔카 13개 형식·세부형식 원문, `형식/적재용량`, `제조사/모델/등급`, `모델` 문구 — passed.
+- Interaction: 형식 → 세부형식 → 완료, 개별 해제, 동시 펼침, 제조사 → 모델, 내부 스크롤, 0대 규격 비활성 — passed.
+- Automated evidence: `node scripts/truck-encar-depth-check.mjs` 통과(13개 형식, 두 선택 행, 9개 모델, 228/55/400/34/14/22). 앱 JavaScript 예외 없음. 외부 매물 이미지 403 네 건은 로컬 headless 환경의 원격 자산 거부로 분리.
+- Residual: 재고 숫자는 보배드림 가상 데이터 기준이며 엔카 실시간 재고값을 복제하지 않는다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 엔카 PC 트럭 좌측 필터 뎁스·스크롤 전수 대조
 
 - Reference: `https://www.encar.com/tr/tr_carsearchlist.do#!`
