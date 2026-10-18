@@ -663,6 +663,9 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const seatSplit = featured ? -1 : car.virtualCategory?.category === "캠핑카" ? specText.search(/ · 승차 /) : car.truck && !car.truck.trailer ? specText.search(/ · (적재 [\d.]+톤|\d+인승|[\d.]+(㎘|㎥|m) · |\d+마력)/) : -1;
   const specMain = seatSplit > 0 ? specText.slice(0, seatSplit) : specText;
   const specCapacity = seatSplit > 0 ? specText.slice(seatSplit + 3) : "";
+  // PC 트럭 목록은 핵심 적재 제원(마력 · 적재 · 차축)을 연식·주행·연료보다 먼저 읽게 한다.
+  // 모바일 목록·피드와 엔진이 없는 트레일러의 기존 순서는 유지한다.
+  const prioritizeTruckCapacity = variant === "pc" && Boolean(car.truck && !car.truck.trailer && specCapacity);
   const [locationBase, ...locationSecondaryParts] = listPlace.split(" · ");
   const locationMain = locationDong ? `${locationBase} ${locationDong}` : locationBase; // 상세 상단만 동까지(2026-10-14)
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
@@ -720,8 +723,9 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
           <div className="bbm-card-text">
             {titleSlot}
             {headlinePosition === "after-model" ? headline : null}
-            <span className={`bbm-card-spec${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
-            {!car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
+            {prioritizeTruckCapacity ? <span className="bbm-card-spec is-capacity is-priority">{specCapacity}</span> : null}
+            <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
+            {!prioritizeTruckCapacity && !car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}

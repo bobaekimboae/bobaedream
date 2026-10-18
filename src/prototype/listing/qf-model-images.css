@@ -677,6 +677,13 @@
   height: 102px;
 }
 
+/* PC 트럭 첫 화면은 적재중량(56)과 트럭 유형(102)을 같은 슬롯에 쌓는다.
+   두 줄이 함께 있을 때만 합산 높이를 확보해 유형 이미지와 라벨이 잘리지 않게 한다. */
+.marketplace.is-bbm.is-truck-category.is-qf-guazi .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .depth-rail.is-cargo-tonnage-row):has(> .depth-rail.is-truck-type-row) {
+  height: 158px;
+}
+
 .marketplace.is-truck-category.is-qf-guazi .depth-rail.is-truck-type-row .depth-card.is-truck-depth {
   height: 102px;
 }
