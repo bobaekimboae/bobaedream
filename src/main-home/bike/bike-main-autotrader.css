@@ -1,0 +1,134 @@
+/* 보배드림 바이크 메인 v02 — autotrader.co.uk/bikes 1536 실측 (빨강 밑줄 · 파랑 버튼 → 바이크 주황) */
+.atm {
+  --or: #fa6819;
+  --or-hover: #e5580c;
+  --navy: #0c1233;
+  --line: #e1e3ea;
+  background: #fff;
+  color: var(--navy);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+}
+.atm *, .atm *::before, .atm *::after { box-sizing: border-box; }
+.atm a { color: inherit; text-decoration: none; }
+.atm button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.atm) :where(h1, h2, h3, p, ul) { margin: 0; padding: 0; }
+.atm :focus-visible { outline: 2px solid var(--navy); outline-offset: 2px; }
+.atm-wrap { width: 1224px; max-width: calc(100% - 48px); margin: 0 auto; }
+
+/* 맨 위 차종 글자 줄 */
+.atm-types { height: 20px; }
+.atm-types .atm-wrap { display: flex; gap: 12px; height: 20px; align-items: center; }
+.atm-types a { font-size: 12px; line-height: 16px; color: #555a6e; }
+.atm-types a:hover { color: var(--navy); }
+.atm-types a.is-on { color: var(--navy); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* 흰 헤더 */
+.atm-header { border-bottom: 1px solid var(--line); }
+.atm-header-row { height: 64px; display: flex; align-items: center; gap: 36px; }
+.atm-logo { display: flex; align-items: center; gap: 8px; }
+.atm-logo img { width: 30px; height: 30px; }
+.atm-logo > span { display: flex; flex-direction: column; font-size: 20px; line-height: 22px; font-weight: 800; letter-spacing: -.02em; }
+.atm-logo small { align-self: flex-end; margin-top: -2px; font-size: 11px; line-height: 12px; font-weight: 700; color: var(--or); }
+.atm-menu { display: flex; gap: 22px; }
+.atm-menu a { font-size: 14px; line-height: 20px; font-weight: 500; }
+.atm-menu a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.atm-header-icons { margin-left: auto; display: flex; gap: 20px; }
+.atm-header-icons button { display: flex; flex-direction: column; align-items: center; gap: 1px; font-size: 11px; line-height: 14px; }
+
+/* 사진 1224 × 280 · 반경 16 + 걸친 검색 카드 800 */
+.atm-hero { padding-top: 16px; }
+.atm-hero .atm-wrap { position: relative; }
+.atm-photo { position: relative; height: 280px; border-radius: 16px; overflow: hidden; background: radial-gradient(120% 140% at 70% 30%, #e9c9a7 0%, #b98762 38%, #5c4436 75%, #2f2722 100%); }
+.atm-photo::after { content: ""; position: absolute; inset: auto 0 0 0; height: 70px; background: linear-gradient(180deg, transparent, rgba(30, 22, 18, .35)); }
+.atm-photo img { position: absolute; bottom: 18px; filter: drop-shadow(0 18px 18px rgba(0, 0, 0, .35)); z-index: 1; }
+.atm-photo .is-a { left: 22%; width: 400px; }
+.atm-photo .is-b { left: 52%; width: 380px; bottom: 14px; }
+.atm-search { position: relative; z-index: 2; width: 800px; max-width: 100%; margin: -40px auto 0; background: #fff; border-radius: 16px; box-shadow: 0 2px 10px rgba(0, 0, 0, .15); padding: 0 16px 16px; }
+.atm-tabs { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--line); }
+.atm-tabs button { height: 54px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px; border-bottom: 2px solid transparent !important; margin-bottom: -1px; }
+.atm-tabs button.is-on { border-bottom-color: var(--or) !important; font-weight: 600; }
+.atm-fields { display: grid; grid-template-columns: 1fr 1fr 1fr 44px 200px; align-items: center; gap: 0; padding-top: 16px; }
+.atm-fields.is-sell { grid-template-columns: 1fr 1fr 220px; }
+.atm-f { position: relative; display: flex; flex-direction: column; justify-content: center; height: 56px; padding: 0 16px; border-right: 1px solid var(--line); }
+.atm-f:last-of-type { border-right: 0; }
+.atm-f span { font-size: 14px; line-height: 20px; font-weight: 600; }
+.atm-f select, .atm-f input { border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; color: var(--navy); padding: 0; margin-left: -2px; cursor: pointer; }
+.atm-f input { cursor: text; }
+.atm-f input::placeholder { color: #9095a6; }
+.atm-f.is-off { color: #9095a6; }
+.atm-f.is-off select { color: #9095a6; cursor: default; }
+.atm-more { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--navy); display: grid; place-items: center; justify-self: center; }
+.atm-more:hover { background: #f3f4f7; }
+.atm-cta { height: 52px; border-radius: 40px; background: var(--or) !important; color: #fff !important; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px; font-weight: 600; white-space: nowrap; }
+.atm-cta:hover { background: var(--or-hover) !important; }
+
+/* 가운데 32/700 제목 */
+.atm-h2 { font-size: 32px; line-height: 40px; font-weight: 700; letter-spacing: -.01em; }
+.atm-h2.is-center { text-align: center; }
+main > .atm-h2 { margin: 56px 0 32px; }
+
+/* 매물 올리기 판: 왼쪽 짙은 남색 + 오른쪽 사진 */
+.atm-advert { display: grid; grid-template-columns: 1fr 1fr; min-height: 370px; overflow: hidden; }
+.atm-advert-copy { background: var(--navy); color: #fff; padding: 28px 24px; display: flex; flex-direction: column; }
+.atm-advert-copy h2 { font-size: 30px; line-height: 38px; font-weight: 600; }
+.atm-advert-copy p, .atm-advert-copy h2 { font-size: 16px; color: #fff; }
+.atm-advert-copy h2 { font-size: 30px; }
+.atm-advert-copy .atm-small { margin-top: 14px; font-size: 14px; }
+.atm-advert-copy .atm-small a, .atm-link { text-decoration: underline; text-underline-offset: 4px; }
+.atm-advert-copy form { display: grid; grid-template-columns: 200px 120px; gap: 8px; margin-top: 18px; justify-content: start; }
+.atm-advert-copy label { color: #fff; display: flex; flex-direction: column; gap: 6px; font-size: 14px; font-weight: 600; }
+
+.atm-advert-copy input { width: 100%; height: 48px; border: 0; border-radius: 4px; padding: 0 10px; font: inherit; font-size: 15px; color: var(--navy); }
+.atm-advert-copy button { grid-column: 1 / -1; justify-self: start; width: max-content; height: 48px; margin-top: 12px; padding: 0 22px !important; border-radius: 40px; background: #fff !important; color: var(--navy) !important; font-size: 15px; }
+.atm-advert-copy button:hover { background: #ffe5cf !important; }
+.atm-link { margin-top: 16px; font-size: 14px; color: #fff; }
+.atm-advert-photo { position: relative; background: linear-gradient(160deg, #f2e6db 0%, #d9c4b2 100%); }
+.atm-advert-photo img { position: absolute; left: 50%; bottom: 36px; width: 82%; transform: translateX(-50%); filter: drop-shadow(0 18px 20px rgba(0, 0, 0, .25)); }
+
+.atm-sec { margin-top: 72px; }
+.atm-sec .atm-h2 { margin-bottom: 32px; }
+.atm-ess { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.atm-ess-card { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 40px 24px 32px !important; border: 1px solid var(--line) !important; text-align: center; color: var(--navy); }
+.atm-ess-card:hover { border-color: var(--navy) !important; }
+.atm-ess-card svg { margin-bottom: 20px; }
+.atm-ess-card strong { font-size: 16px; line-height: 24px; font-weight: 700; }
+.atm-ess-card span { font-size: 14px; line-height: 22px; color: #3a3f55; }
+
+.atm-latest { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px 24px; }
+.atm-art { display: flex; flex-direction: column; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 6px rgba(12, 18, 51, .14); }
+.atm-art:hover strong { text-decoration: underline; text-underline-offset: 3px; }
+.atm-art-photo { aspect-ratio: 16 / 9; background: #e8e8e8; overflow: hidden; }
+.atm-art-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.atm-art-body { display: flex; flex-direction: column; gap: 6px; padding: 16px 16px 20px; }
+.atm-tag { align-self: flex-start; height: 22px; padding: 0 8px; border-radius: 4px; background: var(--navy); color: #fff; font-size: 12px; line-height: 22px; font-weight: 600; }
+.atm-art-body strong { font-size: 20px; line-height: 28px; font-weight: 700; }
+.atm-art-body span { font-size: 15px; line-height: 22px; color: #3a3f55; }
+.atm-art-body small { margin-top: 10px; font-size: 12px; color: #555a6e; }
+
+.atm-social { margin-top: 64px; border: 1px solid var(--line); padding: 24px; text-align: center; }
+.atm-social h2 { font-size: 28px; line-height: 36px; font-weight: 600; }
+.atm-social p { margin-top: 8px; font-size: 16px; }
+.atm-social div { display: flex; justify-content: center; gap: 28px; margin-top: 16px; }
+.atm-social button { font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+
+.atm-top { display: flex; justify-content: center; padding: 48px 0 32px; }
+.atm-top button { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 13px; }
+
+.atm-footer { border-top: 1px solid var(--line); padding: 32px 0 48px; }
+.atm-footer-row { display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 40px; }
+.atm-logo.is-foot { margin-bottom: 20px; }
+.atm-footer ul { list-style: none; display: flex; flex-direction: column; gap: 6px; font-size: 13px; }
+.atm-acc div { display: flex; justify-content: space-between; align-items: center; height: 56px; border-bottom: 1px solid var(--line); font-size: 15px; font-weight: 600; }
+.atm-note { font-size: 13px; color: #555a6e; }
+.atm-toast { position: fixed; left: 50%; bottom: 32px; transform: translateX(-50%); z-index: 60; padding: 12px 20px; border-radius: 8px; background: var(--navy); color: #fff; font-size: 14px; }
+
+@media (max-width: 1100px) {
+  .atm-menu { display: none; }
+  .atm-fields { grid-template-columns: 1fr 1fr; row-gap: 8px; }
+  .atm-fields.is-sell { grid-template-columns: 1fr; }
+  .atm-advert, .atm-footer-row { grid-template-columns: 1fr; }
+  .atm-ess { grid-template-columns: repeat(2, 1fr); }
+  .atm-latest { grid-template-columns: repeat(2, 1fr); }
+}
