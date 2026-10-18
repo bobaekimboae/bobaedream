@@ -654,6 +654,8 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html .marketplace.is-bbm .bbm-header.is-gnb-line .bbm-gnb .bbm-gnb-more.is-active { position: relative; }
   html .marketplace.is-bbm .bbm-header.is-gnb-line .bbm-gnb button.is-active::after,
   html .marketplace.is-bbm .bbm-header.is-gnb-line .bbm-gnb .bbm-gnb-more.is-active::after {
-    content: "" !important; display: block !important; position: absolute; right: 0; bottom: 0; left: 0; height: 2px; background: #222;
+    content: "" !important; display: block !important; position: absolute; right: 0; bottom: 0; left: 0; height: 3px; background: #222;
   }
 }
+
+/* 2026-10-18 「진행하고 우리 홈 빼자」: 밑줄을 기본으로, 2px → 3px(네이버 증권 18px 글자에 3px, 우리 16px은 비율 2.5~3). 홈 메뉴 제거(로고가 홈 역할) */
