@@ -2395,8 +2395,9 @@ function MarketplaceScreen() {
   // QF-076: 제조사·모델·등급 외 필터(filters.bbm)는 선택 모양만 남기고 목록을 거르지 않는다 → "확인 N대"는 지금 목록 수
   const countWithBbm = (bbm: BbmFilterValues) => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, bbm)).length : visibleCars.length;
   const setBbmFilters = (bbm: BbmFilterValues) => setFilters((current) => ({ ...current, bbm }));
-  // 2026-10-18 클래시파이드 우선순위: 카테고리·차종 → 제조사 → 가격 → 연식 → 주행거리 → 연료 → 판매자 → 지역 → 매매단지.
-  // 모바일은 빈 판매자·지역·매매단지 칩을 생략하고 전체 필터/지역 헤더를 유지한다.
+  // 2026-10-18 클래시파이드 우선순위: 카테고리·차종 → 제조사 → 가격 → 연식 → 주행거리 → 연료 → 지역 → 매매단지.
+  // 일반 중고차 계열은 PC·모바일 모두 판매자 칩을 생략한다. 판매자 조건은 좌측 상세 필터와 목록 탭에서 계속 제공한다.
+  // 모바일은 빈 지역·매매단지 칩도 생략하고 전체 필터/지역 헤더를 유지한다.
   // 값이 걸린 필터 칩은 줄에서 빠지고 그 자리에 적용 칩(진한 채움 + ×)이 생긴다. 요약 칩·트림 칩은 퀵필터 규격 그대로
   const chipByKey = (key: string) => quickFilterChips.find((chip) => chip.key === key);
   // QF-117: 과쯔 주행거리 칩 표기 = "3~6만km"(칩) · "3.5~8만km"(직접 범위) · "10만km 이상"(최대 없음)
@@ -2453,6 +2454,7 @@ function MarketplaceScreen() {
   const fuelApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:fuel:"));
   const regionApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:region:") || chip.id.startsWith("check:district:"));
   const complexApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:complex:"));
+  const hideSellerQuickChip = desktop && isGuaziQuickStyle && !isTruckCategory && !isHeavyCategory && !isBikeCategory && !isPartsCategory;
   const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
   const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
   const bbmChips: BbmChip[] = ([
@@ -2511,7 +2513,7 @@ function MarketplaceScreen() {
     // QF-118: 과쯔 PC 는 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 적용값만 칩으로 보여 준다.
     ...(isPartsCategory ? [] : mileageApplied.length ? mileageApplied.map(toAppliedBbmChip) : desktop && isGuaziQuickStyle ? [(() => { const chip = groupChip("mileage", "주행거리", "주행거리", false); return chip ? { ...chip, className: "is-mileage" } : null; })()] : []),
     ...(isPartsCategory ? [] : fuelApplied.length ? fuelApplied.map(toAppliedBbmChip) : [groupChip("fuel", "연료", "연료", false)]),
-    ...(sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
+    ...(hideSellerQuickChip ? [] : sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
     ...(regionApplied.length ? regionApplied.map(toAppliedBbmChip) : desktop ? [groupChip("region-filter", "지역", "지역", false)] : []),
     ...(complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
