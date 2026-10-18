@@ -78,7 +78,7 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, DepthTextChip, MakerSheet, ModelImagePill, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
-import { bbCatalog, BbBreadcrumb, bbLnbVariant, BbLnbTitleMenu, BbLnbTitleTabs, bbSearchVariant, bbStandaloneBikeSite, BbCarCard, ChototSearchIcon, BbFilterSidebar, BbHeader, BbIcon, BbSecondaryNav, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
+import { bbCatalog, BbBreadcrumb, bbLnbVariant, BbLnbTitleMenu, BbLnbTitleTabs, bbSearchVariant, bbStandaloneBikeSite, bbStandaloneTruckSite, BbCarCard, ChototSearchIcon, BbFilterSidebar, BbHeader, BbIcon, BbSecondaryNav, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
@@ -112,6 +112,7 @@ import "./qf-car-body-types.css";
 import "./qf-chotot-vehicle-slots.css";
 import "./qf-brand-shadowcard.css";
 import "./bike-site-theme.css";
+import "./truck-site-theme.css";
 import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
@@ -613,7 +614,7 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
 
   return (
     <>{siteTitle && !searchOpen ? <div className="bike-site-mobile-brand" aria-label={siteTitle}>
-      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset("bbm/bike-emblem.svg")} alt="" draggable={false} /></span>
+      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset(bbStandaloneTruckSite() ? "bbm/truck-emblem.svg" : "bbm/bike-emblem.svg")} alt="" draggable={false} /></span>
       <h1>{siteTitle}</h1>
     </div> : null}
     <header className={`top-bar${bbm ? " is-bbm" : ""}${searchOpen ? " is-search-open" : ""}`} aria-label={siteTitle ? `${siteTitle} 검색` : "중고차 검색"}>
@@ -1008,6 +1009,8 @@ function MarketplaceScreen() {
   const isPartsCategory = category === "부품 · 용품";
   const bikeMenuMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("bikeMenu");
   const isStandaloneBikeSite = bbStandaloneBikeSite();
+  const isStandaloneTruckSite = bbStandaloneTruckSite();
+  const truckMenuMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("truckMenu");
   // 럭셔리카(차량 › 중고차 › 럭셔리카): 과쯔에서는 전용 가상 매물 29대(luxury-category-v01)
   const isLuxuryCategory = category === "럭셔리카";
   // 수입차·슈퍼카·서울오토갤러리는 럭셔리카와 같은 16개 브랜드·로고 슬롯을 사용한다.
@@ -1057,8 +1060,8 @@ function MarketplaceScreen() {
   const usedCarChildValues = (bbmCategoryGroups.find((group) => group.value === "중고차")?.children ?? []).map((child) => child.value).filter((value) => value !== "중고차");
   // 전체 중고차 랜딩은 GNB와 제목만 유지하고 퀵필터 안의 중복 텍스트 하위 카테고리는 표시하지 않는다.
   const showDefaultCategoryLnb = !isStandaloneBikeSite && (isTruckCategory || ["국산차", "수입차", "전기차", "리스/렌트차량", "브랜드 인증중고차", "서울오토갤러리", "매매단지별 검색"].includes(category));
-  const pageCategoryTitle = isStandaloneBikeSite && isBikeCategory ? "보배드림 바이크" : isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
-  const categorySearchPlaceholder = isStandaloneBikeSite && isBikeCategory ? "중고 바이크" : categoryIsDefault ? "전체차량" : pageCategoryTitle;
+  const pageCategoryTitle = isStandaloneBikeSite && isBikeCategory ? "보배드림 바이크" : isStandaloneTruckSite && isTruckCategory ? "보배드림 트럭" : isPartsCategory && truckMenuMode === "parts" ? "트럭 부품" : isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
+  const categorySearchPlaceholder = isStandaloneBikeSite && isBikeCategory ? "중고 바이크" : isStandaloneTruckSite && isTruckCategory ? "중고 트럭" : categoryIsDefault ? "전체차량" : pageCategoryTitle;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
@@ -1863,13 +1866,16 @@ function MarketplaceScreen() {
       return;
     }
     const bikeParts = detail === "__bike_parts__";
-    const normalizedDetail = bikeParts ? undefined : detail;
+    const truckParts = detail === "__truck_parts__";
+    const normalizedDetail = bikeParts || truckParts ? undefined : detail;
     chooseVehicleCategory(categoryName);
     setBbmCategoryChild(normalizedDetail ?? null);
     if (categoryName === "트럭 · 특장" && normalizedDetail) chooseTruckFormat(normalizedDetail);
     const url = new URL(window.location.href);
     if (bikeParts) url.searchParams.set("bikeMenu", "parts");
     else url.searchParams.delete("bikeMenu");
+    if (truckParts) url.searchParams.set("truckMenu", "parts");
+    else url.searchParams.delete("truckMenu");
     window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
@@ -3101,7 +3107,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isStandaloneBikeSite ? " is-bike-site" : ""}${isGuaziQuickStyle ? " is-hybrid" : ""}${balancedTopCard ? " is-balanced-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "compact" && !balancedTopCard ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "modern" ? " is-modern-filter-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "charancha" ? " is-charancha-filter-layout" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "수입차" && !maker ? " is-imported-car-category" : ""}${maker === "페라리" ? ` is-ferrari-category${ferrariBannerFull ? " is-ferrari-banner-full" : ""}` : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label={isStandaloneBikeSite ? "바이크 매물 리스트" : "중고차 리스트"}>
+          <main className={`marketplace is-bbm${isStandaloneBikeSite ? " is-bike-site" : ""}${isStandaloneTruckSite ? " is-truck-site" : ""}${isGuaziQuickStyle ? " is-hybrid" : ""}${balancedTopCard ? " is-balanced-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "compact" && !balancedTopCard ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "modern" ? " is-modern-filter-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "charancha" ? " is-charancha-filter-layout" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "수입차" && !maker ? " is-imported-car-category" : ""}${maker === "페라리" ? ` is-ferrari-category${ferrariBannerFull ? " is-ferrari-banner-full" : ""}` : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label={isStandaloneBikeSite ? "바이크 매물 리스트" : isStandaloneTruckSite ? "트럭 매물 리스트" : "중고차 리스트"}>
             <BbHeader category={category} onChooseCategory={chooseHierarchyCategory} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={<BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} category={category} onChooseCategory={(value) => chooseHierarchyCategory(value)} />} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* 중고차·트럭은 텍스트 GNB 바로 아래 사각형 LNB를 유지하고, 필터 카드에는 경로·중복 카테고리 칩을 두지 않는다. */}
@@ -3256,7 +3262,7 @@ function MarketplaceScreen() {
       </div>;
     };
     const luxuryHead = isLuxuryCategory && plainQuickCards ? luxuryHeadVariant() : null;
-    const bbmMobileHeader = <Header bbm siteTitle={isStandaloneBikeSite ? "보배드림 바이크" : undefined} query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />;
+    const bbmMobileHeader = <Header bbm siteTitle={isStandaloneBikeSite ? "보배드림 바이크" : isStandaloneTruckSite ? "보배드림 트럭" : undefined} query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />;
     return (
       <>
         <MobileScroll className="app-screen">

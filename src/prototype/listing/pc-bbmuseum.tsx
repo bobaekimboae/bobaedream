@@ -24,7 +24,7 @@ function BbAssetIcon({ name, size }: { name: "circle-check" | "circle-check-off"
   return <img className="bb-asset-icon" src={asset(`icons/bb/${name}.svg`)} width={size} height={size} alt="" aria-hidden="true" draggable={false} />;
 }
 
-type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" | "bike-sell" | "bike-parts" };
+type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" | "bike-sell" | "bike-parts" | "truck-sell" | "truck-parts" };
 type BbGnbSubItem = { label: string; category: string; detail?: string };
 
 const bbGnbItems: readonly BbGnbItem[] = [
@@ -47,6 +47,12 @@ const bbBikeSiteGnbItems: readonly BbGnbItem[] = [
   { label: "중고 바이크", category: "바이크" },
   { label: "바이크 판매", category: "바이크", action: "bike-sell" },
   { label: "바이크 용품", category: "부품 · 용품", action: "bike-parts" },
+  { label: "커뮤니티", action: "community" },
+];
+const bbTruckSiteGnbItems: readonly BbGnbItem[] = [
+  { label: "중고 트럭", category: "트럭 · 특장" },
+  { label: "트럭 판매", category: "트럭 · 특장", action: "truck-sell" },
+  { label: "트럭 부품", category: "부품 · 용품", action: "truck-parts" },
   { label: "커뮤니티", action: "community" },
 ];
 const bbUsedCarCategories = new Set([
@@ -111,6 +117,11 @@ const bbSubnavCurrent = (item: BbGnbSubItem, category: string, categoryDetail: s
 export function bbStandaloneBikeSite() {
   if (typeof window === "undefined") return false;
   return /\/bike\/?$/.test(window.location.pathname);
+}
+/* 독립 보배드림 트럭 사이트(/truck/, 2026-10-18) */
+export function bbStandaloneTruckSite() {
+  if (typeof window === "undefined") return false;
+  return /\/truck\/?$/.test(window.location.pathname);
 }
 export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
@@ -277,9 +288,15 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const logoLanguage = bbLogoLanguage();
   const isMember = authState === "member";
   const isBikeSite = bbStandaloneBikeSite();
-  const isBikeParts = category === "부품 · 용품" && typeof window !== "undefined" && new URLSearchParams(window.location.search).get("bikeMenu") === "parts";
-  const activeItem = isBikeSite ? isBikeParts ? "바이크 용품" : "중고 바이크" : bbActiveGnbItem(category);
-  const gnbItems = isBikeSite ? bbBikeSiteGnbItems : bbGnbItems;
+  const isTruckSite = bbStandaloneTruckSite();
+  const isStandaloneSite = isBikeSite || isTruckSite;
+  const siteName = isTruckSite ? "트럭" : "바이크";
+  const siteEmblem = isTruckSite ? "truck-emblem" : "bike-emblem";
+  const menuParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
+  const isBikeParts = category === "부품 · 용품" && menuParam?.get("bikeMenu") === "parts";
+  const isTruckParts = category === "부품 · 용품" && menuParam?.get("truckMenu") === "parts";
+  const activeItem = isBikeSite ? isBikeParts ? "바이크 용품" : "중고 바이크" : isTruckSite ? isTruckParts ? "트럭 부품" : "중고 트럭" : bbActiveGnbItem(category);
+  const gnbItems = isBikeSite ? bbBikeSiteGnbItems : isTruckSite ? bbTruckSiteGnbItems : bbGnbItems;
 
   useEffect(() => {
     const lnb = bbLnbVariant();
@@ -329,6 +346,14 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
       onChooseCategory("부품 · 용품", "__bike_parts__");
       return;
     }
+    if (item.action === "truck-sell") {
+      onNotify("트럭 판매는 정식 서비스에서 이용해 주세요.");
+      return;
+    }
+    if (item.action === "truck-parts") {
+      onChooseCategory("부품 · 용품", "__truck_parts__");
+      return;
+    }
     if (item.category) onChooseCategory(item.category);
   };
   const changeAuthState = (next: BbAuthState) => {
@@ -340,15 +365,15 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     window.history.replaceState({}, "", url);
   };
   return (
-    <header className={`bbm-header${isBikeSite ? " is-bike-site" : ""}${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveMode() === "pill" ? "" : bbGnbActiveMode() === "text" ? " is-gnb-text" : " is-gnb-text is-gnb-line"}${bbGnbSearchPill() ? " is-gnb-searchpill" : ""}${bbGnbSearchPillBlue() ? " is-gnb-searchpill-blue" : ""}`} aria-label={isBikeSite ? "보배드림 바이크" : "보배드림"}>
+    <header className={`bbm-header${isStandaloneSite ? " is-bike-site" : ""}${isTruckSite ? " is-truck-site" : ""}${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbActiveMode() === "pill" ? "" : bbGnbActiveMode() === "text" ? " is-gnb-text" : " is-gnb-text is-gnb-line"}${bbGnbSearchPill() ? " is-gnb-searchpill" : ""}${bbGnbSearchPillBlue() ? " is-gnb-searchpill-blue" : ""}`} aria-label={isStandaloneSite ? `보배드림 ${siteName}` : "보배드림"}>
       <div className="bbm-header-inner">
         <div className="bbm-header-main">
-          <button type="button" className="bbm-logo" aria-label={isBikeSite ? "보배드림 바이크 처음으로" : "보배드림 처음으로"} onClick={() => { if (isBikeSite) onChooseCategory("바이크"); document.querySelector(".app-screen")?.scrollTo({ top: 0 }); }}>
+          <button type="button" className="bbm-logo" aria-label={isStandaloneSite ? `보배드림 ${siteName} 처음으로` : "보배드림 처음으로"} onClick={() => { if (isBikeSite) onChooseCategory("바이크"); if (isTruckSite) onChooseCategory("트럭 · 특장"); document.querySelector(".app-screen")?.scrollTo({ top: 0 }); }}>
             <span className="bbm-logo-emblem" aria-hidden="true">
-              <img src={bbmAsset(isBikeSite ? "bike-emblem" : "header-logo")} alt="" draggable={false} />
+              <img src={bbmAsset(isStandaloneSite ? siteEmblem : "header-logo")} alt="" draggable={false} />
             </span>
             <span className={`bbm-logo-word is-${logoLanguage}`} aria-hidden="true">{logoLanguage === "ko" ? "보배드림" : "BOBAEDREAM"}</span>
-            {isBikeSite ? <span className="bbm-bike-site-badge" aria-hidden="true">바이크</span> : null}
+            {isStandaloneSite ? <span className="bbm-bike-site-badge" aria-hidden="true">{siteName}</span> : null}
           </button>
           {searchSlot ? <div className="bbm-header-search-slot">
             {variant === "chotot" ? <button type="button" className="bbm-region-pill" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 목록 위 지역 줄에서 이용해 주세요.")}><img src={bbmAsset("header-location-chotot-v01")} alt="" aria-hidden="true" /><span>전국</span><BbIcon name="chevron-down" size={16} /></button> : null}
@@ -366,11 +391,11 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
                 <button type="button" className="bbm-auth-pill is-management" onClick={() => onNotify("매물관리는 정식 서비스에서 이용해 주세요.")}>매물관리</button>
               </>
               : <button type="button" className="bbm-auth-pill is-login" onClick={() => { changeAuthState("member"); onNotify("로그인 상태 화면으로 전환했습니다."); }}>로그인/가입</button>}
-            <button type="button" className="bbm-listing-button" onClick={() => isBikeSite ? onChooseCategory("바이크", "__bike_sell__") : onNotify("차량 판매하기는 정식 서비스에서 이용해 주세요.")}>{isBikeSite ? "바이크 판매" : "차량 판매하기"}</button>
+            <button type="button" className="bbm-listing-button" onClick={() => isBikeSite ? onChooseCategory("바이크", "__bike_sell__") : onNotify(`${isTruckSite ? "트럭 판매" : "차량 판매하기"}는 정식 서비스에서 이용해 주세요.`)}>{isStandaloneSite ? `${siteName} 판매` : "차량 판매하기"}</button>
             <div className="bbm-account-wrap" ref={accountRef}>
               <button type="button" className={`bbm-account-button${isMember ? " is-member" : " is-guest"}`} aria-label={isMember ? "회원 계정 메뉴" : "로그인 및 계정 메뉴"} aria-haspopup="menu" aria-expanded={accountOpen} onClick={() => setAccountOpen((open) => !open)}>
                 {isMember
-                  ? <span className="bbm-account-avatar" aria-hidden="true"><img src={bbmAsset(isBikeSite ? "bike-emblem" : "header-logo")} alt="" /></span>
+                  ? <span className="bbm-account-avatar" aria-hidden="true"><img src={bbmAsset(isStandaloneSite ? siteEmblem : "header-logo")} alt="" /></span>
                   : <span className="bbm-account-avatar is-guest" aria-hidden="true"><BbIcon name="mypage" size={20} /></span>}
                 <BbIcon name="chevron-down" size={20} className="bbm-account-chevron" />
               </button>

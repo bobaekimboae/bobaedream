@@ -1,0 +1,141 @@
+/* 독립 /truck/ 전용 Cars & Bids 초록 테마(2026-10-18 carsandbids.com 실측). 공유 보배드림 화면에는 적용하지 않는다. */
+html[data-site="truck"] {
+  /* 글자·로고용 초록(로고·링크) #3DB07A, 버튼 채움 #4AD493 + 진남색 글자 #0F2236, 마우스 #30C880 — Cars & Bids 실측 */
+  --blue: #3db07a;
+  --bbm-blue: #3db07a;
+  --truck-green: #3db07a;
+  --truck-green-fill: #4ad493;
+  --truck-green-ink: #0f2236;
+  --truck-green-hover: #30c880;
+  --truck-green-soft: #e8f9f0;
+  --truck-green-border: #4ad493;
+  --color-primary-25: #f3fcf7;
+  --color-primary-50: #e8f9f0;
+  --color-primary-100: #c9f1dd;
+  --color-primary-200: #a3e8c6;
+  --color-primary-300: #76dead;
+  --color-primary-400: #4ad493;
+  --color-primary-500: #3db07a;
+  --color-primary-600: #328f64;
+  --color-primary-700: #286f4e;
+  --color-primary-800: #1d5039;
+  --color-primary-900: #133424;
+}
+
+html[data-site="truck"] .bbm-logo-emblem img,
+html[data-site="truck"] .bbm-account-avatar img,
+html[data-site="truck"] .bike-site-mobile-brand__logo img {
+  width: 30px;
+  height: 30px;
+  max-width: 30px;
+}
+
+html[data-site="truck"] .bbm-logo-word,
+html[data-site="truck"] .bbm-logo-word.is-ko,
+html[data-site="truck"] .bbm-lnb-title-button .bbm-lnb-title-sub,
+html[data-site="truck"] .app-footer-link--primary,
+html[data-site="truck"] .app-footer-mobile__link--primary,
+html[data-site="truck"] .ui-btn--ghost,
+html[data-site="truck"] .bbm-filter-path,
+html[data-site="truck"] .bbm-search-cat-menu .bb-icon {
+  color: var(--truck-green);
+}
+
+html[data-site="truck"] .bbm-listing-button,
+html[data-site="truck"] .ui-btn--outline.is-selected:not(:disabled):not(.is-loading) {
+  border-color: var(--truck-green-fill);
+  background: var(--truck-green-fill);
+  color: var(--truck-green-ink);
+}
+
+html[data-site="truck"] .bbm-listing-button:hover,
+html[data-site="truck"] .bbm-catalog-search.is-main .bbm-catalog-search-go:hover,
+html[data-site="truck"] .bbm-catalog-search.is-posh.is-posh-blue .bbm-catalog-search-go:hover {
+  border-color: var(--truck-green-hover);
+  background: var(--truck-green-hover) !important;
+  color: var(--truck-green-ink);
+}
+
+/* 로그인 전(게스트) 아이콘은 메인 사이트와 같은 흰 바탕·검정 아이콘 — 주황 제외 */
+html[data-site="truck"] .bbm-account-avatar:not(.is-guest) {
+  background: var(--truck-green);
+}
+
+html[data-site="truck"] .bbm-path-chip,
+html[data-site="truck"] .bbmf-overlay .bbm-truck-format .bbm-path-chip {
+  border-color: var(--truck-green);
+  background: var(--truck-green-soft);
+  color: var(--truck-green);
+}
+
+html[data-site="truck"] .bbm-chips .filter-chip.is-active:not(.is-vehicle-summary),
+html[data-site="truck"] .region-quick-chips button.is-selected,
+html[data-site="truck"] .bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips button.is-selected {
+  border-color: var(--truck-green-border);
+  background: var(--truck-green-soft);
+  color: var(--truck-green);
+  box-shadow: inset 0 0 0 1px var(--truck-green-border);
+}
+
+html[data-site="truck"] .region-menu button[aria-selected="true"],
+html[data-site="truck"] .bbm-snb .bbm-snb-special-menu button.is-current {
+  background: var(--truck-green-soft);
+  color: var(--truck-green);
+}
+
+html[data-site="truck"] .bbm-catalog-search.is-main:focus-within,
+html[data-site="truck"] .bbm-catalog-search.is-posh.is-posh-gray:focus-within {
+  box-shadow: 0 0 0 2px var(--truck-green), 0 6px 20px rgba(17, 24, 39, .08);
+}
+
+html[data-site="truck"] .bbm-catalog-search.is-main .bbm-catalog-search-go,
+html[data-site="truck"] .bbm-catalog-search.is-posh.is-posh-blue .bbm-catalog-search-go {
+  background: var(--truck-green-fill) !important;
+  color: var(--truck-green-ink);
+}
+
+html[data-site="truck"] .trim-chip:focus-visible,
+html[data-site="truck"] .heavy-sidebar-option:focus-visible,
+html[data-site="truck"] .bbm-register :focus-visible {
+  outline-color: var(--truck-green);
+}
+
+html[data-site="truck"] .bbmf-check.is-checked .bbmf-check-box,
+html[data-site="truck"] .bbmf-choices button.is-selected,
+html[data-site="truck"] .bbmf-keep-switch.is-on,
+html[data-site="truck"] .bbmf-daangn-switch.is-on,
+
+html[data-site="truck"] .bbmf-slider i {
+  border-color: var(--truck-green) !important;
+  background: var(--truck-green);
+}
+
+html[data-site="truck"] .bbmf-color-chips button.is-selected,
+html[data-site="truck"] .bbmf-presets button.is-selected {
+  border-color: var(--truck-green);
+  color: var(--truck-green);
+  box-shadow: inset 0 0 0 1px var(--truck-green);
+}
+
+html[data-site="truck"] .bbmf-overlay .bbm-truck-format .bbm-catalog-row.is-selected {
+  color: var(--truck-green);
+}
+
+html[data-site="truck"] .maker-option input {
+  accent-color: var(--truck-green);
+}
+
+html[data-site="truck"] .bbm-card-verified {
+  /* #3DB07A 근사 */
+  filter: brightness(0) saturate(100%) invert(58%) sepia(52%) saturate(486%) hue-rotate(99deg) brightness(91%) contrast(87%);
+}
+
+html[data-site="truck"] .bbmf-actions.is-full .bbmf-confirm {
+  border-color: var(--truck-green-fill) !important;
+  background: var(--truck-green-fill);
+  color: var(--truck-green-ink);
+}
+
+html[data-site="truck"] .bbm-catalog-search .bbm-catalog-search-go .ct-icon {
+  color: var(--truck-green-ink) !important;
+}
