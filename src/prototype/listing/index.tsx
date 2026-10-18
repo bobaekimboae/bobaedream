@@ -487,11 +487,61 @@ function PcHeader({ query, setQuery, searchPlaceholder, regionLabel, onOpenRegio
   );
 }
 
-function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
+// 2026-10-18 「vieclamtot에서 아이디어 내보고 시안」 · truck2hand: 검색창 안 카테고리 선택 + 빈 검색칸 포커스 시 인기 검색어 (`&pcsearch=cat` 미리보기)
+const bbSearchCategories: readonly { value: string; label: string }[] = [
+  { value: "전체", label: "전체차량" }, { value: "중고차", label: "중고차" }, { value: "트럭 · 특장", label: "트럭·특장" }, { value: "바이크", label: "바이크" },
+  { value: "캠핑카", label: "캠핑카" }, { value: "건설기계", label: "건설기계" }, { value: "자재운반장비", label: "자재운반장비" }, { value: "부품 · 용품", label: "부품·용품" },
+];
+const bbSearchPopular: Record<string, readonly string[]> = {
+  "전체": ["그랜저", "포터2", "쏘렌토", "카니발", "E클래스", "봉고3", "PCX", "모하비"],
+  "중고차": ["그랜저", "쏘렌토", "카니발", "아반떼", "E클래스", "5시리즈", "G80", "팰리세이드"],
+  "트럭 · 특장": ["포터2 1톤", "봉고3", "윙바디", "냉동탑차", "덤프", "카고 5톤", "마이티", "메가트럭"],
+  "바이크": ["PCX", "NMAX", "할리데이비슨", "포르자", "슈퍼커브", "R1250GS"],
+  "캠핑카": ["모터홈", "카라반", "스타리아 캠퍼", "쏠라티 캠핑카"],
+  "건설기계": ["굴삭기 02", "미니굴삭기", "휠로더", "지게차"],
+  "자재운반장비": ["전동 지게차", "디젤 지게차 3톤", "리치 지게차"],
+  "부품 · 용품": ["타이어", "휠", "블랙박스", "브레이크 패드"],
+};
+function bbSearchCatMode() { return typeof window !== "undefined" && new URLSearchParams(window.location.search).get("pcsearch") === "cat"; }
+
+function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRecords, onCatalogFocus, onCatalogChoose, category, onChooseCategory }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void; category?: string; onChooseCategory?: (category: string) => void }) {
   const keyboard = useKeyboard();
   const [searchOpen, setSearchOpen] = useState(false);
   const variant = bbSearchVariant();
+  const catMode = variant === "default" && bbSearchCatMode() && Boolean(onChooseCategory);
+  const [catOpen, setCatOpen] = useState(false);
+  const catRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const catValue = bbSearchCategories.some((item) => item.value === category) ? category! : (["국산차", "수입차", "전기차", "럭셔리카", "슈퍼카", "올드카", "JDM", "서울오토갤러리", "도이치오토월드"].includes(category ?? "") ? "중고차" : "전체");
+  const catLabel = bbSearchCategories.find((item) => item.value === catValue)?.label ?? "전체차량";
+  useEffect(() => {
+    if (!catMode || (!catOpen && !searchOpen)) return;
+    const onDown = (event: PointerEvent) => { if (catRef.current && !catRef.current.contains(event.target as Node)) { setCatOpen(false); setSearchOpen(false); } };
+    const onKey = (event: globalThis.KeyboardEvent) => { if (event.key === "Escape") { setCatOpen(false); setSearchOpen(false); } };
+    window.addEventListener("pointerdown", onDown); window.addEventListener("keydown", onKey);
+    return () => { window.removeEventListener("pointerdown", onDown); window.removeEventListener("keydown", onKey); };
+  }, [catMode, catOpen, searchOpen]);
+  if (catMode) {
+    const popular = bbSearchPopular[catValue] ?? bbSearchPopular["전체"];
+    return <div className="bbm-catalog-search is-main is-cat" ref={catRef}>
+      <button type="button" className="bbm-search-cat" aria-haspopup="listbox" aria-expanded={catOpen} aria-label={`검색 범위 ${catLabel}, 바꾸기`} onClick={() => { setCatOpen((open) => !open); setSearchOpen(false); }}>
+        <span>{catLabel}</span><BbIcon name="chevron-down" size={16} />
+      </button>
+      <span className="bbm-search-cat-divider" aria-hidden="true" />
+      <ChototSearchIcon />
+      <KeyboardInput ref={inputRef} aria-label={`${catLabel}에서 검색`} value={query} placeholder={`${catLabel}에서 모델명, 트림 검색`} onFocus={() => { setSearchOpen(true); setCatOpen(false); onCatalogFocus?.(); }} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); onCatalogFocus?.(); }} onBlur={() => keyboard.hide()} />
+      {query ? <button type="button" className="bbm-catalog-search-clear" aria-label="검색어 지우기" onPointerDown={(event) => event.preventDefault()} onClick={() => setQuery("")}>×</button> : null}
+      <button type="button" className="bbm-catalog-search-go" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => { if (!query.trim()) inputRef.current?.focus(); else { setSearchOpen(false); keyboard.hide(); } }}><ChototSearchIcon size={16} /></button>
+      {catOpen ? <ul className="bbm-search-cat-menu" role="listbox" aria-label="검색 범위">
+        {bbSearchCategories.map((item) => <li key={item.value}><button type="button" role="option" aria-selected={item.value === catValue} className={item.value === catValue ? "is-selected" : ""} onClick={() => { setCatOpen(false); if (item.value !== catValue) onChooseCategory?.(item.value); inputRef.current?.focus(); }}><span>{item.label}</span>{item.value === catValue ? <BbIcon name="check" size={16} /> : null}</button></li>)}
+      </ul> : null}
+      {searchOpen && !query.trim() ? <div className="bbm-search-popular" role="region" aria-label={`${catLabel} 인기 검색어`}>
+        <strong>{catLabel} 인기 검색어</strong>
+        <div>{popular.map((word) => <button type="button" key={word} onPointerDown={(event) => event.preventDefault()} onClick={() => { setQuery(word); setSearchOpen(false); keyboard.hide(); }}>{word}</button>)}</div>
+      </div> : null}
+      {searchOpen && query.trim() && onCatalogChoose ? <CatalogSearchResults records={catalogRecords ?? null} query={query} onChoose={(record) => { setSearchOpen(false); keyboard.hide(); onCatalogChoose(record); }} /> : null}
+    </div>;
+  }
   useEffect(() => {
     if (variant !== "kaidee") return;
     const onKey = (event: globalThis.KeyboardEvent) => {
@@ -3020,7 +3070,7 @@ function MarketplaceScreen() {
       <>
         <MobileScroll className="app-screen">
           <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${balancedTopCard ? " is-balanced-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "compact" ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && usesReferencePcLayout && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "modern" ? " is-modern-filter-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "charancha" ? " is-charancha-filter-layout" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${category === "수입차" && !maker ? " is-imported-car-category" : ""}${maker === "페라리" ? ` is-ferrari-category${ferrariBannerFull ? " is-ferrari-banner-full" : ""}` : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label="중고차 리스트">
-            <BbHeader category={category} onChooseCategory={chooseHierarchyCategory} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={<BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />} />
+            <BbHeader category={category} onChooseCategory={chooseHierarchyCategory} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={<BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} category={category} onChooseCategory={(value) => chooseHierarchyCategory(value)} />} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* 중고차·트럭은 텍스트 GNB 바로 아래 사각형 LNB를 유지하고, 필터 카드에는 경로·중복 카테고리 칩을 두지 않는다. */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{lnbVariant === "a" || lnbVariant === "b" || lnbVariant === "d" ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}{bbmCategoryBanner}{lnbVariant === "default" && pcFilterLayout === "bare" && isUsedCarCategory && showDefaultCategoryLnb ? <div className="bbm-bare-lnb"><BbLnbTitleTabs category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /></div> : null}{categoryComplexHeader}{balancedTopCard ? null : bbmTopCard}</div> : null}
