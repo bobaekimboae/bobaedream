@@ -565,3 +565,9 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   }
   .bbm-header:not(.is-search-chotot):not(.is-search-kaidee) .bbm-header-search-slot { justify-content: center; }
 }
+
+/* 2026-10-18 「줄이자」: 검색칸 최대 480 → 440(가운데 정렬 유지, 하트와 여유 확보) */
+@media (min-width: 1200px) {
+  .bbm-header:not(.is-search-chotot):not(.is-search-kaidee) .bbm-header-main { grid-template-columns: minmax(0, 1fr) minmax(320px, 440px) minmax(max-content, 1fr); }
+  .bbm-catalog-search.is-main { max-width: 440px; }
+}
