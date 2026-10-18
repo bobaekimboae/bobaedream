@@ -633,9 +633,10 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
 export function BbmResultCard({ car, variant, featured = false, detailSummary = false, detailPower, detailBodyType, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; detailSummary?: boolean; detailPower?: string; detailBodyType?: string; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
-  // PC 사진 칸은 가로형(160×112)이라 정사각 사본·정사각 자르기 값을 쓰면 차 위아래가 잘린다(2026-10-19 「트럭 사진 왜 짤리냐」) → PC는 원본 사진을 칸에 맞춰 쓴다
+  // PC 승용 카드는 원본 가로 사진을 쓴다. 트럭 PC는 2026-10-19 모바일 우선 시안부터
+  // Chợ Tốt처럼 정사각 썸네일을 쓰되, 차량 전체가 안전 영역에 들어간 정규화 사본으로 잘림을 막는다.
   const pcPhoto = variant === "pc";
-  const listPhoto = featured || pcPhoto || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
+  const listPhoto = featured || (pcPhoto && !car.truck) || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
   const listCrop = pcPhoto ? undefined : car.listCrop;
   // 중고차(승용)는 「시도 구군 · 단지」, 그 밖의 카테고리(트럭·바이크·건설기계·캠핑카 등)는 「시도 구군」까지만(2026-10-08)
   const isPassenger = !(car.truck || car.bike || car.heavy || car.virtualCategory);

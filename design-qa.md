@@ -30,6 +30,51 @@ final result: passed
 
 ---
 
+# Design QA — 초톳형 폰 촬영 대응 정사각 썸네일
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/artifacts/audit-chotot-comparison-2026-10-19/03-chotot-standard-truck-list.png`
+- Implementation screenshot: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/artifacts/phone-square/truck-phone-square-local.png`
+- Combined comparison: `C:/Users/bobae/AppData/Local/Temp/bobaedream-deploy-encar-20261018/artifacts/qa-phone-square/comparison.png`
+- Viewport/state: PC 1280×720 CSS px, DPR 1.25, `pc=1`, compact layout, `트럭 · 특장`, list view, no active filters.
+- Source pixels: 1270×714; implementation pixels: 1280×720. 두 화면을 원본 비율로 한 캔버스에 배치해 목록 밀도와 사진 비중을 비교했다.
+
+## Full-view comparison evidence
+
+초톳 표준 목록은 세로형·정사각형에 가까운 현장 촬영 사진을 목록의 주 시각 요소로 사용한다. 구현은 기존 240×168 가로형 대신 176×176 정사각형을 적용해 폰 촬영 사진을 잘라내지 않고 차량 전체를 보여주면서, PC의 넓은 정보 열과 좌측 필터 구조는 유지했다.
+
+## Focused region comparison evidence
+
+첫 매물의 실제 측정값은 카드 948×196, 사진 176×176, 정보 영역 716×176이다. 사진과 정보 영역의 위·아래 기준선이 일치하며, 제목·메타정보·가격·지역·판매자·찜 버튼의 순서와 가독성에 충돌이 없다. 모바일 계산 스타일은 기존 120×120을 유지한다.
+
+## Required fidelity surfaces
+
+- Fonts and typography: passed — 기존 제목 16/24 600, 메타 14/20 400, 가격 18/26 700 계층과 줄바꿈을 유지했다.
+- Spacing and layout rhythm: passed — 카드 상하 패딩 10px, 사진/정보 높이 176px, 행 높이 196px로 수직 기준선을 맞췄다.
+- Colors and tokens: passed — 검정 본문, 회색 메타정보, 블루 주요 행동 등 기존 토큰을 변경하지 않았다.
+- Image quality and assets: passed — 트럭 PC 목록은 `listThumb`/`normalizedListThumb`의 정사각형 원본을 사용해 `object-fit: cover`로 인한 차량 잘림을 방지했다.
+- Copy and content: passed — 차량명, 연식·주행거리·연료·마력·적재량·축, 가격, 지역, 단지, 판매자 문구가 모두 보존됐다.
+- Interaction/accessibility: passed — 첫 찜 버튼이 `false → true → false`로 정상 토글·복원됐고 브라우저 콘솔 경고/오류는 0건이다.
+
+## Comparison history
+
+### Iteration 1
+
+- Earlier P2 finding: 240×168 가로형은 정보 영역과 균형은 좋지만, 폰으로 촬영한 세로·정사각 원본을 잘라낼 가능성이 높아 초톳의 현장 등록 방향과 어긋났다.
+- Fix: PC 트럭 사진을 176×176 정사각형으로 변경하고 정규화된 정사각 목록 자산을 사용하도록 분기했다. 모바일 120×120과 승용 PC 원본 비율은 유지했다.
+- Post-fix evidence: 카드 196px 안에서 사진과 정보가 모두 176px, 페이지 가로 오버플로 없음, 찜 토글 정상, 콘솔 오류 없음.
+
+## Findings
+
+요청한 초톳형 사진 우선 방향에 대한 P0/P1/P2 잔여 문제는 없다. 초톳과 보배드림의 전체 페이지 구조가 다르므로 사진을 초톳의 160px 그대로 복제하지 않고, 보배드림 PC 정보 밀도에 맞춰 176px로 확장한 것은 의도된 차이다.
+
+## Follow-up polish
+
+- P3: 실제 사용자 업로드 이미지의 세로 9:16, 가로 4:3, 정사각 1:1 샘플을 더 확보하면 정규화 파이프라인의 배경 여백 규칙을 세밀하게 튜닝할 수 있다.
+
+final result: passed
+
+---
+
 ## 2026-10-19 초톳형 PC 퀵필터 박스 내부 정렬 교정
 
 - Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.tmp/pen-area-audit-20261019/04-chotot-cars-pc.png`
