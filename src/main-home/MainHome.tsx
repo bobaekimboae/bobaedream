@@ -12,7 +12,7 @@ const services: Array<{ key: ServiceKey; label: string }> = [
   { key: "all", label: "전체" },
   { key: "used-car", label: "중고차" },
   { key: "community", label: "커뮤니티" },
-  { key: "truck", label: "트럭/특장" },
+  { key: "truck", label: "트럭 · 특장" },
   { key: "bike", label: "바이크" },
   { key: "construction", label: "건설기계" },
   { key: "camping", label: "캠핑카" },

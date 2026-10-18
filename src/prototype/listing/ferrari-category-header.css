@@ -69,7 +69,7 @@
   .ferrari-category-hero {
     width: 100%;
     min-height: 0;
-    max-height: 132px;
+    max-height: none;
     margin: 0 0 16px;
     border-radius: 10px;
   }

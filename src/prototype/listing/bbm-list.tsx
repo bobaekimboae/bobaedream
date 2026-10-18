@@ -90,7 +90,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
     children: [
       { label: "전체차량", value: "전체" },
       { label: "중고차", value: "중고차" },
-      { label: "트럭/특장차", value: "트럭 · 특장" },
+      { label: "트럭 · 특장", value: "트럭 · 특장" },
       { label: "바이크", value: "바이크" },
       { label: "캠핑카", value: "캠핑카" },
       { label: "건설기계", value: "건설기계" },
@@ -135,7 +135,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
   },
   {
     value: "트럭 · 특장",
-    label: "트럭/특장차",
+    label: "트럭 · 특장",
     icon: categoryIcon("category_truck_special_v01.svg"),
     children: [
       { label: "전체", value: "트럭 · 특장" },

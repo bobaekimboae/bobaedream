@@ -10,7 +10,7 @@ type VehicleTypeItem = {
 
 const vehicleTypes: readonly VehicleTypeItem[] = [
   { label: "승용차", category: "중고차", icon: "personbil.svg" },
-  { label: "트럭·밴", category: "트럭 · 특장", icon: "transportbil.svg" },
+  { label: "트럭 · 특장", category: "트럭 · 특장", icon: "transportbil.svg" },
   { label: "모터사이클", category: "바이크", icon: "motorcykel.svg" },
   { label: "스쿠터", category: "바이크", icon: "moped.svg" },
   { label: "스노모빌", category: "바이크", icon: "snoskoter.svg" },

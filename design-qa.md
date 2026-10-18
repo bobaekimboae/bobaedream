@@ -30,6 +30,36 @@ final result: passed
 
 ---
 
+## 2026-10-18 페라리 배너·퀵필터 칩 균형 및 PC 탑메뉴
+
+- source visual truth path: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-pc-before-f3f3ee33.png`.
+- implementation screenshot paths: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-pc-balanced-local.png`, `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-mobile-chips-local.png`.
+- combined comparison evidence: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-pc-before-after.png`.
+- viewport and normalization: source 1440×900px and implementation 1280×720px were normalized to the same 720px height and placed side by side. Mobile implementation was captured at 320×668 CSS px. Browser density was 1×.
+- state: 수입차 → 페라리 → 296 → 296 GTS, compact PC layout and the same mobile route; separate bike route for the selected-menu icon state.
+- primary interactions tested: PC/mobile breakpoint switching, selected maker chip rendering, horizontal year rail, selected `수입차` GNB pill, selected `바이크` GNB pill with one icon only.
+- console errors checked: errors and warnings 0.
+
+### Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard 14/20px 필터 칩과 16/22px GNB 글자 계층을 유지했다. 검정 수입차 알약은 16/22px·700으로 선택 상태를 분명히 한다.
+- spacing and layout rhythm: 모바일 연식 첫 칩을 x=0에서 x=16으로 옮겨 검색·지역·필터의 공통 시작선과 맞췄다. 제조사 로고는 20×20px, 칩은 32px로 중앙 정렬된다.
+- colors and visual tokens: 선택 GNB와 적용 필터 모두 `#181818/#222` 검정축을 사용한다. 제조사 로고에는 20px 흰 원형 플레이트를 둬 검정 알약 안에서도 식별된다.
+- image quality and asset fidelity: 페라리 당근 드라이브 로고 원본을 18×18px contain으로 사용한다. PC 영상은 1200×132 강제 잘림을 제거하고 179:49 비율의 1200×328.5 영역에서 재생해 모바일과 같은 배너 비율을 유지한다.
+- copy and content: 사용자 노출 메뉴명을 `트럭 · 특장`으로 통일했다. 선택된 국산차·수입차·전기차는 상위 메뉴에서도 실제 카테고리명을 표시한다.
+- focused region evidence: 모바일 캡처에서 연식 첫 칩 x=16, 페라리 로고 20×20, maker chip 110.7×32를 확인했다. PC 캡처에서 수입차 알약 67.5×34와 배너 1200×328.5를 확인했다.
+
+### Comparison history
+
+- Pass 1: PC 배너가 1200×132로 강제 제한돼 영상 세로 영역이 크게 잘리는 P1, 모바일 연식 첫 칩이 x=0에 붙어 왼쪽 둥근 테두리가 잘리는 P2, 모바일 제조사 칩에 로고 prefix가 전달되지 않는 P2가 있었다.
+- Fix: PC `max-height: 132px` 제한을 제거해 기존 179:49 비율을 복구하고, 모바일 연식 스크롤에 16px 안전 여백을 추가했다. 모바일 FilterChip에도 기존 maker prefix를 전달하고 로고 슬롯을 20px로 정규화했다.
+- Pass 2: PC·모바일 동일 경로 재캡처에서 배너 비율, 로고 정렬, 연식 시작선이 모두 교정됐다. 추가로 선택 GNB를 검정 알약으로 통일하고 바이크 아이콘을 선택 상태에서만 렌더링한 뒤, 바이크 경로에서 아이콘 총 1개를 확인했다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 PC 중고차 모던 필터 비교안
 
 - source visual truth path: `reports/modern-filter-1018/source-left.png` (`filterLayout=left`).

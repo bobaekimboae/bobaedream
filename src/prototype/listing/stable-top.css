@@ -103,6 +103,13 @@
 /* ── ④ 알약 줄(트림 · 연식) 알약 = 매뉴얼 알약 규격(1px #DADADA · 14/20 500 — 트림은 qf-trim.css), 연식은 고른 알약만 #222 흰 글자 */
 .marketplace.is-qf-guazi .depth-rail.is-year-row .stable-pill-row { flex: 1; min-width: 0; }
 .marketplace.is-qf-guazi .depth-rail.is-year-row .brand-carousel { display: none; }
+/* 모바일 연식 알약은 다른 상단 요소의 16px 시작선에 맞춘다.
+   첫 알약의 둥근 테두리가 화면 가장자리에서 잘리지 않도록 스크롤 영역 자체에 안전 여백을 둔다. */
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-year-row .stable-pill-track-wrap {
+  padding-inline: 16px;
+  box-sizing: border-box;
+  scroll-padding-inline: 16px;
+}
 
 /* ── 모바일(카드 없음, 화면 전체 흰 바탕)
    ① 검색바 40(화면 위 10) → 8 → ② "지역: 전국 ▾" 줄 32 → 10 → ③ 필터 칩 줄 32(칩 사이 4) → 14 → ④ 퀵필터 자리(위 2 + 칸 + 아래 6) → 0 → ⑤ 회색 띠 8 · 경로 · 제목 · 관련 검색어 */
