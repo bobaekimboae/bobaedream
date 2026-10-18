@@ -674,9 +674,10 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button[aria-expanded="true"] { background: #ebebeb; color: #222; }
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button .bb-icon { width: 20px; height: 20px; color: #222; }
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button::after { display: none !important; }
+  /* vieclamtot 지역 알약 실측(2026-10-18): 138×40 · #F2F6FC · 0.8px #306BD9 · 14/20 600 #222 · 좌우 12 · 꺾쇠 24 #222 */
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button,
-  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button.is-active { background: #eaf0fb; color: #306bd9; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button.is-active { padding: 0 12px; border: 0.8px solid #306bd9; background: #f2f6fc; color: #222; font-size: 14px; line-height: 20px; font-weight: 600; }
   html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
-  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button[aria-expanded="true"] { background: #dce6f8; color: #1952ba; }
-  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button .bb-icon { color: currentColor; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button[aria-expanded="true"] { background: #e6eefa; color: #222; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill-blue .bbm-gnb > .bbm-vehicle-search-wrap > button .bb-icon { width: 24px; height: 24px; color: #222; }
 }
