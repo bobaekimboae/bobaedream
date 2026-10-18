@@ -398,8 +398,8 @@ html[data-lnb="d"] .marketplace .bbm-snb > .bbm-snb-special-wrap > button.is-cur
 html[data-lnb="e"] .marketplace .bbm-snb > button.is-current,
 html[data-lnb="e"] .marketplace .bbm-snb > .bbm-snb-special-wrap > button.is-current { border-color: #222; background: #222; color: #fff; font-weight: 700; }
 /* D: 헤더 흰 띠를 아래로 늘려 메뉴 + 사각 칩을 한 덩어리로, 띠 아래 1px 선 */
-html[data-lnb="d"] .marketplace .bbm-header { box-shadow: none; }
-html[data-lnb="d"] .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top { margin-top: 0; }
+html[data-lnb="d"] .marketplace:has(.bbm-hybrid-top > .bbm-secondary-nav) .bbm-header { box-shadow: none; }
+html[data-lnb="d"] .marketplace.is-bbm.is-hybrid:has(.bbm-hybrid-top > .bbm-secondary-nav) > .bbm-hybrid-top { margin-top: 0; }
 html[data-lnb="d"] .marketplace .bbm-hybrid-top > .bbm-secondary-nav { height: auto; margin: 0 0 16px; padding: 18px 0 20px; border-bottom: 0; background: #fff; box-shadow: 0 0 0 100vmax #fff, 0 1px 0 100vmax #ebebeb; clip-path: inset(0 -100vmax -1px); }
 /* E: 카드 안 제목 아래, 필터 칩 위 */
 html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: auto; margin: 16px 0 0; padding: 0 0 16px; border-bottom: 1px solid #f0f0f0; background: none; }
