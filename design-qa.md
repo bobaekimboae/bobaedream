@@ -6028,3 +6028,60 @@ final result: passed
 
 final result: passed
 
+---
+
+# Design QA — PC 트럭 매물 카드 사진/정보 균형
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/artifacts/audit-2026-10-19/01-bobaedream-truck-list.png`
+- Implementation screenshot: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/artifacts/card-balance/truck-card-balanced.png`
+- Combined comparison: `C:/Users/bobae/AppData/Local/Temp/bobaedream-deploy-encar-20261018/artifacts/card-balance/comparison-before-after.png`
+- Viewport: 1280 × 720 CSS px
+- Source pixels: 1280 × 720
+- Implementation pixels: 1280 × 720
+- Density normalization: both captures use the same CSS viewport and 1× screenshot density; no resampling was needed.
+- State: PC (`pc=1`), compact layout, `트럭 · 특장`, list view, no active filters.
+
+## Full-view comparison evidence
+
+The header, quick filters, left filter rail, toolbar, typography, colors, controls, and content remain in the same positions and states. The intended delta is limited to the PC truck result cards.
+
+Before: the first truck photo measured 160 × 112 px while the adjacent information column measured 732 × 183 px, leaving the photo visually underweighted and creating a 215 px-tall row.
+
+After: the photo measures 240 × 168 px and the information column measures 652 × 170 px. The row is 198 px tall. Photo and information now finish at nearly the same vertical position, and the second listing begins 17 px earlier.
+
+## Focused region comparison evidence
+
+The combined comparison shows the card region at the same viewport and state. The first image gains useful vehicle detail without changing crop ratio, while title, specifications, price, location, seller, and wish action retain their original order and typography.
+
+## Required fidelity surfaces
+
+- Fonts and typography: unchanged; title 16/24 600, metadata 14/20 400, price 18/26 700 retain the existing hierarchy and wrapping behavior.
+- Spacing and layout rhythm: passed; photo and information heights differ by only 2 px, card height falls from 215 to 198 px, and information spacing is compressed without collisions.
+- Colors and tokens: unchanged; no palette, border, or semantic-state drift.
+- Image quality and assets: passed; original truck images and 10:7 crop are preserved, displayed at 240 × 168 px without stretching.
+- Copy and content: unchanged; all vehicle, specification, location, seller, and price text remains intact.
+
+## Interaction and runtime checks
+
+- Twenty wish buttons remained present in the list.
+- The first wish button toggled and was restored to its original unselected state.
+- Browser console warnings/errors: none.
+- `npm run verify:qf`: passed.
+
+## Comparison history
+
+### Iteration 1
+
+- Earlier P2 finding: truck photo was substantially shorter and lighter than the information column, producing an unbalanced row and slower visual comparison.
+- Fix: changed PC truck photo from 160 × 112 to 240 × 168 px; reduced vertical card padding from 16 to 14 px; reduced content gap from 9 to 4 px; reduced seller-row top margin from 15 to 7 px.
+- Post-fix evidence: 240 × 168 photo beside 652 × 170 information area; 198 px row; no overflow, clipping, or control displacement.
+
+## Findings
+
+No actionable P0/P1/P2 differences remain for the requested photo/information-area correction.
+
+## Follow-up polish
+
+- P3, outside this request: a visible result count and trust badges would improve marketplace decision confidence, but they are not part of the photo/information balance change.
+
+final result: passed
