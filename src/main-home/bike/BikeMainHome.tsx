@@ -32,12 +32,12 @@ const brandLogos: Array<[string, string]> = [
 ];
 
 const genres: Array<[string, string]> = [
-  ["스포츠", "sport"], ["네이키드", "naked"], ["스쿠터", "scooter"], ["크루저", "cruiser"],
-  ["클래식", "classic"], ["멀티퍼포즈", "multipurpose"], ["투어러", "tourer"], ["언더본", "underbone"],
+  ["네이키드", "naked"], ["스쿠터", "scooter"], ["크루저", "cruiser"], ["멀티퍼포즈", "multipurpose"],
+  ["스포츠", "sport"], ["투어러", "tourer"], ["오프로드", "offroad"], ["ATV", "atv"],
 ];
 
-type TabKey = "중고 바이크" | "스쿠터" | "클래식" | "바이크 용품";
-const tabs: TabKey[] = ["중고 바이크", "스쿠터", "클래식", "바이크 용품"];
+type TabKey = "전체" | "중고" | "신차";
+const tabs: TabKey[] = ["전체", "중고", "신차"];
 const regions = ["전국", "서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 
 const won = (krw: number) => {
@@ -73,7 +73,8 @@ function Card({ row, saved, onSave }: { row: Row; saved: boolean; onSave: () => 
 
 export default function BikeMainHome() {
   const rows = useMemo(() => [...bikeScenarioV08, ...bikeScenarioV11] as Row[], []);
-  const [tab, setTab] = useState<TabKey>("중고 바이크");
+  const [tab, setTab] = useState<TabKey>("전체");
+  const [genre, setGenre] = useState("");
   const [maker, setMaker] = useState("");
   const [model, setModel] = useState("");
   const [region, setRegion] = useState("전국");
@@ -98,10 +99,10 @@ export default function BikeMainHome() {
   }, []);
   useEffect(() => { if (!toast) return undefined; const t = window.setTimeout(() => setToast(""), 2000); return () => window.clearTimeout(t); }, [toast]);
 
-  const inTab = (r: Row) => (tab === "스쿠터" ? r.genre === "스쿠터" : tab === "클래식" ? r.genre === "클래식" : true);
+  const isNew = (r: Row) => r.year >= 2024 && r.mileage_km <= 1000;
+  const inTab = (r: Row) => (tab === "신차" ? isNew(r) : tab === "중고" ? !isNew(r) : true) && (!genre || r.genre === genre);
   const sido = (r: Row) => r.region.split(" ")[0];
   const countOf = (mk: string, md: string) => rows.filter((r) => inTab(r) && (!mk || r.brand === mk) && (!md || r.model === md) && (region === "전국" || sido(r) === region)).length;
-  const isParts = tab === "바이크 용품";
   const count = countOf(maker, model);
 
   const makerList = useMemo(() => {
@@ -130,7 +131,6 @@ export default function BikeMainHome() {
     const seen = new Set<string>();
     return rows.filter((r) => r.posted_days === 0 && !used.has(r.scenario_id) && !seen.has(r.model) && seen.add(r.model)).slice(0, 8);
   }, [rows, popular]);
-  const heroBubbles = useMemo(() => [popular[1], popular[5], popular[6]].filter(Boolean), [popular]);
   const brandModels = useMemo(() => brandLogos.slice(0, 5).map(([b]) => {
     const m = new Map<string, number>();
     rows.filter((r) => r.brand === b).forEach((r) => m.set(r.model, (m.get(r.model) ?? 0) + 1));
@@ -149,8 +149,9 @@ export default function BikeMainHome() {
   }, [open]);
 
   const search = () => {
-    if (isParts) { window.location.href = listUrl({ category: "부품 · 용품", bikeMenu: "parts" }); return; }
     const p: Record<string, string> = {};
+    if (tab !== "전체") p.condition = tab;
+    if (genre) p.genre = genre;
     if (maker) p.maker = maker;
     if (model) p.model = model;
     if (region !== "전국") p.region = region;
@@ -186,13 +187,9 @@ export default function BikeMainHome() {
 
       <section className="bmh-hero" aria-label="소개">
         <div className="bmh-hero-art" aria-hidden="true">
-          <span className="bmh-swoosh" />
           <img className="bmh-hero-bike" src={pic("..", "assets", "bike", "models", "honda", "BKM001-G003.png")} alt="" />
-          {heroBubbles.map((r, i) => (
-            <span key={r.scenario_id} className={`bmh-bubble is-${i}`}><i>₩</i><span><small>매물</small>{won(r.price_krw)}</span></span>
-          ))}
         </div>
-        <div className="bmh-wrap"><h1>달리고 싶은 바이크, 여기서.</h1></div>
+        <div className="bmh-wrap bmh-hero-copy"><span>대한민국 바이크 전문 매매 플랫폼</span><h1>달리고 싶은 바이크,<br />여기서.</h1></div>
       </section>
 
       <div className="bmh-wrap">
@@ -203,7 +200,12 @@ export default function BikeMainHome() {
             ))}
           </div>
           <div className="bmh-row">
-            <button ref={opener} type="button" className="bmh-field" onClick={openPicker} disabled={isParts} aria-haspopup="dialog">
+            <label className="bmh-field">
+              <span className={genre ? "is-filled" : ""}>{genre || "바이크 유형"}</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              <select value={genre} onChange={(e) => setGenre(e.currentTarget.value)} aria-label="바이크 유형"><option value="">전체 유형</option>{genres.map(([label]) => <option key={label} value={label}>{label}</option>)}</select>
+            </label>
+            <button ref={opener} type="button" className="bmh-field" onClick={openPicker} aria-haspopup="dialog">
               <span className={maker ? "is-filled" : ""}>{maker ? (model ? `${maker} ${model}` : maker) : "제조사와 모델"}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
@@ -212,13 +214,12 @@ export default function BikeMainHome() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
               <select value={region} onChange={(e) => setRegion(e.currentTarget.value)} aria-label="지역">{regions.map((r) => <option key={r} value={r}>{r}</option>)}</select>
             </label>
-            <button type="button" className="bmh-cta" onClick={search}>{isParts ? "용품 보기" : `${count.toLocaleString("ko-KR")}대 보기`}</button>
+            <button type="button" className="bmh-cta" onClick={search}>{count.toLocaleString("ko-KR")}대 보기</button>
           </div>
           <div className="bmh-more"><a href={listUrl()}>상세 조건으로 검색</a></div>
-          <h2 className="bmh-search-sub">장르로 바이크 찾기</h2>
           <div className="bmh-genres">
             {genres.map(([label, file]) => (
-              <a key={label} href={listUrl()}>
+              <a key={label} href={listUrl({ genre: label })}>
                 <span><img src={pic("..", "assets", "bike", "types", "autoscout-v01", `${file}.png`)} alt="" loading="lazy" /></span>
                 {label}
               </a>
