@@ -2547,7 +2547,7 @@ function MarketplaceScreen() {
   const fuelApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:fuel:"));
   const regionApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:region:") || chip.id.startsWith("check:district:"));
   const complexApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:complex:"));
-  const hideSellerQuickChip = desktop && isGuaziQuickStyle && isUsedCarCategory;
+  const hideSellerQuickChip = desktop && isGuaziQuickStyle && (isUsedCarCategory || isBikeCategory);
   const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
   const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
   const bbmChips: BbmChip[] = ([
@@ -2594,7 +2594,7 @@ function MarketplaceScreen() {
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
     ...otherApplied.map(toAppliedBbmChip),
-    isHeavyCategory || isTruckCategory && (!selectedTruckSubtype || !truckSpecDepthComplete) ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") },
+    isHeavyCategory || isBikeCategory || isTruckCategory && (!selectedTruckSubtype || !truckSpecDepthComplete) ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") },
     // 부품·용품: 연식·주행거리·연료 대신 분류 · 상태 · 적용 차종(2026-10-07)
     ...(isPartsCategory ? [
       groupChip("parts-subtype", "분류", "부품 분류", Boolean(bbmValue.checks.partsSubtype?.length)),
@@ -2608,7 +2608,7 @@ function MarketplaceScreen() {
     ...(isPartsCategory ? [] : fuelApplied.length ? fuelApplied.map(toAppliedBbmChip) : [groupChip("fuel", "연료", "연료", false)]),
     ...(hideSellerQuickChip ? [] : sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
     ...(regionApplied.length ? regionApplied.map(toAppliedBbmChip) : desktop ? [groupChip("region-filter", "지역", "지역", false)] : []),
-    ...(complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),
+    ...(isBikeCategory ? [] : complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   // 초톳처럼(2026-10-11 「리스트에서는 카테고리 칩 빼자, 선택된 카테고리 누르면 카테고리 나오게」): 별도 `카테고리 ▾` 칩 없이
   // 선택된 카테고리 칩(`전체차량 ×`)의 이름을 누르면 카테고리 시트가 열리고, ×는 해제. 트럭·특장은 기존 동작(형식 퀵필터) 유지.
@@ -3211,7 +3211,7 @@ function MarketplaceScreen() {
                 <div className="bbmf-full-group-title">추가 필터</div>
               </> : null}
               {secondaryFullOrder.map(renderFullFilterItem)}
-              <BbmFullExcludeAction onClick={() => setSearchToast("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")} />
+              {isBikeCategory ? null : <BbmFullExcludeAction onClick={() => setSearchToast("제조사·모델 제외하기는 정식 서비스에서 이용해 주세요.")} />}
             </div> : null}
           </BbmFullFilter>
         ) : null}
