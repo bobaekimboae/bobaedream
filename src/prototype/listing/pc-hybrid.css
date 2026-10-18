@@ -23,6 +23,8 @@
   /* Hatla2ee 참고안: 상단 검색조건 카드 폭을 아래 매물 영역(1200 - 280 - 40 = 880)과 맞춘다.
      하위 카테고리 메뉴는 bbm-hybrid-top 안에서 기존 1200px 폭을 유지한다. */
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-hybrid-top > .bbm-content-head.is-chotot { width: calc(100% - 320px); margin-left: auto; }
+  /* 비교안: 하위 카테고리 메뉴는 유지하고 큰 상단 검색조건·브랜드 박스만 제거한다. */
+  .marketplace.is-bbm.is-hybrid.is-no-top-filter .bbm-hybrid-top > .bbm-content-head.is-chotot { display: none; }
   /* QF-119: 위 기준 sticky + 자기 스크롤 영역(qf-sidebar-stable.css). 예전 "아래 붙는 사이드바"(음수 top, bbm-sticky-sidebar.ts)는 없앰 */
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { position: sticky; top: 16px; align-self: start; }
 }

@@ -388,10 +388,10 @@ const desktopLayoutQuery = "(min-width: 820px)";
 const hybridLayoutQuery = "(min-width: 1024px)";
 const hybridNarrowQuery = "(max-width: 1279px)";
 const pcLayoutStyle = new URLSearchParams(window.location.search).get("pcl") === "chotot" ? "chotot" : "bbmuseum";
-type PcFilterLayout = "left" | "right" | "compact";
+type PcFilterLayout = "left" | "right" | "compact" | "bare";
 const pcFilterLayout: PcFilterLayout = (() => {
   const value = new URLSearchParams(window.location.search).get("filterLayout");
-  return value === "left" || value === "compact" ? value : "right";
+  return value === "left" || value === "compact" || value === "bare" ? value : "right";
 })();
 const pcAsset = (name: string) => asset(`pc-detail/${name}`);
 
@@ -2920,7 +2920,7 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "compact" ? " is-compact-top-filter" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm${isGuaziQuickStyle ? " is-hybrid" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "right" ? " is-list-first-layout" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "compact" ? " is-compact-top-filter" : ""}${isGuaziQuickStyle && isUsedCarCategory && pcFilterLayout === "bare" ? " is-no-top-filter" : ""}${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${category === "올드카" ? " is-oldcar-category" : ""}`} aria-label="중고차 리스트">
             <BbHeader category={category} onChooseCategory={chooseHierarchyCategory} onNotify={setSearchToast} onOpenFavorites={() => flow.push(savedListingsScreen)} searchSlot={supportsVehicleCatalog ? <BbmCatalogHeaderSearch query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} catalogRecords={vehicleCatalog.records} onCatalogFocus={() => { void vehicleCatalog.ensureSearch(); }} onCatalogChoose={chooseCatalogRecord} /> : undefined} />
             {/* QF-093: 과쯔는 상단 패널(전체차량 · N대 · 검색저장 · 칩 줄 · 유형 줄/퀵필터 레일)을 본문 폭 전체로 */}
             {/* 중고차·트럭은 텍스트 GNB 바로 아래 사각형 LNB를 유지하고, 필터 카드에는 경로·중복 카테고리 칩을 두지 않는다. */}
