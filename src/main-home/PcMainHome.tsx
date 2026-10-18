@@ -1,11 +1,13 @@
 // PC 메인 시안 v01 (2026-10-18) — 레거시 보배드림 메인(좌 매물 · 우 커뮤니티 베스트)을 신버전으로 정리한 미리보기.
 // 진입: ./?home=pc  (기존 모바일 메인 ./ 는 그대로)
+// v03(2026-10-18 「오토스카우트24 검색을 응용해봐」): 좌측 맨 위에 AutoScout24식 검색 카드(As24SearchCard)를 넣고 차량 유형 9칸은 카드의 차종 탭으로 합쳤다.
 // v02(2026-10-18 「腾讯网 汽车처럼 분리」): 전체 폭 검색 띠를 없애고 헤더 바로 아래부터 좌(큰 추천 슬라이드 + 3열 카드) · 우(커뮤니티 레일) 두 칸으로 나눴다. 검색은 헤더로 올렸다.
 // 구성 근거: 유럽(mobile.de · AutoScout24 · Autotrader UK · La Centrale) 상단 검색 띠 + 차량 유형 줄,
 // 한국 레거시 보배드림의 좌 매물 · 우 커뮤니티 베스트 2단. 매물은 럭셔리카 가상 매물 v01(UI 검증용 가상 값),
 // 커뮤니티 글은 화면 확인용 예시 문구다(실제 게시글 · 작성자 아님).
 import { useEffect, useMemo, useState } from "react";
 import { luxuryDealers, luxuryListingRows, type LuxuryListingRow } from "../prototype/data/luxury-category-v01";
+import As24SearchCard from "./As24SearchCard";
 import "./pc-main-home.css";
 
 // 배포 빌드가 「./assets/」 문자열을 고쳐 쓰므로 기존 메인과 같이 조각을 이어 붙인다
@@ -20,18 +22,6 @@ const gnbItems: Array<{ label: string; category?: string; community?: true }> = 
   { label: "바이크", category: "바이크" },
   { label: "중고부품", category: "부품 · 용품" },
   { label: "커뮤니티", community: true },
-];
-
-const vehicleTypes = [
-  { label: "전체차량", category: "전체", icon: "category_all_vehicles_v01.svg" },
-  { label: "중고차", category: "중고차", icon: "category_used_car_v01.svg" },
-  { label: "테마별 중고차", category: "슈퍼카", icon: "category_theme_used_car_v01.svg" },
-  { label: "트럭 · 특장", category: "트럭 · 특장", icon: "category_truck_special_v01.svg" },
-  { label: "바이크", category: "바이크", icon: "category_bike_v01.svg" },
-  { label: "캠핑카", category: "캠핑카", icon: "category_camper_v01.svg" },
-  { label: "건설기계", category: "건설기계", icon: "category_construction_v01.svg" },
-  { label: "자재운반장비", category: "자재운반장비", icon: "category_material_handling_v01.svg" },
-  { label: "부품 · 용품", category: "부품 · 용품", icon: "category_parts_v01.svg" },
 ];
 
 const popularKeywords = ["그랜저", "카니발", "포터2", "G80", "쏘렌토", "E클래스", "포르쉐 911", "레인지로버"];
@@ -200,6 +190,7 @@ export default function PcMainHome() {
 
       <div className="pmh-wrap pmh-body">
         <main className="pmh-left">
+          <As24SearchCard rows={rows} placeOf={placeOf} listingUrl={listingUrl} />
           <section className="pmh-hero-slide" aria-roledescription="carousel" aria-label="오늘의 추천 매물">
             {(() => {
               const row = slideRows[slide];
@@ -221,14 +212,6 @@ export default function PcMainHome() {
             <button type="button" className="pmh-slide-nav is-next" aria-label="다음 매물" onClick={() => setSlide((slide + 1) % slideRows.length)}>›</button>
           </section>
 
-          <nav className="pmh-types" aria-label="차량 유형">
-            {vehicleTypes.map((t) => (
-              <a key={t.label} href={listingUrl({ category: t.category })}>
-                <span><img src={asset(`category/icons/v01/${t.icon}`)} alt="" /></span>
-                {t.label}
-              </a>
-            ))}
-          </nav>
 
           <section className="pmh-box" aria-labelledby="pmh-best-title">
             <div className="pmh-box-head">

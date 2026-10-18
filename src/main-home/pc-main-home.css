@@ -168,3 +168,52 @@
 .pmh-sell strong { font-size: 16px; line-height: 22px; }
 .pmh-sell span { font-size: 13px; color: var(--pmh-sub); }
 .pmh-sell b { margin-top: 6px; font-size: 14px; color: var(--pmh-blue); font-weight: 600; }
+
+/* v03 — AutoScout24 검색 카드 응용 (as24 실측: 카드 반경 16 · 안쪽 24/32 · 탭 20/700 · 16/400 · 한 줄 3칸 높이 40 · 간격 8 · 그림 120×73) */
+.as24 { background: #fff; border-radius: 16px; padding: 24px 28px 20px; box-shadow: 0 0 2px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.05); }
+.as24-tabs { display: flex; gap: 24px; align-items: flex-end; margin-bottom: 20px; overflow-x: auto; scrollbar-width: none; }
+.as24-tabs button { flex: 0 0 auto; padding: 0 0 6px !important; font-size: 16px; line-height: 24px; font-weight: 400; color: #333; border-bottom: 2px solid transparent !important; }
+.as24-tabs button.is-on { font-size: 20px; line-height: 28px; font-weight: 700; color: #222; border-bottom-color: #222 !important; }
+.as24-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+.as24-select { position: relative; height: 48px; border: 1px solid #8c8c8c !important; border-radius: 6px; background: #fff !important; display: flex; align-items: center; justify-content: space-between; padding: 0 12px 0 14px !important; font-size: 16px; color: #222; text-align: left; }
+.as24-select:disabled { color: #b7b7b7; border-color: #dadada !important; cursor: default; }
+.as24-select.is-filled { border-color: #222 !important; font-weight: 600; }
+.as24-select span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.as24-select svg { flex: 0 0 auto; color: #595959; }
+.as24-region select { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+.as24-region { cursor: pointer; }
+.as24-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.as24-cta { height: 48px; border-radius: 8px; background: var(--pmh-blue) !important; color: #fff !important; font-size: 16px; font-weight: 700; }
+.as24-cta:hover { background: var(--pmh-blue-hover) !important; }
+.as24-more-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 12px; }
+.as24-more-row a { grid-column: 3; text-align: center; font-size: 15px; font-weight: 600; color: var(--pmh-blue); }
+.as24-more-row a:hover { text-decoration: underline; }
+.as24-type-title { margin: 12px 0 10px; font-size: 16px; line-height: 22px; font-weight: 700; }
+.as24-types { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 4px; }
+.as24-types a { display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 6px 0 8px; border-radius: 10px; font-size: 14px; line-height: 20px; font-weight: 600; color: #333; text-align: center; }
+.as24-types a:hover { background: #f7f7f7; }
+.as24-types span { width: 100%; height: 54px; display: flex; align-items: flex-end; justify-content: center; }
+.as24-types img { max-width: 88px; max-height: 54px; object-fit: contain; object-position: center bottom; }
+
+.as24-layer { position: fixed; inset: 0; z-index: 50; display: grid; place-items: center; }
+.as24-dim { position: absolute; inset: 0; background: rgba(0,0,0,.5) !important; cursor: default; }
+.as24-modal { position: relative; width: min(480px, calc(100vw - 48px)); max-height: calc(100vh - 96px); display: flex; flex-direction: column; background: #fff; border-radius: 16px; overflow: hidden; }
+.as24-modal header { height: 64px; flex: 0 0 auto; display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; padding: 0 12px; }
+.as24-modal header h2 { text-align: center; font-size: 18px; line-height: 26px; font-weight: 700; }
+.as24-icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; color: #222; }
+.as24-icon:hover { background: #f4f4f4 !important; }
+.as24-modal-search { margin: 0 16px 8px; height: 44px; border-radius: 999px; background: #f4f4f4; display: flex; align-items: center; gap: 8px; padding: 0 16px; }
+.as24-modal-search input { flex: 1; border: 0; outline: 0; background: transparent; font: inherit; font-size: 15px; }
+.as24-modal-body { flex: 1 1 auto; overflow-y: auto; padding: 4px 16px 8px; }
+.as24-modal-body h3 { font-size: 16px; line-height: 22px; font-weight: 700; padding: 8px 0; }
+.as24-modal-body ul { list-style: none; }
+.as24-modal-body li button { width: 100%; height: 44px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #ebebeb !important; font-size: 15px; color: #222; text-align: left; }
+.as24-modal-body li button span { flex: 1; }
+.as24-modal-body li button em { font-style: normal; font-size: 13px; color: #8c8c8c; }
+.as24-modal-body li button.is-on { font-weight: 700; }
+.as24-modal-body li button.is-on span::after { content: " ✓"; color: var(--pmh-blue); }
+.as24-modal-body li button svg { color: #595959; }
+.as24-modal footer { flex: 0 0 auto; height: 80px; display: grid; grid-template-columns: 92px 1fr; gap: 10px; align-items: center; padding: 0 20px; border-top: 1px solid #ebebeb; }
+.as24-reset { height: 52px; font-size: 15px; font-weight: 600; color: #222; }
+.as24-reset:disabled { color: #b7b7b7; cursor: default; }
+.as24-modal footer .as24-cta { height: 52px; border-radius: 12px; }
