@@ -143,7 +143,6 @@ export const truckFilterOrder: string[] = [
   "트럭 연료",
   "트럭 변속기",
   "트럭 옵션",
-  "트럭 적재규격",
   "차량번호 / 판매자",
 ];
 
