@@ -36,6 +36,97 @@
   /* 기본 균형안(헤이딜러·하틀라투이): 배너만 1200 전체 폭, 그 아래 좌측 필터 280 · 간격 40 · 우측(검색조건 카드 → 매물).
      검색조건 카드는 .bbm-content 안에 그려 두 열의 윗선이 항상 같다(카드 높이가 바뀌어도 음수 여백 보정이 필요 없음). */
   .marketplace.is-bbm.is-hybrid.is-balanced-layout .bbm-content > .bbm-content-head.is-chotot { margin: 0 0 24px; }
+  /* 추천안: 좌측 상세 필터와 전체 폭 빠른 검색은 유지하되, 첫 화면에서 매물이 보이도록
+     포쉬마크형 배너·필터 카드의 세로 리듬을 압축한다. 기존 비교안은 그대로 보존한다. */
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-hybrid-top { margin-top: 16px; }
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-hybrid-top > .bbm-ct-banner {
+    height: 72px;
+    margin-bottom: 12px;
+    padding-right: 20px;
+    padding-left: 24px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-ct-banner-title {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-content-head.is-chotot {
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-content-head.is-chotot .bbm-ct-chip-row {
+    margin-top: 12px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-content-head.is-chotot .bbm-quick-slot,
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail) {
+    margin-top: 12px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-modern-filter-layout .bbm-page { margin-top: 16px; }
+  /* 차란차 기준안: 한 단계씩 탐색하고, 좌측 안쪽의 중첩 스크롤·보조 상태를 제거한다. */
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-page {
+    grid-template-columns: 280px minmax(0, 1fr);
+    gap: 40px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-page > .bbm-filter {
+    border-radius: 0;
+    background: transparent;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-summary {
+    gap: 10px;
+    padding: 4px 0 16px;
+    border-bottom: 1px solid #eceef0;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-summary-top strong {
+    color: #191f28;
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-keep,
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-status {
+    display: none;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-summary-tools {
+    justify-content: flex-start;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-history {
+    color: #707984;
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-item,
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-more-toggle {
+    border-color: #eceef0;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-toggle {
+    min-height: 49px;
+    padding: 14px 0;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-item.is-open .bbm-filter-toggle {
+    padding: 18px 0 0;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-item.is-maker-grade.is-open .bbm-filter-toggle {
+    min-height: 46px;
+    padding-top: 18px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-maker-grade.is-reference {
+    margin-top: 12px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-catalog {
+    max-height: none;
+    overflow: visible;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-maker-grade.is-reference .bbm-catalog-section {
+    padding-top: 10px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-maker-grade.is-reference .bbm-catalog-row {
+    min-height: 42px;
+    padding: 9px 6px;
+    border-radius: 4px;
+  }
+  .marketplace.is-bbm.is-hybrid.is-charancha-filter-layout .bbm-filter-more-toggle {
+    width: 100%;
+    margin: 14px 0;
+    border-radius: 6px;
+  }
   /* QF-119: 위 기준 sticky + 자기 스크롤 영역(qf-sidebar-stable.css). 예전 "아래 붙는 사이드바"(음수 top, bbm-sticky-sidebar.ts)는 없앰 */
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter { position: sticky; top: 16px; align-self: start; }
 }

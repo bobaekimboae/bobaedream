@@ -925,6 +925,7 @@ const bikeShopNames = [
   "리버사이드 바이크샵", "센터스탠드 모터스", "모토파크", "브레이크포인트 바이크", "신호등 바이크샵", "모터사이클웍스", "가속페달 바이크샵", "라이트바이크", "모토원", "다이나믹 바이크샵",
 ];
 const stableHash = (value: string) => [...value].reduce((total, char) => (total * 31 + char.charCodeAt(0)) >>> 0, 7);
+const bikeShopLabel = (name: string) => name.endsWith("바이크샵") ? name : `${name.replace(/\s*바이크$/, "")} 바이크샵`;
 // 2026-10-08: 바이크 시트 매물(v08)은 게시일 최신순(같은 날은 시트 순서), 사용자 지시 매물 bike-001은 맨 위. updateRank로 업데이트순을 고정한다
 const bikeInventoryOrdered = [...bikeInventory].sort((a, b) => (a.postedDays ?? -1) - (b.postedDays ?? -1));
 const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
@@ -946,7 +947,7 @@ const bikeCars: Car[] = bikeInventoryOrdered.map((row, index) => ({
   place: row.region,
   views: 30 + index * 9,
   // 바이크는 딜러·매매단지가 없다(2026-10-10 사용자 지시): 업체 매물은 가상 「바이크샵」 이름, 개인은 개인판매자
-  dealer: row.sellerType === "개인 판매" ? "개인판매자" : bikeShopNames[stableHash(row.id) % bikeShopNames.length],
+  dealer: row.sellerType === "개인 판매" ? "개인판매자" : bikeShopLabel(bikeShopNames[stableHash(row.id) % bikeShopNames.length]),
   stock: 1,
   // v08 시트 매물은 상세페이지 게시일 기준(오늘 게시 = N시간 전, 그 외 N일 전)
   posted: row.postedDays === undefined || row.postedDays === 0 ? `${(index % 12) + 1}시간 전` : `${row.postedDays}일 전`,

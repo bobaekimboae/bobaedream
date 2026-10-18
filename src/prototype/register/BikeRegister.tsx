@@ -410,7 +410,7 @@ export default function BikeRegister() {
             </button>
             {errors.address ? <p className="bike-reg-error">{errors.address}</p> : null}
           </div>
-          <div className={`bike-reg-inline${errors.seller ? " is-error" : ""}`}><span>판매자 유형<em>*</em></span><Pills value={seller} options={["개인", "딜러"]} onChange={setSeller} /></div>
+          <div className={`bike-reg-inline${errors.seller ? " is-error" : ""}`}><span>판매자 유형<em>*</em></span><Pills value={seller} options={["개인", "바이크샵"]} onChange={setSeller} /></div>
         </section>
 
         <section className="bike-reg-card bike-reg-detail">

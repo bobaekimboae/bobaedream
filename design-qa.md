@@ -28,6 +28,35 @@
 
 final result: passed
 
+---
+
+## 2026-10-18 PC 중고차 모던 필터 비교안
+
+- source visual truth path: `reports/modern-filter-1018/source-left.png` (`filterLayout=left`).
+- browser-rendered implementation path: `reports/modern-filter-1018/implementation-modern.png` (`filterLayout=modern`).
+- combined comparison evidence: `reports/modern-filter-1018/comparison-left-modern.png`.
+- viewport and normalization: ChatGPT 인앱 브라우저 1280×720 CSS px, 두 화면 모두 동일 브라우저·동일 콘텐츠·동일 기본 필터 상태를 1:1 픽셀 크기로 비교했다.
+- state: 로그아웃, 중고차 전체, 목록형, 적용 필터 없음.
+- primary interactions tested: 상단 제조사 `현대` 선택으로 모델 레일·결과 목록 전환, `가격` 필터 모달 열기·닫기, 좌측 상세 필터와 목록의 동시 노출.
+
+### Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: 기존 Pretendard 계층과 헤더·칩·매물 글자 크기를 그대로 보존했다. 배너 제목만 26/34px에서 22/30px로 줄여 72px 배너와 비례를 맞췄다.
+- spacing and layout rhythm: 배너 높이 118→72px, 배너-필터 카드 16→12px, 카드 내부 층 간격 18→12px, 카드-결과 24→16px로 압축했다. 비교판에서 결과 툴바와 첫 매물이 약 79px 위로 올라가 720px 첫 화면에서 첫 차량 이미지·가격·지역·판매자까지 보인다.
+- colors and visual tokens: 기존 `#e8e9ec` 배너, 흰 카드, `#222` 선택 상태, 보배드림 블루 강조축을 변경하지 않았다.
+- image quality and asset fidelity: 제조사 로고와 매물 사진의 원본·슬롯·비율을 변경하지 않았으며 로딩 후 깨진 이미지가 없다.
+- copy and content: 하위 카테고리, 필터 조건, 제조사 순서와 매물 내용은 기존 좌측 시안과 동일하다.
+- behavior and accessibility: 빠른 제조사 선택과 가격 다이얼로그가 기존 접근성 이름을 유지하며 정상 작동한다. 좌측 상세 필터는 그대로 sticky 구조를 사용한다.
+
+### Comparison history
+
+- Pass 1: `filterLayout=left`는 기능과 균형은 좋지만 118px 배너와 넓은 층 간격 때문에 첫 매물의 하단 정보가 720px 첫 화면 밖으로 밀리는 P2 정보 밀도 문제가 있었다.
+- Fix: 기존 네 비교 주소를 보존하고 별도 `filterLayout=modern` 클래스에서 배너·섹션 간격만 축소했다.
+- Pass 2: 동일 1280×720 비교판에서 전체 폭 빠른 검색, 좌측 상세 필터, 첫 매물 가시성, 타이포·색·이미지를 재검사했고 남은 P0/P1/P2가 없음을 확인했다.
+
+final result: passed
+
 ## 2026-10-18 PC 제조사·모델 좌측 필터
 
 - Reference: `C:/Users/bobae/.codex/visualizations/2026/10/18/manufacturer-model-audit/05-charancha-maker-selected.png`, `06-charancha-model-selected.png`, `08-charancha-submodel-selected.png`.
