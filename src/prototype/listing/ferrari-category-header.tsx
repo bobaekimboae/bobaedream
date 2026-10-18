@@ -12,13 +12,6 @@ export function FerrariCategoryHeader() {
 
   return (
     <section className="ferrari-category-hero" aria-label="보배드림 페라리 소개">
-      <img
-        className="ferrari-category-hero-backdrop"
-        src={FERRARI_HERO_POSTER}
-        alt=""
-        aria-hidden="true"
-        draggable={false}
-      />
       {videoFailed || reduceMotion ? (
         <img
           className="ferrari-category-hero-media"

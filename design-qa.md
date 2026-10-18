@@ -32,10 +32,10 @@ final result: passed
 
 ## 2026-10-18 페라리 배너·퀵필터 칩 균형 및 PC 탑메뉴
 
-- source visual truth path: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-pc-before-f3f3ee33.png`.
-- implementation screenshot paths: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-pc-balanced-local.png`, `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-mobile-chips-local.png`.
-- combined comparison evidence: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-pc-before-after.png`.
-- viewport and normalization: source 1440×900px and implementation 1280×720px were normalized to the same 720px height and placed side by side. Mobile implementation was captured at 320×668 CSS px. Browser density was 1×.
+- source visual truth path: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-mobile-reference-local.png` (모바일 390×844px, 배너 358.4×98px).
+- implementation screenshot path: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-pc-mobile-frame-local.png` (PC 1280×720px, 배너 760×208px).
+- combined comparison evidence: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/ferrari-mobile-vs-pc-banner.png`.
+- viewport and normalization: 모바일 358.4×98 배너와 PC 760×208 배너를 각각 744×204px로 정규화해 한 비교판에 배치했다. 두 화면 모두 CSS DPR 1이며 비율은 179:49, `object-fit: cover`, 초점은 62% 54%다.
 - state: 수입차 → 페라리 → 296 → 296 GTS, compact PC layout and the same mobile route; separate bike route for the selected-menu icon state.
 - primary interactions tested: PC/mobile breakpoint switching, selected maker chip rendering, horizontal year rail, selected `수입차` GNB pill, selected `바이크` GNB pill with one icon only.
 - console errors checked: errors and warnings 0.
@@ -46,9 +46,9 @@ final result: passed
 - fonts and typography: 기존 Pretendard 14/20px 필터 칩과 16/22px GNB 글자 계층을 유지했다. 검정 수입차 알약은 16/22px·700으로 선택 상태를 분명히 한다.
 - spacing and layout rhythm: 모바일 연식 첫 칩을 x=0에서 x=16으로 옮겨 검색·지역·필터의 공통 시작선과 맞췄다. 제조사 로고는 20×20px, 칩은 32px로 중앙 정렬된다.
 - colors and visual tokens: 선택 GNB와 적용 필터 모두 `#181818/#222` 검정축을 사용한다. 제조사 로고에는 20px 흰 원형 플레이트를 둬 검정 알약 안에서도 식별된다.
-- image quality and asset fidelity: 페라리 당근 드라이브 로고 원본을 18×18px contain으로 사용한다. PC 영상은 1200×132 강제 잘림을 제거하고 179:49 비율의 1200×328.5 영역에서 재생해 모바일과 같은 배너 비율을 유지한다.
+- image quality and asset fidelity: 페라리 당근 드라이브 로고 원본을 18×18px contain으로 사용한다. PC 영상은 모바일과 같은 179:49·cover·62%/54% 초점을 760×208px로 확대하며, 별도 배경 영상이나 흐림 효과는 사용하지 않는다.
 - copy and content: 사용자 노출 메뉴명을 `트럭 · 특장`으로 통일했다. 선택된 국산차·수입차·전기차는 상위 메뉴에서도 실제 카테고리명을 표시한다.
-- focused region evidence: 모바일 캡처에서 연식 첫 칩 x=16, 페라리 로고 20×20, maker chip 110.7×32를 확인했다. PC 캡처에서 수입차 알약 67.5×34와 배너 1200×328.5를 확인했다.
+- focused region evidence: 모바일 배너 358.4×98px(비율 3.657), PC 배너 760×208.04px(비율 3.653)를 같은 크기로 정규화해 비교했다. 두 화면 모두 cover와 62%/54% 초점을 사용하고, PC에는 확장 배경 레이어가 0개다.
 
 ### Comparison history
 
@@ -59,6 +59,7 @@ final result: passed
 - Pass 4: PC GNB의 `트럭 · 특장`과 `중기`를 `트럭 · 특장 · 중기` 한 메뉴로 통합했다. 트럭·건설기계·자재운반장비 경로가 같은 메뉴를 활성화하고, 하위 메뉴에서 각 카테고리로 계속 이동할 수 있다.
 - Pass 5: PC 페라리 배너를 1200×328.5 풀사이즈에서 180~208px 높이의 시네마 배너로 압축했다. 앞 영상은 `contain`으로 전체 프레임을 보존하고, 같은 공식 포스터를 흐린 배경 레이어로 채워 좌우 여백이 빈 띠처럼 보이지 않게 했다. 모바일의 기존 179:49 배너 규칙은 변경하지 않았다.
 - Pass 6: 메뉴 결정을 반영해 통합안을 철회하고 PC GNB를 `트럭 · 특장`과 `중장비`로 분리했다. 기존 `건설기계` 내부 경로는 유지하면서 상단·하위 메뉴의 사용자 노출 이름만 `중장비`로 바꿔 기능 회귀를 피했다.
+- Pass 7: PC 페라리 배너의 흐린 확장 배경과 `contain` 처리를 제거했다. 모바일과 동일한 179:49 프레임·`cover`·62%/54% 초점을 760×208px로 그대로 확대하고 가운데 배치해, 남는 좌우는 페이지 공란으로 유지한다.
 
 final result: passed
 
