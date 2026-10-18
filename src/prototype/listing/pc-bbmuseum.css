@@ -553,4 +553,8 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   .bbm-catalog-search.is-main > input::placeholder { color: #757575; }
   .bbm-catalog-search.is-main .bbm-catalog-search-go .ct-icon { width: 16px; height: 16px; color: #fff; }
   .bbm-catalog-search.is-main .bbm-catalog-search-clear { margin-right: 6px; }
+  /* 2026-10-18 「지역 제거 · 검색 버튼 블루 → 블랙, 블루 포인트는 아끼자」: 검색 버튼·검색칸 테두리 강조를 검정으로 */
+  .bbm-catalog-search.is-main .bbm-catalog-search-go { background: #222; }
+  .bbm-catalog-search.is-main .bbm-catalog-search-go:hover { background: #000; }
+  .bbm-catalog-search.is-main:focus-within { box-shadow: 0 0 0 2px #222, 0 6px 20px rgba(17, 24, 39, .08); }
 }
