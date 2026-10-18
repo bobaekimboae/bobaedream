@@ -2619,7 +2619,6 @@ function MarketplaceScreen() {
   const quickRail = useCarBodyPillRail ? <>
     <section className="depth-rail no-label is-car-body-pill-row" aria-label={`${category} 바디타입 빠른 선택`}>
       <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track is-chips is-car-body-pill-track">
-        <span className="car-body-pill-label">바디타입:</span>
         {carBodyQuickOptions.map((option) => (
           <TrimChip
             key={option.label}

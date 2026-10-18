@@ -208,8 +208,6 @@
   .marketplace.is-bbm .bbm-result-card .bbm-card-meta-row { height: 32px; margin-top: 15px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-logo { width: 20px; height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong { color: var(--bbm-text-strong); }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-seller-text strong::after { content: "·"; margin-left: 4px; color: var(--bbm-text-weak); }
-  .marketplace.is-bbm.is-bike-category .bbm-result-card .bbm-card-seller-text strong::after { content: none; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-actions button { width: 32px; height: 32px; padding: 4px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-actions img { width: 24px; height: 24px; }
 }
