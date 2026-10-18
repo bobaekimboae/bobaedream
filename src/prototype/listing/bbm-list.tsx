@@ -509,10 +509,11 @@ const specIconOf = (item: string): keyof typeof specIconFiles | null => {
   return null;
 };
 // 아이콘이 하나라도 있는 줄은 아이콘이 항목 구분을 맡고 가운데 점을 쓰지 않는다(없는 줄은 가운데 점 유지)
-function renderFeedSpec(text: string) {
+function renderFeedSpec(text: string, forceIcons = false) {
   const items = text.split(" · ");
   // 2026-10-10 「아이콘 빼자, 복잡하다」: 기본은 아이콘 없는 가운데 점 사양 줄. 주소 끝 &specicon=on 이면 아이콘(비교용)
-  const iconsOff = new URLSearchParams(window.location.search).get("specicon") !== "on";
+  // 2026-10-18 바이크 PC 목록은 노션 「독일/스위스 오토스카우트 아이콘」의 메타정보 원본을 항상 사용한다.
+  const iconsOff = !forceIcons && new URLSearchParams(window.location.search).get("specicon") !== "on";
   const iconOf = (item: string) => iconsOff ? null : specIconOf(item);
   const hasIcon = items.some((item) => iconOf(item));
   return items.map((item, index) => {
@@ -725,7 +726,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
             {car.bike?.listingTitle ? <span className="bbm-card-listing-title">{car.bike.listingTitle}</span> : null}
             {headlinePosition === "after-model" ? headline : null}
             {prioritizeTruckCapacity ? <span className="bbm-card-spec is-capacity is-priority">{specCapacity}</span> : null}
-            <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
+            <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}${car.bike && variant === "pc" ? " has-meta-icons" : ""}`}>{car.adDescription ?? (car.bike && variant === "pc" ? renderFeedSpec(specMain, true) : featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
             {!prioritizeTruckCapacity && !car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
               <strong className="bbm-card-price"><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</strong>

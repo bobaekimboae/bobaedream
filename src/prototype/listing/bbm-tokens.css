@@ -198,6 +198,10 @@
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-title { color: #191f28; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-listing-title { height: 20px; color: #3f4650; font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec { height: 20px; color: #505c6c; font-size: 14px; font-weight: 400; line-height: 20px; letter-spacing: normal; }
+  /* 노션 AutoScout24 매물 리스트 원본: 바이크 메타는 14px 아이콘이 항목 구분을 맡고 텍스트는 기존 14/20 리듬을 유지한다. */
+  .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons { display: flex; align-items: center; gap: 12px; }
+  .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons .bbm-card-spec-item { display: inline-flex; flex: none; align-items: center; gap: 4px; }
+  .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons .bbm-card-spec-icon { width: 14px; height: 14px; color: #505c6c; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-spec:has(+ .bbm-card-spec.is-capacity) { height: 20px; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec.is-capacity.is-priority { height: 20px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-price-badges { display: flex; align-items: center; gap: 8px; height: 27px; }
