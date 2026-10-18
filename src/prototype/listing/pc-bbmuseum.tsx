@@ -95,6 +95,8 @@ function bbActiveGnbItem(category: string) {
 export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
   const activeItem = bbActiveGnbItem(category);
   const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  /* ?lnb=d: 하위 메뉴가 하나뿐(바이크 전체 등)이면 칩 줄을 그리지 않는다 */
+  if (bbLnbVariant() === "d" && subnavItems.length <= 1) return null;
   return (
     <div className="bbm-secondary-nav">
       <nav className={`bbm-snb${activeItem === "중고차" ? " is-all-visible" : ""}`} aria-label={`${activeItem} 하위 메뉴`}>
