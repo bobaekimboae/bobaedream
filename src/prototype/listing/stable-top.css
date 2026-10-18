@@ -34,6 +34,9 @@
 .marketplace.is-bbm.is-qf-guazi.is-truck-category .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; padding: 10px 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot,
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail) { height: auto; margin: 18px -20px 0; justify-content: flex-start; }
+/* 초톳 PC 바이크 실측: 필터 줄 상자 아래 8px → 유형 레일.
+   필터 칩 자체의 아래 10px 패딩까지 포함하면 보이는 칩→유형 간격은 18px이다. */
+.marketplace.is-bbm.is-qf-guazi.is-bike-category .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-bike-type-row) { margin-top: 8px; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot > * { margin-top: 0 !important; margin-bottom: 0 !important; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-quick-slot:has(> .depth-rail.is-trim-row) { margin-bottom: 8px; }
 /* 첫 화면 유형 줄도 이미지 줄 높이(칸 102, 위 여백 없음) */
