@@ -2655,10 +2655,18 @@ function MarketplaceScreen() {
     : charanchaMakerFlow && category === "수입차"
       ? bbmMakerSections.filter((section) => section.title.includes("수입"))
       : bbmMakerSections;
+  const charanchaHiddenDomesticMakers = new Set(["GM대우", "어울림모터스"]);
+  const charanchaMakerLabel = (label: string) => label === "쉐보레(국산)"
+    ? "쉐보레(GM대우)"
+    : label === "KG모빌리티(쌍용)"
+      ? "KGM(쌍용)"
+      : label;
   // 테스트 매물 수와 좌측 탐색 가능 여부를 분리한다. 실제 재고 연동 전까지 승용 좌측 필터는 모든 카탈로그 항목을 연다.
   const bbmSidebarMakerSections: BbMakerSection[] = bbmSidebarSectionSource.map((section) => ({
     title: charanchaMakerFlow ? section.title.replace("국산차", "국산").replace("수입차 인기", "수입인기").replace("수입차 이름순", "수입전체") : section.title,
-    rows: section.rows.map((row) => [row.label, charanchaMakerFlow ? (modelsByMakerMap[row.key]?.length ?? row.count) : row.count, row.key] as [string, number, string?]),
+    rows: section.rows
+      .filter((row) => !(charanchaMakerFlow && section.title.includes("국산") && charanchaHiddenDomesticMakers.has(row.label)))
+      .map((row) => [charanchaMakerFlow ? charanchaMakerLabel(row.label) : row.label, charanchaMakerFlow ? (modelsByMakerMap[row.key]?.length ?? row.count) : row.count, row.key] as [string, number, string?]),
   }));
   const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
     if (isBikeCategory) {
