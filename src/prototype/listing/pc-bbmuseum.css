@@ -474,3 +474,12 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button:hover { color: #222; }
   html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button.is-current { color: #222; font-weight: 700; }
 }
+
+/* 2026-10-18 「활성화된 메뉴 칩 배경 씌워봐라」: 카드 제목 자리 하위메뉴 탭의 현재 메뉴만 연회색 알약 바탕.
+   모든 탭이 같은 32px 알약 상자(좌우 12)를 써서 선택이 옮겨가도 글자가 움직이지 않는다. 필터 적용 칩(검정)과 겹치지 않게 연회색. */
+@media (min-width: 1024px) {
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs { gap: 4px; margin-left: -12px; } /* 글자 시작선을 설명 줄·칩(x 140)과 맞춤 */
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button { display: inline-flex; height: 32px; align-items: center; padding: 0 12px; border-radius: 9999px; }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button:hover { background: #f7f7f8; }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button.is-current { background: #f1f2f4; }
+}
