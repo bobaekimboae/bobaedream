@@ -35,7 +35,7 @@
   .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: transparent; color: #222; }
   .bbm-gnb button.is-active { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: var(--blue, #306bd9); font-weight: 700; }
   .bbm-gnb button.is-active::after { display: none; }
-  .bbm-gnb button.is-active .bbm-gnb-item-icon { color: var(--blue, #306bd9); }
+  .bbm-gnb button.is-active .bbm-gnb-item-icon { color: var(--blue, #306bd9); filter: invert(39%) sepia(90%) saturate(1123%) hue-rotate(194deg) brightness(88%) contrast(91%); }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-gnb .bbm-gnb-more { gap: 5px; height: 49px; padding: 0 1px; border: 0; border-radius: 0; background: transparent; }
   .bbm-gnb .bbm-gnb-more:hover { background: transparent; }
