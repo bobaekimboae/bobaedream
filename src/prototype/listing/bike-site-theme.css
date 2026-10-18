@@ -19,16 +19,12 @@ html[data-site="bike"] {
   --color-primary-900: #552206;
 }
 
-html[data-site="bike"] .bbm-logo-emblem img,
-html[data-site="bike"] .bbm-account-avatar img,
-html[data-site="bike"] .bike-site-mobile-brand__logo img {
+html[data-site="bike"] .bbm-account-avatar img {
   width: 30px;
   height: 30px;
   max-width: 30px;
 }
 
-html[data-site="bike"] .bbm-logo-word,
-html[data-site="bike"] .bbm-logo-word.is-ko,
 html[data-site="bike"] .bbm-lnb-title-button .bbm-lnb-title-sub,
 html[data-site="bike"] .app-footer-link--primary,
 html[data-site="bike"] .app-footer-mobile__link--primary,
@@ -122,3 +118,34 @@ html[data-site="bike"] .maker-option input {
 html[data-site="bike"] .bbm-card-verified {
   filter: brightness(0) saturate(100%) invert(48%) sepia(57%) saturate(1265%) hue-rotate(337deg) brightness(92%) contrast(83%);
 }
+
+/* 보배드림 바이크 로고(2026-10-18 「원형에 바이크가 반쯤 걸치게 사이클 트레이더처럼」):
+   주황 원 #FA6819 + 원 안은 흰색·원 밖은 #222인 오토바이 마크(44×32 → 표시 41×30),
+   글자는 「보배드림」 #222 + 「바이크」 주황, 사이 구분선 없음. */
+html[data-site="bike"] .bbm-logo-emblem,
+html[data-site="bike"] .bike-site-mobile-brand__logo {
+  overflow: visible;
+  width: 41px;
+  height: 30px;
+  flex: 0 0 41px;
+  border-radius: 0;
+}
+html[data-site="bike"] .bbm-logo-emblem img,
+html[data-site="bike"] .bike-site-mobile-brand__logo img {
+  width: 41px;
+  max-width: none;
+  height: 30px;
+}
+html[data-site="bike"] .bbm-logo { gap: 6px; }
+html[data-site="bike"] .bbm-logo-word,
+html[data-site="bike"] .bbm-logo-word.is-ko { color: #222; }
+html[data-site="bike"] .bbm-bike-site-badge {
+  padding-left: 0;
+  border-left: 0;
+  color: var(--bike-orange);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -.4px;
+}
+html[data-site="bike"] .bike-site-mobile-brand { gap: 8px; }
+html[data-site="bike"] .bike-site-mobile-brand__accent { color: var(--bike-orange); }
