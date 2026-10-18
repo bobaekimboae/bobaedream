@@ -782,6 +782,10 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
   const truckFilterLabel = "형식/적재용량";
   const hasTruckFilter = Boolean(truckFilter);
   const [openItems, setOpenItems] = useState<string[]>(() => truckFilter ? [truckFilterLabel] : makerOpenByDefault ? [bbMakerItem] : []);
+  useEffect(() => {
+    if (!makerOpenByDefault) return;
+    setOpenItems((current) => current.includes(bbMakerItem) ? current : singleOpen ? [bbMakerItem] : [...current, bbMakerItem]);
+  }, [makerOpenByDefault, singleOpen]);
   const [keepSearch, setKeepSearch] = useState(false);
   const { maker, model } = selection;
   const [view, setView] = useState<BbDrillView>(() => maker && model && selection.generation
