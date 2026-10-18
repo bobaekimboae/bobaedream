@@ -280,6 +280,7 @@
 .filter-shell.is-bbm .filter-chip-bike-icon { display: block; width: 18px; height: 18px; flex: none; margin-right: 6px; filter: brightness(0) invert(1); }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear { display: grid; width: 14px; height: 14px; margin-left: 0; padding: 0; border-radius: 0; background: transparent; place-items: center; }
 .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .ui-icon { width: 14px; height: 14px; }
+.filter-chip-clear-mark { display: none; }
 /* 유형 줄 100: 8/0/12/24, 간격 18, 아이콘·글자 간격 8, 아래 회색 8 */
 .marketplace.is-bbm-m .bbm-category-menu { overflow-x: auto; border-bottom: 8px solid var(--bbm-page-bg); scrollbar-width: none; }
 .marketplace.is-bbm-m .bbm-category-menu::-webkit-scrollbar { display: none; }

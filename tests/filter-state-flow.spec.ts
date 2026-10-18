@@ -71,3 +71,32 @@ test("desktop filter modal owns focus and returns it to its trigger", async ({ p
   await expect(dialog).toHaveCount(0);
   await expect(trigger).toBeFocused();
 });
+
+test("compact PC keeps applied vehicle chips stable across breakpoints", async ({ page }) => {
+  test.setTimeout(120_000);
+  const url = "/?qf=guazi&pc=1&filterLayout=compact&category=%EB%B0%94%EC%9D%B4%ED%81%AC&maker=BMW&model=S+1000+RR";
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(url, { waitUntil: "commit", timeout: 15_000 });
+  await expect(page.locator(".bbm-content-head.is-chotot")).toBeVisible({ timeout: 60_000 });
+
+  for (const width of [1280, 1024, 820]) {
+    await page.setViewportSize({ width, height: 900 });
+
+    const top = page.locator(".bbm-content-head.is-chotot");
+    await expect(top.locator(".bbm-filter-button")).toHaveAttribute("aria-label", /2개 적용됨/);
+    await expect(top.locator(".filter-chip.is-active").filter({ hasText: "바이크" })).toBeVisible();
+    await expect(top.locator(".filter-chip.is-active").filter({ hasText: "BMW" })).toBeVisible();
+    await expect(top.locator(".filter-chip.is-active").filter({ hasText: "S 1000 RR" })).toBeVisible();
+    await expect.poll(() => top.locator(".filter-chip:not(.is-active)").evaluateAll((chips) => chips.filter((chip) => getComputedStyle(chip).display !== "none").length)).toBe(0);
+
+    const activeHeights = await top.locator(".filter-chip.is-active").evaluateAll((chips) => chips.map((chip) => chip.getBoundingClientRect().height));
+    expect(activeHeights.every((height) => height === 32)).toBe(true);
+    const clearSizes = await top.locator(".filter-chip-clear").evaluateAll((buttons) => buttons.map((button) => {
+      const rect = button.getBoundingClientRect();
+      return [rect.width, rect.height];
+    }));
+    expect(clearSizes.every(([chipWidth, chipHeight]) => chipWidth >= 24 && chipHeight >= 24)).toBe(true);
+
+    if (width < 1280) await expect(page.locator(".bbm-page > .bbm-filter")).toBeHidden();
+  }
+});

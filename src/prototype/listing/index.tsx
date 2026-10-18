@@ -638,7 +638,7 @@ function FilterChip({ label, icon, active, className = "", onClick, onClear, bbm
     return (
       <div className={chipClassName}>
         <button className="filter-chip-label" type="button" aria-pressed="true" onClick={onClick}>{prefix}<span>{label}</span></button>
-        <button className="filter-chip-clear" type="button" aria-label={`${label} 필터 해제`} onClick={onClear}>{bbm ? <img className="ui-icon" src={bbmIcon("chip-remove")} alt="" aria-hidden="true" /> : <Icon name="close.svg" />}</button>
+        <button className="filter-chip-clear" type="button" aria-label={`${label} 필터 해제`} onClick={onClear}>{bbm ? <><img className="ui-icon" src={bbmIcon("chip-remove")} alt="" aria-hidden="true" /><span className="filter-chip-clear-mark" aria-hidden="true" /></> : <Icon name="close.svg" />}</button>
       </div>
     );
   }
