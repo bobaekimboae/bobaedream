@@ -29,9 +29,9 @@
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-title-row { height: 32px; margin-top: 0; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot > .bbm-ct-crumbs + .bbm-ct-title-row { margin-top: 8px; }
 .marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 32px; margin-top: 18px; margin-bottom: 0; padding: 0; }
-/* 트럭·국산차 전체 폭 카드: 초톳 목록처럼 필터 칩 위를 `지역 / 초기화` 한 줄로 단순화한다.
-   기존 유형 텍스트 탭과 지역 칩은 각각 유형 이미지 레일·이 줄과 겹치므로 렌더하지 않는다. */
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-row { display: flex; align-items: center; justify-content: space-between; height: 32px; }
+/* 트럭·국산차 전체 폭 카드: 초톳처럼 필터 칩 → 지역 → 유형 순으로 둔다.
+   지역 행은 초톳 contextual row와 같은 48px, 초기화는 필터 행 오른쪽에 둔다. */
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-row { display: flex; align-items: center; justify-content: flex-start; height: 48px; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select,
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { display: inline-flex; align-items: center; height: 32px; padding: 0; border: 0; background: none; color: #222; font: inherit; font-size: 14px; line-height: 20px; cursor: pointer; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select { gap: 5px; font-weight: 600; }
@@ -39,7 +39,9 @@
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-region-select img { width: 14px; height: 14px; margin-left: -1px; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { font-weight: 700; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all:disabled { color: #b8b8b8; cursor: default; }
-.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; margin-top: 8px; padding: 10px 0; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; margin-top: 0; padding: 10px 0; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-filter-button.is-reference-active { background: #222; color: #fff; }
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-filter-button.is-reference-active img { filter: brightness(0) invert(1); }
 /* 초톳 PC 실측 리듬: 필터 52 → 지역/유형 48 → 8 → 카테고리·모델 102 → 카드 끝 16.
    국산차 풀사이즈 퀵필터도 같은 순서로 맞추고, 레일 사이의 임의 구분선은 없앤다. */
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter

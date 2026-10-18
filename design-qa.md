@@ -30,6 +30,38 @@ final result: passed
 
 ---
 
+## 2026-10-19 초톳형 PC 퀵필터 박스 내부 정렬 교정
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.tmp/pen-area-audit-20261019/04-chotot-cars-pc.png`
+- Implementation screenshot: `reports/chotot-box-fix/local-fixed.png`
+- Combined comparison evidence: `reports/chotot-box-fix/side-by-side.png`
+- Route: `/?qf=guazi&pc=1&category=국산차`
+- Viewport/density: source and implementation both 1280×720 CSS px; implementation DPR 1.25; screenshots compared at native 1280×720 pixels without geometric resampling.
+- State: PC, 국산차, no applied detail filters, default maker rail.
+
+### Three-pass comparison history
+
+- Pass 1 — numeric geometry: the 1200px card, 12px radius, 20px horizontal padding, 52px filter row, 48px contextual rows, 102px maker row, 16px final-row bottom gap, and 12px card-to-results gap match the measured Chợ Tốt rhythm. The maker label bottom-to-card bottom gap is now 37px instead of 43px.
+- Fixes: moved the manufacturer labels down 6px; reordered the card to `필터 → 지역 → 바디타입 → 브랜드`; moved `필터 초기화` to the filter row right edge; changed the primary filter chip to the black active treatment.
+- Pass 2 — combined visual comparison: the source and implementation were placed in one 2560×764 comparison image. The card reads as one compact group, the filter action is the strongest visual anchor, and the marked lower whitespace no longer appears oversized.
+- Pass 3 — interaction and reset: selected `SUV`, confirmed the row remains 48px and the card remains 290px, then used `필터 초기화` and confirmed no selected body type remains and the maker rail returns. Browser error log: 0.
+
+### Required fidelity surfaces
+
+- Typography: passed — chips and context use 14/20px; maker labels use 14/21px and start at row top +60px.
+- Spacing/layout: passed — card x=40, width=1200, top padding=16, filter/region/body/maker vertical rhythm `52/48/48/8/102`, maker-row bottom gap=16, label bottom gap=37, next-results gap=12.
+- Colors/tokens: passed — primary filter is `#222` with white icon/text; secondary chips keep neutral gray; card and page surfaces remain white / light gray.
+- Image quality/assets: passed — existing official manufacturer assets remain undistorted in fixed 40×40 slots. Their intrinsic aspect ratios are intentionally preserved rather than stretched to identical silhouettes.
+- Copy/content: passed — `필터`, seven filter categories, `지역: 전국`, ten body types, six manufacturer entries, `전체 브랜드`, and `필터 초기화` remain present.
+- Behavior/accessibility: passed — body-type selection and reset work, the region control retains its accessible current-value label, and browser console errors are zero.
+
+- Residual P3: official wordmarks have different intrinsic aspect ratios, so their filled silhouette area cannot be perfectly identical without distorting the brand marks. Slot geometry and centering are identical.
+- P0/P1/P2 findings: none.
+
+final result: passed
+
+---
+
 ## 2026-10-19 엔카 트럭 좌측 필터 — 버스/현대 회귀 검수
 
 - Source visual truth: `https://www.encar.com/tr/tr_carsearchlist.do#!` (Codex 인앱 브라우저 tab 20, 버스 → 버스 → 현대 상태 직접 조작 캡처)
