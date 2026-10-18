@@ -623,3 +623,14 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   .bbm-catalog-search.is-posh.is-posh-blue .bbm-catalog-search-go:hover { background: #1952ba !important; }
   .bbm-catalog-search.is-posh.is-posh-blue .bbm-catalog-search-go .ct-icon { width: 16px; height: 16px; color: #fff; }
 }
+
+/* 2026-10-18 「진행해보고 지금 시안도 보존」 기본 = 회색 간결형: 회색 채움 #F4F4F4 · 높이 40 · 테두리 없음 + 범위 15/400(평소 알약 바탕 없음) · 왼쪽 돋보기 없음 · 파랑 원 검색 버튼. 이전 기본은 `&pcsearch=cat1` */
+@media (min-width: 820px) {
+  .bbm-catalog-search.is-main.is-cat.is-posh.is-posh-gray { height: 40px; padding: 0 4px 0 4px; border: 0; background: #f4f4f4; box-shadow: none; }
+  .bbm-catalog-search.is-posh.is-posh-gray:hover { background: #eeeeee; }
+  .bbm-catalog-search.is-posh.is-posh-gray:focus-within { border: 0; background: #fff; box-shadow: 0 0 0 2px #306bd9, 0 6px 20px rgba(17, 24, 39, .08); }
+  .bbm-catalog-search.is-posh.is-posh-gray .bbm-search-cat { background: transparent; }
+  .bbm-catalog-search.is-posh.is-posh-gray .bbm-search-cat:hover, .bbm-catalog-search.is-posh.is-posh-gray .bbm-search-cat[aria-expanded="true"] { background: rgba(0, 0, 0, .06); }
+  .bbm-catalog-search.is-posh.is-posh-gray .bbm-search-cat-divider { background: #d9d9d9; }
+  .bbm-catalog-search.is-posh.is-posh-gray.is-posh-blue { padding-right: 4px; }
+}
