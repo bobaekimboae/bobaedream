@@ -30,6 +30,29 @@ final result: passed
 
 ---
 
+## 2026-10-18 PC GNB/LNB neutral hierarchy
+
+- Reference: `.tmp/nav-audit-20261018/02-encar-ev.png` (Encar's separated GNB/LNB structure).
+- Implementation: `.tmp/nav-audit-20261018/03-bobaedream-black-nav-local.png`.
+- Combined checks: `.tmp/nav-audit-20261018/04-encar-reference-vs-neutral-nav.png` and `.tmp/nav-audit-20261018/05-encar-reference-vs-neutral-nav-focused.png`.
+- Route/state: `/?qf=guazi&pc=1&category=중고차`, desktop, logged out, default filters.
+- Viewport capture: 1254×708 in the ChatGPT in-app browser.
+
+### Comparison
+
+- Information architecture: passed — the used-car LNB is a dedicated row immediately beneath the text GNB, matching the reference's two-level hierarchy.
+- Blue restraint: passed — the active GNB uses black 700-weight text with no underline; the current LNB uses `#222`/white. Blue remains limited to brand, search, and the primary sell action.
+- Geometry: passed — LNB is 48px high; chips are 32px high, 6px radius, and 8px apart. One neutral bottom divider closes the navigation block.
+- Duplication: passed — breadcrumb and duplicate category filter chip are absent on used-car and truck routes.
+- Typography and spacing: passed — GNB remains 16px text navigation, LNB 14/20px, and the filter card starts below a consistent 12px section gap.
+- Runtime: passed — used-car LNB count 8, active state `전체 중고차`, no `::after` underline, no console errors. Truck route also renders a 48px LNB with `환경·폐기물차` active, 6px radius, no breadcrumb, and no duplicate category chip.
+- Interactions: passed — LNB controls remain semantic buttons and preserve the existing category-selection behavior.
+- Findings: P0/P1/P2 none. Intentional difference from Encar: Bobaedream removes the colored GNB underline to keep navigation visually quiet.
+
+final result: passed
+
+---
+
 ## PC 국산차 로고·브랜드명 올드카 간격 적용 · 2026-10-18
 
 - source visual truth: 로컬 올드카 `/?qf=guazi&pc=1&category=올드카`; `C:/Users/bobae/.codex/visualizations/2026/10/18/domestic-brand-gap/oldcar-source.png`.

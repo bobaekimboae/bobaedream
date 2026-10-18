@@ -30,34 +30,33 @@
   .bbm-gnb > .bbm-gnb-more-wrap > button { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: #444; }
   .bbm-gnb > button:hover,
   .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
-  .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: transparent; color: #174fae; }
+  .bbm-gnb > .bbm-gnb-more-wrap > button:hover { background: transparent; color: #222; }
   .bbm-gnb button.is-active { align-self: stretch; height: 49px; padding: 0 1px; border-radius: 0; background: transparent; color: #111; font-weight: 700; }
-  .bbm-gnb button.is-active::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; display: block; height: 3px; border-radius: 3px 3px 0 0; background: #306bd9; }
+  .bbm-gnb button.is-active::after { display: none; }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-gnb .bbm-gnb-more { gap: 5px; height: 49px; padding: 0 1px; border: 0; border-radius: 0; background: transparent; }
   .bbm-gnb .bbm-gnb-more:hover { background: transparent; }
   .bbm-gnb .bbm-gnb-more.is-active { background: transparent; color: #111; }
-  .bbm-gnb-more-count { display: inline; min-width: 0; height: auto; padding: 0; border-radius: 0; background: transparent; color: #306bd9; font-size: 11px; font-weight: 700; line-height: 20px; font-variant-numeric: tabular-nums; }
-  .bbm-gnb-more.is-active .bbm-gnb-more-count { background: transparent; color: #306bd9; }
+  .bbm-gnb-more-count { display: inline; min-width: 0; height: auto; padding: 0; border-radius: 0; background: transparent; color: #767676; font-size: 11px; font-weight: 700; line-height: 20px; font-variant-numeric: tabular-nums; }
+  .bbm-gnb-more.is-active .bbm-gnb-more-count { background: transparent; color: #222; }
   .bbm-gnb-more .bb-icon { color: #505050; transition: transform 160ms ease; }
-  .bbm-gnb-more.is-active .bb-icon { color: #306bd9; }
+  .bbm-gnb-more.is-active .bb-icon { color: #222; }
   .bbm-gnb-more[aria-expanded="true"] .bb-icon { transform: rotate(180deg); }
   .bbm-gnb-more-menu { position: absolute; top: 46px; right: -12px; z-index: 150; display: grid; min-width: 164px; padding: 8px; border: 1px solid #e5e5e5; border-radius: 10px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .12); }
   .bbm-gnb .bbm-gnb-more-menu button { justify-content: flex-start; width: 100%; height: 38px; padding: 0 12px; border-radius: 7px; font-size: 14px; font-weight: 500; line-height: 20px; text-align: left; }
   .bbm-gnb .bbm-gnb-more-menu button:hover, .bbm-gnb .bbm-gnb-more-menu button.is-current { background: #f7f7f7; color: #222; font-weight: 700; }
   .bbm-gnb .bbm-gnb-more-menu button::after { display: none; }
-  .bbm-secondary-nav { display: flex; height: 44px; align-items: center; margin: 0 0 12px; border-bottom: 1px solid #e5e7eb; box-sizing: border-box; background: #fff; }
+  .bbm-secondary-nav { display: flex; height: 48px; align-items: center; margin: 0 0 12px; border-bottom: 1px solid #e5e7eb; box-sizing: border-box; background: #fff; }
   .bbm-snb { display: flex; width: 100%; min-width: 0; align-items: center; gap: 8px; overflow-x: auto; scrollbar-width: none; }
   .bbm-snb::-webkit-scrollbar { display: none; }
   .bbm-snb > button,
-  .bbm-snb > .bbm-snb-special-wrap > button { position: relative; display: inline-flex; height: 32px; flex: none; align-items: center; justify-content: center; padding: 0 13px; border: 0; border-radius: 9999px; background: #f4f5f6; color: #444; font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: normal; white-space: nowrap; }
+  .bbm-snb > .bbm-snb-special-wrap > button { position: relative; display: inline-flex; height: 32px; flex: none; align-items: center; justify-content: center; padding: 0 13px; border: 0; border-radius: 6px; background: #f4f5f6; color: #444; font-size: 14px; font-weight: 500; line-height: 20px; letter-spacing: normal; white-space: nowrap; }
   .bbm-snb > button:hover,
   .bbm-snb > .bbm-snb-special-wrap > button:hover { background: #e8eaed; color: #222; }
   .bbm-snb > button.is-current,
-  .bbm-snb > .bbm-snb-special-wrap > button.is-current { border: 0; background: #306bd9; color: #fff; font-weight: 700; }
+  .bbm-snb > .bbm-snb-special-wrap > button.is-current { border: 0; background: #222; color: #fff; font-weight: 700; }
   .bbm-snb > button.is-current::after,
   .bbm-snb > .bbm-snb-special-wrap > button.is-current::after { display: none; }
-  .marketplace.is-truck-category .bbm-snb > button { border-radius: 6px; }
   .bbm-snb.is-used-car { overflow: visible; }
   .bbm-snb-special-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-snb .bbm-snb-special-toggle { gap: 5px; }
