@@ -28,8 +28,6 @@
 
 final result: passed
 
----
-
 ## 2026-10-18 PC 제조사·모델 좌측 필터
 
 - Reference: `C:/Users/bobae/.codex/visualizations/2026/10/18/manufacturer-model-audit/05-charancha-maker-selected.png`, `06-charancha-model-selected.png`, `08-charancha-submodel-selected.png`.
@@ -5644,6 +5642,31 @@ final result: passed
 - Visual language: passed — 20px 원형 체크, 보배드림 블루 선택색, 14px 행 글자, 우측 숫자 정렬이 차란차 구조와 일치한다.
 - Availability: passed — 테스트 매물 수가 0이어도 제조사·모델·세부모델·등급을 숨기거나 비활성화하지 않는다.
 - Scroll/console: passed — 1280×720 좌측 내부 스크롤, 마지막 필터 접근, 콘솔 오류 0을 확인했다.
+
+final result: passed
+
+---
+
+## 2026-10-18 차란차 제조사 필터 픽셀 정밀 보정
+
+- Reference: `https://charancha.com/cars?cf_maker=050&cf_gradeLevelUnified=001_001&cf_gradeLevelUnified=001_002&cf_grade=05593&cf_grade=05597&cf_grade=05601&cf_gradeDetail=02713&cf_gradeDetail=02717&cf_model=0507&cf_modelDetail=0857`
+- Reference screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/18/charancha-pixel-perfect-2/14-charancha-focused-equal.png`
+- Implementation screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/18/charancha-pixel-perfect-2/18-bobaedream-focused-post-rebase.png`
+- Route: `/?qf=guazi&pc=1&category=국산차&maker=제네시스&model=EQ900&generation=EQ900`
+- Viewport: 1280×1200
+- 원본과 구현을 같은 검수 호출에서 함께 확인했다.
+
+### Measurements and comparison
+
+- Sidebar geometry: passed — 필터 패널 폭 280px, 콘텐츠 폭 269.6px, 본문 간격 40px로 맞췄다.
+- Heading: passed — `16/24px`, weight 600, `#191F28`, 상단 22px·하단 16px 간격을 적용했다.
+- Selected path: passed — 기본 행 40px, 세대 행 60px, 좌우 6px·상하 10px, 컨테이너 하단선 `#ECEEF0`만 유지했다.
+- X icon: passed — 차란차 벡터와 같은 20×20px 회색 원·흰색 십자 SVG를 사용하고 버튼 배경과 패딩을 제거했다.
+- Grade tree: passed — 행 44px, 선택 원 24×24px, 1단 18px·2단 48px 들여쓰기, 8×8px L자 연결선을 적용했다.
+- Color and type: passed — 선택 `#0740E4`, 선택 수량 `#4F75EF`, 비선택 본문 `#191F28`, 보조 `#919BA7`, 트리 본문 `14/20px`을 적용했다.
+- Interaction: passed — 차란차와 같이 연료·구동, 중간 등급, 하위 트림을 각각 독립 선택하며 각 반복 URL 파라미터를 보존한다.
+- Clear behavior: passed — 각 20px X는 해당 경로를 해제하고 제조사 X는 하위 모델·세대·등급까지 함께 초기화한다.
+- Regression: passed — TypeScript, 모바일 런타임 보호, PC 사이드바 스크롤, 퀵필터 프로덕션 빌드를 통과했다.
 
 final result: passed
 

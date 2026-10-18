@@ -14,11 +14,15 @@ import { BbmVehicleTypeDropdown } from "./bbm-vehicle-type-dropdown";
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
 // OP-010: 노션 "베트남 초톳" 아이콘(public/assets/icons/bb/, currentColor). 매핑표는 docs/icon-map.md
-type BbIconName = "search" | "mypage" | "heart" | "heart-filled" | "chat" | "notification" | "menu" | "chevron-down" | "filter" | "saved-search" | "view-list" | "location-pin" | "photo-count" | "chevron-left" | "check";
+type BbIconName = "search" | "mypage" | "heart" | "heart-filled" | "chat" | "notification" | "menu" | "chevron-down" | "filter" | "saved-search" | "view-list" | "location-pin" | "photo-count" | "chevron-left" | "check" | "circle-check" | "circle-check-off" | "circle-close";
 
 function BbIcon({ name, size = 20, className = "" }: { name: BbIconName; size?: 16 | 20 | 24 | 18 | 12; className?: string }) {
   const style = { "--bb-icon": `url("${asset(`icons/bb/${name}.svg`)}")`, "--bb-size": `${size}px` } as CSSProperties;
   return <span className={`bb-icon ${className}`} style={style} aria-hidden="true" />;
+}
+
+function BbAssetIcon({ name, size }: { name: "circle-check" | "circle-check-off" | "circle-close"; size: 20 | 24 }) {
+  return <img className="bb-asset-icon" src={asset(`icons/bb/${name}.svg`)} width={size} height={size} alt="" aria-hidden="true" draggable={false} />;
 }
 
 type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" };
@@ -419,6 +423,8 @@ type BbMakerSelection = {
   generationLabel: string | null;
   generationYears?: string | null;
   grades: string[];
+  gradeLevels?: string[];
+  gradeGroups?: string[];
   modelsFor: (maker: string) => BbModelRow[];
   gradeGroupsFor: (maker: string, model: string) => BbGradeGroup[];
   gradeTreeFor?: (generation: string) => BbGradeTreeNode[];
@@ -426,6 +432,8 @@ type BbMakerSelection = {
   onChooseModel: (model: string) => void;
   onToggleGrade: (generation: string | null, grade: string) => void;
   onToggleGrades?: (generation: string, grades: string[], checked: boolean) => void;
+  onToggleGradeLevel?: (generation: string, id: string) => void;
+  onToggleGradeGroup?: (generation: string, id: string) => void;
   onClearMaker: () => void;
   onClearModel: () => void;
   onClearGrades: () => void;
@@ -457,6 +465,9 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
     maker && model && selection.generation ? { key: "generation", label: selection.generationLabel ?? selection.generation, sublabel: selection.generationYears ?? null, onOpen: () => setView({ stage: "generation", maker, model }), onClear: selection.onClearGrades } : null,
   ].filter((row): row is NonNullable<typeof row> => Boolean(row));
   const count = (value: number | null | undefined) => !showInventoryCounts || value === null || value === undefined ? null : <em className={value === 0 ? "is-zero" : ""}>{value.toLocaleString("ko-KR")}</em>;
+  const checkbox = (checked: boolean, mixed = false) => referenceStyle
+    ? <BbAssetIcon name={checked || mixed ? "circle-check" : "circle-check-off"} size={24} />
+    : checked ? <BbIcon name="check" size={16} /> : mixed ? <span className="bbm-checkbox-mixed" /> : null;
   const modelRows = view.stage === "model" ? selection.modelsFor(view.maker) : [];
   const popularNames = view.stage === "model" ? popularModelsByMaker[view.maker] ?? [] : [];
   const popularRows = referenceStyle ? [] : popularNames.map((name) => modelRows.find((row) => row.name === name || row.label === name)).filter((row): row is BbModelRow => Boolean(row));
@@ -471,7 +482,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
       {pathRows.length ? <div className="bbm-selection-path" aria-label="선택한 제조사·모델·세부모델">
         {pathRows.map((row) => <div key={row.key} className="bbm-selection-row">
           <button type="button" className="bbm-selection-label" onClick={row.onOpen}><span>{row.label}</span>{"sublabel" in row && row.sublabel ? <small>{compactReferenceYears(row.sublabel)}</small> : null}</button>
-          <button type="button" className="bbm-selection-clear" aria-label={`${row.label} 선택 해제`} onClick={row.onClear}>×</button>
+          <button type="button" className="bbm-selection-clear" aria-label={`${row.label} 선택 해제`} onClick={row.onClear}><BbAssetIcon name="circle-close" size={20} /></button>
         </div>)}
       </div> : null}
       <div className="bbm-catalog">
@@ -517,29 +528,31 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
               if (tree.length) return <div className="bbm-grade-tree">{tree.map((fuel) => {
                 const fuelTokens = fuel.grades.flatMap((grade) => grade.subgrades.map((subgrade) => subgrade.token));
                 const fuelCheckedCount = fuelTokens.filter((token) => grades.includes(token)).length;
-                const fuelChecked = fuelCheckedCount > 0 && fuelCheckedCount === fuelTokens.length;
-                const fuelMixed = fuelCheckedCount > 0 && !fuelChecked;
+                const independentFuelSelection = Boolean(selection.gradeLevels && selection.onToggleGradeLevel);
+                const fuelChecked = independentFuelSelection ? selection.gradeLevels!.includes(fuel.id) : fuelCheckedCount > 0 && fuelCheckedCount === fuelTokens.length;
+                const fuelMixed = independentFuelSelection ? false : fuelCheckedCount > 0 && !fuelChecked;
                 return <div key={fuel.id} className="bbm-grade-branch">
-                  <button type="button" role="checkbox" aria-checked={fuelMixed ? "mixed" : fuelChecked} className={`bbm-grade-row is-level-0${fuelChecked || fuelMixed ? " is-checked" : ""}${fuelMixed ? " is-mixed" : ""}`} onClick={() => selection.onToggleGrades?.(view.generation, fuelTokens, !fuelChecked)}>
-                    <span className="bbm-checkbox" aria-hidden="true">{fuelChecked ? <BbIcon name="check" size={16} /> : fuelMixed ? <span className="bbm-checkbox-mixed" /> : null}</span>
+                  <button type="button" role="checkbox" aria-checked={fuelMixed ? "mixed" : fuelChecked} className={`bbm-grade-row is-level-0${fuelChecked || fuelMixed ? " is-checked" : ""}${fuelMixed ? " is-mixed" : ""}`} onClick={() => independentFuelSelection ? selection.onToggleGradeLevel?.(view.generation, fuel.id) : selection.onToggleGrades?.(view.generation, fuelTokens, !fuelChecked)}>
+                    <span className="bbm-checkbox" aria-hidden="true">{checkbox(fuelChecked, fuelMixed)}</span>
                     <span className="bbm-grade-name">{fuel.name}</span>{count(fuel.count)}
                   </button>
                   {fuel.grades.map((grade) => {
                     const gradeTokens = grade.subgrades.map((subgrade) => subgrade.token);
                     const gradeCheckedCount = gradeTokens.filter((token) => grades.includes(token)).length;
-                    const gradeChecked = gradeCheckedCount > 0 && gradeCheckedCount === gradeTokens.length;
-                    const gradeMixed = gradeCheckedCount > 0 && !gradeChecked;
+                    const independentGradeSelection = Boolean(selection.gradeGroups && selection.onToggleGradeGroup);
+                    const gradeChecked = independentGradeSelection ? selection.gradeGroups!.includes(grade.id) : gradeCheckedCount > 0 && gradeCheckedCount === gradeTokens.length;
+                    const gradeMixed = independentGradeSelection ? false : gradeCheckedCount > 0 && !gradeChecked;
                     return <div key={grade.id} className="bbm-grade-branch is-level-1">
-                      <button type="button" role="checkbox" aria-checked={gradeMixed ? "mixed" : gradeChecked} className={`bbm-grade-row is-level-1${gradeChecked || gradeMixed ? " is-checked" : ""}${gradeMixed ? " is-mixed" : ""}`} onClick={() => selection.onToggleGrades?.(view.generation, gradeTokens, !gradeChecked)}>
+                      <button type="button" role="checkbox" aria-checked={gradeMixed ? "mixed" : gradeChecked} className={`bbm-grade-row is-level-1${gradeChecked || gradeMixed ? " is-checked" : ""}${gradeMixed ? " is-mixed" : ""}`} onClick={() => independentGradeSelection ? selection.onToggleGradeGroup?.(view.generation, grade.id) : selection.onToggleGrades?.(view.generation, gradeTokens, !gradeChecked)}>
                         <span className="bbm-tree-elbow" aria-hidden="true" />
-                        <span className="bbm-checkbox" aria-hidden="true">{gradeChecked ? <BbIcon name="check" size={16} /> : gradeMixed ? <span className="bbm-checkbox-mixed" /> : null}</span>
+                        <span className="bbm-checkbox" aria-hidden="true">{checkbox(gradeChecked, gradeMixed)}</span>
                         <span className="bbm-grade-name">{grade.name}</span>{count(grade.count)}
                       </button>
                       {grade.subgrades.map((subgrade) => {
                         const checked = grades.includes(subgrade.token);
                         return <button key={subgrade.id} type="button" role="checkbox" aria-checked={checked} className={`bbm-grade-row is-level-2${checked ? " is-checked" : ""}`} onClick={() => selection.onToggleGrade(view.generation, subgrade.token)}>
                           <span className="bbm-tree-elbow" aria-hidden="true" />
-                          <span className="bbm-checkbox" aria-hidden="true">{checked ? <BbIcon name="check" size={16} /> : null}</span>
+                          <span className="bbm-checkbox" aria-hidden="true">{checkbox(checked)}</span>
                           <span className="bbm-grade-name">{subgrade.name}</span>{count(subgrade.count)}
                         </button>;
                       })}
@@ -552,7 +565,7 @@ function BbMakerGradeFilter({ selection, view, setView, brandLogos = false, bran
               return group.grades.map((grade) => {
                 const checked = model === view.model && selection.generation === view.generation && grades.includes(grade.name);
                 return <button key={`${view.generation}-${grade.name}`} type="button" role="checkbox" aria-checked={checked} disabled={!allowEmptyOptions && grade.count === 0} className={`bbm-grade-row${checked ? " is-checked" : ""}`} onClick={() => selection.onToggleGrade(view.generation, grade.name)}>
-                  <span className="bbm-checkbox" aria-hidden="true">{checked ? <BbIcon name="check" size={16} /> : null}</span>
+                  <span className="bbm-checkbox" aria-hidden="true">{checkbox(checked)}</span>
                   <span className="bbm-grade-name">{grade.name}</span>
                   {count(grade.count)}
                 </button>;

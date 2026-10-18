@@ -476,6 +476,10 @@
 .marketplace.is-bbm .bbm-filter-toggle { position: relative; }
 .marketplace.is-bbm .bbm-filter-item.is-applied .bbm-filter-label-text { color: var(--bbm-blue); }
 .marketplace.is-bbm .bbm-filter-item.is-applied .bbm-filter-toggle::before { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 3px; background: var(--bbm-blue); }
+/* 차란차형 제조사 트리는 선택값이 있어도 제목행을 중립색으로 유지한다. */
+.marketplace.is-bbm .bbm-filter-item.is-maker-grade.is-applied .bbm-filter-label-text { color: #191f28; }
+.marketplace.is-bbm .bbm-filter-item.is-maker-grade.is-applied .bbm-filter-toggle::before { content: none; }
+.marketplace.is-bbm .bbm-filter-item.is-maker-grade.is-open .bbm-filter-toggle { height: 46px; padding: 22px 0 0; color: #191f28; font-size: 16px; font-weight: 600; line-height: 24px; }
 /* 구간 칩 선택: 보배 파랑 채움 + 흰 글자 */
 .bbmf-presets button.is-selected { border-color: var(--bbm-blue); background: var(--bbm-blue); color: #fff; font-weight: 500; }
 /* 슬라이더: 회색 막대 위에 두 손잡이 사이만 파랑 */

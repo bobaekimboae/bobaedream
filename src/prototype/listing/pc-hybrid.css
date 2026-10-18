@@ -13,7 +13,7 @@
 /* 1280 이상: 좌측 필터 300 + 24 + 목록. 좌측 필터는 스크롤 상자(.mobile-scroll) 안에서 위 16 에 붙는 sticky, 높이 = 화면 − 32 고정·안에서 따로 스크롤(QF-119).
    자기 칸(.bbm-page 행) 안에서만 움직여 푸터를 덮지 않는다(QF-059) */
 @media (min-width: 1280px) {
-  .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: 300px minmax(0, 1fr); gap: 24px; }
+  .marketplace.is-bbm.is-hybrid .bbm-page { grid-template-columns: 280px minmax(0, 1fr); gap: 40px; }
   .marketplace.is-bbm.is-hybrid .bbm-page:has(> .bbm-filter.is-collapsed) { grid-template-columns: 48px minmax(0, 1fr); }
   /* 일반 중고차: 매물 탐색을 먼저 읽도록 목록을 왼쪽, 필터를 오른쪽으로 교체한다. */
   .marketplace.is-bbm.is-hybrid.is-list-first-layout .bbm-page { grid-template-columns: minmax(0, 1fr) 300px; }

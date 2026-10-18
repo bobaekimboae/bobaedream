@@ -836,6 +836,8 @@ function MarketplaceScreen() {
   useLayoutEffect(() => { setPretendard(quickFilterStyle === "guazi"); }, [quickFilterStyle]);
   const [selectedGeneration, setSelectedGeneration] = useState<string | null>(() => new URLSearchParams(window.location.search).get("generation"));
   const [selectedVariants, setSelectedVariants] = useState<string[]>(() => new URLSearchParams(window.location.search).getAll("grade"));
+  const [selectedGradeLevels, setSelectedGradeLevels] = useState<string[]>(() => new URLSearchParams(window.location.search).getAll("gradeLevel"));
+  const [selectedGradeGroups, setSelectedGradeGroups] = useState<string[]>(() => new URLSearchParams(window.location.search).getAll("gradeGroup"));
   const [catalogSelectionRecord, setCatalogSelectionRecord] = useState<VehicleSearchRecord | null>(null);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
@@ -1159,7 +1161,7 @@ function MarketplaceScreen() {
     filters.videoOnly,
     Boolean(region.province || region.district || region.radius),
   ].filter(Boolean).length
-    + (isGuaziQuickStyle || trimApplied ? selectedVariants.length : 0)
+    + (isGuaziQuickStyle || trimApplied ? selectedVariants.length + selectedGradeLevels.length + selectedGradeGroups.length : 0)
     + filters.colors.length;
 
   const baseListCars = useMemo(() => {
@@ -1261,6 +1263,8 @@ function MarketplaceScreen() {
     else url.searchParams.delete("model");
     url.searchParams.delete("generation");
     url.searchParams.delete("grade");
+    url.searchParams.delete("gradeLevel");
+    url.searchParams.delete("gradeGroup");
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
@@ -1270,6 +1274,19 @@ function MarketplaceScreen() {
     else url.searchParams.delete("generation");
     url.searchParams.delete("grade");
     for (const grade of nextGrades) url.searchParams.append("grade", grade);
+    if (nextGeneration !== selectedGeneration) {
+      url.searchParams.delete("gradeLevel");
+      url.searchParams.delete("gradeGroup");
+    }
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  };
+
+  const replaceGradeBranchParams = (nextLevels: string[], nextGroups: string[]) => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("gradeLevel");
+    url.searchParams.delete("gradeGroup");
+    for (const level of nextLevels) url.searchParams.append("gradeLevel", level);
+    for (const group of nextGroups) url.searchParams.append("gradeGroup", group);
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
@@ -1332,6 +1349,8 @@ function MarketplaceScreen() {
     setQuickFilterFocus(null);
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setSelectedTruckFormat(null);
     setSelectedTruckSubtype(null);
@@ -1351,6 +1370,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, category: "전체", maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setCategoryLandingOpen(true);
     setSelectedTruckFormat(null);
@@ -1372,6 +1393,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(null, null);
@@ -1384,6 +1407,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(selectedTruckFormat, null);
@@ -1395,6 +1420,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(selectedTruckFormat, selectedTruckSubtype, null);
@@ -1408,6 +1435,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(formatName, null);
@@ -1421,6 +1450,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(selectedTruckFormat, subtypeName);
@@ -1433,6 +1464,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(selectedTruckFormat, selectedTruckSubtype, spec);
@@ -1446,6 +1479,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(null, null);
     replaceTruckParams(formatName, formatName ? subtypeName : null, null);
@@ -1456,6 +1491,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: null, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(null);
     setSelectedFerrariDealer(null);
@@ -1477,6 +1514,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(null);
     replaceFilterParams(maker, null);
@@ -1485,6 +1524,8 @@ function MarketplaceScreen() {
   const clearGenerationFilter = () => {
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(null);
     replaceVehicleDepthParams(null, []);
@@ -1492,9 +1533,12 @@ function MarketplaceScreen() {
 
   const clearVariantFilter = () => {
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(null);
     replaceVehicleDepthParams(selectedGeneration, []);
+    replaceGradeBranchParams([], []);
   };
 
   const returnToModelDepth = () => {
@@ -1502,6 +1546,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(maker, null);
   };
@@ -1509,6 +1555,8 @@ function MarketplaceScreen() {
   const returnToGenerationDepth = () => {
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
   };
 
@@ -1533,6 +1581,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, maker: nextMaker, model: null }));
     setSelectedGeneration(null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setSelectedFerrariDealer(null);
     replaceFilterParams(nextMaker, null);
@@ -1579,6 +1629,8 @@ function MarketplaceScreen() {
     setDraftFilters(nextFilters);
     setSelectedGeneration(safeGeneration);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setCategoryLandingOpen(!nextMaker && category === "전체");
     replaceFilterParams(nextMaker, safeModel);
@@ -1595,6 +1647,8 @@ function MarketplaceScreen() {
     setDraftFilters(nextFilters);
     setSelectedGeneration(nextGeneration);
     setSelectedVariants(selectedLeaf ? [selectedLeaf] : []);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(record);
     setCategoryLandingOpen(false);
@@ -1611,6 +1665,8 @@ function MarketplaceScreen() {
     setDraftFilters((current) => ({ ...current, model: nextModel }));
     setSelectedGeneration(isGuaziQuickStyle && nextGenerations.length === 1 ? nextGenerations[0].name : null);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceFilterParams(maker, nextModel);
   };
@@ -1619,6 +1675,8 @@ function MarketplaceScreen() {
     const nextGeneration = selectedGeneration === generationName ? null : generationName;
     setSelectedGeneration(nextGeneration);
     setSelectedVariants([]);
+    setSelectedGradeLevels([]);
+    setSelectedGradeGroups([]);
     setTrimApplied(false);
     replaceVehicleDepthParams(nextGeneration, []);
   };
@@ -1653,6 +1711,8 @@ function MarketplaceScreen() {
       setDraftFilters(nextFilters);
       setSelectedGeneration(null);
       setSelectedVariants([]);
+      setSelectedGradeLevels([]);
+      setSelectedGradeGroups([]);
       setTrimApplied(false);
       setSelectedTruckFormat(null);
       setSelectedTruckSubtype(null);
@@ -1675,6 +1735,8 @@ function MarketplaceScreen() {
       setDraftFilters(nextFilters);
       setSelectedGeneration(null);
       setSelectedVariants([]);
+      setSelectedGradeLevels([]);
+      setSelectedGradeGroups([]);
       setTrimApplied(false);
       setSelectedTruckFormat(null);
       setSelectedTruckSubtype(null);
@@ -2735,6 +2797,8 @@ function MarketplaceScreen() {
       generationLabel: selectedGenerationOption ? bbmGenerationLabel(selectedGenerationOption) : null,
       generationYears: selectedGenerationOption?.years ?? null,
       grades: selectedVariants,
+      gradeLevels: selectedGradeLevels,
+      gradeGroups: selectedGradeGroups,
       modelsFor: (makerName) => (modelsByMakerMap[makerName] ?? []).map((name) => {
         const catalogGenerations = generationsByMakerModelMap[makerName]?.[name] ?? [];
         const catalogCount = catalogGenerations.reduce((sum, generation) => sum + Math.max(1, vehicleCatalog.gradeTreeByGeneration[generation.name]?.reduce((treeSum, fuel) => treeSum + fuel.count, 0) ?? 0), 0);
@@ -2762,6 +2826,24 @@ function MarketplaceScreen() {
             ? [...current, ...gradeTokens.filter((token) => !current.includes(token))]
             : current.filter((token) => !gradeTokens.includes(token));
           replaceVehicleDepthParams(generationName, next);
+          return next;
+        });
+        setTrimApplied(false);
+      },
+      onToggleGradeLevel: (generationName, id) => {
+        if (selectedGeneration !== generationName) setSelectedGeneration(generationName);
+        setSelectedGradeLevels((current) => {
+          const next = current.includes(id) ? current.filter((value) => value !== id) : [...current, id];
+          replaceGradeBranchParams(next, selectedGradeGroups);
+          return next;
+        });
+        setTrimApplied(false);
+      },
+      onToggleGradeGroup: (generationName, id) => {
+        if (selectedGeneration !== generationName) setSelectedGeneration(generationName);
+        setSelectedGradeGroups((current) => {
+          const next = current.includes(id) ? current.filter((value) => value !== id) : [...current, id];
+          replaceGradeBranchParams(selectedGradeLevels, next);
           return next;
         });
         setTrimApplied(false);
