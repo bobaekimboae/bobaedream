@@ -834,8 +834,8 @@ function MarketplaceScreen() {
   const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(() => getInitialQuickFilterStyle());
   // QF-120: 과쯔일 때만 Pretendard Variable(첫 그림 전에 붙이도록 layout effect)
   useLayoutEffect(() => { setPretendard(quickFilterStyle === "guazi"); }, [quickFilterStyle]);
-  const [selectedGeneration, setSelectedGeneration] = useState<string | null>(null);
-  const [selectedVariants, setSelectedVariants] = useState<string[]>([]);
+  const [selectedGeneration, setSelectedGeneration] = useState<string | null>(() => new URLSearchParams(window.location.search).get("generation"));
+  const [selectedVariants, setSelectedVariants] = useState<string[]>(() => new URLSearchParams(window.location.search).getAll("grade"));
   const [catalogSelectionRecord, setCatalogSelectionRecord] = useState<VehicleSearchRecord | null>(null);
   const [debouncedSelectedVariants, setDebouncedSelectedVariants] = useState<string[]>([]);
   const [trimApplied, setTrimApplied] = useState(false);
@@ -1098,13 +1098,6 @@ function MarketplaceScreen() {
     && (!selectedTruckSpec || car.truck.load === selectedTruckSpec));
 
   useEffect(() => {
-    if (catalogSelectionRecord && catalogSelectionRecord.path[0] === maker && catalogSelectionRecord.path[1] === selectedModel) return;
-    setSelectedGeneration(null);
-    setSelectedVariants([]);
-    setTrimApplied(false);
-  }, [catalogSelectionRecord, maker, selectedModel]);
-
-  useEffect(() => {
     if (!isGuaziQuickStyle) {
       setDebouncedSelectedVariants(selectedVariants);
       return undefined;
@@ -1178,7 +1171,7 @@ function MarketplaceScreen() {
         ? !selectedGenerationOption.matchKeys.length || selectedGenerationOption.matchKeys.some((key) => searchKey.includes(normalizeModelSearchText(key)))
         : searchKey.includes(normalizeModelSearchText(generationDisplayLabel(selectedGenerationOption ?? { name: selectedGeneration, years: "", variants: [] }))) || searchKey.includes(normalizeModelSearchText(selectedGeneration)));
       const activeTrimVariants = isGuaziQuickStyle ? effectiveSelectedVariants : trimApplied ? selectedVariants : [];
-      const trimMatch = activeTrimVariants.length === 0 || activeTrimVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant)));
+      const trimMatch = activeTrimVariants.length === 0 || activeTrimVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant.split(" › ").at(-1) ?? variant)));
       // QF-097 보완: 과쯔 카탈로그 제조사는 매물이 연결된 모델 하나로만 거른다(이름 일부 겹침 방지)
       const catalogModelMatch = !isCatalogMaker || !filters.model || catalogModelOfCar(car) === filters.model;
       const categoryChildMatch = !isCampingCategory || !bbmCategoryChild || car.virtualCategory?.categoryDetail === bbmCategoryChild;
@@ -1265,6 +1258,17 @@ function MarketplaceScreen() {
     else url.searchParams.delete("maker");
     if (nextMaker && nextModel) url.searchParams.set("model", nextModel);
     else url.searchParams.delete("model");
+    url.searchParams.delete("generation");
+    url.searchParams.delete("grade");
+    window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+  };
+
+  const replaceVehicleDepthParams = (nextGeneration: string | null, nextGrades: string[]) => {
+    const url = new URL(window.location.href);
+    if (nextGeneration) url.searchParams.set("generation", nextGeneration);
+    else url.searchParams.delete("generation");
+    url.searchParams.delete("grade");
+    for (const grade of nextGrades) url.searchParams.append("grade", grade);
     window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
   };
 
@@ -1482,12 +1486,14 @@ function MarketplaceScreen() {
     setSelectedVariants([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(null);
+    replaceVehicleDepthParams(null, []);
   };
 
   const clearVariantFilter = () => {
     setSelectedVariants([]);
     setTrimApplied(false);
     setCatalogSelectionRecord(null);
+    replaceVehicleDepthParams(selectedGeneration, []);
   };
 
   const returnToModelDepth = () => {
@@ -1613,15 +1619,21 @@ function MarketplaceScreen() {
     setSelectedGeneration(nextGeneration);
     setSelectedVariants([]);
     setTrimApplied(false);
+    replaceVehicleDepthParams(nextGeneration, []);
   };
 
   // QF-105: 과쯔 퀵필터 트림 알약 — 누르면 그 트림 하나로 바로 적용(칩 줄에 [C200 ×], 트림 줄은 닫힘). 좌측 필터 등급은 chooseVariant(여럿 선택) 그대로
   const chooseTrimPill = (variantName: string) => {
     setSelectedVariants([variantName]);
     setTrimApplied(false);
+    replaceVehicleDepthParams(selectedGeneration, [variantName]);
   };
   const chooseVariant = (variantName: string) => {
-    setSelectedVariants((current) => current.includes(variantName) ? current.filter((variant) => variant !== variantName) : [...current, variantName]);
+    setSelectedVariants((current) => {
+      const next = current.includes(variantName) ? current.filter((variant) => variant !== variantName) : [...current, variantName];
+      replaceVehicleDepthParams(selectedGeneration, next);
+      return next;
+    });
     setTrimApplied(false);
   };
 
@@ -1697,8 +1709,8 @@ function MarketplaceScreen() {
   const selectedTrimChipLabel = selectedVariants.length === 0
     ? "트림"
     : selectedVariants.length === 1
-      ? selectedVariants[0]
-      : `${selectedVariants[0]} 외 ${selectedVariants.length - 1}`;
+      ? selectedVariants[0].split(" › ").at(-1) ?? selectedVariants[0]
+      : `${selectedVariants[0].split(" › ").at(-1) ?? selectedVariants[0]} 외 ${selectedVariants.length - 1}`;
   const mileageChipLabel = filters.mileageMax
     ? `${Number(filters.mileageMax).toLocaleString("ko-KR")}km 이하`
     : "주행";
@@ -2572,7 +2584,10 @@ function MarketplaceScreen() {
       ? bbmMakerSections.filter((section) => section.title.includes("수입"))
       : bbmMakerSections;
   // 테스트 매물 수와 좌측 탐색 가능 여부를 분리한다. 실제 재고 연동 전까지 승용 좌측 필터는 모든 카탈로그 항목을 연다.
-  const bbmSidebarMakerSections: BbMakerSection[] = bbmSidebarSectionSource.map((section) => ({ title: section.title, rows: section.rows.map((row) => [row.label, row.count, row.key] as [string, number, string?]) }));
+  const bbmSidebarMakerSections: BbMakerSection[] = bbmSidebarSectionSource.map((section) => ({
+    title: charanchaMakerFlow ? section.title.replace("국산차", "국산").replace("수입차 인기", "수입인기").replace("수입차 이름순", "수입전체") : section.title,
+    rows: section.rows.map((row) => [row.label, charanchaMakerFlow ? (modelsByMakerMap[row.key]?.length ?? row.count) : row.count, row.key] as [string, number, string?]),
+  }));
   const bbmModelRows = (makerName: string) => (modelsByMakerMap[makerName] ?? []).map((name) => {
     if (isBikeCategory) {
       const key = normalizeModelSearchText(name);
@@ -2713,21 +2728,38 @@ function MarketplaceScreen() {
       modelLabel: selectedModel ? formatModelLabel(selectedModel) : null,
       generation: selectedGeneration,
       generationLabel: selectedGenerationOption ? bbmGenerationLabel(selectedGenerationOption) : null,
+      generationYears: selectedGenerationOption?.years ?? null,
       grades: selectedVariants,
-      modelsFor: (makerName) => (modelsByMakerMap[makerName] ?? []).map((name) => ({ name, label: formatModelLabel(name), count: charanchaMakerFlow ? null : bbmModelCount(makerName, name) })),
+      modelsFor: (makerName) => (modelsByMakerMap[makerName] ?? []).map((name) => {
+        const catalogGenerations = generationsByMakerModelMap[makerName]?.[name] ?? [];
+        const catalogCount = catalogGenerations.reduce((sum, generation) => sum + Math.max(1, vehicleCatalog.gradeTreeByGeneration[generation.name]?.reduce((treeSum, fuel) => treeSum + fuel.count, 0) ?? 0), 0);
+        return { name, label: formatModelLabel(name), count: charanchaMakerFlow ? catalogCount : bbmModelCount(makerName, name) };
+      }),
       gradeGroupsFor: (makerName, modelName) => (generationsByMakerModelMap[makerName]?.[modelName] ?? []).map((generation) => ({
         name: generation.name,
         title: `${generationCardLabel(generation)} · ${generation.cardSub ?? compactGenerationCardYearLabel(generation.years)}`,
         displayName: bbmGenerationLabel(generation),
         years: generation.years,
         grades: generation.variants.map(toTrimOption),
-        count: generation.count,
+        count: vehicleCatalog.gradeTreeByGeneration[generation.name]?.reduce((sum, fuel) => sum + fuel.count, 0) ?? generation.count,
       })),
+      gradeTreeFor: (generationName) => vehicleCatalog.gradeTreeByGeneration[generationName] ?? [],
       onChooseMaker: (makerName) => { if (maker !== makerName) applyMakerFilter(makerName); },
       onChooseModel: (modelName) => { if (selectedModel !== modelName) chooseModel(modelName); },
       onToggleGrade: (generationName, grade) => {
         if (generationName && selectedGeneration !== generationName) chooseGeneration(generationName);
         chooseVariant(grade);
+      },
+      onToggleGrades: (generationName, gradeTokens, checked) => {
+        if (selectedGeneration !== generationName) setSelectedGeneration(generationName);
+        setSelectedVariants((current) => {
+          const next = checked
+            ? [...current, ...gradeTokens.filter((token) => !current.includes(token))]
+            : current.filter((token) => !gradeTokens.includes(token));
+          replaceVehicleDepthParams(generationName, next);
+          return next;
+        });
+        setTrimApplied(false);
       },
       onClearMaker: clearMakerFilter,
       onClearModel: clearModelFilter,
@@ -2802,7 +2834,7 @@ function MarketplaceScreen() {
             {/* 중고차·트럭은 텍스트 GNB 바로 아래 사각형 LNB를 유지하고, 필터 카드에는 경로·중복 카테고리 칩을 두지 않는다. */}
             {isGuaziQuickStyle ? <div className="bbm-hybrid-top">{lnbVariant === "a" || lnbVariant === "b" || lnbVariant === "d" || (lnbVariant === "default" && showDefaultCategoryLnb) ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}{categoryComplexHeader}{bbmTopCard}</div> : null}
             <div className="bbm-page">
-              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={charanchaMakerFlow} showMakerCounts={!charanchaMakerFlow} allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
+              <BbFilterSidebar collapsible mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={charanchaMakerFlow} showMakerCounts allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
               <div className="bbm-content">
                 {isGuaziQuickStyle ? null : bbmContentHead}
                 <section className="bbm-results" aria-label="매물 목록">
@@ -2848,7 +2880,7 @@ function MarketplaceScreen() {
         {truckSidebarFilter ? <TruckTypePicker desktop open={truckTypePickerOpen} onClose={() => setTruckTypePickerOpen(false)} value={truckSidebarFilter} /> : null}
         {drawerFilterChip && bbmDrawerOpen ? (
           <BbmFilterDrawer count={visibleCars.length} onClose={() => setBbmDrawerOpen(false)} onReset={() => setBbmDrawerReset((value) => value + 1)}>
-            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={charanchaMakerFlow} showMakerCounts={!charanchaMakerFlow} allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
+            <BbFilterSidebar mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmDrawerReset} brandLogos={isGuaziQuickStyle} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow} makerOpenByDefault={charanchaMakerFlow} showMakerCounts allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />
           </BbmFilterDrawer>
         ) : null}
         {marketSheet}

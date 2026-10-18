@@ -5625,3 +5625,25 @@ final result: passed
 
 final result: passed
 
+---
+
+## 2026-10-18 차란차형 제조사·모델·등급 트리
+
+- Source: `C:/Users/bobae/.codex/visualizations/2026/10/18/charancha-identical-filter/01-charancha-selected-state.png`
+- Implementation: `C:/Users/bobae/.codex/visualizations/2026/10/18/charancha-identical-filter/08-bobaedream-tree-selected.png`
+- Route: `/?qf=guazi&pc=1&category=국산차&maker=제네시스&model=EQ900`
+- Viewport: 1280×720
+- 원본과 구현을 같은 검수 호출에서 함께 확인했다.
+
+### Comparison
+
+- Selection path: passed — 제조사·모델·세부모델이 같은 영역에 누적되고, 세부모델은 `EQ900 / 15년~18년` 두 줄과 원형 X로 표시된다.
+- Hierarchy: passed — 실제 카탈로그의 `연료·구동 → 등급 → 세부등급` 3단 구조와 회색 연결선을 사용한다.
+- Selection behavior: passed — 상위 체크는 모든 하위를 선택·해제하고, 일부 선택은 상위 원형의 부분 선택 상태로 동기화된다.
+- URL restore: passed — `maker`, `model`, `generation`, 복수 `grade`를 주소에 반영하고 새 탭 재접속 시 같은 3단 선택을 복원한다.
+- Visual language: passed — 20px 원형 체크, 보배드림 블루 선택색, 14px 행 글자, 우측 숫자 정렬이 차란차 구조와 일치한다.
+- Availability: passed — 테스트 매물 수가 0이어도 제조사·모델·세부모델·등급을 숨기거나 비활성화하지 않는다.
+- Scroll/console: passed — 1280×720 좌측 내부 스크롤, 마지막 필터 접근, 콘솔 오류 0을 확인했다.
+
+final result: passed
+

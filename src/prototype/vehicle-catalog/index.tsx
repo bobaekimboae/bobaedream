@@ -18,6 +18,17 @@ type Subgrade = { id: string; generationId: string; fuelId: string; gradeId: str
 type CarMakeFile = { make: CatalogMake; modelGroups: CatalogGroup[]; generations: CatalogGeneration[]; fuelDrive: Fuel[]; grades: Grade[]; subgrades: Subgrade[] };
 type BikeMakeFile = { make: CatalogMake; modelGroups: CatalogGroup[]; models: BikeModel[] };
 export type CatalogMakeFile = CarMakeFile | BikeMakeFile;
+export type CatalogGradeTreeNode = {
+  id: string;
+  name: string;
+  count: number;
+  grades: Array<{
+    id: string;
+    name: string;
+    count: number;
+    subgrades: Array<{ id: string; name: string; count: number; token: string }>;
+  }>;
+};
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const catalogBase = `${publicBase}data/vehicle-catalog`;
@@ -117,6 +128,35 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
     return result;
   }, [activeMakeFile, index, scope]);
 
+  const gradeTreeByGeneration = useMemo<Record<string, CatalogGradeTreeNode[]>>(() => {
+    if (!activeMakeFile || !("grades" in activeMakeFile)) return {};
+    const result: Record<string, CatalogGradeTreeNode[]> = {};
+    const generationNames = new Map(activeMakeFile.generations.map((generation) => [generation.id, generation.name]));
+    for (const fuel of [...activeMakeFile.fuelDrive].sort((a, b) => a.name.localeCompare(b.name, "ko") || a.sortOrder - b.sortOrder)) {
+      const grades = activeMakeFile.grades
+        .filter((grade) => grade.fuelId === fuel.id)
+        .sort((a, b) => a.sortOrder - b.sortOrder)
+        .map((grade) => {
+          const subgrades = activeMakeFile.subgrades
+            .filter((subgrade) => subgrade.gradeId === grade.id)
+            .sort((a, b) => a.sortOrder - b.sortOrder)
+            .map((subgrade) => ({
+              id: subgrade.id,
+              name: subgrade.name,
+              count: 1,
+              token: `${fuel.name} › ${grade.name} › ${subgrade.name}`,
+            }));
+          const fallback = subgrades.length ? subgrades : [{ id: grade.id, name: grade.name, count: 1, token: `${fuel.name} › ${grade.name}` }];
+          return { id: grade.id, name: grade.name, count: fallback.length, subgrades: fallback };
+        });
+      const generationName = generationNames.get(fuel.generationId);
+      if (!generationName) continue;
+      result[generationName] ??= [];
+      result[generationName].push({ id: fuel.id, name: fuel.name, count: grades.reduce((sum, grade) => sum + grade.count, 0), grades });
+    }
+    return result;
+  }, [activeMakeFile]);
+
   const modelVisualsByMaker = useMemo<Record<string, Record<string, QuickModelVisual>>>(() => {
     if (!index) return {};
     const result: Record<string, Record<string, QuickModelVisual>> = {};
@@ -125,7 +165,7 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
     return result;
   }, [index]);
 
-  return { scope, index, records, makeFiles, activeMakeFile, error, ensureSearch, loadMake, modelsByMaker, generationsByMakerModel, modelVisualsByMaker };
+  return { scope, index, records, makeFiles, activeMakeFile, error, ensureSearch, loadMake, modelsByMaker, generationsByMakerModel, gradeTreeByGeneration, modelVisualsByMaker };
 }
 
 export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path?: string | null; name: string; kind?: "rail" | "list" | "chip"; scope?: CatalogScope }) {

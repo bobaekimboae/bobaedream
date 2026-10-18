@@ -761,7 +761,7 @@ const generationDisplayLabel = (generation: QuickGenerationOption) => {
   if (generation.name.includes("W176")) return "3세대";
   if (generation.name.includes("W169")) return "2세대";
   if (generation.name.includes("W168")) return "1세대";
-  return generation.name.replace(/\s?[A-Z]\d{2,3}.*/, "");
+  return generation.name.replace(/\s+[A-Z]\d{2,3}.*/, "");
 };
 const generationCodeLabel = (generation: QuickGenerationOption) => {
   const code = generation.name.match(/\b[A-Z]{1,3}\d{2,3}\b/);
@@ -896,7 +896,8 @@ const getInitialChoTotFilters = (): ChoTotFilterState => {
   const category = vehicleCategoryOptions.includes(categoryParam) ? categoryParam : "전체";
   const categoryModels = category === "바이크" ? bikeModelsByMaker : category === "트럭 · 특장" ? truckModelsByMaker : quickModelsByMaker;
   const maker = categoryModels[makerParam] ? makerParam : null;
-  const model = maker && categoryModels[maker]?.includes(modelParam) ? modelParam : null;
+  // Guazi PC uses the lazy full vehicle catalog, so a valid catalog model may not exist in the legacy quick-filter seed yet.
+  const model = maker && (categoryModels[maker]?.includes(modelParam) || params.get("qf") === "guazi" && Boolean(modelParam)) ? modelParam : null;
 
   return { ...emptyChoTotFilters, category, maker, model };
 };
