@@ -439,6 +439,9 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
               </button>}
             </Fragment>})}
           </nav>
+          <button type="button" className="bbm-gnb-notice" aria-label="공지사항, 새로운 보배드림 서비스 안내" onClick={() => onNotify("공지사항은 정식 서비스에서 이용해 주세요.")}>
+            <strong>공지</strong><span className="bbm-gnb-notice-divider" aria-hidden="true" /><span className="bbm-gnb-notice-copy">새로운 보배드림 서비스 안내</span>
+          </button>
         </div>
       </div>
     </header>
