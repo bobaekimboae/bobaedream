@@ -31,6 +31,8 @@
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-scroll { margin-right: 0; }
   /* 184px 상단 카드 + 24px 본문 간격만큼 좌측 필터를 올려 두 열의 시작선을 맞춘다. */
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -208px; }
+  /* 수입차 기본 화면은 바디타입 레일이 한 줄 더 있어 좌측 필터 상단을 중고차 기준선에 맞춘다. */
+  .marketplace.is-bbm.is-hybrid.is-imported-car-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -264px; }
   /* 바이크 상단 카드 194px + 본문 간격 24px. 좌측 필터와 오른쪽 상단 카드의 윗선을 정확히 맞춘다. */
   .marketplace.is-bbm.is-hybrid.is-bike-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -218px; }
   /* 페라리 상단에는 118px 배너·16px 간격·56px 지역 레일이 추가된다.

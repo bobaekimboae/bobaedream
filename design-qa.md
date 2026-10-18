@@ -30,6 +30,27 @@ final result: passed
 
 ---
 
+## 2026-10-18 수입차 좌측 필터 높이 정렬
+
+- Reference screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/used-car-left-filter-reference-1280.png`
+- Implementation screenshot: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/imported-car-left-filter-aligned-local-1280.jpg`
+- Route: `/?qf=guazi&pc=1&filterLayout=compact&category=수입차`
+- Viewport: 1280×720
+- Browser: ChatGPT in-app browser
+
+### Measurements and comparison
+
+- Sidebar top: passed — 중고차 기준과 동일한 `x=40, y=137`에 맞췄다.
+- Sidebar size: passed — `280×1099.6px`로 중고차 좌측 필터와 동일하다.
+- Right-panel alignment: passed — 수입차 바디타입·브랜드 박스도 `x=360, y=137, width=880px`로 좌측 필터 상단과 일치한다.
+- Layout isolation: passed — 제조사가 선택되지 않은 수입차 기본 화면에만 56px 보정을 적용해 페라리 전용 헤더와 다른 카테고리 규칙을 보존했다.
+- Interaction: passed — `제조사 · 모델 · 등급` 아코디언이 열림/닫힘 상태를 정상 전환한다.
+- Console: passed — 검수 중 오류와 경고 0건이다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 페라리 좌측 필터를 중고차 기준으로 정렬
 
 - Source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/used-car-left-filter-reference-1280.png`
