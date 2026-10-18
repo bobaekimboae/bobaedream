@@ -237,14 +237,14 @@ function CloseButton({ onClose, buttonRef }: { onClose: () => void; buttonRef?: 
 }
 
 // ── PC 가운데 모달: 폭 412, 라운드 14, 딤 rgba(0,0,0,.5), 제목 16/22.4 600 가운데 + 오른쪽 닫기 24×32
-export function BbmModal({ title, titleIcon, onClose, footer, children, wide = false, flush = false }: { title: string; titleIcon?: ReactNode; onClose: () => void; footer?: ReactNode; children: ReactNode; wide?: boolean; flush?: boolean }) {
+export function BbmModal({ title, titleIcon, onClose, onBack, footer, children, wide = false, flush = false, variant = "default" }: { title: string; titleIcon?: ReactNode; onClose: () => void; onBack?: () => void; footer?: ReactNode; children: ReactNode; wide?: boolean; flush?: boolean; variant?: "default" | "vehicle-hierarchy" }) {
   const dialogRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
   useDialogFocus(dialogRef, closeRef);
   return createPortal(
     <div className="bbmf-overlay is-modal" onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
-      <section ref={dialogRef} className={`bbmf-modal${wide ? " is-tall" : ""}`} role="dialog" aria-modal="true" aria-label={title} onKeyDown={(event) => handleDialogKeyDown(event, onClose)}>
-        <header className="bbmf-modal-header"><h3>{titleIcon}{title}</h3><CloseButton buttonRef={closeRef} onClose={onClose} /></header>
+      <section ref={dialogRef} className={`bbmf-modal${wide ? " is-tall" : ""}${variant === "vehicle-hierarchy" ? " is-vehicle-hierarchy" : ""}`} role="dialog" aria-modal="true" aria-label={title} onKeyDown={(event) => handleDialogKeyDown(event, onClose)}>
+        <header className="bbmf-modal-header">{onBack ? <button type="button" className="bbmf-modal-back" aria-label="이전 단계" onClick={onBack}>←</button> : null}<h3>{titleIcon}{title}</h3><CloseButton buttonRef={closeRef} onClose={onClose} /></header>
         <div className={`bbmf-modal-body${flush ? " is-flush" : ""}`}>{children}</div>
         {footer}
       </section>

@@ -30,6 +30,21 @@ final result: passed
 
 ---
 
+## PC 제조사 계층 모달 현대 샘플 — 2026-10-19
+
+- Viewport: 1240 × 720 desktop preview.
+- Entry: 국산차 PC 퀵필터의 `제조사` 칩.
+- Shell reference: AutoScout24 desktop hierarchy modal — centered 500px panel, 24px viewport gap, 64px header, fixed footer, dimmed backdrop.
+- Flow reference: 차란차 제조사 → 모델 → 세부모델 hierarchy with back navigation and removable path chips.
+- Asset rule: existing 당근-derived catalog image references only; no new image files added.
+- Verified states: 제조사(현대) → 현대 모델(40 rows) → i30 세부모델(5 rows).
+- Verified behavior: fixed footer, internal scrolling, search inputs, back button, selected path, result count, empty console log.
+- Validation: `npm run verify:qf` passed, including protected runtime integrity, TypeScript, and production Vite build.
+
+final result: passed
+
+---
+
 # Design QA — 초톳형 폰 촬영 대응 정사각 썸네일
 
 - Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/artifacts/audit-chotot-comparison-2026-10-19/03-chotot-standard-truck-list.png`

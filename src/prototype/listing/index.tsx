@@ -105,6 +105,7 @@ import { bikeModelsByMaker } from "../data/bike-filter-catalog";
 import { normalizeTruckFormatSelection, truckCargoQuickSpecs, truckFormatCatalog, truckSubtypeImageFor, truckSubtypeLabel, truckSubtypesFor, truckSubtypeSecondaryLabel, truckSubtypeValuesForSelection } from "../data/truck-format-catalog";
 import { truckSpecGroupsFor, truckSpecOptionsFor } from "../data/truck-depth4-catalog";
 import { QuickRailCarousel } from "./quick-rail-carousel";
+import { MakerHierarchyModal } from "./maker-hierarchy-modal";
 import { truckModelsByMaker } from "../truck/scenario-v09";
 import { HeavyQuickFilter } from "../heavy";
 import { HeavySidebarFilters } from "../heavy/sidebar";
@@ -2807,6 +2808,9 @@ function MarketplaceScreen() {
   const hideSellerQuickChip = desktop && isGuaziQuickStyle && (isUsedCarCategory || isBikeCategory || isTruckCategory);
   const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...bikeGenreApplied, ...bikeDisplacementApplied, ...bikeLicenseApplied, ...truckAxleApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
   const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
+  const openMakerPicker = () => desktop && category === "국산차"
+    ? openBbmChipPanel("제조사")
+    : supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사");
   const bbmChips: BbmChip[] = ([
     // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
     isBikeCategory || isTruckCategory
@@ -2815,7 +2819,7 @@ function MarketplaceScreen() {
     // 바이크는 카테고리 다음에 유형(장르) → 제조사 → 모델 순서로 탐색한다.
     ...(isBikeCategory ? [
       ...(bikeGenreApplied.length ? bikeGenreApplied.map(toAppliedBbmChip) : [groupChip("bike-type", "유형", "장르", false)]),
-      ...(!maker ? [{ key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") }] : []),
+      ...(!maker ? [{ key: "maker", label: "제조사", active: false, onClick: openMakerPicker }] : []),
     ] : []),
     // 건설기계 퀵필터 3단계: 제조사 로고 → 모델 이미지 → 세부모델·세부 형식 이미지
     ...(isHeavyCategory ? [
@@ -2840,7 +2844,7 @@ function MarketplaceScreen() {
       selectedTruckSubtype && truckSpecOptions.length && selectedTruckSpec
         ? { key: "truck-spec", label: selectedTruckSpec, active: true, className: "is-vehicle-summary is-step", onClick: clearTruckSpec, onClear: clearTruckSpec }
         : selectedTruckSubtype && truckSpecOptions.length ? { key: "truck-spec", label: "적재용량", active: false, onClick: clearTruckSpec } : null,
-      ...(!maker ? [{ key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") }] : []),
+      ...(!maker ? [{ key: "maker", label: "제조사", active: false, onClick: openMakerPicker }] : []),
     ] : []),
     // 원본: 제조사를 고르면 [현대 ×][모델] 이 적용 칩 앞, 고르기 전에는 적용 칩 뒤에 [제조사]
     // QF-097 보완: 제조사·모델·세부 모델을 단계별 검정 적용 칩으로 [벤츠 ×][E클래스 ×][W213 ×]. 각 × 는 그 단계부터 아래만 푼다
@@ -2859,7 +2863,7 @@ function MarketplaceScreen() {
     // QF-105: 트림을 고르면 빈 "트림" 칩 대신 단계 칩 [트림 ×]
     selectedVariants.length || (selectedGeneration && guaziTrimRailOptions.length <= 1) ? null : chipByKey("variant"),
     ...otherApplied.map(toAppliedBbmChip),
-    isHeavyCategory || isBikeCategory || isTruckCategory ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사") },
+    isHeavyCategory || isBikeCategory || isTruckCategory ? null : maker ? null : { key: "maker", label: "제조사", active: false, onClick: openMakerPicker },
     // 부품·용품: 연식·주행거리·연료 대신 분류 · 상태 · 적용 차종(2026-10-07)
     ...(isPartsCategory ? [
       groupChip("parts-subtype", "분류", "부품 분류", Boolean(bbmValue.checks.partsSubtype?.length)),
@@ -3043,7 +3047,15 @@ function MarketplaceScreen() {
       // QF-096: 제조사 목록 로고 = 승용 제조사 로고(brand/kr) 24×24, 로고 없는 행은 빈 칸
       const list = <BbmMakerList sections={bbmMakerSections} allowEmpty={Boolean(bbmTypeList)} selected={maker} renderLogo={(_key, label) => <CategoryBrandLogo category={category} name={label} kind="list" initialFallback={Boolean(bbmTypeList)} />} onChoose={(key) => { if (maker !== key) applyMakerFilter(key); close(); }} />;
       return onDesktop
-        ? <BbmModal title="제조사" wide flush onClose={close}>{list}</BbmModal>
+        ? <MakerHierarchyModal
+            onClose={close}
+            onApply={(nextMaker, nextModel, nextGeneration) => { applyVehicleSummarySelection(nextMaker, nextModel, nextGeneration); close(); }}
+            renderMakerLogo={() => <CategoryBrandLogo category="국산차" name="현대" kind="list" initialFallback />}
+            modelNames={modelsByMakerMap.현대 ?? []}
+            modelVisuals={modelVisualsByMakerMap.현대 ?? {}}
+            generationsByModel={generationsByMakerModelMap.현대 ?? {}}
+            formatModel={formatModelLabel}
+          />
         : <BbmSheet title="제조사" flush onClose={close} footer={<div className="bbmf-actions is-sheet is-single"><button type="button" className="bbmf-reset" onClick={() => { clearMakerFilter(); close(); }}>초기화</button></div>}>{list}</BbmSheet>;
     }
     if (bbmChipPanel === "모델") {

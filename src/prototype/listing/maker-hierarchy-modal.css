@@ -1,0 +1,40 @@
+.bbmf-overlay.is-modal:has(.bbmf-modal.is-vehicle-hierarchy) { background: rgba(15, 18, 24, .66); }
+.bbmf-modal.is-vehicle-hierarchy { width: 500px; height: calc(100dvh - 48px); max-height: calc(100dvh - 48px); overflow: hidden; border-radius: 8px; box-shadow: 0 18px 52px rgba(0, 0, 0, .28); }
+.bbmf-modal.is-vehicle-hierarchy .bbmf-modal-header { height: 64px; border-bottom-color: #e5e7eb; }
+.bbmf-modal.is-vehicle-hierarchy .bbmf-modal-header h3 { padding-top: 20px; color: #16181d; font-size: 18px; font-weight: 700; line-height: 24px; }
+.bbmf-modal.is-vehicle-hierarchy .bbmf-modal-header .bbmf-close { top: 16px; right: 20px; }
+.bbmf-modal-back { position: absolute; top: 16px; left: 20px; width: 32px; height: 32px; padding: 0; border: 0; border-radius: 8px; background: transparent; color: #20242a; font-family: inherit; font-size: 24px; font-weight: 500; line-height: 32px; cursor: pointer; }
+.bbmf-modal-back:hover { background: #f3f4f6; }
+.bbmf-modal.is-vehicle-hierarchy .bbmf-modal-body { overflow-y: auto; }
+.maker-hierarchy { min-height: 100%; padding: 16px; box-sizing: border-box; }
+.maker-hierarchy-search { display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 16px; border: 1px solid #c9cdd3; border-radius: 4px; background: #fff; box-sizing: border-box; }
+.maker-hierarchy-search:focus-within { border-color: #0b57d0; box-shadow: 0 0 0 1px #0b57d0; }
+.maker-hierarchy-search > span { position: relative; width: 18px; height: 18px; flex: none; border: 2px solid #59616d; border-radius: 50%; box-sizing: border-box; }
+.maker-hierarchy-search > span::after { content: ""; position: absolute; right: -5px; bottom: -3px; width: 7px; height: 2px; border-radius: 2px; background: #59616d; transform: rotate(45deg); }
+.maker-hierarchy-search input { flex: 1; min-width: 0; padding: 0; border: 0; outline: 0; color: #17191d; font-family: inherit; font-size: 16px; font-weight: 400; line-height: 22px; }
+.maker-hierarchy-search input::placeholder { color: #858b94; }
+.maker-hierarchy-path { display: flex; flex-wrap: wrap; gap: 8px; padding: 16px 0 4px; }
+.maker-hierarchy-path button { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 11px; border: 1px solid #d8dbe0; border-radius: 4px; background: #f7f8fa; color: #30343a; font-family: inherit; font-size: 13px; font-weight: 600; line-height: 18px; cursor: pointer; }
+.maker-hierarchy-path b { color: #747b84; font-size: 17px; font-weight: 400; }
+.maker-hierarchy-section { padding-top: 16px; }
+.maker-hierarchy-section > p { margin: 0; padding: 8px 8px 6px; color: #6b717a; font-size: 13px; font-weight: 700; line-height: 18px; }
+.maker-hierarchy-row { display: grid; grid-template-columns: 56px minmax(0, 1fr) auto 20px; align-items: center; column-gap: 12px; width: 100%; min-height: 60px; padding: 8px; border: 0; border-bottom: 1px solid #edf0f2; box-sizing: border-box; background: #fff; color: #1c1f24; font: inherit; text-align: left; cursor: pointer; }
+.maker-hierarchy-row:hover { background: #f7f8fa; }
+.maker-hierarchy-row.is-selected { background: #eef5ff; box-shadow: inset 3px 0 #0b57d0; }
+.maker-hierarchy-logo { display: grid; width: 56px; height: 36px; place-items: center; }
+.maker-hierarchy-logo img, .maker-hierarchy-logo svg { max-width: 36px; max-height: 28px; }
+.maker-hierarchy-copy { display: flex; min-width: 0; flex-direction: column; justify-content: center; }
+.maker-hierarchy-copy strong { overflow: hidden; color: #20242a; font-size: 15px; font-weight: 650; line-height: 21px; text-overflow: ellipsis; white-space: nowrap; }
+.maker-hierarchy-copy em { overflow: hidden; margin-top: 2px; color: #777e88; font-size: 12px; font-style: normal; font-weight: 400; line-height: 17px; text-overflow: ellipsis; white-space: nowrap; }
+.maker-hierarchy-row small { color: #737a84; font-size: 13px; font-weight: 400; line-height: 18px; font-variant-numeric: tabular-nums; }
+.maker-hierarchy-row > i { position: relative; width: 20px; height: 20px; }
+.maker-hierarchy-row > i::after { content: ""; position: absolute; top: 6px; left: 5px; width: 7px; height: 7px; border-top: 1.5px solid #8a9098; border-right: 1.5px solid #8a9098; transform: rotate(45deg); }
+.maker-hierarchy-row.is-selected > i::after { top: 4px; left: 5px; width: 7px; height: 11px; border: 0; border-right: 2px solid #0b57d0; border-bottom: 2px solid #0b57d0; transform: rotate(45deg); }
+.maker-hierarchy-image { display: grid; width: 56px; height: 40px; place-items: end center; overflow: hidden; }
+.maker-hierarchy-image img { display: block; max-width: 56px; max-height: 36px; object-fit: contain; }
+.maker-hierarchy-image.is-height img { height: 36px; width: auto; }
+.maker-hierarchy-actions { display: flex; flex: none; gap: 8px; padding: 16px; border-top: 1px solid #e5e7eb; background: #fff; }
+.maker-hierarchy-actions button { height: 43px; border-radius: 4px; box-sizing: border-box; font-family: inherit; font-size: 15px; font-weight: 650; line-height: 20px; cursor: pointer; }
+.maker-hierarchy-reset { flex: 0 0 112px; border: 1px solid #bfc4cb; background: #fff; color: #30343a; }
+.maker-hierarchy-confirm { flex: 1; border: 1px solid #0b57d0; background: #0b57d0; color: #fff; }
+.maker-hierarchy-confirm:disabled { border-color: #d9dde2; background: #e9ebee; color: #9399a2; cursor: default; }
