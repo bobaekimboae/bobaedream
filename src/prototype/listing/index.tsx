@@ -1889,8 +1889,8 @@ function MarketplaceScreen() {
     (selectedGeneration && (guaziTrimChosen || guaziTrimRailOptions.length <= 1)) || (!hasGenerationDepth && !hasDirectVariantDepth)
   ));
   const categoryTypeBrandList = krTypeTop10(category);
-  const useDomesticBodyPillRail = Boolean(desktop && isGuaziQuickStyle && !maker && category === "국산차");
-  const showCarBodyTypeRail = Boolean(isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차") && !useDomesticBodyPillRail);
+  const useCarBodyPillRail = Boolean(desktop && isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차"));
+  const showCarBodyTypeRail = Boolean(isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차") && !useCarBodyPillRail);
   const selectedCarBodyTypes = bbmValue.checks.bodyType ?? [];
   const carBodyTypeCount = (label: string) => listingCars.filter((car) => {
     const body = car.filter?.body ?? "";
@@ -2292,10 +2292,10 @@ function MarketplaceScreen() {
             </Carousel>
           </section>
   );
-  const quickRail = useDomesticBodyPillRail ? <>
-    <section className="depth-rail no-label is-domestic-body-pill-row" aria-label="국산차 바디타입 빠른 선택">
-      <QuickRailCarousel ariaLabel="국산차 바디타입" className="brand-carousel" contentClassName="depth-rail-track is-chips is-domestic-body-pill-track">
-        <span className="domestic-body-pill-label">바디타입</span>
+  const quickRail = useCarBodyPillRail ? <>
+    <section className="depth-rail no-label is-car-body-pill-row" aria-label={`${category} 바디타입 빠른 선택`}>
+      <QuickRailCarousel ariaLabel={`${category} 바디타입`} className="brand-carousel" contentClassName="depth-rail-track is-chips is-car-body-pill-track">
+        <span className="car-body-pill-label">바디타입:</span>
         {carBodyQuickOptions.map((option) => (
           <TrimChip
             key={option.label}
