@@ -663,3 +663,15 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
 }
 
 /* 2026-10-18 「진행하고 우리 홈 빼자」: 밑줄을 기본으로, 2px → 3px(네이버 증권 18px 글자에 3px, 우리 16px은 비율 2.5~3). 홈 메뉴 제거(로고가 홈 역할) */
+
+/* 2026-10-18 「초톳의 지역」 `&gnbsearch=pill`: 탑메뉴 `차량검색 ▾`만 초톳 지역 버튼(xe.chotot.com 1440 실측 `Toàn quốc ▾` 140×40 · #F4F4F4 · 완전 둥금 · 16/700 #222 · 글자 → 꺾쇠 2 · 오른쪽 14)과 같은 연회색 알약. 현재 메뉴여도 밑줄은 그리지 않는다 */
+@media (min-width: 820px) {
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button,
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button.is-active {
+    align-self: center; height: 40px; gap: 2px; padding: 0 12px 0 16px; border-radius: 9999px; background: #f4f4f4; color: #222; font-weight: 700;
+  }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button:hover,
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button[aria-expanded="true"] { background: #ebebeb; color: #222; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button .bb-icon { width: 20px; height: 20px; color: #222; }
+  html .marketplace.is-bbm .bbm-header.is-gnb-searchpill .bbm-gnb > .bbm-vehicle-search-wrap > button::after { display: none !important; }
+}
