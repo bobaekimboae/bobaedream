@@ -78,7 +78,7 @@ import {
   type SheetType,
 } from "../data";
 import { BrandRailMark, CategoryFilterSheet, DepthCard, DepthTextChip, MakerSheet, ModelImagePill, PriceSheet, TrimChip, VehiclePickerSheet } from "../quick-filter";
-import { bbCatalog, BbBreadcrumb, bbLnbVariant, BbLnbTitleMenu, BbLnbTitleTabs, bbSearchVariant, BbCarCard, BbFilterSidebar, BbHeader, BbIcon, BbSecondaryNav, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
+import { bbCatalog, BbBreadcrumb, bbLnbVariant, BbLnbTitleMenu, BbLnbTitleTabs, bbSearchVariant, BbCarCard, ChototSearchIcon, BbFilterSidebar, BbHeader, BbIcon, BbSecondaryNav, BbSwitch, type BbMakerSelection, type BbMakerSection, type BbTruckFilter } from "./pc-bbmuseum";
 import { bbmCarChecks, emptyBbmFilters, isBbmDataOption, matchesBbmFilters, rangeIsSet, resetBbmFilters, setBbmChecks, setBbmRange, type BbmCheckKey, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmAppliedChips, bbmItemValue } from "../filters/bbm-applied";
 import { MileageFinalSheet, mileageSummary } from "../filters/bbm-mileage";
@@ -502,9 +502,9 @@ function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRec
     return () => window.removeEventListener("keydown", onKey);
   }, [variant]);
   const placeholder = variant === "kaidee" ? `${searchPlaceholder}에서 무엇을 찾으세요? / 를 눌러 검색` : variant === "chotot" ? `${searchPlaceholder} 모델명, 트림으로 찾기…` : `${searchPlaceholder} 모델명, 트림으로 검색`;
-  const submitButton = <button type="button" className="bbm-catalog-search-go" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => { if (!query.trim()) inputRef.current?.focus(); else keyboard.hide(); }}><MagnifyingGlassIcon aria-hidden="true" /></button>;
+  const submitButton = <button type="button" className="bbm-catalog-search-go" aria-label="검색" onPointerDown={(event) => event.preventDefault()} onClick={() => { if (!query.trim()) inputRef.current?.focus(); else keyboard.hide(); }}>{variant === "default" ? <ChototSearchIcon size={16} /> : <MagnifyingGlassIcon aria-hidden="true" />}</button>;
   return <label className={`bbm-catalog-search is-${variant === "default" ? "main" : variant}`}>
-    {variant === "kaidee" ? submitButton : variant === "chotot" ? <MagnifyingGlassIcon aria-hidden="true" /> : null}
+    {variant === "kaidee" ? submitButton : variant === "chotot" ? <MagnifyingGlassIcon aria-hidden="true" /> : <ChototSearchIcon />}
     <KeyboardInput ref={inputRef} aria-label={`${searchPlaceholder} 검색`} value={query} placeholder={placeholder} onFocus={() => { setSearchOpen(true); onCatalogFocus?.(); }} onChange={(event) => { setQuery(event.currentTarget.value); setSearchOpen(true); onCatalogFocus?.(); }} onBlur={() => keyboard.hide()} />
     {query ? <button type="button" className="bbm-catalog-search-clear" aria-label="검색어 지우기" onPointerDown={(event) => event.preventDefault()} onClick={() => setQuery("")}>×</button> : null}
     {variant === "chotot" || variant === "default" ? submitButton : null}
