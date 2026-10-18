@@ -28,6 +28,24 @@
 
 final result: passed
 
+---
+
+## PC 메인 카와우·당근형 탑메뉴 아이콘 실험 · 2026-10-18
+
+- source visual truth: `C:/Users/bobae/Downloads/Carwow_차량 카테고리 아이콘/04_Used_중고차.svg`, `05_Vans_밴.svg`, `06_SUVs_SUV.svg`와 저장소 기존 `public/assets/bbm/m-gnb-home.svg`, `public/assets/bbm/category-bike.svg`.
+- mapping: 홈→홈, 전체차량→SUV 실루엣, 중고차→중고차, 트럭·특장→밴, 바이크→바이크, 부품·용품→부품, 커뮤니티→커뮤니티, 더보기→더보기 아이콘으로 매핑했다.
+- implementation URL: `http://127.0.0.1:4318/?qf=guazi&pc=1&v=carwow-nav-icons-2`.
+- browser evidence: CUA 데스크톱 탭 38, 1280×720 CSS px, light theme, guest 상태, 전체차량 활성 화면. 원본 `04-used.svg` 직접 렌더 탭 41과 구현 화면을 같은 비교 출력에서 확인했다.
+- typography: 기존 Pretendard 메뉴 타이포와 활성 상태 굵기를 유지했다. 메뉴 문구와 클릭 동작은 변경하지 않았다.
+- spacing: 데스크톱 아이콘 20×20px, 아이콘-텍스트 간격 7px. 1199px 이하에서는 기존 반응형 규칙에 따라 16×16px로 축소된다.
+- colors: 아이콘은 CSS mask로 `currentColor`를 사용해 일반 `#1a1a1a`, 활성 `#222`와 일치한다.
+- image fidelity: 제공 SVG 파일을 재그리지 않고 원본 그대로 복사해 사용했다. 홈·바이크·부품·커뮤니티·더보기는 저장소 기존 SVG를 재사용했다.
+- interaction/runtime: 탑메뉴 8개 모두 노출, 더보기 숫자 배지 5 유지, 가로 넘침 없음, 콘솔 오류 0건.
+- correction history: 1차 구현에서 기존 `.bbm-gnb-icon { display:none }` 규칙 때문에 핵심 요청인 아이콘이 보이지 않는 P1 문제가 발견됐다. 해당 숨김 규칙을 제거한 뒤 2차 캡처에서 8개 메뉴 아이콘 노출을 재확인했다.
+- remaining findings: P0/P1/P2 없음.
+
+final result: passed
+
 ## PC 메인 초톳형 회원 액션 · 2026-10-18
 
 - source visual truth path: `C:/Users/bobae/Downloads/Tuyển-dụng-74-384-việc-làm-mới-nhất-cập-nhật-18-10-2026.png` (646 × 129px).

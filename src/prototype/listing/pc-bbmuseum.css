@@ -23,11 +23,11 @@
   .bbm-gnb-row { display: flex; align-items: center; justify-content: flex-start; height: 49px; }
   .bbm-gnb { display: flex; width: 100%; min-width: 0; align-items: stretch; justify-content: flex-start; gap: 18px; height: 49px; overflow: visible; scrollbar-width: none; }
   .bbm-gnb::-webkit-scrollbar { display: none; }
-  .bbm-gnb button { position: relative; display: flex; align-items: center; gap: 6px; height: 49px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: -.2px; white-space: nowrap; }
+  .bbm-gnb button { position: relative; display: flex; align-items: center; gap: 7px; height: 49px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: -.2px; white-space: nowrap; }
   .bbm-gnb button.is-home { font-size: 15px; font-weight: 500; }
   .bbm-gnb button.is-active { color: #222; font-weight: 700; }
   .bbm-gnb button.is-active::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: #222; }
-  .bbm-gnb-icon { display: inline-block; width: 18px; height: 18px; flex: 0 0 18px; background: currentColor; -webkit-mask: var(--bbm-nav-icon) center / contain no-repeat; mask: var(--bbm-nav-icon) center / contain no-repeat; }
+  .bbm-gnb-icon { display: inline-block; width: 20px; height: 20px; flex: 0 0 20px; background: currentColor; -webkit-mask: var(--bbm-nav-icon) center / contain no-repeat; mask: var(--bbm-nav-icon) center / contain no-repeat; }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-gnb .bbm-gnb-more { gap: 6px; height: 36px; padding: 0 10px 0 12px; border: 1px solid #dedede; border-radius: 10px; background: #fff; }
   .bbm-gnb .bbm-gnb-more:hover { border-color: #bcbcbc; background: #f8f8f8; }
@@ -204,10 +204,8 @@
   /* QF-091: 카드는 원본 car-list-result-card 값(bbm-tokens.css .bbm-result-card)으로 바꿈 */
 }
 
-/* PC 메인: 텍스트형 GNB + 초톳의 단순한 알약형 검색 + 보배드림 브랜드 블루 */
+/* PC 메인: 카와우·당근형 아이콘 GNB + 초톳의 단순한 알약형 검색 + 보배드림 브랜드 블루 */
 @media (min-width: 820px) {
-  .bbm-gnb > button > .bbm-gnb-icon,
-  .bbm-gnb-more > .bbm-gnb-icon { display: none; }
   .bbm-catalog-search.is-main {
     height: 40px;
     gap: 8px;
