@@ -634,3 +634,19 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   .bbm-catalog-search.is-posh.is-posh-gray .bbm-search-cat-divider { background: #d9d9d9; }
   .bbm-catalog-search.is-posh.is-posh-gray.is-posh-blue { padding-right: 4px; }
 }
+
+/* 2026-10-18 탑메뉴 폰트 컨설팅: 크기 16·굵기 500 유지, 비활성 글자색만 비교. `&gnbcolor=daangn` = 당근 회청색 #555D6D, `&gnbcolor=neutral` = 중립 회색 #595959. 마우스 올림 #222 */
+.bbm-header.is-gnb-daangn .bbm-gnb > button:not(.is-active),
+.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active),
+.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active) { color: #555d6d; }
+.bbm-header.is-gnb-neutral .bbm-gnb > button:not(.is-active),
+.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active),
+.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active) { color: #595959; }
+.bbm-header.is-gnb-daangn .bbm-gnb > button:not(.is-active):hover,
+.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active):hover,
+.bbm-header.is-gnb-daangn .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active):hover,
+.bbm-header.is-gnb-neutral .bbm-gnb > button:not(.is-active):hover,
+.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-vehicle-search-wrap > button:not(.is-active):hover,
+.bbm-header.is-gnb-neutral .bbm-gnb > .bbm-gnb-more-wrap > button:not(.is-active):hover { color: #222; }
+.bbm-header.is-gnb-daangn .bbm-gnb-more:not(.is-active) .bb-icon { color: #555d6d; }
+.bbm-header.is-gnb-neutral .bbm-gnb-more:not(.is-active) .bb-icon { color: #595959; }

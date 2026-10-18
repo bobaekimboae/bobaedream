@@ -218,6 +218,13 @@ export function ChototSearchIcon({ size = 20 }: { size?: number }) {
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 /* 2026-10-17 PC 메인 검색바 시안: 기본=비엑람똣형 블루 CTA, ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com) 비교안 */
 export type BbSearchVariant = "default" | "chotot" | "kaidee";
+// 2026-10-18 탑메뉴 비활성 글자색 비교 미리보기: `&gnbcolor=daangn`(#555D6D) · `&gnbcolor=neutral`(#595959). 없으면 기존 #444
+function bbGnbColorVariant(): "daangn" | "neutral" | null {
+  if (typeof window === "undefined") return null;
+  const v = new URLSearchParams(window.location.search).get("gnbcolor");
+  return v === "daangn" || v === "neutral" ? v : null;
+}
+
 export function bbSearchVariant(): BbSearchVariant {
   if (typeof window === "undefined") return "default";
   const value = new URLSearchParams(window.location.search).get("pcsearch");
@@ -297,7 +304,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     window.history.replaceState({}, "", url);
   };
   return (
-    <header className={`bbm-header${variant === "default" ? "" : ` is-search-${variant}`}`} aria-label="보배드림">
+    <header className={`bbm-header${variant === "default" ? "" : ` is-search-${variant}`}${bbGnbColorVariant() ? ` is-gnb-${bbGnbColorVariant()}` : ""}`} aria-label="보배드림">
       <div className="bbm-header-inner">
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label="보배드림 처음으로" onClick={() => document.querySelector(".app-screen")?.scrollTo({ top: 0 })}>
