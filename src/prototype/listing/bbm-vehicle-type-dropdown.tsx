@@ -9,19 +9,19 @@ type VehicleTypeItem = {
 };
 
 const vehicleTypes: readonly VehicleTypeItem[] = [
-  { label: "승용차", category: "중고차", icon: "personbil.svg" },
-  { label: "트럭 · 특장", category: "트럭 · 특장", icon: "transportbil.svg" },
-  { label: "모터사이클", category: "바이크", icon: "motorcykel.svg" },
-  { label: "스쿠터", category: "바이크", icon: "moped.svg" },
-  { label: "스노모빌", category: "바이크", icon: "snoskoter.svg" },
-  { label: "ATV", category: "바이크", icon: "atv-fyrhjuling.svg" },
-  { label: "캠핑카", category: "캠핑카", icon: "husbil.svg" },
-  { label: "카라반", category: "캠핑카", icon: "husvagn.svg" },
-  { label: "트레일러", category: "트럭 · 특장", icon: "slap.svg" },
+  { label: "전체차량", category: "전체", icon: "category_all_vehicles_v01.svg" },
+  { label: "국산차", category: "국산차", icon: "category_used_car_v01.svg" },
+  { label: "테마별 중고차", category: "테마별 중고차", icon: "category_theme_used_car_v01.svg" },
+  { label: "트럭 · 특장", category: "트럭 · 특장", icon: "category_truck_special_v01.svg" },
+  { label: "바이크", category: "바이크", icon: "category_bike_v01.svg" },
+  { label: "캠핑카", category: "캠핑카", icon: "category_camper_v01.svg" },
+  { label: "건설기계", category: "건설기계", icon: "category_construction_v01.svg" },
+  { label: "자재운반장비", category: "자재운반장비", icon: "category_material_handling_v01.svg" },
+  { label: "부품 · 용품", category: "부품 · 용품", icon: "category_parts_v01.svg" },
 ];
 
 function VehicleTypeIcon({ name }: { name: string }) {
-  const style = { "--bbm-vehicle-type-icon": `url("${asset(`bbm/nav-icons/bytbil/${name}`)}")` } as CSSProperties;
+  const style = { "--bbm-vehicle-type-icon": `url("${asset(`category/icons/v01/${name}`)}")` } as CSSProperties;
   return <span className="bbm-vehicle-type-icon" style={style} aria-hidden="true" />;
 }
 
