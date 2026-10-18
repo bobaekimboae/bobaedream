@@ -30,6 +30,31 @@ final result: passed
 
 ---
 
+## 2026-10-18 PC 제조사·모델 좌측 필터
+
+- Reference: `C:/Users/bobae/.codex/visualizations/2026/10/18/manufacturer-model-audit/05-charancha-maker-selected.png`, `06-charancha-model-selected.png`, `08-charancha-submodel-selected.png`.
+- Implementation: `reports/design-qa/manufacturer-model-2026-10-18/implementation-maker-selected.png`, `implementation-model-selected.png`, `implementation-submodel-selected.png`.
+- Viewport/state: 1280×720 CSS px, PC Guazi layout, `국산차 → 현대 → 그랜저 → 첫 세부모델`.
+- Full-view and focused comparison: 전체 목록 문맥과 좌측 필터 계층을 같은 상태로 함께 비교했다.
+
+### Comparison
+
+- Hierarchy: passed — 제조사 → 모델(인기/전체) → 세부모델 → 등급의 점진 탐색과 선택 경로의 개별 해제를 보존한다.
+- Typography and rhythm: passed — 세부모델을 코드만 표시하지 않고 `디 올 뉴 그랜저 GN7` 같은 전체 이름과 연식 보조행으로 표시한다.
+- Project fidelity: passed — 보배드림의 헤더, 결과 카드, 간격 체계, 블루 포인트를 유지했다.
+- Prototype inventory rule: passed — 매물 수는 숨기고 0대 항목을 포함한 카탈로그 선택지를 비활성화하지 않는다.
+- Behavior: passed — 적용 상태는 상단 필터와 공유하며 좌측 목록만 독립 스크롤한다.
+
+### Iteration history
+
+- Pass 1: 세부모델이 `GN7`, `IG` 같은 코드 위주로 표시되는 P1 이해성 차이가 있었다.
+- Fix: 전체 카탈로그 이름과 별도 연식 행을 적용했다.
+- Pass 2: 제조사·모델·세부모델 상태를 재검사했고 비활성 컨트롤 0개와 남은 P0/P1/P2 없음이 확인됐다. `등급 정보 없음`은 재고 잠금이 아니라 해당 카탈로그 원천의 데이터 상태다.
+
+final result: passed
+
+---
+
 ## 2026-10-18 PC GNB/LNB neutral hierarchy
 
 - Reference: `.tmp/nav-audit-20261018/02-encar-ev.png` (Encar's separated GNB/LNB structure).

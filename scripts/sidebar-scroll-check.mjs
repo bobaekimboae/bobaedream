@@ -89,11 +89,11 @@ for (const width of [1440, 1280]) {
   await page.goto(`${base}?qf=guazi&pc=1`, { waitUntil: "networkidle" }); await page.waitForTimeout(600);
   const defaultRows = await page.evaluate(() => [...document.querySelectorAll("aside.bbm-filter .bbm-filter-toggle")].map((t) => ({ label: t.textContent.trim(), open: t.closest(".bbm-filter-item")?.classList.contains("is-open") })));
   const head = defaultRows.map((r) => r.label).join(" → ");
-  const want = "브랜드 → 차종 → 연료 → 가격 → 연식 → 주행거리 → 변속기 → 판매 방식";
+  const want = "제조사 · 모델 · 등급 → 차종 → 연료 → 가격 → 연식 → 주행거리 → 변속기 → 판매 방식";
   await page.getByRole("button", { name: "필터 더보기", exact: true }).click();
   const expandedRows = await page.evaluate(() => [...document.querySelectorAll("aside.bbm-filter .bbm-filter-toggle")].map((t) => t.textContent.trim()));
-  const closedOk = defaultRows.every((row) => row.open === false);
-  check(`${width} 당근형 기본 필터 8개 · 전부 접힘 · 더보기 후 기존 27개`, head === want && closedOk && defaultRows.length === 8 && expandedRows.length === 27, `${head} · 기본 ${defaultRows.length} / 전체 ${expandedRows.length}`);
+  const openOk = defaultRows[0]?.open === true && defaultRows.slice(1).every((row) => row.open === false);
+  check(`${width} 당근형 기본 필터 8개 · 제조사만 펼침 · 더보기 후 기존 27개`, head === want && openOk && defaultRows.length === 8 && expandedRows.length === 27, `${head} · 기본 ${defaultRows.length} / 전체 ${expandedRows.length}`);
   await page.close();
 }
 writeFileSync(join("reports", "diff", "sidebar-summary.json"), JSON.stringify(summary, null, 2));

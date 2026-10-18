@@ -167,6 +167,14 @@
 
 - Guazi PC left filter (and the 1024–1279 drawer) order comes from one config array `bbmFilterOrder` in `src/prototype/filters/bbm-filter-options.ts`: `제조사 · 모델` (open by default) → `연식` → `주행거리` → `가격` → `바디타입` → `차급` (closed) → `지역` → `매매단지` → … (rest unchanged). The filter header stays on top. ChoTot/Dongchedi PC keep the original order (`order` prop not passed). The mobile filter sheet is unchanged for now and can switch to the same array later. Check: `npm run check:sidebar`.
 
+### PC 제조사·모델 좌측 탐색 (2026-10-18)
+
+- Guazi 승용 PC 좌측 첫 항목은 `제조사 · 모델 · 등급`이며 처음부터 펼친다. ChoTot/Dongchedi, 트럭, 바이크, 부품 필터는 기존 동작을 유지한다.
+- 탐색 순서는 `제조사 → 모델(인기모델·전체) → 세부모델(세대명·연식) → 등급`이다. 선택한 제조사·모델·세부모델은 목록 위의 한 줄 경로로 쌓이고 각 단계의 X는 그 단계와 하위 선택을 지운다.
+- 국산차 화면은 국산 제조사 전체, 수입차 화면은 수입 제조사 전체를 표시한다. 전체 중고차 화면은 국산·수입 구분을 모두 표시한다.
+- 현재 승용 매물은 UI 테스트 데이터이므로 좌측 제조사·모델·세부모델·등급의 노출·선택 가능 여부를 매물 수와 연결하지 않는다. 0대 항목도 숨기거나 비활성화하지 않으며, 실제 재고 집계 연동 전에는 단계별 대수를 표시하지 않는다.
+- 좌측 탐색은 상단 퀵필터와 동일한 maker/model/generation/grade 상태를 사용하고 선택 즉시 목록과 URL 상태에 반영한다.
+
 ## Daangn Filter Hierarchy
 
 - Guazi PC·mobile full filters use the Daangn used-car information hierarchy: status, brand, vehicle type, fuel, price, year, mileage, transmission, and sale method are the default visible filters.
