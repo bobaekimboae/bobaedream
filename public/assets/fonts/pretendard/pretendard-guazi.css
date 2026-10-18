@@ -10,7 +10,7 @@ http://scripts.sil.org/OFL
    src/prototype/fonts/pretendard.ts 가 ?qf=guazi 일 때만 이 파일을 붙이고 <html class="qf-font-pretendard"> 를 단다(초톳·동처띠는 붙지 않음 = 지금 글꼴 그대로).
    공용 base.css 가 CDN 고정 굵기 'Pretendard'(100~900 단계)를 모든 모드에 불러오므로, 과쯔에서는 글꼴 이름을 'Pretendard Variable' 로 따로 두고
    화면 안 모든 글자에 아래 순서를 !important 로 씌운다(개별 규칙이 'Pretendard' 로 적어 둔 곳도 가변 글꼴이 먼저). 디버그 배지·겹침 표시는 제외 */
-html.qf-font-pretendard { --qf-font: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+html.qf-font-pretendard { --qf-font: -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; }
 html.qf-font-pretendard body,
 html.qf-font-pretendard body *:not(.build-badge):not(.build-badge *):not(.qf-debug-overlay):not(.qf-debug-overlay *):not(.qf-guide-toggle):not(.qf-guide-toggle *) {
 	font-family: var(--qf-font) !important;

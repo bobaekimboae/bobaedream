@@ -232,7 +232,9 @@
 ## Pretendard Variable (QF-120)
 
 - Guazi only: `src/prototype/fonts/pretendard.ts` attaches `public/assets/fonts/pretendard/pretendard-guazi.css` (Pretendard Variable 45–920, Korean dynamic subset from pretendard@1.3.9, `OFL.txt`) and `<html class="qf-font-pretendard">` when `?qf=guazi` (module load + layout effect, removed when switching modes). `font-display: swap`; the 14 first-screen subsets (5, 78–79, 81–91) are preloaded.
-- Font order: `"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif`, applied to every text element in guazi with `!important` (debug badge/overlays excluded), because the shared `src/prototype/base.css` still imports the CDN static `Pretendard` for ChoTot/Dongchedi (unchanged).
+- Font order follows Daangn Cars: `-apple-system, BlinkMacSystemFont, "Pretendard Variable", "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif`, applied to every text element in guazi with `!important` (debug badge/overlays excluded), because the shared `src/prototype/base.css` still imports the CDN static `Pretendard` for ChoTot/Dongchedi (unchanged).
+
+- PC Korean typography (2026-10-18, Daangn Cars live measurement): keep letter spacing at the font default; use 400 for listing titles/body, 500 for navigation/filter choices, 600 for price emphasis, and 700 for selected navigation/section titles. The PC listing uses title 16/24 400 and price 18/27 600 so the Daangn rhythm fits the existing denser Bobaedream card.
 - Intermediate weights (650, 750) now render as themselves. Checks: `node scripts/font-impact-check.mjs` (line wraps/clipping before vs after), `node scripts/font-load-measure.mjs` (first-screen load).
 
 ## PC Mileage Chip Modal (QF-118)
@@ -826,6 +828,7 @@
 - 그림자 카드 건설기계 줄 적용(2026-10-15 「하나씩 변경하고 배포」 4번째): `&qfbrand=shadowcard`일 때 건설기계 퀵필터(`HeavyQuickFilter`, `.heavy-qf.is-shadowcard`)의 유형(굴착기 · 불도저 · 로더 …) · 제조사 로고 · 모델 · 세부모델 줄을 같은 흰 그림자 카드(80×80 · 이미지 64×36(로고는 40×40) · 이름 10.5/16 · 아래 `(대수)` 9.5/16)로 그린다. 유형·제조사 카드는 대수를 새로 보여 주고(`(15)` 등, 기존 매물 수 계산 그대로), 모델·세부모델 카드는 기존 대수 글자를 같은 스타일로 쓴다. 세부 유형 알약 줄(`heavy-qf-detail-chip`)과 선택 완료 막대는 그대로. 위는 칩 줄 → 카드 16(퀵슬롯 위 8 + 트랙 안쪽 위 8), 아래 16(트랙 안쪽 아래 16). 모바일 384 유형 · 제조사 단계 측정 16 / 16. 파라미터가 없으면 기존 줄 그대로. 남은 것: PC 바디타입 아래 간격 24 → 16, 자재운반장비 · 부품 유형 줄은 이미지 레일 없음.
 
 - 그림자 카드 PC 간격 정리(2026-10-15 「PC 간격도 맞춰서 배포해라」): PC(개발 시안형 `.is-bbm`)는 stable-top.css가 퀵슬롯 안 줄의 위 여백을 0으로 고정해, 바디타입 → 제조사 줄 사이가 24 · 지역 줄 → 카드 24 · 카드 → 카드 영역 끝 8~34로 제각각이었다. 더 구체적인 선택자로 고쳐 1440 측정 기준 **지역 줄 → 카드 16 · 줄 사이 16 · 카드 → 카드 영역 끝 16**으로 맞췄다(중고차 · 수입차 · 국산차 · 럭셔리카 · 바이크 · 건설기계 · 벤츠 모델 줄 모두). 방법: 퀵슬롯 위 여백 8 · 아래 안쪽 8, 레일 위로 8(margin-top −8) · 높이 104 · 트랙 안쪽 `8px 20px 16px`, 카드 영역(`.bbm-content-head`) 아래 여백 0, 건설기계는 컴포넌트 위로 8. 트럭 유형 줄은 위 적재중량 줄의 알약이 줄 가운데에 있어 알약 → 카드가 24~28이었으므로 트랙 안쪽 위 여백을 모바일 8 · PC 4로 줄여 보이는 알약 → 카드 16(PC·모바일 측정)으로 맞췄다. 페라리 모델 줄(PC)은 지역 줄 구조가 달라 이번에는 건드리지 않았다(카드 → 영역 끝 18). 파라미터가 없으면 기존 화면 그대로.
+- PC 국산차 바디타입 우선 시나리오(2026-10-18 「올드카처럼」): `?qf=guazi&pc=1&category=국산차`의 첫 퀵필터는 올드카의 `연대 알약 → 제조사 로고` 계층을 따라 `바디타입 알약 → 브랜드 로고` 순서로 표시한다. 바디타입은 `세단 · 해치백 · 왜건 · 쿠페 · 컨버터블 · SUV · RV · 밴(승합) · 픽업트럭 · 리무진`이며, 같은 알약을 다시 누르면 선택이 해제된다. 수입차와 모바일의 기존 이미지형 바디타입 레일은 유지한다.
 
 - 그림자 카드 `전체 (N)` 카드 제거(2026-10-15 「전체빼라」): `&qfbrand=shadowcard`의 제조사·럭셔리 로고 줄 맨 앞에 두던 `전체 (N)` 카드를 뺐다. 로고 줄은 첫 카드부터 브랜드가 바로 시작한다(제조사 선택 해제는 위 칩의 ×로 한다). 카드 크기·간격·그림자는 그대로다. CSS의 `.is-brand-all` 규칙은 남겼지만 쓰이지 않는다.
 

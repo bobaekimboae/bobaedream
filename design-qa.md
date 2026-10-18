@@ -30,6 +30,45 @@ final result: passed
 
 ---
 
+## 2026-10-18 Daangn-style Korean typography
+
+- source visual truth path: `C:/Users/bobae/.codex/visualizations/2026/10/18/daangn-font/daangn-cars-reference.png`.
+- implementation screenshot path: `C:/Users/bobae/.codex/visualizations/2026/10/18/daangn-font/bobaedream-after-local.png`.
+- combined comparison evidence: `C:/Users/bobae/.codex/visualizations/2026/10/18/daangn-font/daangn-vs-bobaedream-after.png`.
+- viewport and normalization: source and implementation were captured at 1280 × 720 CSS px / DPR 1 and compared side by side at equal width.
+- state: PC Guazi used-car list, default GNB and LNB, default list view.
+- primary interactions tested: initial render, navigation and filter controls present, local font loaded, listing content visible.
+- console and overflow checks: JavaScript console errors 0; horizontal overflow 0.
+
+### Findings
+
+- P0/P1/P2 없음.
+- fonts and typography: both screens use the Daangn stack beginning with `-apple-system`, `BlinkMacSystemFont`, and `Pretendard Variable`. The implementation applies regular 400 to listing titles, medium 500 to navigation/filter choices, semibold 600 to prices, and bold 700 only to selected navigation and section headings. Letter spacing is `normal` outside the Korean wordmark.
+- spacing and layout rhythm: listing titles are 16/24 and prices 18/27, preserving the existing denser four-column Bobaedream layout without clipping or increasing card height.
+- colors and visual tokens: Bobaedream blue, neutral text colors, chip backgrounds, and selection colors were intentionally preserved; this pass changes typography rather than brand identity.
+- image quality and asset fidelity: all existing vehicle, brand, and icon assets remain unchanged and render without broken-image placeholders.
+- copy and content: all Korean labels and listing data remain unchanged.
+- focused evidence: computed styles confirm GNB 16/22 700, filter choices 14/20 500, listing title 16/24 400, price 18/27 600, and the Pretendard Variable face loaded successfully.
+
+final result: passed
+
+---
+
+## 2026-10-18 PC 국산차 바디타입 알약 → 브랜드 로고
+
+- source visual truth: 같은 제품의 올드카 화면에서 쓰는 `연대 알약 → 제조사 로고` 2단 계층.
+- implementation screenshot path: `C:/Users/bobae/.codex/visualizations/2026/10/18/daangn-font/bobaedream-domestic-body-pills-local.png`.
+- viewport and state: 1280 × 720 CSS px / DPR 1, `?qf=guazi&pc=1&category=국산차`, 선택 없음.
+- hierarchy: 바디타입은 32px 텍스트 알약 한 줄, 브랜드는 기존 로고 슬롯 한 줄로 분리했다. 이미지형 바디타입 카드와 브랜드 로고가 경쟁하던 문제를 제거했다.
+- spacing and tokens: 올드카와 같은 56px 상단 행, 8px 칩 간격, 14/20 500, 9999px 반경, 기본 `#DEDEE3` 테두리와 선택 시 이중 2px 검정 강조를 쓴다.
+- interaction: `SUV` 알약 선택 시 적용 필터 수와 매물 목록이 갱신되고, 같은 알약을 다시 누르면 선택과 결과가 원상 복귀하는 것을 확인했다.
+- responsive scope: PC 국산차에만 적용했다. 수입차와 모바일은 기존 이미지형 바디타입 레일을 유지한다.
+- findings: P0/P1/P2 없음. 첫 행은 바디타입, 둘째 행은 브랜드 로고 순서로 접근성 트리와 화면에서 모두 확인했다.
+
+final result: passed
+
+---
+
 ## PC GNB·LNB·필터 시각 위계 분리 · 2026-10-18
 
 - source visual truth: `C:/Users/bobae/.codex/visualizations/2026/10/18/gnb-lnb-audit/01-bobaedream-gnb-lnb.png`(기존 보배드림 화면)과 `C:/Users/bobae/.codex/visualizations/2026/10/18/gnb-lnb-audit/02-encar-gnb-lnb.png`(엔카의 텍스트 GNB·사각 LNB 위계).
