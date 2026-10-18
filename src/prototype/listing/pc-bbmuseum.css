@@ -380,3 +380,33 @@ html[data-lnb="c"] .marketplace .bbm-secondary-nav { display: none; }
 .bbm-lnb-title-menu button { display: flex; height: 40px; align-items: center; padding: 0 12px; border: 0; border-radius: 8px; background: none; color: #222; font-size: 15px; font-weight: 500; text-align: left; white-space: nowrap; }
 .bbm-lnb-title-menu button:hover { background: #f7f7f7; }
 .bbm-lnb-title-menu button.is-current { background: #f7f7f7; font-weight: 700; }
+
+/* 2026-10-18 하위메뉴 시안 2차 (?lnb=d|e|f). 공통: 칩 줄의 카테고리 칩 숨김 */
+html[data-lnb="d"] .marketplace .bbm-ct-chip-row .is-category-chip,
+html[data-lnb="e"] .marketplace .bbm-ct-chip-row .is-category-chip,
+html[data-lnb="f"] .marketplace .bbm-ct-chip-row .is-category-chip { display: none; }
+/* 사각 칩 (D·E 공통, 엔카 실측 높이 42·반경 6 → 우리 40·8) */
+html[data-lnb="d"] .marketplace .bbm-snb,
+html[data-lnb="e"] .marketplace .bbm-snb { gap: 8px; }
+html[data-lnb="d"] .marketplace .bbm-snb > button,
+html[data-lnb="d"] .marketplace .bbm-snb > .bbm-snb-special-wrap > button,
+html[data-lnb="e"] .marketplace .bbm-snb > button,
+html[data-lnb="e"] .marketplace .bbm-snb > .bbm-snb-special-wrap > button { height: 40px; padding: 0 16px; border: 1px solid #dddddd; border-radius: 8px; background: #fff; color: #333; font-size: 14px; font-weight: 500; }
+html[data-lnb="d"] .marketplace .bbm-snb > button:hover,
+html[data-lnb="e"] .marketplace .bbm-snb > button:hover { border-color: #bbb; background: #fafafa; color: #222; }
+html[data-lnb="d"] .marketplace .bbm-snb > button.is-current,
+html[data-lnb="d"] .marketplace .bbm-snb > .bbm-snb-special-wrap > button.is-current,
+html[data-lnb="e"] .marketplace .bbm-snb > button.is-current,
+html[data-lnb="e"] .marketplace .bbm-snb > .bbm-snb-special-wrap > button.is-current { border-color: #222; background: #222; color: #fff; font-weight: 700; }
+/* D: 헤더 흰 띠를 아래로 늘려 메뉴 + 사각 칩을 한 덩어리로, 띠 아래 1px 선 */
+html[data-lnb="d"] .marketplace .bbm-header { box-shadow: none; }
+html[data-lnb="d"] .marketplace.is-bbm.is-hybrid > .bbm-hybrid-top { margin-top: 0; }
+html[data-lnb="d"] .marketplace .bbm-hybrid-top > .bbm-secondary-nav { height: auto; margin: 0 0 16px; padding: 18px 0 20px; border-bottom: 0; background: #fff; box-shadow: 0 0 0 100vmax #fff, 0 1px 0 100vmax #ebebeb; clip-path: inset(0 -100vmax -1px); }
+/* E: 카드 안 제목 아래, 필터 칩 위 */
+html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: auto; margin: 16px 0 0; padding: 0 0 16px; border-bottom: 1px solid #f0f0f0; background: none; }
+/* F: 제목 자리 큰 글자 탭 */
+.bbm-lnb-title-tabs { display: flex; min-width: 0; flex: 1; align-items: center; gap: 22px; overflow-x: auto; scrollbar-width: none; }
+.bbm-lnb-title-tabs::-webkit-scrollbar { display: none; }
+.bbm-lnb-title-tabs button { flex: none; padding: 0; border: 0; background: none; color: #8c8c8c; font-size: 18px; font-weight: 600; line-height: 26px; white-space: nowrap; cursor: pointer; }
+.bbm-lnb-title-tabs button:hover { color: #222; }
+.bbm-lnb-title-tabs button.is-current { color: #222; font-weight: 700; }
