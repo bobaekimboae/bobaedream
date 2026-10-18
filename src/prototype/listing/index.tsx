@@ -385,8 +385,9 @@ function configureListingScreens(screens: { detailScreen: FlowScreen; savedListi
 // PC 목록 레이아웃은 ?pc=1 이고 폭 820 이상일 때만 켠다. 모바일 마크업은 그대로 둔다.
 // 기본은 보배드림 개발 시안형(QF-048~050), &pcl=chotot 이면 초톳형(QF-042~045) 비교 화면.
 const desktopLayoutQuery = "(min-width: 820px)";
-// QF-093: 과쯔 PC 혼합 배치 — 1280 이상 좌측 필터 + 목록, 1024~1279 좌측 필터 숨김(왼쪽 펼침판), 1023 이하는 모바일 화면
-const hybridLayoutQuery = "(min-width: 1024px)";
+// QF-093: 과쯔 PC 혼합 배치 — PC 공통 시작점인 820px부터 헤더·GNB를 유지한다.
+// 1280 이상은 좌측 필터 + 목록, 820~1279는 좌측 필터를 숨기고 펼침판으로 제공한다.
+const hybridLayoutQuery = "(min-width: 820px)";
 const hybridNarrowQuery = "(max-width: 1279px)";
 const pcLayoutStyle = new URLSearchParams(window.location.search).get("pcl") === "chotot" ? "chotot" : "bbmuseum";
 type PcFilterLayout = "balanced" | "left" | "right" | "compact" | "bare" | "modern" | "charancha";
