@@ -7,8 +7,8 @@
   .marketplace.is-bbm button { font-family: inherit; cursor: pointer; }
 
   /* 초톳형 검색 중심 헤더: 로고·검색·우측 액션 40px을 72px 행 중앙에 배치(상하 16) · 메뉴 49 */
-  .bbm-header { height: 173px; background: #fff; box-shadow: 0 1px 0 #ebebeb; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-  .bbm-header-inner { position: relative; width: min(1200px, calc(100% - 48px)); height: 173px; margin: 0 auto; }
+  .bbm-header { height: 121px; background: #fff; box-shadow: 0 1px 0 #ebebeb; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  .bbm-header-inner { position: relative; width: min(1200px, calc(100% - 48px)); height: 121px; margin: 0 auto; }
   .bbm-header-top { display: flex; align-items: center; justify-content: flex-end; height: 20px; padding: 3px 0 1px; box-sizing: border-box; }
   .bbm-header-top button { position: relative; padding: 0; border: 0; background: none; color: #767676; font-size: 12px; font-weight: 600; line-height: 16.8px; }
   .bbm-header-top button + button { margin-left: 17px; }
@@ -43,10 +43,10 @@
   .bbm-gnb .bbm-gnb-more-menu button { justify-content: flex-start; width: 100%; height: 38px; padding: 0 12px; border-radius: 7px; font-size: 14px; font-weight: 500; line-height: 20px; text-align: left; }
   .bbm-gnb .bbm-gnb-more-menu button:hover, .bbm-gnb .bbm-gnb-more-menu button.is-current { background: #f7f7f7; color: #222; font-weight: 700; }
   .bbm-gnb .bbm-gnb-more-menu button::after { display: none; }
-  .bbm-snb-row { display: flex; height: 52px; align-items: center; border-top: 1px solid #f1f1f1; box-sizing: border-box; }
+  .bbm-secondary-nav { display: flex; height: 40px; align-items: center; margin: 0 0 12px; box-sizing: border-box; }
   .bbm-snb { display: flex; width: 100%; min-width: 0; align-items: center; gap: 8px; overflow-x: auto; scrollbar-width: none; }
   .bbm-snb::-webkit-scrollbar { display: none; }
-  .bbm-snb button { display: inline-flex; height: 40px; flex: none; align-items: center; justify-content: center; padding: 0 16px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; color: #333; font-size: 14px; font-weight: 600; line-height: 20px; letter-spacing: -.2px; white-space: nowrap; }
+  .bbm-snb button { display: inline-flex; height: 36px; flex: none; align-items: center; justify-content: center; padding: 0 14px; border: 1px solid #e5e7eb; border-radius: 8px; background: #fff; color: #333; font-size: 14px; font-weight: 600; line-height: 20px; letter-spacing: -.2px; white-space: nowrap; }
   .bbm-snb button:hover { border-color: #cfd3d8; background: #f8f9fa; }
   .bbm-snb button.is-current { border-color: #222; background: #222; color: #fff; font-weight: 700; }
   .bbm-header-icons { display: flex; grid-column: 3; flex: none; align-items: center; justify-content: flex-end; gap: 14px; }

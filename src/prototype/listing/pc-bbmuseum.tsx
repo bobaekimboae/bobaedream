@@ -83,6 +83,29 @@ const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {
     { label: "올드카", category: "올드카" },
   ],
 };
+function bbActiveGnbItem(category: string) {
+  return category === "전체" ? "차량검색"
+    : bbUsedCarCategories.has(category) ? "중고차"
+      : category === "트럭 · 특장" ? "트럭"
+        : category === "건설기계" ? "건설기계"
+          : category === "캠핑카" ? "더보기"
+            : category === "부품 · 용품" ? "중고부품"
+              : category === "바이크" ? category : "더보기";
+}
+export function BbSecondaryNav({ category, categoryDetail, onChooseCategory }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void }) {
+  const activeItem = bbActiveGnbItem(category);
+  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  return (
+    <div className="bbm-secondary-nav">
+      <nav className="bbm-snb" aria-label={`${activeItem} 하위 메뉴`}>
+        {subnavItems.map((item) => {
+          const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
+          return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
+        })}
+      </nav>
+    </div>
+  );
+}
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 /* 2026-10-17 PC 메인 검색바 시안: 기본=비엑람똣형 블루 CTA, ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com) 비교안 */
 export type BbSearchVariant = "default" | "chotot" | "kaidee";
@@ -103,7 +126,7 @@ function bbAuthState(): BbAuthState {
 }
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
-function BbHeader({ category, categoryDetail, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; categoryDetail: string | null; onChooseCategory: (category: string, detail?: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
+function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string, detail?: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
   const [authState, setAuthState] = useState<BbAuthState>(bbAuthState);
@@ -112,14 +135,7 @@ function BbHeader({ category, categoryDetail, onChooseCategory, onNotify, onOpen
   const variant = bbSearchVariant();
   const logoLanguage = bbLogoLanguage();
   const isMember = authState === "member";
-  const activeItem = category === "전체" ? "차량검색"
-    : bbUsedCarCategories.has(category) ? "중고차"
-    : category === "트럭 · 특장" ? "트럭"
-      : category === "건설기계" ? "건설기계"
-      : category === "캠핑카" ? "더보기"
-        : category === "부품 · 용품" ? "중고부품"
-          : category === "바이크" ? category : "더보기";
-  const subnavItems = bbGnbSubmenus[activeItem] ?? bbGnbSubmenus.차량검색;
+  const activeItem = bbActiveGnbItem(category);
 
   useEffect(() => {
     if (!moreOpen) return;
@@ -234,14 +250,6 @@ function BbHeader({ category, categoryDetail, onChooseCategory, onNotify, onOpen
                 {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}><span>{moreItem.label}</span></button>)}</div> : null}
               </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}><span>{item.label}</span></button>}
             </Fragment>})}
-          </nav>
-        </div>
-        <div className="bbm-snb-row">
-          <nav className="bbm-snb" aria-label={`${activeItem} 하위 메뉴`}>
-            {subnavItems.map((item) => {
-              const current = item.category === category && (item.detail ? item.detail === categoryDetail : !categoryDetail);
-              return <button key={`${item.category}-${item.detail ?? item.label}`} type="button" className={current ? "is-current" : ""} aria-current={current ? "page" : undefined} onClick={() => onChooseCategory(item.category, item.detail)}>{item.label}</button>;
-            })}
           </nav>
         </div>
       </div>
