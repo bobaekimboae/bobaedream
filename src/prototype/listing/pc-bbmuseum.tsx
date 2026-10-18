@@ -702,6 +702,8 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
   const { primary: primaryFilterOrder, secondary: secondaryFilterOrder } = charancha
     ? { primary: charanchaPrimary, secondary: order.filter((label) => !charanchaPrimary.includes(label)) }
     : splitDaangnFilterOrder(order);
+  // 필터 더보기 안에 숨은 항목 중 적용된 조건 수(검정 당구공 배지, 차란차 모드만)
+  const hiddenAppliedCount = charancha ? secondaryFilterOrder.filter((label) => Boolean(bbmItemValue(label, bbm))).length : 0;
   const renderFilterItem = (label: string) => {
     const open = openItems.includes(label);
     const isMaker = label === bbMakerItem;
@@ -775,7 +777,7 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
           <label><BbSwitch checked={availableOnly} label="거래 가능만 보기" onChange={() => setAvailableOnly((value) => !value)} /><strong>거래 가능만 보기</strong></label>
         </div>}
         {primaryFilterOrder.map(renderFilterItem)}
-        {charancha && !secondaryFilterOrder.length && !truckFilter ? null : <button type="button" className="bbm-filter-more-toggle" aria-expanded={moreFiltersOpen} onClick={() => setMoreFiltersOpen((value) => !value)}><span>{moreFiltersOpen ? "필터 접기" : "필터 더보기"}</span><i aria-hidden="true" /></button>}
+        {charancha && !secondaryFilterOrder.length && !truckFilter ? null : <button type="button" className="bbm-filter-more-toggle" aria-expanded={moreFiltersOpen} onClick={() => setMoreFiltersOpen((value) => !value)}><span>{moreFiltersOpen ? "필터 접기" : "필터 더보기"}{hiddenAppliedCount ? <b className="bbm-cha-more-count" aria-label={`적용된 조건 ${hiddenAppliedCount}개`}>{hiddenAppliedCount}</b> : null}</span><i aria-hidden="true" /></button>}
         {moreFiltersOpen ? <>
           {renderTruckFormat()}
           {truckFilter ? <div className="bbm-filter-group-title">추가 필터</div> : null}
