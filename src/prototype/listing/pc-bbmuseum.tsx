@@ -210,16 +210,10 @@ export function BbLnbTitleMenu({ title, category, categoryDetail, onChooseCatego
     </div>
   );
 }
-// 2026-10-18 헤더 검색바 = 초톳(xe.chotot.com) 원본 아이콘 패스 그대로(돋보기 · 위치 핀 · 아래 삼각)
+// 2026-10-18 헤더 검색바 = 초톳(xe.chotot.com) 원본 아이콘 패스 그대로(돋보기)
 const ctSearchPath = "M18.2798 11.4399C18.2797 7.66239 15.2175 4.6001 11.4399 4.6001C7.66244 4.60018 4.60018 7.66244 4.6001 11.4399C4.6001 15.2175 7.66239 18.2797 11.4399 18.2798C15.2176 18.2798 18.2798 15.2176 18.2798 11.4399ZM20.2798 11.4399C20.2798 13.5439 19.5432 15.4748 18.3159 16.9927L21.0952 19.6812L21.1655 19.7563C21.4922 20.1438 21.4786 20.7232 21.1187 21.0952C20.7586 21.4674 20.1798 21.5 19.7817 21.186L19.7046 21.1187L16.8901 18.396C15.3881 19.5745 13.4972 20.2798 11.4399 20.2798C6.55782 20.2797 2.6001 16.3221 2.6001 11.4399C2.60018 6.55787 6.55787 2.60018 11.4399 2.6001C16.3221 2.6001 20.2797 6.55782 20.2798 11.4399Z";
 export function ChototSearchIcon({ size = 20 }: { size?: number }) {
   return <svg className="ct-icon" viewBox="0 0 24 24" width={size} height={size} fill="none" aria-hidden="true"><path d={ctSearchPath} fill="currentColor" /></svg>;
-}
-function ChototPinIcon() {
-  return <svg className="ct-icon" viewBox="0 0 24 24" width={20} height={20} fill="none" aria-hidden="true"><path fillRule="evenodd" clipRule="evenodd" d="M20.0005 10.0439C20.0004 11.4492 19.4826 12.8887 18.7915 14.2021C18.0937 15.5284 17.1749 16.8075 16.2759 17.9131C15.3742 19.0219 14.4755 19.9768 13.8032 20.6533C13.4666 20.992 13.1851 21.2623 12.9868 21.4492C12.8876 21.5427 12.8088 21.6161 12.7544 21.666L12.7198 21.6979L12.6919 21.7236L12.6743 21.7393L12.0005 22.3418L11.3267 21.7393L11.3091 21.7236L11.2811 21.6979L11.2466 21.666C11.1921 21.6161 11.1134 21.5427 11.0142 21.4492C10.8158 21.2623 10.5344 20.992 10.1978 20.6533C9.52545 19.9768 8.62674 19.0219 7.7251 17.9131C6.82612 16.8075 5.90731 15.5284 5.20947 14.2021C4.51839 12.8887 4.0006 11.4492 4.00049 10.0439C4.00049 5.6075 7.57638 2 12.0005 2C16.4246 2 20.0005 5.6075 20.0005 10.0439ZM12.0005 13C13.7936 13 15.2368 11.5391 15.2368 9.75C15.2367 7.96099 13.7935 6.5 12.0005 6.5C10.2076 6.50015 8.76521 7.96108 8.76514 9.75C8.76514 11.539 10.2075 12.9998 12.0005 13Z" fill="currentColor" /></svg>;
-}
-function ChototCaretIcon() {
-  return <svg className="ct-icon" viewBox="0 0 24 24" width={24} height={24} fill="none" aria-hidden="true"><path d="M12.4495 14.8316C12.2013 15.0561 11.7987 15.0561 11.5505 14.8316L6.18623 9.98133C6.0044 9.81692 5.95001 9.56967 6.04841 9.35486C6.14682 9.14006 6.37864 9 6.63578 9L17.3642 9C17.6214 9 17.8532 9.14006 17.9516 9.35487C18.05 9.56967 17.9956 9.81693 17.8138 9.98133L12.4495 14.8316Z" fill="currentColor" /></svg>;
 }
 // QF-091: 헤더 아이콘·로고는 개발 시안 원본 파일(public/assets/bbm/)
 /* 2026-10-17 PC 메인 검색바 시안: 기본=비엑람똣형 블루 CTA, ?pcsearch=chotot(초톳 xe.chotot.com) · ?pcsearch=kaidee(카이디 kaidee.com) 비교안 */
@@ -314,7 +308,6 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
           </button>
           {searchSlot ? <div className="bbm-header-search-slot">
             {variant === "chotot" ? <button type="button" className="bbm-region-pill" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 목록 위 지역 줄에서 이용해 주세요.")}><img src={bbmAsset("header-location-chotot-v01")} alt="" aria-hidden="true" /><span>전국</span><BbIcon name="chevron-down" size={16} /></button> : null}
-            {variant === "default" ? <button type="button" className="bbm-region-pill is-ct" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 좌측 필터의 지역에서 이용해 주세요.")}><ChototPinIcon /><span>전국</span><ChototCaretIcon /></button> : null}
             {searchSlot}
           </div> : null}
           {variant === "default" ? <div className="bbm-header-auth" aria-label="회원 메뉴">
