@@ -34,6 +34,9 @@
   .bbm-filter.is-charancha .bbm-maker-grade.is-reference { margin-top: 16px; }
   /* 차란차 실측: 펼친 제목 아래 16px 뒤에 그룹 제목이 바로 시작한다. 공통 catalog의 추가 12px 상단 패딩은 제거한다. */
   .bbm-filter.is-charancha .bbm-maker-grade.is-reference .bbm-catalog-section { padding-top: 0; }
+  /* 펼친 제조사 목록 끝 → 구분선: 마지막 행 글자 아래 약 21(닫힌 항목과 같은 리듬). 행 안쪽 9 + 항목 아래 12, 마지막 묶음 아래 12는 뺀다 (2026-10-19) */
+  .bbm-filter.is-charancha .bbm-filter-item.is-maker-grade.is-open { padding-bottom: 12px; }
+  .bbm-filter.is-charancha .bbm-maker-grade.is-reference .bbm-catalog-section:last-child { padding-bottom: 0; }
   .bbm-filter.is-charancha .bbm-filter-item.is-open .bbmf-expand,
   .bbm-filter.is-charancha .bbm-filter-item.is-open > div { padding-left: 0; padding-right: 0; }
   /* 제조사 행 로고 = 차란차 PC 실측 28×28, 이름과 간격 12 */
@@ -126,8 +129,9 @@
     overflow: visible;
     scrollbar-gutter: auto;
   }
+  /* 512 = 그룹 제목 + 행 43 × 11 + 다음 행 절반. 500이면 목록이 행 경계에서 잘려 빈 칸처럼 보여(2026-10-19) 다음 행을 절반 보여 스크롤 단서로 쓴다 */
   .marketplace.is-bbm.is-hybrid .bbm-page > .bbm-filter.is-charancha .bbm-catalog {
-    max-height: 500px;
+    max-height: 512px;
     overscroll-behavior: auto;
   }
   /* 트럭도 차란차 기본 좌측 필터처럼 문서 높이대로 이어진다. 화면 높이로 카드를 자르지 않고,
