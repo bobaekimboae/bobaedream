@@ -102,4 +102,13 @@
 .kr-all-brands { display: grid; width: 100%; height: 100%; place-items: center; border-radius: 50%; background: #f4f4f4; color: #222; }
 .kr-all-brands svg { width: 50%; height: 50%; }
 .marketplace.is-qf-plain .depth-card:has(> .depth-card-media.is-brand > .kr-all-brands) .depth-card-label { color: #222; font-weight: 600; }
+
+/* PC 국산차: 올드카와 같은 로고 → 브랜드명 8px 리듬으로 묶는다. */
+.marketplace.is-bbm.is-qf-guazi.is-qf-plain
+  .bbm-quick-slot:has(> .is-domestic-body-pill-row)
+  > .depth-rail.is-kr-maker
+  .depth-card:has(> .depth-card-media.is-brand)
+  > .depth-card-label {
+  margin-top: 8px;
+}
 .marketplace:not(.is-qf-plain) .kr-all-brands { width: 28px; height: 28px; }

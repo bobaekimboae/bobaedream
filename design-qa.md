@@ -30,6 +30,24 @@ final result: passed
 
 ---
 
+## PC 국산차 로고·브랜드명 올드카 간격 적용 · 2026-10-18
+
+- source visual truth: 로컬 올드카 `/?qf=guazi&pc=1&category=올드카`; `C:/Users/bobae/.codex/visualizations/2026/10/18/domestic-brand-gap/oldcar-source.png`.
+- implementation screenshot: 로컬 국산차 `/?qf=guazi&pc=1&category=국산차`; `C:/Users/bobae/.codex/visualizations/2026/10/18/domestic-brand-gap/domestic-after-local.png`.
+- comparison evidence: `C:/Users/bobae/.codex/visualizations/2026/10/18/domestic-brand-gap/oldcar-domestic-gap-comparison.png`; 두 화면의 동일한 알약 줄+브랜드 레일 영역을 1200px 폭, 1× 밀도로 정규화해 한 이미지에 배치했다.
+- viewport/state: PC 1280×720 CSS px, device scale 1, 제조사 미선택 기본 상태.
+- fonts and typography: 브랜드명은 기존 14/21px·400을 유지했다. 올드카 14/20px과 1px 줄높이 차이는 이 요청의 대상이 아니며 한 줄 브랜드명에서는 시각 차이가 없다.
+- spacing and layout rhythm: 국산차 첫 로고의 40×40 슬롯과 상단 6px은 유지하고, 로고 하단→브랜드명 상단을 14px에서 올드카와 같은 8px로 줄였다. 카드 84×102는 유지했다.
+- colors and visual tokens: 로고 원색과 브랜드명 `#595959`을 변경하지 않았다.
+- image quality and asset fidelity: 기존 투명 제조사 로고 원본과 40×40 슬롯을 그대로 사용해 크롭·확대·대체 자산 변화가 없다.
+- copy and content: 브랜드명과 순서는 변경하지 않았다.
+- interaction/accessibility: 제조사 선택 버튼 구조와 이름은 유지했고, 가로 넘침과 콘솔 오류 0건을 확인했다.
+- findings: P0/P1/P2 없음. 집중 영역에서 올드카와 국산차 모두 로고→텍스트 간격 8px로 일치한다.
+
+final result: passed
+
+---
+
 ## PC 초톳형 카드 내 브레드크럼 · 2026-10-18
 
 - 기준 화면: `https://xe.chotot.com/tags/xe-kawasaki-400cc` PC. 원본 캡처는 `C:/Users/bobae/.codex/visualizations/2026/10/18/chotot-breadcrumb/chotot-kawasaki-source-full.png`.
