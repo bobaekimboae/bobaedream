@@ -104,3 +104,12 @@ test("compact PC keeps applied vehicle chips stable across breakpoints", async (
     if (width < 1280) await expect(page.locator(".bbm-page > .bbm-filter")).toBeHidden();
   }
 });
+
+test("used-car landing omits duplicate text subcategories from quick filters", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/?qf=guazi&pc=1&pcsearch=cat&category=%EC%A4%91%EA%B3%A0%EC%B0%A8");
+
+  await expect(page.getByRole("heading", { name: "전체 중고차" })).toBeVisible();
+  await expect(page.locator(".bbm-lnb-title-tabs")).toHaveCount(0);
+  await expect(page.locator(".bbm-content-head.is-chotot .bbm-quick-slot")).toBeVisible();
+});
