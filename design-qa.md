@@ -39,6 +39,7 @@ final result: passed
 - typography: 기존 Pretendard 메뉴 타이포와 활성 상태 굵기를 유지했다. 메뉴 문구와 클릭 동작은 변경하지 않았다.
 - spacing: 데스크톱 아이콘 20×20px, 아이콘-텍스트 간격 7px. 1199px 이하에서는 기존 반응형 규칙에 따라 16×16px로 축소된다.
 - colors: 아이콘은 CSS mask로 `currentColor`를 사용해 일반 `#1a1a1a`, 활성 `#222`와 일치한다.
+- active state reference: 당근 중고거래 검색 페이지의 활성 탭을 실측해 `38px` 높이, `12px` 좌우 패딩, `9999px` 반경, `rgb(42, 48, 56)` 배경, 흰색 글자·아이콘, `16px/700`을 적용했다. 기존 하단 밑줄은 제거했다.
 - image fidelity: 제공 SVG 파일을 재그리지 않고 원본 그대로 복사해 사용했다. 홈·바이크·부품·커뮤니티·더보기는 저장소 기존 SVG를 재사용했다.
 - interaction/runtime: 탑메뉴 8개 모두 노출, 더보기 숫자 배지 5 유지, 가로 넘침 없음, 콘솔 오류 0건.
 - correction history: 1차 구현에서 기존 `.bbm-gnb-icon { display:none }` 규칙 때문에 핵심 요청인 아이콘이 보이지 않는 P1 문제가 발견됐다. 해당 숨김 규칙을 제거한 뒤 2차 캡처에서 8개 메뉴 아이콘 노출을 재확인했다.

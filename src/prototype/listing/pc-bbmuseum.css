@@ -25,8 +25,8 @@
   .bbm-gnb::-webkit-scrollbar { display: none; }
   .bbm-gnb button { position: relative; display: flex; align-items: center; gap: 7px; height: 49px; padding: 0; border: 0; background: none; color: #1a1a1a; font-size: 16px; font-weight: 600; line-height: 24px; letter-spacing: -.2px; white-space: nowrap; }
   .bbm-gnb button.is-home { font-size: 15px; font-weight: 500; }
-  .bbm-gnb button.is-active { color: #222; font-weight: 700; }
-  .bbm-gnb button.is-active::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 2px; background: #222; }
+  .bbm-gnb button.is-active { align-self: center; height: 38px; padding: 0 12px; border-radius: 9999px; background: #2a3038; color: #fff; font-weight: 700; }
+  .bbm-gnb button.is-active::after { display: none; }
   .bbm-gnb-icon { display: inline-block; width: 20px; height: 20px; flex: 0 0 20px; background: currentColor; -webkit-mask: var(--bbm-nav-icon) center / contain no-repeat; mask: var(--bbm-nav-icon) center / contain no-repeat; }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
   .bbm-gnb .bbm-gnb-more { gap: 6px; height: 36px; padding: 0 10px 0 12px; border: 1px solid #dedede; border-radius: 10px; background: #fff; }
