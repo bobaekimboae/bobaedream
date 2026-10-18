@@ -586,7 +586,7 @@ function PcSidebarCard({ title, items, activeLabel, onChoose, visibleCount = 5 }
   );
 }
 
-function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites, bbm = false, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void; bbm?: boolean; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
+function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearchSaved, onOpenFavorites, bbm = false, siteTitle, catalogRecords, onCatalogFocus, onCatalogChoose }: { query: string; setQuery: (query: string) => void; searchPlaceholder: string; searchSaved: boolean; onToggleSearchSaved: () => void; onOpenFavorites: () => void; bbm?: boolean; siteTitle?: string; catalogRecords?: VehicleSearchRecord[] | null; onCatalogFocus?: () => void; onCatalogChoose?: (record: VehicleSearchRecord) => void }) {
   // QF-091: 과쯔(개발 시안형) 모바일은 원본 아이콘
   const headerIcon = (name: string, fallback: string) => bbm ? <img className="ui-icon" src={bbmIcon(`m-header-${name}`)} alt="" aria-hidden="true" /> : <Icon name={fallback} />;
   const keyboard = useKeyboard();
@@ -611,7 +611,11 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
   const closeSearch = () => { setSearchOpen(false); keyboard.hide(); };
 
   return (
-    <><header className={`top-bar${bbm ? " is-bbm" : ""}${searchOpen ? " is-search-open" : ""}`} aria-label="중고차 검색">
+    <>{siteTitle && !searchOpen ? <div className="bike-site-mobile-brand" aria-label={siteTitle}>
+      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset("bbm/header-logo.svg")} alt="" draggable={false} /></span>
+      <h1>{siteTitle}</h1>
+    </div> : null}
+    <header className={`top-bar${bbm ? " is-bbm" : ""}${searchOpen ? " is-search-open" : ""}`} aria-label={siteTitle ? `${siteTitle} 검색` : "중고차 검색"}>
       <button className="icon-button back-button" type="button" aria-label={searchOpen ? "검색 닫기" : "뒤로 가기"} onClick={() => searchOpen ? closeSearch() : window.history.back()}>{headerIcon("back", "back.svg")}</button>
       <label className="search-field">
         {headerIcon("search", "search.svg")}
@@ -1052,8 +1056,8 @@ function MarketplaceScreen() {
   const usedCarChildValues = (bbmCategoryGroups.find((group) => group.value === "중고차")?.children ?? []).map((child) => child.value).filter((value) => value !== "중고차");
   // 전체 중고차 랜딩은 GNB와 제목만 유지하고 퀵필터 안의 중복 텍스트 하위 카테고리는 표시하지 않는다.
   const showDefaultCategoryLnb = !isStandaloneBikeSite && (isTruckCategory || ["국산차", "수입차", "전기차", "리스/렌트차량", "브랜드 인증중고차", "서울오토갤러리", "매매단지별 검색"].includes(category));
-  const pageCategoryTitle = isStandaloneBikeSite && isBikeCategory ? "중고 바이크" : isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
-  const categorySearchPlaceholder = categoryIsDefault ? "전체차량" : pageCategoryTitle;
+  const pageCategoryTitle = isStandaloneBikeSite && isBikeCategory ? "보배드림 바이크" : isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
+  const categorySearchPlaceholder = isStandaloneBikeSite && isBikeCategory ? "중고 바이크" : categoryIsDefault ? "전체차량" : pageCategoryTitle;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계
   const usesUxDepth = Boolean(isTruckCategory && maker) || Boolean(supportsVehicleCatalog && maker && vehicleCatalog.index?.manufacturers.some((item) => item.name === maker));
@@ -3251,7 +3255,7 @@ function MarketplaceScreen() {
       </div>;
     };
     const luxuryHead = isLuxuryCategory && plainQuickCards ? luxuryHeadVariant() : null;
-    const bbmMobileHeader = <Header bbm query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />;
+    const bbmMobileHeader = <Header bbm siteTitle={isStandaloneBikeSite ? "보배드림 바이크" : undefined} query={query} setQuery={setQuery} searchPlaceholder={categorySearchPlaceholder} searchSaved={searchSaved} onToggleSearchSaved={toggleSearchSaved} onOpenFavorites={() => flow.push(savedListingsScreen)} catalogRecords={supportsVehicleCatalog ? vehicleCatalog.records : undefined} onCatalogFocus={supportsVehicleCatalog ? () => { void vehicleCatalog.ensureSearch(); } : undefined} onCatalogChoose={supportsVehicleCatalog ? chooseCatalogRecord : undefined} />;
     return (
       <>
         <MobileScroll className="app-screen">

@@ -233,6 +233,10 @@
 .top-bar.is-bbm .search-save { margin-left: 0; }
 .top-bar.is-bbm .search-save .ui-icon { width: 24px; height: 24px; }
 .top-bar.is-bbm.is-search-open { position:relative; z-index:66; }
+.bike-site-mobile-brand { display: flex; height: 52px; align-items: center; gap: 10px; padding: 0 16px; border-bottom: 1px solid #f1f2f4; box-sizing: border-box; background: #fff; }
+.bike-site-mobile-brand__logo { display: block; overflow: hidden; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%; }
+.bike-site-mobile-brand__logo img { display: block; width: 122px; max-width: none; height: 30px; }
+.bike-site-mobile-brand h1 { margin: 0; color: var(--bbm-text-strong); font-size: 20px; font-weight: 800; line-height: 28px; letter-spacing: -.5px; }
 .bbm-search-suggest { position:fixed; top:50px; right:0; left:0; z-index:65; max-height:calc(100dvh - 130px); overflow-y:auto; border-top:1px solid #ebebeb; background:#fff; color:#222; box-shadow:0 8px 18px rgba(0,0,0,.12); }
 .bbm-search-suggest h2 { margin:0; padding:12px 16px 8px; font-size:16px; font-weight:700; line-height:22px; }
 .bbm-search-suggest__list button { display:flex; align-items:center; gap:12px; width:100%; min-height:56px; padding:8px 16px; border:0; border-bottom:1px solid #f4f4f4; background:#fff; color:#222; text-align:left; cursor:pointer; }
