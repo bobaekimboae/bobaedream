@@ -3061,7 +3061,9 @@ function MarketplaceScreen() {
     // 그 아래부터 좌측 상세 필터와 매물 목록이 같은 윗선에서 시작한다.
     const truckFullTopCard = isGuaziQuickStyle && usesReferencePcLayout && isTruckCategory && pcFilterLayout === "compact";
     const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && (isHeavyCategory || pcFilterLayout === "balanced");
-    const bbmCategoryBanner = lnbVariant === "default" && (!isBikeCategory || isStandaloneBikeSite) ? (
+    // 트럭 compact는 전체 폭 퀵필터 자체가 카테고리 문맥을 충분히 제공하므로
+    // 제목 배너를 중복 노출하지 않고 GNB 다음에 바로 검색 조건을 배치한다.
+    const bbmCategoryBanner = lnbVariant === "default" && !truckFullTopCard && (!isBikeCategory || isStandaloneBikeSite) ? (
           <div className="bbm-ct-banner">{/* 포쉬마크식 카테고리 헤더 배너(2026-10-18) */}
             <h1 className="bbm-ct-banner-title bbm-summary" data-count={shownCars.length}>{pageCategoryTitle}</h1>
             <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
