@@ -1948,7 +1948,7 @@ function MarketplaceScreen() {
           showTruckFormatRail ? <>
             <section className="depth-rail no-label is-truck-depth-chip-row is-cargo-tonnage-row" aria-label="적재중량 빠른 선택">
               <QuickRailCarousel ariaLabel="적재중량" className="brand-carousel" contentClassName="depth-rail-track is-chips is-truck-tonnage-track">
-                <span className="truck-tonnage-label">적재중량</span>
+                <span className="truck-tonnage-label">적재중량:</span>
                 {truckCargoQuickSubtypes.map((subtype) => (
                   <TrimChip key={subtype} label={truckSubtypeSecondaryLabel("카고(화물)트럭", subtype) ?? subtype} onClick={() => applyTruckTypeSelection("카고(화물)트럭", subtype)} />
                 ))}
@@ -1967,7 +1967,7 @@ function MarketplaceScreen() {
               ? "depth-rail-track"
               : `depth-rail-track${selectedTruckFormat === "카고(화물)트럭" ? " is-chips is-truck-tonnage-track" : ""}${showWingbodyPillDepth ? " is-chips" : ""}`}>
               {selectedTruckFormat === "카고(화물)트럭" ? <>
-                <span className="truck-tonnage-label">적재중량</span>
+                <span className="truck-tonnage-label">적재중량:</span>
                 {truckCargoQuickSubtypes.map((subtype) => (
                   <TrimChip key={subtype} label={truckSubtypeSecondaryLabel(selectedTruckFormat, subtype) ?? subtype} onClick={() => chooseTruckSubtype(subtype)} />
                 ))}
