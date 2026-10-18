@@ -27,7 +27,7 @@ const bbGnbItems: readonly BbGnbItem[] = [
   { label: "차량검색", category: "전체" },
   { label: "중고차", category: "중고차" },
   { label: "트럭", category: "트럭 · 특장" },
-  { label: "중장비", category: "건설기계" },
+  { label: "건설기계", category: "건설기계" },
   { label: "바이크", category: "바이크" },
   { label: "중고부품", category: "부품 · 용품" },
   { label: "커뮤니티", action: "community" },
@@ -70,7 +70,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const isMember = authState === "member";
   const activeItem = category === "전체" ? "차량검색"
     : category === "트럭 · 특장" ? "트럭"
-      : category === "건설기계" ? "중장비"
+      : category === "건설기계" ? "건설기계"
       : category === "캠핑카" ? "더보기"
         : category === "부품 · 용품" ? "중고부품"
           : category === "바이크" || category === "중고차" ? category : "더보기";
@@ -176,14 +176,14 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
         <div className="bbm-gnb-row">
           <nav className="bbm-gnb" aria-label="주 메뉴">
             {bbGnbItems.map((item) => {
-              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}`;
+              const itemClassName = `${item.label === activeItem ? "is-active" : ""}${item.action === "home" ? " is-home" : ""}${item.label === "차량검색" ? " is-vehicle-search" : ""}`;
               return <Fragment key={item.label}>
               {item.action === "more" ? <div className="bbm-gnb-more-wrap" ref={moreRef}>
                 <button type="button" className={`bbm-gnb-more ${itemClassName}`.trim()} aria-current={item.label === activeItem ? "page" : undefined} aria-haspopup="menu" aria-expanded={moreOpen} onClick={() => chooseMenu(item)}>
                   <span>{item.label}</span><span className="bbm-gnb-more-count" aria-hidden="true">{bbGnbMoreItems.length}</span><BbIcon name="chevron-down" size={18} />
                 </button>
                 {moreOpen ? <div className="bbm-gnb-more-menu" role="menu">{bbGnbMoreItems.map((moreItem) => <button key={moreItem.label} type="button" role="menuitem" className={moreItem.category === category ? "is-current" : ""} onClick={() => chooseMenu(moreItem)}><span>{moreItem.label}</span></button>)}</div> : null}
-              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}><span>{item.label}</span></button>}
+              </div> : <button type="button" className={itemClassName} aria-current={item.label === activeItem ? "page" : undefined} onClick={() => chooseMenu(item)}><span>{item.label}</span>{item.label === "차량검색" ? <BbIcon name="chevron-down" size={12} className="bbm-vehicle-search-chevron" /> : null}</button>}
             </Fragment>})}
           </nav>
         </div>

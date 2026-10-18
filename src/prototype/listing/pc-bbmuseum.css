@@ -25,12 +25,15 @@
   .bbm-gnb::-webkit-scrollbar { display: none; }
   .bbm-gnb button { position: relative; display: flex; align-items: center; gap: 6px; height: 49px; padding: 0; border: 0; background: none; color: #202124; font-size: 15px; font-weight: 600; line-height: 22px; letter-spacing: -.15px; white-space: nowrap; }
   .bbm-gnb button.is-home { font-size: 15px; font-weight: 500; }
+  .bbm-gnb button.is-vehicle-search { gap: 3px; }
+  .bbm-vehicle-search-chevron { color: #62666d; }
+  .bbm-gnb button.is-active .bbm-vehicle-search-chevron { color: #fff; }
   .bbm-gnb button.is-active { align-self: center; height: 38px; padding: 0 12px; border-radius: 9999px; background: #2a3038; color: #fff; font-weight: 700; }
   .bbm-gnb button.is-active::after { display: none; }
   .bbm-gnb-more-wrap { position: relative; display: flex; flex: none; align-items: center; }
-  .bbm-gnb .bbm-gnb-more { gap: 6px; height: 36px; padding: 0 10px 0 12px; border: 1px solid #dedede; border-radius: 10px; background: #fff; }
-  .bbm-gnb .bbm-gnb-more:hover { border-color: #bcbcbc; background: #f8f8f8; }
-  .bbm-gnb .bbm-gnb-more.is-active { border-color: #222; background: #222; color: #fff; }
+  .bbm-gnb .bbm-gnb-more { gap: 6px; height: 36px; padding: 0 10px 0 12px; border: 0; border-radius: 9999px; background: #f1f2f4; }
+  .bbm-gnb .bbm-gnb-more:hover { background: #e8eaed; }
+  .bbm-gnb .bbm-gnb-more.is-active { background: #222; color: #fff; }
   .bbm-gnb .bbm-gnb-more.is-active::after { display: none; }
   .bbm-gnb-more-count { display: grid; min-width: 20px; height: 20px; padding: 0 5px; place-items: center; border-radius: 10px; box-sizing: border-box; background: #222; color: #fff; font-size: 11px; font-weight: 700; line-height: 20px; font-variant-numeric: tabular-nums; }
   .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #fff; color: #222; }
