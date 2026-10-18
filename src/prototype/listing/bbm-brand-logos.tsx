@@ -115,13 +115,38 @@ export function chototRailLogoSize(ratio: number) {
   return { width: px(width), height: px(height) };
 }
 
+// 초톳·차란차처럼 슬롯은 정사각형으로 통일하되, 실제 보이는 잉크 면적은
+// 로고 형태별로 보정한다. 초광폭 워드마크/윙은 40px 슬롯을 살짝 넘겨도
+// 카드 피치 안에서 광학적으로 같은 무게가 되도록 허용한다.
+const railBrandOpticalWidth: Record<string, number> = {
+  "현대": 40,
+  "제네시스": 52,
+  "기아": 46,
+  "쉐보레": 44,
+  "쉐보레(국산)": 44,
+  "르노코리아": 23,
+  "르노코리아(삼성)": 23,
+  "KGM": 50,
+  "KG모빌리티": 50,
+  "KG모빌리티(쌍용)": 50,
+  "BMW": 30,
+  "벤츠": 30,
+  "아우디": 46,
+  "포르쉐": 24,
+};
+
+export function opticalRailBrandLogoSize(name: string, ratio: number) {
+  const width = railBrandOpticalWidth[name] ?? Math.min(48, Math.max(28, 30 * Math.sqrt(ratio)));
+  return { width: px(width), height: px(width / ratio) };
+}
+
 /** 과쯔 승용 제조사 레일 로고(오토홈 원본 trim, rail-v01). 파일이 없는 브랜드는 null → 기존 로고를 쓴다. */
 export function railBrandLogo(name: string) {
   const logo = railBrandLogosV01[name] ?? railBrandLogosV01[krBrandName(name) ?? ""];
   if (!logo) return null;
   return (
     <span className="kr-brand-logo is-plain is-rail-v01" data-brand={name} data-ratio={logo.ratio} data-logo-set="rail-v01">
-      <img src={asset(`brand/rail-v01/${logo.file}`)} alt="" draggable={false} style={chototRailLogoSize(logo.ratio)} />
+      <img src={asset(`brand/rail-v01/${logo.file}`)} alt="" draggable={false} style={opticalRailBrandLogoSize(name, logo.ratio)} />
     </span>
   );
 }
