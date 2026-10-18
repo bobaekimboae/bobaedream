@@ -775,6 +775,24 @@ function SavedListingsScreen() {
   );
 }
 
+/* 2026-10-18 초톳처럼 PC 카드 제목 아래 한 줄 설명(초톳 12/18 400 #595959) */
+const bbmCategoryDescriptions: Record<string, string> = {
+  전체: "승용차부터 트럭·바이크·캠핑카·건설기계·부품까지 모든 차량 매물을 검색할 수 있습니다.",
+  중고차: "국산차·수입차·전기차 등 모든 유형의 중고차 매물을 검색할 수 있습니다.",
+  국산차: "현대·기아·제네시스 등 국산 중고차 매물을 검색할 수 있습니다.",
+  수입차: "벤츠·BMW·아우디 등 수입 중고차 매물을 검색할 수 있습니다.",
+  전기차: "전기차·하이브리드 등 친환경 중고차 매물을 검색할 수 있습니다.",
+  "트럭 · 특장": "카고·윙바디·냉동탑·덤프 등 모든 형식의 트럭·특장차 매물을 검색할 수 있습니다.",
+  바이크: "스쿠터부터 대형 바이크까지 모든 유형의 바이크 매물을 검색할 수 있습니다.",
+  캠핑카: "모터홈·카라반·트레일러 매물을 검색할 수 있습니다.",
+  건설기계: "굴착기·로더·크레인 등 건설기계 매물을 검색할 수 있습니다.",
+  자재운반장비: "지게차 등 자재운반장비 매물을 검색할 수 있습니다.",
+  "부품 · 용품": "타이어·휠·튜닝 부품 등 자동차 부품과 용품을 검색할 수 있습니다.",
+};
+function bbmCategoryDescription(category: string) {
+  return bbmCategoryDescriptions[category] ?? `${category} 매물을 검색할 수 있습니다.`;
+}
+
 function MarketplaceScreen() {
   const flow = useFlow();
   const openCarDetail = (car: Car) => {
@@ -2751,6 +2769,7 @@ function MarketplaceScreen() {
             : <h1 className="bbm-ct-title bbm-summary" data-count={shownCars.length}>{category === "중고차" ? "전체 중고차" : stablePageTitle(category)}</h1>}
           <button type="button" className={`bbm-save-search bbm-ct-save${searchSaved ? " is-saved" : ""}`} aria-pressed={searchSaved} onClick={toggleSearchSaved}><img src={bbmIcon("search-save")} alt="" aria-hidden="true" />검색저장</button>
         </div>
+        <p className="bbm-ct-desc">{bbmCategoryDescription(category)}</p>
         {lnbVariant === "e" ? <BbSecondaryNav category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} /> : null}
         <div className="bbm-ct-chip-row">
           <div className="bbm-chips">
