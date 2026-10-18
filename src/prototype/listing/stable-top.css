@@ -40,6 +40,32 @@
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all { font-weight: 700; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-ct-clear-all:disabled { color: #b8b8b8; cursor: default; }
 .marketplace.is-bbm.is-qf-guazi.is-full-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; margin-top: 8px; padding: 10px 0; }
+/* 초톳 PC 실측 리듬: 필터 52 → 지역/유형 48 → 8 → 카테고리·모델 102 → 카드 끝 16.
+   국산차 풀사이즈 퀵필터도 같은 순서로 맞추고, 레일 사이의 임의 구분선은 없앤다. */
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter
+  .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .is-car-body-pill-row) {
+  row-gap: 8px;
+  margin-top: 0;
+}
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter
+  .bbm-content-head.is-chotot
+  .bbm-quick-slot:has(> .is-car-body-pill-row)
+  > .depth-rail {
+  box-shadow: none;
+}
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter
+  .bbm-content-head.is-chotot
+  .depth-rail.is-car-body-pill-row,
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter
+  .bbm-content-head.is-chotot
+  .depth-rail.is-car-body-pill-row .brand-carousel,
+.marketplace.is-bbm.is-qf-guazi.is-full-top-filter
+  .bbm-content-head.is-chotot
+  .depth-rail.is-car-body-pill-row .depth-rail-track {
+  min-height: 48px;
+  height: 48px;
+}
 /* 초톳 PC 실측: 바이크 필터 칩 32px + 위아래 10px = 필터 줄 52px. 가격·지역을 포함한 한 줄 전체가 같은 수직 리듬을 쓴다. */
 .marketplace.is-bbm.is-qf-guazi.is-bike-category .bbm-content-head.is-chotot .bbm-ct-chip-row,
 .marketplace.is-bbm.is-qf-guazi.is-truck-category .bbm-content-head.is-chotot .bbm-ct-chip-row { height: 52px; padding: 10px 0; }

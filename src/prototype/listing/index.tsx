@@ -469,6 +469,21 @@ const carBodyQuickOptions = [
   { label: "리무진", assetName: "limousine" },
 ] as const;
 
+// 국산차 PC 퀵필터: 바디타입을 고른 뒤 제조사를 한 번 더 고르게 하지 않고
+// 대표 모델로 바로 이동한다. 이름은 모델 카탈로그의 실제 1뎁스 이름과 맞춘다.
+const domesticModelsByBodyType: Record<string, ReadonlyArray<readonly [maker: string, model: string]>> = {
+  세단: [["현대", "그랜저"], ["현대", "쏘나타"], ["현대", "아반떼"], ["현대", "아이오닉6"], ["기아", "K5"], ["기아", "K8"], ["기아", "K9"], ["제네시스", "G80"]],
+  해치백: [["현대", "i30"], ["현대", "i20"], ["현대", "벨로스터"], ["기아", "모닝"], ["기아", "프라이드"], ["기아", "쏘울"]],
+  왜건: [["현대", "i40"], ["기아", "X-트렉"], ["기아", "파크타운"]],
+  쿠페: [["현대", "제네시스"], ["현대", "투스카니"], ["현대", "티뷰론"], ["현대", "스쿠프"], ["기아", "스팅어"]],
+  컨버터블: [["기아", "엘란"]],
+  SUV: [["현대", "싼타페"], ["현대", "투싼"], ["현대", "팰리세이드"], ["현대", "코나"], ["현대", "아이오닉5"], ["기아", "쏘렌토"], ["기아", "스포티지"], ["기아", "셀토스"], ["기아", "EV9"], ["제네시스", "GV70"], ["제네시스", "GV80"]],
+  RV: [["기아", "카니발"], ["기아", "카렌스"], ["현대", "스타리아"], ["현대", "트라제XG"], ["현대", "싼타모"]],
+  "밴(승합)": [["현대", "스타리아"], ["현대", "스타렉스"], ["현대", "쏠라티"], ["현대", "그레이스"], ["기아", "베스타"], ["기아", "프레지오"]],
+  픽업트럭: [["기아", "타스만"], ["현대", "리베로"]],
+  리무진: [["현대", "에쿠스"], ["현대", "그랜저"], ["기아", "K9"], ["기아", "카니발"], ["제네시스", "G80"]],
+};
+
 function carBodyQuickImage(assetName: string, brand: CarBodyBrandTheme) {
   if (brand === "hyundai" && assetName === "convertible") {
     return asset("car/body-types/v02/hyundai/body_convertible_kia_elan_side_v02.png");
@@ -2115,6 +2130,26 @@ function MarketplaceScreen() {
   const useCarBodyPillRail = Boolean(desktop && isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차"));
   const showCarBodyTypeRail = Boolean(isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차") && !useCarBodyPillRail);
   const selectedCarBodyTypes = bbmValue.checks.bodyType ?? [];
+  const selectedCarBodyType = selectedCarBodyTypes[0] ?? null;
+  const domesticBodyModelOptions = useMemo(() => {
+    if (category !== "국산차" || !selectedCarBodyType) return [];
+    return (domesticModelsByBodyType[selectedCarBodyType] ?? []).flatMap(([makerName, modelName]) => {
+      if (!(modelsByMakerMap[makerName] ?? []).includes(modelName)) return [];
+      const visual = modelVisualsByMakerMap[makerName]?.[modelName] ?? guaziModelVisualsByMaker[makerName]?.[modelName];
+      const matchingCars = listingCars.filter((car) => car.maker === makerName && (
+        catalogModelOfCar(car) === modelName
+        || car.modelGroup === modelName
+        || normalizeModelSearchText(car.title).includes(normalizeModelSearchText(modelName))
+      ));
+      return [{
+        maker: makerName,
+        model: modelName,
+        visual,
+        listingCount: matchingCars.length,
+        fallbackImage: matchingCars.find((car) => car.image)?.image,
+      }];
+    });
+  }, [category, listingCars, modelVisualsByMakerMap, modelsByMakerMap, selectedCarBodyType]);
   const carBodyTypeCount = (label: string) => listingCars.filter((car) => {
     const body = car.filter?.body ?? "";
     return (body === "승합" ? "밴(승합)" : body === "스포츠카" ? "쿠페" : body) === label;
@@ -2122,6 +2157,9 @@ function MarketplaceScreen() {
   const chooseCarBodyType = (bodyType: string) => {
     const nextValues = selectedCarBodyTypes.includes(bodyType) ? [] : [bodyType];
     setBbmFilters(setBbmChecks(bbmValue, "bodyType", nextValues));
+  };
+  const chooseDomesticBodyModel = (makerName: string, modelName: string) => {
+    applyVehicleSummarySelection(makerName, modelName, null);
   };
   // 트럭은 형식 → 차급 → 적재중량(톤수)을 확정한 다음 단계에서만 제조사 로고를 노출한다.
   useEffect(() => { setGroupRail(null); }, [category]);
@@ -2549,7 +2587,30 @@ function MarketplaceScreen() {
         ))}
       </QuickRailCarousel>
     </section>
-    {baseQuickRail}
+    {category === "국산차" && selectedCarBodyType && domesticBodyModelOptions.length ? <section className="depth-rail no-label is-body-direct-model-row" aria-label={`${selectedCarBodyType} 모델 빠른 선택`}>
+      <QuickRailCarousel ariaLabel={`${selectedCarBodyType} 모델`} className="brand-carousel" contentClassName="depth-rail-track is-body-direct-model-track">
+        {domesticBodyModelOptions.map((option) => {
+          const modelImage = option.visual?.image
+            ? supportsVehicleCatalog && vehicleCatalog.index
+              ? <CatalogVehicleImage path={option.visual.image} name={option.model} compact />
+              : <CatalogModelImage src={option.visual.image} />
+            : option.fallbackImage
+              ? <img src={asset(option.fallbackImage)} alt="" aria-hidden="true" draggable={false} />
+              : <CatalogModelImage />;
+          return <DepthCard
+            key={`${option.maker}-${option.model}`}
+            className="is-body-direct-model-card"
+            label={formatModelLabel(option.model)}
+            ariaLabel={`${option.maker} ${formatModelLabel(option.model)} 모델 선택`}
+            sub={`${option.maker}${option.listingCount ? ` · ${option.listingCount.toLocaleString("ko-KR")}대` : ""}`}
+            image={modelImage}
+            imageFit={option.visual?.bodyFit ?? "width"}
+            isEV={option.visual?.isEV}
+            onClick={() => chooseDomesticBodyModel(option.maker, option.model)}
+          />;
+        })}
+      </QuickRailCarousel>
+    </section> : baseQuickRail}
   </> : isGuaziQuickStyle && category === "올드카" && !maker ? <>
     <section className="depth-rail no-label is-oldcar-decade-row" aria-label="올드카 연대 빠른 선택">
       <QuickRailCarousel ariaLabel="올드카 연대" className="brand-carousel" contentClassName="depth-rail-track is-chips is-oldcar-decade-track">
