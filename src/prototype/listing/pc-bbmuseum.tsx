@@ -644,6 +644,9 @@ export function BbTruckFormatFilter({ value, showImages = true }: { value: BbTru
 
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
+const charanchaFilterOrder = [bbMakerItem, "차급", "바디타입", "연식", "주행거리", "가격", "옵션", "외부색상", "연료", "변속기", "지역", "매매단지", "판매자 유형", "판매방식"];
+const charanchaFilterLabels: Record<string, string> = { 차급: "차종", 바디타입: "바디타입", 외부색상: "색상", "판매자 유형": "판매자유형", 판매방식: "판매 방식" };
+
 function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, priceFinal = false, pricePresets, truckFilter, collapsible = false, referenceMakerFlow = false, makerOpenByDefault = false, showMakerCounts = true, allowEmptyMakerOptions = false, makerLabel }: { mileageFinal?: boolean; priceFinal?: boolean; pricePresets?: string[]; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter; collapsible?: boolean; referenceMakerFlow?: boolean; makerOpenByDefault?: boolean; showMakerCounts?: boolean; allowEmptyMakerOptions?: boolean; makerLabel?: string }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
   const [modalItem, setModalItem] = useState<BbmFilterItem | null>(null);
@@ -693,7 +696,12 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
     maker && model ? selection.modelLabel ?? model : null,
     selection.grades.length ? `등급 ${selection.grades.length}개` : selection.generation ? selection.generationLabel ?? selection.generation : null,
   ].filter(Boolean).join(" › ");
-  const { primary: primaryFilterOrder, secondary: secondaryFilterOrder } = splitDaangnFilterOrder(order);
+  // 차란차 PC 좌측 필터(2026-10-18 「레퍼런스 하나 정해서 그대로」): 차란차 노출 순서를 그대로 쓰고 나머지는 「필터 더보기」 아래로
+  const charancha = referenceMakerFlow;
+  const charanchaPrimary = charancha ? charanchaFilterOrder.filter((label) => order.includes(label)) : [];
+  const { primary: primaryFilterOrder, secondary: secondaryFilterOrder } = charancha
+    ? { primary: charanchaPrimary, secondary: order.filter((label) => !charanchaPrimary.includes(label)) }
+    : splitDaangnFilterOrder(order);
   const renderFilterItem = (label: string) => {
     const open = openItems.includes(label);
     const isMaker = label === bbMakerItem;
@@ -704,7 +712,9 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
         ? makerLabel
       : truckFilter && label === "차량번호 / 판매자"
         ? "차량번호/판매자 이름"
-        : daangnFilterLabel(label);
+        : charancha && charanchaFilterLabels[label]
+          ? charanchaFilterLabels[label]
+          : daangnFilterLabel(label);
     const applied = isMaker ? Boolean(maker) : Boolean(bbmItemValue(label, bbm));
     return (
       <Fragment key={label}>
@@ -737,8 +747,15 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
     </aside>;
   }
   return (
-    <aside className="bbm-filter" aria-label="필터">
-      <div className="bbm-filter-summary">
+    <aside className={`bbm-filter${charancha ? " is-charancha" : ""}`} aria-label="필터">
+      {charancha ? <div className="bbm-filter-summary is-charancha">
+        <h4 className="bbm-cha-title">필터</h4>
+        <div className="bbm-cha-actions">
+          <button type="button" onClick={() => onNotify(bbm.history ? "최근 필터 기록은 정식 서비스에서 이용해 주세요." : "최근 필터 기록이 없습니다.")}>최근 필터 기록</button>
+          <i aria-hidden="true" />
+          <button type="button" onClick={() => setConfirmReset(true)}><span className="bbm-cha-reset-icon" aria-hidden="true">↺</span>초기화</button>
+        </div>
+      </div> : <div className="bbm-filter-summary">
         <div className="bbm-filter-summary-top">
           {/* QF-074: 제목 오른쪽 적용 필터 개수 배지(0개면 숨김) + 오른쪽 끝 모두 지우기 */}
           <div className="bbm-filter-title"><strong>필터</strong>{appliedCount > 0 ? <span className="bbm-filter-count" aria-label={`적용된 필터 ${appliedCount}개`}>{appliedCount}</span> : null}</div>
@@ -751,14 +768,14 @@ function BbFilterSidebar({ selection, appliedCount, historyCount, onReset, onNot
           <label className="bbm-filter-keep"><BbSwitch checked={keepSearch} label="검색조건 유지" onChange={() => setKeepSearch((value) => !value)} /><span>검색조건 유지</span></label>
           <button type="button" className="bbm-filter-history" onClick={() => onNotify(bbm.history ? "최근 검색 기록은 정식 서비스에서 이용해 주세요." : "최근 검색 기록이 없습니다.")}>최근검색기록 <b>{historyCount ?? bbm.history ?? 0}</b></button>
         </div>
-      </div>
+      </div>}
       <div className="bbm-filter-menu">
-        <div className="bbm-filter-status">
+        {charancha ? null : <div className="bbm-filter-status">
           <span>상태</span>
           <label><BbSwitch checked={availableOnly} label="거래 가능만 보기" onChange={() => setAvailableOnly((value) => !value)} /><strong>거래 가능만 보기</strong></label>
-        </div>
+        </div>}
         {primaryFilterOrder.map(renderFilterItem)}
-        <button type="button" className="bbm-filter-more-toggle" aria-expanded={moreFiltersOpen} onClick={() => setMoreFiltersOpen((value) => !value)}><span>{moreFiltersOpen ? "필터 접기" : "필터 더보기"}</span><i aria-hidden="true" /></button>
+        {charancha && !secondaryFilterOrder.length && !truckFilter ? null : <button type="button" className="bbm-filter-more-toggle" aria-expanded={moreFiltersOpen} onClick={() => setMoreFiltersOpen((value) => !value)}><span>{moreFiltersOpen ? "필터 접기" : "필터 더보기"}</span><i aria-hidden="true" /></button>}
         {moreFiltersOpen ? <>
           {renderTruckFormat()}
           {truckFilter ? <div className="bbm-filter-group-title">추가 필터</div> : null}
