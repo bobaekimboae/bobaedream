@@ -40,6 +40,12 @@
     color: #707b89; font-size: 16px; font-weight: 600; line-height: 24px;
   }
   .bbm-filter.is-charancha .bbm-filter-more-toggle i { margin-right: 4px; }
+  /* 더보기 안 적용 조건 수 = 검정 당구공(20 원형 · #222 · 흰 12/600 숫자 · 글자와 6) */
+  .bbm-filter.is-charancha .bbm-filter-more-toggle > span { display: inline-flex; align-items: center; gap: 6px; }
+  .bbm-filter.is-charancha .bbm-cha-more-count {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 6px; box-sizing: border-box;
+    border-radius: 10px; background: #222; color: #fff; font-size: 12px; font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums;
+  }
   /* 차종·바디타입 선택지 = 차란차 사각 칩(1440 실측): 높이 52 · 안쪽 13/18 · 1px #ECEEF0 · 반경 5 · 14/20 400 #919BA7 · 간격 8.
      선택은 글자 #0740E4 · 바탕 #FAFBFF · 테두리 #CDD7FA. 체크박스·아이콘·대수는 차란차처럼 그리지 않는다 */
   .bbm-filter.is-charancha .bbm-filter-item .bbmf-panel { padding: 0; }
