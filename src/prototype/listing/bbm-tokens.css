@@ -204,7 +204,8 @@
   .marketplace.is-bbm.is-bike-category .bbm-result-card.is-pc .bbm-card-spec.has-meta-icons .bbm-card-spec-icon { width: 14px; height: 14px; color: #505c6c; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-spec:has(+ .bbm-card-spec.is-capacity) { height: 20px; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-spec.is-capacity.is-priority { height: 20px; }
-  .marketplace.is-bbm .bbm-result-card .bbm-card-price-badges { display: flex; align-items: center; gap: 8px; height: 27px; }
+  /* 차란차보다 조밀했던 메타→가격 호흡을 8px로 분리한다(기본 4px gap + margin 4px). */
+  .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-price-badges { display: flex; align-items: center; gap: 8px; height: 27px; margin-top: 4px; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-price { color: #191f28; font-size: 18px; font-weight: 700; line-height: 26px; letter-spacing: normal; }
   .marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-price-unit { margin-left: 0; color: #191f28; font-size: 18px; font-weight: 700; line-height: 26px; }
   .marketplace.is-bbm .bbm-result-card .bbm-card-location { height: 20px; padding-top: 0; box-sizing: border-box; color: #505050; font-size: 14px; line-height: 20px; }
