@@ -2105,7 +2105,7 @@ function MarketplaceScreen() {
       case "자재운반장비": return materialHandlingCars.length;
       case "부품 · 용품": return partsCars.length;
       case "JDM": return jdmCategoryCars.length;
-      case "튜닝·커스텀카": case "셀럽카": return 0;
+      case "레어카": case "튜닝·커스텀카": case "셀럽카": return 0;
       default: return bbmSampleCars.filter((car) => matchesChoTotFilters(car, { ...emptyChoTotFilters, category: value })).length;
     }
   };

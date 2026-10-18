@@ -57,7 +57,7 @@ const bbTruckSiteGnbItems: readonly BbGnbItem[] = [
 ];
 const bbUsedCarCategories = new Set([
   "중고차", "국산차", "수입차", "전기차", "리스/렌트차량", "서울오토갤러리", "도이치오토월드",
-  "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차", "슈퍼카", "럭셔리카", "JDM",
+  "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차", "슈퍼카", "럭셔리카", "레어카", "JDM",
   "튜닝·커스텀카", "셀럽카",
 ]);
 const bbGnbSubmenus: Readonly<Record<string, readonly BbGnbSubItem[]>> = {

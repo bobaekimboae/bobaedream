@@ -128,6 +128,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
       { label: "슈퍼카", value: "슈퍼카" },
       { label: "럭셔리카", value: "럭셔리카" },
       { label: "올드카", value: "올드카" },
+      { label: "레어카", value: "레어카" },
       { label: "JDM", value: "JDM" },
       { label: "튜닝·커스텀카", value: "튜닝·커스텀카" },
       { label: "셀럽카", value: "셀럽카" },
