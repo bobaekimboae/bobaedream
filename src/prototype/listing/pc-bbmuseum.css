@@ -464,3 +464,13 @@ html[data-lnb="e"] .marketplace .bbm-content-head .bbm-secondary-nav { height: a
   html:not([data-lnb]) .bbm-gnb button.is-active::after,
   html:not([data-lnb]) .bbm-gnb .bbm-gnb-more.is-active::after { content: ""; position: absolute; right: 1px; bottom: 0; left: 1px; display: block; height: 2px; background: #181818; }
 }
+
+/* 2026-10-18 「하위 메뉴는 노출하지 말고 필터 박스 안에서 해결, 탑메뉴 밑줄만」:
+   기본(파라미터 없음) 중고차·트럭은 GNB 아래 하위메뉴 띠를 그리지 않고, 필터 카드 제목 자리를 하위메뉴 글자 탭으로 쓴다.
+   밑줄은 GNB만 쓰므로 카드 탭은 밑줄 없이 글자색·굵기로만 선택을 표시한다(제목과 같은 16/24). */
+@media (min-width: 1024px) {
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs { gap: 20px; }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button { color: #8c8c8c; font-size: 16px; font-weight: 500; line-height: 24px; }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button:hover { color: #222; }
+  html:not([data-lnb]) .marketplace.is-bbm .bbm-ct-title-row .bbm-lnb-title-tabs button.is-current { color: #222; font-weight: 700; }
+}
