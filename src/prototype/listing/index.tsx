@@ -2345,8 +2345,8 @@ function MarketplaceScreen() {
   // QF-076: 제조사·모델·등급 외 필터(filters.bbm)는 선택 모양만 남기고 목록을 거르지 않는다 → "확인 N대"는 지금 목록 수
   const countWithBbm = (bbm: BbmFilterValues) => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, bbm)).length : visibleCars.length;
   const setBbmFilters = (bbm: BbmFilterValues) => setFilters((current) => ({ ...current, bbm }));
-  // QF-089: PC 기본 칩 순서는 원본을 따르되, 판매자는 [필터] 바로 오른쪽에 고정한다.
-  // 모바일은 판매자 대신 카테고리를 첫 칩으로 노출하고, 판매자 조건은 전체 필터 안에서 유지한다.
+  // 2026-10-18 클래시파이드 우선순위: 카테고리·차종 → 제조사 → 가격 → 연식 → 주행거리 → 연료 → 판매자.
+  // 모바일은 판매자 조건을 전체 필터 안에서 유지하며, PC 판매자 칩은 탐색 조건의 마지막에 둔다.
   // 값이 걸린 필터 칩은 줄에서 빠지고 그 자리에 적용 칩(진한 채움 + ×)이 생긴다. 요약 칩·트림 칩은 퀵필터 규격 그대로
   const chipByKey = (key: string) => quickFilterChips.find((chip) => chip.key === key);
   // QF-117: 과쯔 주행거리 칩 표기 = "3~6만km"(칩) · "3.5~8만km"(직접 범위) · "10만km 이상"(최대 없음)
@@ -2392,14 +2392,18 @@ function MarketplaceScreen() {
     key: `applied-${chip.id}`,
     label: chip.label,
     active: true,
-    className: chip.id === "range:mileage" ? "is-applied is-mileage" : "is-applied",
+    className: chip.id === "range:mileage" ? "is-applied is-mileage" : chip.id === "range:price" ? "is-applied is-price" : "is-applied",
     onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)),
     onClear: () => setBbmFilters(chip.clear(bbmValue)),
   });
   const sellerApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:sellerKind:"));
-  const otherApplied = bbmApplied.filter((chip) => !chip.id.startsWith("check:sellerKind:"));
+  const priceApplied = bbmApplied.filter((chip) => chip.id === "range:price");
+  const yearApplied = bbmApplied.filter((chip) => chip.id === "range:year");
+  const mileageApplied = bbmApplied.filter((chip) => chip.id === "range:mileage");
+  const fuelApplied = bbmApplied.filter((chip) => chip.id.startsWith("check:fuel:"));
+  const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied].map((chip) => chip.id));
+  const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
   const bbmChips: BbmChip[] = ([
-    ...(sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
     // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
     chipByKey("category"),
     // 건설기계 퀵필터 3단계: 제조사 로고 → 모델 이미지 → 세부모델·세부 형식 이미지
@@ -2450,11 +2454,12 @@ function MarketplaceScreen() {
       groupChip("parts-condition", "상태", "부품 상태", Boolean(bbmValue.checks.partsCondition?.length)),
       groupChip("parts-fit", "적용 차종", "적용 차종", Boolean(bbmValue.checks.partsFit?.length)),
     ] : []),
-    isPartsCategory ? null : groupChip("year", "연식", "연식", rangeIsSet(bbmValue.ranges.year)),
-    // QF-118: 과쯔 PC 는 좌측 필터 순서대로 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 그대로
-    desktop && isGuaziQuickStyle && !isPartsCategory ? (() => { const chip = groupChip("mileage", "주행거리", "주행거리", rangeIsSet(bbmValue.ranges.mileage)); return chip ? { ...chip, className: "is-mileage" } : null; })() : null,
-    (() => { const chip = groupChip("price", "가격", "가격", rangeIsSet(bbmValue.ranges.price)); return chip ? { ...chip, className: "is-price" } : null; })(),
-    isPartsCategory ? null : groupChip("fuel", "연료", "연료", Boolean(bbmValue.checks.fuel?.length)),
+    ...(priceApplied.length ? priceApplied.map(toAppliedBbmChip) : [(() => { const chip = groupChip("price", "가격", "가격", false); return chip ? { ...chip, className: "is-price" } : null; })()]),
+    ...(isPartsCategory ? [] : yearApplied.length ? yearApplied.map(toAppliedBbmChip) : [groupChip("year", "연식", "연식", false)]),
+    // QF-118: 과쯔 PC 는 연식 다음 "주행거리 ▾"(누르면 가운데 모달). 모바일은 적용값만 칩으로 보여 준다.
+    ...(isPartsCategory ? [] : mileageApplied.length ? mileageApplied.map(toAppliedBbmChip) : desktop && isGuaziQuickStyle ? [(() => { const chip = groupChip("mileage", "주행거리", "주행거리", false); return chip ? { ...chip, className: "is-mileage" } : null; })()] : []),
+    ...(isPartsCategory ? [] : fuelApplied.length ? fuelApplied.map(toAppliedBbmChip) : [groupChip("fuel", "연료", "연료", false)]),
+    ...(sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip));
   // 초톳처럼(2026-10-11 「리스트에서는 카테고리 칩 빼자, 선택된 카테고리 누르면 카테고리 나오게」): 별도 `카테고리 ▾` 칩 없이
   // 선택된 카테고리 칩(`전체차량 ×`)의 이름을 누르면 카테고리 시트가 열리고, ×는 해제. 트럭·특장은 기존 동작(형식 퀵필터) 유지.

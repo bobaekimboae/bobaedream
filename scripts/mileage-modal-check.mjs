@@ -70,7 +70,7 @@ for (const [width, height] of [[1024, 768], [1280, 800], [1440, 900]]) {
     const cs = getComputedStyle(m); const r = m.getBoundingClientRect();
     return { h: r.height, pl: cs.paddingLeft, pr: cs.paddingRight, font: `${cs.fontSize}/${cs.lineHeight} ${cs.fontWeight}`, bg: cs.backgroundColor, gap: r.left - y.getBoundingClientRect().right, prev: y.textContent.trim() };
   });
-  const want = ["중고차", "제조사", "연식", "주행거리", "가격", "연료", "판매자"];
+  const want = ["중고차", "제조사", "가격", "연식", "주행거리", "연료", "판매자"];
   check(`${tag} 칩 줄 순서 필터 · ${want.join(" · ")}`, JSON.stringify(row) === JSON.stringify(want), `${row.join(" · ")} (전: ${beforeRow.join(" · ")})`);
   check(`${tag} 주행거리 칩 규격 32 · 좌우 12 · 14/20 500 · #F4F4F4 · 사이 8`, spec.h === 32 && spec.pl === "12px" && spec.pr === "12px" && spec.font === "14px/20px 500" && spec.bg === "rgb(244, 244, 244)" && near(spec.gap, 8), JSON.stringify(spec));
   check(`${tag} 상단 카드 높이 전후 같음`, near(card0, beforeCard), `${beforeCard} → ${card0}`);
