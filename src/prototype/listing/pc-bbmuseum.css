@@ -38,7 +38,7 @@
   .bbm-gnb .bbm-gnb-more:hover { background: #e8eaed; }
   .bbm-gnb .bbm-gnb-more.is-active { background: #306bd9; color: #fff; }
   .bbm-gnb .bbm-gnb-more.is-active::after { display: none; }
-  .bbm-gnb-more-count { display: grid; min-width: 20px; height: 20px; padding: 0 5px; place-items: center; border-radius: 10px; box-sizing: border-box; background: #222; color: #fff; font-size: 11px; font-weight: 700; line-height: 20px; font-variant-numeric: tabular-nums; }
+  .bbm-gnb-more-count { display: grid; min-width: 20px; height: 20px; padding: 0 5px; place-items: center; border-radius: 10px; box-sizing: border-box; background: #306bd9; color: #fff; font-size: 11px; font-weight: 700; line-height: 20px; font-variant-numeric: tabular-nums; }
   .bbm-gnb-more.is-active .bbm-gnb-more-count { background: #fff; color: #306bd9; }
   .bbm-gnb-more .bb-icon { color: #505050; transition: transform 160ms ease; }
   .bbm-gnb-more.is-active .bb-icon { color: #fff; }
