@@ -2179,7 +2179,6 @@ function MarketplaceScreen() {
               </> : showWingbodyPillDepth ? <>
                 {wingbodyQuickSubtypes.map((subtype) => <TrimChip key={subtype} label={subtype} onClick={() => chooseTruckSubtype(subtype)} />)}
               </> : <>
-                <span className="truck-subtype-label">유형:</span>
                 {truckSubtypeOptions.map((subtype) => {
                   const secondaryLabel = truckSubtypeSecondaryLabel(selectedTruckFormat, subtype);
                   return <DepthTextChip key={subtype} label={desktop ? subtype : truckQuickLabel(subtype)} sub={secondaryLabel ?? undefined} onClick={() => chooseTruckSubtype(subtype)} />;
@@ -2742,7 +2741,10 @@ function MarketplaceScreen() {
       ...(isPartsCategory ? [] : fuelApplied.length ? fuelApplied.map(toAppliedBbmChip) : [groupChip("fuel", "연료", "연료", false)]),
     ]),
     ...(hideSellerQuickChip ? [] : sellerApplied.length ? sellerApplied.map(toAppliedBbmChip) : [groupChip("seller", "판매자", "판매자 유형", false)]),
-    ...(regionApplied.length ? regionApplied.map(toAppliedBbmChip) : desktop || isBikeCategory ? [groupChip("region-filter", "지역", isBikeCategory ? "바이크 지역" : "지역", false)] : []),
+    // 트럭 PC compact는 초톳처럼 칩 위에 독립 지역 줄을 둔다. 같은 기능의 지역 칩은 중복 노출하지 않는다.
+    ...(isTruckCategory && desktop
+      ? []
+      : regionApplied.length ? regionApplied.map(toAppliedBbmChip) : desktop || isBikeCategory ? [groupChip("region-filter", "지역", isBikeCategory ? "바이크 지역" : "지역", false)] : []),
     ...(isBikeCategory
       ? [
         selectedBikeShop
@@ -3074,7 +3076,12 @@ function MarketplaceScreen() {
         {lnbVariant === "c"
           ? <BbBreadcrumb category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
           : null}
-        {lnbVariant === "default" && !showDefaultCategoryLnb ? null : <div className="bbm-ct-title-row">
+        {truckFullTopCard ? <div className="bbm-ct-region-row" aria-label="지역 선택과 필터 초기화">
+          <button type="button" className="bbm-ct-region-select" aria-label={`현재 지역 ${stableRegionLabel(bbmValue)}, 지역 선택 열기`} onClick={() => openBbmChipPanel("지역")}>
+            <span>지역:</span><strong>{stableRegionLabel(bbmValue)}</strong><img src={bbmIcon("triangle-down-chotot")} alt="" aria-hidden="true" />
+          </button>
+          <button type="button" className="bbm-ct-clear-all" onClick={() => resetFilters()}>필터 초기화</button>
+        </div> : lnbVariant === "default" && !showDefaultCategoryLnb ? null : <div className="bbm-ct-title-row">
           {/* QF-106: 제목은 상단 메뉴 카테고리 이름으로 고정(대수·날짜·칩 조건 없음). 탭 제목은 그대로 */}
           {lnbVariant === "f" || (lnbVariant === "default" && showDefaultCategoryLnb)
             ? <BbLnbTitleTabs category={category} categoryDetail={category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild} onChooseCategory={chooseHierarchyCategory} />
@@ -3092,7 +3099,7 @@ function MarketplaceScreen() {
               {bbmChips.map((chip) => <FilterChip key={chip.key} bbm label={chip.label} active={chip.active} className={chip.className} prefix={chip.prefix} onClick={chip.onClick} onClear={chip.onClear} />)}
             </BbmChipScroller>
           </div>
-          {bbmAppliedCount ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
+          {bbmAppliedCount && !truckFullTopCard ? <button type="button" className="bbm-ct-reset" onClick={() => setBbmTopReset((value) => value + 1)}>필터 초기화</button> : null}
         </div>
         {/* PC 지역 선택은 전체 필터에서 제공한다. 상단에는 지역 나열 칩을 렌더하지 않는다. */}
         <div className="bbm-quick-slot">{quickRail}</div>
