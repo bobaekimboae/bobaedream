@@ -49,7 +49,7 @@ type HeroKey = "ducati" | "bmw" | "harley";
 const heroMedia: Array<{
   key: HeroKey;
   poster: string;
-  kind: "iframe" | "video" | "image";
+  kind: "iframe" | "image";
   video?: string;
   title: string;
 }> = [
@@ -62,10 +62,9 @@ const heroMedia: Array<{
   },
   {
     key: "bmw",
-    kind: "video",
-    poster: "https://i.ytimg.com/vi/v6W8Gqg71oE/maxresdefault.jpg",
-    video: "https://mediapool.bmwgroup.com/download/edown/tvFootageDownload.mp4?dokNo=PF0009424&actEvent=tvFootageH264",
-    title: "BMW Motorrad S 1000 RR 공식 영상",
+    kind: "image",
+    poster: "https://mediapool.bmwgroup.com/download/edown/tvFootageDownload?square=0&dokNo=PF0009424&attachment=0&actEvent=scaleTvFootageBig&quality=90",
+    title: "BMW Motorrad S 1000 RR 공식 이미지",
   },
   {
     key: "harley",
@@ -141,7 +140,6 @@ export default function BikeMainHome() {
   const [headerQuery, setHeaderQuery] = useState("");
   const opener = useRef<HTMLButtonElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
-  const heroVideo = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     document.title = "보배드림 바이크 — 중고 바이크 사고팔기";
@@ -153,16 +151,6 @@ export default function BikeMainHome() {
     return () => targets.forEach((el, i) => { el.style.overflow = prev[i][0]; el.style.height = prev[i][1]; });
   }, []);
   useEffect(() => { if (!toast) return undefined; const t = window.setTimeout(() => setToast(""), 2000); return () => window.clearTimeout(t); }, [toast]);
-  useEffect(() => {
-    if (hero.kind !== "video") return undefined;
-    const el = heroVideo.current;
-    if (!el) return undefined;
-    el.muted = true;
-    const play = () => { void el.play().catch(() => undefined); };
-    play();
-    el.addEventListener("canplay", play);
-    return () => el.removeEventListener("canplay", play);
-  }, [hero]);
 
   const isNew = (r: Row) => r.year >= 2024 && r.mileage_km <= 1000;
   const inTab = (r: Row) => (tab === "신차" ? isNew(r) : tab === "중고" ? !isNew(r) : true) && (!genre || r.genre === genre);
@@ -289,20 +277,6 @@ export default function BikeMainHome() {
                 allow="autoplay; fullscreen; picture-in-picture"
                 referrerPolicy="strict-origin-when-cross-origin"
                 tabIndex={-1}
-              />
-            ) : hero.kind === "video" ? (
-              <video
-                key={hero.key}
-                className="bmh-hero-video"
-                src={hero.video}
-                poster={hero.poster}
-                title={hero.title}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                onCanPlay={(event) => { void event.currentTarget.play().catch(() => undefined); }}
               />
             ) : null}
           </div>
