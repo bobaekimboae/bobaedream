@@ -31,6 +31,14 @@ const brandLogos: Array<[string, string]> = [
   ["KTM", "BKM016_KTM.png"],
 ];
 
+/** 인기 브랜드 줄에 더하는 브랜드(매물이 있는 것만 노출) */
+const brandExtra: Array<[string, string]> = [
+  ["트라이엄프", "BKM078_Triumph.png"],
+  ["로얄엔필드", "BKM009_Royal_Enfield.png"],
+  ["베스파", "BKM008_Vespa.png"],
+  ["SYM", "BKM007_SYM.png"],
+];
+
 const genres: Array<[string, string]> = [
   ["네이키드", "naked"], ["스쿠터", "scooter"], ["크루저", "cruiser"], ["멀티퍼포즈", "multipurpose"],
   ["스포츠", "sport"], ["투어러", "tourer"], ["오프로드", "offroad"], ["ATV", "atv"],
@@ -151,6 +159,16 @@ export default function BikeMainHome() {
     return [b, [...m.entries()].sort((x, y) => y[1] - x[1]).slice(0, 5).map(([n]) => n)] as const;
   }), [rows]);
 
+  const brandRail = useMemo(() => {
+    const m = new Map<string, number>(); rows.forEach((r) => m.set(r.brand, (m.get(r.brand) ?? 0) + 1));
+    return [...brandLogos, ...brandExtra].map(([n, f]) => [n, f, m.get(n) ?? 0] as const).filter(([, , c]) => c > 0);
+  }, [rows]);
+  const brandRow = useRef<HTMLDivElement>(null);
+  const [brandEdge, setBrandEdge] = useState({ prev: false, next: true });
+  const updateBrandEdge = () => { const el = brandRow.current; if (!el) return; setBrandEdge({ prev: el.scrollLeft > 2, next: el.scrollLeft + el.clientWidth < el.scrollWidth - 2 }); };
+  useEffect(() => { updateBrandEdge(); window.addEventListener("resize", updateBrandEdge); return () => window.removeEventListener("resize", updateBrandEdge); }, []);
+  const scrollBrands = (dir: number) => { const el = brandRow.current; if (!el) return; const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; el.scrollBy({ left: dir * el.clientWidth * 0.8, behavior: reduce ? "auto" : "smooth" }); };
+
   const openPicker = () => { setDraftMaker(maker); setDraftModel(model); setStep(maker ? "model" : "maker"); setKeyword(""); setOpen(true); };
   const closePicker = () => { setOpen(false); opener.current?.focus(); };
   useEffect(() => {
@@ -260,15 +278,22 @@ export default function BikeMainHome() {
               </a>
             ))}
           </div>
-          <div className="bmh-brandrow-head">
-            <h2 className="bmh-genres-title">브랜드로 찾기</h2>
-            <button type="button" className="bmh-brandrow-all" onClick={openPicker}>전체 브랜드</button>
+        </section>
+
+        <section className="bmh-abrand" aria-labelledby="bmh-abrand-title">
+          <div className="bmh-abrand-head">
+            <h2 id="bmh-abrand-title"><button type="button" onClick={openPicker}>인기 브랜드<span className="bmh-abrand-go" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span></button></h2>
+            <div className="bmh-abrand-nav">
+              <button type="button" aria-label="이전 브랜드" disabled={!brandEdge.prev} onClick={() => scrollBrands(-1)}><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
+              <button type="button" aria-label="다음 브랜드" disabled={!brandEdge.next} onClick={() => scrollBrands(1)}><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
+            </div>
           </div>
-          <div className="bmh-brandrow">
-            {brandLogos.map(([name, file]) => (
+          <div className="bmh-abrand-row" ref={brandRow} onScroll={updateBrandEdge}>
+            {brandRail.map(([name, file, n]) => (
               <a key={name} href={listUrl({ maker: name })}>
-                <span><img src={pic("..", "assets", "bike", "logos", "lightwagen-trim", file)} alt="" loading="lazy" /></span>
-                {name}
+                <span className="bmh-abrand-tile"><img src={pic("..", "assets", "bike", "logos", "lightwagen-trim", file)} alt="" loading="lazy" /></span>
+                <strong>{name}</strong>
+                <small>매물 {n.toLocaleString("ko-KR")}대</small>
               </a>
             ))}
           </div>
