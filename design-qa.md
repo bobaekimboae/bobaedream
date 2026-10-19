@@ -30,6 +30,19 @@ final result: passed
 
 ---
 
+## 2026-10-19 PC 바이크 compact 좌측 필터 기준선 교정
+
+- Route/state: `/?qf=guazi&pc=1&category=바이크&filterLayout=compact`, PC 1280×720 CSS px.
+- Source visual truth: 배포 화면 `v=fa8b78df`의 실측 DOM과 전체 화면 캡처.
+- Before: GNB y=72~121, 오른쪽 퀵필터 카드 y=137, 본문 y=309인데 좌측 필터에 `margin-top: -218px`가 적용돼 y=91에서 시작했다. `(60, 95)`의 최상단 요소가 좌측 필터여서 GNB 메뉴를 실제로 덮었다.
+- Fix: 바이크 전용 보정값을 현재 카드 148px + 본문 간격 24px에 맞춘 `-172px`로 교정했다.
+- Required fidelity: 왼쪽 필터와 오른쪽 퀵필터 카드의 시작선 y=137 일치, GNB와 16px 분리, 1280px 가로 오버플로 없음, 일반 중고차·수입차·페라리 레이아웃 값은 변경하지 않음.
+- Regression: `npm run verify:qf`와 프로덕션 빌드를 통과했다. 로컬 PC 1280×720 실측에서 좌측 필터 y=137, 오른쪽 카드 y=137, GNB 영역의 최상단 요소는 다시 GNB이고 가로 오버플로는 0이다. 공개 배포 화면은 배포 뒤 같은 수치로 재확인한다.
+
+final result: passed
+
+---
+
 ## PC 제조사 계층 모달 현대 샘플 — 2026-10-19
 
 - Viewport: 1240 × 720 desktop preview.
@@ -6143,5 +6156,31 @@ No actionable P0/P1/P2 differences remain for the requested photo/information-ar
 ## Follow-up polish
 
 - P3, outside this request: a visible result count and trust badges would improve marketplace decision confidence, but they are not part of the photo/information balance change.
+
+final result: passed
+
+---
+
+## 2026-10-19 PC 차량 카테고리 compact 전수 정렬
+
+- Viewport: 1280×720 CSS px.
+- Routes: `전체 · 중고차 · 테마별 중고차 · 국산차 · 수입차 · 트럭 · 특장 · 바이크 · 캠핑카 · 건설기계 · 자재운반장비 · 부품 · 용품 · 올드카` 12개 기본 화면과 국산차/수입차/바이크/트럭/올드카의 제조사·모델 선택 9개 상태.
+- Common checks: GNB y=72~121, 퀵필터·좌측 필터 기준선, 가로 오버플로, 카드/본문 열 폭, 선택 단계 전환 뒤 기준선 재계산.
+
+### 발견·수정
+
+- [P1] 바이크 기본 화면의 예전 `-218px` 보정이 좌측 필터를 y=91까지 올려 GNB를 30px 덮었다. 현재 유형 카드 높이에 맞춘 `-172px`로 y=137을 복원했다.
+- [P2] 국산차 기본 화면은 바디타입+제조사 두 줄 카드인데 일반 중고차 `-208px`를 써 좌측 필터가 카드보다 56px 아래였다. 실제 `.is-car-body-pill-row`가 있을 때 `-264px`를 적용했다.
+- [P2] 올드카 기본 화면도 연대+제조사 두 줄인데 56px 아래였다. `.is-oldcar-decade-row`에서 `-264px`로 카드 y=285와 일치시켰다.
+- [P2] 바이크는 제조사 선택 뒤 모델 카드가 204px, 모델 선택 뒤 연식 카드가 142px로 바뀌지만 `-172px`가 고정돼 각각 +56px, -6px 어긋났다. 실제 레일 기준으로 모델 `-228px`, 연식 `-166px`를 적용했다.
+
+### 재검증 결과
+
+- compact 상태 9종의 좌측 필터/오른쪽 카드 y 차이: 모두 0px.
+- 전체폭·균형형 카테고리의 좌측 필터/목록 y 차이: 모두 0px.
+- 12개 기본 화면의 GNB 침범: 0건.
+- 12개 기본 화면의 가로 오버플로: 모두 0px.
+- 국산차·수입차는 제조사 선택 뒤 카드가 240→184px로 줄면 보정이 `-264→-208px`로 자동 전환된다.
+- 바이크는 유형→모델→연식 단계에서 `-172→-228→-166px`로 자동 전환되며 매 단계 y=137을 유지한다.
 
 final result: passed

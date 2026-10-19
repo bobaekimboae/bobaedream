@@ -37,10 +37,16 @@
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-content-head.is-chotot .bbm-ct-chip-scroll { margin-right: 0; }
   /* 184px 상단 카드 + 24px 본문 간격만큼 좌측 필터를 올려 두 열의 시작선을 맞춘다. */
   .marketplace.is-bbm.is-hybrid.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -208px; }
-  /* 수입차 기본 화면은 바디타입 레일이 한 줄 더 있어 좌측 필터 상단을 중고차 기준선에 맞춘다. */
+  /* 국산차·수입차 기본 화면은 바디타입 레일이 한 줄 더 있어 카드가 240px이다. */
+  .marketplace.is-bbm.is-hybrid.is-compact-top-filter:has(.bbm-hybrid-top .is-car-body-pill-row) .bbm-page > .bbm-filter,
   .marketplace.is-bbm.is-hybrid.is-imported-car-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -264px; }
-  /* 바이크 상단 카드 194px + 본문 간격 24px. 좌측 필터와 오른쪽 상단 카드의 윗선을 정확히 맞춘다. */
-  .marketplace.is-bbm.is-hybrid.is-bike-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -218px; }
+  /* 올드카 기본 화면도 연대 + 제조사 두 줄이라 오른쪽 카드 시작선에 맞춰 264px 올린다. */
+  .marketplace.is-bbm.is-hybrid.is-oldcar-category.is-compact-top-filter:has(.bbm-hybrid-top .is-oldcar-decade-row) .bbm-page > .bbm-filter { margin-top: -264px; }
+  /* 바이크는 탐색 단계마다 퀵필터 카드 높이가 달라진다.
+     유형 148px, 제조사 선택 뒤 모델 204px, 모델 선택 뒤 연식 142px에 본문 간격 24px을 더해 보정한다. */
+  .marketplace.is-bbm.is-hybrid.is-bike-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -172px; }
+  .marketplace.is-bbm.is-hybrid.is-bike-category.is-compact-top-filter:has(.bbm-hybrid-top .is-bike-model-row) .bbm-page > .bbm-filter { margin-top: -228px; }
+  .marketplace.is-bbm.is-hybrid.is-bike-category.is-compact-top-filter:has(.bbm-hybrid-top .is-year-row) .bbm-page > .bbm-filter { margin-top: -166px; }
   /* 페라리 상단에는 118px 배너·16px 간격·56px 지역 레일이 추가된다.
      좌측 필터는 일반 중고차와 같은 y=137 시작선을 유지한다. */
   .marketplace.is-bbm.is-hybrid.is-ferrari-category.is-compact-top-filter .bbm-page > .bbm-filter { margin-top: -398px; }
