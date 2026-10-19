@@ -202,7 +202,7 @@ export default function BikeMainHome() {
         <div className="bmh-hero-art" aria-hidden="true">
           <img className="bmh-hero-bike" src={pic("..", "assets", "bike", "models", "honda", "BKM001-G003.png")} alt="" />
         </div>
-        <div className="bmh-wrap bmh-hero-copy"><span>보배드림 바이크</span><h1>보배드림이 만든<br />한국 유일의 바이크 전문 매매 플랫폼</h1></div>
+        <div className="bmh-wrap bmh-hero-copy"><span>보배드림 바이크</span><h1>보배드림이 만든<br />바이크 전문 매매 플랫폼</h1></div>
       </section>
 
       <div className="bmh-wrap">
@@ -224,7 +224,6 @@ export default function BikeMainHome() {
             </label>
             <button type="button" className="bmh-cta" onClick={search}>{count.toLocaleString("ko-KR")}대 보기</button>
           </div>
-          <div className="bmh-more"><a href={listUrl()}>상세 조건으로 검색</a></div>
           <h2 className="bmh-genres-title">장르로 바이크 찾기</h2>
           <div className="bmh-genres">
             {genres.map(([label, file]) => (

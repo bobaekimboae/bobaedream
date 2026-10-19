@@ -475,3 +475,7 @@
 
 /* 탭 줄 제거(2026-10-19 「전체 중고 신차 줄 빼자」): 칸이 카드 안쪽 위 24에서 바로 시작 */
 .bmh-search .bmh-row { margin-top: 0; }
+
+/* 상세 조건 링크 제거(2026-10-19): 칸 아래 → 장르 제목 24 = 카드 안쪽 위 24 · 아래 24와 같은 간격 */
+.bmh-search .bmh-genres-title { margin-top: 24px; }
+@media (max-width: 819px) { .bmh-search .bmh-genres-title { margin-top: 20px; } }
