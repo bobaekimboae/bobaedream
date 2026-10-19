@@ -489,3 +489,25 @@
 /* 상세 조건 링크 제거(2026-10-19): 칸 아래 → 장르 제목 24 = 카드 안쪽 위 24 · 아래 24와 같은 간격 */
 .bmh-search .bmh-genres-title { margin-top: 24px; }
 @media (max-width: 819px) { .bmh-search .bmh-genres-title { margin-top: 20px; } }
+
+/* 히어로 = Autotrader.ca 바이크 첫 화면 구성(2026-10-19, 1536 실측): 높이 330, 왼쪽 브랜드색 판 + 글, 오른쪽 실사 사진,
+   사선 경계 위 55.5% → 아래 48.2%, 사이 흰 띠 약 10px, 검색 카드가 히어로 아래 48과 겹침 */
+.bmh-hero { height: 330px; background: linear-gradient(100deg, #fa6819 0%, #ef5a0c 100%); }
+.bmh-hero::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #fff; clip-path: polygon(54.85% 0, 100% 0, 100% 100%, 47.55% 100%); }
+.bmh-hero-art { inset: 0; width: auto; max-width: none; margin: 0; z-index: 1; }
+.bmh-hero-art::after { display: none; }
+.bmh-hero-photo { position: absolute; top: 0; bottom: 0; height: 100%; object-fit: cover; object-position: 60% 50%; left: 40%; width: 60%; clip-path: polygon(25.8% 0, 100% 0, 100% 100%, 13.7% 100%); }
+.bmh-hero-copy { padding: 0 0 0 32px; height: 282px; display: flex; flex-direction: column; justify-content: center; }
+.bmh-hero-copy > span { color: #fff; font-size: 16px; line-height: 24px; font-weight: 700; opacity: .92; }
+.bmh-hero h1 { margin-top: 8px; max-width: 46%; font-size: 44px; line-height: 54px; font-weight: 800; color: #fff; letter-spacing: -.03em; }
+.bmh-search { margin-top: -48px; }
+/* 검색 버튼 둥근 알약(Autotrader.ca 반경 999) */
+.bmh-search .bmh-row .bmh-cta { border-radius: 999px; }
+@media (max-width: 819px) {
+  .bmh-hero { height: 280px; }
+  .bmh-hero::before { clip-path: polygon(61.5% 0, 100% 0, 100% 100%, 51.5% 100%); }
+  .bmh-hero-photo { left: 45%; width: 55%; clip-path: polygon(31.5% 0, 100% 0, 100% 100%, 13.5% 100%); object-position: 50% 50%; }
+  .bmh-hero-copy { height: 244px; }
+  .bmh-hero h1 { max-width: 58%; font-size: 24px; line-height: 32px; word-break: keep-all; }
+  .bmh-search { margin-top: -36px; }
+}
