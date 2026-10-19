@@ -90,6 +90,8 @@ type Car = {
   sellerType: Exclude<SellerType, "전체">;
   image: string;
   imageFit?: "cover" | "contain";
+  /** 실매물 사진은 원본 비율로 썸네일을 채워 카탈로그 여백과 차체 잘림을 피한다. */
+  imageAspectRatio?: number;
   imagePosition?: string;
   title: string;
   trim: string;
@@ -1578,7 +1580,7 @@ const deutschOtherComplexCars = deutschCars.filter((car) => car.place !== deutsc
 const domesticPhotoById = new Map(charanchaDomesticPhotos.photos.map((photo) => [photo.id, photo.image]));
 const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...deutschOtherComplexCars].map((car): Car => {
   const image = domesticPhotoById.get(car.id);
-  return image ? { ...car, image, imageFit: "contain", photoList: [image], photos: 1 } : car;
+  return image ? { ...car, image, imageFit: "cover", imageAspectRatio: 16 / 9, photoList: [image], photos: 1 } : car;
 });
 
 const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
