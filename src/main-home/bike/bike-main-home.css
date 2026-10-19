@@ -577,3 +577,33 @@
 .bmh-search .bmh-brandrow a:focus-visible, .bmh-brandrow-all:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 6px; }
 @media (max-width: 1100px) { .bmh-search .bmh-brandrow { grid-template-columns: repeat(4, minmax(0, 1fr)); row-gap: 12px; } }
 @media (max-width: 819px) { .bmh-search .bmh-brandrow-head { margin-top: 20px; } .bmh-search .bmh-brandrow { gap: 8px; } .bmh-search .bmh-brandrow a { font-size: 14px; line-height: 20px; height: 82px; } }
+
+/* 2026-10-19 인기 브랜드 = 에어비앤비 섹션형(검색 카드 밖으로 분리) — airbnb.co.kr 1536 실측: 제목 20/24 600 #222 + 28 원 →, 오른쪽 이전·다음 28 원 #F2F2F2 간격 4, 제목 → 줄 18, 칸 간격 12 */
+.bmh-abrand { max-width: 1240px; margin: 56px auto 0; padding: 0 32px; }
+.bmh-abrand-head { display: flex; align-items: center; justify-content: space-between; }
+.bmh-abrand-head h2 { margin: 0; }
+.bmh-abrand-head h2 button { display: inline-flex; align-items: center; gap: 8px; border: 0; background: none; padding: 0; font: inherit; font-size: 20px; line-height: 24px; font-weight: 600; color: #222; cursor: pointer; }
+.bmh-abrand-go { width: 28px; height: 28px; border-radius: 50%; background: #f2f2f2; display: grid; place-items: center; color: #222; }
+.bmh-abrand-head h2 button:hover .bmh-abrand-go { background: #ebebeb; }
+.bmh-abrand-nav { display: flex; gap: 4px; }
+.bmh-abrand-nav button { width: 28px; height: 28px; border: 0; border-radius: 50%; background: #f2f2f2; color: #222; display: grid; place-items: center; cursor: pointer; }
+.bmh-abrand-nav button:disabled { color: #c1c1c1; cursor: default; }
+.bmh-abrand-nav button:not(:disabled):hover { background: #ebebeb; }
+.bmh-abrand-row { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 72px) / 7); gap: 12px; margin-top: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+.bmh-abrand-row::-webkit-scrollbar { display: none; }
+.bmh-abrand-row a { scroll-snap-align: start; display: flex; flex-direction: column; min-width: 0; color: #222; }
+.bmh-abrand-tile { aspect-ratio: 1 / 0.95; border-radius: 16px; background: #f7f7f7; display: grid; place-items: center; }
+.bmh-abrand-tile img { max-width: 56%; max-height: 46%; object-fit: contain; transition: transform .2s; }
+.bmh-abrand-row a:hover img { transform: scale(1.04); }
+.bmh-abrand-row strong { margin-top: 8px; font-size: 14px; line-height: 18px; font-weight: 600; }
+.bmh-abrand-row small { margin-top: 2px; font-size: 14px; line-height: 18px; color: #6a6a6a; }
+.bmh-abrand a:focus-visible, .bmh-abrand button:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 16px; }
+@media (max-width: 1100px) { .bmh-abrand-row { grid-auto-columns: calc((100% - 48px) / 5); } }
+@media (max-width: 819px) { .bmh-abrand { margin-top: 40px; padding: 0 16px; } .bmh-abrand-nav { display: none; } .bmh-abrand-head h2 button { font-size: 18px; } .bmh-abrand-row { grid-auto-columns: 112px; margin: 14px -16px 0; padding: 0 16px; scroll-padding: 0 16px; } }
+@media (prefers-reduced-motion: reduce) { .bmh-abrand-tile img { transition: none; } }
+/* 회색 페이지 바탕 보정: 에어비앤비는 흰 페이지 + #F7F7F7 칸·#F2F2F2 버튼 → 우리는 회색 페이지라 흰 칸·흰 버튼으로 같은 대비를 낸다 */
+.bmh-abrand-tile { background: #fff; }
+.bmh-abrand-go, .bmh-abrand-nav button { background: #fff; }
+.bmh-abrand-head h2 button:hover .bmh-abrand-go, .bmh-abrand-nav button:not(:disabled):hover { background: #ebebeb; }
+.bmh-abrand-nav button:disabled { background: rgba(255,255,255,.6); }
+@media (max-width: 819px) { .bmh-abrand { padding: 0; } .bmh-abrand-head { padding: 0 4px 0 0; } }
