@@ -186,7 +186,7 @@ export default function BikeMainHome() {
         </div>
         <div className="bmh-wrap bmh-site-nav-row">
           <nav className="bmh-site-gnb" aria-label="주 메뉴">
-            <a className="is-active" href="./?home=as24">바이크 검색</a>
+            <a href="./?home=as24">바이크 검색</a>
             <a href={listUrl({ condition: "중고" })}>중고 바이크</a>
             <a href={listUrl({ condition: "신차" })}>신차 바이크</a>
             <a href={listUrl({ register: "bike" })}>바이크 판매</a>
