@@ -38,6 +38,7 @@ const genres: Array<[string, string]> = [
 
 type TabKey = "전체" | "중고" | "신차";
 const tabs: TabKey[] = ["전체", "중고", "신차"];
+const tabLabel: Record<TabKey, string> = { 전체: "전체", 중고: "중고 바이크", 신차: "신차 바이크" };
 const regions = ["전국", "서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 
 const won = (krw: number) => {
@@ -210,7 +211,7 @@ export default function BikeMainHome() {
         <section className="bmh-search" aria-label="바이크 검색">
           <div className="bmh-tabs" role="tablist" aria-label="검색 종류">
             {tabs.map((t) => (
-              <button key={t} type="button" role="tab" aria-selected={tab === t} className={tab === t ? "is-on" : ""} onClick={() => { setTab(t); setMaker(""); setModel(""); }}>{t}</button>
+              <button key={t} type="button" role="tab" aria-selected={tab === t} className={tab === t ? "is-on" : ""} onClick={() => { setTab(t); setMaker(""); setModel(""); }}>{tabLabel[t]}</button>
             ))}
           </div>
           <div className="bmh-row">
@@ -231,6 +232,7 @@ export default function BikeMainHome() {
             <button type="button" className="bmh-cta" onClick={search}>{count.toLocaleString("ko-KR")}대 보기</button>
           </div>
           <div className="bmh-more"><a href={listUrl()}>상세 조건으로 검색</a></div>
+          <h2 className="bmh-genres-title">장르로 바이크 찾기</h2>
           <div className="bmh-genres">
             {genres.map(([label, file]) => (
               <a key={label} href={listUrl({ genre: label })}>

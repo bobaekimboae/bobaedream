@@ -455,3 +455,10 @@
 /* 검색 카드 버튼 검정(2026-10-19 「검색바 버튼 검정으로 바탕색」) */
 .bmh-search .bmh-row .bmh-cta { background: #222 !important; color: #fff !important; }
 .bmh-search .bmh-row .bmh-cta:hover { background: #000 !important; }
+
+/* 검색 카드 높이 AutoScout24와 동일(2026-10-19): 링크 바로 아래 제목 16/24 600, 제목 아래 16에 장르 칸 109(안쪽 2 · 그림 73 · 간격 8 · 이름 16/24 600), 카드 아래 24 → 1536에서 카드 340 */
+.bmh-genres-title { margin: 0; font-size: 16px; line-height: 24px; font-weight: 600; color: #333; }
+.bmh-search .bmh-genres { margin-top: 16px; }
+.bmh-search .bmh-genres a { height: 109px; padding: 2px; gap: 8px; justify-content: flex-start; font-size: 16px; line-height: 24px; font-weight: 600; color: #333; }
+.bmh-search .bmh-genres span { height: 73px; flex: none; }
+.bmh-search .bmh-genres img { max-width: 120px; max-height: 73px; }
