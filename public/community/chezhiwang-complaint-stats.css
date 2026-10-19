@@ -185,3 +185,14 @@
 .czs-play:after{content:"";position:absolute;left:19px;top:14px;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
 .czs-vthumb em{position:absolute;right:8px;bottom:8px;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;font-style:normal;font-size:12px}
 .czs-picker{z-index:80}.czs-index{z-index:5;top:110px}.czs-picklist{position:relative}
+/* 2026-10-19 목록·순위 보강: 건수·정렬 줄, 더 보기, 브랜드 로고·결함 부위 점 */
+.czs-listmeta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;background:#fff;border-bottom:1px solid #eef0f2;font-size:13px;color:#666}
+.czs-listmeta b{color:#222;font-weight:700}
+.czs-listmeta nav{display:flex;gap:12px}
+.czs-listmeta nav a{color:#888}
+.czs-listmeta nav a.on{color:#222;font-weight:700}
+.czs-more{display:block;width:calc(100% - 32px);height:44px;margin:12px 16px 24px;border:1px solid #dadde2;border-radius:10px;background:#fff;color:#222;font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+.czs-rank-car img.czs-rank-logo{width:44px;height:44px;padding:6px;border-radius:50%;background:#f4f5f7}
+.czs-rank-dot{flex:none;width:10px;height:10px;margin:0 6px;border-radius:50%;background:#a24f9d}
+.czs-rank-dot.is-service{background:#14a586}.czs-rank-dot.is-other{background:#e8833a}
+.czs-rank-row.is-symptom .czs-rank-car span small,.czs-rank-row.is-part .czs-rank-car span small,.czs-rank-row.is-brand .czs-rank-car span small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}

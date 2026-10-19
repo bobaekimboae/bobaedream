@@ -1,11 +1,11 @@
 /* 처즈왕(车质网) 순위 통계·필터(2026-10-17, 앱 전수 캡처 기준).
    한국은 공식 접수 절차가 없어 처리 단계·회신에 기대는 순위(제조사 회신율·철회율·작성자 만족도)는 두지 않는다.
-   순위: 불만 순위 · 판매량 순위 · 불만·판매 비율 순위. 필터: 처즈왕 목록 필터·순위 필터 항목 그대로. */
+   순위: 차종 불만 · 브랜드 · 결함 부위 · 증상 · 판매량 · 불만·판매 비율(2026-10-19 보강). 필터: 처즈왕 목록 필터·순위 필터 항목 그대로. */
 (function(){
   'use strict';
   var previous=window.renderChezhiwangComplaintBoardTable;
   if(typeof previous!=='function')return;
-  var TODAY=new Date('2026-10-17T23:59:00+09:00');
+  var TODAY=new Date('2026-10-19T23:59:00+09:00');
   var ICON={search:'assets/reddit-ui/search.svg',right:'assets/reddit-ui/chevron-right.svg',del:'assets/reddit-ui/delete.svg',chat:'assets/chzzk-detail/icons/comment-reddit.svg',like:'assets/reddit-ui/recommend-thumb-up.svg',back:'assets/reddit-ui/back.svg',share:'assets/chzzk-detail/icons/share-reddit.svg',filter:'assets/chzzk-detail/icons/filter.svg',chevron:'assets/reddit-ui/chevron-down.svg'};
   var KEYS=['f_from','f_to','f_pmin','f_pmax','f_brand','f_model','f_trim','f_body','f_fuel','f_price','f_origin','f_country','f_age','f_quality','f_service','f_other','f_sales'];
   function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
@@ -15,7 +15,7 @@
   function localRows(){try{return JSON.parse(localStorage.getItem('bobae-chezhiwang-complaints-v1')||'[]')||[]}catch(e){return[]}}
   function allRows(){return localRows().concat(T().rows||[])}
   function q(){return new URLSearchParams(location.search)}
-  function href(params){var u=new URL(location.href);u.searchParams.set('board','chezhiwang-complaint');['czw','for','rank','czwtab','qs'].concat(KEYS).forEach(function(k){u.searchParams.delete(k)});u.searchParams.delete('v');Object.keys(params||{}).forEach(function(k){if(params[k])u.searchParams.set(k,params[k])});return u.pathname+'?'+u.searchParams.toString()}
+  function href(params){var u=new URL(location.href);u.searchParams.set('board','chezhiwang-complaint');['czw','for','rank','czwtab','qs','czsort'].concat(KEYS).forEach(function(k){u.searchParams.delete(k)});u.searchParams.delete('v');Object.keys(params||{}).forEach(function(k){if(params[k])u.searchParams.set(k,params[k])});return u.pathname+'?'+u.searchParams.toString()}
   function current(){var s=q(),o={};KEYS.forEach(function(k){if(s.get(k))o[k]=s.get(k)});return o}
   function vals(o,k){return String(o[k]||'').split(',').filter(Boolean)}
   function uniq(arr){return arr.filter(function(v,i){return v&&arr.indexOf(v)===i})}
@@ -99,19 +99,37 @@
   /* ── 순위 ───────────────────────────────────────── */
   function rankNo(arr,key){var prev=null,rank=0;return arr.map(function(x,i){if(prev===null||x[key]!==prev)rank=i+1;prev=x[key];x.rank=rank;return x})}
   function badge(n){return'<b class="czs-rank r'+(n<=3?n:'n')+'">'+n+'</b>'}
+  /* 순위 보강(2026-10-19): 차종 불만 · 브랜드 · 결함 부위 · 구체 증상 · 판매량 · 불만·판매 비율. 기간은 실제 글 날짜 범위로 표시한다. */
+  function groupName(c){var k=cats();return(k['서비스']||[]).indexOf(c)>-1?'서비스':(k['기타']||[]).indexOf(c)>-1?'기타':'품질'}
+  function groupKey(c){return{'서비스':'f_service','기타':'f_other'}[groupName(c)]||'f_quality'}
+  function topPairs(m,n){return Object.keys(m).sort(function(a,b){return m[b]-m[a]}).slice(0,n||99).map(function(k){return k.split('|')})}
   function renderRank(){var list=phone('chezhiwangComplaintRank'),tab=q().get('rank')||'count',o=current();if(tab==='ratio'&&!o.f_sales)o.f_sales='1000';
-    var rows=allRows().filter(function(r){return match(r,o)}),by={};
-    rows.forEach(function(r){var k=r.brand+'|'+r.model,x=by[k]=by[k]||{brand:r.brand,model:r.model,body:(r.carClass&&r.bodyType!=='스포츠카'&&r.bodyType!=='MPV'?r.carClass+' ':'')+(r.bodyType||''),img:r.thumbnail,sales:Number(r.monthlySales||0),n:0,pairs:{}};x.n++;(r.problems||[]).forEach(function(p){var key=p[0]+'|'+p[1];x.pairs[key]=(x.pairs[key]||0)+1})});
-    var arr=Object.keys(by).map(function(k){var x=by[k];x.ratio=x.sales?Math.round(x.n/x.sales*10000*10)/10:0;return x});
-    if(tab==='sales')arr=rankNo(arr.sort(function(a,b){return b.sales-a.sales}),'sales');
-    else if(tab==='ratio')arr=rankNo(arr.filter(function(x){return x.sales>=Number(o.f_sales)}).sort(function(a,b){return a.ratio-b.ratio}),'ratio');
-    else arr=rankNo(arr.sort(function(a,b){return b.n-a.n}),'n');
-    var tabs=[['count','불만 순위'],['sales','판매량 순위'],['ratio','불만·판매 비율 순위']].map(function(t){return'<a class="'+(tab===t[0]?'on':'')+'" href="'+esc(href(Object.assign(current(),{czw:'rank',rank:t[0]==='count'?'':t[0]})))+'">'+t[1]+'</a>'}).join('');
-    var from=o.f_from||'2026-09-18',to=o.f_to||'2026-10-17';
-    var head='<div class="czs-rank-head"><div class="czs-chips"><span class="czs-period">'+esc(from.replace(/-/g,'.')+' ~ '+to.replace(/-/g,'.'))+'</span>'+chipsHtml(Object.assign({},o,{f_from:'',f_to:''}),true)+'</div><a href="'+esc(href(Object.assign(current(),{czw:'filter',for:'rank',rank:tab==='count'?'':tab})))+'">'+img(ICON.filter,'')+'필터</a></div><p class="czs-rank-sub">'+(tab==='ratio'?'만 대당 불만 건수 · 수치가 작을수록 좋습니다 · 판매량은 시안용 가상 값':tab==='sales'?'월 판매량 · 시안용 가상 값':'결함·불만 실시간 집계')+'</p>';
-    var body=arr.length?arr.map(function(x){var pairs=Object.keys(x.pairs).sort(function(a,b){return x.pairs[b]-x.pairs[a]}).map(function(k){return k.split('|')});var val=tab==='sales'?'<em><b>'+x.sales.toLocaleString('ko-KR')+'</b>판매량(대)</em>':tab==='ratio'?'<em><b><small>만 대당</small> '+x.ratio.toFixed(1)+'</b>불만·판매 비율</em>':'<em><b>'+x.n+'</b>건수(건)</em>';
-      return'<article class="czs-rank-row">'+badge(x.rank)+'<a class="czs-rank-car" href="'+esc(href({f_model:x.model}))+'">'+img(x.img,x.model)+'<span><b>'+esc(x.model)+'</b><small>'+esc(x.brand+' / '+x.body)+'</small></span>'+val+'</a>'+(tab==='count'&&pairs.length?'<div class="czs-typical"><button type="button" class="czs-typical-head" aria-expanded="false"><b>대표 문제</b>'+img(ICON.chevron,'','czs-chev')+'</button><div class="czw-pairs">'+pairs.map(pairHtml).join('')+'</div></div>':'')+'</article>'}).join(''):'<p class="czs-empty">조건에 맞는 차량이 없습니다</p>';
+    var rows=allRows().filter(function(r){return r.kind!=='business'&&match(r,o)}),by={},arr;
+    function bump(m,k){m[k]=(m[k]||0)+1}
+    if(tab==='brand'){rows.forEach(function(r){var x=by[r.brand]=by[r.brand]||{name:r.brand,img:r.brandLogo,sub:(r.brandOrigin==='국산'?'국산':'수입 · '+(r.country||'')),n:0,pairs:{},models:{}};x.n++;bump(x.models,r.model);(r.problems||[]).forEach(function(p){bump(x.pairs,p[0]+'|'+p[1])})});
+      arr=rankNo(Object.keys(by).map(function(k){var x=by[k];x.sub+=' · 최다 '+topPairs(x.models,1)[0];x.link=href({f_brand:x.name});return x}).sort(function(a,b){return b.n-a.n}),'n')}
+    else if(tab==='part'){rows.forEach(function(r){var seen={};(r.problems||[]).forEach(function(p){if(seen[p[0]])return;seen[p[0]]=1;var x=by[p[0]]=by[p[0]]||{name:p[0],sub:groupName(p[0])+' 문제',n:0,pairs:{},models:{}};x.n++;bump(x.models,r.brand+' '+r.model);(r.problems||[]).forEach(function(z){if(z[0]===p[0])bump(x.pairs,z[0]+'|'+z[1])})})});
+      arr=rankNo(Object.keys(by).map(function(k){var x=by[k],l={};l[groupKey(x.name)]=x.name;x.sub+=' · 많은 차종 '+topPairs(x.models,2).map(function(v){return v[0]}).join(', ');x.link=href(l);return x}).sort(function(a,b){return b.n-a.n}),'n')}
+    else if(tab==='symptom'){rows.forEach(function(r){(r.problems||[]).forEach(function(p){var k=p[0]+'|'+p[1],x=by[k]=by[k]||{name:p[1],part:p[0],n:0,models:{}};x.n++;bump(x.models,r.brand+' '+r.model)})});
+      arr=rankNo(Object.keys(by).map(function(k){var x=by[k];x.sub=x.part+' · 많은 차종 '+topPairs(x.models,2).map(function(v){return v[0]}).join(', ');x.link=href({czw:'search',qs:x.name});return x}).sort(function(a,b){return b.n-a.n}).slice(0,50),'n')}
+    else{rows.forEach(function(r){var k=r.brand+'|'+r.model,x=by[k]=by[k]||{brand:r.brand,model:r.model,body:(r.carClass&&r.bodyType!=='스포츠카'&&r.bodyType!=='MPV'?r.carClass+' ':'')+(r.bodyType||''),img:r.thumbnail,sales:Number(r.monthlySales||0),n:0,pairs:{}};x.n++;(r.problems||[]).forEach(function(p){bump(x.pairs,p[0]+'|'+p[1])})});
+      arr=Object.keys(by).map(function(k){var x=by[k];x.ratio=x.sales?Math.round(x.n/x.sales*10000*10)/10:0;return x});
+      if(tab==='sales')arr=rankNo(arr.sort(function(a,b){return b.sales-a.sales}),'sales');
+      else if(tab==='ratio')arr=rankNo(arr.filter(function(x){return x.sales>=Number(o.f_sales)}).sort(function(a,b){return a.ratio-b.ratio}),'ratio');
+      else arr=rankNo(arr.sort(function(a,b){return b.n-a.n}),'n')}
+    var tabs=[['count','차종 불만'],['brand','브랜드'],['part','결함 부위'],['symptom','증상'],['sales','판매량'],['ratio','불만·판매 비율']].map(function(t){return'<a class="'+(tab===t[0]?'on':'')+'" href="'+esc(href(Object.assign(current(),{czw:'rank',rank:t[0]==='count'?'':t[0]})))+'">'+t[1]+'</a>'}).join('');
+    var dates=rows.map(function(r){return String(r.publishedAt||'').slice(0,10)}).filter(Boolean).sort();
+    var from=o.f_from||dates[0]||'',to=o.f_to||dates[dates.length-1]||'';
+    var subText={ratio:'만 대당 불만 건수 · 수치가 작을수록 좋습니다 · 판매량은 시안용 가상 값',sales:'월 판매량 · 시안용 가상 값',brand:'브랜드별 결함·불만 건수',part:'한 글에 같은 부위가 여러 번 나와도 1건으로 셉니다',symptom:'구체 증상별 건수 · 상위 50개'}[tab]||'차종별 결함·불만 건수';
+    var head='<div class="czs-rank-head"><div class="czs-chips"><span class="czs-period">'+esc(from.replace(/-/g,'.')+' ~ '+to.replace(/-/g,'.'))+'</span>'+chipsHtml(Object.assign({},o,{f_from:'',f_to:''}),true)+'</div><a href="'+esc(href(Object.assign(current(),{czw:'filter',for:'rank',rank:tab==='count'?'':tab})))+'">'+img(ICON.filter,'')+'필터</a></div><p class="czs-rank-sub">'+esc(subText)+' · 총 '+rows.length.toLocaleString('ko-KR')+'건</p>';
+    function typical(pairs){return pairs.length?'<div class="czs-typical"><button type="button" class="czs-typical-head" aria-expanded="false"><b>대표 문제</b>'+img(ICON.chevron,'','czs-chev')+'</button><div class="czw-pairs">'+pairs.map(pairHtml).join('')+'</div></div>':''}
+    var body=arr.length?arr.map(function(x){
+      if(tab==='brand'||tab==='part'||tab==='symptom'){var media=tab==='brand'?img(x.img,x.name,'czs-rank-logo'):'<i class="czs-rank-dot '+pairClass(x.part||x.name)+'"></i>';
+        return'<article class="czs-rank-row is-'+tab+'">'+badge(x.rank)+'<a class="czs-rank-car" href="'+esc(x.link)+'">'+media+'<span><b>'+esc(x.name)+'</b><small>'+esc(x.sub)+'</small></span><em><b>'+x.n+'</b>건수(건)</em></a>'+(tab==='symptom'?'':typical(topPairs(x.pairs,8)))+'</article>'}
+      var pairs=topPairs(x.pairs);var val=tab==='sales'?'<em><b>'+x.sales.toLocaleString('ko-KR')+'</b>판매량(대)</em>':tab==='ratio'?'<em><b><small>만 대당</small> '+x.ratio.toFixed(1)+'</b>불만·판매 비율</em>':'<em><b>'+x.n+'</b>건수(건)</em>';
+      return'<article class="czs-rank-row">'+badge(x.rank)+'<a class="czs-rank-car" href="'+esc(href({f_model:x.model}))+'">'+img(x.img,x.model)+'<span><b>'+esc(x.model)+'</b><small>'+esc(x.brand+' / '+x.body)+'</small></span>'+val+'</a>'+(tab==='count'?typical(pairs.slice(0,8)):'')+'</article>'}).join(''):'<p class="czs-empty">조건에 맞는 차량이 없습니다</p>';
     list.innerHTML='<section class="czs-rankpage">'+bar('순위','<button type="button" data-share aria-label="공유">'+img(ICON.share,'')+'</button>')+'<nav class="czs-tabs">'+tabs+'</nav>'+head+'<div class="czs-rank-list">'+body+'</div><button type="button" class="czs-make" data-make>순위표<br>만들기</button></section>';
+    var nav=list.querySelector('.czs-tabs'),on=nav&&nav.querySelector('a.on');if(on)nav.scrollLeft=Math.max(0,on.offsetLeft-nav.clientWidth/2+on.offsetWidth/2);
     list.querySelector('[data-back]').onclick=function(){location.href=href({})};
     list.querySelector('[data-share]').onclick=function(){if(navigator.clipboard)navigator.clipboard.writeText(location.href);toast('순위 링크를 복사했습니다')};
     list.querySelector('[data-make]').onclick=function(){toast('순위표 이미지 만들기는 다음 단계에서 연결합니다')};
@@ -125,8 +143,16 @@
     var hero=list.querySelector('.czw-hero');if(hero&&!list.querySelector('.czs-entry')){var en=document.createElement('nav');en.className='czs-entry';en.innerHTML='<a class="is-legal" href="'+esc(href({czw:'legal'}))+'"><b>법률 상담</b><small>LEGAL ADVICE</small></a><a class="is-official" href="'+esc(href({czw:'official'}))+'"><b>공식 발표</b><small>OFFICIAL</small></a><a class="is-news" href="'+esc(href({czw:'news'}))+'"><b>해결 소식</b><small>RESOLVED</small></a>';hero.after(en)}
     var tabs=list.querySelector('.czw-tabs');if(tabs&&!tabs.classList.contains('czs-done')){tabs.classList.add('czs-done');tabs.innerHTML=[['','불만 목록'],['video','불만 영상'],['biz','업체 불만']].map(function(t){return'<a class="'+(tab===t[0]?'on':'')+'" href="'+esc(href(Object.assign(current(),{czwtab:t[0]})))+'">'+t[1]+'</a>'}).join('')}
     if(tabs&&!list.querySelector('.czs-filterbar')){var fb=document.createElement('div');fb.className='czs-filterbar';fb.innerHTML='<div class="czs-chips">'+chipsHtml(o,false)+'</div><a href="'+esc(href(Object.assign({},o,{czw:'filter',czwtab:tab})))+'">'+img(ICON.filter,'')+'필터</a>';tabs.after(fb);bindChips(fb)}
-    var shown=0;[].forEach.call(list.querySelectorAll('.czw-card:not(.czs-biz)'),function(cardEl){var r=allRows().find(function(x){return String(x.complaintId||x.id)===cardEl.dataset.id});var ok=tab!=='biz'&&(!r||(match(r,current())&&(tab!=='video'||r.hasVideo)));cardEl.hidden=!ok;if(ok)shown++});
-    if(tab==='video')[].forEach.call(list.querySelectorAll('.czw-card:not([hidden]):not(.czs-biz)'),function(cardEl){if(cardEl.querySelector('.czs-vthumb'))return;var r=allRows().find(function(x){return String(x.complaintId||x.id)===cardEl.dataset.id});if(!r)return;cardEl.classList.add('is-video-card');var head=cardEl.querySelector('.czw-card-head');if(head)head.insertAdjacentHTML('afterend','<div class="czs-vthumb">'+img(String(r.thumbnail||'').split('|')[0],r.model)+'<span class="czs-play" aria-label="영상 재생"></span><em>'+esc(['0:42','1:15','0:58','2:03','0:36'][Number(String(r.id).slice(-1))%5])+'</em></div>')});
+    /* 목록 보강(2026-10-19): 1,000건을 30건씩 나눠 보여 주고, 건수와 정렬(최신·공감·댓글)을 둔다. */
+    var byId={};allRows().forEach(function(x){byId[String(x.complaintId||x.id)]=x});
+    var cards=[].slice.call(list.querySelectorAll('.czw-card:not(.czs-biz)')),sort=q().get('czsort')||'',fab=list.querySelector('.czw-fab');
+    function num(el,k){var r=byId[el.dataset.id];return r?Number(r[k]||0):0}
+    if(sort&&cards.length){var host=cards[0].parentNode;cards.sort(function(a,b){return sort==='like'?num(b,'likes')-num(a,'likes'):num(b,'comments')-num(a,'comments')});cards.forEach(function(c){host.insertBefore(c,fab||null)})}
+    var shown=0,visible=[];cards.forEach(function(cardEl){var r=byId[cardEl.dataset.id];var ok=tab!=='biz'&&(!r||(match(r,o)&&(tab!=='video'||r.hasVideo)));cardEl.hidden=!ok;if(ok){shown++;visible.push(cardEl)}});
+    if(tab!=='biz'&&!list.querySelector('.czs-listmeta')){var meta=document.createElement('div');meta.className='czs-listmeta';meta.innerHTML='<span>총 <b>'+shown.toLocaleString('ko-KR')+'</b>건</span><nav aria-label="정렬">'+[['','최신순'],['like','공감순'],['comment','댓글순']].map(function(t){return'<a class="'+(sort===t[0]?'on':'')+'" href="'+esc(href(Object.assign(current(),{czwtab:tab,czsort:t[0]})))+'">'+t[1]+'</a>'}).join('')+'</nav>';list.querySelector('.czs-filterbar').after(meta)}
+    var PAGE=30,limit=PAGE;function page(){visible.forEach(function(c,i){c.hidden=i>=limit});var more=list.querySelector('.czs-more');if(visible.length>limit){if(!more){more=document.createElement('button');more.type='button';more.className='czs-more';more.onclick=function(){limit+=PAGE;page()};(fab?fab.parentNode.insertBefore(more,fab):list.appendChild(more))}more.textContent='더 보기 ('+Math.min(limit,visible.length).toLocaleString('ko-KR')+' / '+visible.length.toLocaleString('ko-KR')+')'}else if(more)more.remove()}
+    if(tab!=='biz')page();
+    if(tab==='video')visible.forEach(function(cardEl){if(cardEl.querySelector('.czs-vthumb'))return;var r=byId[cardEl.dataset.id];if(!r)return;cardEl.classList.add('is-video-card');var head=cardEl.querySelector('.czw-card-head');if(head)head.insertAdjacentHTML('afterend','<div class="czs-vthumb">'+img(String(r.thumbnail||'').split('|')[0],r.model)+'<span class="czs-play" aria-label="영상 재생"></span><em>'+esc(['0:42','1:15','0:58','2:03','0:36'][Number(String(r.id).slice(-1))%5])+'</em></div>')});
     if(tab==='biz'&&!list.querySelector('.czs-biz')){var anchor=list.querySelector('.czs-filterbar');var biz=(T().businesses||[]).filter(function(b){return match(Object.assign({},b),current())});anchor.insertAdjacentHTML('afterend',biz.map(bizCard).join(''));shown=biz.length}
     if(!shown&&!list.querySelector('.czs-empty')){var e=document.createElement('p');e.className='czs-empty';e.textContent='조건에 맞는 결함·불만이 없습니다';list.querySelector('.czs-filterbar').after(e)}}
 
