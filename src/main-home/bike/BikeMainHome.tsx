@@ -167,9 +167,7 @@ export default function BikeMainHome() {
       <header className="bmh-site-header" aria-label="보배드림 바이크">
         <div className="bmh-wrap bmh-site-header-main">
           <a className="bmh-site-logo" href="./?home=as24" aria-label="보배드림 바이크 처음으로">
-            <span className="bmh-site-logo-emblem"><img src={pic("..", "assets", "bike", "logo", "bobaedream-bike-helmet-orange.svg")} alt="" /></span>
-            <span className="bmh-site-logo-word">보배드림</span>
-            <span className="bmh-site-logo-badge">바이크</span>
+            <img className="bmh-site-logo-cycle" src={pic("..", "assets", "bike", "logo", "cycle-trader-official.svg")} alt="Cycle Trader" />
           </a>
           <form className="bmh-site-search" onSubmit={(event) => { event.preventDefault(); const query = headerQuery.trim(); if (query) window.location.href = listUrl({ search: query }); }}>
             <input value={headerQuery} onChange={(event) => setHeaderQuery(event.currentTarget.value)} placeholder="어떤 바이크를 찾으세요?" aria-label="바이크 검색" />
