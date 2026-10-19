@@ -24,7 +24,7 @@ function BbAssetIcon({ name, size }: { name: "circle-check" | "circle-check-off"
   return <img className="bb-asset-icon" src={asset(`icons/bb/${name}.svg`)} width={size} height={size} alt="" aria-hidden="true" draggable={false} />;
 }
 
-type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" | "bike-sell" | "bike-parts" | "truck-sell" | "truck-parts" };
+type BbGnbItem = { label: string; category?: string; action?: "home" | "community" | "more" | "bike-sell" | "bike-shop" | "bike-parts" | "truck-sell" | "truck-parts" };
 type BbGnbSubItem = { label: string; category: string; detail?: string };
 
 const bbGnbItems: readonly BbGnbItem[] = [
@@ -44,7 +44,7 @@ const bbGnbMoreItems: readonly BbGnbItem[] = [
 ];
 const bbBikeSiteGnbItems: readonly BbGnbItem[] = [
   { label: "중고 바이크", category: "바이크" },
-  { label: "바이크 판매", category: "바이크", action: "bike-sell" },
+  { label: "바이크샵", action: "bike-shop" },
   { label: "바이크 용품", category: "부품 · 용품", action: "bike-parts" },
   { label: "커뮤니티", action: "community" },
 ];
@@ -321,6 +321,10 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
     }
     if (item.action === "bike-sell") {
       onChooseCategory("바이크", "__bike_sell__");
+      return;
+    }
+    if (item.action === "bike-shop") {
+      onNotify("바이크샵은 준비 중입니다.");
       return;
     }
     if (item.action === "bike-parts") {
