@@ -246,21 +246,25 @@
 .bmh-hero-art { position: absolute; inset: 0; width: 1240px; max-width: calc(100% - 48px); margin: 0 auto; left: 0; right: 0; }
 .bmh-hero-bike { position: absolute; right: 58px; bottom: -24px; width: 530px; max-height: 300px; object-fit: contain; filter: drop-shadow(0 22px 24px rgba(21, 29, 36, .26)); }
 
-/* 검색 카드: AutoScout24식 64px 겹침과 4열 검색 */
-.bmh-search { position: relative; z-index: 3; margin-top: -64px; background: #fff; border: 1px solid #dfe2e5; border-radius: 18px; padding: 0 32px 28px; box-shadow: 0 4px 14px rgba(18, 28, 38, .08); }
-.bmh-tabs { display: flex; align-items: stretch; gap: 34px; height: 72px; margin-bottom: 0; }
-.bmh-tabs button { position: relative; min-width: 44px; font-size: 18px; line-height: 24px; font-weight: 650; color: #31363b; padding: 3px 0 0 !important; border-bottom: 0 !important; }
-.bmh-tabs button.is-on { font-size: 18px; line-height: 24px; font-weight: 800; color: #121518; }
-.bmh-tabs button.is-on::after { content: ""; position: absolute; right: 0; bottom: 0; left: 0; height: 3px; border-radius: 3px 3px 0 0; background: #1d252c; }
-.bmh-row { display: grid; grid-template-columns: 1fr 1.2fr .92fr 1.08fr; gap: 10px; }
-.bmh-field { position: relative; height: 51px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px 0 15px !important; border: 1px solid #8f969d !important; border-radius: 4px; background: #fff !important; font-size: 15px; font-weight: 600; text-align: left; cursor: pointer; }
-.bmh-field span { color: #282d32; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.bmh-field span.is-filled { font-weight: 700; color: #111; }
+/* 검색 카드: AutoScout24.de 1536 실측값 그대로(2026-10-19 크로스체크) */
+.bmh-search { position: relative; z-index: 3; margin-top: -64px; background: #fff; border: 0; border-radius: 16px; padding: 24px 32px; box-shadow: rgba(0, 0, 0, .05) 0 -8px 16px 0, rgba(0, 0, 0, .05) 0 -4px 8px 0, rgba(0, 0, 0, .12) 0 0 2px 0; }
+/* 탭: 현재 20/28 700 + 4 아래 3px 둥근 선, 나머지 16/24 400(글자 아랫줄 맞춤), 간격 32, 줄 높이 35 */
+.bmh-tabs { display: flex; align-items: flex-start; gap: 32px; height: 35px; margin-bottom: 0; }
+.bmh-tabs button { position: relative; min-width: 0; height: auto; font-size: 16px; line-height: 24px; font-weight: 400; color: #333; padding: 3px 0 0 !important; border-bottom: 0 !important; }
+.bmh-tabs button.is-on { font-size: 20px; line-height: 28px; font-weight: 700; color: #333; padding: 0 !important; }
+.bmh-tabs button.is-on::after { content: ""; position: absolute; right: 0; top: 32px; bottom: auto; left: 0; height: 3px; border-radius: 999px; background: #1e2832; }
+/* 칸: 높이 40 · 간격 8 · 같은 폭 · 탭 줄 아래 24 */
+.bmh-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 24px; }
+.bmh-field, .bmh-search .bmh-row .bmh-field { position: relative; height: 40px; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 13px 8px 12px !important; border: 1px solid #000 !important; border-radius: 4px; background: #fff !important; font-size: 16px; line-height: 24px; font-weight: 400; color: #000; text-align: left; cursor: pointer; }
+.bmh-field span { color: #000; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.bmh-field span.is-filled { font-weight: 400; color: #000; }
+.bmh-field svg { flex: none; width: 18px; height: 18px; }
 .bmh-field select { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
-.bmh-cta { height: 51px; border-radius: 5px; background: var(--or) !important; color: #fff !important; font-size: 16px; font-weight: 800; }
+.bmh-cta, .bmh-search .bmh-row .bmh-cta { height: 40px; border-radius: 8px; background: var(--or) !important; color: #fff !important; font-size: 16px; line-height: 24px; font-weight: 600; }
 .bmh-cta:hover { background: var(--or-hover) !important; }
-.bmh-more { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 12px; }
-.bmh-more a { grid-column: 4; text-align: center; font-size: 14px; font-weight: 750; color: #1264d8; }
+/* 상세 조건 링크: 칸 아래 20 · 16/24 600 · 넷째 칸 가운데 */
+.bmh-more { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin-top: 20px; }
+.bmh-more a { grid-column: 4; text-align: center; font-size: 16px; line-height: 24px; font-weight: 600; color: #006bd6; }
 .bmh-more a:hover { text-decoration: underline; }
 .bmh-genres { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 16px; margin-top: 13px; }
 .bmh-genres a { min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 14px; font-weight: 750; text-align: center; white-space: nowrap; }
@@ -418,8 +422,8 @@
   .bmh-hero-copy { padding: 40px 0 0; }
   .bmh-hero h1 { max-width: 72%; font-size: 32px; line-height: 39px; }
   .bmh-hero-bike { right: -70px; bottom: -10px; width: 360px; opacity: .86; }
-  .bmh-search { margin-top: -36px; padding: 0 20px 24px; border-radius: 14px; }
-  .bmh-tabs { height: 60px; gap: 24px; }
+  .bmh-search { margin-top: -36px; padding: 20px; border-radius: 16px; }
+  .bmh-tabs { gap: 24px; }
   .bmh-row { grid-template-columns: 1fr 1fr; }
   .bmh-more { grid-template-columns: 1fr; }
   .bmh-more a { grid-column: 1; }
