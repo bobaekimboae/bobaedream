@@ -49,26 +49,29 @@ type HeroKey = "ducati" | "bmw" | "harley";
 const heroMedia: Array<{
   key: HeroKey;
   poster: string;
-  video: string;
+  kind: "iframe" | "video" | "image";
+  video?: string;
   title: string;
 }> = [
   {
     key: "ducati",
+    kind: "iframe",
     poster: "https://images.ctfassets.net/x7j9qwvpvr5s/4t2zR01xZmlZKL4tCxe8tL/48bcc2da642a078d1f70cc5a1760cbf0/WorldSBK-Jerez-18-Ottobre-2026-Hero-1600x1000.jpg?fm=webp&q=90",
     video: "https://player.vimeo.com/video/1236270813?background=1&autoplay=1&muted=1&loop=1&autopause=0&title=0&byline=0&portrait=0",
     title: "Ducati Panigale V4 MY27 공식 영상",
   },
   {
     key: "bmw",
+    kind: "video",
     poster: "https://i.ytimg.com/vi/v6W8Gqg71oE/maxresdefault.jpg",
-    video: "https://www.youtube.com/embed/v6W8Gqg71oE?autoplay=1&mute=1&controls=0&loop=1&playlist=v6W8Gqg71oE&modestbranding=1&playsinline=1&rel=0",
-    title: "BMW Motorrad R 1300 GS 공식 영상",
+    video: "https://mediapool.bmwgroup.com/download/edown/tvFootageDownload.mp4?dokNo=PF0009424&actEvent=tvFootageH264",
+    title: "BMW Motorrad S 1000 RR 공식 영상",
   },
   {
     key: "harley",
-    poster: "https://i.ytimg.com/vi/8JsWUCWsNc4/maxresdefault.jpg",
-    video: "https://www.youtube.com/embed/8JsWUCWsNc4?autoplay=1&mute=1&controls=0&loop=1&playlist=8JsWUCWsNc4&modestbranding=1&playsinline=1&rel=0",
-    title: "Harley-Davidson 2026 라인업 공식 영상",
+    kind: "image",
+    poster: "https://h-dmediakit.com/theme/img/cms/h-d/new-for/2026/ssJHgdshvc/newfor-flhd.jpg",
+    title: "Harley-Davidson 2026 공식 이미지",
   },
 ];
 
@@ -266,15 +269,29 @@ export default function BikeMainHome() {
         <div className="bmh-hero-art" aria-hidden="true">
           <div className="bmh-hero-photo">
             <img className="bmh-hero-poster" src={hero.poster} alt="" />
-            <iframe
-              key={hero.key}
-              className="bmh-hero-video"
-              src={hero.video}
-              title={hero.title}
-              allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-              referrerPolicy="strict-origin-when-cross-origin"
-              tabIndex={-1}
-            />
+            {hero.kind === "iframe" ? (
+              <iframe
+                key={hero.key}
+                className="bmh-hero-video"
+                src={hero.video}
+                title={hero.title}
+                allow="autoplay; fullscreen; picture-in-picture"
+                referrerPolicy="strict-origin-when-cross-origin"
+                tabIndex={-1}
+              />
+            ) : hero.kind === "video" ? (
+              <video
+                key={hero.key}
+                className="bmh-hero-video"
+                src={hero.video}
+                poster={hero.poster}
+                title={hero.title}
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            ) : null}
           </div>
         </div>
         <div className="bmh-wrap bmh-hero-copy"><span>보배드림 바이크</span><h1>보배드림이 만든<br />바이크 전문 매매 플랫폼</h1></div>
