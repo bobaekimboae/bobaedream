@@ -9,7 +9,7 @@ import { selectedBikeBrandLogo } from "../listing/brand-logos-bike-motofan-v01";
 import "./vehicle-catalog.css";
 
 export type CatalogScope = "car" | "bike";
-type CatalogMake = { id: string; name: string; englishName?: string | null; logoPath?: string | null; sortOrder: number };
+type CatalogMake = { id: string; name: string; englishName?: string | null; logoPath?: string | null; kind?: string | null; sortOrder: number };
 type CatalogGroup = { id: string; makeId: string; makeName: string; name: string; sortOrder: number; imagePath?: string | null };
 type CatalogGeneration = { id: string; makeId: string; groupId: string; makeName: string; groupName: string; name: string; generationCode?: string | null; releaseYm?: string | null; endYm?: string | null; sortOrder: number; imagePath?: string | null };
 type BikeModel = { id: string; makeId: string; groupId: string; makeName: string; groupName: string; name: string; firstYear?: string | null; latestYear?: string | null; genre?: string | null; displacementBand?: string | null; sortOrder: number };

@@ -1,90 +1,159 @@
 import { useMemo, useState, type ReactNode } from "react";
+import { CheckIcon, ChevronRightIcon, Cross2Icon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import type { QuickGenerationOption, QuickModelVisual } from "../data";
-import { BbmModal } from "../filters/bbm-filter-parts";
+import { BbmModal, BbmSheet } from "../filters/bbm-filter-parts";
 import "./maker-hierarchy-modal.css";
 
 type Step = "maker" | "model" | "generation";
 
+export type MakerHierarchyOption = {
+  name: string;
+  kind?: string | null;
+  logoPath?: string | null;
+};
+
 type Props = {
+  mode: "modal" | "sheet";
   onClose: () => void;
   onApply: (maker: string | null, model: string | null, generation: string | null) => void;
-  renderMakerLogo: () => ReactNode;
-  modelNames: string[];
-  modelVisuals: Record<string, QuickModelVisual>;
-  generationsByModel: Record<string, QuickGenerationOption[]>;
+  initialMaker: string | null;
+  initialModel: string | null;
+  initialGeneration: string | null;
+  startStep?: Step;
+  makers: MakerHierarchyOption[];
+  renderMakerLogo: (maker: MakerHierarchyOption) => ReactNode;
+  modelsByMaker: Record<string, string[]>;
+  modelVisualsByMaker: Record<string, Record<string, QuickModelVisual>>;
+  generationsByMakerModel: Record<string, Record<string, QuickGenerationOption[]>>;
   formatModel: (name: string) => string;
+  onPreviewMaker?: (maker: string) => void;
 };
 
 const numberFromCount = (value?: string) => value ? Number(value.replace(/[^0-9]/g, "")) || 0 : 0;
 const formatCount = (value: number) => value.toLocaleString("ko-KR");
 
-export function MakerHierarchyModal({ onClose, onApply, renderMakerLogo, modelNames, modelVisuals, generationsByModel, formatModel }: Props) {
-  const [step, setStep] = useState<Step>("maker");
+const inferStep = (maker: string | null, model: string | null, requested?: Step): Step => {
+  if (requested === "maker") return "maker";
+  if (!maker) return "maker";
+  if (requested === "model") return "model";
+  if (requested === "generation" && model) return "generation";
+  return model ? "generation" : "model";
+};
+
+export function MakerHierarchyModal({
+  mode,
+  onClose,
+  onApply,
+  initialMaker,
+  initialModel,
+  initialGeneration,
+  startStep,
+  makers,
+  renderMakerLogo,
+  modelsByMaker,
+  modelVisualsByMaker,
+  generationsByMakerModel,
+  formatModel,
+  onPreviewMaker,
+}: Props) {
+  const [step, setStep] = useState<Step>(() => inferStep(initialMaker, initialModel, startStep));
   const [query, setQuery] = useState("");
-  const [draftMaker, setDraftMaker] = useState<string | null>(null);
-  const [draftModel, setDraftModel] = useState<string | null>(null);
-  const [draftGeneration, setDraftGeneration] = useState<string | null>(null);
+  const [draftMaker, setDraftMaker] = useState<string | null>(initialMaker);
+  const [draftModel, setDraftModel] = useState<string | null>(initialModel);
+  const [draftGeneration, setDraftGeneration] = useState<string | null>(initialGeneration);
 
-  const modelRows = useMemo(() => modelNames.filter((name) => !query.trim() || formatModel(name).toLowerCase().includes(query.trim().toLowerCase())), [formatModel, modelNames, query]);
-  const generationRows = useMemo(() => draftModel ? (generationsByModel[draftModel] ?? []).filter((item) => {
-    const keyword = query.trim().toLowerCase();
-    return !keyword || `${item.cardLabel ?? item.displayLabel ?? item.name} ${item.cardSub ?? item.years}`.toLowerCase().includes(keyword);
-  }) : [], [draftModel, generationsByModel, query]);
-  const makerCount = useMemo(() => modelNames.reduce((sum, name) => sum + numberFromCount(modelVisuals[name]?.count), 0), [modelNames, modelVisuals]);
+  const modelNames = draftMaker ? modelsByMaker[draftMaker] ?? [] : [];
+  const modelVisuals = draftMaker ? modelVisualsByMaker[draftMaker] ?? {} : {};
+  const generationsByModel = draftMaker ? generationsByMakerModel[draftMaker] ?? {} : {};
+  const keyword = query.trim().toLowerCase();
+  const visibleMakers = useMemo(() => makers.filter((maker) => !keyword || maker.name.toLowerCase().includes(keyword)), [keyword, makers]);
+  const makerSections = useMemo(() => {
+    const kinds = ["국산", "수입", "기타"];
+    return kinds.map((kind) => ({
+      key: kind,
+      label: kind === "국산" ? "국산차" : kind === "수입" ? "수입차" : "기타",
+      rows: visibleMakers.filter((maker) => (maker.kind ?? "기타") === kind),
+    })).filter((section) => section.rows.length);
+  }, [visibleMakers]);
+  const modelRows = useMemo(() => modelNames.filter((name) => !keyword || formatModel(name).toLowerCase().includes(keyword)), [formatModel, keyword, modelNames]);
+  const generationRows = useMemo(() => draftModel ? (generationsByModel[draftModel] ?? []).filter((item) => (
+    !keyword || `${item.cardLabel ?? item.displayLabel ?? item.name} ${item.cardSub ?? item.years}`.toLowerCase().includes(keyword)
+  )) : [], [draftModel, generationsByModel, keyword]);
   const selectedGeneration = draftModel && draftGeneration ? (generationsByModel[draftModel] ?? []).find((item) => item.name === draftGeneration) : undefined;
-  const resultCount = selectedGeneration?.count ?? (draftModel ? numberFromCount(modelVisuals[draftModel]?.count) : makerCount);
+  const modelCount = draftModel ? numberFromCount(modelVisuals[draftModel]?.count) : modelNames.reduce((sum, name) => sum + numberFromCount(modelVisuals[name]?.count), 0);
+  const resultCount = selectedGeneration?.count ?? modelCount;
 
-  const goMaker = () => { setStep("maker"); setQuery(""); setDraftMaker(null); setDraftModel(null); setDraftGeneration(null); };
+  const goMaker = () => { setStep("maker"); setQuery(""); };
   const goModel = () => { setStep("model"); setQuery(""); setDraftModel(null); setDraftGeneration(null); };
+  const reset = () => { setStep("maker"); setQuery(""); setDraftMaker(null); setDraftModel(null); setDraftGeneration(null); };
+  const chooseMaker = (maker: string) => {
+    setDraftMaker(maker);
+    setDraftModel(null);
+    setDraftGeneration(null);
+    setStep("model");
+    setQuery("");
+    onPreviewMaker?.(maker);
+  };
   const back = step === "generation" ? goModel : step === "model" ? goMaker : undefined;
-  const title = step === "maker" ? "제조사" : step === "model" ? "현대 모델" : formatModel(draftModel ?? "세부모델");
+  const title = step === "maker" ? "제조사" : step === "model" ? `${draftMaker ?? ""} 모델` : formatModel(draftModel ?? "세부모델");
   const placeholder = step === "maker" ? "제조사 검색" : step === "model" ? "모델 검색" : "세부모델 검색";
-
-  return (
-    <BbmModal title={title} variant="vehicle-hierarchy" flush onBack={back} onClose={onClose} footer={
-      <div className="maker-hierarchy-actions">
-        <button type="button" className="maker-hierarchy-reset" onClick={goMaker}>초기화</button>
-        <button type="button" className="maker-hierarchy-confirm" disabled={!draftMaker} onClick={() => onApply(draftMaker, draftModel, draftGeneration)}>{draftMaker ? `${formatCount(resultCount)}대 보기` : "제조사를 선택해 주세요"}</button>
-      </div>
-    }>
-      <div className="maker-hierarchy">
-        <div className="maker-hierarchy-search">
-          <span aria-hidden="true" />
-          <input value={query} placeholder={placeholder} aria-label={placeholder} onChange={(event) => setQuery(event.target.value)} />
-        </div>
-        {draftMaker ? <div className="maker-hierarchy-path" aria-label="선택한 차량 경로">
-          <button type="button" onClick={goMaker}>현대 <b aria-hidden="true">×</b></button>
-          {draftModel ? <button type="button" onClick={goModel}>{formatModel(draftModel)} <b aria-hidden="true">×</b></button> : null}
-          {selectedGeneration ? <button type="button" onClick={() => setDraftGeneration(null)}>{selectedGeneration.cardLabel ?? selectedGeneration.displayLabel ?? selectedGeneration.name} <b aria-hidden="true">×</b></button> : null}
-        </div> : null}
-        {step === "maker" ? <section className="maker-hierarchy-section">
-          <p>국산차</p>
-          <button type="button" className="maker-hierarchy-row is-maker" onClick={() => { setDraftMaker("현대"); setStep("model"); setQuery(""); }}>
-            <span className="maker-hierarchy-logo">{renderMakerLogo()}</span>
-            <span className="maker-hierarchy-copy"><strong>현대</strong></span>
-            <small>{formatCount(makerCount)}</small><i aria-hidden="true" />
-          </button>
-        </section> : null}
-        {step === "model" ? <section className="maker-hierarchy-section is-list">
-          <p>모델</p>
-          {modelRows.map((name) => {
-            const visual = modelVisuals[name];
-            return <button key={name} type="button" className="maker-hierarchy-row is-vehicle" onClick={() => { setDraftModel(name); setDraftGeneration(null); setStep("generation"); setQuery(""); }}>
-              <span className={`maker-hierarchy-image is-${visual?.bodyFit ?? "width"}`}>{visual?.image ? <img src={visual.image} alt="" draggable={false} /> : null}</span>
-              <span className="maker-hierarchy-copy"><strong>{formatModel(name)}</strong><em>{visual?.bodyType ?? "중고차"}</em></span>
-              <small>{formatCount(numberFromCount(visual?.count))}</small><i aria-hidden="true" />
-            </button>;
-          })}
-        </section> : null}
-        {step === "generation" ? <section className="maker-hierarchy-section is-list">
-          <p>세부모델</p>
-          {generationRows.map((item) => <button key={item.name} type="button" className={`maker-hierarchy-row is-vehicle${draftGeneration === item.name ? " is-selected" : ""}`} aria-pressed={draftGeneration === item.name} onClick={() => setDraftGeneration(item.name)}>
-            <span className={`maker-hierarchy-image is-${item.bodyFit ?? "width"}`}>{item.image ? <img src={item.image} alt="" draggable={false} /> : null}</span>
-            <span className="maker-hierarchy-copy"><strong>{item.cardLabel ?? item.displayLabel ?? item.name}</strong><em>{item.cardSub ?? item.years}</em></span>
-            <small>{formatCount(item.count ?? 0)}</small><i aria-hidden="true" />
-          </button>)}
-        </section> : null}
-      </div>
-    </BbmModal>
+  const footer = (
+    <div className="maker-hierarchy-actions">
+      <button type="button" className="maker-hierarchy-reset" onClick={reset}>초기화</button>
+      <button type="button" className="maker-hierarchy-confirm" disabled={!draftMaker} onClick={() => onApply(draftMaker, draftModel, draftGeneration)}>
+        {draftMaker ? `${formatCount(resultCount)}대 보기` : "제조사를 선택해 주세요"}
+      </button>
+    </div>
   );
+
+  const content = (
+    <div className="maker-hierarchy" data-testid="maker-hierarchy">
+      <label className="maker-hierarchy-search">
+        <MagnifyingGlassIcon aria-hidden="true" />
+        <input value={query} placeholder={placeholder} aria-label={placeholder} onChange={(event) => setQuery(event.target.value)} />
+      </label>
+      {draftMaker ? <div className="maker-hierarchy-path" aria-label="선택한 차량 경로">
+        <button type="button" onClick={goMaker}>{draftMaker} <Cross2Icon aria-hidden="true" /></button>
+        {draftModel ? <button type="button" onClick={goModel}>{formatModel(draftModel)} <Cross2Icon aria-hidden="true" /></button> : null}
+        {selectedGeneration ? <button type="button" onClick={() => setDraftGeneration(null)}>{selectedGeneration.cardLabel ?? selectedGeneration.displayLabel ?? selectedGeneration.name} <Cross2Icon aria-hidden="true" /></button> : null}
+      </div> : null}
+      {step === "maker" ? <div className="maker-hierarchy-maker-sections">
+        {makerSections.map((section) => <section key={section.key} className="maker-hierarchy-section">
+          <p>{section.label}</p>
+          {section.rows.map((maker) => <button key={maker.name} type="button" className="maker-hierarchy-row is-maker" onClick={() => chooseMaker(maker.name)}>
+            <span className="maker-hierarchy-logo">{renderMakerLogo(maker)}</span>
+            <span className="maker-hierarchy-copy"><strong>{maker.name}</strong></span>
+            <span aria-hidden="true" />
+            <ChevronRightIcon aria-hidden="true" />
+          </button>)}
+        </section>)}
+        {!visibleMakers.length ? <p className="maker-hierarchy-empty">검색 결과가 없습니다.</p> : null}
+      </div> : null}
+      {step === "model" ? <section className="maker-hierarchy-section is-list">
+        <p>모델</p>
+        {modelRows.map((name) => {
+          const visual = modelVisuals[name];
+          return <button key={name} type="button" className="maker-hierarchy-row is-vehicle" onClick={() => { setDraftModel(name); setDraftGeneration(null); setStep("generation"); setQuery(""); }}>
+            <span className={`maker-hierarchy-image is-${visual?.bodyFit ?? "width"}`}>{visual?.image ? <img src={visual.image} alt="" draggable={false} /> : null}</span>
+            <span className="maker-hierarchy-copy"><strong>{formatModel(name)}</strong><em>{visual?.bodyType ?? "중고차"}</em></span>
+            <small>{formatCount(numberFromCount(visual?.count))}</small><ChevronRightIcon aria-hidden="true" />
+          </button>;
+        })}
+        {!modelRows.length ? <p className="maker-hierarchy-empty">등록된 모델이 없습니다.</p> : null}
+      </section> : null}
+      {step === "generation" ? <section className="maker-hierarchy-section is-list">
+        <p>세부모델</p>
+        {generationRows.map((item) => <button key={item.name} type="button" className={`maker-hierarchy-row is-vehicle${draftGeneration === item.name ? " is-selected" : ""}`} aria-pressed={draftGeneration === item.name} onClick={() => setDraftGeneration(item.name)}>
+          <span className={`maker-hierarchy-image is-${item.bodyFit ?? "width"}`}>{item.image ? <img src={item.image} alt="" draggable={false} /> : null}</span>
+          <span className="maker-hierarchy-copy"><strong>{item.cardLabel ?? item.displayLabel ?? item.name}</strong><em>{item.cardSub ?? item.years}</em></span>
+          <small>{formatCount(item.count ?? 0)}</small>{draftGeneration === item.name ? <CheckIcon aria-hidden="true" /> : <ChevronRightIcon aria-hidden="true" />}
+        </button>)}
+        {!generationRows.length ? <p className="maker-hierarchy-empty">세부모델 정보가 없습니다. 모델까지만 선택할 수 있습니다.</p> : null}
+      </section> : null}
+    </div>
+  );
+
+  return mode === "sheet"
+    ? <BbmSheet title={title} flush onBack={back} onClose={onClose} footer={footer}>{content}</BbmSheet>
+    : <BbmModal title={title} variant="vehicle-hierarchy" flush onBack={back} onClose={onClose} footer={footer}>{content}</BbmModal>;
 }

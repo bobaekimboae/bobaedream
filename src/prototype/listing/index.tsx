@@ -1797,6 +1797,7 @@ function MarketplaceScreen() {
     setTrimApplied(false);
     setCategoryLandingOpen(!nextMaker && category === "전체");
     replaceFilterParams(nextMaker, safeModel);
+    if (safeGeneration) replaceVehicleDepthParams(safeGeneration, []);
     closeSheet();
   };
 
@@ -2810,9 +2811,7 @@ function MarketplaceScreen() {
   const hideSellerQuickChip = desktop && isGuaziQuickStyle && (isUsedCarCategory || isBikeCategory || isTruckCategory);
   const fixedSlotAppliedIds = new Set([...sellerApplied, ...priceApplied, ...yearApplied, ...mileageApplied, ...fuelApplied, ...bikeGenreApplied, ...bikeDisplacementApplied, ...bikeLicenseApplied, ...truckAxleApplied, ...regionApplied, ...complexApplied].map((chip) => chip.id));
   const otherApplied = bbmApplied.filter((chip) => !fixedSlotAppliedIds.has(chip.id));
-  const openMakerPicker = () => desktop && category === "국산차"
-    ? openBbmChipPanel("제조사")
-    : supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사");
+  const openMakerPicker = () => openBbmChipPanel("제조사");
   // 모든 차량 카테고리는 필터 줄 첫 칸에 현재 선택 카테고리를 같은 규격으로 표시한다.
   // 카테고리 이름은 카테고리 시트를 열고, ×는 전체차량으로 돌아간다.
   const openBbmCategorySheet = () => {
@@ -2865,12 +2864,12 @@ function MarketplaceScreen() {
     // QF-097 보완: 제조사·모델·세부 모델을 단계별 검정 적용 칩으로 [벤츠 ×][E클래스 ×][W213 ×]. 각 × 는 그 단계부터 아래만 푼다
     // (세부 모델 × → 세부 모델 줄, 모델 × → 모델 줄(제조사 유지), 제조사 × → 제조사 줄). 칩을 누르면 차종 시트. 경로·제목은 그대로 이어 쓴다
     ...(maker ? [
-      { key: "step-maker", label: maker, active: true, className: "is-vehicle-summary is-step", prefix: supportsVehicleCatalog ? <CatalogLogo path={vehicleCatalog.index?.manufacturers.find((item) => item.name === maker)?.logoPath} name={maker} kind="chip" /> : undefined, onClick: () => setSheet("vehicle"), onClear: clearMakerFilter },
-      selectedModel ? { key: "step-model", label: formatModelLabel(selectedModel), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearModelFilter } : null,
+      { key: "step-maker", label: maker, active: true, className: "is-vehicle-summary is-step", prefix: supportsVehicleCatalog ? <CatalogLogo path={vehicleCatalog.index?.manufacturers.find((item) => item.name === maker)?.logoPath} name={maker} kind="chip" /> : undefined, onClick: () => openBbmChipPanel("제조사"), onClear: clearMakerFilter },
+      selectedModel ? { key: "step-model", label: formatModelLabel(selectedModel), active: true, className: "is-vehicle-summary is-step", onClick: () => openBbmChipPanel("모델"), onClear: clearModelFilter } : null,
       selectedModel && selectedGenerationOption ? { key: "step-generation", label: generationDisplayLabel(selectedGenerationOption), active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearGenerationFilter } : null,
       selectedModel && selectedGenerationOption && selectedVariants.length ? { key: "step-trim", label: selectedTrimChipLabel, active: true, className: "is-vehicle-summary is-step", onClick: () => setSheet("vehicle"), onClear: clearVariantFilter } : null,
     ] : []),
-    maker && !selectedModel ? { key: "model", label: "모델", active: false, onClick: () => supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("모델") } : null,
+    maker && !selectedModel ? { key: "model", label: "모델", active: false, onClick: () => openBbmChipPanel("모델") } : null,
     // QF-106: 안 고른 단계 칩 = 다음 단계 이름(모델 ▾ → 세부모델 ▾ → 트림 ▾ → 연식 ▾)
     maker && selectedModel && !selectedGeneration && hasGenerationDepth ? { key: "sub-model", label: "세부모델", active: false, onClick: () => setSheet("vehicle") } : null,
     // 모바일 지역(② 드롭다운)으로 고른 지역 = 검정 적용 칩
@@ -3051,20 +3050,31 @@ function MarketplaceScreen() {
     const setPanelValue = setBbmFilters;
     const apply = close;
     const Frame = onDesktop ? BbmModal : BbmSheet;
+    if ((bbmChipPanel === "제조사" || bbmChipPanel === "모델") && supportsVehicleCatalog && vehicleCatalog.index) {
+      const hierarchyMakers = vehicleCatalog.index.manufacturers.filter((item) => (
+        category === "국산차" ? item.kind === "국산" : category === "수입차" ? item.kind === "수입" : true
+      ));
+      return <MakerHierarchyModal
+        mode={onDesktop ? "modal" : "sheet"}
+        onClose={close}
+        onApply={(nextMaker, nextModel, nextGeneration) => { applyVehicleSummarySelection(nextMaker, nextModel, nextGeneration); close(); }}
+        initialMaker={maker}
+        initialModel={selectedModel}
+        initialGeneration={selectedGeneration}
+        startStep={bbmChipPanel === "제조사" ? "maker" : "model"}
+        makers={hierarchyMakers}
+        renderMakerLogo={(option) => <CatalogLogo path={option.logoPath} name={option.name} kind="list" />}
+        modelsByMaker={modelsByMakerMap}
+        modelVisualsByMaker={modelVisualsByMakerMap}
+        generationsByMakerModel={generationsByMakerModelMap}
+        formatModel={formatModelLabel}
+        onPreviewMaker={(name) => { void vehicleCatalog.loadMake(name); }}
+      />;
+    }
     if (bbmChipPanel === "제조사") {
       // QF-096: 제조사 목록 로고 = 승용 제조사 로고(brand/kr) 24×24, 로고 없는 행은 빈 칸
       const list = <BbmMakerList sections={bbmMakerSections} allowEmpty={Boolean(bbmTypeList)} selected={maker} renderLogo={(_key, label) => <CategoryBrandLogo category={category} name={label} kind="list" initialFallback={Boolean(bbmTypeList)} />} onChoose={(key) => { if (maker !== key) applyMakerFilter(key); close(); }} />;
-      return onDesktop
-        ? <MakerHierarchyModal
-            onClose={close}
-            onApply={(nextMaker, nextModel, nextGeneration) => { applyVehicleSummarySelection(nextMaker, nextModel, nextGeneration); close(); }}
-            renderMakerLogo={() => <CategoryBrandLogo category="국산차" name="현대" kind="list" initialFallback />}
-            modelNames={modelsByMakerMap.현대 ?? []}
-            modelVisuals={modelVisualsByMakerMap.현대 ?? {}}
-            generationsByModel={generationsByMakerModelMap.현대 ?? {}}
-            formatModel={formatModelLabel}
-          />
-        : <BbmSheet title="제조사" flush onClose={close} footer={<div className="bbmf-actions is-sheet is-single"><button type="button" className="bbmf-reset" onClick={() => { clearMakerFilter(); close(); }}>초기화</button></div>}>{list}</BbmSheet>;
+      return <Frame title="제조사" flush onClose={close}>{list}</Frame>;
     }
     if (bbmChipPanel === "모델") {
       const list = <BbmModelList rows={maker ? bbmModelRows(maker) : []} selected={selectedModel} onChoose={(name) => { if (selectedModel !== name) chooseModel(name); close(); }} />;

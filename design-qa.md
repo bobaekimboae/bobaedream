@@ -30,6 +30,28 @@ final result: passed
 
 ---
 
+## 2026-10-19 제조사·모델 전체 계층 퀵필터
+
+- 기준 화면: 기존 현대 1개 제조사 샘플 모달 (`v=9ecdd974`).
+- 구현 화면: `reports/vehicle-catalog/screenshots/pc-maker-hierarchy.png`.
+- 모바일 화면: `reports/vehicle-catalog/screenshots/mobile-maker-hierarchy.png`.
+- PC/모바일 뷰포트: 1440×1000 / 390×844 CSS px.
+- 검증 경로: 제조사 → 모델 → 세부모델 → 결과 적용.
+
+### 결과
+
+- PC 500px 모달 크기·헤더·검색·선택 경로·하단 액션 유지: PASS.
+- 모바일 바텀시트 높이·스크롤·안전영역·하단 액션: PASS.
+- 전체 중고차 제조사 62개, 바이크 제조사 63개 노출 및 모델 연결: PASS.
+- BMW → 5시리즈 → G60 선택 후 칩·URL 반영: PASS.
+- 모바일 현대 → 모델 목록 연결: PASS.
+- 콘솔·런타임 오류: 없음.
+- P0/P1/P2 시각 결함: 없음.
+
+final result: passed
+
+---
+
 ## 2026-10-19 차량 퀵필터 알약칩 공통 규칙
 
 - Source visual truth: `qa/pill-system/source-chotot-cars-pc.png` (1270×714 px).

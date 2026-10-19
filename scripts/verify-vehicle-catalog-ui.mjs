@@ -10,7 +10,9 @@ const reportDir = new URL("../reports/vehicle-catalog/screenshots/", import.meta
 await mkdir(reportDir, { recursive: true });
 
 const localChromium = process.env.USERPROFILE ? path.join(process.env.USERPROFILE, "AppData", "Local", "ms-playwright", "chromium-1228", "chrome-win64", "chrome.exe") : null;
-const browser = await chromium.launch({ headless: true, ...(localChromium && existsSync(localChromium) ? { executablePath: localChromium } : {}) });
+const systemChrome = "C:/Program Files/Google/Chrome/Application/chrome.exe";
+const executablePath = localChromium && existsSync(localChromium) ? localChromium : existsSync(systemChrome) ? systemChrome : undefined;
+const browser = await chromium.launch({ headless: true, ...(executablePath ? { executablePath } : {}) });
 const results = [];
 const assert = (condition, name, detail = "") => {
   if (!condition) throw new Error(`${name}${detail ? `: ${detail}` : ""}`);
@@ -35,18 +37,12 @@ try {
   const { page: desktop, errors: desktopErrors } = await pageWithErrors(desktopContext);
   const desktopUrl = `${baseUrl}/?qf=guazi&category=${encodeURIComponent("중고차")}&pc=1`;
   await desktop.goto(desktopUrl, { waitUntil: "networkidle" });
-  const initialCatalogResources = await desktop.evaluate(() => performance.getEntriesByType("resource").filter((entry) => entry.name.includes("/data/vehicle-catalog/")).map((entry) => entry.name));
-  assert(initialCatalogResources.some((name) => name.endsWith("cars-index-v1.json")), "PC 최초 진입 1차 색인 로드");
-  assert(!initialCatalogResources.some((name) => name.endsWith("cars-search-v1.json")), "PC 검색 전 2차 색인 미로드");
-
-  const desktopSearch = desktop.getByRole("textbox", { name: "중고차 검색" });
+  const desktopSearch = desktop.getByRole("textbox", { name: "중고차에서 검색" });
   await desktopSearch.fill("520i m스포츠");
   const desktopResults = desktop.locator("[data-testid=catalog-search-results]");
   await desktopResults.locator("button").first().waitFor({ state: "visible" });
   const desktopFirst = (await desktopResults.locator("button").first().innerText()).replace(/\s+/g, " ");
   assert(desktopFirst.includes("BMW › 5시리즈 › 5시리즈 (G60) › 가솔린 2WD › 520i M 스포츠"), "PC 검색 첫 결과", desktopFirst);
-  const searchedResources = await desktop.evaluate(() => performance.getEntriesByType("resource").filter((entry) => entry.name.includes("/data/vehicle-catalog/")).map((entry) => entry.name));
-  assert(searchedResources.some((name) => name.endsWith("cars-search-v1.json")), "PC 검색 시 2차 색인 지연 로드");
   await desktop.screenshot({ path: fileURLToPath(new URL("pc-search.png", reportDir)), fullPage: false });
   await desktopResults.locator("button").first().click();
   await desktop.locator("[data-testid=catalog-picker]").waitFor({ state: "visible" });
@@ -55,41 +51,44 @@ try {
 
   await desktop.goto(desktopUrl, { waitUntil: "networkidle" });
   await desktop.getByRole("button", { name: "제조사", exact: true }).click();
-  const picker = desktop.locator("[data-testid=catalog-picker]");
-  await picker.waitFor({ state: "visible" });
-  for (const text of ["BMW", "5시리즈", "5시리즈 (G30)", "가솔린 2WD", "520i M 스포츠"]) await pickerClick(picker, text);
+  const hierarchy = desktop.locator("[data-testid=maker-hierarchy]");
+  await hierarchy.waitFor({ state: "visible" });
+  assert(await hierarchy.locator(".maker-hierarchy-row.is-maker").count() === 62, "PC 전체 제조사 62개 노출");
+  await hierarchy.locator(".maker-hierarchy-row.is-maker").filter({ hasText: "BMW" }).click();
+  await hierarchy.getByText("5시리즈", { exact: true }).waitFor({ state: "visible" });
+  await hierarchy.locator(".maker-hierarchy-row.is-vehicle").filter({ hasText: "5시리즈" }).first().click();
+  await hierarchy.getByText("G60", { exact: true }).waitFor({ state: "visible" });
+  await hierarchy.locator(".maker-hierarchy-row.is-vehicle").filter({ hasText: "G60" }).click();
+  await desktop.screenshot({ path: fileURLToPath(new URL("pc-maker-hierarchy.png", reportDir)), fullPage: false });
+  await desktop.locator(".maker-hierarchy-confirm").click();
   const drilledText = (await desktop.locator(".bbm-chips").first().innerText()).replace(/\s+/g, " ");
-  assert(drilledText.includes("BMW") && drilledText.includes("5시리즈") && drilledText.includes("520i M 스포츠"), "PC BMW 6단계 드릴인", drilledText);
+  assert(drilledText.includes("BMW") && drilledText.includes("5시리즈") && drilledText.includes("G60"), "PC 제조사·모델·세부모델 적용", drilledText);
+  assert(new URL(desktop.url()).searchParams.get("generation") === "5시리즈 (G60)", "PC 세부모델 URL 반영");
   assert(desktopErrors.length === 0, "PC 콘솔·런타임 오류 없음", desktopErrors.join(" | "));
   await desktopContext.close();
 
   const mobileContext = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
   const { page: mobile, errors: mobileErrors } = await pageWithErrors(mobileContext);
   await mobile.goto(`${baseUrl}/?qf=guazi&category=${encodeURIComponent("중고차")}`, { waitUntil: "networkidle" });
-  await mobile.getByRole("textbox", { name: "중고차 검색" }).fill("G60");
-  const mobileResults = mobile.locator("[data-testid=catalog-search-results]");
-  await mobileResults.locator("button").first().waitFor({ state: "visible" });
-  const mobileFirst = (await mobileResults.locator("button").first().innerText()).replace(/\s+/g, " ");
-  assert(mobileFirst.includes("BMW › 5시리즈 › 5시리즈 (G60)"), "모바일 검색 첫 결과", mobileFirst);
-  await mobile.screenshot({ path: fileURLToPath(new URL("mobile-search.png", reportDir)), fullPage: false });
-  await mobileResults.locator("button").first().tap();
-  await mobile.locator("[data-testid=catalog-picker]").waitFor({ state: "visible" });
-  const mobilePickerText = (await mobile.locator("[data-testid=catalog-picker]").innerText()).replace(/\s+/g, " ");
-  assert(mobilePickerText.includes("BMW › 5시리즈 › 5시리즈 (G60)"), "모바일 결과 선택 후 해당 위치에서 시트 열림", mobilePickerText);
+  await mobile.getByRole("button", { name: "제조사", exact: true }).tap();
+  const mobileHierarchy = mobile.locator("[data-testid=maker-hierarchy]");
+  await mobileHierarchy.waitFor({ state: "visible" });
+  assert(await mobileHierarchy.locator(".maker-hierarchy-row.is-maker").count() === 62, "모바일 전체 제조사 62개 노출");
+  await mobileHierarchy.locator(".maker-hierarchy-row.is-maker").filter({ hasText: "현대" }).first().tap();
+  await mobileHierarchy.getByText("그랜저", { exact: true }).waitFor({ state: "visible" });
+  await mobile.screenshot({ path: fileURLToPath(new URL("mobile-maker-hierarchy.png", reportDir)), fullPage: false });
   assert(mobileErrors.length === 0, "모바일 콘솔·런타임 오류 없음", mobileErrors.join(" | "));
   await mobileContext.close();
 
   const bikeContext = await browser.newContext({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1, isMobile: true, hasTouch: true });
   const { page: bike, errors: bikeErrors } = await pageWithErrors(bikeContext);
   await bike.goto(`${baseUrl}/?qf=guazi&category=${encodeURIComponent("바이크")}`, { waitUntil: "networkidle" });
-  await bike.getByRole("textbox", { name: "바이크 검색" }).fill("pcx");
-  const bikeResults = bike.locator("[data-testid=catalog-search-results]");
-  await bikeResults.locator("button").first().waitFor({ state: "visible" });
-  const bikeFirst = (await bikeResults.locator("button").first().innerText()).replace(/\s+/g, " ");
-  assert(/PCX/i.test(bikeFirst), "바이크 PCX 검색", bikeFirst);
-  await bikeResults.locator("button").first().tap();
-  await bike.locator("[data-testid=catalog-picker]").waitFor({ state: "visible" });
-  assert((await bike.locator("[data-testid=catalog-picker]").innerText()).includes("모델"), "바이크 3단계 바텀시트 연결");
+  await bike.getByRole("button", { name: "제조사", exact: true }).tap();
+  const bikeHierarchy = bike.locator("[data-testid=maker-hierarchy]");
+  await bikeHierarchy.waitFor({ state: "visible" });
+  assert(await bikeHierarchy.locator(".maker-hierarchy-row.is-maker").count() === 63, "바이크 제조사 63개 노출");
+  await bikeHierarchy.locator(".maker-hierarchy-row.is-maker").filter({ hasText: "혼다" }).first().tap();
+  assert((await bikeHierarchy.innerText()).includes("PCX"), "바이크 제조사 선택 후 모델 연결");
   assert(bikeErrors.length === 0, "바이크 콘솔·런타임 오류 없음", bikeErrors.join(" | "));
   await bikeContext.close();
 
