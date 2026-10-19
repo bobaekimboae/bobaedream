@@ -607,3 +607,14 @@
 .bmh-abrand-head h2 button:hover .bmh-abrand-go, .bmh-abrand-nav button:not(:disabled):hover { background: #ebebeb; }
 .bmh-abrand-nav button:disabled { background: rgba(255,255,255,.6); }
 @media (max-width: 819px) { .bmh-abrand { padding: 0; } .bmh-abrand-head { padding: 0 4px 0 0; } }
+/* 2026-10-19 「줄이자」 · 「로고 크다」 · 「중고차·중고바이크 로고 배치 찾아봐」: AutoScout24 메인(로고 상자 96×60, 판·테두리 없음, 이름 아래, 대수 없음)과 초톳 오토바이(로고 40×40, 판 없음) 실측 기준.
+   섹션 머리(에어비앤비 제목 + → + 이전·다음)는 그대로, 칸은 판 없이 로고 + 이름만. 한 줄 10칸, 로고 상자 64×40(로고 최대 56×36), 이름 14/20 600 #333 */
+.bmh-abrand-row { grid-auto-columns: calc((100% - 108px) / 10); }
+.bmh-abrand-tile { aspect-ratio: auto; height: 40px; border-radius: 0; background: none !important; }
+.bmh-abrand-tile img { max-width: 56px; max-height: 36px; }
+.bmh-abrand-row a { align-items: center; text-align: center; padding: 4px 0; border-radius: 8px; }
+.bmh-abrand-row strong { margin-top: 8px; font-size: 14px; line-height: 20px; font-weight: 600; color: #333; }
+.bmh-abrand-row small { display: none; }
+.bmh-abrand-row a:hover strong { text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 1100px) { .bmh-abrand-row { grid-auto-columns: calc((100% - 84px) / 8); } }
+@media (max-width: 819px) { .bmh-abrand-row { grid-auto-columns: 64px; gap: 8px; } .bmh-abrand-tile { height: 36px; } .bmh-abrand-tile img { max-width: 44px; max-height: 30px; } .bmh-abrand-row strong { font-size: 13px; line-height: 18px; } }
