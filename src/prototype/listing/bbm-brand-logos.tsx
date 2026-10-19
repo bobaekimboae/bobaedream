@@ -115,28 +115,27 @@ export function chototRailLogoSize(ratio: number) {
   return { width: px(width), height: px(height) };
 }
 
-// 초톳·차란차처럼 슬롯은 정사각형으로 통일하되, 실제 보이는 잉크 면적은
-// 로고 형태별로 보정한다. 초광폭 워드마크/윙은 40px 슬롯을 살짝 넘겨도
-// 카드 피치 안에서 광학적으로 같은 무게가 되도록 허용한다.
+// 초톳 자동차·휴대폰 레일처럼 40×40 슬롯 안에서만 실제 잉크 면적을 보정한다.
+// 가로형도 슬롯 밖으로 넘기지 않고 원본 비율을 그대로 유지한다.
 const railBrandOpticalWidth: Record<string, number> = {
   "현대": 40,
-  "제네시스": 52,
-  "기아": 46,
-  "쉐보레": 44,
-  "쉐보레(국산)": 44,
+  "제네시스": 40,
+  "기아": 40,
+  "쉐보레": 40,
+  "쉐보레(국산)": 40,
   "르노코리아": 23,
   "르노코리아(삼성)": 23,
-  "KGM": 50,
-  "KG모빌리티": 50,
-  "KG모빌리티(쌍용)": 50,
+  "KGM": 40,
+  "KG모빌리티": 40,
+  "KG모빌리티(쌍용)": 40,
   "BMW": 30,
   "벤츠": 30,
-  "아우디": 46,
+  "아우디": 40,
   "포르쉐": 24,
 };
 
 export function opticalRailBrandLogoSize(name: string, ratio: number) {
-  const width = railBrandOpticalWidth[name] ?? Math.min(48, Math.max(28, 30 * Math.sqrt(ratio)));
+  const width = Math.min(40, railBrandOpticalWidth[name] ?? Math.max(28, 30 * Math.sqrt(ratio)));
   return { width: px(width), height: px(width / ratio) };
 }
 
