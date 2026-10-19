@@ -61,17 +61,20 @@
   object-fit: contain;
 }
 .bmh-site-logo-emblem--cycle {
+  width: 36px;
+  height: 36px;
+  flex: 0 0 36px;
+  overflow: visible;
   border: 0;
   background: transparent;
 }
 .bmh-site-logo-emblem--cycle img {
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
-  object-position: left center;
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
 }
 .bmh-site-logo-word {
-  color: #222;
+  color: #fa6819;
   font-size: 20px;
   line-height: 24px;
   font-weight: 800;
@@ -83,8 +86,8 @@
   display: inline-flex;
   align-items: center;
   padding-left: 9px;
-  border-left: 1px solid #d9dce3;
-  color: #222;
+  border-left: 1px solid #f7b28d;
+  color: #fa6819;
   font-size: 15px;
   line-height: 24px;
   font-weight: 750;
