@@ -43,6 +43,13 @@
   align-items: center;
   gap: 8px;
 }
+.bmh-site-logo-cycle {
+  display: block;
+  width: 168px;
+  height: auto;
+  max-height: 30px;
+  object-fit: contain;
+}
 .bmh-site-logo-emblem {
   width: 32px;
   height: 32px;
