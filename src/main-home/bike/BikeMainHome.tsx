@@ -48,27 +48,13 @@ const won = (krw: number) => {
 };
 const km = (n: number) => (n >= 10000 ? `${(Math.round(n / 1000) / 10).toLocaleString("ko-KR")}만km` : `${n.toLocaleString("ko-KR")}km`);
 
-function Card({ row, saved, onSave }: { row: Row; saved: boolean; onSave: () => void }) {
-  return (
-    <article className="bmh-card">
-      <a href={listUrl({ maker: row.brand })} className="bmh-card-link">
-        <span className="bmh-card-photo"><img src={bikeThumb(row.image_file)} alt="" loading="lazy" /></span>
-        <span className="bmh-card-body">
-          <span className="bmh-card-title"><b>{row.brand}</b> {row.model}</span>
-          <span className="bmh-card-price">{won(row.price_krw)}</span>
-          <span className="bmh-card-meta">{row.year} | {km(row.mileage_km)} | {row.displacement_cc.toLocaleString("ko-KR")}cc | {row.genre}</span>
-          {row.posted_days === 0 ? <span className="bmh-badge">새 매물</span> : null}
-        </span>
-      </a>
-      <footer className="bmh-card-foot">
-        <span><small>{row.seller_type}</small>{row.region}</span>
-        <button type="button" aria-pressed={saved} aria-label={saved ? "찜 해제" : "찜하기"} className={saved ? "is-on" : ""} onClick={onSave}>
-          <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.5 2.6 5.3 5.9.9-4.25 4.1 1 5.85L12 16.9l-5.25 2.75 1-5.85L3.5 9.7l5.9-.9Z" fill={saved ? "currentColor" : "none"} stroke="currentColor" strokeWidth="1.6" strokeLinejoin="round" /></svg>
-        </button>
-      </footer>
-    </article>
-  );
-}
+/* 썸네일 등록 시각(초톳처럼 사진 왼쪽 아래): 게시 0일 = N시간 전(매물 id로 정한 1~23, 가상 값), 그 밖 N일 전 */
+const postedAgo = (row: Row) => {
+  if (row.posted_days > 0) return `${row.posted_days}일 전`;
+  let h = 0;
+  for (const ch of row.scenario_id) h = (h * 31 + ch.charCodeAt(0)) % 997;
+  return `${1 + (h % 23)}시간 전`;
+};
 
 /* 인기 바이크 카드: 초톳(xe.chotot.com) 그리드 카드 1536 실측(2026-10-19) — 정사각 사진 반경 12, 사진 아래 10에 제목 16/23 2줄,
    사양 14/20 #8C8C8C 한 줄, 가격 16/24 700, 위치 아이콘 14 + 14/21, 좌우 안쪽 8 */
@@ -78,7 +64,7 @@ function ChototCard({ row, saved, onSave }: { row: Row; saved: boolean; onSave: 
       <a href={listUrl({ maker: row.brand })} className="bmh-ct-link">
         <span className="bmh-ct-photo">
           <img src={bikeThumb(row.image_file)} alt="" loading="lazy" />
-          {row.certified ? <span className="bmh-ct-label">인증 중고</span> : null}
+          <span className="bmh-ct-label">{postedAgo(row)}</span>
         </span>
         <span className="bmh-ct-title">{row.brand} {row.model} {row.year}</span>
         <span className="bmh-ct-meta"><span>{row.year}</span><span>{row.genre}</span><span>{row.displacement_cc.toLocaleString("ko-KR")}cc</span><span>{km(row.mileage_km)}</span></span>
@@ -157,7 +143,7 @@ export default function BikeMainHome() {
   const fresh = useMemo(() => {
     const used = new Set(popular.map((r) => r.scenario_id));
     const seen = new Set<string>();
-    return rows.filter((r) => r.posted_days === 0 && !used.has(r.scenario_id) && !seen.has(r.model) && seen.add(r.model)).slice(0, 8);
+    return rows.filter((r) => r.posted_days === 0 && !used.has(r.scenario_id) && !seen.has(r.model) && seen.add(r.model)).slice(0, 12);
   }, [rows, popular]);
   const brandModels = useMemo(() => brandLogos.slice(0, 5).map(([b]) => {
     const m = new Map<string, number>();
@@ -305,7 +291,7 @@ export default function BikeMainHome() {
 
         <section className="bmh-sec" aria-labelledby="bmh-fresh">
           <h2 id="bmh-fresh" className="bmh-h2">오늘 올라온 매물</h2>
-          <div className="bmh-grid">{fresh.map((r) => <Card key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} />)}</div>
+          <div className="bmh-ct-grid">{fresh.map((r) => <ChototCard key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} />)}</div>
         </section>
 
         <section className="bmh-news" aria-labelledby="bmh-news-title">
