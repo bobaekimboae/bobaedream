@@ -165,7 +165,7 @@ export default function BikeMainHome() {
       <header className="bmh-site-header" aria-label="보배드림 바이크">
         <div className="bmh-wrap bmh-site-header-main">
           <a className="bmh-site-logo" href="./?home=as24" aria-label="보배드림 바이크 처음으로">
-            <span className="bmh-site-logo-emblem bmh-site-logo-emblem--cycle"><img src={pic("..", "assets", "bike", "logo", "cycle-trader-official.svg")} alt="" /></span>
+            <span className="bmh-site-logo-emblem bmh-site-logo-emblem--cycle"><img src={pic("..", "assets", "bike", "logo", "cycle-trader-symbol-orange.svg")} alt="" /></span>
             <span className="bmh-site-logo-word">보배드림</span>
             <span className="bmh-site-logo-badge">바이크</span>
           </a>
