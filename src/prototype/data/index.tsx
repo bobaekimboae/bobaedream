@@ -33,6 +33,7 @@ import { truckScenarioImageV02 } from "../truck/scenario-images-v02";
 import { normalizeTruckFormatSelection, truckSubtypeLabel } from "./truck-format-catalog";
 import { luxuryDealers, luxuryListingRows } from "./luxury-category-v01";
 import { oldCarListingRows } from "./old-car-category-v01";
+import charanchaDomesticPhotos from "./charancha-domestic-photos.json";
 import { oldCarBobaeRows } from "./old-car-bobae-v01";
 import { oldCarListCrop } from "./old-car-list-crop-v01";
 import { jdmListingRows } from "./jdm-category-v01";
@@ -1574,7 +1575,11 @@ const deutschCars: Car[] = deutschRowsByRecent.map((row, order) => {
 const deutschAutoworldCars = deutschCars.filter((car) => car.place === deutschPlaces[0]);
 const deutschOtherComplexCars = deutschCars.filter((car) => car.place !== deutschPlaces[0]);
 
-const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...deutschOtherComplexCars];
+const domesticPhotoById = new Map(charanchaDomesticPhotos.photos.map((photo) => [photo.id, photo.image]));
+const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...deutschOtherComplexCars].map((car): Car => {
+  const image = domesticPhotoById.get(car.id);
+  return image ? { ...car, image, imageFit: "contain", photoList: [image], photos: 1 } : car;
+});
 
 const luxuryVehicleHeadings: Record<number, { title: string; trim: string }> = {
   1: { title: "람보르기니 우르스", trim: "SE 4.0 V8" },
