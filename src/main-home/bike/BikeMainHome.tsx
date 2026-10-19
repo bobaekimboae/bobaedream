@@ -200,7 +200,11 @@ export default function BikeMainHome() {
 
       <section className="bmh-hero" aria-label="소개">
         <div className="bmh-hero-art" aria-hidden="true">
-          <img className="bmh-hero-bike" src={pic("..", "assets", "bike", "models", "honda", "BKM001-G003.png")} alt="" />
+          <img
+            className="bmh-hero-media"
+            src="https://images.ctfassets.net/x7j9qwvpvr5s/4t2zR01xZmlZKL4tCxe8tL/48bcc2da642a078d1f70cc5a1760cbf0/WorldSBK-Jerez-18-Ottobre-2026-Hero-1600x1000.jpg?fm=webp&q=90"
+            alt=""
+          />
         </div>
         <div className="bmh-wrap bmh-hero-copy"><span>보배드림 바이크</span><h1>보배드림이 만든<br />바이크 전문 매매 플랫폼</h1></div>
       </section>
