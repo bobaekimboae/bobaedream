@@ -78,6 +78,9 @@
 .bbm-card-photo { position: relative; flex: none; overflow: hidden; background: var(--bbm-photo-bg); }
 .bbm-card-photo > img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .bbm-card-photo > img.is-catalog { padding: 6px; box-sizing: border-box; background: #fff; object-fit: contain; }
+/* 정사각 목록 칸은 유지하고, 차체가 들어간 원본은 비율을 보존해 크게 배치한다. */
+.bbm-card-photo > img.is-square-original { position: absolute; top: 50%; left: 50%; width: 130%; height: auto; padding: 0; transform: translate(-50%, -50%); mask-image: linear-gradient(to bottom, transparent, #000 6%, #000 94%, transparent); }
+.bbm-card-photo > img.bbm-card-photo-fill.is-square-fill { filter: blur(28px); transform: scale(1.5); }
 .bbm-card-media-footer { position: absolute; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box; background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4)); color: #fff; }
 .bbm-card-count { display: inline-flex; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; line-height: 12px; }
 .bbm-card-count img { width: 12px; height: 12px; }
