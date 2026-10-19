@@ -105,7 +105,7 @@ export default function BikeMainAutotrader() {
           <nav className="atm-menu" aria-label="주 메뉴">
             <a href={listUrl()}>중고 바이크</a>
             <a href={listUrl({ register: "bike" })}>내 바이크 팔기</a>
-            <a href={listUrl({ category: "부품 · 용품", bikeMenu: "parts" })}>바이크 용품</a>
+            <a href={listUrl({ category: "부품 · 용품", bikeMenu: "parts" })}>중고 용품·장비</a>
             <a href="../community/bobaedream-pc-board-list.html?layout=reddit">커뮤니티</a>
           </nav>
           <div className="atm-header-icons">
