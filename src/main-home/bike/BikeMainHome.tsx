@@ -141,6 +141,7 @@ export default function BikeMainHome() {
   const [headerQuery, setHeaderQuery] = useState("");
   const opener = useRef<HTMLButtonElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
+  const heroVideo = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     document.title = "보배드림 바이크 — 중고 바이크 사고팔기";
@@ -152,6 +153,16 @@ export default function BikeMainHome() {
     return () => targets.forEach((el, i) => { el.style.overflow = prev[i][0]; el.style.height = prev[i][1]; });
   }, []);
   useEffect(() => { if (!toast) return undefined; const t = window.setTimeout(() => setToast(""), 2000); return () => window.clearTimeout(t); }, [toast]);
+  useEffect(() => {
+    if (hero.kind !== "video") return undefined;
+    const el = heroVideo.current;
+    if (!el) return undefined;
+    el.muted = true;
+    const play = () => { void el.play().catch(() => undefined); };
+    play();
+    el.addEventListener("canplay", play);
+    return () => el.removeEventListener("canplay", play);
+  }, [hero]);
 
   const isNew = (r: Row) => r.year >= 2024 && r.mileage_km <= 1000;
   const inTab = (r: Row) => (tab === "신차" ? isNew(r) : tab === "중고" ? !isNew(r) : true) && (!genre || r.genre === genre);
@@ -272,6 +283,7 @@ export default function BikeMainHome() {
             {hero.kind === "iframe" ? (
               <iframe
                 key={hero.key}
+                ref={heroVideo}
                 className="bmh-hero-video"
                 src={hero.video}
                 title={hero.title}
