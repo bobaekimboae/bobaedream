@@ -5,8 +5,10 @@ import { bbmCardBadges, bbmCardSpec, bbmSampleHorsepower } from "../data/bbm-car
 import { oldCarGeneration } from "../data/old-car-generation-v01";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
+import { useViewedListing } from "./viewed-listings";
 import { truckPlaceV09 } from "../truck/scenario-v09";
 import "./bbm-tokens.css";
+import "./thumbnail-states.css";
 
 // QF-091: 개발 시안(dev.bbmuseum.co.kr/car/list) 원본과 같은 목록 부품. 수치·아이콘은 원본에서 뽑은 값(bbm-tokens.css, public/assets/bbm/).
 
@@ -632,6 +634,8 @@ function FeedPhotoCarousel({ photos, alt, fit }: { photos: string[]; alt: string
 
 export function BbmResultCard({ car, variant, featured = false, detailSummary = false, detailPower, detailBodyType, liked, onToggleLike, onOpen, onChat, onCall, feedPhotos, eagerPhoto = true, locationDong, detailLocation }: { car: Car; eagerPhoto?: boolean; locationDong?: string; detailLocation?: { dealer?: string; shop?: string }; variant: "pc" | "mobile"; featured?: boolean; detailSummary?: boolean; detailPower?: string; detailBodyType?: string; feedPhotos?: string[]; liked: boolean; onToggleLike: () => void; onOpen: () => void; onChat: () => void; onCall?: () => void }) {
   const seller = sellerLabel(car);
+  const { viewed, markViewed } = useViewedListing(car.id);
+  const openListing = () => { if (!detailSummary) markViewed(); onOpen(); };
   // 목록 썸네일은 정규화 사본(럭셔리카와 같은 규칙)을 쓰고, 피드 대표 사진·그림(contain)은 원본 그대로
   // PC 승용 카드는 원본 가로 사진을 쓴다. 트럭 PC는 2026-10-19 모바일 우선 시안부터
   // Chợ Tốt처럼 정사각 썸네일을 쓰되, 차량 전체가 안전 영역에 들어간 정규화 사본으로 잘림을 막는다.
@@ -685,7 +689,8 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const alt = car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim();
   const squareOriginalPhoto = !!car.imageAspectRatio && !featured;
   const photoStyle = car.imageAspectRatio && !squareOriginalPhoto ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
-  const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>;
+  const photoCount = car.photoList?.length || car.photos;
+  const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span>{!featured && photoCount > 0 ? <span className="bbm-card-count">{photoCount}<img src={bbmIcon("card-photo-count")} alt="" /></span> : null}</div>;
   const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
     <div className="bbm-card-photo is-carousel" style={photoStyle}>
       <FeedPhotoCarousel photos={feedPhotos} alt={alt} fit={car.imageAspectRatio || car.imageFit === "contain" ? "contain" : "cover"} />
@@ -695,11 +700,12 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`} style={photoStyle}>
       {car.image && (squareOriginalPhoto || listCrop && listCrop[0] === 100 && !listPhoto) ? <img className={`bbm-card-photo-fill${squareOriginalPhoto ? " is-square-fill" : ""}`} src={asset(car.image)} alt="" aria-hidden="true" draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" /> : null}
       {car.image ? <img className={squareOriginalPhoto ? "is-square-original" : car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={listCrop && !listPhoto ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" } : { objectFit: car.imageAspectRatio ? "contain" : undefined, objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
-      <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
+      {timeFooter}
     </div>
   );
   const onKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); onOpen(); }
+    if (event.target !== event.currentTarget) return;
+    if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openListing(); }
   };
   const wishButton = (
     <button type="button" className={`bbm-card-wish${liked ? " is-liked" : ""}`} aria-label={`${car.title} ${liked ? "찜 해제" : "찜"}`} aria-pressed={liked} onClick={(event) => { event.stopPropagation(); onToggleLike(); }}>
@@ -724,7 +730,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
     </div>
   );
   return (
-    <article className={`bbm-result-card is-${variant}${featured ? " is-feed-featured" : ""}${detailSummary ? " is-detail-summary" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
+    <article className={`bbm-result-card is-${variant}${viewed && !detailSummary ? " is-viewed" : ""}${featured ? " is-feed-featured" : ""}${detailSummary ? " is-detail-summary" : ""}${badges.length ? " has-badges" : " has-no-badges"}${car.uiTest ? ` is-ui-test headline-${headlinePosition}` : ""}`} role="link" tabIndex={0} aria-label={`${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} 상세 보기`} onClick={openListing} onKeyDown={onKeyDown}>
       {headlinePosition === "top" ? headline : null}
       <div className="bbm-card-main">
         {/* 사진이 없는 매물은 원본처럼 빈 회색 칸(car-list-result-card__image 배경 #EBEBEB) */}

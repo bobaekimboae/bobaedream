@@ -1,0 +1,75 @@
+/* Chợ Tốt public listing CSS, build 96998658 (2026-10-19).
+   List: .m1vb9shx / .sx5yyjc; grid: .i197z859. Photo framing is separate. */
+.marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list) .bbm-result-card:is(.is-pc, .is-mobile):not(.is-feed-featured) .bbm-card-media-footer {
+  height: 24px;
+  padding: 0 8px;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(180deg, rgba(34, 34, 34, 0), rgba(34, 34, 34, .75));
+  color: #fff;
+  pointer-events: none;
+  text-shadow: none;
+}
+.marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list) .bbm-result-card:is(.is-pc, .is-mobile):not(.is-feed-featured) .bbm-card-time {
+  min-width: 0;
+  margin-right: auto;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.marketplace:is(.is-bbm, .is-bbm-m) .bbm-result-card .bbm-card-count {
+  flex: none;
+  min-width: 24px;
+  height: 20px;
+  gap: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  color: #fff;
+}
+.marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list).is-gallery .bbm-result-card:is(.is-pc, .is-mobile):not(.is-feed-featured) .bbm-card-media-footer {
+  height: auto;
+  min-height: 30px;
+  padding: 6px 12px;
+}
+.marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list).is-gallery .bbm-result-card:is(.is-pc, .is-mobile):not(.is-feed-featured) .bbm-card-time {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+.marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list).is-gallery .bbm-result-card .bbm-card-count {
+  height: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 18px;
+}
+.marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list) .bbm-result-card.is-viewed .bbm-card-title {
+  color: #8c8c8c;
+}
+@media (hover: hover) and (pointer: fine) {
+  .marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list):not(.is-gallery):not(.is-feed):not(.is-text):not(.is-text-view) .bbm-result-card:hover {
+    box-shadow: 0 4px 16px rgba(34, 34, 34, .12);
+  }
+  .marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list):not(.is-gallery) .bbm-result-card:not(.is-feed-featured):hover .bbm-card-media-footer {
+    background: rgba(34, 34, 34, .5);
+  }
+  .marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list).is-gallery .bbm-result-card:hover {
+    box-shadow: 0 1px 7px rgba(0, 0, 0, .3);
+    z-index: 3;
+    border-radius: 12px;
+  }
+  .marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list).is-gallery .bbm-card-photo > img:not(.bbm-card-photo-fill) {
+    transition: scale .3s ease-in-out;
+  }
+  .marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list).is-gallery .bbm-card-photo:hover > img:not(.bbm-card-photo-fill) {
+    scale: 1.1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marketplace:is(.is-bbm, .is-bbm-m) :is(.car-list, .bbm-m-list).is-gallery .bbm-card-photo > img:not(.bbm-card-photo-fill) {
+    transition: none;
+  }
+}
