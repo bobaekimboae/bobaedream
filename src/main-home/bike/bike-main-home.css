@@ -621,3 +621,9 @@
 /* 2026-10-19 「인기 브랜드 위로 좀 더 올리는 안」: 검색 카드 → 인기 브랜드 56 → 32(모바일 40 → 28). 아래 팔기 섹션 간격은 그대로 */
 .bmh-abrand { margin-top: 32px; }
 @media (max-width: 819px) { .bmh-abrand { margin-top: 28px; } }
+
+/* 2026-10-19 탑메뉴 `바이크 판매` → `바이크샵`(화면 준비 중이라 버튼): 글자 메뉴와 같은 모양 */
+.bmh-site-gnb button { height: 49px; display: flex; align-items: center; padding: 0; border: 0; background: none; font: inherit; color: #595959; font-size: 16px; font-weight: 500; white-space: nowrap; cursor: pointer; }
+.bmh-site-gnb button:hover { color: #222; }
+.bmh-site-gnb button:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
+@media (max-width: 819px) { .bmh-site-gnb button { height: 44px; font-size: 14px; } }
