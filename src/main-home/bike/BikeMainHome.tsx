@@ -201,7 +201,7 @@ export default function BikeMainHome() {
         <div className="bmh-hero-art" aria-hidden="true">
           <img className="bmh-hero-bike" src={pic("..", "assets", "bike", "models", "honda", "BKM001-G003.png")} alt="" />
         </div>
-        <div className="bmh-wrap bmh-hero-copy"><span>대한민국 바이크 전문 매매 플랫폼</span><h1>달리고 싶은 바이크,<br />여기서.</h1></div>
+        <div className="bmh-wrap bmh-hero-copy"><span>보배드림 바이크</span><h1>보배드림이 만든<br />한국 유일의 바이크 전문 매매 플랫폼</h1></div>
       </section>
 
       <div className="bmh-wrap">
