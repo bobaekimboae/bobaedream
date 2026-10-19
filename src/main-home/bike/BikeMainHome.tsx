@@ -1,7 +1,7 @@
 // 보배드림 바이크 메인 시안 v01 (2026-10-19 「베스트글 없이 오토스카우트 24 동일하게 · 바이크 메인에 · 보배드림 말고 바이크로」)
 // 진입: /bike/?home=as24 (기존 /bike/ 목록은 그대로).
 // AutoScout24.de 1536 실측 구성을 그대로 따른다: 짙은 헤더 → 사진 히어로(48 제목 · 가격 말풍선 · 노랑 곡선) → 히어로에 걸친 검색 카드
-// (탭 · 3칸 · 결과 대수 버튼 · 유형 그림 8칸) → 인기 브랜드 8 → 내 차 팔기 2안 카드 → 「가장 많이 찾는」 4열 × 2줄 카드
+// (탭 · 3칸 · 결과 대수 버튼 · 유형 그림 8칸) → 인기 브랜드 8 → 내 차 팔기 2안 카드 → 「인기 바이크」 초톳 그리드 6열 × 2줄
 // → 두 번째 4열 카드 묶음 → 뉴스레터 띠 → 인기 모델 글자 링크 → 짙은 바닥글. 커뮤니티 베스트글은 넣지 않는다.
 // 색은 바이크 사이트 주황(#FA6819)을 AutoScout24 노랑 · 청록 자리에 쓴다. 매물은 바이크 매물 v08 + v11(550대)이다.
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -70,6 +70,31 @@ function Card({ row, saved, onSave }: { row: Row; saved: boolean; onSave: () => 
   );
 }
 
+/* 인기 바이크 카드: 초톳(xe.chotot.com) 그리드 카드 1536 실측(2026-10-19) — 정사각 사진 반경 12, 사진 아래 10에 제목 16/23 2줄,
+   사양 14/20 #8C8C8C 한 줄, 가격 16/24 700, 위치 아이콘 14 + 14/21, 좌우 안쪽 8 */
+function ChototCard({ row, saved, onSave }: { row: Row; saved: boolean; onSave: () => void }) {
+  return (
+    <article className="bmh-ct-card">
+      <a href={listUrl({ maker: row.brand })} className="bmh-ct-link">
+        <span className="bmh-ct-photo">
+          <img src={bikeThumb(row.image_file)} alt="" loading="lazy" />
+          {row.certified ? <span className="bmh-ct-label">인증 중고</span> : null}
+        </span>
+        <span className="bmh-ct-title">{row.brand} {row.model} {row.year}</span>
+        <span className="bmh-ct-meta"><span>{row.year}</span><span>{row.genre}</span><span>{row.displacement_cc.toLocaleString("ko-KR")}cc</span><span>{km(row.mileage_km)}</span></span>
+        <span className="bmh-ct-price">{won(row.price_krw)}</span>
+        <span className="bmh-ct-loc">
+          <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" fill="currentColor" /></svg>
+          {row.region}
+        </span>
+      </a>
+      <button type="button" className={saved ? "bmh-ct-save is-on" : "bmh-ct-save"} aria-pressed={saved} aria-label={saved ? "찜 해제" : "찜하기"} onClick={onSave}>
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1Z" fill={saved ? "#fff" : "rgba(0,0,0,.25)"} stroke="#fff" strokeWidth="1.8" strokeLinejoin="round" /></svg>
+      </button>
+    </article>
+  );
+}
+
 export default function BikeMainHome() {
   const rows = useMemo(() => [...bikeScenarioV08, ...bikeScenarioV11] as Row[], []);
   const [tab] = useState<TabKey>("전체"); // 탭 줄은 2026-10-19에 뺐다(전체 고정)
@@ -124,7 +149,10 @@ export default function BikeMainHome() {
       const pick = rows.filter((r) => r.brand === brand && r.posted_days <= 1).sort((a, b) => b.price_krw - a.price_krw)[0];
       if (pick) out.push(pick);
     }
-    return out.slice(0, 8);
+    // 인기 바이크는 초톳 그리드처럼 6열 × 2줄 = 12대: 브랜드별 1대 뒤에 최근 고가 매물로 채운다
+    const ids = new Set(out.map((r) => r.scenario_id));
+    for (const r of [...rows].filter((r) => r.posted_days <= 2).sort((a, b) => b.price_krw - a.price_krw)) { if (out.length >= 12) break; if (!ids.has(r.scenario_id)) { out.push(r); ids.add(r.scenario_id); } }
+    return out.slice(0, 12);
   }, [rows]);
   const fresh = useMemo(() => {
     const used = new Set(popular.map((r) => r.scenario_id));
@@ -271,8 +299,8 @@ export default function BikeMainHome() {
         </section>
 
         <section className="bmh-sec" aria-labelledby="bmh-popular">
-          <h2 id="bmh-popular" className="bmh-h2">가장 많이 찾는 바이크</h2>
-          <div className="bmh-grid">{popular.map((r) => <Card key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} />)}</div>
+          <h2 id="bmh-popular" className="bmh-h2">인기 바이크</h2>
+          <div className="bmh-ct-grid">{popular.map((r) => <ChototCard key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} />)}</div>
         </section>
 
         <section className="bmh-sec" aria-labelledby="bmh-fresh">
