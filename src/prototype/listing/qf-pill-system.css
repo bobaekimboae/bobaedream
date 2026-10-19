@@ -1,0 +1,298 @@
+/* Cho Tot pill system, shared by every vehicle quick-filter category.
+   Navigation chips, image/logo cards and rectangular filter controls are intentionally excluded. */
+:root {
+  --qf-pill-height: 32px;
+  --qf-pill-radius: 16px;
+  --qf-pill-gap: 8px;
+  --qf-pill-pad-x: 12px;
+  --qf-pill-bg: #f4f4f4;
+  --qf-pill-ink: #222;
+  --qf-pill-line: #e4e7ec;
+}
+
+/* Dynamic filter rail: launcher/applied = black, unset dropdown = neutral grey. */
+.marketplace.is-qf-guazi .bbm-filter-button,
+.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-fixed {
+  height: var(--qf-pill-height);
+  min-width: 0;
+  gap: 4px;
+  padding: 0 var(--qf-pill-pad-x);
+  border: 0;
+  border-radius: var(--qf-pill-radius);
+  box-sizing: border-box;
+  background: var(--qf-pill-ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.marketplace.is-qf-guazi .bbm-filter-button img,
+.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-fixed .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+.marketplace.is-qf-guazi .bbm-chips,
+.marketplace.is-qf-guazi .bbm-ct-chip-track,
+.marketplace.is-qf-guazi .filter-track {
+  gap: var(--qf-pill-gap);
+}
+.marketplace.is-qf-guazi .bbm-content-head.is-chotot .bbm-chips .filter-chip,
+.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-chip {
+  height: var(--qf-pill-height);
+  gap: 4px;
+  padding: 0 var(--qf-pill-pad-x);
+  border: 0;
+  border-radius: var(--qf-pill-radius);
+  box-sizing: border-box;
+  background: var(--qf-pill-bg);
+  color: var(--qf-pill-ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.marketplace.is-qf-guazi .bbm-content-head.is-chotot .bbm-chips .filter-chip > .ui-icon,
+.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-chip:not(.is-active) > .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+.marketplace.is-qf-guazi .bbm-content-head.is-chotot .bbm-chips .filter-chip.is-active,
+.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active {
+  gap: 4px;
+  padding: 0 8px 0 var(--qf-pill-pad-x);
+  background: var(--qf-pill-ink);
+  color: #fff;
+  font-weight: 600;
+}
+.marketplace.is-qf-guazi .filter-chip-bike-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 0;
+}
+.marketplace.is-qf-guazi .bbm-content-head.is-chotot .filter-chip.is-active .filter-chip-clear,
+.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  margin: 0 -4px 0 0;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  place-items: center;
+}
+.marketplace.is-qf-guazi .bbm-content-head.is-chotot .filter-chip.is-active .filter-chip-clear > img,
+.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear > img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8c8c8c;
+}
+.marketplace.is-qf-guazi .filter-chip-clear-mark { display: none; }
+
+/* Context/suggestion pills: white, outlined, same geometry everywhere. */
+.marketplace.is-qf-guazi .stable-pill,
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip,
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .trim-chip,
+.marketplace.is-qf-guazi .is-car-body-pill-track .trim-chip,
+.marketplace.is-qf-guazi .bbm-theme-rail button,
+.marketplace.is-qf-guazi .heavy-qf-detail-chip,
+.marketplace.is-qf-guazi .bbm-category-child-pills button,
+.marketplace.is-qf-guazi .region-quick-chips button {
+  min-width: 0;
+  height: var(--qf-pill-height);
+  min-height: var(--qf-pill-height);
+  padding: 0 var(--qf-pill-pad-x);
+  border: 1px solid var(--qf-pill-line);
+  border-radius: var(--qf-pill-radius);
+  box-sizing: border-box;
+  background: #fff;
+  color: var(--qf-pill-ink);
+  box-shadow: none;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.marketplace.is-qf-guazi .stable-pill.is-selected,
+.marketplace.is-qf-guazi .depth-rail.is-trim-row .trim-chip.is-selected,
+.marketplace.is-qf-guazi .depth-rail.is-rule-pill-row .trim-chip.is-selected,
+.marketplace.is-qf-guazi .is-car-body-pill-track .trim-chip.is-selected,
+.marketplace.is-qf-guazi .bbm-theme-rail button.is-selected,
+.marketplace.is-qf-guazi .heavy-qf-detail-chip.is-selected,
+.marketplace.is-qf-guazi .bbm-category-child-pills button.is-selected,
+.marketplace.is-qf-guazi .region-quick-chips button.is-selected {
+  border-color: var(--qf-pill-ink);
+  background: var(--qf-pill-ink);
+  color: #fff;
+  box-shadow: none;
+  font-weight: 600;
+}
+.marketplace.is-qf-guazi .stable-pill.is-all { font-weight: 400; }
+.marketplace.is-qf-guazi .stable-pill-track,
+.marketplace.is-qf-guazi .is-rule-pill-track,
+.marketplace.is-qf-guazi .is-car-body-pill-track,
+.marketplace.is-qf-guazi .bbm-theme-rail,
+.marketplace.is-qf-guazi .heavy-qf-detail-track,
+.marketplace.is-qf-guazi .bbm-category-child-pills,
+.marketplace.is-qf-guazi .region-quick-chips {
+  gap: var(--qf-pill-gap);
+}
+
+/* Filter modal pill paths/specs use the same visual language. */
+.bbmf-overlay .bbm-category-child-pills button,
+.bbmf-overlay .bbm-truck-format .bbm-path-chip,
+.bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips button {
+  min-height: var(--qf-pill-height);
+  height: var(--qf-pill-height);
+  padding: 0 var(--qf-pill-pad-x);
+  border: 1px solid var(--qf-pill-line);
+  border-radius: var(--qf-pill-radius);
+  box-sizing: border-box;
+  background: #fff;
+  color: var(--qf-pill-ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.bbmf-overlay .bbm-category-child-pills button.is-selected,
+.bbmf-overlay .bbm-truck-format .bbm-truck-spec-chips button.is-selected {
+  border-color: var(--qf-pill-ink);
+  background: var(--qf-pill-ink);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* Keep pointer actions immediate and keyboard focus visible. */
+.marketplace.is-qf-guazi .filter-chip-clear,
+.marketplace.is-qf-guazi .bbm-ct-chip-arrow,
+.marketplace.is-qf-guazi .stable-pill-arrow,
+.marketplace.is-qf-guazi .quick-rail-nav {
+  touch-action: manipulation;
+}
+.marketplace.is-qf-guazi .bbm-filter-button:focus-visible,
+.marketplace.is-qf-guazi .filter-fixed:focus-visible,
+.marketplace.is-qf-guazi .filter-chip:focus-visible,
+.marketplace.is-qf-guazi .filter-chip-label:focus-visible,
+.marketplace.is-qf-guazi .filter-chip-clear:focus-visible,
+.marketplace.is-qf-guazi .stable-pill:focus-visible,
+.marketplace.is-qf-guazi .trim-chip:focus-visible,
+.marketplace.is-qf-guazi .bbm-theme-rail button:focus-visible,
+.marketplace.is-qf-guazi .heavy-qf-detail-chip:focus-visible,
+.marketplace.is-qf-guazi .bbm-category-child-pills button:focus-visible,
+.marketplace.is-qf-guazi .region-quick-chips button:focus-visible {
+  outline: 2px solid #1f5fc7;
+  outline-offset: 2px;
+}
+
+/* Category styles are loaded from several component modules. These scoped selectors
+   deliberately outrank their legacy per-category values so this file remains canonical. */
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-filter-button,
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed {
+  height: var(--qf-pill-height);
+  gap: 4px;
+  padding: 0 var(--qf-pill-pad-x);
+  border-radius: var(--qf-pill-radius);
+  background: var(--qf-pill-ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .bbm-filter-button img,
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-fixed .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip {
+  height: var(--qf-pill-height);
+  gap: 4px;
+  padding: 0 var(--qf-pill-pad-x);
+  border: 0;
+  border-radius: var(--qf-pill-radius);
+  background: var(--qf-pill-bg);
+  color: var(--qf-pill-ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip:not(.is-active) > .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active {
+  gap: 4px;
+  padding: 0 8px 0 var(--qf-pill-pad-x);
+  background: var(--qf-pill-ink);
+  color: #fff;
+  font-weight: 600;
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.filter-shell .filter-fixed:not(.is-applied),
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.filter-shell .filter-fixed.is-applied {
+  gap: 4px;
+  padding: 0 var(--qf-pill-pad-x);
+  background: var(--qf-pill-ink);
+  color: #fff;
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.filter-shell .filter-chip:not(.is-active) {
+  gap: 4px;
+  padding: 0 var(--qf-pill-pad-x);
+  background: var(--qf-pill-bg);
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.filter-shell .filter-chip:not(.is-active) > .ui-icon {
+  width: 16px;
+  height: 16px;
+}
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm.filter-shell .filter-chip.is-active {
+  gap: 4px;
+  padding: 0 8px 0 var(--qf-pill-pad-x);
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .filter-chip.is-active .filter-chip-clear > img,
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear > img {
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8c8c8c;
+}
+.marketplace.is-bbm.is-qf-guazi .bbm-content-head.is-chotot .filter-chip.is-active .filter-chip-clear .filter-chip-clear-mark,
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear .filter-chip-clear-mark {
+  display: none;
+}
+.marketplace.is-bbm.is-qf-guazi .is-car-body-pill-track .trim-chip,
+.marketplace.is-bbm.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track .trim-chip,
+.marketplace.is-bbm.is-qf-guazi .depth-rail.is-trim-row .trim-chip,
+.marketplace.is-bbm.is-qf-guazi .stable-pill,
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track .trim-chip,
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-trim-row .trim-chip,
+.marketplace.is-bbm-m.is-qf-guazi .stable-pill {
+  width: auto;
+  min-width: 0;
+  height: var(--qf-pill-height);
+  min-height: var(--qf-pill-height);
+  padding: 0 var(--qf-pill-pad-x);
+  border: 1px solid var(--qf-pill-line);
+  border-radius: var(--qf-pill-radius);
+  background: #fff;
+  color: var(--qf-pill-ink);
+  box-shadow: none;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+.marketplace.is-bbm.is-qf-guazi .is-car-body-pill-track .trim-chip.is-selected,
+.marketplace.is-bbm.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track .trim-chip.is-selected,
+.marketplace.is-bbm.is-qf-guazi .depth-rail.is-trim-row .trim-chip.is-selected,
+.marketplace.is-bbm.is-qf-guazi .stable-pill.is-selected,
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-rule-pill-row .is-rule-pill-track .trim-chip.is-selected,
+.marketplace.is-bbm-m.is-qf-guazi .depth-rail.is-trim-row .trim-chip.is-selected,
+.marketplace.is-bbm-m.is-qf-guazi .stable-pill.is-selected {
+  border-color: var(--qf-pill-ink);
+  background: var(--qf-pill-ink);
+  color: #fff;
+  box-shadow: none;
+  font-weight: 600;
+}

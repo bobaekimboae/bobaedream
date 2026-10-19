@@ -30,6 +30,42 @@ final result: passed
 
 ---
 
+## 2026-10-19 차량 퀵필터 알약칩 공통 규칙
+
+- Source visual truth: `qa/pill-system/source-chotot-cars-pc.png` (1270×714 px).
+- Implementation screenshots: `qa/pill-system/implementation-pc-1264x712.png` (1264×712 px), `qa/pill-system/implementation-mobile.png` (319×668 CSS px).
+- Focused comparison: `qa/pill-system/focused-comparison.png` (1264×260 px).
+- PC viewport: 1264×712 CSS px, DPR 1, 국산차 기본 상태.
+- Comparison normalization: source y=220~320 and implementation y=150~250 chip rows were normalized to 1264×100 px and stacked without aspect-ratio distortion.
+
+### Required fidelity surfaces
+
+- Geometry: dynamic and context chips use 32 px height, 16 px radius, 8 px row gap, and 12 px horizontal padding.
+- Typography: 14/20; idle 500, selected 600, context 400.
+- Colors: selected `#222`/white, idle `#f4f4f4`, context border `#e4e7ec`, remove-circle `#8c8c8c`.
+- Icon fidelity: existing filter, chevron, and `chip-remove.svg` assets retained; duplicate CSS-drawn close mark removed.
+- Copy: category and filter labels remain unchanged.
+- Accessibility: full-chip buttons and visible keyboard focus rings preserved.
+
+### Interaction and category regression
+
+- Filter launcher, idle dropdown, applied filter with remove action, context chip, and selected context chip were checked in PC and mobile layouts.
+- A context chip selection (`세단`) correctly switched to black/white and added the applied filter chip with its remove icon.
+- Visible chip geometry was checked across 12 vehicle categories: 전체차량, 중고차, 테마별 중고차, 국산차, 수입차, 트럭 · 특장, 바이크, 캠핑카, 건설기계, 자재운반장비, 부품 · 용품, 올드카.
+- Browser console warnings/errors: none.
+
+### Comparison history
+
+- Iteration 1: legacy category and mobile selector specificity overrode the shared rule. The canonical stylesheet was moved to the final import position and given scoped selectors.
+- Iteration 2: applied chips rendered a duplicate close mark. The legacy mark was disabled and the existing `chip-remove.svg` became the single close affordance.
+- Iteration 3: mobile alignment rules still imposed 9.8 px gaps, `#f1f1f1`, and legacy padding. Final scoped mobile overrides restored 32/16/4/12 and `#f4f4f4` metrics.
+
+No actionable P0/P1/P2 differences remain for the requested quick-filter pill system.
+
+final result: passed
+
+---
+
 ## 2026-10-19 PC 바이크 compact 좌측 필터 기준선 교정
 
 - Route/state: `/?qf=guazi&pc=1&category=바이크&filterLayout=compact`, PC 1280×720 CSS px.
