@@ -422,9 +422,6 @@ html[data-lnb="b"] .marketplace .bbm-snb { gap: 22px; }
 html[data-lnb="b"] .marketplace .bbm-snb button { height: 44px; padding: 0; border: 0; border-radius: 0; background: none; color: #767676; font-size: 15px; font-weight: 500; }
 html[data-lnb="b"] .marketplace .bbm-snb button:hover { background: none; color: #222; }
 html[data-lnb="b"] .marketplace .bbm-snb button.is-current { border: 0; background: none; color: #222; font-weight: 700; }
-html[data-lnb="b"] .marketplace .bbm-ct-chip-row .is-category-chip,
-html[data-lnb="c"] .marketplace .bbm-ct-chip-row .is-category-chip { display: none; }
-
 /* C: LNB 줄 없음. 카드 제목 「중고차 ▾」를 누르면 하위 메뉴 */
 html[data-lnb="c"] .marketplace .bbm-secondary-nav { display: none; }
 .bbm-lnb-title { position: relative; }
@@ -436,10 +433,7 @@ html[data-lnb="c"] .marketplace .bbm-secondary-nav { display: none; }
 .bbm-lnb-title-menu button:hover { background: #f7f7f7; }
 .bbm-lnb-title-menu button.is-current { background: #f7f7f7; font-weight: 700; }
 
-/* 2026-10-18 하위메뉴 시안 2차 (?lnb=d|e|f). 공통: 칩 줄의 카테고리 칩 숨김 */
-html[data-lnb="d"] .marketplace .bbm-ct-chip-row .is-category-chip,
-html[data-lnb="e"] .marketplace .bbm-ct-chip-row .is-category-chip,
-html[data-lnb="f"] .marketplace .bbm-ct-chip-row .is-category-chip { display: none; }
+/* 2026-10-18 하위메뉴 시안 2차 (?lnb=d|e|f). */
 /* 사각 칩 (D·E 공통, 엔카 실측 높이 42·반경 6 → 우리 40·8) */
 html[data-lnb="d"] .marketplace .bbm-snb,
 html[data-lnb="e"] .marketplace .bbm-snb { gap: 8px; }

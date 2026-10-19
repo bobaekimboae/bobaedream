@@ -2811,11 +2811,24 @@ function MarketplaceScreen() {
   const openMakerPicker = () => desktop && category === "국산차"
     ? openBbmChipPanel("제조사")
     : supportsVehicleCatalog ? setSheet("vehicle") : openBbmChipPanel("제조사");
+  // 모든 차량 카테고리는 필터 줄 첫 칸에 현재 선택 카테고리를 같은 규격으로 표시한다.
+  // 카테고리 이름은 카테고리 시트를 열고, ×는 전체차량으로 돌아간다.
+  const openBbmCategorySheet = () => {
+    setBbmCategoryDraft(category);
+    setBbmCategoryChildDraft(category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild);
+    setBbmCategoryOpen(true);
+  };
+  const selectedCategoryChip: BbmChip = {
+    key: "category",
+    label: categoryIsDefault ? (groupRail && !maker ? bbmGroupLabel(groupRail) : "전체차량") : category,
+    active: true,
+    className: "is-category-chip is-vehicle-summary is-step",
+    prefix: isBikeCategory ? <img className="filter-chip-bike-icon" src={asset("bbm/filter-bike-selected.svg")} alt="" aria-hidden="true" /> : undefined,
+    onClick: desktop ? () => openQuickFilter("category") : openBbmCategorySheet,
+    onClear: categoryIsDefault && groupRail ? () => setGroupRail(null) : clearCategoryFilter,
+  };
   const bbmChips: BbmChip[] = ([
-    // 기본 중고차 목록의 실제 선택값은 상위 그룹 "중고차"가 아니라 하위 "전체차량"이다.
-    isBikeCategory || isTruckCategory
-      ? { key: `${isTruckCategory ? "truck" : "bike"}-category`, label: isTruckCategory ? "트럭 · 특장" : "바이크", active: true, className: "is-vehicle-summary is-step", prefix: isBikeCategory ? <img className="filter-chip-bike-icon" src={asset("bbm/filter-bike-selected.svg")} alt="" aria-hidden="true" /> : undefined, onClick: () => { setBbmCategoryDraft(category); setBbmCategoryChildDraft(isTruckCategory ? selectedTruckFormat : bbmCategoryChild); setBbmCategoryOpen(true); }, onClear: isBikeCategory ? clearCategoryFilter : undefined }
-      : desktop && isGuaziQuickStyle ? null : chipByKey("category"),
+    selectedCategoryChip,
     // 바이크는 카테고리 다음에 유형(장르) → 제조사 → 모델 순서로 탐색한다.
     ...(isBikeCategory ? [
       ...(bikeGenreApplied.length ? bikeGenreApplied.map(toAppliedBbmChip) : [groupChip("bike-type", "유형", "장르", false)]),
@@ -2900,18 +2913,11 @@ function MarketplaceScreen() {
         : groupChip("bike-shop", "바이크샵", "바이크샵", false)]
       : isTruckCategory ? [] : complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip))
-    .filter((chip) => !(desktop && allVehiclesWide) || /price|region/.test(chip.key));
-  // 초톳처럼(2026-10-11 「리스트에서는 카테고리 칩 빼자, 선택된 카테고리 누르면 카테고리 나오게」): 별도 `카테고리 ▾` 칩 없이
-  // 선택된 카테고리 칩(`전체차량 ×`)의 이름을 누르면 카테고리 시트가 열리고, ×는 해제. 트럭·특장은 기존 동작(형식 퀵필터) 유지.
+    .filter((chip) => !(desktop && allVehiclesWide) || chip.key === "category" || /price|region/.test(chip.key));
+  // 별도 `카테고리 ▾` 칩 없이 선택된 카테고리 칩의 이름을 누르면 카테고리 시트가 열리고, ×는 전체차량으로 돌아간다.
   // 카테고리 시트 하단 `선택 · N대`(2026-10-11 「매물 있는 건 선택되면 하단 선택에 개수 표기」): 임시로 고른 카테고리의 매물 수. 매물이 없으면(JDM 등) 표기하지 않는다.
-  const openBbmCategorySheet = () => {
-    setBbmCategoryDraft(category);
-    setBbmCategoryChildDraft(category === "트럭 · 특장" ? selectedTruckFormat : bbmCategoryChild);
-    setBbmCategoryOpen(true);
-  };
   const mobileBbmChips: BbmChip[] = bbmChips
-    .filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:"))
-    .map((chip) => (chip.key === "category" && !isTruckCategory ? { ...chip, onClick: openBbmCategorySheet } : chip));
+    .filter((chip) => chip.key !== "seller" && !chip.key.startsWith("applied-check:sellerKind:"));
   const railLeftWide = useRef<number | null>(null);
   // QF-092 원본 재실측(2026-09-25): 적용 칩이 바뀌어도 칩 줄 스크롤은 그대로(칩을 누를 때만 revealBbmChip). 예전 "맨 앞 적용 칩 47px" 규칙은 우연히 맞았던 것이라 뺐다
   useEffect(() => {
@@ -3222,12 +3228,7 @@ function MarketplaceScreen() {
       isTruckCategory && pcFilterLayout === "compact"
       || category === "국산차" && pcFilterLayout === "balanced"
     );
-    // 전체 폭 트럭 카드에서는 GNB가 이미 현재 카테고리를 표시한다.
-    // 같은 이름의 검정 칩을 한 번 더 두면 필터 진입점과 선택값이 모두 강조되어
-    // 첫 줄이 무거워지므로, 이 화면에서만 중복 카테고리 칩을 걷어낸다.
-    const topCardChips = fullTopQuickCard && isTruckCategory
-      ? bbmChips.filter((chip) => chip.key !== "truck-category")
-      : bbmChips;
+    const topCardChips = bbmChips;
     const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && !fullTopQuickCard && (isHeavyCategory || pcFilterLayout === "balanced");
     // 전체 폭 퀵필터 자체가 카테고리 문맥을 충분히 제공하므로
     // 제목 배너를 중복 노출하지 않고 GNB 다음에 바로 검색 조건을 배치한다.
