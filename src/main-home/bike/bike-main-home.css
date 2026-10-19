@@ -469,3 +469,6 @@
 .bmh-search .bmh-genres a { height: 109px; padding: 2px; gap: 8px; justify-content: flex-start; font-size: 16px; line-height: 24px; font-weight: 600; color: #333; }
 .bmh-search .bmh-genres span { height: 73px; flex: none; }
 .bmh-search .bmh-genres img { max-width: 120px; max-height: 73px; }
+
+/* 탭 줄 제거(2026-10-19 「전체 중고 신차 줄 빼자」): 칸이 카드 안쪽 위 24에서 바로 시작 */
+.bmh-search .bmh-row { margin-top: 0; }

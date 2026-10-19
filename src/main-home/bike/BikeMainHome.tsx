@@ -37,8 +37,6 @@ const genres: Array<[string, string]> = [
 ];
 
 type TabKey = "전체" | "중고" | "신차";
-const tabs: TabKey[] = ["전체", "중고", "신차"];
-const tabLabel: Record<TabKey, string> = { 전체: "전체", 중고: "중고 바이크", 신차: "신차 바이크" };
 const regions = ["전국", "서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 
 const won = (krw: number) => {
@@ -74,7 +72,7 @@ function Card({ row, saved, onSave }: { row: Row; saved: boolean; onSave: () => 
 
 export default function BikeMainHome() {
   const rows = useMemo(() => [...bikeScenarioV08, ...bikeScenarioV11] as Row[], []);
-  const [tab, setTab] = useState<TabKey>("전체");
+  const [tab] = useState<TabKey>("전체"); // 탭 줄은 2026-10-19에 뺐다(전체 고정)
   const [genre, setGenre] = useState("");
   const [maker, setMaker] = useState("");
   const [model, setModel] = useState("");
@@ -207,11 +205,6 @@ export default function BikeMainHome() {
 
       <div className="bmh-wrap">
         <section className="bmh-search" aria-label="바이크 검색">
-          <div className="bmh-tabs" role="tablist" aria-label="검색 종류">
-            {tabs.map((t) => (
-              <button key={t} type="button" role="tab" aria-selected={tab === t} className={tab === t ? "is-on" : ""} onClick={() => { setTab(t); setMaker(""); setModel(""); }}>{tabLabel[t]}</button>
-            ))}
-          </div>
           <div className="bmh-row">
             <label className="bmh-field">
               <span className={genre ? "is-filled" : ""}>{genre || "바이크 유형"}</span>
