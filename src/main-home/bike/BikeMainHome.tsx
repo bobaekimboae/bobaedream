@@ -63,7 +63,7 @@ const heroMedia: Array<{
   {
     key: "bmw",
     kind: "image",
-    poster: "https://mediapool.bmwgroup.com/download/edown/tvFootageDownload?square=0&dokNo=PF0009424&attachment=0&actEvent=scaleTvFootageBig&quality=90",
+    poster: "https://i.ytimg.com/vi/v6W8Gqg71oE/maxresdefault.jpg",
     title: "BMW Motorrad S 1000 RR 공식 이미지",
   },
   {
