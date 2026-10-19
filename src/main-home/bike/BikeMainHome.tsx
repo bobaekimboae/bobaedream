@@ -44,6 +44,34 @@ const genres: Array<[string, string]> = [
   ["스포츠", "sport"], ["투어러", "tourer"], ["오프로드", "offroad"], ["ATV", "atv"],
 ];
 
+type HeroKey = "ducati" | "bmw" | "harley";
+
+const heroMedia: Array<{
+  key: HeroKey;
+  poster: string;
+  video: string;
+  title: string;
+}> = [
+  {
+    key: "ducati",
+    poster: "https://images.ctfassets.net/x7j9qwvpvr5s/4t2zR01xZmlZKL4tCxe8tL/48bcc2da642a078d1f70cc5a1760cbf0/WorldSBK-Jerez-18-Ottobre-2026-Hero-1600x1000.jpg?fm=webp&q=90",
+    video: "https://player.vimeo.com/video/1236270813?background=1&autoplay=1&muted=1&loop=1&autopause=0&title=0&byline=0&portrait=0",
+    title: "Ducati Panigale V4 MY27 공식 영상",
+  },
+  {
+    key: "bmw",
+    poster: "https://i.ytimg.com/vi/v6W8Gqg71oE/maxresdefault.jpg",
+    video: "https://www.youtube.com/embed/v6W8Gqg71oE?autoplay=1&mute=1&controls=0&loop=1&playlist=v6W8Gqg71oE&modestbranding=1&playsinline=1&rel=0",
+    title: "BMW Motorrad R 1300 GS 공식 영상",
+  },
+  {
+    key: "harley",
+    poster: "https://i.ytimg.com/vi/8JsWUCWsNc4/maxresdefault.jpg",
+    video: "https://www.youtube.com/embed/8JsWUCWsNc4?autoplay=1&mute=1&controls=0&loop=1&playlist=8JsWUCWsNc4&modestbranding=1&playsinline=1&rel=0",
+    title: "Harley-Davidson 2026 라인업 공식 영상",
+  },
+];
+
 type TabKey = "전체" | "중고" | "신차";
 const regions = ["전국", "서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 
@@ -91,6 +119,10 @@ function ChototCard({ row, saved, onSave }: { row: Row; saved: boolean; onSave: 
 
 export default function BikeMainHome() {
   const rows = useMemo(() => [...bikeScenarioV08, ...bikeScenarioV11] as Row[], []);
+  const [hero] = useState(() => {
+    const forced = new URLSearchParams(window.location.search).get("hero")?.toLowerCase() as HeroKey | undefined;
+    return heroMedia.find((item) => item.key === forced) ?? heroMedia[Math.floor(Math.random() * heroMedia.length)];
+  });
   const [tab] = useState<TabKey>("전체"); // 탭 줄은 2026-10-19에 뺐다(전체 고정)
   const [genre, setGenre] = useState("");
   const [maker, setMaker] = useState("");
@@ -233,16 +265,14 @@ export default function BikeMainHome() {
       <section className="bmh-hero" aria-label="소개">
         <div className="bmh-hero-art" aria-hidden="true">
           <div className="bmh-hero-photo">
-            <img
-              className="bmh-hero-poster"
-              src="https://images.ctfassets.net/x7j9qwvpvr5s/4t2zR01xZmlZKL4tCxe8tL/48bcc2da642a078d1f70cc5a1760cbf0/WorldSBK-Jerez-18-Ottobre-2026-Hero-1600x1000.jpg?fm=webp&q=90"
-              alt=""
-            />
+            <img className="bmh-hero-poster" src={hero.poster} alt="" />
             <iframe
+              key={hero.key}
               className="bmh-hero-video"
-              src="https://player.vimeo.com/video/1236270813?background=1&autoplay=1&muted=1&loop=1&autopause=0&title=0&byline=0&portrait=0"
-              title="Ducati Panigale V4 MY27 공식 영상"
-              allow="autoplay; fullscreen; picture-in-picture"
+              src={hero.video}
+              title={hero.title}
+              allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+              referrerPolicy="strict-origin-when-cross-origin"
               tabIndex={-1}
             />
           </div>
