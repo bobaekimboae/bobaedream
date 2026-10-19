@@ -636,8 +636,8 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   // PC 승용 카드는 원본 가로 사진을 쓴다. 트럭 PC는 2026-10-19 모바일 우선 시안부터
   // Chợ Tốt처럼 정사각 썸네일을 쓰되, 차량 전체가 안전 영역에 들어간 정규화 사본으로 잘림을 막는다.
   const pcPhoto = variant === "pc";
-  const listPhoto = featured || (pcPhoto && !car.truck) || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
-  const listCrop = pcPhoto ? undefined : car.listCrop;
+  const listPhoto = featured || car.imageAspectRatio || (pcPhoto && !car.truck) || car.imageFit === "contain" ? undefined : car.listThumb ?? normalizedListThumb(car.image);
+  const listCrop = pcPhoto || car.imageAspectRatio ? undefined : car.listCrop;
   // 중고차(승용)는 「시도 구군 · 단지」, 그 밖의 카테고리(트럭·바이크·건설기계·캠핑카 등)는 「시도 구군」까지만(2026-10-08)
   const isPassenger = !(car.truck || car.bike || car.heavy || car.virtualCategory);
   // 중고차는 개인·딜러 모두 「시도 구군 · 단지」(2026-10-08 「중고차 매물은 지역에 단지 붙이고」)
@@ -687,13 +687,13 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>;
   const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
     <div className="bbm-card-photo is-carousel" style={photoStyle}>
-      <FeedPhotoCarousel photos={feedPhotos} alt={alt} fit={car.imageFit === "contain" ? "contain" : "cover"} />
+      <FeedPhotoCarousel photos={feedPhotos} alt={alt} fit={car.imageAspectRatio || car.imageFit === "contain" ? "contain" : "cover"} />
       {timeFooter}
     </div>
   ) : (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`} style={photoStyle}>
       {car.image && listCrop && listCrop[0] === 100 && !listPhoto ? <img className="bbm-card-photo-fill" src={asset(car.image)} alt="" aria-hidden="true" draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" /> : null}
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={listCrop && !listPhoto ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" } : { objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={listCrop && !listPhoto ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" } : { objectFit: car.imageAspectRatio ? "contain" : undefined, objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );
