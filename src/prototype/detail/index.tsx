@@ -479,6 +479,7 @@ function DetailTopSeller({ car, overlay }: { car: Car; overlay?: boolean }) {
 function DetailHero({ onBack }: { onBack: () => void }) {
   const { setSheet, notify } = useDetailUi();
   const photos = detailPhotosOf(getActiveDetailCar());
+  const imageAspectRatio = getActiveDetailCar()?.imageAspectRatio;
   const [photoIndex, setPhotoIndex] = useState(1);
   const heroRef = useRef<HTMLElement>(null);
   const jumpLockRef = useRef<number | null>(null);
@@ -611,7 +612,7 @@ function DetailHero({ onBack }: { onBack: () => void }) {
       </div>
     </section>
     {photos.length > 1 && new URLSearchParams(window.location.search).get("thumbs") === "on" ? <div className="detail-thumbs" ref={thumbsRef} role="group" aria-label="차량 사진 썸네일" onKeyDown={onThumbKey}>
-      {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === activePhoto} className={index === activePhoto ? "is-active" : ""} onClick={() => choosePhoto(index)}><img src={photo} alt="" draggable={false} loading="lazy" /></button>)}
+      {photos.map((photo, index) => <button key={`${photo}-${index}`} type="button" aria-label={`사진 ${index + 1} 보기`} aria-pressed={index === activePhoto} className={index === activePhoto ? "is-active" : ""} style={imageAspectRatio ? { height: 64 / imageAspectRatio } : undefined} onClick={() => choosePhoto(index)}><img src={photo} alt="" draggable={false} loading="lazy" style={imageAspectRatio ? { objectFit: "contain" } : undefined} /></button>)}
     </div> : null}
     </>
   );
@@ -1194,7 +1195,7 @@ function DesktopGallery({ onBack }: { onBack: () => void }) {
     </div>
     <div className="pc-thumbnail-region" ref={thumbs}>
       <Carousel ariaLabel="차량 사진 썸네일" className="pc-thumbnails" contentClassName="pc-thumbnail-track">
-        {photos.map((src, i) => <button key={i} data-photo={i} aria-label={`사진 ${i + 1} 보기`} aria-pressed={i === selected} onClick={() => choose(i)}><img src={src} alt="" draggable={false} />{showPlay && i === 0 && <span className="pc-thumb-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}</button>)}
+        {photos.map((src, i) => <button key={i} data-photo={i} aria-label={`사진 ${i + 1} 보기`} aria-pressed={i === selected} style={activeCar?.imageAspectRatio ? { height: 84 / activeCar.imageAspectRatio } : undefined} onClick={() => choose(i)}><img src={src} alt="" draggable={false} style={activeCar?.imageAspectRatio ? { height: "100%", objectFit: "contain" } : undefined} />{showPlay && i === 0 && <span className="pc-thumb-play" aria-hidden="true"><img src={pcAsset("9550-imgMaskGroup.svg")} alt="" /><img src={pcAsset("9550-imgFill7.svg")} alt="" /></span>}</button>)}
       </Carousel>
       <button className="pc-rail-next" aria-label="다음 썸네일" onClick={() => choose(selected + 1)}><img src={pcAsset("9573-imgFrame1000006284.svg")} alt="" /></button>
     </div>
