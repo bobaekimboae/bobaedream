@@ -283,7 +283,6 @@ export default function BikeMainHome() {
             {hero.kind === "iframe" ? (
               <iframe
                 key={hero.key}
-                ref={heroVideo}
                 className="bmh-hero-video"
                 src={hero.video}
                 title={hero.title}
