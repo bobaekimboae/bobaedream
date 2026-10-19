@@ -260,14 +260,14 @@ export default function BikeMainHome() {
               </a>
             ))}
           </div>
-        </section>
-
-        <section className="bmh-sec" aria-labelledby="bmh-brands">
-          <h2 id="bmh-brands" className="bmh-h2">인기 브랜드</h2>
-          <div className="bmh-brands">
+          <div className="bmh-brandrow-head">
+            <h2 className="bmh-genres-title">브랜드로 찾기</h2>
+            <button type="button" className="bmh-brandrow-all" onClick={openPicker}>전체 브랜드</button>
+          </div>
+          <div className="bmh-brandrow">
             {brandLogos.map(([name, file]) => (
               <a key={name} href={listUrl({ maker: name })}>
-                <span><img src={pic("..", "assets", "bike", "logos", "lightwagen-trim", file)} alt="" /></span>
+                <span><img src={pic("..", "assets", "bike", "logos", "lightwagen-trim", file)} alt="" loading="lazy" /></span>
                 {name}
               </a>
             ))}
