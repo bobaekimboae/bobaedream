@@ -44,17 +44,20 @@
   gap: 8px;
 }
 .bmh-site-logo-emblem {
-  width: 30px;
-  height: 30px;
-  flex: 0 0 30px;
-  display: block;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+  display: grid;
+  place-items: center;
   overflow: hidden;
+  border: 2px solid #fa6819;
   border-radius: 50%;
+  background: #fff;
 }
 .bmh-site-logo-emblem img {
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   object-fit: contain;
 }
 .bmh-site-logo-word {
