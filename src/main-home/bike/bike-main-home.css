@@ -448,3 +448,7 @@
   .bmh-genres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) { .bmh * { transition: none !important; } }
+
+/* 검색 카드 버튼 검정(2026-10-19 「검색바 버튼 검정으로 바탕색」) */
+.bmh-search .bmh-row .bmh-cta { background: #222 !important; color: #fff !important; }
+.bmh-search .bmh-row .bmh-cta:hover { background: #000 !important; }
