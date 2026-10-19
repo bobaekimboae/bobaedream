@@ -55,3 +55,6 @@
 .bbm-text-view__wish { display: grid; place-items: center; width: 26px; height: 26px; padding: 4px; border: 0; background: none; cursor: pointer; }
 .bbm-text-view__wish span { display: block; width: 18px; height: 20px; background: #e0e0e0; -webkit-mask: no-repeat center / contain; mask: no-repeat center / contain; }
 .bbm-text-view__wish.is-liked span { background: #f0325e; }
+
+/* PC 가로 실사진(16:9)은 160×160 슬롯에서 자르지 않고 전체를 보인다. 남는 위·아래는 같은 사진을 흐리게 채운다(2026-10-19 「썸네일 짤려서 나온다」). */
+.marketplace.is-bbm .bbm-result-card.is-pc .bbm-card-photo > img.is-pc-landscape { position: relative; object-fit: contain; }

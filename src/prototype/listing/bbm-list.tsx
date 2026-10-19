@@ -683,7 +683,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
   const alt = car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim();
-  const photoStyle = car.imageAspectRatio ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
+  const photoStyle = car.imageAspectRatio && !pcPhoto ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
   const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>;
   const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
     <div className="bbm-card-photo is-carousel" style={photoStyle}>
@@ -692,8 +692,8 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
     </div>
   ) : (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`} style={photoStyle}>
-      {car.image && listCrop && listCrop[0] === 100 && !listPhoto ? <img className="bbm-card-photo-fill" src={asset(car.image)} alt="" aria-hidden="true" draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" /> : null}
-      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={listCrop && !listPhoto ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" } : { objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
+      {car.image && ((listCrop && listCrop[0] === 100 && !listPhoto) || (pcPhoto && car.imageAspectRatio)) ? <img className="bbm-card-photo-fill" src={asset(car.image)} alt="" aria-hidden="true" draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" /> : null}
+      {car.image ? <img className={car.imageFit === "contain" ? "is-catalog" : pcPhoto && car.imageAspectRatio ? "is-pc-landscape" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={listCrop && !listPhoto ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" } : { objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
       <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span></div>
     </div>
   );
