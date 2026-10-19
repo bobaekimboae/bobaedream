@@ -400,7 +400,6 @@
   .bmh-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .bmh-sell { grid-template-columns: 1fr 1fr; }
   .bmh-sell-lead { grid-column: 1 / -1; }
-  .bmh-hero-bike { width: 420px; right: 4%; }
 }
 @media (max-width: 819px) {
   .bmh-wrap { max-width: calc(100% - 32px); }
@@ -444,7 +443,8 @@
   .bmh-hero { height: 280px; }
   .bmh-hero-copy { padding: 40px 0 0; }
   .bmh-hero h1 { max-width: 72%; font-size: 32px; line-height: 39px; }
-  .bmh-hero-bike { right: -70px; bottom: -10px; width: 360px; opacity: .86; }
+  .bmh-hero-art { inset-left: 40%; }
+  .bmh-hero-media { object-position: 38% 49%; }
   .bmh-search { margin-top: -36px; padding: 20px; border-radius: 16px; }
   .bmh-tabs { gap: 24px; }
   .bmh-row { grid-template-columns: 1fr 1fr; }
@@ -466,7 +466,7 @@
   .bmh-site-logo-badge { padding-left: 6px; }
   .bmh-site-sell { min-width: 62px; padding: 0 9px; font-size: 12px !important; }
   .bmh-hero h1 { max-width: 84%; font-size: 29px; line-height: 36px; }
-  .bmh-hero-bike { right: -112px; width: 330px; }
+  .bmh-hero-media { object-position: 34% 49%; }
   .bmh-row { grid-template-columns: 1fr; }
   .bmh-genres { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
