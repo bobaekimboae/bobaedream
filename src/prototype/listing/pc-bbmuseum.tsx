@@ -45,7 +45,7 @@ const bbGnbMoreItems: readonly BbGnbItem[] = [
 const bbBikeSiteGnbItems: readonly BbGnbItem[] = [
   { label: "중고 바이크", category: "바이크" },
   { label: "바이크샵", action: "bike-shop" },
-  { label: "바이크 용품", category: "부품 · 용품", action: "bike-parts" },
+  { label: "중고 용품·장비", category: "부품 · 용품", action: "bike-parts" },
   { label: "커뮤니티", action: "community" },
 ];
 const bbTruckSiteGnbItems: readonly BbGnbItem[] = [
@@ -276,7 +276,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const menuParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
   const isBikeParts = category === "부품 · 용품" && menuParam?.get("bikeMenu") === "parts";
   const isTruckParts = category === "부품 · 용품" && menuParam?.get("truckMenu") === "parts";
-  const activeItem = isBikeSite ? isBikeParts ? "바이크 용품" : "중고 바이크" : isTruckSite ? isTruckParts ? "트럭 부품" : "중고 트럭" : bbActiveGnbItem(category);
+  const activeItem = isBikeSite ? isBikeParts ? "중고 용품·장비" : "중고 바이크" : isTruckSite ? isTruckParts ? "트럭 부품" : "중고 트럭" : bbActiveGnbItem(category);
   const gnbItems = isBikeSite ? bbBikeSiteGnbItems : isTruckSite ? bbTruckSiteGnbItems : bbGnbItems;
 
   useEffect(() => {

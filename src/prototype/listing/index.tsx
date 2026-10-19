@@ -1091,7 +1091,7 @@ function MarketplaceScreen() {
   const usedCarChildValues = (bbmCategoryGroups.find((group) => group.value === "중고차")?.children ?? []).map((child) => child.value).filter((value) => value !== "중고차");
   // 전체 중고차 랜딩은 GNB와 제목만 유지하고 퀵필터 안의 중복 텍스트 하위 카테고리는 표시하지 않는다.
   const showDefaultCategoryLnb = !isStandaloneBikeSite && (isTruckCategory || ["국산차", "수입차", "전기차", "리스/렌트차량", "브랜드 인증중고차", "서울오토갤러리", "매매단지별 검색"].includes(category));
-  const pageCategoryTitle = isStandaloneBikeSite && isBikeCategory ? "보배드림 바이크" : isStandaloneTruckSite && isTruckCategory ? "보배드림 트럭" : isPartsCategory && truckMenuMode === "parts" ? "트럭 부품" : isPartsCategory && bikeMenuMode === "parts" ? "바이크 용품" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
+  const pageCategoryTitle = isStandaloneBikeSite && isBikeCategory ? "보배드림 바이크" : isStandaloneTruckSite && isTruckCategory ? "보배드림 트럭" : isPartsCategory && truckMenuMode === "parts" ? "트럭 부품" : isPartsCategory && bikeMenuMode === "parts" ? "중고 용품·장비" : category === "중고차" ? "전체 중고차" : stablePageTitle(category);
   const categorySearchPlaceholder = isStandaloneBikeSite && isBikeCategory ? "중고 바이크" : isStandaloneTruckSite && isTruckCategory ? "중고 트럭" : categoryIsDefault ? "전체차량" : pageCategoryTitle;
   const categoryBrandRail = categoryBrandRails[category] ?? categoryBrandRails["전체"];
   // QF-097: 과쯔 카탈로그 제조사(9개)도 모델 → 세부 모델 → 트림 단계

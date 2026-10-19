@@ -221,7 +221,7 @@ export default function BikeMainHome() {
             <a href={listUrl({ condition: "중고" })}>중고 바이크</a>
             <a href={listUrl({ condition: "신차" })}>신차 바이크</a>
             <button type="button" onClick={() => setToast("바이크샵은 준비 중입니다.")}>바이크샵</button>
-            <a href={listUrl({ category: "부품 · 용품", bikeMenu: "parts" })}>바이크 용품</a>
+            <a href={listUrl({ category: "부품 · 용품", bikeMenu: "parts" })}>중고 용품·장비</a>
             <a href="../community/bobaedream-pc-board-list.html?layout=reddit">커뮤니티</a>
           </nav>
           <a className="bmh-site-notice" href="../community/bobaedream-pc-board-list.html?layout=reddit">
