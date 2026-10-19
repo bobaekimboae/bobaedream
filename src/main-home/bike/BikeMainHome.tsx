@@ -290,6 +290,8 @@ export default function BikeMainHome() {
                 muted
                 loop
                 playsInline
+                preload="auto"
+                onCanPlay={(event) => { void event.currentTarget.play().catch(() => undefined); }}
               />
             ) : null}
           </div>
