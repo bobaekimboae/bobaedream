@@ -176,7 +176,7 @@ const SOCIAL_CHANNELS = [
   { id: "tiktok", label: "틱톡", description: "숏폼 영상", href: "https://www.tiktok.com/search?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
 ] as const;
 
-const BENTLEY_HERO_POSTER = asset("supercar-header/bentley-continental-gt-official.jpg");
+const DEALER_HERO_POSTER = asset("seoul-auto-gallery/header/building-bluehour-v01.png");
 
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
@@ -241,8 +241,8 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
     <div className="dp-cover">
       <img
         className="dp-cover-photo"
-        src={BENTLEY_HERO_POSTER}
-        alt="벤틀리 공식 Continental GT 이미지"
+        src={DEALER_HERO_POSTER}
+        alt="서울오토갤러리 전경"
         draggable={false}
       />
       <div className="dp-cover-brand-copy">
