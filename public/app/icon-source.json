@@ -1,0 +1,15 @@
+{
+  "text": "보배드림",
+  "fontFamily": "Pretendard",
+  "fontWeight": 700,
+  "fontStyle": "Bold",
+  "rendering": "outlined from actual font glyphs",
+  "fontFiles": {
+    "림": "public\\assets\\fonts\\pretendard\\woff2-dynamic-subset\\PretendardVariable.subset.88.woff2",
+    "배": "public\\assets\\fonts\\pretendard\\woff2-dynamic-subset\\PretendardVariable.subset.89.woff2",
+    "보": "public\\assets\\fonts\\pretendard\\woff2-dynamic-subset\\PretendardVariable.subset.90.woff2",
+    "드": "public\\assets\\fonts\\pretendard\\woff2-dynamic-subset\\PretendardVariable.subset.90.woff2"
+  },
+  "fontLicense": "../assets/fonts/pretendard/OFL.txt",
+  "symbolSource": "../assets/bbm/favicon.svg"
+}

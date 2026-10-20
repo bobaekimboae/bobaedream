@@ -5,7 +5,7 @@
   "minAndroid": "8.0",
   "targetSdk": 35,
   "bytes": 33416,
-  "sha256": "238d48cc4b1373d5f59b5dca03b4a269c4cbb833829482c1f48f61365558b6a4",
+  "sha256": "cce1b824a6378c217b3da4f72d5613d765b460bfeacb2c1f3548cb1339151392",
   "startUrl": "https://bobaekimboae.github.io/bobaedream/?source=android-app",
   "permissions": [
     "android.permission.INTERNET"
