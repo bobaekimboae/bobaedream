@@ -33,17 +33,17 @@ final result: passed
 
 ## 2026-10-21 딜러 헤더 배너 왼쪽 정렬 수정
 
-- Source visual truth: 직전 배포 캡처 `reports/design-qa/dealer-header-banner-2026-10-21/02-after-desktop.png` + 사용자 수정 지시(상사명 왼쪽, 설명 최대 2줄).
+- Source visual truth: 직전 배포 캡처 `reports/design-qa/dealer-header-banner-2026-10-21/02-after-desktop.png` + 사용자 수정 지시(상사명 왼쪽, 서비스·상담 문구 분리).
 - Browser-rendered implementation: `reports/design-qa/dealer-header-banner-2026-10-21/09-final-desktop.png`, `08-mobile-full-car.png`.
 - Viewports: desktop 1280×800 CSS px, mobile 390×844 CSS px, DPR 1.
 - State: 김태규 딜러페이지 판매차량 탭, 페라리 F80 헤더 배너.
 - Full-view comparison: 상사명과 설명이 왼쪽 안전영역으로 이동하고 우측에는 차량 후면과 메뉴 버튼이 남는다.
-- Focused comparison: 긴 소개를 `수입차 전문 매매` 한 줄로 교체해 세 번째 줄이 생성될 가능성을 제거했다.
+- Focused comparison: 긴 소개를 `수입차 전문 매매`와 `수입차 판매·구매 상담은 언제든 문의하세요.`로 나눠 정보 위계를 명확히 했다.
 - Typography: passed — 기존 크기·굵기 유지, 왼쪽 정렬만 변경.
 - Spacing/layout: passed — PC 28px, 모바일 14px 왼쪽 여백; 메뉴 버튼은 우측으로 이동해 충돌 없음.
 - Colors/tokens: passed — 어두운 그라데이션도 왼쪽으로 반전해 텍스트 대비 유지.
 - Image quality: passed — 공식 Ferrari F80 이미지와 선명도 유지.
-- Copy/content: passed — 상사명 전체 노출, `수입차 전문 매매` 한 줄 노출.
+- Copy/content: passed — 상사명 전체 노출, 전문 분야와 상담 안내를 각각 한 줄로 노출.
 - Behavior/accessibility: passed — PC·모바일 가로 넘침 없음, 콘솔 오류 0건.
 
 ### Comparison history
@@ -75,7 +75,7 @@ final result: passed
 - Spacing/layout: passed — right-aligned copy stays inside the image safe zone and does not collide with the dealer avatar, menu, or global header.
 - Colors/tokens: passed — Ferrari red/deep navy image remains dominant; right-side navy-black gradient protects legibility without adding a competing brand color.
 - Image quality: passed — high-resolution official Ferrari still replaces the unreliable autoplay-video frame and stays sharp across desktop/mobile crops.
-- Copy/content: passed — exact company name and the concise `수입차 전문 매매` service label are shown.
+- Copy/content: passed — exact company name, `수입차 전문 매매`, and the sales/purchase consultation message are shown.
 - Behavior/accessibility: passed — descriptive image alt text is present, desktop/mobile content is visible, and browser console errors are 0.
 
 No actionable P0/P1/P2 differences remain.

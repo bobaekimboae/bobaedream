@@ -248,6 +248,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
       <div className="dp-cover-brand-copy">
         <strong>{stripCorp(MOCK.company)}</strong>
         <span>수입차 전문 매매</span>
+        <small>수입차 판매·구매 상담은 언제든 문의하세요.</small>
       </div>
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
     </div>
