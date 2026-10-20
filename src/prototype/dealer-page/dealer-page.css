@@ -241,7 +241,9 @@
 .dp-dealer-card > span b { display: flex; align-items: center; gap: 6px; font-size: 15px; line-height: 22px; }
 .dp-dealer-card em { padding: 2px 6px; border-radius: 999px; background: #eef3fa; color: #315d91; font-size: 10px; line-height: 15px; font-style: normal; }
 .dp-dealer-card small { overflow: hidden; margin-top: 2px; color: #777; font-size: 11px; line-height: 17px; text-overflow: ellipsis; white-space: nowrap; }
-.dp-dealer-card > strong { color: #315d91; font-size: 12px; line-height: 18px; white-space: nowrap; }
+/* 「매물 보기」 → 「판매차량 3」(2026-10-21) */
+.dp-dealer-card > strong { display: flex; align-items: baseline; gap: 4px; color: #595959; font-size: 12px; line-height: 18px; font-weight: 400; white-space: nowrap; }
+.dp-dealer-card > strong b { color: #222; font-size: 15px; line-height: 22px; font-weight: 700; }
 
 .dp-ratings { min-height: 420px; padding: 12px 12px 36px; background: var(--dp-bg); }
 .dp-ratings > * { width: 100%; max-width: 860px; margin-right: auto; margin-left: auto; }
@@ -596,21 +598,27 @@
 }
 
 /* 공지 = 네이버 증권 토론 「핫글」 띠(m.stock.naver.com 390 실측: 바탕 #F6F8FA · 위아래 20 · 제목 18/24 700 #1E1E23 · 제목 → 카드 12 · 카드 = 화면 − 40 · 사이 10 · 흰 바탕 · 반경 8 · 1px rgba(0,0,0,.05) · 그림자 0 2 4 .05 · 안쪽 16/20, 프사 20 · 이름 13/19 500 #404048 · 시간 13/19 #929294 · 제목 16/22 700 · 본문 15/23 #404048 · 반응 줄 위 12) */
-.dp-notice-band { margin: 12px -16px 0; padding: 20px 0 16px; background: #f6f8fa; }
-.dp-notice-band h3 { margin: 0; padding: 0 20px; color: #1e1e23; font-size: 18px; line-height: 24px; font-weight: 700; letter-spacing: -.03em; }
-.dp-notice-track { display: flex; gap: 10px; margin-top: 12px; padding: 0 20px 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; scrollbar-width: none; }
+.dp-notice-band { margin: 12px -16px 0; padding: 12px 0 10px; background: #f6f8fa; }
+.dp-notice-band h3 { display: flex; align-items: center; gap: 4px; margin: 0; padding: 0 20px; color: #1e1e23; font-size: 18px; line-height: 24px; font-weight: 700; letter-spacing: -.03em; }
+.dp-notice-track { display: flex; gap: 10px; margin-top: 10px; padding: 0 20px 4px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; scrollbar-width: none; }
 .dp-notice-track::-webkit-scrollbar { display: none; }
 .dp-notice-card { flex: 0 0 calc(100% - 40px); max-width: 350px; scroll-snap-align: start; padding: 16px 20px; border: 1px solid rgba(0,0,0,.05); border-radius: 8px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.05); }
 .dp-notice-identity { display: flex; height: 20px; align-items: center; gap: 6px; }
 .dp-notice-identity i { display: inline-flex; width: 20px; height: 20px; flex: 0 0 20px; align-items: center; justify-content: center; border-radius: 50%; background: #f1f2f4; color: #5d6167; font-size: 10px; font-weight: 700; font-style: normal; }
 .dp-notice-identity strong { min-width: 0; overflow: hidden; color: #404048; font-size: 13px; line-height: 19px; font-weight: 500; white-space: nowrap; text-overflow: ellipsis; }
 .dp-notice-identity time { margin-left: auto; color: #929294; font-size: 13px; line-height: 19px; white-space: nowrap; }
-.dp-notice-card .dp-notice-title { display: block; width: 100%; margin: 7px 0 4px; padding: 1px 0; overflow: hidden; color: #1e1e23; font-size: 16px; line-height: 22px; font-weight: 700; letter-spacing: -.03em; text-align: left; white-space: nowrap; text-overflow: ellipsis; }
-.dp-notice-mark { margin-right: 6px; color: #f0325e; }
+.dp-notice-card .dp-notice-title { display: flex; align-items: center; gap: 4px; width: 100%; margin: 7px 0 4px; padding: 1px 0; overflow: hidden; color: #1e1e23; font-size: 16px; line-height: 22px; font-weight: 700; letter-spacing: -.03em; text-align: left; white-space: nowrap; text-overflow: ellipsis; }
+.dp-notice-title-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* 레딧 「고정 핀」 원본(pin-fill, 노션 미국_레딧) — 파일은 그대로 두고 mask로 색만 #222 */
+.dp-notice-pin { display: inline-block; flex: 0 0 16px; width: 16px; height: 16px; background: #222; -webkit-mask: var(--pin) center / 16px 16px no-repeat; mask: var(--pin) center / 16px 16px no-repeat; }
+.dp-notice-band h3 .dp-notice-pin { flex-basis: 18px; width: 18px; height: 18px; -webkit-mask-size: 18px 18px; mask-size: 18px 18px; }
+.dp-notice-body.has-photo { display: flex; gap: 12px; align-items: flex-start; }
+.dp-notice-body.has-photo p { flex: 1 1 auto; min-width: 0; }
+.dp-notice-body img { flex: 0 0 64px; width: 64px; height: 46px; border-radius: 6px; object-fit: cover; background: #f2f2f2; }
 .dp-notice-card p { display: -webkit-box; margin: 0; overflow: hidden; color: #404048; font-size: 15px; line-height: 23px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-break: keep-all; }
 .dp-discussion-metrics.is-notice { height: 19px; margin-top: 12px; color: #404048; font-size: 13px; line-height: 19px; font-weight: 400; }
 .dp-discussion-metrics.is-notice button { height: 19px; }
-.dp-notice-dots { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
+.dp-notice-dots { display: flex; justify-content: center; gap: 6px; margin-top: 6px; }
 .dp-notice-dots i { width: 6px; height: 6px; border-radius: 50%; background: #d4d7dc; }
 .dp-notice-dots i.is-active { background: #222; }
 .dp-notice-band + .dp-discussion-list { margin-top: 0; border-top: 0; }
