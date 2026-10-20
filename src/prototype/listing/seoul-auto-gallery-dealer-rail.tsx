@@ -19,11 +19,11 @@ export const dealers: readonly SeoulAutoGalleryDealer[] = [
   { name: "김민석", listingCount: 0, shopNo: "450554", empNo: "5", image: "dealer-01.png", profileAsset: "dealer-profile/twoj-motorworks/kim-minseok.jpg", role: "인증딜러", employeeNo: "26-003-00108" },
   { name: "박명주", listingCount: 0, shopNo: "450554", empNo: "4", image: "dealer-03.png", profileAsset: "dealer-profile/twoj-motorworks/park-myeongju.jpg", role: "인증딜러", employeeNo: "26-003-00117" },
   { name: "이민규", listingCount: 0, shopNo: "450554", empNo: "3", image: "dealer-05.png", profileAsset: "dealer-profile/twoj-motorworks/lee-mingyu.jpg", role: "인증딜러", employeeNo: "26-003-00107" },
-  { name: "강홍구", listingCount: 23, shopNo: "450555", empNo: "1", image: "dealer-01.png", role: "대표" },
-  { name: "서용석", listingCount: 23, shopNo: "450441", empNo: "1", image: "dealer-03.png", role: "대표" },
-  { name: "주한솔", listingCount: 21, shopNo: "450560", empNo: "1", image: "dealer-05.png", role: "대표" },
-  { name: "박진희", listingCount: 5, shopNo: "450563", empNo: "1", image: "dealer-02.png", role: "대표" },
-  { name: "방지윤", listingCount: 2, shopNo: "450560", empNo: "4", image: "dealer-04.png" },
+  { name: "강홍구", listingCount: 23, shopNo: "450555", empNo: "1", image: "dealer-01.png", profileAsset: "dealer-profile/seoul-auto-gallery/kang-honggu.jpg", role: "대표" },
+  { name: "서용석", listingCount: 23, shopNo: "450441", empNo: "1", image: "dealer-03.png", profileAsset: "dealer-profile/seoul-auto-gallery/seo-yongseok.jpg", role: "대표" },
+  { name: "주한솔", listingCount: 21, shopNo: "450560", empNo: "1", image: "dealer-05.png", profileAsset: "dealer-profile/seoul-auto-gallery/ju-hansol.jpg", role: "대표" },
+  { name: "박진희", listingCount: 5, shopNo: "450563", empNo: "1", image: "dealer-02.png", profileAsset: "dealer-profile/seoul-auto-gallery/park-jinhui.jpg", role: "대표" },
+  { name: "방지윤", listingCount: 2, shopNo: "450560", empNo: "4", image: "dealer-04.png", profileAsset: "dealer-profile/seoul-auto-gallery/bang-jiyun.jpg" },
 ] as const;
 
 // 서울오토갤러리 회원사 79곳의 대표 판매자페이지(2026-10-21). 위 레일 딜러(김태규 · 강홍구 · 서용석 · 주한솔 · 박진희)는

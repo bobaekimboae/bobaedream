@@ -1,0 +1,42 @@
+{
+  "source": "https://photo.korea-usedcar.co.kr/dealer/",
+  "fetchedAt": "2026-10-21",
+  "matchingRule": "서울오토갤러리 공개 상사번호(shopNo)와 딜러번호(empNo)를 결합한 공식 등록 프로필",
+  "dealers": [
+    {
+      "name": "강홍구",
+      "shopNo": "450555",
+      "empNo": "1",
+      "file": "kang-honggu.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4505550001.JPG"
+    },
+    {
+      "name": "서용석",
+      "shopNo": "450441",
+      "empNo": "1",
+      "file": "seo-yongseok.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4504410001.JPG"
+    },
+    {
+      "name": "주한솔",
+      "shopNo": "450560",
+      "empNo": "1",
+      "file": "ju-hansol.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4505600001.JPG"
+    },
+    {
+      "name": "박진희",
+      "shopNo": "450563",
+      "empNo": "1",
+      "file": "park-jinhui.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4505630001.JPG"
+    },
+    {
+      "name": "방지윤",
+      "shopNo": "450560",
+      "empNo": "4",
+      "file": "bang-jiyun.jpg",
+      "source": "https://photo.korea-usedcar.co.kr/dealer/4505600004.JPG"
+    }
+  ]
+}
