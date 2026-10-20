@@ -261,3 +261,6 @@
   .bml-socials button b { left: calc(50% - 56px); }
 }
 @media (prefers-reduced-motion: reduce) { .bml * { transition: none !important; } }
+
+/* BBMuseum 소셜 버튼 실측: 아이콘과 문구 사이 12px 시각 간격 */
+.bml-socials button span { transform: translateX(10px); }
