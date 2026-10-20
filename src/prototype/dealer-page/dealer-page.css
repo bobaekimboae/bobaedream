@@ -360,9 +360,9 @@
 .dp-about-story > header small { overflow: hidden; margin-top: 1px; color: #888; font-size: 12px; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
 .dp-about-story > p { padding: 0 14px 16px; color: #444; font-size: 15px; line-height: 25px; word-break: keep-all; }
 .dp-about dl { margin: 24px 0 0; }
-.dp-about dl > div { display: grid; grid-template-columns: 100px minmax(0, 1fr); padding: 13px 0; border-bottom: 1px solid var(--dp-line); font-size: 14px; line-height: 21px; }
+.dp-about dl > div { display: grid; grid-template-columns: 124px minmax(0, 1fr); align-items: center; padding: 13px 0; border-bottom: 1px solid var(--dp-line); font-size: 14px; line-height: 21px; }
 .dp-about dt { display: flex; align-items: center; gap: 6px; color: #777; }
-.dp-about dt .dp-icon { width: 17px; height: 17px; opacity: .78; }
+.dp-about dt .dp-icon { flex: 0 0 20px; width: 20px; height: 20px; filter: brightness(0); opacity: .72; }
 .dp-about dd { margin: 0; color: var(--dp-ink); }
 .dp-about dd a, .dp-about-link { color: var(--dp-ink); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .dp-social-block { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--dp-line); }
@@ -593,4 +593,28 @@
   .dp-discussion-list { max-width: 760px; margin: 12px 0 0; }
   .dp-discussion-card { padding-right: 0; padding-left: 0; }
   .dp-discussion-media { max-width: 560px; }
+}
+
+/* 공지 = 네이버 증권 토론 「핫글」 띠(m.stock.naver.com 390 실측: 바탕 #F6F8FA · 위아래 20 · 제목 18/24 700 #1E1E23 · 제목 → 카드 12 · 카드 = 화면 − 40 · 사이 10 · 흰 바탕 · 반경 8 · 1px rgba(0,0,0,.05) · 그림자 0 2 4 .05 · 안쪽 16/20, 프사 20 · 이름 13/19 500 #404048 · 시간 13/19 #929294 · 제목 16/22 700 · 본문 15/23 #404048 · 반응 줄 위 12) */
+.dp-notice-band { margin: 12px -16px 0; padding: 20px 0 16px; background: #f6f8fa; }
+.dp-notice-band h3 { margin: 0; padding: 0 20px; color: #1e1e23; font-size: 18px; line-height: 24px; font-weight: 700; letter-spacing: -.03em; }
+.dp-notice-track { display: flex; gap: 10px; margin-top: 12px; padding: 0 20px 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding: 0 20px; scrollbar-width: none; }
+.dp-notice-track::-webkit-scrollbar { display: none; }
+.dp-notice-card { flex: 0 0 calc(100% - 40px); max-width: 350px; scroll-snap-align: start; padding: 16px 20px; border: 1px solid rgba(0,0,0,.05); border-radius: 8px; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,.05); }
+.dp-notice-identity { display: flex; height: 20px; align-items: center; gap: 6px; }
+.dp-notice-identity i { display: inline-flex; width: 20px; height: 20px; flex: 0 0 20px; align-items: center; justify-content: center; border-radius: 50%; background: #f1f2f4; color: #5d6167; font-size: 10px; font-weight: 700; font-style: normal; }
+.dp-notice-identity strong { min-width: 0; overflow: hidden; color: #404048; font-size: 13px; line-height: 19px; font-weight: 500; white-space: nowrap; text-overflow: ellipsis; }
+.dp-notice-identity time { margin-left: auto; color: #929294; font-size: 13px; line-height: 19px; white-space: nowrap; }
+.dp-notice-card .dp-notice-title { display: block; width: 100%; margin: 7px 0 4px; padding: 1px 0; overflow: hidden; color: #1e1e23; font-size: 16px; line-height: 22px; font-weight: 700; letter-spacing: -.03em; text-align: left; white-space: nowrap; text-overflow: ellipsis; }
+.dp-notice-mark { margin-right: 6px; color: #f0325e; }
+.dp-notice-card p { display: -webkit-box; margin: 0; overflow: hidden; color: #404048; font-size: 15px; line-height: 23px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-break: keep-all; }
+.dp-discussion-metrics.is-notice { height: 19px; margin-top: 12px; color: #404048; font-size: 13px; line-height: 19px; font-weight: 400; }
+.dp-discussion-metrics.is-notice button { height: 19px; }
+.dp-notice-dots { display: flex; justify-content: center; gap: 6px; margin-top: 8px; }
+.dp-notice-dots i { width: 6px; height: 6px; border-radius: 50%; background: #d4d7dc; }
+.dp-notice-dots i.is-active { background: #222; }
+.dp-notice-band + .dp-discussion-list { margin-top: 0; border-top: 0; }
+@media (min-width: 768px) {
+  .dp-notice-band { max-width: 760px; margin: 12px 0 0; border-radius: 12px; }
+  .dp-notice-card { flex-basis: 340px; }
 }

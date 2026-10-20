@@ -346,7 +346,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["dealers", "소속딜러"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["dealers", "소속딜러"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="딜러페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -371,13 +371,26 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
   const pick = (index: number) => cars.length ? cars[index % cars.length] : undefined;
   const allPosts: { category: Exclude<DealerCommunityTag, "전체">; title: string; copy: string; author: string; byDealer: boolean; time: string; views: number; comments: number; up: number; down: number; car?: Car }[] = [
     { category: "공지", title: "방문 상담 예약 안내", copy: "주말에는 상담이 몰려 대기 시간이 길어질 수 있습니다. 방문 전 채팅이나 전화로 시간을 정해 주시면 차량을 미리 준비해 두겠습니다.", author: company, byDealer: false, time: "1시간 전", views: 302, comments: 2, up: 18, down: 0 },
+    { category: "공지", title: "추석 연휴 영업 시간 안내", copy: "연휴 기간에도 전시장은 오전 10시부터 오후 6시까지 엽니다. 시승은 미리 예약해 주세요.", author: company, byDealer: false, time: "3일 전", views: 221, comments: 1, up: 9, down: 0 },
+    { category: "공지", title: "차량 사진과 이력은 직접 확인합니다", copy: "올린 모든 차량은 담당 딜러가 사진과 보험 이력, 성능점검 기록을 직접 확인한 뒤 등록합니다.", author: company, byDealer: false, time: "1주 전", views: 488, comments: 5, up: 41, down: 0 },
     { category: "입고 소식", title: `${pick(0)?.title ?? "새 차량"} 입고`, copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 실내·외 사진을 함께 올려 두었으니 방문 전 궁금한 점을 댓글로 남겨 주세요.", author: dealer.name, byDealer: true, time: "2시간 전", views: 128, comments: 6, up: 14, down: 0, car: pick(0) },
     { category: "출고 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다. 먼 길 와 주셔서 감사합니다.", author: dealer.name, byDealer: true, time: "1일 전", views: 193, comments: 4, up: 21, down: 0, car: pick(1) },
     { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다. 겨울철에는 배터리 충전 상태를 한 번 더 확인해 주세요.", author: dealer.name, byDealer: true, time: "2일 전", views: 246, comments: 11, up: 32, down: 1 },
     { category: "시세 정보", title: "요즘 수입 SUV 시세, 상담하면서 느낀 점", copy: "연식 3~4년 차 수입 SUV는 주행거리보다 사고 이력과 보증 잔여 기간이 가격 차이를 더 크게 만듭니다. 비교하실 때 참고해 주세요.", author: dealer.name, byDealer: true, time: "4일 전", views: 412, comments: 17, up: 45, down: 3, car: pick(2) },
     { category: "이벤트", title: "이달 출고 고객 실내 클리닝 무료", copy: "이번 달 계약 후 출고하시는 고객님께 실내 클리닝을 무료로 해 드립니다. 자세한 조건은 상담 때 안내해 드릴게요.", author: company, byDealer: false, time: "6일 전", views: 167, comments: 3, up: 12, down: 0 },
   ];
-  const posts = tag === "전체" ? allPosts : allPosts.filter((post) => post.category === tag);
+  const notices = allPosts.filter((post) => post.category === "공지");
+  // 「전체」에서는 공지를 네이버 증권 토론 「핫글」처럼 회색 띠 안의 가로 넘김 카드로 따로 모은다(2026-10-21 「공지는 인기글처럼」).
+  const posts = tag === "전체" ? allPosts.filter((post) => post.category !== "공지") : allPosts.filter((post) => post.category === tag);
+  const [noticeIndex, setNoticeIndex] = useState(0);
+  const noticeTrack = useRef<HTMLDivElement>(null);
+  const onNoticeScroll = () => {
+    const el = noticeTrack.current;
+    if (!el) return;
+    const card = el.firstElementChild as HTMLElement | null;
+    const pitch = card ? card.offsetWidth + 10 : el.clientWidth;
+    setNoticeIndex(Math.max(0, Math.min(notices.length - 1, Math.round(el.scrollLeft / pitch))));
+  };
   return <section className="dp-content-card dp-community" aria-labelledby="dp-community-title">
     <div className="dp-section-heading">
       <div><h2 id="dp-community-title">커뮤니티</h2><p>딜러가 전하는 차량 소식과 관리 정보입니다.</p></div>
@@ -386,6 +399,27 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
     <div className="dp-discussion-tags" role="tablist" aria-label="말머리">
       {dealerCommunityTags.map((item) => <button type="button" role="tab" key={item} aria-selected={tag === item} className={tag === item ? "is-active" : undefined} onClick={() => setTag(item)}>{item}</button>)}
     </div>
+    {tag === "전체" && notices.length ? <section className="dp-notice-band" aria-labelledby="dp-notice-title">
+      <h3 id="dp-notice-title">공지</h3>
+      <div className="dp-notice-track" ref={noticeTrack} onScroll={onNoticeScroll}>
+        {notices.map((post) => <article className="dp-notice-card" key={post.title}>
+          <div className="dp-notice-identity">
+            <i aria-hidden="true">{company.slice(0, 1)}</i>
+            <strong>{post.author}</strong>
+            <time>{post.time}</time>
+          </div>
+          <button type="button" className="dp-notice-title" onClick={() => notify(post.title)}><span className="dp-notice-mark">공지</span>{post.title}</button>
+          <p>{post.copy}</p>
+          <div className="dp-discussion-metrics is-notice" aria-label="게시물 반응">
+            <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
+            <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
+            <button type="button" aria-label={`댓글 ${post.comments}개`} onClick={() => notify("댓글은 상세 화면에서 볼 수 있어요")}><img src={communityIcon("comment-reddit")} alt="" />{post.comments}</button>
+            <span>조회 {post.views.toLocaleString("ko-KR")}</span>
+          </div>
+        </article>)}
+      </div>
+      {notices.length > 1 ? <div className="dp-notice-dots" aria-hidden="true">{notices.map((post, index) => <i key={post.title} className={index === noticeIndex ? "is-active" : undefined} />)}</div> : null}
+    </section> : null}
     <div className="dp-discussion-list">
       {posts.length === 0 ? <p className="dp-discussion-empty">아직 이 말머리의 글이 없어요</p> : null}
       {posts.map((post) => <article className="dp-discussion-card" key={post.title}>
@@ -721,17 +755,17 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
       <p>{introduction}</p>
     </article>
     <dl>
-      <div><dt>전문 분야</dt><dd>수입차</dd></div>
-      <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
-      <div><dt><DealerIcon name="dealership" />딜러 경력</dt><dd>{MOCK.joined.replace("딜러 경력 ", "")}</dd></div>
-      <div><dt><DealerIcon name="dealership" />소속 상사</dt><dd>{MOCK.company}</dd></div>
-      {dealer.employeeNo ?? MOCK.employeeNo ? <div><dt>종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div> : null}
-      {MOCK.licenseNo ? <div><dt>상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div> : null}
-      {MOCK.businessNo ? <div><dt>사업자 번호</dt><dd>{MOCK.businessNo}</dd></div> : null}
-      {MOCK.phone ? <div><dt><DealerIcon name="phone" />상사 연락처</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div> : null}
-      <div><dt><DealerIcon name="email" />이메일</dt><dd><button type="button" className="dp-about-link" onClick={() => notify("딜러 이메일 문의를 준비 중이에요")}>{MOCK.email}</button></dd></div>
-      {MOCK.fax ? <div><dt>팩스</dt><dd>{MOCK.fax}</dd></div> : null}
-      {MOCK.staff ? <div><dt>소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}
+      <div><dt><DealerIcon name="car-sale-as24" />전문 분야</dt><dd>수입차</dd></div>
+      <div><dt><DealerIcon name="location-as24" />활동 지역</dt><dd>{MOCK.address}</dd></div>
+      <div><dt><DealerIcon name="calendar-as24" />딜러 경력</dt><dd>{MOCK.joined.replace("딜러 경력 ", "")}</dd></div>
+      <div><dt><DealerIcon name="complex-home-as24" />소속 상사</dt><dd>{MOCK.company}</dd></div>
+      {dealer.employeeNo ?? MOCK.employeeNo ? <div><dt><DealerIcon name="person-as24" />종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div> : null}
+      {MOCK.licenseNo ? <div><dt><DealerIcon name="document-as24" />상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div> : null}
+      {MOCK.businessNo ? <div><dt><DealerIcon name="document-as24" />사업자 번호</dt><dd>{MOCK.businessNo}</dd></div> : null}
+      {MOCK.phone ? <div><dt><DealerIcon name="phone-as24" />상사 연락처</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div> : null}
+      <div><dt><DealerIcon name="email-as24" />이메일</dt><dd><button type="button" className="dp-about-link" onClick={() => notify("딜러 이메일 문의를 준비 중이에요")}>{MOCK.email}</button></dd></div>
+      {MOCK.fax ? <div><dt><DealerIcon name="printer-as24" />팩스</dt><dd>{MOCK.fax}</dd></div> : null}
+      {MOCK.staff ? <div><dt><DealerIcon name="person-as24" />소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}
     </dl>
   </section>;
 }
