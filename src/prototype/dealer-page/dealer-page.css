@@ -238,30 +238,48 @@
 .dp-dealer-card small { overflow: hidden; margin-top: 2px; color: #777; font-size: 11px; line-height: 17px; text-overflow: ellipsis; white-space: nowrap; }
 .dp-dealer-card > strong { color: #315d91; font-size: 12px; line-height: 18px; white-space: nowrap; }
 
-.dp-ratings { padding: 20px 20px 32px; }
-.dp-rating-layout { margin-top: 16px; }
-.dp-rating-summary { padding: 0 0 18px; border-bottom: 1px solid var(--dp-line); }
-.dp-rating-summary strong { display: block; font-size: 24px; line-height: 32px; font-weight: 700; }
-.dp-rating-summary strong span { margin: 0 5px; color: var(--dp-star); }
-.dp-rating-summary small { display: block; margin-top: 5px; color: #666; font-size: 14px; line-height: 20px; }
-.dp-rating-list { margin-top: 20px; }
-.dp-rating-list h3 { font-size: 16px; line-height: 24px; font-weight: 700; }
-.dp-rating-list h3 span { font-size: 14px; }
-.dp-rating-list > p { margin-top: 16px; color: #777; font-size: 14px; }
-.dp-review-filters { display: flex; gap: 8px; margin-top: 10px; overflow-x: auto; scrollbar-width: none; }
-.dp-review-grid { display: grid; gap: 12px; margin-top: 16px; }
-.dp-review { padding: 14px 0 18px; border-bottom: 1px solid var(--dp-line); background: #fff; }
-.dp-review header { display: flex; align-items: center; gap: 8px; }
-.dp-review-avatar { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--dp-bg); }
-.dp-review-avatar .dp-icon { width: 20px; height: 20px; }
-.dp-review header b { font-size: 14px; line-height: 21px; }
-.dp-review-meta { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+.dp-ratings { min-height: 420px; padding: 12px 12px 36px; background: var(--dp-bg); }
+.dp-ratings > * { width: 100%; max-width: 860px; margin-right: auto; margin-left: auto; }
+.dp-store-rating-summary { padding: 20px 16px 18px; border-radius: 12px; background: #fff; }
+.dp-store-rating-score { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.dp-store-rating-score h2 { font-size: 18px; line-height: 26px; font-weight: 800; }
+.dp-store-rating-score > span { display: flex; align-items: center; gap: 10px; margin-top: 7px; }
+.dp-store-rating-score > span > b { font-size: 30px; line-height: 38px; font-weight: 800; letter-spacing: -.6px; }
+.dp-store-rating-score .dp-star { width: 20px; height: 20px; }
+.dp-store-rating-score small { margin-top: 2px; color: #777; font-size: 12px; line-height: 18px; }
+.dp-store-rating-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 16px; }
+.dp-store-rating-tags > span { padding: 5px 11px; border-radius: 999px; background: #f4f4f4; color: #595959; font-size: 12px; line-height: 18px; white-space: nowrap; }
+.dp-store-rating-tags b { font-weight: 500; }
+.dp-store-review-panel { margin-top: 12px; padding: 0 16px; border-radius: 12px; background: #fff; }
+.dp-review-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); height: 54px; border-bottom: 1px solid var(--dp-line); }
+.dp-review-filters button { position: relative; min-width: 0; height: auto; padding: 0 4px; border-radius: 0; background: transparent; color: #666; font-size: 13px; line-height: 20px; font-weight: 500; white-space: nowrap; }
+.dp-review-filters button[aria-selected="true"] { background: #f7f7f7; color: var(--dp-ink); font-weight: 800; }
+.dp-review-filters button[aria-selected="true"]::after { content: ""; position: absolute; right: 0; bottom: -1px; left: 0; height: 3px; background: var(--dp-ink); }
+.dp-review-list { min-height: 180px; }
+.dp-review { padding: 16px 0 18px; border-bottom: 1px solid var(--dp-line); background: #fff; }
+.dp-review:last-child { border-bottom: 0; }
+.dp-review header { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; gap: 9px; }
+.dp-review-avatar { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: #ededed; color: #777; font-size: 13px; font-weight: 700; }
+.dp-review header b { overflow: hidden; font-size: 14px; line-height: 21px; text-overflow: ellipsis; white-space: nowrap; }
+.dp-review header small { padding: 3px 7px; border-radius: 999px; background: #f5f5f5; color: #777; font-size: 10px; line-height: 15px; }
+.dp-review-body { margin: 10px 0 0 45px !important; color: #333; font-size: 14px; line-height: 22px; word-break: keep-all; }
+.dp-review-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 9px 0 0 45px; }
+.dp-review-tags span { padding: 4px 10px; border: 1px solid #aaa; border-radius: 999px; background: #fff; color: #555; font-size: 11px; line-height: 17px; }
+.dp-review-meta { display: flex; align-items: center; gap: 5px; margin: 10px 0 0 45px; }
+.dp-review-meta > b { font-size: 13px; line-height: 20px; }
+.dp-review-meta .dp-star { width: 14px; height: 14px; }
+.dp-review-meta > i { width: 1px; height: 13px; margin: 0 4px; background: #d6d6d6; }
 .dp-review-meta time { color: #8c8c8c; font-size: 12px; }
-.dp-review-car { display: grid; grid-template-columns: 56px minmax(0,1fr); align-items: center; gap: 10px; margin-top: 12px; }
-.dp-review-car > img { width: 56px; height: 56px; border-radius: 6px; object-fit: cover; background: var(--dp-bg); }
-.dp-review-car > span { display: flex; min-width: 0; flex-direction: column; }
-.dp-review-car b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; line-height: 19px; }
-.dp-review-car strong { margin-top: 2px; color: var(--dp-price); font-size: 14px; line-height: 20px; }
+.dp-review-car { display: grid; grid-template-columns: 56px minmax(0,1fr); min-height: 56px; align-items: center; gap: 10px; margin: 12px 0 0 45px; overflow: hidden; border-radius: 8px; background: #f6f6f6; }
+.dp-review-car > img { width: 56px; height: 56px; object-fit: cover; background: var(--dp-bg); }
+.dp-review-car > span { display: flex; min-width: 0; flex-direction: column; padding-right: 12px; }
+.dp-review-car b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; line-height: 18px; font-weight: 500; }
+.dp-review-car strong { margin-top: 2px; color: var(--dp-price); font-size: 13px; line-height: 19px; }
+.dp-review-reply { position: relative; margin: 12px 0 0 45px; padding: 12px 14px; border-radius: 8px; background: #f7f7f7; }
+.dp-review-reply::before { content: ""; position: absolute; top: -5px; left: 16px; width: 10px; height: 10px; background: #f7f7f7; transform: rotate(45deg); }
+.dp-review-reply > b { display: block; font-size: 12px; line-height: 18px; font-weight: 800; }
+.dp-review-reply > p { margin-top: 3px; color: #555; font-size: 12px; line-height: 19px; word-break: keep-all; }
+.dp-review-reply > time { display: block; margin-top: 5px; color: #999; font-size: 10px; line-height: 16px; }
 
 .dp-about { min-height: 360px; padding: 20px 20px 36px; }
 .dp-about h2 { font-size: 20px; line-height: 28px; font-weight: 700; }
@@ -364,12 +382,15 @@
   .dp-anchor-nav { top: 64px; width: 100%; height: 62px; justify-content: center; margin: 0 auto; padding: 0 20px; }
   .dp-anchor-nav button { flex: 1 1 0; max-width: 154px; height: 52px; padding: 0 14px; font-size: 14px; }
   .dp-anchor-nav button::after { right: 18px; left: 18px; }
-  .dp-ratings { margin-top: 0; padding: 22px 20px 28px; }
-  .dp-rating-layout { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 18px; }
-  .dp-rating-summary { align-self: start; }
-  .dp-rating-list { margin-top: 0; }
-  .dp-rating-list > p { margin-top: 14px; }
-  .dp-review-grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+  .dp-ratings { margin-top: 0; padding: 16px 20px 40px; }
+  .dp-store-rating-summary { padding: 24px 28px 22px; }
+  .dp-store-rating-score h2 { font-size: 20px; line-height: 28px; }
+  .dp-store-rating-score > span > b { font-size: 34px; line-height: 42px; }
+  .dp-store-rating-score .dp-star { width: 22px; height: 22px; }
+  .dp-store-review-panel { padding: 0 24px; }
+  .dp-review-filters { height: 58px; }
+  .dp-review-filters button { font-size: 14px; }
+  .dp-review { padding-top: 18px; padding-bottom: 20px; }
   .dp-about { padding: 22px 20px 40px; }
   .dp-community { padding: 24px 20px 44px; }
   .dp-community-list { max-width: 760px; }

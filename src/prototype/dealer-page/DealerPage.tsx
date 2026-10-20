@@ -7,7 +7,6 @@ import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
 import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
 import { setPretendard } from "../fonts/pretendard";
-import VehicleReviewBoard from "./VehicleReviewBoard";
 import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -19,6 +18,18 @@ const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsse
 type SectionId = "home" | "ads" | "community" | "valuation" | "reviews" | "social" | "dealers" | "intro";
 type ListingMode = "active" | "sold";
 type ReviewFilter = "all" | "buyer" | "seller";
+type StoreReview = {
+  id: number;
+  name: string;
+  role: Exclude<ReviewFilter, "all">;
+  score: number;
+  date: string;
+  body?: string;
+  tags: string[];
+  carIndex: number;
+  reply?: string;
+  replyDate?: string;
+};
 
 const dealerDetailScreen: FlowScreen = {
   id: "dealer-vehicle-detail",
@@ -28,8 +39,8 @@ const dealerDetailScreen: FlowScreen = {
 };
 
 const MOCK = {
-  rating: 4.8,
-  reviewCount: 3,
+  rating: 4.9,
+  reviewCount: 17,
   sold: 12,
   followers: 425,
   lastActive: "6시간 전 활동",
@@ -46,11 +57,6 @@ const MOCK = {
   staff: "4명",
   address: "서울 서초구 양재대로11길 36, 은관 421호",
   intro: "서울오토갤러리 은관에 위치한 (주)투제이모터웍스 대표 김태규입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.",
-  reviews: [
-    { name: "김**", role: "buyer", score: 4, date: "3개월 전", car: "벤츠 GLS클래스 3세대", price: "7,575만원" },
-    { name: "박**", role: "buyer", score: 5, date: "5개월 전", car: "벤츠 E클래스 5세대", price: "4,344만원" },
-    { name: "이**", role: "seller", score: 5, date: "8개월 전", car: "벤츠 S클래스 7세대", price: "8,145만원" },
-  ],
   soldCars: [
     ["BMW X5 xDrive40i M 스포츠", "3일 전"],
     ["벤츠 GLE 450 4매틱", "1개월 전"],
@@ -66,6 +72,35 @@ const MOCK = {
     ["BMW 530i M 스포츠", "1년 전"],
   ] as const,
 } as const;
+
+const STORE_REVIEW_TAGS = [
+  ["친절한 상담", 7],
+  ["믿을 수 있어요", 5],
+  ["차량 상태가 설명과 같아요", 3],
+  ["차량 품질이 좋아요", 3],
+  ["가격이 합리적이에요", 1],
+  ["약속을 잘 지켜요", 1],
+] as const;
+
+const STORE_REVIEWS: StoreReview[] = [
+  { id: 1, name: "김민수", role: "buyer", score: 5, date: "2주 전", body: "차량 상태와 이력을 하나씩 설명해 주셔서 안심하고 계약했습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 0, reply: "소중한 후기 감사합니다. 안전하고 즐거운 운행 되시길 바랍니다.", replyDate: "2주 전" },
+  { id: 2, name: "오토라이프", role: "buyer", score: 5, date: "1개월 전", body: "사진과 실제 차량 상태가 같았고 출고 준비도 꼼꼼했습니다.", tags: ["차량 상태가 설명과 같아요", "차량 품질이 좋아요"], carIndex: 1 },
+  { id: 3, name: "박준호", role: "buyer", score: 5, date: "2개월 전", body: "질문이 많았는데 끝까지 친절하게 안내해 주셨습니다.", tags: ["친절한 상담", "약속을 잘 지켜요"], carIndex: 2, reply: "믿고 방문해 주셔서 감사합니다. 궁금한 점은 언제든 편하게 연락 주세요.", replyDate: "2개월 전" },
+  { id: 4, name: "이서연", role: "buyer", score: 4, date: "3개월 전", body: "가격과 이전 절차를 투명하게 알려주셔서 편하게 거래했습니다.", tags: ["가격이 합리적이에요", "믿을 수 있어요"], carIndex: 3 },
+  { id: 5, name: "드림카찾기", role: "buyer", score: 5, date: "4개월 전", body: "멀리서 방문했는데 차량을 미리 준비해 주셔서 바로 확인할 수 있었습니다.", tags: ["친절한 상담", "차량 상태가 설명과 같아요"], carIndex: 4 },
+  { id: 6, name: "최현우", role: "buyer", score: 5, date: "5개월 전", body: "상담부터 출고까지 진행이 빠르고 설명도 정확했습니다.", tags: ["믿을 수 있어요", "약속을 잘 지켜요"], carIndex: 0, reply: "좋은 차량을 함께 찾아드릴 수 있어 기쁩니다. 감사합니다.", replyDate: "5개월 전" },
+  { id: 7, name: "서울드라이버", role: "buyer", score: 5, date: "6개월 전", body: "시승할 때 장단점을 솔직하게 알려주셔서 선택에 도움이 됐습니다.", tags: ["친절한 상담", "차량 품질이 좋아요"], carIndex: 1 },
+  { id: 8, name: "정우성", role: "buyer", score: 5, date: "7개월 전", tags: ["차량 상태가 설명과 같아요", "믿을 수 있어요"], carIndex: 2 },
+  { id: 9, name: "카라이프", role: "buyer", score: 5, date: "8개월 전", body: "필요한 서류와 보험 절차까지 차분하게 안내받았습니다.", tags: ["친절한 상담"], carIndex: 3 },
+  { id: 10, name: "윤지호", role: "buyer", score: 5, date: "9개월 전", tags: ["믿을 수 있어요"], carIndex: 4 },
+  { id: 11, name: "패밀리카", role: "buyer", score: 5, date: "10개월 전", body: "가족이 탈 차라 꼼꼼히 확인했는데 관리 상태가 좋았습니다.", tags: ["차량 품질이 좋아요", "차량 상태가 설명과 같아요"], carIndex: 0 },
+  { id: 12, name: "로드트립", role: "buyer", score: 4, date: "11개월 전", tags: ["친절한 상담"], carIndex: 1 },
+  { id: 13, name: "강민호", role: "buyer", score: 5, date: "1년 전", body: "과장 없이 필요한 내용만 설명해 주셔서 믿음이 갔습니다.", tags: ["믿을 수 있어요"], carIndex: 2 },
+  { id: 14, name: "주말오너", role: "buyer", score: 5, date: "1년 전", tags: ["친절한 상담", "가격이 합리적이에요"], carIndex: 3 },
+  { id: 15, name: "모터로그", role: "buyer", score: 5, date: "1년 전", body: "차량 인도 뒤에도 궁금한 점을 바로 답변해 주셨습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 4 },
+  { id: 16, name: "윤서진", role: "buyer", score: 5, date: "1년 전", tags: ["차량 상태가 설명과 같아요"], carIndex: 0 },
+  { id: 17, name: "스피드모터스", role: "seller", score: 5, date: "3개월 전", body: "응대가 빠르고 거래 조건을 명확하게 조율해 주셨습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 1 },
+];
 
 const SOCIAL_CHANNELS = [
   { id: "facebook", label: "페이스북", description: "판매 소식", href: "https://www.facebook.com/search/top?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
@@ -86,7 +121,7 @@ function DealerIcon({ name, className }: { name: string; className?: string }) {
 }
 
 function Stars({ score }: { score: number }) {
-  const filled = Math.floor(score);
+  const filled = Math.round(score);
   const star = `url(${icon("chotot-list-detail-review-star.svg")})`;
   return <span className="dp-stars" aria-label={`별점 ${score}점`}>
     {Array.from({ length: 5 }, (_, index) => <span key={index} className={`dp-star${index < filled ? " is-on" : ""}`} style={{ maskImage: star, WebkitMaskImage: star }} />)}
@@ -256,8 +291,8 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "차량리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
-  return <nav className="dp-anchor-nav" aria-label="판매자 페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
+  return <nav className="dp-anchor-nav" aria-label="딜러페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
 function HomeSection() {
@@ -333,7 +368,7 @@ function SocialFeedSection({ cars }: { cars: Car[] }) {
       label: "페이스북",
       handle: "(주)투제이모터웍스",
       time: "1주 전",
-      copy: "새로 입고된 수입차 라인업을 공개합니다. 차량별 상세 상담과 방문 예약은 판매자 페이지에서 가능합니다.",
+      copy: "새로 입고된 수입차 라인업을 공개합니다. 차량별 상세 상담과 방문 예약은 딜러페이지에서 가능합니다.",
       car: cars[2] ?? cars[0],
       href: SOCIAL_CHANNELS.find((channel) => channel.id === "facebook")?.href ?? "#",
       stats: "반응 46 · 공유 3",
@@ -402,27 +437,44 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
   </section>;
 }
 
-function RatingsSection({ cars }: { cars: Car[] }) {
+function StoreRatingsSection({ cars }: { cars: Car[] }) {
   const [filter, setFilter] = useState<ReviewFilter>("all");
-  const reviews = MOCK.reviews.filter((review) => filter === "all" || review.role === filter);
-  const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${MOCK.reviewCount})`], ["buyer", "구매자 (2)"], ["seller", "판매자 (1)"]];
-  return <section className="dp-content-card dp-ratings">
-    <h2>리뷰</h2>
-    <div className="dp-rating-layout">
-      <div className="dp-rating-summary"><strong>{MOCK.rating}<span>★</span> 매우 만족</strong><small>({MOCK.reviewCount}명의 이용자 평가)</small></div>
-      <div className="dp-rating-list">
-        <h3>이용자 평가 <span aria-label="도움말">ⓘ</span></h3>
-        <p>평가 유형</p>
-        <div className="dp-review-filters" role="tablist" aria-label="평가 유형">{filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={filter === id} key={id} onClick={() => setFilter(id)}>{label}</button>)}</div>
-        <div className="dp-review-grid">{reviews.map((review, index) => {
-          const car = cars[index % Math.max(cars.length, 1)];
-          return <article className="dp-review" key={review.name + review.date}>
-            <header><span className="dp-review-avatar"><Icon name="chotot-common-user.svg" /></span><b>{review.name}</b></header>
-            <div className="dp-review-meta"><Stars score={review.score} /><time>{review.date}</time></div>
-            <div className="dp-review-car"><img src={car ? asset(car.listThumb ?? car.image) : asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" /><span><b>{review.car}</b><strong>{review.price}</strong></span></div>
-          </article>;
-        })}</div>
+  const reviews = STORE_REVIEWS.filter((review) => filter === "all" || review.role === filter);
+  const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${STORE_REVIEWS.length})`], ["buyer", "차량 구매 (16)"], ["seller", "내차 판매 (1)"]];
+  return <section className="dp-content-card dp-ratings" aria-labelledby="dp-store-rating-title">
+    <div className="dp-store-rating-summary">
+      <div className="dp-store-rating-score">
+        <h2 id="dp-store-rating-title">판매점 리뷰</h2>
+        <span><b>{MOCK.rating}</b><Stars score={MOCK.rating} /></span>
+        <small>{MOCK.reviewCount}명의 실제 거래 후기</small>
       </div>
+      <div className="dp-store-rating-tags" aria-label="판매점 평가 키워드">
+        {STORE_REVIEW_TAGS.map(([label, count]) => <span key={label}>{label} <b>({count})</b></span>)}
+      </div>
+    </div>
+    <div className="dp-store-review-panel">
+      <div className="dp-review-filters" role="tablist" aria-label="판매점 리뷰 유형">
+        {filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={filter === id} key={id} onClick={() => setFilter(id)}>{label}</button>)}
+      </div>
+      <div className="dp-review-list">{reviews.map((review) => {
+        const car = cars.length ? cars[review.carIndex % cars.length] : undefined;
+        const price = car?.price === "상담" ? "가격 상담" : car?.price ?? "거래 완료";
+        return <article className="dp-review" key={review.id}>
+          <header>
+            <span className="dp-review-avatar" aria-hidden="true">{review.name.slice(0, 1)}</span>
+            <b>{review.name}</b>
+            <small>{review.role === "buyer" ? "구매 고객" : "판매 고객"}</small>
+          </header>
+          {review.body ? <p className="dp-review-body">{review.body}</p> : null}
+          {review.tags.length ? <div className="dp-review-tags">{review.tags.map((tag) => <span key={tag}>{tag}</span>)}</div> : null}
+          <div className="dp-review-meta"><b>{review.score.toFixed(1)}</b><Stars score={review.score} /><i /> <time>{review.date}</time></div>
+          <div className="dp-review-car">
+            <img src={car ? asset(car.listThumb ?? car.image) : asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" aria-hidden="true" />
+            <span><b>{car?.title ?? "거래 차량"}</b><strong>{price}</strong></span>
+          </div>
+          {review.reply ? <div className="dp-review-reply"><b>딜러 답글</b><p>{review.reply}</p><time>{review.replyDate}</time></div> : null}
+        </article>;
+      })}</div>
     </div>
   </section>;
 }
@@ -510,14 +562,14 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   return <div className="dp-root">
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
-      <main className="dp-page" aria-label={`${dealer.name} 딜러 판매자 페이지`}>
+      <main className="dp-page" aria-label={`${dealer.name} 딜러페이지`}>
         <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} />
         <AnchorNav active={activeSection} onChange={changeSection} />
         {activeSection === "home" ? <HomeSection /> : null}
         {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
         {activeSection === "community" ? <CommunitySection cars={cars} notify={notify} /> : null}
         {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
-        {activeSection === "reviews" ? <VehicleReviewBoard cars={cars} /> : null}
+        {activeSection === "reviews" ? <StoreRatingsSection cars={cars} /> : null}
         {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
         {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
         {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
