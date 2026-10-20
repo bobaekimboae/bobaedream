@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import regionsKr from "../data/regions-kr.json";
 import { bbmCheckOptions } from "../filters/bbm-filter-options";
 import "./bike-register.css";
+import { AI_DESCRIPTION_LIMIT, generateBikeDescription } from "./ai-description";
 
 // 1차 수정(2026-10-09 노션 「시안 수정 사항」 클로드 코드 1~15): 초톳 앱 등록 화면 크기(1080÷2.8125) + 노란색 → #222 계열.
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
@@ -203,6 +204,14 @@ export default function BikeRegister() {
   const [addrDraft, setAddrDraft] = useState({ sido: "", district: "", detail: "" });
   const [submitted, setSubmitted] = useState(false);
   const photoCounter = useRef(0);
+  // AI 설명 초안(초톳 「AI Viết giúp」): 사진 + 고른 값으로 설명칸을 채운다. 1인 3회, 결과는 사용자가 고친 뒤 등록
+  const [aiUsed, setAiUsed] = useState(0);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiFilled, setAiFilled] = useState(false);
+  const aiSession = useRef("");
+  // 처음 AI를 부르기 전 사용자가 쓴 글. 다시 쓰기는 이 글 + 새 초안으로 바꿔 초안이 겹쳐 쌓이지 않게 한다
+  const aiBase = useRef("");
+  const descriptionRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     document.documentElement.classList.add("bbm-bike-register-page");
@@ -350,6 +359,30 @@ export default function BikeRegister() {
       [25, 60, 99, 100].forEach((value, step) => window.setTimeout(() => setUploading((current) => ({ ...current, [photo]: value })), 250 * (step + 1) + order * 200));
     });
   };
+  const runAiDescription = async () => {
+    if (aiLoading) return;
+    if (!photos.length) { setToast("사진을 1장 이상 올리면 AI가 설명을 써 드려요."); return; }
+    if (aiUsed >= AI_DESCRIPTION_LIMIT) { setToast(`AI 작성은 ${AI_DESCRIPTION_LIMIT}번까지예요. 직접 작성해 주세요.`); return; }
+    setAiLoading(true);
+    if (!aiFilled) aiBase.current = description;
+    try {
+      const result = await generateBikeDescription({ category: "bike", imageUris: photos, description: aiBase.current, maker, model, year, type, mileage, ccBand, condition, seller, sessionId: aiSession.current }, aiUsed);
+      aiSession.current = result.sessionId;
+      setDescription(result.description);
+      setAiUsed((count) => count + 1);
+      setAiFilled(true);
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        const box = descriptionRef.current;
+        if (!box) return;
+        box.focus({ preventScroll: true });
+        box.setSelectionRange(box.value.length, box.value.length);
+      }));
+    } catch {
+      setToast("설명을 만들지 못했어요. 다시 시도하거나 직접 작성해 주세요.");
+    } finally {
+      setAiLoading(false);
+    }
+  };
   const addDocPhoto = () => setDocPhotos((current) => current.length >= 2 ? (setToast("서류 사진은 2장까지 올릴 수 있어요."), current) : [...current, samplePhoto(40 + photoCounter.current++)]);
   // 전기 바이크 칸은 연료 「전기」일 때만(연료 행이 꺼져 있는 동안은 나오지 않음)
   const isElectric = fuel === electricBand;
@@ -389,9 +422,17 @@ export default function BikeRegister() {
           </div>
           <p className={`bike-reg-media-hint${errors.photos ? " is-error" : ""}`}>{errors.photos ? "사진을 1장 이상 올려 주세요" : `길게 눌러 사진 순서를 바꿀 수 있어요 · ${photos.length}/${maxPhotos}`}</p>
 
-          <BoxField label="매물 설명" className="is-textarea" filled={Boolean(description)} error={errors.description}>
-            <textarea maxLength={1500} value={description} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => setDescription(event.currentTarget.value)} />
+          <div className="bike-reg-ai">
+            <button type="button" className="bike-reg-ai__button" disabled={aiLoading} aria-busy={aiLoading} onClick={runAiDescription}>
+              <span className="bike-reg-ai__spark" aria-hidden="true" />
+              {aiLoading ? "AI가 설명을 쓰는 중이에요" : aiFilled ? "AI로 다시 쓰기" : description.trim() ? "AI로 설명 다듬기" : "AI로 설명 쓰기"}
+            </button>
+            <span className="bike-reg-ai__count">{AI_DESCRIPTION_LIMIT - aiUsed}/{AI_DESCRIPTION_LIMIT}회 남음</span>
+          </div>
+          <BoxField label="매물 설명" className={`is-textarea${aiLoading ? " is-ai-loading" : ""}`} filled={Boolean(description)} error={errors.description}>
+            <textarea ref={descriptionRef} maxLength={1500} value={description} readOnly={aiLoading} placeholder="바이크의 상태와 특징을 자세히 알려주세요." onChange={(event) => { setDescription(event.currentTarget.value); }} />
           </BoxField>
+          {aiFilled ? <p className="bike-reg-ai__note">AI가 사진과 입력한 정보로 쓴 초안이에요. 사실과 다른 부분은 고쳐 주세요.</p> : null}
           <p className="bike-reg-counter is-description">{description.length}/1500자</p>
           <BoxField label="매물 제목" filled={Boolean(title)} error={errors.title}>
             <input maxLength={titleMax} value={title} placeholder="예: 혼다 PCX 125 무사고" onChange={(event) => setTitle(event.currentTarget.value)} />

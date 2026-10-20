@@ -457,3 +457,16 @@
 .bike-reg-media__add, .bike-reg-media__thumb { width: var(--photo-tile-w); height: var(--photo-tile-h); }
 /* 칸 아래 오류 문구도 글자수·라벨과 같은 왼쪽 선(16)에 맞춘다 */
 .bike-reg-field > .bike-reg-error { padding-left: 16px; }
+
+/* AI 설명 초안 버튼(2026-10-20, 초톳 등록폼 ia_version=3 「AI Viết giúp」 구조) */
+.bike-reg-ai { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin: 0 0 8px; }
+.bike-reg-ai__button { display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid #222; border-radius: 999px; background: #fff; color: #222; font: inherit; font-size: 14px; line-height: 20px; font-weight: 600; cursor: pointer; }
+.bike-reg-ai__button:disabled { border-color: #DADADA; color: #8C8C8C; cursor: progress; }
+.bike-reg-ai__button:focus-visible { outline: 2px solid #306BD9; outline-offset: 2px; }
+.bike-reg-ai__spark { width: 16px; height: 16px; background: currentColor; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1l1.6 4.4L14 7l-4.4 1.6L8 13l-1.6-4.4L2 7l4.4-1.6z'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 1l1.6 4.4L14 7l-4.4 1.6L8 13l-1.6-4.4L2 7l4.4-1.6z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.bike-reg-ai__button:disabled .bike-reg-ai__spark { animation: bike-reg-ai-pulse 1s ease-in-out infinite; }
+.bike-reg-ai__count { color: #8C8C8C; font-size: 12px; line-height: 18px; white-space: nowrap; }
+.bike-reg-field.is-ai-loading textarea { color: #B7B7B7; }
+.bike-reg-ai__note { margin: -4px 0 8px; padding-left: 4px; color: #595959; font-size: 12px; line-height: 18px; }
+@keyframes bike-reg-ai-pulse { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .bike-reg-ai__button:disabled .bike-reg-ai__spark { animation: none; } }
