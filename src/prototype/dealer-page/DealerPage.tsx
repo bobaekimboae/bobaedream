@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
@@ -362,6 +362,7 @@ function HomeSection() {
 // 배포 빌드가 코드 안의 "/assets/" 문자열을 다시 고쳐 쓰므로 경로를 조각으로 이어 붙인다(2026-10-21 아이콘 깨짐 수정).
 const communityIcon = (name: string) => ["community", "assets", "chzzk-detail", "icons", `${name}.svg`].join("/");
 // 딜러 커뮤니티 말머리(2026-10-21 「말머리 딜러에 맞게 추가」).
+const noticePinStyle = { "--pin": `url("${dealerIcon("pin-reddit")}")` } as CSSProperties;
 const dealerCommunityTags = ["전체", "공지", "입고 소식", "출고 후기", "관리 팁", "시세 정보", "이벤트"] as const;
 type DealerCommunityTag = (typeof dealerCommunityTags)[number];
 
@@ -369,8 +370,8 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
   const company = stripCorp(MOCK.company);
   const [tag, setTag] = useState<DealerCommunityTag>("전체");
   const pick = (index: number) => cars.length ? cars[index % cars.length] : undefined;
-  const allPosts: { category: Exclude<DealerCommunityTag, "전체">; title: string; copy: string; author: string; byDealer: boolean; time: string; views: number; comments: number; up: number; down: number; car?: Car }[] = [
-    { category: "공지", title: "방문 상담 예약 안내", copy: "주말에는 상담이 몰려 대기 시간이 길어질 수 있습니다. 방문 전 채팅이나 전화로 시간을 정해 주시면 차량을 미리 준비해 두겠습니다.", author: company, byDealer: false, time: "1시간 전", views: 302, comments: 2, up: 18, down: 0 },
+  const allPosts: { category: Exclude<DealerCommunityTag, "전체">; title: string; copy: string; author: string; byDealer: boolean; photo?: string; time: string; views: number; comments: number; up: number; down: number; car?: Car }[] = [
+    { category: "공지", photo: asset("seoul-auto-gallery/header/building-bluehour-v01.png"), title: "방문 상담 예약 안내", copy: "주말에는 상담이 몰려 대기 시간이 길어질 수 있습니다. 방문 전 채팅이나 전화로 시간을 정해 주시면 차량을 미리 준비해 두겠습니다.", author: company, byDealer: false, time: "1시간 전", views: 302, comments: 2, up: 18, down: 0 },
     { category: "공지", title: "추석 연휴 영업 시간 안내", copy: "연휴 기간에도 전시장은 오전 10시부터 오후 6시까지 엽니다. 시승은 미리 예약해 주세요.", author: company, byDealer: false, time: "3일 전", views: 221, comments: 1, up: 9, down: 0 },
     { category: "공지", title: "차량 사진과 이력은 직접 확인합니다", copy: "올린 모든 차량은 담당 딜러가 사진과 보험 이력, 성능점검 기록을 직접 확인한 뒤 등록합니다.", author: company, byDealer: false, time: "1주 전", views: 488, comments: 5, up: 41, down: 0 },
     { category: "입고 소식", title: `${pick(0)?.title ?? "새 차량"} 입고`, copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 실내·외 사진을 함께 올려 두었으니 방문 전 궁금한 점을 댓글로 남겨 주세요.", author: dealer.name, byDealer: true, time: "2시간 전", views: 128, comments: 6, up: 14, down: 0, car: pick(0) },
@@ -400,7 +401,7 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
       {dealerCommunityTags.map((item) => <button type="button" role="tab" key={item} aria-selected={tag === item} className={tag === item ? "is-active" : undefined} onClick={() => setTag(item)}>{item}</button>)}
     </div>
     {tag === "전체" && notices.length ? <section className="dp-notice-band" aria-labelledby="dp-notice-title">
-      <h3 id="dp-notice-title">공지</h3>
+      <h3 id="dp-notice-title"><i className="dp-notice-pin" aria-hidden="true" style={noticePinStyle} />공지</h3>
       <div className="dp-notice-track" ref={noticeTrack} onScroll={onNoticeScroll}>
         {notices.map((post) => <article className="dp-notice-card" key={post.title}>
           <div className="dp-notice-identity">
@@ -408,8 +409,11 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
             <strong>{post.author}</strong>
             <time>{post.time}</time>
           </div>
-          <button type="button" className="dp-notice-title" onClick={() => notify(post.title)}><span className="dp-notice-mark">공지</span>{post.title}</button>
-          <p>{post.copy}</p>
+          <button type="button" className="dp-notice-title" onClick={() => notify(post.title)}><i className="dp-notice-pin" aria-hidden="true" style={noticePinStyle} /><span className="dp-notice-title-text">{post.title}</span></button>
+          <div className={post.photo ? "dp-notice-body has-photo" : "dp-notice-body"}>
+            <p>{post.copy}</p>
+            {post.photo ? <img src={post.photo} alt="" loading="lazy" draggable={false} /> : null}
+          </div>
           <div className="dp-discussion-metrics is-notice" aria-label="게시물 반응">
             <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
             <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
@@ -555,7 +559,7 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
       {staff.map((item) => <button key={`${item.shopNo}-${item.empNo}`} type="button" className="dp-dealer-card" onClick={() => onOpenDealer(item)} aria-label={`${item.name} 딜러 판매차량 ${item.listingCount}대 보기`}>
         <img src={dealerPhoto(item)} alt="" aria-hidden="true" draggable={false} />
         <span><b>{item.name}{item.name === currentDealer.name ? <em>현재</em> : null}</b><small>{item.role ?? "인증딜러"} · {stripCorp(MOCK.company)}</small>{item.employeeNo ? <small>종사원번호 {item.employeeNo}</small> : null}</span>
-        <strong>매물 보기</strong>
+        <strong><span>판매차량</span><b>{item.listingCount}</b></strong>
       </button>)}
     </div>
   </section>;
