@@ -6297,3 +6297,40 @@ final result: passed
 - 바이크는 유형→모델→연식 단계에서 `-172→-228→-166px`로 자동 전환되며 매 단계 y=137을 유지한다.
 
 final result: passed
+
+
+---
+
+## 2026-10-20 보배드림 바이크 로그인 · BBMuseum 동일 흐름
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/qa-login/source-desktop.png`, `source-mobile.png`.
+- Browser-rendered implementation: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/qa-login/implementation-desktop.png`, `implementation-mobile.png`, `implementation-mobile-active.png`.
+- Reference URL: `https://dev.bbmuseum.co.kr/member/login`.
+- Implementation route: `/bobaedream/bike/?home=as24&auth=login`.
+- Viewports: desktop 1280×720 CSS px / DPR 1.25, mobile 390×844 CSS px / DPR 1.
+- State coverage: 초기 비활성, 아이디·비밀번호 입력 후 활성, 비밀번호 표시, 아이디 저장 선택, 로그인 유지 미선택.
+
+### Full-view and focused comparison
+
+- Desktop: reference and implementation both use a 121px service header and a centered 372px authentication column at x=446. Reference first field y=364, implementation y=369; reference submit y=507, implementation y=501.
+- Mobile: both use 20px side margins and a 350px form. Reference tabs y=155, implementation y=158; reference submit y=362, implementation y=354; reference first social action y=509, implementation y=503.
+- The reference brand lockup was intentionally replaced with the existing orange Bobaedream Bike emblem and wordmark. The form hierarchy, controls, spacing rhythm and interaction states remain equivalent.
+
+### Required fidelity surfaces
+
+- Typography: passed — Pretendard; tabs and social actions 16/24px 600/500, fields 14px desktop and 16px mobile, helper links 13px.
+- Spacing and layout: passed — 372px desktop form, 350px mobile form, 40px fields, 50px submit, 44px social actions, 10px social stack gap.
+- Colors and tokens: passed — neutral disabled `#e8e8e8/#aaa`; enabled action and selected option use Bobaedream Bike orange `#FA6819`.
+- Assets: passed — source assets are not hotlinked; the product's existing bike logo is reused, with inline semantic social marks.
+- Copy: passed — 로그인/회원가입 tabs, 아이디·비밀번호, 아이디 저장, 로그인 유지, 계정 찾기 and four social login labels match the reference flow.
+- Behavior/accessibility: passed — button disabled until both fields are populated, show/hide password works, both checkboxes are operable, all icon controls have accessible names, no horizontal overflow at 390px.
+
+### Comparison history
+
+- Pass 1: the implemented desktop first field was 5px lower and mobile submit 8px higher than the reference, within the accepted ≤8px layout tolerance and without cumulative drift.
+- Pass 2: social marks visually touched their labels. The label was shifted 10px right to reproduce the reference's visible icon/text separation.
+- Pass 3: empty and populated states were recaptured; submit changed from disabled gray to `rgb(250,104,25)`, password input changed from `password` to `text`, and checkbox states remained `true/false` as expected.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
