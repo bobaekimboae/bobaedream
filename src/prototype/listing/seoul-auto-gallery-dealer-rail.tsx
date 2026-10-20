@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { asset } from "../data";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
@@ -60,33 +61,72 @@ export const allSeoulAutoGalleryDealers: readonly SeoulAutoGalleryDealer[] = [..
 
 export const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
-// 레일(목록 위)은 기존 9명, 「딜러」 탭은 79개 상사의 소속딜러 전원을 격자로 보여 준다(2026-10-21 「딜러 개개인 페이지 모두 만들어」).
-export function SeoulAutoGalleryDealerRail({ onOpenDealer, all = false }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void; all?: boolean }) {
-  const list = all ? allSeoulAutoGalleryDealers : dealers;
+const shopLabel = (company: string) => company.replace(/\(주\)|\(유\)|주식회사/g, "").replace(/\s+/g, " ").trim();
+const companyOf = (dealer: SeoulAutoGalleryDealer) => shopLabel(seoulAutoGalleryShops.find((shop) => shop.shopNo === dealer.shopNo)?.company ?? "");
+const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, "");
+
+function DealerCard({ dealer, onOpenDealer, showCompany }: { dealer: SeoulAutoGalleryDealer; onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void; showCompany?: boolean }) {
+  const company = showCompany ? companyOf(dealer) : "";
   return (
-    <section className={`sag-dealer-rail${all ? " is-all" : ""}`} aria-labelledby="sag-dealer-rail-title">
-      <h2 id="sag-dealer-rail-title">{all ? `딜러 ${list.length}명` : "딜러"}</h2>
-      <div className="sag-dealer-track">
-        {list.map((dealer) => (
-          <button
-            key={`${dealer.shopNo}-${dealer.empNo}`}
-            type="button"
-            className="sag-dealer-card"
-            aria-label={`${dealer.name} 딜러 매물 ${dealer.listingCount}대 보기`}
-            onClick={() => onOpenDealer?.(dealer)}
-          >
-            <img
-              src={dealerPhoto(dealer)}
-              alt=""
-              aria-hidden="true"
-              draggable={false}
-            />
-            <strong>{dealer.name}</strong>
-            <span>{dealer.listingCount}대</span>
-          </button>
-        ))}
+    <button
+      type="button"
+      className="sag-dealer-card"
+      aria-label={`${dealer.name} 딜러${company ? ` · ${company}` : ""} 매물 ${dealer.listingCount}대 보기`}
+      onClick={() => onOpenDealer?.(dealer)}
+    >
+      <img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} />
+      <strong>{dealer.name}</strong>
+      {company ? <em>{company}</em> : null}
+      <span>{dealer.listingCount}대</span>
+    </button>
+  );
+}
+
+// 「딜러」 탭(2026-10-21 「딜러에 검색바랑 소속 상사 알약칩에 상사도 표기」): 이름·상사 검색 + 소속 상사 알약칩 + 카드에 상사명.
+function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void }) {
+  const [query, setQuery] = useState("");
+  const [shopNo, setShopNo] = useState("");
+  const shops = useMemo(() => seoulAutoGalleryShops
+    .map((shop, index) => ({ shopNo: shop.shopNo, label: shopLabel(shop.company), count: allSeoulAutoGalleryDealers.filter((dealer) => dealer.shopNo === shop.shopNo).length, index }))
+    .filter((shop) => shop.count > 0)
+    .sort((a, b) => b.count - a.count || a.index - b.index), []);
+  const q = normalize(query);
+  const list = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || dealer.shopNo === shopNo) && (!q || normalize(dealer.name).includes(q) || normalize(companyOf(dealer)).includes(q)));
+  return (
+    <section className="sag-dealer-rail is-all" aria-labelledby="sag-dealer-rail-title">
+      <label className="sag-dealer-search">
+        <img src={asset("bbm/header-search.svg")} alt="" aria-hidden="true" />
+        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="딜러 이름이나 상사로 검색" aria-label="딜러 검색" />
+        {query ? <button type="button" aria-label="검색어 지우기" onClick={() => setQuery("")}>×</button> : null}
+      </label>
+      <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
+        <button type="button" aria-pressed={!shopNo} className={!shopNo ? "is-selected" : ""} onClick={() => setShopNo("")}>전체 {allSeoulAutoGalleryDealers.length}</button>
+        {shops.map((shop) => <button key={shop.shopNo} type="button" aria-pressed={shopNo === shop.shopNo} className={shopNo === shop.shopNo ? "is-selected" : ""} onClick={() => setShopNo(shopNo === shop.shopNo ? "" : shop.shopNo)}>{shop.label} {shop.count}</button>)}
       </div>
+      <h2 id="sag-dealer-rail-title">딜러 {list.length}명</h2>
+      {list.length ? (
+        <div className="sag-dealer-track">
+          {list.map((dealer) => <DealerCard key={`${dealer.shopNo}-${dealer.empNo}`} dealer={dealer} onOpenDealer={onOpenDealer} showCompany />)}
+        </div>
+      ) : (
+        <div className="sag-dealer-empty">
+          <p>찾는 딜러가 없어요. 이름이나 상사명을 다시 확인해 주세요.</p>
+          <button type="button" onClick={() => { setQuery(""); setShopNo(""); }}>검색 초기화</button>
+        </div>
+      )}
     </section>
   );
 }
 
+// 레일(목록 위)은 기존 9명, 「딜러」 탭은 79개 상사의 소속딜러 전원을 검색·상사 알약칩과 함께 격자로 보여 준다.
+export function SeoulAutoGalleryDealerRail({ onOpenDealer, all = false }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void; all?: boolean }) {
+  if (all) return <SeoulAutoGalleryDealerDirectory onOpenDealer={onOpenDealer} />;
+  return (
+    <section className="sag-dealer-rail" aria-labelledby="sag-dealer-rail-title">
+      <h2 id="sag-dealer-rail-title">딜러</h2>
+      <div className="sag-dealer-track">
+        {dealers.map((dealer) => <DealerCard key={`${dealer.shopNo}-${dealer.empNo}`} dealer={dealer} onOpenDealer={onOpenDealer} />)}
+      </div>
+    </section>
+  );
+}
