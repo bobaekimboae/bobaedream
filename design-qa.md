@@ -30,6 +30,31 @@ final result: passed
 
 ---
 
+## 2026-10-20 수입차 PC 전체 폭 퀵필터 통일
+
+- Source visual truth: `reports/imported-full-quick-filter/source-domestic.png`
+- Implementation screenshot: `reports/imported-full-quick-filter/implementation-imported.png`
+- Viewport and density: 1440 × 1000 CSS px, 1×.
+- State: PC (`pc=1`), 기본 balanced 레이아웃, 필터 미선택.
+
+### 비교 결과
+
+- 국산차 기준과 동일하게 검색조건 카드가 x=120, width=1200인 전체 폭으로 배치됐다.
+- 카드 다음 본문은 y=379에서 좌측 상세 필터와 우측 매물 목록이 같은 윗선으로 시작한다.
+- 상단 칩 순서는 `수입차 · 제조사 · 가격 · 연식 · 주행거리 · 연료 · 지역 · 매매단지`로 국산차 체계와 일치한다.
+- 바디타입 10개와 수입차 브랜드 로고 레일은 전체 폭 카드 내부에서 유지됐다.
+- 수입차에만 있던 중복 제목 배너는 전체 폭 퀵필터 카드로 대체됐다.
+- 브라우저 콘솔·런타임 오류: 0건.
+- `npm run verify:qf`: passed.
+
+### Findings
+
+No actionable P0/P1/P2 differences remain for the requested imported-car quick-filter parity.
+
+final result: passed
+
+---
+
 ## 2026-10-19 제조사·모델 전체 계층 퀵필터
 
 - 기준 화면: 기존 현대 1개 제조사 샘플 모달 (`v=9ecdd974`).

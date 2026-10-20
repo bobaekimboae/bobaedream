@@ -3233,12 +3233,12 @@ function MarketplaceScreen() {
     // QF-095: 과쯔 PC 상단 카드 — 초톳 PC 상단과 같은 구조(1줄 경로 · 2줄 제목 + 검색저장 · 3줄 칩 줄 + 필터 초기화 · 4줄 유형 줄/퀵필터 레일)
     const lnbVariant = bbLnbVariant();
     /* 헤이딜러·하틀라투이식 균형 배치(2026-10-18 기본): 좌측 필터와 우측 검색조건 카드가 같은 윗선에서 시작한다. */
-    // 트럭 compact와 국산차 기본 화면은 검색조건 카드를 두 열 위의 1200px 전체 폭에 둔다.
+    // 트럭 compact와 국산차·수입차 기본 화면은 검색조건 카드를 두 열 위의 1200px 전체 폭에 둔다.
     // 선택지가 긴 퀵필터가 오른쪽 880px 칸에서 답답해지지 않고,
     // 그 아래부터 좌측 상세 필터와 매물 목록이 같은 윗선에서 시작한다.
     const fullTopQuickCard = isGuaziQuickStyle && usesReferencePcLayout && (
       isTruckCategory && pcFilterLayout === "compact"
-      || category === "국산차" && pcFilterLayout === "balanced"
+      || (category === "국산차" || category === "수입차") && pcFilterLayout === "balanced"
     );
     const topCardChips = bbmChips;
     const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && !fullTopQuickCard && (isHeavyCategory || pcFilterLayout === "balanced");
