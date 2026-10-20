@@ -12,8 +12,9 @@
 .listing-language-menu small { color: #7b8492; font-size: 10px; font-weight: 750; }
 .listing-language-menu i { font-size: 13px; font-style: normal; font-weight: 850; text-align: center; }
 .top-bar .listing-language { align-self: center; }
-.top-bar .listing-language-trigger { width: 38px; min-width: 38px; height: 38px; padding: 0; }
-.top-bar .listing-language-trigger > span, .top-bar .listing-language-trigger > i { display: none; }
+.top-bar .listing-language-trigger { width: 66px; min-width: 66px; height: 38px; padding: 0 7px; gap: 5px; }
+.top-bar .listing-language-trigger > span { display: inline; }
+.top-bar .listing-language-trigger > i { display: inline; }
 .top-bar .listing-language-flag { width: 21px; height: 14px; }
 .top-bar .listing-language-menu { position: fixed; top: 58px; right: 10px; }
 html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu { right: auto; left: 0; }
@@ -32,8 +33,7 @@ html[data-listing-locale="ru"] .bbm-logo, html[dir="rtl"][data-listing-locale="a
 html[dir="rtl"][data-listing-locale="ar"] .bbm-card-price { direction: ltr; justify-content: flex-end; }
 
 @media (max-width: 1279px) {
-  .listing-language-trigger { min-width: 48px; width: 48px; height: 38px; padding: 0 7px; }
-  .listing-language-trigger > span { display: none; }
+  .listing-language-trigger { min-width: 66px; width: 66px; height: 38px; padding: 0 7px; }
 }
 
 @media (max-width: 520px) {
