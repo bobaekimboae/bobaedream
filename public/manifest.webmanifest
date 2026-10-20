@@ -1,0 +1,16 @@
+{
+  "id": "./",
+  "name": "보배드림",
+  "short_name": "보배드림",
+  "description": "보배드림 현재 시안 — 차량 매물과 커뮤니티",
+  "lang": "ko-KR",
+  "start_url": "./?source=app",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "./app/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "./app/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

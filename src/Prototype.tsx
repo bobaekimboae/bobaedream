@@ -9,6 +9,8 @@ import DealerPage from "./prototype/dealer-page/DealerPage";
 import CommunityVehicleReviewPage from "./prototype/community-review/CommunityVehicleReviewPage";
 import CommunityFuelEconomyPage from "./prototype/community-fuel-economy/CommunityFuelEconomyPage";
 import "./prototype.css";
+import { registerPrototypeApp } from "./prototype/app/register";
+import { AppFlowBack } from "./prototype/app/AppFlowBack";
 
 // JOB-7: ?register 매물 등록 화면(dev /car/register 동일).
 // 따로 나눠 불러오면(lazy) Pages 배포의 /assets/ → /bobaedream/assets/ 경로 변환이 조각 주소에 적용되지 않아 404가 나므로 함께 묶는다
@@ -16,9 +18,9 @@ import RegisterPage from "./prototype/register";
 
 export type { PriceSelection, SellerType } from "./prototype/data";
 
-const listScreen: FlowScreen = { id: "marketplace", render: () => <MarketplaceScreen /> };
-const savedListingsScreen: FlowScreen = { id: "saved-listings", header: () => <SavedListingsHeader />, headerHeight: 58, render: () => <SavedListingsScreen /> };
-const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFooter />, footerHeight: 56, render: () => <VehicleDetail /> };
+const listScreen: FlowScreen = { id: "marketplace", render: () => <><AppFlowBack screenId="marketplace" /><MarketplaceScreen /></> };
+const savedListingsScreen: FlowScreen = { id: "saved-listings", header: () => <SavedListingsHeader />, headerHeight: 58, render: () => <><AppFlowBack screenId="saved-listings" /><SavedListingsScreen /></> };
+const detailScreen: FlowScreen = { id: "vehicle-detail", footer: () => <DetailFooter />, footerHeight: 56, render: () => <><AppFlowBack screenId="vehicle-detail" /><VehicleDetail /></> };
 
 configureListingScreens({ detailScreen, savedListingsScreen });
 
@@ -33,6 +35,7 @@ const shouldShowCommunityFuelEconomy = () => new URLSearchParams(window.location
 const shouldShowRegister = () => new URLSearchParams(window.location.search).has("register");
 
 export default function Prototype() {
+  useEffect(registerPrototypeApp, []);
   const showRegister = shouldShowRegister();
   const showMainHome = showRegister || shouldShowMainHome();
 
