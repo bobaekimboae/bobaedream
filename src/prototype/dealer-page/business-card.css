@@ -1,0 +1,53 @@
+.dbc-page,.dbc-dialog{font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;color:#202735;font-size:14px;line-height:1.5}
+.dbc-page *,.dbc-dialog *{box-sizing:border-box}
+.dbc-page :is(button,a,input,textarea):focus-visible,.dbc-dialog :is(button,a,input,textarea):focus-visible{outline:2px solid #306bd9;outline-offset:3px}
+.dbc-page{position:fixed;inset:0;overflow-y:auto;background:#f4f6fa;padding:36px 20px}
+.dbc-page-wrap{width:min(100%,560px);margin:auto}
+.dbc-home{display:inline-block;padding:10px 0;color:#697485;text-decoration:none}
+.dbc-page header{margin:30px 0 24px}
+.dbc-page h1{margin:0 0 6px;font-size:26px}
+.dbc-page header p{margin:0;color:#687386}
+.dbc-card{position:relative;container-type:inline-size;width:100%;aspect-ratio:5/3;overflow:hidden;padding:6%;border:1px solid #13274412;border-radius:16px;background:var(--dbc-bg);color:var(--dbc-ink);box-shadow:0 12px 32px #13274418;text-align:left}
+.dbc-card .dbc-brand{display:grid;gap:2px;width:70%}
+.dbc-brand strong{font-size:clamp(13px,3.8cqw,20px);line-height:1.25;font-weight:750;letter-spacing:-.5px}
+.dbc-brand small{font-size:clamp(7px,1.65cqw,9px);letter-spacing:.7px;opacity:.7}
+.dbc-card .dbc-identity{position:absolute;top:27%;left:6%;width:70%}
+.dbc-card h2{margin:0;font-size:clamp(22px,6.4cqw,36px);line-height:1.2;letter-spacing:-1px;font-weight:750}
+.dbc-card .dbc-identity p{margin:5px 0 0;overflow:hidden;font-size:clamp(10px,2.6cqw,15px);line-height:1.4;text-overflow:ellipsis;white-space:nowrap}
+.dbc-card :is(h2,p,strong,span,small){color:inherit}
+.dbc-photo{position:absolute;top:12%;right:6%;width:17.7%;height:35.6%;border-radius:8px;background:#edf1f7;object-fit:cover;object-position:center top}
+.dbc-card .dbc-intro{position:absolute;inset:53% 6% auto;display:-webkit-box;overflow:hidden;margin:0;font-size:clamp(10px,2.35cqw,14px);line-height:1.35;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow-wrap:anywhere}
+.dbc-contact{position:absolute;inset:68% 6% auto;display:grid;gap:5px;padding-top:4%;border-top:1px solid color-mix(in srgb,var(--dbc-ink) 25%,transparent)}
+.dbc-contact strong{font-size:clamp(13px,3.4cqw,20px);line-height:1.2;font-weight:650}
+.dbc-contact span{display:block;overflow:hidden;font-size:clamp(9px,2.2cqw,13px);line-height:1.4;text-overflow:ellipsis;white-space:nowrap}
+.dbc-gallery{position:absolute;bottom:4%;left:6%;font-size:clamp(8px,1.8cqw,11px);opacity:.7}
+@container(max-width:300px){.dbc-gallery{display:none}}
+.dp-root .dp-businesscard-trigger{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:42px;margin:10px 0 4px;border:1px solid #dce4f1;border-radius:8px;background:#f7f9fd;color:#285eae;font-size:13px;font-weight:650}
+.dbc-overlay{position:fixed;z-index:150;inset:0;background:#0d192568}
+.dbc-dialog{position:fixed;z-index:151;top:50%;left:50%;transform:translate(-50%,-50%);width:min(580px,calc(100% - 32px));max-height:calc(100dvh - 40px);overflow:auto;border-radius:20px;background:#fff;box-shadow:0 24px 80px #091d3a40}
+.dbc-dialog-head{display:flex;position:sticky;z-index:2;top:0;align-items:center;justify-content:space-between;gap:10px;padding:22px 24px 18px;background:#fff;border-bottom:1px solid #edf0f4}
+.dbc-dialog-head h2{margin:0;font-size:20px;font-weight:750;line-height:1.4}
+.dbc-dialog-head p{margin:4px 0 0;font-size:13px;color:#748093}
+.dbc-dialog-head>button{width:40px;height:40px;flex:none;padding:0;border:0;border-radius:50%;background:#f4f6f9;color:#455268;font:28px/1 system-ui;cursor:pointer}
+.dbc-dialog-body{padding:24px}
+.dbc-editor{margin-top:24px}
+.dbc-editor fieldset{min-width:0;padding:0;border:0;margin:0 0 18px}
+.dbc-editor legend,.dbc-editor>label{display:block;margin-bottom:8px;font-weight:650}
+.dbc-swatches{display:flex;flex-wrap:wrap;gap:8px}
+.dbc-swatches button{display:flex;align-items:center;gap:6px;min-height:40px;padding:8px 10px;border:1px solid #e1e6ee;border-radius:8px;background:#fff;color:#536174;font:inherit;font-size:12px;cursor:pointer}
+.dbc-swatches button[aria-pressed="true"]{border-color:#306bd9;box-shadow:0 0 0 1px #306bd9;color:#255bb4}
+.dbc-swatches i{width:17px;height:17px;border:1px solid #13274418;border-radius:50%}
+.dbc-editor textarea{display:block;width:100%;min-height:70px;resize:vertical;margin-top:8px;padding:12px;border:1px solid #dce2ec;border-radius:8px;background:#fff;color:#202735;font:inherit;font-weight:400}
+.dbc-editor label small{display:block;margin-top:4px;text-align:right;color:#8390a1;font-weight:400;font-size:11px}
+.dbc-editor>p{margin:12px 0 18px;color:#788496;font-size:12px;line-height:1.7}
+.dbc-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:24px}
+.dbc-actions button{min-height:46px;padding:10px 8px;border:1px solid #dce2ec;border-radius:9px;color:#46546a;background:#fff;font:inherit;font-size:13px;font-weight:650;cursor:pointer}
+.dbc-actions button.dbc-primary{grid-column:1/-1;min-height:50px;border-color:#306bd9;background:#306bd9;color:#fff;font-size:15px}
+.dbc-actions button:disabled{opacity:.5;cursor:wait}
+.dbc-status{min-height:20px;margin:12px 0 0;color:#315b8c;font-size:12px}
+.dbc-export{margin-top:20px}.dbc-export img{display:block;width:100%;height:auto;border-radius:10px}.dbc-export a{display:block;margin-top:8px;padding:12px;text-align:center;border:1px solid #dce2ec;border-radius:8px;color:#285eae;text-decoration:none;font-weight:650}
+.dbc-manual-link{display:block;margin:14px 0 0;font-size:12px}
+.dbc-manual-link input{width:100%;min-height:40px;margin-top:6px;padding:8px;border:1px solid #dce2ec;border-radius:6px;font:inherit}
+.dbc-visit{display:grid;gap:10px;margin-top:20px}
+.dbc-visit a{display:block;min-height:44px;padding:11px;text-align:center;text-decoration:none;border-radius:9px;background:#e8edf5;color:#315b8c;font-size:14px;font-weight:600}
+@media(max-width:600px){.dbc-page{padding:16px}.dbc-page header{margin-top:20px}.dbc-dialog{top:auto;bottom:0;left:0;transform:none;width:100%;max-height:calc(100dvh - 12px);border-radius:20px 20px 0 0}.dbc-dialog-head{padding:18px 16px 14px}.dbc-dialog-body{padding:20px 16px max(24px,env(safe-area-inset-bottom))}}
