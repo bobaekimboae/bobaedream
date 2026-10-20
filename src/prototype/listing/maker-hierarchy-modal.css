@@ -45,11 +45,11 @@
 @media (max-width: 767px) {
   .maker-hierarchy-section { padding-top: 12px; }
   .maker-hierarchy-row { grid-template-columns: 52px minmax(0, 1fr) auto 18px; min-height: 64px; padding: 8px 4px; column-gap: 10px; }
-  .maker-hierarchy-row.is-maker { grid-template-columns: 38px minmax(0, 1fr) auto 18px; min-height: 48px; padding: 0; column-gap: 12px; }
-  .maker-hierarchy-row.is-maker .maker-hierarchy-logo { width: 38px; height: 26px; }
-  .maker-hierarchy-row.is-maker .catalog-logo.is-sheet { width: 38px; height: 26px; }
+  .maker-hierarchy-row.is-maker { grid-template-columns: 40px minmax(0, 1fr) auto 18px; min-height: 52px; padding: 6px 0 5px; column-gap: 12px; }
+  .maker-hierarchy-row.is-maker .maker-hierarchy-logo { width: 40px; height: 40px; }
+  .maker-hierarchy-row.is-maker .catalog-logo.is-sheet { width: 40px; height: 40px; }
   .maker-hierarchy-row.is-maker .maker-hierarchy-logo img,
-  .maker-hierarchy-row.is-maker .maker-hierarchy-logo svg { max-width: 38px; max-height: 26px; }
+  .maker-hierarchy-row.is-maker .maker-hierarchy-logo svg { max-width: 40px; max-height: 40px; }
   .maker-hierarchy-image { width: 52px; }
   .maker-hierarchy-image img { max-width: 52px; }
   .maker-hierarchy-reset { flex-basis: 96px; }

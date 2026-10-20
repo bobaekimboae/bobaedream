@@ -89,11 +89,29 @@ try {
   const genesisLogoBox = await genesisRow.locator(".maker-hierarchy-logo").boundingBox();
   const genesisNameBox = await genesisRow.locator(".maker-hierarchy-copy").boundingBox();
   const genesisImageBox = await genesisRow.locator(".maker-hierarchy-logo img").boundingBox();
-  assert(genesisRowBox?.height === 48, "모바일 제조사 행 높이 48px", `${genesisRowBox?.height}px`);
-  assert(genesisLogoBox?.width === 38 && genesisLogoBox?.height === 26, "모바일 제조사 로고 슬롯 38×26px", `${genesisLogoBox?.width}×${genesisLogoBox?.height}px`);
-  assert(genesisLogoBox?.x === 16 && genesisLogoBox.x + genesisLogoBox.width / 2 === 35, "모바일 제조사 로고 중심 x=35px", `${genesisLogoBox?.x}px`);
-  assert(genesisNameBox?.x === 66, "모바일 제조사명 시작 x=66px", `${genesisNameBox?.x}px`);
-  assert(Boolean(genesisImageBox && genesisImageBox.width <= 38 && genesisImageBox.height <= 26 && genesisImageBox.width > 24), "제네시스 로고 광학 크기 보정", `${genesisImageBox?.width}×${genesisImageBox?.height}px`);
+  assert(genesisRowBox?.height === 52, "모바일 제조사 행 높이 52px", `${genesisRowBox?.height}px`);
+  assert(genesisLogoBox?.width === 40 && genesisLogoBox?.height === 40, "모바일 제조사 로고 슬롯 40×40px", `${genesisLogoBox?.width}×${genesisLogoBox?.height}px`);
+  assert(genesisLogoBox?.x === 16 && genesisLogoBox.x + genesisLogoBox.width / 2 === 36, "모바일 제조사 로고 중심 x=36px", `${genesisLogoBox?.x}px`);
+  assert(genesisNameBox?.x === 68, "모바일 제조사명 시작 x=68px", `${genesisNameBox?.x}px`);
+  assert(Boolean(genesisImageBox && genesisImageBox.width === 40 && genesisImageBox.height > 8 && genesisImageBox.height < 9), "제네시스 로고 광학 크기 보정", `${genesisImageBox?.width}×${genesisImageBox?.height}px`);
+  const opticalLogoChecks = [
+    { maker: "현대", width: 35, minHeight: 17, maxHeight: 19 },
+    { maker: "기아", width: 38, minHeight: 8, maxHeight: 10 },
+    { maker: "쉐보레", width: 40, minHeight: 12, maxHeight: 14 },
+    { maker: "르노코리아(삼성)", minWidth: 22, maxWidth: 25, height: 30.5 },
+    { maker: "KG모빌리티(쌍용)", width: 40, minHeight: 5, maxHeight: 7 },
+    { maker: "BMW", width: 30, height: 30 },
+  ];
+  for (const expected of opticalLogoChecks) {
+    const box = await mobileHierarchy.locator(`[data-maker="${expected.maker}"] .maker-hierarchy-logo img`).boundingBox();
+    const widthMatches = expected.width === undefined || Math.abs((box?.width ?? 0) - expected.width) < 0.75;
+    const heightMatches = expected.height === undefined || Math.abs((box?.height ?? 0) - expected.height) < 0.75;
+    const minWidthMatches = expected.minWidth === undefined || (box?.width ?? 0) > expected.minWidth;
+    const maxWidthMatches = expected.maxWidth === undefined || (box?.width ?? 0) < expected.maxWidth;
+    const minHeightMatches = expected.minHeight === undefined || (box?.height ?? 0) > expected.minHeight;
+    const maxHeightMatches = expected.maxHeight === undefined || (box?.height ?? 0) < expected.maxHeight;
+    assert(Boolean(box && widthMatches && heightMatches && minWidthMatches && maxWidthMatches && minHeightMatches && maxHeightMatches), `${expected.maker} 로고 광학 크기`, `${box?.width}×${box?.height}px`);
+  }
   await mobile.screenshot({ path: fileURLToPath(new URL("mobile-maker-logos.png", reportDir)), fullPage: false });
   for (const make of catalogIndex.manufacturers) {
     await mobileHierarchy.locator(`[data-maker="${make.name}"]`).tap();

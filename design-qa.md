@@ -30,6 +30,39 @@ final result: passed
 
 ---
 
+## 2026-10-20 차란차 모바일 제조사 로고 슬롯·광학 크기
+
+- Source visual truth: `https://charancha.com/cars`의 모바일 제조사·모델 선택 화면.
+- Browser-rendered implementation: `reports/vehicle-catalog/screenshots/mobile-maker-logos.png`.
+- Viewport and density: source/implementation 모두 390×844 CSS px, DPR 1.
+- State: 제조사 미선택 상태의 모바일 제조사 바텀시트. 구현은 전체 중고차 62개 제조사가 열린 상태다.
+
+### Full-view and focused comparison
+
+- 차란차 실측은 행 52px, 로고 캔버스 40×40px, 캔버스 x=16~56(중심 x=36), 제조사명 시작 x=68이다. 구현도 네 기준값을 동일하게 맞췄다.
+- 가시 로고 크기는 현대 35×약 18px, 제네시스 40×약 8px, 기아 38×약 9px, 쉐보레 40×약 13px, 르노 약 23×30.5px, BMW 30×30px로 검증했다.
+- KGM은 차란차의 구형 심벌 결합형을 복제하지 않고 현재 제품에서 승인한 최신 KGM 워드마크를 40px 폭으로 유지했다. 로고 아이덴티티 차이이며 슬롯·중심·텍스트 기준선은 같다.
+
+### Required fidelity surfaces
+
+- Fonts and typography: passed — 제품의 Pretendard와 제조사명 위계를 유지하고 차란차의 로고/텍스트 상대 위치를 동일하게 맞췄다.
+- Spacing and layout rhythm: passed — 52px 행, 40px 슬롯, 12px 로고-텍스트 간격, x=68 텍스트 축을 전 행에 적용했다.
+- Colors and tokens: passed — 브랜드 원색과 기존 중립 텍스트 토큰을 유지했다.
+- Image quality and assets: passed — 360×240 캔버스형 이미지 대신 투명 여백을 제거한 로컬 승인 자산을 모바일 시트에 우선 사용하고, 원본 비율을 보존해 늘어짐을 없앴다.
+- Copy and content: passed — 보배드림의 최신 제조사명과 `기타 제조사` 명칭을 유지했다.
+- Interaction/accessibility: passed — 전체 중고차 62개 제조사와 각 모델 연결, 국산차 7개/수입차 55개 제한, 바이크 63개 제조사 흐름을 자동 검사했다.
+
+### Comparison history
+
+- Pass 1: 기존 구현은 38×26px 슬롯·48px 행·중심 x=35·텍스트 x=66으로 차란차보다 로고와 수직 호흡이 작았다(P1).
+- Fix: 모바일 제조사 시트 전용 40×40px 슬롯과 52px 행을 만들고, 투명 여백 제거 자산 및 제조사 형태별 광학 크기를 적용했다.
+- Pass 2: 하단 구분선 1px이 행 계산에 더해져 53px로 측정됐다(P2). 아래 패딩을 1px 줄여 실제 행 높이를 52px로 교정했다.
+- Pass 3: 현대·제네시스·기아·쉐보레·르노·KGM·BMW 개별 크기와 전 제조사/모델 연결을 재검사했다. 남은 P0/P1/P2 차이는 없다.
+
+final result: passed
+
+---
+
 ## 2026-10-20 수입차 바디타입 → 모델 직행
 
 - Source visual truth: `reports/imported-body-direct/source-domestic-sedan.png` (국산차 세단 선택 상태, 1280×720px).

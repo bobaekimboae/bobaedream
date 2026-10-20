@@ -188,14 +188,17 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
   const latestKgmLogo = scope === "car" && name === "KG모빌리티(쌍용)"
     ? `${publicBase}assets/brand/rail-v01/kgm.png`
     : null;
+  const approvedSource = approved ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}` : null;
   const source = bikeLogo
     ? `${publicBase}assets/bike/logos/${selectedBikeLogo?.directory}/${bikeLogo.file}`
     : latestKgmLogo
       ? latestKgmLogo
+      : kind === "sheet" && approvedSource
+        ? approvedSource
       : daangnLogo
       ? daangnLogo
-      : approved
-        ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}`
+      : approvedSource
+        ? approvedSource
         : publicCatalogAsset(path);
   const scale = kind === "rail" || kind === "sheet" ? 1 : 24 / 38;
   const bikeSize = bikeLogo ? (() => {
@@ -205,7 +208,18 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
     if (height > 26) { height = 26; width = height * bikeLogo.ratio; }
     return { width: `${width * scale}px`, height: `${height * scale}px` };
   })() : null;
-  const style = latestKgmLogo
+  const sheetSize = kind === "sheet" && approved ? (() => {
+    const ratio = approved.width / approved.height;
+    if (name === "현대") return { width: 35, height: 35 / ratio };
+    if (name === "기아") return { width: 38, height: 38 / ratio };
+    if (name === "르노코리아(삼성)") return { width: 30.5 * ratio, height: 30.5 };
+    if (name === "기타 제조사" || name === "기타 수입차") return { width: 30, height: 30 };
+    if (ratio <= 1.25) return { width: Math.min(40, 30 * ratio), height: 30 };
+    return { width: 40, height: Math.min(30, 40 / ratio) };
+  })() : null;
+  const style = sheetSize
+    ? { width: `${sheetSize.width}px`, height: `${sheetSize.height}px` }
+    : latestKgmLogo
     ? { width: `${38 * scale}px`, height: `${6 * scale}px` }
     : daangnLogo
       ? undefined
