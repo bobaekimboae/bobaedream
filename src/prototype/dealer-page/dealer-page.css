@@ -482,3 +482,6 @@
   .dp-root * { scroll-behavior: auto !important; }
   .dp-cover-photo { animation: none; }
 }
+
+/* 판매중 차량이 없는 상사 대표 페이지(2026-10-21) */
+.dp-listings-empty { margin: 0; padding: 40px 16px 48px; text-align: center; font-size: 15px; line-height: 22px; color: #595959; }

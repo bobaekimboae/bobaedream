@@ -1,4 +1,5 @@
 import { asset } from "../data";
+import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import "./seoul-auto-gallery-dealer-rail.css";
 
 export type SeoulAutoGalleryDealer = {
@@ -17,12 +18,22 @@ export const dealers: readonly SeoulAutoGalleryDealer[] = [
   { name: "김민석", listingCount: 0, shopNo: "450554", empNo: "5", image: "dealer-01.png", profileAsset: "dealer-profile/twoj-motorworks/kim-minseok.jpg", role: "인증딜러", employeeNo: "26-003-00108" },
   { name: "박명주", listingCount: 0, shopNo: "450554", empNo: "4", image: "dealer-03.png", profileAsset: "dealer-profile/twoj-motorworks/park-myeongju.jpg", role: "인증딜러", employeeNo: "26-003-00117" },
   { name: "이민규", listingCount: 0, shopNo: "450554", empNo: "3", image: "dealer-05.png", profileAsset: "dealer-profile/twoj-motorworks/lee-mingyu.jpg", role: "인증딜러", employeeNo: "26-003-00107" },
-  { name: "강홍구", listingCount: 23, shopNo: "450555", empNo: "1", image: "dealer-01.png" },
-  { name: "서용석", listingCount: 23, shopNo: "450441", empNo: "1", image: "dealer-03.png" },
-  { name: "주한솔", listingCount: 21, shopNo: "450560", empNo: "1", image: "dealer-05.png" },
-  { name: "박진희", listingCount: 5, shopNo: "450563", empNo: "1", image: "dealer-02.png" },
+  { name: "강홍구", listingCount: 23, shopNo: "450555", empNo: "1", image: "dealer-01.png", role: "대표" },
+  { name: "서용석", listingCount: 23, shopNo: "450441", empNo: "1", image: "dealer-03.png", role: "대표" },
+  { name: "주한솔", listingCount: 21, shopNo: "450560", empNo: "1", image: "dealer-05.png", role: "대표" },
+  { name: "박진희", listingCount: 5, shopNo: "450563", empNo: "1", image: "dealer-02.png", role: "대표" },
   { name: "방지윤", listingCount: 2, shopNo: "450560", empNo: "4", image: "dealer-04.png" },
 ] as const;
+
+// 서울오토갤러리 회원사 79곳의 대표 판매자페이지(2026-10-21). 위 레일 딜러(김태규 · 강홍구 · 서용석 · 주한솔 · 박진희)는
+// 같은 상사·대표면 그대로 쓰고, 나머지 대표는 상사 번호(shop) + 대표 순번(emp 1·2)으로 만든다. 레일에는 넣지 않는다.
+const ownerIllustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
+export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = seoulAutoGalleryShops.flatMap((shop, shopIndex) => shop.owners.map((owner, ownerIndex) => {
+  const existing = dealers.find((item) => item.shopNo === shop.shopNo && item.name === owner);
+  if (existing) return existing;
+  return { name: owner, listingCount: 0, shopNo: shop.shopNo, empNo: String(ownerIndex + 1), image: ownerIllustrations[(shopIndex + ownerIndex) % ownerIllustrations.length], role: "대표" };
+}));
+export const allSeoulAutoGalleryDealers: readonly SeoulAutoGalleryDealer[] = [...dealers, ...seoulAutoGalleryOwnerDealers.filter((owner) => !dealers.includes(owner))];
 
 const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 

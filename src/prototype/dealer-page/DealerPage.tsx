@@ -5,7 +5,8 @@ import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
 import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
-import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
+import { allSeoulAutoGalleryDealers as dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
+import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
 import "./dealer-page.css";
 
@@ -38,7 +39,7 @@ const dealerDetailScreen: FlowScreen = {
   render: () => <VehicleDetail />,
 };
 
-const MOCK = {
+const TWOJ_PROFILE = {
   rating: 4.9,
   reviewCount: 17,
   sold: 12,
@@ -72,6 +73,55 @@ const MOCK = {
     ["BMW 530i M 스포츠", "1년 전"],
   ] as const,
 } as const;
+
+type DealerProfileInfo = {
+  rating: number; reviewCount: number; sold: number; followers: number; lastActive: string; joined: string;
+  company: string; complex: string; gallery: string; licenseNo: string; businessNo: string; employeeNo: string;
+  phone: string; fax: string; email: string; staff: string; address: string; intro: string;
+  soldCars: ReadonlyArray<readonly [string, string]>;
+};
+
+const stripCorp = (name: string) => name.replace(/\(주\)|\(유\)|주식회사|\(주$|\)$/g, "").replace(/\s+/g, " ").trim();
+const seedOf = (text: string) => [...text].reduce((sum, ch) => (sum * 31 + ch.charCodeAt(0)) % 100003, 7);
+
+// 투제이모터웍스(김태규)는 실제 확인한 값 그대로, 나머지 78개 상사 대표는 공개 목록의 상사명·대표·호수만 쓰고
+// 상사 대표 전화도 공개 목록 값을 쓴다(미기재 상사는 전화 줄을 뺀다). 평점·판매완료·팔로워·리뷰 수·경력은
+// 상사 번호로 정한 화면 확인용 가상 값이다. 팩스·허가·사업자 번호는 목록에 없어 화면에서 뺀다.
+function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
+  if (dealer.shopNo === "450554") return TWOJ_PROFILE;
+  const shop = seoulAutoGalleryShopByNo.get(dealer.shopNo);
+  const company = shop?.company ?? "서울오토갤러리 회원사";
+  const room = shop?.room ?? "";
+  const hall = room.startsWith("금관") ? room : `은관 ${room}`;
+  const seed = seedOf(`${dealer.shopNo}-${dealer.name}`);
+  const sold = 6 + (seed % 7);
+  const years = 3 + (seed % 15);
+  const coOwners = shop && shop.owners.length > 1 ? `공동대표 ${shop.owners.join(" · ")}` : `대표 ${dealer.name}`;
+  return {
+    rating: Math.round((4.5 + (seed % 5) / 10) * 10) / 10,
+    reviewCount: 3 + (seed % 28),
+    sold,
+    followers: 40 + (seed % 860),
+    lastActive: `${1 + (seed % 22)}시간 전 활동`,
+    joined: `딜러 경력 ${years}년`,
+    company,
+    complex: "서울SAG · 서울오토갤러리",
+    gallery: "서울오토갤러리",
+    licenseNo: "",
+    businessNo: "",
+    employeeNo: "",
+    phone: shop?.phone ?? "",
+    fax: "",
+    email: "이메일 문의",
+    staff: "",
+    address: `서울 서초구 양재대로11길 36, ${hall}`.trim(),
+    intro: `서울오토갤러리 ${hall}에 위치한 ${company} ${coOwners}입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.`,
+    soldCars: TWOJ_PROFILE.soldCars.slice(0, sold),
+  };
+}
+
+// 한 화면에 딜러 한 명이라 렌더 전에 한 번 정한다(DealerPage).
+let MOCK: DealerProfileInfo = TWOJ_PROFILE;
 
 const STORE_REVIEW_TAGS = [
   ["친절한 상담", 7],
@@ -132,7 +182,7 @@ function SiteHeader() {
   return <header className="dp-site-header">
     <div className="dp-mobile-channel-head">
       <button type="button" aria-label="뒤로가기" onClick={() => window.history.back()}><img src={asset("detail/back.svg")} alt="" aria-hidden="true" /></button>
-      <strong className="dp-mobile-channel-name">{MOCK.company.replace("(주)", "")}</strong>
+      <strong className="dp-mobile-channel-name">{stripCorp(MOCK.company)}</strong>
       <div>
         <ListingLanguageSelect compact />
         <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
@@ -193,7 +243,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         onError={() => setHeroVideoFailed(true)}
       />}
       <div className="dp-cover-brand-copy">
-        <strong>투제이모터웍스</strong>
+        <strong>{stripCorp(MOCK.company)}</strong>
         <span>수입차 전문 매매</span>
       </div>
       <button type="button" className="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
@@ -217,14 +267,14 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         <div className="dp-profile-actions">
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅</button>
-          <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><DealerIcon name="phone" />전화</a>
+          {MOCK.phone ? <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><DealerIcon name="phone" />전화</a> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
         <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="dealership" />{MOCK.joined}</div>
         </div>
-        <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
+        {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
         <SellPriceCta onRequest={onValuation} profile />
@@ -285,7 +335,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
       <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
     </div>
-    {mode === "active" ? <ActiveCards cars={cars} limit={limit} onOpen={onOpen} /> : <SoldCards limit={limit} />}
+    {mode === "active" ? cars.length ? <ActiveCards cars={cars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">지금 판매 중인 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p> : <SoldCards limit={limit} />}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
@@ -409,7 +459,7 @@ function SocialFeedSection({ cars }: { cars: Car[] }) {
 }
 
 function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDealer: SeoulAutoGalleryDealer; onOpenDealer: (dealer: SeoulAutoGalleryDealer) => void }) {
-  const staff = dealers.filter((item) => item.shopNo === "450554");
+  const staff = dealers.filter((item) => item.shopNo === currentDealer.shopNo);
   const totalListings = staff.reduce((sum, item) => sum + item.listingCount, 0);
   return <section className="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
     <div className="dp-affiliated-company">
@@ -430,7 +480,7 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
     <div className="dp-dealer-grid">
       {staff.map((item) => <button key={`${item.shopNo}-${item.empNo}`} type="button" className="dp-dealer-card" onClick={() => onOpenDealer(item)} aria-label={`${item.name} 딜러 판매차량 ${item.listingCount}대 보기`}>
         <img src={dealerPhoto(item)} alt="" aria-hidden="true" draggable={false} />
-        <span><b>{item.name}{item.name === currentDealer.name ? <em>현재</em> : null}</b><small>{item.role} · 투제이모터웍스</small><small>종사원번호 {item.employeeNo}</small></span>
+        <span><b>{item.name}{item.name === currentDealer.name ? <em>현재</em> : null}</b><small>{item.role ?? "인증딜러"} · {stripCorp(MOCK.company)}</small>{item.employeeNo ? <small>종사원번호 {item.employeeNo}</small> : null}</span>
         <strong>매물 보기</strong>
       </button>)}
     </div>
@@ -480,25 +530,25 @@ function StoreRatingsSection({ cars }: { cars: Car[] }) {
 function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
   const introduction = dealer.empNo === "1"
     ? MOCK.intro
-    : `서울오토갤러리 은관 (주)투제이모터웍스 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
+    : dealer.role === "대표" ? MOCK.intro : `서울오토갤러리 ${MOCK.company} 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
   return <section className="dp-content-card dp-about">
     <h2>소개</h2>
     <article className="dp-about-story">
-      <header><img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /><span><b>{dealer.name}</b><small>{MOCK.company} · 딜러 경력 7년</small></span></header>
+      <header><img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /><span><b>{dealer.name}</b><small>{MOCK.company} · {MOCK.joined}</small></span></header>
       <p>{introduction}</p>
     </article>
     <dl>
       <div><dt>전문 분야</dt><dd>수입차</dd></div>
       <div><dt>활동 지역</dt><dd>{MOCK.address}</dd></div>
-      <div><dt><DealerIcon name="dealership" />딜러 경력</dt><dd>7년</dd></div>
+      <div><dt><DealerIcon name="dealership" />딜러 경력</dt><dd>{MOCK.joined.replace("딜러 경력 ", "")}</dd></div>
       <div><dt><DealerIcon name="dealership" />소속 상사</dt><dd>{MOCK.company}</dd></div>
-      <div><dt>종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div>
-      <div><dt>상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div>
-      <div><dt>사업자 번호</dt><dd>{MOCK.businessNo}</dd></div>
-      <div><dt><DealerIcon name="phone" />상사 연락처</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div>
+      {dealer.employeeNo ?? MOCK.employeeNo ? <div><dt>종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div> : null}
+      {MOCK.licenseNo ? <div><dt>상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div> : null}
+      {MOCK.businessNo ? <div><dt>사업자 번호</dt><dd>{MOCK.businessNo}</dd></div> : null}
+      {MOCK.phone ? <div><dt><DealerIcon name="phone" />상사 연락처</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div> : null}
       <div><dt><DealerIcon name="email" />이메일</dt><dd><button type="button" className="dp-about-link" onClick={() => notify("딜러 이메일 문의를 준비 중이에요")}>{MOCK.email}</button></dd></div>
-      <div><dt>팩스</dt><dd>{MOCK.fax}</dd></div>
-      <div><dt>소속 직원</dt><dd>{MOCK.staff}</dd></div>
+      {MOCK.fax ? <div><dt>팩스</dt><dd>{MOCK.fax}</dd></div> : null}
+      {MOCK.staff ? <div><dt>소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}
     </dl>
   </section>;
 }
@@ -588,9 +638,10 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
 export default function DealerPage() {
   const params = new URLSearchParams(window.location.search);
   const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo)) ?? dealers[0];
+  MOCK = profileFor(dealer);
   const cars = useMemo(() => dealer.shopNo === dealers[0].shopNo
     ? seoulAutoGalleryCars
-    : seoulAutoGalleryCars.filter((car) => car.dealer.startsWith(dealer.name)), [dealer.name, dealer.shopNo]);
+    : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo]);
   const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));
 
   if (linkedCar) {
