@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import regionsKr from "../data/regions-kr.json";
 import "./listing-i18n.css";
 
 export type ListingLocale = "ko" | "en" | "ru" | "ar";
@@ -20,6 +21,35 @@ export const listingLocaleOptions: readonly LocaleOption[] = [
 
 type ForeignLocale = Exclude<ListingLocale, "ko">;
 type Translation = Record<ForeignLocale, string>;
+
+const rrInitial = ["g", "kk", "n", "d", "tt", "r", "m", "b", "pp", "s", "ss", "", "j", "jj", "ch", "k", "t", "p", "h"];
+const rrMedial = ["a", "ae", "ya", "yae", "eo", "e", "yeo", "ye", "o", "wa", "wae", "oe", "yo", "u", "wo", "we", "wi", "yu", "eu", "ui", "i"];
+const rrFinal = ["", "k", "k", "k", "n", "n", "n", "t", "l", "k", "m", "l", "l", "l", "p", "l", "m", "p", "p", "t", "t", "ng", "t", "t", "k", "t", "p", "t"];
+
+const romanizeKorean = (value: string) => Array.from(value).map((char) => {
+  const code = char.charCodeAt(0) - 0xac00;
+  if (code < 0 || code > 11171) return char;
+  const initial = Math.floor(code / 588);
+  const medial = Math.floor((code % 588) / 28);
+  const final = code % 28;
+  return `${rrInitial[initial]}${rrMedial[medial]}${rrFinal[final]}`;
+}).join("");
+
+const titleCase = (value: string) => value ? `${value[0].toUpperCase()}${value.slice(1)}` : value;
+const provinceEnglish: Record<string, string> = {
+  "서울": "Seoul", "경기": "Gyeonggi", "인천": "Incheon", "부산": "Busan", "대구": "Daegu", "대전": "Daejeon",
+  "광주": "Gwangju", "울산": "Ulsan", "세종": "Sejong", "강원": "Gangwon", "충북": "Chungcheongbuk-do",
+  "충남": "Chungcheongnam-do", "전북": "Jeonbuk", "전남": "Jeollanam-do", "경북": "Gyeongsangbuk-do",
+  "경남": "Gyeongsangnam-do", "제주": "Jeju",
+};
+const districtEnglish = Object.values(regionsKr.districts as Record<string, string[]>).flat().reduce<Record<string, string>>((result, name) => {
+  const suffix = name.endsWith("시") ? "-si" : name.endsWith("군") ? "-gun" : name.endsWith("구") ? "-gu" : "";
+  const stem = suffix ? name.slice(0, -1) : name;
+  result[name] = `${titleCase(romanizeKorean(stem))}${suffix}`;
+  return result;
+}, {});
+const englishRegions: Record<string, string> = { ...provinceEnglish, ...districtEnglish };
+const englishRegionKeys = Object.keys(englishRegions).sort((a, b) => b.length - a.length);
 
 const words: Record<string, Translation> = {
   "로그인 상태 화면으로 전환했습니다.": { en: "Switched to the signed-in view.", ru: "Включён режим авторизованного пользователя.", ar: "تم التبديل إلى وضع تسجيل الدخول." },
@@ -183,6 +213,11 @@ export function translateListingText(raw: string, locale: ListingLocale) {
   const trailing = raw.match(/\s*$/)?.[0] ?? "";
   let value = raw.slice(leading.length, raw.length - trailing.length || undefined);
   value = translateDynamic(value, locale);
+  if (locale === "en") {
+    englishRegionKeys.forEach((source) => {
+      if (value.includes(source)) value = value.split(source).join(englishRegions[source]);
+    });
+  }
   Object.keys(words).sort((a, b) => b.length - a.length).forEach((source) => {
     if (value.includes(source)) value = value.split(source).join(words[source][locale]);
   });
