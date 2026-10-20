@@ -6,6 +6,7 @@ import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, typ
 import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
 import { allSeoulAutoGalleryDealers as dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
+import { SagGoogleMap } from "../listing/sag-google-map";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
 import "./dealer-page.css";
@@ -758,6 +759,7 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
       {MOCK.fax ? <div><dt><DealerIcon name="printer-as24" />팩스</dt><dd>{MOCK.fax}</dd></div> : null}
       {MOCK.staff ? <div><dt><DealerIcon name="person-as24" />소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}
     </dl>
+    <SagGoogleMap title="상사 위치" address="서울 서초구 양재대로11길 36" detail={MOCK.address.split(", ").slice(1).join(", ") || undefined} />
   </section>;
 }
 
