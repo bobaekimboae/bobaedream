@@ -11,5 +11,16 @@
     "드": "public\\assets\\fonts\\pretendard\\woff2-dynamic-subset\\PretendardVariable.subset.90.woff2"
   },
   "fontLicense": "../assets/fonts/pretendard/OFL.txt",
-  "symbolSource": "../assets/bbm/favicon.svg"
+  "symbolSource": "../assets/bbm/favicon.svg",
+  "roundedExport": {
+    "source": "icon-rounded.svg",
+    "cornerRadiusPercent": 24,
+    "backgroundOutsideCorners": "transparent",
+    "pngSizes": [
+      192,
+      512,
+      1024
+    ]
+  },
+  "launcherMask": "Native adaptive and PWA maskable assets remain full bleed; the operating system applies its launcher mask."
 }

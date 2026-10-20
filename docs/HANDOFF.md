@@ -16,6 +16,7 @@
 ## 1. 작업 기준
 
 - 보배드림 설치 앱(2026-10-20): `/app/`에서 현재 파랑 심벌·빨간 점 로고와 `보배드림` 이름의 Android APK 및 설치형 웹앱을 제공한다. APK 소스는 `apps/android-prototype/`, 빌드는 `python apps/android-prototype/build.py`(JDK + Android SDK 36/Build Tools 36). 설치 파일·해시·메타데이터는 `public/app/`에 둔다. 앱 ID는 `io.github.bobaekimboae.bobaedream`으로 공식 앱과 분리하며, 실행 주소는 프로젝트 메인이다. APK는 기존 시안을 WebView로 여는 온라인 앱이며 인터넷 권한만 쓴다. 서명 키/암호는 사용자 로컬 `.codex/app-signing/`에만 있고 저장소에 넣지 않는다. 업데이트 때 키를 보존하고 Manifest의 버전 코드를 올린다. PWA는 프로젝트 범위에서만 동작하며 매물 HTML을 캐시하지 않는다. 검증은 `node --test tests/installable-app.test.mjs`, 전체 `npm run verify`, APK 서명/정렬/패키지 정보 검사다. 실기기 설치·실행은 별도 확인이 필요하다.
+- 앱 아이콘 둥근 외곽(2026-10-20): 사용자가 제공한 앱 폴더 예시처럼 파란 바탕 모서리를 24% 반경으로 처리한 투명 PNG(192·512·1024)와 SVG를 `public/app/icon-rounded*`로 제공한다. 설치 페이지에서도 이 완성형을 표시한다. 실제 Android 적응형/PWA maskable 원본은 전체 배경을 유지해 OS가 외곽을 적용하도록 하며, 둥근 마스크를 이중으로 적용하지 않는다.
 - 앱 아이콘 텍스트(2026-10-20): 현재 심벌 아래에 **Pretendard Bold(700)** 실제 폰트에서 추출한 `보배드림` 글자 윤곽을 흰색으로 배치한다. 일반 아이콘·PWA 원형 마스크용·Android 적응형 전경을 각각 안전 영역에 맞춘다. Android 1.0.1(버전 코드 2)은 기존과 같은 키로 서명해 업데이트 설치한다. 웹 아이콘 URL과 오프라인 로고 캐시도 v2로 갱신한다.
 
 
