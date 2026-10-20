@@ -638,6 +638,7 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
   const [filter, setFilter] = useState<ReviewFilter>("all");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [writeOpen, setWriteOpen] = useState(false);
+  const [helpfulIds, setHelpfulIds] = useState<Set<number>>(() => new Set());
   const reviews = allReviews.filter((review) => (filter === "all" || review.role === filter) && (!selectedTag || review.tags.includes(selectedTag)));
   const average = allReviews.reduce((sum, review) => sum + review.score, 0) / Math.max(allReviews.length, 1);
   const buyerCount = allReviews.filter((review) => review.role === "buyer").length;
@@ -651,11 +652,19 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
     setSelectedTag(null);
     setFilter(role);
   };
+  const toggleHelpful = (id: number) => setHelpfulIds((current) => {
+    const next = new Set(current);
+    if (next.has(id)) next.delete(id);
+    else next.add(id);
+    return next;
+  });
   return <section className="dp-content-card dp-ratings" aria-labelledby="dp-store-rating-title">
     <div className="dp-store-rating-summary">
-      <div className="dp-store-rating-score">
-        <h2 id="dp-store-rating-title" className="dp-visually-hidden">판매점 리뷰</h2>
-        <span><b>{average.toFixed(1)}</b><Stars score={average} /></span>
+      <div className="dp-store-rating-head">
+        <div className="dp-store-rating-score">
+          <h2 id="dp-store-rating-title" className="dp-visually-hidden">판매점 리뷰</h2>
+          <span><b>{average.toFixed(1)}</b><Stars score={average} /></span>
+        </div>
         <button type="button" className="dp-review-write-button" onClick={() => setWriteOpen(true)}>리뷰 쓰기</button>
       </div>
       <div className="dp-store-rating-tags" aria-label="판매점 평가 키워드">
@@ -673,19 +682,27 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
       <div className="dp-review-list">{reviews.length ? reviews.map((review) => {
         const car = cars.length ? cars[review.carIndex % cars.length] : undefined;
         const price = car?.price === "상담" ? "가격 상담" : car?.price ?? "거래 완료";
-        return <article className="dp-review" key={review.id}>
-          <header>
+        const helpful = helpfulIds.has(review.id);
+        const helpfulCount = 3 + (review.id % 9) + (helpful ? 1 : 0);
+        return <article className="dp-review dp-review-feed-card" key={review.id}>
+          <div className="dp-review-feed-chips"><span>{review.role === "buyer" ? "차량 구매" : "내차 판매"}</span><span>{REVIEW_RATING_COPY[Math.round(review.score)]}</span></div>
+          <header className="dp-review-feed-identity">
             <span className="dp-review-avatar" aria-hidden="true">{review.name.slice(0, 1)}</span>
-            <b>{review.name}</b>
+            <span><b>{review.name}</b><small>실거래 인증</small></span>
+            <time>{review.date}</time>
           </header>
-          {review.body ? <p className="dp-review-body">{review.body}</p> : null}
+          <div className="dp-review-meta"><b>{review.score.toFixed(1)}</b><Stars score={review.score} /></div>
+          {review.body ? <p className="dp-review-body">{review.body}</p> : <p className="dp-review-body is-empty">별점과 평가 키워드를 남긴 리뷰입니다.</p>}
           {review.tags.length ? <div className="dp-review-tags">{review.tags.map((tag) => <span key={tag}>{tag}</span>)}</div> : null}
-          <div className="dp-review-meta"><b>{review.score.toFixed(1)}</b><Stars score={review.score} /><i /> <time>{review.date}</time></div>
           <div className="dp-review-car">
             <img src={car ? asset(car.listThumb ?? car.image) : asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" aria-hidden="true" />
             <span><b>{car?.title ?? "거래 차량"}</b><strong>{price}</strong></span>
           </div>
-          {review.reply ? <div className="dp-review-reply"><b>딜러 답글</b><p>{review.reply}</p><time>{review.replyDate}</time></div> : null}
+          {review.reply ? <div className="dp-review-reply" data-review-reply={review.id}><b>딜러 답글</b><p>{review.reply}</p><time>{review.replyDate}</time></div> : null}
+          <div className="dp-review-feed-metrics" aria-label="리뷰 반응">
+            <button type="button" aria-pressed={helpful} onClick={() => toggleHelpful(review.id)}><img src={communityIcon("buff")} alt="" />도움돼요 {helpfulCount}</button>
+            <button type="button" onClick={() => review.reply && document.querySelector(`[data-review-reply=\"${review.id}\"]`)?.scrollIntoView({ behavior: "smooth", block: "center" })}><img src={communityIcon("comment-reddit")} alt="" />답글 {review.reply ? 1 : 0}</button>
+          </div>
         </article>;
       }) : <div className="dp-review-empty"><b>조건에 맞는 리뷰가 없습니다.</b><span>다른 유형이나 키워드를 선택해 주세요.</span></div>}</div>
     </div>
