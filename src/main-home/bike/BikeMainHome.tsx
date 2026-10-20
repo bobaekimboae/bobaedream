@@ -241,7 +241,7 @@ export default function BikeMainHome() {
           </form>
           <div className="bmh-site-actions" aria-label="회원 메뉴">
             <button type="button" className="bmh-site-icon" aria-label="관심 매물" onClick={() => setToast(`찜한 매물 ${saved.size}대`)}><img src={pic("..", "assets", "icons", "bb", "heart.svg")} alt="" /></button>
-            <button type="button" className="bmh-site-login" onClick={() => setToast("로그인/회원가입은 정식 서비스에서 이용해 주세요.")}>로그인/회원가입</button>
+            <a className="bmh-site-login" href={listUrl({ home: "as24", auth: "login" })}>로그인/회원가입</a>
             <a className="bmh-site-sell" href={listUrl({ register: "bike" })}>바이크 판매</a>
             <button type="button" className="bmh-site-account" aria-label="로그인 및 계정 메뉴" onClick={() => setToast("계정 메뉴는 정식 서비스에서 이용해 주세요.")}>
               <span><img src={pic("..", "assets", "icons", "bb", "mypage.svg")} alt="" /></span>
