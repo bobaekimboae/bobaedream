@@ -46,18 +46,18 @@
 .dp-page { width: 100%; margin: 0 auto; background: #fff; }
 .dp-profile { background: #fff; }
 .dp-cover { position: relative; width: calc(100% - 32px); aspect-ratio: 18 / 5; min-height: 88px; max-height: 100px; margin: 12px 16px 0; overflow: hidden; border-radius: 8px; background: #7f7f7f; box-shadow: 0 1px 2px rgba(0,0,0,.12); color: #fff; isolation: isolate; }
-.dp-cover::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(270deg, rgba(4,9,19,.88) 0%, rgba(4,9,19,.68) 31%, rgba(4,9,19,.18) 62%, rgba(4,9,19,.03) 100%), linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.2)); pointer-events: none; }
+.dp-cover::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(4,9,19,.88) 0%, rgba(4,9,19,.68) 31%, rgba(4,9,19,.18) 62%, rgba(4,9,19,.03) 100%), linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.2)); pointer-events: none; }
 .dp-cover::after { display: none; }
 .dp-cover-photo { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 44% 54%; animation: dp-cover-reveal 360ms ease-out both; }
-.dp-cover-brand-copy { position: absolute; z-index: 2; inset: 0 14px 0 auto; display: flex; width: min(58%, 252px); min-width: 0; flex-direction: column; align-items: flex-end; justify-content: center; color: #fff; text-align: right; text-shadow: 0 1px 8px rgba(0,0,0,.78); }
+.dp-cover-brand-copy { position: absolute; z-index: 2; inset: 0 auto 0 14px; display: flex; width: min(58%, 252px); min-width: 0; flex-direction: column; align-items: flex-start; justify-content: center; color: #fff; text-align: left; text-shadow: 0 1px 8px rgba(0,0,0,.78); }
 .dp-cover-brand-copy strong { overflow: hidden; max-width: 100%; font-size: 17px; line-height: 22px; font-weight: 800; letter-spacing: -.45px; text-overflow: ellipsis; white-space: nowrap; }
-.dp-cover-brand-copy span { display: -webkit-box; overflow: hidden; max-width: 100%; margin-top: 3px; color: rgba(255,255,255,.84); font-size: 10px; line-height: 14px; letter-spacing: -.05px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.dp-cover-brand-copy span { display: -webkit-box; overflow: hidden; max-width: 100%; max-height: 28px; margin-top: 3px; color: rgba(255,255,255,.84); font-size: 10px; line-height: 14px; letter-spacing: -.05px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .dp-cover-vehicle-meta { position: absolute; z-index: 2; right: 8px; bottom: 7px; display: flex; width: 112px; align-items: center; justify-content: flex-end; gap: 4px; color: #fff; text-align: right; text-shadow: 0 1px 5px rgba(0,0,0,.8); }
 .dp-cover-vehicle-meta small, .dp-cover-vehicle-meta em { overflow: hidden; color: rgba(255,255,255,.9); font-size: 11px; line-height: 13px; font-weight: 600; font-style: normal; text-overflow: ellipsis; white-space: nowrap; }
 .dp-cover-dots { position: absolute; z-index: 2; left: 50%; bottom: 8px; display: flex; align-items: center; gap: 4px; transform: translateX(-50%); }
 .dp-cover-dots button { width: 4px; height: 4px; padding: 0; border: 0; border-radius: 50%; background: rgba(255,255,255,.46); }
 .dp-cover-dots button.is-active { width: 12px; border-radius: 3px; background: #fff; }
-.dp-cover-more { position: absolute; z-index: 2; top: 12px; left: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
+.dp-cover-more { position: absolute; z-index: 2; top: 12px; right: 12px; display: none; place-items: center; width: 36px; height: 36px; border-radius: 50% !important; background: rgba(255,255,255,.94) !important; }
 .dp-cover-more .dp-icon { width: 20px; height: 20px; }
 .dp-profile-body { position: relative; display: grid; grid-template-columns: 96px minmax(0, 1fr); column-gap: 16px; padding: 16px 16px 18px; }
 .dp-avatar { position: relative; z-index: 1; top: auto; left: auto; grid-column: 1; grid-row: 1 / span 2; align-self: start; width: 88px; height: 88px; box-sizing: border-box; border: 1px solid #dedede; border-radius: 50%; object-fit: cover; background: var(--dp-bg); box-shadow: none; }
@@ -405,9 +405,9 @@
   .dp-profile, .dp-content-card { overflow: hidden; }
   .dp-cover { width: 100%; aspect-ratio: 179 / 49; min-height: 0; max-height: 132px; margin: 0 0 16px; border-radius: 10px; }
   .dp-cover-photo { width: 100%; object-position: 42% 54%; }
-  .dp-cover-brand-copy { right: 28px; left: auto; width: min(40%, 420px); }
+  .dp-cover-brand-copy { right: auto; left: 28px; width: min(40%, 420px); }
   .dp-cover-brand-copy strong { font-size: 22px; line-height: 28px; letter-spacing: -.45px; }
-  .dp-cover-brand-copy span { margin-top: 5px; font-size: 13px; line-height: 19px; }
+  .dp-cover-brand-copy span { max-height: 38px; margin-top: 5px; font-size: 13px; line-height: 19px; }
   .dp-cover-vehicle-meta { right: 8px; bottom: 7px; width: 112px; }
   .dp-cover-vehicle-meta small, .dp-cover-vehicle-meta em { font-size: 12px; line-height: 14px; }
   .dp-cover-dots { bottom: 8px; }
@@ -480,10 +480,10 @@
   .dp-review-page-shell { display: grid; grid-template-columns: 320px 668px; align-items: start; gap: 16px; }
   .dp-review-page-shell > .dp-profile { min-width: 0; overflow: hidden; background: #fff; }
   .dp-review-page-shell .dp-cover { width: 100%; height: 122px; aspect-ratio: auto; max-height: none; margin: 0; border-radius: 0; }
-  .dp-review-page-shell .dp-cover-brand-copy { right: 14px; left: auto; width: 58%; max-width: 180px; }
+  .dp-review-page-shell .dp-cover-brand-copy { right: auto; left: 14px; width: 58%; max-width: 180px; }
   .dp-review-page-shell .dp-cover-brand-copy strong { font-size: 18px; line-height: 24px; }
-  .dp-review-page-shell .dp-cover-brand-copy span { font-size: 10px; line-height: 14px; }
-  .dp-review-page-shell .dp-cover-more { top: 10px; left: 10px; width: 32px; height: 32px; }
+  .dp-review-page-shell .dp-cover-brand-copy span { max-height: 28px; font-size: 10px; line-height: 14px; }
+  .dp-review-page-shell .dp-cover-more { top: 10px; right: 10px; width: 32px; height: 32px; }
   .dp-review-page-shell .dp-profile-body { display: block; min-height: 0; padding: 50px 12px 18px; }
   .dp-review-page-shell .dp-avatar { top: -44px; left: 12px; width: 80px; height: 80px; border: 3px solid #fff; }
   .dp-review-page-shell .dp-profile-copy { display: block; }

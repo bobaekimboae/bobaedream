@@ -6,5 +6,8 @@
 - 모바일 캡처: `03-after-mobile.png`
 - 전후 비교: `04-comparison.png`
 - 브라우저 콘솔 오류: 0
+- 왼쪽 정렬 수정 PC: `06-left-desktop.png`
+- 왼쪽 정렬 수정 모바일: `07-left-mobile.png`
+- 소개 문구: 최대 2줄 고정(세 번째 줄 숨김)
 
 최종 결과: 통과
