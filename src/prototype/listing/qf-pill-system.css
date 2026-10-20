@@ -68,6 +68,20 @@
   height: 16px;
   margin-right: 0;
 }
+.marketplace.is-qf-guazi .filter-chip.has-complex-icon > .filter-chip-complex-icon,
+.marketplace.is-qf-guazi .filter-chip.has-complex-icon .filter-chip-label > .filter-chip-complex-icon {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  object-fit: contain;
+}
+.marketplace.is-qf-guazi .filter-chip.has-complex-icon.is-active .filter-chip-complex-icon {
+  filter: brightness(0) invert(1);
+}
+.marketplace.is-qf-guazi .filter-chip.has-complex-icon:not(.is-active) > .ui-icon {
+  display: none;
+}
 .marketplace.is-qf-guazi .bbm-content-head.is-chotot .filter-chip.is-active .filter-chip-clear,
 .marketplace.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-active .filter-chip-clear {
   display: grid;
