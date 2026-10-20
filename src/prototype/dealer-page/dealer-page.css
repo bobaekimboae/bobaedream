@@ -520,10 +520,10 @@
 }
 
 @media (max-width: 767px) {
-  .dp-anchor-nav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); padding: 0 8px; overflow: visible; }
-  .dp-anchor-nav button { width: 100%; padding: 0 3px; font-size: 13px; letter-spacing: -.35px; }
-  .dp-anchor-nav button::after { right: 7px; left: 7px; }
-  .dp-anchor-nav button:nth-child(n + 6) { display: none; }
+  /* 모바일 구역 탭 8개 모두 노출(2026-10-21 「소속딜러 정보등 탭에서 사라졌다」): 5칸 격자 + 6번째부터 숨김을 없애고 한 줄 가로 스크롤로 되돌린다 */
+  .dp-anchor-nav { display: flex; padding: 0 8px; overflow-x: auto; }
+  .dp-anchor-nav button { flex: 0 0 auto; padding: 0 10px; font-size: 14px; }
+  .dp-anchor-nav button::after { right: 10px; left: 10px; }
   .dp-profile-inline.is-rating { flex-wrap: wrap; }
   .dp-profile-inline.is-rating i { display: none; }
   .dp-profile-inline.is-rating > .dp-icon { margin-left: 12px; }
