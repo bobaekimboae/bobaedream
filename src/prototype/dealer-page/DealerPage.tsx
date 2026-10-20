@@ -99,8 +99,8 @@ function SiteHeader() {
       <button type="button" aria-label="뒤로가기" onClick={() => window.history.back()}><img src={asset("detail/back.svg")} alt="" aria-hidden="true" /></button>
       <strong className="dp-mobile-channel-name">{MOCK.company.replace("(주)", "")}</strong>
       <div>
-        <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
         <ListingLanguageSelect compact />
+        <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
         <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
       </div>
     </div>
@@ -112,8 +112,8 @@ function SiteHeader() {
       </a>
       <button type="button" className="dp-region"><Icon name="chotot-common-location-pin.svg" />전국 <Icon name="chotot-pc-detail-chevron-down-white-bg.svg" /></button>
       <div className="dp-search-country">
-        <label className="dp-search"><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
         <ListingLanguageSelect compact />
+        <label className="dp-search"><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
       </div>
       <div className="dp-site-actions">
         <button type="button" aria-label="관심 차량"><Icon name="chotot-common-favorite.svg" /></button>
