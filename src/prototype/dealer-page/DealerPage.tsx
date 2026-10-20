@@ -346,7 +346,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["dealers", "소속딜러"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["dealers", "소속딜러"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="딜러페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -363,7 +363,7 @@ function HomeSection() {
 const communityIcon = (name: string) => ["community", "assets", "chzzk-detail", "icons", `${name}.svg`].join("/");
 // 딜러 커뮤니티 말머리(2026-10-21 「말머리 딜러에 맞게 추가」).
 const noticePinStyle = { "--pin": `url("${dealerIcon("pin-reddit")}")` } as CSSProperties;
-const dealerCommunityTags = ["전체", "공지", "입고 소식", "출고 후기", "관리 팁", "시세 정보", "이벤트"] as const;
+const dealerCommunityTags = ["전체", "공지", "입고 소식", "출고 후기", "관리 팁", "시세 정보", "SNS", "딜러 구인", "이벤트"] as const;
 type DealerCommunityTag = (typeof dealerCommunityTags)[number];
 
 function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
@@ -378,6 +378,8 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
     { category: "출고 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다. 먼 길 와 주셔서 감사합니다.", author: dealer.name, byDealer: true, time: "1일 전", views: 193, comments: 4, up: 21, down: 0, car: pick(1) },
     { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다. 겨울철에는 배터리 충전 상태를 한 번 더 확인해 주세요.", author: dealer.name, byDealer: true, time: "2일 전", views: 246, comments: 11, up: 32, down: 1 },
     { category: "시세 정보", title: "요즘 수입 SUV 시세, 상담하면서 느낀 점", copy: "연식 3~4년 차 수입 SUV는 주행거리보다 사고 이력과 보증 잔여 기간이 가격 차이를 더 크게 만듭니다. 비교하실 때 참고해 주세요.", author: dealer.name, byDealer: true, time: "4일 전", views: 412, comments: 17, up: 45, down: 3, car: pick(2) },
+    { category: "SNS", title: "인스타그램에 올린 출고 영상 반응이 좋아요", copy: "어제 올린 실내·외 워크어라운드 영상에 문의가 많았습니다. 영상 속 차량은 판매차량 탭의 SNS 판매 차량에서도 볼 수 있어요.", author: dealer.name, byDealer: true, time: "5일 전", views: 154, comments: 4, up: 19, down: 0, car: pick(3) },
+    { category: "딜러 구인", title: "함께 일할 딜러를 찾습니다", copy: "수입차 상담 경험이 있는 분이면 좋습니다. 상사 사무실과 전시 공간을 함께 씁니다. 관심 있는 분은 채팅으로 연락 주세요.", author: company, byDealer: false, time: "1주 전", views: 98, comments: 2, up: 7, down: 0 },
     { category: "이벤트", title: "이달 출고 고객 실내 클리닝 무료", copy: "이번 달 계약 후 출고하시는 고객님께 실내 클리닝을 무료로 해 드립니다. 자세한 조건은 상담 때 안내해 드릴게요.", author: company, byDealer: false, time: "6일 전", views: 167, comments: 3, up: 12, down: 0 },
   ];
   const notices = allPosts.filter((post) => post.category === "공지");
@@ -410,10 +412,8 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
             <time>{post.time}</time>
           </div>
           <button type="button" className="dp-notice-title" onClick={() => notify(post.title)}><i className="dp-notice-pin" aria-hidden="true" style={noticePinStyle} /><span className="dp-notice-title-text">{post.title}</span></button>
-          <div className={post.photo ? "dp-notice-body has-photo" : "dp-notice-body"}>
-            <p>{post.copy}</p>
-            {post.photo ? <img src={post.photo} alt="" loading="lazy" draggable={false} /> : null}
-          </div>
+          <p>{post.copy}</p>
+          {post.photo ? <span className="dp-notice-media"><img src={post.photo} alt="" loading="lazy" draggable={false} /></span> : null}
           <div className="dp-discussion-metrics is-notice" aria-label="게시물 반응">
             <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
             <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
