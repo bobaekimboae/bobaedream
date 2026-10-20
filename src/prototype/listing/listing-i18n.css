@@ -11,13 +11,16 @@
 .listing-language-menu strong { overflow: hidden; font-size: 14px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
 .listing-language-menu small { color: #7b8492; font-size: 10px; font-weight: 750; }
 .listing-language-menu i { font-size: 13px; font-style: normal; font-weight: 850; text-align: center; }
-.marketplace.is-bbm-m .top-bar.is-bbm:has(.listing-language) { grid-template-columns: 24px minmax(0, 1fr) 24px 66px !important; }
+.marketplace.is-bbm-m .top-bar.is-bbm:has(.listing-language) { grid-template-columns: 24px minmax(0, 1fr) 66px 24px !important; }
 .top-bar .listing-language { align-self: center; }
 .top-bar .listing-language-trigger { width: 66px; min-width: 66px; height: 38px; padding: 0 7px; gap: 5px; }
 .top-bar .listing-language-trigger > span { display: inline; }
 .top-bar .listing-language-trigger > i { display: inline; }
 .top-bar .listing-language-flag { width: 21px; height: 14px; }
-.top-bar .listing-language-menu { position: fixed; top: 58px; right: 10px; }
+.top-bar .listing-language-menu { position: fixed; top: 58px; right: 42px; }
+.bbm-header-search-slot > .listing-language { z-index: 140; }
+.bbm-header-search-slot > .listing-language .listing-language-trigger { height: 40px; }
+.bbm-header-search-slot > .listing-language .listing-language-menu { right: 0; }
 html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu { right: auto; left: 0; }
 html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu button { grid-template-columns: 18px 24px minmax(0,1fr) 24px; text-align: right; }
 html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu button i { grid-column: 1; grid-row: 1; }
@@ -39,6 +42,11 @@ html:not([data-listing-locale="ko"]) .kr-brand-initial { display: none; }
 
 @media (max-width: 1279px) {
   .listing-language-trigger { min-width: 66px; width: 66px; height: 38px; padding: 0 7px; }
+}
+
+@media (min-width: 1200px) {
+  .bbm-header-main:has(.bbm-header-search-slot > .listing-language) { grid-template-columns: minmax(0, 1fr) minmax(386px, 506px) minmax(max-content, 1fr) !important; }
+  html[data-listing-locale="ru"] .bbm-header-main:has(.bbm-header-search-slot > .listing-language) { grid-template-columns: minmax(120px, 1fr) minmax(386px, 506px) auto !important; }
 }
 
 @media (max-width: 520px) {

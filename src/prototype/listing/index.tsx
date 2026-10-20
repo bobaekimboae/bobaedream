@@ -675,8 +675,8 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
         <span className="search-divider" />
         <button type="button" className={`search-save${searchSaved ? " is-saved" : ""}`} aria-label={searchSaved ? "저장한 검색 조건 삭제" : "검색 조건 저장"} aria-pressed={searchSaved} onPointerDown={(event) => event.preventDefault()} onClick={onToggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : headerIcon("bookmark", "bookmark.svg")}</button>
       </label>
-      <button className="icon-button" type="button" aria-label="저장한 매물 열기" onClick={onOpenFavorites}>{headerIcon("heart", "heart.svg")}</button>
       <ListingLanguageSelect compact />
+      <button className="icon-button" type="button" aria-label="저장한 매물 열기" onClick={onOpenFavorites}>{headerIcon("heart", "heart.svg")}</button>
       {!bbm ? <button className="icon-button" type="button" aria-label="메시지">{headerIcon("chat", "message.svg")}</button> : null}
     </header>
     {bbm && searchOpen ? <section className="bbm-search-suggest" aria-label="검색어 추천" aria-live="polite">

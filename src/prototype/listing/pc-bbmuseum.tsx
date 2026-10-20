@@ -374,6 +374,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
           {searchSlot ? <div className="bbm-header-search-slot">
             {variant === "chotot" ? <button type="button" className="bbm-region-pill" aria-label="지역 선택, 현재 전국" onClick={() => onNotify("지역 선택은 목록 위 지역 줄에서 이용해 주세요.")}><img src={bbmAsset("header-location-chotot-v01")} alt="" aria-hidden="true" /><span>전국</span><BbIcon name="chevron-down" size={16} /></button> : null}
             {searchSlot}
+            <ListingLanguageSelect compact />
           </div> : null}
           {variant === "default" ? <div className="bbm-header-auth" aria-label="회원 메뉴">
             <button type="button" className="bbm-auth-icon" aria-label="관심 매물" onClick={onOpenFavorites}><BbIcon name="heart" size={24} /></button>
@@ -403,7 +404,6 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
                 <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("고객센터는 정식 서비스에서 이용해 주세요."); }}>고객센터</button>
               </div> : null}
             </div>
-            <ListingLanguageSelect />
           </div> : <div className={`bbm-header-actions is-${variant}`}>
             {variant === "chotot" ? <>
               <button type="button" className="bbm-act-icon" aria-label="찜" onClick={onOpenFavorites}><img src={bbmAsset("header-heart")} alt="" aria-hidden="true" /></button>
@@ -417,7 +417,6 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
               <button type="button" className="bbm-act-circle" aria-label="찜" onClick={onOpenFavorites}><img src={bbmAsset("header-heart")} alt="" aria-hidden="true" /></button>
               <button type="button" className="bbm-act-circle" aria-label="마이페이지" onClick={() => onNotify("로그인은 정식 서비스에서 이용해 주세요.")}><img src={bbmAsset("header-mypage")} alt="" aria-hidden="true" /></button>
             </>}
-            <ListingLanguageSelect />
           </div>}
         </div>
         <div className="bbm-gnb-row">
