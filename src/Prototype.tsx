@@ -79,7 +79,10 @@ export default function Prototype() {
   if (showRegister) return <><RegisterPage /><BuildBadge /></>;
   if (shouldShowCommunityFuelEconomy()) return <><CommunityFuelEconomyPage /><BuildBadge /></>;
   if (shouldShowCommunityReviews()) return <><CommunityVehicleReviewPage /><BuildBadge /></>;
-  if (shouldShowDealerPage()) return <><DealerPage /><BuildBadge /></>;
+  // DealerPage reuses localized listing cards, so it needs the same locale
+  // context as the marketplace route. Without it the standalone dealer URL
+  // crashes before React can render anything.
+  if (shouldShowDealerPage()) return <ListingLocaleProvider><DealerPage /><BuildBadge /></ListingLocaleProvider>;
   if (showMainHome) return <MainHome />;
 
   return <ListingLocaleProvider><FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider></ListingLocaleProvider>;
