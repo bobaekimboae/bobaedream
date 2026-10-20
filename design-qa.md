@@ -34,7 +34,7 @@ final result: passed
 ## 2026-10-21 딜러 헤더 배너 왼쪽 정렬 수정
 
 - Source visual truth: 직전 배포 캡처 `reports/design-qa/dealer-header-banner-2026-10-21/02-after-desktop.png` + 사용자 수정 지시(상사명 왼쪽, 설명 최대 2줄).
-- Browser-rendered implementation: `reports/design-qa/dealer-header-banner-2026-10-21/06-left-desktop.png`, `07-left-mobile.png`.
+- Browser-rendered implementation: `reports/design-qa/dealer-header-banner-2026-10-21/09-final-desktop.png`, `08-mobile-full-car.png`.
 - Viewports: desktop 1280×800 CSS px, mobile 390×844 CSS px, DPR 1.
 - State: 김태규 딜러페이지 판매차량 탭, 페라리 F80 헤더 배너.
 - Full-view comparison: 상사명과 설명이 왼쪽 안전영역으로 이동하고 우측에는 차량 후면과 메뉴 버튼이 남는다.
@@ -45,6 +45,13 @@ final result: passed
 - Image quality: passed — 공식 Ferrari F80 이미지와 선명도 유지.
 - Copy/content: passed — 상사명 전체 노출, 소개 최대 2줄.
 - Behavior/accessibility: passed — PC·모바일 가로 넘침 없음, 콘솔 오류 0건.
+
+### Comparison history
+
+- Pass 1 [P2, mobile imagery]: PC용 full-bleed crop을 모바일에 그대로 사용해 차량이 작고 일부만 보여 이미지 정체성이 약했다.
+- Fix: 모바일 배너 높이를 100–112px로 확보하고, 공식 Ferrari F80 원본을 오른쪽 78% 영역에 `object-fit: contain`으로 배치해 차체 전체가 보이도록 변경했다.
+- Pass 2: 모바일에서 붉은 Ferrari F80의 전체 실루엣·캐빈·휠이 확인되고, 왼쪽 상사명·2줄 설명과 겹치지 않는다. PC는 기존 full-bleed crop을 유지한다.
+- Post-fix evidence: `08-mobile-full-car.png`, `09-final-desktop.png`; 양쪽 콘솔 오류 0건.
 
 No actionable P0/P1/P2 differences remain.
 
