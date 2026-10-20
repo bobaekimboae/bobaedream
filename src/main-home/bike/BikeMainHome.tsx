@@ -7,6 +7,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { bikeScenarioV08 } from "../../prototype/bike/scenario-v08";
 import { bikeScenarioV11 } from "../../prototype/bike/scenario-v11";
+import { BikeFlag, bikeLocaleOptions, bikeMainCopies, localizeBikeBrand, readBikeLocale, type BikeLocale } from "./bike-main-i18n";
 import "./bike-main-home.css";
 
 const pic = (...parts: string[]) => parts.join("/");
@@ -15,8 +16,9 @@ const bikeThumb = (file: string) => (file.startsWith("v11/") ? bikeImg(file.repl
 
 type Row = (typeof bikeScenarioV11)[number];
 
-const listUrl = (params: Record<string, string> = {}) => {
-  const q = new URLSearchParams(params).toString();
+const listUrl = (params: Record<string, string> = {}, locale = readBikeLocale()) => {
+  const query = new URLSearchParams({ ...params, lang: locale });
+  const q = query.toString();
   return `./${q ? `?${q}` : ""}`;
 };
 
@@ -77,42 +79,60 @@ const heroMedia: Array<{
 type TabKey = "전체" | "중고" | "신차";
 const regions = ["전국", "서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "세종", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
 
-const won = (krw: number) => {
+const won = (krw: number, locale: BikeLocale, intl: string) => {
+  if (locale !== "ko") return `₩${krw.toLocaleString(intl)}`;
   const man = Math.round(krw / 10000);
   const eok = Math.floor(man / 10000);
   const rest = man % 10000;
   if (!eok) return `${man.toLocaleString("ko-KR")}만원`;
   return rest ? `${eok}억 ${rest.toLocaleString("ko-KR")}만원` : `${eok}억원`;
 };
-const km = (n: number) => (n >= 10000 ? `${(Math.round(n / 1000) / 10).toLocaleString("ko-KR")}만km` : `${n.toLocaleString("ko-KR")}km`);
+const km = (n: number, locale: BikeLocale, intl: string) => locale === "ko" && n >= 10000
+  ? `${(Math.round(n / 1000) / 10).toLocaleString("ko-KR")}만km`
+  : `${n.toLocaleString(intl)} km`;
 
 /* 썸네일 등록 시각(초톳처럼 사진 왼쪽 아래): 게시 0일 = N시간 전(매물 id로 정한 1~23, 가상 값), 그 밖 N일 전 */
-const postedAgo = (row: Row) => {
-  if (row.posted_days > 0) return `${row.posted_days}일 전`;
+const postedAgo = (row: Row, locale: BikeLocale, intl: string) => {
+  if (row.posted_days > 0) {
+    const n = row.posted_days.toLocaleString(intl);
+    if (locale === "en") return `${n} day${row.posted_days === 1 ? "" : "s"} ago`;
+    if (locale === "ru") return `${n} дн. назад`;
+    if (locale === "ar") return `قبل ${n} يوم`;
+    return `${n}일 전`;
+  }
   let h = 0;
   for (const ch of row.scenario_id) h = (h * 31 + ch.charCodeAt(0)) % 997;
-  return `${1 + (h % 23)}시간 전`;
+  const hours = 1 + (h % 23);
+  const n = hours.toLocaleString(intl);
+  if (locale === "en") return `${n} hour${hours === 1 ? "" : "s"} ago`;
+  if (locale === "ru") return `${n} ч. назад`;
+  if (locale === "ar") return `قبل ${n} ساعة`;
+  return `${n}시간 전`;
 };
 
 /* 인기 바이크 카드: 초톳(xe.chotot.com) 그리드 카드 1536 실측(2026-10-19) — 정사각 사진 반경 12, 사진 아래 10에 제목 16/23 2줄,
    사양 14/20 #8C8C8C 한 줄, 가격 16/24 700, 위치 아이콘 14 + 14/21, 좌우 안쪽 8 */
-function ChototCard({ row, saved, onSave }: { row: Row; saved: boolean; onSave: () => void }) {
+function ChototCard({ row, saved, onSave, locale }: { row: Row; saved: boolean; onSave: () => void; locale: BikeLocale }) {
+  const copy = bikeMainCopies[locale];
+  const option = bikeLocaleOptions.find(({ id }) => id === locale) ?? bikeLocaleOptions[0];
+  const genreIndex = genres.findIndex(([value]) => value === row.genre);
+  const regionIndex = regions.findIndex((value) => value === row.region.split(" ")[0]);
   return (
     <article className="bmh-ct-card">
       <a href={listUrl({ maker: row.brand })} className="bmh-ct-link">
         <span className="bmh-ct-photo">
           <img src={bikeThumb(row.image_file)} alt="" loading="lazy" />
-          <span className="bmh-ct-label">{postedAgo(row)}</span>
+          <span className="bmh-ct-label">{postedAgo(row, locale, option.intl)}</span>
         </span>
-        <span className="bmh-ct-title">{row.brand} {row.model} {row.year}</span>
-        <span className="bmh-ct-meta"><span>{row.year}</span><span>{row.genre}</span><span>{row.displacement_cc.toLocaleString("ko-KR")}cc</span><span>{km(row.mileage_km)}</span></span>
-        <span className="bmh-ct-price">{won(row.price_krw)}</span>
+        <span className="bmh-ct-title">{localizeBikeBrand(row.brand, locale)} {row.model} {row.year}</span>
+        <span className="bmh-ct-meta"><span>{row.year}</span><span>{genreIndex >= 0 ? copy.genres[genreIndex] : row.genre}</span><span>{row.displacement_cc.toLocaleString(option.intl)} cc</span><span>{km(row.mileage_km, locale, option.intl)}</span></span>
+        <span className="bmh-ct-price">{won(row.price_krw, locale, option.intl)}</span>
         <span className="bmh-ct-loc">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z" fill="currentColor" /></svg>
-          {row.region}
+          {regionIndex >= 0 ? `${copy.regions[regionIndex]}${row.region.includes(" ") ? ` ${row.region.split(" ").slice(1).join(" ")}` : ""}` : row.region}
         </span>
       </a>
-      <button type="button" className={saved ? "bmh-ct-save is-on" : "bmh-ct-save"} aria-pressed={saved} aria-label={saved ? "찜 해제" : "찜하기"} onClick={onSave}>
+      <button type="button" className={saved ? "bmh-ct-save is-on" : "bmh-ct-save"} aria-pressed={saved} aria-label={saved ? copy.unsave : copy.save} onClick={onSave}>
         <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-7.5-10.1A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8c0 5.5-7.5 10.1-7.5 10.1Z" fill={saved ? "#fff" : "rgba(0,0,0,.25)"} stroke="#fff" strokeWidth="1.8" strokeLinejoin="round" /></svg>
       </button>
     </article>
@@ -121,6 +141,10 @@ function ChototCard({ row, saved, onSave }: { row: Row; saved: boolean; onSave: 
 
 export default function BikeMainHome() {
   const rows = useMemo(() => [...bikeScenarioV08, ...bikeScenarioV11] as Row[], []);
+  const [locale, setLocale] = useState<BikeLocale>(readBikeLocale);
+  const [languageOpen, setLanguageOpen] = useState(false);
+  const copy = bikeMainCopies[locale];
+  const localeOption = bikeLocaleOptions.find(({ id }) => id === locale) ?? bikeLocaleOptions[0];
   const [hero] = useState(() => {
     const forced = new URLSearchParams(window.location.search).get("hero")?.toLowerCase() as HeroKey | undefined;
     return heroMedia.find((item) => item.key === forced) ?? heroMedia[Math.floor(Math.random() * heroMedia.length)];
@@ -140,17 +164,48 @@ export default function BikeMainHome() {
   const [headerQuery, setHeaderQuery] = useState("");
   const opener = useRef<HTMLButtonElement>(null);
   const closeBtn = useRef<HTMLButtonElement>(null);
+  const languageRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "보배드림 바이크 — 중고 바이크 사고팔기";
+    document.title = copy.documentTitle;
+    document.documentElement.lang = locale;
+    document.documentElement.dir = localeOption.dir;
+    window.localStorage.setItem("bbm-bike-language", locale);
+    const url = new URL(window.location.href);
+    if (url.searchParams.get("lang") !== locale) {
+      url.searchParams.set("lang", locale);
+      window.history.replaceState({}, "", url);
+    }
     // 공용 styles.css가 화면 고정(overflow hidden)을 걸어 두어 메인에서는 문서 스크롤을 다시 연다
     const targets = [document.documentElement, document.body, document.getElementById("root")].filter(Boolean) as HTMLElement[];
     const prev = targets.map((el) => [el.style.overflow, el.style.height] as const);
     targets.forEach((el) => { el.style.overflow = "visible"; el.style.height = "auto"; });
     document.documentElement.style.overflowY = "auto";
     return () => targets.forEach((el, i) => { el.style.overflow = prev[i][0]; el.style.height = prev[i][1]; });
-  }, []);
+  }, [copy.documentTitle, locale, localeOption.dir]);
   useEffect(() => { if (!toast) return undefined; const t = window.setTimeout(() => setToast(""), 2000); return () => window.clearTimeout(t); }, [toast]);
+  useEffect(() => {
+    const closeLanguage = (event: MouseEvent) => {
+      if (languageRef.current && !languageRef.current.contains(event.target as Node)) setLanguageOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLanguageOpen(false);
+    };
+    document.addEventListener("mousedown", closeLanguage);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("mousedown", closeLanguage);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, []);
+
+  const selectLocale = (nextLocale: BikeLocale) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("lang", nextLocale);
+    window.history.replaceState({}, "", url);
+    setLocale(nextLocale);
+    setLanguageOpen(false);
+  };
 
   const isNew = (r: Row) => r.year >= 2024 && r.mileage_km <= 1000;
   const inTab = (r: Row) => (tab === "신차" ? isNew(r) : tab === "중고" ? !isNew(r) : true) && (!genre || r.genre === genre);
@@ -221,50 +276,76 @@ export default function BikeMainHome() {
     if (maker) p.maker = maker;
     if (model) p.model = model;
     if (region !== "전국") p.region = region;
-    window.location.href = listUrl(p);
+    window.location.href = listUrl(p, locale);
   };
   const q = keyword.trim();
   const toggleSave = (id: string) => setSaved((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
 
   return (
-    <div className="bmh">
-      <header className="bmh-site-header" aria-label="보배드림 바이크">
+    <div className="bmh" lang={locale} dir={localeOption.dir}>
+      <header className="bmh-site-header" aria-label={copy.siteAria}>
         <div className="bmh-wrap bmh-site-header-main">
-          <a className="bmh-site-logo" href="./?home=as24" aria-label="보배드림 바이크 처음으로">
+          <a className="bmh-site-logo" href={listUrl({ home: "as24" }, locale)} aria-label={copy.homeAria}>
             <span className="bmh-site-logo-emblem bmh-site-logo-emblem--cycle"><img src={pic("..", "assets", "bike", "logo", "cycle-trader-symbol-orange.svg")} alt="" /></span>
-            <span className="bmh-site-logo-word">보배드림</span>
-            <span className="bmh-site-logo-badge">바이크</span>
+            <span className="bmh-site-logo-word">{copy.logoWord}</span>
+            <span className="bmh-site-logo-badge">{copy.logoBadge}</span>
           </a>
-          <form className="bmh-site-search" onSubmit={(event) => { event.preventDefault(); const query = headerQuery.trim(); if (query) window.location.href = listUrl({ search: query }); }}>
-            <input value={headerQuery} onChange={(event) => setHeaderQuery(event.currentTarget.value)} placeholder="어떤 바이크를 찾으세요?" aria-label="바이크 검색" />
-            <button type="submit" aria-label="검색"><img src={pic("..", "assets", "icons", "bb", "search.svg")} alt="" /></button>
+          <form className="bmh-site-search" onSubmit={(event) => { event.preventDefault(); const query = headerQuery.trim(); if (query) window.location.href = listUrl({ search: query }, locale); }}>
+            <input value={headerQuery} onChange={(event) => setHeaderQuery(event.currentTarget.value)} placeholder={copy.headerSearch} aria-label={copy.headerSearch} />
+            <button type="submit" aria-label={copy.search}><img src={pic("..", "assets", "icons", "bb", "search.svg")} alt="" /></button>
           </form>
-          <div className="bmh-site-actions" aria-label="회원 메뉴">
-            <button type="button" className="bmh-site-icon" aria-label="관심 매물" onClick={() => setToast(`찜한 매물 ${saved.size}대`)}><img src={pic("..", "assets", "icons", "bb", "heart.svg")} alt="" /></button>
-            <a className="bmh-site-login" href={listUrl({ home: "as24", auth: "login" })}>로그인/회원가입</a>
-            <a className="bmh-site-sell" href={listUrl({ register: "bike" })}>바이크 판매</a>
-            <button type="button" className="bmh-site-account" aria-label="로그인 및 계정 메뉴" onClick={() => setToast("계정 메뉴는 정식 서비스에서 이용해 주세요.")}>
+          <div className="bmh-site-actions" aria-label={copy.memberMenu}>
+            <button type="button" className="bmh-site-icon" aria-label={copy.saved} onClick={() => setToast(copy.savedToast(saved.size))}><img src={pic("..", "assets", "icons", "bb", "heart.svg")} alt="" /></button>
+            <a className="bmh-site-login" href={listUrl({ home: "as24", auth: "login" }, locale)}>{copy.login}</a>
+            <a className="bmh-site-sell" href={listUrl({ register: "bike" }, locale)}>{copy.sellBike}</a>
+            <button type="button" className="bmh-site-account" aria-label={copy.account} onClick={() => setToast(copy.accountToast)}>
               <span><img src={pic("..", "assets", "icons", "bb", "mypage.svg")} alt="" /></span>
               <img src={pic("..", "assets", "icons", "bb", "chevron-down.svg")} alt="" />
             </button>
+            <div className="bmh-language" ref={languageRef}>
+              <button
+                type="button"
+                className="bmh-language-trigger"
+                aria-label={copy.language}
+                aria-haspopup="menu"
+                aria-expanded={languageOpen}
+                onClick={() => setLanguageOpen((value) => !value)}
+              >
+                <BikeFlag locale={locale} />
+                <span className="bmh-language-code">{localeOption.code}</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m4 6 4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </button>
+              {languageOpen ? (
+                <div className="bmh-language-menu" role="menu" aria-label={copy.language}>
+                  {bikeLocaleOptions.map((option) => (
+                    <button key={option.id} type="button" role="menuitemradio" aria-checked={locale === option.id} className={locale === option.id ? "is-active" : ""} onClick={() => selectLocale(option.id)}>
+                      <BikeFlag locale={option.id} />
+                      <strong>{option.name}</strong>
+                      <small>{option.code}</small>
+                      <i aria-hidden="true">{locale === option.id ? "✓" : ""}</i>
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
         <div className="bmh-wrap bmh-site-nav-row">
-          <nav className="bmh-site-gnb" aria-label="주 메뉴">
-            <a href="./?home=as24">바이크 검색</a>
-            <a href={listUrl({ condition: "중고" })}>중고 바이크</a>
-            <a href={listUrl({ condition: "신차" })}>신차 바이크</a>
-            <button type="button" onClick={() => setToast("바이크샵은 준비 중입니다.")}>바이크샵</button>
-            <a href={listUrl({ category: "부품 · 용품", bikeMenu: "parts" })}>중고 용품·장비</a>
-            <a href="../community/bobaedream-pc-board-list.html?layout=reddit">커뮤니티</a>
+          <nav className="bmh-site-gnb" aria-label={copy.memberMenu}>
+            <a href={listUrl({ home: "as24" }, locale)}>{copy.nav[0]}</a>
+            <a href={listUrl({ condition: "중고" }, locale)}>{copy.nav[1]}</a>
+            <a href={listUrl({ condition: "신차" }, locale)}>{copy.nav[2]}</a>
+            <button type="button" onClick={() => setToast(copy.shopToast)}>{copy.nav[3]}</button>
+            <a href={listUrl({ category: "부품 · 용품", bikeMenu: "parts" }, locale)}>{copy.nav[4]}</a>
+            <a href={`../community/bobaedream-pc-board-list.html?layout=reddit&lang=${locale}`}>{copy.nav[5]}</a>
           </nav>
-          <a className="bmh-site-notice" href="../community/bobaedream-pc-board-list.html?layout=reddit">
-            <strong>공지</strong><span aria-hidden="true" /><em>새로운 보배드림 서비스 안내</em>
+          <a className="bmh-site-notice" href={`../community/bobaedream-pc-board-list.html?layout=reddit&lang=${locale}`}>
+            <strong>{copy.notice}</strong><span aria-hidden="true" /><em>{copy.noticeText}</em>
           </a>
         </div>
       </header>
 
-      <section className="bmh-hero" aria-label="소개">
+      <section className="bmh-hero" aria-label={copy.introAria}>
         <div className="bmh-hero-art" aria-hidden="true">
           <div className="bmh-hero-photo">
             <img className="bmh-hero-poster" src={hero.poster} alt="" />
@@ -281,34 +362,34 @@ export default function BikeMainHome() {
             ) : null}
           </div>
         </div>
-        <div className="bmh-wrap bmh-hero-copy"><span>보배드림 바이크</span><h1>보배드림이 만든<br />바이크 전문 매매 플랫폼</h1></div>
+        <div className="bmh-wrap bmh-hero-copy"><span>{copy.heroEyebrow}</span><h1>{copy.heroTitle[0]}<br />{copy.heroTitle[1]}</h1></div>
       </section>
 
       <div className="bmh-wrap">
-        <section className="bmh-search" aria-label="바이크 검색">
+        <section className="bmh-search" aria-label={copy.headerSearch}>
           <div className="bmh-row">
             <label className="bmh-field">
-              <span className={genre ? "is-filled" : ""}>{genre || "바이크 유형"}</span>
+              <span className={genre ? "is-filled" : ""}>{genre ? copy.genres[genres.findIndex(([value]) => value === genre)] : copy.bikeType}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              <select value={genre} onChange={(e) => setGenre(e.currentTarget.value)} aria-label="바이크 유형"><option value="">전체 유형</option>{genres.map(([label]) => <option key={label} value={label}>{label}</option>)}</select>
+              <select value={genre} onChange={(e) => setGenre(e.currentTarget.value)} aria-label={copy.bikeType}><option value="">{copy.allTypes}</option>{genres.map(([label], index) => <option key={label} value={label}>{copy.genres[index]}</option>)}</select>
             </label>
             <button ref={opener} type="button" className="bmh-field" onClick={openPicker} aria-haspopup="dialog">
-              <span className={maker ? "is-filled" : ""}>{maker ? (model ? `${maker} ${model}` : maker) : "제조사와 모델"}</span>
+              <span className={maker ? "is-filled" : ""}>{maker ? (model ? `${localizeBikeBrand(maker, locale)} ${model}` : localizeBikeBrand(maker, locale)) : copy.makerModel}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
             </button>
             <label className="bmh-field">
-              <span className={region !== "전국" ? "is-filled" : ""}>{region === "전국" ? "지역 (전국)" : region}</span>
+              <span className={region !== "전국" ? "is-filled" : ""}>{region === "전국" ? copy.regionAll : copy.regions[regions.indexOf(region)]}</span>
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
-              <select value={region} onChange={(e) => setRegion(e.currentTarget.value)} aria-label="지역">{regions.map((r) => <option key={r} value={r}>{r}</option>)}</select>
+              <select value={region} onChange={(e) => setRegion(e.currentTarget.value)} aria-label={copy.region}>{regions.map((r, index) => <option key={r} value={r}>{copy.regions[index]}</option>)}</select>
             </label>
-            <button type="button" className="bmh-cta" onClick={search}>{count.toLocaleString("ko-KR")}대 보기</button>
+            <button type="button" className="bmh-cta" onClick={search}>{count.toLocaleString(localeOption.intl)}{copy.viewUnit}</button>
           </div>
-          <h2 className="bmh-genres-title">장르로 바이크 찾기</h2>
+          <h2 className="bmh-genres-title">{copy.genreTitle}</h2>
           <div className="bmh-genres">
-            {genres.map(([label, file]) => (
-              <a key={label} href={listUrl({ genre: label })}>
+            {genres.map(([label, file], index) => (
+              <a key={label} href={listUrl({ genre: label }, locale)}>
                 <span><img src={pic("..", "assets", "bike", "types", "autoscout-v01", `${file}.png`)} alt="" loading="lazy" /></span>
-                {label}
+                {copy.genres[index]}
               </a>
             ))}
           </div>
@@ -316,18 +397,18 @@ export default function BikeMainHome() {
 
         <section className="bmh-abrand" aria-labelledby="bmh-abrand-title">
           <div className="bmh-abrand-head">
-            <h2 id="bmh-abrand-title"><button type="button" onClick={openPicker}>인기 브랜드<span className="bmh-abrand-go" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span></button></h2>
+            <h2 id="bmh-abrand-title"><button type="button" onClick={openPicker}>{copy.popularBrands}<span className="bmh-abrand-go" aria-hidden="true"><svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M2 8h11M9 3.5 13.5 8 9 12.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span></button></h2>
             <div className="bmh-abrand-nav">
-              <button type="button" aria-label="이전 브랜드" disabled={!brandEdge.prev} onClick={() => scrollBrands(-1)}><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
-              <button type="button" aria-label="다음 브랜드" disabled={!brandEdge.next} onClick={() => scrollBrands(1)}><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
+              <button type="button" aria-label={copy.previousBrand} disabled={!brandEdge.prev} onClick={() => scrollBrands(-1)}><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
+              <button type="button" aria-label={copy.nextBrand} disabled={!brandEdge.next} onClick={() => scrollBrands(1)}><svg width="12" height="12" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></button>
             </div>
           </div>
           <div className="bmh-abrand-row" ref={brandRow} onScroll={updateBrandEdge}>
             {brandRail.map(([name, file, n]) => (
-              <a key={name} href={listUrl({ maker: name })}>
+              <a key={name} href={listUrl({ maker: name }, locale)}>
                 <span className="bmh-abrand-tile"><img src={pic("..", "assets", "bike", "logos", "lightwagen-trim", file)} alt="" loading="lazy" /></span>
-                <strong>{name}</strong>
-                <small>매물 {n.toLocaleString("ko-KR")}대</small>
+                <strong>{localizeBikeBrand(name, locale)}</strong>
+                <small>{copy.listingCount} {n.toLocaleString(localeOption.intl)}</small>
               </a>
             ))}
           </div>
@@ -336,96 +417,96 @@ export default function BikeMainHome() {
         <section className="bmh-sell" aria-labelledby="bmh-sell-title">
           <div className="bmh-sell-lead">
             <span className="bmh-sell-swoosh" aria-hidden="true" />
-            <h2 id="bmh-sell-title">내 바이크,<br />지금 팔아볼까요?</h2>
+            <h2 id="bmh-sell-title">{copy.sellLead[0]}<br />{copy.sellLead[1]}</h2>
             <img src={pic("..", "assets", "bike", "models", "harley-davidson", "BKM005-G001.png")} alt="" aria-hidden="true" />
           </div>
           <div className="bmh-sell-card is-fast">
-            <span className="bmh-sell-flag">가장 빠름</span>
-            <h3>업체에 바로 팔기</h3>
-            <ul><li>등록 무료</li><li>당일 견적</li><li>빠른 입금</li><li>번거로움 최소</li></ul>
-            <a className="bmh-solid" href={listUrl({ register: "bike" })}>업체에 팔기</a>
+            <span className="bmh-sell-flag">{copy.fastest}</span>
+            <h3>{copy.sellDealerTitle}</h3>
+            <ul>{copy.sellDealerBullets.map((item) => <li key={item}>{item}</li>)}</ul>
+            <a className="bmh-solid" href={listUrl({ register: "bike" }, locale)}>{copy.sellDealerButton}</a>
           </div>
           <div className="bmh-sell-card">
-            <h3>직접 올려 팔기</h3>
-            <ul><li>무료로 매물 등록</li><li>가장 많은 사람에게 노출</li><li>원하는 가격에 판매</li><li>채팅으로 안전하게 거래</li></ul>
-            <a className="bmh-outline" href={listUrl({ register: "bike" })}>직접 팔기</a>
+            <h3>{copy.sellDirectTitle}</h3>
+            <ul>{copy.sellDirectBullets.map((item) => <li key={item}>{item}</li>)}</ul>
+            <a className="bmh-outline" href={listUrl({ register: "bike" }, locale)}>{copy.sellDirectButton}</a>
           </div>
         </section>
 
         <section className="bmh-sec" aria-labelledby="bmh-popular">
-          <h2 id="bmh-popular" className="bmh-h2">인기 바이크</h2>
-          <div className="bmh-ct-grid">{popular.map((r) => <ChototCard key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} />)}</div>
+          <h2 id="bmh-popular" className="bmh-h2">{copy.popular}</h2>
+          <div className="bmh-ct-grid">{popular.map((r) => <ChototCard key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} locale={locale} />)}</div>
         </section>
 
         <section className="bmh-sec" aria-labelledby="bmh-fresh">
-          <h2 id="bmh-fresh" className="bmh-h2">오늘 올라온 매물</h2>
-          <div className="bmh-ct-grid">{fresh.map((r) => <ChototCard key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} />)}</div>
+          <h2 id="bmh-fresh" className="bmh-h2">{copy.fresh}</h2>
+          <div className="bmh-ct-grid">{fresh.map((r) => <ChototCard key={r.scenario_id} row={r} saved={saved.has(r.scenario_id)} onSave={() => toggleSave(r.scenario_id)} locale={locale} />)}</div>
         </section>
 
         <section className="bmh-news" aria-labelledby="bmh-news-title">
           <div className="bmh-news-copy">
-            <h2 id="bmh-news-title">새 매물 소식을 메일로 받아보세요</h2>
-            <p>관심 브랜드의 새 매물과 시세 변화를 주 1회 정리해 보내드려요.</p>
-            <form onSubmit={(e) => { e.preventDefault(); setToast("시안에서는 메일을 보내지 않습니다."); }}>
-              <input type="email" placeholder="이메일 주소" aria-label="이메일 주소" />
-              <button type="submit">소식 받기</button>
+            <h2 id="bmh-news-title">{copy.newsletterTitle}</h2>
+            <p>{copy.newsletterBody}</p>
+            <form onSubmit={(e) => { e.preventDefault(); setToast(copy.emailToast); }}>
+              <input type="email" placeholder={copy.email} aria-label={copy.email} />
+              <button type="submit">{copy.subscribe}</button>
             </form>
           </div>
           <span className="bmh-news-art" aria-hidden="true"><span /><img src={pic("..", "assets", "bike", "models", "honda", "BKM001-G005.png")} alt="" /></span>
         </section>
 
         <section className="bmh-seo" aria-labelledby="bmh-seo-title">
-          <h2 id="bmh-seo-title">보배드림 바이크에서 찾아보세요</h2>
-          <h3>인기 모델</h3>
+          <h2 id="bmh-seo-title">{copy.seoTitle}</h2>
+          <h3>{copy.popularModels}</h3>
           <div className="bmh-seo-cols">
             {brandModels.map(([brand, models]) => (
               <div key={brand}>
-                <h4>{brand}</h4>
-                {models.map((m) => <a key={m} href={listUrl({ maker: brand, model: m })}>{m}</a>)}
+                <h4>{localizeBikeBrand(brand, locale)}</h4>
+                {models.map((m) => <a key={m} href={listUrl({ maker: brand, model: m }, locale)}>{m}</a>)}
               </div>
             ))}
           </div>
-          <h3>장르별</h3>
-          <div className="bmh-seo-inline">{genres.map(([g]) => <a key={g} href={listUrl()}>{g} 중고</a>)}</div>
+          <h3>{copy.byGenre}</h3>
+          <div className="bmh-seo-inline">{genres.map(([g], index) => <a key={g} href={listUrl({ genre: g }, locale)}>{copy.genres[index]} {copy.usedSuffix}</a>)}</div>
         </section>
       </div>
 
       <footer className="bmh-footer">
         <div className="bmh-wrap">
-          <strong>보배드림 바이크</strong>
-          <span>바이크 메인 시안 v01 · 매물은 바이크 가상 매물 v08 · v11 기준입니다.</span>
+          <strong>{copy.siteAria}</strong>
+          <span>{copy.footer}</span>
         </div>
       </footer>
 
       {open ? (
         <div className="bmh-layer">
-          <button type="button" className="bmh-dim" aria-label="닫기" onClick={closePicker} />
+          <button type="button" className="bmh-dim" aria-label={copy.close} onClick={closePicker} />
           <div className="bmh-modal" role="dialog" aria-modal="true" aria-labelledby="bmh-modal-title">
             <header>
               {step === "model" ? (
-                <button type="button" className="bmh-icon" aria-label="제조사로 돌아가기" onClick={() => { setStep("maker"); setKeyword(""); }}>
+                <button type="button" className="bmh-icon" aria-label={copy.backToMaker} onClick={() => { setStep("maker"); setKeyword(""); }}>
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 5-7 7 7 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg>
                 </button>
               ) : <span />}
-              <h2 id="bmh-modal-title">{step === "maker" ? "제조사" : draftMaker}</h2>
-              <button ref={closeBtn} type="button" className="bmh-icon" aria-label="닫기" onClick={closePicker}>
+              <h2 id="bmh-modal-title">{step === "maker" ? copy.manufacturer : localizeBikeBrand(draftMaker, locale)}</h2>
+              <button ref={closeBtn} type="button" className="bmh-icon" aria-label={copy.close} onClick={closePicker}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
               </button>
             </header>
             <div className="bmh-modal-search">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="11" cy="11" r="7" stroke="currentColor" strokeWidth="1.8" /><path d="m20 20-4-4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
-              <input value={keyword} onChange={(e) => setKeyword(e.currentTarget.value)} placeholder={step === "maker" ? "제조사 검색" : "모델 검색"} aria-label="검색" />
+              <input value={keyword} onChange={(e) => setKeyword(e.currentTarget.value)} placeholder={step === "maker" ? copy.makerSearch : copy.modelSearch} aria-label={copy.search} />
             </div>
             <div className="bmh-modal-body">
-              <h3>{step === "maker" ? "인기 제조사" : "모델"}</h3>
+              <h3>{step === "maker" ? copy.popularMaker : copy.model}</h3>
               <ul>
-                {step === "model" ? <li><button type="button" className={!draftModel ? "is-on" : ""} onClick={() => setDraftModel("")}><span>{draftMaker} 전체</span><em>{countOf(draftMaker, "")}</em></button></li> : null}
+                {step === "model" ? <li><button type="button" className={!draftModel ? "is-on" : ""} onClick={() => setDraftModel("")}><span>{copy.allMaker(localizeBikeBrand(draftMaker, locale))}</span><em>{countOf(draftMaker, "").toLocaleString(localeOption.intl)}</em></button></li> : null}
                 {(step === "maker" ? makerList : modelList).filter(([n]) => !q || n.toLowerCase().includes(q.toLowerCase())).map(([n, c]) => (
                   <li key={n}>
                     <button type="button" className={(step === "maker" ? draftMaker : draftModel) === n ? "is-on" : ""} onClick={() => {
                       if (step === "maker") { setDraftMaker(n); setDraftModel(""); setStep("model"); setKeyword(""); } else setDraftModel(n);
                     }}>
-                      <span>{n}</span><em>{c}</em>
+                      <span>{step === "maker" ? localizeBikeBrand(n, locale) : n}</span><em>{c.toLocaleString(localeOption.intl)}</em>
                       {step === "maker" ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" /></svg> : null}
                     </button>
                   </li>
@@ -433,8 +514,8 @@ export default function BikeMainHome() {
               </ul>
             </div>
             <footer>
-              <button type="button" className="bmh-reset" disabled={!draftMaker} onClick={() => { setDraftMaker(""); setDraftModel(""); setStep("maker"); }}>초기화</button>
-              <button type="button" className="bmh-cta" onClick={() => { setMaker(draftMaker); setModel(draftModel); closePicker(); }}>{countOf(draftMaker, draftModel).toLocaleString("ko-KR")}대 보기</button>
+              <button type="button" className="bmh-reset" disabled={!draftMaker} onClick={() => { setDraftMaker(""); setDraftModel(""); setStep("maker"); }}>{copy.reset}</button>
+              <button type="button" className="bmh-cta" onClick={() => { setMaker(draftMaker); setModel(draftModel); closePicker(); }}>{countOf(draftMaker, draftModel).toLocaleString(localeOption.intl)}{copy.viewUnit}</button>
             </footer>
           </div>
         </div>
