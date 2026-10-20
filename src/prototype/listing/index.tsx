@@ -487,6 +487,21 @@ const domesticModelsByBodyType: Record<string, ReadonlyArray<readonly [maker: st
   리무진: [["현대", "에쿠스"], ["현대", "그랜저"], ["기아", "K9"], ["기아", "카니발"], ["제네시스", "G80"]],
 };
 
+// 수입차도 국산차와 같은 바디타입 → 대표 모델 직행 구조를 쓴다.
+// 모델명은 차량 기준표의 제조사별 1뎁스 이름과 일치시켜 선택 뒤 세대 단계로 바로 이어지게 한다.
+const importedModelsByBodyType: Record<string, ReadonlyArray<readonly [maker: string, model: string]>> = {
+  세단: [["BMW", "5시리즈"], ["벤츠", "E-클래스"], ["아우디", "A6"], ["볼보", "S90"], ["렉서스", "ES"], ["테슬라", "모델 3"], ["포르쉐", "파나메라"], ["마세라티", "기블리"], ["롤스로이스", "고스트"]],
+  해치백: [["BMW", "1시리즈"], ["벤츠", "A-클래스"], ["아우디", "A3"], ["미니", "쿠퍼"], ["폭스바겐", "골프"], ["볼보", "V40"], ["렉서스", "CT200h"], ["혼다", "시빅"], ["포드", "포커스"]],
+  왜건: [["BMW", "3시리즈"], ["벤츠", "E-클래스"], ["아우디", "A4"], ["아우디", "A6"], ["볼보", "V60"], ["볼보", "V90"], ["폭스바겐", "파사트"], ["미니", "클럽맨"]],
+  쿠페: [["BMW", "4시리즈"], ["벤츠", "CLE-클래스"], ["아우디", "TT"], ["포르쉐", "911"], ["페라리", "296"], ["람보르기니", "우라칸"], ["벤틀리", "컨티넨탈"], ["마세라티", "그란투리스모"], ["렉서스", "RC"]],
+  컨버터블: [["BMW", "Z4"], ["벤츠", "SL-클래스"], ["포르쉐", "718"], ["미니", "쿠퍼 컨버터블"], ["페라리", "포르토피노"], ["롤스로이스", "던"], ["마세라티", "그란카브리오"], ["렉서스", "SC"]],
+  SUV: [["BMW", "X5"], ["벤츠", "GLE-클래스"], ["아우디", "Q8"], ["포르쉐", "카이엔"], ["랜드로버", "레인지로버"], ["볼보", "XC90"], ["렉서스", "RX"], ["테슬라", "모델 Y"], ["람보르기니", "우루스"]],
+  RV: [["벤츠", "B-클래스"], ["벤츠", "R-클래스"], ["BMW", "2시리즈"], ["BMW", "그란투리스모 (GT)"], ["미니", "컨트리맨"], ["미니", "클럽맨"], ["렉서스", "LM"], ["도요타", "시에나"], ["혼다", "오딧세이"]],
+  "밴(승합)": [["벤츠", "V-클래스"], ["벤츠", "스프린터"], ["폭스바겐", "멀티밴"], ["포드", "트랜짓"], ["포드", "E-Series"], ["GMC", "사바나"], ["도요타", "알파드"], ["도요타", "시에나"], ["혼다", "오딧세이"]],
+  픽업트럭: [["테슬라", "사이버트럭"], ["지프", "글래디에이터"], ["포드", "F150"], ["포드", "F250"], ["포드", "레인저"], ["GMC", "시에라"], ["GMC", "캐니언"], ["도요타", "타코마"], ["도요타", "툰드라"]],
+  리무진: [["BMW", "7시리즈"], ["벤츠", "S-클래스"], ["아우디", "A8"], ["렉서스", "LS"], ["롤스로이스", "팬텀"], ["벤틀리", "플라잉스퍼"], ["마세라티", "콰트로포르테"]],
+};
+
 function carBodyQuickImage(assetName: string, brand: CarBodyBrandTheme) {
   if (brand === "hyundai" && assetName === "convertible") {
     return asset("car/body-types/v02/hyundai/body_convertible_kia_elan_side_v02.png");
@@ -2137,9 +2152,14 @@ function MarketplaceScreen() {
   const showCarBodyTypeRail = Boolean(isGuaziQuickStyle && !maker && (category === "국산차" || category === "수입차") && !useCarBodyPillRail);
   const selectedCarBodyTypes = bbmValue.checks.bodyType ?? [];
   const selectedCarBodyType = selectedCarBodyTypes[0] ?? null;
-  const domesticBodyModelOptions = useMemo(() => {
-    if (category !== "국산차" || !selectedCarBodyType) return [];
-    return (domesticModelsByBodyType[selectedCarBodyType] ?? []).flatMap(([makerName, modelName]) => {
+  const bodyModelOptions = useMemo(() => {
+    const modelsByBodyType = category === "국산차"
+      ? domesticModelsByBodyType
+      : category === "수입차"
+        ? importedModelsByBodyType
+        : null;
+    if (!modelsByBodyType || !selectedCarBodyType) return [];
+    return (modelsByBodyType[selectedCarBodyType] ?? []).flatMap(([makerName, modelName]) => {
       if (!(modelsByMakerMap[makerName] ?? []).includes(modelName)) return [];
       const visual = modelVisualsByMakerMap[makerName]?.[modelName] ?? guaziModelVisualsByMaker[makerName]?.[modelName];
       const matchingCars = listingCars.filter((car) => car.maker === makerName && (
@@ -2164,7 +2184,7 @@ function MarketplaceScreen() {
     const nextValues = selectedCarBodyTypes.includes(bodyType) ? [] : [bodyType];
     setBbmFilters(setBbmChecks(bbmValue, "bodyType", nextValues));
   };
-  const chooseDomesticBodyModel = (makerName: string, modelName: string) => {
+  const chooseBodyModel = (makerName: string, modelName: string) => {
     applyVehicleSummarySelection(makerName, modelName, null);
   };
   // 트럭은 형식 → 차급 → 적재중량(톤수)을 확정한 다음 단계에서만 제조사 로고를 노출한다.
@@ -2634,9 +2654,9 @@ function MarketplaceScreen() {
         ))}
       </QuickRailCarousel>
     </section>
-    {category === "국산차" && selectedCarBodyType && domesticBodyModelOptions.length ? <section className="depth-rail no-label is-body-direct-model-row" aria-label={`${selectedCarBodyType} 모델 빠른 선택`}>
+    {selectedCarBodyType && bodyModelOptions.length ? <section className="depth-rail no-label is-body-direct-model-row" aria-label={`${selectedCarBodyType} 모델 빠른 선택`}>
       <QuickRailCarousel ariaLabel={`${selectedCarBodyType} 모델`} className="brand-carousel" contentClassName="depth-rail-track is-body-direct-model-track">
-        {domesticBodyModelOptions.map((option) => {
+        {bodyModelOptions.map((option) => {
           const modelImage = option.visual?.image
             ? supportsVehicleCatalog && vehicleCatalog.index
               ? <CatalogVehicleImage path={option.visual.image} name={option.model} compact />
@@ -2653,7 +2673,7 @@ function MarketplaceScreen() {
             image={modelImage}
             imageFit={option.visual?.bodyFit ?? "width"}
             isEV={option.visual?.isEV}
-            onClick={() => chooseDomesticBodyModel(option.maker, option.model)}
+            onClick={() => chooseBodyModel(option.maker, option.model)}
           />;
         })}
       </QuickRailCarousel>

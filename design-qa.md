@@ -30,6 +30,36 @@ final result: passed
 
 ---
 
+## 2026-10-20 수입차 바디타입 → 모델 직행
+
+- Source visual truth: `reports/imported-body-direct/source-domestic-sedan.png` (국산차 세단 선택 상태, 1280×720px).
+- Implementation screenshots: `reports/imported-body-direct/implementation-sedan.png`, `reports/imported-body-direct/implementation-suv.png` (수입차 세단·SUV 선택 상태, 각 1280×720px).
+- Combined comparison evidence: `reports/imported-body-direct/domestic-imported-sedan-comparison.png` (국산차 기준과 수입차 구현을 동일 뷰포트에서 좌우 비교).
+- Route/state: PC `qf=guazi&pc=1`, 국산차/수입차의 바디타입 `세단` 선택 상태와 수입차 `SUV` 선택 상태.
+
+### 비교 결과
+
+- Full view: 국산차와 수입차 모두 `선택 카테고리 → 바디타입 알약칩 → 대표 모델 카드` 순서로 동일하게 전환되며 카드 전체 높이와 아래 결과 목록 기준선이 유지된다.
+- Focused region: 바디타입 선택 전 제조사 로고 레일이 선택 후 모델 차량 이미지 레일로 교체되고, 모델명·제조사·매물 수 정보가 동일한 슬롯 규칙으로 노출된다.
+- Interaction: 수입차 `세단`에서 BMW 5시리즈를 선택하면 URL에 `maker=BMW&model=5시리즈`가 반영되고 G60/G30/F10/E60 세대 카드로 이어진다. 수입차 `SUV`도 X5/GLE/Q8/카이엔/레인지로버/XC90/RX/모델 Y/우루스 모델 카드로 전환된다.
+- Coverage: 세단·해치백·왜건·쿠페·컨버터블·SUV·RV·밴(승합)·픽업트럭·리무진 10개 바디타입의 제조사/모델 조합이 차량 카탈로그 1뎁스와 일치하는지 전수 대조했다.
+
+### Required fidelity surfaces
+
+- Fonts and typography: passed — 국산차 모델 카드의 모델명/제조사/매물 수 위계를 그대로 재사용한다.
+- Spacing and layout rhythm: passed — 바디타입 행과 모델 레일, 결과 영역의 세로 기준선이 국산차와 동일하다.
+- Colors and tokens: passed — 활성 검정 알약칩, 비활성 외곽선 칩, 흰 배경과 회색 보조 텍스트를 유지한다.
+- Image quality/assets: passed — 기존 차량 카탈로그의 모델 이미지를 비율 왜곡 없이 동일한 카드 슬롯에 렌더링한다.
+- Copy/content: passed — 수입차 카탈로그의 제조사 및 모델 정식 명칭으로 노출된다.
+- Interaction/accessibility: passed — 바디타입 선택, 모델 선택, URL 동기화, 세대 단계 전환이 동작하며 브라우저 콘솔 경고/오류는 0건이다.
+- Regression: passed — `npm run verify:qf`에서 모바일 런타임 보호, TypeScript, Vite 프로덕션 빌드를 통과했다.
+
+- P0/P1/P2 findings: none remaining.
+
+final result: passed
+
+---
+
 ## 2026-10-20 수입차 PC 전체 폭 퀵필터 통일
 
 - Source visual truth: `reports/imported-full-quick-filter/source-domestic.png`
