@@ -31,48 +31,15 @@ final result: passed
 
 ---
 
-## 2026-10-21 판매점 리뷰 피드 프사·작성자 정렬 교정
+## 2026-10-21 판매점 리뷰 초톳형 원복
 
-- Cross-check baseline: 딜러 커뮤니티의 네이버 토론형 카드 `.dp-discussion-identity`.
-- Browser-rendered implementation: `reports/design-qa/dealer-store-review-2026-10-21/08-mobile-avatar-alignment.png` (390×844 px, DPR 1).
-- 발견 오류: 리뷰 프사에도 작성자 래퍼용 `span` 규칙이 덮여 `display:grid`가 `display:flex`로 바뀌면서 이니셜이 원 안에서 왼쪽으로 밀림.
-- 교정: 프사와 작성자 래퍼 선택자를 분리하고, 토론형 기준에 맞춰 프사 28→24px, identity 높이 28→24px, 간격 8→6px, 작성자 굵기 650→600, 카드 패딩 14/13→13/14px로 통일.
-- 모바일 측정(390×844): 카드 356px, 콘텐츠 324px, 프사 24×24px, 작성자·시간 18px 높이 및 동일 수직 기준선.
-- 동작 회귀: 도움돼요 4→5, 리뷰 쓰기 dialog 노출, console warnings/errors 0.
+- 기준: 네이버 토론형 전환 직전 초톳형 판매점 리뷰 구현(`722871aa`).
+- 구현 캡처: `reports/design-qa/dealer-store-review-restore-2026-10-21/01-mobile-chotot-restored.png` (390×844 px, DPR 1).
+- 원복 범위: 중앙 평점·흰색 테두리 리뷰쓰기, 평가 키워드, 3분할 유형 탭, 32px 프사, 들여쓰기형 본문·키워드·별점·차량·딜러답글.
+- 제거 범위: 토론형 말머리, 실거래 인증 행, 우측 시간, 도움돼요·답글 반응 행.
+- 동작 확인: 친절한 상담 7건, 내차 판매 1건, 리뷰 작성 dialog 열기·닫기, console warnings/errors 0.
 
-No actionable P0/P1/P2 differences remain.
-
-final result: passed
-
-
----
-
-## 2026-10-21 판매점 리뷰 · 네이버 토론형 피드 전환
-
-- Source visual truth path: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/50e68619-b551-409d-a345-2c4fb272934f/1-1000018886.jpg` (591×1280 px).
-- Browser-rendered implementation: Codex in-app Browser capture of `http://127.0.0.1:4352/?profile=dealer&shop=450554&emp=1&qf=guazi&tab=reviews&v=review-feed`.
-- Viewports: mobile 390×844 CSS px / DPR 1; desktop 1280×720 CSS px / DPR 1.
-- State: 판매점리뷰 전체 17개, 첫 리뷰와 딜러 답글 노출, 리뷰 작성 모달 열림, 도움돼요 선택 상태.
-- Full-view comparison evidence: 첨부 원본의 평점·키워드·유형 탭 구조는 유지하면서, 구현본은 요청에 따라 리뷰 목록만 프로젝트의 네이버 토론형 피드 밀도와 구분선 규칙으로 전환했다.
-- Focused comparison evidence: 모바일 평점 행, 92×36px 리뷰 쓰기 CTA, 작성자 28px 아바타, 실거래 인증, 15/23px 본문, 차량 요약, 답글, 도움돼요·답글 반응 행을 확대 확인했다.
-
-### Comparison history
-
-- Pass 1 [P1, CTA hierarchy]: 원본은 리뷰 쓰기 버튼이 평점 아래 중앙에 커서 요약 정보의 흐름을 끊었다. 평점 우측의 92×36px 검정 보조 CTA로 이동하고 한 행으로 정리했다.
-- Pass 1 [P2, feed structure]: 기존 리뷰 카드는 작성자·본문·태그·별점·차량 정보가 서로 다른 들여쓰기를 써 토론 피드와 밀도가 달랐다. 말머리 → 작성자/시간 → 별점 → 본문 → 키워드 → 차량 → 딜러 답글 → 반응 순으로 평탄화했다.
-- Pass 2: 모바일 390×844에서 CTA와 별점이 겹치지 않고, 카드 좌우 16px와 1px 구분선이 유지된다. PC 1280×720에서는 기존 320px 판매자 레일 + 668px 리뷰 열을 보존했다.
-- Behavior: 리뷰 쓰기 모달 열기/닫기, 유형 필터, 키워드 필터, 도움돼요 4→5 토글을 확인했다. 콘솔 오류 0건.
-
-### Required fidelity surfaces
-
-- Typography: passed — Pretendard 유지; 본문 15/23px, 작성자 13/18px, 메타 11.5~12px로 토론 피드 위계를 통일했다.
-- Spacing/layout: passed — 평점/CTA 한 행, 카드 14×16px 패딩, 8~12px 내부 리듬, 모바일 가로 오버플로 없음.
-- Colors/tokens: passed — `#222` CTA와 선택 상태, `#f4f5f6` 말머리·키워드, `#eceef0` 구분선을 기존 토론 피드와 공유한다.
-- Image quality: passed — 기존 실제 차량 썸네일만 재사용하며 54×54px `object-fit: cover` 규칙을 유지했다.
-- Copy/content: passed — 차량 구매/내차 판매, 만족도 문구, 실거래 인증, 리뷰 본문과 차량 가격을 모두 유지했다.
-- Accessibility/interactions: passed — 리뷰 쓰기, 역할 탭, 키워드 토글, 도움돼요 `aria-pressed`, 답글 버튼과 라이브 결과 상태를 확인했다.
-
-No actionable P0/P1/P2 differences remain for the requested review-feed customization.
+No actionable P0/P1/P2 differences remain for the requested rollback.
 
 final result: passed
 
