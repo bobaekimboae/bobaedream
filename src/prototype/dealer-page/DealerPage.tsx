@@ -437,13 +437,9 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
           <strong>{post.author}</strong>
           <time>{post.time}</time>
         </div>
-        <div className={post.car ? "dp-thumb-row has-thumb" : "dp-thumb-row"}>
-          <div className="dp-thumb-text">
-            <button type="button" className="dp-discussion-title" onClick={() => notify(post.title)}>{post.title}</button>
-            <p className="dp-discussion-body">{post.copy}</p>
-          </div>
-          {post.car ? <button type="button" className="dp-discussion-media" onClick={() => notify(post.title)} aria-label={`${post.title} 사진 보기`}><img src={asset(post.car.image)} alt="" draggable={false} loading="lazy" /></button> : null}
-        </div>
+        <button type="button" className="dp-discussion-title" onClick={() => notify(post.title)}>{post.title}</button>
+        <p className="dp-discussion-body">{post.copy}</p>
+        {post.car ? <button type="button" className="dp-discussion-media" onClick={() => notify(post.title)} aria-label={`${post.title} 사진 보기`}><img src={asset(post.car.image)} alt="" draggable={false} loading="lazy" /></button> : null}
         <div className="dp-discussion-metrics" aria-label="게시물 반응">
           <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
           <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
