@@ -726,7 +726,7 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
           <div className="dp-review-feed-chips"><span>{review.role === "buyer" ? "차량 구매" : "내차 판매"}</span><span>{REVIEW_RATING_COPY[Math.round(review.score)]}</span></div>
           <header className="dp-review-feed-identity">
             <span className="dp-review-avatar" aria-hidden="true">{review.name.slice(0, 1)}</span>
-            <span><b>{review.name}</b><small>실거래 인증</small></span>
+            <span className="dp-review-author"><b>{review.name}</b><small>실거래 인증</small></span>
             <time>{review.date}</time>
           </header>
           <div className="dp-review-meta"><b>{review.score.toFixed(1)}</b><Stars score={review.score} /></div>

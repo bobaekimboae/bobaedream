@@ -31,6 +31,22 @@ final result: passed
 
 ---
 
+## 2026-10-21 판매점 리뷰 피드 프사·작성자 정렬 교정
+
+- Cross-check baseline: 딜러 커뮤니티의 네이버 토론형 카드 `.dp-discussion-identity`.
+- Browser-rendered implementation: `reports/design-qa/dealer-store-review-2026-10-21/08-mobile-avatar-alignment.png` (390×844 px, DPR 1).
+- 발견 오류: 리뷰 프사에도 작성자 래퍼용 `span` 규칙이 덮여 `display:grid`가 `display:flex`로 바뀌면서 이니셜이 원 안에서 왼쪽으로 밀림.
+- 교정: 프사와 작성자 래퍼 선택자를 분리하고, 토론형 기준에 맞춰 프사 28→24px, identity 높이 28→24px, 간격 8→6px, 작성자 굵기 650→600, 카드 패딩 14/13→13/14px로 통일.
+- 모바일 측정(390×844): 카드 356px, 콘텐츠 324px, 프사 24×24px, 작성자·시간 18px 높이 및 동일 수직 기준선.
+- 동작 회귀: 도움돼요 4→5, 리뷰 쓰기 dialog 노출, console warnings/errors 0.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
 ## 2026-10-21 판매점 리뷰 · 네이버 토론형 피드 전환
 
 - Source visual truth path: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/50e68619-b551-409d-a345-2c4fb272934f/1-1000018886.jpg` (591×1280 px).
