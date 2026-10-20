@@ -8,7 +8,7 @@
 - 브라우저 콘솔 오류: 0
 - 왼쪽 정렬 수정 PC: `06-left-desktop.png`
 - 왼쪽 정렬 수정 모바일: `07-left-mobile.png`
-- 소개 문구: 최대 2줄 고정(세 번째 줄 숨김)
+- 소개 문구: `수입차 전문 매매` 한 줄(세 번째 줄 제거)
 - 모바일 전체 차량 노출: `08-mobile-full-car.png`
 - 최종 PC 확인: `09-final-desktop.png`
 
