@@ -353,22 +353,42 @@ function HomeSection() {
   </section>;
 }
 
-function CommunitySection({ cars, notify }: { cars: Car[]; notify: (message: string) => void }) {
+// 판매자페이지 커뮤니티 = 우리 커뮤니티 기본 보기 「네이버 토론 피드」와 같은 카드(2026-10-21 「판매자페이지 커뮤니티 네이버 토론 피드로」).
+// 분류 칩 → 프사 24 · 작성자 · 시간 → 제목 → 본문 3줄 → 사진 → 버프·너프·댓글 · 조회. 글·반응 수는 화면 확인용 가상 값이다.
+const communityIcon = (name: string) => `community/assets/chzzk-detail/icons/${name}.svg`;
+
+function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
+  const company = stripCorp(MOCK.company);
+  const pick = (index: number) => cars.length ? cars[index % cars.length] : undefined;
   const posts = [
-    { category: "차량 소개", title: "BMW M3 xDrive 컴페티션 입고 안내", copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 방문 전 궁금한 점을 댓글로 남겨주세요.", author: "김태규", time: "2시간 전", views: 128, comments: 6, car: cars[1] ?? cars[0] },
-    { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다.", author: "투제이모터웍스", time: "1일 전", views: 246, comments: 11, car: cars[0] },
-    { category: "상담 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다.", author: "김태규", time: "3일 전", views: 193, comments: 4, car: cars[2] ?? cars[0] },
+    { category: "차량 소개", title: `${pick(0)?.title ?? "새 차량"} 입고 안내`, copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 실내·외 사진을 함께 올려 두었으니 방문 전 궁금한 점을 댓글로 남겨 주세요.", author: dealer.name, byDealer: true, time: "2시간 전", views: 128, comments: 6, up: 14, down: 0, car: pick(0) },
+    { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다. 겨울철에는 배터리 충전 상태를 한 번 더 확인해 주세요.", author: company, byDealer: false, time: "1일 전", views: 246, comments: 11, up: 32, down: 1, car: undefined },
+    { category: "출고 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다. 먼 길 와 주셔서 감사합니다.", author: dealer.name, byDealer: true, time: "3일 전", views: 193, comments: 4, up: 21, down: 0, car: pick(1) },
+    { category: "시세 이야기", title: "요즘 수입 SUV 시세, 상담하면서 느낀 점", copy: "연식 3~4년 차 수입 SUV는 주행거리보다 사고 이력과 보증 잔여 기간이 가격 차이를 더 크게 만듭니다. 비교하실 때 참고해 주세요.", author: dealer.name, byDealer: true, time: "5일 전", views: 412, comments: 17, up: 45, down: 3, car: pick(2) },
   ];
   return <section className="dp-content-card dp-community" aria-labelledby="dp-community-title">
     <div className="dp-section-heading">
       <div><h2 id="dp-community-title">커뮤니티</h2><p>딜러가 전하는 차량 소식과 관리 정보입니다.</p></div>
       <button type="button" onClick={() => notify("커뮤니티 글쓰기를 준비 중이에요")}>글쓰기</button>
     </div>
-    <div className="dp-community-list">
-      {posts.map((post) => <button type="button" className="dp-community-post" key={post.title} onClick={() => notify(post.title)}>
-        <span className="dp-community-copy"><small>{post.category}</small><b>{post.title}</b><p>{post.copy}</p><em>{post.author} · {post.time} · 조회 {post.views} · 댓글 {post.comments}</em></span>
-        {post.car ? <img src={asset(post.car.listThumb ?? post.car.image)} alt="" aria-hidden="true" draggable={false} /> : null}
-      </button>)}
+    <div className="dp-discussion-list">
+      {posts.map((post) => <article className="dp-discussion-card" key={post.title}>
+        <div className="dp-discussion-chips"><span>{post.category}</span></div>
+        <div className="dp-discussion-identity">
+          {post.byDealer ? <img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /> : <i aria-hidden="true">{company.slice(0, 1)}</i>}
+          <strong>{post.author}</strong>
+          <time>{post.time}</time>
+        </div>
+        <button type="button" className="dp-discussion-title" onClick={() => notify(post.title)}>{post.title}</button>
+        <p className="dp-discussion-body">{post.copy}</p>
+        {post.car ? <button type="button" className="dp-discussion-media" onClick={() => notify(post.title)} aria-label={`${post.title} 사진 보기`}><img src={asset(post.car.image)} alt="" draggable={false} loading="lazy" /></button> : null}
+        <div className="dp-discussion-metrics" aria-label="게시물 반응">
+          <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
+          <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
+          <button type="button" aria-label={`댓글 ${post.comments}개`} onClick={() => notify("댓글은 상세 화면에서 볼 수 있어요")}><img src={communityIcon("comment-reddit")} alt="" />{post.comments}</button>
+          <span>조회 {post.views.toLocaleString("ko-KR")}</span>
+        </div>
+      </article>)}
     </div>
   </section>;
 }
@@ -768,7 +788,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
           {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
-          {activeSection === "community" ? <CommunitySection cars={cars} notify={notify} /> : null}
+          {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
