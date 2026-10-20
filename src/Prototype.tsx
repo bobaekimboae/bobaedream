@@ -8,6 +8,7 @@ import MainHome from "./main-home/MainHome";
 import DealerPage from "./prototype/dealer-page/DealerPage";
 import CommunityVehicleReviewPage from "./prototype/community-review/CommunityVehicleReviewPage";
 import CommunityFuelEconomyPage from "./prototype/community-fuel-economy/CommunityFuelEconomyPage";
+import { ListingLocaleProvider } from "./prototype/listing/listing-i18n";
 import "./prototype.css";
 import { registerPrototypeApp } from "./prototype/app/register";
 import { AppFlowBack } from "./prototype/app/AppFlowBack";
@@ -81,5 +82,5 @@ export default function Prototype() {
   if (shouldShowDealerPage()) return <><DealerPage /><BuildBadge /></>;
   if (showMainHome) return <MainHome />;
 
-  return <FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider>;
+  return <ListingLocaleProvider><FavoritesProvider><DetailUiProvider><FlowStack initial={listScreen} /><BuildBadge /></DetailUiProvider></FavoritesProvider></ListingLocaleProvider>;
 }

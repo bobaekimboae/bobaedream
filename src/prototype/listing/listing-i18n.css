@@ -1,0 +1,42 @@
+.listing-language { position: relative; z-index: 80; flex: 0 0 auto; }
+.listing-language-trigger { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 58px; height: 42px; padding: 0 9px; border: 1px solid #e1e4e8; border-radius: 999px; background: #fff; color: #222; font-size: 11px; font-weight: 750; letter-spacing: .03em; }
+.listing-language-trigger:hover, .listing-language-trigger[aria-expanded="true"] { border-color: #b9c5d6; background: #f6f8fb; }
+.listing-language-trigger > i { margin-top: -3px; color: #667085; font-size: 14px; font-style: normal; }
+.listing-language-flag { display: inline-flex; width: 22px; height: 15px; overflow: hidden; border: 1px solid rgba(0,0,0,.12); border-radius: 3px; box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.listing-language-flag svg { display: block; width: 100%; height: 100%; }
+.listing-language-menu { position: absolute; top: calc(100% + 8px); right: 0; z-index: 100; width: 205px; padding: 7px; border: 1px solid #dfe3e8; border-radius: 12px; background: #fff; box-shadow: 0 14px 36px rgba(15,23,42,.16); }
+.listing-language-menu button { display: grid; grid-template-columns: 24px minmax(0,1fr) 24px 18px; align-items: center; gap: 9px; width: 100%; min-height: 42px; padding: 7px 9px; border: 0; border-radius: 8px; background: transparent; color: #222; text-align: left; }
+.listing-language-menu button:hover { background: #f3f6fa; }
+.listing-language-menu button.is-active { background: #edf4ff; color: #1f5fc4; }
+.listing-language-menu strong { overflow: hidden; font-size: 14px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.listing-language-menu small { color: #7b8492; font-size: 10px; font-weight: 750; }
+.listing-language-menu i { font-size: 13px; font-style: normal; font-weight: 850; text-align: center; }
+.top-bar .listing-language { align-self: center; }
+.top-bar .listing-language-trigger { width: 38px; min-width: 38px; height: 38px; padding: 0; }
+.top-bar .listing-language-trigger > span, .top-bar .listing-language-trigger > i { display: none; }
+.top-bar .listing-language-flag { width: 21px; height: 14px; }
+.top-bar .listing-language-menu { position: fixed; top: 58px; right: 10px; }
+html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu { right: auto; left: 0; }
+html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu button { grid-template-columns: 18px 24px minmax(0,1fr) 24px; text-align: right; }
+html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu button i { grid-column: 1; grid-row: 1; }
+html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu button small { grid-column: 2; grid-row: 1; }
+html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu button strong { grid-column: 3; grid-row: 1; }
+html[dir="rtl"][data-listing-locale="ar"] .listing-language-menu button .listing-language-flag { grid-column: 4; grid-row: 1; }
+html[dir="rtl"][data-listing-locale="ar"] .bbm-header-main, html[dir="rtl"][data-listing-locale="ar"] .bbm-gnb-row, html[dir="rtl"][data-listing-locale="ar"] .bbm-reference-layout, html[dir="rtl"][data-listing-locale="ar"] .bbm-list-toolbar, html[dir="rtl"][data-listing-locale="ar"] .bbm-result-card { direction: rtl; }
+html[dir="rtl"][data-listing-locale="ar"] .bbm-header-auth, html[dir="rtl"][data-listing-locale="ar"] .bbm-gnb, html[dir="rtl"][data-listing-locale="ar"] .bbm-card-specs { direction: rtl; }
+html[dir="rtl"][data-listing-locale="ar"] .bbm-result-card, html[dir="rtl"][data-listing-locale="ar"] .bbm-catalog-row, html[dir="rtl"][data-listing-locale="ar"] .bbm-filter-section { text-align: right; }
+html[data-listing-locale="ru"] .bbm-header-main:has(.bbm-catalog-search.is-cat) { grid-template-columns: minmax(132px, 1fr) minmax(320px, 460px) auto !important; gap: 12px !important; }
+html[data-listing-locale="ru"] .bbm-header-auth { gap: 4px; }
+html[data-listing-locale="ru"] .bbm-header-auth button { font-size: 12px; }
+html[data-listing-locale="ru"] .bbm-logo, html[dir="rtl"][data-listing-locale="ar"] .bbm-logo { direction: ltr; }
+html[dir="rtl"][data-listing-locale="ar"] .bbm-card-price { direction: ltr; justify-content: flex-end; }
+
+@media (max-width: 1279px) {
+  .listing-language-trigger { min-width: 48px; width: 48px; height: 38px; padding: 0 7px; }
+  .listing-language-trigger > span { display: none; }
+}
+
+@media (max-width: 520px) {
+  .top-bar.is-bbm .search-field { min-width: 0; }
+  .top-bar.is-bbm .listing-language { margin-left: -2px; }
+}

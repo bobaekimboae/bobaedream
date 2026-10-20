@@ -9,6 +9,7 @@ import { bbmItemValue } from "../filters/bbm-applied";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
 import { truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeSecondaryLabel } from "../data/truck-format-catalog";
 import { BbmVehicleTypeDropdown } from "./bbm-vehicle-type-dropdown";
+import { ListingLanguageSelect } from "./listing-i18n";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
@@ -392,6 +393,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
                 <button type="button" role="menuitem" onClick={() => { setAccountOpen(false); onNotify("고객센터는 정식 서비스에서 이용해 주세요."); }}>고객센터</button>
               </div> : null}
             </div>
+            <ListingLanguageSelect />
           </div> : <div className={`bbm-header-actions is-${variant}`}>
             {variant === "chotot" ? <>
               <button type="button" className="bbm-act-icon" aria-label="찜" onClick={onOpenFavorites}><img src={bbmAsset("header-heart")} alt="" aria-hidden="true" /></button>
@@ -405,6 +407,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
               <button type="button" className="bbm-act-circle" aria-label="찜" onClick={onOpenFavorites}><img src={bbmAsset("header-heart")} alt="" aria-hidden="true" /></button>
               <button type="button" className="bbm-act-circle" aria-label="마이페이지" onClick={() => onNotify("로그인은 정식 서비스에서 이용해 주세요.")}><img src={bbmAsset("header-mypage")} alt="" aria-hidden="true" /></button>
             </>}
+            <ListingLanguageSelect />
           </div>}
         </div>
         <div className="bbm-gnb-row">

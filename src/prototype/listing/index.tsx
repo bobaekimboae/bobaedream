@@ -123,6 +123,7 @@ import { OldcarCategoryHeader } from "./oldcar-category-header";
 import { SeoulAutoGalleryAbout, SeoulAutoGalleryCompanyDirectory, SeoulAutoGalleryTabs, type SeoulAutoGallerySection } from "./seoul-auto-gallery-directory";
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
+import { ListingLanguageSelect } from "./listing-i18n";
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 type OldcarDecade = 1950 | 1960 | 1970 | 1980 | 1990;
@@ -675,6 +676,7 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
         <button type="button" className={`search-save${searchSaved ? " is-saved" : ""}`} aria-label={searchSaved ? "저장한 검색 조건 삭제" : "검색 조건 저장"} aria-pressed={searchSaved} onPointerDown={(event) => event.preventDefault()} onClick={onToggleSearchSaved}>{searchSaved ? <BookmarkFilledIcon /> : headerIcon("bookmark", "bookmark.svg")}</button>
       </label>
       <button className="icon-button" type="button" aria-label="저장한 매물 열기" onClick={onOpenFavorites}>{headerIcon("heart", "heart.svg")}</button>
+      <ListingLanguageSelect compact />
       {!bbm ? <button className="icon-button" type="button" aria-label="메시지">{headerIcon("chat", "message.svg")}</button> : null}
     </header>
     {bbm && searchOpen ? <section className="bbm-search-suggest" aria-label="검색어 추천" aria-live="polite">
