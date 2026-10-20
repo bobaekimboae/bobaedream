@@ -21,6 +21,11 @@
 .dp-mobile-channel-name { overflow: hidden; min-width: 0; max-width: calc(100% - 140px); font-size: 17px; line-height: 24px; font-weight: 700; letter-spacing: -.2px; text-overflow: ellipsis; white-space: nowrap; }
 .dp-mobile-channel-head > div { display: flex; align-items: center; gap: 2px; margin-left: auto; }
 .dp-mobile-channel-head .dp-icon { width: 26px; height: 26px; }
+.dp-mobile-channel-head .listing-language { margin: 0 2px; }
+.dp-mobile-channel-head .listing-language-trigger { width: 62px; min-width: 62px; height: 38px; padding: 0 6px; }
+.dp-mobile-channel-head .listing-language-flag { width: 20px; height: 14px; }
+.dp-mobile-channel-head .listing-language-menu { position: fixed; top: 48px; right: 48px; }
+.dp-search-country { display: none; min-width: 0; align-items: center; gap: 8px; }
 .dp-site-main { display: none; grid-template-columns: 52px 1fr 78px; align-items: center; height: 52px; padding: 0 12px; }
 .dp-site-menu { display: grid; place-items: center; width: 44px; height: 44px; }
 .dp-site-menu .dp-icon { width: 24px; height: 24px; }
@@ -309,9 +314,12 @@
   .dp-wordmark > img { width: 84px; }
   .dp-region { display: flex; align-items: center; gap: 5px; height: 40px; padding: 0 12px !important; border-radius: 999px !important; background: var(--dp-bg) !important; font-weight: 600; white-space: nowrap; }
   .dp-region .dp-icon { width: 18px; height: 18px; }
-  .dp-search { display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border-radius: 999px; background: var(--dp-bg); }
+  .dp-search-country { display: flex; }
+  .dp-search { display: flex; min-width: 0; flex: 1 1 auto; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border-radius: 999px; background: var(--dp-bg); }
   .dp-search .dp-icon { width: 18px; height: 18px; }
   .dp-search input { min-width: 0; width: 100%; border: 0; outline: 0; background: transparent; }
+  .dp-search-country .listing-language-trigger { height: 40px; }
+  .dp-search-country .listing-language-menu { right: 0; }
   .dp-site-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
   .dp-site-actions > button { display: grid; place-items: center; min-width: 40px; height: 40px; padding: 0 14px; border: 1px solid var(--dp-line); border-radius: 999px; background: #fff; white-space: nowrap; }
   .dp-site-actions > button .dp-icon { width: 22px; height: 22px; }

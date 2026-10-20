@@ -4,6 +4,7 @@ import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
 import { BbmResultCard } from "../listing/bbm-list";
+import { ListingLanguageSelect } from "../listing/listing-i18n";
 import { dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
 import { setPretendard } from "../fonts/pretendard";
 import VehicleReviewBoard from "./VehicleReviewBoard";
@@ -99,6 +100,7 @@ function SiteHeader() {
       <strong className="dp-mobile-channel-name">{MOCK.company.replace("(주)", "")}</strong>
       <div>
         <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
+        <ListingLanguageSelect compact />
         <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
       </div>
     </div>
@@ -109,7 +111,10 @@ function SiteHeader() {
         <img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" />
       </a>
       <button type="button" className="dp-region"><Icon name="chotot-common-location-pin.svg" />전국 <Icon name="chotot-pc-detail-chevron-down-white-bg.svg" /></button>
-      <label className="dp-search"><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
+      <div className="dp-search-country">
+        <label className="dp-search"><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
+        <ListingLanguageSelect compact />
+      </div>
       <div className="dp-site-actions">
         <button type="button" aria-label="관심 차량"><Icon name="chotot-common-favorite.svg" /></button>
         <button type="button" aria-label="채팅"><Icon name="chotot-common-chat.svg" /></button>
