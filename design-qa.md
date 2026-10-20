@@ -29,6 +29,31 @@
 final result: passed
 
 
+---
+
+## 2026-10-21 딜러 헤더 배너 · 페라리 F80 우측 카피
+
+- Source visual truth: Ferrari F80 official page `https://www.ferrari.com/en-EN/auto/f80` and the repository asset `public/assets/supercar-header/ferrari-f80.jpg`.
+- Browser-rendered implementation: `reports/design-qa/dealer-header-banner-2026-10-21/02-after-desktop.png`, `03-after-mobile.png`.
+- Combined comparison: `reports/design-qa/dealer-header-banner-2026-10-21/04-comparison.png`.
+- Viewports: desktop 1280×800 CSS px, mobile 390×844 CSS px.
+- Layout rule: vehicle remains in the left visual field; the dealer company name and introduction occupy the right 40% dark safe zone; menu control moves to the left edge to prevent collision.
+- Responsive rule: desktop intro uses the full two-line message; mobile clamps to two lines while retaining the company name and a readable vehicle crop.
+
+### Required fidelity surfaces
+
+- Typography: passed — company name 22/28px desktop and 17/22px mobile, intro uses compact white text with sufficient contrast.
+- Spacing/layout: passed — right-aligned copy stays inside the image safe zone and does not collide with the dealer avatar, menu, or global header.
+- Colors/tokens: passed — Ferrari red/deep navy image remains dominant; right-side navy-black gradient protects legibility without adding a competing brand color.
+- Image quality: passed — high-resolution official Ferrari still replaces the unreliable autoplay-video frame and stays sharp across desktop/mobile crops.
+- Copy/content: passed — exact company name and dealer introduction are shown, with no generic placeholder subtitle.
+- Behavior/accessibility: passed — descriptive image alt text is present, desktop/mobile content is visible, and browser console errors are 0.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
 ## 2026-10-20 보배드림 용도별 서비스 로고 v01
 
 - Source visual truth:

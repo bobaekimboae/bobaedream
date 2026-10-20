@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>딜러 헤더 배너 비교</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;padding:28px;background:#111;color:#fff;font-family:Arial,sans-serif}h1{margin:0 0 20px;font-size:22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.panel{overflow:hidden;border:1px solid #333;border-radius:14px;background:#1c1c1c}.panel h2{margin:0;padding:12px 14px;font-size:14px}.panel img{display:block;width:100%;height:300px;object-fit:cover;object-position:top}.panel.source img{object-position:center}.mobile{grid-column:1/-1}.mobile img{height:420px;object-fit:contain;background:#191919}@media(max-width:900px){.grid{grid-template-columns:1fr}.mobile{grid-column:auto}}
+  </style>
+</head>
+<body>
+  <h1>공식 페라리 F80 이미지 × 딜러 헤더 배너</h1>
+  <div class="grid">
+    <section class="panel source"><h2>공식 이미지 원본</h2><img src="/assets/supercar-header/ferrari-f80.jpg" alt="공식 페라리 F80 이미지" /></section>
+    <section class="panel"><h2>수정 전</h2><img src="./01-before-live.png" alt="수정 전 딜러 페이지" /></section>
+    <section class="panel"><h2>수정 후 PC</h2><img src="./02-after-desktop.png" alt="수정 후 PC 딜러 페이지" /></section>
+    <section class="panel mobile"><h2>수정 후 모바일</h2><img src="./03-after-mobile.png" alt="수정 후 모바일 딜러 페이지" /></section>
+  </div>
+</body>
+</html>
