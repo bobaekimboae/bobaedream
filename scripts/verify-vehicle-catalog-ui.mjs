@@ -33,6 +33,16 @@ const pageWithErrors = async (context) => {
 };
 
 try {
+  const catalogUrl = new URL("data/vehicle-catalog/cars-index-v1.json", `${baseUrl.replace(/\/$/, "")}/`);
+  const catalogIndex = await fetch(catalogUrl).then((response) => {
+    if (!response.ok) throw new Error(`차량 기준표를 불러오지 못했습니다 (${response.status})`);
+    return response.json();
+  });
+  const modelCountByMake = new Map(catalogIndex.manufacturers.map((make) => [
+    make.name,
+    catalogIndex.modelGroups.filter((group) => group.makeId === make.id).length,
+  ]));
+
   const desktopContext = await browser.newContext({ viewport: { width: 1440, height: 1000 }, deviceScaleFactor: 1 });
   const { page: desktop, errors: desktopErrors } = await pageWithErrors(desktopContext);
   const desktopUrl = `${baseUrl}/?qf=guazi&category=${encodeURIComponent("중고차")}&pc=1`;
@@ -74,9 +84,26 @@ try {
   const mobileHierarchy = mobile.locator("[data-testid=maker-hierarchy]");
   await mobileHierarchy.waitFor({ state: "visible" });
   assert(await mobileHierarchy.locator(".maker-hierarchy-row.is-maker").count() === 62, "모바일 전체 제조사 62개 노출");
+  for (const make of catalogIndex.manufacturers) {
+    await mobileHierarchy.locator(`[data-maker="${make.name}"]`).tap();
+    const models = mobileHierarchy.locator("[data-model]");
+    await models.first().waitFor({ state: "visible" });
+    const expected = modelCountByMake.get(make.name) ?? 0;
+    assert(await models.count() === expected, `모바일 ${make.name} 모델 연결`, `${expected}개`);
+    await mobile.locator(".bbmf-sheet-back").tap();
+    await mobileHierarchy.locator(`[data-maker="${make.name}"]`).waitFor({ state: "visible" });
+  }
   await mobileHierarchy.locator(".maker-hierarchy-row.is-maker").filter({ hasText: "현대" }).first().tap();
   await mobileHierarchy.getByText("그랜저", { exact: true }).waitFor({ state: "visible" });
   await mobile.screenshot({ path: fileURLToPath(new URL("mobile-maker-hierarchy.png", reportDir)), fullPage: false });
+  await mobile.getByRole("button", { name: "닫기" }).tap();
+  await mobile.goto(`${baseUrl}/?qf=guazi&category=${encodeURIComponent("국산차")}`, { waitUntil: "networkidle" });
+  await mobile.getByRole("button", { name: "제조사", exact: true }).tap();
+  assert(await mobile.locator("[data-testid=maker-hierarchy] [data-maker]").count() === 7, "모바일 국산차 제조사 7개 제한");
+  await mobile.getByRole("button", { name: "닫기" }).tap();
+  await mobile.goto(`${baseUrl}/?qf=guazi&category=${encodeURIComponent("수입차")}`, { waitUntil: "networkidle" });
+  await mobile.getByRole("button", { name: "제조사", exact: true }).tap();
+  assert(await mobile.locator("[data-testid=maker-hierarchy] [data-maker]").count() === 55, "모바일 수입차 제조사 55개 제한");
   assert(mobileErrors.length === 0, "모바일 콘솔·런타임 오류 없음", mobileErrors.join(" | "));
   await mobileContext.close();
 

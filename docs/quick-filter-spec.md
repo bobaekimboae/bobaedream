@@ -73,6 +73,7 @@
 ## Vehicle Picker Sheet
 
 - Vehicle picker sheet opens from the merged summary chip.
+- 승용 제조사·모델 바텀필터(2026-10-20): 현대 샘플에서 확정한 `제조사 → 모델 → 세부모델` 화면·검색·선택 경로를 국산 7개와 수입 55개 전체 제조사에 공통 적용한다. 카테고리가 `국산차`이면 국산만, `수입차`이면 수입만, `중고차/전체차량`이면 양쪽을 구획해 표시한다. 상단 제조사 칩과 빠른선택의 `기타 브랜드`는 반드시 같은 `MakerHierarchyModal`/모바일 바텀시트를 열며, 예전 `CatalogVehiclePickerSheet` 제조사 화면을 섞어 쓰지 않는다. 제조사 행에는 로고·이름·연결 모델 수·꺾쇠를 같은 슬롯으로 표시한다.
 - Model and generation options wrap to multiple lines.
 - Manufacturer options wrap when the list grows beyond one row.
 - Sheet height is capped at 80% viewport height with internal vertical scrolling.

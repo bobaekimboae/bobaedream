@@ -79,6 +79,9 @@ export function MakerHierarchyModal({
   const generationRows = useMemo(() => draftModel ? (generationsByModel[draftModel] ?? []).filter((item) => (
     !keyword || `${item.cardLabel ?? item.displayLabel ?? item.name} ${item.cardSub ?? item.years}`.toLowerCase().includes(keyword)
   )) : [], [draftModel, generationsByModel, keyword]);
+  const makerCount = (maker: string) => (modelsByMaker[maker] ?? []).reduce((sum, name) => (
+    sum + numberFromCount(modelVisualsByMaker[maker]?.[name]?.count)
+  ), 0);
   const selectedGeneration = draftModel && draftGeneration ? (generationsByModel[draftModel] ?? []).find((item) => item.name === draftGeneration) : undefined;
   const modelCount = draftModel ? numberFromCount(modelVisuals[draftModel]?.count) : modelNames.reduce((sum, name) => sum + numberFromCount(modelVisuals[name]?.count), 0);
   const resultCount = selectedGeneration?.count ?? modelCount;
@@ -120,10 +123,10 @@ export function MakerHierarchyModal({
       {step === "maker" ? <div className="maker-hierarchy-maker-sections">
         {makerSections.map((section) => <section key={section.key} className="maker-hierarchy-section">
           <p>{section.label}</p>
-          {section.rows.map((maker) => <button key={maker.name} type="button" className="maker-hierarchy-row is-maker" onClick={() => chooseMaker(maker.name)}>
+          {section.rows.map((maker) => <button key={maker.name} type="button" className="maker-hierarchy-row is-maker" data-maker={maker.name} onClick={() => chooseMaker(maker.name)}>
             <span className="maker-hierarchy-logo">{renderMakerLogo(maker)}</span>
             <span className="maker-hierarchy-copy"><strong>{maker.name}</strong></span>
-            <span aria-hidden="true" />
+            <small>{formatCount(makerCount(maker.name))}</small>
             <ChevronRightIcon aria-hidden="true" />
           </button>)}
         </section>)}
@@ -133,7 +136,7 @@ export function MakerHierarchyModal({
         <p>모델</p>
         {modelRows.map((name) => {
           const visual = modelVisuals[name];
-          return <button key={name} type="button" className="maker-hierarchy-row is-vehicle" onClick={() => { setDraftModel(name); setDraftGeneration(null); setStep("generation"); setQuery(""); }}>
+          return <button key={name} type="button" className="maker-hierarchy-row is-vehicle" data-model={name} onClick={() => { setDraftModel(name); setDraftGeneration(null); setStep("generation"); setQuery(""); }}>
             <span className={`maker-hierarchy-image is-${visual?.bodyFit ?? "width"}`}>{visual?.image ? <img src={visual.image} alt="" draggable={false} /> : null}</span>
             <span className="maker-hierarchy-copy"><strong>{formatModel(name)}</strong><em>{visual?.bodyType ?? "중고차"}</em></span>
             <small>{formatCount(numberFromCount(visual?.count))}</small><ChevronRightIcon aria-hidden="true" />
@@ -143,7 +146,7 @@ export function MakerHierarchyModal({
       </section> : null}
       {step === "generation" ? <section className="maker-hierarchy-section is-list">
         <p>세부모델</p>
-        {generationRows.map((item) => <button key={item.name} type="button" className={`maker-hierarchy-row is-vehicle${draftGeneration === item.name ? " is-selected" : ""}`} aria-pressed={draftGeneration === item.name} onClick={() => setDraftGeneration(item.name)}>
+        {generationRows.map((item) => <button key={item.name} type="button" className={`maker-hierarchy-row is-vehicle${draftGeneration === item.name ? " is-selected" : ""}`} data-generation={item.name} aria-pressed={draftGeneration === item.name} onClick={() => setDraftGeneration(item.name)}>
           <span className={`maker-hierarchy-image is-${item.bodyFit ?? "width"}`}>{item.image ? <img src={item.image} alt="" draggable={false} /> : null}</span>
           <span className="maker-hierarchy-copy"><strong>{item.cardLabel ?? item.displayLabel ?? item.name}</strong><em>{item.cardSub ?? item.years}</em></span>
           <small>{formatCount(item.count ?? 0)}</small>{draftGeneration === item.name ? <CheckIcon aria-hidden="true" /> : <ChevronRightIcon aria-hidden="true" />}
