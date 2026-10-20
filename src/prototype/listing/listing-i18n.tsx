@@ -142,7 +142,16 @@ const words: Record<string, Translation> = {
   "제조사 · 모델 · 등급": { en: "Make · Model · Grade", ru: "Марка · Модель · Комплектация", ar: "الشركة · الطراز · الفئة" },
   "제조사 · 모델": { en: "Make · Model", ru: "Марка · Модель", ar: "الشركة · الطراز" },
   "로그인/회원가입": { en: "Sign in / Join", ru: "Войти / Регистрация", ar: "تسجيل الدخول / إنشاء حساب" },
+  "보배드림": { en: "BOBAEDREAM", ru: "BOBAEDREAM", ar: "BOBAEDREAM" },
+  "(주) 보배네트워크 사업자 정보": { en: "BOBAE NETWORK Business Information", ru: "Сведения о компании BOBAE NETWORK", ar: "معلومات شركة BOBAE NETWORK" },
+  "대표이사: 김보배": { en: "CEO: Kim Bo-bae", ru: "Генеральный директор: Kim Bo-bae", ar: "الرئيس التنفيذي: Kim Bo-bae" },
+  "개인정보관리책임자": { en: "Privacy Officer", ru: "Ответственный за конфиденциальность", ar: "مسؤول الخصوصية" },
+  "통신판매업신고번호": { en: "E-commerce Registration No.", ru: "Регистрационный номер электронной торговли", ar: "رقم تسجيل التجارة الإلكترونية" },
+  "사업자등록번호": { en: "Business Registration No.", ru: "Регистрационный номер компании", ar: "رقم تسجيل الشركة" },
+  "사업자정보 확인": { en: "Verify business information", ru: "Проверить сведения о компании", ar: "التحقق من معلومات الشركة" },
+  "Copyright © (주)보배네트워크": { en: "Copyright © BOBAE NETWORK", ru: "Copyright © BOBAE NETWORK", ar: "Copyright © BOBAE NETWORK" },
   "차량 판매하기": { en: "Sell a car", ru: "Продать авто", ar: "بيع مركبة" },
+  "차량판매하기": { en: "Sell a car", ru: "Продать авто", ar: "بيع مركبة" },
   "차량 판매": { en: "Sell a car", ru: "Продать авто", ar: "بيع مركبة" },
   "전체 중고차": { en: "All used cars", ru: "Все автомобили с пробегом", ar: "جميع السيارات المستعملة" },
   "전체 차량": { en: "All vehicles", ru: "Все авто", ar: "كل المركبات" },
@@ -212,6 +221,8 @@ const words: Record<string, Translation> = {
   "수입전체": { en: "All imports", ru: "Все импортные", ar: "كل المستوردة" },
   "기타 국산차": { en: "Other Korean cars", ru: "Другие корейские авто", ar: "سيارات كورية أخرى" },
   "기타 수입차": { en: "Other imports", ru: "Другие импортные авто", ar: "سيارات مستوردة أخرى" },
+  "기타 브랜드": { en: "Other brands", ru: "Другие марки", ar: "علامات أخرى" },
+  "기타 브랜드인증": { en: "Other certified", ru: "Другие сертифицированные", ar: "معتمدون آخرون" },
   "쉐보레(GM대우)": { en: "Chevrolet (GM Daewoo)", ru: "Chevrolet (GM Daewoo)", ar: "شيفروليه (GM دايو)" },
   "르노코리아(삼성)": { en: "Renault Korea (Samsung)", ru: "Renault Korea (Samsung)", ar: "رينو كوريا (سامسونغ)" },
   "KGM(쌍용)": { en: "KGM (SsangYong)", ru: "KGM (SsangYong)", ar: "KGM (سانغ يونغ)" },
@@ -246,6 +257,12 @@ const words: Record<string, Translation> = {
   "초기화": { en: "Reset", ru: "Сбросить", ar: "إعادة ضبط" },
   "검색": { en: "Search", ru: "Поиск", ar: "بحث" },
   "채팅": { en: "Chat", ru: "Чат", ar: "محادثة" },
+  "이용문의": { en: "Service inquiries", ru: "Поддержка", ar: "استفسارات الخدمة" },
+  "제휴광고": { en: "Partnership & advertising", ru: "Партнёрство и реклама", ar: "الشراكات والإعلانات" },
+  "매물등록": { en: "Create listing", ru: "Подать объявление", ar: "إضافة إعلان" },
+  "PC버전": { en: "Desktop version", ru: "Версия для ПК", ar: "نسخة سطح المكتب" },
+  "홈": { en: "Home", ru: "Главная", ar: "الرئيسية" },
+  "마이페이지": { en: "My account", ru: "Профиль", ar: "حسابي" },
   "매물관리": { en: "Manage listings", ru: "Мои объявления", ar: "إدارة الإعلانات" },
   "로그아웃": { en: "Sign out", ru: "Выйти", ar: "تسجيل الخروج" },
   "로그인": { en: "Sign in", ru: "Войти", ar: "تسجيل الدخول" },
@@ -265,6 +282,12 @@ const words: Record<string, Translation> = {
   "앱 설치": { en: "Get the app", ru: "Установить приложение", ar: "تثبيت التطبيق" },
 };
 
+// 짧은 메뉴명은 부분 치환하면 마이바흐처럼 정상적인 고유명사까지 훼손한다.
+// 따라서 문자열 전체가 일치할 때만 번역한다.
+const exactWords: Record<string, Translation> = {
+  "마이": { en: "My account", ru: "Профиль", ar: "حسابي" },
+};
+
 const translateDynamic = (text: string, locale: ForeignLocale) => {
   const intl = listingLocaleOptions.find((option) => option.id === locale)?.intl ?? "en-US";
   const distanceUnit = locale === "en" ? "km" : locale === "ru" ? "км" : "كم";
@@ -281,6 +304,10 @@ const translateDynamic = (text: string, locale: ForeignLocale) => {
     .replace(/([\d,.]+)만km/g, (_, n: string) => `${(Number(n.replace(/,/g, "")) * 10000).toLocaleString(intl)} ${distanceUnit}`)
     .replace(/([\d,.]+)천km/g, (_, n: string) => `${(Number(n.replace(/,/g, "")) * 1000).toLocaleString(intl)} ${distanceUnit}`)
     .replace(/([\d,.]+)마력/g, (_, n: string) => locale === "en" ? `${n} hp` : locale === "ru" ? `${n} л.с.` : `${n} حصان`)
+    .replace(/(\d+)세대/g, (_, n: string) => locale === "en" ? `${n}${n === "1" ? "st" : n === "2" ? "nd" : n === "3" ? "rd" : "th"} generation` : locale === "ru" ? `${n}-е поколение` : `الجيل ${n}`)
+    .replace(/(\d+)시리즈/g, (_, n: string) => locale === "en" ? `${n} Series` : locale === "ru" ? `${n} серия` : `الفئة ${n}`)
+    .replace(/(\d+)도어/g, (_, n: string) => locale === "en" ? `${n}-door` : locale === "ru" ? `${n}-дверный` : `${n} أبواب`)
+    .replace(/(\d)(km)\b/gi, "$1 $2")
     .replace(/([\d,]+)만원/g, (_, n: string) => `₩${(Number(n.replace(/,/g, "")) * 10000).toLocaleString(intl)}`)
     .replace(/(\d+) 페이지/g, locale === "en" ? "Page $1" : locale === "ru" ? "Страница $1" : "الصفحة $1");
 };
@@ -290,19 +317,29 @@ export function translateListingText(raw: string, locale: ListingLocale) {
   const leading = raw.match(/^\s*/)?.[0] ?? "";
   const trailing = raw.match(/\s*$/)?.[0] ?? "";
   let value = raw.slice(leading.length, raw.length - trailing.length || undefined);
+  const exact = exactWords[value];
+  if (exact) return `${leading}${exact[locale]}${trailing}`;
   value = translateDynamic(value, locale);
-  if (locale === "en") {
-    englishProperNameKeys.forEach((source) => {
-      if (value.includes(source)) value = value.split(source).join(englishProperNames[source]);
-    });
-    englishRegionKeys.forEach((source) => {
-      if (value.includes(source)) value = value.split(source).join(englishRegions[source]);
-    });
-  }
-  Object.keys(words).sort((a, b) => b.length - a.length).forEach((source) => {
+  const wordKeys = Object.keys(words).sort((a, b) => b.length - a.length);
+  // 영어는 긴 UI 문구를 먼저 처리한 뒤 고유명사를 변환해야
+  // 르노코리아·마이바흐 같은 이름이 부분 치환으로 깨지지 않는다.
+  if (locale === "en") wordKeys.filter((source) => source.length >= 4).forEach((source) => {
     if (value.includes(source)) value = value.split(source).join(words[source][locale]);
   });
-  if (locale === "en") value = value.replace(/[가-힣]+/g, (part) => titleCase(romanizeKorean(part)));
+  if (locale !== "en") wordKeys.forEach((source) => {
+    if (value.includes(source)) value = value.split(source).join(words[source][locale]);
+  });
+  englishProperNameKeys.forEach((source) => {
+    if (value.includes(source)) value = value.split(source).join(englishProperNames[source]);
+  });
+  englishRegionKeys.forEach((source) => {
+    if (value.includes(source)) value = value.split(source).join(englishRegions[source]);
+  });
+  if (locale === "en") wordKeys.forEach((source) => {
+    if (value.includes(source)) value = value.split(source).join(words[source][locale]);
+  });
+  // 어떤 언어에서도 한글 원문이 그대로 노출되지 않게 고유명사는 라틴 문자로 안전하게 표기한다.
+  value = value.replace(/[가-힣]+/g, (part) => titleCase(romanizeKorean(part)));
   return `${leading}${value}${trailing}`;
 }
 

@@ -35,6 +35,7 @@ html[dir="rtl"][data-listing-locale="ar"] .bbm-card-price { direction: ltr; just
 html:not([data-listing-locale="ko"]) .bbm-card-price-pair { display: inline-flex; min-width: 0; align-items: baseline; gap: 5px; direction: ltr; white-space: nowrap; }
 html:not([data-listing-locale="ko"]) .bbm-card-origin-price { overflow: hidden; color: #8a8f98; font-size: 11px; font-weight: 500; line-height: 16px; text-overflow: ellipsis; white-space: nowrap; }
 html[dir="rtl"][data-listing-locale="ar"] .bbm-card-price-pair { margin-left: auto; }
+html:not([data-listing-locale="ko"]) .kr-brand-initial { display: none; }
 
 @media (max-width: 1279px) {
   .listing-language-trigger { min-width: 66px; width: 66px; height: 38px; padding: 0 7px; }
