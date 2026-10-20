@@ -26,7 +26,8 @@ import {
   type Car,
 } from "../data";
 import { BbmResultCard } from "../listing/bbm-list";
-import { dealers as sagDealers } from "../listing/seoul-auto-gallery-dealer-rail";
+import { allSeoulAutoGalleryDealers as sagDealers } from "../listing/seoul-auto-gallery-dealer-rail";
+import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 
 type DetailUi = {
   liked: boolean;
@@ -457,10 +458,20 @@ function DetailTopCrumbs({ car }: { car: Car }) {
   );
 }
 
+// 서울오토갤러리 매물의 판매자 페이지: 같은 이름 딜러가 있으면 그 딜러, 없으면 그 상사 대표 페이지(2026-10-21 상사 대표 79곳).
+function sagDealerFor(car: Car) {
+  const info = car.seoulAutoGallery;
+  if (!info) return undefined;
+  const sameShop = (shopNo: string) => seoulAutoGalleryShopByNo.get(shopNo)?.company === info.company;
+  return sagDealers.find((dealer) => dealer.name === info.dealer && sameShop(dealer.shopNo))
+    ?? sagDealers.find((dealer) => car.dealer.startsWith(dealer.name) && !seoulAutoGalleryShopByNo.has(dealer.shopNo))
+    ?? sagDealers.find((dealer) => dealer.role === "대표" && sameShop(dealer.shopNo));
+}
+
 function DetailTopSeller({ car, overlay }: { car: Car; overlay?: boolean }) {
   const isDealer = car.sellerType === "딜러";
   const shop = carShopName(car);
-  const sagDealer = car.seoulAutoGallery ? sagDealers.find((dealer) => car.dealer.startsWith(dealer.name)) : undefined;
+  const sagDealer = car.seoulAutoGallery ? sagDealerFor(car) : undefined;
   const href = sagDealer ? `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}` : undefined;
   const body = (
     <>
@@ -1059,7 +1070,7 @@ function locationLinks(car: Car): Record<string, string> {
     links[complex] = `${window.location.pathname}?${next.toString()}`;
   }
   const shop = carShopName(car);
-  const sagDealer = car.seoulAutoGallery ? sagDealers.find((dealer) => car.dealer.startsWith(dealer.name)) : undefined;
+  const sagDealer = car.seoulAutoGallery ? sagDealerFor(car) : undefined;
   if (shop && sagDealer) links[shop] = `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}`;
   return links;
 }
