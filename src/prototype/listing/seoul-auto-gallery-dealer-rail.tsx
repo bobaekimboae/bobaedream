@@ -37,7 +37,7 @@ export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = s
 }));
 export const allSeoulAutoGalleryDealers: readonly SeoulAutoGalleryDealer[] = [...dealers, ...seoulAutoGalleryOwnerDealers.filter((owner) => !dealers.includes(owner))];
 
-const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
+export const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
 // 레일(목록 위)은 기존 9명, 「딜러」 탭은 상사 대표 88명을 포함한 전체를 격자로 보여 준다(2026-10-21 「전체상사 대표들 페이지 모두」).
 export function SeoulAutoGalleryDealerRail({ onOpenDealer, all = false }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void; all?: boolean }) {
