@@ -1,4 +1,4 @@
 <!doctype html><html lang="ko"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>보배드림</title>
 <style>body{margin:0;min-height:100dvh;display:grid;place-content:center;text-align:center;padding:24px;box-sizing:border-box;font:16px/1.6 system-ui;color:#222;background:#fff}img{width:88px;border-radius:22px;margin:auto}h1{font-size:24px;margin:24px 0 8px}p{color:#737373;margin:0 0 24px}button{border:0;border-radius:12px;padding:15px 24px;font:600 16px system-ui;background:#306bd9;color:#fff;cursor:pointer}</style>
 <img id="logo" alt="보배드림"><h1>인터넷 연결을 확인해 주세요</h1><p>연결되면 최신 매물을 볼 수 있습니다.</p><button onclick="location.reload()">다시 시도</button>
-<script>const worker=navigator.serviceWorker?.controller?.scriptURL;document.getElementById('logo').src=worker?new URL('app/icon-192.png',worker).href:new URL('./icon-192.png',location.href).href;</script></html>
+<script>const worker=navigator.serviceWorker?.controller?.scriptURL;document.getElementById('logo').src=worker?new URL('app/icon-192.png?v=2',worker).href:new URL('./icon-192.png?v=2',location.href).href;</script></html>

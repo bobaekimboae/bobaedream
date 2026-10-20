@@ -1,11 +1,11 @@
 {
   "name": "보배드림",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "package": "io.github.bobaekimboae.bobaedream",
   "minAndroid": "8.0",
   "targetSdk": 35,
-  "bytes": 29311,
-  "sha256": "b7bc71d9eb45b93818bd9ede48c04b60ac4d3ff6187bdf6e68110cf9ac152152",
+  "bytes": 33416,
+  "sha256": "238d48cc4b1373d5f59b5dca03b4a269c4cbb833829482c1f48f61365558b6a4",
   "startUrl": "https://bobaekimboae.github.io/bobaedream/?source=android-app",
   "permissions": [
     "android.permission.INTERNET"
