@@ -20,10 +20,12 @@
 .dp-mobile-channel-head > button img { display: block; width: 28px; height: 28px; object-fit: contain; }
 .dp-mobile-channel-name { overflow: hidden; min-width: 0; max-width: calc(100% - 140px); font-size: 17px; line-height: 24px; font-weight: 700; letter-spacing: -.2px; text-overflow: ellipsis; white-space: nowrap; }
 .dp-mobile-channel-head > div { display: flex; align-items: center; gap: 2px; margin-left: auto; }
-.dp-mobile-channel-head .dp-icon { width: 26px; height: 26px; }
-.dp-mobile-channel-head .listing-language { margin: 0 2px; }
-.dp-mobile-channel-head .listing-language-trigger { width: 62px; min-width: 62px; height: 38px; padding: 0 6px; }
-.dp-mobile-channel-head .listing-language-flag { width: 20px; height: 14px; }
+.dp-mobile-channel-head .dp-icon { width: 24px; height: 24px; }
+.dp-mobile-channel-head .listing-language { margin: 0; }
+.dp-mobile-channel-head .listing-language-trigger { width: 44px; min-width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; }
+.dp-mobile-channel-head .listing-language-trigger > span:not(.listing-language-flag),
+.dp-mobile-channel-head .listing-language-trigger > i { display: none; }
+.dp-mobile-channel-head .listing-language-flag { width: 24px; height: 16px; }
 .dp-mobile-channel-head .listing-language-menu { position: fixed; top: 48px; right: 96px; }
 .dp-search-country { display: none; min-width: 0; align-items: center; gap: 8px; }
 .dp-site-main { display: none; grid-template-columns: 52px 1fr 78px; align-items: center; height: 52px; padding: 0 12px; }

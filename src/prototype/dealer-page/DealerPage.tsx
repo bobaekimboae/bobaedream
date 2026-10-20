@@ -101,7 +101,7 @@ function SiteHeader() {
       <div>
         <ListingLanguageSelect compact />
         <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
-        <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
+        <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-menu.svg" /></button>
       </div>
     </div>
     <div className="dp-site-main">
