@@ -226,7 +226,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div>
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
