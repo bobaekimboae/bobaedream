@@ -2,6 +2,7 @@ import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { allSeoulAutoGalleryDealers, dealerPhoto } from "./seoul-auto-gallery-dealer-rail";
+import { SagGoogleMap } from "./sag-google-map";
 import "./seoul-auto-gallery-directory.css";
 
 export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers" | "about";
@@ -96,6 +97,7 @@ export function SeoulAutoGalleryAbout({ onBrowse }: { onBrowse: () => void }) {
         <div><dt>딜러</dt><dd>딜러별 보유 매물</dd></div>
       </dl>
       <button type="button" className="sag-about__browse" onClick={onBrowse}>판매 차량 보기</button>
+      <SagGoogleMap />
     </section>
   );
 }
