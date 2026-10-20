@@ -663,7 +663,7 @@ function Header({ query, setQuery, searchPlaceholder, searchSaved, onToggleSearc
 
   return (
     <>{siteTitle && !searchOpen ? <div className="bike-site-mobile-brand" aria-label={siteTitle}>
-      <span className="bike-site-mobile-brand__logo" aria-hidden="true"><img src={asset(bbStandaloneTruckSite() ? "bbm/truck-emblem.svg" : document.documentElement.dataset.bikelogo === "mark" ? "bbm/bike-logo-mark.svg" : "bbm/bike-emblem.svg")} alt="" draggable={false} /></span>
+      <span className="bike-site-mobile-brand__logo is-service-logo" aria-hidden="true"><img src={asset(bbStandaloneTruckSite() ? "bbm/service-logos/v01/bobaedream-truck-v01.png" : "bbm/service-logos/v01/bobaedream-bike-v01.png")} alt="" draggable={false} /></span>
       <h1>{siteTitle.startsWith("보배드림 ") ? <>보배드림 <span className="bike-site-mobile-brand__accent">{siteTitle.slice(5)}</span></> : siteTitle}</h1>
     </div> : null}
     <header className={`top-bar${bbm ? " is-bbm" : ""}${searchOpen ? " is-search-open" : ""}`} aria-label={siteTitle ? `${siteTitle} 검색` : "중고차 검색"}>

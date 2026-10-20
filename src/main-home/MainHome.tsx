@@ -6,6 +6,7 @@ type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "constru
 const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-main/${path}`;
 const brandAsset = (path: string) => ["assets", "brand", "kr", path].join("/");
 const bbmAsset = (path: string) => ["assets", "bbm", path].join("/");
+const serviceLogoAsset = (name: string) => bbmAsset(`service-logos/v01/bobaedream-${name}-v01.png`);
 const luxuryListingAsset = (path: string) => ["assets", "cars", "luxury-ui-test", path].join("/");
 
 const services: Array<{ key: ServiceKey; label: string }> = [
@@ -21,11 +22,11 @@ const services: Array<{ key: ServiceKey; label: string }> = [
 
 const vehicleTypes = [
   { value: "중고차", label: "자동차", icon: "category-used.svg" },
-  { value: "트럭 · 특장", label: "트럭 · 특장", icon: "category-truck.svg" },
-  { value: "바이크", label: "바이크", icon: "category-bike.svg" },
+  { value: "트럭 · 특장", label: "트럭 · 특장", icon: serviceLogoAsset("truck") },
+  { value: "바이크", label: "바이크", icon: serviceLogoAsset("bike") },
   { value: "캠핑카", label: "캠핑카", icon: "category-camping.svg" },
-  { value: "올드카", label: "올드카", icon: "category-old.svg" },
-  { value: "건설기계", label: "건설기계", icon: "category-construction.svg" },
+  { value: "올드카", label: "올드카", icon: serviceLogoAsset("oldcar") },
+  { value: "건설기계", label: "건설기계", icon: serviceLogoAsset("construction") },
   { value: "부품 · 용품", label: "부품 · 용품", icon: "category-equipment.svg" },
 ];
 
@@ -132,7 +133,7 @@ export default function MainHome() {
           </div>
           <div className="mh-category-rows">
             <div className="mh-category-rail" aria-label="차량 유형 가로 목록">
-              {vehicleTypes.map(({ value, label, icon }) => <button className="mh-category-item" type="button" key={value} onClick={() => openVehicleType(value)}><span className="mh-category-image"><img src={bbmAsset(icon)} alt="" aria-hidden="true" /></span><strong>{label}</strong></button>)}
+              {vehicleTypes.map(({ value, label, icon }) => <button className="mh-category-item" type="button" key={value} onClick={() => openVehicleType(value)}><span className="mh-category-image"><img src={icon.includes("/") ? icon : bbmAsset(icon)} alt="" aria-hidden="true" /></span><strong>{label}</strong></button>)}
             </div>
             <div className="mh-category-rail mh-luxury-rail" aria-label="럭셔리 제조사 가로 목록">
               {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label} onClick={() => navigateToListing({ maker: label })}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}
@@ -160,7 +161,7 @@ export default function MainHome() {
           <a className="is-active" href="./" aria-current="page"><img src={bbmAsset("m-gnb-home.svg")} alt="" /><span>홈</span></a>
           <button type="button" onClick={openListing}><img src={bbmAsset("category-used.svg")} alt="" /><span>매물</span></button>
           <button className="mh-register-nav" type="button" onClick={() => showPreparing("내 차 팔기 등록 시안을 준비 중입니다.")}><b><img src={bbmAsset("m-gnb-register.svg")} alt="" /></b><span>내 차 팔기</span></button>
-          <button type="button" onClick={openCommunity}><img src={bbmAsset("m-gnb-community.svg")} alt="" /><span>커뮤니티</span></button>
+          <button type="button" onClick={openCommunity}><img className="is-service-logo" src={serviceLogoAsset("community")} alt="" /><span>커뮤니티</span></button>
           <button type="button" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={prototypeAsset("icons/favorite.svg")} alt="" /><span>찜</span></button>
         </nav>
 

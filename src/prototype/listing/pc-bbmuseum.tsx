@@ -260,6 +260,15 @@ function bbAuthState(): BbAuthState {
 }
 const bbmAsset = (name: string) => asset(`bbm/${name}.svg`);
 
+const bbmServiceLogo = (category: string): string | null => {
+  const key = category === "바이크" ? "bike"
+    : category === "트럭 · 특장" ? "truck"
+      : category === "건설기계" || category === "중장비" ? "construction"
+        : category === "올드카" ? "oldcar"
+          : null;
+  return key ? asset(`bbm/service-logos/v01/bobaedream-${key}-v01.png`) : null;
+};
+
 function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searchSlot }: { category: string; onChooseCategory: (category: string, detail?: string) => void; onNotify: (message: string) => void; onOpenFavorites: () => void; searchSlot?: ReactNode }) {
   const [moreOpen, setMoreOpen] = useState(false);
   const [accountOpen, setAccountOpen] = useState(false);
@@ -274,6 +283,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
   const isStandaloneSite = isBikeSite || isTruckSite;
   const siteName = isTruckSite ? "트럭" : "바이크";
   const siteEmblem = isTruckSite ? "truck-emblem" : "bike-emblem";
+  const serviceLogo = bbmServiceLogo(isBikeSite ? "바이크" : isTruckSite ? "트럭 · 특장" : category);
   const menuParam = typeof window !== "undefined" ? new URLSearchParams(window.location.search) : null;
   const isBikeParts = category === "부품 · 용품" && menuParam?.get("bikeMenu") === "parts";
   const isTruckParts = category === "부품 · 용품" && menuParam?.get("truckMenu") === "parts";
@@ -355,8 +365,8 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
       <div className="bbm-header-inner">
         <div className="bbm-header-main">
           <button type="button" className="bbm-logo" aria-label={isStandaloneSite ? `보배드림 ${siteName} 처음으로` : "보배드림 처음으로"} onClick={() => { if (isBikeSite) onChooseCategory("바이크"); if (isTruckSite) onChooseCategory("트럭 · 특장"); document.querySelector(".app-screen")?.scrollTo({ top: 0 }); }}>
-            <span className="bbm-logo-emblem" aria-hidden="true">
-              <img src={bbmAsset(isBikeSite && document.documentElement.dataset.bikelogo === "mark" ? "bike-logo-mark" : isStandaloneSite ? siteEmblem : "header-logo")} alt="" draggable={false} />
+            <span className={`bbm-logo-emblem${serviceLogo ? " is-service-logo" : ""}`} aria-hidden="true">
+              <img src={serviceLogo ?? bbmAsset(isBikeSite && document.documentElement.dataset.bikelogo === "mark" ? "bike-logo-mark" : isStandaloneSite ? siteEmblem : "header-logo")} alt="" draggable={false} />
             </span>
             <span className={`bbm-logo-word is-${logoLanguage}`} aria-hidden="true">{logoLanguage === "ko" ? "보배드림" : "BOBAEDREAM"}</span>
             {isStandaloneSite ? <span className="bbm-bike-site-badge" aria-hidden="true">{siteName}</span> : null}

@@ -28,6 +28,43 @@
 
 final result: passed
 
+
+---
+
+## 2026-10-20 보배드림 용도별 서비스 로고 v01
+
+- Source visual truth:
+  - `https://app.notion.com/p/13fee9c4b60681dea0a4db46396732f2` — 할로윈/악마 응용 로고
+  - `https://app.notion.com/p/13fee9c4b60681bc931cf7d8c38724fd` — 산타모자 응용 로고
+- Generated comparison strip: `reports/service-logos/logo-set-v01.png`.
+- Browser-rendered implementation:
+  - `/?qf=guazi&pc=1&category=바이크`
+  - `/?qf=guazi&pc=1&category=트럭 · 특장`
+  - `/?qf=guazi&pc=1&category=건설기계`
+  - `/?qf=guazi&pc=1&category=올드카`
+  - `/community/bobaedream-pc-board-list.html?layout=reddit`
+  - `/bike/?home=as24&pc=1`
+- Viewports: PC 1280×720 CSS px, mobile main 390×844 CSS px.
+
+### Fidelity review
+
+- Identity: passed — 다섯 마크 모두 노션 원본의 둥근 얼굴, 밝은 눈, 빨간 코를 유지한다.
+- Service distinction: passed — 바이크=헬멧, 커뮤니티=말풍선, 트럭=캡 전면, 건설기계=안전모·버킷, 올드카=클래식 스티어링휠로 한눈에 구분된다.
+- Palette: passed — 네이비·크림·레드를 공통색으로 고정하고 건설기계에만 안전 노랑을 보조색으로 허용했다.
+- Optical balance: passed — 원본 투명 여백을 자동 검출해 512×512, 최대 피사체 464px 규칙으로 정규화했다. PC 헤더 30px, 독립 바이크 36px, 커뮤니티 32px, 모바일 유형 슬롯 24px에서 잘림과 치우침이 없다.
+- Responsive behavior: passed — 1280px PC 헤더와 390px 모바일 차량 유형/하단 내비에서 넘침이 없고 텍스트 기준선도 유지된다.
+- Accessibility: passed — 장식용 마크는 빈 대체 텍스트 또는 `aria-hidden`을 사용하고 기존 버튼의 접근 가능한 이름을 유지한다.
+
+### Comparison history
+
+- Pass 1: 1254px 생성 캔버스를 그대로 30px 헤더에 넣었을 때 실제 그림이 약 18px로 축소되어 식별력이 낮았다.
+- Pass 2: 알파 경계를 기준으로 투명 여백을 잘라내고 24px 안전 여백을 둔 512px 정사각 마스터로 통일했다.
+- Pass 3: 바이크·트럭·건설기계·올드카 URL의 `naturalWidth/naturalHeight=512/512`와 30×30 렌더 박스, 커뮤니티 32×32, 독립 바이크 36×36을 브라우저에서 재검증했다.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
 ---
 
 ## 2026-10-20 차란차 모바일 제조사 로고 슬롯·광학 크기

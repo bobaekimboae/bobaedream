@@ -18,6 +18,8 @@
   .bbm-logo { display: flex; grid-column: 1; align-items: center; gap: 8px; height: 40px; padding: 0; border: 0; background: none; }
   .bbm-logo-emblem { display: block; overflow: hidden; width: 30px; height: 30px; flex: 0 0 30px; border-radius: 50%; background: none; }
   .bbm-logo-emblem img { display: block; width: 122px; max-width: none; height: 30px; }
+  .bbm-logo-emblem.is-service-logo { display: grid; overflow: visible; place-items: center; border-radius: 0; }
+  .bbm-logo-emblem.is-service-logo img { width: 30px; max-width: 30px; height: 30px; object-fit: contain; }
   .bbm-logo-word { width: auto; height: auto; flex: none; background: none; color: #306bd9; font-size: 18px; font-weight: 800; line-height: 24px; letter-spacing: -.35px; }
   .bbm-logo-word.is-en { font-family: Arial, Helvetica, sans-serif; }
   .bbm-logo-word.is-ko { color: #306bd9; font-family: inherit; font-size: 20px; font-weight: 800; letter-spacing: -.4px; }

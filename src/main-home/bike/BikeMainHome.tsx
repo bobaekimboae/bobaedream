@@ -286,7 +286,7 @@ export default function BikeMainHome() {
       <header className="bmh-site-header" aria-label={copy.siteAria}>
         <div className="bmh-wrap bmh-site-header-main">
           <a className="bmh-site-logo" href={listUrl({ home: "as24" }, locale)} aria-label={copy.homeAria}>
-            <span className="bmh-site-logo-emblem bmh-site-logo-emblem--cycle"><img src={pic("..", "assets", "bike", "logo", "cycle-trader-symbol-orange.svg")} alt="" /></span>
+            <span className="bmh-site-logo-emblem bmh-site-logo-emblem--cycle"><img src={pic("..", "assets", "bbm", "service-logos", "v01", "bobaedream-bike-v01.png")} alt="" /></span>
             <span className="bmh-site-logo-word">{copy.logoWord}</span>
             <span className="bmh-site-logo-badge">{copy.logoBadge}</span>
           </a>
