@@ -23,10 +23,11 @@
 .dp-mobile-channel-head > div { display: flex; align-items: center; gap: 2px; margin-left: auto; }
 .dp-mobile-channel-head .dp-icon { width: 24px; height: 24px; }
 .dp-mobile-channel-head .listing-language { margin: 0; }
-.dp-mobile-channel-head .listing-language-trigger { width: 44px; min-width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: transparent; }
-.dp-mobile-channel-head .listing-language-trigger > span:not(.listing-language-flag),
-.dp-mobile-channel-head .listing-language-trigger > i { display: none; }
-.dp-mobile-channel-head .listing-language-flag { width: 24px; height: 16px; }
+/* 상단 국가(언어) = 우리 알약칩 규칙(2026-10-21 「상단 국가는 알약칩」): 32 높이 · 완전 둥금 · 1px #E4E7EC · 흰 바탕 · 국기 + 코드 + 꺾쇠 */
+.dp-mobile-channel-head .listing-language-trigger { display: inline-flex; align-items: center; gap: 4px; width: auto; min-width: 0; height: 32px; margin: 0 4px; padding: 0 10px 0 8px; border: 1px solid #e4e7ec; border-radius: 999px; background: #fff; color: #222; font-size: 13px; line-height: 18px; font-weight: 600; letter-spacing: 0; }
+.dp-mobile-channel-head .listing-language-trigger > span:not(.listing-language-flag) { display: inline; }
+.dp-mobile-channel-head .listing-language-trigger > i { display: inline; margin-top: -4px; color: #667085; font-size: 13px; }
+.dp-mobile-channel-head .listing-language-flag { width: 20px; height: 14px; }
 .dp-mobile-channel-head .listing-language-menu { position: fixed; top: 48px; right: 96px; }
 .dp-search-country { display: none; min-width: 0; align-items: center; gap: 8px; }
 .dp-site-main { display: none; grid-template-columns: 52px 1fr 78px; align-items: center; height: 52px; padding: 0 12px; }
@@ -616,3 +617,6 @@
   .dp-notice-band { max-width: 760px; margin: 12px 0 0; border-radius: 12px; }
   .dp-notice-card { flex-basis: 340px; }
 }
+/* 국가 알약이 넓어져 긴 상사명이 겹치지 않게 이름은 남은 폭만 쓴다 */
+.dp-mobile-channel-head .dp-mobile-channel-name { flex: 1 1 auto; max-width: none; }
+.dp-mobile-channel-head > div { flex: 0 0 auto; }
