@@ -17,7 +17,9 @@ const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
 const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
 type SectionId = "home" | "ads" | "community" | "valuation" | "reviews" | "social" | "dealers" | "intro";
-type ListingMode = "active" | "sold";
+type ListingMode = "active" | "sold" | "sns";
+// SNS 판매 차량 = SNS 게시물 중 차량이 걸린 글(2026-10-21 「SNS 탭을 없애고 판매완료 옆으로 SNS 판매 차량 (2)」).
+const SNS_LISTING_COUNT = 2;
 type ReviewFilter = "all" | "buyer" | "seller";
 type StoreReview = {
   id: number;
@@ -330,19 +332,20 @@ function SoldCards({ limit }: { limit: number }) {
 
 function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void }) {
   const [limit, setLimit] = useState(5);
-  const max = mode === "active" ? cars.length : MOCK.soldCars.length;
+  const max = mode === "active" ? cars.length : mode === "sold" ? MOCK.soldCars.length : SNS_LISTING_COUNT;
   return <section className="dp-content-card dp-listings">
     <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
       <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
+      <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({SNS_LISTING_COUNT})</button>
     </div>
-    {mode === "active" ? cars.length ? <ActiveCards cars={cars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">지금 판매 중인 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p> : <SoldCards limit={limit} />}
+    {mode === "active" ? cars.length ? <ActiveCards cars={cars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">지금 판매 중인 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p> : mode === "sold" ? <SoldCards limit={limit} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["social", "SNS"], ["dealers", "소속딜러"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["dealers", "소속딜러"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="딜러페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -355,25 +358,37 @@ function HomeSection() {
 
 // 판매자페이지 커뮤니티 = 우리 커뮤니티 기본 보기 「네이버 토론 피드」와 같은 카드(2026-10-21 「판매자페이지 커뮤니티 네이버 토론 피드로」).
 // 분류 칩 → 프사 24 · 작성자 · 시간 → 제목 → 본문 3줄 → 사진 → 버프·너프·댓글 · 조회. 글·반응 수는 화면 확인용 가상 값이다.
-const communityIcon = (name: string) => `community/assets/chzzk-detail/icons/${name}.svg`;
+// 배포 빌드가 코드 안의 "/assets/" 문자열을 다시 고쳐 쓰므로 경로를 조각으로 이어 붙인다(2026-10-21 아이콘 깨짐 수정).
+const communityIcon = (name: string) => ["community", "assets", "chzzk-detail", "icons", `${name}.svg`].join("/");
+// 딜러 커뮤니티 말머리(2026-10-21 「말머리 딜러에 맞게 추가」).
+const dealerCommunityTags = ["전체", "공지", "입고 소식", "출고 후기", "관리 팁", "시세 정보", "이벤트"] as const;
+type DealerCommunityTag = (typeof dealerCommunityTags)[number];
 
 function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
   const company = stripCorp(MOCK.company);
+  const [tag, setTag] = useState<DealerCommunityTag>("전체");
   const pick = (index: number) => cars.length ? cars[index % cars.length] : undefined;
-  const posts = [
-    { category: "차량 소개", title: `${pick(0)?.title ?? "새 차량"} 입고 안내`, copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 실내·외 사진을 함께 올려 두었으니 방문 전 궁금한 점을 댓글로 남겨 주세요.", author: dealer.name, byDealer: true, time: "2시간 전", views: 128, comments: 6, up: 14, down: 0, car: pick(0) },
-    { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다. 겨울철에는 배터리 충전 상태를 한 번 더 확인해 주세요.", author: company, byDealer: false, time: "1일 전", views: 246, comments: 11, up: 32, down: 1, car: undefined },
-    { category: "출고 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다. 먼 길 와 주셔서 감사합니다.", author: dealer.name, byDealer: true, time: "3일 전", views: 193, comments: 4, up: 21, down: 0, car: pick(1) },
-    { category: "시세 이야기", title: "요즘 수입 SUV 시세, 상담하면서 느낀 점", copy: "연식 3~4년 차 수입 SUV는 주행거리보다 사고 이력과 보증 잔여 기간이 가격 차이를 더 크게 만듭니다. 비교하실 때 참고해 주세요.", author: dealer.name, byDealer: true, time: "5일 전", views: 412, comments: 17, up: 45, down: 3, car: pick(2) },
+  const allPosts: { category: Exclude<DealerCommunityTag, "전체">; title: string; copy: string; author: string; byDealer: boolean; time: string; views: number; comments: number; up: number; down: number; car?: Car }[] = [
+    { category: "공지", title: "방문 상담 예약 안내", copy: "주말에는 상담이 몰려 대기 시간이 길어질 수 있습니다. 방문 전 채팅이나 전화로 시간을 정해 주시면 차량을 미리 준비해 두겠습니다.", author: company, byDealer: false, time: "1시간 전", views: 302, comments: 2, up: 18, down: 0 },
+    { category: "입고 소식", title: `${pick(0)?.title ?? "새 차량"} 입고`, copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 실내·외 사진을 함께 올려 두었으니 방문 전 궁금한 점을 댓글로 남겨 주세요.", author: dealer.name, byDealer: true, time: "2시간 전", views: 128, comments: 6, up: 14, down: 0, car: pick(0) },
+    { category: "출고 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다. 먼 길 와 주셔서 감사합니다.", author: dealer.name, byDealer: true, time: "1일 전", views: 193, comments: 4, up: 21, down: 0, car: pick(1) },
+    { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다. 겨울철에는 배터리 충전 상태를 한 번 더 확인해 주세요.", author: dealer.name, byDealer: true, time: "2일 전", views: 246, comments: 11, up: 32, down: 1 },
+    { category: "시세 정보", title: "요즘 수입 SUV 시세, 상담하면서 느낀 점", copy: "연식 3~4년 차 수입 SUV는 주행거리보다 사고 이력과 보증 잔여 기간이 가격 차이를 더 크게 만듭니다. 비교하실 때 참고해 주세요.", author: dealer.name, byDealer: true, time: "4일 전", views: 412, comments: 17, up: 45, down: 3, car: pick(2) },
+    { category: "이벤트", title: "이달 출고 고객 실내 클리닝 무료", copy: "이번 달 계약 후 출고하시는 고객님께 실내 클리닝을 무료로 해 드립니다. 자세한 조건은 상담 때 안내해 드릴게요.", author: company, byDealer: false, time: "6일 전", views: 167, comments: 3, up: 12, down: 0 },
   ];
+  const posts = tag === "전체" ? allPosts : allPosts.filter((post) => post.category === tag);
   return <section className="dp-content-card dp-community" aria-labelledby="dp-community-title">
     <div className="dp-section-heading">
       <div><h2 id="dp-community-title">커뮤니티</h2><p>딜러가 전하는 차량 소식과 관리 정보입니다.</p></div>
       <button type="button" onClick={() => notify("커뮤니티 글쓰기를 준비 중이에요")}>글쓰기</button>
     </div>
+    <div className="dp-discussion-tags" role="tablist" aria-label="말머리">
+      {dealerCommunityTags.map((item) => <button type="button" role="tab" key={item} aria-selected={tag === item} className={tag === item ? "is-active" : undefined} onClick={() => setTag(item)}>{item}</button>)}
+    </div>
     <div className="dp-discussion-list">
+      {posts.length === 0 ? <p className="dp-discussion-empty">아직 이 말머리의 글이 없어요</p> : null}
       {posts.map((post) => <article className="dp-discussion-card" key={post.title}>
-        <div className="dp-discussion-chips"><span>{post.category}</span></div>
+        <div className="dp-discussion-chips"><span className={post.category === "공지" ? "is-notice" : undefined}>{post.category}</span></div>
         <div className="dp-discussion-identity">
           {post.byDealer ? <img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /> : <i aria-hidden="true">{company.slice(0, 1)}</i>}
           <strong>{post.author}</strong>
@@ -412,8 +427,8 @@ function ValuationSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; 
   </section>;
 }
 
-function SocialFeedSection({ cars }: { cars: Car[] }) {
-  const posts = [
+function SocialFeedSection({ cars, limit, embedded = false }: { cars: Car[]; limit?: number; embedded?: boolean }) {
+  const allPosts = [
     {
       platform: "instagram",
       label: "인스타그램",
@@ -456,12 +471,8 @@ function SocialFeedSection({ cars }: { cars: Car[] }) {
     },
   ];
 
-  return <section className="dp-content-card dp-social-feed" aria-labelledby="dp-social-title">
-    <div className="dp-section-heading">
-      <div><h2 id="dp-social-title">SNS</h2><p>판매자가 등록한 채널의 최신 게시물입니다.</p></div>
-      <span>{posts.length}개 채널 게시물</span>
-    </div>
-    <div className="dp-social-feed-list">
+  const posts = (embedded ? allPosts.filter((post) => post.car) : allPosts).slice(0, limit ?? allPosts.length);
+  const list = <div className="dp-social-feed-list">
       {posts.map((post) => <article className="dp-social-post" key={`${post.platform}-${post.time}`}>
         <header>
           <DealerIcon name={post.platform} />
@@ -471,11 +482,18 @@ function SocialFeedSection({ cars }: { cars: Car[] }) {
         <p>{post.copy}</p>
         {post.car ? <a className="dp-social-media" href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label}에서 ${post.car.title} 게시물 보기`}>
           <img src={asset(post.car.listThumb ?? post.car.image)} alt={`${post.car.title} SNS 게시물`} draggable={false} />
-          <span><b>{post.car.title}</b><small>{post.car.price === "상담" ? "가격 상담" : `${post.car.price}만원`}</small></span>
+          <span><b>{post.car.title}</b><small>{/상담/.test(String(post.car.price)) ? "가격 상담" : /만원/.test(String(post.car.price)) ? String(post.car.price).replace(/\s*만원/, "만원") : `${post.car.price}만원`}</small></span>
         </a> : null}
         <footer><span>{post.stats}</span><a href={post.href} target="_blank" rel="noreferrer">원문 보기 <ExternalLinkIcon aria-hidden="true" /></a></footer>
       </article>)}
+    </div>;
+  if (embedded) return <div className="dp-social-feed is-embedded">{list}</div>;
+  return <section className="dp-content-card dp-social-feed" aria-labelledby="dp-social-title">
+    <div className="dp-section-heading">
+      <div><h2 id="dp-social-title">SNS</h2><p>판매자가 등록한 채널의 최신 게시물입니다.</p></div>
+      <span>{posts.length}개 채널 게시물</span>
     </div>
+    {list}
   </section>;
 }
 
@@ -716,7 +734,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   const [mode, setMode] = useState<ListingMode>("active");
   const [activeSection, setActiveSection] = useState<SectionId>(() => {
     const requested = new URLSearchParams(window.location.search).get("tab");
-    return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) ? requested as SectionId : "ads";
+    return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) && requested !== "social" ? requested as SectionId : "ads";
   });
   const [toast, setToast] = useState("");
   const reviewStorageKey = `bobaedream:dealer-reviews:${dealer.shopNo}:${dealer.empNo}`;
@@ -790,7 +808,6 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
-          {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
           {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
         </>}
