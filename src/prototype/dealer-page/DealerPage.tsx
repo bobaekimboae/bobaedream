@@ -30,6 +30,7 @@ type StoreReview = {
   carIndex: number;
   reply?: string;
   replyDate?: string;
+  transactionKey?: string;
 };
 
 const dealerDetailScreen: FlowScreen = {
@@ -132,6 +133,20 @@ const STORE_REVIEW_TAGS = [
   "약속을 잘 지켜요",
 ] as const;
 
+const REVIEW_RATING_COPY = ["", "매우 아쉬웠어요", "아쉬웠어요", "보통이에요", "만족했어요", "매우 만족했어요"] as const;
+const REVIEW_TAG_OPTIONS = {
+  buyer: {
+    low: ["설명이 부족해요", "응답이 아쉬워요", "약속 시간이 아쉬워요", "차량 상태 확인이 필요해요"],
+    neutral: ["응대가 무난해요", "설명이 충분해요", "거래가 원활해요"],
+    high: [...STORE_REVIEW_TAGS],
+  },
+  seller: {
+    low: ["가격 안내가 아쉬워요", "응답이 아쉬워요", "약속 시간이 아쉬워요"],
+    neutral: ["응대가 무난해요", "가격 설명이 충분해요", "거래가 원활해요"],
+    high: ["친절한 상담", "믿을 수 있어요", "가격이 합리적이에요", "약속을 잘 지켜요", "응답이 빨라요", "거래가 원활해요"],
+  },
+} as const;
+
 const STORE_REVIEWS: StoreReview[] = [
   { id: 1, name: "김민수", role: "buyer", score: 5, date: "2주 전", body: "차량 상태와 이력을 하나씩 설명해 주셔서 안심하고 계약했습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 0, reply: "소중한 후기 감사합니다. 안전하고 즐거운 운행 되시길 바랍니다.", replyDate: "2주 전" },
   { id: 2, name: "오토라이프", role: "buyer", score: 5, date: "1개월 전", body: "사진과 실제 차량 상태가 같았고 출고 준비도 꼼꼼했습니다.", tags: ["차량 상태가 설명과 같아요", "차량 품질이 좋아요"], carIndex: 1 },
@@ -173,7 +188,7 @@ function DealerIcon({ name, className }: { name: string; className?: string }) {
 function Stars({ score }: { score: number }) {
   const filled = Math.round(score);
   const star = `url(${icon("chotot-list-detail-review-star.svg")})`;
-  return <span className="dp-stars" aria-label={`별점 ${score}점`}>
+  return <span className="dp-stars" aria-label={`별점 ${score.toFixed(1)}점`}>
     {Array.from({ length: 5 }, (_, index) => <span key={index} className={`dp-star${index < filled ? " is-on" : ""}`} style={{ maskImage: star, WebkitMaskImage: star }} />)}
   </span>;
 }
@@ -216,7 +231,7 @@ function SiteHeader() {
   </header>;
 }
 
-function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuation }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void; onValuation: () => void }) {
+function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuation, rating = MOCK.rating, reviewCount = MOCK.reviewCount }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void; onValuation: () => void; rating?: number; reviewCount?: number }) {
   const [heroVideoFailed, setHeroVideoFailed] = useState(false);
   const [bioExpanded, setBioExpanded] = useState(false);
   const reduceMotion = typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -269,8 +284,8 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
           <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅</button>
           {MOCK.phone ? <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><DealerIcon name="phone" />전화</a> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
         </div>
-        <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
-        <div className="dp-profile-inline is-mobile-rating"><b>{MOCK.rating}</b><Stars score={MOCK.rating} /><u>리뷰 {MOCK.reviewCount}</u></div>
+        <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
+        <div className="dp-profile-inline is-mobile-rating"><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
         <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="dealership" />{MOCK.joined}</div>
         </div>
@@ -487,11 +502,122 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
   </section>;
 }
 
-function StoreRatingsSection({ cars }: { cars: Car[] }) {
+function ReviewWriteDialog({ cars, reviews, onClose, onSubmit }: { cars: Car[]; reviews: StoreReview[]; onClose: () => void; onSubmit: (review: StoreReview) => void }) {
+  const [role, setRole] = useState<Exclude<ReviewFilter, "all">>("buyer");
+  const [transactionKey, setTransactionKey] = useState("");
+  const [score, setScore] = useState(0);
+  const [tags, setTags] = useState<string[]>([]);
+  const [body, setBody] = useState("");
+  const [verified, setVerified] = useState(false);
+  const [confirming, setConfirming] = useState(false);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const transactionOptions = role === "buyer"
+    ? cars.slice(0, 5).map((car, index) => ({ key: `buyer-${car.id}`, label: car.title, carIndex: index }))
+    : TWOJ_PROFILE.soldCars.slice(0, 5).map(([title], index) => ({ key: `seller-${index}-${title}`, label: title, carIndex: index % Math.max(cars.length, 1) }));
+  const selectedTransaction = transactionOptions.find((item) => item.key === transactionKey);
+  const alreadyReviewed = Boolean(transactionKey && reviews.some((review) => review.transactionKey === transactionKey));
+  const tagGroup = score <= 2 ? "low" : score === 3 ? "neutral" : "high";
+  const tagOptions = REVIEW_TAG_OPTIONS[role][tagGroup];
+  const canContinue = Boolean(selectedTransaction && score && verified && !alreadyReviewed);
+
+  useEffect(() => {
+    dialogRef.current?.focus();
+    const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
+    document.addEventListener("keydown", closeOnEscape);
+    return () => document.removeEventListener("keydown", closeOnEscape);
+  }, [onClose]);
+
+  const changeRole = (nextRole: Exclude<ReviewFilter, "all">) => {
+    setRole(nextRole);
+    setTransactionKey("");
+    setScore(0);
+    setTags([]);
+    setConfirming(false);
+  };
+  const changeScore = (nextScore: number) => {
+    setScore(nextScore);
+    setTags([]);
+    setConfirming(false);
+  };
+  const toggleTag = (tag: string) => setTags((current) => current.includes(tag) ? current.filter((item) => item !== tag) : current.length < 3 ? [...current, tag] : current);
+  const submit = () => {
+    if (!selectedTransaction || !canContinue) return;
+    onSubmit({
+      id: Date.now(),
+      name: "보배회원",
+      role,
+      score,
+      date: "방금 전",
+      body: body.trim() || undefined,
+      tags,
+      carIndex: selectedTransaction.carIndex,
+      transactionKey: selectedTransaction.key,
+    });
+  };
+
+  return <div className="dp-review-dialog-backdrop" role="presentation" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+    <div className="dp-review-dialog" role="dialog" aria-modal="true" aria-labelledby="dp-review-write-title" tabIndex={-1} ref={dialogRef}>
+      <header className="dp-review-dialog-head">
+        <button type="button" onClick={onClose} aria-label="리뷰 작성 닫기">×</button>
+        <div><h2 id="dp-review-write-title">판매점 리뷰 작성</h2><p>{stripCorp(MOCK.company)}와 거래한 경험을 알려주세요.</p></div>
+      </header>
+      {!confirming ? <div className="dp-review-form">
+        <section>
+          <h3>어떤 거래였나요?</h3>
+          <div className="dp-review-role-options">
+            <button type="button" aria-pressed={role === "buyer"} onClick={() => changeRole("buyer")}><b>차량 구매</b><span>이 판매점에서 차를 샀어요</span></button>
+            <button type="button" aria-pressed={role === "seller"} onClick={() => changeRole("seller")}><b>내차 판매</b><span>이 판매점에 차를 팔았어요</span></button>
+          </div>
+        </section>
+        <section>
+          <label htmlFor="dp-review-transaction"><b>거래 차량</b><span>거래가 완료된 차량만 리뷰할 수 있어요.</span></label>
+          <select id="dp-review-transaction" value={transactionKey} onChange={(event) => { setTransactionKey(event.target.value); setConfirming(false); }}>
+            <option value="">거래 차량을 선택하세요</option>
+            {transactionOptions.map((item) => <option key={item.key} value={item.key} disabled={reviews.some((review) => review.transactionKey === item.key)}>{item.label}{reviews.some((review) => review.transactionKey === item.key) ? " · 작성 완료" : ""}</option>)}
+          </select>
+          {alreadyReviewed ? <p className="dp-review-field-error" role="alert">이 거래의 리뷰는 이미 등록되었습니다.</p> : null}
+        </section>
+        <section className="dp-review-score-input">
+          <h3>거래는 어떠셨나요?</h3>
+          <div className="dp-review-score-stars" role="radiogroup" aria-label="별점 선택">
+            {Array.from({ length: 5 }, (_, index) => {
+              const value = index + 1;
+              return <button type="button" key={value} role="radio" aria-checked={score === value} aria-label={`${value}점`} onClick={() => changeScore(value)}><span className={value <= score ? "is-on" : ""} style={{ maskImage: `url(${icon("chotot-list-detail-review-star.svg")})`, WebkitMaskImage: `url(${icon("chotot-list-detail-review-star.svg")})` }} /></button>;
+            })}
+          </div>
+          <strong aria-live="polite">{score ? REVIEW_RATING_COPY[score] : "별점을 선택해 주세요"}</strong>
+        </section>
+        {score ? <section>
+          <h3>어떤 점이 기억에 남나요? <small>최대 3개</small></h3>
+          <div className="dp-review-write-tags">{tagOptions.map((tag) => <button type="button" key={tag} aria-pressed={tags.includes(tag)} onClick={() => toggleTag(tag)}>{tag}</button>)}</div>
+        </section> : null}
+        <section>
+          <label htmlFor="dp-review-body"><b>상세 후기 <small>선택</small></b><span>개인정보나 연락처는 입력하지 마세요.</span></label>
+          <textarea id="dp-review-body" value={body} maxLength={300} placeholder="차량 상태, 상담, 계약 과정에서 느낀 점을 적어주세요." onChange={(event) => setBody(event.target.value)} />
+          <small className="dp-review-character-count">{body.length}/300</small>
+        </section>
+        <label className="dp-review-verified"><input type="checkbox" checked={verified} onChange={(event) => setVerified(event.target.checked)} /><span>실제 거래 경험을 바탕으로 작성했습니다.</span></label>
+        <button type="button" className="dp-review-submit" disabled={!canContinue} onClick={() => setConfirming(true)}>등록하기</button>
+      </div> : <div className="dp-review-confirm">
+        <span className="dp-review-confirm-icon">✓</span>
+        <h3>리뷰를 등록할까요?</h3>
+        <p>등록한 별점과 후기는 수정하거나 삭제할 수 없습니다. 거래 경험에 맞게 작성했는지 한 번 더 확인해 주세요.</p>
+        <dl><div><dt>거래</dt><dd>{role === "buyer" ? "차량 구매" : "내차 판매"}</dd></div><div><dt>차량</dt><dd>{selectedTransaction?.label}</dd></div><div><dt>평점</dt><dd>{score}.0 · {REVIEW_RATING_COPY[score]}</dd></div></dl>
+        <div><button type="button" onClick={() => setConfirming(false)}>다시 확인</button><button type="button" onClick={submit}>확인하고 등록</button></div>
+      </div>}
+    </div>
+  </div>;
+}
+
+function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allReviews: StoreReview[]; onSubmit: (review: StoreReview) => void }) {
   const [filter, setFilter] = useState<ReviewFilter>("all");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
-  const reviews = STORE_REVIEWS.filter((review) => (filter === "all" || review.role === filter) && (!selectedTag || review.tags.includes(selectedTag)));
-  const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${STORE_REVIEWS.length})`], ["buyer", "차량 구매 (16)"], ["seller", "내차 판매 (1)"]];
+  const [writeOpen, setWriteOpen] = useState(false);
+  const reviews = allReviews.filter((review) => (filter === "all" || review.role === filter) && (!selectedTag || review.tags.includes(selectedTag)));
+  const average = allReviews.reduce((sum, review) => sum + review.score, 0) / Math.max(allReviews.length, 1);
+  const buyerCount = allReviews.filter((review) => review.role === "buyer").length;
+  const sellerCount = allReviews.filter((review) => review.role === "seller").length;
+  const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${allReviews.length})`], ["buyer", `차량 구매 (${buyerCount})`], ["seller", `내차 판매 (${sellerCount})`]];
   const selectTag = (tag: string) => {
     setFilter("all");
     setSelectedTag((current) => current === tag ? null : tag);
@@ -504,11 +630,12 @@ function StoreRatingsSection({ cars }: { cars: Car[] }) {
     <div className="dp-store-rating-summary">
       <div className="dp-store-rating-score">
         <h2 id="dp-store-rating-title" className="dp-visually-hidden">판매점 리뷰</h2>
-        <span><b>{MOCK.rating}</b><Stars score={MOCK.rating} /></span>
+        <span><b>{average.toFixed(1)}</b><Stars score={average} /></span>
+        <button type="button" className="dp-review-write-button" onClick={() => setWriteOpen(true)}>리뷰 쓰기</button>
       </div>
       <div className="dp-store-rating-tags" aria-label="판매점 평가 키워드">
         {STORE_REVIEW_TAGS.map((label) => {
-          const count = STORE_REVIEWS.filter((review) => review.tags.includes(label)).length;
+          const count = allReviews.filter((review) => review.tags.includes(label)).length;
           return <button type="button" key={label} aria-pressed={selectedTag === label} onClick={() => selectTag(label)}>{label} <b>({count})</b></button>;
         })}
       </div>
@@ -518,7 +645,7 @@ function StoreRatingsSection({ cars }: { cars: Car[] }) {
         {filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={!selectedTag && filter === id} key={id} onClick={() => selectRole(id)}>{label}</button>)}
       </div>
       <p className="dp-visually-hidden" role="status" aria-live="polite">{selectedTag ? `${selectedTag} 리뷰 ${reviews.length}개` : `${filterItems.find(([id]) => id === filter)?.[1]} 리뷰`}</p>
-      <div className="dp-review-list">{reviews.map((review) => {
+      <div className="dp-review-list">{reviews.length ? reviews.map((review) => {
         const car = cars.length ? cars[review.carIndex % cars.length] : undefined;
         const price = car?.price === "상담" ? "가격 상담" : car?.price ?? "거래 완료";
         return <article className="dp-review" key={review.id}>
@@ -535,8 +662,9 @@ function StoreRatingsSection({ cars }: { cars: Car[] }) {
           </div>
           {review.reply ? <div className="dp-review-reply"><b>딜러 답글</b><p>{review.reply}</p><time>{review.replyDate}</time></div> : null}
         </article>;
-      })}</div>
+      }) : <div className="dp-review-empty"><b>조건에 맞는 리뷰가 없습니다.</b><span>다른 유형이나 키워드를 선택해 주세요.</span></div>}</div>
     </div>
+    {writeOpen ? <ReviewWriteDialog cars={cars} reviews={allReviews} onClose={() => setWriteOpen(false)} onSubmit={(review) => { onSubmit(review); setFilter(review.role); setSelectedTag(null); setWriteOpen(false); }} /> : null}
   </section>;
 }
 
@@ -585,11 +713,30 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) ? requested as SectionId : "ads";
   });
   const [toast, setToast] = useState("");
+  const reviewStorageKey = `bobaedream:dealer-reviews:${dealer.shopNo}:${dealer.empNo}`;
+  const [submittedReviews, setSubmittedReviews] = useState<StoreReview[]>(() => {
+    try {
+      const saved = window.localStorage.getItem(reviewStorageKey);
+      return saved ? JSON.parse(saved) as StoreReview[] : [];
+    } catch {
+      return [];
+    }
+  });
   const scrollRef = useRef<HTMLDivElement | null>(null);
+  const allReviews = [...submittedReviews, ...STORE_REVIEWS];
+  const reviewRating = allReviews.reduce((sum, review) => sum + review.score, 0) / Math.max(allReviews.length, 1);
 
   useEffect(() => { setPretendard(true); document.title = `${dealer.name} 딜러`; }, [dealer.name]);
 
   const notify = (message: string) => { setToast(message); window.setTimeout(() => setToast(""), 1800); };
+  const submitReview = (review: StoreReview) => {
+    setSubmittedReviews((current) => {
+      const next = [review, ...current];
+      try { window.localStorage.setItem(reviewStorageKey, JSON.stringify(next)); } catch { /* Prototype still works for this session. */ }
+      return next;
+    });
+    notify("판매점 리뷰가 등록되었습니다");
+  };
   const openListing = (car: Car) => {
     const target = new URL(window.location.href);
     target.searchParams.set("profile", "dealer");
@@ -625,13 +772,13 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       <SiteHeader />
       <main className={`dp-page${activeSection === "reviews" ? " is-reviews" : ""}`} aria-label={`${dealer.name} 딜러페이지`}>
         {activeSection === "reviews" ? <div className="dp-review-page-shell">
-          <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} />
+          <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
           <div className="dp-review-page-main">
             <AnchorNav active={activeSection} onChange={changeSection} />
-            <StoreRatingsSection cars={cars} />
+            <StoreRatingsSection cars={cars} allReviews={allReviews} onSubmit={submitReview} />
           </div>
         </div> : <>
-          <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} />
+          <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
           {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
