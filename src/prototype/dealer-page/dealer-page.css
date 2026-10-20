@@ -576,7 +576,7 @@
 .dp-discussion-identity time { margin-left: auto; color: #9b9ea4; font-size: 12px; line-height: 18px; font-weight: 430; white-space: nowrap; }
 .dp-discussion-title { display: block; width: 100%; margin: 8px 0 4px; padding: 0; color: #1e1e23; font-size: 16px; line-height: 24px; font-weight: 750; letter-spacing: -.035em; text-align: left; word-break: keep-all; }
 .dp-discussion-body { display: -webkit-box; margin: 0; overflow: hidden; color: #50545a; font-size: 14px; line-height: 21px; font-weight: 420; letter-spacing: -.025em; -webkit-box-orient: vertical; -webkit-line-clamp: 3; word-break: keep-all; }
-.dp-discussion-media { display: block; width: 240px; max-width: 100%; height: 160px; margin-top: 8px; padding: 0; overflow: hidden; border-radius: 8px; background: #eef0f2; }
+.dp-discussion-media { display: block; flex: 0 0 72px; width: 72px; height: 72px; margin-top: 8px; padding: 0; overflow: hidden; border-radius: 8px; background: #eef0f2; }
 .dp-discussion-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .dp-discussion-metrics { display: flex; height: 35px; margin-top: 8px; align-items: center; gap: 13px; color: #6f737a; font-size: 12px; line-height: 18px; font-weight: 560; }
 .dp-discussion-metrics button { display: inline-flex; height: 32px; padding: 0; align-items: center; gap: 4px; color: inherit; font: inherit; }
@@ -603,8 +603,8 @@
 /* 레딧 「고정 핀」 원본(pin-fill, 노션 미국_레딧) — 파일은 그대로 두고 mask로 색만 #222 */
 .dp-notice-pin { display: inline-block; flex: 0 0 16px; width: 16px; height: 16px; background: #222; -webkit-mask: var(--pin) center / 16px 16px no-repeat; mask: var(--pin) center / 16px 16px no-repeat; }
 .dp-notice-band h3 .dp-notice-pin { flex-basis: 18px; width: 18px; height: 18px; -webkit-mask-size: 18px 18px; mask-size: 18px 18px; }
-/* 네이버 토론 글 사진 실측(2026-10-21): 본문 아래 8 · 240×160 · 반경 8 · cover, 폭을 꽉 채우지 않음 */
-.dp-notice-media { display: block; width: 240px; max-width: 100%; height: 160px; margin-top: 8px; overflow: hidden; border-radius: 8px; background: #eef0f2; }
+/* 네이버 토론 인기글 우측 썸네일 실측(2026-10-21, m.stock.naver.com 390): 글 칸 옆 10 · 72×72 · 반경 8 · cover, 썸네일 윗선 = 글 묶음 윗선 */
+.dp-notice-media { display: block; flex: 0 0 72px; width: 72px; height: 72px; margin-top: 7px; overflow: hidden; border-radius: 8px; background: #eef0f2; }
 .dp-notice-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .dp-notice-card p { display: -webkit-box; margin: 0; overflow: hidden; color: #404048; font-size: 15px; line-height: 23px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; word-break: keep-all; }
 .dp-discussion-metrics.is-notice { height: 19px; margin-top: 12px; color: #404048; font-size: 13px; line-height: 19px; font-weight: 400; }
@@ -620,3 +620,6 @@
 /* 국가 알약이 넓어져 긴 상사명이 겹치지 않게 이름은 남은 폭만 쓴다 */
 .dp-mobile-channel-head .dp-mobile-channel-name { flex: 1 1 auto; max-width: none; }
 .dp-mobile-channel-head > div { flex: 0 0 auto; }
+/* 우측 썸네일형 줄: 글(제목+본문) 왼쪽 · 썸네일 오른쪽 10 */
+.dp-thumb-row { display: flex; align-items: flex-start; gap: 10px; }
+.dp-thumb-text { flex: 1 1 auto; min-width: 0; }
