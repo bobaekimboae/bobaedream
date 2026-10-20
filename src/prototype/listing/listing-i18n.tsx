@@ -19,6 +19,13 @@ export const listingLocaleOptions: readonly LocaleOption[] = [
   { id: "ar", code: "AR", native: "العربية", dir: "rtl", intl: "ar-SA" },
 ] as const;
 
+const languageNames: Record<ListingLocale, Record<ListingLocale, string>> = {
+  ko: { ko: "한국어", en: "영어", ru: "러시아어", ar: "아랍어" },
+  en: { ko: "Korean", en: "English", ru: "Russian", ar: "Arabic" },
+  ru: { ko: "Корейский", en: "Английский", ru: "Русский", ar: "Арабский" },
+  ar: { ko: "الكورية", en: "الإنجليزية", ru: "الروسية", ar: "العربية" },
+};
+
 type ForeignLocale = Exclude<ListingLocale, "ko">;
 type Translation = Record<ForeignLocale, string>;
 
@@ -50,6 +57,50 @@ const districtEnglish = Object.values(regionsKr.districts as Record<string, stri
 }, {});
 const englishRegions: Record<string, string> = { ...provinceEnglish, ...districtEnglish };
 const englishRegionKeys = Object.keys(englishRegions).sort((a, b) => b.length - a.length);
+const englishProperNames: Record<string, string> = {
+  "(주) 보배네트워크 사업자 정보": "BOBAE NETWORK Business Information",
+  "Copyright © (주)보배네트워크": "Copyright © BOBAE NETWORK",
+  "대표이사: 김보배": "CEO: Kim Bo-bae",
+  "사업자등록번호": "Business Registration No.", "사업자번호": "Business No.", "사업자정보 확인": "Verify business information",
+  "개인정보관리책임자": "Privacy Officer", "통신판매업신고번호": "E-commerce Registration No.",
+  "주소": "Address", "팩스": "Fax", "메일": "Email", "이메일": "Email", "평일": "Weekdays", "점심시간": "Lunch break",
+  "회사소개": "About us", "제휴/광고문의": "Partnership & advertising", "제휴/광고": "Partnership & advertising",
+  "제휴광고": "Partnership & advertising", "제휴/신고센터": "Partnership & reports", "청소년보호정책": "Youth protection policy",
+  "원격지원": "Remote support", "이용관리": "Account management", "이용문의": "Service inquiries", "제안/건의": "Suggestions",
+  "PC버전": "Desktop version", "매물등록": "Create listing", "검색저장": "Save search",
+  "검색 범위": "Search scope", "바꾸기": "Change", "검색 조건": "Search filters", "빠른 선택": "Quick selection",
+  "필터 해제": "Clear filter", "매물 목록": "Listings", "매물 유형과 정렬": "Listing type and sort",
+  "보기 방식 선택": "Select view", "처음으로": "Home", "주 메뉴": "Main navigation", "회원 메뉴": "Account menu",
+  "컬러 모드 선택": "Color mode", "라이트 모드": "Light mode", "다크 모드": "Dark mode", "공지사항": "Notice",
+  "상세 보기": "View details", "찜": "Save", "리스트": "Listings", "차량": "Vehicle", "다음": "Next",
+  "인스타그램": "Instagram", "페이스북": "Facebook", "유튜브": "YouTube", "스레드": "Threads",
+  "서울오토갤러리": "Seoul Auto Gallery", "반여강변단지": "Banyeo Riverside Complex", "사직오토랜드": "Sajik Autoland",
+  "동성모터스": "Dongsung Motors", "하이엔드모터스": "High-end Motors", "아이언모터스": "Iron Motors",
+  "카맥스": "Carmax", "부경모터스": "Bukyeong Motors", "목동동로": "Mokdongdong-ro", "드림타워": "Dream Tower",
+  "11, 12층": "Floors 11–12", "11,12층": "Floors 11–12", "제2013-서울양천-0465호": "2013-Seoul-Yangcheon-0465",
+  "최민재": "Choi Min-jae", "박준서": "Park Jun-seo", "김혜원": "Kim Hye-won", "이은호": "Lee Eun-ho",
+  "김창현": "Kim Chang-hyun", "최정원": "Choi Jeong-won", "배형빈": "Bae Hyeong-bin", "최기문": "Choi Gi-mun",
+  "이성아": "Lee Seong-a", "이승준": "Lee Seung-jun", "강동우": "Kang Dong-woo", "박정열": "Park Jeong-yeol",
+  "황경규": "Hwang Gyeong-gyu", "서병갑": "Seo Byeong-gap", "박대희": "Park Dae-hui", "강주호": "Kang Ju-ho",
+  "루쏘": "Lusso", "푸로산게": "Purosangue", "우루스": "Urus", "컬리넌": "Cullinan", "시리즈": "Series",
+  "스포츠": "Sport", "클래스": "Class", "슈팅브레이크": "Shooting Brake", "익스클루시브": "Exclusive",
+  "울트라": "Ultra", "크로스컨트리": "Cross Country", "브라이트": "Bright", "다크": "Dark", "세대": "Generation",
+  "쿠퍼": "Cooper", "파사트": "Passat",
+  "닛산": "Nissan", "다이하쓰": "Daihatsu", "닷지": "Dodge", "동펑": "Dongfeng", "란치아": "Lancia",
+  "랜드로버": "Land Rover", "렉서스": "Lexus", "로버": "Rover", "로터스": "Lotus", "르노": "Renault",
+  "링컨": "Lincoln", "마세라티": "Maserati", "마이바흐": "Maybach", "마쯔다": "Mazda", "맥라렌": "McLaren",
+  "머큐리": "Mercury", "모건": "Morgan", "미니": "MINI", "미쓰비시": "Mitsubishi", "미쯔오카": "Mitsuoka",
+  "벤틀리": "Bentley", "부가티": "Bugatti", "북기은상": "BAIC Yinxiang", "뷰익": "Buick", "비이스만": "Wiesmann",
+  "사브": "Saab", "새턴": "Saturn", "선롱": "Sunlong", "스마트": "smart", "스바루": "Subaru", "스즈키": "Suzuki",
+  "스카니아": "Scania", "스파이커": "Spyker", "시트로엥": "Citroën", "알파로메오": "Alfa Romeo", "알핀": "Alpine",
+  "애스턴마틴": "Aston Martin", "어큐라": "Acura", "오스틴": "Austin", "오펠": "Opel", "올즈모빌": "Oldsmobile",
+  "웨스트필드": "Westfield", "이네오스": "INEOS", "이베코": "Iveco", "이스즈": "Isuzu", "인피니티": "Infiniti",
+  "재규어": "Jaguar", "지프": "Jeep", "캐딜락": "Cadillac", "코닉세크": "Koenigsegg", "크라이슬러": "Chrysler",
+  "테슬라": "Tesla", "토요타": "Toyota", "파가니": "Pagani", "포드": "Ford", "포톤": "Foton",
+  "폭스바겐": "Volkswagen", "폰티악": "Pontiac", "폴스타": "Polestar", "푸조": "Peugeot", "피스커": "Fisker",
+  "피아트": "Fiat", "허머": "Hummer", "혼다": "Honda", "홀덴": "Holden", "히노": "Hino",
+};
+const englishProperNameKeys = Object.keys(englishProperNames).sort((a, b) => b.length - a.length);
 
 const words: Record<string, Translation> = {
   "로그인 상태 화면으로 전환했습니다.": { en: "Switched to the signed-in view.", ru: "Включён режим авторизованного пользователя.", ar: "تم التبديل إلى وضع تسجيل الدخول." },
@@ -214,6 +265,9 @@ export function translateListingText(raw: string, locale: ListingLocale) {
   let value = raw.slice(leading.length, raw.length - trailing.length || undefined);
   value = translateDynamic(value, locale);
   if (locale === "en") {
+    englishProperNameKeys.forEach((source) => {
+      if (value.includes(source)) value = value.split(source).join(englishProperNames[source]);
+    });
     englishRegionKeys.forEach((source) => {
       if (value.includes(source)) value = value.split(source).join(englishRegions[source]);
     });
@@ -221,6 +275,7 @@ export function translateListingText(raw: string, locale: ListingLocale) {
   Object.keys(words).sort((a, b) => b.length - a.length).forEach((source) => {
     if (value.includes(source)) value = value.split(source).join(words[source][locale]);
   });
+  if (locale === "en") value = value.replace(/[가-힣]+/g, (part) => titleCase(romanizeKorean(part)));
   return `${leading}${value}${trailing}`;
 }
 
@@ -279,7 +334,7 @@ export function ListingLocaleProvider({ children }: { children: ReactNode }) {
     };
     const translateElement = (element: Element) => {
       if (element.closest("[data-i18n-skip]")) return;
-      const attributes = ["aria-label", "placeholder", "title"];
+      const attributes = ["aria-label", "placeholder", "title", "alt"];
       let stored = originalAttrs.current.get(element);
       if (!stored) { stored = new Map(); originalAttrs.current.set(element, stored); }
       attributes.forEach((name) => {
@@ -313,7 +368,7 @@ export function ListingLocaleProvider({ children }: { children: ReactNode }) {
         if (record.type === "attributes" && record.target instanceof Element) translateElement(record.target);
       });
     });
-    observer.observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ["aria-label", "placeholder", "title"] });
+    observer.observe(document.body, { subtree: true, childList: true, characterData: true, attributes: true, attributeFilter: ["aria-label", "placeholder", "title", "alt"] });
     return () => observer.disconnect();
   }, [locale, option.dir]);
 
@@ -353,7 +408,7 @@ export function ListingLanguageSelect({ compact = false }: { compact?: boolean }
     </button>
     {open ? <div className="listing-language-menu" role="menu" aria-label="Select language">
       {listingLocaleOptions.map((item) => <button key={item.id} type="button" role="menuitemradio" aria-checked={item.id === locale} className={item.id === locale ? "is-active" : ""} onClick={() => { setLocale(item.id); setOpen(false); }}>
-        <ListingFlag locale={item.id} /><strong>{item.native}</strong><small>{item.code}</small><i aria-hidden="true">{item.id === locale ? "✓" : ""}</i>
+        <ListingFlag locale={item.id} /><strong>{languageNames[locale][item.id]}</strong><small>{item.code}</small><i aria-hidden="true">{item.id === locale ? "✓" : ""}</i>
       </button>)}
     </div> : null}
   </div>;
