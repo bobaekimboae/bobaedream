@@ -116,7 +116,7 @@ function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
     phone: shop?.phone ?? "",
     fax: "",
     email: "이메일 문의",
-    staff: "",
+    staff: `${dealers.filter((item) => item.shopNo === dealer.shopNo).length}명`,
     address: `서울 서초구 양재대로11길 36, ${hall}`.trim(),
     intro: `서울오토갤러리 ${hall}에 위치한 ${company} ${coOwners}입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.`,
     soldCars: TWOJ_PROFILE.soldCars.slice(0, sold),

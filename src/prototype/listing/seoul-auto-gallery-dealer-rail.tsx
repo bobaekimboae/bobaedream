@@ -1,6 +1,7 @@
 import { asset } from "../data";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
+import { seoulAutoGalleryStaffByShop } from "../data/seoul-autogallery-staff-v01";
 import "./seoul-auto-gallery-dealer-rail.css";
 
 export type SeoulAutoGalleryDealer = {
@@ -26,25 +27,45 @@ export const dealers: readonly SeoulAutoGalleryDealer[] = [
   { name: "방지윤", listingCount: 2, shopNo: "450560", empNo: "4", image: "dealer-04.png", profileAsset: "dealer-profile/seoul-auto-gallery/bang-jiyun.jpg" },
 ] as const;
 
-// 서울오토갤러리 회원사 79곳의 대표 판매자페이지(2026-10-21). 위 레일 딜러(김태규 · 강홍구 · 서용석 · 주한솔 · 박진희)는
-// 같은 상사·대표면 그대로 쓰고, 나머지 대표는 상사 번호(shop) + 대표 순번(emp 1·2)으로 만든다. 레일에는 넣지 않는다.
+// 서울오토갤러리 회원사 79곳의 소속딜러 전원 판매자페이지(2026-10-21 「딜러 개개인 페이지 모두 만들어」).
+// 상사마다 사이트 「소속딜러」 순서대로 만든다. 위 레일 딜러는 같은 상사·이름이면 그대로 쓰고(주소 유지),
+// 대표는 대표 순번(emp 1·2), 나머지 딜러는 그 상사에서 비어 있는 다음 번호를 쓴다. 판매차량 수는 사이트 보유차량 대수.
 const ownerIllustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
-export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = seoulAutoGalleryShops.flatMap((shop, shopIndex) => shop.owners.map((owner, ownerIndex) => {
-  const existing = dealers.find((item) => item.shopNo === shop.shopNo && item.name === owner);
-  if (existing) return existing;
-  const listingCount = seoulAutoGalleryRows.filter((row) => row.company === shop.company && row.dealer === owner).reduce((max, row) => Math.max(max, row.stock), 0);
-  return { name: owner, listingCount, shopNo: shop.shopNo, empNo: String(ownerIndex + 1), image: ownerIllustrations[(shopIndex + ownerIndex) % ownerIllustrations.length], role: "대표" };
-}));
+const sheetStock = (company: string, name: string) => seoulAutoGalleryRows.filter((row) => row.company === company && row.dealer === name).reduce((max, row) => Math.max(max, row.stock), 0);
+export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = seoulAutoGalleryShops.flatMap((shop, shopIndex) => {
+  const staff = seoulAutoGalleryStaffByShop[shop.shopNo]?.staff ?? [];
+  const railInShop = dealers.filter((item) => item.shopNo === shop.shopNo);
+  const used = new Set<string>([...railInShop.map((item) => item.empNo), ...shop.owners.map((_, index) => String(index + 1))]);
+  const nextEmp = () => { let n = 1; while (used.has(String(n))) n += 1; used.add(String(n)); return String(n); };
+  const taken = new Set<SeoulAutoGalleryDealer>();
+  const list: SeoulAutoGalleryDealer[] = [];
+  const picture = (index: number) => ownerIllustrations[(shopIndex + index) % ownerIllustrations.length];
+  shop.owners.forEach((owner, ownerIndex) => {
+    const existing = railInShop.find((item) => item.name === owner && !taken.has(item));
+    if (existing) { taken.add(existing); list.push(existing); return; }
+    const site = staff.find(([name]) => name === owner);
+    list.push({ name: owner, listingCount: site ? site[1] : sheetStock(shop.company, owner), shopNo: shop.shopNo, empNo: String(ownerIndex + 1), image: picture(ownerIndex), role: "대표" });
+  });
+  const ownerSlots = new Map(shop.owners.map((owner) => [owner, 1]));
+  staff.forEach(([name, cars], index) => {
+    const left = ownerSlots.get(name) ?? 0;
+    if (left > 0) { ownerSlots.set(name, left - 1); return; }
+    const existing = railInShop.find((item) => item.name === name && !taken.has(item));
+    if (existing) { taken.add(existing); list.push(existing); return; }
+    list.push({ name, listingCount: cars, shopNo: shop.shopNo, empNo: nextEmp(), image: picture(index + 1), role: "소속딜러" });
+  });
+  return list;
+});
 export const allSeoulAutoGalleryDealers: readonly SeoulAutoGalleryDealer[] = [...dealers, ...seoulAutoGalleryOwnerDealers.filter((owner) => !dealers.includes(owner))];
 
 export const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
-// 레일(목록 위)은 기존 9명, 「딜러」 탭은 상사 대표 88명을 포함한 전체를 격자로 보여 준다(2026-10-21 「전체상사 대표들 페이지 모두」).
+// 레일(목록 위)은 기존 9명, 「딜러」 탭은 79개 상사의 소속딜러 전원을 격자로 보여 준다(2026-10-21 「딜러 개개인 페이지 모두 만들어」).
 export function SeoulAutoGalleryDealerRail({ onOpenDealer, all = false }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void; all?: boolean }) {
   const list = all ? allSeoulAutoGalleryDealers : dealers;
   return (
     <section className={`sag-dealer-rail${all ? " is-all" : ""}`} aria-labelledby="sag-dealer-rail-title">
-      <h2 id="sag-dealer-rail-title">{all ? `딜러 · 상사 대표 ${list.length}명` : "딜러"}</h2>
+      <h2 id="sag-dealer-rail-title">{all ? `딜러 ${list.length}명` : "딜러"}</h2>
       <div className="sag-dealer-track">
         {list.map((dealer) => (
           <button
