@@ -38,20 +38,10 @@ def main():
     shutil.copytree(APP / "res", res)
     (res / "mipmap-mdpi").mkdir()
     shutil.copyfile(ROOT / "public/app/icon-192.png", res / "mipmap-mdpi/ic_launcher.png")
-    (res / "drawable").mkdir()
-    svg = ET.parse(ROOT / "public/assets/bbm/favicon.svg").getroot()
-    paths = []
-    for element in svg:
-        kind = element.tag.rsplit("}", 1)[-1]
-        if kind == "path":
-            paths.append((element.attrib["fill"], element.attrib["d"]))
-        elif kind == "circle":
-            cx, cy, radius = (float(element.attrib[key]) for key in ("cx", "cy", "r"))
-            paths.append((element.attrib["fill"], f"M{cx-radius},{cy}a{radius},{radius} 0 1,0 {2*radius},0a{radius},{radius} 0 1,0 {-2*radius},0"))
-    vector = '<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="108dp" android:height="108dp" android:viewportWidth="30" android:viewportHeight="30"><group android:pivotX="15" android:pivotY="15" android:scaleX="0.82" android:scaleY="0.82">'
-    for color, data in paths:
-        vector += f'<path android:fillColor="{color}" android:pathData="{data}"/>'
-    (res / "drawable/brand_mark.xml").write_text(vector + "</group></vector>", encoding="utf-8")
+    (res / "drawable-nodpi").mkdir()
+    # Prepared from icon-adaptive-foreground.svg: both the symbol and outlined
+    # wordmark sit inside Android's 66dp safe circle on a 108dp foreground.
+    shutil.copyfile(ROOT / "public/app/icon-adaptive-foreground.png", res / "drawable-nodpi/brand_mark.png")
     run(TOOLS / "aapt2.exe", "compile", "--dir", res, "-o", work / "resources.zip")
     run(TOOLS / "aapt2.exe", "link", "-o", work / "unsigned.apk", "-I", ANDROID,
         "--manifest", APP / "AndroidManifest.xml", "--java", work / "gen", work / "resources.zip")
@@ -93,7 +83,8 @@ def main():
         raise SystemExit("Unexpected APK application identity.")
     sha = hashlib.sha256(OUT.read_bytes()).hexdigest()
     OUT.with_suffix(".apk.sha256").write_text(f"{sha}  bobaedream.apk\n", encoding="utf-8")
-    metadata = {"name": "보배드림", "version": "1.0.0", "package": "io.github.bobaekimboae.bobaedream",
+    version = ET.parse(APP / "AndroidManifest.xml").getroot().attrib["{http://schemas.android.com/apk/res/android}versionName"]
+    metadata = {"name": "보배드림", "version": version, "package": "io.github.bobaekimboae.bobaedream",
                 "minAndroid": "8.0", "targetSdk": 35, "bytes": OUT.stat().st_size, "sha256": sha,
                 "startUrl": "https://bobaekimboae.github.io/bobaedream/?source=android-app",
                 "permissions": ["android.permission.INTERNET"], "deviceExecutionVerified": False}

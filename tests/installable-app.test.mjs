@@ -27,10 +27,18 @@ test("home-screen app identity and launch stay inside the GitHub project site", 
   for (const size of [192, 512]) {
     const icon = manifest.icons.find((item) => item.sizes === `${size}x${size}`);
     const png = readFileSync(new URL(`../public/app/icon-${size}.png`, import.meta.url));
-    assert.equal(icon.purpose, "any maskable");
+    assert.equal(icon.purpose, "any");
     assert.equal(png.readUInt32BE(16), size);
     assert.equal(png.readUInt32BE(20), size);
   }
+  assert.ok(manifest.icons.some((icon) => icon.purpose === "maskable" && icon.sizes === "512x512"));
+});
+
+test("offline screen can load its updated branded icon without the network", async () => {
+  const { listeners, offlineResponse } = workerHarness(() => { throw new Error("must use cached logo"); });
+  let response;
+  listeners.fetch({ request: { mode: "cors", method: "GET", url: "https://example.test/bobaedream/app/icon-192.png?v=2" }, respondWith: (value) => { response = value; } });
+  assert.equal(await response, offlineResponse);
 });
 
 test("navigation always prefers the current server response", async () => {

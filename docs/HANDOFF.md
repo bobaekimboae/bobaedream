@@ -16,6 +16,8 @@
 ## 1. 작업 기준
 
 - 보배드림 설치 앱(2026-10-20): `/app/`에서 현재 파랑 심벌·빨간 점 로고와 `보배드림` 이름의 Android APK 및 설치형 웹앱을 제공한다. APK 소스는 `apps/android-prototype/`, 빌드는 `python apps/android-prototype/build.py`(JDK + Android SDK 36/Build Tools 36). 설치 파일·해시·메타데이터는 `public/app/`에 둔다. 앱 ID는 `io.github.bobaekimboae.bobaedream`으로 공식 앱과 분리하며, 실행 주소는 프로젝트 메인이다. APK는 기존 시안을 WebView로 여는 온라인 앱이며 인터넷 권한만 쓴다. 서명 키/암호는 사용자 로컬 `.codex/app-signing/`에만 있고 저장소에 넣지 않는다. 업데이트 때 키를 보존하고 Manifest의 버전 코드를 올린다. PWA는 프로젝트 범위에서만 동작하며 매물 HTML을 캐시하지 않는다. 검증은 `node --test tests/installable-app.test.mjs`, 전체 `npm run verify`, APK 서명/정렬/패키지 정보 검사다. 실기기 설치·실행은 별도 확인이 필요하다.
+- 앱 아이콘 텍스트(2026-10-20): 현재 심벌 아래에 **Pretendard Bold(700)** 실제 폰트에서 추출한 `보배드림` 글자 윤곽을 흰색으로 배치한다. 일반 아이콘·PWA 원형 마스크용·Android 적응형 전경을 각각 안전 영역에 맞춘다. Android 1.0.1(버전 코드 2)은 기존과 같은 키로 서명해 업데이트 설치한다. 웹 아이콘 URL과 오프라인 로고 캐시도 v2로 갱신한다.
+
 
 - 사용자 작업 방식(2026-10-18): 이 프로젝트의 수정 요청은 별도 배포 확인을 다시 묻지 않고, 검증 후 기존 GitHub Pages에 먼저 배포한 다음 결과를 보고한다.
 - 기본 작업 화면은 `?qf=guazi` 개발 시안형이다.
