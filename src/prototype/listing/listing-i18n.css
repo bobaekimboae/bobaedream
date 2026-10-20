@@ -11,6 +11,7 @@
 .listing-language-menu strong { overflow: hidden; font-size: 14px; font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
 .listing-language-menu small { color: #7b8492; font-size: 10px; font-weight: 750; }
 .listing-language-menu i { font-size: 13px; font-style: normal; font-weight: 850; text-align: center; }
+.marketplace.is-bbm-m .top-bar.is-bbm:has(.listing-language) { grid-template-columns: 24px minmax(0, 1fr) 24px 66px !important; }
 .top-bar .listing-language { align-self: center; }
 .top-bar .listing-language-trigger { width: 66px; min-width: 66px; height: 38px; padding: 0 7px; gap: 5px; }
 .top-bar .listing-language-trigger > span { display: inline; }
