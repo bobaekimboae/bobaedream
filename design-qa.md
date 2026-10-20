@@ -29,8 +29,6 @@
 final result: passed
 
 
----
-
 ## 2026-10-20 보배드림 용도별 서비스 로고 v01
 
 - Source visual truth:
@@ -6420,6 +6418,36 @@ final result: passed
 - Fixes: review-only two-column shell, compact profile rail, source-density score/tabs/cards, filled keyword tags, flat 14px dealer reply, redundant role badges removed.
 - Accepted product differences: Bobaedream global header and Korean dealer content remain branded/localized; the source web page's mobile horizontal clipping was not copied.
 - Full report: `docs/dealer-store-review-design-qa-2026-10-21.md`.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
+## 2026-10-21 판매점 리뷰 모바일 탭·키워드 필터 수정
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/646dcbae-5e87-40f0-a8d0-31007f4cbda1/1-1000018879.jpg` (591×1280 px).
+- Browser-rendered implementation: `reports/design-qa/dealer-store-review-2026-10-21/06-mobile-tabs-keyword-filter.png` (390×844 px, DPR 1).
+- Combined comparison: `reports/design-qa/dealer-store-review-2026-10-21/07-side-by-side-mobile-tabs-filter.png`; source normalized to 390×844 for equal-state comparison.
+- Viewport/state: mobile 390×844 CSS px; 판매점리뷰 selected; `친절한 상담 (7)` selected.
+
+### Comparison history
+
+- Pass 1 [P1, responsiveness]: eight horizontal navigation tabs caused the selected review tab and adjacent items to appear cut off. Fixed mobile navigation to five equal-width primary tabs with 8px edge padding and no horizontal overflow.
+- Pass 1 [P1, behavior]: rating keywords were static spans and could not return matching reviews. Replaced them with accessible toggle buttons and connected each label to exact review filtering.
+- Pass 2: all keyword counts were checked against rendered review results: 7, 5, 3, 3, 1, 1. Role-tab selection clears the keyword, and keyword selection returns to the all-role scope. Seller tab still returns one review.
+- Post-fix evidence: navigation width 380px with `scrollWidth` 380px; five visible tabs remain within x=8…372px; desktop review shell remains 320px + 16px + 668px; console warnings/errors 0.
+
+### Required fidelity surfaces
+
+- Typography: passed — existing Pretendard sizes and weights retained; mobile tab labels remain readable without truncation.
+- Spacing/layout: passed — equal five-column mobile tabs, intact 8px outer gutters, review cards and filter tabs align without clipped edges.
+- Colors/tokens: passed — neutral chips remain `#f4f4f4`; selected keyword uses product ink `#222` with white text.
+- Image quality: passed — no image or icon assets changed; existing vehicle and dealer imagery retains its crop and sharpness.
+- Copy/content: passed — visible keyword counts now match the actual filtered dataset.
+- Behavior/accessibility: passed — `aria-pressed`, live result status, role tabs, toggle-off behavior, mobile and desktop states verified.
 
 No actionable P0/P1/P2 differences remain.
 

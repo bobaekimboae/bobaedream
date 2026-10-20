@@ -124,12 +124,12 @@ function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
 let MOCK: DealerProfileInfo = TWOJ_PROFILE;
 
 const STORE_REVIEW_TAGS = [
-  ["친절한 상담", 7],
-  ["믿을 수 있어요", 5],
-  ["차량 상태가 설명과 같아요", 3],
-  ["차량 품질이 좋아요", 3],
-  ["가격이 합리적이에요", 1],
-  ["약속을 잘 지켜요", 1],
+  "친절한 상담",
+  "믿을 수 있어요",
+  "차량 상태가 설명과 같아요",
+  "차량 품질이 좋아요",
+  "가격이 합리적이에요",
+  "약속을 잘 지켜요",
 ] as const;
 
 const STORE_REVIEWS: StoreReview[] = [
@@ -138,17 +138,17 @@ const STORE_REVIEWS: StoreReview[] = [
   { id: 3, name: "박준호", role: "buyer", score: 5, date: "2개월 전", body: "질문이 많았는데 끝까지 친절하게 안내해 주셨습니다.", tags: ["친절한 상담", "약속을 잘 지켜요"], carIndex: 2, reply: "믿고 방문해 주셔서 감사합니다. 궁금한 점은 언제든 편하게 연락 주세요.", replyDate: "2개월 전" },
   { id: 4, name: "이서연", role: "buyer", score: 4, date: "3개월 전", body: "가격과 이전 절차를 투명하게 알려주셔서 편하게 거래했습니다.", tags: ["가격이 합리적이에요", "믿을 수 있어요"], carIndex: 3 },
   { id: 5, name: "드림카찾기", role: "buyer", score: 5, date: "4개월 전", body: "멀리서 방문했는데 차량을 미리 준비해 주셔서 바로 확인할 수 있었습니다.", tags: ["친절한 상담", "차량 상태가 설명과 같아요"], carIndex: 4 },
-  { id: 6, name: "최현우", role: "buyer", score: 5, date: "5개월 전", body: "상담부터 출고까지 진행이 빠르고 설명도 정확했습니다.", tags: ["믿을 수 있어요", "약속을 잘 지켜요"], carIndex: 0, reply: "좋은 차량을 함께 찾아드릴 수 있어 기쁩니다. 감사합니다.", replyDate: "5개월 전" },
+  { id: 6, name: "최현우", role: "buyer", score: 5, date: "5개월 전", body: "상담부터 출고까지 진행이 빠르고 설명도 정확했습니다.", tags: ["믿을 수 있어요"], carIndex: 0, reply: "좋은 차량을 함께 찾아드릴 수 있어 기쁩니다. 감사합니다.", replyDate: "5개월 전" },
   { id: 7, name: "서울드라이버", role: "buyer", score: 5, date: "6개월 전", body: "시승할 때 장단점을 솔직하게 알려주셔서 선택에 도움이 됐습니다.", tags: ["친절한 상담", "차량 품질이 좋아요"], carIndex: 1 },
-  { id: 8, name: "정우성", role: "buyer", score: 5, date: "7개월 전", tags: ["차량 상태가 설명과 같아요", "믿을 수 있어요"], carIndex: 2 },
+  { id: 8, name: "정우성", role: "buyer", score: 5, date: "7개월 전", tags: ["믿을 수 있어요"], carIndex: 2 },
   { id: 9, name: "카라이프", role: "buyer", score: 5, date: "8개월 전", body: "필요한 서류와 보험 절차까지 차분하게 안내받았습니다.", tags: ["친절한 상담"], carIndex: 3 },
-  { id: 10, name: "윤지호", role: "buyer", score: 5, date: "9개월 전", tags: ["믿을 수 있어요"], carIndex: 4 },
+  { id: 10, name: "윤지호", role: "buyer", score: 5, date: "9개월 전", tags: [], carIndex: 4 },
   { id: 11, name: "패밀리카", role: "buyer", score: 5, date: "10개월 전", body: "가족이 탈 차라 꼼꼼히 확인했는데 관리 상태가 좋았습니다.", tags: ["차량 품질이 좋아요", "차량 상태가 설명과 같아요"], carIndex: 0 },
   { id: 12, name: "로드트립", role: "buyer", score: 4, date: "11개월 전", tags: ["친절한 상담"], carIndex: 1 },
-  { id: 13, name: "강민호", role: "buyer", score: 5, date: "1년 전", body: "과장 없이 필요한 내용만 설명해 주셔서 믿음이 갔습니다.", tags: ["믿을 수 있어요"], carIndex: 2 },
-  { id: 14, name: "주말오너", role: "buyer", score: 5, date: "1년 전", tags: ["친절한 상담", "가격이 합리적이에요"], carIndex: 3 },
-  { id: 15, name: "모터로그", role: "buyer", score: 5, date: "1년 전", body: "차량 인도 뒤에도 궁금한 점을 바로 답변해 주셨습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 4 },
-  { id: 16, name: "윤서진", role: "buyer", score: 5, date: "1년 전", tags: ["차량 상태가 설명과 같아요"], carIndex: 0 },
+  { id: 13, name: "강민호", role: "buyer", score: 5, date: "1년 전", body: "과장 없이 필요한 내용만 설명해 주셔서 믿음이 갔습니다.", tags: [], carIndex: 2 },
+  { id: 14, name: "주말오너", role: "buyer", score: 5, date: "1년 전", tags: [], carIndex: 3 },
+  { id: 15, name: "모터로그", role: "buyer", score: 5, date: "1년 전", body: "차량 인도 뒤에도 궁금한 점을 바로 답변해 주셨습니다.", tags: [], carIndex: 4 },
+  { id: 16, name: "윤서진", role: "buyer", score: 5, date: "1년 전", tags: [], carIndex: 0 },
   { id: 17, name: "스피드모터스", role: "seller", score: 5, date: "3개월 전", body: "응대가 빠르고 거래 조건을 명확하게 조율해 주셨습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 1 },
 ];
 
@@ -489,8 +489,17 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
 
 function StoreRatingsSection({ cars }: { cars: Car[] }) {
   const [filter, setFilter] = useState<ReviewFilter>("all");
-  const reviews = STORE_REVIEWS.filter((review) => filter === "all" || review.role === filter);
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const reviews = STORE_REVIEWS.filter((review) => (filter === "all" || review.role === filter) && (!selectedTag || review.tags.includes(selectedTag)));
   const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${STORE_REVIEWS.length})`], ["buyer", "차량 구매 (16)"], ["seller", "내차 판매 (1)"]];
+  const selectTag = (tag: string) => {
+    setFilter("all");
+    setSelectedTag((current) => current === tag ? null : tag);
+  };
+  const selectRole = (role: ReviewFilter) => {
+    setSelectedTag(null);
+    setFilter(role);
+  };
   return <section className="dp-content-card dp-ratings" aria-labelledby="dp-store-rating-title">
     <div className="dp-store-rating-summary">
       <div className="dp-store-rating-score">
@@ -498,13 +507,17 @@ function StoreRatingsSection({ cars }: { cars: Car[] }) {
         <span><b>{MOCK.rating}</b><Stars score={MOCK.rating} /></span>
       </div>
       <div className="dp-store-rating-tags" aria-label="판매점 평가 키워드">
-        {STORE_REVIEW_TAGS.map(([label, count]) => <span key={label}>{label} <b>({count})</b></span>)}
+        {STORE_REVIEW_TAGS.map((label) => {
+          const count = STORE_REVIEWS.filter((review) => review.tags.includes(label)).length;
+          return <button type="button" key={label} aria-pressed={selectedTag === label} onClick={() => selectTag(label)}>{label} <b>({count})</b></button>;
+        })}
       </div>
     </div>
     <div className="dp-store-review-panel">
       <div className="dp-review-filters" role="tablist" aria-label="판매점 리뷰 유형">
-        {filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={filter === id} key={id} onClick={() => setFilter(id)}>{label}</button>)}
+        {filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={!selectedTag && filter === id} key={id} onClick={() => selectRole(id)}>{label}</button>)}
       </div>
+      <p className="dp-visually-hidden" role="status" aria-live="polite">{selectedTag ? `${selectedTag} 리뷰 ${reviews.length}개` : `${filterItems.find(([id]) => id === filter)?.[1]} 리뷰`}</p>
       <div className="dp-review-list">{reviews.map((review) => {
         const car = cars.length ? cars[review.carIndex % cars.length] : undefined;
         const price = car?.price === "상담" ? "가격 상담" : car?.price ?? "거래 완료";
