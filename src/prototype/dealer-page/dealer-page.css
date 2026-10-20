@@ -48,7 +48,7 @@
 .dp-cover { position: relative; width: calc(100% - 32px); aspect-ratio: 16 / 5; min-height: 100px; max-height: 112px; margin: 12px 16px 0; overflow: hidden; border-radius: 8px; background: #06101f; box-shadow: 0 1px 2px rgba(0,0,0,.12); color: #fff; isolation: isolate; }
 .dp-cover::before { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(4,9,19,.88) 0%, rgba(4,9,19,.68) 31%, rgba(4,9,19,.18) 62%, rgba(4,9,19,.03) 100%), linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.2)); pointer-events: none; }
 .dp-cover::after { display: none; }
-.dp-cover-photo { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 51%; animation: dp-cover-reveal 360ms ease-out both; }
+.dp-cover-photo { position: absolute; z-index: 0; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 51%; transform: translateX(4%); animation: dp-cover-reveal 360ms ease-out both; }
 .dp-cover-brand-copy { position: absolute; z-index: 2; inset: 0 auto 0 14px; display: flex; width: min(58%, 252px); min-width: 0; flex-direction: column; align-items: flex-start; justify-content: center; color: #fff; text-align: left; text-shadow: 0 1px 8px rgba(0,0,0,.78); }
 .dp-cover-brand-copy strong { overflow: hidden; max-width: 100%; font-size: 17px; line-height: 22px; font-weight: 800; letter-spacing: -.45px; text-overflow: ellipsis; white-space: nowrap; }
 .dp-cover-brand-copy span { display: -webkit-box; overflow: hidden; max-width: 100%; max-height: 28px; margin-top: 3px; color: rgba(255,255,255,.84); font-size: 10px; line-height: 14px; letter-spacing: -.05px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
