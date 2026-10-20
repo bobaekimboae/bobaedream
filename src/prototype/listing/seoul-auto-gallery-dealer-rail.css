@@ -107,3 +107,27 @@
 
 /* 「딜러」 탭: 전체 딜러·상사 대표를 줄바꿈 격자로(2026-10-21) */
 .sag-dealer-rail.is-all .sag-dealer-track { flex-wrap: wrap; row-gap: 12px; overflow: visible; }
+
+/* 「딜러」 탭 검색·소속 상사 알약칩·카드 상사명(2026-10-21) */
+.sag-dealer-search { display: flex; height: 40px; margin: 0 16px 12px; padding: 0 12px; align-items: center; gap: 8px; border-radius: 999px; background: #f4f4f4; }
+.sag-dealer-search img { width: 18px; height: 18px; flex: 0 0 18px; opacity: .55; }
+.sag-dealer-search input { min-width: 0; flex: 1 1 auto; height: 40px; padding: 0; border: 0; outline: 0; background: transparent; color: #222; font: inherit; font-size: 15px; line-height: 22px; }
+.sag-dealer-search input::placeholder { color: #999; }
+.sag-dealer-search input::-webkit-search-cancel-button { display: none; }
+.sag-dealer-search button { width: 28px; height: 28px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #8c8c8c; font-size: 20px; line-height: 28px; }
+.sag-dealer-search:focus-within { outline: 2px solid #222; outline-offset: 0; background: #fff; }
+.sag-dealer-shops { display: flex; gap: 8px; margin: 0 0 14px; padding: 0 16px; overflow-x: auto; scrollbar-width: none; overscroll-behavior-x: contain; }
+.sag-dealer-shops::-webkit-scrollbar { display: none; }
+.sag-dealer-shops button { flex: 0 0 auto; height: 32px; padding: 0 12px; border: 1px solid #e4e7ec; border-radius: 16px; background: #fff; color: #222; font: inherit; font-size: 14px; line-height: 20px; font-weight: 500; white-space: nowrap; }
+.sag-dealer-shops button.is-selected { border-color: #222; background: #222; color: #fff; }
+.sag-dealer-shops button:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
+.sag-dealer-rail.is-all .sag-dealer-card { height: 118px; }
+.sag-dealer-card em { display: block; max-width: 76px; margin-top: 1px; overflow: hidden; color: #595959; font-size: 12px; font-style: normal; font-weight: 400; line-height: 16px; text-overflow: ellipsis; white-space: nowrap; }
+.sag-dealer-empty { padding: 24px 16px 32px; text-align: center; }
+.sag-dealer-empty p { margin: 0 0 12px; color: #595959; font-size: 14px; line-height: 20px; }
+.sag-dealer-empty button { height: 36px; padding: 0 16px; border: 1px solid #222; border-radius: 18px; background: #fff; color: #222; font: inherit; font-size: 14px; font-weight: 600; }
+@media (min-width: 768px) {
+  .sag-dealer-search { margin-right: 20px; margin-left: 20px; }
+  .sag-dealer-shops { padding-right: 20px; padding-left: 20px; }
+  .sag-dealer-card em { max-width: 84px; }
+}
