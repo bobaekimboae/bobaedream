@@ -346,7 +346,7 @@ function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: L
 }
 
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
-  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["dealers", "소속딜러"], ["valuation", "내차견적"], ["reviews", "판매점리뷰"], ["intro", "소개"]];
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["dealers", "소속딜러"], ["valuation", "내차견적"], ["reviews", "리뷰"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="딜러페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
 }
 
@@ -630,7 +630,7 @@ function ReviewWriteDialog({ cars, reviews, onClose, onSubmit }: { cars: Car[]; 
     <div className="dp-review-dialog" role="dialog" aria-modal="true" aria-labelledby="dp-review-write-title" tabIndex={-1} ref={dialogRef}>
       <header className="dp-review-dialog-head">
         <button type="button" onClick={onClose} aria-label="리뷰 작성 닫기">×</button>
-        <div><h2 id="dp-review-write-title">판매점 리뷰 작성</h2><p>{stripCorp(MOCK.company)}와 거래한 경험을 알려주세요.</p></div>
+        <div><h2 id="dp-review-write-title">리뷰 작성</h2><p>{stripCorp(MOCK.company)}와 거래한 경험을 알려주세요.</p></div>
       </header>
       {!confirming ? <div className="dp-review-form">
         <section>
@@ -700,7 +700,7 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
   return <section className="dp-content-card dp-ratings" aria-labelledby="dp-store-rating-title">
     <div className="dp-store-rating-summary">
       <div className="dp-store-rating-score">
-        <h2 id="dp-store-rating-title" className="dp-visually-hidden">판매점 리뷰</h2>
+        <h2 id="dp-store-rating-title" className="dp-visually-hidden">리뷰</h2>
         <span><b>{average.toFixed(1)}</b><Stars score={average} /></span>
         <button type="button" className="dp-review-write-button" onClick={() => setWriteOpen(true)}>리뷰 쓰기</button>
       </div>
@@ -712,7 +712,7 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
       </div>
     </div>
     <div className="dp-store-review-panel">
-      <div className="dp-review-filters" role="tablist" aria-label="판매점 리뷰 유형">
+      <div className="dp-review-filters" role="tablist" aria-label="리뷰 유형">
         {filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={!selectedTag && filter === id} key={id} onClick={() => selectRole(id)}>{label}</button>)}
       </div>
       <p className="dp-visually-hidden" role="status" aria-live="polite">{selectedTag ? `${selectedTag} 리뷰 ${reviews.length}개` : `${filterItems.find(([id]) => id === filter)?.[1]} 리뷰`}</p>
@@ -806,7 +806,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       try { window.localStorage.setItem(reviewStorageKey, JSON.stringify(next)); } catch { /* Prototype still works for this session. */ }
       return next;
     });
-    notify("판매점 리뷰가 등록되었습니다");
+    notify("리뷰가 등록되었습니다");
   };
   const openListing = (car: Car) => {
     const target = new URL(window.location.href);
