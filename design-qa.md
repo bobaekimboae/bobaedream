@@ -31,9 +31,9 @@ final result: passed
 
 ---
 
-## 2026-10-21 딜러 헤더 배너 왼쪽 정렬 수정
+## 2026-10-21 딜러 헤더 배너 왼쪽 정렬 · 벤틀리 공식 이미지
 
-- Source visual truth: 직전 배포 캡처 `reports/design-qa/dealer-header-banner-2026-10-21/02-after-desktop.png` + 사용자 수정 지시(상사명 왼쪽, 서비스·상담 문구 분리).
+- Source visual truth: Bentley Motors Continental GT 공식 페이지 `https://www.bentleymotors.com/us/en/models/continental-gt/continental-gt.html`의 Snow Quartz Pearlescent 후측면 이미지 + 사용자 수정 지시(상사명 왼쪽, 서비스·상담 문구 분리).
 - Browser-rendered implementation: `reports/design-qa/dealer-header-banner-2026-10-21/09-final-desktop.png`, `08-mobile-full-car.png`.
 - Viewports: desktop 1280×800 CSS px, mobile 390×844 CSS px, DPR 1.
 - State: 김태규 딜러페이지 판매차량 탭, 페라리 F80 헤더 배너.
@@ -42,15 +42,15 @@ final result: passed
 - Typography: passed — 기존 크기·굵기 유지, 왼쪽 정렬만 변경.
 - Spacing/layout: passed — PC 28px, 모바일 14px 왼쪽 여백; 메뉴 버튼은 우측으로 이동해 충돌 없음.
 - Colors/tokens: passed — 어두운 그라데이션도 왼쪽으로 반전해 텍스트 대비 유지.
-- Image quality: passed — 공식 Ferrari F80 이미지와 선명도 유지.
+- Image quality: passed — 공식 Bentley Continental GT 1440×810 이미지를 로컬 자산으로 고정하고, PC·모바일 모두 차체와 엠블럼이 식별되는 중앙 후측면 구도를 유지.
 - Copy/content: passed — 상사명 전체 노출, 전문 분야와 상담 안내를 각각 한 줄로 노출.
 - Behavior/accessibility: passed — PC·모바일 가로 넘침 없음, 콘솔 오류 0건.
 
 ### Comparison history
 
 - Pass 1 [P2, mobile imagery]: PC용 full-bleed crop을 모바일에 그대로 사용해 차량이 작고 일부만 보여 이미지 정체성이 약했다.
-- Fix: 모바일 배너 높이를 100–112px로 확보하고, 공식 Ferrari F80 원본을 오른쪽 78% 영역에 `object-fit: contain`으로 배치해 차체 전체가 보이도록 변경했다.
-- Pass 2: 모바일에서 붉은 Ferrari F80의 전체 실루엣·캐빈·휠이 확인되고, 왼쪽 상사명·2줄 설명과 겹치지 않는다. PC는 기존 full-bleed crop을 유지한다.
+- Fix: 모바일 배너 높이를 100–112px로 확보하고, 공식 Bentley Continental GT 이미지를 전체 폭 `object-fit: cover`로 배치해 좌측 문구와 우측 차체가 한 장면으로 연결되도록 변경했다.
+- Pass 2: 모바일에서 Continental GT의 후측면·휠·엠블럼이 확인되고, 왼쪽 상사명·2줄 설명은 어두운 그라데이션 위에서 분리된다. PC는 full-bleed crop을 유지한다.
 - Post-fix evidence: `08-mobile-full-car.png`, `09-final-desktop.png`; 양쪽 콘솔 오류 0건.
 
 No actionable P0/P1/P2 differences remain.
