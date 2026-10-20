@@ -131,3 +131,6 @@
   .sag-dealer-shops { padding-right: 20px; padding-left: 20px; }
   .sag-dealer-card em { max-width: 84px; }
 }
+
+/* 딜러 프사 원형(2026-10-21 「사각말고 원이 좋지 않을까 프사」): 48 원 · 얼굴 위쪽 기준 cover · 옅은 회색 바탕 + 안쪽 1px 선 */
+.sag-dealer-card img { border-radius: 50%; object-fit: cover; object-position: center 20%; background: #f4f4f4; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .06); }
