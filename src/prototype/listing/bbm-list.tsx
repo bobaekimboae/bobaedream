@@ -7,7 +7,7 @@ import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
 import { useViewedListing } from "./viewed-listings";
 import { truckPlaceV09 } from "../truck/scenario-v09";
-import { translateListingText, useListingLocale } from "./listing-i18n";
+import { formatLocalListingPrice, localPriceDisclosure, translateListingText, useListingLocale } from "./listing-i18n";
 import "./bbm-tokens.css";
 import "./thumbnail-states.css";
 
@@ -683,9 +683,10 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const [locationBase, ...locationSecondaryParts] = listPlace.split(" · ");
   const locationMain = locationDong ? `${locationBase} ${locationDong}` : locationBase; // 상세 상단만 동까지(2026-10-14)
   const priceMatch = car.price.match(/^(월\s*)?(.+?)\s*(만원)$/);
-  const foreignPrice = locale !== "ko" && priceMatch
-    ? `${priceMatch[1] ? translateListingText(priceMatch[1].trim(), locale) + " " : ""}₩${(Number(priceMatch[2].replace(/,/g, "")) * 10000).toLocaleString("en-US")}`
-    : null;
+  const wonPrice = priceMatch ? Number(priceMatch[2].replace(/,/g, "")) * 10000 : null;
+  const localPrice = wonPrice === null ? null : formatLocalListingPrice(wonPrice, locale);
+  const originalWonPrice = wonPrice === null ? null : `₩${wonPrice.toLocaleString("en-US")}`;
+  const monthlyPrefix = priceMatch?.[1] ? `${translateListingText(priceMatch[1].trim(), locale)} ` : "";
   // 모든 카테고리가 차명을 붙여 한 제목으로(최대 2줄). 중고차도 「제조사 모델 세부모델」을 끊지 않고 잇는다(2026-10-08 「중고차도 차명 끊지 말고 연결」)
   const title = <strong className="bbm-card-title"><span className="bbm-card-model is-joined">{cardTitleText(car)}</span></strong>;
   const headlinePosition = getHeadlinePosition();
@@ -749,7 +750,10 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
             <span className={`bbm-card-spec${prioritizeTruckCapacity ? " is-secondary" : ""}${car.adDescription ? " is-ad-description" : ""}`}>{car.adDescription ?? (featured ? renderFeedSpec(specMain) : specMain)}{car.adDescription || (variant === "pc" && Boolean(car.bike)) ? null : <span className="bbm-card-spec-seller"> · {seller}</span>}</span>
             {!prioritizeTruckCapacity && !car.adDescription && specCapacity ? <span className="bbm-card-spec is-capacity">{specCapacity}</span> : null}
             <div className="bbm-card-price-badges">
-              <strong className="bbm-card-price">{foreignPrice ? <span>{foreignPrice}</span> : <><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</>}</strong>
+              <span className="bbm-card-price-pair">
+                <strong className="bbm-card-price">{localPrice ? <span>{monthlyPrefix}{localPrice}</span> : <><span>{priceMatch?.[1] ?? ""}{priceMatch?.[2] ?? car.price}</span>{priceMatch ? <span className="bbm-card-price-unit">만원</span> : null}</>}</strong>
+                {localPrice && originalWonPrice ? <span className="bbm-card-origin-price" title={localPriceDisclosure(locale)} aria-label={`${originalWonPrice}. ${localPriceDisclosure(locale)}`}>≈ {originalWonPrice}</span> : null}
+              </span>
               {badges.length ? <div className="bbm-card-badges">{badges.map((badge) => <span key={badge}>{badge}</span>)}</div> : null}
             </div>
           </div>

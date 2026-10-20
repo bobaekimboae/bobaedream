@@ -19,6 +19,33 @@ export const listingLocaleOptions: readonly LocaleOption[] = [
   { id: "ar", code: "AR", native: "العربية", dir: "rtl", intl: "ar-SA" },
 ] as const;
 
+// 2026-10-20 reference snapshot. Overseas prices are estimates only; the
+// original KRW asking price remains visible beside the converted amount.
+const localCurrencyByLocale: Record<Exclude<ListingLocale, "ko">, { currency: string; ratePerKrw: number; intl: string }> = {
+  en: { currency: "USD", ratePerKrw: 1 / 1332.1, intl: "en-US" },
+  ru: { currency: "RUB", ratePerKrw: 0.0617181, intl: "ru-RU" },
+  ar: { currency: "SAR", ratePerKrw: 0.0028, intl: "ar-SA" },
+};
+
+export const localPriceRateDate = "2026-10-20";
+
+export function formatLocalListingPrice(krw: number, locale: ListingLocale) {
+  if (locale === "ko") return null;
+  const option = localCurrencyByLocale[locale];
+  return new Intl.NumberFormat(option.intl, {
+    style: "currency",
+    currency: option.currency,
+    currencyDisplay: locale === "en" ? "narrowSymbol" : "symbol",
+    maximumFractionDigits: 0,
+  }).format(krw * option.ratePerKrw);
+}
+
+export function localPriceDisclosure(locale: ListingLocale) {
+  if (locale === "ru") return `Расчёт по курсу на ${localPriceRateDate} · без налогов и доставки`;
+  if (locale === "ar") return `سعر تقريبي بتاريخ ${localPriceRateDate} · لا يشمل الضرائب والشحن`;
+  return `Estimated at ${localPriceRateDate} exchange rates · taxes and shipping excluded`;
+}
+
 const languageNames: Record<ListingLocale, Record<ListingLocale, string>> = {
   ko: { ko: "한국어", en: "영어", ru: "러시아어", ar: "아랍어" },
   en: { ko: "Korean", en: "English", ru: "Russian", ar: "Arabic" },
