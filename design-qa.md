@@ -65,6 +65,7 @@ No actionable P0/P1/P2 differences remain.
 
 final result: passed
 
+
 ---
 
 ## 2026-10-20 차란차 모바일 제조사 로고 슬롯·광학 크기
@@ -6400,6 +6401,25 @@ final result: passed
 - Pass 1: the implemented desktop first field was 5px lower and mobile submit 8px higher than the reference, within the accepted ≤8px layout tolerance and without cumulative drift.
 - Pass 2: social marks visually touched their labels. The label was shifted 10px right to reproduce the reference's visible icon/text separation.
 - Pass 3: empty and populated states were recaptured; submit changed from disabled gray to `rgb(250,104,25)`, password input changed from `password` to `text`, and checkbox states remained `true/false` as expected.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
+## 2026-10-21 김태규 딜러페이지 판매점 리뷰 · 초톳 정합
+
+- Source visual truth: `reports/audits/dealer-store-review-crosscheck-2026-10-21/01-chotot-all-desktop.png`.
+- Browser-rendered implementation: `reports/design-qa/dealer-store-review-2026-10-21/01-implementation-desktop-pass1.png`.
+- Combined comparison: `reports/design-qa/dealer-store-review-2026-10-21/02-side-by-side-pass1.png`.
+- Viewport: desktop 1280×800 CSS px / DPR 1; mobile 390×844 CSS px / DPR 1.
+- States tested: 전체 17, 차량 구매 16, 내차 판매 1, responsive mobile; console warnings/errors 0.
+- Measured parity: 320px seller rail + 16px gap + 668px review column; review content 636px; score 32px/700/48px; selected tab 52px; filled review tags 12px/18px.
+- Fixes: review-only two-column shell, compact profile rail, source-density score/tabs/cards, filled keyword tags, flat 14px dealer reply, redundant role badges removed.
+- Accepted product differences: Bobaedream global header and Korean dealer content remain branded/localized; the source web page's mobile horizontal clipping was not copied.
+- Full report: `docs/dealer-store-review-design-qa-2026-10-21.md`.
 
 No actionable P0/P1/P2 differences remain.
 

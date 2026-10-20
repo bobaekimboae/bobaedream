@@ -444,9 +444,8 @@ function StoreRatingsSection({ cars }: { cars: Car[] }) {
   return <section className="dp-content-card dp-ratings" aria-labelledby="dp-store-rating-title">
     <div className="dp-store-rating-summary">
       <div className="dp-store-rating-score">
-        <h2 id="dp-store-rating-title">판매점 리뷰</h2>
+        <h2 id="dp-store-rating-title" className="dp-visually-hidden">판매점 리뷰</h2>
         <span><b>{MOCK.rating}</b><Stars score={MOCK.rating} /></span>
-        <small>{MOCK.reviewCount}명의 실제 거래 후기</small>
       </div>
       <div className="dp-store-rating-tags" aria-label="판매점 평가 키워드">
         {STORE_REVIEW_TAGS.map(([label, count]) => <span key={label}>{label} <b>({count})</b></span>)}
@@ -463,7 +462,6 @@ function StoreRatingsSection({ cars }: { cars: Car[] }) {
           <header>
             <span className="dp-review-avatar" aria-hidden="true">{review.name.slice(0, 1)}</span>
             <b>{review.name}</b>
-            <small>{review.role === "buyer" ? "구매 고객" : "판매 고객"}</small>
           </header>
           {review.body ? <p className="dp-review-body">{review.body}</p> : null}
           {review.tags.length ? <div className="dp-review-tags">{review.tags.map((tag) => <span key={tag}>{tag}</span>)}</div> : null}
@@ -562,17 +560,24 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   return <div className="dp-root">
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
-      <main className="dp-page" aria-label={`${dealer.name} 딜러페이지`}>
-        <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} />
-        <AnchorNav active={activeSection} onChange={changeSection} />
-        {activeSection === "home" ? <HomeSection /> : null}
-        {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
-        {activeSection === "community" ? <CommunitySection cars={cars} notify={notify} /> : null}
-        {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
-        {activeSection === "reviews" ? <StoreRatingsSection cars={cars} /> : null}
-        {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
-        {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
-        {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
+      <main className={`dp-page${activeSection === "reviews" ? " is-reviews" : ""}`} aria-label={`${dealer.name} 딜러페이지`}>
+        {activeSection === "reviews" ? <div className="dp-review-page-shell">
+          <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} />
+          <div className="dp-review-page-main">
+            <AnchorNav active={activeSection} onChange={changeSection} />
+            <StoreRatingsSection cars={cars} />
+          </div>
+        </div> : <>
+          <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} />
+          <AnchorNav active={activeSection} onChange={changeSection} />
+          {activeSection === "home" ? <HomeSection /> : null}
+          {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
+          {activeSection === "community" ? <CommunitySection cars={cars} notify={notify} /> : null}
+          {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
+          {activeSection === "social" ? <SocialFeedSection cars={cars} /> : null}
+          {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
+          {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
+        </>}
       </main>
       <Footer />
     </div>
