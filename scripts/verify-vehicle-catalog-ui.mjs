@@ -84,6 +84,17 @@ try {
   const mobileHierarchy = mobile.locator("[data-testid=maker-hierarchy]");
   await mobileHierarchy.waitFor({ state: "visible" });
   assert(await mobileHierarchy.locator(".maker-hierarchy-row.is-maker").count() === 62, "모바일 전체 제조사 62개 노출");
+  const genesisRow = mobileHierarchy.locator('[data-maker="제네시스"]');
+  const genesisRowBox = await genesisRow.boundingBox();
+  const genesisLogoBox = await genesisRow.locator(".maker-hierarchy-logo").boundingBox();
+  const genesisNameBox = await genesisRow.locator(".maker-hierarchy-copy").boundingBox();
+  const genesisImageBox = await genesisRow.locator(".maker-hierarchy-logo img").boundingBox();
+  assert(genesisRowBox?.height === 48, "모바일 제조사 행 높이 48px", `${genesisRowBox?.height}px`);
+  assert(genesisLogoBox?.width === 38 && genesisLogoBox?.height === 26, "모바일 제조사 로고 슬롯 38×26px", `${genesisLogoBox?.width}×${genesisLogoBox?.height}px`);
+  assert(genesisLogoBox?.x === 16 && genesisLogoBox.x + genesisLogoBox.width / 2 === 35, "모바일 제조사 로고 중심 x=35px", `${genesisLogoBox?.x}px`);
+  assert(genesisNameBox?.x === 66, "모바일 제조사명 시작 x=66px", `${genesisNameBox?.x}px`);
+  assert(Boolean(genesisImageBox && genesisImageBox.width <= 38 && genesisImageBox.height <= 26 && genesisImageBox.width > 24), "제네시스 로고 광학 크기 보정", `${genesisImageBox?.width}×${genesisImageBox?.height}px`);
+  await mobile.screenshot({ path: fileURLToPath(new URL("mobile-maker-logos.png", reportDir)), fullPage: false });
   for (const make of catalogIndex.manufacturers) {
     await mobileHierarchy.locator(`[data-maker="${make.name}"]`).tap();
     const models = mobileHierarchy.locator("[data-model]");

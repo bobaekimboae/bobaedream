@@ -180,7 +180,7 @@ export function useVehicleCatalog(scope: CatalogScope, selectedMake?: string | n
   return { scope, index, records, makeFiles, activeMakeFile, error, ensureSearch, loadMake, modelsByMaker, generationsByMakerModel, gradeTreeByGeneration, modelVisualsByMaker };
 }
 
-export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path?: string | null; name: string; kind?: "rail" | "list" | "chip"; scope?: CatalogScope }) {
+export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path?: string | null; name: string; kind?: "rail" | "list" | "chip" | "sheet"; scope?: CatalogScope }) {
   const selectedBikeLogo = scope === "bike" ? selectedBikeBrandLogo(name) : null;
   const bikeLogo = selectedBikeLogo?.logo ?? null;
   const approved = scope === "car" ? carMakerLogoAsset(name) : null;
@@ -197,7 +197,7 @@ export function CatalogLogo({ path, name, kind = "list", scope = "car" }: { path
       : approved
         ? `${publicBase}assets/maker-model/logos/encar-1005-trim/${approved.file}`
         : publicCatalogAsset(path);
-  const scale = kind === "rail" ? 1 : 24 / 38;
+  const scale = kind === "rail" || kind === "sheet" ? 1 : 24 / 38;
   const bikeSize = bikeLogo ? (() => {
     let width = 26 * Math.sqrt(bikeLogo.ratio);
     let height = 26 / Math.sqrt(bikeLogo.ratio);

@@ -3083,7 +3083,7 @@ function MarketplaceScreen() {
         initialGeneration={selectedGeneration}
         startStep={bbmChipPanel === "제조사" ? "maker" : "model"}
         makers={hierarchyMakers}
-        renderMakerLogo={(option) => <CatalogLogo path={option.logoPath} name={option.name} kind="list" />}
+        renderMakerLogo={(option) => <CatalogLogo path={option.logoPath} name={option.name} kind="sheet" />}
         modelsByMaker={modelsByMakerMap}
         modelVisualsByMaker={modelVisualsByMakerMap}
         generationsByMakerModel={generationsByMakerModelMap}
