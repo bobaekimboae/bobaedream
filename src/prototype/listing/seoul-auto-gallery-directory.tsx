@@ -1,5 +1,6 @@
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
+import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import "./seoul-auto-gallery-directory.css";
 
 export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers" | "about";
@@ -11,20 +12,23 @@ const tabItems: Array<{ value: SeoulAutoGallerySection; label: string }> = [
   { value: "about", label: "소개" },
 ];
 
+// 화면 표기는 법인 표기(주식회사·(주))를 뺀다(2026-10-13 규칙). 원본 값은 그대로 둔다.
+const displayCompany = (name: string) => name.replace(/\(주\)|주식회사/g, "").trim();
+
+// 상사 탭 = 서울오토갤러리 공개 회원사 79곳 전체(2026-10-21). 매물 수는 우리 매물 시트의 같은 상사 행 기준이다.
 const companies = (() => {
-  const directory = new Map<string, Map<string, number>>();
+  const stock = new Map<string, Map<string, number>>();
   for (const row of seoulAutoGalleryRows) {
-    const dealers = directory.get(row.company) ?? new Map<string, number>();
+    const dealers = stock.get(row.company) ?? new Map<string, number>();
     dealers.set(row.dealer, Math.max(dealers.get(row.dealer) ?? 0, row.stock));
-    directory.set(row.company, dealers);
+    stock.set(row.company, dealers);
   }
-  return [...directory.entries()]
-    .map(([name, dealers]) => ({
-      name,
-      dealerCount: dealers.size,
-      listingCount: [...dealers.values()].reduce((sum, count) => sum + count, 0),
+  return seoulAutoGalleryShops
+    .map((shop) => ({
+      ...shop,
+      listingCount: [...(stock.get(shop.company)?.values() ?? [])].reduce((sum, count) => sum + count, 0),
     }))
-    .sort((a, b) => b.listingCount - a.listingCount || a.name.localeCompare(b.name, "ko"));
+    .sort((a, b) => b.listingCount - a.listingCount || a.room.localeCompare(b.room, "ko", { numeric: true }));
 })();
 
 export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGallerySection; onChange: (value: SeoulAutoGallerySection) => void }) {
@@ -47,15 +51,18 @@ export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGall
 }
 
 export function SeoulAutoGalleryCompanyDirectory() {
+  const open = (shopNo: string, emp = "1") => {
+    window.location.assign(`${window.location.pathname}?profile=dealer&shop=${shopNo}&emp=${emp}`);
+  };
   return (
     <section className="sag-company-directory" aria-labelledby="sag-company-directory-title">
-      <h2 id="sag-company-directory-title">상사</h2>
+      <h2 id="sag-company-directory-title">상사 {companies.length}곳</h2>
       <div className="sag-company-list">
         {companies.map((company) => (
-          <button key={company.name} type="button" className="sag-company-row">
+          <button key={company.shopNo} type="button" className="sag-company-row" onClick={() => open(company.shopNo)} aria-label={`${displayCompany(company.company)} 대표 ${company.owners.join(", ")} 판매자페이지 보기`}>
             <span>
-              <strong>{company.name}</strong>
-              <small>소속 딜러 {company.dealerCount}명</small>
+              <strong>{displayCompany(company.company)}</strong>
+              <small>{company.room} · 대표 {company.owners.join(" · ")}</small>
             </span>
             <b>매물 {company.listingCount}대</b>
             <ChevronRightIcon aria-hidden="true" />

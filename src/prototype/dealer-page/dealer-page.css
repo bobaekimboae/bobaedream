@@ -98,7 +98,8 @@
 .dp-profile-inline.is-location > span:first-of-type { white-space: normal; word-break: keep-all; }
 .dp-profile-inline.is-dealership { grid-column: 1 / -1; grid-row: 9; margin-top: 12px; }
 .dp-profile-inline.is-dealership .dp-icon { width: 20px; height: 20px; margin: 0 9px 0 1px; opacity: .86; }
-.dp-profile-inline.is-dealership i { display: inline; width: auto; height: auto; margin: 0 7px; background: none; color: #999; font-style: normal; }
+/* 단지·상사 가운데점(2026-10-21 크로스체크): 글자 점(·) 대신 2px 원, 점과 양쪽 글자 잉크 사이 5px로 같게 */
+.dp-profile-inline.is-dealership i { display: inline-block; width: 2px; height: 2px; margin: 0 3.75px 0 2.75px; border-radius: 50%; background: #999; color: transparent; font-size: 0; font-style: normal; vertical-align: middle; position: relative; top: -0.5px; }
 .dp-profile-inline.is-dealership b { color: #777; font-weight: 500; }
 .dp-profile-inline.is-phone { grid-column: 1 / -1; grid-row: 7; margin-top: 12px; }
 .dp-profile-inline.is-phone .dp-icon { width: 20px; height: 20px; margin-right: 8px; }

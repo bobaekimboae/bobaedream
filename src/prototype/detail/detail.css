@@ -722,7 +722,8 @@
 /* 상세 지역 줄 분리(2026-10-14): 1줄 `시도 구군 동`, 2줄 `단지ㆍ상사명`(가운데점 ㆍ). 자동 줄바꿈용 점 규칙(위)을 대체 */
 .is-list-summary .bbm-card-location-text { flex-direction: column !important; flex-wrap: nowrap !important; gap: 0 !important; }
 .is-list-summary .bbm-card-location-secondary { display: flex; flex-wrap: wrap; }
-.is-list-summary .bbm-card-location-part::before { content: "ㆍ" !important; }
+/* 단지ㆍ상사 가운데점(2026-10-21 크로스체크): 글자 점(ㆍ) 대신 2px 원, 점과 양쪽 글자 잉크 사이 5px로 같게 */
+.is-list-summary .bbm-card-location-part::before { display: inline-block; width: 2px; height: 2px; margin: 0 5.375px 0 3.375px; border-radius: 50%; background: currentColor; content: "" !important; vertical-align: middle; position: relative; top: -1.25px; }
 .is-list-summary .bbm-card-location-part:first-child::before { content: none !important; }
 
 /* 상세 섹션 카드 간격 통일(2026-10-14 「메뉴 섹션별 타이틀과 하단 위아래 간격 초톳 측정해서 기준 모두 적용」, 초톳 상세 캡처 1080×2340 ÷2.8125 실측):

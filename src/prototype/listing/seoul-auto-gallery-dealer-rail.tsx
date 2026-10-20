@@ -1,5 +1,6 @@
 import { asset } from "../data";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
+import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
 import "./seoul-auto-gallery-dealer-rail.css";
 
 export type SeoulAutoGalleryDealer = {
@@ -31,18 +32,21 @@ const ownerIllustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "
 export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = seoulAutoGalleryShops.flatMap((shop, shopIndex) => shop.owners.map((owner, ownerIndex) => {
   const existing = dealers.find((item) => item.shopNo === shop.shopNo && item.name === owner);
   if (existing) return existing;
-  return { name: owner, listingCount: 0, shopNo: shop.shopNo, empNo: String(ownerIndex + 1), image: ownerIllustrations[(shopIndex + ownerIndex) % ownerIllustrations.length], role: "대표" };
+  const listingCount = seoulAutoGalleryRows.filter((row) => row.company === shop.company && row.dealer === owner).reduce((max, row) => Math.max(max, row.stock), 0);
+  return { name: owner, listingCount, shopNo: shop.shopNo, empNo: String(ownerIndex + 1), image: ownerIllustrations[(shopIndex + ownerIndex) % ownerIllustrations.length], role: "대표" };
 }));
 export const allSeoulAutoGalleryDealers: readonly SeoulAutoGalleryDealer[] = [...dealers, ...seoulAutoGalleryOwnerDealers.filter((owner) => !dealers.includes(owner))];
 
 const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`);
 
-export function SeoulAutoGalleryDealerRail({ onOpenDealer }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void }) {
+// 레일(목록 위)은 기존 9명, 「딜러」 탭은 상사 대표 88명을 포함한 전체를 격자로 보여 준다(2026-10-21 「전체상사 대표들 페이지 모두」).
+export function SeoulAutoGalleryDealerRail({ onOpenDealer, all = false }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void; all?: boolean }) {
+  const list = all ? allSeoulAutoGalleryDealers : dealers;
   return (
-    <section className="sag-dealer-rail" aria-labelledby="sag-dealer-rail-title">
-      <h2 id="sag-dealer-rail-title">딜러</h2>
+    <section className={`sag-dealer-rail${all ? " is-all" : ""}`} aria-labelledby="sag-dealer-rail-title">
+      <h2 id="sag-dealer-rail-title">{all ? `딜러 · 상사 대표 ${list.length}명` : "딜러"}</h2>
       <div className="sag-dealer-track">
-        {dealers.map((dealer) => (
+        {list.map((dealer) => (
           <button
             key={`${dealer.shopNo}-${dealer.empNo}`}
             type="button"

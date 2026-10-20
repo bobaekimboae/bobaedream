@@ -3496,7 +3496,7 @@ function MarketplaceScreen() {
             {/* QF-106 ④ 퀵필터 자리. 과쯔 원본은 바로 숏폼매물 줄로 이어지고 별도 경로·제목·추천어가 없다. */}
             {luxuryHead || !showSeoulAutoGalleryVehicles ? null : <div className="bbm-m-quick-slot">{quickRail}</div>}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "companies" ? <SeoulAutoGalleryCompanyDirectory /> : null}
-            {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "dealers" ? <div className="sag-tab-panel">{seoulAutoGalleryDealerRail}</div> : null}
+            {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "dealers" ? <div className="sag-tab-panel"><SeoulAutoGalleryDealerRail all onOpenDealer={openDealerProfile} /></div> : null}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "about" ? <SeoulAutoGalleryAbout onBrowse={() => chooseSeoulAutoGallerySection("vehicles")} /> : null}
             {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
             {!isGuaziQuickStyle ? (

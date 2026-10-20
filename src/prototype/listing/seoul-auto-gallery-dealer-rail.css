@@ -104,3 +104,6 @@
   .sag-dealer-card strong { max-width: 84px; }
 }
 
+
+/* 「딜러」 탭: 전체 딜러·상사 대표를 줄바꿈 격자로(2026-10-21) */
+.sag-dealer-rail.is-all .sag-dealer-track { flex-wrap: wrap; row-gap: 12px; overflow: visible; }
