@@ -2811,13 +2811,11 @@ function MarketplaceScreen() {
   };
   const groupChip = (key: string, label: string, panel: string, applied: boolean) => applied ? null : { key, label, active: false, onClick: () => openBbmChipPanel(panel) };
   type BbmChip = { key: string; label: string; active?: boolean; className?: string; prefix?: ReactNode; onClick: () => void; onClear?: () => void };
-  const complexChipIcon = () => <img className="filter-chip-complex-icon" src={asset("bbm/filter-complex-home-v01.svg")} alt="" aria-hidden="true" draggable={false} />;
   const toAppliedBbmChip = (chip: (typeof bbmApplied)[number]): BbmChip => ({
     key: `applied-${chip.id}`,
     label: chip.label,
     active: true,
-    className: chip.id === "range:mileage" ? "is-applied is-mileage" : chip.id === "range:price" ? "is-applied is-price" : chip.id.startsWith("check:complex:") ? "is-applied has-complex-icon" : "is-applied",
-    prefix: chip.id.startsWith("check:complex:") ? complexChipIcon() : undefined,
+    className: chip.id === "range:mileage" ? "is-applied is-mileage" : chip.id === "range:price" ? "is-applied is-price" : "is-applied",
     onClick: () => openBbmChipPanel(bbmPanelForId(chip.id)),
     onClear: () => setBbmFilters(chip.clear(bbmValue)),
   });
@@ -2936,10 +2934,7 @@ function MarketplaceScreen() {
         selectedBikeShop
         ? { key: "bike-shop", label: selectedBikeShop, active: true, className: "is-applied", onClick: () => openBbmChipPanel("바이크샵"), onClear: () => setSelectedBikeShop(null) }
         : groupChip("bike-shop", "바이크샵", "바이크샵", false)]
-      : isTruckCategory ? [] : complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [(() => {
-        const chip = groupChip("complex", "매매단지", "매매단지", false);
-        return chip ? { ...chip, className: "has-complex-icon", prefix: complexChipIcon() } : null;
-      })()] : []),
+      : isTruckCategory ? [] : complexApplied.length ? complexApplied.map(toAppliedBbmChip) : desktop ? [groupChip("complex", "매매단지", "매매단지", false)] : []),
   ] as Array<BbmChip | null | undefined>).filter((chip): chip is BbmChip => Boolean(chip))
     .filter((chip) => !(desktop && allVehiclesWide) || chip.key === "category" || /price|region/.test(chip.key));
   // 별도 `카테고리 ▾` 칩 없이 선택된 카테고리 칩의 이름을 누르면 카테고리 시트가 열리고, ×는 전체차량으로 돌아간다.
