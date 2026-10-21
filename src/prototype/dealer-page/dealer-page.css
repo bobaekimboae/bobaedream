@@ -797,3 +797,8 @@
 
 /* 홈페이지 링크 아이콘 제거 (2026-10-21 「링크는 아이콘 없이 가자」) — 글자는 위 줄 글자 시작선(아이콘 칸 20 + 간격 9 + 1 = 30)에 맞춤 */
 .dp-profile-inline.is-dealership .dp-profile-homepage { padding-left: 30px; }
+
+/* 홈페이지 링크 = 인스타그램 프로필 링크 줄(체인 아이콘 + 파랑 주소)처럼, 소개 아래 SNS 줄 맨 앞 (2026-10-21 「인스타처럼 링크걸자」)
+   체인 아이콘은 저장소의 레딧 원본 link.svg(public/icons/dealer-profile/link-reddit.svg, 수정 없음) 16px 마스크 · 글자색 */
+.dp-profile-sns li.is-homepage { flex: 0 0 100%; }
+.dp-profile-link-icon { display: inline-block; width: 16px; height: 16px; flex: 0 0 16px; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
