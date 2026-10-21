@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { asset } from "../data";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
+import { seoulAutoGalleryFormalProfilesByShopAndName } from "../data/seoul-autogallery-profile-assets-v01";
 import { seoulAutoGalleryStaffByShop } from "../data/seoul-autogallery-staff-v01";
 import "./seoul-auto-gallery-dealer-rail.css";
 
@@ -38,22 +39,32 @@ export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = s
   const railInShop = dealers.filter((item) => item.shopNo === shop.shopNo);
   const used = new Set<string>([...railInShop.map((item) => item.empNo), ...shop.owners.map((_, index) => String(index + 1))]);
   const nextEmp = () => { let n = 1; while (used.has(String(n))) n += 1; used.add(String(n)); return String(n); };
+  const profileCursor = new Map<string, number>();
+  const nextProfileAsset = (name: string) => {
+    const key = `${shop.shopNo}:${name}`;
+    const index = profileCursor.get(key) ?? 0;
+    profileCursor.set(key, index + 1);
+    const assets = seoulAutoGalleryFormalProfilesByShopAndName[key];
+    return assets?.[index] ?? assets?.[0];
+  };
   const taken = new Set<SeoulAutoGalleryDealer>();
   const list: SeoulAutoGalleryDealer[] = [];
   const picture = (index: number) => ownerIllustrations[(shopIndex + index) % ownerIllustrations.length];
   shop.owners.forEach((owner, ownerIndex) => {
     const existing = railInShop.find((item) => item.name === owner && !taken.has(item));
+    const profileAsset = nextProfileAsset(owner);
     if (existing) { taken.add(existing); list.push(existing); return; }
     const site = staff.find(([name]) => name === owner);
-    list.push({ name: owner, listingCount: site ? site[1] : sheetStock(shop.company, owner), shopNo: shop.shopNo, empNo: String(ownerIndex + 1), image: picture(ownerIndex), role: "대표" });
+    list.push({ name: owner, listingCount: site ? site[1] : sheetStock(shop.company, owner), shopNo: shop.shopNo, empNo: String(ownerIndex + 1), image: picture(ownerIndex), profileAsset, role: "대표" });
   });
   const ownerSlots = new Map(shop.owners.map((owner) => [owner, 1]));
   staff.forEach(([name, cars], index) => {
     const left = ownerSlots.get(name) ?? 0;
     if (left > 0) { ownerSlots.set(name, left - 1); return; }
     const existing = railInShop.find((item) => item.name === name && !taken.has(item));
+    const profileAsset = nextProfileAsset(name);
     if (existing) { taken.add(existing); list.push(existing); return; }
-    list.push({ name, listingCount: cars, shopNo: shop.shopNo, empNo: nextEmp(), image: picture(index + 1), role: "소속딜러" });
+    list.push({ name, listingCount: cars, shopNo: shop.shopNo, empNo: nextEmp(), image: picture(index + 1), profileAsset, role: "소속딜러" });
   });
   return list;
 });
