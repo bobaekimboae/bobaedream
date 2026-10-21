@@ -1,6 +1,6 @@
 export type CardField = "mobile" | "instagram" | "youtube" | "tiktok";
 export type CardStyle = { theme: "blue" | "navy" | "white"; intro: string; title: string; logo: string; fields: Partial<Record<CardField, string>> };
-export type CardContact = { name: string; role: string; company: string; phone: string; address: string; photo: string; listingCount?: number };
+export type CardContact = { name: string; role: string; company: string; gallery?: string; phone: string; address: string; photo: string; listingCount?: number };
 
 export const defaultCardStyle: CardStyle = { theme: "blue", intro: "좋은 차와 좋은 인연을 연결합니다.", title: "", logo: "", fields: {} };
 export const cardThemes = { blue: { label: "블루", background: "#306bd9", ink: "#ffffff" }, navy: { label: "클래식 네이비", background: "#14243d", ink: "#ffffff" }, white: { label: "심플 화이트", background: "#ffffff", ink: "#14243d" } } as const;
@@ -128,11 +128,14 @@ export async function cardPng(contact: CardContact, style: CardStyle): Promise<B
   };
   const company = contact.company.replace(/\(주\)|\(유\)|주식회사/g, "").trim();
   const title = style.title.trim() || company;
-  // The title/logo and portrait share the same top edge; the role shares its bottom edge.
-  text(title, style.logo ? 156 : 72, 84, 32, style.logo ? 650 : 720, 750, "top");
+  // Affiliation first, then the company title; the portrait spans the full identity block.
+  ctx.globalAlpha = .8;
+  text(contact.gallery?.trim() || "서울오토갤러리", 72, 84, 24, 720, 500, "top");
+  ctx.globalAlpha = 1;
+  text(title, style.logo ? 156 : 72, 132, 32, style.logo ? 650 : 720, 750, "top");
   if (style.logo) {
     const logo = new Image(); logo.src = style.logo;
-    try { await logo.decode(); ctx.drawImage(logo, 72, 84, 64, 64); } catch { /* Optional logo cannot block export. */ }
+    try { await logo.decode(); ctx.drawImage(logo, 72, 132, 64, 64); } catch { /* Optional logo cannot block export. */ }
   }
   text(contact.name, 72, 276, 66, 720, 750);
   text(title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ${contact.role}` : contact.role, 72, 340, 27, 720, 500, "bottom");
@@ -164,7 +167,6 @@ export async function cardPng(contact: CardContact, style: CardStyle): Promise<B
   ctx.globalAlpha = .25; ctx.fillRect(72, 488, 1056, 1); ctx.globalAlpha = 1;
   text(cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile! : contact.phone, 72, 555, 34, 1056, 650);
   text(contact.address, 72, 610, 24, 1056);
-  ctx.globalAlpha = .7; text("서울오토갤러리", 72, 668, 20, 1056);
   ctx.globalAlpha = 1;
   socials.forEach(({ id, label }, index) => text(`${label}   ${cardFieldHref(id, style.fields[id])}`, 72, 748 + index * 72, 24, 1056));
   return new Promise((resolve, reject) => canvas.toBlob((blob) => blob ? resolve(blob) : reject(new Error("PNG export failed")), "image/png"));

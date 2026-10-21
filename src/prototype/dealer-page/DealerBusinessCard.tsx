@@ -19,13 +19,12 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
   const title = style.title.trim() || company;
   return <article className="dbc-card" style={{ "--dbc-bg": palette.background, "--dbc-ink": palette.ink } as CSSProperties} aria-label={`${contact.name} 딜러 명함`}>
     <div className={`dbc-heading${photoFailed || !contact.photo ? " is-text-only" : ""}`}>
-      <div className="dbc-heading-copy"><div className="dbc-brand">{style.logo ? <img src={style.logo} alt="명함 로고" /> : null}<strong>{title}</strong></div>
+      <div className="dbc-heading-copy"><div className="dbc-brand-block"><small className="dbc-affiliation">{contact.gallery?.trim() || "서울오토갤러리"}</small><div className="dbc-brand">{style.logo ? <img src={style.logo} alt="명함 로고" /> : null}<strong>{title}</strong></div></div>
       <div className="dbc-identity"><h2>{contact.name}</h2><p>{title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ` : ""}{contact.role}</p></div></div>
       {!photoFailed && contact.photo ? <div className="dbc-photo-frame"><img className="dbc-photo" src={contact.photo} alt={`${contact.name} 프로필`} onError={() => setPhotoFailed(true)} /></div> : null}
     </div>
     <p className="dbc-intro">{style.intro}</p>
     <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}</strong> : null}<span>{contact.address}</span></div>
-    <small className="dbc-gallery">서울오토갤러리</small>
   </article>;
 }
 

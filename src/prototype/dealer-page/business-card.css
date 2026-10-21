@@ -18,7 +18,7 @@
 .dbc-intro{grid-column:1/-1;margin:0;font-size:13px;line-height:1.6;overflow-wrap:anywhere}.dbc-intro:empty{display:none}
 .dbc-contact{display:grid;grid-column:1/-1;gap:6px;padding-top:12px;border-top:1px solid color-mix(in srgb,var(--dbc-ink) 25%,transparent)}
 .dbc-contact strong{font-size:19px;line-height:1.4;font-weight:650;overflow-wrap:anywhere}.dbc-contact span{font-size:12px;line-height:1.6;overflow-wrap:anywhere}
-.dbc-gallery{grid-column:1/-1;font-size:11px;line-height:1.5;opacity:.75}
+.dbc-brand-block{min-width:0}.dbc-affiliation{display:block;margin:0 0 4px;font-size:11px;line-height:1.5;opacity:.8;overflow-wrap:anywhere}
 .dbc-recipient-contact{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:16px 20px}
 .dbc-recipient-contact :is(a,button){display:flex;align-items:center;justify-content:center;min-height:44px;padding:10px 8px;border:1px solid #dce2ec;border-radius:8px;background:#fff;color:#26364e;text-decoration:none;font:inherit;font-weight:650;cursor:pointer}
 .dbc-recipient-contact a{background:#26364e;border-color:#26364e;color:#fff}.dbc-recipient-contact>button:only-child{grid-column:1/-1}
