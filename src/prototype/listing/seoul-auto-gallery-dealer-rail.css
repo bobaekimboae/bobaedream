@@ -143,3 +143,9 @@
 .sag-dealer-sns img + img { margin-left: -4px; }
 .sag-dealer-shops button.is-sns { display: inline-flex; align-items: center; gap: 4px; }
 .sag-dealer-shops button.is-sns img { width: 14px; height: 14px; }
+
+/* 전체 폭 검색조건 카드(서울오토갤러리 PC, 2026-10-21): 딜러 레일은 카드가 아니라 목록 열 맨 위(좌측 필터 오른쪽) 흰 상자에 둔다. 상자 → 매물 목록 12 */
+.marketplace.is-bbm.is-full-top-filter .bbm-content > .bbm-dealer-rail-box { overflow: hidden; border-radius: 12px; background: #fff; }
+.marketplace.is-bbm.is-full-top-filter .bbm-content > .bbm-dealer-rail-box > .sag-dealer-rail { margin: 0; padding: 16px 0 12px; border-top: 0; border-radius: 12px; }
+.marketplace.is-bbm.is-full-top-filter .bbm-content > .bbm-dealer-rail-box > .sag-dealer-rail h2 { margin-left: 20px; margin-right: 20px; }
+.marketplace.is-bbm.is-full-top-filter .bbm-content > .bbm-dealer-rail-box + .bbm-results { margin-top: 12px; }
