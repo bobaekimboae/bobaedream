@@ -299,11 +299,14 @@ function SiteHeader() {
 }
 
 // 딜러·상사 인스타그램·유튜브 링크(2026-10-21): 인스타그램 프로필 소개 아래 링크 줄처럼 아이콘 + 짧은 주소.
-function DealerSnsList({ sns, pc = false }: { sns: NonNullable<ReturnType<typeof dealerSnsLinks>>; pc?: boolean }) {
-  return <ul className={`dp-profile-sns${pc ? " is-pc" : ""}`} aria-label={sns.shop ? "상사 SNS" : "딜러 SNS"}>
-    {sns.links.instagram ? <li><a href={sns.links.instagram} target="_blank" rel="noreferrer"><img src={dealerIcon("instagram")} alt="" aria-hidden="true" />{snsLabel(sns.links.instagram)}</a></li> : null}
-    {sns.links.youtube ? <li><a href={sns.links.youtube} target="_blank" rel="noreferrer"><img src={dealerIcon("youtube")} alt="" aria-hidden="true" />{snsLabel(sns.links.youtube)}</a></li> : null}
-    {sns.shop ? <li className="is-note">상사 공식 계정</li> : null}
+function DealerSnsList({ sns, pc = false, homepage }: { sns?: ReturnType<typeof dealerSnsLinks>; pc?: boolean; homepage?: { href: string; label: string } }) {
+  if (!sns && !homepage) return null;
+  return <ul className={`dp-profile-sns${pc ? " is-pc" : ""}`} aria-label={sns?.shop ? "상사 SNS" : "딜러 SNS"}>
+    {/* 홈페이지 = 인스타그램 프로필 링크 줄처럼 체인 아이콘 + 짧은 주소(2026-10-21 「인스타처럼 링크걸자」) */}
+    {homepage ? <li className="is-homepage"><a href={homepage.href} target="_blank" rel="noreferrer"><span className="dp-profile-link-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${dealerIcon("link-reddit")})`, maskImage: `url(${dealerIcon("link-reddit")})` }} />{homepage.label}</a></li> : null}
+    {sns?.links.instagram ? <li><a href={sns.links.instagram} target="_blank" rel="noreferrer"><img src={dealerIcon("instagram")} alt="" aria-hidden="true" />{snsLabel(sns.links.instagram)}</a></li> : null}
+    {sns?.links.youtube ? <li><a href={sns.links.youtube} target="_blank" rel="noreferrer"><img src={dealerIcon("youtube")} alt="" aria-hidden="true" />{snsLabel(sns.links.youtube)}</a></li> : null}
+    {sns?.shop ? <li className="is-note">상사 공식 계정</li> : null}
   </ul>;
 }
 
@@ -407,7 +410,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
             <span>{bioExpanded ? MOCK.intro : bioPreview}</span>{" "}
             <button type="button" aria-expanded={bioExpanded} onClick={() => setBioExpanded((expanded) => !expanded)}>{bioExpanded ? "접기" : "더 보기"}</button>
           </p>
-          {sns ? <DealerSnsList sns={sns} /> : null}
+          <DealerSnsList sns={sns} homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
         </div>
         <div className="dp-profile-actions has-card">
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
@@ -422,8 +425,8 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a>{MOCK.phoneIsGallery ? <span className="dp-phone-note">서울오토갤러리 대표</span> : null}</div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span>{MOCK.homepage ? <a className="dp-profile-homepage" href={MOCK.homepage} target="_blank" rel="noreferrer">{MOCK.homepageLabel ?? MOCK.homepage}</a> : null}</div>
-        {sns ? <DealerSnsList sns={sns} pc /> : null}
+        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+        <DealerSnsList sns={sns} pc homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
