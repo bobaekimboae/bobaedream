@@ -779,3 +779,7 @@
 .dp-sell-price-cta.is-profile { padding: 10px 10px 10px 16px; }
 .dp-sell-price-cta.is-profile > button { min-width: 0; height: 32px; padding: 0 14px !important; font-size: 13px !important; line-height: 18px !important; }
 @media (min-width: 768px) { .dp-sell-price-cta.is-profile > button { height: 30px; padding: 0 14px !important; font-size: 12px !important; } }
+
+/* 목록 보기 · 피드 보기 아이콘 = 네이버 카페 원본(icon_view_list · icon_view_feed, public/community/assets/view-list·feed.svg, 파일 수정 없음) 20px 마스크 · 글자색 따름 (2026-10-21) */
+.dp-view-toggle button { display: inline-flex; align-items: center; gap: 2px; }
+.dp-view-toggle-icon { display: inline-block; width: 20px; height: 20px; flex: 0 0 20px; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
