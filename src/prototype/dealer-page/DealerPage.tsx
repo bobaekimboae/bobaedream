@@ -9,6 +9,7 @@ import { allSeoulAutoGalleryDealers as dealers, type SeoulAutoGalleryDealer } fr
 import { SagGoogleMap } from "../listing/sag-google-map";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
+import { DealerBusinessCard } from "./DealerBusinessCard";
 import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -282,6 +283,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+        <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer) }} />
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
@@ -865,12 +867,18 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
 
 export default function DealerPage() {
   const params = new URLSearchParams(window.location.search);
-  const dealer: SeoulAutoGalleryDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo)) ?? dealers[0];
+  const matchedDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo));
+  const dealer: SeoulAutoGalleryDealer = matchedDealer ?? dealers[0];
   MOCK = profileFor(dealer);
   const cars = useMemo(() => dealer.shopNo === dealers[0].shopNo
     ? seoulAutoGalleryCars
     : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo]);
   const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));
+
+  if (params.get("card") === "1") {
+    if (!matchedDealer) return <main className="dbc-page"><div className="dbc-page-wrap"><h1>명함을 찾을 수 없어요</h1><p>공유받은 딜러 명함 주소를 다시 확인해 주세요.</p><a className="dbc-home" href="./?qf=guazi">보배드림으로 이동 →</a></div></main>;
+    return <DealerCardPage dealer={dealer} />;
+  }
 
   if (linkedCar) {
     setActiveDetailCar(linkedCar);
@@ -878,4 +886,9 @@ export default function DealerPage() {
   }
 
   return <DealerProfilePage dealer={dealer} cars={cars} />;
+}
+
+function DealerCardPage({ dealer }: { dealer: SeoulAutoGalleryDealer }) {
+  useEffect(() => { setPretendard(true); }, []);
+  return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer) }} />;
 }
