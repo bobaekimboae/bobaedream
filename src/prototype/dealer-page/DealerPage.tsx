@@ -90,7 +90,7 @@ const TWOJ_PROFILE = {
 type DealerProfileInfo = {
   rating: number; reviewCount: number; sold: number; followers: number; lastActive: string; joined: string;
   company: string; complex: string; gallery: string; licenseNo: string; businessNo: string; employeeNo: string;
-  phone: string; phoneIsGallery?: boolean; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
+  phone: string; phoneIsGallery?: boolean; homepage?: string; homepageLabel?: string; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
   soldCars: ReadonlyArray<readonly [string, string]>;
 };
 
@@ -142,8 +142,10 @@ const JOY_PROFILE: DealerProfileInfo = {
   followers: 1280,
   lastActive: "1시간 전 활동",
   joined: "딜러 경력 25년",
-  company: "조이모터스",
+  company: "e-조이모터스",
   complex: "SK V1 모터스 · 수원",
+  homepage: "https://xn--v52b29lt4d12ac80a.com/",
+  homepageLabel: "조이모터스.com",
   gallery: "SK V1 모터스",
   licenseNo: "",
   businessNo: "203-85-06411",
@@ -158,7 +160,7 @@ const JOY_PROFILE: DealerProfileInfo = {
   email: "ejoymotors24@naver.com",
   staff: "",
   address: "경기 수원시 권선구 평동로79번길 45, SK V1 모터스 173호",
-  intro: "2001년부터 25년 동안 수입차·슈퍼카를 다뤄 온 조이모터스 대표 이지유입니다. 전시 중인 차량은 모두 대표가 직접 매입하고 검수했으며, 구매 상담부터 출고 이후 관리까지 같은 기준으로 책임집니다. 수원 SK V1 모터스 173호와 서울 성동구 쇼룸에서 만나실 수 있습니다. (상호 (주)이조이모터스24)",
+  intro: "2001년부터 25년 동안 수입차·슈퍼카를 다뤄 온 e-조이모터스 대표 이지유입니다. 전시 중인 차량은 모두 대표가 직접 매입하고 검수했으며, 구매 상담부터 출고 이후 관리까지 같은 기준으로 책임집니다. 수원 SK V1 모터스 173호와 서울 성동구 쇼룸에서 만나실 수 있습니다. (상호 (주)이조이모터스24)",
   soldCars: TWOJ_PROFILE.soldCars.slice(0, 12),
 };
 
@@ -333,7 +335,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a>{MOCK.phoneIsGallery ? <span className="dp-phone-note">서울오토갤러리 대표</span> : null}</div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span>{MOCK.homepage ? <a className="dp-profile-homepage" href={MOCK.homepage} target="_blank" rel="noreferrer"><span className="dp-profile-homepage-icon" aria-hidden="true"><ExternalLinkIcon /></span>{MOCK.homepageLabel ?? MOCK.homepage}</a> : null}</div>
         {sns ? <DealerSnsList sns={sns} pc /> : null}
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
@@ -387,40 +389,45 @@ function SoldCards({ limit }: { limit: number }) {
 
 // 커뮤니티 임베드(public/community/community-embed.js)와 같은 방식: 인스타 겉틀(본문·반응 줄)을 잘라
 // 사진 게시물은 계정 줄 + 사진만, 릴스는 9:16 영상만 우리 SNS 카드 안에 보여 준다(2026-10-21 「우리 임베드 인스타 기능, 우리 화면에서」).
+// 인스타가 보내는 높이 신호(MEASURE)로 사진 게시물 칸 높이를 맞춘다(판매차량 · 커뮤니티 피드 공용, 한 번만 등록).
+if (typeof window !== "undefined" && !(window as unknown as { __dpIgMeasure?: boolean }).__dpIgMeasure) {
+  (window as unknown as { __dpIgMeasure?: boolean }).__dpIgMeasure = true;
+  window.addEventListener("message", (event: MessageEvent) => {
+    let host = "";
+    try { host = new URL(event.origin).hostname; } catch { return; }
+    if (!/(^|\.)instagram\.com$/.test(host)) return;
+    let data = event.data;
+    try { if (typeof data === "string") data = JSON.parse(data); } catch { return; }
+    const height = data && data.type === "MEASURE" && data.details ? Number(data.details.height) : 0;
+    if (!(height > 50)) return;
+    document.querySelectorAll<HTMLIFrameElement>(".dp-ig-crop iframe").forEach((frame) => {
+      if (frame.contentWindow !== event.source) return;
+      frame.parentElement?.style.setProperty("--crop-h", `${Math.max(120, Math.ceil(height) - 154)}px`);
+    });
+  });
+}
+
+const igHref = (post: DealerInstagramPost) => `https://www.instagram.com/${post.kind === "reel" ? "reel" : "p"}/${post.code}/`;
+function IgMedia({ post }: { post: DealerInstagramPost }) {
+  const href = igHref(post);
+  return post.kind === "reel"
+    ? <div className="dp-ig-reel"><iframe src={`${href}embed/`} title={`인스타그램 릴스 ${post.date}`} loading="lazy" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen sandbox="allow-scripts allow-same-origin allow-popups allow-presentation" /></div>
+    : <div className="dp-ig-crop"><iframe src={`${href}embed/`} title={`인스타그램 게시물 ${post.date}`} loading="lazy" scrolling="no" allow="encrypted-media; picture-in-picture" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts" /></div>;
+}
+const igDateText = (date: string) => { const [y, m, d] = date.split("-"); return `${Number(y) % 100}.${m}.${d}`; };
+
 function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInstagramPost[]; limit: number; handle: string }) {
-  const root = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const onMessage = (event: MessageEvent) => {
-      let host = "";
-      try { host = new URL(event.origin).hostname; } catch { return; }
-      if (!/(^|\.)instagram\.com$/.test(host)) return;
-      let data = event.data;
-      try { if (typeof data === "string") data = JSON.parse(data); } catch { return; }
-      const height = data && data.type === "MEASURE" && data.details ? Number(data.details.height) : 0;
-      if (!(height > 50)) return;
-      root.current?.querySelectorAll<HTMLIFrameElement>(".dp-ig-crop iframe").forEach((frame) => {
-        if (frame.contentWindow !== event.source) return;
-        frame.parentElement?.style.setProperty("--crop-h", `${Math.max(120, Math.ceil(height) - 154)}px`);
-      });
-    };
-    window.addEventListener("message", onMessage);
-    return () => window.removeEventListener("message", onMessage);
-  }, []);
-  return <div className="dp-social-feed-list dp-ig-embeds" ref={root}>
+  return <div className="dp-social-feed-list dp-ig-embeds">
     {posts.slice(0, limit).map((post) => {
-      const kind = post.kind === "reel" ? "reel" : "p";
-      const href = `https://www.instagram.com/${kind}/${post.code}/`;
+      const href = igHref(post);
       const label = post.kind === "reel" ? "릴스" : "게시물";
-      const [y, m, d] = post.date.split("-");
       return <article className="dp-social-post dp-ig-post" key={post.code}>
         <header>
           <DealerIcon name="instagram" />
-          <span><b>인스타그램 {label}</b><small>@{handle} · {Number(y) % 100}.{m}.{d}</small></span>
+          <span><b>인스타그램 {label}</b><small>@{handle} · {igDateText(post.date)}</small></span>
           <a href={href} target="_blank" rel="noreferrer" aria-label={`인스타그램 ${label} 원문 보기`}><ExternalLinkIcon aria-hidden="true" /></a>
         </header>
-        {post.kind === "reel"
-          ? <div className="dp-ig-reel"><iframe src={`${href}embed/`} title={`인스타그램 릴스 ${post.date}`} loading="lazy" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen sandbox="allow-scripts allow-same-origin allow-popups allow-presentation" /></div>
-          : <div className="dp-ig-crop"><iframe src={`${href}embed/`} title={`인스타그램 게시물 ${post.date}`} loading="lazy" scrolling="no" allow="encrypted-media; picture-in-picture" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts" /></div>}
+        <IgMedia post={post} />
         <footer><span>판매 문의는 채팅·전화로</span><a href={href} target="_blank" rel="noreferrer">원문 보기 <ExternalLinkIcon aria-hidden="true" /></a></footer>
       </article>;
     })}
@@ -468,8 +475,8 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
   const company = stripCorp(MOCK.company);
   const [tag, setTag] = useState<DealerCommunityTag>("전체");
   const pick = (index: number) => cars.length ? cars[index % cars.length] : undefined;
-  const allPosts: { category: Exclude<DealerCommunityTag, "전체">; title: string; copy: string; author: string; byDealer: boolean; photo?: string; time: string; views: number; comments: number; up: number; down: number; car?: Car }[] = [
-    { category: "공지", photo: asset("seoul-auto-gallery/header/building-bluehour-v01.png"), title: "방문 상담 예약 안내", copy: "주말에는 상담이 몰려 대기 시간이 길어질 수 있습니다. 방문 전 채팅이나 전화로 시간을 정해 주시면 차량을 미리 준비해 두겠습니다.", author: company, byDealer: false, time: "1시간 전", views: 302, comments: 2, up: 18, down: 0 },
+  const allPosts: { category: Exclude<DealerCommunityTag, "전체">; title: string; copy: string; author: string; byDealer: boolean; photo?: string; time: string; views: number; comments: number; up: number; down: number; car?: Car; ig?: DealerInstagramPost }[] = [
+    { category: "공지", photo: MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png"), title: "방문 상담 예약 안내", copy: "주말에는 상담이 몰려 대기 시간이 길어질 수 있습니다. 방문 전 채팅이나 전화로 시간을 정해 주시면 차량을 미리 준비해 두겠습니다.", author: company, byDealer: false, time: "1시간 전", views: 302, comments: 2, up: 18, down: 0 },
     { category: "공지", title: "추석 연휴 영업 시간 안내", copy: "연휴 기간에도 전시장은 오전 10시부터 오후 6시까지 엽니다. 시승은 미리 예약해 주세요.", author: company, byDealer: false, time: "3일 전", views: 221, comments: 1, up: 9, down: 0 },
     { category: "공지", title: "차량 사진과 이력은 직접 확인합니다", copy: "올린 모든 차량은 담당 딜러가 사진과 보험 이력, 성능점검 기록을 직접 확인한 뒤 등록합니다.", author: company, byDealer: false, time: "1주 전", views: 488, comments: 5, up: 41, down: 0 },
     { category: "입고 소식", title: `${pick(0)?.title ?? "새 차량"} 입고`, copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 실내·외 사진을 함께 올려 두었으니 방문 전 궁금한 점을 댓글로 남겨 주세요.", author: dealer.name, byDealer: true, time: "2시간 전", views: 128, comments: 6, up: 14, down: 0, car: pick(0) },
@@ -480,6 +487,15 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
     { category: "딜러 구인", title: "함께 일할 딜러를 찾습니다", copy: "수입차 상담 경험이 있는 분이면 좋습니다. 상사 사무실과 전시 공간을 함께 씁니다. 관심 있는 분은 채팅으로 연락 주세요.", author: company, byDealer: false, time: "1주 전", views: 98, comments: 2, up: 7, down: 0 },
     { category: "이벤트", title: "이달 출고 고객 실내 클리닝 무료", copy: "이번 달 계약 후 출고하시는 고객님께 실내 클리닝을 무료로 해 드립니다. 자세한 조건은 상담 때 안내해 드릴게요.", author: company, byDealer: false, time: "6일 전", views: 167, comments: 3, up: 12, down: 0 },
   ];
+  // 인스타 게시물이 있는 딜러는 피드에도 릴스를 그대로 띄운다(2026-10-21 「인스타 릴스 매물 임베드, 피드와 매물 두곳 다」).
+  const igPosts = instagramPostsFor(dealer.shopNo, dealer.name);
+  const igHandle = instagramHandleFor(dealer.shopNo, dealer.name);
+  if (igPosts.length) {
+    const fakeSns = allPosts.findIndex((post) => post.category === "SNS");
+    const igFeed = igPosts.filter((post) => post.kind === "reel").slice(0, 4).map((post, index) => ({ category: "SNS" as const, title: index === 0 ? "인스타그램 새 릴스" : "인스타그램 릴스", copy: `@${igHandle}에 올린 매물 영상이에요. 영상 속 차량 문의는 채팅이나 전화로 주세요.`, author: dealer.name, byDealer: true, time: igDateText(post.date), views: 0, comments: 0, up: 0, down: 0, ig: post }));
+    allPosts.splice(fakeSns >= 0 ? fakeSns : 1, fakeSns >= 0 ? 1 : 0);
+    allPosts.splice(4, 0, ...igFeed);
+  }
   const notices = allPosts.filter((post) => post.category === "공지");
   // 「전체」에서는 공지를 네이버 증권 토론 「핫글」처럼 회색 띠 안의 가로 넘김 카드로 따로 모은다(2026-10-21 「공지는 인기글처럼」).
   const posts = tag === "전체" ? allPosts.filter((post) => post.category !== "공지") : allPosts.filter((post) => post.category === tag);
@@ -528,7 +544,7 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
     </section> : null}
     <div className="dp-discussion-list">
       {posts.length === 0 ? <p className="dp-discussion-empty">아직 이 말머리의 글이 없어요</p> : null}
-      {posts.map((post) => <article className="dp-discussion-card" key={post.title}>
+      {posts.map((post) => <article className="dp-discussion-card" key={post.ig?.code ?? post.title}>
         <div className="dp-discussion-chips"><span className={post.category === "공지" ? "is-notice" : undefined}>{post.category}</span></div>
         <div className="dp-discussion-identity">
           {post.byDealer ? <img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /> : <i aria-hidden="true">{company.slice(0, 1)}</i>}
@@ -537,12 +553,13 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
         </div>
         <button type="button" className="dp-discussion-title" onClick={() => notify(post.title)}>{post.title}</button>
         <p className="dp-discussion-body">{post.copy}</p>
-        {post.car ? <button type="button" className="dp-discussion-media" onClick={() => notify(post.title)} aria-label={`${post.title} 사진 보기`}><img src={asset(post.car.image)} alt="" draggable={false} loading="lazy" /></button> : null}
+        {post.ig ? <div className="dp-discussion-ig"><IgMedia post={post.ig} /></div> : null}
+        {!post.ig && post.car ? <button type="button" className="dp-discussion-media" onClick={() => notify(post.title)} aria-label={`${post.title} 사진 보기`}><img src={asset(post.car.image)} alt="" draggable={false} loading="lazy" /></button> : null}
         <div className="dp-discussion-metrics" aria-label="게시물 반응">
           <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
           <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
           <button type="button" aria-label={`댓글 ${post.comments}개`} onClick={() => notify("댓글은 상세 화면에서 볼 수 있어요")}><img src={communityIcon("comment-reddit")} alt="" />{post.comments}</button>
-          <span>조회 {post.views.toLocaleString("ko-KR")}</span>
+          {post.ig ? <a className="dp-discussion-ig-link" href={igHref(post.ig)} target="_blank" rel="noreferrer">인스타그램에서 보기 <ExternalLinkIcon aria-hidden="true" /></a> : <span>조회 {post.views.toLocaleString("ko-KR")}</span>}
         </div>
       </article>)}
     </div>

@@ -18,8 +18,23 @@ export const dealerInstagramPosts: Readonly<Record<string, readonly DealerInstag
     { code: "DNmdHVZT8qZ", kind: "photo", date: "2025-08-20" },
     { code: "DLhTZMOxmV1", kind: "photo", date: "2025-06-30" },
   ],
+  // 조이모터스(@e_joymotors24) 공개 프로필 최신 12개(2026-10-21 「인스타 릴스 매물 임베드시켜라, 피드와 매물 두곳 다」): 릴스 10 · 사진 2(고정 글)
+  "joy:이지유": [
+    { code: "DM7UiB5xc2z", kind: "reel", date: "2025-08-04" },
+    { code: "DMr87cIxS5O", kind: "reel", date: "2025-07-29" },
+    { code: "DMZ2kn-xFl-", kind: "reel", date: "2025-07-22" },
+    { code: "DMM9G3zxAjQ", kind: "reel", date: "2025-07-17" },
+    { code: "DL82aEKRzpU", kind: "reel", date: "2025-07-10" },
+    { code: "DLrHkYpThmv", kind: "reel", date: "2025-07-03" },
+    { code: "DLhKX0dPibt", kind: "reel", date: "2025-06-30" },
+    { code: "DLWyr42vsqo", kind: "reel", date: "2025-06-26" },
+    { code: "DLHDcdJvgfs", kind: "reel", date: "2025-06-19" },
+    { code: "DK_xzcfP27i", kind: "reel", date: "2025-06-17" },
+    { code: "C-106Jxytag", kind: "photo", date: "2024-08-18" },
+    { code: "C-1w3puSekL", kind: "photo", date: "2024-08-18" },
+  ],
 };
 
 export const instagramPostsFor = (shopNo: string, name: string) => dealerInstagramPosts[`${shopNo}:${name}`] ?? [];
 
-export const instagramHandleFor = (shopNo: string, name: string) => ({ "450560:한지훈": "bi.turbo" } as Record<string, string>)[`${shopNo}:${name}`] ?? "";
+export const instagramHandleFor = (shopNo: string, name: string) => ({ "450560:한지훈": "bi.turbo", "joy:이지유": "e_joymotors24" } as Record<string, string>)[`${shopNo}:${name}`] ?? "";

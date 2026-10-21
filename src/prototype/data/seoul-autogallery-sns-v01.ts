@@ -8,6 +8,7 @@ export const seoulAutoGallerySns: Readonly<Record<string, DealerSns>> = {
   "450548:박찬민": { instagram: "https://www.instagram.com/car.the.chan/" },
   "450548:송금배": { instagram: "https://www.instagram.com/songkeumbae/" },
   "450548:이혜성": { instagram: "https://www.instagram.com/car_hyesung/" },
+  "joy:이지유": { instagram: "https://www.instagram.com/e_joymotors24/" },
   "450560:한지훈": { instagram: "https://www.instagram.com/bi.turbo/", youtube: "https://www.youtube.com/channel/UC5HplMJqw3WCWhdJ9ll33xA" },
   "450560:장지수": { instagram: "https://www.instagram.com/jang.zilla/" },
   "450560:주한솔": { instagram: "https://www.instagram.com/aka_flossy/" },
