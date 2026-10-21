@@ -125,6 +125,7 @@ import { SeoulAutoGalleryAbout, SeoulAutoGalleryCompanyDirectory, SeoulAutoGalle
 import { emptyHeavySelection, getInitialHeavySelection, replaceHeavyParams, type HeavySelection } from "../heavy/data";
 import { CatalogLogo, CatalogSearchResults, CatalogVehicleImage, CatalogVehiclePickerSheet, useVehicleCatalog, type VehicleSearchRecord } from "../vehicle-catalog";
 import { ListingLanguageSelect } from "./listing-i18n";
+import { VideoListingViewer } from "./video-listing-viewer";
 
 type BbmMobileView = "목록으로 보기" | "피드로 보기" | "갤러리로 보기" | "한줄 광고로 보기" | "텍스트로 보기";
 type OldcarDecade = 1950 | 1960 | 1970 | 1980 | 1990;
@@ -958,6 +959,7 @@ function MarketplaceScreen() {
   const [draftRegion, setDraftRegion] = useState<RegionSelection>(emptyRegion);
   const [searchSaved, setSearchSaved] = useState(false);
   const [searchToast, setSearchToast] = useState("");
+  const [videoViewerOpen, setVideoViewerOpen] = useState(() => new URLSearchParams(window.location.search).get("video") === "1");
   const [seoulAutoGallerySection, setSeoulAutoGallerySection] = useState<SeoulAutoGallerySection>(initialSeoulAutoGallerySection);
   const [categoryLandingOpen, setCategoryLandingOpen] = useState(() => !initialFilters.maker && initialFilters.category === "전체");
   const [quickFilterStyle, setQuickFilterStyle] = useState<QuickFilterStyle>(() => getInitialQuickFilterStyle());
@@ -1035,6 +1037,12 @@ function MarketplaceScreen() {
   }, [searchToast]);
 
   useEffect(() => {
+    const syncVideoViewer = () => setVideoViewerOpen(new URLSearchParams(window.location.search).get("video") === "1");
+    window.addEventListener("popstate", syncVideoViewer);
+    return () => window.removeEventListener("popstate", syncVideoViewer);
+  }, []);
+
+  useEffect(() => {
     const url = new URL(window.location.href);
     const normalizedQuery = query.trim();
     if (normalizedQuery) url.searchParams.set("q", normalizedQuery);
@@ -1046,6 +1054,18 @@ function MarketplaceScreen() {
     if (document.activeElement instanceof HTMLElement) document.activeElement.blur();
     keyboard.hide();
     setSheet(null);
+  };
+  const openVideoViewer = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.set("video", "1");
+    window.history.pushState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+    setVideoViewerOpen(true);
+  };
+  const closeVideoViewer = () => {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("video");
+    window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
+    setVideoViewerOpen(false);
   };
 
   const regionLabel = region.radius ? `내 주변 ${region.radius}` : [region.province, region.district, region.neighborhood].filter(Boolean).join(" ") || "전국";
@@ -3161,6 +3181,9 @@ function MarketplaceScreen() {
     if (id === "suv") { setBbmFilters(setBbmChecks(bbmValue, "bodyType", ["SUV"])); return; }
     if (id === "hybrid") setBbmFilters(setBbmChecks(bbmValue, "fuel", ["가솔린 하이브리드"]));
   };
+  if (videoViewerOpen) {
+    return <><VideoListingViewer onClose={closeVideoViewer} onNotify={setSearchToast} />{searchToast ? <div className="market-toast vlf-toast" role="status" aria-live="polite">{searchToast}</div> : null}</>;
+  }
   if (bbmPartsMode) {
     return <MobileScroll className="app-screen"><BbmPartsGallery value={filters.bbm ?? emptyBbmFilters} onChange={setBbmFilters} cars={listingCars} countWith={countWithBbm} /></MobileScroll>;
   }
@@ -3345,7 +3368,7 @@ function MarketplaceScreen() {
                       <button type="button" role="tab" aria-selected={false} onClick={() => setSearchToast(`${isBikeCategory ? "브랜드 인증" : "브랜드"} 매물은 정식 서비스에서 이용해 주세요.`)}>{isBikeCategory ? "브랜드인증" : "브랜드"}</button>
                     </div>
                     <div className="bbm-toolbar-actions">
-                      <label className="bbm-video-filter"><span>숏폼카</span><BbSwitch checked={videoOnly} label="숏폼카" onChange={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))} /></label>
+                      <label className="bbm-video-filter"><span>숏폼카</span><BbSwitch checked={videoViewerOpen} label="숏폼카" onChange={openVideoViewer} /></label>
                       <span className="bbm-toolbar-divider" aria-hidden="true" />
                       {isGuaziQuickStyle ? (
                         <>
@@ -3417,7 +3440,7 @@ function MarketplaceScreen() {
                       {(["전체", "개인", "딜러"] as SellerType[]).map((tab) => <button key={tab} type="button" role="tab" aria-selected={sellerType === tab} className={sellerType === tab ? "is-selected" : ""} onClick={() => setFilters((current) => ({ ...current, seller: tab }))}>{sellerTabLabel(tab)}</button>)}
                     </div>
                     <div className="pc-list-controls">
-                      <label className="pc-video-toggle"><span>숏폼매물</span><button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button></label>
+                      <label className="pc-video-toggle"><span>숏폼매물</span><button type="button" role="switch" aria-checked={videoViewerOpen} className={videoViewerOpen ? "is-on" : ""} onClick={openVideoViewer}><span /></button></label>
                       <span className="pc-list-divider" aria-hidden="true" />
                       <button type="button" className="pc-sort-button" onClick={() => setSheet("sort")}>{sort}<ChevronDownIcon /></button>
                       <span className="pc-list-divider" aria-hidden="true" />
@@ -3520,8 +3543,8 @@ function MarketplaceScreen() {
               </section>
             ) : null}
             {showSeoulAutoGalleryVehicles ? <><BbmMobileOptions
-              videoOnly={videoOnly}
-              onToggleVideo={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}
+              videoOnly={videoViewerOpen}
+              onToggleVideo={openVideoViewer}
               sortLabel={bbmSort}
               onSort={() => setBbmMenu("m-sort")}
               sellerTabs={isSeoulAutoGalleryLanding ? (["국산차", "수입차", "슈퍼카", "럭셔리카", "클래식카"] as const) : isBikeCategory ? (["개인", "바이크샵"] as const) : (["개인", "딜러"] as const)}
@@ -3623,7 +3646,7 @@ function MarketplaceScreen() {
           <section className="video-toggle-row" aria-label="숏폼매물과 퀵필터 사례 선택">
             <div className="video-toggle-copy">
               <span>숏폼매물</span>
-              <button type="button" role="switch" aria-checked={videoOnly} className={videoOnly ? "is-on" : ""} onClick={() => setFilters((current) => ({ ...current, videoOnly: !current.videoOnly }))}><span /></button>
+              <button type="button" role="switch" aria-checked={videoViewerOpen} className={videoViewerOpen ? "is-on" : ""} onClick={openVideoViewer}><span /></button>
             </div>
             <label className="quick-style-select">
               <span>적용 사이트</span>
