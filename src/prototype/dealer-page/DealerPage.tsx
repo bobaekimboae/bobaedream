@@ -220,22 +220,15 @@ const SOCIAL_CHANNELS = [
 
 const DEALER_HERO_POSTER = asset("seoul-auto-gallery/header/building-bluehour-v01.png");
 
-// e-조이모터스 헤더: 각 브랜드 공식 홈페이지의 양산 모델 가로형 영상 CDN.
-// 배너가 약 3.2:1이므로 세로형 모바일 소스보다 가로 원본이 차량 실루엣을 안정적으로 유지한다.
-const JOY_HERO_VIDEOS = [
-  {
-    brand: "Ferrari",
-    model: "12Cilindri",
-    src: "https://ferrari-cdn.thron.com/delivery/public/video/ferrari/00a07e31-f626-4ef7-86cc-0226c7d5d30d/bocxuw/WEBFULLHD/urxmo7_ferrari-12cilindri-off",
-    poster: "https://ferrari-cdn.thron.com/delivery/public/thumbnail/ferrari/00a07e31-f626-4ef7-86cc-0226c7d5d30d/bocxuw/std/1280x720/urxmo7_ferrari-12cilindri-off",
-  },
-  {
-    brand: "Lamborghini",
-    model: "Revuelto SV",
-    src: "https://videolamborghini-meride-tv.akamaized.net/video/folder2/1786627119hero_lamborghini.mp4",
-    poster: "https://medialamborghini-meride-tv.akamaized.net/meride/lamborghini/video/images/folder1/2846/1786627119hero.jpg",
-  },
-] as const;
+// 유료 딜러 페이지 공통 헤더: Ferrari 12Cilindri와 Lamborghini Revuelto의
+// 공식 양산 모델 영상을 웹 배너 비율로 재편집한 무음 루프다. 로컬 파일로 제공해
+// 외부 CDN 상태와 무관하게 모든 딜러 페이지에서 같은 품질을 유지한다.
+const DEALER_HERO_VIDEO = {
+  brand: "Ferrari · Lamborghini",
+  model: "12Cilindri · Revuelto",
+  src: asset("dealer-page/supercar-header-v01.mp4"),
+  poster: asset("dealer-page/supercar-header-v01.webp"),
+} as const;
 
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
@@ -311,13 +304,11 @@ function DealerSnsList({ sns, pc = false, homepage }: { sns?: ReturnType<typeof 
 }
 
 function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) {
-  const [activeVideo, setActiveVideo] = useState(0);
-  const [failedVideo, setFailedVideo] = useState<number | null>(null);
+  const [failedVideo, setFailedVideo] = useState(false);
   const [paused, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const current = JOY_HERO_VIDEOS[activeVideo];
 
-  const showVideo = failedVideo !== activeVideo;
+  const showVideo = !failedVideo;
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !showVideo) return;
@@ -326,12 +317,7 @@ function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) 
       return;
     }
     void video.play().catch(() => setPaused(true));
-  }, [activeVideo, paused, showVideo]);
-
-  const changeVideo = (index: number) => {
-    setActiveVideo(index);
-    setFailedVideo(null);
-  };
+  }, [paused, showVideo]);
   const togglePlayback = () => {
     const video = videoRef.current;
     if (!video || !showVideo) return;
@@ -346,31 +332,20 @@ function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) 
   return <>
     <img className="dp-cover-photo" src={fallback} alt={alt} draggable={false} />
     {showVideo ? <video
-      key={current.brand}
       ref={videoRef}
       className="dp-cover-video"
-      src={current.src}
-      poster={current.poster}
+      src={DEALER_HERO_VIDEO.src}
+      poster={DEALER_HERO_VIDEO.poster}
       autoPlay={!paused}
+      loop
       muted
       playsInline
       preload="metadata"
       tabIndex={-1}
       aria-hidden="true"
       disablePictureInPicture
-      onEnded={() => changeVideo((activeVideo + 1) % JOY_HERO_VIDEOS.length)}
-      onError={() => setFailedVideo(activeVideo)}
+      onError={() => setFailedVideo(true)}
     /> : null}
-    <div className="dp-cover-dots" role="group" aria-label="헤더 영상 선택">
-      {JOY_HERO_VIDEOS.map((video, index) => <button
-        key={video.brand}
-        type="button"
-        className={index === activeVideo ? "is-active" : undefined}
-        aria-label={`${video.brand} ${video.model} 공식 영상 보기`}
-        aria-pressed={index === activeVideo}
-        onClick={() => changeVideo(index)}
-      />)}
-    </div>
     <button type="button" className="dp-cover-playback" aria-label={paused ? "헤더 영상 재생" : "헤더 영상 일시정지"} aria-pressed={paused} onClick={togglePlayback} disabled={!showVideo}>
       {paused ? <PlayIcon /> : <PauseIcon />}
     </button>
@@ -385,9 +360,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
 
   return <section className="dp-profile">
     <div className="dp-cover">
-      {dealer.shopNo === JOY_SHOP_NO
-        ? <DealerCoverMedia fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
-        : <img className="dp-cover-photo" src={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />}
+      <DealerCoverMedia fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
       <div className="dp-cover-brand-copy">
         <strong>{stripCorp(MOCK.company)}</strong>
         <span>수입차 전문 매매</span>
