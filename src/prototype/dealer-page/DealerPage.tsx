@@ -1,3 +1,4 @@
+import { luxuryLogoBrands, luxuryLogoPath, luxuryLogoSource } from "../listing/luxury-logo-rail";
 import { instagramHandleFor, instagramPostsFor, type DealerInstagramPost } from "../data/seoul-autogallery-instagram-v01";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
@@ -450,6 +451,25 @@ function ListingsSection({ cars, mode, setMode, onOpen, category, setCategory, i
   </section>;
 }
 
+// 판매차량 탭 위 슈퍼카 브랜드 로고 줄(2026-10-21 「판매차량 위 구분선에 우리 슈퍼카 로고 카드들 배치하자」).
+// 슈퍼카·럭셔리카 카테고리와 같은 오토홈 로고 16개 · 같은 칸(모바일 76×102 · PC 84×102). 누르면 그 브랜드 판매차량만, 다시 누르면 해제. 0대는 흐리게.
+function DealerBrandRail({ cars, brand, onPick }: { cars: Car[]; brand: string; onPick: (maker: string) => void }) {
+  const source = luxuryLogoSource();
+  const counts = new Map<string, number>();
+  cars.forEach((car) => counts.set(car.maker, (counts.get(car.maker) ?? 0) + 1));
+  return <nav className="dp-brand-rail" aria-label="브랜드로 판매차량 보기">
+    <div className="dp-brand-rail-track">
+      {luxuryLogoBrands.map((item, index) => {
+        const count = counts.get(item.maker) ?? 0;
+        return <button type="button" key={item.maker} className={`${brand === item.maker ? "is-active" : ""}${count ? "" : " is-empty"}`} aria-pressed={brand === item.maker} aria-label={`${item.maker} ${count}대`} onClick={() => onPick(item.maker)}>
+          <span className="dp-brand-rail-logo"><img src={asset(luxuryLogoPath(source, index))} alt="" draggable={false} /></span>
+          <span className="dp-brand-rail-name">{item.maker}</span>
+        </button>;
+      })}
+    </div>
+  </nav>;
+}
+
 function AnchorNav({ active, onChange }: { active: SectionId; onChange: (section: SectionId) => void }) {
   const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["dealers", "소속딜러"], ["valuation", "내차견적"], ["reviews", "리뷰"], ["intro", "소개"]];
   return <nav className="dp-anchor-nav" aria-label="딜러페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} className={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
@@ -891,6 +911,7 @@ function Footer() {
 function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   const [following, setFollowing] = useState(true);
   const [mode, setMode] = useState<ListingMode>("active");
+  const [brand, setBrand] = useState("");
   const [stockCategory, setStockCategory] = useState(() => readStockCategory(new URLSearchParams(window.location.search).get("stockCategory")));
   const changeStockCategory = (category: StockCategory | "전체") => {
     setStockCategory(category);
@@ -971,9 +992,10 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           </div>
         </div> : <>
           <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
+          {cars.length ? <DealerBrandRail cars={cars} brand={brand} onPick={(maker) => { setBrand((value) => value === maker ? "" : maker); setMode("active"); changeSection("ads"); }} /> : null}
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
-          {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} category={stockCategory} setCategory={changeStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
+          {activeSection === "ads" ? <ListingsSection key={brand} cars={brand ? cars.filter((car) => car.maker === brand) : cars} mode={mode} setMode={setMode} onOpen={openListing} category={stockCategory} setCategory={changeStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
