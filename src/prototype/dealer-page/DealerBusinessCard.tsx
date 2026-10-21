@@ -18,9 +18,11 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
   const company = contact.company.replace(/\(주\)|\(유\)|주식회사/g, "").trim();
   const title = style.title.trim() || company;
   return <article className="dbc-card" style={{ "--dbc-bg": palette.background, "--dbc-ink": palette.ink } as CSSProperties} aria-label={`${contact.name} 딜러 명함`}>
-    <div className="dbc-brand">{style.logo ? <img src={style.logo} alt="명함 로고" /> : null}<strong>{title}</strong></div>
-    <div className="dbc-identity"><h2>{contact.name}</h2><p>{title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ` : ""}{contact.role}</p></div>
-    {!photoFailed ? <img className="dbc-photo" src={contact.photo} alt={`${contact.name} 프로필`} onError={() => setPhotoFailed(true)} /> : null}
+    <div className={`dbc-heading${photoFailed || !contact.photo ? " is-text-only" : ""}`}>
+      <div className="dbc-heading-copy"><div className="dbc-brand">{style.logo ? <img src={style.logo} alt="명함 로고" /> : null}<strong>{title}</strong></div>
+      <div className="dbc-identity"><h2>{contact.name}</h2><p>{title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ` : ""}{contact.role}</p></div></div>
+      {!photoFailed && contact.photo ? <div className="dbc-photo-frame"><img className="dbc-photo" src={contact.photo} alt={`${contact.name} 프로필`} onError={() => setPhotoFailed(true)} /></div> : null}
+    </div>
     <p className="dbc-intro">{style.intro}</p>
     <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}</strong> : null}<span>{contact.address}</span></div>
     <small className="dbc-gallery">서울오토갤러리</small>
@@ -187,7 +189,6 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
         {!standalone && !isFixed ? <button type="button" className="dbc-publish" onClick={publish}>고정 주소 만들기·업데이트 ↗</button> : null}
       </div> : null}
     </section> : null}
-    {standalone && !legacy && serverError ? <p className="dbc-status" role="alert">{serverError}</p> : null}
     {imageUrl ? <div className="dbc-export"><img src={imageUrl} alt={`${contact.name} 저장용 명함 이미지`} /><a href={imageUrl} download={`${contact.name}-명함.png`}>PNG 다운로드</a></div> : null}
     {manualLink ? <label className="dbc-manual-link">명함 링크<input readOnly value={url} onFocus={(event) => event.target.select()} /></label> : null}
     <p className="dbc-status" role="status">{status}</p>
