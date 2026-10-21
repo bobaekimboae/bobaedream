@@ -464,6 +464,7 @@ function DealerBrandRail({ cars, brand, onPick }: { cars: Car[]; brand: string; 
         return <button type="button" key={item.maker} className={`${brand === item.maker ? "is-active" : ""}${count ? "" : " is-empty"}`} aria-pressed={brand === item.maker} aria-label={`${item.maker} ${count}대`} onClick={() => onPick(item.maker)}>
           <span className="dp-brand-rail-logo"><img src={asset(luxuryLogoPath(source, index))} alt="" draggable={false} /></span>
           <span className="dp-brand-rail-name">{item.maker}</span>
+          <span className="dp-brand-rail-count">({count})</span>
         </button>;
       })}
     </div>

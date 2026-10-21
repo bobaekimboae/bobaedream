@@ -692,3 +692,8 @@
 .dp-brand-rail button.is-active .dp-brand-rail-name { color: #222; font-weight: 700; }
 .dp-brand-rail button:focus-visible { outline: 2px solid #222; outline-offset: -2px; border-radius: 8px; }
 @media (min-width: 768px) { .dp-brand-rail-track { padding: 16px 20px 8px; } .dp-brand-rail button { flex-basis: 84px; } .dp-brand-rail-name { width: 84px; } }
+/* 로고 줄 위 구분선 · 이름 아래 대수(2026-10-21 「위도 구분선 긋고, 로고 밑에 대수 괄호 안에 표기」): 아래 구역 탭 위와 같은 10px 회색 띠 */
+.dp-brand-rail { border-top: 10px solid var(--dp-bg); }
+.dp-brand-rail button { height: 104px; }
+.dp-brand-rail-count { color: #8c8c8c; font-size: 12px; line-height: 16px; }
+.dp-brand-rail button.is-active .dp-brand-rail-count { color: #222; }
