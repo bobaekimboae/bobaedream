@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { ImageIcon, RowsIcon } from "@radix-ui/react-icons";
-import { cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, type CardContact, type CardStyle } from "./business-card";
+import { cardContact, cardCompanyName, cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, type CardContact, type CardStyle } from "./business-card";
 import "./business-card.css";
 import { stockCategories, stockUrl } from "./dealer-stock";
 import { cardQr, cardServiceOrigin, fetchPublishedCard, publishingUrl, sharingUrl, type PublishedCard } from "./card-sharing";
@@ -14,14 +14,16 @@ function CardSocials({ style }: { style: CardStyle }) {
 }
 
 function CardPreview({ contact, style }: { contact: CardContact; style: CardStyle }) {
+  contact = cardContact(contact, style);
   const palette = cardThemes[style.theme];
   const [photoFailed, setPhotoFailed] = useState(false);
-  const company = contact.company.replace(/\(주\)|\(유\)|주식회사/g, "").trim();
+  const company = cardCompanyName(contact.company);
   const title = style.title.trim() || company;
+  const separateTitle = title.replace(/\s/g, "") !== company.replace(/\s/g, "");
   return <article className="dbc-card" style={{ "--dbc-bg": palette.background, "--dbc-ink": palette.ink } as CSSProperties} aria-label={`${contact.name} 딜러 명함`}>
     <div className={`dbc-heading${photoFailed || !contact.photo ? " is-text-only" : ""}`}>
-      <div className="dbc-heading-copy"><div className="dbc-brand-block"><small className="dbc-affiliation">{contact.gallery?.trim() || "서울오토갤러리"}</small><div className="dbc-brand">{style.logo ? <img src={style.logo} alt="명함 로고" /> : null}<strong>{title}</strong></div></div>
-      <div className="dbc-identity"><h2>{contact.name}</h2><p>{title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ` : ""}{contact.role}</p></div></div>
+      <div className="dbc-heading-copy"><div className="dbc-brand-block">{contact.gallery ? <small className="dbc-affiliation" aria-label="단지명">{contact.gallery}</small> : null}<div className="dbc-brand">{style.logo ? <img src={style.logo} alt="명함 로고" /> : null}<strong aria-label={separateTitle ? "명함 타이틀" : "상사명"}>{title}</strong></div>{separateTitle ? <p className="dbc-company" aria-label="상사명">{company}</p> : null}</div>
+      <div className="dbc-identity"><h2>{contact.name}</h2><p>{contact.role}</p></div></div>
       {!photoFailed && contact.photo ? <div className="dbc-photo-frame"><img className="dbc-photo" src={contact.photo} alt={`${contact.name} 프로필`} onError={() => setPhotoFailed(true)} /></div> : null}
     </div>
     <p className="dbc-intro">{style.intro}</p>
@@ -50,9 +52,10 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const [qrBusy, setQrBusy] = useState(false);
   const draftChanged = useRef(false);
   const hashFields = new URLSearchParams(window.location.hash.slice(1));
-  const legacy = standalone && ["theme", "intro", "title", "logo", ...cardFields.map(({ id }) => id)].some(id => hashFields.has(id));
+  const legacy = standalone && ["theme", "intro", "title", "logo", "gallery", "company", ...cardFields.map(({ id }) => id)].some(id => hashFields.has(id));
   const requiresPublished = standalone && !legacy && new URLSearchParams(window.location.search).get("published") === "1";
   const receiverContact = standalone && !legacy && published ? { ...published.contact, listingCount: contact.listingCount } : contact;
+  const effectiveContact = cardContact(receiverContact, style);
   const url = sharingUrl(window.location.href, shop, emp, style, published);
   const isFixed = !!published && url === published.url;
   const dealerUrl = profileUrl(window.location.href, shop, emp);
@@ -111,7 +114,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   };
   const publish = () => {
     if (!valid()) return;
-    window.open(publishingUrl(shop, emp, contact, style), "_blank", "noopener,noreferrer");
+    window.open(publishingUrl(shop, emp, effectiveContact, style), "_blank", "noopener,noreferrer");
     setStatus("새 창에서 관리자 로그인 후 명함을 저장해 주세요. 저장 후 돌아오면 고정 주소가 적용돼요.");
   };
   const showQr = async () => {
@@ -122,6 +125,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     finally { setQrBusy(false); }
   };
   const valid = () => {
+    if (!effectiveContact.company) { setStatus("상사명을 입력해 주세요."); return false; }
     const invalid = cardFields.find(({ id }) => style.fields[id] !== undefined && !cardFieldHref(id, style.fields[id]));
     if (invalid) { setStatus(`${invalid.label} 입력값을 확인하거나 선택을 해제해 주세요.`); return false; }
     return true;
@@ -134,7 +138,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const share = async (kakao = false) => {
     if (!valid()) return;
     if (!navigator.share) { await copy(); if (kakao) setStatus("명함 링크를 카카오톡 대화방에 붙여 넣어 주세요. 복사가 안 되면 아래 링크를 직접 복사하세요."); return; }
-    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || contact.company}`, text: `${contact.name} 딜러의 명함입니다.`, url }); setStatus("공유 창을 닫았어요."); }
+    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || effectiveContact.company}`, text: `${contact.name} 딜러의 명함입니다.`, url }); setStatus("공유 창을 닫았어요."); }
     catch (error) { if (!(error instanceof DOMException && error.name === "AbortError")) await copy(); }
   };
   const saveImage = async () => {
@@ -159,6 +163,10 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     </nav>
     <CardSocials style={style} /></> : null}
     {!standalone && editing ? <div className="dbc-editor">
+      <fieldset className="dbc-brand-editor"><legend>단지 · 상사 정보</legend>
+        <label>단지명<input type="text" maxLength={80} placeholder="실제 소속 단지명" value={effectiveContact.gallery ?? ""} onChange={(event) => updateStyle({ ...style, gallery: event.target.value })} /></label>
+        <label>상사명<input type="text" maxLength={80} placeholder="실제 소속 상사명" value={style.company ?? cardCompanyName(receiverContact.company)} onChange={(event) => updateStyle({ ...style, company: event.target.value })} /></label>
+      </fieldset>
       <fieldset className="dbc-brand-editor"><legend>로고 · 타이틀</legend>
         <div className="dbc-logo-edit">{style.logo ? <img src={style.logo} alt="선택한 로고" /> : null}<label className="dbc-upload">{logoBusy ? "로고 불러오는 중…" : style.logo ? "로고 변경" : "로고 추가"}<input type="file" accept="image/png,image/jpeg,image/webp" aria-label="로고 파일" disabled={logoBusy} onChange={async (event) => {
           const file = event.target.files?.[0]; event.target.value = ""; if (!file) return;
@@ -167,7 +175,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
           catch (error) { setStatus(error instanceof Error ? error.message : "로고를 불러올 수 없어요."); }
           finally { setLogoBusy(false); }
         }} /></label>{style.logo ? <button type="button" onClick={() => updateStyle({ ...style, logo: "" })}>로고 삭제</button> : null}<small>PNG·JPG·WebP · 최대 2MB</small></div>
-        <label>명함 타이틀<input type="text" maxLength={30} placeholder={contact.company} value={style.title} onChange={(event) => updateStyle({ ...style, title: event.target.value })} /></label>
+        <label>명함 타이틀<input type="text" maxLength={30} placeholder={cardCompanyName(effectiveContact.company)} value={style.title} onChange={(event) => updateStyle({ ...style, title: event.target.value })} /></label>
       </fieldset>
       <fieldset className="dbc-optional"><legend>선택 정보 추가</legend>{cardFields.map(({ id, label, placeholder }) => {
         const enabled = style.fields[id] !== undefined;
