@@ -472,7 +472,7 @@ function DetailTopSeller({ car, overlay }: { car: Car; overlay?: boolean }) {
   const isDealer = car.sellerType === "딜러";
   const shop = carShopName(car);
   const sagDealer = car.seoulAutoGallery ? sagDealerFor(car) : undefined;
-  const href = sagDealer ? `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}` : undefined;
+  const href = sagDealer ? `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}` : car.joyMotors ? `${window.location.pathname}?qf=guazi&profile=dealer&shop=joy&emp=1` : undefined;
   const body = (
     <>
       <img className="detail-top-seller-avatar" src={asset(sellerDetailPhoto(car))} alt="" draggable={false} />
@@ -1032,7 +1032,7 @@ function detailLocationDong(car: Car): string | undefined {
   if (car.place.includes("서울오토갤러리")) return "양재동";
   const [, city, ward] = parts;
   if (city?.endsWith("시") && ward?.endsWith("구")) return ward;
-  return car.place.includes("도이치오토월드") ? "권선구" : undefined;
+  return car.place.includes("도이치오토월드") || car.place.includes("SK V1 모터스") ? "권선구" : undefined;
 }
 function useLocationWrap(ref: { current: HTMLElement | null }) {
   useEffect(() => {
@@ -1058,7 +1058,7 @@ function useLocationWrap(ref: { current: HTMLElement | null }) {
 
 // 지역 줄의 단지 · 상사명 링크(2026-10-13 「에어비앤비처럼 단지 상사 밑줄 링크」): 이동할 곳이 있는 항목에만 밑줄을 긋는다.
 // 단지 = 카테고리 목록(서울오토갤러리 · 도이치오토월드), 상사명 = 딜러 페이지(서울오토갤러리 딜러 중 화면이 있는 5명)
-const complexCategories = ["서울오토갤러리", "도이치오토월드"];
+const complexCategories = ["서울오토갤러리", "도이치오토월드", "SK V1 모터스"];
 function locationLinks(car: Car): Record<string, string> {
   const links: Record<string, string> = {};
   const base = new URLSearchParams(window.location.search);
@@ -1072,6 +1072,7 @@ function locationLinks(car: Car): Record<string, string> {
   const shop = carShopName(car);
   const sagDealer = car.seoulAutoGallery ? sagDealerFor(car) : undefined;
   if (shop && sagDealer) links[shop] = `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}`;
+  if (shop && car.joyMotors) links[shop] = `${window.location.pathname}?qf=guazi&profile=dealer&shop=joy&emp=1`;
   return links;
 }
 

@@ -128,3 +128,9 @@
     line-height: 20px;
   }
 }
+
+/* SK V1 모터스 머리: 조이모터스 상사페이지 바로가기 알약(32 · 흰 바탕 90%) */
+.sag-category-hero--skv1 .sag-category-hero__building { object-fit: cover; object-position: center 60%; }
+.sag-category-hero__shop { position: absolute; right: 12px; bottom: 10px; display: inline-flex; align-items: center; gap: 4px; height: 32px; padding: 0 12px; border-radius: 16px; background: rgba(255,255,255,.92); color: #222; font-size: 13px; line-height: 18px; font-weight: 600; text-decoration: none; }
+.sag-category-hero__shop span { color: #595959; font-weight: 400; }
+@media (max-width: 767px) { .sag-category-hero__shop { top: 10px; bottom: auto; right: 10px; height: 28px; padding: 0 10px; font-size: 12px; } }

@@ -4,21 +4,21 @@ import "./sag-google-map.css";
 const SAG_ADDRESS = "서울 서초구 양재대로11길 36";
 const SAG_QUERY = `서울오토갤러리 ${SAG_ADDRESS}`;
 
-export function SagGoogleMap({ title = "오시는 길", address = SAG_ADDRESS, detail }: { title?: string; address?: string; detail?: string }) {
-  const q = encodeURIComponent(SAG_QUERY);
+export function SagGoogleMap({ title = "오시는 길", address = SAG_ADDRESS, detail, query = SAG_QUERY, place = "서울오토갤러리 · 양재동" }: { title?: string; address?: string; detail?: string; query?: string; place?: string }) {
+  const q = encodeURIComponent(query);
   return (
     <section className="sag-map" aria-label={title}>
       <h3>{title}</h3>
       <div className="sag-map__frame">
         <iframe
-          title="서울오토갤러리 위치 지도"
+          title={`${place.split(" · ")[0]} 위치 지도`}
           src={`https://maps.google.com/maps?q=${q}&z=16&hl=ko&output=embed`}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
           allowFullScreen
         />
       </div>
-      <p className="sag-map__address"><b>{detail ? `${address}, ${detail}` : address}</b><span>서울오토갤러리 · 양재동</span></p>
+      <p className="sag-map__address"><b>{detail ? `${address}, ${detail}` : address}</b><span>{place}</span></p>
     </section>
   );
 }

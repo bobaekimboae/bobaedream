@@ -3,10 +3,15 @@ import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react"
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
-import { FavoritesProvider, asset, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
+import { FavoritesProvider, asset, joyMotorsCars, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
 import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
-import { allSeoulAutoGalleryDealers as dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
+import { allSeoulAutoGalleryDealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
+
+// 조이모터스(SK V1 모터스 173호) 대표 이지유(2026-10-21 「조이모터스 상사페이지 만들어」). 공개 홈페이지의 대표·상호·사업자번호·대표번호·팩스·이메일·주소만 쓴다.
+export const JOY_SHOP_NO = "joy";
+const joyDealer: SeoulAutoGalleryDealer = { name: "이지유", listingCount: joyMotorsCars.length, shopNo: JOY_SHOP_NO, empNo: "1", image: "dealer-02.png", role: "대표" };
+const dealers: readonly SeoulAutoGalleryDealer[] = [...allSeoulAutoGalleryDealers, joyDealer];
 import { SagGoogleMap } from "../listing/sag-google-map";
 import { dealerSnsLinks, snsLabel } from "../data/seoul-autogallery-sns-v01";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
@@ -85,7 +90,7 @@ const TWOJ_PROFILE = {
 type DealerProfileInfo = {
   rating: number; reviewCount: number; sold: number; followers: number; lastActive: string; joined: string;
   company: string; complex: string; gallery: string; licenseNo: string; businessNo: string; employeeNo: string;
-  phone: string; phoneIsGallery?: boolean; fax: string; email: string; staff: string; address: string; intro: string;
+  phone: string; phoneIsGallery?: boolean; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
   soldCars: ReadonlyArray<readonly [string, string]>;
 };
 
@@ -97,6 +102,7 @@ const seedOf = (text: string) => [...text].reduce((sum, ch) => (sum * 31 + ch.ch
 // 상사 번호로 정한 화면 확인용 가상 값이다. 팩스·허가·사업자 번호는 목록에 없어 화면에서 뺀다.
 function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
   if (dealer.shopNo === "450554") return TWOJ_PROFILE;
+  if (dealer.shopNo === JOY_SHOP_NO) return JOY_PROFILE;
   const shop = seoulAutoGalleryShopByNo.get(dealer.shopNo);
   const company = shop?.company ?? "서울오토갤러리 회원사";
   const room = shop?.room ?? "";
@@ -128,6 +134,33 @@ function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
     soldCars: TWOJ_PROFILE.soldCars.slice(0, sold),
   };
 }
+
+const JOY_PROFILE: DealerProfileInfo = {
+  rating: 4.9,
+  reviewCount: 27,
+  sold: 12,
+  followers: 1280,
+  lastActive: "1시간 전 활동",
+  joined: "딜러 경력 25년",
+  company: "조이모터스",
+  complex: "SK V1 모터스 · 수원",
+  gallery: "SK V1 모터스",
+  licenseNo: "",
+  businessNo: "203-85-06411",
+  employeeNo: "",
+  phone: "031-278-3030",
+  mapQuery: "SK V1 모터스 경기도 수원시 권선구 평동로79번길 45",
+  mapAddress: "경기 수원시 권선구 평동로79번길 45",
+  mapPlace: "SK V1 모터스 · 평동",
+  coverImage: joyMotorsCars.find((car) => car.image)?.image,
+  specialty: "수입차 · 슈퍼카 · 신차 · 수출",
+  fax: "0504-203-7388",
+  email: "ejoymotors24@naver.com",
+  staff: "",
+  address: "경기 수원시 권선구 평동로79번길 45, SK V1 모터스 173호",
+  intro: "2001년부터 25년 동안 수입차·슈퍼카를 다뤄 온 조이모터스 대표 이지유입니다. 전시 중인 차량은 모두 대표가 직접 매입하고 검수했으며, 구매 상담부터 출고 이후 관리까지 같은 기준으로 책임집니다. 수원 SK V1 모터스 173호와 서울 성동구 쇼룸에서 만나실 수 있습니다. (상호 (주)이조이모터스24)",
+  soldCars: TWOJ_PROFILE.soldCars.slice(0, 12),
+};
 
 // 한 화면에 딜러 한 명이라 렌더 전에 한 번 정한다(DealerPage).
 let MOCK: DealerProfileInfo = TWOJ_PROFILE;
@@ -259,8 +292,8 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
     <div className="dp-cover">
       <img
         className="dp-cover-photo"
-        src={DEALER_HERO_POSTER}
-        alt="서울오토갤러리 전경"
+        src={MOCK.coverImage ?? DEALER_HERO_POSTER}
+        alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"}
         draggable={false}
       />
       <div className="dp-cover-brand-copy">
@@ -610,7 +643,7 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
   const totalListings = staff.reduce((sum, item) => sum + item.listingCount, 0);
   return <section className="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
     <div className="dp-affiliated-company">
-      <img src={asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="서울오토갤러리 전경" draggable={false} />
+      <img src={MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />
       <div>
         <span>{MOCK.complex}</span>
         <h2 id="dp-affiliated-title">{MOCK.company}</h2>
@@ -811,7 +844,7 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
       <p>{introduction}</p>
     </article>
     <dl>
-      <div><dt><DealerIcon name="car-sale-as24" />전문 분야</dt><dd>수입차</dd></div>
+      <div><dt><DealerIcon name="car-sale-as24" />전문 분야</dt><dd>{MOCK.specialty ?? "수입차"}</dd></div>
       <div><dt><DealerIcon name="location-as24" />활동 지역</dt><dd>{MOCK.address}</dd></div>
       <div><dt><DealerIcon name="calendar-as24" />딜러 경력</dt><dd>{MOCK.joined.replace("딜러 경력 ", "")}</dd></div>
       <div><dt><DealerIcon name="complex-home-as24" />소속 상사</dt><dd>{MOCK.company}</dd></div>
@@ -823,7 +856,7 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
       {MOCK.fax ? <div><dt><DealerIcon name="printer-as24" />팩스</dt><dd>{MOCK.fax}</dd></div> : null}
       {MOCK.staff ? <div><dt><DealerIcon name="person-as24" />소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}
     </dl>
-    <SagGoogleMap title="상사 위치" address="서울 서초구 양재대로11길 36" detail={MOCK.address.split(", ").slice(1).join(", ") || undefined} />
+    <SagGoogleMap title="상사 위치" address={MOCK.mapAddress ?? "서울 서초구 양재대로11길 36"} detail={MOCK.address.split(", ").slice(1).join(", ") || undefined} query={MOCK.mapQuery} place={MOCK.mapPlace} />
   </section>;
 }
 
@@ -941,7 +974,7 @@ export default function DealerPage() {
   const matchedDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo));
   const dealer: SeoulAutoGalleryDealer = matchedDealer ?? dealers[0];
   MOCK = profileFor(dealer);
-  const cars = useMemo(() => dealer.shopNo === dealers[0].shopNo
+  const cars = useMemo(() => dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : dealer.shopNo === dealers[0].shopNo
     ? seoulAutoGalleryCars
     : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo]);
   const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));

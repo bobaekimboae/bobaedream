@@ -43,6 +43,7 @@ import { ferrariSheetRows } from "./ferrari-sheet-v02";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
 import deutschDriveLinks from "./deutsch-autoworld-drive-v01.json";
+import joyMotorsRowsJson from "./joymotors-v01.json";
 import {
   campingScenarioV01,
   materialHandlingScenarioV01,
@@ -189,6 +190,8 @@ type Car = {
   listThumb?: string;
   /** 서울오토갤러리 카테고리 실데이터(실제 상사명 · 딜러명, 2026-10-10 사용자 지시) */
   seoulAutoGallery?: { company: string; dealer: string; priceKind: "공개" | "추정" };
+  /** 조이모터스(SK V1 모터스) 실매물: 사이트 관리번호 */
+  joyMotors?: { itemNo: string };
   /** 도이치오토월드 카테고리 실데이터(같은 표시 규칙: 실제 상사명·딜러명, 사진 5장) */
   realDealer?: { company: string; dealer: string };
   /** 피드 사진 넘기기에 쓰는 실제 다중 사진(있으면 임시 슬라이드 대신 사용) */
@@ -1577,6 +1580,71 @@ const deutschCars: Car[] = deutschRowsByRecent.map((row, order) => {
 const deutschAutoworldCars = deutschCars.filter((car) => car.place === deutschPlaces[0]);
 const deutschOtherComplexCars = deutschCars.filter((car) => car.place !== deutschPlaces[0]);
 
+// 조이모터스(SK V1 모터스 173호) 전체 매물(2026-10-21 「조이모터스 상사페이지 만들어, 모든 매물 등록하고, 단지도 새로 입력하고」).
+// 출처: e-조이모터스 공개 전체매물 목록(3,192대, 2026-10-21 수집). 제조사·모델·세부모델·등급·연식·최초등록·주행·가격·색상·등록일·조회수·사진 주소만 옮겼다.
+// 사진은 조이모터스 공개 저장소 주소를 그대로 불러온다(저장소에 복사하지 않음, 사진 없는 1,661대는 빈 사진 칸).
+// 연료는 목록에 없어 등급 이름으로 추정한 값이다(TDI·디젤 → 디젤, 하이브리드 → 하이브리드, 테슬라·EQ·e-tron·타이칸 → 전기, 그 밖 가솔린).
+type JoyRow = [string, string, string, string, string, number, string, number, number | null, string, string, number, string, string, number, string];
+const JOY_RENDER = "https://xmkhbwijtxtkhrgtjygm.supabase.co/storage/v1/render/image/public/vehicle-images/";
+const JOY_OBJECT = "https://xmkhbwijtxtkhrgtjygm.supabase.co/storage/v1/object/public/vehicle-images/";
+const SKV1_PLACE = "경기 수원시 · SK V1 모터스";
+const joyMakerName = (brand: string) => ({ "도요타": "토요타", "기타 수입차": "기타" } as Record<string, string>)[brand] ?? brand;
+const joyFuel = (brand: string, text: string) => /하이브리드|hybrid|PHEV|E-하이브리드/i.test(text) ? "하이브리드"
+  : brand === "테슬라" || /\bEQ[A-Z]|e-?tron|타이칸|일렉트릭|EV\b|i[X4-7]\b/i.test(text) ? "전기"
+    : /TDI|디젤|\d{2,3}d\b|CDI|BlueTEC|SDV|TDV|d xDrive|D\d{3}/i.test(text) ? "디젤" : "가솔린";
+const joyNowMs = Date.parse("2026-10-21T10:00:00+09:00");
+const joyPosted = (listed: string) => {
+  if (!listed) return "1일 전";
+  const days = Math.max(0, Math.round((joyNowMs - Date.parse(`${listed}T12:00:00+09:00`)) / 86400000));
+  return days === 0 ? "오늘" : days < 30 ? `${days}일 전` : days < 365 ? `${Math.floor(days / 30)}개월 전` : `${Math.floor(days / 365)}년 전`;
+};
+const joyRegText = (reg: string, year: number) => {
+  const m = /^(\d{4})-(\d{2})$/.exec(reg);
+  if (!m) return String(year || reg || "");
+  const yy = m[1].slice(2);
+  return year && String(year) !== m[1] ? `${yy}년${m[2]}월(${String(year).slice(2)}년형)` : `${yy}년${m[2]}월`;
+};
+const joyMotorsRows = joyMotorsRowsJson as unknown as JoyRow[];
+const joyMotorsCars: Car[] = joyMotorsRows
+  .map((row, order) => ({ row, order }))
+  .sort((a, b) => Number(Boolean(b.row[12])) - Number(Boolean(a.row[12])) || a.order - b.order)
+  .map(({ row }, rank, list) => {
+    const [brand, model, , grade, detailGrade, year, reg, km, price, color, listed, views, thumb, detail, , itemNo] = row;
+    const maker = joyMakerName(brand);
+    const trim = [grade, detailGrade].filter(Boolean).join(" ");
+    const fuel = joyFuel(brand, `${model} ${trim}`);
+    const image = detail ? `${JOY_OBJECT}${detail}` : "";
+    const listThumb = thumb ? `${JOY_RENDER}${thumb}?width=360&quality=75&resize=contain` : undefined;
+    return {
+      id: 400_000 + rank,
+      updateRank: 200_000 + list.length - rank,
+      maker,
+      modelGroup: model,
+      sellerType: "딜러",
+      image,
+      photoList: image ? [image] : undefined,
+      imageAspectRatio: image ? 4 / 3 : undefined,
+      listThumb,
+      imageFit: "cover",
+      imagePosition: "center center",
+      title: [maker, model].filter(Boolean).join(" "),
+      trim,
+      specs: [year ? `${year}년식` : "", deutschMileageText(km), fuel].filter(Boolean),
+      cardSpec: [joyRegText(reg, year), deutschMileageText(km), fuel].filter(Boolean),
+      price: price === null ? "가격 상담" : `${price.toLocaleString("ko-KR")} 만원`,
+      place: SKV1_PLACE,
+      views,
+      dealer: "이지유 조이모터스",
+      stock: list.length,
+      posted: joyPosted(listed),
+      photos: image ? 1 : 0,
+      sellerProfile: null,
+      realDealer: { company: "조이모터스", dealer: "이지유" },
+      joyMotors: { itemNo },
+      filter: { year, seats: "전체", condition: "중고", mileage: km, owners: "전체", transmission: "오토", fuel, color: color || "기타", origin: ["벤츠", "BMW", "아우디", "포르쉐", "미니", "폭스바겐"].includes(maker) ? "독일" : "수입", body: deutschBodyType(model), video: false },
+    } as Car;
+  });
+
 const domesticPhotoById = new Map(charanchaDomesticPhotos.photos.map((photo) => [photo.id, photo.image]));
 const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...deutschOtherComplexCars].map((car): Car => {
   const image = domesticPhotoById.get(car.id);
@@ -1992,7 +2060,7 @@ function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
     || category === "자재운반장비" && car.virtualCategory?.category === "자재운반장비"
     || category === "캠핑카" && car.virtualCategory?.category === "캠핑카"
     || category === "부품 · 용품" && car.virtualCategory?.category === "부품 · 용품"
-    || ["올드카", "JDM", "리스/렌트차량", "럭셔리카", "서울오토갤러리", "도이치오토월드", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
+    || ["올드카", "JDM", "리스/렌트차량", "럭셔리카", "서울오토갤러리", "도이치오토월드", "SK V1 모터스", "슈퍼카", "브랜드 인증중고차", "매매단지별 검색", "팔린매물", "장애인차"].includes(category);
   const yearMatch = value.year === "전체"
     || value.year === "2024~2026" && data.year >= 2024
     || value.year === "2021~2023" && data.year >= 2021 && data.year <= 2023
@@ -2104,6 +2172,7 @@ export {
   supercarCategoryCars,
   seoulAutoGalleryCars,
   deutschAutoworldCars,
+  joyMotorsCars,
   isDesktopPreview,
   getInitialQuickFilterStyle,
   isForcedMobileView,

@@ -17,6 +17,7 @@ export function stablePageTitle(category: string) {
   if (category === "국산차") return "국산 중고차";
   if (category === "수입차") return "수입 중고차";
   if (STABLE_TYPE_TITLES.includes(category)) return category;
+  if (category === "SK V1 모터스") return category;
   return "중고차";
 }
 
