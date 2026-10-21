@@ -118,21 +118,24 @@ export async function cardPng(contact: CardContact, style: CardStyle): Promise<B
   const palette = cardThemes[style.theme];
   ctx.fillStyle = palette.background; ctx.fillRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = palette.ink;
-  const text = (value: string, x: number, y: number, size: number, width: number, weight = 500) => {
+  const text = (value: string, x: number, y: number, size: number, width: number, weight = 500, edge: "baseline" | "top" | "bottom" = "baseline") => {
     ctx.font = `${weight} ${size}px "Pretendard Variable", Pretendard, sans-serif`;
     let output = value;
     while (ctx.measureText(output).width > width && output.length) output = output.slice(0, -1);
-    ctx.fillText(output === value ? output : output.slice(0, -1) + "…", x, y);
+    const visible = output === value ? output : output.slice(0, -1) + "…";
+    const metrics = ctx.measureText(visible);
+    ctx.fillText(visible, x, edge === "top" ? y + metrics.actualBoundingBoxAscent : edge === "bottom" ? y - metrics.actualBoundingBoxDescent : y);
   };
   const company = contact.company.replace(/\(주\)|\(유\)|주식회사/g, "").trim();
   const title = style.title.trim() || company;
-  text(title, style.logo ? 156 : 72, 118, 32, style.logo ? 650 : 720, 750);
+  // The title/logo and portrait share the same top edge; the role shares its bottom edge.
+  text(title, style.logo ? 156 : 72, 84, 32, style.logo ? 650 : 720, 750, "top");
   if (style.logo) {
     const logo = new Image(); logo.src = style.logo;
-    try { await logo.decode(); ctx.drawImage(logo, 72, 72, 64, 64); } catch { /* Optional logo cannot block export. */ }
+    try { await logo.decode(); ctx.drawImage(logo, 72, 84, 64, 64); } catch { /* Optional logo cannot block export. */ }
   }
   text(contact.name, 72, 276, 66, 720, 750);
-  text(title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ${contact.role}` : contact.role, 72, 330, 27, 720);
+  text(title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ${contact.role}` : contact.role, 72, 340, 27, 720, 500, "bottom");
   // Portrait failures must not prevent exporting the contact card.
   try {
     const img = new Image(); img.crossOrigin = "anonymous";

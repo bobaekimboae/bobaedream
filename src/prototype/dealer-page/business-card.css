@@ -6,14 +6,15 @@
 .dbc-home{display:inline-block;padding:8px 0;color:#697485;text-decoration:none;font-size:13px}
 .dbc-page header{margin:12px 0 16px}.dbc-page h1{margin:0;font-size:20px;line-height:1.4;letter-spacing:-.5px;overflow-wrap:anywhere}
 .dbc-layout{overflow:hidden;background:#fff;border:1px solid #e1e6ee;border-radius:16px}
-.dbc-card{display:grid;grid-template-columns:minmax(0,1fr) 68px;gap:12px 16px;padding:20px;background:var(--dbc-bg);color:var(--dbc-ink);text-align:left}
+.dbc-card{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;padding:20px;background:var(--dbc-bg);color:var(--dbc-ink);text-align:left}
+.dbc-heading{display:grid;grid-template-columns:minmax(0,1fr) 72px;gap:16px;align-items:stretch;min-width:0}.dbc-heading.is-text-only{grid-template-columns:minmax(0,1fr)}.dbc-heading-copy{display:flex;flex-direction:column;gap:12px;min-width:0}.dbc-photo-frame{position:relative;min-width:0;overflow:hidden;border-radius:8px;background:#edf1f7}
 .dbc-card :is(h2,p,strong,span,small){color:inherit}
 .dbc-brand{display:flex;grid-column:1/-1;align-items:center;gap:8px;min-width:0}
 .dbc-brand img{display:block;width:28px;height:28px;object-fit:contain;flex:none;border-radius:4px}
 .dbc-brand strong{min-width:0;overflow-wrap:anywhere;font-size:14px;line-height:1.5;font-weight:650}
-.dbc-identity{align-self:center;min-width:0}.dbc-card h2{margin:0;font-size:26px;line-height:1.3;letter-spacing:-.6px;font-weight:750;overflow-wrap:anywhere}
+.dbc-identity{min-width:0}.dbc-card h2{margin:0;font-size:26px;line-height:1.3;letter-spacing:-.6px;font-weight:750;overflow-wrap:anywhere}
 .dbc-identity p{margin:4px 0 0;font-size:13px;line-height:1.5;opacity:.85;overflow-wrap:anywhere}
-.dbc-photo{display:block;grid-column:2;grid-row:2;width:68px;height:80px;border-radius:8px;background:#edf1f7;object-fit:cover;object-position:center top}
+.dbc-photo{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 .dbc-intro{grid-column:1/-1;margin:0;font-size:13px;line-height:1.6;overflow-wrap:anywhere}.dbc-intro:empty{display:none}
 .dbc-contact{display:grid;grid-column:1/-1;gap:6px;padding-top:12px;border-top:1px solid color-mix(in srgb,var(--dbc-ink) 25%,transparent)}
 .dbc-contact strong{font-size:19px;line-height:1.4;font-weight:650;overflow-wrap:anywhere}.dbc-contact span{font-size:12px;line-height:1.6;overflow-wrap:anywhere}
@@ -46,4 +47,4 @@
 .dbc-share-toggle>span{margin-left:auto}.dbc-share-toggle{justify-content:space-between}.dbc-share-menu{padding-top:12px}.dbc-share-note,.dbc-share-help{margin:0 0 12px;font-size:12px;color:#697485;line-height:1.6;overflow-wrap:anywhere}.dbc-share-help{margin:12px 0 0}.dbc-actions .dbc-kakao{grid-column:1/-1;background:#fee500;border-color:#fee500;color:#191919}.dbc-actions>button:last-child{grid-column:1/-1}.dbc-share-menu .dbc-publish{margin-top:12px;background:#fff;color:#285eae;border-color:#dce2ec;font-size:13px}.dbc-editor .dbc-publish{margin-top:14px}
 .dbc-qr{display:grid;justify-items:center;gap:8px;margin-top:16px;padding:16px 12px;border:1px solid #e1e6ee;border-radius:12px;background:#fff}.dbc-qr img{display:block;width:min(100%,256px);height:auto;image-rendering:pixelated}.dbc-qr p{margin:0;font-size:12px;color:#697485}.dbc-qr a{display:block;min-height:44px;padding:10px 16px;border:1px solid #dce2ec;border-radius:8px;color:#285eae;text-decoration:none;font-weight:650}
 @media(max-width:600px){.dbc-dialog{top:auto;bottom:0;left:0;transform:none;width:100%;max-height:calc(100dvh - 12px);border-radius:20px 20px 0 0}.dbc-dialog-body{padding:16px 16px max(16px,env(safe-area-inset-bottom))}}
-@media(max-width:360px){.dbc-card{padding:16px;grid-template-columns:minmax(0,1fr) 60px;gap:12px}.dbc-photo{width:60px;height:72px}.dbc-recipient-contact,.dbc-tools,.dbc-editor{padding:16px}.dbc-stock,.dbc-socials{padding:0 16px 16px}.dbc-stock>div{grid-template-columns:repeat(2,minmax(0,1fr))}.dbc-edit-footer{padding:0 16px 16px}.dbc-dialog-head h2{font-size:17px}}
+@media(max-width:360px){.dbc-card{padding:16px}.dbc-heading{grid-template-columns:minmax(0,1fr) 64px;gap:12px}.dbc-recipient-contact,.dbc-tools,.dbc-editor{padding:16px}.dbc-stock,.dbc-socials{padding:0 16px 16px}.dbc-stock>div{grid-template-columns:repeat(2,minmax(0,1fr))}.dbc-edit-footer{padding:0 16px 16px}.dbc-dialog-head h2{font-size:17px}}
