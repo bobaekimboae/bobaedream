@@ -3265,9 +3265,11 @@ function MarketplaceScreen() {
     // 트럭 compact와 국산차·수입차 기본 화면은 검색조건 카드를 두 열 위의 1200px 전체 폭에 둔다.
     // 선택지가 긴 퀵필터가 오른쪽 880px 칸에서 답답해지지 않고,
     // 그 아래부터 좌측 상세 필터와 매물 목록이 같은 윗선에서 시작한다.
+    // 2026-10-21 「서울오토갤러리 PC: 차량 카테고리 줄(전체차량 · 중고차 …) 제거, 필터·브랜드 로고 박스를 좌측 필터 위로 올려 와이드하게」:
+    // 서울오토갤러리도 국산차와 같은 전체 폭 검색조건 카드(제목 줄 없음 · 1200px · 아래에 좌측 필터 + 매물)를 쓴다. 딜러 레일은 카드 안에 있어 함께 올라간다.
     const fullTopQuickCard = isGuaziQuickStyle && usesReferencePcLayout && (
       isTruckCategory && pcFilterLayout === "compact"
-      || (category === "국산차" || category === "수입차") && pcFilterLayout === "balanced"
+      || (category === "국산차" || category === "수입차" || category === "서울오토갤러리") && pcFilterLayout === "balanced"
     );
     const topCardChips = bbmChips;
     const balancedTopCard = isGuaziQuickStyle && usesReferencePcLayout && !fullTopQuickCard && (isHeavyCategory || pcFilterLayout === "balanced");
