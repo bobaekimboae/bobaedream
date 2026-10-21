@@ -753,3 +753,17 @@
 /* 보기 전환은 알약 줄을 가리지 않게 별도 줄 오른쪽 끝(알약 → 줄 4 · 줄 → 첫 매물 4) */
 .dp-listings .dp-stock-categories { margin-bottom: 4px; }
 .dp-view-row { display: flex; justify-content: flex-end; margin-bottom: 4px; }
+
+/* 비교 시안 &dpprofile=yt — 모바일 프로필 유튜브 채널 머리 크기(PR #906 값, 2026-10-21 「유튜브 사이즈로 맞춘 시안도」) */
+@media (max-width: 767px) {
+  .dp-page.is-yt-profile .dp-cover { aspect-ratio: 11 / 3; min-height: 0; max-height: 96px; }
+  .dp-page.is-yt-profile .dp-profile-body { grid-template-columns: 72px minmax(0, 1fr); column-gap: 17px; padding-top: 12px; }
+  .dp-page.is-yt-profile .dp-avatar { width: 72px; height: 72px; }
+  .dp-page.is-yt-profile .dp-profile-copy h1 { align-self: end; font-size: 24px; line-height: 30px; }
+  .dp-page.is-yt-profile .dp-profile-copy h1 .is-badge { width: 20px; height: 20px; }
+  .dp-page.is-yt-profile .dp-profile-stats-mobile { display: flex; flex-wrap: wrap; align-self: start; margin: 2px 0 0; }
+  .dp-page.is-yt-profile .dp-profile-stats-mobile > span { display: inline-flex; min-height: 0; flex-direction: row; align-items: baseline; gap: 4px; }
+  .dp-page.is-yt-profile .dp-profile-stats-mobile > span + span::before { content: "·"; margin: 0 1px 0 5px; color: #8c8c8c; }
+  .dp-page.is-yt-profile .dp-profile-stats-mobile small, .dp-page.is-yt-profile .dp-profile-stats-mobile b { order: 0; color: #595959; font-size: 14px; line-height: 20px; font-weight: 400; }
+  .dp-page.is-yt-profile .dp-profile-bio { margin-top: 12px; }
+}
