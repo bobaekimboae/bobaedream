@@ -18,7 +18,7 @@ import { dealerSnsLinks, snsLabel } from "../data/seoul-autogallery-sns-v01";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
 import { DealerBusinessCard } from "./DealerBusinessCard";
-import { matchesStockCategories, readStockCategories, stockCategories, type StockCategory } from "./dealer-stock";
+import { matchesStockCategories, matchesStockCategory, readStockCategories, stockCategories, type StockCategory } from "./dealer-stock";
 import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -447,7 +447,7 @@ function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCatego
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
       <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({snsCount})</button>
     </div>
-    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}</div><p className="dp-stock-count" role="status">{categoryLabel} 판매차량 {filteredCars.length}대</p>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
+    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item} <span className="dp-stock-category-count">({cars.filter((car) => matchesStockCategory(car, item)).length})</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}</div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
