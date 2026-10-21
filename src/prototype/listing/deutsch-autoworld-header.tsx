@@ -33,7 +33,7 @@ export function SkV1MotorsHeader({ cover, shopCount }: { cover?: string; shopCou
           <h1>SK V1 모터스</h1>
           <p>경기 수원시 권선구 수입차 매매단지</p>
         </div>
-        <a className="sag-category-hero__shop" href={`${window.location.pathname}?qf=guazi&profile=dealer&shop=joy&emp=1`}>조이모터스 <span>매물 {shopCount.toLocaleString("ko-KR")}대</span> ›</a>
+        <a className="sag-category-hero__shop" href={`${window.location.pathname}?qf=guazi&profile=dealer&shop=joy&emp=1`}>e-조이모터스 <span>매물 {shopCount.toLocaleString("ko-KR")}대</span> ›</a>
       </div>
     </section>
   );

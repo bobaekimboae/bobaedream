@@ -1581,8 +1581,8 @@ const deutschAutoworldCars = deutschCars.filter((car) => car.place === deutschPl
 const deutschOtherComplexCars = deutschCars.filter((car) => car.place !== deutschPlaces[0]);
 
 // 조이모터스(SK V1 모터스 173호) 전체 매물(2026-10-21 「조이모터스 상사페이지 만들어, 모든 매물 등록하고, 단지도 새로 입력하고」).
-// 출처: e-조이모터스 공개 전체매물 목록(3,192대, 2026-10-21 수집). 제조사·모델·세부모델·등급·연식·최초등록·주행·가격·색상·등록일·조회수·사진 주소만 옮겼다.
-// 사진은 조이모터스 공개 저장소 주소를 그대로 불러온다(저장소에 복사하지 않음, 사진 없는 1,661대는 빈 사진 칸).
+// 출처: e-조이모터스 공개 전체매물 목록(2026-10-21 수집 3,192대 중 사진 있는 앞쪽 100대만 남김 「100대만 매물 등록하고 나머진 삭제」). 제조사·모델·세부모델·등급·연식·최초등록·주행·가격·색상·등록일·조회수·사진 주소만 옮겼다.
+// 사진은 조이모터스 공개 저장소 주소를 그대로 불러온다(저장소에 복사하지 않음).
 // 연료는 목록에 없어 등급 이름으로 추정한 값이다(TDI·디젤 → 디젤, 하이브리드 → 하이브리드, 테슬라·EQ·e-tron·타이칸 → 전기, 그 밖 가솔린).
 type JoyRow = [string, string, string, string, string, number, string, number, number | null, string, string, number, string, string, number, string];
 const JOY_RENDER = "https://xmkhbwijtxtkhrgtjygm.supabase.co/storage/v1/render/image/public/vehicle-images/";
@@ -1634,12 +1634,12 @@ const joyMotorsCars: Car[] = joyMotorsRows
       price: price === null ? "가격 상담" : `${price.toLocaleString("ko-KR")} 만원`,
       place: SKV1_PLACE,
       views,
-      dealer: "이지유 조이모터스",
+      dealer: "이지유 e-조이모터스",
       stock: list.length,
       posted: joyPosted(listed),
       photos: image ? 1 : 0,
       sellerProfile: null,
-      realDealer: { company: "조이모터스", dealer: "이지유" },
+      realDealer: { company: "e-조이모터스", dealer: "이지유" },
       joyMotors: { itemNo },
       filter: { year, seats: "전체", condition: "중고", mileage: km, owners: "전체", transmission: "오토", fuel, color: color || "기타", origin: ["벤츠", "BMW", "아우디", "포르쉐", "미니", "폭스바겐"].includes(maker) ? "독일" : "수입", body: deutschBodyType(model), video: false },
     } as Car;
