@@ -2546,7 +2546,7 @@ function MarketplaceScreen() {
                       label="기타 브랜드"
                       image={<span className="kr-all-brands" aria-hidden="true"><svg viewBox="0 0 22 24" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M17 13.5c-.85 0-1.5-.65-1.5-1.5s.65-1.5 1.5-1.5 1.5.65 1.5 1.5-.65 1.5-1.5 1.5Zm0-1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5-.5.2-.5.5.2.5.5.5Zm-6-2c.85 0 1.5.65 1.5 1.5s-.65 1.5-1.5 1.5-1.5-.65-1.5-1.5.65-1.5 1.5-1.5Zm0 1c-.3 0-.5.2-.5.5s.2.5.5.5.5-.2.5-.5-.2-.5-.5-.5Zm-4.5.5c0-.85-.65-1.5-1.5-1.5s-1.5.65-1.5 1.5.65 1.5 1.5 1.5 1.5-.65 1.5-1.5Zm-2 0c0-.3.2-.5.5-.5s.5.2.5.5-.2.5-.5.5-.5-.2-.5-.5Z" fill="currentColor" /></svg></span>}
                       variant="brand"
-                      onClick={() => setBbmChipPanel("제조사")}
+                      onClick={() => openMakerPicker()}
                     />
                   </QuickRailCarousel>
                 </section>
