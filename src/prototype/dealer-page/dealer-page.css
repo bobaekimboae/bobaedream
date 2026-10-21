@@ -702,3 +702,6 @@
 .dp-brand-rail button { height: auto; }
 .dp-brand-rail-logo { margin-top: 4px; }
 @media (min-width: 768px) { .dp-brand-rail-track { padding-top: 4px; padding-bottom: 12px; } }
+
+/* 판매차량 분류 알약 대수 · 아래 안내 문구 제거 (2026-10-21) */
+.dp-stock-categories{margin-bottom:16px}.dp-stock-categories .dp-stock-category-count{margin-left:-1px;font-weight:400;color:inherit;opacity:.8}
