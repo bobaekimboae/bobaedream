@@ -422,7 +422,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a>{MOCK.phoneIsGallery ? <span className="dp-phone-note">서울오토갤러리 대표</span> : null}</div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span>{MOCK.homepage ? <a className="dp-profile-homepage" href={MOCK.homepage} target="_blank" rel="noreferrer"><span className="dp-profile-homepage-icon" aria-hidden="true"><DealerIcon name="outlink-as24" /></span>{MOCK.homepageLabel ?? MOCK.homepage}</a> : null}</div>
+        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span>{MOCK.homepage ? <a className="dp-profile-homepage" href={MOCK.homepage} target="_blank" rel="noreferrer">{MOCK.homepageLabel ?? MOCK.homepage}</a> : null}</div>
         {sns ? <DealerSnsList sns={sns} pc /> : null}
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
