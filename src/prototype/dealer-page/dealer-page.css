@@ -624,3 +624,16 @@
 /* 우측 썸네일형 줄: 글(제목+본문) 왼쪽 · 썸네일 오른쪽 10 */
 .dp-thumb-row { display: flex; align-items: flex-start; gap: 10px; }
 .dp-thumb-text { flex: 1 1 auto; min-width: 0; }
+
+/* 딜러·상사 SNS 링크(2026-10-21 「인스타그램 또는 유튜브 있는 딜러들은 이렇게 링크」): 인스타그램 프로필 소개 아래 링크 줄처럼 아이콘 16 + 짧은 주소 13/19 600 파랑 */
+.dp-profile-sns { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 6px 0 0; padding: 0; list-style: none; }
+.dp-profile-sns li { display: flex; min-width: 0; align-items: center; }
+.dp-profile-sns a { display: inline-flex; min-width: 0; align-items: center; gap: 5px; color: #306BD9; font-size: 13px; line-height: 19px; font-weight: 600; text-decoration: none; }
+.dp-profile-sns a:hover { text-decoration: underline; }
+.dp-profile-sns a:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
+.dp-profile-sns img { width: 16px; height: 16px; flex: 0 0 16px; }
+.dp-profile-sns .is-note { color: #8c8c8c; font-size: 12px; line-height: 19px; }
+.dp-profile-sns.is-pc { display: none; }
+@media (min-width: 768px) {
+  .dp-profile-sns.is-pc { display: flex; margin-top: 12px; }
+}

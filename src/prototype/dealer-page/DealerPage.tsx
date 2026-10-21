@@ -7,6 +7,7 @@ import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
 import { allSeoulAutoGalleryDealers as dealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
 import { SagGoogleMap } from "../listing/sag-google-map";
+import { dealerSnsLinks, snsLabel } from "../data/seoul-autogallery-sns-v01";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
 import { DealerBusinessCard } from "./DealerBusinessCard";
@@ -101,7 +102,7 @@ function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
   const seed = seedOf(`${dealer.shopNo}-${dealer.name}`);
   const sold = 6 + (seed % 7);
   const years = 3 + (seed % 15);
-  const coOwners = shop && shop.owners.length > 1 ? `공동대표 ${shop.owners.join(" · ")}` : `대표 ${dealer.name}`;
+  const coOwners = dealer.role && dealer.role !== "대표" ? `소속딜러 ${dealer.name}` : shop && shop.owners.length > 1 ? `공동대표 ${shop.owners.join(" · ")}` : `대표 ${dealer.name}`;
   return {
     rating: Math.round((4.5 + (seed % 5) / 10) * 10) / 10,
     reviewCount: 3 + (seed % 28),
@@ -234,10 +235,20 @@ function SiteHeader() {
   </header>;
 }
 
+// 딜러·상사 인스타그램·유튜브 링크(2026-10-21): 인스타그램 프로필 소개 아래 링크 줄처럼 아이콘 + 짧은 주소.
+function DealerSnsList({ sns, pc = false }: { sns: NonNullable<ReturnType<typeof dealerSnsLinks>>; pc?: boolean }) {
+  return <ul className={`dp-profile-sns${pc ? " is-pc" : ""}`} aria-label={sns.shop ? "상사 SNS" : "딜러 SNS"}>
+    {sns.links.instagram ? <li><a href={sns.links.instagram} target="_blank" rel="noreferrer"><img src={dealerIcon("instagram")} alt="" aria-hidden="true" />{snsLabel(sns.links.instagram)}</a></li> : null}
+    {sns.links.youtube ? <li><a href={sns.links.youtube} target="_blank" rel="noreferrer"><img src={dealerIcon("youtube")} alt="" aria-hidden="true" />{snsLabel(sns.links.youtube)}</a></li> : null}
+    {sns.shop ? <li className="is-note">상사 공식 계정</li> : null}
+  </ul>;
+}
+
 function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuation, rating = MOCK.rating, reviewCount = MOCK.reviewCount }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void; onValuation: () => void; rating?: number; reviewCount?: number }) {
   const [bioExpanded, setBioExpanded] = useState(false);
   const listingCount = cars.length;
   const bioPreview = `${MOCK.intro.slice(0, 46).trimEnd()}…`;
+  const sns = dealerSnsLinks(dealer.shopNo, dealer.name);
 
   return <section className="dp-profile">
     <div className="dp-cover">
@@ -269,6 +280,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
             <span>{bioExpanded ? MOCK.intro : bioPreview}</span>{" "}
             <button type="button" aria-expanded={bioExpanded} onClick={() => setBioExpanded((expanded) => !expanded)}>{bioExpanded ? "접기" : "더 보기"}</button>
           </p>
+          {sns ? <DealerSnsList sns={sns} /> : null}
         </div>
         <div className="dp-profile-actions">
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
@@ -283,6 +295,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+        {sns ? <DealerSnsList sns={sns} pc /> : null}
         <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer) }} />
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
