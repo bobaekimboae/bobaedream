@@ -124,13 +124,15 @@ export async function cardPng(contact: CardContact, style: CardStyle): Promise<B
     while (ctx.measureText(output).width > width && output.length) output = output.slice(0, -1);
     ctx.fillText(output === value ? output : output.slice(0, -1) + "…", x, y);
   };
-  text(style.title.trim() || contact.company, style.logo ? 156 : 72, 118, 32, style.logo ? 650 : 720, 750);
+  const company = contact.company.replace(/\(주\)|\(유\)|주식회사/g, "").trim();
+  const title = style.title.trim() || company;
+  text(title, style.logo ? 156 : 72, 118, 32, style.logo ? 650 : 720, 750);
   if (style.logo) {
     const logo = new Image(); logo.src = style.logo;
     try { await logo.decode(); ctx.drawImage(logo, 72, 72, 64, 64); } catch { /* Optional logo cannot block export. */ }
   }
   text(contact.name, 72, 276, 66, 720, 750);
-  text(`${contact.company} · ${contact.role}`, 72, 330, 27, 720);
+  text(title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ${contact.role}` : contact.role, 72, 330, 27, 720);
   // Portrait failures must not prevent exporting the contact card.
   try {
     const img = new Image(); img.crossOrigin = "anonymous";
