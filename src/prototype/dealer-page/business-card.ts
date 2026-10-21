@@ -1,5 +1,13 @@
 export type CardField = "mobile" | "instagram" | "youtube" | "tiktok";
 export type CardStyle = { theme: "blue" | "navy" | "white"; intro: string; title: string; logo: string; gallery?: string; company?: string; fields: Partial<Record<CardField, string>> };
+// 명함 화면에만 쓰는 판매자페이지 값(공유 링크·서버에는 저장하지 않는다). 숫자는 판매자페이지와 같은 값.
+export type CardExtras = {
+  rating?: number; reviewCount?: number; sold?: number;
+  listings?: { id: number; title: string; image: string; price: string; href: string }[];
+  categories?: { label: import("./dealer-stock").StockCategory; count: number }[];
+  sns?: { instagram?: string; youtube?: string };
+  reels?: { href: string; poster?: string; label?: string }[];
+};
 export type CardContact = { name: string; role: string; company: string; gallery?: string; phone: string; address: string; photo: string; listingCount?: number };
 
 export const defaultCardStyle: CardStyle = { theme: "blue", intro: "좋은 차와 좋은 인연을 연결합니다.", title: "", logo: "", fields: {} };
