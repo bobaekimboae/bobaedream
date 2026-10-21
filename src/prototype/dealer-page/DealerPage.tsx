@@ -423,7 +423,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="dealership" />{MOCK.joined}</div>
         </div>
-        {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a>{MOCK.phoneIsGallery ? <span className="dp-phone-note">서울오토갤러리 대표</span> : null}</div> : null}
+        {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
         <DealerSnsList sns={sns} pc homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
