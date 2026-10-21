@@ -6631,3 +6631,20 @@ final result: passed
 No actionable P0/P1/P2 differences remain.
 
 final result: passed
+
+
+---
+
+## 2026-10-21 e-조이모터스 양산 모델 헤더 영상 교체
+
+- Source visual truth: `https://www.ferrari.com/en-US/auto/ferrari-12cilindri`의 공식 12Cilindri 모델 영상과 `https://www.lamborghini.com/en-en`의 공식 Revuelto SV 영상.
+- Browser-rendered implementation: CUA live capture, `/bobaedream/?qf=guazi&profile=dealer&shop=joy&emp=1&lang=ko&v=road-model`.
+- Viewport/state: desktop 1036×614 CSS px; Ferrari 12Cilindri 재생 1.7초·4.9초 상태, muted autoplay, 1025.6×132px 영상 슬롯.
+- Full-view evidence: 기존 딜러 프로필 구성과 문구를 유지하면서 12Cilindri 외장 실루엣이 배너 중앙에 노출되며, F1·서킷 장면은 제거됨.
+- Focused evidence: 4.9초 프레임에서 차량 측면과 후미등이 선명하게 보이고 딜러 상호·설명 문구와 충돌하지 않음.
+- Required fidelity surfaces: typography, spacing, colors and copy are unchanged; image quality is official Full HD MP4 with official 1280×720 poster; console warnings/errors 0.
+- Accessibility/behavior: 모델명이 포함된 영상 선택 접근성 라벨, 재생·일시정지, reduced-motion, 정적 이미지 fallback 유지.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed

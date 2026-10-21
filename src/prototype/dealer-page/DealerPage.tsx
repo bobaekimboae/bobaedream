@@ -220,16 +220,18 @@ const SOCIAL_CHANNELS = [
 
 const DEALER_HERO_POSTER = asset("seoul-auto-gallery/header/building-bluehour-v01.png");
 
-// e-조이모터스 헤더: 각 브랜드 공식 홈페이지가 현재 사용하는 가로형 영상 CDN.
+// e-조이모터스 헤더: 각 브랜드 공식 홈페이지의 양산 모델 가로형 영상 CDN.
 // 배너가 약 3.2:1이므로 세로형 모바일 소스보다 가로 원본이 차량 실루엣을 안정적으로 유지한다.
 const JOY_HERO_VIDEOS = [
   {
     brand: "Ferrari",
-    src: "https://ferrari.scene7.com/is/content/ferrari/gateway-scuderia-ferrari-2026-main-launch-desk",
-    poster: "https://ferrari.scene7.com/is/image/ferrari/gateway-scuderia-ferrari-2026-main-launch-desk-AVS?fit=constrain,1&wid=1280&hei=720",
+    model: "12Cilindri",
+    src: "https://ferrari-cdn.thron.com/delivery/public/video/ferrari/00a07e31-f626-4ef7-86cc-0226c7d5d30d/bocxuw/WEBFULLHD/urxmo7_ferrari-12cilindri-off",
+    poster: "https://ferrari-cdn.thron.com/delivery/public/thumbnail/ferrari/00a07e31-f626-4ef7-86cc-0226c7d5d30d/bocxuw/std/1280x720/urxmo7_ferrari-12cilindri-off",
   },
   {
     brand: "Lamborghini",
+    model: "Revuelto SV",
     src: "https://videolamborghini-meride-tv.akamaized.net/video/folder2/1786627119hero_lamborghini.mp4",
     poster: "https://medialamborghini-meride-tv.akamaized.net/meride/lamborghini/video/images/folder1/2846/1786627119hero.jpg",
   },
@@ -356,7 +358,7 @@ function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) 
         key={video.brand}
         type="button"
         className={index === activeVideo ? "is-active" : undefined}
-        aria-label={`${video.brand} 공식 영상 보기`}
+        aria-label={`${video.brand} ${video.model} 공식 영상 보기`}
         aria-pressed={index === activeVideo}
         onClick={() => changeVideo(index)}
       />)}
