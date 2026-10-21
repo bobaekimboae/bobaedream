@@ -61,7 +61,9 @@ function SvgChevron({ direction }: { direction: "up" | "down" }) {
 
 function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
   const [index, setIndex] = useState(0);
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
+  const [volume, setVolume] = useState(0.72);
+  const [audioBlocked, setAudioBlocked] = useState(false);
   const [paused, setPaused] = useState(false);
   const [liked, setLiked] = useState<Set<string>>(() => new Set());
   const [saved, setSaved] = useState<Set<string>>(() => new Set());
@@ -88,7 +90,20 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
   const togglePlayback = () => {
     const video = videoRef.current;
     if (!video) return;
-    if (video.paused) void video.play(); else video.pause();
+    if (video.paused) {
+      video.muted = false;
+      setMuted(false);
+      void video.play().then(() => setAudioBlocked(false)).catch(() => setAudioBlocked(true));
+    } else video.pause();
+  };
+  const toggleSound = () => {
+    const video = videoRef.current;
+    const nextMuted = !muted;
+    setMuted(nextMuted);
+    if (!video) return;
+    video.muted = nextMuted;
+    video.volume = volume;
+    if (!nextMuted) void video.play().then(() => setAudioBlocked(false)).catch(() => setAudioBlocked(true));
   };
 
   useEffect(() => {
@@ -110,9 +125,10 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
     const video = videoRef.current;
     if (!video) return;
     video.muted = muted;
+    video.volume = volume;
     const promise = video.play();
-    promise?.catch(() => setPaused(true));
-  }, [index, muted]);
+    promise?.then(() => setAudioBlocked(false)).catch(() => { setAudioBlocked(!muted); setPaused(true); });
+  }, [index, muted, volume]);
 
   if (!item) return null;
   const isLiked = liked.has(item.code);
@@ -131,7 +147,7 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
           playsInline
           preload="metadata"
           onClick={togglePlayback}
-          onPlay={() => setPaused(false)}
+          onPlay={() => { setPaused(false); setAudioBlocked(false); }}
           onPause={() => setPaused(true)}
           onLoadedMetadata={(event) => setDuration(event.currentTarget.duration)}
           onTimeUpdate={(event) => setElapsed(event.currentTarget.currentTime)}
@@ -141,11 +157,15 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
         <button type="button" className="vlf-close" aria-label="영상 매물 닫기" onClick={onClose}>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.293 7.293a1 1 0 0 1 1.414 1.414L13.414 12l3.293 3.293a1 1 0 1 1-1.414 1.414L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414L10.586 12 7.293 8.707a1 1 0 1 1 1.414-1.414L12 10.586l3.293-3.293Z" fill="currentColor" /></svg>
         </button>
-        <nav className="vlf-discovery" aria-label="영상 추천 방식"><button type="button" className="is-active">둘러보기</button><button type="button">추천</button></nav>
-        <button type="button" className="vlf-sound" aria-label={muted ? "소리 켜기" : "음소거"} aria-pressed={!muted} onClick={() => setMuted((value) => !value)}>
-          <span className={muted ? "is-muted" : undefined} aria-hidden="true" />
-        </button>
-        {paused ? <button type="button" className="vlf-play" aria-label="영상 재생" onClick={togglePlayback}><span /></button> : null}
+        <div className="vlf-brand"><img src={asset("bbm/header-logo.svg")} alt="보배드림" /><b>영상</b></div>
+        <nav className="vlf-discovery" aria-label="영상 추천 방식"><button type="button" className="is-active">영상매물</button><button type="button">추천매물</button></nav>
+        <div className="vlf-volume">
+          <button type="button" className="vlf-sound" aria-label={muted ? "소리 켜기" : "음소거"} aria-pressed={!muted} onClick={toggleSound}>
+            <span className={muted ? "is-muted" : undefined} aria-hidden="true" />
+          </button>
+          <input aria-label="영상 음량" type="range" min="0" max="1" step="0.05" value={volume} onChange={(event) => { const nextVolume = Number(event.currentTarget.value); setVolume(nextVolume); if (videoRef.current) videoRef.current.volume = nextVolume; }} />
+        </div>
+        {paused ? <button type="button" className={`vlf-play${audioBlocked ? " is-audio-blocked" : ""}`} aria-label={audioBlocked ? "소리 켜고 재생" : "영상 재생"} onClick={togglePlayback}><span />{audioBlocked ? <b>소리 켜고 재생</b> : null}</button> : null}
         <div className="vlf-progress">
           <input aria-label="재생 위치" type="range" min="0" max={Math.max(duration, 1)} step="0.1" value={Math.min(elapsed, Math.max(duration, 1))} onChange={(event) => { const value = Number(event.currentTarget.value); if (videoRef.current) videoRef.current.currentTime = value; setElapsed(value); }} style={{ "--vlf-progress": `${duration ? elapsed / duration * 100 : 0}%` } as CSSProperties} />
           <b>{seconds(elapsed)} / {seconds(duration)}</b>
@@ -180,7 +200,7 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
           {thumbs.map(({ offset, item: thumb }) => <button key={`${item.code}-${thumb.code}-${offset}`} type="button" className={offset === 0 ? "is-active" : undefined} aria-label={`${thumb.maker} ${thumb.model}`} onClick={() => choose(index + offset)}><img src={asset(thumb.poster)} alt="" /></button>)}
         </div>
         <section className="vlf-seller">
-          <span className="vlf-avatar">한</span><span><strong>한지훈 <img src={icon("chotot-list-detail-verified-dealer-wavy-badge")} alt="인증" /></strong><small>판매 중 15대</small></span><b>플로시모터스</b>
+          <span className="vlf-avatar">한</span><span><strong>한지훈 <img src={icon("chotot-list-detail-verified-dealer-wavy-badge")} alt="인증" /></strong><small>보배드림 인증딜러 · 판매 중 15대</small></span><b>플로시모터스</b>
         </section>
         <nav className="vlf-tabs" role="tablist"><button type="button" role="tab" aria-selected={tab === "info"} className={tab === "info" ? "is-active" : undefined} onClick={() => setTab("info")}>정보</button><button type="button" role="tab" aria-selected={tab === "comments"} className={tab === "comments" ? "is-active" : undefined} onClick={() => setTab("comments")}>댓글 (0)</button></nav>
         <div className="vlf-detail-body">
