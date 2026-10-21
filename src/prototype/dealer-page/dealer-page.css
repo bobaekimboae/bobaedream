@@ -644,3 +644,4 @@
 
 /* 상사 대표 전화가 없는 상사: 단지 대표번호임을 알림(2026-10-21) */
 .dp-phone-note { margin-left: 6px; font-size: 12px; line-height: 16px; color: #8c8c8c; }
+.dp-stock-categories{display:flex;flex-wrap:wrap;gap:8px;padding:16px 0 0}.dp-stock-categories button{min-height:44px;padding:8px 16px;border:1px solid #dce2ec;border-radius:24px;background:#fff;color:#536174;font:inherit;font-size:14px;cursor:pointer}.dp-stock-categories button[aria-pressed="true"]{background:#202735;border-color:#202735;color:#fff}.dp-stock-count{margin:12px 0 16px;color:#667085;font-size:13px}

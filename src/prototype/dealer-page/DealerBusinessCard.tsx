@@ -2,6 +2,7 @@ import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { cardPng, cardThemes, cardUrl, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, type CardContact, type CardStyle } from "./business-card";
 import "./business-card.css";
+import { stockCategories, stockUrl } from "./dealer-stock";
 
 type Props = { contact: CardContact; shop: string; emp: string; standalone?: boolean; trigger?: ReactNode };
 
@@ -14,7 +15,7 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
     <div className="dbc-identity"><h2>{contact.name}</h2><p>{contact.company} · {contact.role}</p></div>
     {!photoFailed ? <img className="dbc-photo" src={contact.photo} alt={`${contact.name} 프로필`} onError={() => setPhotoFailed(true)} /> : null}
     <p className="dbc-intro">{style.intro}</p>
-    <div className="dbc-contact"><strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone || "판매자 페이지에서 상담하기"}</strong><span>{contact.address}</span></div>
+    <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}</strong> : null}<span>{contact.address}</span></div>
     <small className="dbc-gallery">서울오토갤러리</small>
   </article>{socials.length ? <nav className="dbc-socials" aria-label="명함 SNS">{socials.map(({ id, label }) => <a key={id} href={cardFieldHref(id, style.fields[id])!} target="_blank" rel="noopener noreferrer"><span>{label}</span><strong>{style.fields[id]}</strong><span aria-hidden="true">↗</span></a>)}</nav> : null}</>;
 }
@@ -22,6 +23,7 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
 export function DealerBusinessCard({ contact, shop, emp, standalone = false, trigger }: Props) {
   const key = `bobaedream:dealer-card:${shop}:${emp}`;
   const [open, setOpen] = useState(false);
+  const [editing, setEditing] = useState(false);
   const [style, setStyle] = useState<CardStyle>(() => {
     if (standalone) return readCardStyle(window.location.hash);
     try { const saved = localStorage.getItem(key); return saved ? readCardStyle(saved) : defaultCardStyle; } catch { return defaultCardStyle; }
@@ -85,7 +87,11 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   };
   const content = <>
     <CardPreview contact={contact} style={style} />
-    {!standalone ? <div className="dbc-editor">
+    <nav className="dbc-stock" aria-label="판매차량 바로가기">
+      <a className="dbc-stock-total" href={stockUrl(window.location.href, shop, emp)}>판매차량 <strong>{contact.listingCount ?? 0}대</strong><span aria-hidden="true">→</span></a>
+      <div>{stockCategories.map((category) => <a key={category} href={stockUrl(window.location.href, shop, emp, category)}>{category}<span aria-hidden="true">↗</span></a>)}</div>
+    </nav>
+    {!standalone && editing ? <div className="dbc-editor">
       <fieldset className="dbc-brand-editor"><legend>로고 · 타이틀</legend>
         <div className="dbc-logo-edit">{style.logo ? <img src={style.logo} alt="선택한 로고" /> : null}<label className="dbc-upload">{logoBusy ? "로고 불러오는 중…" : style.logo ? "로고 변경" : "로고 추가"}<input type="file" accept="image/png,image/jpeg,image/webp" aria-label="로고 파일" disabled={logoBusy} onChange={async (event) => {
           const file = event.target.files?.[0]; event.target.value = ""; if (!file) return;
@@ -108,12 +114,13 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     {imageUrl ? <div className="dbc-export"><img src={imageUrl} alt={`${contact.name} 저장용 명함 이미지`} /><a href={imageUrl} download={`${contact.name}-명함.png`}>PNG 다운로드</a></div> : null}
     {manualLink ? <label className="dbc-manual-link">명함 링크<input readOnly value={url} onFocus={(event) => event.target.select()} /></label> : null}
     <p className="dbc-status" role="status">{status}</p>
-    {standalone ? <div className="dbc-visit">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <a href={cardFieldHref("mobile", style.fields.mobile) || `tel:${contact.phone.replace(/[^+\d]/g, "")}`}>전화 상담</a> : null}<a href={dealerUrl}>판매자 페이지 · 판매 차량 보기 →</a></div> : null}
+    {standalone && (cardFieldHref("mobile", style.fields.mobile) || contact.phone) ? <div className="dbc-visit"><a href={cardFieldHref("mobile", style.fields.mobile) || `tel:${contact.phone.replace(/[^+\d]/g, "")}`}>전화 상담</a></div> : null}
+    {!standalone ? <button type="button" className="dbc-edit-toggle" disabled={logoBusy} onClick={() => { if (editing && !valid()) return; setEditing(!editing); setStatus(""); }}>{editing ? "편집 완료" : "명함 편집하기"}</button> : null}
   </>;
 
-  if (standalone) return <main className="dbc-page"><div className="dbc-page-wrap"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a><header><h1>딜러 명함</h1><p>차량 상담부터 거래까지, 편하게 연락하세요.</p></header>{content}</div></main>;
-  return <Dialog.Root open={open} onOpenChange={(value) => { setOpen(value); setStatus(""); setManualLink(false); }}>
+  if (standalone) return <main className="dbc-page"><div className="dbc-page-wrap"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a><header><h1>{contact.name} 딜러님 모바일 명함</h1><p>차량 상담부터 거래까지, 편하게 연락하세요.</p></header>{content}</div></main>;
+  return <Dialog.Root open={open} onOpenChange={(value) => { setOpen(value); setEditing(false); setStatus(""); setManualLink(false); }}>
     <Dialog.Trigger asChild>{trigger ?? <button type="button" className="dp-businesscard-trigger">명함 만들기 · 공유 <span aria-hidden="true">↗</span></button>}</Dialog.Trigger>
-    <Dialog.Portal><Dialog.Overlay className="dbc-overlay" /><Dialog.Content className="dbc-dialog"><header className="dbc-dialog-head"><div><Dialog.Title>딜러 명함 만들기</Dialog.Title><Dialog.Description>나를 소개하는 명함을 만들고 공유해 보세요.</Dialog.Description></div><Dialog.Close aria-label="명함 닫기">×</Dialog.Close></header><div className="dbc-dialog-body">{content}</div></Dialog.Content></Dialog.Portal>
+    <Dialog.Portal><Dialog.Overlay className="dbc-overlay" /><Dialog.Content className="dbc-dialog"><header className="dbc-dialog-head"><div><Dialog.Title>{contact.name} 딜러님 모바일 명함</Dialog.Title><Dialog.Description>{editing ? "명함 정보를 수정하고 편집 완료를 눌러 주세요." : "연락처와 판매차량을 확인하고 명함을 공유하세요."}</Dialog.Description></div><Dialog.Close aria-label="명함 닫기">×</Dialog.Close></header><div className="dbc-dialog-body">{content}</div></Dialog.Content></Dialog.Portal>
   </Dialog.Root>;
 }
