@@ -1,4 +1,4 @@
-import { instagramPostsFor, type DealerInstagramPost } from "../data/seoul-autogallery-instagram-v01";
+import { instagramHandleFor, instagramPostsFor, type DealerInstagramPost } from "../data/seoul-autogallery-instagram-v01";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { ExternalLinkIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
@@ -352,15 +352,49 @@ function SoldCards({ limit }: { limit: number }) {
   ))}</div>;
 }
 
-function InstagramEmbeds({ posts, limit }: { posts: readonly DealerInstagramPost[]; limit: number }) {
-  return <div className="dp-ig-embeds">
-    {posts.slice(0, limit).map((post) => <div className={`dp-ig-embed is-${post.kind}`} key={post.code}>
-      <iframe src={`https://www.instagram.com/${post.kind === "reel" ? "reel" : "p"}/${post.code}/embed/`} title={`인스타그램 ${post.kind === "reel" ? "릴스" : "게시물"} ${post.date}`} loading="lazy" scrolling="no" allow="encrypted-media; picture-in-picture" />
-    </div>)}
+// 커뮤니티 임베드(public/community/community-embed.js)와 같은 방식: 인스타 겉틀(본문·반응 줄)을 잘라
+// 사진 게시물은 계정 줄 + 사진만, 릴스는 9:16 영상만 우리 SNS 카드 안에 보여 준다(2026-10-21 「우리 임베드 인스타 기능, 우리 화면에서」).
+function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInstagramPost[]; limit: number; handle: string }) {
+  const root = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      let host = "";
+      try { host = new URL(event.origin).hostname; } catch { return; }
+      if (!/(^|\.)instagram\.com$/.test(host)) return;
+      let data = event.data;
+      try { if (typeof data === "string") data = JSON.parse(data); } catch { return; }
+      const height = data && data.type === "MEASURE" && data.details ? Number(data.details.height) : 0;
+      if (!(height > 50)) return;
+      root.current?.querySelectorAll<HTMLIFrameElement>(".dp-ig-crop iframe").forEach((frame) => {
+        if (frame.contentWindow !== event.source) return;
+        frame.parentElement?.style.setProperty("--crop-h", `${Math.max(120, Math.ceil(height) - 154)}px`);
+      });
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
+  return <div className="dp-social-feed-list dp-ig-embeds" ref={root}>
+    {posts.slice(0, limit).map((post) => {
+      const kind = post.kind === "reel" ? "reel" : "p";
+      const href = `https://www.instagram.com/${kind}/${post.code}/`;
+      const label = post.kind === "reel" ? "릴스" : "게시물";
+      const [y, m, d] = post.date.split("-");
+      return <article className="dp-social-post dp-ig-post" key={post.code}>
+        <header>
+          <DealerIcon name="instagram" />
+          <span><b>인스타그램 {label}</b><small>@{handle} · {Number(y) % 100}.{m}.{d}</small></span>
+          <a href={href} target="_blank" rel="noreferrer" aria-label={`인스타그램 ${label} 원문 보기`}><ExternalLinkIcon aria-hidden="true" /></a>
+        </header>
+        {post.kind === "reel"
+          ? <div className="dp-ig-reel"><iframe src={`${href}embed/`} title={`인스타그램 릴스 ${post.date}`} loading="lazy" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen sandbox="allow-scripts allow-same-origin allow-popups allow-presentation" /></div>
+          : <div className="dp-ig-crop"><iframe src={`${href}embed/`} title={`인스타그램 게시물 ${post.date}`} loading="lazy" scrolling="no" allow="encrypted-media; picture-in-picture" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts" /></div>}
+        <footer><span>판매 문의는 채팅·전화로</span><a href={href} target="_blank" rel="noreferrer">원문 보기 <ExternalLinkIcon aria-hidden="true" /></a></footer>
+      </article>;
+    })}
   </div>;
 }
 
-function ListingsSection({ cars, mode, setMode, onOpen, category, setCategory, igPosts = [] }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; category: StockCategory | "전체"; setCategory: (category: StockCategory | "전체") => void; igPosts?: readonly DealerInstagramPost[] }) {
+function ListingsSection({ cars, mode, setMode, onOpen, category, setCategory, igPosts = [], igHandle = "" }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; category: StockCategory | "전체"; setCategory: (category: StockCategory | "전체") => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string }) {
   const [limit, setLimit] = useState(5);
   const filteredCars = cars.filter((car) => matchesStockCategory(car, category));
   const snsCount = igPosts.length || SNS_LISTING_COUNT;
@@ -371,7 +405,7 @@ function ListingsSection({ cars, mode, setMode, onOpen, category, setCategory, i
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
       <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({snsCount})</button>
     </div>
-    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{(["전체", ...stockCategories] as const).map((item) => <button key={item} type="button" aria-pressed={category === item} onClick={() => { setCategory(item); setLimit(5); }}>{item}</button>)}</div><p className="dp-stock-count" role="status">{category} 판매차량 {filteredCars.length}대</p>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">{category === "전체" ? "지금 판매 중인 차량이 없어요." : `지금 판매 중인 ${category} 차량이 없어요.`} 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
+    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{(["전체", ...stockCategories] as const).map((item) => <button key={item} type="button" aria-pressed={category === item} onClick={() => { setCategory(item); setLimit(5); }}>{item}</button>)}</div><p className="dp-stock-count" role="status">{category} 판매차량 {filteredCars.length}대</p>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">{category === "전체" ? "지금 판매 중인 차량이 없어요." : `지금 판매 중인 ${category} 차량이 없어요.`} 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
@@ -889,7 +923,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
-          {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} category={stockCategory} setCategory={changeStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} /> : null}
+          {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} category={stockCategory} setCategory={changeStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}

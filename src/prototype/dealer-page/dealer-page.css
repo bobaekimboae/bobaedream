@@ -646,9 +646,10 @@
 .dp-phone-note { margin-left: 6px; font-size: 12px; line-height: 16px; color: #8c8c8c; }
 .dp-stock-categories{display:flex;flex-wrap:wrap;gap:8px;padding:16px 0 0}.dp-stock-categories button{min-height:44px;padding:8px 16px;border:1px solid #dce2ec;border-radius:24px;background:#fff;color:#536174;font:inherit;font-size:14px;cursor:pointer}.dp-stock-categories button[aria-pressed="true"]{background:#202735;border-color:#202735;color:#fff}.dp-stock-count{margin:12px 0 16px;color:#667085;font-size:13px}
 
-/* SNS 판매 차량 = 인스타그램 공식 퍼가기(2026-10-21 한지훈 @bi.turbo) */
-.dp-ig-embeds { display: grid; gap: 16px; padding: 16px 0 4px; }
-.dp-ig-embed { width: 100%; max-width: 400px; margin: 0 auto; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: inset 0 0 0 1px #ebebeb; }
-.dp-ig-embed iframe { display: block; width: 100%; height: calc(min(100vw - 32px, 400px) + 146px); border: 0; background: #fff; }
-.dp-ig-embed.is-reel iframe { height: calc(min(100vw - 32px, 400px) * 1.25 + 146px); }
-@media (min-width: 768px) { .dp-ig-embeds { grid-template-columns: repeat(2, minmax(0, 1fr)); } .dp-ig-embed iframe { height: 546px; } .dp-ig-embed.is-reel iframe { height: 646px; } }
+/* SNS 판매 차량 = 인스타그램 게시물(2026-10-21 한지훈 @bi.turbo). 커뮤니티 임베드처럼 겉틀을 잘라 우리 카드 안에 사진·영상만 */
+.dp-ig-post .dp-ig-crop { position: relative; height: var(--crop-h, 500px); margin: 0 14px; overflow: hidden; border-radius: 8px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.dp-ig-post .dp-ig-crop iframe { display: block; width: 100%; height: 900px; border: 0; }
+.dp-ig-post .dp-ig-reel { position: relative; width: 288px; max-width: calc(100% - 28px); aspect-ratio: 9 / 16; margin: 0 auto; overflow: hidden; border-radius: 12px; background: #000; }
+.dp-ig-post .dp-ig-reel iframe { position: absolute; left: 0; top: 0; display: block; width: 350px; height: 900px; border: 0; background: #000; transform-origin: 0 0; transform: scale(1.1707) translate(-52px, -54px); }
+.dp-ig-post > footer { margin-top: 4px; }
+@media (min-width: 768px) { .dp-ig-embeds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; } }
