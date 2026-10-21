@@ -637,7 +637,7 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
   const igHandle = instagramHandleFor(dealer.shopNo, dealer.name);
   if (igPosts.length) {
     const fakeSns = allPosts.findIndex((post) => post.category === "SNS");
-    const igFeed = igPosts.filter((post) => post.kind === "reel").slice(0, 4).map((post, index) => ({ category: "SNS" as const, title: index === 0 ? "인스타그램 새 릴스" : "인스타그램 릴스", copy: `@${igHandle}에 올린 매물 영상이에요. 영상 속 차량 문의는 채팅이나 전화로 주세요.`, author: dealer.name, byDealer: true, time: igDateText(post.date), views: 0, comments: 0, up: 0, down: 0, ig: post }));
+    const igFeed = [...igPosts.filter((post) => post.kind === "reel"), ...igPosts.filter((post) => post.kind !== "reel")].slice(0, 4).map((post, index) => ({ category: "SNS" as const, title: post.kind === "reel" ? (index === 0 ? "인스타그램 새 릴스" : "인스타그램 릴스") : (index === 0 ? "인스타그램 새 게시물" : "인스타그램 게시물"), copy: `@${igHandle}에 올린 매물 ${post.kind === "reel" ? "영상" : "사진"}이에요. 영상 속 차량 문의는 채팅이나 전화로 주세요.`, author: dealer.name, byDealer: true, time: igDateText(post.date), views: 0, comments: 0, up: 0, down: 0, ig: post }));
     allPosts.splice(fakeSns >= 0 ? fakeSns : 1, fakeSns >= 0 ? 1 : 0);
     allPosts.splice(4, 0, ...igFeed);
   }
