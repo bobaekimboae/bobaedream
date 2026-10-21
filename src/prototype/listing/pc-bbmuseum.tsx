@@ -808,8 +808,10 @@ export function BbTruckFormatFilter({ value, showImages = true, referenceStyle =
 
 // resetSignal: 값이 바뀔 때마다 "초기화" 확인 창을 연다(QF-093 왼쪽 펼침판 아래 [초기화] 버튼용)
 // brandLogos: 과쯔 모드만 제조사 행 앞에 로고 24×24(QF-096). 초톳·동처띠 PC 는 그대로
-const charanchaFilterOrder = [bbMakerItem, "차급", "바디타입", "연식", "주행거리", "가격", "옵션", "외부색상", "연료", "변속기", "지역", "매매단지", "판매자 유형", "판매방식"];
-const charanchaFilterLabels: Record<string, string> = { 차급: "차종", 바디타입: "바디타입", 외부색상: "색상", "판매자 유형": "판매자유형", 판매방식: "판매 방식" };
+// 2026-10-21 「필터 더보기 안 눌러도 판매 방식 아래에 차량번호 / 판매자 검색, 키워드 입력창이 바로 보이게」: 더보기 밖 마지막 항목으로 두고 늘 펼친다
+const charanchaFilterOrder = [bbMakerItem, "차급", "바디타입", "연식", "주행거리", "가격", "옵션", "외부색상", "연료", "변속기", "지역", "매매단지", "판매자 유형", "판매방식", "차량번호 / 판매자"];
+const charanchaFilterLabels: Record<string, string> = { 차급: "차종", 바디타입: "바디타입", 외부색상: "색상", "판매자 유형": "판매자유형", 판매방식: "판매 방식", "차량번호 / 판매자": "차량번호 · 판매자 검색" };
+const charanchaAlwaysOpen = new Set(["차량번호 / 판매자"]);
 
 function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount, onReset, onNotify, bbm, onBbmChange, countWithBbm, countOf, resetSignal = 0, brandLogos = false, brandLogoCategory, makerSections = bbCatalog, order = bbFilterMenuOriginal, mileageFinal = false, priceFinal = false, pricePresets, truckFilter, collapsible = false, referenceMakerFlow = false, makerOpenByDefault = false, singleOpen = false, showMakerCounts = true, allowEmptyMakerOptions = false, makerLabel }: { leadingFilters?: ReactNode; mileageFinal?: boolean; priceFinal?: boolean; pricePresets?: string[]; order?: string[]; selection: BbMakerSelection; appliedCount: number; historyCount?: number; onReset: () => void; onNotify: (message: string) => void; bbm: BbmFilterValues; onBbmChange: (next: BbmFilterValues) => void; countWithBbm: (next: BbmFilterValues) => number; countOf?: (key: BbmCheckKey, option: string) => number | null; resetSignal?: number; brandLogos?: boolean; brandLogoCategory?: string; makerSections?: BbMakerSection[]; truckFilter?: BbTruckFilter; collapsible?: boolean; referenceMakerFlow?: boolean; makerOpenByDefault?: boolean; singleOpen?: boolean; showMakerCounts?: boolean; allowEmptyMakerOptions?: boolean; makerLabel?: string }) {
   // 모달형 항목: 사이드바 대신 412 모달을 연다. 원본 실측(2026-09-24): 모달 안 선택은 초안이고 [확인 N대]를 눌러야 조건이 걸린다(닫기 X는 버림)
@@ -885,6 +887,15 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
           ? charanchaFilterLabels[label]
           : daangnFilterLabel(label);
     const applied = isMaker ? Boolean(maker) : Boolean(bbmItemValue(label, bbm));
+    // 차란차형: 차량번호 / 판매자 검색은 접지 않고 제목 아래에 입력창을 바로 둔다(꺾쇠 없음)
+    if (charancha && !hasTruckFilter && charanchaAlwaysOpen.has(label)) {
+      return (
+        <section key={label} className={`bbm-filter-item is-open is-always-open${applied ? " is-applied" : ""}`}>
+          <div className="bbm-filter-toggle is-static"><span className="bbm-filter-label"><span className="bbm-filter-label-text">{displayLabel}</span></span></div>
+          <BbmExpandPanel label={label} value={bbm} onChange={onBbmChange} countOf={countOf} mileageFinal={mileageFinal} />
+        </section>
+      );
+    }
     return (
       <Fragment key={label}>
         <section className={`bbm-filter-item${open ? " is-open" : ""}${isMaker ? " is-maker-grade" : ""}${applied ? " is-applied" : ""}`}>

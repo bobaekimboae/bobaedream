@@ -51,6 +51,9 @@
     height: 28px !important;
     object-fit: contain;
   }
+  /* 차량번호 · 판매자 검색(2026-10-21): 판매 방식 아래, 더보기 밖, 늘 펼침. 제목은 꺾쇠 없는 글자, 입력칸은 항목 폭 전체 */
+  .bbm-filter.is-charancha .bbm-filter-item.is-always-open .bbm-filter-toggle.is-static { cursor: default; }
+  .bbm-filter.is-charancha .bbm-filter-item.is-always-open .bbmf-keyword { width: 100%; }
   /* 필터 더보기: 같은 항목 줄 모양(가운데 버튼 상자 대신) */
   .bbm-filter.is-charancha .bbm-filter-more-toggle {
     justify-content: space-between; width: 100%; height: auto; margin: 0; padding: 16px 0; border: 0; border-bottom: 1px solid #eceef0; border-radius: 0;
