@@ -28,6 +28,36 @@
 
 final result: passed
 
+---
+
+## 2026-10-21 딜러 판매차량 분류 탭 통일
+
+- Source visual truth: `reports/design-qa/dealer-stock-tabs-2026-10-21/01-reference-listing-tabs.png` — 실서비스 일반 매물리스트의 `전체 · 개인 · 딜러 · 브랜드` 탭.
+- Browser-rendered implementation: `reports/design-qa/dealer-stock-tabs-2026-10-21/02-implementation-desktop-imported.png` and `03-implementation-mobile-imported.png`.
+- Full-view comparison: `reports/design-qa/dealer-stock-tabs-2026-10-21/04-full-comparison.png`.
+- Focused region comparison: `reports/design-qa/dealer-stock-tabs-2026-10-21/05-focused-tabs-comparison.png`; 기준 탭과 딜러 분류 탭을 동일 배율로 나란히 확인했다.
+- Desktop viewport/state: 1036×614 CSS px, browser-reported DPR 1.25, screenshot 1036×614 px; 일반 매물리스트 `전체` 선택과 딜러 판매차량 `수입차` 선택 상태.
+- Mobile viewport/state: 390×844 CSS px, screenshot 390×843 px; 딜러 판매차량 `수입차` 선택 상태.
+
+### Findings
+
+- No actionable P0/P1/P2 mismatch remains.
+- Typography: passed — Pretendard 15px/21px, regular 400 and selected 600 follow the existing PC listing tabs; mobile uses the existing listing-tab 500/600 optical weights.
+- Spacing/layout: passed — desktop uses 55px controls, 12px horizontal padding, 18px gaps and a 56px rail; mobile uses 8px gaps and 6px padding with no horizontal overflow.
+- Colors/tokens: passed — transparent background, `#616161` idle text, `#1a1a1a` selected text and 2px selected underline match the listing source.
+- Image quality: passed — this component has no image assets; vehicle thumbnails and dealer imagery were not changed.
+- Copy/content: passed — `전체 · 국산차 · 수입차 · 상용차 · 슈퍼카` and the result-count line remain unchanged.
+- Behavior/accessibility: passed — category container is a `tablist`, every category is a `tab` with `aria-selected`, and selecting `수입차` returned `수입차 판매차량 3147대`.
+
+### Comparison history
+
+- Pass 1 [P2, mobile responsiveness]: the exact desktop 18px gap produced a 374px rail inside a 348px mobile content width, clipping the last category by 26px.
+- Fix: below 768px, applied the product's existing mobile listing-tab spacing of 8px with 6px button padding and a 38px minimum width.
+- Pass 2: mobile rail measured `clientWidth=348` and `scrollWidth=348`; all five tabs remained visible, selected underline aligned, desktop measurements stayed identical to the source.
+- Browser console warnings/errors: 0.
+
+final result: passed
+
 
 ---
 
