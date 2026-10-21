@@ -1,9 +1,9 @@
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { cardPng, cardThemes, cardUrl, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, type CardContact, type CardStyle } from "./business-card";
 import "./business-card.css";
 
-type Props = { contact: CardContact; shop: string; emp: string; standalone?: boolean };
+type Props = { contact: CardContact; shop: string; emp: string; standalone?: boolean; trigger?: ReactNode };
 
 function CardPreview({ contact, style }: { contact: CardContact; style: CardStyle }) {
   const palette = cardThemes[style.theme];
@@ -18,7 +18,7 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
   </article>;
 }
 
-export function DealerBusinessCard({ contact, shop, emp, standalone = false }: Props) {
+export function DealerBusinessCard({ contact, shop, emp, standalone = false, trigger }: Props) {
   const key = `bobaedream:dealer-card:${shop}:${emp}`;
   const [open, setOpen] = useState(false);
   const [style, setStyle] = useState<CardStyle>(() => {
@@ -88,7 +88,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false }: P
 
   if (standalone) return <main className="dbc-page"><div className="dbc-page-wrap"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a><header><h1>딜러 명함</h1><p>차량 상담부터 거래까지, 편하게 연락하세요.</p></header>{content}</div></main>;
   return <Dialog.Root open={open} onOpenChange={(value) => { setOpen(value); setStatus(""); setManualLink(false); }}>
-    <Dialog.Trigger asChild><button type="button" className="dp-businesscard-trigger">명함 만들기 · 공유 <span aria-hidden="true">↗</span></button></Dialog.Trigger>
+    <Dialog.Trigger asChild>{trigger ?? <button type="button" className="dp-businesscard-trigger">명함 만들기 · 공유 <span aria-hidden="true">↗</span></button>}</Dialog.Trigger>
     <Dialog.Portal><Dialog.Overlay className="dbc-overlay" /><Dialog.Content className="dbc-dialog"><header className="dbc-dialog-head"><div><Dialog.Title>딜러 명함 만들기</Dialog.Title><Dialog.Description>나를 소개하는 명함을 만들고 공유해 보세요.</Dialog.Description></div><Dialog.Close aria-label="명함 닫기">×</Dialog.Close></header><div className="dbc-dialog-body">{content}</div></Dialog.Content></Dialog.Portal>
   </Dialog.Root>;
 }
