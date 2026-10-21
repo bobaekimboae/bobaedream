@@ -678,3 +678,17 @@
 .dp-discussion-ig .dp-ig-crop iframe { display: block; width: 100%; height: 900px; border: 0; }
 .dp-discussion-ig .dp-ig-reel { position: relative; width: 240px; max-width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border-radius: 8px; background: #000; }
 .dp-discussion-ig .dp-ig-reel iframe { position: absolute; left: 0; top: 0; display: block; width: 350px; height: 900px; border: 0; background: #000; transform-origin: 0 0; transform: scale(.9756) translate(-52px, -54px); }
+
+/* 판매차량 탭 위 슈퍼카 로고 줄(2026-10-21): 슈퍼카 카테고리 로고 레일과 같은 칸 · 로고 44×28 · 이름 14/21 #595959 */
+.dp-brand-rail { background: #fff; }
+.dp-brand-rail-track { display: flex; gap: 8px; padding: 12px 16px 8px; overflow-x: auto; scrollbar-width: none; }
+.dp-brand-rail-track::-webkit-scrollbar { display: none; }
+.dp-brand-rail button { display: flex; flex: 0 0 76px; height: 102px; flex-direction: column; align-items: center; padding: 0; border: 0; background: none; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.dp-brand-rail button:active { opacity: .6; }
+.dp-brand-rail-logo { display: flex; width: 40px; height: 40px; margin-top: 6px; align-items: center; justify-content: center; }
+.dp-brand-rail-logo img { display: block; width: 44px; height: 28px; object-fit: contain; }
+.dp-brand-rail-name { width: 76px; margin-top: 8px; overflow: hidden; color: #595959; font-size: 14px; line-height: 21px; text-align: center; white-space: nowrap; text-overflow: ellipsis; }
+.dp-brand-rail button.is-empty { opacity: .4; }
+.dp-brand-rail button.is-active .dp-brand-rail-name { color: #222; font-weight: 700; }
+.dp-brand-rail button:focus-visible { outline: 2px solid #222; outline-offset: -2px; border-radius: 8px; }
+@media (min-width: 768px) { .dp-brand-rail-track { padding: 16px 20px 8px; } .dp-brand-rail button { flex-basis: 84px; } .dp-brand-rail-name { width: 84px; } }
