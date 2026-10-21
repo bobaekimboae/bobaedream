@@ -728,3 +728,9 @@
 .dp-model-rail-image { display: flex; width: 64px; height: 40px; margin-top: 4px; align-items: flex-end; justify-content: center; }
 .dp-model-rail-image img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; }
 @media (min-width: 768px) { .dp-model-rail { padding-top: 0; } .dp-model-rail-image { width: 76px; } }
+
+/* 판매차량 분류 알약 흰 바탕 · 선택 파랑 (2026-10-21 「판매중 밑 알약칩은 흰색, 선택되면 블루」) — 우리 문맥 알약 규칙(흰 바탕 · 1px #E4E7EC) */
+.dp-stock-categories button,.dp-stock-categories button:hover{padding:3px 11px;border:1px solid #e4e7ec;background:#fff;color:#222}
+.dp-stock-categories button:hover{background:#f7f8fa}
+.dp-stock-categories button[aria-pressed="true"],.dp-stock-categories button[aria-pressed="true"]:hover{border-color:#306bd9;background:#306bd9;color:#fff}
+@media (max-width:767px){.dp-stock-categories button,.dp-stock-categories button:hover{padding:3px 11px}}
