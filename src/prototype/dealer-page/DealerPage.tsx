@@ -1030,6 +1030,8 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   const [mode, setMode] = useState<ListingMode>("active");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
+  // 비교 시안: 주소 끝 &dpprofile=yt 이면 모바일 프로필을 유튜브 채널 머리 크기로(PR #906 값)
+  const ytProfile = new URLSearchParams(window.location.search).get("dpprofile") === "yt";
   const [listView, setListView] = useState<DealerListView>(() => new URLSearchParams(window.location.search).get("view") === "feed" ? "feed" : "list");
   const [selectedStockCategories, setSelectedStockCategories] = useState<StockCategory[]>(() => readStockCategories(new URLSearchParams(window.location.search).getAll("stockCategory")));
   const toggleStockCategory = (category: StockCategory) => {
@@ -1105,7 +1107,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   return <div className="dp-root">
     <div className="dp-scroll" ref={scrollRef}>
       <SiteHeader />
-      <main className={`dp-page${activeSection === "reviews" ? " is-reviews" : ""}`} aria-label={`${dealer.name} 딜러페이지`}>
+      <main className={`dp-page${activeSection === "reviews" ? " is-reviews" : ""}${ytProfile ? " is-yt-profile" : ""}`} aria-label={`${dealer.name} 딜러페이지`}>
         {activeSection === "reviews" ? <div className="dp-review-page-shell">
           <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
           <div className="dp-review-page-main">
