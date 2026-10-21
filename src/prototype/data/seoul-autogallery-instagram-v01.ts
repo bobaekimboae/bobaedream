@@ -21,3 +21,5 @@ export const dealerInstagramPosts: Readonly<Record<string, readonly DealerInstag
 };
 
 export const instagramPostsFor = (shopNo: string, name: string) => dealerInstagramPosts[`${shopNo}:${name}`] ?? [];
+
+export const instagramHandleFor = (shopNo: string, name: string) => ({ "450560:한지훈": "bi.turbo" } as Record<string, string>)[`${shopNo}:${name}`] ?? "";
