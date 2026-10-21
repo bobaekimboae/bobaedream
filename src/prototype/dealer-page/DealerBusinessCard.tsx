@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
+import { ImageIcon, RowsIcon } from "@radix-ui/react-icons";
 import { cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, type CardContact, type CardStyle } from "./business-card";
 import "./business-card.css";
 import { stockCategories, stockUrl } from "./dealer-stock";
@@ -153,7 +154,8 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     {!editing ? <><div className="dbc-recipient-contact" role="group" aria-label="딜러 연락처">{phoneHref ? <a href={phoneHref}>전화 상담</a> : null}<button type="button" onClick={saveContact}>연락처 저장</button></div>
     <nav className="dbc-stock" aria-label="판매차량 바로가기">
       <a className="dbc-stock-total" href={stockUrl(window.location.href, shop, emp)}>판매차량 <strong>{contact.listingCount ?? 0}대</strong><span aria-hidden="true">→</span></a>
-      <div>{stockCategories.map((category) => <a key={category} href={stockUrl(window.location.href, shop, emp, category)}>{category}<span aria-hidden="true">↗</span></a>)}</div>
+      <div className="dbc-stock-views" role="group" aria-label="판매차량 보기 방식"><a href={stockUrl(window.location.href, shop, emp, "전체", "feed")}><ImageIcon aria-hidden="true" />피드 보기</a><a href={stockUrl(window.location.href, shop, emp, "전체", "list")}><RowsIcon aria-hidden="true" />목록 보기</a></div>
+      <div className="dbc-stock-categories">{stockCategories.map((category) => <a key={category} href={stockUrl(window.location.href, shop, emp, category)}>{category}<span aria-hidden="true">↗</span></a>)}</div>
     </nav>
     <CardSocials style={style} /></> : null}
     {!standalone && editing ? <div className="dbc-editor">
