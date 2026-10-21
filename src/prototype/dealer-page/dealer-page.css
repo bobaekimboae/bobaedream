@@ -697,3 +697,8 @@
 .dp-brand-rail button { height: 104px; }
 .dp-brand-rail-count { color: #8c8c8c; font-size: 12px; line-height: 16px; }
 .dp-brand-rail button.is-active .dp-brand-rail-count { color: #222; }
+/* 로고 줄 위아래 여백 줄임(2026-10-21 「위아래 여백 줄이는거 어때」): 칸 높이를 내용에 맞추고(104 → 89) 회색 띠 → 로고 잉크 14 · 대수 글자 → 회색 띠 14로 같게 */
+.dp-brand-rail-track { padding-top: 4px; padding-bottom: 12px; }
+.dp-brand-rail button { height: auto; }
+.dp-brand-rail-logo { margin-top: 4px; }
+@media (min-width: 768px) { .dp-brand-rail-track { padding-top: 4px; padding-bottom: 12px; } }
