@@ -1,5 +1,5 @@
-// 서울오토갤러리 딜러 인스타그램 매물 게시물(2026-10-21 「한지훈 딜러 sns 매물에 여기 인스타 매물 20대 임베드해라」).
-// 출처: instagram.com/bi.turbo 공개 프로필 그리드(로그인 없이 보이는 최신 12개). 게시물 코드·종류·게시일만 옮기고 사진·글은 저장하지 않는다.
+// 서울오토갤러리 딜러 인스타그램 매물 게시물(2026-10-21).
+// 출처: 각 딜러의 공개 인스타그램 프로필. 공개 릴스는 차량명·게시일을 대조하고 웹 재생용으로 최적화한다.
 // 기본은 인스타그램 공식 퍼가기(instagram.com/p/<코드>/embed)로 그리고, 내부 재생 요청을 받은 공개 릴스는 최적화한 정적 영상으로 그린다.
 export type DealerInstagramPost = {
   code: string;
@@ -15,18 +15,36 @@ export type DealerInstagramPost = {
 
 export const dealerInstagramPosts: Readonly<Record<string, readonly DealerInstagramPost[]>> = {
   "450560:한지훈": [
-    { code: "Det0BkRk_IQ", kind: "photo", date: "2026-10-20" },
-    { code: "DesaIwBzGM_", kind: "reel", date: "2026-10-19" },
-    { code: "Deq-gDTk1I6", kind: "photo", date: "2026-10-19" },
-    { code: "DeqgDyixgJG", kind: "reel", date: "2026-10-18" },
-    { code: "DeohRmgk5dZ", kind: "photo", date: "2026-10-18" },
-    { code: "DenduxQTKvk", kind: "reel", date: "2026-10-17" },
-    { code: "DemD63tk5Xt", kind: "photo", date: "2026-10-17" },
-    { code: "DelIBHyzwkM", kind: "reel", date: "2026-10-16" },
-    { code: "DejgndXkyEN", kind: "photo", date: "2026-10-16" },
-    { code: "DUE5G6bExdB", kind: "photo", date: "2026-01-28" },
-    { code: "DNmdHVZT8qZ", kind: "photo", date: "2025-08-20" },
-    { code: "DLhTZMOxmV1", kind: "photo", date: "2025-06-30" },
+    { code: "DevODScTN-9", kind: "reel", date: "2026-10-21", maker: "람보르기니", model: "우루스 S", video: "dealer-instagram/450560-emp3/DevODScTN-9.mp4", poster: "dealer-instagram/450560-emp3/DevODScTN-9.webp" },
+    { code: "DesaIwBzGM_", kind: "reel", date: "2026-10-19", maker: "포르쉐", model: "911 카레라 GTS (992.1)", video: "dealer-instagram/450560-emp3/DesaIwBzGM_.mp4", poster: "dealer-instagram/450560-emp3/DesaIwBzGM_.webp" },
+    { code: "DeqgDyixgJG", kind: "reel", date: "2026-10-19", maker: "람보르기니", model: "우루스", video: "dealer-instagram/450560-emp3/DeqgDyixgJG.mp4", poster: "dealer-instagram/450560-emp3/DeqgDyixgJG.webp" },
+    { code: "DenduxQTKvk", kind: "reel", date: "2026-10-18", maker: "벤틀리", model: "컨티넨탈 GT W12", video: "dealer-instagram/450560-emp3/DenduxQTKvk.mp4", poster: "dealer-instagram/450560-emp3/DenduxQTKvk.webp" },
+    { code: "DelIBHyzwkM", kind: "reel", date: "2026-10-17", maker: "포르쉐", model: "911 카레라 4 GTS 카브리올레 (992.2)", video: "dealer-instagram/450560-emp3/DelIBHyzwkM.mp4", poster: "dealer-instagram/450560-emp3/DelIBHyzwkM.webp" },
+    { code: "DejBaN3zuO-", kind: "reel", date: "2026-10-16", maker: "포르쉐", model: "911 카레라 4 GTS 쿠페 (992.2)", video: "dealer-instagram/450560-emp3/DejBaN3zuO-.mp4", poster: "dealer-instagram/450560-emp3/DejBaN3zuO-.webp" },
+    { code: "DeTGc8Tzyol", kind: "reel", date: "2026-10-10", maker: "메르세데스-벤츠", model: "G 63 AMG 마누팍투어", video: "dealer-instagram/450560-emp3/DeTGc8Tzyol.mp4", poster: "dealer-instagram/450560-emp3/DeTGc8Tzyol.webp" },
+    { code: "DeQWziAzUNg", kind: "reel", date: "2026-10-09", maker: "맥라렌", model: "720S", video: "dealer-instagram/450560-emp3/DeQWziAzUNg.mp4", poster: "dealer-instagram/450560-emp3/DeQWziAzUNg.webp" },
+    { code: "DeNnsTAT4-U", kind: "reel", date: "2026-10-08", maker: "포르쉐", model: "911 터보 S 카브리올레 (992.1)", video: "dealer-instagram/450560-emp3/DeNnsTAT4-U.mp4", poster: "dealer-instagram/450560-emp3/DeNnsTAT4-U.webp" },
+    { code: "DeK-FkETat0", kind: "reel", date: "2026-10-06", maker: "포르쉐", model: "911 GT3 (992.1)", video: "dealer-instagram/450560-emp3/DeK-FkETat0.mp4", poster: "dealer-instagram/450560-emp3/DeK-FkETat0.webp" },
+    { code: "DeF1rFFT6ty", kind: "reel", date: "2026-10-04", maker: "메르세데스-벤츠", model: "SLS AMG 로드스터", video: "dealer-instagram/450560-emp3/DeF1rFFT6ty.mp4", poster: "dealer-instagram/450560-emp3/DeF1rFFT6ty.webp" },
+    { code: "Dd7wIYbTAtF", kind: "reel", date: "2026-10-01", maker: "페라리", model: "12칠린드리 스파이더", video: "dealer-instagram/450560-emp3/Dd7wIYbTAtF.mp4", poster: "dealer-instagram/450560-emp3/Dd7wIYbTAtF.webp" },
+    { code: "Dd5CiDWz6nr", kind: "reel", date: "2026-09-30", maker: "애스턴마틴", model: "DB11 볼란테", video: "dealer-instagram/450560-emp3/Dd5CiDWz6nr.mp4", poster: "dealer-instagram/450560-emp3/Dd5CiDWz6nr.webp" },
+    { code: "Dd3mlxhzXqO", kind: "reel", date: "2026-09-29", maker: "메르세데스-벤츠", model: "G 63 AMG 에디션", video: "dealer-instagram/450560-emp3/Dd3mlxhzXqO.mp4", poster: "dealer-instagram/450560-emp3/Dd3mlxhzXqO.webp" },
+    { code: "Ddz0RBNzQIi", kind: "reel", date: "2026-09-27", maker: "포르쉐", model: "911 카레라 쿠페 (992.1)", video: "dealer-instagram/450560-emp3/Ddz0RBNzQIi.mp4", poster: "dealer-instagram/450560-emp3/Ddz0RBNzQIi.webp" },
+    { code: "DdpgcQVTo9v", kind: "reel", date: "2026-09-23", maker: "람보르기니", model: "우루스 S", video: "dealer-instagram/450560-emp3/DdpgcQVTo9v.mp4", poster: "dealer-instagram/450560-emp3/DdpgcQVTo9v.webp" },
+    { code: "Ddi8vT7zqK8", kind: "reel", date: "2026-09-21", maker: "페라리", model: "812 슈퍼패스트", video: "dealer-instagram/450560-emp3/Ddi8vT7zqK8.mp4", poster: "dealer-instagram/450560-emp3/Ddi8vT7zqK8.webp" },
+    { code: "DdYxs-yzFMl", kind: "reel", date: "2026-09-17", maker: "메르세데스-벤츠", model: "G 63 AMG 만소리", video: "dealer-instagram/450560-emp3/DdYxs-yzFMl.mp4", poster: "dealer-instagram/450560-emp3/DdYxs-yzFMl.webp" },
+    { code: "DdWJdMPzgeU", kind: "reel", date: "2026-09-16", maker: "람보르기니", model: "우루스 SE", video: "dealer-instagram/450560-emp3/DdWJdMPzgeU.mp4", poster: "dealer-instagram/450560-emp3/DdWJdMPzgeU.webp" },
+    { code: "DdOjBuSzpGu", kind: "reel", date: "2026-09-13", maker: "포르쉐", model: "911 카레라 4 GTS 카브리올레 (992.1)", video: "dealer-instagram/450560-emp3/DdOjBuSzpGu.mp4", poster: "dealer-instagram/450560-emp3/DdOjBuSzpGu.webp" },
+    { code: "DdH7Ej4z55q", kind: "reel", date: "2026-09-10", maker: "람보르기니", model: "우루스 퍼포만테", video: "dealer-instagram/450560-emp3/DdH7Ej4z55q.mp4", poster: "dealer-instagram/450560-emp3/DdH7Ej4z55q.webp" },
+    { code: "DdCvqHFTP43", kind: "reel", date: "2026-09-08", maker: "메르세데스-벤츠", model: "SL 63 AMG", video: "dealer-instagram/450560-emp3/DdCvqHFTP43.mp4", poster: "dealer-instagram/450560-emp3/DdCvqHFTP43.webp" },
+    { code: "Dc_GCBeTF2E", kind: "reel", date: "2026-09-07", maker: "랜드로버", model: "레인지로버 P530 오토바이오그래피 LWB", video: "dealer-instagram/450560-emp3/Dc_GCBeTF2E.mp4", poster: "dealer-instagram/450560-emp3/Dc_GCBeTF2E.webp" },
+    { code: "Dc7S7muTqkE", kind: "reel", date: "2026-09-06", maker: "애스턴마틴", model: "DB12 볼란테 Q", video: "dealer-instagram/450560-emp3/Dc7S7muTqkE.mp4", poster: "dealer-instagram/450560-emp3/Dc7S7muTqkE.webp" },
+    { code: "DczVi4gzuCe", kind: "reel", date: "2026-09-02", maker: "포르쉐", model: "파나메라 터보 E-하이브리드", video: "dealer-instagram/450560-emp3/DczVi4gzuCe.mp4", poster: "dealer-instagram/450560-emp3/DczVi4gzuCe.webp" },
+    { code: "DcuQTOETzR6", kind: "reel", date: "2026-08-31", maker: "롤스로이스", model: "스펙터 블랙 배지", video: "dealer-instagram/450560-emp3/DcuQTOETzR6.mp4", poster: "dealer-instagram/450560-emp3/DcuQTOETzR6.webp" },
+    { code: "DcpurGCRS2O", kind: "reel", date: "2026-08-30", maker: "람보르기니", model: "우루스 S", video: "dealer-instagram/450560-emp3/DcpurGCRS2O.mp4", poster: "dealer-instagram/450560-emp3/DcpurGCRS2O.webp" },
+    { code: "DcnVlgwxC0S", kind: "reel", date: "2026-08-29", maker: "롤스로이스", model: "컬리넌 블랙 배지", video: "dealer-instagram/450560-emp3/DcnVlgwxC0S.mp4", poster: "dealer-instagram/450560-emp3/DcnVlgwxC0S.webp" },
+    { code: "DckpYuyRKSK", kind: "reel", date: "2026-08-28", maker: "람보르기니", model: "우루스 S", video: "dealer-instagram/450560-emp3/DckpYuyRKSK.mp4", poster: "dealer-instagram/450560-emp3/DckpYuyRKSK.webp" },
+    { code: "DcfroajRbx-", kind: "reel", date: "2026-08-26", maker: "벤틀리", model: "컨티넨탈 GT", video: "dealer-instagram/450560-emp3/DcfroajRbx-.mp4", poster: "dealer-instagram/450560-emp3/DcfroajRbx-.webp" },
   ],
   // 장지수(@jang.zilla) 공개 릴스 탭 최신 30개(2026-10-21 「릴스 30개 등록해라」).
   // 공개 캡션과 영상 프레임을 함께 대조해 제조사·모델을 표기한다.
