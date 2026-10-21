@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { matchesStockCategory, stockUrl, readStockCategory } from "../src/prototype/dealer-page/dealer-stock.ts";
+import { matchesStockCategories, matchesStockCategory, stockUrl, readStockCategories, readStockCategory } from "../src/prototype/dealer-page/dealer-stock.ts";
 
 test("card inventory links retain the seller and select only the requested stock category", () => {
   for (const category of ["전체", "국산차", "수입차", "상용차", "슈퍼카"]) {
@@ -30,4 +30,11 @@ test("stock categories distinguish domestic, imported, commercial, and actual su
   assert.equal(cars.filter(c => matchesStockCategory(c, "상용차")).length, 2);
   assert.deepEqual(cars.filter(c => matchesStockCategory(c, "슈퍼카")).map(c=>c.modelGroup ?? c.maker), ["911", "람보르기니"]);
   for (const body of ["픽업트럭", "버스", "상용밴"]) assert.equal(matchesStockCategory({maker:"현대",filter:{body}}, "상용차"), true);
+});
+
+test("dealer stock categories support canonical multi-select union filtering", () => {
+  assert.deepEqual(readStockCategories(["슈퍼카", "unknown", "국산차", "국산차"]), ["국산차", "슈퍼카"]);
+  const cars = [{ maker: "현대" }, { maker: "BMW" }, { maker: "볼보", truck: {} }, { maker: "람보르기니" }];
+  assert.equal(cars.filter((car) => matchesStockCategories(car, [])).length, 4);
+  assert.deepEqual(cars.filter((car) => matchesStockCategories(car, ["국산차", "상용차"])).map((car) => car.maker), ["현대", "볼보"]);
 });

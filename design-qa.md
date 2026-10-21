@@ -31,6 +31,38 @@ final result: passed
 
 ---
 
+## 2026-10-21 딜러 판매차량 분류 · 초톳형 다중선택
+
+- Source visual truth: `reports/design-qa/dealer-stock-multiselect-2026-10-21/01-chotot-reference.png` (390×843 px, Chợ Tốt mobile category/filter state).
+- Browser-rendered implementation: `reports/design-qa/dealer-stock-multiselect-2026-10-21/02-implementation-mobile-two-selected.png` (390×843 px, 390×844 CSS viewport, DPR 1) and `03-implementation-desktop-two-selected.png` (1440×1000 px).
+- Combined comparison: `reports/design-qa/dealer-stock-multiselect-2026-10-21/04-mobile-side-by-side.png` (780×843 px).
+- Focused comparison: `reports/design-qa/dealer-stock-multiselect-2026-10-21/05-focused-selected-chips.png`; source and implementation filter rows normalized to 200px height.
+- State: 국산차 + 수입차 selected simultaneously; repeated URL parameters; union result `국산차 · 수입차 판매차량 100대`.
+
+### Comparison history
+
+- Pass 1 [P1, interaction]: the prior implementation exposed a separate `전체` tab and allowed only one stock class. Replaced it with four independent toggle buttons using `aria-pressed`; no selection now means all inventory.
+- Pass 1 [P2, selected-filter affordance]: selected categories had no individual removal cue. Added the Radix `Cross2Icon` to each selected chip, matching Chợ Tốt's removable selected-filter pattern without using a text-symbol approximation.
+- Pass 2: selecting 국산차 and 수입차 produced two ordered `stockCategory` URL parameters and a deduplicated union of 100 vehicles; toggling both off removed both parameters and restored `전체 판매차량 100대`.
+- Responsive evidence: four chips fit within the 390px mobile content width; desktop chips remain 36px high with no overflow.
+- Console checked: no application runtime warning or error was observed; three identical browser-extension message-channel closure messages were classified as external to the app.
+
+### Required fidelity surfaces
+
+- Typography: passed — 14px mobile and 15px desktop labels remain readable; selected labels use the established 700 optical weight.
+- Spacing/layout: passed — four chips replace the former five-chip row, preserve the 7/8px gaps, and fit without horizontal clipping.
+- Colors/tokens: passed — Chợ Tốt's selected/removable filter behavior is retained while the selected surface intentionally stays Bobaedream soft blue `#eaf2ff/#1b498c` per the preceding user direction.
+- Image quality/icons: passed — selected removal uses the existing Radix icon library; no raster or source assets changed.
+- Copy/content: passed — visible categories are 국산차, 수입차, 상용차, 슈퍼카; all-selected-off state communicates `전체` only in the result status, not as a chip.
+- Accessibility/behavior: passed — grouped toggle controls expose `aria-pressed`, selection is reversible, URL state is repeatable, and result counts update live.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
 ## 2026-10-21 딜러 판매차량 분류 · 블루 알약칩
 
 - Source visual truth: `reports/design-qa/dealer-stock-blue-pills-2026-10-21/01-source-reference.jpg` (591×1280 px).
