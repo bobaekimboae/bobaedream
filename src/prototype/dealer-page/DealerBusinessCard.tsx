@@ -43,7 +43,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const [logoBusy, setLogoBusy] = useState(false);
   const [published, setPublished] = useState<PublishedCard | null>(null);
   const [serverError, setServerError] = useState("");
-  const [owner, setOwner] = useState(false);
+  const [moreShare, setMoreShare] = useState(false);
   const [qrUrl, setQrUrl] = useState("");
   const [qrBusy, setQrBusy] = useState(false);
   const draftChanged = useRef(false);
@@ -173,15 +173,16 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     <button type="button" className="dbc-save-contact" onClick={saveContact}>연락처 저장</button>
   </>;
   // 딜러 본인: 큰 카카오톡 버튼 하나 + 나머지 공유 수단은 작은 줄. 고정 주소 저장은 편집 화면에만 둔다.
-  const ownerTools = <section className="dbc-tools" aria-label="명함 공유">
-    <button type="button" className="dbc-kakao-main" onClick={() => share(true)}>카카오톡으로 보내기</button>
-    <div className="dbc-share-icons"><button type="button" onClick={() => share()}>다른 앱</button><button type="button" onClick={copy}>링크 복사</button><button type="button" disabled={qrBusy} onClick={showQr}>{qrBusy ? "QR 만드는 중" : "QR 코드"}</button><button type="button" disabled={busy} onClick={saveImage}>{busy ? "만드는 중" : "이미지 저장"}</button></div>
+  // 명함 창 아래에 늘 붙어 있는 공유 막대: 카카오톡 하나를 크게, 나머지는 「더보기」로(2026-10-22 「공유하기 이런거 없잖아」).
+  const shareBar = editing ? null : <section className="dbc-sharebar" aria-label="명함 공유">
+    {moreShare ? <div className="dbc-share-more"><div className="dbc-share-icons"><button type="button" onClick={() => share()}>다른 앱</button><button type="button" onClick={copy}>링크 복사</button><button type="button" disabled={qrBusy} onClick={showQr}>{qrBusy ? "QR 만드는 중" : "QR 코드"}</button><button type="button" disabled={busy} onClick={saveImage}>{busy ? "만드는 중" : "이미지 저장"}</button></div>
         {qrUrl ? <div className="dbc-qr"><img src={qrUrl} alt={`${contact.name} 딜러 모바일 명함 QR 코드`} /><p>카메라로 QR을 비추면 명함이 열려요.</p><a href={qrUrl} download={`${contact.name}-명함-QR.png`}>QR 이미지 저장</a></div> : null}
+    </div> : null}
+    <div className="dbc-sharebar-row"><button type="button" className="dbc-kakao-main" onClick={() => share(true)}>카카오톡으로 명함 보내기</button><button type="button" className="dbc-share-more-toggle" aria-expanded={moreShare} onClick={() => setMoreShare(!moreShare)}>{moreShare ? "닫기" : "더보기"}</button></div>
   </section>;
   const content = <div className={`dbc-layout${editing ? " is-editing" : ""}`}>
     <CardPreview contact={receiverContact} style={style} />
-    {!editing && !owner ? customer : null}
-    {!editing && owner ? ownerTools : null}
+    {!editing ? customer : null}
     {!standalone && editing ? <div className="dbc-editor">
       <fieldset className="dbc-brand-editor"><legend>단지 · 상사 정보</legend>
         <label>단지명<input type="text" maxLength={80} placeholder="실제 소속 단지명" value={effectiveContact.gallery ?? ""} onChange={(event) => updateStyle({ ...style, gallery: event.target.value })} /></label>
@@ -211,14 +212,13 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     {imageUrl ? <div className="dbc-export"><img src={imageUrl} alt={`${contact.name} 저장용 명함 이미지`} /><a href={imageUrl} download={`${contact.name}-명함.png`}>PNG 다운로드</a></div> : null}
     {manualLink ? <label className="dbc-manual-link">명함 링크<input readOnly value={url} onFocus={(event) => event.target.select()} /></label> : null}
     <p className="dbc-status" role="status">{status}</p>
-    {!standalone && owner ? <div className="dbc-edit-footer"><button type="button" className="dbc-edit-toggle" disabled={logoBusy} onClick={() => { if (editing && !valid()) return; setEditing(!editing); setStatus(""); setImageUrl(""); setManualLink(false); }}>{editing ? "편집 완료" : "명함 편집하기"}</button>{!editing ? <button type="button" className="dbc-mode-link" onClick={() => { setOwner(false); setStatus(""); setQrUrl(""); setImageUrl(""); }}>고객이 보는 화면으로</button> : null}</div> : null}
-    {!standalone && !owner ? <div className="dbc-owner-entry"><button type="button" onClick={() => { setOwner(true); setStatus(""); }}>딜러 본인이세요? <b>명함 공유·편집</b></button></div> : null}
+    {!standalone && editing ? <div className="dbc-edit-footer"><button type="button" className="dbc-edit-toggle" disabled={logoBusy} onClick={() => { if (!valid()) return; setEditing(false); setStatus(""); setImageUrl(""); setManualLink(false); }}>편집 완료</button></div> : null}
   </div>;
 
   if (requiresPublished && (!published || serverError)) return <main className="dbc-page"><div className="dbc-page-wrap"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a><header><h1>{contact.name} · {cardCompanyName(effectiveContact.company)}</h1></header><p role="status">{serverError || "최신 명함을 불러오고 있어요."}</p>{serverError ? <button type="button" className="dbc-publish" onClick={() => window.location.reload()}>다시 불러오기</button> : null}</div></main>;
-  if (standalone) return <main className="dbc-page"><div className="dbc-page-wrap"><div className="dbc-page-top"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a><button type="button" className="dbc-page-share" onClick={() => share()}>공유</button></div><header><h1>{contact.name} · {cardCompanyName(effectiveContact.company)}</h1><p>중고차 딜러 명함</p></header>{content}</div></main>;
-  return <Dialog.Root open={open} onOpenChange={(value) => { setOpen(value); setEditing(false); setOwner(false); setQrUrl(""); setImageUrl(""); setStatus(""); setManualLink(false); }}>
+  if (standalone) return <main className="dbc-page"><div className="dbc-page-wrap"><div className="dbc-page-top"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a></div><header><h1>{contact.name} · {cardCompanyName(effectiveContact.company)}</h1><p>중고차 딜러 명함</p></header>{content}</div>{shareBar}</main>;
+  return <Dialog.Root open={open} onOpenChange={(value) => { setOpen(value); setEditing(false); setMoreShare(false); setQrUrl(""); setImageUrl(""); setStatus(""); setManualLink(false); }}>
     <Dialog.Trigger asChild>{trigger ?? <button type="button" className="dp-businesscard-trigger">명함 만들기 · 공유 <span aria-hidden="true">↗</span></button>}</Dialog.Trigger>
-    <Dialog.Portal><Dialog.Overlay className="dbc-overlay" /><Dialog.Content ref={dialogRef} className="dbc-dialog"><header className="dbc-dialog-head"><div><Dialog.Title>{owner ? "내 명함 공유하기" : `${contact.name} · ${cardCompanyName(effectiveContact.company)}`}</Dialog.Title><Dialog.Description className="dbc-sr-only">{editing ? "명함 정보를 수정하고 편집 완료를 눌러 주세요." : owner ? "고객에게 보낼 명함을 공유하거나 편집하세요." : "딜러 연락처와 판매차량을 확인하세요."}</Dialog.Description></div><Dialog.Close aria-label="명함 닫기">×</Dialog.Close></header><div className="dbc-dialog-body">{content}</div></Dialog.Content></Dialog.Portal>
+    <Dialog.Portal><Dialog.Overlay className="dbc-overlay" /><Dialog.Content ref={dialogRef} className="dbc-dialog"><header className="dbc-dialog-head"><div><Dialog.Title>{editing ? "명함 편집" : `${contact.name} · ${cardCompanyName(effectiveContact.company)}`}</Dialog.Title><Dialog.Description className="dbc-sr-only">{editing ? "명함 정보를 수정하고 편집 완료를 눌러 주세요." : "고객에게 보낼 명함을 확인하고 카카오톡으로 보내세요."}</Dialog.Description></div>{!editing ? <button type="button" className="dbc-head-edit" disabled={logoBusy} onClick={() => { setEditing(true); setMoreShare(false); setStatus(""); setImageUrl(""); setManualLink(false); }}>편집</button> : null}<Dialog.Close aria-label="명함 닫기">×</Dialog.Close></header><div className="dbc-dialog-body">{content}</div>{shareBar}</Dialog.Content></Dialog.Portal>
   </Dialog.Root>;
 }

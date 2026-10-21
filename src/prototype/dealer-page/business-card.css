@@ -87,3 +87,16 @@
 .dbc-owner-entry b{color:#26364e;font-weight:650;text-decoration:underline;text-underline-offset:2px}
 .dbc-mode-link{display:block;width:100%;margin-top:6px}
 @media(max-width:360px){.dbc-trust,.dbc-cta,.dbc-stock,.dbc-sns,.dbc-tools{padding-left:16px;padding-right:16px}.dbc-save-contact{width:calc(100% - 32px);margin-left:16px;margin-right:16px}.dbc-share-icons{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* 2026-10-22 공유 막대: 명함 창 · 받는 사람 페이지 아래에 고정 */
+.dbc-dialog-head>div{flex:1;min-width:0}
+.dbc-head-edit{flex:none;min-height:32px;padding:0 12px;border:1px solid #e4e7ec;border-radius:16px;background:#fff;color:#222;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.dbc-sharebar{position:sticky;z-index:3;bottom:0;display:grid;gap:8px;padding:12px 16px max(12px,env(safe-area-inset-bottom));background:#fff;border-top:1px solid #e8ebf0;box-shadow:0 -4px 16px #0d19250f}
+.dbc-page>.dbc-sharebar{width:min(100%,540px);margin:16px auto 0;border:1px solid #e1e6ee;border-radius:16px 16px 0 0}
+.dbc-sharebar-row{display:grid;grid-template-columns:minmax(0,1fr) 72px;gap:8px}
+.dbc-sharebar .dbc-kakao-main{min-height:52px}
+.dbc-share-more-toggle{min-height:52px;border:1px solid #dce2ec;border-radius:10px;background:#fff;color:#26364e;font:inherit;font-size:14px;font-weight:650;cursor:pointer}
+.dbc-share-more .dbc-share-icons{margin-top:0}
+.dbc-share-more .dbc-qr{margin-top:8px}
+.dbc-dialog-body{padding-bottom:16px}
+.dbc-page:has(>.dbc-sharebar){padding-bottom:0}
+.dbc-dialog-head>.dbc-head-edit{width:auto;height:32px;min-width:0;padding:0 12px;border:1px solid #e4e7ec;border-radius:16px;background:#fff;color:#222;font-size:13px;line-height:1;font-weight:600;white-space:nowrap}
