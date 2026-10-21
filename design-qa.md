@@ -31,6 +31,23 @@ final result: passed
 
 ---
 
+## 2026-10-21 e-조이모터스 공식 슈퍼카 헤더 영상
+
+- Source visual truth: `https://www.ferrari.com/en-US`, `https://www.lamborghini.com/en-en`의 현재 공식 홈페이지 히어로 영상.
+- Browser-rendered implementation: CUA live capture, `/bobaedream/?qf=guazi&profile=dealer&shop=joy&emp=1&lang=ko`.
+- Viewports/states: desktop 1036×614 및 mobile 390×844 CSS px; Ferrari 재생, Lamborghini 전환·재생, 일시정지, 정적 이미지 fallback.
+- Measured implementation: desktop video slot 1025.6×132px, mobile 348×108.75px; mobile horizontal overflow 0px.
+- Runtime verification: both official CDN videos reached `readyState=4`, autoplayed muted, Lamborghini manual switching worked, pause control set `paused=true`, console warnings/errors 0.
+- Intentional product adaptation: official 16:9 source is center-cropped into the existing approximately 3.2:1 dealer banner so the page hierarchy and dealer copy remain unchanged.
+- Accessibility: named Ferrari/Lamborghini selection buttons, named pause/play control, `prefers-reduced-motion` starts paused, source failure retains the dealer's existing cover image.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
 ## 2026-10-21 딜러 판매차량 분류 · 초톳형 다중선택
 
 - Source visual truth: `reports/design-qa/dealer-stock-multiselect-2026-10-21/01-chotot-reference.png` (390×843 px, Chợ Tốt mobile category/filter state).

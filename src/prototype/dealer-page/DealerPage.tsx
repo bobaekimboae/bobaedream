@@ -1,7 +1,7 @@
 import { luxuryLogoBrands, luxuryLogoPath, luxuryLogoSource } from "../listing/luxury-logo-rail";
 import { instagramHandleFor, instagramPostsFor, type DealerInstagramPost } from "../data/seoul-autogallery-instagram-v01";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { Cross2Icon, ExternalLinkIcon } from "@radix-ui/react-icons";
+import { Cross2Icon, ExternalLinkIcon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, joyMotorsCars, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
@@ -220,6 +220,21 @@ const SOCIAL_CHANNELS = [
 
 const DEALER_HERO_POSTER = asset("seoul-auto-gallery/header/building-bluehour-v01.png");
 
+// e-조이모터스 헤더: 각 브랜드 공식 홈페이지가 현재 사용하는 가로형 영상 CDN.
+// 배너가 약 3.2:1이므로 세로형 모바일 소스보다 가로 원본이 차량 실루엣을 안정적으로 유지한다.
+const JOY_HERO_VIDEOS = [
+  {
+    brand: "Ferrari",
+    src: "https://ferrari.scene7.com/is/content/ferrari/gateway-scuderia-ferrari-2026-main-launch-desk",
+    poster: "https://ferrari.scene7.com/is/image/ferrari/gateway-scuderia-ferrari-2026-main-launch-desk-AVS?fit=constrain,1&wid=1280&hei=720",
+  },
+  {
+    brand: "Lamborghini",
+    src: "https://videolamborghini-meride-tv.akamaized.net/video/folder2/1786627119hero_lamborghini.mp4",
+    poster: "https://medialamborghini-meride-tv.akamaized.net/meride/lamborghini/video/images/folder1/2846/1786627119hero.jpg",
+  },
+] as const;
+
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
 }
@@ -285,6 +300,63 @@ function DealerSnsList({ sns, pc = false }: { sns: NonNullable<ReturnType<typeof
   </ul>;
 }
 
+function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) {
+  const [activeVideo, setActiveVideo] = useState(0);
+  const [failedVideo, setFailedVideo] = useState<number | null>(null);
+  const [paused, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const current = JOY_HERO_VIDEOS[activeVideo];
+
+  const showVideo = failedVideo !== activeVideo;
+  const changeVideo = (index: number) => {
+    setActiveVideo(index);
+    setFailedVideo(null);
+  };
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video || !showVideo) return;
+    if (paused) {
+      void video.play().then(() => setPaused(false)).catch(() => setPaused(true));
+    } else {
+      video.pause();
+      setPaused(true);
+    }
+  };
+
+  return <>
+    <img className="dp-cover-photo" src={fallback} alt={alt} draggable={false} />
+    {showVideo ? <video
+      key={current.brand}
+      ref={videoRef}
+      className="dp-cover-video"
+      src={current.src}
+      poster={current.poster}
+      autoPlay={!paused}
+      muted
+      playsInline
+      preload="metadata"
+      tabIndex={-1}
+      aria-hidden="true"
+      disablePictureInPicture
+      onEnded={() => changeVideo((activeVideo + 1) % JOY_HERO_VIDEOS.length)}
+      onError={() => setFailedVideo(activeVideo)}
+    /> : null}
+    <div className="dp-cover-dots" role="group" aria-label="헤더 영상 선택">
+      {JOY_HERO_VIDEOS.map((video, index) => <button
+        key={video.brand}
+        type="button"
+        className={index === activeVideo ? "is-active" : undefined}
+        aria-label={`${video.brand} 공식 영상 보기`}
+        aria-pressed={index === activeVideo}
+        onClick={() => changeVideo(index)}
+      />)}
+    </div>
+    <button type="button" className="dp-cover-playback" aria-label={paused ? "헤더 영상 재생" : "헤더 영상 일시정지"} aria-pressed={paused} onClick={togglePlayback} disabled={!showVideo}>
+      {paused ? <PlayIcon /> : <PauseIcon />}
+    </button>
+  </>;
+}
+
 function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuation, rating = MOCK.rating, reviewCount = MOCK.reviewCount }: { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void; onValuation: () => void; rating?: number; reviewCount?: number }) {
   const [bioExpanded, setBioExpanded] = useState(false);
   const listingCount = cars.length;
@@ -293,12 +365,9 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
 
   return <section className="dp-profile">
     <div className="dp-cover">
-      <img
-        className="dp-cover-photo"
-        src={MOCK.coverImage ?? DEALER_HERO_POSTER}
-        alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"}
-        draggable={false}
-      />
+      {dealer.shopNo === JOY_SHOP_NO
+        ? <DealerCoverMedia fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
+        : <img className="dp-cover-photo" src={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />}
       <div className="dp-cover-brand-copy">
         <strong>{stripCorp(MOCK.company)}</strong>
         <span>수입차 전문 매매</span>
