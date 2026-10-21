@@ -22,10 +22,11 @@ export function matchesStockCategories(car: StockVehicle, categories: readonly S
   return categories.length === 0 || categories.some((category) => matchesStockCategory(car, category));
 }
 
-export function stockUrl(base: string, shop: string, emp: string, category: StockCategory | "전체" = "전체") {
+export function stockUrl(base: string, shop: string, emp: string, category: StockCategory | "전체" = "전체", view?: "feed" | "list") {
   const url = new URL(base);
   url.search = new URLSearchParams({ profile: "dealer", shop, emp, tab: "ads" }).toString();
   if (category !== "전체") url.searchParams.set("stockCategory", category);
+  if (view === "feed" || view === "list") url.searchParams.set("view", view);
   url.hash = "";
   return url.href;
 }
