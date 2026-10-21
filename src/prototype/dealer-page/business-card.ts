@@ -1,5 +1,5 @@
 export type CardField = "mobile" | "instagram" | "youtube" | "tiktok";
-export type CardStyle = { theme: "blue" | "navy" | "white"; intro: string; title: string; logo: string; fields: Partial<Record<CardField, string>> };
+export type CardStyle = { theme: "blue" | "navy" | "white"; intro: string; title: string; logo: string; gallery?: string; company?: string; fields: Partial<Record<CardField, string>> };
 export type CardContact = { name: string; role: string; company: string; gallery?: string; phone: string; address: string; photo: string; listingCount?: number };
 
 export const defaultCardStyle: CardStyle = { theme: "blue", intro: "좋은 차와 좋은 인연을 연결합니다.", title: "", logo: "", fields: {} };
@@ -33,6 +33,7 @@ export function cardFieldHref(field: CardField, value = ""): string | null {
 export function serializeCardStyle(style: CardStyle): string {
   const params = new URLSearchParams({ theme: style.theme, intro: style.intro });
   if (style.title) params.set("title", clean(style.title, 30));
+  for (const id of ["gallery", "company"] as const) if (style[id] !== undefined) params.set(id, clean(style[id]!, 80));
   if (safeLogo(style.logo)) params.set("logo", style.logo);
   for (const { id } of cardFields) if (style.fields[id] !== undefined) params.set(id, clean(style.fields[id]!, id === "mobile" ? 30 : 180));
   return params.toString();
@@ -43,8 +44,17 @@ export function readCardStyle(hash: string): CardStyle {
   const theme = params.get("theme");
   const fields: CardStyle["fields"] = {};
   for (const { id } of cardFields) if (params.has(id)) fields[id] = clean(params.get(id) ?? "", id === "mobile" ? 30 : 180);
-  return { theme: theme === "navy" || theme === "white" ? theme : "blue", intro: clean(params.get("intro") ?? defaultCardStyle.intro, 60), title: clean(params.get("title") ?? "", 30), logo: safeLogo(params.get("logo") ?? ""), fields };
+  const affiliation: Pick<CardStyle, "gallery" | "company"> = {};
+  for (const id of ["gallery", "company"] as const) if (params.has(id)) affiliation[id] = clean(params.get(id) ?? "", 80);
+  return { theme: theme === "navy" || theme === "white" ? theme : "blue", intro: clean(params.get("intro") ?? defaultCardStyle.intro, 60), title: clean(params.get("title") ?? "", 30), logo: safeLogo(params.get("logo") ?? ""), ...affiliation, fields };
 }
+
+// Missing affiliation stays absent; never assign a different dealer's complex.
+export function cardContact(contact: CardContact, style: CardStyle): CardContact {
+  return { ...contact, gallery: clean(style.gallery ?? contact.gallery ?? "", 80).trim(), company: clean(style.company ?? contact.company, 80).trim() };
+}
+
+export const cardCompanyName = (company: string) => company.replace(/\(주\)|\(유\)|주식회사/g, "").trim();
 
 // Shared cards carry their presentation in the fragment, so another device does not need the creator's local storage.
 // Build a clean URL: never carry member state, listing filters, or an unrelated URL fragment into a shared card.
@@ -65,7 +75,9 @@ export function profileUrl(base: string, shop: string, emp: string): string {
 const vEscape = (text: string) => text.replace(/\\/g, "\\\\").replace(/\r\n|\r|\n/g, "\\n").replace(/;/g, "\\;").replace(/,/g, "\\,");
 
 export function cardVcf(contact: CardContact, url: string, style: CardStyle = defaultCardStyle): string {
+  contact = cardContact(contact, style);
   const lines = ["BEGIN:VCARD", "VERSION:3.0", `FN:${vEscape(contact.name)}`, `N:;${vEscape(contact.name)};;;`, `ORG:${vEscape(contact.company)}`, `TITLE:${vEscape(contact.role)}`];
+  if (contact.gallery) lines.push(`X-DEALER-COMPLEX:${vEscape(contact.gallery)}`);
   if (contact.phone) lines.push(`TEL;TYPE=WORK,VOICE:${contact.phone.replace(/[^+\d-]/g, "")}`);
   const mobile = cardFieldHref("mobile", style.fields.mobile);
   if (mobile) lines.push(`TEL;TYPE=CELL,VOICE:${mobile.slice(4)}`);
@@ -110,6 +122,7 @@ export async function loadCardLogo(file: File): Promise<string> {
 }
 
 export async function cardPng(contact: CardContact, style: CardStyle): Promise<Blob> {
+  contact = cardContact(contact, style);
   await document.fonts.ready;
   const socials = cardFields.filter(({ id }) => id !== "mobile" && cardFieldHref(id, style.fields[id]));
   const canvas = document.createElement("canvas"); canvas.width = 1200; canvas.height = 720 + socials.length * 72;
@@ -126,19 +139,20 @@ export async function cardPng(contact: CardContact, style: CardStyle): Promise<B
     const metrics = ctx.measureText(visible);
     ctx.fillText(visible, x, edge === "top" ? y + metrics.actualBoundingBoxAscent : edge === "bottom" ? y - metrics.actualBoundingBoxDescent : y);
   };
-  const company = contact.company.replace(/\(주\)|\(유\)|주식회사/g, "").trim();
+  const company = cardCompanyName(contact.company);
   const title = style.title.trim() || company;
   // Affiliation first, then the company title; the portrait spans the full identity block.
   ctx.globalAlpha = .8;
-  text(contact.gallery?.trim() || "서울오토갤러리", 72, 84, 24, 720, 500, "top");
+  text(contact.gallery ?? "", 72, 84, 24, 720, 500, "top");
   ctx.globalAlpha = 1;
   text(title, style.logo ? 156 : 72, 132, 32, style.logo ? 650 : 720, 750, "top");
   if (style.logo) {
     const logo = new Image(); logo.src = style.logo;
     try { await logo.decode(); ctx.drawImage(logo, 72, 132, 64, 64); } catch { /* Optional logo cannot block export. */ }
   }
-  text(contact.name, 72, 276, 66, 720, 750);
-  text(title.replace(/\s/g, "") !== company.replace(/\s/g, "") ? `${company} · ${contact.role}` : contact.role, 72, 340, 27, 720, 500, "bottom");
+  if (title.replace(/\s/g, "") !== company.replace(/\s/g, "")) text(company, 72, 196, 26, 720, 600, "top");
+  text(contact.name, 72, 286, 66, 720, 750);
+  text(contact.role, 72, 340, 27, 720, 500, "bottom");
   // Portrait failures must not prevent exporting the contact card.
   try {
     const img = new Image(); img.crossOrigin = "anonymous";

@@ -1,6 +1,23 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { cardUrl, profileUrl, readCardStyle, cardVcf, defaultCardStyle, cardFieldHref, serializeCardStyle } from "../src/prototype/dealer-page/business-card.ts";
+import { cardContact, cardUrl, profileUrl, readCardStyle, cardVcf, defaultCardStyle, cardFieldHref, serializeCardStyle } from "../src/prototype/dealer-page/business-card.ts";
+
+test("individual affiliations survive sharing and exports without replacing another dealer's defaults", () => {
+  const contact = { name: "딜러", role: "대표", company: "투제이모터웍스", gallery: "서울오토갤러리", phone: "", address: "", photo: "" };
+  const style = { ...defaultCardStyle, gallery: "SK V1 모터스", company: "e-조이모터스", title: "개인 브랜드" };
+  const restored = readCardStyle(new URL(cardUrl("https://example.test/", "450554", "1", style)).hash);
+  assert.deepEqual(restored, style);
+  assert.equal(cardContact(contact, restored).gallery, "SK V1 모터스");
+  assert.equal(cardContact(contact, restored).company, "e-조이모터스");
+  assert.equal(cardContact(contact, defaultCardStyle).company, "투제이모터웍스");
+  assert.equal(cardContact({ ...contact, gallery: undefined }, defaultCardStyle).gallery, "");
+  assert.equal(cardContact(contact, { ...style, gallery: "" }).gallery, "");
+  const vcf = cardVcf(contact, "https://example.test/", restored);
+  assert.match(vcf, /ORG:e-조이모터스/);
+  assert.match(vcf, /X-DEALER-COMPLEX:SK V1 모터스/);
+  assert.doesNotMatch(vcf, /투제이모터웍스|서울오토갤러리|개인 브랜드/);
+  assert.equal(readCardStyle("#company=" + "가".repeat(100)).company.length, 80);
+});
 
 test("shared links retain dealer identity and Korean customization on a different device", () => {
   const style = { ...defaultCardStyle, theme: "navy", intro: "서울에서 만나요 & 좋은 차 #친절한 상담 + 시승" };
