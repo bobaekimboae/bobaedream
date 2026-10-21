@@ -41,6 +41,7 @@ import { supercarSheetRows } from "./supercar-sheet-v01";
 import { ferrariDetails, type FerrariDetail } from "./ferrari-detail-v01";
 import { ferrariSheetRows } from "./ferrari-sheet-v02";
 import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
+import { seoulAutoGallerySiteRows } from "./seoul-autogallery-site-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
 import deutschDriveLinks from "./deutsch-autoworld-drive-v01.json";
 import joyMotorsRowsJson from "./joymotors-v01.json";
@@ -2010,7 +2011,7 @@ const supercarCategoryCars: Car[] = [...ferrariSheetCars, ...supercarSheetCars, 
 
 // 서울오토갤러리 카테고리(차량 › 중고차 › 서울오토갤러리, 2026-10-10): 시트 「서울오토갤러리」 실데이터(사진 5장 · 실제 상사명 · 실제 딜러명). 위치는 서울 서초구 · 서울오토갤러리
 const seoulAutoGalleryMileageText = (km: number) => km >= 9500 ? `${String(Math.round(km / 1000) / 10)}만km` : `${km.toLocaleString("ko-KR")}km`;
-const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
+const seoulAutoGallerySheetCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
   const nn = String(row.number).padStart(2, "0");
   // 2026-10-14 「m3 사진 교체」: 1번(BMW M3)은 차란차 원본 전체 20장(배경 제거 · 자르기 없음, 900×506)으로 바꾸고 목록 썸네일도 사본 없이 원본 전체를 그대로 보인다.
   const originalPhotos = row.number === 1 ? Array.from({ length: 20 }, (_, i) => i + 1).map((n) => `cars/seoul-autogallery-v01/m3-original/m3-${n}.webp`) : undefined;
@@ -2043,6 +2044,36 @@ const seoulAutoGalleryCars: Car[] = seoulAutoGalleryRows.map((row, index) => {
     filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: "기타", origin: row.origin, body: row.body, video: false },
   };
 });
+
+// 서울오토갤러리 공식 사이트 상사 광고 차량(2026-10-21 「매물 등록해라 각 딜러들」): 인스타 · 유튜브 딜러 5개 상사 81대, 사진 없음. 시트 매물 뒤에 붙인다.
+const sagSiteOrigin: Record<string, string> = { 벤츠: "독일", BMW: "독일", 아우디: "독일", 포르쉐: "독일", 벤틀리: "영국", 롤스로이스: "영국", 랜드로버: "영국", 애스턴마틴: "영국", 로터스: "영국", 이네오스: "영국", 페라리: "이탈리아", 람보르기니: "이탈리아", 마세라티: "이탈리아", 테슬라: "미국", 캐딜락: "미국", 지프: "미국", 토요타: "일본", 렉서스: "일본", 현대: "한국", 제네시스: "한국" };
+const seoulAutoGallerySiteCars: Car[] = seoulAutoGallerySiteRows.map((row, index) => {
+  const reg = `${String(row.year).slice(2)}년${row.month}월`;
+  return {
+    id: 14_000 + index,
+    updateRank: -index,
+    maker: row.maker,
+    modelGroup: row.model,
+    sellerType: "딜러",
+    image: "",
+    imagePosition: "center center",
+    title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
+    trim: row.trim,
+    specs: [`${row.year}년식`, seoulAutoGalleryMileageText(row.mileage), row.fuel],
+    cardSpec: [reg, seoulAutoGalleryMileageText(row.mileage), row.fuel],
+    price: row.price === null ? "가격 상담" : `${row.price.toLocaleString("ko-KR")} 만원`,
+    place: "서울 서초구 · 서울오토갤러리",
+    views: 0,
+    dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
+    stock: seoulAutoGallerySiteRows.filter((other) => other.company === row.company && other.dealer === row.dealer).length,
+    posted: index < 10 ? `${index + 1}시간 전` : `${Math.min(30, Math.floor(index / 3))}일 전`,
+    photos: 0,
+    sellerProfile: null,
+    seoulAutoGallery: { company: row.company, dealer: row.dealer, priceKind: "공개" },
+    filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: row.color, origin: sagSiteOrigin[row.maker] ?? "수입", body: deutschBodyType(row.model), video: false },
+  } as Car;
+});
+const seoulAutoGalleryCars: Car[] = [...seoulAutoGallerySheetCars, ...seoulAutoGallerySiteCars];
 
 function matchesChoTotFilters(car: Car, value: ChoTotFilterState) {
   const data = car.filter;
