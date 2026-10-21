@@ -83,7 +83,7 @@ const TWOJ_PROFILE = {
 type DealerProfileInfo = {
   rating: number; reviewCount: number; sold: number; followers: number; lastActive: string; joined: string;
   company: string; complex: string; gallery: string; licenseNo: string; businessNo: string; employeeNo: string;
-  phone: string; fax: string; email: string; staff: string; address: string; intro: string;
+  phone: string; phoneIsGallery?: boolean; fax: string; email: string; staff: string; address: string; intro: string;
   soldCars: ReadonlyArray<readonly [string, string]>;
 };
 
@@ -116,7 +116,8 @@ function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
     licenseNo: "",
     businessNo: "",
     employeeNo: "",
-    phone: shop?.phone ?? "",
+    phone: shop?.phone || SAG_MAIN_PHONE,
+    phoneIsGallery: !shop?.phone,
     fax: "",
     email: "이메일 문의",
     staff: `${dealers.filter((item) => item.shopNo === dealer.shopNo).length}명`,
@@ -184,6 +185,8 @@ const DEALER_HERO_POSTER = asset("seoul-auto-gallery/header/building-bluehour-v0
 function Icon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
 }
+
+const SAG_MAIN_PHONE = "02-2059-5000"; // 서울오토갤러리 공식 일반문의(사이트 하단). 상사 대표 전화가 0000(미기재)인 22곳에 쓴다.
 
 function DealerIcon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon dp-dealer-icon${className ? ` ${className}` : ""}`} src={dealerIcon(name)} alt="" aria-hidden="true" draggable={false} />;
@@ -286,14 +289,14 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅</button>
           {MOCK.phone ? <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><DealerIcon name="phone" />전화</a> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
-          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer) }} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24" />명함</button>} />
+          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer) }} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>} />
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
         <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="dealership" />{MOCK.joined}</div>
         </div>
-        {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div> : null}
+        {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a>{MOCK.phoneIsGallery ? <span className="dp-phone-note">서울오토갤러리 대표</span> : null}</div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
         {sns ? <DealerSnsList sns={sns} pc /> : null}
@@ -769,7 +772,7 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
       {dealer.employeeNo ?? MOCK.employeeNo ? <div><dt><DealerIcon name="person-as24" />종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div> : null}
       {MOCK.licenseNo ? <div><dt><DealerIcon name="document-as24" />상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div> : null}
       {MOCK.businessNo ? <div><dt><DealerIcon name="document-as24" />사업자 번호</dt><dd>{MOCK.businessNo}</dd></div> : null}
-      {MOCK.phone ? <div><dt><DealerIcon name="phone-as24" />상사 연락처</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div> : null}
+      {MOCK.phone ? <div><dt><DealerIcon name="phone-as24" />{MOCK.phoneIsGallery ? "단지 대표 전화" : "상사 연락처"}</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div> : null}
       <div><dt><DealerIcon name="email-as24" />이메일</dt><dd><button type="button" className="dp-about-link" onClick={() => notify("딜러 이메일 문의를 준비 중이에요")}>{MOCK.email}</button></dd></div>
       {MOCK.fax ? <div><dt><DealerIcon name="printer-as24" />팩스</dt><dd>{MOCK.fax}</dd></div> : null}
       {MOCK.staff ? <div><dt><DealerIcon name="person-as24" />소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}

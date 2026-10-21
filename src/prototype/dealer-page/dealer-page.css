@@ -641,3 +641,6 @@
 /* 전화 옆 명함 버튼(2026-10-21 「전화 옆에 명함 카드 추가하자, 아이콘은 오토스카우트」): 노션 「독일_오토24 › 신분증」 원본 아이콘, 버튼 4개가 한 줄에 같은 폭으로 */
 .dp-profile-actions.has-card > :is(button, a) { flex: 1 1 0; min-width: 0; padding: 0 6px; }
 .dp-profile-actions.has-card > .is-follow { flex-grow: 1.3; }
+
+/* 상사 대표 전화가 없는 상사: 단지 대표번호임을 알림(2026-10-21) */
+.dp-phone-note { margin-left: 6px; font-size: 12px; line-height: 16px; color: #8c8c8c; }
