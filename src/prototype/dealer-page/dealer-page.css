@@ -802,3 +802,13 @@
    체인 아이콘은 저장소의 레딧 원본 link.svg(public/icons/dealer-profile/link-reddit.svg, 수정 없음) 16px 마스크 · 글자색 */
 .dp-profile-sns li.is-homepage { flex: 0 0 100%; }
 .dp-profile-link-icon { display: inline-block; width: 16px; height: 16px; flex: 0 0 16px; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
+
+/* 보기 방식 아이콘을 슈퍼카 알약 바로 옆으로 (2026-10-21 「슈퍼카 옆에 아이콘 보기방식」) — 알약 줄 안 마지막, 같이 가로로 넘김. 알약 → 아이콘 4 */
+.dp-listings .dp-stock-categories { margin: 12px 0 16px; }
+.dp-stock-categories .dp-view-toggle.is-icons { flex: 0 0 auto; margin-left: -4px; }
+/* 알약 줄 안에 들어간 아이콘 버튼은 알약 모양(테두리 · 바탕 · 파랑 선택)을 받지 않는다 */
+.dp-stock-categories .dp-view-toggle.is-icons button,
+.dp-stock-categories .dp-view-toggle.is-icons button:hover,
+.dp-stock-categories .dp-view-toggle.is-icons button[aria-pressed="true"],
+.dp-stock-categories .dp-view-toggle.is-icons button[aria-pressed="true"]:hover { width: 32px; height: 32px; padding: 0 !important; border: 0; border-radius: 6px; background: transparent !important; color: #b0b0b0; }
+.dp-stock-categories .dp-view-toggle.is-icons button[aria-pressed="true"] { color: #222; }
