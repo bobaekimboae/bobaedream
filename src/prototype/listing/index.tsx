@@ -42,6 +42,7 @@ import {
   truckCars,
   seoulAutoGalleryCars,
   deutschAutoworldCars,
+  joyMotorsCars,
   isDesktopPreview,
   matchesChoTotFilters,
   matchesPrice,
@@ -116,7 +117,7 @@ import "./bike-site-theme.css";
 import "./truck-site-theme.css";
 import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
-import { DeutschAutoworldHeader } from "./deutsch-autoworld-header";
+import { DeutschAutoworldHeader, SkV1MotorsHeader } from "./deutsch-autoworld-header";
 import { SupercarCategoryHeader } from "./supercar-category-header";
 import { FerrariCategoryHeader } from "./ferrari-category-header";
 import { OldcarCategoryHeader } from "./oldcar-category-header";
@@ -565,7 +566,7 @@ function BbmCatalogHeaderSearch({ query, setQuery, searchPlaceholder, catalogRec
   const [catOpen, setCatOpen] = useState(false);
   const catRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
-  const catValue = bbSearchCategories.some((item) => item.value === category) ? category! : (["국산차", "수입차", "전기차", "럭셔리카", "슈퍼카", "올드카", "JDM", "서울오토갤러리", "도이치오토월드"].includes(category ?? "") ? "중고차" : "전체");
+  const catValue = bbSearchCategories.some((item) => item.value === category) ? category! : (["국산차", "수입차", "전기차", "럭셔리카", "슈퍼카", "올드카", "JDM", "서울오토갤러리", "도이치오토월드", "SK V1 모터스"].includes(category ?? "") ? "중고차" : "전체");
   const catLabel = bbSearchCategories.find((item) => item.value === catValue)?.label ?? "전체차량";
   useEffect(() => {
     if (!catMode || (!catOpen && !searchOpen)) return;
@@ -1065,13 +1066,13 @@ function MarketplaceScreen() {
   const isLuxuryCategory = category === "럭셔리카";
   // 수입차·슈퍼카·서울오토갤러리는 럭셔리카와 같은 16개 브랜드·로고 슬롯을 사용한다.
   // 각 카테고리의 매물 데이터는 그대로 유지한다.
-  const usesLuxuryBrandRail = isLuxuryCategory || category === "수입차" || category === "슈퍼카" || category === "서울오토갤러리";
+  const usesLuxuryBrandRail = isLuxuryCategory || category === "수입차" || category === "슈퍼카" || category === "서울오토갤러리" || category === "SK V1 모터스";
   const isTruckCategory = category === "트럭 · 특장";
   const isUsedCarCategory = !isTruckCategory && !isHeavyCategory && !isMaterialHandlingCategory && !isBikeCategory && !isCampingCategory && !isPartsCategory;
   // PC 바이크·트럭·중장비도 중고차와 같은 차란차형 2열 구조(좌측 필터 + 우측 검색조건/매물)를 쓴다.
   // 필터 항목과 제조사 데이터는 각 카테고리 전용 값을 유지하고 배치 규칙만 공유한다.
   const usesReferencePcLayout = isUsedCarCategory || isBikeCategory || isTruckCategory || isHeavyCategory;
-  const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "슈퍼카", "서울오토갤러리", "도이치오토월드"].includes(category);
+  const supportsVehicleCatalog = isBikeCategory || ["전체", "중고차", "국산차", "수입차", "전기차", "럭셔리카", "슈퍼카", "서울오토갤러리", "도이치오토월드", "SK V1 모터스"].includes(category);
   const vehicleCatalog = useVehicleCatalog(isBikeCategory ? "bike" : "car", maker);
   const autohomeLogoPreview = new URLSearchParams(window.location.search).get("brandlogo") === "autohome";
   const truckDepthPreviewMode = typeof window === "undefined" ? null : new URLSearchParams(window.location.search).get("truckdepth");
@@ -1179,6 +1180,8 @@ function MarketplaceScreen() {
                   ? seoulAutoGalleryCars
                 : isGuaziQuickStyle && category === "도이치오토월드"
                   ? deutschAutoworldCars
+                : isGuaziQuickStyle && category === "SK V1 모터스"
+                  ? joyMotorsCars
                 : isGuaziQuickStyle ? (category === "전체" ? allVehicleMixedCars : bbmSampleCars) : chototTestCars;
   const bikeShopOptions = useMemo(() => Array.from(new Set(bikeCars.filter((car) => car.sellerType === "딜러").map((car) => car.dealer))).sort((first, second) => first.localeCompare(second, "ko-KR")), []);
   useEffect(() => {
@@ -2204,6 +2207,7 @@ function MarketplaceScreen() {
       case "슈퍼카": return supercarCategoryCars.length;
       case "서울오토갤러리": return seoulAutoGalleryCars.length;
       case "도이치오토월드": return deutschAutoworldCars.length;
+      case "SK V1 모터스": return joyMotorsCars.length;
       case "트럭 · 특장": return truckCars.filter((car) => !detail || car.truck?.format === detail).length;
       case "바이크": return bikeCars.length;
       case "캠핑카": return campingCars.filter((car) => !detail || car.virtualCategory?.categoryDetail === detail).length;
@@ -2510,7 +2514,7 @@ function MarketplaceScreen() {
             // QF-108: 월 단위 상위 10(brand-top10.json) + 11번째 "기타 브랜드"(제조사 칩과 같은 목록 창을 연다)
             // QF-114: 바이크 · 트럭·특장은 유형별 상위 10(승용 브랜드 없음), 샘플 0대 칸은 흐리게(빼지 않음), 로고가 없으면 첫 글자 원형
             const typeList = categoryTypeBrandList;
-            const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" || category === "도이치오토월드" ? "imported" : "all", typeList ? category : undefined);
+            const sections = krTopTenSections(category === "국산차" ? "domestic" : category === "수입차" || category === "도이치오토월드" || category === "SK V1 모터스" ? "imported" : "all", typeList ? category : undefined);
             // 올드카는 고정 인기 제조사 목록을 쓰지 않는다. 현재 목록(선택한 연대·검색·필터 반영)에
             // 실제로 남아 있는 제조사만, 매물에 처음 등장하는 순서대로 로고 레일에 노출한다.
             const oldcarListingBrands = category === "올드카"
@@ -2733,6 +2737,9 @@ function MarketplaceScreen() {
   const deutschAutoworldHeader = isGuaziQuickStyle && category === "도이치오토월드" && !maker
     ? <DeutschAutoworldHeader />
     : null;
+  const skV1Header = isGuaziQuickStyle && category === "SK V1 모터스" && !maker
+    ? <SkV1MotorsHeader cover={joyMotorsCars.find((car) => car.image)?.image} shopCount={joyMotorsCars.length} />
+    : null;
   const supercarCategoryHeader = isGuaziQuickStyle && category === "슈퍼카" && !maker
     ? <SupercarCategoryHeader />
     : null;
@@ -2742,7 +2749,7 @@ function MarketplaceScreen() {
   const oldcarCategoryHeader = isGuaziQuickStyle && category === "올드카" && !maker
     ? <OldcarCategoryHeader />
     : null;
-  const categoryComplexHeader = ferrariCategoryHeader ?? supercarCategoryHeader ?? oldcarCategoryHeader ?? seoulAutoGalleryHeader ?? deutschAutoworldHeader;
+  const categoryComplexHeader = ferrariCategoryHeader ?? supercarCategoryHeader ?? oldcarCategoryHeader ?? seoulAutoGalleryHeader ?? deutschAutoworldHeader ?? skV1Header;
   const isSeoulAutoGalleryLanding = isGuaziQuickStyle && category === "서울오토갤러리";
   const showSeoulAutoGalleryVehicles = !isSeoulAutoGalleryLanding || seoulAutoGallerySection === "vehicles";
   const quickStyleSelect = (

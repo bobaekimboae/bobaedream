@@ -227,6 +227,7 @@ const words: Record<string, Translation> = {
   "르노코리아(삼성)": { en: "Renault Korea (Samsung)", ru: "Renault Korea (Samsung)", ar: "رينو كوريا (سامسونغ)" },
   "KGM(쌍용)": { en: "KGM (SsangYong)", ru: "KGM (SsangYong)", ar: "KGM (سانغ يونغ)" },
   "도이치오토월드": { en: "Deutsche Autoworld", ru: "Дойче Аутоворлд", ar: "دويتشه أوتوورلد" },
+  "SK V1 모터스": { en: "SK V1 Motors", ru: "SK V1 Моторс", ar: "إس كيه في1 موتورز" },
   "람보르기니": { en: "Lamborghini", ru: "Lamborghini", ar: "لامبورغيني" },
   "롤스로이스": { en: "Rolls-Royce", ru: "Rolls-Royce", ar: "رولز رويس" },
   "제네시스": { en: "Genesis", ru: "Genesis", ar: "جينيسيس" },

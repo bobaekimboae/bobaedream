@@ -114,6 +114,7 @@ export const bbmCategoryGroups: readonly BbmCategoryGroup[] = [
       { label: "리스/렌트차량", value: "리스/렌트차량" },
       { label: "서울오토갤러리", value: "서울오토갤러리" },
       { label: "도이치오토월드", value: "도이치오토월드" },
+      { label: "SK V1 모터스", value: "SK V1 모터스" },
       { label: "브랜드 인증중고차", value: "브랜드 인증중고차" },
       { label: "매매단지별 검색", value: "매매단지별 검색" },
       { label: "팔린매물", value: "팔린매물" },
