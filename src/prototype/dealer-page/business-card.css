@@ -8,7 +8,9 @@
 .dbc-page h1{margin:0 0 6px;font-size:26px}
 .dbc-page header p{margin:0;color:#687386}
 .dbc-card{position:relative;container-type:inline-size;width:100%;aspect-ratio:5/3;overflow:hidden;padding:6%;border:1px solid #13274412;border-radius:16px;background:var(--dbc-bg);color:var(--dbc-ink);box-shadow:0 12px 32px #13274418;text-align:left}
-.dbc-card .dbc-brand{display:grid;gap:2px;width:70%}
+.dbc-card .dbc-brand{display:flex;align-items:center;gap:10px;width:70%;min-height:28px}
+.dbc-brand img{display:block;width:32px;height:32px;object-fit:contain;flex:none;border-radius:4px}
+.dbc-brand strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .dbc-brand strong{font-size:clamp(13px,3.8cqw,20px);line-height:1.25;font-weight:750;letter-spacing:-.5px}
 .dbc-brand small{font-size:clamp(7px,1.65cqw,9px);letter-spacing:.7px;opacity:.7}
 .dbc-card .dbc-identity{position:absolute;top:27%;left:6%;width:70%}
@@ -40,6 +42,11 @@
 .dbc-editor textarea{display:block;width:100%;min-height:70px;resize:vertical;margin-top:8px;padding:12px;border:1px solid #dce2ec;border-radius:8px;background:#fff;color:#202735;font:inherit;font-weight:400}
 .dbc-editor label small{display:block;margin-top:4px;text-align:right;color:#8390a1;font-weight:400;font-size:11px}
 .dbc-editor>p{margin:12px 0 18px;color:#788496;font-size:12px;line-height:1.7}
+.dbc-brand-editor>label{display:block;margin-top:12px;font-weight:650}.dbc-brand-editor input[type="text"],.dbc-field-input input{display:block;width:100%;min-height:44px;padding:10px 12px;margin-top:7px;border:1px solid #dce2ec;border-radius:8px;background:#fff;color:#202735;font:inherit;font-weight:400}
+.dbc-logo-edit{display:flex;align-items:center;flex-wrap:wrap;gap:10px}.dbc-logo-edit>img{width:44px;height:44px;object-fit:contain;border:1px solid #e0e5ef;border-radius:6px}.dbc-upload{display:inline-flex;align-items:center;min-height:42px;padding:9px 14px;border:1px solid #dce2ec;border-radius:8px;cursor:pointer;font-weight:600}.dbc-upload:focus-within{outline:2px solid #306bd9;outline-offset:2px}.dbc-upload input{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.dbc-logo-edit>button{min-height:40px;border:0;background:transparent;color:#667085;font:inherit;cursor:pointer}.dbc-logo-edit>small{font-size:11px;color:#8390a1}
+.dbc-optional-row{padding:4px 0}.dbc-field-toggle{display:flex;align-items:center;gap:10px;min-height:42px;cursor:pointer}.dbc-field-toggle input{width:18px;height:18px;margin:0;accent-color:#306bd9}.dbc-field-input{display:block;margin:0 0 10px 28px}.dbc-field-input input{margin:0}
+.dbc-sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.dbc-socials{display:grid;gap:8px;margin-top:16px}.dbc-socials a{display:flex;align-items:center;gap:12px;min-height:52px;padding:12px 16px;background:#fff;color:#26364e;border:1px solid #e1e7ef;border-radius:10px;text-decoration:none;font-size:13px}.dbc-socials a>span:first-child{flex:none;min-width:64px;font-weight:650}.dbc-socials strong{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400;color:#758299}.dbc-socials a>span:last-child{margin-left:auto;flex:none}
 .dbc-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:24px}
 .dbc-actions button{min-height:46px;padding:10px 8px;border:1px solid #dce2ec;border-radius:9px;color:#46546a;background:#fff;font:inherit;font-size:13px;font-weight:650;cursor:pointer}
 .dbc-actions button.dbc-primary{grid-column:1/-1;min-height:50px;border-color:#306bd9;background:#306bd9;color:#fff;font-size:15px}
