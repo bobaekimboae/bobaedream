@@ -15,6 +15,8 @@
 
 ## 1. 작업 기준
 
+- 딜러 명함 선택 정보·브랜딩(2026-10-21): 휴대폰 번호·인스타그램·유튜브·틱톡을 체크해 추가/삭제한다. SNS는 아이디나 해당 플랫폼 HTTPS 주소를 입력하며 미선택 값은 공유 주소·VCF·PNG에서 제외한다. 명함의 보배드림/영문 고정 타이틀을 제거하고 상사명 기본 타이틀(30자 편집)과 선택 로고(PNG/JPG/WebP 최대 2MB)를 쓴다. 로고는 작은 래스터로 변환해 공유 fragment에도 포함한다. 휴대폰은 전화 버튼과 CELL 연락처로 반영하며, SNS가 있으면 PNG는 1200px 폭에 행마다 높이를 늘린다. 기존 theme/intro 공유 링크도 그대로 열린다.
+
 - 딜러 공유 명함(2026-10-21): 각 서울오토갤러리 딜러페이지의 `명함 만들기 · 공유`에서 실제 프로필 정보로 명함을 만든다. 파랑·네이비·화이트와 소개 문구(60자)를 편집하며 설정은 딜러별 로컬에 저장한다. 공유 주소는 `?profile=dealer&shop=...&emp=...&card=1#theme=...&intro=...`로, 로그인 상태·매물 조건을 제외하고 다른 기기에서도 같은 문구와 색상이 열린다. 수신 화면은 전화·판매자페이지 이동, Web Share/링크 복사(실패 시 수동 링크), 1200×720 PNG 미리보기·다운로드, UTF-8 VCF 연락처 저장을 제공한다. 서버 계정 동기화와 카카오 전용 미리보기 카드는 아직 없다. 테스트는 `node --test tests/dealer-business-card.test.mjs`.
 
 - 보배드림 설치 앱(2026-10-20): `/app/`에서 현재 파랑 심벌·빨간 점 로고와 `보배드림` 이름의 Android APK 및 설치형 웹앱을 제공한다. APK 소스는 `apps/android-prototype/`, 빌드는 `python apps/android-prototype/build.py`(JDK + Android SDK 36/Build Tools 36). 설치 파일·해시·메타데이터는 `public/app/`에 둔다. 앱 ID는 `io.github.bobaekimboae.bobaedream`으로 공식 앱과 분리하며, 실행 주소는 프로젝트 메인이다. APK는 기존 시안을 WebView로 여는 온라인 앱이며 인터넷 권한만 쓴다. 서명 키/암호는 사용자 로컬 `.codex/app-signing/`에만 있고 저장소에 넣지 않는다. 업데이트 때 키를 보존하고 Manifest의 버전 코드를 올린다. PWA는 프로젝트 범위에서만 동작하며 매물 HTML을 캐시하지 않는다. 검증은 `node --test tests/installable-app.test.mjs`, 전체 `npm run verify`, APK 서명/정렬/패키지 정보 검사다. 실기기 설치·실행은 별도 확인이 필요하다.
