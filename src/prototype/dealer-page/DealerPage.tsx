@@ -1,7 +1,7 @@
 import { luxuryLogoBrands, luxuryLogoPath, luxuryLogoSource } from "../listing/luxury-logo-rail";
 import { instagramHandleFor, instagramPostsFor, type DealerInstagramPost } from "../data/seoul-autogallery-instagram-v01";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
-import { Cross2Icon, ExternalLinkIcon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
+import { Cross2Icon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
 import { FlowStack, type FlowScreen } from "../../mobile";
 import { DetailFooter, DetailUiProvider, VehicleDetail } from "../detail";
 import { FavoritesProvider, asset, joyMotorsCars, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "../data";
@@ -243,6 +243,11 @@ function Icon({ name, className }: { name: string; className?: string }) {
 
 const SAG_MAIN_PHONE = "02-2059-5000"; // 서울오토갤러리 공식 일반문의(사이트 하단). 상사 대표 전화가 0000(미기재)인 22곳에 쓴다.
 
+// 바깥 링크 표시 = 노션 「독일_오토24 › 아웃 링크_24_24」 원본(파일 수정 없음). 글자색을 따르도록 마스크로 그린다
+function OutLinkIcon() {
+  return <span className="dp-outlink-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${dealerIcon("outlink-as24")})`, maskImage: `url(${dealerIcon("outlink-as24")})` }} />;
+}
+
 function DealerIcon({ name, className }: { name: string; className?: string }) {
   return <img className={`dp-icon dp-dealer-icon${className ? ` ${className}` : ""}`} src={dealerIcon(name)} alt="" aria-hidden="true" draggable={false} />;
 }
@@ -392,9 +397,9 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
         <div className="dp-profile-stats dp-profile-stats-mobile" aria-label="판매 실적">
-          <span><small>판매중</small><b>{listingCount}</b></span>
-          <span><small>판매완료</small><b>{MOCK.sold}</b></span>
-          <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>
+          <span><small>판매중</small><b>{listingCount.toLocaleString("ko-KR")}</b></span>
+          <span><small>판매완료</small><b>{MOCK.sold.toLocaleString("ko-KR")}</b></span>
+          <span><small>팔로워</small><b>{(MOCK.followers + (following ? 1 : 0)).toLocaleString("ko-KR")}</b></span>
         </div>
         <div className="dp-profile-bio">
           <b>{MOCK.company} · {dealer.role ?? "인증딜러"}</b>
@@ -417,7 +422,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a>{MOCK.phoneIsGallery ? <span className="dp-phone-note">서울오토갤러리 대표</span> : null}</div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span>{MOCK.homepage ? <a className="dp-profile-homepage" href={MOCK.homepage} target="_blank" rel="noreferrer"><span className="dp-profile-homepage-icon" aria-hidden="true"><ExternalLinkIcon /></span>{MOCK.homepageLabel ?? MOCK.homepage}</a> : null}</div>
+        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span>{MOCK.homepage ? <a className="dp-profile-homepage" href={MOCK.homepage} target="_blank" rel="noreferrer"><span className="dp-profile-homepage-icon" aria-hidden="true"><DealerIcon name="outlink-as24" /></span>{MOCK.homepageLabel ?? MOCK.homepage}</a> : null}</div>
         {sns ? <DealerSnsList sns={sns} pc /> : null}
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
@@ -513,10 +518,10 @@ function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInsta
         <header>
           <DealerIcon name="instagram" />
           <span><b>인스타그램 {label}</b><small>@{handle} · {igDateText(post.date)}</small></span>
-          <a href={href} target="_blank" rel="noreferrer" aria-label={`인스타그램 ${label} 원문 보기`}><ExternalLinkIcon aria-hidden="true" /></a>
+          <a href={href} target="_blank" rel="noreferrer" aria-label={`인스타그램 ${label} 원문 보기`}><OutLinkIcon /></a>
         </header>
         <IgMedia post={post} />
-        <footer><span>판매 문의는 채팅·전화로</span><a href={href} target="_blank" rel="noreferrer">원문 보기 <ExternalLinkIcon aria-hidden="true" /></a></footer>
+        <footer><span>판매 문의는 채팅·전화로</span><a href={href} target="_blank" rel="noreferrer">원문 보기 <OutLinkIcon /></a></footer>
       </article>;
     })}
   </div>;
@@ -696,7 +701,7 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
           <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
           <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
           <button type="button" aria-label={`댓글 ${post.comments}개`} onClick={() => notify("댓글은 상세 화면에서 볼 수 있어요")}><img src={communityIcon("comment-reddit")} alt="" />{post.comments}</button>
-          {post.ig ? <a className="dp-discussion-ig-link" href={igHref(post.ig)} target="_blank" rel="noreferrer">인스타그램에서 보기 <ExternalLinkIcon aria-hidden="true" /></a> : <span>조회 {post.views.toLocaleString("ko-KR")}</span>}
+          {post.ig ? <a className="dp-discussion-ig-link" href={igHref(post.ig)} target="_blank" rel="noreferrer">인스타그램에서 보기 <OutLinkIcon /></a> : <span>조회 {post.views.toLocaleString("ko-KR")}</span>}
         </div>
       </article>)}
     </div>
@@ -772,14 +777,14 @@ function SocialFeedSection({ cars, limit, embedded = false }: { cars: Car[]; lim
         <header>
           <DealerIcon name={post.platform} />
           <span><b>{post.label}</b><small>{post.handle} · {post.time}</small></span>
-          <a href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label} 원문 보기`}><ExternalLinkIcon aria-hidden="true" /></a>
+          <a href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label} 원문 보기`}><OutLinkIcon /></a>
         </header>
         <p>{post.copy}</p>
         {post.car ? <a className="dp-social-media" href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label}에서 ${post.car.title} 게시물 보기`}>
           <img src={asset(post.car.listThumb ?? post.car.image)} alt={`${post.car.title} SNS 게시물`} draggable={false} />
           <span><b>{post.car.title}</b><small>{/상담/.test(String(post.car.price)) ? "가격 상담" : /만원/.test(String(post.car.price)) ? String(post.car.price).replace(/\s*만원/, "만원") : `${post.car.price}만원`}</small></span>
         </a> : null}
-        <footer><span>{post.stats}</span><a href={post.href} target="_blank" rel="noreferrer">원문 보기 <ExternalLinkIcon aria-hidden="true" /></a></footer>
+        <footer><span>{post.stats}</span><a href={post.href} target="_blank" rel="noreferrer">원문 보기 <OutLinkIcon /></a></footer>
       </article>)}
     </div>;
   if (embedded) return <div className="dp-social-feed is-embedded">{list}</div>;
@@ -1030,8 +1035,8 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   const [mode, setMode] = useState<ListingMode>("active");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
-  // 비교 시안: 주소 끝 &dpprofile=yt 이면 모바일 프로필을 유튜브 채널 머리 크기로(PR #906 값)
-  const ytProfile = new URLSearchParams(window.location.search).get("dpprofile") === "yt";
+  // 모바일 프로필은 유튜브 채널 머리 크기가 기본(2026-10-21 「유튜브 사이즈로 가자」). 이전 숫자 3칸 프로필은 &dpprofile=old 로 비교
+  const ytProfile = new URLSearchParams(window.location.search).get("dpprofile") !== "old";
   const [listView, setListView] = useState<DealerListView>(() => new URLSearchParams(window.location.search).get("view") === "feed" ? "feed" : "list");
   const [selectedStockCategories, setSelectedStockCategories] = useState<StockCategory[]>(() => readStockCategories(new URLSearchParams(window.location.search).getAll("stockCategory")));
   const toggleStockCategory = (category: StockCategory) => {

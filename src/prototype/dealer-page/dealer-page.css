@@ -767,3 +767,15 @@
   .dp-page.is-yt-profile .dp-profile-stats-mobile small, .dp-page.is-yt-profile .dp-profile-stats-mobile b { order: 0; color: #595959; font-size: 14px; line-height: 20px; font-weight: 400; }
   .dp-page.is-yt-profile .dp-profile-bio { margin-top: 12px; }
 }
+
+/* 홈페이지 링크 아이콘 = 노션 「독일_오토24 › 아웃 링크_24_24」 원본(arrow_out, 파일 수정 없음) 18px (2026-10-21 「링크 아이콘도 오토스카우트 용」) */
+.dp-profile-homepage-icon .dp-icon { width: 18px; height: 18px; }
+.dp-outlink-icon { display: inline-block; width: 15px; height: 15px; flex: 0 0 auto; vertical-align: -2px; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat; }
+
+/* 견적신청 버튼 파랑 · 크기 균형 (2026-10-21 「견적신청 버튼 크기 밸런스 조절해서 블루로」)
+   모바일 프로필 상자 52 안에서 버튼 32(위아래 10 = 오른쪽 10), 글자 13/600. 파랑 #306BD9 · 마우스 #1952BA */
+.dp-sell-price-cta > button { background: #306bd9 !important; font-weight: 600 !important; }
+.dp-sell-price-cta > button:hover { background: #1952ba !important; }
+.dp-sell-price-cta.is-profile { padding: 10px 10px 10px 16px; }
+.dp-sell-price-cta.is-profile > button { min-width: 0; height: 32px; padding: 0 14px !important; font-size: 13px !important; line-height: 18px !important; }
+@media (min-width: 768px) { .dp-sell-price-cta.is-profile > button { height: 30px; padding: 0 14px !important; font-size: 12px !important; } }
