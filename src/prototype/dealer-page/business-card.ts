@@ -1,6 +1,6 @@
 export type CardField = "mobile" | "instagram" | "youtube" | "tiktok";
 export type CardStyle = { theme: "blue" | "navy" | "white"; intro: string; title: string; logo: string; fields: Partial<Record<CardField, string>> };
-export type CardContact = { name: string; role: string; company: string; phone: string; address: string; photo: string };
+export type CardContact = { name: string; role: string; company: string; phone: string; address: string; photo: string; listingCount?: number };
 
 export const defaultCardStyle: CardStyle = { theme: "blue", intro: "좋은 차와 좋은 인연을 연결합니다.", title: "", logo: "", fields: {} };
 export const cardThemes = { blue: { label: "블루", background: "#306bd9", ink: "#ffffff" }, navy: { label: "클래식 네이비", background: "#14243d", ink: "#ffffff" }, white: { label: "심플 화이트", background: "#ffffff", ink: "#14243d" } } as const;
@@ -157,7 +157,7 @@ export async function cardPng(contact: CardContact, style: CardStyle): Promise<B
   }
   if (line) ctx.fillText(line, 72, 408 + row * 36);
   ctx.globalAlpha = .25; ctx.fillRect(72, 488, 1056, 1); ctx.globalAlpha = 1;
-  text(cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile! : contact.phone || "판매자 페이지에서 상담하기", 72, 555, 34, 1056, 650);
+  text(cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile! : contact.phone, 72, 555, 34, 1056, 650);
   text(contact.address, 72, 610, 24, 1056);
   ctx.globalAlpha = .7; text("서울오토갤러리", 72, 668, 20, 1056);
   ctx.globalAlpha = 1;

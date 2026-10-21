@@ -11,6 +11,7 @@ import { dealerSnsLinks, snsLabel } from "../data/seoul-autogallery-sns-v01";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
 import { DealerBusinessCard } from "./DealerBusinessCard";
+import { matchesStockCategory, readStockCategory, stockCategories, type StockCategory } from "./dealer-stock";
 import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -289,7 +290,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅</button>
           {MOCK.phone ? <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><DealerIcon name="phone" />전화</a> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
-          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer) }} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>} />
+          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount }} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>} />
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
@@ -350,16 +351,17 @@ function SoldCards({ limit }: { limit: number }) {
   ))}</div>;
 }
 
-function ListingsSection({ cars, mode, setMode, onOpen }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void }) {
+function ListingsSection({ cars, mode, setMode, onOpen, category, setCategory }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; category: StockCategory | "전체"; setCategory: (category: StockCategory | "전체") => void }) {
   const [limit, setLimit] = useState(5);
-  const max = mode === "active" ? cars.length : mode === "sold" ? MOCK.soldCars.length : SNS_LISTING_COUNT;
+  const filteredCars = cars.filter((car) => matchesStockCategory(car, category));
+  const max = mode === "active" ? filteredCars.length : mode === "sold" ? MOCK.soldCars.length : SNS_LISTING_COUNT;
   return <section className="dp-content-card dp-listings">
     <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
       <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
       <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({SNS_LISTING_COUNT})</button>
     </div>
-    {mode === "active" ? cars.length ? <ActiveCards cars={cars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">지금 판매 중인 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p> : mode === "sold" ? <SoldCards limit={limit} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
+    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{(["전체", ...stockCategories] as const).map((item) => <button key={item} type="button" aria-pressed={category === item} onClick={() => { setCategory(item); setLimit(5); }}>{item}</button>)}</div><p className="dp-stock-count" role="status">{category} 판매차량 {filteredCars.length}대</p>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">{category === "전체" ? "지금 판매 중인 차량이 없어요." : `지금 판매 중인 ${category} 차량이 없어요.`} 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
@@ -795,6 +797,14 @@ function Footer() {
 function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   const [following, setFollowing] = useState(true);
   const [mode, setMode] = useState<ListingMode>("active");
+  const [stockCategory, setStockCategory] = useState(() => readStockCategory(new URLSearchParams(window.location.search).get("stockCategory")));
+  const changeStockCategory = (category: StockCategory | "전체") => {
+    setStockCategory(category);
+    const target = new URL(window.location.href);
+    if (category === "전체") target.searchParams.delete("stockCategory");
+    else target.searchParams.set("stockCategory", category);
+    window.history.replaceState(null, "", `${target.pathname}${target.search}${target.hash}`);
+  };
   const [activeSection, setActiveSection] = useState<SectionId>(() => {
     const requested = new URLSearchParams(window.location.search).get("tab");
     return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) && requested !== "social" ? requested as SectionId : "ads";
@@ -842,6 +852,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     target.searchParams.set("shop", targetDealer.shopNo);
     target.searchParams.set("emp", targetDealer.empNo);
     target.searchParams.delete("listing");
+    target.searchParams.delete("stockCategory");
     window.location.assign(`${target.pathname}${target.search}${target.hash}`);
   };
   const changeSection = (section: SectionId) => {
@@ -868,7 +879,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
-          {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} /> : null}
+          {activeSection === "ads" ? <ListingsSection cars={cars} mode={mode} setMode={setMode} onOpen={openListing} category={stockCategory} setCategory={changeStockCategory} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
@@ -893,7 +904,7 @@ export default function DealerPage() {
 
   if (params.get("card") === "1") {
     if (!matchedDealer) return <main className="dbc-page"><div className="dbc-page-wrap"><h1>명함을 찾을 수 없어요</h1><p>공유받은 딜러 명함 주소를 다시 확인해 주세요.</p><a className="dbc-home" href="./?qf=guazi">보배드림으로 이동 →</a></div></main>;
-    return <DealerCardPage dealer={dealer} />;
+    return <DealerCardPage dealer={dealer} cars={cars} />;
   }
 
   if (linkedCar) {
@@ -904,7 +915,7 @@ export default function DealerPage() {
   return <DealerProfilePage dealer={dealer} cars={cars} />;
 }
 
-function DealerCardPage({ dealer }: { dealer: SeoulAutoGalleryDealer }) {
+function DealerCardPage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   useEffect(() => { setPretendard(true); }, []);
-  return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer) }} />;
+  return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount: cars.length }} />;
 }
