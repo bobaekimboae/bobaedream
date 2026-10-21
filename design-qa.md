@@ -28,6 +28,37 @@
 
 final result: passed
 
+
+---
+
+## 2026-10-21 딜러 판매차량 분류 · 블루 알약칩
+
+- Source visual truth: `reports/design-qa/dealer-stock-blue-pills-2026-10-21/01-source-reference.jpg` (591×1280 px).
+- Browser-rendered implementation: `reports/design-qa/dealer-stock-blue-pills-2026-10-21/02-implementation-desktop.png` (1440×1000 px), `03-implementation-mobile.png` (390×843 px, 390×844 CSS viewport, DPR 1).
+- Combined comparison: `reports/design-qa/dealer-stock-blue-pills-2026-10-21/04-mobile-side-by-side.png`; source normalized to 390×844 for composition review.
+- Focused comparison: `reports/design-qa/dealer-stock-blue-pills-2026-10-21/05-focused-pills-comparison.png`; reference and implementation chip rows cropped and normalized to 180px height.
+- State: 판매중 · 수입차 selected; result status `수입차 판매차량 98대`.
+
+### Comparison history
+
+- Pass 1 [P2, selected-state tone]: first implementation used a solid dark-blue selected chip, while the source uses a soft-blue fill with blue text. Changed the selected state to `#eaf2ff` with Bobaedream blue `#1b498c` text.
+- Pass 2: mobile chip row measured 348px client width and 348px scroll width; all five labels fit in one line at 390px without clipping or horizontal scroll. Selected chip is 34px high with a 999px radius; desktop chips are 36px high.
+- Primary interaction tested: switching from 전체 to 수입차 updates `aria-selected`, visual color, filtering, and live result count. Desktop and mobile renderings were checked.
+- Console checked: no application runtime warning or error was observed; three identical browser-extension message-channel closure messages were classified as external to the app.
+
+### Required fidelity surfaces
+
+- Typography: passed — 14px/500 mobile labels, 15px/500 desktop labels, selected weight 700; no wrapping or truncation.
+- Spacing/layout: passed — 7px mobile gap, 8px desktop gap, 13px/16px horizontal padding, one-line fit, and consistent rounded silhouette.
+- Colors/tokens: passed — selected soft blue `#eaf2ff` and Bobaedream blue `#1b498c`; unselected neutral `#f2f3f5/#4f5660`.
+- Image quality: passed — no image assets were changed; the screenshot is used only as the component-level interaction and styling reference.
+- Copy/content: passed — 전체, 국산차, 수입차, 상용차, 슈퍼카 and the filtered result count remain intact.
+- Accessibility/behavior: passed — `tablist`/`tab` semantics, `aria-selected`, visible keyboard focus, and touch-size balance retained.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
 ---
 
 ## 2026-10-21 딜러 판매차량 분류 탭 통일
