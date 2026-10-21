@@ -18,6 +18,7 @@ import { dealerSnsLinks, snsLabel } from "../data/seoul-autogallery-sns-v01";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
 import { DealerBusinessCard } from "./DealerBusinessCard";
+import type { CardExtras } from "./business-card";
 import { matchesStockCategories, matchesStockCategory, readStockCategories, stockCategories, type StockCategory } from "./dealer-stock";
 import "./dealer-page.css";
 
@@ -389,7 +390,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅</button>
           {MOCK.phone ? <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><DealerIcon name="phone" />전화</a> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
-          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount }} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>} />
+          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount }} extras={cardExtrasFor(dealer, cars, rating, reviewCount)} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>} />
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
@@ -999,6 +1000,24 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
   </section>;
 }
 
+// 명함에 함께 보여 줄 판매자페이지 값: 실적 · 대표 매물 3대 · 0대가 아닌 분류 · SNS · 릴스(2026-10-22 명함 컨설팅).
+function cardExtrasFor(dealer: SeoulAutoGalleryDealer, cars: Car[], rating = MOCK.rating, reviewCount = MOCK.reviewCount): CardExtras {
+  const listingHref = (id: number) => {
+    const url = new URL(window.location.href);
+    url.search = new URLSearchParams({ qf: "guazi", profile: "dealer", shop: dealer.shopNo, emp: dealer.empNo, listing: String(id) }).toString();
+    url.hash = "";
+    return url.href;
+  };
+  const priceText = (price: string) => /상담/.test(price) ? "가격 상담" : /만원/.test(price) ? price.replace(/\s*만원/, "만원") : `${price}만원`;
+  return {
+    rating, reviewCount, sold: MOCK.sold,
+    listings: cars.filter((car) => car.image).slice(0, 3).map((car) => ({ id: car.id, title: car.title, image: asset(car.listThumb ?? car.image), price: priceText(String(car.price)), href: listingHref(car.id) })),
+    categories: stockCategories.map((label) => ({ label, count: cars.filter((car) => matchesStockCategory(car, label)).length })).filter((item) => item.count > 0),
+    sns: dealerSnsLinks(dealer.shopNo, dealer.name)?.links,
+    reels: instagramPostsFor(dealer.shopNo, dealer.name).filter((post) => post.kind === "reel").map((post) => ({ href: `https://www.instagram.com/reel/${post.code}/`, poster: post.poster ? asset(post.poster) : undefined, label: post.maker ? `${post.maker} ${post.model ?? ""}`.trim() : undefined })),
+  };
+}
+
 function SellPriceCta({ onRequest, profile = false }: { onRequest: () => void; profile?: boolean }) {
   return <aside className={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label="내 차 판매 가격 무료 견적">
     <span><b>내 차 판매 가격, 무료 견적 받아보세요</b></span>
@@ -1142,5 +1161,5 @@ export default function DealerPage() {
 
 function DealerCardPage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   useEffect(() => { setPretendard(true); }, []);
-  return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount: cars.length }} />;
+  return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount: cars.length }} extras={cardExtrasFor(dealer, cars)} />;
 }
