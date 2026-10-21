@@ -392,9 +392,9 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
       <div className="dp-profile-copy">
         <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
         <div className="dp-profile-stats dp-profile-stats-mobile" aria-label="판매 실적">
-          <span><small>판매중</small><b>{listingCount.toLocaleString("ko-KR")}</b></span>
-          <span><small>판매완료</small><b>{MOCK.sold.toLocaleString("ko-KR")}</b></span>
-          <span><small>팔로워</small><b>{(MOCK.followers + (following ? 1 : 0)).toLocaleString("ko-KR")}</b></span>
+          <span><small>판매중</small><b>{listingCount}</b></span>
+          <span><small>판매완료</small><b>{MOCK.sold}</b></span>
+          <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>
         </div>
         <div className="dp-profile-bio">
           <b>{MOCK.company} · {dealer.role ?? "인증딜러"}</b>
