@@ -506,6 +506,9 @@ if (typeof window !== "undefined" && !(window as unknown as { __dpIgMeasure?: bo
 const igHref = (post: DealerInstagramPost) => `https://www.instagram.com/${post.kind === "reel" ? "reel" : "p"}/${post.code}/`;
 function IgMedia({ post }: { post: DealerInstagramPost }) {
   const href = igHref(post);
+  if (post.kind === "reel" && post.video) {
+    return <div className="dp-ig-reel is-native"><video controls playsInline preload="metadata" poster={post.poster ? asset(post.poster) : undefined} aria-label={`인스타그램 릴스 ${post.date}`}><source src={asset(post.video)} type="video/mp4" />이 브라우저에서는 영상을 재생할 수 없습니다.</video></div>;
+  }
   return post.kind === "reel"
     ? <div className="dp-ig-reel"><iframe src={`${href}embed/`} title={`인스타그램 릴스 ${post.date}`} loading="lazy" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowFullScreen sandbox="allow-scripts allow-same-origin allow-popups allow-presentation" /></div>
     : <div className="dp-ig-crop"><iframe src={`${href}embed/`} title={`인스타그램 게시물 ${post.date}`} loading="lazy" scrolling="no" allow="encrypted-media; picture-in-picture" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts" /></div>;
@@ -704,7 +707,7 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
           <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
           <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
           <button type="button" aria-label={`댓글 ${post.comments}개`} onClick={() => notify("댓글은 상세 화면에서 볼 수 있어요")}><img src={communityIcon("comment-reddit")} alt="" />{post.comments}</button>
-          {post.ig ? <a className="dp-discussion-ig-link" href={igHref(post.ig)} target="_blank" rel="noreferrer">인스타그램에서 보기 <OutLinkIcon /></a> : <span>조회 {post.views.toLocaleString("ko-KR")}</span>}
+          {post.ig ? <span className="dp-discussion-ig-link is-local">보배드림에서 재생</span> : <span>조회 {post.views.toLocaleString("ko-KR")}</span>}
         </div>
       </article>)}
     </div>
