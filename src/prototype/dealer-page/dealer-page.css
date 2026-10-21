@@ -753,3 +753,18 @@
 /* 보기 전환은 알약 줄을 가리지 않게 별도 줄 오른쪽 끝(알약 → 줄 4 · 줄 → 첫 매물 4) */
 .dp-listings .dp-stock-categories { margin-bottom: 4px; }
 .dp-view-row { display: flex; justify-content: flex-end; margin-bottom: 4px; }
+
+/* 모바일 프로필 = 유튜브 채널 머리 크기(2026-10-21 「유튜브 프사랑 우리 사이즈 대조」 → 「변경해봐라」, 1080×2340 캡처 ÷2.8125 실측):
+   커버 352×96 · 커버 → 프사 12 · 프사 72 · 프사 → 글자 17 · 이름 24/30 700 · 실적은 숫자 칸 대신 한 줄 회색 글자 14/20 */
+@media (max-width: 767px) {
+  .dp-page > .dp-profile .dp-cover, .dp-cover { aspect-ratio: 11 / 3; min-height: 0; max-height: 96px; }
+  .dp-profile-body { grid-template-columns: 72px minmax(0, 1fr); column-gap: 17px; padding-top: 12px; }
+  .dp-avatar { width: 72px; height: 72px; }
+  .dp-profile-copy h1 { align-self: end; font-size: 24px; line-height: 30px; }
+  .dp-profile-copy h1 .is-badge { width: 20px; height: 20px; }
+  .dp-profile-stats-mobile { display: flex; flex-wrap: wrap; align-self: start; margin: 2px 0 0; }
+  .dp-profile-stats-mobile > span { display: inline-flex; min-height: 0; flex-direction: row; align-items: baseline; gap: 4px; }
+  .dp-profile-stats-mobile > span + span::before { content: "·"; margin: 0 1px 0 5px; color: #8c8c8c; }
+  .dp-profile-stats-mobile small, .dp-profile-stats-mobile b { order: 0; color: #595959; font-size: 14px; line-height: 20px; font-weight: 400; }
+  .dp-profile-bio { margin-top: 12px; }
+}
