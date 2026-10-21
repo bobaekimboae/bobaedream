@@ -504,6 +504,7 @@ if (typeof window !== "undefined" && !(window as unknown as { __dpIgMeasure?: bo
 }
 
 const igHref = (post: DealerInstagramPost) => `https://www.instagram.com/${post.kind === "reel" ? "reel" : "p"}/${post.code}/`;
+const igVehicleLabel = (post: DealerInstagramPost) => post.maker && post.model ? `${post.maker} ㆍ ${post.model}` : "";
 function IgMedia({ post }: { post: DealerInstagramPost }) {
   const href = igHref(post);
   if (post.kind === "reel" && post.video) {
@@ -523,7 +524,7 @@ function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInsta
       return <article className="dp-social-post dp-ig-post" key={post.code}>
         <header>
           <DealerIcon name="instagram" />
-          <span><b>인스타그램 {label}</b><small>@{handle} · {igDateText(post.date)}</small></span>
+          <span><b>{igVehicleLabel(post) || `인스타그램 ${label}`}</b><small>@{handle} · {igDateText(post.date)}</small></span>
           <a href={href} target="_blank" rel="noreferrer" aria-label={`인스타그램 ${label} 원문 보기`}><OutLinkIcon /></a>
         </header>
         <IgMedia post={post} />
@@ -640,7 +641,7 @@ function CommunitySection({ cars, dealer, notify }: { cars: Car[]; dealer: Seoul
   const igHandle = instagramHandleFor(dealer.shopNo, dealer.name);
   if (igPosts.length) {
     const fakeSns = allPosts.findIndex((post) => post.category === "SNS");
-    const igFeed = [...igPosts.filter((post) => post.kind === "reel"), ...igPosts.filter((post) => post.kind !== "reel")].slice(0, 4).map((post, index) => ({ category: "SNS" as const, title: post.kind === "reel" ? (index === 0 ? "인스타그램 새 릴스" : "인스타그램 릴스") : (index === 0 ? "인스타그램 새 게시물" : "인스타그램 게시물"), copy: `@${igHandle}에 올린 매물 ${post.kind === "reel" ? "영상" : "사진"}이에요. 영상 속 차량 문의는 채팅이나 전화로 주세요.`, author: dealer.name, byDealer: true, time: igDateText(post.date), views: 0, comments: 0, up: 0, down: 0, ig: post }));
+    const igFeed = [...igPosts.filter((post) => post.kind === "reel"), ...igPosts.filter((post) => post.kind !== "reel")].slice(0, 30).map((post, index) => ({ category: "SNS" as const, title: igVehicleLabel(post) || (post.kind === "reel" ? (index === 0 ? "인스타그램 새 릴스" : "인스타그램 릴스") : (index === 0 ? "인스타그램 새 게시물" : "인스타그램 게시물")), copy: `@${igHandle}에 올린 ${igVehicleLabel(post) ? `${igVehicleLabel(post)} ` : "매물 "}${post.kind === "reel" ? "영상" : "사진"}이에요. 영상 속 차량 문의는 채팅이나 전화로 주세요.`, author: dealer.name, byDealer: true, time: igDateText(post.date), views: 0, comments: 0, up: 0, down: 0, ig: post }));
     allPosts.splice(fakeSns >= 0 ? fakeSns : 1, fakeSns >= 0 ? 1 : 0);
     allPosts.splice(4, 0, ...igFeed);
   }
