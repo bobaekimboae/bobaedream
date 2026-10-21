@@ -6,10 +6,14 @@ import { stockCategories, stockUrl } from "./dealer-stock";
 
 type Props = { contact: CardContact; shop: string; emp: string; standalone?: boolean; trigger?: ReactNode };
 
-function CardPreview({ contact, style }: { contact: CardContact; style: CardStyle }) {
+function CardSocials({ style }: { style: CardStyle }) {
+  const socials = cardFields.filter(({ id }) => id !== "mobile" && cardFieldHref(id, style.fields[id]));
+  return socials.length ? <nav className="dbc-socials" aria-label="명함 SNS">{socials.map(({ id, label }) => <a key={id} href={cardFieldHref(id, style.fields[id])!} target="_blank" rel="noopener noreferrer"><span>{label}</span><strong>{style.fields[id]}</strong><span aria-hidden="true">↗</span></a>)}</nav> : null;
+}
+
+function CardPreview({ contact, style, showSocials = true }: { contact: CardContact; style: CardStyle; showSocials?: boolean }) {
   const palette = cardThemes[style.theme];
   const [photoFailed, setPhotoFailed] = useState(false);
-  const socials = cardFields.filter(({ id }) => id !== "mobile" && cardFieldHref(id, style.fields[id]));
   return <><article className="dbc-card" style={{ "--dbc-bg": palette.background, "--dbc-ink": palette.ink } as CSSProperties} aria-label={`${contact.name} 딜러 명함`}>
     <div className="dbc-brand">{style.logo ? <img src={style.logo} alt="명함 로고" /> : null}<strong>{style.title.trim() || contact.company}</strong></div>
     <div className="dbc-identity"><h2>{contact.name}</h2><p>{contact.company} · {contact.role}</p></div>
@@ -17,7 +21,7 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
     <p className="dbc-intro">{style.intro}</p>
     <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}</strong> : null}<span>{contact.address}</span></div>
     <small className="dbc-gallery">서울오토갤러리</small>
-  </article>{socials.length ? <nav className="dbc-socials" aria-label="명함 SNS">{socials.map(({ id, label }) => <a key={id} href={cardFieldHref(id, style.fields[id])!} target="_blank" rel="noopener noreferrer"><span>{label}</span><strong>{style.fields[id]}</strong><span aria-hidden="true">↗</span></a>)}</nav> : null}</>;
+  </article>{showSocials ? <CardSocials style={style} /> : null}</>;
 }
 
 export function DealerBusinessCard({ contact, shop, emp, standalone = false, trigger }: Props) {
@@ -35,6 +39,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const [logoBusy, setLogoBusy] = useState(false);
   const url = cardUrl(window.location.href, shop, emp, style);
   const dealerUrl = profileUrl(window.location.href, shop, emp);
+  const phoneHref = cardFieldHref("mobile", style.fields.mobile) || (contact.phone ? `tel:${contact.phone.replace(/[^+\d]/g, "")}` : null);
 
   useEffect(() => () => { if (imageUrl) URL.revokeObjectURL(imageUrl); }, [imageUrl]);
   useEffect(() => { setImageUrl(""); }, [style]);
@@ -86,11 +91,13 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     setStatus("연락처 파일을 열면 주소록에 저장할 수 있어요.");
   };
   const content = <>
-    <CardPreview contact={contact} style={style} />
+    <CardPreview contact={contact} style={style} showSocials={!standalone} />
+    {standalone ? <div className="dbc-recipient-contact" role="group" aria-label="딜러 연락처">{phoneHref ? <a href={phoneHref}>전화 상담</a> : null}<button type="button" onClick={saveContact}>연락처 저장</button></div> : null}
     <nav className="dbc-stock" aria-label="판매차량 바로가기">
       <a className="dbc-stock-total" href={stockUrl(window.location.href, shop, emp)}>판매차량 <strong>{contact.listingCount ?? 0}대</strong><span aria-hidden="true">→</span></a>
       <div>{stockCategories.map((category) => <a key={category} href={stockUrl(window.location.href, shop, emp, category)}>{category}<span aria-hidden="true">↗</span></a>)}</div>
     </nav>
+    {standalone ? <CardSocials style={style} /> : null}
     {!standalone && editing ? <div className="dbc-editor">
       <fieldset className="dbc-brand-editor"><legend>로고 · 타이틀</legend>
         <div className="dbc-logo-edit">{style.logo ? <img src={style.logo} alt="선택한 로고" /> : null}<label className="dbc-upload">{logoBusy ? "로고 불러오는 중…" : style.logo ? "로고 변경" : "로고 추가"}<input type="file" accept="image/png,image/jpeg,image/webp" aria-label="로고 파일" disabled={logoBusy} onChange={async (event) => {
@@ -110,11 +117,11 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
       <label>소개 문구<textarea maxLength={60} rows={2} value={style.intro} onChange={(event) => updateStyle({ ...style, intro: event.target.value.replace(/[\r\n]/g, " ") })} /><small>{style.intro.length}/60</small></label>
       <p>명함 설정은 이 기기에 저장돼요. 공유한 링크에는 로고·타이틀과 선택한 연락처·SNS가 담겨요.</p>
     </div> : null}
-    <div className="dbc-actions"><button type="button" className="dbc-primary" disabled={logoBusy} onClick={share}>명함 공유하기</button><button type="button" disabled={logoBusy} onClick={copy}>링크 복사</button><button type="button" disabled={busy || logoBusy} onClick={saveImage}>{busy ? "이미지 만드는 중…" : "이미지 저장"}</button><button type="button" onClick={saveContact}>연락처 저장</button></div>
+    {standalone ? <h2 className="dbc-tools-title">명함 공유·저장</h2> : null}
+    <div className="dbc-actions" role="group" aria-label="명함 공유 및 저장"><button type="button" className="dbc-primary" disabled={logoBusy} onClick={share}>명함 공유하기</button><button type="button" disabled={logoBusy} onClick={copy}>링크 복사</button><button type="button" disabled={busy || logoBusy} onClick={saveImage}>{busy ? "이미지 만드는 중…" : "이미지 저장"}</button>{!standalone ? <button type="button" onClick={saveContact}>연락처 저장</button> : null}</div>
     {imageUrl ? <div className="dbc-export"><img src={imageUrl} alt={`${contact.name} 저장용 명함 이미지`} /><a href={imageUrl} download={`${contact.name}-명함.png`}>PNG 다운로드</a></div> : null}
     {manualLink ? <label className="dbc-manual-link">명함 링크<input readOnly value={url} onFocus={(event) => event.target.select()} /></label> : null}
     <p className="dbc-status" role="status">{status}</p>
-    {standalone && (cardFieldHref("mobile", style.fields.mobile) || contact.phone) ? <div className="dbc-visit"><a href={cardFieldHref("mobile", style.fields.mobile) || `tel:${contact.phone.replace(/[^+\d]/g, "")}`}>전화 상담</a></div> : null}
     {!standalone ? <button type="button" className="dbc-edit-toggle" disabled={logoBusy} onClick={() => { if (editing && !valid()) return; setEditing(!editing); setStatus(""); }}>{editing ? "편집 완료" : "명함 편집하기"}</button> : null}
   </>;
 
