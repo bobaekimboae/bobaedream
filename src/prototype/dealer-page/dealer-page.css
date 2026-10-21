@@ -794,3 +794,6 @@
 .dp-view-toggle.is-icons button + button::before { display: none; }
 .dp-view-toggle.is-icons button[aria-pressed="true"] { color: #222; }
 .dp-view-toggle.is-icons .dp-view-toggle-icon { width: 24px; height: 24px; flex-basis: 24px; }
+
+/* 홈페이지 링크 아이콘 제거 (2026-10-21 「링크는 아이콘 없이 가자」) — 글자는 위 줄 글자 시작선(아이콘 칸 20 + 간격 9 + 1 = 30)에 맞춤 */
+.dp-profile-inline.is-dealership .dp-profile-homepage { padding-left: 30px; }
