@@ -734,3 +734,8 @@
 .dp-stock-categories button:hover{background:#f7f8fa}
 .dp-stock-categories button[aria-pressed="true"],.dp-stock-categories button[aria-pressed="true"]:hover{border-color:#306bd9;background:#306bd9;color:#fff}
 @media (max-width:767px){.dp-stock-categories button,.dp-stock-categories button:hover{padding:3px 11px}}
+
+/* 분류 알약 대수 옅게 · 괄호 없이 (2026-10-21, Car & Classic 모델 알약 참고: 이름 → 대수 약 7 · 옅은 회색 400) */
+.dp-stock-categories button{gap:6px}
+.dp-stock-categories .dp-stock-category-count{color:#8c8c8c;font-weight:400}
+.dp-stock-categories button[aria-pressed="true"] .dp-stock-category-count{color:rgba(255,255,255,.72)}
