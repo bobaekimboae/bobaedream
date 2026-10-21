@@ -18,6 +18,22 @@ export const dealerInstagramPosts: Readonly<Record<string, readonly DealerInstag
     { code: "DNmdHVZT8qZ", kind: "photo", date: "2025-08-20" },
     { code: "DLhTZMOxmV1", kind: "photo", date: "2025-06-30" },
   ],
+  // 장지수(@jang.zilla) 공개 릴스 탭 최신 12개(2026-10-21 「인스타 릴스 임베드로 피드 50개 등록해」 → 「장지수 먼저 50개」 → 로그인 없이 보이는 12개로 「배포해라」).
+  // 게시일은 게시물 코드에서 계산(코드 → 미디어 번호 → 시각). 로그인 후 38개를 더 받아 50개로 채울 예정.
+  "450560:장지수": [
+    { code: "Delb1qPBh4b", kind: "reel", date: "2026-10-17" },
+    { code: "DeeIr1vhNWb", kind: "reel", date: "2026-10-14" },
+    { code: "DeQid-ppZhZ", kind: "reel", date: "2026-10-09" },
+    { code: "DeJrAoPpaOI", kind: "reel", date: "2026-10-06" },
+    { code: "Dd_LfdfJQVB", kind: "reel", date: "2026-10-02" },
+    { code: "Dd3mWAZpMPj", kind: "reel", date: "2026-09-29" },
+    { code: "DdyHCv6JKDI", kind: "reel", date: "2026-09-27" },
+    { code: "DdqDB2cpGl5", kind: "reel", date: "2026-09-24" },
+    { code: "DdjNX6BPnse", kind: "reel", date: "2026-09-21" },
+    { code: "DddVlPCJcHb", kind: "reel", date: "2026-09-19" },
+    { code: "DdYvJUbJJ8t", kind: "reel", date: "2026-09-17" },
+    { code: "DdTgao5JG4u", kind: "reel", date: "2026-09-15" },
+  ],
   // 조이모터스(@e_joymotors24) 공개 프로필 최신 12개(2026-10-21 「인스타 릴스 매물 임베드시켜라, 피드와 매물 두곳 다」): 릴스 10 · 사진 2(고정 글)
   "joy:이지유": [
     { code: "DM7UiB5xc2z", kind: "reel", date: "2025-08-04" },
@@ -37,4 +53,4 @@ export const dealerInstagramPosts: Readonly<Record<string, readonly DealerInstag
 
 export const instagramPostsFor = (shopNo: string, name: string) => dealerInstagramPosts[`${shopNo}:${name}`] ?? [];
 
-export const instagramHandleFor = (shopNo: string, name: string) => ({ "450560:한지훈": "bi.turbo", "joy:이지유": "e_joymotors24" } as Record<string, string>)[`${shopNo}:${name}`] ?? "";
+export const instagramHandleFor = (shopNo: string, name: string) => ({ "450560:한지훈": "bi.turbo", "joy:이지유": "e_joymotors24", "450560:장지수": "jang.zilla" } as Record<string, string>)[`${shopNo}:${name}`] ?? "";
