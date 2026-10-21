@@ -308,6 +308,16 @@ function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) 
   const current = JOY_HERO_VIDEOS[activeVideo];
 
   const showVideo = failedVideo !== activeVideo;
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !showVideo) return;
+    if (paused) {
+      video.pause();
+      return;
+    }
+    void video.play().catch(() => setPaused(true));
+  }, [activeVideo, paused, showVideo]);
+
   const changeVideo = (index: number) => {
     setActiveVideo(index);
     setFailedVideo(null);

@@ -13,6 +13,7 @@ test("e-조이모터스 헤더 uses the current official Ferrari and Lamborghini
 test("dealer video cover keeps accessible playback controls and a static fallback", () => {
   assert.match(source, /prefers-reduced-motion: reduce/);
   assert.match(source, /autoPlay=\{!paused\}/);
+  assert.match(source, /video\.play\(\)\.catch\(\(\) => setPaused\(true\)\)/);
   assert.match(source, /헤더 영상 일시정지/);
   assert.match(source, /className="dp-cover-photo" src=\{fallback\}/);
   assert.match(source, /onError=\{\(\) => setFailedVideo\(activeVideo\)\}/);
