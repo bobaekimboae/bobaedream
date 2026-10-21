@@ -739,3 +739,17 @@
 .dp-stock-categories button{gap:6px}
 .dp-stock-categories .dp-stock-category-count{color:#8c8c8c;font-weight:400}
 .dp-stock-categories button[aria-pressed="true"] .dp-stock-category-count{color:rgba(255,255,255,.72)}
+
+/* 판매차량 목록 보기 · 피드 보기 (2026-10-21 「피드 보기랑 목록 보기 배치하자」) — 분류 알약 줄 오른쪽 끝, 글자 전환 */
+.dp-stock-bar { display: flex; align-items: center; gap: 12px; margin: 12px 0 16px; }
+.dp-stock-bar .dp-stock-categories { flex: 1 1 auto; min-width: 0; margin: 0; }
+.dp-view-toggle { display: flex; flex: 0 0 auto; align-items: center; }
+.dp-view-toggle button { height: 32px; padding: 0 2px; border: 0; background: none; color: #8c8c8c; font: inherit; font-size: 13px; line-height: 18px; font-weight: 500; white-space: nowrap; cursor: pointer; }
+.dp-view-toggle button + button { margin-left: 9px; position: relative; }
+.dp-view-toggle button + button::before { content: ""; position: absolute; left: -5px; top: 50%; width: 1px; height: 12px; margin-top: -6px; background: #dedee3; }
+.dp-view-toggle button[aria-pressed="true"] { color: #222; font-weight: 700; }
+.dp-view-toggle button:focus-visible { outline: 2px solid #222; outline-offset: 2px; border-radius: 4px; }
+.dp-listings-shell.is-dp-feed .bbm-m-list { max-width: 480px; margin: 0 auto; }
+/* 보기 전환은 알약 줄을 가리지 않게 별도 줄 오른쪽 끝(알약 → 줄 4 · 줄 → 첫 매물 4) */
+.dp-listings .dp-stock-categories { margin-bottom: 4px; }
+.dp-view-row { display: flex; justify-content: flex-end; margin-bottom: 4px; }

@@ -430,7 +430,8 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
   </section>;
 }
 
-function ActiveCards({ cars, limit, onOpen }: { cars: Car[]; limit: number; onOpen: (car: Car) => void }) {
+type DealerListView = "list" | "feed";
+function ActiveCards({ cars, limit, onOpen, view = "list" }: { cars: Car[]; limit: number; onOpen: (car: Car) => void; view?: DealerListView }) {
   const [liked, setLiked] = useState<Set<number>>(new Set());
   const [desktop, setDesktop] = useState(() => window.matchMedia("(min-width: 820px)").matches);
   useEffect(() => {
@@ -446,11 +447,16 @@ function ActiveCards({ cars, limit, onOpen }: { cars: Car[]; limit: number; onOp
     else next.add(id);
     return next;
   });
-  return <div className={`dp-listings-shell marketplace ${desktop ? "is-bbm" : "is-bbm-m"}`}>
-    <div className="bbm-m-list">{cars.slice(0, limit).map((car) => <BbmResultCard
+  // 피드 보기: 목록 화면의 모바일 피드 카드(큰 사진 · 넘기기)를 그대로 쓴다. PC도 같은 카드를 가운데 한 열로
+  const feed = view === "feed";
+  return <div className={`dp-listings-shell marketplace ${desktop && !feed ? "is-bbm" : "is-bbm-m is-qf-guazi"}${feed ? " is-dp-feed" : ""}`}>
+    <div className={`bbm-m-list${feed ? " is-feed" : ""}`}>{cars.slice(0, limit).map((car, index) => <BbmResultCard
       key={car.id}
       car={car}
-      variant={desktop ? "pc" : "mobile"}
+      variant={desktop && !feed ? "pc" : "mobile"}
+      featured={feed}
+      eagerPhoto={index < 4}
+      feedPhotos={feed ? (car.photoList?.length ? car.photoList : [car.image]) : undefined}
       liked={liked.has(car.id)}
       onToggleLike={() => toggleLiked(car.id)}
       onOpen={() => onOpen(car)}
@@ -516,7 +522,7 @@ function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInsta
   </div>;
 }
 
-function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCategory, igPosts = [], igHandle = "" }: { cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; categories: readonly StockCategory[]; toggleCategory: (category: StockCategory) => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string }) {
+function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCategory, igPosts = [], igHandle = "", view = "list", setView }: { view?: DealerListView; setView?: (view: DealerListView) => void; cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; categories: readonly StockCategory[]; toggleCategory: (category: StockCategory) => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string }) {
   const [limit, setLimit] = useState(5);
   const filteredCars = cars.filter((car) => matchesStockCategories(car, categories));
   const categoryLabel = categories.length ? categories.join(" · ") : "전체";
@@ -528,7 +534,7 @@ function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCatego
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
       <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({snsCount})</button>
     </div>
-    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}<span className="dp-stock-category-count">{cars.filter((car) => matchesStockCategory(car, item)).length}</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}</div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
+    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}<span className="dp-stock-category-count">{cars.filter((car) => matchesStockCategory(car, item)).length}</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}</div><div className="dp-view-row"><div className="dp-view-toggle" role="group" aria-label="보기 방식">{([["list", "목록 보기"], ["feed", "피드 보기"]] as const).map(([id, label]) => <button key={id} type="button" aria-pressed={view === id} onClick={() => setView?.(id)}>{label}</button>)}</div></div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} view={view} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
@@ -1024,6 +1030,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   const [mode, setMode] = useState<ListingMode>("active");
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
+  const [listView, setListView] = useState<DealerListView>(() => new URLSearchParams(window.location.search).get("view") === "feed" ? "feed" : "list");
   const [selectedStockCategories, setSelectedStockCategories] = useState<StockCategory[]>(() => readStockCategories(new URLSearchParams(window.location.search).getAll("stockCategory")));
   const toggleStockCategory = (category: StockCategory) => {
     const next = selectedStockCategories.includes(category)
@@ -1110,7 +1117,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           {cars.length ? <DealerBrandRail cars={cars} brand={brand} model={model} onPick={(maker) => { setBrand((value) => value === maker ? "" : maker); setModel(""); setMode("active"); changeSection("ads"); }} onPickModel={(name) => { setModel((value) => value === name ? "" : name); setMode("active"); changeSection("ads"); }} /> : null}
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
-          {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} cars={brand ? cars.filter((car) => car.maker === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
+          {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} view={listView} setView={setListView} cars={brand ? cars.filter((car) => car.maker === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
