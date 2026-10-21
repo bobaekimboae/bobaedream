@@ -4,6 +4,7 @@ import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
 import { seoulAutoGalleryFormalProfilesByShopAndName } from "../data/seoul-autogallery-profile-assets-v01";
 import { seoulAutoGalleryStaffByShop } from "../data/seoul-autogallery-staff-v01";
+import { dealerSnsLinks } from "../data/seoul-autogallery-sns-v01";
 import "./seoul-auto-gallery-dealer-rail.css";
 
 export type SeoulAutoGalleryDealer = {
@@ -76,16 +77,24 @@ const shopLabel = (company: string) => company.replace(/\(주\)|\(유\)|주식�
 const companyOf = (dealer: SeoulAutoGalleryDealer) => shopLabel(seoulAutoGalleryShops.find((shop) => shop.shopNo === dealer.shopNo)?.company ?? "");
 const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, "");
 
+// 인스타그램 · 유튜브가 있는 딜러(본인 또는 상사 공식 계정) 표시(2026-10-21 「우리 딜러 페이지에 링크 걸어줘」)
+const iconBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
+const snsOf = (dealer: SeoulAutoGalleryDealer) => dealerSnsLinks(dealer.shopNo, dealer.name);
+
 function DealerCard({ dealer, onOpenDealer, showCompany }: { dealer: SeoulAutoGalleryDealer; onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void; showCompany?: boolean }) {
   const company = showCompany ? companyOf(dealer) : "";
+  const sns = snsOf(dealer);
   return (
     <button
       type="button"
       className="sag-dealer-card"
-      aria-label={`${dealer.name} 딜러${company ? ` · ${company}` : ""} 매물 ${dealer.listingCount}대 보기`}
+      aria-label={`${dealer.name} 딜러${company ? ` · ${company}` : ""}${sns ? ` · ${[sns.links.instagram ? "인스타그램" : "", sns.links.youtube ? "유튜브" : ""].filter(Boolean).join("·")} 있음` : ""} 매물 ${dealer.listingCount}대 보기`}
       onClick={() => onOpenDealer?.(dealer)}
     >
-      <img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} />
+      <span className="sag-dealer-photo">
+        <img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} />
+        {sns ? <span className="sag-dealer-sns" aria-hidden="true">{sns.links.instagram ? <img src={`${iconBase}icons/dealer-profile/instagram.svg`} alt="" /> : null}{sns.links.youtube ? <img src={`${iconBase}icons/dealer-profile/youtube.svg`} alt="" /> : null}</span> : null}
+      </span>
       <strong>{dealer.name}</strong>
       {company ? <em>{company}</em> : null}
       <span>{dealer.listingCount}대</span>
@@ -102,7 +111,8 @@ function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dea
     .filter((shop) => shop.count > 0)
     .sort((a, b) => b.count - a.count || a.index - b.index), []);
   const q = normalize(query);
-  const list = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || dealer.shopNo === shopNo) && (!q || normalize(dealer.name).includes(q) || normalize(companyOf(dealer)).includes(q)));
+  const snsCount = allSeoulAutoGalleryDealers.filter((dealer) => snsOf(dealer)).length;
+  const list = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || (shopNo === "sns" ? Boolean(snsOf(dealer)) : dealer.shopNo === shopNo)) && (!q || normalize(dealer.name).includes(q) || normalize(companyOf(dealer)).includes(q)));
   return (
     <section className="sag-dealer-rail is-all" aria-labelledby="sag-dealer-rail-title">
       <label className="sag-dealer-search">
@@ -112,6 +122,7 @@ function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dea
       </label>
       <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
         <button type="button" aria-pressed={!shopNo} className={!shopNo ? "is-selected" : ""} onClick={() => setShopNo("")}>전체 {allSeoulAutoGalleryDealers.length}</button>
+        <button type="button" aria-pressed={shopNo === "sns"} className={`is-sns${shopNo === "sns" ? " is-selected" : ""}`} onClick={() => setShopNo(shopNo === "sns" ? "" : "sns")}><img src={`${iconBase}icons/dealer-profile/instagram.svg`} alt="" aria-hidden="true" />인스타 · 유튜브 {snsCount}</button>
         {shops.map((shop) => <button key={shop.shopNo} type="button" aria-pressed={shopNo === shop.shopNo} className={shopNo === shop.shopNo ? "is-selected" : ""} onClick={() => setShopNo(shopNo === shop.shopNo ? "" : shop.shopNo)}>{shop.label} {shop.count}</button>)}
       </div>
       <h2 id="sag-dealer-rail-title">딜러 {list.length}명</h2>
