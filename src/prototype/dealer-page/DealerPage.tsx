@@ -533,7 +533,34 @@ function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCatego
 
 // 판매차량 탭 위 슈퍼카 브랜드 로고 줄(2026-10-21 「판매차량 위 구분선에 우리 슈퍼카 로고 카드들 배치하자」).
 // 슈퍼카·럭셔리카 카테고리와 같은 오토홈 로고 16개 · 같은 칸(모바일 76×102 · PC 84×102). 누르면 그 브랜드 판매차량만, 다시 누르면 해제. 0대는 흐리게.
-function DealerBrandRail({ cars, brand, onPick }: { cars: Car[]; brand: string; onPick: (maker: string) => void }) {
+// 페라리를 고르면 로고 줄 아래에 우리 페라리 모델 이미지 줄(2026-10-21 「페라리 다음에 우리 모델 이미지 나오게해라」).
+// 이미지·이름·순서는 차량 기준표(cars-index-v1)의 페라리 모델그룹 18개, 3/4 카탈로그 컷(ferrari-models/angle). 0대는 흐리게.
+const ferrariModelCards: Array<[string, string, string[]]> = [
+  ["12 칠린드리", "12cilindri", ["12칠린드리", "12cilindri"]], ["296", "296", ["296"]], ["360", "360", ["360"]], ["458", "458", ["458"]], ["488", "488", ["488"]], ["599", "599", ["599"]], ["812", "812", ["812"]],
+  ["F12 베를리네타", "f12", ["f12"]], ["F355", "f355", ["f355"]], ["F430", "f430", ["f430"]], ["F8", "f8", ["f8"]], ["FF", "ff", ["ff"]], ["GTC4 루쏘", "gtc4lusso", ["gtc4"]], ["SF90", "sf90", ["sf90"]],
+  ["로마", "roma", ["로마", "roma"]], ["캘리포니아", "california", ["캘리포니아", "california"]], ["포르토피노", "portofino", ["포르토피노", "portofino"]], ["푸로산게", "purosangue", ["푸로산게", "purosangue"]],
+];
+const modelKey = (value: string) => value.replace(/[\s-]/g, "").toLowerCase();
+function dealerFerrariModelOf(car: Car) {
+  const text = modelKey(car.modelGroup || car.title.replace(/^페라리\s*/, ""));
+  return ferrariModelCards.find(([, , keys]) => keys.some((key) => text.startsWith(key)))?.[0] ?? "";
+}
+function DealerModelRail({ cars, model, onPick }: { cars: Car[]; model: string; onPick: (model: string) => void }) {
+  const counts = new Map<string, number>();
+  cars.forEach((car) => { const name = dealerFerrariModelOf(car); if (name) counts.set(name, (counts.get(name) ?? 0) + 1); });
+  return <div className="dp-brand-rail-track dp-model-rail" role="group" aria-label="페라리 모델로 판매차량 보기">
+    {ferrariModelCards.map(([name, slug]) => {
+      const count = counts.get(name) ?? 0;
+      return <button type="button" key={name} className={`${model === name ? "is-active" : ""}${count ? "" : " is-empty"}`} aria-pressed={model === name} aria-label={`페라리 ${name} ${count}대`} onClick={() => onPick(name)}>
+        <span className="dp-model-rail-image"><img src={asset(["quickfilter", "car", "ferrari-models", "angle", `ferrari_${slug}_angle_v01.png`].join("/"))} alt="" draggable={false} loading="lazy" /></span>
+        <span className="dp-brand-rail-name">{name}</span>
+        <span className="dp-brand-rail-count">({count})</span>
+      </button>;
+    })}
+  </div>;
+}
+
+function DealerBrandRail({ cars, brand, onPick, model, onPickModel }: { cars: Car[]; brand: string; onPick: (maker: string) => void; model: string; onPickModel: (model: string) => void }) {
   const source = luxuryLogoSource();
   const counts = new Map<string, number>();
   cars.forEach((car) => counts.set(car.maker, (counts.get(car.maker) ?? 0) + 1));
@@ -548,6 +575,7 @@ function DealerBrandRail({ cars, brand, onPick }: { cars: Car[]; brand: string; 
         </button>;
       })}
     </div>
+    {brand === "페라리" ? <DealerModelRail cars={cars.filter((car) => car.maker === "페라리")} model={model} onPick={onPickModel} /> : null}
   </nav>;
 }
 
@@ -993,6 +1021,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
   const [following, setFollowing] = useState(true);
   const [mode, setMode] = useState<ListingMode>("active");
   const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
   const [selectedStockCategories, setSelectedStockCategories] = useState<StockCategory[]>(() => readStockCategories(new URLSearchParams(window.location.search).getAll("stockCategory")));
   const toggleStockCategory = (category: StockCategory) => {
     const next = selectedStockCategories.includes(category)
@@ -1076,10 +1105,10 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           </div>
         </div> : <>
           <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
-          {cars.length ? <DealerBrandRail cars={cars} brand={brand} onPick={(maker) => { setBrand((value) => value === maker ? "" : maker); setMode("active"); changeSection("ads"); }} /> : null}
+          {cars.length ? <DealerBrandRail cars={cars} brand={brand} model={model} onPick={(maker) => { setBrand((value) => value === maker ? "" : maker); setModel(""); setMode("active"); changeSection("ads"); }} onPickModel={(name) => { setModel((value) => value === name ? "" : name); setMode("active"); changeSection("ads"); }} /> : null}
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
-          {activeSection === "ads" ? <ListingsSection key={brand} cars={brand ? cars.filter((car) => car.maker === brand) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
+          {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} cars={brand ? cars.filter((car) => car.maker === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
