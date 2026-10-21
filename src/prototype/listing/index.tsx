@@ -3312,7 +3312,8 @@ function MarketplaceScreen() {
         </div>
         {/* PC 지역 선택은 전체 필터에서 제공한다. 상단에는 지역 나열 칩을 렌더하지 않는다. */}
         <div className="bbm-quick-slot">{quickRail}</div>
-        {seoulAutoGalleryDealerRail}
+        {/* 2026-10-21 「딜러 박스는 기존처럼 리스트 바로 위(좌측 필터 오른쪽)」: 전체 폭 카드일 때는 목록 열에서 그린다 */}
+        {fullTopQuickCard ? null : seoulAutoGalleryDealerRail}
       </section>
     );
     // 개발 시안 PC 보기 방식(테스트 서버 dev.bbmuseum 실측 10/9): 목록형 · 갤러리형(4열) · 한줄 광고(표). 피드·텍스트는 PC 메뉴에 없어 목록으로 보여준다
@@ -3335,6 +3336,7 @@ function MarketplaceScreen() {
               {allVehiclesWide ? null : <BbFilterSidebar collapsible leadingFilters={isHeavyCategory ? <HeavySidebarFilters value={heavySelection} onChange={applyHeavySelection} /> : undefined} mileageFinal={isGuaziQuickStyle} priceFinal={isGuaziQuickStyle} order={isHeavyCategory ? ["가격", "연식", "연료", "지역", "판매자 유형", "판매방식"] : isGuaziQuickStyle ? isTruckCategory ? truckFilterOrder : category === "바이크" ? bikeFilterOrder : isPartsCategory ? partsFilterOrder : bbmFilterOrder : undefined} pricePresets={isPartsCategory ? partsPricePresets : undefined} makerSections={bbmSidebarMakerSections} selection={bbmSelection} historyCount={shownHistory} countOf={bbmCountOf} appliedCount={bbmAppliedCount} onReset={() => resetFilters()} onNotify={setSearchToast} bbm={filters.bbm ?? emptyBbmFilters} onBbmChange={setBbmFilters} countWithBbm={countWithBbm} resetSignal={bbmTopReset} brandLogos={isGuaziQuickStyle && !isTruckCategory} brandLogoCategory={category} truckFilter={truckSidebarFilter} referenceMakerFlow={charanchaMakerFlow || isHeavyCategory} makerOpenByDefault={isUsedCarCategory || isBikeCategory || isTruckCategory} singleOpen={pcFilterLayout === "charancha" && !isTruckCategory} showMakerCounts allowEmptyMakerOptions={charanchaMakerFlow} makerLabel={isBikeCategory ? "브랜드 · 모델" : charanchaMakerFlow ? "제조사 · 모델 · 등급" : undefined} />}
               <div className="bbm-content">
                 {isGuaziQuickStyle ? balancedTopCard && !allVehiclesWide ? bbmTopCard : null : bbmContentHead}
+                {fullTopQuickCard && seoulAutoGalleryDealerRail ? <div className="bbm-dealer-rail-box">{seoulAutoGalleryDealerRail}</div> : null}
                 <section className="bbm-results" aria-label="매물 목록">
                   {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
                   <nav className="bbm-toolbar" aria-label="매물 유형과 정렬">
