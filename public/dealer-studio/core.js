@@ -23,6 +23,8 @@ function wrapped(ctx, value, x, y, width, size, maxLines = 2, weight = 700) {
   ctx.font = `${weight} ${size}px "Pretendard Variable", Pretendard, sans-serif`;
   const lines = []; let line = '';
   for (const char of String(value ?? '')) {
+    if (char === '\r') continue;
+    if (char === '\n') { lines.push(line); line = ''; continue; }
     if (ctx.measureText(line + char).width > width && line) { lines.push(line); line = ''; }
     line += char;
   }
@@ -76,7 +78,10 @@ export function drawFrame(canvas, state, images, time) {
     const details = [state.year && `${state.year}년식`, state.mileage && `${state.mileage}km`, state.fuel].filter(Boolean).join('  ·  ');
     ctx.globalAlpha = .65; wrapped(ctx, details, 36, 791, 465, 17, 1, 450); ctx.globalAlpha = 1;
     wrapped(ctx, state.price || '가격 상담', 36, 843, 465, 34, 1, 800);
-    if (state.captions) { ctx.globalAlpha = .78; wrapped(ctx, scene.caption || state.highlights, 36, 897, 465, 18, 2, 500); ctx.globalAlpha = 1; }
+    ctx.globalAlpha = .78;
+    wrapped(ctx, state.highlights, 36, 878, 465, 16, 2, 500);
+    if (state.captions) wrapped(ctx, scene.caption, 36, 924, 465, 14, 1, 500);
+    ctx.globalAlpha = 1;
   }
   ctx.fillStyle = palette.ink; ctx.globalAlpha = .15; ctx.fillRect(36, 937, 468, 2);
   ctx.globalAlpha = 1; ctx.fillStyle = palette.accent; ctx.fillRect(36, 937, 468 * Math.min(1, time / Number(state.duration)), 2);
@@ -96,7 +101,7 @@ export async function mixAudio(state, files) {
     source.connect(gain).connect(ctx.destination); source.start(0); source.stop(duration);
   };
   if (state.music === 'upload') await addFile(files.music, volume, true);
-  else if (state.music !== 'off') {
+  else if (state.music !== 'off' && volume > 0) {
     const roots = state.music === 'drive' ? [146.83, 174.61, 130.81, 164.81] : [130.81, 164.81, 110, 146.83];
     const beat = state.music === 'drive' ? .5 : .8;
     for (let t = 0; t < duration; t += beat) {
