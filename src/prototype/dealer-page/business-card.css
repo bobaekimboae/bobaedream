@@ -170,3 +170,4 @@
 .dbc-trust .dbc-verified~span:nth-child(2)::before{display:none}
 .dbc-share-more,.dbc-share-car,.dbc-share-car-list{min-width:0;max-width:100%}
 .dbc-sharebar{min-width:0;grid-template-columns:minmax(0,1fr)}
+.dbc-stock-chips{margin:0 0 12px}

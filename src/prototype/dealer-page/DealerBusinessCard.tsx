@@ -170,7 +170,8 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   };
   const reels = (extras?.reels ?? []).filter((reel) => reel.poster).slice(0, 3);
   const sns = { instagram: cardFieldHref("instagram", style.fields.instagram) ?? extras?.sns?.instagram, youtube: cardFieldHref("youtube", style.fields.youtube) ?? extras?.sns?.youtube, tiktok: cardFieldHref("tiktok", style.fields.tiktok) ?? undefined };
-  const smsHref = phoneHref ? phoneHref.replace(/^tel:/, "sms:") : null;
+  // 문자는 휴대폰 번호(01X)일 때만. 상사·단지 대표 일반전화(02-…)로는 문자를 보낼 수 없다.
+  const smsHref = phoneHref && /^tel:(\+?82|0)1[016789]/.test(phoneHref) ? phoneHref.replace(/^tel:/, "sms:") : null;
   const trust = [extras?.rating ? `★ ${extras.rating.toFixed(1)}` : "", extras?.reviewCount ? `리뷰 ${extras.reviewCount.toLocaleString("ko-KR")}` : "", extras?.sold ? `판매완료 ${extras.sold.toLocaleString("ko-KR")}대` : ""].filter(Boolean);
   const mapQuery = effectiveContact.gallery || receiverContact.address;
   const valuationUrl = (() => { const target = new URL(dealerUrl); target.searchParams.set("tab", "valuation"); return target.href; })();
@@ -206,8 +207,8 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     </section>
     {contact.listingCount ? <section className="dbc-stock" aria-label="판매차량">
       <a className="dbc-stock-head" href={stockUrl(window.location.href, shop, emp)}><b>판매차량 {contact.listingCount ?? 0}대</b><span>전체 보기 <i aria-hidden="true">›</i></span></a>
-      {extras?.listings?.length ? <div className="dbc-stock-thumbs">{extras.listings.filter((car) => car.id !== featured?.id).slice(0, 3).map((car) => <a key={car.id} href={car.href}><span className="dbc-stock-photo"><img src={car.image} alt="" loading="lazy" /></span><b>{car.title}</b><strong>{car.price}</strong></a>)}</div> : null}
       {extras?.categories?.length ? <div className="dbc-stock-chips">{extras.categories.map((item) => <a key={item.label} href={stockUrl(window.location.href, shop, emp, item.label)}>{item.label}<span>{item.count}</span></a>)}</div> : null}
+      {extras?.listings?.length ? <div className="dbc-stock-thumbs">{extras.listings.filter((car) => car.id !== featured?.id).slice(0, 3).map((car) => <a key={car.id} href={car.href}><span className="dbc-stock-photo"><img src={car.image} alt="" loading="lazy" /></span><b>{car.title}</b><strong>{car.price}</strong></a>)}</div> : null}
     </section> : null}
     {mapQuery ? <section className="dbc-visit" aria-label="방문 안내">
       <p className="dbc-visit-place"><Ico name="location" /><span><b>{effectiveContact.gallery || "방문 안내"}</b><small>{receiverContact.address}</small></span></p>
@@ -215,7 +216,8 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     </section> : null}
     <a className="dbc-row-link" href={valuationUrl}><Ico name="valuation" /><span><b>내 차 팔 때 시세 견적 받기</b><small>{contact.name} 딜러가 무료로 견적을 드려요</small></span><i aria-hidden="true">›</i></a>
     {reels.length || sns.instagram || sns.youtube || sns.tiktok ? <section className="dbc-sns" aria-label="SNS">
-      {reels.length ? <><p className="dbc-sns-title">최근 쇼츠</p><div className="dbc-reels">{reels.map((reel) => <a key={reel.href} href={reel.href} target="_blank" rel="noopener noreferrer" aria-label={`${reel.label ?? "인스타그램 릴스"} 보기`}><img src={reel.poster} alt="" loading="lazy" /><span aria-hidden="true">▶</span></a>)}</div></> : null}
+      <p className="dbc-sns-title">SNS</p>
+      {reels.length ? <><div className="dbc-reels">{reels.map((reel) => <a key={reel.href} href={reel.href} target="_blank" rel="noopener noreferrer" aria-label={`${reel.label ?? "인스타그램 릴스"} 보기`}><img src={reel.poster} alt="" loading="lazy" /><span aria-hidden="true">▶</span></a>)}</div></> : null}
       <div className="dbc-sns-links">{sns.instagram ? <a href={sns.instagram} target="_blank" rel="noopener noreferrer">인스타그램</a> : null}{sns.youtube ? <a href={sns.youtube} target="_blank" rel="noopener noreferrer">유튜브</a> : null}{sns.tiktok ? <a href={sns.tiktok} target="_blank" rel="noopener noreferrer">틱톡</a> : null}</div>
     </section> : null}
     <button type="button" className="dbc-save-contact" onClick={saveContact}><Ico name="contact" />연락처 저장</button>
