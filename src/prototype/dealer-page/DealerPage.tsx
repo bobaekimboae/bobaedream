@@ -21,6 +21,7 @@ import { DealerBusinessCard } from "./DealerBusinessCard";
 import type { CardExtras } from "./business-card";
 import { safePhoneFor, safePhoneNote } from "./business-card";
 import { matchesStockCategories, matchesStockCategory, readStockCategories, stockCategories, type StockCategory } from "./dealer-stock";
+import { ShortformStudio, type MadeShortform } from "./shortform/ShortformStudio";
 import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -509,11 +510,30 @@ function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInsta
   </div>;
 }
 
-function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCategory, igPosts = [], igHandle = "", view = "list", setView }: { view?: DealerListView; setView?: (view: DealerListView) => void; cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; categories: readonly StockCategory[]; toggleCategory: (category: StockCategory) => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string }) {
+// 딜러용 숏폼 자동 제작기(2026-10-22 「숏폼 자동 제작하는 딜러용 프로그램 … 너가 만들어봐」): 안내 줄 + 이번에 만든 숏폼 카드.
+function ShortformCta({ onMake }: { onMake: () => void }) {
+  return <aside className="dp-shortform-cta" aria-label="숏폼 만들기">
+    <span><b>내 매물로 숏폼 만들기</b><small>사진과 매물 정보로 세로 영상을 자동으로 만들어요</small></span>
+    <button type="button" onClick={onMake}>만들기</button>
+  </aside>;
+}
+function MadeShortforms({ items, dealerName, avatar }: { items: MadeShortform[]; dealerName: string; avatar: string }) {
+  return <div className="dp-social-feed-list dp-ig-embeds">{items.map((item) => <article className="dp-social-post dp-ig-post" key={item.id}>
+    <header>
+      <img className="dp-made-avatar" src={avatar} alt="" aria-hidden="true" />
+      <span><b>{item.title}</b><small>{dealerName} 딜러 · 방금 · 보배드림 숏폼 {item.seconds}초</small></span>
+      <a href={item.url} download={`bobae-shortform-${item.carId}.mp4`} aria-label="숏폼 내려받기"><OutLinkIcon /></a>
+    </header>
+    <div className="dp-ig-reel is-native"><video controls playsInline preload="metadata" poster={item.poster} src={item.url} aria-label={`${item.title} 숏폼`} /></div>
+    <footer><span>판매 문의는 채팅·전화로</span><a href={item.url} download={`bobae-shortform-${item.carId}.mp4`}>내려받기</a></footer>
+  </article>)}</div>;
+}
+
+function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCategory, igPosts = [], igHandle = "", view = "list", setView, madeShorts = [], onMakeShortform, dealerName = "", dealerAvatar = "" }: { madeShorts?: MadeShortform[]; onMakeShortform?: () => void; dealerName?: string; dealerAvatar?: string; view?: DealerListView; setView?: (view: DealerListView) => void; cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; categories: readonly StockCategory[]; toggleCategory: (category: StockCategory) => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string }) {
   const [limit, setLimit] = useState(5);
   const filteredCars = cars.filter((car) => matchesStockCategories(car, categories));
   const categoryLabel = categories.length ? categories.join(" · ") : "전체";
-  const snsCount = igPosts.length || SNS_LISTING_COUNT;
+  const snsCount = (igPosts.length || SNS_LISTING_COUNT) + madeShorts.length;
   const max = mode === "active" ? filteredCars.length : mode === "sold" ? MOCK.soldCars.length : snsCount;
   return <section className="dp-content-card dp-listings">
     <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
@@ -521,7 +541,7 @@ function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCatego
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
       <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({snsCount})</button>
     </div>
-    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}<span className="dp-stock-category-count">{cars.filter((car) => matchesStockCategory(car, item)).length}</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}<div className="dp-view-toggle is-icons" role="group" aria-label="보기 방식">{([["list", "목록 보기"], ["feed", "피드 보기"]] as const).map(([id, label]) => <button key={id} type="button" aria-pressed={view === id} aria-label={label} title={label} onClick={() => setView?.(id)}><span className="dp-view-toggle-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${publicBase}community/assets/view-${id}.svg)`, maskImage: `url(${publicBase}community/assets/view-${id}.svg)` }} /></button>)}</div></div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} view={view} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
+    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}<span className="dp-stock-category-count">{cars.filter((car) => matchesStockCategory(car, item)).length}</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}<div className="dp-view-toggle is-icons" role="group" aria-label="보기 방식">{([["list", "목록 보기"], ["feed", "피드 보기"]] as const).map(([id, label]) => <button key={id} type="button" aria-pressed={view === id} aria-label={label} title={label} onClick={() => setView?.(id)}><span className="dp-view-toggle-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${publicBase}community/assets/view-${id}.svg)`, maskImage: `url(${publicBase}community/assets/view-${id}.svg)` }} /></button>)}</div></div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} view={view} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : <>{onMakeShortform ? <ShortformCta onMake={onMakeShortform} /> : null}{madeShorts.length ? <MadeShortforms items={madeShorts} dealerName={dealerName} avatar={dealerAvatar} /> : null}{igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}</>}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
@@ -1054,6 +1074,12 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) && requested !== "social" ? requested as SectionId : "ads";
   });
   const [toast, setToast] = useState("");
+  // 숏폼 만들기 창: 주소 &shortform=1(매물 고르기) 또는 &shortform=<매물 id>로 바로 열 수 있다.
+  const [studio, setStudio] = useState<{ carId?: number } | null>(() => {
+    const value = new URLSearchParams(window.location.search).get("shortform");
+    return value ? { carId: Number(value) || undefined } : null;
+  });
+  const [madeShorts, setMadeShorts] = useState<MadeShortform[]>([]);
   const reviewStorageKey = `bobaedream:dealer-reviews:${dealer.shopNo}:${dealer.empNo}`;
   const [submittedReviews, setSubmittedReviews] = useState<StoreReview[]>(() => {
     try {
@@ -1124,7 +1150,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           {cars.length ? <DealerBrandRail cars={cars} brand={brand} model={model} onPick={(maker) => { setBrand((value) => value === maker ? "" : maker); setModel(""); setMode("active"); changeSection("ads"); }} onPickModel={(name) => { setModel((value) => value === name ? "" : name); setMode("active"); changeSection("ads"); }} /> : null}
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
-          {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} view={listView} setView={setListView} cars={brand ? cars.filter((car) => car.maker === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
+          {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} view={listView} setView={setListView} cars={brand ? cars.filter((car) => car.maker === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} madeShorts={madeShorts} onMakeShortform={() => setStudio({})} dealerName={dealer.name} dealerAvatar={dealerPhoto(dealer)} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
@@ -1133,6 +1159,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       </main>
       <Footer />
     </div>
+    {studio ? <ShortformStudio cars={cars} initialCarId={studio.carId} dealer={{ name: dealer.name, company: stripCorp(MOCK.company), phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), photo: dealerPhoto(dealer) }} onClose={() => setStudio(null)} onPublish={(made) => { setMadeShorts((current) => [made, ...current]); setMode("sns"); changeSection("ads"); notify("SNS 판매 차량에 숏폼을 올렸어요"); }} /> : null}
     {toast ? <div className="dp-toast" role="status">{toast}</div> : null}
   </div>;
 }
