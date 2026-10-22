@@ -30,23 +30,24 @@
 .vlf-progress input { width: 100%; height: 4px; margin: 0; appearance: none; border-radius: 999px; background: linear-gradient(90deg, #fff var(--vlf-progress), rgb(255 255 255 / 48%) var(--vlf-progress)); cursor: pointer; }
 .vlf-progress input::-webkit-slider-thumb { width: 12px; height: 12px; appearance: none; border-radius: 50%; background: #fff; }
 .vlf-progress b { flex: none; color: #fff; font-size: 12px; font-weight: 700; }
-.vlf-filmstrip { position: absolute; z-index: 3; right: 0; bottom: 16px; left: 0; display: grid; height: 48px; grid-template-columns: 40px minmax(0, 1fr) 40px; align-items: center; }
-.vlf-filmstrip > div { display: flex; overflow: hidden; align-items: center; justify-content: center; gap: 8px; padding: 0 12px; border-radius: 999px; background: rgb(42 42 42 / 82%); }
-.vlf-filmstrip > div button { width: 8px; height: 8px; flex: none; padding: 0; border: 0; border-radius: 50%; background: #777; cursor: pointer; }
+.vlf-filmstrip { position: absolute; z-index: 3; right: -8px; bottom: 20px; left: -8px; display: grid; height: 48px; grid-template-columns: 40px 268px 40px; column-gap: 8px; align-items: center; justify-content: center; }
+.vlf-filmstrip > div { display: flex; box-sizing: border-box; height: 40px; overflow: hidden; align-items: center; justify-content: center; gap: 8px; padding: 0 16px; border-radius: 99px; background: #424242; }
+.vlf-filmstrip > div button { width: 8px; height: 8px; flex: none; padding: 0; border: 0; border-radius: 50%; background: rgb(187 187 187 / 50%); cursor: pointer; }
 .vlf-filmstrip > div button.is-active { width: 12px; height: 12px; background: #fff; }
-.vlf-film-arrow { display: grid; width: 40px; height: 40px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: rgb(238 238 238 / 86%); cursor: pointer; }
-.vlf-film-arrow:disabled { opacity: .36; }
-.vlf-film-arrow img { width: 24px; height: 24px; }
+.vlf-film-arrow { display: grid; width: 40px; height: 40px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: #424242; color: #fff; cursor: pointer; }
+.vlf-film-arrow:disabled { background: #c0c0c0; opacity: 1; cursor: default; }
+.vlf-film-arrow svg { width: 24px; height: 24px; }
 .vlf-mobile-summary { display: none; }
-.vlf-actions { display: flex; position: relative; flex-direction: column; align-items: flex-start; justify-content: center; gap: 16px; padding-left: 16px; color: #1f2d45; }
-.vlf-actions > button { display: grid; min-width: 48px; justify-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #fff; cursor: pointer; }
-.vlf-actions > button > span { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: #fff; }
-.vlf-actions > button img { width: 25px; height: 25px; }
-.vlf-actions > button.is-active > span { background: #dce9ff; box-shadow: inset 0 0 0 2px #306bd9; }
-.vlf-actions > button small { color: #24334f; font-size: 13px; font-weight: 700; }
-.vlf-stepper { position: absolute; top: 50%; right: 16px; display: grid; gap: 16px; transform: translateY(-50%); }
-.vlf-stepper button { display: grid; width: 48px; height: 48px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: #306bd9; color: #fff; box-shadow: 0 8px 22px rgb(48 107 217 / 28%); cursor: pointer; }
-.vlf-stepper button:disabled { color: #aaa; opacity: .7; }
+.vlf-actions { position: relative; color: #1f2d45; }
+.vlf-actions-list { position: absolute; top: 24.89%; left: 16px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.vlf-action-item { display: grid; justify-items: center; gap: 4px; }
+.vlf-action-item > button { display: grid; width: 48px; height: 48px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: #424242; color: #fff; cursor: pointer; }
+.vlf-action-item > button.is-active { background: #306bd9; }
+.vlf-action-item svg { width: 24px; height: 24px; }
+.vlf-action-item small { color: #24334f; font-size: 13px; font-weight: 700; line-height: 20px; }
+.vlf-stepper { position: absolute; top: calc(50% - 5px); right: 24px; display: grid; gap: 16px; transform: translateY(-50%); }
+.vlf-stepper button { display: grid; width: 48px; height: 48px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: #424242; color: #fff; cursor: pointer; }
+.vlf-stepper button:disabled { background: #c0c0c0; color: #fff; opacity: 1; cursor: default; }
 .vlf-stepper svg { width: 24px; height: 24px; }
 .vlf-detail { display: grid; min-width: 0; height: 100%; grid-template-rows: auto auto auto 53px minmax(0, 1fr) 56px; overflow: hidden; border-radius: 20px; background: #fff; }
 .vlf-detail > header { display: grid; gap: 7px; padding: 21px 20px 8px; }
@@ -96,14 +97,14 @@
   .vlf-discovery { top: 62px; left: 62px; }
   .vlf-volume { right: 14px; }
   .vlf-volume input { display: none; }
-  .vlf-actions { position: absolute; z-index: 4; right: 12px; bottom: 116px; gap: 12px; padding: 0; }
-  .vlf-actions > button > span { background: rgb(255 255 255 / 94%); }
-  .vlf-actions > button small { text-shadow: 0 1px 3px #000; }
-  .vlf-actions > button small { color: #fff; }
+  .vlf-actions { position: absolute; z-index: 4; right: 12px; bottom: 116px; width: 48px; padding: 0; }
+  .vlf-actions-list { position: static; gap: 12px; }
+  .vlf-action-item > button { background: rgb(66 66 66 / 90%); backdrop-filter: blur(8px); }
+  .vlf-action-item small { color: #fff; text-shadow: 0 1px 3px #000; }
   .vlf-stepper { display: none; }
   .vlf-detail { display: none; }
   .vlf-progress { right: 16px; bottom: 83px; left: 16px; }
-  .vlf-filmstrip { bottom: 14px; padding: 0 8px; }
+  .vlf-filmstrip { right: 0; bottom: 14px; left: 0; box-sizing: border-box; padding: 0 8px; }
   .vlf-filmstrip > div { height: 34px; }
   .vlf-mobile-summary { display: grid; position: absolute; z-index: 3; right: 74px; bottom: 121px; left: 16px; gap: 3px; color: #fff; text-shadow: 0 1px 3px #000; }
   .vlf-mobile-summary strong { font-size: 17px; line-height: 23px; }

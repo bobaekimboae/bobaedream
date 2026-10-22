@@ -59,6 +59,20 @@ function SvgChevron({ direction }: { direction: "up" | "down" }) {
   return <svg viewBox="0 0 24 24" aria-hidden="true"><path d={path} fill="currentColor" /></svg>;
 }
 
+function HorizontalChevron({ direction }: { direction: "left" | "right" }) {
+  const path = direction === "left"
+    ? "M8.22438 12.6309C7.90403 12.2382 7.92662 11.6592 8.29274 11.293L13.2927 6.29304L13.3689 6.22469C13.7617 5.90433 14.3407 5.92693 14.7068 6.29304C15.0729 6.65916 15.0955 7.23816 14.7752 7.63094L14.7068 7.70711L10.4138 12.0001L14.7068 16.293C15.0973 16.6836 15.0973 17.3166 14.7068 17.7071C14.3163 18.0976 13.6833 18.0976 13.2927 17.7071L8.29274 12.7071L8.22438 12.6309Z"
+    : "M16 11.9999C16 12.2651 15.8946 12.5194 15.707 12.707L10.707 17.707L10.6309 17.7753C10.2381 18.0957 9.65908 18.0731 9.29297 17.707C8.92685 17.3408 8.90426 16.7618 9.22461 16.3691L9.29297 16.2929L13.5859 11.9999L9.29297 7.70696C8.90244 7.31643 8.90244 6.68342 9.29297 6.29289C9.68349 5.90237 10.3165 5.90237 10.707 6.29289L15.707 11.2929L15.7734 11.3661C15.9193 11.5441 16 11.7674 16 11.9999Z";
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d={path} fill="currentColor" /></svg>;
+}
+
+function VideoActionIcon({ kind }: { kind: "like" | "comment" | "favorite" | "share" }) {
+  if (kind === "like") return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.1201 2C12.9158 2 13.6786 2.3163 14.2412 2.87891C14.8038 3.44151 15.1201 4.20435 15.1201 5V9H18.8838L19.0752 9.00586C19.5201 9.03426 19.9539 9.162 20.3447 9.37988C20.7913 9.62885 21.1667 9.98794 21.4355 10.4229C21.7043 10.8576 21.8577 11.3537 21.8809 11.8643C21.901 12.3112 21.8209 12.7564 21.6475 13.167L21.5674 13.3408L18.0674 20.3408C17.8182 20.8395 17.4351 21.2587 16.9609 21.5518C16.5459 21.8082 16.0755 21.9597 15.5908 21.9932L15.3828 22H11.3662C11.1215 22 10.876 21.9704 10.6367 21.9102L8.12012 21.2803V7.69531L9.67969 5.35645L9.68066 5.35547L9.78223 5.19141C10.0035 4.80044 10.1201 4.35748 10.1201 3.90527C10.1201 2.85299 10.9731 2 12.0254 2H12.1201Z" fill="currentColor"/><path d="M6.12012 21H5.12012C4.32447 21 3.56163 20.6837 2.99902 20.1211C2.43641 19.5585 2.12012 18.7957 2.12012 18V12C2.12012 11.2044 2.43641 10.4415 2.99902 9.87891C3.56163 9.3163 4.32447 9 5.12012 9H6.12012V21Z" fill="currentColor"/></svg>;
+  if (kind === "comment") return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.9995 1.3999C17.8536 1.3999 22.5999 6.14547 22.6001 11.9995C22.6001 13.4157 22.3176 14.768 21.812 16.0054L22.5913 21.4575C22.6384 21.7871 22.5182 22.1183 22.271 22.3413C22.0238 22.5642 21.6818 22.6496 21.3589 22.5688L16.8296 21.436C15.3801 22.1793 13.7377 22.6001 11.9995 22.6001C6.14547 22.5999 1.3999 17.8536 1.3999 11.9995C1.40011 6.1456 6.1456 1.40011 11.9995 1.3999ZM8.40186 12.1987C7.84964 12.1987 7.40196 12.6465 7.40186 13.1987C7.40186 13.751 7.84957 14.1987 8.40186 14.1987H12.6021L12.7036 14.1938C13.2081 14.1429 13.6021 13.7167 13.6021 13.1987C13.602 12.6809 13.2081 12.2546 12.7036 12.2036L12.6021 12.1987H8.40186ZM8.40186 7.3999C7.84957 7.3999 7.40186 7.84762 7.40186 8.3999C7.40186 8.95219 7.84957 9.3999 8.40186 9.3999H15.6021L15.7036 9.39502C16.2081 9.34404 16.602 8.91784 16.6021 8.3999C16.6021 7.88196 16.2081 7.45576 15.7036 7.40479L15.6021 7.3999H8.40186Z" fill="currentColor"/></svg>;
+  if (kind === "favorite") return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.8071 3.00022C17.5772 2.99353 18.3414 3.14024 19.0542 3.43186C19.767 3.72349 20.4149 4.15486 20.9595 4.69944C21.5038 5.24389 21.9345 5.89118 22.2261 6.60373C22.5177 7.31653 22.6644 8.08069 22.6577 8.8508C22.651 9.62075 22.4909 10.3816 22.187 11.0891C21.8853 11.7914 21.447 12.4266 20.8989 12.9592L12.7056 21.1545C12.518 21.342 12.2637 21.4475 11.9985 21.4475C11.7334 21.4474 11.479 21.342 11.2915 21.1545L3.09814 12.9602C2.0109 11.8726 1.40001 10.3974 1.3999 8.85959C1.3999 7.32172 2.01091 5.84665 3.09814 4.75901C4.18576 3.67178 5.66088 3.05983 7.19873 3.05979C8.73656 3.05979 10.2117 3.67086 11.2993 4.75803L11.9985 5.45725L12.6987 4.75803C13.2312 4.21016 13.8668 3.77251 14.5688 3.47092C15.2763 3.16706 16.0372 3.00695 16.8071 3.00022Z" fill="currentColor"/></svg>;
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.6237 20.4978C12.4563 20.4978 12.2972 20.4653 12.1382 20.4003C11.6945 20.2132 11.4098 19.7903 11.4098 19.3187V15.6511C6.32822 15.9032 5.38223 17.7329 4.29391 19.8473C4.05113 20.3271 3.4986 20.5873 2.9377 20.4734H2.92933C2.37679 20.3433 2.00007 19.8717 2.00007 19.3268C1.9917 13.8051 2.7284 8.82818 11.4098 8.4053V4.68077C11.4098 4.20911 11.6945 3.78623 12.1382 3.59919C12.5819 3.41215 13.0925 3.49347 13.4441 3.81063L21.6065 11.1296C21.8577 11.3491 22 11.6663 22 11.9916C22 12.3169 21.8577 12.634 21.6065 12.8617L13.4441 20.1807C13.2181 20.384 12.9251 20.4978 12.6237 20.4978Z" fill="currentColor"/></svg>;
+}
+
 function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
   const [index, setIndex] = useState(0);
   const [muted, setMuted] = useState(false);
@@ -171,9 +185,9 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
           <b>{seconds(elapsed)} / {seconds(duration)}</b>
         </div>
         <div className="vlf-filmstrip" aria-label={`${index + 1} / ${VIDEO_LISTINGS.length}`}>
-          <button type="button" className="vlf-film-arrow" aria-label="이전 영상" disabled={index === 0} onClick={() => move(-1)}><img src={icon("chotot-pc-detail-chevron-left-white-bg")} alt="" /></button>
+          <button type="button" className="vlf-film-arrow" aria-label="이전 영상" disabled={index === 0} onClick={() => move(-1)}><HorizontalChevron direction="left" /></button>
           <div>{VIDEO_LISTINGS.map((video, dot) => <button key={video.code} type="button" className={dot === index ? "is-active" : undefined} aria-label={`${dot + 1}번 영상`} onClick={() => choose(dot)} />)}</div>
-          <button type="button" className="vlf-film-arrow" aria-label="다음 영상" onClick={() => move(1)}><img src={icon("chotot-pc-detail-chevron-right-white-bg")} alt="" /></button>
+          <button type="button" className="vlf-film-arrow" aria-label="다음 영상" onClick={() => move(1)}><HorizontalChevron direction="right" /></button>
         </div>
         <article className="vlf-mobile-summary">
           <strong>{item.maker} {item.model}</strong><span>{specLabel(item)}</span><b>{priceLabel(item.row.price)}</b>
@@ -181,10 +195,12 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
       </div>
 
       <aside className="vlf-actions" aria-label="영상 매물 동작">
-        <button type="button" className={isLiked ? "is-active" : undefined} aria-label="좋아요" aria-pressed={isLiked} onClick={() => toggleSet(setLiked, item.code)}><span><img src={icon("chotot-list-detail-listing-like")} alt="" /></span><small>{isLiked ? 1 : 0}</small></button>
-        <button type="button" aria-label="댓글" onClick={() => setTab("comments")}><span><img src={icon("chotot-list-detail-listing-comment")} alt="" /></span><small>0</small></button>
-        <button type="button" className={isSaved ? "is-active" : undefined} aria-label="저장" aria-pressed={isSaved} onClick={() => toggleSet(setSaved, item.code)}><span><img src={icon(isSaved ? "chotot-common-bookmark-filled" : "chotot-common-bookmark")} alt="" /></span><small>저장</small></button>
-        <button type="button" aria-label="공유" onClick={() => onNotify("영상 매물 링크를 복사했어요")}><span><img src={icon("chotot-common-share")} alt="" /></span><small>공유</small></button>
+        <div className="vlf-actions-list">
+          <div className="vlf-action-item"><button type="button" className={isLiked ? "is-active" : undefined} aria-label="좋아요" aria-pressed={isLiked} onClick={() => toggleSet(setLiked, item.code)}><VideoActionIcon kind="like" /></button><small>{isLiked ? 1 : 0}</small></div>
+          <div className="vlf-action-item"><button type="button" aria-label="댓글" onClick={() => setTab("comments")}><VideoActionIcon kind="comment" /></button></div>
+          <div className="vlf-action-item"><button type="button" className={isSaved ? "is-active" : undefined} aria-label="저장" aria-pressed={isSaved} onClick={() => toggleSet(setSaved, item.code)}><VideoActionIcon kind="favorite" /></button><small>저장</small></div>
+          <div className="vlf-action-item"><button type="button" aria-label="공유" onClick={() => onNotify("영상 매물 링크를 복사했어요")}><VideoActionIcon kind="share" /></button><small>공유</small></div>
+        </div>
         <div className="vlf-stepper"><button type="button" aria-label="이전 매물" disabled={index === 0} onClick={() => move(-1)}><SvgChevron direction="up" /></button><button type="button" aria-label="다음 매물" onClick={() => move(1)}><SvgChevron direction="down" /></button></div>
       </aside>
 
