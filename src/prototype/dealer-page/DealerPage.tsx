@@ -1011,7 +1011,7 @@ function cardExtrasFor(dealer: SeoulAutoGalleryDealer, cars: Car[], rating = MOC
   const priceText = (price: string) => /상담/.test(price) ? "가격 상담" : /만원/.test(price) ? price.replace(/\s*만원/, "만원") : `${price}만원`;
   return {
     rating, reviewCount, sold: MOCK.sold,
-    listings: cars.filter((car) => car.image).slice(0, 3).map((car) => ({ id: car.id, title: car.title, image: asset(car.listThumb ?? car.image), price: priceText(String(car.price)), href: listingHref(car.id) })),
+    listings: cars.filter((car) => car.image).slice(0, 12).map((car) => ({ id: car.id, title: car.title, image: asset(car.listThumb ?? car.image), price: priceText(String(car.price)), href: listingHref(car.id) })),
     categories: stockCategories.map((label) => ({ label, count: cars.filter((car) => matchesStockCategory(car, label)).length })).filter((item) => item.count > 0),
     sns: dealerSnsLinks(dealer.shopNo, dealer.name)?.links,
     reels: instagramPostsFor(dealer.shopNo, dealer.name).filter((post) => post.kind === "reel").map((post) => ({ href: `https://www.instagram.com/reel/${post.code}/`, poster: post.poster ? asset(post.poster) : undefined, label: post.maker ? `${post.maker} ${post.model ?? ""}`.trim() : undefined })),
