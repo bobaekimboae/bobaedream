@@ -76,7 +76,7 @@ function VideoActionIcon({ kind }: { kind: "like" | "comment" | "favorite" | "sh
 function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
   const [index, setIndex] = useState(0);
   const [muted, setMuted] = useState(false);
-  const [volume, setVolume] = useState(0.72);
+  const volume = 0.72;
   const [audioBlocked, setAudioBlocked] = useState(false);
   const [paused, setPaused] = useState(false);
   const [liked, setLiked] = useState<Set<string>>(() => new Set());
@@ -169,15 +169,16 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
         />
         <div className="vlf-stage-shade" />
         <button type="button" className="vlf-close" aria-label="영상 매물 닫기" onClick={onClose}>
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.293 7.293a1 1 0 0 1 1.414 1.414L13.414 12l3.293 3.293a1 1 0 1 1-1.414 1.414L12 13.414l-3.293 3.293a1 1 0 1 1-1.414-1.414L10.586 12 7.293 8.707a1 1 0 1 1 1.414-1.414L12 10.586l3.293-3.293Z" fill="currentColor" /></svg>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.2929 7.29301C15.6834 6.90249 16.3164 6.90249 16.707 7.29301C17.0975 7.68354 17.0975 8.31655 16.707 8.70708L13.414 12L16.707 15.293L16.7753 15.3692C17.0957 15.762 17.0731 16.341 16.707 16.7071C16.3408 17.0732 15.7618 17.0958 15.3691 16.7754L15.2929 16.7071L11.9999 13.4141L8.70696 16.7071C8.31643 17.0976 7.68342 17.0976 7.29289 16.7071C6.90237 16.3166 6.90237 15.6835 7.29289 15.293L10.5859 12L7.29289 8.70708L7.22453 8.63091C6.90418 8.23813 6.92678 7.65913 7.29289 7.29301C7.65901 6.9269 8.23801 6.9043 8.63078 7.22466L8.70696 7.29301L11.9999 10.586L15.2929 7.29301Z" fill="currentColor" /></svg>
         </button>
-        <div className="vlf-brand"><img src={asset("bbm/header-logo.svg")} alt="보배드림" /><b>영상</b></div>
         <nav className="vlf-discovery" aria-label="영상 추천 방식"><button type="button" className="is-active">영상매물</button><button type="button">추천매물</button></nav>
+        <button type="button" className="vlf-more" aria-label="영상 설정 더보기" onClick={() => onNotify("영상 설정 메뉴입니다")}>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7813 11.9924C13.7813 11.0081 12.9844 10.2112 12 10.2112C11.0156 10.2112 10.2188 11.0081 10.2188 11.9924C10.2188 12.9768 11.0156 13.7737 12 13.7737C12.9844 13.7737 13.7813 12.9768 13.7813 11.9924Z" fill="currentColor"/><path d="M13.7813 4.78149C13.7813 3.79712 12.9844 3.00024 12 3.00024C11.0156 3.00024 10.2188 3.79712 10.2188 4.78149C10.2188 5.76587 11.0156 6.56274 12 6.56274C12.9844 6.56274 13.7813 5.76587 13.7813 4.78149Z" fill="currentColor"/><path d="M13.7812 19.219C13.7812 18.2346 12.9844 17.4377 12 17.4377C11.0156 17.4377 10.2187 18.2346 10.2187 19.219C10.2187 20.2034 11.0156 21.0002 12 21.0002C12.9844 21.0002 13.7812 20.2034 13.7812 19.219Z" fill="currentColor"/></svg>
+        </button>
         <div className="vlf-volume">
           <button type="button" className="vlf-sound" aria-label={muted ? "소리 켜기" : "음소거"} aria-pressed={!muted} onClick={toggleSound}>
-            <span className={muted ? "is-muted" : undefined} aria-hidden="true" />
+            {muted ? <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.3926 5.21814C11.6929 4.97875 12.1042 4.93235 12.4502 5.099C12.7963 5.26567 13.0156 5.61625 13.0156 6.00036V18.0004C13.0156 18.3845 12.7963 18.7351 12.4502 18.9017C12.1042 19.0683 11.6929 19.022 11.3926 18.7826L7.29004 15.5101L3 15.5121C2.73488 15.5121 2.48049 15.4065 2.29297 15.2191C2.10546 15.0317 2.0001 14.7772 2 14.5121V9.48864C2.0002 8.93653 2.44784 8.48864 3 8.48864H7.29199L11.3926 5.21814ZM20.3018 9.00818C20.6972 8.62279 21.3303 8.63137 21.7158 9.02673C22.1013 9.42219 22.0936 10.0553 21.6982 10.4408L20.1826 11.9174L21.6982 13.3949L21.7676 13.4691C22.0932 13.8577 22.0773 14.4381 21.7158 14.809C21.3303 15.2041 20.6971 15.2119 20.3018 14.8265L18.75 13.3138L17.1982 14.8265C16.8029 15.2119 16.1697 15.2041 15.7842 14.809C15.3988 14.4136 15.4066 13.7804 15.8018 13.3949L17.3164 11.9174L15.8018 10.4408C15.4064 10.0553 15.3987 9.42219 15.7842 9.02673C16.1697 8.63137 16.8028 8.62279 17.1982 9.00818L18.75 10.5199L20.3018 9.00818Z" fill="currentColor"/></svg> : <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.393 5.218a1 1 0 0 1 1.623.782v12a1 1 0 0 1-1.623.782L7.29 15.51H3a1 1 0 0 1-1-1V9.489a1 1 0 0 1 1-1h4.292l4.101-3.27Zm4.9 2.575a1 1 0 0 1 1.414 0 5.95 5.95 0 0 1 0 8.414 1 1 0 0 1-1.414-1.414 3.95 3.95 0 0 0 0-5.586 1 1 0 0 1 0-1.414Zm2.828-2.121a1 1 0 0 1 1.415 0 8.95 8.95 0 0 1 0 12.656 1 1 0 0 1-1.415-1.414 6.95 6.95 0 0 0 0-9.828 1 1 0 0 1 0-1.414Z" fill="currentColor"/></svg>}
           </button>
-          <input aria-label="영상 음량" type="range" min="0" max="1" step="0.05" value={volume} onChange={(event) => { const nextVolume = Number(event.currentTarget.value); setVolume(nextVolume); if (videoRef.current) videoRef.current.volume = nextVolume; }} />
         </div>
         {paused ? <button type="button" className={`vlf-play${audioBlocked ? " is-audio-blocked" : ""}`} aria-label={audioBlocked ? "소리 켜고 재생" : "영상 재생"} onClick={togglePlayback}><span />{audioBlocked ? <b>소리 켜고 재생</b> : null}</button> : null}
         <div className="vlf-progress">
@@ -207,10 +208,10 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
       <article className="vlf-detail">
         <header>
           <h1>{item.maker} {item.model}</h1>
-          <p>{specLabel(item)}</p>
+          <p className="vlf-specs"><span>{item.row.year}년식</span><span>{item.row.mileage.toLocaleString("ko-KR")}km</span><span>{item.row.fuel}</span><span>자동</span></p>
           <strong>{priceLabel(item.row.price)}</strong>
           <span><img src={icon("chotot-list-detail-address-location")} alt="" />서울 서초구 · 서울오토갤러리</span>
-          <span><img src={icon("chotot-common-clock-gray")} alt="" />{dateLabel(item.date)}</span>
+          <span><img src={icon("chotot-common-clock")} alt="" />{dateLabel(item.date)}</span>
         </header>
         <div className="vlf-thumbs" aria-label="다른 영상 매물">
           {thumbs.map(({ offset, item: thumb }) => <button key={`${item.code}-${thumb.code}-${offset}`} type="button" className={offset === 0 ? "is-active" : undefined} aria-label={`${thumb.maker} ${thumb.model}`} onClick={() => choose(index + offset)}><img src={asset(thumb.poster)} alt="" /></button>)}
