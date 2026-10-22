@@ -3,11 +3,12 @@ import { Cross2Icon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
 import { asset, type Car } from "../../data";
 import { bbmCardSpec } from "../../data/bbm-card-samples";
 import { CUT, canMakeMp4, drawFrame, exportMp4, loadImage, planDuration, type ShortformPlan, type ShortformTemplate } from "./render";
+import { SnsPublish, captionFor, type PlatformId } from "./SnsPublish";
 import "./shortform-studio.css";
 
 export type MadeShortform = { id: string; url: string; poster: string; carId: number; title: string; template: ShortformTemplate; seconds: number };
 
-type DealerInfo = { name: string; company: string; phone: string; photo: string };
+type DealerInfo = { name: string; company: string; phone: string; photo: string; storageKey: string; snsHandles: Partial<Record<PlatformId, string>> };
 type Step = "pick" | "edit" | "making" | "done";
 type Photo = { src: string; image: HTMLImageElement | null };
 
@@ -47,7 +48,7 @@ function autoLines(car: Car, dealerName: string, count: number) {
   return Array.from({ length: count }, (_, i) => pool[i] ?? pool[pool.length - 1]);
 }
 
-export function ShortformStudio({ cars, dealer, initialCarId, onClose, onPublish }: { cars: Car[]; dealer: DealerInfo; initialCarId?: number; onClose: () => void; onPublish: (made: MadeShortform) => void }) {
+export function ShortformStudio({ cars, dealer, initialCarId, onClose, onPublish, onToast }: { cars: Car[]; dealer: DealerInfo; initialCarId?: number; onClose: () => void; onPublish: (made: MadeShortform) => void; onToast: (message: string) => void }) {
   const usable = useMemo(() => cars.filter((car) => photosOf(car).length), [cars]);
   const [car, setCar] = useState<Car | null>(() => usable.find((item) => item.id === initialCarId) ?? null);
   const [step, setStep] = useState<Step>(car ? "edit" : "pick");
@@ -250,9 +251,13 @@ export function ShortformStudio({ cars, dealer, initialCarId, onClose, onPublish
         <p>이 화면을 닫지 마세요. 휴대폰 안에서 바로 만들어요.</p>
       </div> : null}
 
-      {step === "done" && result ? <div className="sfs-body sfs-done">
-        <video src={result.url} poster={result.poster} controls playsInline autoPlay muted loop />
-        <p>{result.title} · {result.seconds}초 · 720×1280</p>
+      {step === "done" && result && plan && car ? <div className="sfs-body sfs-done">
+        <div className="sfs-done-video">
+          <video src={result.url} poster={result.poster} controls playsInline autoPlay muted loop />
+          <p>{result.title} · {result.seconds}초 · 720×1280</p>
+        </div>
+        <SnsPublish made={result} storageKey={dealer.storageKey} initialHandles={dealer.snsHandles} onToast={onToast}
+          caption={captionFor({ title: plan.title, price: plan.showPrice ? plan.price : "", specs: plan.specs, dealerName: dealer.name, company: dealer.company, phone: dealer.phone, maker: car.maker, model: modelOf(car).split(" ")[0] })} />
       </div> : null}
 
       <footer className="sfs-foot">
