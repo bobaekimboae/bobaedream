@@ -83,14 +83,19 @@ export default function MainHome() {
     <div className="main-home-stage">
       <main className="main-home" aria-label="보배드림 모바일 메인 시안 2">
         <header className="mh-header">
+          <button className="mh-header-menu" type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={bbmAsset("header-menu.svg")} alt="" /></button>
           <a className="mh-brand" href="./?home=1" aria-label="보배드림 홈">
             <img src={bbmAsset("main-home-logo.svg")} alt="보배드림" />
           </a>
-          <div className="mh-header-actions">
-            <button type="button" aria-label="검색창으로 이동" onClick={() => searchRef.current?.focus()}><img src={bbmAsset("header-search.svg")} alt="" /></button>
-            <button type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={bbmAsset("header-menu.svg")} alt="" /></button>
-          </div>
+          <button className="mh-open-app" type="button" onClick={() => showPreparing("보배드림 앱을 준비 중입니다.")}>앱 열기</button>
         </header>
+
+        <form className="mh-search-wrap" role="search" onSubmit={(event) => { event.preventDefault(); navigateToListing({ query: searchQuery }); }}>
+          <label className="mh-search-box">
+            <img src={bbmAsset("header-search.svg")} alt="" aria-hidden="true" />
+            <input ref={searchRef} type="search" value={searchQuery} onChange={(event) => setSearchQuery(event.currentTarget.value)} placeholder="원하는 차량을 검색하세요" aria-label="차량 검색" />
+          </label>
+        </form>
 
         <nav className="mh-primary-nav" aria-label="주요 메뉴">
           <a className="is-active" href="./?home=1" aria-current="page">홈</a>
@@ -99,13 +104,6 @@ export default function MainHome() {
           <button type="button" onClick={() => showPreparing("내차팔기 등록 화면을 준비 중입니다.")}>내차팔기</button>
           <button type="button" onClick={openCommunity}>커뮤니티</button>
         </nav>
-
-        <form className="mh-search-wrap" role="search" onSubmit={(event) => { event.preventDefault(); navigateToListing({ query: searchQuery }); }}>
-          <label className="mh-search-box">
-            <img src={bbmAsset("header-search.svg")} alt="" aria-hidden="true" />
-            <input ref={searchRef} type="search" value={searchQuery} onChange={(event) => setSearchQuery(event.currentTarget.value)} placeholder="원하는 차량을 검색하세요" aria-label="차량 검색" />
-          </label>
-        </form>
 
         <section className="mh-category-grid" aria-label="차량 서비스">
           {categoryItems.map((item) => (

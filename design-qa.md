@@ -49,6 +49,26 @@ final result: passed
 - Behavior/accessibility: 검색 제출, 검색 포커스, 탭 이동, 서비스 목록 이동, 더보기 메뉴, 정치글 토글, 인기 기간 선택을 실제 버튼으로 구현.
 - Scroll regression: 전역 `body { overflow:hidden }`과 루트 높이 규칙의 영향을 받지 않도록 메인을 독립된 `100dvh` 세로 스크롤 컨테이너로 구성해 10위와 마지막 여백까지 스크롤 가능하도록 검증.
 - Primary navigation: 기존 밑줄 탭을 보배드림 공통 알약칩 규칙(34px 높이, 999px 반경, 기본 `#F2F3F5`, 활성 `#222`)으로 통일하고 작은 화면에서는 한 줄 가로 스크롤을 유지.
+- Header reference: `1000019001.jpg`의 모바일 헤더 구조를 적용해 좌측 햄버거·중앙 로고·우측 파란 `앱 열기` 알약을 배치하고, 검색창을 54px 회색 원형 바로 분리. 기존 주요 메뉴 알약칩은 검색바 아래에 유지.
+- Header QA iteration: 320px 1차 캡처에서 비대칭 좌우 버튼 폭 때문에 로고 중심이 화면 중앙보다 22px 왼쪽으로 이동한 P2를 확인. 로고를 헤더의 절대 중앙(`left:50%`)에 고정해 교정.
+
+### 2026-10-22 ViecLamTot 헤더 비교
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/ebabcf17-9806-47df-b045-9b23888c99a5/1-1000019001.jpg` (591×1280px).
+- Browser-rendered implementation: `.design-qa/main-home-vieclamtot-header-local-320.png` (320×668 CSS px, DPR 1).
+- Combined comparison evidence: `.design-qa/main-home-vieclamtot-header-comparison.png`; 구현 캡처를 591px 폭으로 정규화해 원본과 한 캔버스에서 대조.
+- State: 모바일 메인 첫 화면, 홈 알약 선택, 검색창 비활성, 메뉴 닫힘.
+- Full-view comparison: 레퍼런스의 햄버거·중앙 로고·파란 CTA·회색 검색바 수직 구조를 유지하되, 보배드림 기존 알약칩과 차량 서비스 그리드를 아래에 연결했다.
+- Focused comparison: 헤더만 확대해 로고 중심을 측정했으며 최종 중심값은 `160px / 320px`, 편차 `0px`; 페이지 가로 넘침은 `0px`.
+- Typography: 레퍼런스의 굵은 CTA와 중간 굵기 검색 문구 위계를 보배드림 한글 워드마크 및 시스템 글꼴로 유지.
+- Spacing/layout rhythm: 70px 헤더, 40px CTA, 54px 검색바, 좌우 16px 여백과 완전 원형 반경을 적용. 브랜드 워드마크 길이와 기존 알약 메뉴는 의도적 제품 차이.
+- Colors/tokens: 레퍼런스 파란 CTA를 보배드림 블루 `#3866B4`로 치환하고 검색 면색은 `#F4F4F5`로 맞춤.
+- Image quality: 기존 보배드림 SVG 로고와 헤더 아이콘을 사용해 확대 시 래스터 깨짐 없음.
+- Copy/content: `Mở app`은 `앱 열기`, 검색 문구는 차량 포털 문맥의 `원하는 차량을 검색하세요`로 현지화.
+- Interactions: 햄버거 메뉴 열기, 앱 준비 안내, 검색 제출, 알약 메뉴 이동을 유지. 빌드 및 모바일 런타임 검사 통과.
+- Comparison history: Pass 1에서 로고 중심이 22px 왼쪽으로 이동한 P2를 발견했고, 절대 중앙 고정 후 Pass 2에서 편차 0px과 가로 넘침 0px을 확인.
+
+final result: passed
 
 
 ---
