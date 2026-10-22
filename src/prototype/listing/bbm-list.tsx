@@ -693,12 +693,12 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const headlinePosition = getHeadlinePosition();
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const headline = car.uiTest ? <strong className={`bbm-card-headline is-${headlinePosition}${headlineTone === "blue" ? " is-blue" : ""}`}>{car.uiTest.headline}</strong> : null;
-  const alt = car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim();
+  const alt = `${car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()}${car.imageKind ? ` · ${car.imageKind === "catalog" ? "차종 대표 이미지" : "실차 참고 이미지"} (실매물 사진 아님)` : ""}`;
   const squareOriginalPhoto = !!car.imageAspectRatio && !featured;
   const photoStyle = car.imageAspectRatio && !squareOriginalPhoto ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
-  const photoCount = car.photoList?.length || car.photos;
+  const photoCount = car.imageKind ? 0 : car.photoList?.length || car.photos;
   const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span>{!featured && photoCount > 0 ? <span className="bbm-card-count">{photoCount}<img src={bbmIcon("card-photo-count")} alt="" /></span> : null}</div>;
-  const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
+  const photo = featured && !car.imageKind && car.image && feedPhotos && feedPhotos.length > 1 ? (
     <div className="bbm-card-photo is-carousel" style={photoStyle}>
       <FeedPhotoCarousel photos={feedPhotos} alt={alt} fit={car.imageAspectRatio || car.imageFit === "contain" ? "contain" : "cover"} />
       {timeFooter}
@@ -706,7 +706,8 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   ) : (
     <div className={`bbm-card-photo${car.image ? "" : " is-empty"}`} style={photoStyle}>
       {car.image && (squareOriginalPhoto || listCrop && listCrop[0] === 100 && !listPhoto) ? <img className={`bbm-card-photo-fill${squareOriginalPhoto ? " is-square-fill" : ""}`} src={asset(car.image)} alt="" aria-hidden="true" draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" /> : null}
-      {car.image ? <img className={squareOriginalPhoto ? "is-square-original" : car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim()} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={listCrop && !listPhoto ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" } : { objectFit: car.imageAspectRatio ? "contain" : undefined, objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
+      {car.image ? <img className={squareOriginalPhoto ? "is-square-original" : car.imageFit === "contain" ? "is-catalog" : ""} src={asset(listPhoto ?? car.image)} alt={alt} draggable={false} loading={eagerPhoto ? "eager" : "lazy"} decoding="async" style={listCrop && !listPhoto ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" } : { objectFit: car.imageAspectRatio ? "contain" : undefined, objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" }} /> : null}
+      {car.imageKind ? <span className="vehicle-image-label">{car.imageKind === "catalog" ? "차종 대표 이미지" : "실차 참고 이미지"}</span> : null}
       {timeFooter}
     </div>
   );

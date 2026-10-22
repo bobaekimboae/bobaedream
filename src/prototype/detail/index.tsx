@@ -423,9 +423,26 @@ function DetailHighlights() {
 
 // 실매물 상세(2026-10-13): 목록에서 연 매물의 사진을 쓰고, 없으면 기존 시안 사진을 쓴다
 const detailPhotosOf = (car: Car | null | undefined): string[] => {
+  // 대표 이미지와 사진 없는 서울오토갤러리 매물에 다른 차량의 시안 사진을 대입하지 않는다.
+  if (car?.imageKind || (car?.seoulAutoGallery && !car.image && !car.photoList?.length)) return [];
   const list = car?.photoList?.length ? car.photoList : car?.image ? [car.image] : [];
   return list.length ? list.map((src) => asset(src)) : detailPhotos;
 };
+
+function DetailReferenceMedia({ car }: { car: Car }) {
+  const hasReference = Boolean(car.imageKind);
+  const label = car.imageKind === "catalog" ? "차종 대표 이미지" : "실차 참고 이미지";
+  return <figure className="detail-reference-media">
+    <div className="detail-reference-image">
+      {hasReference ? <img src={asset(car.image)} alt={`${car.title} · ${label} (실매물 사진 아님)`} draggable={false} /> : <span>등록된 차량 사진이 없습니다</span>}
+    </div>
+    <figcaption>
+      <strong>{hasReference ? label : "차량 사진 없음"}</strong>
+      {hasReference ? <span>{car.imageKind === "catalog" ? "실제 판매 차량의 사진이 아닙니다. 색상·연식·세부 사양이 다를 수 있습니다." : "해당 매물과 동일한 차량인지 확인되지 않은 참고 사진입니다."}</span> : null}
+      <span>실매물 사진 0장</span>
+    </figcaption>
+  </figure>;
+}
 
 // 줄이 멈추는 위치(화면 가장자리 기준): 앞 칸 왼쪽 8 · 다음 칸 오른쪽 8(이베이 첫 칸 왼쪽 8과 같은 여백)
 const THUMB_EDGE_LEFT = 8;
@@ -611,13 +628,14 @@ function DetailHero({ onBack }: { onBack: () => void }) {
   return (
     <>
     {topMode === "above" && topCar ? <><div className="detail-top-head">{heroActions}</div><DetailTopSeller car={topCar} /><DetailTopCrumbs car={topCar} /></> : null}
-    <section ref={heroRef} className={`detail-hero${topMode ? ` is-top-${topMode}` : ""}`} aria-label="차량 사진">
+    <section ref={heroRef} className={`detail-hero${!totalPhotos ? " is-reference" : ""}${topMode ? ` is-top-${topMode}` : ""}`} aria-label={totalPhotos ? "차량 사진" : "차량 이미지 안내"}>
       <div className="detail-hero-main">
+        {!totalPhotos && topCar ? <DetailReferenceMedia car={topCar} /> :
         <Carousel ariaLabel="차량 사진" className="detail-media-carousel" contentClassName="detail-media-track">
           {photos.map((photo, index) => <img key={`${photo}-${index}`} src={photo} alt={`차량 사진 ${index + 1}`} draggable={false} />)}
-        </Carousel>
-        {photoIndex === 1 && (getActiveDetailCar() ? getActiveDetailCar()?.filter?.video : true) ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
-        <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div>
+        </Carousel>}
+        {totalPhotos > 0 && photoIndex === 1 && (getActiveDetailCar() ? getActiveDetailCar()?.filter?.video : true) ? <span className="detail-video-play" aria-hidden="true"><span /></span> : null}
+        {totalPhotos > 0 ? <div className="detail-photo-count" aria-live="polite" aria-atomic="true">{photoIndex} / {totalPhotos}</div> : null}
         {topMode === "above" ? null : heroActions}
         {topMode === "overlay" && topCar ? <><div className="detail-top-overlay"><DetailTopCrumbs car={topCar} /></div><DetailTopSeller car={topCar} overlay /></> : null}
       </div>
@@ -1196,6 +1214,12 @@ function DesktopGallery({ onBack }: { onBack: () => void }) {
     try { await navigator.clipboard.writeText(window.location.href); notify("공유 링크를 복사했어요"); }
     catch { notify("주소창의 링크를 복사해 공유해 주세요."); }
   };
+  if (!photos.length && activeCar) return <section className="pc-gallery" aria-label="차량 이미지 안내">
+    <div className="pc-hero is-reference">
+      <DetailReferenceMedia car={activeCar} />
+      <div className="pc-hero-tools"><button aria-label="목록으로 돌아가기" onClick={onBack}><img src={asset("detail/reddit-back.svg")} alt="" /></button><div><button aria-label="공유하기" onClick={share}><img src={asset("detail/autoscout24-share.svg")} alt="" /></button><button aria-label="더보기" onClick={() => setSheet("more")}><img src={asset("detail/autoscout24-more-vertical.svg")} alt="" /></button></div></div>
+    </div>
+  </section>;
   return <section className="pc-gallery" aria-label="차량 사진">
     <div className="pc-hero" onKeyDown={(event) => { if (event.key === "ArrowRight") choose(selected + 1); if (event.key === "ArrowLeft") choose(selected - 1); }} tabIndex={0}>
       <img className="pc-hero-photo" src={isMock && selected === 0 ? pcAsset("9550-imgFrame1000006297.png") : photos[selected]} alt={`${isMock ? "벤틀리 " : ""}차량 사진 ${selected + 1}`} draggable={false} />

@@ -307,6 +307,8 @@ const feedPhotosFor = (cars: Car[], index: number): string[] | undefined => {
   if (new URLSearchParams(window.location.search).get("feedphotos") === "single") return undefined;
   const car = cars[index];
   if (!car?.image) return undefined;
+  // 차종 대표 이미지는 갤러리 사진이 아니며 다른 매물 사진으로 채우지 않는다.
+  if (car.imageKind) return [car.image];
   // 수집한 실사진은 다른 매물 사진을 임시 슬라이드로 섞지 않는다.
   if (car.imageAspectRatio && car.photoList?.length) return car.photoList;
   // 실제 다중 사진이 있는 매물(서울오토갤러리)은 임시 슬라이드 대신 그 사진을 쓴다
@@ -314,7 +316,7 @@ const feedPhotosFor = (cars: Car[], index: number): string[] | undefined => {
   const count = 3 + (car.id % 4);
   const photos = [car.image];
   // 같은 제조사 매물 사진을 먼저, 모자라면 같은 목록의 다음 매물 사진으로 채운다
-  const candidates = cars.filter((other) => other.id !== car.id && other.image && other.imageFit === car.imageFit);
+  const candidates = cars.filter((other) => other.id !== car.id && other.image && !other.imageKind && other.imageFit === car.imageFit);
   const sameMaker = candidates.filter((other) => other.maker === car.maker);
   const rest = candidates.filter((other) => other.maker !== car.maker);
   for (const other of [...sameMaker, ...rest]) {
@@ -729,10 +731,11 @@ function PcCarRow({ car, liked, onToggleLike, onOpen }: { car: Car; liked: boole
   return (
     <article className="car-card pc-car-row" role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="car-photo-wrap">
-        <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
+        <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, ${car.imageKind ? `${car.imageKind === "catalog" ? "차종 대표 이미지" : "실차 참고 이미지"} (실매물 사진 아님)` : `사진 ${car.photos}장`}`} draggable={false} />
+        {car.imageKind ? <span className="vehicle-image-label">{car.imageKind === "catalog" ? "차종 대표 이미지" : "실차 참고 이미지"}</span> : null}
         <div className="card-photo-meta" aria-hidden="true">
           <span className="card-posted">{car.posted}</span>
-          <span className="card-photo-count">{car.photos}<Icon name="photo-count.svg" /></span>
+          {!car.imageKind && car.photos > 0 ? <span className="card-photo-count">{car.photos}<Icon name="photo-count.svg" /></span> : null}
         </div>
       </div>
       <div className="pc-car-copy">
@@ -778,10 +781,11 @@ function CarCard({ car, cardView, liked, onToggleLike, onOpen }: { car: Car; car
   return (
     <article className={`car-card${cardView ? " is-card-view" : ""}${badges.length ? " has-badges" : " has-no-badges"}`} role="link" tabIndex={0} aria-label={`${car.title} 상세 보기`} onClick={onOpen} onKeyDown={onKeyDown}>
       <div className="car-photo-wrap">
-        <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, 사진 ${car.photos}장`} draggable={false} />
+        <img className={`car-photo${car.imageFit === "contain" ? " is-catalog" : ""}`} src={asset(car.image)} alt={`${car.title} ${car.trim} 차량, ${car.posted}, ${car.imageKind ? `${car.imageKind === "catalog" ? "차종 대표 이미지" : "실차 참고 이미지"} (실매물 사진 아님)` : `사진 ${car.photos}장`}`} draggable={false} />
+        {car.imageKind ? <span className="vehicle-image-label">{car.imageKind === "catalog" ? "차종 대표 이미지" : "실차 참고 이미지"}</span> : null}
         <div className="card-photo-meta" aria-hidden="true">
           <span className="card-posted">{car.posted}</span>
-          <span className="card-photo-count">{car.photos}<Icon name="photo-count.svg" /></span>
+          {!car.imageKind && car.photos > 0 ? <span className="card-photo-count">{car.photos}<Icon name="photo-count.svg" /></span> : null}
         </div>
       </div>
       <div className="car-copy">
