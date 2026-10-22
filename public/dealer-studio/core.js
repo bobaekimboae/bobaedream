@@ -112,7 +112,7 @@ export async function mixAudio(state, files) {
       osc.connect(gain).connect(ctx.destination); osc.start(t); osc.stop(Math.min(duration, t + beat * 2));
     }
   }
-  await addFile(files.voice, .85, false);
+  if(state.voiceEnabled!==false)await addFile(files.voice, .85, false);
   return ctx.startRendering();
 }
 
