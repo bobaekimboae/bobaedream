@@ -534,7 +534,7 @@ function MadeShortforms({ items, dealerName, avatar }: { items: MadeShortform[];
       <span><b>{item.title}</b><small>{dealerName} 딜러 · 방금 · 보배드림 숏폼 {item.seconds}초</small></span>
       <a href={item.url} download={`bobae-shortform-${item.carId}.mp4`} aria-label="숏폼 내려받기"><OutLinkIcon /></a>
     </header>
-    <div className="dp-ig-reel is-native"><video controls playsInline preload="metadata" poster={item.poster} src={item.url} aria-label={`${item.title} 숏폼`} /></div>
+    <div className="dp-ig-reel is-native is-made" style={{ aspectRatio: item.aspect.replace(":", " / ") }}><video controls playsInline preload="metadata" poster={item.poster} src={item.url} aria-label={`${item.title} 숏폼`} /></div>
     <footer><span>판매 문의는 채팅·전화로</span><a href={item.url} download={`bobae-shortform-${item.carId}.mp4`}>내려받기</a></footer>
   </article>)}</div>;
 }
@@ -1169,7 +1169,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       </main>
       <Footer />
     </div>
-    {studio ? <ShortformStudio cars={cars} initialCarId={studio.carId} dealer={{ name: dealer.name, company: stripCorp(MOCK.company), phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), photo: dealerPhoto(dealer), storageKey: `bobaedream:shortform-sns:${dealer.shopNo}:${dealer.empNo}`, snsHandles: snsHandlesFor(dealer) }} onToast={notify} onClose={() => setStudio(null)} onPublish={(made) => { setMadeShorts((current) => [made, ...current]); setMode("sns"); changeSection("ads"); notify("SNS 판매 차량에 숏폼을 올렸어요"); }} /> : null}
+    {studio ? <ShortformStudio cars={cars} initialCarId={studio.carId} dealer={{ name: dealer.name, company: stripCorp(MOCK.company), phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), photo: dealerPhoto(dealer), storageKey: `bobaedream:shortform-sns:${dealer.shopNo}:${dealer.empNo}`, snsHandles: snsHandlesFor(dealer), shop: dealer.shopNo, emp: dealer.empNo }} onToast={notify} onClose={() => setStudio(null)} onPublish={(made) => { setMadeShorts((current) => [made, ...current]); setMode("sns"); changeSection("ads"); notify("SNS 판매 차량에 숏폼을 올렸어요"); }} /> : null}
     {toast ? <div className="dp-toast" role="status">{toast}</div> : null}
   </div>;
 }
