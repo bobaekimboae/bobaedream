@@ -5,7 +5,7 @@
 .main-home button { border:0; padding:0; color:inherit; background:none; font:inherit; }
 .mh-topbar { height:50px; padding:0 16px; display:flex; align-items:center; justify-content:space-between; background:#fff; }
 .mh-logo { width:88px; height:50px; display:flex; align-items:center; flex:0 0 88px; text-decoration:none; }
-.mh-logo img { display:block; width:auto; max-width:99px; height:20px; object-fit:contain; object-position:left center; }
+.mh-logo span { display:block; color:var(--mh-blue); font-size:19px; line-height:24px; font-weight:900; letter-spacing:-1.1px; white-space:nowrap; }
 .mh-top-icons { display:flex; gap:0; align-items:center; }
 .mh-top-icons button { width:44px; height:44px; display:grid; place-items:center; border-radius:50%!important; cursor:pointer; }
 .mh-top-icons button:active { background:#f2f3f5; }
