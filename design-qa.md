@@ -31,6 +31,26 @@ final result: passed
 
 ---
 
+## 2026-10-22 Figma 모바일 메인 시안 2
+
+- Source visual truth: Figma file `O1xxBDUlO8UgYBY6dYJ2Vo`, node `1135:1707`.
+- Source captures: `.design-qa/figma-main-concept-2-reference.png`, `.design-qa/figma-main-concept-2-reference-lower.png`.
+- Browser-rendered implementation: `.design-qa/figma-main-concept-2-local.png`.
+- Viewport/state: 430×1000 CSS px, 홈 선택, 인기글 `1~10위` 선택.
+- Connector note: Figma 구조 API는 연결 재인증 상태가 남아 있어, 로그인된 Figma 브라우저에서 선택 프레임을 직접 렌더링하고 상·하단을 캡처해 시각 기준으로 사용함.
+
+### Required fidelity surfaces
+
+- Typography: 15px 주요 탭, 14px 검색·숏폼 제목, 12px 보조 정보와 순위표로 원본 위계를 재현.
+- Spacing/layout: 흰색 헤더, 5열 탭, 51px 검색창, 2×5 서비스 그리드, 숏폼 2행, 인기글 순위를 원본 순서와 모바일 폭에 맞춤.
+- Colors/tokens: 보배드림 블루 `#3866b4`, 활성 탭·기간 필터는 검정, 구분면은 `#f6f7f8`.
+- Image quality: 공식 벡터 로고·헤더 아이콘과 저장소 내 고해상도 차량 자산을 사용.
+- Copy/content: 시안의 메뉴명, 서비스명, 숏폼 제목·메타정보, 인기글 제목·댓글 수를 반영.
+- Behavior/accessibility: 검색 제출, 검색 포커스, 탭 이동, 서비스 목록 이동, 더보기 메뉴, 정치글 토글, 인기 기간 선택을 실제 버튼으로 구현.
+
+
+---
+
 ## 2026-10-22 모바일 메인 블루 통합 검색 헤더
 
 - Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/64db43a0-22be-43e2-b766-87078a70882a/1-1000018991.jpg`.
