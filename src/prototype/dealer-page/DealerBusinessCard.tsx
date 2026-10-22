@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { cardContact, cardCompanyName, cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, type CardContact, type CardExtras, type CardStyle } from "./business-card";
+import { cardContact, cardCompanyName, cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, safePhoneNote, type CardContact, type CardExtras, type CardStyle } from "./business-card";
 import "./business-card.css";
 import { stockUrl } from "./dealer-stock";
 import { cardQr, cardServiceOrigin, fetchPublishedCard, publishingUrl, sharingUrl, type PublishedCard } from "./card-sharing";
@@ -35,7 +35,7 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
       {!photoFailed && contact.photo ? <div className="dbc-photo-frame"><img className="dbc-photo" src={contact.photo} alt={`${contact.name} 프로필`} onError={() => setPhotoFailed(true)} /></div> : null}
     </div>
     <p className="dbc-intro">{style.intro}</p>
-    <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}</strong> : null}<span>{contact.address}</span></div>
+    <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}{!cardFieldHref("mobile", style.fields.mobile) && contact.safe ? <em className="dbc-safe">안심번호</em> : null}</strong> : null}<span>{contact.address}</span></div>
   </article>;
 }
 
@@ -73,7 +73,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const featuredId = standalone ? Number(new URLSearchParams(window.location.search).get("car")) || undefined : undefined;
   const featured = featuredId ? extras?.listings?.find((car) => car.id === featuredId) : undefined;
   const dealerUrl = profileUrl(window.location.href, shop, emp);
-  const phoneHref = cardFieldHref("mobile", style.fields.mobile) || (receiverContact.phone ? `tel:${receiverContact.phone.replace(/[^+\d]/g, "")}` : null);
+  const phoneHref = cardFieldHref("mobile", style.fields.mobile) || (receiverContact.phone && !receiverContact.safe ? `tel:${receiverContact.phone.replace(/[^+\d]/g, "")}` : null);
 
   useEffect(() => { if (open) dialogRef.current?.scrollTo({ top: 0 }); }, [editing, open]);
   useEffect(() => { setQrUrl(""); setImageUrl(""); setManualLink(false); }, [url]);
@@ -188,7 +188,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const customer = <>
     {trust.length || effectiveContact.gallery ? <p className="dbc-trust" aria-label="딜러 확인 정보">{effectiveContact.gallery ? <b className="dbc-verified"><Ico name="verified" />{effectiveContact.gallery} 등록 딜러</b> : null}{trust.map((item) => <span key={item}>{item}</span>)}</p> : null}
     <div className="dbc-cta" role="group" aria-label="딜러에게 연락">
-      {phoneHref ? <a className="is-primary" href={phoneHref}><Ico name="phone" />전화</a> : <button type="button" onClick={() => setStatus("등록된 전화번호가 없어요. 채팅으로 문의해 주세요.")}><Ico name="phone" />전화</button>}
+      {phoneHref ? <a className="is-primary" href={phoneHref}><Ico name="phone" />전화</a> : receiverContact.safe && receiverContact.phone ? <button type="button" className="is-primary" onClick={() => setStatus(safePhoneNote(receiverContact.phone))}><Ico name="phone" />전화</button> : <button type="button" onClick={() => setStatus("등록된 전화번호가 없어요. 채팅으로 문의해 주세요.")}><Ico name="phone" />전화</button>}
       {smsHref ? <a href={smsHref}><Ico name="sms" />문자</a> : null}
       <a href={dealerUrl}><Ico name="chat" />채팅</a>
     </div>

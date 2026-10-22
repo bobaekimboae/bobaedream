@@ -183,3 +183,5 @@
 .dbc-consult-agree span{min-width:0}
 .dbc-consult .dbc-consult-form select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23667085' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center}
 .dbc-consult .dbc-consult-form :is(select,input[type=tel]):is(:focus,:focus-visible){outline:0 !important;border-color:#222}
+/* 050 안심번호 표시(2026-10-22) */
+.dbc-safe{margin-left:6px;padding:0 5px;border-radius:4px;background:color-mix(in srgb,currentColor 16%,transparent);font-size:10px;font-style:normal;font-weight:600;line-height:16px;vertical-align:2px;white-space:nowrap}
