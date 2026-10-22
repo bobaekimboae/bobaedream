@@ -5,7 +5,7 @@
 .main-home button { border:0; padding:0; color:inherit; background:none; font:inherit; }
 .mh-topbar { height:50px; padding:0 16px; display:grid; grid-template-columns:88px minmax(0,1fr) 88px; align-items:center; background:#fff; }
 .mh-logo { height:50px; display:flex; align-items:center; justify-content:center; text-decoration:none; }
-.mh-logo span { display:block; color:var(--mh-blue); font-size:19px; line-height:24px; font-weight:900; letter-spacing:-1.1px; white-space:nowrap; }
+.mh-logo img { display:block; width:auto; max-width:105px; height:22px; object-fit:contain; object-position:center; }
 .mh-top-icons { display:flex; gap:0; align-items:center; }
 .mh-top-icons-left { justify-content:flex-start; }
 .mh-top-icons button { width:44px; height:44px; display:grid; place-items:center; border-radius:50%!important; cursor:pointer; }
@@ -18,9 +18,9 @@
 .mh-service-chip:active { transform:scale(.97); }
 .mh-service-chip:focus-visible,.mh-select-field:focus-visible { outline:2px solid var(--mh-blue); outline-offset:2px; }
 .mh-search-strip { padding:0 12px 14px; background:#fff; }
-.mh-search-field { box-sizing:border-box; height:40px; min-width:0; padding:0 16px 0 12px; display:flex; align-items:center; gap:8px; border:2px solid var(--mh-blue); border-radius:9999px; background:#fff; transition:box-shadow 140ms ease,border-color 140ms ease; }
-.mh-search-field:focus-within { border-color:var(--mh-blue); box-shadow:0 0 0 3px rgba(48,107,217,.14); }
-.mh-search-field img { width:20px; height:20px; flex:0 0 20px; }
+.mh-search-field { box-sizing:border-box; height:40px; min-width:0; padding:0 16px 0 12px; display:flex; align-items:center; gap:8px; border:1px solid #d5d7db; border-radius:9999px; background:#f4f4f4; transition:box-shadow 140ms ease,border-color 140ms ease; }
+.mh-search-field:focus-within { border-color:#aeb3bb; box-shadow:0 0 0 3px rgba(31,41,55,.08); }
+.mh-search-field img { width:20px; height:20px; flex:0 0 20px; opacity:.62; filter:grayscale(1); }
 .mh-search-field input { width:100%; min-width:0; border:0; outline:0; background:transparent; color:#222; font:inherit; font-size:16px; line-height:21px; font-weight:400; letter-spacing:-.4px; appearance:none; }
 .mh-search-field input::placeholder { color:#949494; opacity:1; }
 .mh-search-field input::-webkit-search-cancel-button { appearance:none; }

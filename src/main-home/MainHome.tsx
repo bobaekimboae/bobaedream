@@ -97,7 +97,7 @@ export default function MainHome() {
             <button type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={chototIconAsset("menu")} alt="" /></button>
           </div>
           <a className="mh-logo" href="./" aria-label="보배드림 홈">
-            <span>보배드림</span>
+            <img src={bbmAsset("main-home-logo.svg")} alt="보배드림" />
           </a>
           <div className="mh-top-icons">
             <button type="button" aria-label="즐겨찾기" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={chototIconAsset("favorite")} alt="" /></button>

@@ -84,6 +84,35 @@ final result: passed
 
 ---
 
+## 2026-10-22 모바일 메인 로고 복원 · 회색 검색창
+
+- Source visual truth: 기존 보배드림 결합 로고 `public/assets/bbm/main-home-logo.svg`, 직전 배포 화면 `.design-qa/bobaedream-mobile-chotot-header-live.png`, 사용자 지정 초톳형 회색 검색창.
+- Browser-rendered implementation: `.design-qa/bobaedream-mobile-logo-gray-search-local.png`.
+- Combined comparison: `.design-qa/bobaedream-mobile-header-before-after.png`.
+- Viewport/state: 394×852 CSS px, DPR 1, 모바일 메인 초기 상태.
+- Full-view comparison: 헤더 구성과 본문 배치는 유지하고 중앙 텍스트 로고만 기존 원형 심볼 결합 로고로 복원했으며, 파란 검색창을 중립 회색으로 교체함.
+- Focused evidence: 로고 중심 x=189.594px, 헤더 중심 x=189.600px; 로고 89.46×22px; 검색창 355.2×40px; 검색창 배경 `#f4f4f4`, 테두리 `#d5d7db` 1px.
+
+### Required fidelity surfaces
+
+- Typography: passed — 로고는 텍스트 재현이 아닌 기존 공식 결합 SVG를 사용하며 본문 타이포그래피는 변경하지 않음.
+- Spacing/layout: passed — 좌우 88px 대칭 영역과 중앙 로고의 광학 중심이 일치하고, 검색창 높이·좌우 여백은 기존 40px·12px을 유지함.
+- Colors/tokens: passed — 검색창 배경·테두리·돋보기를 회색 계열로 통일하고 활성 서비스 칩의 검정 포인트는 유지함.
+- Image quality: passed — 공식 벡터 로고를 22px 높이로 사용해 원형 심볼과 워드마크가 선명함.
+- Copy/content: passed — 검색 안내 문구와 서비스 이름은 변경하지 않음.
+- Behavior/accessibility: passed — 검색 제출, 메뉴, 즐겨찾기, 알림 동작 유지; 브라우저 콘솔 오류 0.
+
+### Comparison history
+
+- Pass 1 [P1, brand identity]: 텍스트 `보배드림`만 노출되어 원형 심볼이 누락됨. 기존 `main-home-logo.svg`로 복원함.
+- Pass 1 [P2, color]: 검색창의 2px 파란 테두리가 요청한 중립 검색 UI보다 강했음. 1px `#d5d7db` 테두리, `#f4f4f4` 배경, 회색 돋보기로 수정함.
+- Pass 2: 동일 뷰포트 재캡처에서 중앙 정렬, 치수, 대비와 콘솔 오류를 확인했으며 추가 P0/P1/P2 차이가 없음.
+
+final result: passed
+
+
+---
+
 ## 2026-10-22 초톳 모바일 검색바·알약칩 크기 적용
 
 - 전체 검수 보고서: `docs/design-qa-chotot-control-sizing-2026-10-22.md`
