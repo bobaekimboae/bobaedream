@@ -4,7 +4,6 @@ import "./main-home.css";
 type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "construction" | "camping" | "parts";
 
 const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-main/${path}`;
-const brandAsset = (path: string) => ["assets", "brand", "kr", path].join("/");
 const bbmAsset = (path: string) => ["assets", "bbm", path].join("/");
 const serviceLogoAsset = (name: string) => bbmAsset(`service-logos/v01/bobaedream-${name}-v01.png`);
 const luxuryListingAsset = (path: string) => ["assets", "cars", "luxury-ui-test", path].join("/");
@@ -21,21 +20,21 @@ const services: Array<{ key: ServiceKey; label: string }> = [
 ];
 
 const vehicleTypes = [
-  { value: "중고차", label: "자동차", icon: "category-used.svg" },
-  { value: "트럭 · 특장", label: "트럭 · 특장", icon: serviceLogoAsset("truck") },
-  { value: "바이크", label: "바이크", icon: serviceLogoAsset("bike") },
-  { value: "캠핑카", label: "캠핑카", icon: "category-camping.svg" },
-  { value: "올드카", label: "올드카", icon: serviceLogoAsset("oldcar") },
-  { value: "건설기계", label: "건설기계", icon: serviceLogoAsset("construction") },
-  { value: "부품 · 용품", label: "부품 · 용품", icon: "category-equipment.svg" },
+  { value: "중고차", label: "자동차" },
+  { value: "트럭 · 특장", label: "트럭 · 특장" },
+  { value: "바이크", label: "바이크" },
+  { value: "캠핑카", label: "캠핑카" },
+  { value: "올드카", label: "올드카" },
+  { value: "건설기계", label: "건설기계" },
+  { value: "부품 · 용품", label: "부품 · 용품" },
 ];
 
 const luxuryBrands = [
-  [brandAsset("porsche.png"), "포르쉐", ""],
-  [brandAsset("lamborghini.png"), "람보르기니", ""],
-  [brandAsset("ferrari.png"), "페라리", ""],
-  [brandAsset("bentley.png"), "벤틀리", "wide"],
-  [brandAsset("rolls-royce.png"), "롤스로이스", "tall"],
+  "포르쉐",
+  "람보르기니",
+  "페라리",
+  "벤틀리",
+  "롤스로이스",
 ];
 
 const featuredOffers = [
@@ -135,10 +134,10 @@ export default function MainHome() {
           </div>
           <div className="mh-category-rows">
             <div className="mh-category-rail" aria-label="차량 유형 가로 목록">
-              {vehicleTypes.map(({ value, label, icon }) => <button className="mh-category-item" type="button" key={value} onClick={() => openVehicleType(value)}><span className="mh-category-image"><img src={icon.includes("/") ? icon : bbmAsset(icon)} alt="" aria-hidden="true" /></span><strong>{label}</strong></button>)}
+              {vehicleTypes.map(({ value, label }) => <button className="mh-category-item" type="button" key={value} onClick={() => openVehicleType(value)}><strong>{label}</strong></button>)}
             </div>
             <div className="mh-category-rail mh-luxury-rail" aria-label="럭셔리 제조사 가로 목록">
-              {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label} onClick={() => navigateToListing({ maker: label })}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}
+              {luxuryBrands.map((label) => <button className="mh-luxury-item" type="button" key={label} onClick={() => navigateToListing({ maker: label })}><strong>{label}</strong></button>)}
             </div>
           </div>
         </section>
