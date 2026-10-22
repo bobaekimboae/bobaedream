@@ -16,7 +16,7 @@ $$('.nav-item').forEach(el=>el.setAttribute('aria-label',el.querySelector('span'
 $('.brand').setAttribute('aria-label','보배드림 홈');
 $$('dialog').forEach(dialog=>{const title=dialog.querySelector('h2');title.id=`${dialog.id}-title`;dialog.setAttribute('aria-labelledby',title.id);});
 let state = {title:'BMW M3 컴페티션',year:'2023',mileage:'22,000',fuel:'가솔린',price:'가격 상담',gallery:'서울오토갤러리',company:'디앤디플러스',dealer:'박상용',phone:'',kicker:'드라이빙의 즐거움을 만나보세요',highlights:'사진 속 매력을, 더 가까이 만나보세요.',cta:'이 차량이 궁금하다면',template:'clean',duration:15,motion:true,captions:true,endCard:true,music:'ambient',volume:.4,photos:[],logo:null};
-let files={music:null,voice:null}, images=new Map(), stock=[], time=0, selected=0, playing=false, frameId, startTime, audioContext, audioSource, busy=false, ready=false, aborter, currentResult, resultUrl, toastTimer, saveTimer, loadToken=0, draggedId;
+let files={music:null,voice:null}, images=new Map(), stock=[], time=0, selected=0, playing=false, frameId, startTime, audioContext, audioSource, busy=false, ready=false, aborter, currentResult, resultUrl, toastTimer, saveTimer, loadToken=0, draggedId, playToken=0;
 const objectUrls=new Set(), libraryUrls=new Set();
 const objectUrl = blob => {const url=URL.createObjectURL(blob);objectUrls.add(url);return url;};
 function toast(message) {$('#toast').textContent=message;$('#toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').hidden=true,3800);}
@@ -61,15 +61,16 @@ function render() {
 }
 function updateSceneEditor() {const scene=scenesFor(state)[selected];$('#scene-title').textContent=scene?.end?'마지막 딜러 안내':`장면 ${selected+1} 소개 문구`;$('#scene-length').textContent=scene?`${scene.duration.toFixed(1)}초`:'';$('#scene-caption').disabled=!scene;$('#scene-caption').value=scene?.end?state.cta:scene?.caption||'';}
 function draw() {drawFrame($('#preview'),state,images,time);$('#scrubber').max=state.duration;$('#scrubber').value=String(time);$('#play-time').textContent=formatTime(time);$('#total-time').textContent=formatTime(state.duration);}
-function stop() {playing=false;cancelAnimationFrame(frameId);try{audioSource?.stop();}catch{}audioSource=null;$('#play-symbol').textContent='▶';$('.canvas-play').classList.remove('playing');$('.canvas-play').setAttribute('aria-label','영상 미리보기 재생');}
+function stop() {playToken++;playing=false;cancelAnimationFrame(frameId);try{audioSource?.stop();}catch{}audioSource=null;$('#play-symbol').textContent='▶';$('.canvas-play').classList.remove('playing');$('.canvas-play').setAttribute('aria-label','영상 미리보기 재생');}
 async function play() {
   if(playing){stop();return;}if(busy||!state.photos.length)return;
+  const token=++playToken;
   if(time>=Number(state.duration)-.1)time=0;
   playing=true;$('#play-symbol').textContent='Ⅱ';$('.canvas-play').classList.add('playing');$('.canvas-play').setAttribute('aria-label','영상 미리보기 일시정지');
   startTime=performance.now()-time*1000;
   function tick(now) {if(!playing)return;time=(now-startTime)/1000;if(time>=Number(state.duration)){time=Number(state.duration)-.01;draw();stop();return;}draw();frameId=requestAnimationFrame(tick);}
   frameId=requestAnimationFrame(tick);
-  try {const buffer=await mixAudio(state,files);if(!playing)return;audioContext??=new AudioContext();await audioContext.resume();audioSource=audioContext.createBufferSource();audioSource.buffer=buffer;audioSource.connect(audioContext.destination);audioSource.start(0,Math.min(time,buffer.duration-.01));}catch{toast('오디오를 재생할 수 없어 화면만 미리보기합니다.');}
+  try {const buffer=await mixAudio(state,files);if(!playing||token!==playToken)return;audioContext??=new AudioContext();await audioContext.resume();if(!playing||token!==playToken)return;audioSource=audioContext.createBufferSource();audioSource.buffer=buffer;audioSource.connect(audioContext.destination);audioSource.start(0,Math.min(time,buffer.duration-.01));}catch{if(playing&&token===playToken)toast('오디오를 재생할 수 없어 화면만 미리보기합니다.');}
 }
 function selectScene(index) {stop();selected=index;time=scenesFor(state)[index]?.start||0;render();}
 async function addPhotos(list) {

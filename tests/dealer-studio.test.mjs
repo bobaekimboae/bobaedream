@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync,existsSync } from 'node:fs';
-import { scenesFor,sceneAt,safeFilename,socialCaption } from '../public/dealer-studio/core.js';
+import { scenesFor,sceneAt,safeFilename,socialCaption,drawFrame } from '../public/dealer-studio/core.js';
 
 test('every selected photo remains in the film and the dealer card occupies the final three seconds',()=>{
   for(const duration of [15,30])for(const count of [1,6,12]){
@@ -25,4 +25,20 @@ test('sample inventory has existing local photographs and never imports estimate
 test('posting captions preserve dealer input and filenames remain valid on Windows',()=>{
   const state={title:'BMW M3',year:'2023',mileage:'22,000',price:'가격 상담',gallery:'서울오토갤러리',company:'디앤디플러스',dealer:'박상용',phone:'',highlights:'직접 입력한 소개'};
   const caption=socialCaption(state);assert.match(caption,/가격 상담/);assert.match(caption,/직접 입력한 소개/);assert.match(caption,/서울오토갤러리 · 디앤디플러스/);assert.doesNotMatch(safeFilename('BMW/:*?"<>|\\M3'),/[\\/:*?"<>|]/);
+});
+
+test('film keeps the vehicle description alongside optional scene captions and respects line breaks',()=>{
+  const text=[];
+  const ctx={save(){},restore(){},scale(){},fillRect(){},fillText(value){text.push(value);},measureText(value){return {width:value.length*8};}};
+  const canvas={width:540,height:960,getContext:()=>ctx};
+  const state={photos:[{id:'one',caption:'장면 설명'}],duration:15,endCard:false,template:'clean',highlights:'전체 소개 첫 줄\n전체 소개 둘째 줄',captions:true};
+  drawFrame(canvas,state,new Map(),0);
+  assert.ok(text.includes('전체 소개 첫 줄'));
+  assert.ok(text.includes('전체 소개 둘째 줄'));
+  assert.ok(text.includes('장면 설명'));
+  text.length=0;
+  drawFrame(canvas,{...state,captions:false},new Map(),0);
+  assert.ok(text.includes('전체 소개 첫 줄'));
+  assert.ok(text.includes('전체 소개 둘째 줄'));
+  assert.ok(!text.includes('장면 설명'));
 });
