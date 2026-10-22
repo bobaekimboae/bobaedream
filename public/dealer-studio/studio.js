@@ -1,4 +1,4 @@
-import { palettes, scenesFor, sceneAt, stripCompany, safeFilename, socialCaption, drawFrame, mixAudio, encodeMp4 } from './core.js';
+import { palettes, scenesFor, sceneAt, stripCompany, safeFilename, socialCaption, drawFrame, mixAudio, encodeMp4 } from './core.js?v=20261022-audio-caption';
 
 const $ = selector => document.querySelector(selector);
 const $$ = selector => [...document.querySelectorAll(selector)];
