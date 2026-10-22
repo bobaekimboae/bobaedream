@@ -35,7 +35,7 @@ const rowForPost = (post: DealerInstagramPost, index: number) => {
 
 const VIDEO_LISTINGS: readonly VideoListing[] = posts
   .filter((post): post is DealerInstagramPost & Required<Pick<DealerInstagramPost, "video" | "poster" | "maker" | "model">> => Boolean(post.video && post.poster && post.maker && post.model))
-  .slice(0, 15)
+  .slice(0, 30)
   .map((post, index) => ({ ...post, maker: post.maker, model: post.model, video: post.video, poster: post.poster, row: rowForPost(post, index) }));
 
 const priceLabel = (price: number | null) => price === null ? "가격 상담" : `${price.toLocaleString("ko-KR")}만원`;
@@ -87,6 +87,11 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const item = VIDEO_LISTINGS[index];
   const thumbs = useMemo(() => Array.from({ length: 7 }, (_, offset) => ({ offset, item: VIDEO_LISTINGS[(index + offset) % VIDEO_LISTINGS.length] })), [index]);
+  const indicatorDots = useMemo(() => {
+    const visible = Math.min(15, VIDEO_LISTINGS.length);
+    const start = Math.min(Math.max(index - 7, 0), Math.max(VIDEO_LISTINGS.length - visible, 0));
+    return Array.from({ length: visible }, (_, offset) => start + offset);
+  }, [index]);
 
   const choose = (next: number) => {
     setIndex((next + VIDEO_LISTINGS.length) % VIDEO_LISTINGS.length);
@@ -187,10 +192,11 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
         </div>
         <div className="vlf-filmstrip" aria-label={`${index + 1} / ${VIDEO_LISTINGS.length}`}>
           <button type="button" className="vlf-film-arrow" aria-label="이전 영상" disabled={index === 0} onClick={() => move(-1)}><HorizontalChevron direction="left" /></button>
-          <div>{VIDEO_LISTINGS.map((video, dot) => <button key={video.code} type="button" className={dot === index ? "is-active" : undefined} aria-label={`${dot + 1}번 영상`} onClick={() => choose(dot)} />)}</div>
+          <div>{indicatorDots.map((dot) => <button key={VIDEO_LISTINGS[dot].code} type="button" className={dot === index ? "is-active" : undefined} aria-label={`${dot + 1}번 영상`} onClick={() => choose(dot)} />)}</div>
           <button type="button" className="vlf-film-arrow" aria-label="다음 영상" onClick={() => move(1)}><HorizontalChevron direction="right" /></button>
         </div>
         <article className="vlf-mobile-summary">
+          <small className="vlf-mobile-seller"><span>한</span><b>한지훈 인증딜러</b><i>판매 15대</i></small>
           <strong>{item.maker} {item.model}</strong><span>{specLabel(item)}</span><b>{priceLabel(item.row.price)}</b>
         </article>
       </div>
@@ -217,7 +223,9 @@ function VideoListingViewer({ onClose, onNotify }: VideoListingViewerProps) {
           {thumbs.map(({ offset, item: thumb }) => <button key={`${item.code}-${thumb.code}-${offset}`} type="button" className={offset === 0 ? "is-active" : undefined} aria-label={`${thumb.maker} ${thumb.model}`} onClick={() => choose(index + offset)}><img src={asset(thumb.poster)} alt="" /></button>)}
         </div>
         <section className="vlf-seller">
-          <span className="vlf-avatar">한</span><span><strong>한지훈 <img src={icon("chotot-list-detail-verified-dealer-wavy-badge")} alt="인증" /></strong><small>보배드림 인증딜러 · 판매 중 15대</small></span><b>플로시모터스</b>
+          <span className="vlf-avatar">한</span>
+          <span className="vlf-seller-identity"><strong>한지훈 <img src={icon("chotot-list-detail-verified-dealer-wavy-badge")} alt="인증" /></strong><small>15대 판매</small></span>
+          <span className="vlf-seller-rating"><strong>-- <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2.7 2.77 5.61 6.19.9-4.48 4.37 1.06 6.16L12 16.83l-5.54 2.91 1.06-6.16-4.48-4.37 6.19-.9L12 2.7Z" fill="currentColor" /></svg></strong><button type="button" onClick={() => onNotify("등록된 딜러 후기가 아직 없어요")}>후기 0개</button></span>
         </section>
         <nav className="vlf-tabs" role="tablist"><button type="button" role="tab" aria-selected={tab === "info"} className={tab === "info" ? "is-active" : undefined} onClick={() => setTab("info")}>정보</button><button type="button" role="tab" aria-selected={tab === "comments"} className={tab === "comments" ? "is-active" : undefined} onClick={() => setTab("comments")}>댓글 (0)</button></nav>
         <div className="vlf-detail-body">

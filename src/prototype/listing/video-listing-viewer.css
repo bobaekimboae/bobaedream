@@ -66,11 +66,14 @@
 .vlf-thumbs img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .vlf-seller { display: grid; height: 61px; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 12px; margin: 16px 20px 0; padding: 0; }
 .vlf-avatar { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: #306bd9; color: #fff; font-size: 18px; }
-.vlf-seller > span:nth-child(2) { display: grid; gap: 2px; }
+.vlf-seller-identity { display: grid; gap: 0; }
 .vlf-seller strong { display: flex; align-items: center; gap: 4px; font-size: 14px; line-height: 20px; }
 .vlf-seller strong img { width: 15px; height: 15px; }
 .vlf-seller small { color: #8b8b8b; font-size: 12px; line-height: 18px; }
-.vlf-seller > b { color: #555; font-size: 12px; font-weight: 600; }
+.vlf-seller-rating { display: grid; justify-items: end; gap: 1px; }
+.vlf-seller-rating strong { height: 20px; font-size: 14px; line-height: 20px; }
+.vlf-seller-rating strong svg { width: 16px; height: 16px; color: #222; }
+.vlf-seller-rating button { height: 21px; padding: 0; border: 0; border-bottom: 1px solid #777; background: transparent; color: #555; font-size: 14px; line-height: 20px; cursor: pointer; }
 .vlf-tabs { position: sticky; z-index: 4; top: 0; display: grid; height: 53px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; border-bottom: 1px solid #eee; background: #fff; }
 .vlf-tabs button { position: relative; padding: 16px; border: 0; background: #fff; color: #595959; font-size: 14px; line-height: 20px; cursor: pointer; }
 .vlf-tabs button.is-active { color: #222; font-weight: 700; }
@@ -108,6 +111,10 @@
   .vlf-filmstrip { right: 0; bottom: 14px; left: 0; box-sizing: border-box; padding: 0 8px; }
   .vlf-filmstrip > div { height: 34px; }
   .vlf-mobile-summary { display: grid; position: absolute; z-index: 3; right: 74px; bottom: 121px; left: 16px; gap: 3px; color: #fff; text-shadow: 0 1px 3px #000; }
+  .vlf-mobile-seller { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 12px; font-style: normal; }
+  .vlf-mobile-seller > span { display: grid; width: 28px; height: 28px; place-items: center; border-radius: 50%; background: #306bd9; color: #fff; font-size: 12px; text-shadow: none; }
+  .vlf-mobile-seller b { font-size: 12px; }
+  .vlf-mobile-seller i { color: rgb(255 255 255 / 78%); font-size: 11px; font-style: normal; }
   .vlf-mobile-summary strong { font-size: 17px; line-height: 23px; }
   .vlf-mobile-summary span { overflow: hidden; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
   .vlf-mobile-summary b { color: #ffd34e; font-size: 16px; }
