@@ -48,6 +48,7 @@ final result: passed
 - Copy/content: 시안의 메뉴명, 서비스명, 숏폼 제목·메타정보, 인기글 제목·댓글 수를 반영.
 - Behavior/accessibility: 검색 제출, 검색 포커스, 탭 이동, 서비스 목록 이동, 더보기 메뉴, 정치글 토글, 인기 기간 선택을 실제 버튼으로 구현.
 - Scroll regression: 전역 `body { overflow:hidden }`과 루트 높이 규칙의 영향을 받지 않도록 메인을 독립된 `100dvh` 세로 스크롤 컨테이너로 구성해 10위와 마지막 여백까지 스크롤 가능하도록 검증.
+- Primary navigation: 기존 밑줄 탭을 보배드림 공통 알약칩 규칙(34px 높이, 999px 반경, 기본 `#F2F3F5`, 활성 `#222`)으로 통일하고 작은 화면에서는 한 줄 가로 스크롤을 유지.
 
 
 ---

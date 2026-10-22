@@ -11,10 +11,10 @@ html.main-home-open,body.main-home-open,html.main-home-open #root { height:100%;
 .mh-header-actions { display:flex; align-items:center; gap:11px; }
 .mh-header-actions button { width:32px; height:40px; display:grid; place-items:center; border-radius:8px; }
 .mh-header-actions img { width:25px; height:25px; }
-.mh-primary-nav { height:49px; padding:0 10px; display:grid; grid-template-columns:.7fr 1fr 1.2fr 1fr 1fr; align-items:stretch; border-bottom:1px solid #e8eaee; white-space:nowrap; }
-.mh-primary-nav a,.mh-primary-nav button { position:relative; display:flex; align-items:center; justify-content:center; color:#858585; text-decoration:none; font-size:15px; line-height:20px; font-weight:600; letter-spacing:-.045em; }
-.mh-primary-nav .is-active { color:#202020; font-weight:800; }
-.mh-primary-nav .is-active::after { content:""; position:absolute; left:22%; right:22%; bottom:-1px; height:2px; background:#202020; }
+.mh-primary-nav { min-height:51px; padding:8px 16px 9px; display:flex; align-items:center; gap:7px; overflow-x:auto; border-bottom:1px solid #e8eaee; white-space:nowrap; scrollbar-width:none; }
+.mh-primary-nav::-webkit-scrollbar { display:none; }
+.mh-primary-nav a,.mh-primary-nav button { position:relative; height:34px; flex:0 0 auto; padding:0 14px; display:flex; align-items:center; justify-content:center; border-radius:999px; color:#555; background:#f2f3f5; text-decoration:none; font-size:14px; line-height:20px; font-weight:650; letter-spacing:-.045em; }
+.mh-primary-nav .is-active { color:#fff; background:#222; font-weight:800; }
 .mh-search-wrap { padding:16px 16px 12px; }
 .mh-search-box { height:51px; padding:0 16px; display:flex; align-items:center; gap:10px; border:1.5px solid #6078cf; border-radius:6px; background:#fff; box-shadow:0 3px 7px rgba(60,88,170,.17); }
 .mh-search-box:focus-within { border-color:var(--mh-blue); box-shadow:0 0 0 3px rgba(56,102,180,.12); }
@@ -82,8 +82,8 @@ html.main-home-open,body.main-home-open,html.main-home-open #root { height:100%;
 @media (max-width:360px) {
   .mh-header { padding-inline:14px; }
   .mh-brand img { width:112px; }
-  .mh-primary-nav { padding-inline:4px; }
-  .mh-primary-nav a,.mh-primary-nav button { font-size:13px; }
+  .mh-primary-nav { padding-inline:12px; }
+  .mh-primary-nav a,.mh-primary-nav button { padding-inline:13px; font-size:13px; }
   .mh-category-grid { padding-inline:14px; }
   .mh-category-grid strong { font-size:11px; }
   .mh-popular-tabs { gap:5px; }
