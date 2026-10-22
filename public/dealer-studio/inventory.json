@@ -1,0 +1,208 @@
+[
+  {
+    "id": "sag-24",
+    "title": "랜드로버 레인지로버 5.0 V8 SC LWB SV AB",
+    "year": 2019,
+    "mileage": "52,000",
+    "fuel": "가솔린",
+    "company": "투제이모터웍스",
+    "dealer": "김태규",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/rr/rr-01.jpg",
+      "../assets/cars/seoul-autogallery-v01/rr/rr-02.jpg",
+      "../assets/cars/seoul-autogallery-v01/rr/rr-03.jpg",
+      "../assets/cars/seoul-autogallery-v01/rr/rr-04.jpg",
+      "../assets/cars/seoul-autogallery-v01/rr/rr-05.jpg",
+      "../assets/cars/seoul-autogallery-v01/rr/rr-06.jpg"
+    ]
+  },
+  {
+    "id": "sag-1",
+    "title": "BMW M3 xDrive 컴페티션 M",
+    "year": 2023,
+    "mileage": "22,000",
+    "fuel": "가솔린",
+    "company": "디앤디플러스",
+    "dealer": "박상용",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/m3-original/m3-1.webp",
+      "../assets/cars/seoul-autogallery-v01/m3-original/m3-4.webp",
+      "../assets/cars/seoul-autogallery-v01/m3-original/m3-7.webp",
+      "../assets/cars/seoul-autogallery-v01/m3-original/m3-10.webp",
+      "../assets/cars/seoul-autogallery-v01/m3-original/m3-14.webp",
+      "../assets/cars/seoul-autogallery-v01/m3-original/m3-18.webp"
+    ]
+  },
+  {
+    "id": "sag-2",
+    "title": "포르쉐 타이칸 EV",
+    "year": 2023,
+    "mileage": "30,000",
+    "fuel": "전기",
+    "company": "서울자동차선물거래소",
+    "dealer": "권재한",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-02-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-02-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-02-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-02-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-02-5.webp"
+    ]
+  },
+  {
+    "id": "sag-3",
+    "title": "벤츠 GLS클래스 GLS 580 4매틱",
+    "year": 2022,
+    "mileage": "95,000",
+    "fuel": "가솔린",
+    "company": "브로엠와이",
+    "dealer": "강홍구",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-03-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-03-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-03-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-03-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-03-5.webp"
+    ]
+  },
+  {
+    "id": "sag-4",
+    "title": "벤츠 GLC클래스 GLC 300 4매틱 쿠페 아방가르드",
+    "year": 2024,
+    "mileage": "9,563",
+    "fuel": "가솔린",
+    "company": "점보모빌리티",
+    "dealer": "이기련",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-04-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-04-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-04-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-04-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-04-5.webp"
+    ]
+  },
+  {
+    "id": "sag-5",
+    "title": "벤츠 E클래스 E350 4매틱 AMG 라인",
+    "year": 2023,
+    "mileage": "82,000",
+    "fuel": "가솔린",
+    "company": "브로엠와이",
+    "dealer": "강홍구",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-05-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-05-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-05-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-05-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-05-5.webp"
+    ]
+  },
+  {
+    "id": "sag-6",
+    "title": "렉서스 RX 450h",
+    "year": 2022,
+    "mileage": "39,000",
+    "fuel": "하이브리드",
+    "company": "브로엠제이",
+    "dealer": "현정훈",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-06-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-06-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-06-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-06-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-06-5.webp"
+    ]
+  },
+  {
+    "id": "sag-7",
+    "title": "벤츠 S클래스 S350d",
+    "year": 2023,
+    "mileage": "69,000",
+    "fuel": "디젤",
+    "company": "브로엠와이",
+    "dealer": "강홍구",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-07-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-07-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-07-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-07-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-07-5.webp"
+    ]
+  },
+  {
+    "id": "sag-8",
+    "title": "벤츠 GLA클래스 GLA 45 AMG 4매틱",
+    "year": 2018,
+    "mileage": "23,000",
+    "fuel": "가솔린",
+    "company": "라프모터스",
+    "dealer": "차경민",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-08-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-08-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-08-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-08-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-08-5.webp"
+    ]
+  },
+  {
+    "id": "sag-9",
+    "title": "랜드로버 올 뉴 디펜더 90 D250 X다이나믹 SE",
+    "year": 2025,
+    "mileage": "8,356",
+    "fuel": "디젤",
+    "company": "디앤디플러스",
+    "dealer": "김현종",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-09-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-09-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-09-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-09-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-09-5.webp"
+    ]
+  },
+  {
+    "id": "sag-10",
+    "title": "BMW 7시리즈 740Li xDrive 디자인 퓨어 엑셀런스",
+    "year": 2021,
+    "mileage": "70,000",
+    "fuel": "가솔린",
+    "company": "기억",
+    "dealer": "유광정",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-10-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-10-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-10-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-10-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-10-5.webp"
+    ]
+  },
+  {
+    "id": "sag-11",
+    "title": "벤츠 E클래스 E240",
+    "year": 2002,
+    "mileage": "131,000",
+    "fuel": "가솔린",
+    "company": "디앤디플러스",
+    "dealer": "김현종",
+    "gallery": "서울오토갤러리",
+    "photos": [
+      "../assets/cars/seoul-autogallery-v01/sag-11-1.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-11-2.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-11-3.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-11-4.webp",
+      "../assets/cars/seoul-autogallery-v01/sag-11-5.webp"
+    ]
+  }
+]
