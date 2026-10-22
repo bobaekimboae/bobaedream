@@ -6762,3 +6762,33 @@ final result: passed
 No actionable P0/P1/P2 differences remain.
 
 final result: passed
+
+
+---
+
+## 2026-10-22 모바일 메인 초톳 헤더 간격·높이 정합
+
+- Source visual truth: `https://xe.chotot.com/`, `.design-qa/chotot-mobile-header-reference-20261022.png`.
+- Browser-rendered implementation: `.design-qa/bobaedream-mobile-header-chotot-spacing-local.png`.
+- Combined comparison: `.design-qa/chotot-bobaedream-header-spacing-comparison.png`.
+- Viewport/state: 390×844 CSS px, DPR 1, 양쪽 모두 모바일 첫 화면 상단.
+- Full-view comparison: 초톳의 좌측 햄버거→로고 배열을 보배드림에 적용하고, 기존 우측 즐겨찾기·알림은 같은 수직 중심선에 유지함.
+- Focused evidence: 초톳과 구현 모두 헤더 87px, 좌측 24px, 햄버거 40×40px @ y=23.5px, 로고 104×28px @ x=75px/y=29.5px, 햄버거와 로고의 실제 가시 간격 11px.
+
+### Required fidelity surfaces
+
+- Typography: passed — 공식 보배드림 SVG 워드마크를 사용하고 별도 텍스트 대체를 하지 않음.
+- Spacing/layout: passed — 헤더 높이, 좌측 여백, 햄버거 크기, 로고 크기·좌표가 초톳 실측값과 일치함; 우측 40px 아이콘 두 개는 24px 우측 여백에 정렬됨.
+- Colors/tokens: passed — 보배드림 블루 로고와 중립 헤더 배경을 유지하며 회색 검색창과 충돌하지 않음.
+- Image quality: passed — 벡터 로고를 정확히 104×28px 슬롯에 배치해 뭉개짐 없음.
+- Copy/content: passed — 서비스·검색 문구는 변경하지 않음.
+- Behavior/accessibility: passed — 메뉴, 홈, 즐겨찾기, 알림 접근성 이름과 기존 동작 유지; 콘솔 오류 0.
+
+### Comparison history
+
+- Pass 1 [P1, layout]: 중앙 로고 방식이 초톳의 햄버거 옆 로고 구조와 달랐음. 헤더를 4열 그리드로 바꾸고 로고를 햄버거 우측에 배치함.
+- Pass 1 [P2, dimensions]: 기존 헤더 50px·버튼 44px·로고 22px이 초톳 실측 87px·40px·28px과 달랐음. 모든 치수를 실측값으로 수정함.
+- Pass 2 [P2, optical gap]: 코드 간격은 8px이었지만 초톳 로고 이미지의 실제 가시 시작점은 11px이었음. 로고 슬롯에 3px 내부 여백을 더해 최종 좌표를 일치시킴.
+- Pass 3: 수치와 모바일 캡처를 재대조했으며 추가 P0/P1/P2 차이가 없음.
+
+final result: passed
