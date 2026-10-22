@@ -200,7 +200,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
         <label>관심 차량<select value={consult.car} onChange={(event) => setConsult({ ...consult, car: event.target.value })}><option value="">아직 정하지 않았어요</option>{(extras?.listings ?? []).map((car) => <option key={car.id} value={car.title}>{car.title}</option>)}</select></label>
         <fieldset><legend>연락받을 시간</legend><div className="dbc-consult-times">{contactTimes.map((time) => <button key={time} type="button" aria-pressed={consult.time === time} onClick={() => setConsult({ ...consult, time })}>{time}</button>)}</div></fieldset>
         <label>휴대폰 번호<input type="tel" inputMode="tel" autoComplete="tel" maxLength={13} placeholder="010-0000-0000" value={consult.phone} onChange={(event) => setConsult({ ...consult, phone: event.target.value, error: "" })} /></label>
-        <label className="dbc-consult-agree"><input type="checkbox" checked={consult.agree} onChange={(event) => setConsult({ ...consult, agree: event.target.checked, error: "" })} />상담을 위해 번호를 {contact.name} 딜러에게 전달하는 데 동의해요</label>
+        <label className="dbc-consult-agree"><input type="checkbox" checked={consult.agree} onChange={(event) => setConsult({ ...consult, agree: event.target.checked, error: "" })} /><span>상담을 위해 번호를 {contact.name} 딜러에게 전달하는 데 동의해요</span></label>
         {consult.error ? <p className="dbc-consult-error" role="alert">{consult.error}</p> : null}
         <div className="dbc-consult-actions"><button type="button" onClick={() => setConsultOpen(false)}>취소</button><button type="submit">상담 남기기</button></div>
       </form>}

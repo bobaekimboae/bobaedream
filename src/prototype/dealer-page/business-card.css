@@ -171,3 +171,15 @@
 .dbc-share-more,.dbc-share-car,.dbc-share-car-list{min-width:0;max-width:100%}
 .dbc-sharebar{min-width:0;grid-template-columns:minmax(0,1fr)}
 .dbc-stock-chips{margin:0 0 12px}
+/* 상담 폼 넘침 보정(2026-10-22 크로스체크): 긴 차량 이름의 select가 칸을 밀어내지 않게 */
+.dbc-consult,.dbc-consult-form,.dbc-consult-form>*,.dbc-consult-form label,.dbc-consult-form fieldset{min-width:0;max-width:100%;box-sizing:border-box}
+.dbc-consult-form :is(select,input[type=tel]){display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;-webkit-appearance:none;appearance:none;outline:none;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+.dbc-consult-form select{padding-right:36px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23667085' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center}
+.dbc-consult-form :is(select,input[type=tel]):focus,.dbc-consult-form :is(select,input[type=tel]):focus-visible{border-color:#222;box-shadow:none;outline:none}
+.dbc-consult-times{flex-wrap:wrap}
+.dbc-consult-actions{grid-template-columns:92px minmax(0,1fr)}
+.dbc-consult-actions button{min-width:0}
+.dbc-consult-form .dbc-consult-agree{word-break:keep-all;overflow-wrap:break-word}
+.dbc-consult-agree span{min-width:0}
+.dbc-consult .dbc-consult-form select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23667085' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center}
+.dbc-consult .dbc-consult-form :is(select,input[type=tel]):is(:focus,:focus-visible){outline:0 !important;border-color:#222}
