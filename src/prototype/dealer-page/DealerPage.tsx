@@ -400,7 +400,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         </div>
         {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><button type="button" className="dp-safe-phone" onClick={() => notify(safePhoneNote(safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)))}>{safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)}</button><em className="dp-safe-badge">안심번호</em></div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+        <div className="dp-profile-inline is-dealership"><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
         <DealerSnsList sns={sns} pc homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
         <SellPriceCta onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">

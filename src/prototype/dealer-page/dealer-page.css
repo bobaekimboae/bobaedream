@@ -817,3 +817,6 @@
 /* 050 안심번호 표시(2026-10-22) */
 .dp-safe-phone { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
 .dp-safe-badge { margin-left: 6px; padding: 0 6px; border-radius: 4px; background: #F4F5F6; color: #595959; font-size: 11px; font-style: normal; font-weight: 600; line-height: 18px; white-space: nowrap; }
+/* 단지·상사 줄을 주소 밑에 붙임(2026-10-22 「주소 밑 단지 아이콘 빼고 붙이는건」): 집 아이콘 없이 주소 글자 시작선(핀 22 + 8)에 맞춰 바로 아래 둔다. */
+.dp-profile-inline.is-dealership, .dp-review-page-shell .dp-profile-inline.is-dealership { margin-top: 2px; padding-left: 30px; }
+.dp-profile-inline.is-dealership .dp-profile-homepage { padding-left: 0; }
