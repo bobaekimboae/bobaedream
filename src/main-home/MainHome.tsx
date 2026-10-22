@@ -104,7 +104,10 @@ export default function MainHome() {
           </form>
           <div className="mh-top-icons">
             <button type="button" aria-label="즐겨찾기" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={chototIconAsset("favorite")} alt="" /></button>
-            <button type="button" aria-label="알림" onClick={() => showPreparing("알림 화면을 준비 중입니다.")}><img src={chototIconAsset("notification")} alt="" /></button>
+            <button className="mh-notification-button" type="button" aria-label="알림 94개" onClick={() => showPreparing("알림 화면을 준비 중입니다.")}>
+              <img src={chototIconAsset("notification")} alt="" />
+              <span className="mh-notification-badge" aria-hidden="true">94</span>
+            </button>
           </div>
         </header>
 

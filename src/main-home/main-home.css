@@ -3,7 +3,7 @@
 .main-home { position:relative; width:min(100vw,430px); min-height:100dvh; padding-bottom:calc(72px + env(safe-area-inset-bottom)); overflow:hidden; background:#f0f2f5; box-shadow:0 28px 80px rgba(15,23,42,.18); font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Noto Sans KR","Segoe UI",sans-serif; }
 .main-home * { box-sizing:border-box; }
 .main-home button { border:0; padding:0; color:inherit; background:none; font:inherit; }
-.mh-topbar { height:72px; padding:0 12px; display:grid; grid-template-columns:44px minmax(0,1fr) 88px; gap:8px; align-items:center; background:var(--mh-blue); }
+.mh-topbar { position:sticky; top:0; z-index:30; height:72px; padding:0 12px; display:grid; grid-template-columns:44px minmax(0,1fr) 88px; gap:8px; align-items:center; background:var(--mh-blue); }
 .mh-top-search { min-width:0; }
 .mh-top-icons { display:flex; gap:0; align-items:center; }
 .mh-top-icons:not(.mh-top-icons-left) { grid-column:3; }
@@ -11,7 +11,9 @@
 .mh-top-icons button { width:44px; height:44px; display:grid; place-items:center; border-radius:50%!important; cursor:pointer; }
 .mh-top-icons button:active { background:rgba(255,255,255,.14); }
 .mh-top-icons img { width:25px; height:25px; filter:brightness(0) invert(1); }
-.mh-service-menu { display:flex; gap:8px; overflow-x:auto; padding:8px 12px; background:#fff; scrollbar-width:none; scroll-padding-inline:12px; }
+.mh-notification-button { position:relative; }
+.mh-notification-badge { position:absolute; top:0; right:-1px; min-width:19px; height:19px; padding:0 4px; display:flex; align-items:center; justify-content:center; border:2px solid var(--mh-blue); border-radius:999px; color:#fff; background:#ec3155; font-size:10px; line-height:15px; font-weight:800; letter-spacing:-.02em; }
+.mh-service-menu { position:relative; z-index:20; display:flex; gap:8px; overflow-x:auto; margin-top:-1px; padding:10px 12px 8px; border-radius:22px 22px 0 0; background:#fff; scrollbar-width:none; scroll-padding-inline:12px; }
 .mh-service-menu::-webkit-scrollbar,.mh-category-rail::-webkit-scrollbar,.mh-offer-rail::-webkit-scrollbar { display:none; }
 .mh-service-chip { flex:0 0 auto; min-width:0; height:32px; padding:4px 8px!important; border:0!important; border-radius:9999px!important; color:#202124!important; background:#f4f4f4!important; font-size:14px!important; line-height:20px!important; font-weight:500!important; letter-spacing:-.025em; white-space:nowrap; box-shadow:none; transition:all 140ms ease; }
 .mh-service-chip.is-active { color:#fff!important; background:#252a30!important; font-weight:600!important; box-shadow:none; }

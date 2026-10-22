@@ -34,18 +34,18 @@ final result: passed
 ## 2026-10-22 모바일 메인 블루 통합 검색 헤더
 
 - Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/64db43a0-22be-43e2-b766-87078a70882a/1-1000018991.jpg`.
-- Browser-rendered implementation: `.design-qa/bobaedream-mobile-blue-search-header-local.png`.
+- Browser-rendered implementation: `.design-qa/bobaedream-mobile-exact-chotot-header-local.png`.
 - Viewport/state: 390×844 CSS px, DPR 1, 모바일 메인 첫 화면. 첨부 이미지의 기기 상태바는 앱 UI가 아니므로 비교 대상에서 제외함.
-- Full-view comparison: 첨부 화면의 상단 한 줄 구조만 적용해 `햄버거 | 흰색 알약 검색창 | 즐겨찾기·알림`을 보배드림 블루 배경 위에 배치하고, 기존 중앙 로고와 별도 검색 행은 제거함.
+- Full-view comparison: 첨부 화면의 상단 한 줄 구조를 적용해 `햄버거 | 흰색 알약 검색창 | 즐겨찾기·알림`을 보배드림 블루 배경 위에 배치하고, 기존 중앙 로고와 별도 검색 행은 제거함. 원본의 빨간 알림 수 배지와 블루 배경 위로 겹치는 둥근 흰색 콘텐츠 전환부까지 반영함.
 
 ### Required fidelity surfaces
 
 - Typography: passed — 검색 문구 16px과 기존 시스템 한글 글꼴을 유지해 모바일에서 잘리지 않음.
-- Spacing/layout: passed — 헤더 72px, 좌우 12px, 햄버거 44px, 검색창 203.2×48px, 우측 아이콘 영역 88px으로 한 줄 정렬됨.
+- Spacing/layout: passed — 헤더 72px, 좌우 12px, 햄버거 44px, 검색창 203.2×48px, 우측 아이콘 영역 88px으로 한 줄 정렬됨. 다음 콘텐츠는 y=71px에서 22px 상단 라운드로 연결됨.
 - Colors/tokens: passed — 보배드림 기본 블루 `#306bd9`와 흰색 검색창·아이콘의 대비가 명확함.
 - Image quality: passed — 기존 벡터 아이콘을 25px 슬롯에 사용해 뭉개짐 없음.
 - Copy/content: passed — 기존 검색 안내 문구와 서비스 메뉴는 유지함.
-- Behavior/accessibility: passed — 검색 제출, 메뉴, 즐겨찾기, 알림 동작과 접근성 이름 유지; 중복 검색 폼 0개, 중앙 로고 0개, 콘솔 오류 0.
+- Behavior/accessibility: passed — 검색 제출, 메뉴, 즐겨찾기, 알림 동작과 접근성 이름 유지; 알림 버튼은 `알림 94개`로 노출됨. 헤더는 스크롤 시 고정되고 중복 검색 폼 0개, 중앙 로고 0개, 콘솔 오류 0.
 
 No actionable P0/P1/P2 differences remain.
 
