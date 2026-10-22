@@ -94,7 +94,7 @@ export default function MainHome() {
       <main className="main-home" aria-label="보배드림 중고차 메인">
         <header className="mh-topbar">
           <a className="mh-logo" href="./" aria-label="보배드림 홈">
-            <img src={bbmAsset("header-logo.svg")} alt="보배드림" />
+            <img src={bbmAsset("main-home-logo.svg")} alt="보배드림" />
           </a>
           <div className="mh-top-icons">
             <button type="button" aria-label="즐겨찾기" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={prototypeAsset("icons/favorite.svg")} alt="" /></button>
