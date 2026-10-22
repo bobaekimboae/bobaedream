@@ -56,6 +56,15 @@ export default function MainHome() {
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    document.documentElement.classList.add("main-home-open");
+    document.body.classList.add("main-home-open");
+    return () => {
+      document.documentElement.classList.remove("main-home-open");
+      document.body.classList.remove("main-home-open");
+    };
+  }, []);
+
+  useEffect(() => {
     if (!toast) return;
     const timer = window.setTimeout(() => setToast(""), 1800);
     return () => window.clearTimeout(timer);

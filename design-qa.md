@@ -47,6 +47,7 @@ final result: passed
 - Image quality: 공식 벡터 로고·헤더 아이콘과 저장소 내 고해상도 차량 자산을 사용.
 - Copy/content: 시안의 메뉴명, 서비스명, 숏폼 제목·메타정보, 인기글 제목·댓글 수를 반영.
 - Behavior/accessibility: 검색 제출, 검색 포커스, 탭 이동, 서비스 목록 이동, 더보기 메뉴, 정치글 토글, 인기 기간 선택을 실제 버튼으로 구현.
+- Scroll regression: 전역 `body { overflow:hidden }`과 루트 높이 규칙의 영향을 받지 않도록 메인을 독립된 `100dvh` 세로 스크롤 컨테이너로 구성해 10위와 마지막 여백까지 스크롤 가능하도록 검증.
 
 
 ---
