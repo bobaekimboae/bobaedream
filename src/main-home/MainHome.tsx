@@ -96,9 +96,12 @@ export default function MainHome() {
           <div className="mh-top-icons mh-top-icons-left">
             <button type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={chototIconAsset("menu")} alt="" /></button>
           </div>
-          <a className="mh-logo" href="./" aria-label="보배드림 홈">
-            <img src={bbmAsset("main-home-logo.svg")} alt="보배드림" />
-          </a>
+          <form className="mh-top-search" role="search" onSubmit={(event) => { event.preventDefault(); navigateToListing({ query: searchQuery }); }}>
+            <label className="mh-search-field">
+              <img src={prototypeAsset("icons/search.svg")} alt="" aria-hidden="true" />
+              <input type="search" aria-label="중고차 검색" placeholder="어떤 차량을 찾고 있나요?" value={searchQuery} onChange={(event) => setSearchQuery(event.currentTarget.value)} />
+            </label>
+          </form>
           <div className="mh-top-icons">
             <button type="button" aria-label="즐겨찾기" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={chototIconAsset("favorite")} alt="" /></button>
             <button type="button" aria-label="알림" onClick={() => showPreparing("알림 화면을 준비 중입니다.")}><img src={chototIconAsset("notification")} alt="" /></button>
@@ -123,13 +126,6 @@ export default function MainHome() {
             >{service.label}</button>
           ))}
         </nav>
-
-        <form className="mh-search-strip" role="search" onSubmit={(event) => { event.preventDefault(); navigateToListing({ query: searchQuery }); }}>
-            <label className="mh-search-field">
-              <img src={prototypeAsset("icons/search.svg")} alt="" aria-hidden="true" />
-              <input type="search" aria-label="중고차 검색" placeholder="어떤 차량을 찾고 있나요?" value={searchQuery} onChange={(event) => setSearchQuery(event.currentTarget.value)} />
-            </label>
-        </form>
 
         <section className="mh-section mh-category-section" aria-labelledby="mh-body-title">
           <div className="mh-section-head">
