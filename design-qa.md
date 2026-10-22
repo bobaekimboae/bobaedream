@@ -84,6 +84,23 @@ final result: passed
 
 ---
 
+## 2026-10-22 초톳 모바일 검색바·알약칩 크기 적용
+
+- 전체 검수 보고서: `docs/design-qa-chotot-control-sizing-2026-10-22.md`
+- Source visual truth: `.design-qa/chotot-my-ads-mobile-reference.png` (`https://www.chotot.com/my-ads`, 390×844px, DPR 1).
+- Browser-rendered implementation: `.design-qa/bobaedream-main-chotot-sizing-mobile.png` (394×851px, CSS viewport 394×852, DPR 1).
+- Combined comparison evidence: `.design-qa/comparison-chotot-sizing-mobile.png`.
+- Focused result: 검색바 40px·좌우 12/16px·16px/400, 알약칩 32px·4/8px·14px/500·간격 8px로 원본 실측값을 반영했다.
+- Required fidelity surfaces: Pretendard 계열 타이포, 12px 레일 인셋, 기존 보배드림 블루/블랙 토큰, 기존 원본 아이콘, 한국어 문구를 유지했다.
+- Interaction/runtime: `중고차` 칩 선택, `BMW 5시리즈` 검색 이동, 깨진 이미지 0, 콘솔 오류 0, `npm run verify` 통과.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
 ## 2026-10-22 모바일 메인 네이버스토어형 로고·검색바
 
 - Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/cb3c6087-9af5-4ddb-866a-591f81bbbefe/1-1000018969.jpg` (591 × 1280px Android 캡처).
