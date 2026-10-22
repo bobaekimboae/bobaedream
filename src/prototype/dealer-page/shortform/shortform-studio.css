@@ -55,9 +55,10 @@
 .sfs-backdrop .sfs-making p { margin: 0; color: #8c8c8c; font-size: 14px; }
 .sfs-backdrop .sfs-meter { height: 8px; overflow: hidden; border-radius: 4px; background: #eef0f3; }
 .sfs-backdrop .sfs-meter span { display: block; height: 100%; border-radius: 4px; background: #306bd9; transition: width .2s; }
-.sfs-backdrop .sfs-done { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.sfs-backdrop .sfs-done video { width: min(100%, 260px); aspect-ratio: 9 / 16; border-radius: 16px; background: #000; }
-.sfs-backdrop .sfs-done p { margin: 0; color: #595959; font-size: 13px; }
+.sfs-backdrop .sfs-done { display: flex; flex-direction: column; gap: 24px; }
+.sfs-backdrop .sfs-done-video { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.sfs-backdrop .sfs-done video { width: min(100%, 200px); aspect-ratio: 9 / 16; border-radius: 16px; background: #000; }
+.sfs-backdrop .sfs-done-video p { margin: 0; color: #595959; font-size: 13px; }
 
 .sfs-backdrop .sfs-foot { display: flex; flex: 0 0 auto; gap: 10px; padding: 12px 20px calc(16px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid #e8e8e8; }
 .sfs-backdrop .sfs-foot > * { display: grid; height: 52px; place-items: center; box-sizing: border-box; border-radius: 12px; font: inherit; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; }
@@ -72,6 +73,9 @@
   .sfs-backdrop .sfs-pick-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .sfs-backdrop .sfs-edit { display: grid; grid-template-columns: 320px minmax(0, 1fr); align-items: start; gap: 28px; }
   .sfs-backdrop .sfs-preview { position: sticky; top: 0; width: 320px; }
+  .sfs-backdrop .sfs-done { display: grid; grid-template-columns: 280px minmax(0, 1fr); align-items: start; gap: 28px; }
+  .sfs-backdrop .sfs-done-video { position: sticky; top: 0; }
+  .sfs-backdrop .sfs-done video { width: 280px; }
   .sfs-backdrop .sfs-foot { justify-content: flex-end; }
   .sfs-backdrop .sfs-primary { flex: 0 0 auto; min-width: 200px; padding: 0 20px; }
 }
@@ -83,3 +87,42 @@
 .dp-shortform-cta small { color: #595959; font-size: 13px; line-height: 19px; }
 .dp-root .dp-shortform-cta button { flex: 0 0 auto; height: 36px; padding: 0 14px; border: 0; border-radius: 999px; background: #222; color: #fff; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; }
 .dp-made-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; background: #f4f4f4; }
+
+/* 내 SNS 계정에 올리기(2026-10-22): 글 → 휴대폰 앱으로(실제) → 연결 계정에 바로(시안) */
+.sfs-backdrop .sfp { display: flex; min-width: 0; flex-direction: column; gap: 20px; }
+.sfs-backdrop .sfp h3 { margin: 0; font-size: 18px; line-height: 24px; font-weight: 700; }
+.sfs-backdrop .sfp-caption { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; align-items: end; }
+.sfs-backdrop .sfp-caption label { grid-column: 1 / -1; font-size: 15px; line-height: 22px; font-weight: 700; }
+.sfs-backdrop .sfp-caption textarea { grid-column: 1 / -1; width: 100%; box-sizing: border-box; padding: 10px 12px; border: 1px solid #dadada; border-radius: 10px; color: #222; font: inherit; font-size: 14px; line-height: 21px; resize: vertical; }
+.sfs-backdrop .sfp-caption textarea:focus { outline: 0 !important; border-color: #222; }
+.sfs-backdrop .sfp-caption button { grid-column: 2; height: 32px; padding: 0 12px; border: 1px solid #e4e7ec; border-radius: 999px; background: #fff; color: #222; font-size: 14px; font-weight: 500; cursor: pointer; }
+.sfs-backdrop .sfp-block { display: flex; flex-direction: column; gap: 8px; padding-top: 18px; border-top: 1px solid #ececec; }
+.sfs-backdrop .sfp-block > b { font-size: 15px; line-height: 22px; }
+.sfs-backdrop .sfp-block > b em { margin-left: 6px; padding: 1px 6px; border-radius: 4px; background: #f4f5f6; color: #595959; font-size: 11px; font-style: normal; font-weight: 600; vertical-align: 2px; }
+.sfs-backdrop .sfp-block > p { margin: 0; color: #595959; font-size: 13px; line-height: 19px; }
+.sfs-backdrop .sfp-primary { height: 48px; margin-top: 4px; border: 0; border-radius: 12px; background: #222; color: #fff; font: inherit; font-size: 15px; font-weight: 700; cursor: pointer; }
+.sfs-backdrop .sfp-primary:disabled { background: #b7b7b7; cursor: not-allowed; }
+.sfs-backdrop .sfp-list { display: flex; margin: 4px 0 0; padding: 0; flex-direction: column; list-style: none; }
+.sfs-backdrop .sfp-list > li { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto auto; align-items: center; gap: 0 12px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+.sfs-backdrop .sfp-list > li:last-child { border-bottom: 0; }
+.sfs-backdrop .sfp-list > li > img { width: 28px; height: 28px; }
+.sfs-backdrop .sfp-name { display: flex; min-width: 0; flex-direction: column; }
+.sfs-backdrop .sfp-name b { font-size: 15px; line-height: 22px; font-weight: 600; }
+.sfs-backdrop .sfp-name small { color: #8c8c8c; font-size: 12px; line-height: 17px; }
+.sfs-backdrop .sfp-step { font-weight: 600; }
+.sfs-backdrop .sfp-step.is-upload, .sfs-backdrop .sfp-step.is-process { color: #306bd9 !important; }
+.sfs-backdrop .sfp-step.is-done { color: #17803d !important; }
+.sfs-backdrop .sfp-connect { height: 32px; padding: 0 12px; border: 1px solid #e4e7ec; border-radius: 999px; background: #fff; color: #222; font-size: 14px; font-weight: 500; cursor: pointer; }
+.sfs-backdrop .sfp-disconnect { padding: 0 2px; border: 0; background: none; color: #8c8c8c; font-size: 13px; text-decoration: underline; cursor: pointer; }
+.sfs-backdrop .sfp-toggle { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+.sfs-backdrop .sfp-toggle input { width: 20px; height: 20px; accent-color: #222; }
+.sfs-backdrop .sfp-connect-form { grid-column: 2 / -1; display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+.sfs-backdrop .sfp-connect-form p { margin: 0; color: #595959; font-size: 12px; line-height: 18px; }
+.sfs-backdrop .sfp-connect-form > div { display: flex; gap: 6px; }
+.sfs-backdrop .sfp-connect-form input { min-width: 0; flex: 1 1 auto; height: 40px; box-sizing: border-box; padding: 0 10px; border: 1px solid #dadada; border-radius: 10px; font: inherit; font-size: 14px; }
+.sfs-backdrop .sfp-connect-form input:focus { outline: 0 !important; border-color: #222; }
+.sfs-backdrop .sfp-connect-form button { flex: 0 0 auto; height: 40px; padding: 0 14px; border: 0; border-radius: 10px; background: #222; color: #fff; font-size: 14px; font-weight: 600; cursor: pointer; }
+.sfs-backdrop .sfp-connect-form button:disabled { background: #b7b7b7; }
+.sfs-backdrop .sfp-connect-form button.is-text { padding: 0 6px; background: none; color: #595959; }
+.dp-root .dp-toast { z-index: 70; white-space: normal; text-align: center; word-break: keep-all; }
+.dp-root:has(.sfs-backdrop) .dp-toast { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }

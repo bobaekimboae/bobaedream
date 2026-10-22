@@ -510,6 +510,16 @@ function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInsta
   </div>;
 }
 
+// 숏폼 「내 SNS 계정에 올리기」 연결 칸에 미리 넣을 딜러 계정(판매자페이지 SNS 링크에서).
+function snsHandlesFor(dealer: SeoulAutoGalleryDealer) {
+  const links = dealerSnsLinks(dealer.shopNo, dealer.name)?.links;
+  const handle = (url?: string) => {
+    if (!url) return undefined;
+    try { const path = decodeURIComponent(new URL(url).pathname).replace(/\/$/, "").split("/").filter(Boolean); return path[0]?.startsWith("@") ? path[0] : path[0] === "channel" ? snsLabel(url) : path[0] ? `@${path[0]}` : undefined; } catch { return undefined; }
+  };
+  return { instagram: handle(links?.instagram), youtube: handle(links?.youtube) };
+}
+
 // 딜러용 숏폼 자동 제작기(2026-10-22 「숏폼 자동 제작하는 딜러용 프로그램 … 너가 만들어봐」): 안내 줄 + 이번에 만든 숏폼 카드.
 function ShortformCta({ onMake }: { onMake: () => void }) {
   return <aside className="dp-shortform-cta" aria-label="숏폼 만들기">
@@ -1159,7 +1169,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       </main>
       <Footer />
     </div>
-    {studio ? <ShortformStudio cars={cars} initialCarId={studio.carId} dealer={{ name: dealer.name, company: stripCorp(MOCK.company), phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), photo: dealerPhoto(dealer) }} onClose={() => setStudio(null)} onPublish={(made) => { setMadeShorts((current) => [made, ...current]); setMode("sns"); changeSection("ads"); notify("SNS 판매 차량에 숏폼을 올렸어요"); }} /> : null}
+    {studio ? <ShortformStudio cars={cars} initialCarId={studio.carId} dealer={{ name: dealer.name, company: stripCorp(MOCK.company), phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), photo: dealerPhoto(dealer), storageKey: `bobaedream:shortform-sns:${dealer.shopNo}:${dealer.empNo}`, snsHandles: snsHandlesFor(dealer) }} onToast={notify} onClose={() => setStudio(null)} onPublish={(made) => { setMadeShorts((current) => [made, ...current]); setMode("sns"); changeSection("ads"); notify("SNS 판매 차량에 숏폼을 올렸어요"); }} /> : null}
     {toast ? <div className="dp-toast" role="status">{toast}</div> : null}
   </div>;
 }
