@@ -53,6 +53,13 @@ final result: passed
 - Copy/content: passed — 기존 보배드림 검색 문구와 기능 아이콘은 유지하고 크기·리듬만 교정했다.
 - Responsive/accessibility: passed — 393px 모바일에서 가로 오버플로가 없고 로고 링크·검색 입력의 접근성 이름이 유지된다.
 
+### Header balance follow-up
+
+- Browser-rendered implementation: `.design-qa/implementation-mobile-header-balanced.png` (393×852 px).
+- Focused comparison: `.design-qa/comparison-naver-header-balance.png` (780×112 px).
+- [P2, alignment] 첫 교정은 좌측 로고 슬롯 99px, 우측 아이콘 슬롯 88px, 바깥 여백 좌 16px·우 12px로 비대칭이었다. 로고와 아이콘 슬롯을 각각 88px로 통일하고 바깥 여백도 좌우 16px로 맞췄다.
+- 44×44px 터치 영역과 24px 기능 아이콘은 접근성을 위해 유지했다. 최종 상단 행은 좌·우 슬롯 88px, 좌·우 여백 16px, 높이 50px으로 재검증했다.
+
 No actionable P0/P1/P2 differences remain for the requested logo and search-header sizing scope.
 
 final result: passed
