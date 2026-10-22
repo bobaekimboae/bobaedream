@@ -91,6 +91,8 @@ type Car = {
   modelGroup?: string;
   sellerType: Exclude<SellerType, "전체">;
   image: string;
+  /** 차종 카탈로그 또는 동일 매물 여부가 미확인인 참고 이미지. 실매물 사진 집계에서 제외한다. */
+  imageKind?: "catalog" | "reference";
   imageFit?: "cover" | "contain";
   /** 실매물 사진은 원본 비율로 썸네일을 채워 카탈로그 여백과 차체 잘림을 피한다. */
   imageAspectRatio?: number;
@@ -2056,7 +2058,8 @@ const seoulAutoGallerySiteCars: Car[] = seoulAutoGallerySiteRows.map((row, index
     modelGroup: row.model,
     sellerType: "딜러",
     image: row.image,
-    photoList: row.image ? [row.image] : undefined,
+    imageKind: row.image ? row.imageKind ?? "catalog" : undefined,
+    photoList: [],
     imageFit: "contain",
     imagePosition: "center bottom",
     title: [row.maker, row.model, row.generation].filter(Boolean).join(" "),
@@ -2069,7 +2072,7 @@ const seoulAutoGallerySiteCars: Car[] = seoulAutoGallerySiteRows.map((row, index
     dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
     stock: seoulAutoGallerySiteRows.filter((other) => other.company === row.company && other.dealer === row.dealer).length,
     posted: index < 10 ? `${index + 1}시간 전` : `${Math.min(30, Math.floor(index / 3))}일 전`,
-    photos: row.image ? 1 : 0,
+    photos: 0,
     sellerProfile: null,
     seoulAutoGallery: { company: row.company, dealer: row.dealer, priceKind: "공개" },
     filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: "오토", fuel: row.fuel, color: row.color, origin: sagSiteOrigin[row.maker] ?? "수입", body: deutschBodyType(row.model), video: false },
