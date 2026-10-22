@@ -48,6 +48,38 @@ final result: passed
 
 ---
 
+## 2026-10-22 모바일 메인 네이버스토어형 로고·검색바
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/cb3c6087-9af5-4ddb-866a-591f81bbbefe/1-1000018969.jpg` (591 × 1280px Android 캡처).
+- Browser-rendered implementation: `.design-qa/implementation-naver-search.png` (1280 × 720px 브라우저 캡처; 앱 콘텐츠 430px 폭, DPR 1.25).
+- Combined comparison: `.design-qa/comparison-naver-search.png`; 네이버 기준 화면은 430px 폭으로 정규화하고 로고·검색 영역을 같은 캔버스에서 비교했다.
+- State: 모바일 메인 상단, 전체 메뉴 선택, 검색 입력 기본 상태.
+- Primary interaction tested: 검색창에 `BMW 5시리즈` 입력·초기화 정상, 브라우저 경고·오류 0건.
+
+### Comparison history
+
+- Pass 1 [P2, hierarchy]: 기존 검색바는 48px 높이는 적절했으나 테두리가 없고 15px/400 문구와 22px 돋보기여서 네이버 기준보다 검색 진입점이 약했다.
+- Fix: 2px `#306BD9` 테두리, 흰 배경, 24px 돋보기, 16px/500 문구, 12px 모서리와 14px 내부 여백으로 조정했다.
+- Pass 1 [P2, logo proportion]: 기존 122 × 30px 로고는 430px 모바일 폭에서 네이버 정규화 기준보다 상대적으로 넓고 높았다.
+- Fix: 로고를 114 × 28px로 줄이고 44px 헤더 슬롯의 수직 중앙에 유지했다.
+- Pass 2: 정규화 비교판에서 검색바는 네이버 기준 394 × 약 47px, 구현 398 × 48px로 맞고, 로고는 기준 약 112 × 25px, 구현 114 × 28px로 허용 범위다. 남은 차이는 보배드림 고유 GNB 유지에 따른 의도적 수직 구조 차이다.
+
+### Required fidelity surfaces
+
+- Typography: passed — 검색 문구 16px/500, 로고 원본 벡터 사용.
+- Spacing/layout: passed — 16px 좌우 여백, 48px 검색바, 12px radius, 기존 GNB와 충돌 없음.
+- Colors/tokens: passed — Việc Làm Tốt와 동일한 보배드림 기준색 `#306BD9`를 로고·검색 테두리에 사용.
+- Image quality: passed — 기존 공식 보배드림 SVG를 114 × 28px로 비율 유지해 렌더링.
+- Copy/content: passed — 기존 한국어 검색 문구와 메뉴 구조 유지.
+- Behavior/accessibility: passed — 검색 입력·초기화 정상, 포커스 링 유지, 콘솔 오류 0건.
+
+No actionable P0/P1/P2 differences remain. 오른쪽 카메라·서비스 아이콘은 보배드림 검색 기능 범위에 없으므로 의도적으로 추가하지 않았다.
+
+final result: passed
+
+
+---
+
 ## 2026-10-21 딜러 판매차량 분류 · 초톳형 다중선택
 
 - Source visual truth: `reports/design-qa/dealer-stock-multiselect-2026-10-21/01-chotot-reference.png` (390×843 px, Chợ Tốt mobile category/filter state).
