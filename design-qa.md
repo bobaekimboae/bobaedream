@@ -31,6 +31,35 @@ final result: passed
 
 ---
 
+## 2026-10-22 모바일 메인 로고·검색 영역 네이버스토어 재실측
+
+- Source visual truth: `https://shopping.naver.com/ns/home`의 모바일 렌더와 `.design-qa/source-naver-mobile-header.png` (378×820 px).
+- Browser-rendered implementation: `.design-qa/implementation-mobile-header-remeasured.png` (393×852 px).
+- Combined focused comparison: `.design-qa/comparison-naver-logo-spacing.png` (780×190 px); 양쪽을 378px 폭으로 정규화하고 로고 행과 검색 행을 각각 같은 높이로 비교했다.
+- Viewport/state: 네이버 CSS viewport 378×852, 구현 CSS viewport 393×852, 양쪽 모두 모바일 첫 화면·검색 비활성 상태.
+
+### Comparison history
+
+- Pass 1 [P1, scale/rhythm]: 구현이 로고 114×28px, 상단 행 64px, 검색창 48px여서 네이버 실측 로고 99×20px, 행 50px, 검색창 41.6px보다 과대했다. 상단 행 50px, 검색창 42px, 하단 여백 14px로 교정했다.
+- Pass 2 [P2, logo optical size]: 첫 교정은 로고 폭 99px을 우선해 원본 종횡비상 높이가 24.34px로 남았다. 로고 본체 높이를 네이버와 같은 20px로 고정하고 폭은 보배드림 원본 비율에 따라 81.33px로 조정했다.
+- Pass 3: 네이버 검색창의 좌우 16px, 높이 41.6px, 아이콘 24px, placeholder 15px/500/#949494/-0.5px을 확인했고 구현은 좌우 16px, 높이 42px, 아이콘 24px, 동일 placeholder 타이포로 재검증했다. 브랜드 차이로 2px 블루 테두리와 검정 검색 아이콘은 의도적으로 유지했다.
+
+### Required fidelity surfaces
+
+- Typography: passed — 검색 placeholder를 15px/500, `-0.5px`, `#949494`로 맞췄다.
+- Spacing/layout: passed — 로고 행 50px, 검색창 42px, 좌우 16px, 검색창 아래 14px이 실측값과 일치한다.
+- Colors/tokens: passed — 네이버 퍼플은 복제하지 않고 보배드림 기본 블루 `#306BD9`를 유지했다.
+- Image quality: passed — 기존 벡터 보배드림 로고를 원본 종횡비로 20px 높이에 표시해 늘어짐과 흐림이 없다.
+- Copy/content: passed — 기존 보배드림 검색 문구와 기능 아이콘은 유지하고 크기·리듬만 교정했다.
+- Responsive/accessibility: passed — 393px 모바일에서 가로 오버플로가 없고 로고 링크·검색 입력의 접근성 이름이 유지된다.
+
+No actionable P0/P1/P2 differences remain for the requested logo and search-header sizing scope.
+
+final result: passed
+
+
+---
+
 ## 2026-10-21 e-조이모터스 공식 슈퍼카 헤더 영상
 
 - Source visual truth: `https://www.ferrari.com/en-US`, `https://www.lamborghini.com/en-en`의 현재 공식 홈페이지 히어로 영상.
