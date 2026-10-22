@@ -7,6 +7,7 @@ const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-mai
 const bbmAsset = (path: string) => ["assets", "bbm", path].join("/");
 const serviceLogoAsset = (name: string) => bbmAsset(`service-logos/v01/bobaedream-${name}-v01.png`);
 const luxuryListingAsset = (path: string) => ["assets", "cars", "luxury-ui-test", path].join("/");
+const chototIconAsset = (name: string) => ["icons", "chotot", `chotot-common-${name}.svg`].join("/");
 
 const services: Array<{ key: ServiceKey; label: string }> = [
   { key: "all", label: "전체" },
@@ -92,12 +93,15 @@ export default function MainHome() {
     <div className="main-home-stage">
       <main className="main-home" aria-label="보배드림 중고차 메인">
         <header className="mh-topbar">
+          <div className="mh-top-icons mh-top-icons-left">
+            <button type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={chototIconAsset("menu")} alt="" /></button>
+          </div>
           <a className="mh-logo" href="./" aria-label="보배드림 홈">
             <span>보배드림</span>
           </a>
           <div className="mh-top-icons">
-            <button type="button" aria-label="즐겨찾기" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={prototypeAsset("icons/favorite.svg")} alt="" /></button>
-            <button type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={prototypeAsset("icons/menu.svg")} alt="" /></button>
+            <button type="button" aria-label="즐겨찾기" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={chototIconAsset("favorite")} alt="" /></button>
+            <button type="button" aria-label="알림" onClick={() => showPreparing("알림 화면을 준비 중입니다.")}><img src={chototIconAsset("notification")} alt="" /></button>
           </div>
         </header>
 
