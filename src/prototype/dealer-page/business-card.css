@@ -100,3 +100,73 @@
 .dbc-dialog-body{padding-bottom:16px}
 .dbc-page:has(>.dbc-sharebar){padding-bottom:0}
 .dbc-dialog-head>.dbc-head-edit{width:auto;height:32px;min-width:0;padding:0 12px;border:1px solid #e4e7ec;border-radius:16px;background:#fff;color:#222;font-size:13px;line-height:1;font-weight:600;white-space:nowrap}
+/* 2026-10-22 국내외 딜러·중개사 명함 벤치마킹 적용: 아이콘 · 상담 남기기 · 차량 붙여 보내기 · 방문 길안내 · 내 차 견적 */
+.dbc-ico{display:inline-block;flex:none;width:20px;height:20px;background:currentColor;-webkit-mask:var(--dbc-ico) center/contain no-repeat;mask:var(--dbc-ico) center/contain no-repeat;font-style:normal}
+.dbc-cta :is(a,button){gap:6px}
+.dbc-cta .dbc-ico{width:18px;height:18px}
+.dbc-trust .dbc-verified{display:inline-flex;align-items:center;gap:4px;margin-right:8px;color:#306bd9;font-weight:700}
+.dbc-trust .dbc-verified .dbc-ico{width:16px;height:16px}
+.dbc-trust .dbc-verified+span::before{display:none}
+.dbc-consult{margin:0 20px 16px}
+.dbc-consult-open{display:flex;align-items:center;gap:12px;width:100%;min-height:60px;padding:10px 14px;border:1px solid #dce2ec;border-radius:12px;background:#f7f9fc;color:#222;font:inherit;text-align:left;cursor:pointer}
+.dbc-consult-open>span{display:grid;flex:1;min-width:0}
+.dbc-consult-open b{font-size:15px;line-height:21px;font-weight:700}
+.dbc-consult-open small{color:#697485;font-size:13px;line-height:18px}
+.dbc-consult-open>i{color:#8c8c8c;font-style:normal;font-size:20px}
+.dbc-consult-open .dbc-ico{width:24px;height:24px;color:#306bd9}
+.dbc-consult-form,.dbc-consult-done{display:grid;gap:12px;padding:16px;border:1px solid #dce2ec;border-radius:12px;background:#fff}
+.dbc-consult-title{display:flex;align-items:center;gap:6px;margin:0;font-size:16px;line-height:22px;font-weight:700;color:#222}
+.dbc-consult-title .dbc-ico{color:#306bd9}
+.dbc-consult-form label{display:grid;gap:6px;color:#4f5660;font-size:13px;line-height:18px;font-weight:600}
+.dbc-consult-form :is(select,input[type=tel]){height:44px;padding:0 12px;border:1px solid #dce2ec;border-radius:8px;background:#fff;color:#222;font:inherit;font-size:15px;font-weight:400}
+.dbc-consult-form fieldset{margin:0;padding:0;border:0}
+.dbc-consult-form legend{margin-bottom:6px;color:#4f5660;font-size:13px;line-height:18px;font-weight:600}
+.dbc-consult-times{display:flex;gap:8px}
+.dbc-consult-times button{height:32px;padding:0 12px;border:1px solid #e4e7ec;border-radius:16px;background:#fff;color:#222;font:inherit;font-size:14px;font-weight:500;cursor:pointer}
+.dbc-consult-times button[aria-pressed=true]{border-color:#222;background:#222;color:#fff}
+.dbc-consult-form .dbc-consult-agree{display:flex;align-items:flex-start;gap:8px;font-weight:400;color:#595959}
+.dbc-consult-agree input{width:18px;height:18px;margin:0;flex:none;accent-color:#222}
+.dbc-consult-error{margin:0;color:#d93025;font-size:13px}
+.dbc-consult-actions{display:grid;grid-template-columns:92px 1fr;gap:8px}
+.dbc-consult-actions button,.dbc-consult-done button{height:48px;border:1px solid #dce2ec;border-radius:10px;background:#fff;color:#222;font:inherit;font-size:15px;font-weight:650;cursor:pointer}
+.dbc-consult-actions button[type=submit]{border-color:#306bd9;background:#306bd9;color:#fff}
+.dbc-consult-done b{font-size:16px;color:#222}
+.dbc-consult-done p{margin:0;color:#4f5660;font-size:14px;line-height:20px}
+.dbc-consult-done small{color:#8c8c8c;font-size:12px}
+.dbc-featured{display:grid;gap:4px;margin:0 0 12px;color:#222;text-decoration:none}
+.dbc-featured small{color:#306bd9;font-size:13px;font-weight:700}
+.dbc-featured-photo{display:block;aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#f4f4f4}
+.dbc-featured-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.dbc-featured b{margin-top:6px;font-size:17px;line-height:24px;font-weight:700}
+.dbc-featured strong{font-size:18px;line-height:26px}
+.dbc-featured-ask{display:block;width:100%;min-height:48px;margin:12px 0 0;border:1px solid #306bd9;border-radius:10px;background:#fff;color:#306bd9;font:inherit;font-size:15px;font-weight:700;cursor:pointer}
+.dbc-visit{margin:0 20px 12px;padding:14px;border:1px solid #e8ebf0;border-radius:12px}
+.dbc-visit-place{display:flex;gap:10px;margin:0 0 12px;color:#222}
+.dbc-visit-place>span{display:grid;min-width:0}
+.dbc-visit-place b{font-size:15px;line-height:21px}
+.dbc-visit-place small{color:#697485;font-size:13px;line-height:18px}
+.dbc-visit-maps{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.dbc-visit-maps a{display:flex;align-items:center;justify-content:center;min-height:40px;border:1px solid #dce2ec;border-radius:8px;color:#222;text-decoration:none;font-size:14px;font-weight:600}
+.dbc-row-link{display:flex;align-items:center;gap:12px;margin:0 20px 16px;padding:12px 14px;border:1px solid #e8ebf0;border-radius:12px;color:#222;text-decoration:none}
+.dbc-row-link>span{display:grid;flex:1;min-width:0}
+.dbc-row-link b{font-size:15px;line-height:21px}
+.dbc-row-link small{color:#697485;font-size:13px;line-height:18px}
+.dbc-row-link>i{color:#8c8c8c;font-style:normal;font-size:20px}
+.dbc-row-link .dbc-ico{width:24px;height:24px}
+.dbc-save-contact{display:flex;align-items:center;justify-content:center;gap:6px}
+.dbc-share-icons button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:60px}
+.dbc-qr-mark{display:block;width:20px;height:20px;background:linear-gradient(currentColor,currentColor) 0 0/8px 8px no-repeat,linear-gradient(currentColor,currentColor) 100% 0/8px 8px no-repeat,linear-gradient(currentColor,currentColor) 0 100%/8px 8px no-repeat,linear-gradient(currentColor,currentColor) 70% 70%/4px 4px no-repeat}
+.dbc-share-car{margin-bottom:10px}
+.dbc-share-car>p{margin:0 0 8px;font-size:14px;font-weight:700;color:#222}
+.dbc-share-car>p small{margin-left:4px;color:#8c8c8c;font-size:12px;font-weight:400}
+.dbc-share-car-list{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.dbc-share-car-list::-webkit-scrollbar{display:none}
+.dbc-share-car-list button{flex:none;display:grid;gap:4px;width:96px;padding:0;border:0;background:none;text-align:left;font:inherit;cursor:pointer}
+.dbc-share-car-list img{width:96px;height:72px;object-fit:cover;border-radius:8px;outline:2px solid transparent;outline-offset:-2px}
+.dbc-share-car-list button[aria-pressed=true] img{outline-color:#222}
+.dbc-share-car-list span{overflow:hidden;color:#222;font-size:12px;line-height:16px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+@media(max-width:360px){.dbc-consult,.dbc-visit,.dbc-row-link{margin-left:16px;margin-right:16px}}
+.dbc-trust .dbc-verified{flex-basis:100%;margin:0 0 2px}
+.dbc-trust .dbc-verified~span:nth-child(2)::before{display:none}
+.dbc-share-more,.dbc-share-car,.dbc-share-car-list{min-width:0;max-width:100%}
+.dbc-sharebar{min-width:0;grid-template-columns:minmax(0,1fr)}

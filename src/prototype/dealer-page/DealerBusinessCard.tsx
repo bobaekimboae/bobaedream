@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { cardContact, cardCompanyName, cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, type CardContact, type CardExtras, type CardStyle } from "./business-card";
 import "./business-card.css";
@@ -6,6 +6,18 @@ import { stockUrl } from "./dealer-stock";
 import { cardQr, cardServiceOrigin, fetchPublishedCard, publishingUrl, sharingUrl, type PublishedCard } from "./card-sharing";
 
 type Props = { contact: CardContact; shop: string; emp: string; standalone?: boolean; trigger?: ReactNode; extras?: CardExtras };
+
+const publicBase = typeof document === "undefined" ? "/" : new URL(".", document.location.href).pathname;
+// 아이콘은 노션 오토스카우트24·초톳 원본 파일을 그대로 쓰고, 색만 mask로 글자색에 맞춘다(2026-10-22 명함 벤치마킹 적용).
+const icons = {
+  phone: "icons/dealer-profile/phone-as24.svg", sms: "icons/dealer-profile/speech-bubble-as24.svg", chat: "icons/chotot/chotot-common-chat.svg",
+  consult: "icons/dealer-profile/speech-bubble-text-as24.svg", verified: "icons/chotot/chotot-list-detail-verified-check-circle.svg",
+  location: "icons/dealer-profile/location-as24.svg", valuation: "icons/dealer-profile/car-sale-as24.svg", contact: "icons/chotot/chotot-common-contact-list.svg",
+  share: "icons/chotot/chotot-common-share.svg", link: "icons/chotot/chotot-common-copy.svg", image: "icons/chotot/chotot-common-image.svg", clock: "icons/dealer-profile/clock.svg",
+} as const;
+const Ico = ({ name }: { name: keyof typeof icons }) => <i className="dbc-ico" aria-hidden="true" style={{ "--dbc-ico": `url("${publicBase}${icons[name]}")` } as CSSProperties} />;
+const contactTimes = ["언제든", "오전", "오후", "저녁"] as const;
+const withCar = (href: string, car?: number) => { if (!car) return href; const url = new URL(href); url.searchParams.set("car", String(car)); return url.href; };
 
 const cardRoleLabel = (role: string) => role === "소속딜러" || role === "딜러" || role === "인증딜러" ? "중고차 딜러" : role === "대표" ? "대표 딜러" : role;
 
@@ -46,14 +58,20 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const [moreShare, setMoreShare] = useState(false);
   const [qrUrl, setQrUrl] = useState("");
   const [qrBusy, setQrBusy] = useState(false);
+  const [shareCar, setShareCar] = useState<number | undefined>(() => standalone ? Number(new URLSearchParams(window.location.search).get("car")) || undefined : undefined);
+  const [consultOpen, setConsultOpen] = useState(false);
+  const [consult, setConsult] = useState<{ car: string; time: (typeof contactTimes)[number]; phone: string; agree: boolean; sent: boolean; error: string }>({ car: "", time: "언제든", phone: "", agree: false, sent: false, error: "" });
   const draftChanged = useRef(false);
   const hashFields = new URLSearchParams(window.location.hash.slice(1));
   const legacy = standalone && ["theme", "intro", "title", "logo", "gallery", "company", ...cardFields.map(({ id }) => id)].some(id => hashFields.has(id));
   const requiresPublished = standalone && !legacy && new URLSearchParams(window.location.search).get("published") === "1";
   const receiverContact = standalone && !legacy && published ? { ...published.contact, listingCount: contact.listingCount } : contact;
   const effectiveContact = cardContact(receiverContact, style);
-  const url = sharingUrl(window.location.href, shop, emp, style, published);
-  const isFixed = !!published && url === published.url;
+  const baseUrl = sharingUrl(window.location.href, shop, emp, style, published);
+  const isFixed = !!published && baseUrl === published.url;
+  const url = withCar(baseUrl, shareCar);
+  const featuredId = standalone ? Number(new URLSearchParams(window.location.search).get("car")) || undefined : undefined;
+  const featured = featuredId ? extras?.listings?.find((car) => car.id === featuredId) : undefined;
   const dealerUrl = profileUrl(window.location.href, shop, emp);
   const phoneHref = cardFieldHref("mobile", style.fields.mobile) || (receiverContact.phone ? `tel:${receiverContact.phone.replace(/[^+\d]/g, "")}` : null);
 
@@ -134,7 +152,8 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const share = async (kakao = false) => {
     if (!valid()) return;
     if (!navigator.share) { await copy(); if (kakao) setStatus("명함 링크를 카카오톡 대화방에 붙여 넣어 주세요. 복사가 안 되면 아래 링크를 직접 복사하세요."); return; }
-    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || effectiveContact.company}`, text: `${contact.name} 딜러의 명함입니다.`, url }); setStatus("공유 창을 닫았어요."); }
+    const car = shareCar ? extras?.listings?.find((item) => item.id === shareCar) : undefined;
+    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || effectiveContact.company}`, text: car ? `${car.title} · ${car.price} — ${contact.name} 딜러가 추천하는 차량이에요.` : `${contact.name} 딜러의 명함입니다.`, url }); setStatus("공유 창을 닫았어요."); }
     catch (error) { if (!(error instanceof DOMException && error.name === "AbortError")) await copy(); }
   };
   const saveImage = async () => {
@@ -146,42 +165,77 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   };
   const saveContact = () => {
     if (!valid()) return;
-    downloadBlob(new Blob([cardVcf(receiverContact, isFixed ? url : dealerUrl, style)], { type: "text/vcard;charset=utf-8" }), `${contact.name}-연락처.vcf`);
+    downloadBlob(new Blob([cardVcf(receiverContact, isFixed ? baseUrl : dealerUrl, style)], { type: "text/vcard;charset=utf-8" }), `${contact.name}-연락처.vcf`);
     setStatus("연락처 파일을 열면 주소록에 저장할 수 있어요.");
   };
   const reels = (extras?.reels ?? []).filter((reel) => reel.poster).slice(0, 3);
   const sns = { instagram: cardFieldHref("instagram", style.fields.instagram) ?? extras?.sns?.instagram, youtube: cardFieldHref("youtube", style.fields.youtube) ?? extras?.sns?.youtube, tiktok: cardFieldHref("tiktok", style.fields.tiktok) ?? undefined };
   const smsHref = phoneHref ? phoneHref.replace(/^tel:/, "sms:") : null;
   const trust = [extras?.rating ? `★ ${extras.rating.toFixed(1)}` : "", extras?.reviewCount ? `리뷰 ${extras.reviewCount.toLocaleString("ko-KR")}` : "", extras?.sold ? `판매완료 ${extras.sold.toLocaleString("ko-KR")}대` : ""].filter(Boolean);
-  // 고객이 받는 명함: 누구인지 → 믿을 만한지 → 바로 연락 → 무슨 차가 있는지 → 쇼츠 → 연락처 저장(2026-10-22 명함 컨설팅).
+  const mapQuery = effectiveContact.gallery || receiverContact.address;
+  const valuationUrl = (() => { const target = new URL(dealerUrl); target.searchParams.set("tab", "valuation"); return target.href; })();
+  const sendConsult = (event: FormEvent) => {
+    event.preventDefault();
+    const digits = consult.phone.replace(/\D/g, "");
+    if (!/^01[016789]\d{7,8}$/.test(digits)) { setConsult({ ...consult, error: "휴대폰 번호를 확인해 주세요." }); return; }
+    if (!consult.agree) { setConsult({ ...consult, error: "번호 전달에 동의해 주세요." }); return; }
+    setConsult({ ...consult, sent: true, error: "" });
+  };
+  const openConsult = (car?: string) => { setConsult((current) => ({ ...current, car: car ?? current.car, sent: false, error: "" })); setConsultOpen(true); window.setTimeout(() => document.querySelector(".dbc-consult")?.scrollIntoView({ block: "center", behavior: "smooth" }), 0); };
+  // 고객이 받는 명함(2026-10-22 국내외 딜러·중개사 명함 벤치마킹 적용):
+  // ① 문의 차량(차 한 대 붙여 보낸 경우) → ② 누가(명함) → ③ 믿을 만한지 → ④ 바로 연락 + 상담 남기기 → ⑤ 무슨 차가 있는지 → ⑥ 어디로 가면 되는지 → ⑦ 내 차 팔기 → ⑧ 쇼츠 → ⑨ 연락처 저장.
   const customer = <>
-    {trust.length ? <p className="dbc-trust" aria-label="판매 실적">{trust.map((item) => <span key={item}>{item}</span>)}</p> : null}
+    {trust.length || effectiveContact.gallery ? <p className="dbc-trust" aria-label="딜러 확인 정보">{effectiveContact.gallery ? <b className="dbc-verified"><Ico name="verified" />{effectiveContact.gallery} 등록 딜러</b> : null}{trust.map((item) => <span key={item}>{item}</span>)}</p> : null}
     <div className="dbc-cta" role="group" aria-label="딜러에게 연락">
-      {phoneHref ? <a className="is-primary" href={phoneHref}>전화</a> : <button type="button" onClick={() => setStatus("등록된 전화번호가 없어요. 채팅으로 문의해 주세요.")}>전화</button>}
-      {smsHref ? <a href={smsHref}>문자</a> : null}
-      <a href={dealerUrl}>채팅</a>
+      {phoneHref ? <a className="is-primary" href={phoneHref}><Ico name="phone" />전화</a> : <button type="button" onClick={() => setStatus("등록된 전화번호가 없어요. 채팅으로 문의해 주세요.")}><Ico name="phone" />전화</button>}
+      {smsHref ? <a href={smsHref}><Ico name="sms" />문자</a> : null}
+      <a href={dealerUrl}><Ico name="chat" />채팅</a>
     </div>
+    <section className={`dbc-consult${consultOpen ? " is-open" : ""}`} aria-label="상담 남기기">
+      {!consultOpen ? <button type="button" className="dbc-consult-open" onClick={() => openConsult()}><Ico name="consult" /><span><b>전화가 어려우면 상담 남기기</b><small>번호를 남기면 딜러가 먼저 연락드려요</small></span><i aria-hidden="true">›</i></button>
+      : consult.sent ? <div className="dbc-consult-done" role="status"><b>상담 요청을 남겼어요</b><p>{contact.name} 딜러가 {consult.time === "언제든" ? "확인하는 대로" : `${consult.time}에`} 연락드릴 거예요.</p><small>시안 화면이라 실제로 전달되지는 않아요.</small><button type="button" onClick={() => { setConsultOpen(false); setConsult({ car: "", time: "언제든", phone: "", agree: false, sent: false, error: "" }); }}>닫기</button></div>
+      : <form className="dbc-consult-form" onSubmit={sendConsult} noValidate>
+        <p className="dbc-consult-title"><Ico name="consult" />상담 남기기</p>
+        <label>관심 차량<select value={consult.car} onChange={(event) => setConsult({ ...consult, car: event.target.value })}><option value="">아직 정하지 않았어요</option>{(extras?.listings ?? []).map((car) => <option key={car.id} value={car.title}>{car.title}</option>)}</select></label>
+        <fieldset><legend>연락받을 시간</legend><div className="dbc-consult-times">{contactTimes.map((time) => <button key={time} type="button" aria-pressed={consult.time === time} onClick={() => setConsult({ ...consult, time })}>{time}</button>)}</div></fieldset>
+        <label>휴대폰 번호<input type="tel" inputMode="tel" autoComplete="tel" maxLength={13} placeholder="010-0000-0000" value={consult.phone} onChange={(event) => setConsult({ ...consult, phone: event.target.value, error: "" })} /></label>
+        <label className="dbc-consult-agree"><input type="checkbox" checked={consult.agree} onChange={(event) => setConsult({ ...consult, agree: event.target.checked, error: "" })} />상담을 위해 번호를 {contact.name} 딜러에게 전달하는 데 동의해요</label>
+        {consult.error ? <p className="dbc-consult-error" role="alert">{consult.error}</p> : null}
+        <div className="dbc-consult-actions"><button type="button" onClick={() => setConsultOpen(false)}>취소</button><button type="submit">상담 남기기</button></div>
+      </form>}
+    </section>
     {contact.listingCount ? <section className="dbc-stock" aria-label="판매차량">
       <a className="dbc-stock-head" href={stockUrl(window.location.href, shop, emp)}><b>판매차량 {contact.listingCount ?? 0}대</b><span>전체 보기 <i aria-hidden="true">›</i></span></a>
-      {extras?.listings?.length ? <div className="dbc-stock-thumbs">{extras.listings.slice(0, 3).map((car) => <a key={car.id} href={car.href}><span className="dbc-stock-photo"><img src={car.image} alt="" loading="lazy" /></span><b>{car.title}</b><strong>{car.price}</strong></a>)}</div> : null}
+      {extras?.listings?.length ? <div className="dbc-stock-thumbs">{extras.listings.filter((car) => car.id !== featured?.id).slice(0, 3).map((car) => <a key={car.id} href={car.href}><span className="dbc-stock-photo"><img src={car.image} alt="" loading="lazy" /></span><b>{car.title}</b><strong>{car.price}</strong></a>)}</div> : null}
       {extras?.categories?.length ? <div className="dbc-stock-chips">{extras.categories.map((item) => <a key={item.label} href={stockUrl(window.location.href, shop, emp, item.label)}>{item.label}<span>{item.count}</span></a>)}</div> : null}
     </section> : null}
+    {mapQuery ? <section className="dbc-visit" aria-label="방문 안내">
+      <p className="dbc-visit-place"><Ico name="location" /><span><b>{effectiveContact.gallery || "방문 안내"}</b><small>{receiverContact.address}</small></span></p>
+      <div className="dbc-visit-maps"><a href={`https://map.kakao.com/link/search/${encodeURIComponent(mapQuery)}`} target="_blank" rel="noopener noreferrer">카카오맵 길찾기</a><a href={`https://map.naver.com/p/search/${encodeURIComponent(mapQuery)}`} target="_blank" rel="noopener noreferrer">네이버지도 길찾기</a></div>
+    </section> : null}
+    <a className="dbc-row-link" href={valuationUrl}><Ico name="valuation" /><span><b>내 차 팔 때 시세 견적 받기</b><small>{contact.name} 딜러가 무료로 견적을 드려요</small></span><i aria-hidden="true">›</i></a>
     {reels.length || sns.instagram || sns.youtube || sns.tiktok ? <section className="dbc-sns" aria-label="SNS">
       {reels.length ? <><p className="dbc-sns-title">최근 쇼츠</p><div className="dbc-reels">{reels.map((reel) => <a key={reel.href} href={reel.href} target="_blank" rel="noopener noreferrer" aria-label={`${reel.label ?? "인스타그램 릴스"} 보기`}><img src={reel.poster} alt="" loading="lazy" /><span aria-hidden="true">▶</span></a>)}</div></> : null}
       <div className="dbc-sns-links">{sns.instagram ? <a href={sns.instagram} target="_blank" rel="noopener noreferrer">인스타그램</a> : null}{sns.youtube ? <a href={sns.youtube} target="_blank" rel="noopener noreferrer">유튜브</a> : null}{sns.tiktok ? <a href={sns.tiktok} target="_blank" rel="noopener noreferrer">틱톡</a> : null}</div>
     </section> : null}
-    <button type="button" className="dbc-save-contact" onClick={saveContact}>연락처 저장</button>
+    <button type="button" className="dbc-save-contact" onClick={saveContact}><Ico name="contact" />연락처 저장</button>
   </>;
+  const featuredBlock = featured && !editing ? <a className="dbc-featured" href={featured.href} aria-label={`${contact.name} 딜러가 보낸 차량 ${featured.title}`}><small>{contact.name} 딜러가 보낸 차량</small><span className="dbc-featured-photo"><img src={featured.image} alt="" /></span><b>{featured.title}</b><strong>{featured.price}</strong></a> : null;
+  const featuredAsk = featured && !editing ? <button type="button" className="dbc-featured-ask" onClick={() => openConsult(featured.title)}>이 차 상담 남기기</button> : null;
   // 딜러 본인: 큰 카카오톡 버튼 하나 + 나머지 공유 수단은 작은 줄. 고정 주소 저장은 편집 화면에만 둔다.
   // 명함 창 아래에 늘 붙어 있는 공유 막대: 카카오톡 하나를 크게, 나머지는 「더보기」로(2026-10-22 「공유하기 이런거 없잖아」).
   const shareBar = editing ? null : <section className="dbc-sharebar" aria-label="명함 공유">
-    {moreShare ? <div className="dbc-share-more"><div className="dbc-share-icons"><button type="button" onClick={() => share()}>다른 앱</button><button type="button" onClick={copy}>링크 복사</button><button type="button" disabled={qrBusy} onClick={showQr}>{qrBusy ? "QR 만드는 중" : "QR 코드"}</button><button type="button" disabled={busy} onClick={saveImage}>{busy ? "만드는 중" : "이미지 저장"}</button></div>
+    {moreShare ? <div className="dbc-share-more">
+        {!standalone && extras?.listings?.length ? <div className="dbc-share-car"><p>함께 보낼 차량 <small>선택하면 명함 위에 이 차가 크게 보여요</small></p><div className="dbc-share-car-list">{extras.listings.map((car) => <button key={car.id} type="button" aria-pressed={shareCar === car.id} onClick={() => setShareCar(shareCar === car.id ? undefined : car.id)}><img src={car.image} alt="" loading="lazy" /><span>{car.title}</span></button>)}</div></div> : null}
+        <div className="dbc-share-icons"><button type="button" onClick={() => share()}><Ico name="share" />다른 앱</button><button type="button" onClick={copy}><Ico name="link" />링크 복사</button><button type="button" disabled={qrBusy} onClick={showQr}><span className="dbc-qr-mark" aria-hidden="true" />{qrBusy ? "만드는 중" : "QR 코드"}</button><button type="button" disabled={busy} onClick={saveImage}><Ico name="image" />{busy ? "만드는 중" : "이미지 저장"}</button></div>
         {qrUrl ? <div className="dbc-qr"><img src={qrUrl} alt={`${contact.name} 딜러 모바일 명함 QR 코드`} /><p>카메라로 QR을 비추면 명함이 열려요.</p><a href={qrUrl} download={`${contact.name}-명함-QR.png`}>QR 이미지 저장</a></div> : null}
     </div> : null}
-    <div className="dbc-sharebar-row"><button type="button" className="dbc-kakao-main" onClick={() => share(true)}>카카오톡으로 명함 보내기</button><button type="button" className="dbc-share-more-toggle" aria-expanded={moreShare} onClick={() => setMoreShare(!moreShare)}>{moreShare ? "닫기" : "더보기"}</button></div>
+    <div className="dbc-sharebar-row"><button type="button" className="dbc-kakao-main" onClick={() => share(true)}>{shareCar ? "카카오톡으로 차량+명함 보내기" : "카카오톡으로 명함 보내기"}</button><button type="button" className="dbc-share-more-toggle" aria-expanded={moreShare} onClick={() => setMoreShare(!moreShare)}>{moreShare ? "닫기" : "더보기"}</button></div>
   </section>;
   const content = <div className={`dbc-layout${editing ? " is-editing" : ""}`}>
+    {featuredBlock}
     <CardPreview contact={receiverContact} style={style} />
+    {featuredAsk}
     {!editing ? customer : null}
     {!standalone && editing ? <div className="dbc-editor">
       <fieldset className="dbc-brand-editor"><legend>단지 · 상사 정보</legend>
@@ -217,7 +271,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
 
   if (requiresPublished && (!published || serverError)) return <main className="dbc-page"><div className="dbc-page-wrap"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a><header><h1>{contact.name} · {cardCompanyName(effectiveContact.company)}</h1></header><p role="status">{serverError || "최신 명함을 불러오고 있어요."}</p>{serverError ? <button type="button" className="dbc-publish" onClick={() => window.location.reload()}>다시 불러오기</button> : null}</div></main>;
   if (standalone) return <main className="dbc-page"><div className="dbc-page-wrap"><div className="dbc-page-top"><a className="dbc-home" href={dealerUrl}>← 판매자 페이지</a></div><header><h1>{contact.name} · {cardCompanyName(effectiveContact.company)}</h1><p>중고차 딜러 명함</p></header>{content}</div>{shareBar}</main>;
-  return <Dialog.Root open={open} onOpenChange={(value) => { setOpen(value); setEditing(false); setMoreShare(false); setQrUrl(""); setImageUrl(""); setStatus(""); setManualLink(false); }}>
+  return <Dialog.Root open={open} onOpenChange={(value) => { setOpen(value); setEditing(false); setMoreShare(false); setShareCar(undefined); setConsultOpen(false); setQrUrl(""); setImageUrl(""); setStatus(""); setManualLink(false); }}>
     <Dialog.Trigger asChild>{trigger ?? <button type="button" className="dp-businesscard-trigger">명함 만들기 · 공유 <span aria-hidden="true">↗</span></button>}</Dialog.Trigger>
     <Dialog.Portal><Dialog.Overlay className="dbc-overlay" /><Dialog.Content ref={dialogRef} className="dbc-dialog"><header className="dbc-dialog-head"><div><Dialog.Title>{editing ? "명함 편집" : `${contact.name} · ${cardCompanyName(effectiveContact.company)}`}</Dialog.Title><Dialog.Description className="dbc-sr-only">{editing ? "명함 정보를 수정하고 편집 완료를 눌러 주세요." : "고객에게 보낼 명함을 확인하고 카카오톡으로 보내세요."}</Dialog.Description></div>{!editing ? <button type="button" className="dbc-head-edit" disabled={logoBusy} onClick={() => { setEditing(true); setMoreShare(false); setStatus(""); setImageUrl(""); setManualLink(false); }}>편집</button> : null}<Dialog.Close aria-label="명함 닫기">×</Dialog.Close></header><div className="dbc-dialog-body">{content}</div>{shareBar}</Dialog.Content></Dialog.Portal>
   </Dialog.Root>;
