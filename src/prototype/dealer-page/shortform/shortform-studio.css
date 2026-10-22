@@ -43,8 +43,8 @@
 .sfs-backdrop .sfs-field input:not([type]), .sfs-backdrop .sfs-lines input { width: 100%; min-width: 0; height: 44px; box-sizing: border-box; padding: 0 12px; border: 1px solid #dadada; border-radius: 10px; background: #fff; color: #222; font: inherit; font-size: 15px; }
 .sfs-backdrop .sfs-field input:focus, .sfs-backdrop .sfs-lines input:focus { outline: 0 !important; border-color: #222; }
 .sfs-backdrop .sfs-lines { display: flex; margin: 0; padding: 0; flex-direction: column; gap: 8px; list-style: none; }
-.sfs-backdrop .sfs-lines li { display: grid; grid-template-columns: 44px minmax(0, 1fr); align-items: center; gap: 8px; }
-.sfs-backdrop .sfs-lines img { width: 44px; height: 44px; border-radius: 6px; object-fit: cover; }
+.sfs-backdrop .sfs-lines li { display: grid; grid-template-columns: 44px minmax(0, 1fr) auto; align-items: center; gap: 8px; }
+.sfs-backdrop .sfs-lines img, .sfs-backdrop .sfs-lines video { width: 44px; height: 44px; border-radius: 6px; object-fit: cover; background: #f4f4f4; }
 .sfs-backdrop .sfs-check { display: flex; align-items: center; gap: 10px; font-size: 15px; line-height: 22px; }
 .sfs-backdrop .sfs-check input { width: 20px; height: 20px; accent-color: #222; }
 .sfs-backdrop .sfs-note { margin: 0; color: #8c8c8c; font-size: 13px; line-height: 19px; }
@@ -133,3 +133,42 @@
 .sfs-backdrop .sfp-apps button:active img, .sfs-backdrop .sfp-apps button:active i { opacity: .6; }
 .sfs-backdrop .sfp-apps span { overflow: hidden; max-width: 100%; font-size: 12px; line-height: 16px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
 .sfs-backdrop .sfp-hint { color: #8c8c8c !important; font-size: 12px !important; line-height: 18px !important; }
+
+/* 2단계(2026-10-22 「추가 기능」): 비율 · 길이 · 영상 넣기 · 순서 · 목소리 녹음 · QR */
+.sfs-backdrop .sfs-preview.is-1x1 { aspect-ratio: 1 / 1; width: min(100%, 300px); }
+.sfs-backdrop .sfs-preview.is-16x9 { aspect-ratio: 16 / 9; width: min(100%, 360px); }
+.sfs-backdrop .sfs-segment.is-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.sfs-backdrop .sfs-segment b span { color: #8c8c8c; font-weight: 500; }
+.sfs-backdrop .sfs-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.sfs-backdrop .sfs-pills button { height: 32px; padding: 0 14px; border: 1px solid #e4e7ec; border-radius: 999px; background: #fff; color: #222; font-size: 14px; line-height: 20px; font-weight: 500; cursor: pointer; }
+.sfs-backdrop .sfs-pills button[aria-checked="true"] { border-color: #222; background: #222; color: #fff; }
+.sfs-backdrop .sfs-photos video { width: 100%; height: 100%; object-fit: cover; opacity: .55; }
+.sfs-backdrop .sfs-photos button[aria-pressed="true"] video { opacity: 1; }
+.sfs-backdrop .sfs-photos em { position: absolute; left: 4px; bottom: 4px; padding: 0 5px; border-radius: 4px; background: rgba(0, 0, 0, .6); color: #fff; font-size: 11px; line-height: 16px; font-style: normal; font-weight: 600; }
+.sfs-backdrop .sfs-photos .sfs-add-video { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; border: 1px dashed #b7b7b7; background: #fff; color: #222; }
+.sfs-backdrop .sfs-add-video b { font-size: 22px; line-height: 24px; font-weight: 400; }
+.sfs-backdrop .sfs-add-video span { font-size: 12px; line-height: 16px; font-weight: 600; }
+.sfs-backdrop .sfs-move { display: flex; gap: 2px; }
+.sfs-backdrop .sfs-move button { display: grid; width: 32px; height: 32px; place-items: center; padding: 0; border: 1px solid #e4e7ec; border-radius: 8px; background: #fff; color: #222; cursor: pointer; }
+.sfs-backdrop .sfs-move button:disabled { color: #c8c8c8; cursor: default; }
+.sfs-backdrop .sfs-voice { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.sfs-backdrop .sfs-voice > button:not(.is-text) { display: inline-flex; height: 40px; align-items: center; gap: 8px; padding: 0 16px; border: 1px solid #222; border-radius: 999px; background: #fff; color: #222; font-size: 14px; font-weight: 600; cursor: pointer; }
+.sfs-backdrop .sfs-voice > button i { width: 10px; height: 10px; border-radius: 50%; background: #e5484d; }
+.sfs-backdrop .sfs-voice > button.is-rec { border-color: #e5484d; background: #e5484d; color: #fff; }
+.sfs-backdrop .sfs-voice > button.is-rec i { border-radius: 2px; background: #fff; }
+.sfs-backdrop .sfs-voice > button:disabled { opacity: .4; }
+.sfs-backdrop .sfs-voice span { color: #595959; font-size: 13px; }
+.sfs-backdrop .sfs-voice .is-text { padding: 0; border: 0; background: none; color: #8c8c8c; font-size: 13px; text-decoration: underline; cursor: pointer; }
+.sfs-backdrop .sfs-rec { position: absolute; top: 12px; left: 50%; display: flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: rgba(229, 72, 77, .92); color: #fff; font-size: 12px; font-weight: 600; white-space: nowrap; transform: translateX(-50%); }
+.sfs-backdrop .sfs-rec i { width: 8px; height: 8px; border-radius: 50%; background: #fff; animation: sfs-blink 1s steps(2) infinite; }
+@keyframes sfs-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .sfs-backdrop .sfs-rec i { animation: none; } }
+.sfs-backdrop .sfs-done video.is-1x1 { width: min(100%, 260px); }
+.sfs-backdrop .sfs-done video.is-16x9 { width: min(100%, 340px); }
+.dp-ig-post .dp-ig-reel.is-made { width: auto; max-width: min(calc(100% - 28px), 480px); height: auto; }
+.dp-ig-post .dp-ig-reel.is-made[style*="9 / 16"] { width: 288px; }
+.dp-ig-post .dp-ig-reel.is-made video { object-fit: contain; }
+@media (min-width: 768px) {
+  .sfs-backdrop .sfs-preview.is-1x1 { width: 320px; }
+  .sfs-backdrop .sfs-preview.is-16x9 { width: 320px; }
+}
