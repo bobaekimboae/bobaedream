@@ -126,3 +126,10 @@
 .sfs-backdrop .sfp-connect-form button.is-text { padding: 0 6px; background: none; color: #595959; }
 .dp-root .dp-toast { z-index: 70; white-space: normal; text-align: center; word-break: keep-all; }
 .dp-root:has(.sfs-backdrop) .dp-toast { bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+.sfs-backdrop .sfp-apps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; margin-top: 4px; }
+.sfs-backdrop .sfp-apps button { display: flex; min-width: 0; flex-direction: column; align-items: center; gap: 6px; padding: 4px 0; border: 0; background: none; color: #222; cursor: pointer; }
+.sfs-backdrop .sfp-apps img, .sfs-backdrop .sfp-apps i { display: grid; width: 52px; height: 52px; box-sizing: border-box; place-items: center; padding: 12px; border-radius: 50%; background: #f4f5f6; }
+.sfs-backdrop .sfp-apps i { color: #222; font-size: 18px; font-style: normal; font-weight: 800; letter-spacing: 1px; }
+.sfs-backdrop .sfp-apps button:active img, .sfs-backdrop .sfp-apps button:active i { opacity: .6; }
+.sfs-backdrop .sfp-apps span { overflow: hidden; max-width: 100%; font-size: 12px; line-height: 16px; font-weight: 500; text-overflow: ellipsis; white-space: nowrap; }
+.sfs-backdrop .sfp-hint { color: #8c8c8c !important; font-size: 12px !important; line-height: 18px !important; }
