@@ -4,6 +4,8 @@ import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { allSeoulAutoGalleryDealers, dealerPhoto } from "./seoul-auto-gallery-dealer-rail";
 import { SagGoogleMap } from "./sag-google-map";
 import "./seoul-auto-gallery-directory.css";
+import "./seoul-auto-gallery-dealer-rail.css";
+import { CompanyFinder, companyIndexOf, matchCompany, useCompanyFinder } from "./company-finder";
 
 export type SeoulAutoGallerySection = "vehicles" | "companies" | "dealers" | "about";
 
@@ -60,14 +62,25 @@ export function SeoulAutoGalleryTabs({ value, onChange }: { value: SeoulAutoGall
 }
 
 export function SeoulAutoGalleryCompanyDirectory() {
+  const finder = useCompanyFinder();
+  const list = companies
+    .filter((company) => (!finder.letter || companyIndexOf(displayCompany(company.company)) === finder.letter) && matchCompany(finder.query, displayCompany(company.company), [...company.owners, roomLabel(company.room)]))
+    .sort((a, b) => finder.letter ? displayCompany(a.company).localeCompare(displayCompany(b.company), "ko") : 0);
   const open = (shopNo: string, emp = "1") => {
     window.location.assign(`${window.location.pathname}?profile=dealer&shop=${shopNo}&emp=${emp}`);
   };
   return (
     <section className="sag-company-directory" aria-labelledby="sag-company-directory-title">
-      <h2 id="sag-company-directory-title">상사 {companies.length}곳</h2>
+      <CompanyFinder finder={finder} names={companies.map((company) => displayCompany(company.company))} />
+      <h2 id="sag-company-directory-title">상사 {list.length}곳</h2>
+      {list.length ? null : (
+        <div className="sag-dealer-empty">
+          <p>찾는 상사가 없어요. 상사명이나 대표 이름을 다시 확인해 주세요.</p>
+          <button type="button" onClick={() => { finder.setQuery(""); finder.setLetter(""); }}>검색 초기화</button>
+        </div>
+      )}
       <div className="sag-company-list">
-        {companies.map((company) => (
+        {list.map((company) => (
           <button key={company.shopNo} type="button" className="sag-company-row" onClick={() => open(company.shopNo)} aria-label={`${displayCompany(company.company)} 대표 ${company.owners.join(", ")} 판매자페이지 보기`}>
             {company.photo ? <img className="sag-company-photo" src={company.photo} alt="" loading="lazy" /> : <i className="sag-company-photo" aria-hidden="true" />}
             <span>

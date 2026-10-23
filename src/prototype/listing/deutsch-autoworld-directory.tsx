@@ -3,11 +3,13 @@ import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { asset, deutschAutoworldCars, type Car } from "../data";
 import { deutschAutoworldShops, type DeutschAutoworldShop } from "../data/deutsch-autoworld-shops-v01";
 import { deutschAutoworldStaffRaw } from "../data/deutsch-autoworld-staff-v01";
+import { deutschDealerPhotoRows } from "../data/deutsch-autoworld-dealer-photos-v01";
 import { SagGoogleMap } from "./sag-google-map";
 import type { SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import "./seoul-auto-gallery-dealer-rail.css";
 import "./seoul-auto-gallery-directory.css";
 import "./deutsch-autoworld-directory.css";
+import { CompanyFinder, companyIndexOf, matchCompany, useCompanyFinder } from "./company-finder";
 
 // 도이치오토월드 단지 · 상사 · 딜러 페이지(2026-10-23 「우리 오토갤러리 처럼 딜러 상사 단지페이지 만들어라」).
 // 상사 = dautoworld.com 공개 상사 목록 114곳(대표 · 상사 전화 · 층·호수). 딜러 = 도이치오토월드 매물 4,298대의 실제 상사명 · 딜러명.
@@ -24,15 +26,19 @@ const dealerOf = (car: Car) => car.realDealer?.dealer.trim() ?? "";
 const extraShops: DeutschAutoworldShop[] = [];
 const shopCache = new Map<string, DeutschAutoworldShop>();
 const byDealers = (a: DeutschAutoworldShop, b: DeutschAutoworldShop) => b.dealerCount - a.dealerCount;
+// 상사명으로 공개 상사 목록에서 찾기만 한다(없으면 undefined, 새 상사를 만들지 않음).
+function findDeutschShop(company: string): DeutschAutoworldShop | undefined {
+  const key = norm(company);
+  return deutschAutoworldShops.find((shop) => shop.company === company)
+    ?? [...deutschAutoworldShops.filter((shop) => norm(shop.company) === key)].sort(byDealers)[0]
+    ?? [...deutschAutoworldShops.filter((shop) => key.startsWith(norm(shop.company)) || norm(shop.company).startsWith(key))].sort(byDealers)[0]
+    ?? extraShops.find((shop) => norm(shop.company) === key);
+}
 export function deutschShopForCompany(raw: string): DeutschAutoworldShop {
   const company = raw.trim();
   const cached = shopCache.get(company);
   if (cached) return cached;
-  const key = norm(company);
-  const found = deutschAutoworldShops.find((shop) => shop.company === company)
-    ?? [...deutschAutoworldShops.filter((shop) => norm(shop.company) === key)].sort(byDealers)[0]
-    ?? [...deutschAutoworldShops.filter((shop) => key.startsWith(norm(shop.company)) || norm(shop.company).startsWith(key))].sort(byDealers)[0];
-  const shop = found ?? (() => {
+  const shop = findDeutschShop(company) ?? (() => {
     const made: DeutschAutoworldShop = { shopNo: `${DEUTSCH_SHOP_PREFIX}x${extraShops.length + 1}`, company, owners: [], room: "", phone: "", fax: "", dealerCount: 0, carCount: 0 };
     extraShops.push(made);
     return made;
@@ -58,6 +64,16 @@ export const deutschShopCars = (shopNo: string) => carsByShop.get(shopNo) ?? [];
 const shopLogoIds = new Set(["100003", "100004", "100007", "100008", "100010", "100011", "100014", "100016", "100017", "100018", "100019", "100020", "100021", "100022", "100023", "100024", "100025", "100026", "100027", "100029", "100031", "100032", "100033", "100034", "100035", "100038", "100040", "100041", "100045", "100046", "100047", "100049", "100050", "100053", "100055", "100058", "100059", "100061", "100062", "100063", "100064", "100065", "100067", "100068", "100069", "100070", "100072", "100073", "100075", "100077", "100079", "100082", "100083", "100084", "100087", "100088", "100090", "100093", "100094", "100100", "100101", "100102", "100105", "100112", "100113", "100115", "100121", "100122", "100123", "100125", "100129", "100132", "100139"]);
 export const deutschShopLogo = (shopNo: string) => shopLogoIds.has(shopNo.replace(DEUTSCH_SHOP_PREFIX, "")) ? asset(`deutsch-autoworld/shop-logos/${shopNo.replace(DEUTSCH_SHOP_PREFIX, "")}.webp`) : undefined;
 
+// 딜러 실사진(2026-10-23 「실제 사진과 딜러 매핑해라」): dautoworld.com 소속딜러 목록에 딜러가 직접 올린 사진 51장 중 얼굴 사진 33장만
+// 240×240 정사각으로 잘라 썼다(원본 비율 · 색 그대로, 자르기만). 명함 · 사원증(전화 · 사원번호 노출) · 풍경 · 캐릭터 사진 18장은 쓰지 않았다.
+const dealerPhotoIds: Record<string, string> = { "da100003:박기철": "100003_006", "da100003:조영진": "100003_030", "da100018:이재현": "100018_056", "da100020:장진영": "100020_108", "da100021:박병찬": "100021_006", "da100021:신청남": "100021_022", "da100023:황성원": "100023_020", "da100025:김남훈": "100025_003", "da100050:방효재": "100050_060", "da100055:곽현덕": "100055_003", "da100058:이영완": "100058_012", "da100063:신현우": "100063_010", "da100077:편수용": "100077_067", "da100088:주훈탁": "100088_030", "da100102:함정수": "100102_001", "da100102:조동혁": "100102_004", "da100102:김은혜": "100102_005", "da100102:여운혁": "100102_006", "da100102:김정헌": "100102_007", "da100102:양재동": "100102_016", "da100102:박진완": "100102_017", "da100102:선현우": "100102_018", "da100102:김수범": "100102_019", "da100102:오정윤": "100102_020", "da100102:전은희": "100102_022", "da100102:박성호": "100102_023", "da100102:김재희": "100102_024", "da100102:유연주": "100102_025", "da100102:김세형": "100102_026", "da100102:김지수": "100102_027", "da100102:서청원": "100102_028", "da100102:이부현": "100102_029", "da100102:남지훈": "100102_031" };
+// 매물 정보의 딜러 실사진(2026-10-23 「딜러사진 실제 매물정보에서 실사진 매핑시켜라」): 차란차 매물 딜러의 프로필 사진 276장을
+// 그 딜러의 상사(위와 같은 상사명 맞춤) + 이름으로 붙인다. 없으면 dautoworld 소속딜러 사진(33장), 그것도 없으면 정장 일러스트.
+const listingPhotoIds = new Map<string, string>();
+for (const [company, name, id] of deutschDealerPhotoRows) {
+  const shop = findDeutschShop(company);
+  if (shop) listingPhotoIds.set(`${shop.shopNo}:${name}`, id);
+}
 const staffRole: Record<string, string> = { o: "대표", m: "사무장", d: "소속딜러" };
 const illustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 
@@ -83,7 +99,12 @@ export const allDeutschDealers: readonly SeoulAutoGalleryDealer[] = allDeutschSh
       const order = owners.length + staff.length + index;
       return { name, listingCount: 0, shopNo: shop.shopNo, empNo: String(order + 1), image: picture(order), role: staffRole[code] ?? "소속딜러" };
     });
-  return [...owners, ...staff, ...rest];
+  return [...owners, ...staff, ...rest].map((dealer) => {
+    const real = listingPhotoIds.get(`${dealer.shopNo}:${dealer.name}`);
+    if (real) return { ...dealer, profileAsset: `deutsch-autoworld/dealer-photos-cha/${real}.webp` };
+    const photo = dealerPhotoIds[`${dealer.shopNo}:${dealer.name}`];
+    return photo ? { ...dealer, profileAsset: `deutsch-autoworld/dealer-photos/${photo}.webp` } : dealer;
+  });
 });
 
 export function deutschDealerCars(dealer: SeoulAutoGalleryDealer): Car[] {
@@ -133,22 +154,34 @@ const companies = allDeutschShops
   .sort((a, b) => b.listingCount - a.listingCount || b.shop.dealerCount - a.shop.dealerCount || a.index - b.index);
 
 export function DeutschAutoworldCompanyDirectory() {
+  const finder = useCompanyFinder();
+  const list = companies
+    .filter(({ shop }) => (!finder.letter || companyIndexOf(displayCompany(shop.company)) === finder.letter) && matchCompany(finder.query, displayCompany(shop.company), [...shop.owners, shop.room]))
+    .sort((a, b) => finder.letter ? displayCompany(a.shop.company).localeCompare(displayCompany(b.shop.company), "ko") : 0);
   return (
     <section className="sag-company-directory" aria-labelledby="daw-company-directory-title">
-      <h2 id="daw-company-directory-title">상사 {companies.length}곳</h2>
-      <div className="sag-company-list">
-        {companies.map(({ shop, owner, memberCount, listingCount }) => (
-          <button key={shop.shopNo} type="button" className="sag-company-row" onClick={() => openDealer(owner!)} aria-label={`${displayCompany(shop.company)} ${shop.owners.length ? `대표 ${shop.owners.join(", ")} ` : ""}판매자페이지 보기`}>
-            <img className={`sag-company-photo${deutschShopLogo(shop.shopNo) ? " is-logo" : ""}`} src={deutschShopLogo(shop.shopNo) ?? deutschDealerPhoto(owner!)} alt="" loading="lazy" />
-            <span>
-              <strong>{displayCompany(shop.company)}</strong>
-              <small>{[shop.room, shop.owners.length ? `대표 ${shop.owners.join(" · ")}` : "", `소속딜러 ${memberCount}명`].filter(Boolean).map((text) => <span key={text}>{text}</span>).reduce<ReactNode[]>((list, node, index) => index ? [...list, " · ", node] : [node], [])}</small>
-            </span>
-            <b>매물 {listingCount.toLocaleString("ko-KR")}대</b>
-            <ChevronRightIcon aria-hidden="true" />
-          </button>
-        ))}
-      </div>
+      <CompanyFinder finder={finder} names={companies.map(({ shop }) => displayCompany(shop.company))} />
+      <h2 id="daw-company-directory-title">상사 {list.length}곳</h2>
+      {list.length ? (
+        <div className="sag-company-list">
+          {list.map(({ shop, owner, memberCount, listingCount }) => (
+            <button key={shop.shopNo} type="button" className="sag-company-row" onClick={() => openDealer(owner!)} aria-label={`${displayCompany(shop.company)} ${shop.owners.length ? `대표 ${shop.owners.join(", ")} ` : ""}판매자페이지 보기`}>
+              <img className={`sag-company-photo${deutschShopLogo(shop.shopNo) ? " is-logo" : ""}`} src={deutschShopLogo(shop.shopNo) ?? deutschDealerPhoto(owner!)} alt="" loading="lazy" />
+              <span>
+                <strong>{displayCompany(shop.company)}</strong>
+                <small>{[shop.room, shop.owners.length ? `대표 ${shop.owners.join(" · ")}` : "", `소속딜러 ${memberCount}명`].filter(Boolean).map((text) => <span key={text}>{text}</span>).reduce<ReactNode[]>((items, node, index) => index ? [...items, " · ", node] : [node], [])}</small>
+              </span>
+              <b>매물 {listingCount.toLocaleString("ko-KR")}대</b>
+              <ChevronRightIcon aria-hidden="true" />
+            </button>
+          ))}
+        </div>
+      ) : (
+        <div className="sag-dealer-empty">
+          <p>찾는 상사가 없어요. 상사명이나 대표 이름을 다시 확인해 주세요.</p>
+          <button type="button" onClick={() => { finder.setQuery(""); finder.setLetter(""); }}>검색 초기화</button>
+        </div>
+      )}
     </section>
   );
 }
