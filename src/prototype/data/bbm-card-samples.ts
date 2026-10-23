@@ -37,7 +37,7 @@ const yearOnlyToNumber = (text: string) => text.split(" · ").map((part) => {
 export const bbmSampleHorsepower = (id: number) => `${horsepowerPool[id % horsepowerPool.length]}마력`;
 
 export function bbmCardSpec(source: SampleSource, withPower = true) {
-  return yearOnlyToNumber(bbmCardSpecRaw(source, withPower));
+  return yearOnlyToNumber(bbmCardSpecRaw(source, withPower && !("deutschSource" in source)));
 }
 
 function bbmCardSpecRaw(source: SampleSource, withPower = true) {

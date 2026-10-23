@@ -3,7 +3,7 @@ export type StockCategory = typeof stockCategories[number];
 export const readStockCategory = (value: string | null): StockCategory | "전체" => stockCategories.find((category) => category === value) ?? "전체";
 export const readStockCategories = (values: readonly string[]): StockCategory[] => stockCategories.filter((category) => values.includes(category));
 
-type StockVehicle = { maker: string; modelGroup?: string; truck?: unknown; supercarSheet?: boolean; filter?: { origin?: string; body?: string } };
+type StockVehicle = { maker: string; modelGroup?: string; truck?: unknown; supercarSheet?: boolean; deutschSource?: unknown; filter?: { origin?: string; body?: string } };
 const domesticMakers = new Set(["현대", "기아", "제네시스", "쉐보레", "르노코리아", "르노삼성", "KGM", "KG모빌리티", "쌍용", "대우", "GM대우"]);
 const supercarMakers = new Set(["페라리", "람보르기니", "맥라렌", "부가티", "코닉세그", "파가니"]);
 const supercarModels = new Set(["포르쉐|911", "마세라티|MC20", "아우디|R8", "애스턴마틴|밴티지"]);
@@ -14,7 +14,7 @@ export function matchesStockCategory(car: StockVehicle, category: StockCategory 
   if (category === "상용차") return commercial;
   if (commercial) return false;
   if (category === "슈퍼카") return Boolean(car.supercarSheet) || supercarMakers.has(car.maker) || supercarModels.has(`${car.maker}|${car.modelGroup ?? ""}`);
-  const domestic = domesticMakers.has(car.maker) || ["한국", "대한민국", "국산"].includes(car.filter?.origin ?? "");
+  const domestic = !car.deutschSource && (domesticMakers.has(car.maker) || ["한국", "대한민국", "국산"].includes(car.filter?.origin ?? ""));
   return category === "국산차" ? domestic : !domestic;
 }
 
