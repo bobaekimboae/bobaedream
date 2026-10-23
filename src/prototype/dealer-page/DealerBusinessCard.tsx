@@ -153,7 +153,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     if (!valid()) return;
     if (!navigator.share) { await copy(); if (kakao) setStatus("명함 링크를 카카오톡 대화방에 붙여 넣어 주세요. 복사가 안 되면 아래 링크를 직접 복사하세요."); return; }
     const car = shareCar ? extras?.listings?.find((item) => item.id === shareCar) : undefined;
-    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || effectiveContact.company}`, text: car ? `${car.title} · ${car.price} — ${contact.name} 딜러가 추천하는 차량이에요.` : `${contact.name} 딜러의 명함입니다.`, url }); setStatus("공유 창을 닫았어요."); }
+    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || effectiveContact.company}`, text: car ? `${car.title} · ${car.price} — ${contact.name} 딜러가 추천하는 차량이에요.` : `${contact.name} 딜러 명함 · ${cardCompanyName(effectiveContact.company)}`, url }); setStatus("공유 창을 닫았어요."); }
     catch (error) { if (!(error instanceof DOMException && error.name === "AbortError")) await copy(); }
   };
   const saveImage = async () => {

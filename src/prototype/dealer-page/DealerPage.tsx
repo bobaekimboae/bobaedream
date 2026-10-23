@@ -1242,3 +1242,13 @@ function DealerCardPage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars
   useEffect(() => { setPretendard(true); }, []);
   return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), safe: true, address: MOCK.address, photo: dealerPhoto(dealer), listingCount: cars.length }} extras={cardExtrasFor(dealer, cars)} />;
 }
+
+// 카카오톡 미리보기용 정적 명함 페이지(scripts/dealer-card-og.mjs)가 쓰는 딜러 요약. 화면에서는 쓰지 않는다.
+export function dealerCardSummaries() {
+  return dealers.map((dealer) => {
+    const profile = profileFor(dealer);
+    const count = dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars.length : isDeutschShop(dealer.shopNo) ? deutschDealerCars(dealer).length
+      : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)).length;
+    return { shop: dealer.shopNo, emp: dealer.empNo, name: dealer.name, role: dealer.role ?? "딜러", company: stripCorp(profile.company), gallery: profile.gallery, photo: dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`, count };
+  });
+}
