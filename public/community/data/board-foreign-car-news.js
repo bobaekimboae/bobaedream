@@ -7,99 +7,643 @@
   "displayName": "해외 자동차뉴스",
   "idStart": 920000001,
   "defaultView": "naver-discussion-thumb-right",
-  "updatedAt": "2026-10-23T19:18:33.857Z",
+  "updatedAt": "2026-10-23T22:23:57.405Z",
   "topics": [
     "전체",
+    "신차",
     "해외소식",
     "모터스포츠",
+    "산업·정책",
+    "기술·부품",
     "시승·리뷰",
+    "바이크",
     "상용차",
     "튜닝·클래식",
-    "기술·부품",
     "리콜·안전",
-    "전기차·하이브리드",
-    "신차",
-    "바이크",
-    "산업·정책"
+    "전기차·하이브리드"
   ],
   "rows": [
     {
-      "id": "992336454",
-      "category": "해외소식",
-      "title": "폴란드 자동차 해외소식 관련 해외 보도",
-      "summary": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "source": "폴란드 Auto Świat",
-      "sourceUrl": "https://www.auto-swiat.pl/porady/eksploatacja/mlode-auto-z-niskim-przebiegiem-to-niekoniecznie-okazja-oto-co-sprawdzic/mdvxz5s",
+      "id": "965218603",
+      "category": "신차",
+      "title": "일본 자동차 신차 관련 해외 보도",
+      "summary": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "쿠르마뉴스 kuruma-news.jp/",
+      "sourceUrl": "https://kuruma-news.jp/post/1128830",
       "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T19:01:00.000Z",
+      "publishedAt": "2026-10-23T22:10:00.000Z",
       "thumbnail": "",
       "images": "",
-      "embed": "https://www.auto-swiat.pl/porady/eksploatacja/mlode-auto-z-niskim-przebiegiem-to-niekoniecznie-okazja-oto-co-sprawdzic/mdvxz5s",
-      "embedTitle": "폴란드 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "embedImage": "https://cdn.auto-swiat.pl/1/06Vk9lBaHR0cHM6Ly9vY2RuLmV1L3B1bHNjbXMvTURBXy9hZjVhMTg3ZjFlMzVmYzNkMGU0NDY5MDM1MDg3MDIyNS5qcGeSlQMAP80IAM0EgJMFzQlgzQZA3gACoTAHoTEE",
+      "embed": "https://kuruma-news.jp/post/1128830",
+      "embedTitle": "일본 자동차 신차 관련 해외 보도",
+      "embedDescription": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://kuruma-news.jp/wp-content/uploads/2027/10/20261020_DAIHATSU_DN_Compagno_001.jpg?v=1792494195",
       "embedLogo": "",
-      "embedSite": "폴란드 Auto Świat",
+      "embedSite": "쿠르마뉴스 kuruma-news.jp/",
       "embedProvider": "RSS",
-      "embedLang": "pl",
+      "embedLang": "ja",
       "views": "0",
       "comments": "0",
       "likes": "0",
-      "tags": "폴란드|해외소식",
-      "country": "폴란드",
+      "tags": "일본|신차",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "972288029",
+      "category": "해외소식",
+      "title": "페라리 해외소식 관련 해외 보도",
+      "summary": "토탈카 Totalcar가 전한 헝가리 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "토탈카 Totalcar가 전한 헝가리 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "토탈카 Totalcar",
+      "sourceUrl": "https://totalcar.hu/hirek/f1-amerikai-nagydij-szabadedzes-leclerc-buntetesek",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:08:11.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://totalcar.hu/hirek/f1-amerikai-nagydij-szabadedzes-leclerc-buntetesek",
+      "embedTitle": "페라리 해외소식 관련 해외 보도",
+      "embedDescription": "토탈카 Totalcar가 전한 헝가리 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://totalcar.hu/media/images/GettyImages-2301164627.format-jpeg.max-1024x768.jpg",
+      "embedLogo": "",
+      "embedSite": "토탈카 Totalcar",
+      "embedProvider": "RSS",
+      "embedLang": "hu",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "헝가리|해외소식|페라리",
+      "country": "헝가리",
       "region": "동유럽",
       "originalTitle": "",
-      "originalLanguage": "pl",
+      "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
-      "id": "928977277",
-      "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "source": "모터16 Motor16",
-      "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/rst-urban-2027-ropa-moto",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T18:50:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.motor16.com/las-ultimas-noticias/rst-urban-2027-ropa-moto",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/Ropa-RST-URBAN.webp",
-      "embedLogo": "",
-      "embedSite": "모터16 Motor16",
-      "embedProvider": "RSS",
-      "embedLang": "es",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "스페인|해외소식",
-      "country": "스페인",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "es",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "968317028",
+      "id": "946087686",
       "category": "해외소식",
       "title": "페라리 해외소식 관련 해외 보도",
       "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
       "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
       "source": "모토스 Motor.es",
-      "sourceUrl": "https://www.motor.es/formula-1/formula-1-estados-unidos-libres-1-2026117206.html",
+      "sourceUrl": "https://www.motor.es/formula-1/formula-1-estados-unidos-libres-leclerc-ferrari-williams-2026117210.html",
       "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T18:45:00.000Z",
+      "publishedAt": "2026-10-23T22:06:06.000Z",
       "thumbnail": "",
       "images": "",
-      "embed": "https://www.motor.es/formula-1/formula-1-estados-unidos-libres-1-2026117206.html",
+      "embed": "https://www.motor.es/formula-1/formula-1-estados-unidos-libres-leclerc-ferrari-williams-2026117210.html",
+      "embedTitle": "페라리 해외소식 관련 해외 보도",
+      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static.motor.es/fotos-noticias/2026/10/formula-1-estados-unidos-libres-2-2026117210-1792792274_1.jpg",
+      "embedLogo": "",
+      "embedSite": "모토스 Motor.es",
+      "embedProvider": "RSS",
+      "embedLang": "es",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "스페인|해외소식|페라리",
+      "country": "스페인",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "es",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "938101818",
+      "category": "해외소식",
+      "title": "BMW 해외소식 관련 해외 보도",
+      "summary": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\nBMW 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\nBMW 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "오토카 재팬 AUTOCAR JAPAN",
+      "sourceUrl": "https://www.autocar.jp/specialshop/2026/10/24/1288057",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:05:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.autocar.jp/specialshop/2026/10/24/1288057",
+      "embedTitle": "BMW 해외소식 관련 해외 보도",
+      "embedDescription": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\nBMW 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://www.autocar.jp/wp-content/uploads/2026/10/261024_ENO-01.jpg",
+      "embedLogo": "",
+      "embedSite": "오토카 재팬 AUTOCAR JAPAN",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|해외소식|BMW",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "1006039869",
+      "category": "신차",
+      "title": "일본 자동차 신차 관련 해외 보도",
+      "summary": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "오토카 재팬 AUTOCAR JAPAN",
+      "sourceUrl": "https://www.autocar.jp/post/1288785",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:05:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.autocar.jp/post/1288785",
+      "embedTitle": "일본 자동차 신차 관련 해외 보도",
+      "embedDescription": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://www.autocar.jp/wp-content/uploads/2026/10/20261022_CITROEN-C3-MAX-HYBRID-French-Touch-official_00001.jpg",
+      "embedLogo": "",
+      "embedSite": "오토카 재팬 AUTOCAR JAPAN",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|신차",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "923273129",
+      "category": "모터스포츠",
+      "title": "메르세데스-벤츠·페라리 모터스포츠 관련 해외 보도",
+      "summary": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "베지스 vezess.hu",
+      "sourceUrl": "https://www.vezess.hu/forma-1/2026/10/24/2026-forma-1-amerikai-nagydij-2-szabadedzes",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:00:59.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.vezess.hu/forma-1/2026/10/24/2026-forma-1-amerikai-nagydij-2-szabadedzes",
+      "embedTitle": "메르세데스-벤츠·페라리 모터스포츠 관련 해외 보도",
+      "embedDescription": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://vezess2.p3k.hu/app/uploads/2026/10/gettyimages-2301678963-e1792792559405.jpg",
+      "embedLogo": "",
+      "embedSite": "베지스 vezess.hu",
+      "embedProvider": "RSS",
+      "embedLang": "hu",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "헝가리|모터스포츠|메르세데스-벤츠|페라리",
+      "country": "헝가리",
+      "region": "동유럽",
+      "originalTitle": "",
+      "originalLanguage": "hu",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "1004707288",
+      "category": "산업·정책",
+      "title": "일본 자동차 산업·정책 관련 해외 보도",
+      "summary": "웹 카탑 WEB CARTOP가 전한 일본 자동차 소식입니다.\n산업·정책 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "웹 카탑 WEB CARTOP가 전한 일본 자동차 소식입니다.\n산업·정책 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "웹 카탑 WEB CARTOP",
+      "sourceUrl": "https://www.webcartop.jp/2026/10/1889401",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:00:39.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.webcartop.jp/2026/10/1889401",
+      "embedTitle": "일본 자동차 산업·정책 관련 해외 보도",
+      "embedDescription": "웹 카탑 WEB CARTOP가 전한 일본 자동차 소식입니다.\n산업·정책 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "",
+      "embedLogo": "",
+      "embedSite": "웹 카탑 WEB CARTOP",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|산업·정책",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "957853024",
+      "category": "해외소식",
+      "title": "일본 자동차 해외소식 관련 해외 보도",
+      "summary": "리스펀스 (Response.jp)가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "리스펀스 (Response.jp)가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "리스펀스 (Response.jp)",
+      "sourceUrl": "https://response.jp/article/2026/10/24/418155.html",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:00:03.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://response.jp/article/2026/10/24/418155.html",
+      "embedTitle": "일본 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "리스펀스 (Response.jp)가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://response.jp/imgs/rss/2254078.jpg",
+      "embedLogo": "",
+      "embedSite": "리스펀스 (Response.jp)",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|해외소식",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "957903999",
+      "category": "해외소식",
+      "title": "메르세데스-벤츠·페라리 해외소식 관련 해외 보도",
+      "summary": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "카앤드라이버 Car & Driver",
+      "sourceUrl": "https://www.caranddriver.gr/formula%201/arthro/gp_ipa_fp2_ksana_o_leclerc_stin_koryfi_mikres_oi_diafores-7858190",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:00:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.caranddriver.gr/formula%201/arthro/gp_ipa_fp2_ksana_o_leclerc_stin_koryfi_mikres_oi_diafores-7858190",
+      "embedTitle": "메르세데스-벤츠·페라리 해외소식 관련 해외 보도",
+      "embedDescription": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://media.caranddriver.gr/filesystem/images/20261024/engine/10-friday-austin-2026_77761_489753_type10.jpg",
+      "embedLogo": "",
+      "embedSite": "카앤드라이버 Car & Driver",
+      "embedProvider": "RSS",
+      "embedLang": "el",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "그리스|해외소식|메르세데스-벤츠|페라리",
+      "country": "그리스",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "el",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "973995114",
+      "category": "해외소식",
+      "title": "일본 자동차 해외소식 관련 해외 보도",
+      "summary": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "오토카 재팬 AUTOCAR JAPAN",
+      "sourceUrl": "https://www.autocar.jp/specialshop/2026/10/24/1288517",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T22:00:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.autocar.jp/specialshop/2026/10/24/1288517",
+      "embedTitle": "일본 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://www.autocar.jp/wp-content/uploads/2026/10/261024_SAM-01.jpg",
+      "embedLogo": "",
+      "embedSite": "오토카 재팬 AUTOCAR JAPAN",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|해외소식",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "983893765",
+      "category": "해외소식",
+      "title": "혼다·포드 해외소식 관련 해외 보도",
+      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다·포드·니오 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다·포드·니오 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "탑스피드 Top Speed",
+      "sourceUrl": "https://www.topspeed.com/honda-nx-500-tailor-made-riders-who-want-one-bike",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:31:20.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.topspeed.com/honda-nx-500-tailor-made-riders-who-want-one-bike",
+      "embedTitle": "혼다·포드 해외소식 관련 해외 보도",
+      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다·포드·니오 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2024/05/2024-honda-nx500-suspension.jpg",
+      "embedLogo": "",
+      "embedSite": "탑스피드 Top Speed",
+      "embedProvider": "RSS",
+      "embedLang": "en",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "미국|해외소식|혼다|포드|니오",
+      "country": "미국",
+      "region": "북미",
+      "originalTitle": "",
+      "originalLanguage": "en",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "957180104",
+      "category": "기술·부품",
+      "title": "미국 자동차 기술·부품 관련 해외 보도",
+      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n기술·부품 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n기술·부품 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "탑스피드 Top Speed",
+      "sourceUrl": "https://www.topspeed.com/triumph-rocket-nails-american-highway",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:31:20.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.topspeed.com/triumph-rocket-nails-american-highway",
+      "embedTitle": "미국 자동차 기술·부품 관련 해외 보도",
+      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n기술·부품 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/07/today2024-triumph-rocket-3-storm-r-wheels.jpg",
+      "embedLogo": "",
+      "embedSite": "탑스피드 Top Speed",
+      "embedProvider": "RSS",
+      "embedLang": "en",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "미국|기술·부품",
+      "country": "미국",
+      "region": "북미",
+      "originalTitle": "",
+      "originalLanguage": "en",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "920203458",
+      "category": "신차",
+      "title": "일본 자동차 신차 관련 해외 보도",
+      "summary": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "쿠르마뉴스 kuruma-news.jp/",
+      "sourceUrl": "https://kuruma-news.jp/post/1129633",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:30:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://kuruma-news.jp/post/1129633",
+      "embedTitle": "일본 자동차 신차 관련 해외 보도",
+      "embedDescription": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://kuruma-news.jp/wp-content/uploads/2026/02/20260324_nissan_003.jpg?v=1774310023",
+      "embedLogo": "",
+      "embedSite": "쿠르마뉴스 kuruma-news.jp/",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|신차",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "934369977",
+      "category": "해외소식",
+      "title": "러시아 자동차 해외소식 관련 해외 보도",
+      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "zr.ru",
+      "sourceUrl": "https://www.zr.ru/content/news/987259-tesla-model-y-oboshla-vsekh-no",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:10:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.zr.ru/content/news/987259-tesla-model-y-oboshla-vsekh-no",
+      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://www.zr.ru/_ah/img/RWYstig1In5zQZOpMRMJwQ",
+      "embedLogo": "",
+      "embedSite": "zr.ru",
+      "embedProvider": "RSS",
+      "embedLang": "ru",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "러시아|해외소식",
+      "country": "러시아",
+      "region": "러시아/구소련/중앙아시아",
+      "originalTitle": "",
+      "originalLanguage": "ru",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "949739845",
+      "category": "해외소식",
+      "title": "일본 자동차 해외소식 관련 해외 보도",
+      "summary": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "쿠르마뉴스 kuruma-news.jp/",
+      "sourceUrl": "https://kuruma-news.jp/post/1129277",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:10:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://kuruma-news.jp/post/1129277",
+      "embedTitle": "일본 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "쿠르마뉴스 kuruma-news.jp/가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://kuruma-news.jp/wp-content/uploads/2027/09/260903_nissan_Xtrail_000.jpg?v=1788492157",
+      "embedLogo": "",
+      "embedSite": "쿠르마뉴스 kuruma-news.jp/",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|해외소식",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "970162930",
+      "category": "해외소식",
+      "title": "러시아 자동차 해외소식 관련 해외 보도",
+      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "zr.ru",
+      "sourceUrl": "https://www.zr.ru/content/articles/987518-moskvich-m70-2026-dlitelnyj-test",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:00:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.zr.ru/content/articles/987518-moskvich-m70-2026-dlitelnyj-test",
+      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://www.zr.ru/_ah/img/WK5QNIjS7zzpiGBDCwaGNw",
+      "embedLogo": "",
+      "embedSite": "zr.ru",
+      "embedProvider": "RSS",
+      "embedLang": "ru",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "러시아|해외소식",
+      "country": "러시아",
+      "region": "러시아/구소련/중앙아시아",
+      "originalTitle": "",
+      "originalLanguage": "ru",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "982359144",
+      "category": "시승·리뷰",
+      "title": "일본 자동차 시승·리뷰 관련 해외 보도",
+      "summary": "모터매거진가 전한 일본 자동차 소식입니다.\n시승·리뷰 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "모터매거진가 전한 일본 자동차 소식입니다.\n시승·리뷰 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "모터매거진",
+      "sourceUrl": "https://web.motormagazine.co.jp/_ct/17868006",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:00:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://web.motormagazine.co.jp/_ct/17868006",
+      "embedTitle": "일본 자동차 시승·리뷰 관련 해외 보도",
+      "embedDescription": "모터매거진가 전한 일본 자동차 소식입니다.\n시승·리뷰 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://d1uzk9o9cg136f.cloudfront.net/f/16783018/rc/2026/10/03/7cda60e5b017b98b4d0f33af15212c1e683fbf14_normal.jpg?pr=web-motormagazine",
+      "embedLogo": "",
+      "embedSite": "모터매거진",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|시승·리뷰",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "989142931",
+      "category": "산업·정책",
+      "title": "일본 자동차 산업·정책 관련 해외 보도",
+      "summary": "베스트카웹가 전한 일본 자동차 소식입니다.\n산업·정책 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "베스트카웹가 전한 일본 자동차 소식입니다.\n산업·정책 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "베스트카웹",
+      "sourceUrl": "https://bestcarweb.jp/feature/column/1643062",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:00:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://bestcarweb.jp/feature/column/1643062",
+      "embedTitle": "일본 자동차 산업·정책 관련 해외 보도",
+      "embedDescription": "베스트카웹가 전한 일본 자동차 소식입니다.\n산업·정책 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://img.bestcarweb.jp/wp-content/uploads/2026/09/28131523/00_Renault-5_E-Tech-2025_head-768x512.jpg",
+      "embedLogo": "",
+      "embedSite": "베스트카웹",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|산업·정책",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "965806473",
+      "category": "해외소식",
+      "title": "프랑스 자동차 해외소식 관련 해외 보도",
+      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "오토모토 Auto moto",
+      "sourceUrl": "https://sports.auto-moto.com/moto-gp/grand-prix-daustralie-un-invite-surprise-provoque-un-drapeau-rouge-a-phillip-island-les-images-font-le-tour-du-paddock-39579",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T21:00:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://sports.auto-moto.com/moto-gp/grand-prix-daustralie-un-invite-surprise-provoque-un-drapeau-rouge-a-phillip-island-les-images-font-le-tour-du-paddock-39579",
+      "embedTitle": "프랑스 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39579/392752/1200-L-grand-prix-d-australie-un-invit-surprise-provoque-un-drapeau-rouge-phillip-island-les-images-font-le-tour-du-paddock.jpg",
+      "embedLogo": "",
+      "embedSite": "오토모토 Auto moto",
+      "embedProvider": "RSS",
+      "embedLang": "fr",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "프랑스|해외소식",
+      "country": "프랑스",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "fr",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "958660821",
+      "category": "해외소식",
+      "title": "페라리 해외소식 관련 해외 보도",
+      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "모토스 Motor.es",
+      "sourceUrl": "https://www.motor.es/formula-1/formula-1-estados-unidos-libres-ferrari-leclerc-2026117206.html",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:59:23.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.motor.es/formula-1/formula-1-estados-unidos-libres-ferrari-leclerc-2026117206.html",
       "embedTitle": "페라리 해외소식 관련 해외 보도",
       "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
       "embedImage": "https://static.motor.es/fotos-noticias/2026/10/formula-1-estados-unidos-libres-1-2026117206-1792780625_6.jpg",
@@ -116,15 +660,431 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "931046392",
+      "category": "신차",
+      "title": "일본 자동차 신차 관련 해외 보도",
+      "summary": "모터매거진가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "모터매거진가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "모터매거진",
+      "sourceUrl": "https://web.motormagazine.co.jp/_ct/17871508",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:55:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://web.motormagazine.co.jp/_ct/17871508",
+      "embedTitle": "일본 자동차 신차 관련 해외 보도",
+      "embedDescription": "모터매거진가 전한 일본 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://d1uzk9o9cg136f.cloudfront.net/f/16783018/rc/2026/10/21/2fd9131ef4c86b381b3f84fdc5d08b50af8a4632_normal.jpg?pr=web-motormagazine",
+      "embedLogo": "",
+      "embedSite": "모터매거진",
+      "embedProvider": "RSS",
+      "embedLang": "ja",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "일본|신차",
+      "country": "일본",
+      "region": "일본",
+      "originalTitle": "",
+      "originalLanguage": "ja",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "1006305159",
+      "category": "해외소식",
+      "title": "스페인 자동차 해외소식 관련 해외 보도",
+      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "모토스 Motor.es",
+      "sourceUrl": "https://www.motor.es/formula-1/austin-primeras-victimas-colapinto-bortoleto-lindblad-penalizados-2026117209.html",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:34:23.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.motor.es/formula-1/austin-primeras-victimas-colapinto-bortoleto-lindblad-penalizados-2026117209.html",
+      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static.motor.es/fotos-noticias/2026/10/austin-se-cobra-sus-primeras-victimas-colapinto-bortoleto-y-lindblad-son-penalizados-2026117209-1792787449_2.jpg",
+      "embedLogo": "",
+      "embedSite": "모토스 Motor.es",
+      "embedProvider": "RSS",
+      "embedLang": "es",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "스페인|해외소식",
+      "country": "스페인",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "es",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "996017164",
+      "category": "바이크",
+      "title": "포드 바이크 관련 해외 보도",
+      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n포드 관련 바이크 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n포드 관련 바이크 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "탑스피드 Top Speed",
+      "sourceUrl": "https://www.topspeed.com/why-simple-motorcycle-can-be-expensive-to-keep-on-road",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:31:20.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.topspeed.com/why-simple-motorcycle-can-be-expensive-to-keep-on-road",
+      "embedTitle": "포드 바이크 관련 해외 보도",
+      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n포드 관련 바이크 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2025/04/2024-royal-enfield-meteor-350-static-profile-shot.jpg",
+      "embedLogo": "",
+      "embedSite": "탑스피드 Top Speed",
+      "embedProvider": "RSS",
+      "embedLang": "en",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "미국|바이크|포드",
+      "country": "미국",
+      "region": "북미",
+      "originalTitle": "",
+      "originalLanguage": "en",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "943900728",
+      "category": "해외소식",
+      "title": "러시아 자동차 해외소식 관련 해외 보도",
+      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "zr.ru",
+      "sourceUrl": "https://www.zr.ru/content/news/987495-otkladyvali-na-novuyu-mashinu-s",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:30:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.zr.ru/content/news/987495-otkladyvali-na-novuyu-mashinu-s",
+      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://www.zr.ru/_ah/img/pAKa-IJJGyiwnWHeOfeeAw",
+      "embedLogo": "",
+      "embedSite": "zr.ru",
+      "embedProvider": "RSS",
+      "embedLang": "ru",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "러시아|해외소식",
+      "country": "러시아",
+      "region": "러시아/구소련/중앙아시아",
+      "originalTitle": "",
+      "originalLanguage": "ru",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "995950671",
+      "category": "해외소식",
+      "title": "혼다 해외소식 관련 해외 보도",
+      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "탑스피드 Top Speed",
+      "sourceUrl": "https://www.topspeed.com/honda-hr-v-practical-but-with-a-catch",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:00:21.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.topspeed.com/honda-hr-v-practical-but-with-a-catch",
+      "embedTitle": "혼다 해외소식 관련 해외 보도",
+      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2025/05/02-2026-honda-hr-v-ex-l.jpg",
+      "embedLogo": "",
+      "embedSite": "탑스피드 Top Speed",
+      "embedProvider": "RSS",
+      "embedLang": "en",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "미국|해외소식|혼다",
+      "country": "미국",
+      "region": "북미",
+      "originalTitle": "",
+      "originalLanguage": "en",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "977217609",
+      "category": "해외소식",
+      "title": "미국 자동차 해외소식 관련 해외 보도",
+      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "탑스피드 Top Speed",
+      "sourceUrl": "https://www.topspeed.com/best-performance-cars-arent-the-fastest",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:00:21.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.topspeed.com/best-performance-cars-arent-the-fastest",
+      "embedTitle": "미국 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/07/image-1617.jpeg",
+      "embedLogo": "",
+      "embedSite": "탑스피드 Top Speed",
+      "embedProvider": "RSS",
+      "embedLang": "en",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "미국|해외소식",
+      "country": "미국",
+      "region": "북미",
+      "originalTitle": "",
+      "originalLanguage": "en",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "948911240",
+      "category": "상용차",
+      "title": "프랑스 자동차 상용차 관련 해외 보도",
+      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "오토모토 Auto moto",
+      "sourceUrl": "https://sports.auto-moto.com/moto-gp/grand-prix-daustralie-dernier-des-pilotes-aprilia-aux-essais-jorge-martin-lache-un-aveu-inquietant-39570",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T20:00:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://sports.auto-moto.com/moto-gp/grand-prix-daustralie-dernier-des-pilotes-aprilia-aux-essais-jorge-martin-lache-un-aveu-inquietant-39570",
+      "embedTitle": "프랑스 자동차 상용차 관련 해외 보도",
+      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39570/392749/1200-L-grand-prix-d-australie-dernier-des-pilotes-aprilia-aux-essais-jorge-martn-lche-un-aveu-inquitant.jpg",
+      "embedLogo": "",
+      "embedSite": "오토모토 Auto moto",
+      "embedProvider": "RSS",
+      "embedLang": "fr",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "프랑스|상용차",
+      "country": "프랑스",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "fr",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "978257265",
+      "category": "해외소식",
+      "title": "혼다 해외소식 관련 해외 보도",
+      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "탑스피드 Top Speed",
+      "sourceUrl": "https://www.topspeed.com/2026-new-honda-cbr1000rr-r-fireblade-breaks-cover-at-jerez-test",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T19:41:18.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.topspeed.com/2026-new-honda-cbr1000rr-r-fireblade-breaks-cover-at-jerez-test",
+      "embedTitle": "혼다 해외소식 관련 해외 보도",
+      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/10/rider65_question_white_pinkhalftone_outline_16x9.jpg",
+      "embedLogo": "",
+      "embedSite": "탑스피드 Top Speed",
+      "embedProvider": "RSS",
+      "embedLang": "en",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "미국|해외소식|혼다",
+      "country": "미국",
+      "region": "북미",
+      "originalTitle": "",
+      "originalLanguage": "en",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "962747669",
+      "category": "신차",
+      "title": "스페인 자동차 신차 관련 해외 보도",
+      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "모토스 Motor.es",
+      "sourceUrl": "https://www.motor.es/noticias/palou-montmelo-declaraciones-indycar-2026117207.html",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T19:30:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.motor.es/noticias/palou-montmelo-declaraciones-indycar-2026117207.html",
+      "embedTitle": "스페인 자동차 신차 관련 해외 보도",
+      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n신차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static.motor.es/fotos-noticias/2026/10/alex-palou-flipo-cuando-surgio-la-oportunidad-de-montmelo-pensaba-que-era-una-broma-2026117207-1792780514_1.jpg",
+      "embedLogo": "",
+      "embedSite": "모토스 Motor.es",
+      "embedProvider": "RSS",
+      "embedLang": "es",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "스페인|신차",
+      "country": "스페인",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "es",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "931246517",
+      "category": "해외소식",
+      "title": "러시아 자동차 해외소식 관련 해외 보도",
+      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "zr.ru",
+      "sourceUrl": "https://www.zr.ru/content/news/987494-dva-mesyatsa-spada-smenilis-ros",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T19:10:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.zr.ru/content/news/987494-dva-mesyatsa-spada-smenilis-ros",
+      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://www.zr.ru/_ah/img/dwL7ZecdQe0c8ikPanasFA",
+      "embedLogo": "",
+      "embedSite": "zr.ru",
+      "embedProvider": "RSS",
+      "embedLang": "ru",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "러시아|해외소식",
+      "country": "러시아",
+      "region": "러시아/구소련/중앙아시아",
+      "originalTitle": "",
+      "originalLanguage": "ru",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "967780305",
+      "category": "해외소식",
+      "title": "프랑스 자동차 해외소식 관련 해외 보도",
+      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "오토모토 Auto moto",
+      "sourceUrl": "https://sports.auto-moto.com/indy-car/indycar-le-championnat-americain-officialise-son-grand-retour-en-europe-a-barcelone-en-2027-39555",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T19:06:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://sports.auto-moto.com/indy-car/indycar-le-championnat-americain-officialise-son-grand-retour-en-europe-a-barcelone-en-2027-39555",
+      "embedTitle": "프랑스 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39555/392746/1200-L-indycar-le-championnat-amricain-officialise-son-grand-retour-en-europe-barcelone-en-2027.jpg",
+      "embedLogo": "",
+      "embedSite": "오토모토 Auto moto",
+      "embedProvider": "RSS",
+      "embedLang": "fr",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "프랑스|해외소식",
+      "country": "프랑스",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "fr",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "992336454",
+      "category": "해외소식",
+      "title": "이 차는 5년 됐고 주행거리는 25,000km밖에 안 돼요. 문제가 생길 수도 있으니 바로 점검받아보시는 걸 추천한다",
+      "summary": "주행거리가 고작 25,000km밖에 안 되는 차는 거의 새 차와 같은 상태일 거라고 생각할 수 있다.\n폴란드 Auto Świat가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "주행거리가 고작 25,000km밖에 안 되는 차는 거의 새 차와 같은 상태일 거라고 생각할 수 있다.\n폴란드 Auto Świat가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "source": "폴란드 Auto Świat",
+      "sourceUrl": "https://www.auto-swiat.pl/porady/eksploatacja/mlode-auto-z-niskim-przebiegiem-to-niekoniecznie-okazja-oto-co-sprawdzic/mdvxz5s",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T19:01:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.auto-swiat.pl/porady/eksploatacja/mlode-auto-z-niskim-przebiegiem-to-niekoniecznie-okazja-oto-co-sprawdzic/mdvxz5s",
+      "embedTitle": "이 차는 5년 됐고 주행거리는 25,000km밖에 안 돼요. 문제가 생길 수도 있으니 바로 점검받아보시는 걸 추천한다",
+      "embedDescription": "주행거리가 고작 25,000km밖에 안 되는 차는 거의 새 차와 같은 상태일 거라고 생각할 수 있다.\n폴란드 Auto Świat가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "embedImage": "https://cdn.auto-swiat.pl/1/06Vk9lBaHR0cHM6Ly9vY2RuLmV1L3B1bHNjbXMvTURBXy9hZjVhMTg3ZjFlMzVmYzNkMGU0NDY5MDM1MDg3MDIyNS5qcGeSlQMAP80IAM0EgJMFzQlgzQZA3gACoTAHoTEE",
+      "embedLogo": "",
+      "embedSite": "폴란드 Auto Świat",
+      "embedProvider": "RSS",
+      "embedLang": "pl",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "폴란드|해외소식",
+      "country": "폴란드",
+      "region": "동유럽",
+      "originalTitle": "",
+      "originalLanguage": "pl",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "928977277",
+      "category": "해외소식",
+      "title": "RST Urban 2027: 스트리트웨어처럼 보이지만 실제 인증된 보호 기능을 갖춘 오토바이 의류",
+      "summary": "RST가 2027년형 어반 라인을 출시했다.\n스트리트 패션 스타일의 모터사이클 의류로, 충격 부위에 아라미드 소재를 사용하고 CE 인증을 획득했으며, 가격은 129.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "RST가 2027년형 어반 라인을 출시했다.\n스트리트 패션 스타일의 모터사이클 의류로, 충격 부위에 아라미드 소재를 사용하고 CE 인증을 획득했으며, 가격은 129.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "source": "모터16 Motor16",
+      "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/rst-urban-2027-ropa-moto",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T18:50:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://www.motor16.com/las-ultimas-noticias/rst-urban-2027-ropa-moto",
+      "embedTitle": "RST Urban 2027: 스트리트웨어처럼 보이지만 실제 인증된 보호 기능을 갖춘 오토바이 의류",
+      "embedDescription": "RST가 2027년형 어반 라인을 출시했다.\n스트리트 패션 스타일의 모터사이클 의류로, 충격 부위에 아라미드 소재를 사용하고 CE 인증을 획득했으며, 가격은 129.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/Ropa-RST-URBAN.webp",
+      "embedLogo": "",
+      "embedSite": "모터16 Motor16",
+      "embedProvider": "RSS",
+      "embedLang": "es",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "스페인|해외소식",
+      "country": "스페인",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "es",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "960854540",
       "category": "모터스포츠",
-      "title": "메르세데스-벤츠·페라리 모터스포츠 관련 해외 보도",
-      "summary": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "F1 주말이 페널티로 시작되다",
+      "summary": "페라리가 선두를 달리고, 메르세데스는 고전하고 있으며, 세 건의 페널티가 부과되었다.\n이것이 F1 미국 그랑프리 첫 번째 연습 세션의 최종 결과이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "페라리가 선두를 달리고, 메르세데스는 고전하고 있으며, 세 건의 페널티가 부과되었다.\n이것이 F1 미국 그랑프리 첫 번째 연습 세션의 최종 결과이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "베지스 vezess.hu",
       "sourceUrl": "https://www.vezess.hu/forma-1/2026/10/23/2026-forma-1-amerikai-nagydij-1-szabadedzes",
       "author": "자동차뉴스",
@@ -132,8 +1092,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.vezess.hu/forma-1/2026/10/23/2026-forma-1-amerikai-nagydij-1-szabadedzes",
-      "embedTitle": "메르세데스-벤츠·페라리 모터스포츠 관련 해외 보도",
-      "embedDescription": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n메르세데스-벤츠·페라리 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "F1 주말이 페널티로 시작되다",
+      "embedDescription": "페라리가 선두를 달리고, 메르세데스는 고전하고 있으며, 세 건의 페널티가 부과되었다.\n이것이 F1 미국 그랑프리 첫 번째 연습 세션의 최종 결과이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://vezess2.p3k.hu/app/uploads/2026/10/gettyimages-2301660472.jpg",
       "embedLogo": "",
       "embedSite": "베지스 vezess.hu",
@@ -148,15 +1108,47 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "932609029",
+      "category": "해외소식",
+      "title": "프랑스 자동차 해외소식 관련 해외 보도",
+      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "오토모토 Auto moto",
+      "sourceUrl": "https://sports.auto-moto.com/f1/actualite/grand-prix-des-etats-unis-charles-leclerc-domine-les-el1-a-austin-verstappen-dans-le-rythme-les-francais-hors-du-top-10-39592",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T18:32:00.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://sports.auto-moto.com/f1/actualite/grand-prix-des-etats-unis-charles-leclerc-domine-les-el1-a-austin-verstappen-dans-le-rythme-les-francais-hors-du-top-10-39592",
+      "embedTitle": "프랑스 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39592/392755/1200-L-grand-prix-des-etats-unis-charles-leclerc-domine-les-el1-austin-verstappen-dans-le-rythme-les-franais-hors-du-top-10.jpg",
+      "embedLogo": "",
+      "embedSite": "오토모토 Auto moto",
+      "embedProvider": "RSS",
+      "embedLang": "fr",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "프랑스|해외소식",
+      "country": "프랑스",
+      "region": "서/남유럽",
+      "originalTitle": "",
+      "originalLanguage": "fr",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "1009419071",
       "category": "시승·리뷰",
-      "title": "미국 자동차 시승·리뷰 관련 해외 보도",
-      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n시승·리뷰 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n시승·리뷰 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "골드윙 구매를 다시 생각하게 만들 슈퍼차저 투어링 모터사이클",
+      "summary": "골드윙은 투어링 바이크 부문에서 가장 안전한 선택이라고 할 수 있지만, 가와사키 스포츠 투어러와 비교하면 상대적으로 재미없어 보이다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "골드윙은 투어링 바이크 부문에서 가장 안전한 선택이라고 할 수 있지만, 가와사키 스포츠 투어러와 비교하면 상대적으로 재미없어 보이다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "탑스피드 Top Speed",
       "sourceUrl": "https://www.topspeed.com/kawasaki-ninja-h2-sx-makes-gold-wing-feel-like-safe-choice",
       "author": "자동차뉴스",
@@ -164,8 +1156,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.topspeed.com/kawasaki-ninja-h2-sx-makes-gold-wing-feel-like-safe-choice",
-      "embedTitle": "미국 자동차 시승·리뷰 관련 해외 보도",
-      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n시승·리뷰 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "골드윙 구매를 다시 생각하게 만들 슈퍼차저 투어링 모터사이클",
+      "embedDescription": "골드윙은 투어링 바이크 부문에서 가장 안전한 선택이라고 할 수 있지만, 가와사키 스포츠 투어러와 비교하면 상대적으로 재미없어 보이다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2025/07/2025-kawasaki-ninja-h2-sx-se-action.jpeg",
       "embedLogo": "",
       "embedSite": "탑스피드 Top Speed",
@@ -180,15 +1172,15 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "960282464",
       "category": "해외소식",
-      "title": "페라리 해외소식 관련 해외 보도",
-      "summary": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "미국 그랑프리 - FP1: 르클레르 1위, 베르스타펜 바로 뒤",
+      "summary": "업그레이드된 페라리는 샤를 르클레르의 손에서 오스틴 서킷에서 좋은 첫 성적을 거두었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "업그레이드된 페라리는 샤를 르클레르의 손에서 오스틴 서킷에서 좋은 첫 성적을 거두었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "카앤드라이버 Car & Driver",
       "sourceUrl": "https://www.caranddriver.gr/formula_1/arthro/gp_ipa_fp1_protos_o_leclerc_apo_konta_o_verstappen-7858175",
       "author": "자동차뉴스",
@@ -196,8 +1188,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.caranddriver.gr/formula_1/arthro/gp_ipa_fp1_protos_o_leclerc_apo_konta_o_verstappen-7858175",
-      "embedTitle": "페라리 해외소식 관련 해외 보도",
-      "embedDescription": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "미국 그랑프리 - FP1: 르클레르 1위, 베르스타펜 바로 뒤",
+      "embedDescription": "업그레이드된 페라리는 샤를 르클레르의 손에서 오스틴 서킷에서 좋은 첫 성적을 거두었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://media.caranddriver.gr/filesystem/images/20260605/engine/07-canada-gp-2026-sat-228aecf4-cd96-408a-bee7-1c4d2413c644_77761_482659_type10.jpg",
       "embedLogo": "",
       "embedSite": "카앤드라이버 Car & Driver",
@@ -212,15 +1204,15 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.938Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "963186373",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "라다 아지무트: 시승기 및 기본 모델 가격",
+      "summary": "신형 라다 아지무트 크로스오버의 가격은 약 200만 루블 정도가 될 것으로 예상된다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "신형 라다 아지무트 크로스오버의 가격은 약 200만 루블 정도가 될 것으로 예상된다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987539-lada-azimut-rasskazyvaem-sk",
       "author": "자동차뉴스",
@@ -228,8 +1220,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987539-lada-azimut-rasskazyvaem-sk",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "라다 아지무트: 시승기 및 기본 모델 가격",
+      "embedDescription": "신형 라다 아지무트 크로스오버의 가격은 약 200만 루블 정도가 될 것으로 예상된다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/IRCvhoWhCwQRoaZDBy6rew",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -244,15 +1236,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "994468620",
       "category": "해외소식",
-      "title": "스웨덴 자동차 해외소식 관련 해외 보도",
-      "summary": "테니켄스발트 teknikensvarld.se가 전한 스웨덴 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "테니켄스발트 teknikensvarld.se가 전한 스웨덴 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "내 전기차 충전 속도가 왜 이렇게 느린가요?",
+      "summary": "전기차로 바꾸는 것은 생각만큼 쉽지 않는다.\n신경 써야 할 새로운 것들이 많기 때문이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "전기차로 바꾸는 것은 생각만큼 쉽지 않는다.\n신경 써야 할 새로운 것들이 많기 때문이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "테니켄스발트 teknikensvarld.se",
       "sourceUrl": "https://teknikensvarld.expressen.se/bilhjalp/experterna-svarar/elbil-laddning-langsam-tips",
       "author": "자동차뉴스",
@@ -260,8 +1252,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://teknikensvarld.expressen.se/bilhjalp/experterna-svarar/elbil-laddning-langsam-tips",
-      "embedTitle": "스웨덴 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "테니켄스발트 teknikensvarld.se가 전한 스웨덴 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "내 전기차 충전 속도가 왜 이렇게 느린가요?",
+      "embedDescription": "전기차로 바꾸는 것은 생각만큼 쉽지 않는다.\n신경 써야 할 새로운 것들이 많기 때문이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.bonniernews.se/images/fe/d3/fed383e3406b4dfc89fef8fd51f4d2da/16x9/265@70.jpg",
       "embedLogo": "",
       "embedSite": "테니켄스발트 teknikensvarld.se",
@@ -276,15 +1268,15 @@
       "originalTitle": "",
       "originalLanguage": "sv",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "952389490",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "DGT 연결 콘: 이는 필수 V16 비콘을 대체하지 않는다",
+      "summary": "스페인 교통총국(DGT)이 한국에 선보인 연결형 콘은 내비게이션 시스템에 도로 공사를 알려주는 역할을 하지만, 운전자가 V-16 경고등을 의무적으로 부착해야 하는 의무를 면제하는 것은 아니다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "스페인 교통총국(DGT)이 한국에 선보인 연결형 콘은 내비게이션 시스템에 도로 공사를 알려주는 역할을 하지만, 운전자가 V-16 경고등을 의무적으로 부착해야 하는 의무를 면제하는 것은 아니다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/conos-conectados-dgt-v16",
       "author": "자동차뉴스",
@@ -292,8 +1284,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/conos-conectados-dgt-v16",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "DGT 연결 콘: 이는 필수 V16 비콘을 대체하지 않는다",
+      "embedDescription": "스페인 교통총국(DGT)이 한국에 선보인 연결형 콘은 내비게이션 시스템에 도로 공사를 알려주는 역할을 하지만, 운전자가 V-16 경고등을 의무적으로 부착해야 하는 의무를 면제하는 것은 아니다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/Conos-conectados-DGT.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -308,15 +1300,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "943958240",
       "category": "해외소식",
-      "title": "폴란드 자동차 해외소식 관련 해외 보도",
-      "summary": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "새로운 의무 차량 장비가 곧 도입된다. 준의무 사항이다. 알아야 할 사항은 다음과 같다",
+      "summary": "\"새로운 의무 차량 장비, 미비 시 상당한 벌금 부과\"에 대한 기사를 어디선가 읽어보셨을지도 모른다.\n네, 그런 \"의무 사항\"이 있다고 하는데, 바로 구급상자이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "\"새로운 의무 차량 장비, 미비 시 상당한 벌금 부과\"에 대한 기사를 어디선가 읽어보셨을지도 모른다.\n네, 그런 \"의무 사항\"이 있다고 하는데, 바로 구급상자이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "폴란드 Auto Świat",
       "sourceUrl": "https://www.auto-swiat.pl/wiadomosci/aktualnosci/ministerstwo-infrastruktury-wprowadza-obowiazek-apteczki-co-sie-zmieni/e2y6lq9",
       "author": "자동차뉴스",
@@ -324,8 +1316,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.auto-swiat.pl/wiadomosci/aktualnosci/ministerstwo-infrastruktury-wprowadza-obowiazek-apteczki-co-sie-zmieni/e2y6lq9",
-      "embedTitle": "폴란드 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "새로운 의무 차량 장비가 곧 도입된다. 준의무 사항이다. 알아야 할 사항은 다음과 같다",
+      "embedDescription": "\"새로운 의무 차량 장비, 미비 시 상당한 벌금 부과\"에 대한 기사를 어디선가 읽어보셨을지도 모른다.\n네, 그런 \"의무 사항\"이 있다고 하는데, 바로 구급상자이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://cdn.auto-swiat.pl/1/Fsek9lBaHR0cHM6Ly9vY2RuLmV1L3B1bHNjbXMvTURBXy83NjFkOTQ4Njk0MDQ4MDhmMzgyMDljNWQ0NTJlOTgyZS5qcGeSlQMAfc0PoM0IypMFzQlgzQZA3gACoTAHoTEE",
       "embedLogo": "",
       "embedSite": "폴란드 Auto Świat",
@@ -340,15 +1332,15 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "946981025",
       "category": "해외소식",
-      "title": "니오 해외소식 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n니오 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n니오 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "카타르 그랑프리: 모든 것을 바꿀 수 있는 MotoGP 라이더들의 비밀 투표",
+      "summary": "카타르 그랑프리 개최를 둘러싼 우려가 MotoGP 패독 내에서 계속되고 있다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "카타르 그랑프리 개최를 둘러싼 우려가 MotoGP 패독 내에서 계속되고 있다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://sports.auto-moto.com/moto-gp/grand-prix-du-qatar-le-vote-secret-des-pilotes-motogp-qui-pourrait-tout-changer-39547",
       "author": "자동차뉴스",
@@ -356,8 +1348,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://sports.auto-moto.com/moto-gp/grand-prix-du-qatar-le-vote-secret-des-pilotes-motogp-qui-pourrait-tout-changer-39547",
-      "embedTitle": "니오 해외소식 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n니오 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "카타르 그랑프리: 모든 것을 바꿀 수 있는 MotoGP 라이더들의 비밀 투표",
+      "embedDescription": "카타르 그랑프리 개최를 둘러싼 우려가 MotoGP 패독 내에서 계속되고 있다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39547/392744/1200-L-grand-prix-du-qatar-le-vote-secret-des-pilotes-motogp-qui-pourrait-tout-changer.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -372,15 +1364,15 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "938055719",
       "category": "상용차",
-      "title": "스페인 자동차 상용차 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "시트로엥 C15 밴이 돌아왔다. 작고 견고하며, 미래형 2CV를 기반으로 제작된 이 차량은 도심 배송에 최적화되어 있다",
+      "summary": "시트로엥은 미래형 2CV 플랫폼을 기반으로 한 전기 프로토타입을 통해 C15의 정신을 되살렸다.\n목표 가격은 15,000유로이며, 2028년부터 생산을 시작할 예정이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "시트로엥은 미래형 2CV 플랫폼을 기반으로 한 전기 프로토타입을 통해 C15의 정신을 되살렸다.\n목표 가격은 15,000유로이며, 2028년부터 생산을 시작할 예정이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/citroen-c15-furgoneta-reparto-urbano",
       "author": "자동차뉴스",
@@ -388,8 +1380,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/citroen-c15-furgoneta-reparto-urbano",
-      "embedTitle": "스페인 자동차 상용차 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "시트로엥 C15 밴이 돌아왔다. 작고 견고하며, 미래형 2CV를 기반으로 제작된 이 차량은 도심 배송에 최적화되어 있다",
+      "embedDescription": "시트로엥은 미래형 2CV 플랫폼을 기반으로 한 전기 프로토타입을 통해 C15의 정신을 되살렸다.\n목표 가격은 15,000유로이며, 2028년부터 생산을 시작할 예정이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/2026-Citroen-2CV-Fourgonnette-2.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -404,15 +1396,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "994523748",
       "category": "해외소식",
-      "title": "닛산 해외소식 관련 해외 보도",
-      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n닛산 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n닛산 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "우리는 훌륭하고 전기적인 여행 동반자인 새로운 닛산 아리야와 함께 스페인 곳곳을 여행하며 가장 일본적인 곳들을 발견했다",
+      "summary": "저희는 새로운 닛산 아리야를 타고 스페인을 여행하며 가장 일본적인 곳들을 발견했다.\n전기차 분야에서 닛산만큼 경험이 풍부한 회사는 없을 것이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "저희는 새로운 닛산 아리야를 타고 스페인을 여행하며 가장 일본적인 곳들을 발견했다.\n전기차 분야에서 닛산만큼 경험이 풍부한 회사는 없을 것이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모토스 Motor.es",
       "sourceUrl": "https://www.motor.es/pruebas-coches/prueba-nissan-ariya-my2027-2026117160.html",
       "author": "자동차뉴스",
@@ -420,8 +1412,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor.es/pruebas-coches/prueba-nissan-ariya-my2027-2026117160.html",
-      "embedTitle": "닛산 해외소식 관련 해외 보도",
-      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n닛산 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "우리는 훌륭하고 전기적인 여행 동반자인 새로운 닛산 아리야와 함께 스페인 곳곳을 여행하며 가장 일본적인 곳들을 발견했다",
+      "embedDescription": "저희는 새로운 닛산 아리야를 타고 스페인을 여행하며 가장 일본적인 곳들을 발견했다.\n전기차 분야에서 닛산만큼 경험이 풍부한 회사는 없을 것이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor.es/fotos-noticias/2026/10/prueba-nissan-ariya-my2027-2026117160-1792658881_1.jpg",
       "embedLogo": "",
       "embedSite": "모토스 Motor.es",
@@ -436,15 +1428,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "939103439",
       "category": "상용차",
-      "title": "프랑스 자동차 상용차 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "혈중 알코올 농도가 3.4그램을 넘는 상태로 그녀는 퇴근 후 운전대를 잡았고, 결국 경찰서에서 쓰러졌다",
+      "summary": "게르 지역에서 한 운전자가 퇴근길에 경찰에 적발되었는데, 혈중 알코올 농도가 리터당 3.\n4그램이 넘는 위험한 수치를 기록했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "게르 지역에서 한 운전자가 퇴근길에 경찰에 적발되었는데, 혈중 알코올 농도가 리터당 3.\n4그램이 넘는 위험한 수치를 기록했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://www.auto-moto.com/insolite/ivre-avec-plus-de-34-grammes-dalcool-dans-le-sang-elle-reprend-le-volant-apres-le-travail-avant-de-faire-un-malaise-au-commissariat-83936",
       "author": "자동차뉴스",
@@ -452,8 +1444,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.auto-moto.com/insolite/ivre-avec-plus-de-34-grammes-dalcool-dans-le-sang-elle-reprend-le-volant-apres-le-travail-avant-de-faire-un-malaise-au-commissariat-83936",
-      "embedTitle": "프랑스 자동차 상용차 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "혈중 알코올 농도가 3.4그램을 넘는 상태로 그녀는 퇴근 후 운전대를 잡았고, 결국 경찰서에서 쓰러졌다",
+      "embedDescription": "게르 지역에서 한 운전자가 퇴근길에 경찰에 적발되었는데, 혈중 알코올 농도가 리터당 3.\n4그램이 넘는 위험한 수치를 기록했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://photos.auto-moto.com/32/2026/10/photo_article/83936/392738/1200-L-ivre-avec-plus-de-3-4-grammes-dalcool-dans-le-sang-elle-reprend-le-volant-aprs-le-travail-avant-de-faire-un-malaise-au-commissariat.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -468,15 +1460,15 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "945518336",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "러시아인들에게 할부로 자동차를 구매하는 것이 점점 더 부담스러워지고 있다. 그 이유는 무엇일까?",
+      "summary": "OKB: 2026년 9월 자동차 대출 발행액은 전년 동기 대비 14% 감소했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "OKB: 2026년 9월 자동차 대출 발행액은 전년 동기 대비 14% 감소했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987543-mashina-v-kredit-vse-chashche-ne-po",
       "author": "자동차뉴스",
@@ -484,8 +1476,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987543-mashina-v-kredit-vse-chashche-ne-po",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "러시아인들에게 할부로 자동차를 구매하는 것이 점점 더 부담스러워지고 있다. 그 이유는 무엇일까?",
+      "embedDescription": "OKB: 2026년 9월 자동차 대출 발행액은 전년 동기 대비 14% 감소했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/2lp9AwGVfJfKYgpvp0NCXg",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -500,15 +1492,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "938962328",
       "category": "해외소식",
-      "title": "현대 해외소식 관련 해외 보도",
-      "summary": "테키니칸 마일마 Tekniikan Maailma가 전한 핀란드 자동차 소식입니다.\n현대 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "테키니칸 마일마 Tekniikan Maailma가 전한 핀란드 자동차 소식입니다.\n현대 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "한 자동차 브랜드가 스페인에서 재도약을 시도하고 있는데, 그 역사를 이해하려면 마인드맵을 그려봐야 한다",
+      "summary": "거의 알려지지 않았던 스페인 자동차 브랜드 갤로퍼(Galloper)가 부활한다.\n그 이야기는 지난번처럼 기묘할 것이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "거의 알려지지 않았던 스페인 자동차 브랜드 갤로퍼(Galloper)가 부활한다.\n그 이야기는 지난번처럼 기묘할 것이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "테키니칸 마일마 Tekniikan Maailma",
       "sourceUrl": "https://tekniikanmaailma.fi/espanjassa-tekee-paluun-automerkki-jonka-historian-ymmartaminen-vaatii-mind-mapin",
       "author": "자동차뉴스",
@@ -516,8 +1508,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://tekniikanmaailma.fi/espanjassa-tekee-paluun-automerkki-jonka-historian-ymmartaminen-vaatii-mind-mapin",
-      "embedTitle": "현대 해외소식 관련 해외 보도",
-      "embedDescription": "테키니칸 마일마 Tekniikan Maailma가 전한 핀란드 자동차 소식입니다.\n현대 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "한 자동차 브랜드가 스페인에서 재도약을 시도하고 있는데, 그 역사를 이해하려면 마인드맵을 그려봐야 한다",
+      "embedDescription": "거의 알려지지 않았던 스페인 자동차 브랜드 갤로퍼(Galloper)가 부활한다.\n그 이야기는 지난번처럼 기묘할 것이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://tekniikanmaailma.fi/wp-content/uploads/2026/10/1023-Galloper-6.webp",
       "embedLogo": "",
       "embedSite": "테키니칸 마일마 Tekniikan Maailma",
@@ -532,15 +1524,15 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "982600940",
       "category": "해외소식",
-      "title": "스즈키 해외소식 관련 해외 보도",
-      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n스즈키 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n스즈키 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "슈퍼바이크 못지않은 역동적인 주행감을 선사하면서도 슈퍼바이크 수준의 유지비는 부담스럽지 않은 스포츠 바이크",
+      "summary": "스즈키 GSX-R750은 150마력의 출력과 레이싱 DNA를 담은 하드웨어를 13,549달러에 제공하며, 연간 유지비는 300~600달러에 불과한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "스즈키 GSX-R750은 150마력의 출력과 레이싱 DNA를 담은 하드웨어를 13,549달러에 제공하며, 연간 유지비는 300~600달러에 불과한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "탑스피드 Top Speed",
       "sourceUrl": "https://www.topspeed.com/suzuki-gsx-r750-delivers-drama-without-superbike-ownership-costs",
       "author": "자동차뉴스",
@@ -548,8 +1540,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.topspeed.com/suzuki-gsx-r750-delivers-drama-without-superbike-ownership-costs",
-      "embedTitle": "스즈키 해외소식 관련 해외 보도",
-      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n스즈키 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "슈퍼바이크 못지않은 역동적인 주행감을 선사하면서도 슈퍼바이크 수준의 유지비는 부담스럽지 않은 스포츠 바이크",
+      "embedDescription": "스즈키 GSX-R750은 150마력의 출력과 레이싱 DNA를 담은 하드웨어를 13,549달러에 제공하며, 연간 유지비는 300~600달러에 불과한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/07/suzuki-gsx-r750-1.jpeg",
       "embedLogo": "",
       "embedSite": "탑스피드 Top Speed",
@@ -564,15 +1556,15 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "955055838",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "DGT 연결 콘: 이것은 운전자가 사고를 인지하기 전에 도로에서 사고를 미리 알려주는 방법이다",
+      "summary": "DGT의 연결된 콘은 DGT 3.\n0 플랫폼을 통해 즉시 위치를 전송하고 운전자에게 도로 공사를 알린다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "DGT의 연결된 콘은 DGT 3.\n0 플랫폼을 통해 즉시 위치를 전송하고 운전자에게 도로 공사를 알린다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/conos-conectados-dgt-carretera-v2x",
       "author": "자동차뉴스",
@@ -580,8 +1572,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/conos-conectados-dgt-carretera-v2x",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "DGT 연결 콘: 이것은 운전자가 사고를 인지하기 전에 도로에서 사고를 미리 알려주는 방법이다",
+      "embedDescription": "DGT의 연결된 콘은 DGT 3.\n0 플랫폼을 통해 즉시 위치를 전송하고 운전자에게 도로 공사를 알린다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/conos-conectados-dgt.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -596,15 +1588,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "1002527011",
       "category": "해외소식",
-      "title": "아우디 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n아우디 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n아우디 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "아우디의 기본 Spotify 앱: 휴대전화 없이 작동하며 동영상 재생을 차단하는 앱이다",
+      "summary": "아우디의 전용 스포티파이 앱: 이 앱은 차량 내 앱 스토어에서 설치할 수 있으며, 휴대전화 없이도 작동하고, 차량이 정지해 있을 때만 동영상 재생이 가능한다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "아우디의 전용 스포티파이 앱: 이 앱은 차량 내 앱 스토어에서 설치할 수 있으며, 휴대전화 없이도 작동하고, 차량이 정지해 있을 때만 동영상 재생이 가능한다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/spotify-nativa-audi-app-coche",
       "author": "자동차뉴스",
@@ -612,8 +1604,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/spotify-nativa-audi-app-coche",
-      "embedTitle": "아우디 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n아우디 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "아우디의 기본 Spotify 앱: 휴대전화 없이 작동하며 동영상 재생을 차단하는 앱이다",
+      "embedDescription": "아우디의 전용 스포티파이 앱: 이 앱은 차량 내 앱 스토어에서 설치할 수 있으며, 휴대전화 없이도 작동하고, 차량이 정지해 있을 때만 동영상 재생이 가능한다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/audi-spotify.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -628,15 +1620,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "986905156",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "AVTOVAZ는 하이브리드 부문의 발전에 대해 언급했다",
+      "summary": "아브토바즈 최고경영자 쿠로치키나: 하이브리드 자동차는 2030년까지 더욱 저렴해질 것이다\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "아브토바즈 최고경영자 쿠로치키나: 하이브리드 자동차는 2030년까지 더욱 저렴해질 것이다\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987493-parkovku-mozhno-budet-bronirova",
       "author": "자동차뉴스",
@@ -644,8 +1636,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987493-parkovku-mozhno-budet-bronirova",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "AVTOVAZ는 하이브리드 부문의 발전에 대해 언급했다",
+      "embedDescription": "아브토바즈 최고경영자 쿠로치키나: 하이브리드 자동차는 2030년까지 더욱 저렴해질 것이다\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/4lBhhWdpgu7mtKAPuJ_uTA",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -660,15 +1652,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "961412794",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "오스트랄 웜 테라 듀얼: 오토바이 라이딩 시 계절 변화에도 견딜 수 있는 최초의 스페인산 레이어드 재킷",
+      "summary": "오스트랄 웜(Austral Warm)은 5~25°C의 기온에서 라이딩을 위해 설계된 170g/m² 메리노 울과 폴리아미드 소재의 베이스 레이어인 테라 듀얼(Terra Dual)을 출시했다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "오스트랄 웜(Austral Warm)은 5~25°C의 기온에서 라이딩을 위해 설계된 170g/m² 메리노 울과 폴리아미드 소재의 베이스 레이어인 테라 듀얼(Terra Dual)을 출시했다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/austral-warm-terra-dual-capas-moto",
       "author": "자동차뉴스",
@@ -676,8 +1668,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/austral-warm-terra-dual-capas-moto",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "오스트랄 웜 테라 듀얼: 오토바이 라이딩 시 계절 변화에도 견딜 수 있는 최초의 스페인산 레이어드 재킷",
+      "embedDescription": "오스트랄 웜(Austral Warm)은 5~25°C의 기온에서 라이딩을 위해 설계된 170g/m² 메리노 울과 폴리아미드 소재의 베이스 레이어인 테라 듀얼(Terra Dual)을 출시했다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/Austral-Warm-Terra-Dual.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -692,15 +1684,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "925194365",
       "category": "해외소식",
-      "title": "폴란드 자동차 해외소식 관련 해외 보도",
-      "summary": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "세계에서 가장 많이 팔리는 피아트 차가 뭔지 절대 못 맞추실 거예요. 판다도 아니고 듀카토도 아니거든요",
+      "summary": "전 세계 베스트셀링 피아트 10대 모델 중 폴란드에서 판매되는 모델은 단 4개뿐이다.\n피아트 500이 1위일 거라고 예상하셨다면 실망하실 건다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "전 세계 베스트셀링 피아트 10대 모델 중 폴란드에서 판매되는 모델은 단 4개뿐이다.\n피아트 500이 1위일 거라고 예상하셨다면 실망하실 건다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "폴란드 Auto Świat",
       "sourceUrl": "https://www.auto-swiat.pl/wiadomosci/aktualnosci/10-najlepiej-sprzedajacych-sie-samochodow-fiata-na-swiecie-w-2025-r/n5fmpk1",
       "author": "자동차뉴스",
@@ -708,8 +1700,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.auto-swiat.pl/wiadomosci/aktualnosci/10-najlepiej-sprzedajacych-sie-samochodow-fiata-na-swiecie-w-2025-r/n5fmpk1",
-      "embedTitle": "폴란드 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "폴란드 Auto Świat가 전한 폴란드 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "세계에서 가장 많이 팔리는 피아트 차가 뭔지 절대 못 맞추실 거예요. 판다도 아니고 듀카토도 아니거든요",
+      "embedDescription": "전 세계 베스트셀링 피아트 10대 모델 중 폴란드에서 판매되는 모델은 단 4개뿐이다.\n피아트 500이 1위일 거라고 예상하셨다면 실망하실 건다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://cdn.auto-swiat.pl/1/w3uk9lBaHR0cHM6Ly9vY2RuLmV1L3B1bHNjbXMvTURBXy9iN2VlZGVmZjRlMWQ0ZDQ4M2Y1MTk1ZWQ4OTg5MTg1NC5qcGeSlQMAAM0GHc0DcJMFzQlgzQZA3gACoTAHoTEE",
       "embedLogo": "",
       "embedSite": "폴란드 Auto Świat",
@@ -724,15 +1716,15 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "971168114",
       "category": "모터스포츠",
-      "title": "프랑스 자동차 모터스포츠 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "포뮬러 1: 루이스 해밀턴이 F1에서의 미래에 대해 이야기하며 아주 구체적인 꿈을 공개했다",
+      "summary": "루이스 해밀턴은 2030년대 초까지 포뮬러 1 선수 생활을 이어갈 수도 있다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "루이스 해밀턴은 2030년대 초까지 포뮬러 1 선수 생활을 이어갈 수도 있다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://sports.auto-moto.com/f1/actualite/formule-1-lewis-hamilton-evoque-son-avenir-en-f1-et-affiche-un-reve-bien-precis-39588",
       "author": "자동차뉴스",
@@ -740,8 +1732,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://sports.auto-moto.com/f1/actualite/formule-1-lewis-hamilton-evoque-son-avenir-en-f1-et-affiche-un-reve-bien-precis-39588",
-      "embedTitle": "프랑스 자동차 모터스포츠 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "포뮬러 1: 루이스 해밀턴이 F1에서의 미래에 대해 이야기하며 아주 구체적인 꿈을 공개했다",
+      "embedDescription": "루이스 해밀턴은 2030년대 초까지 포뮬러 1 선수 생활을 이어갈 수도 있다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39588/392754/1200-L-formule-1-lewis-hamilton-voque-son-avenir-en-f1-et-affiche-un-rve-bien-prcis.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -756,15 +1748,15 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "939329817",
       "category": "튜닝·클래식",
-      "title": "미국 자동차 튜닝·클래식 관련 해외 보도",
-      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n튜닝·클래식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n튜닝·클래식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "골치 아픈 문제 없이 레트로 감성을 선사하는 모던 클래식",
+      "summary": "이 최고급 현대식 클래식 모터사이클들은 지나간 시대의 정신을 담아내면서도 오늘날의 성능과 신뢰성을 제공한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "이 최고급 현대식 클래식 모터사이클들은 지나간 시대의 정신을 담아내면서도 오늘날의 성능과 신뢰성을 제공한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "탑스피드 Top Speed",
       "sourceUrl": "https://www.topspeed.com/modern-classics-bring-retro-cool-without-the-headaches",
       "author": "자동차뉴스",
@@ -772,8 +1764,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.topspeed.com/modern-classics-bring-retro-cool-without-the-headaches",
-      "embedTitle": "미국 자동차 튜닝·클래식 관련 해외 보도",
-      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n튜닝·클래식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "골치 아픈 문제 없이 레트로 감성을 선사하는 모던 클래식",
+      "embedDescription": "이 최고급 현대식 클래식 모터사이클들은 지나간 시대의 정신을 담아내면서도 오늘날의 성능과 신뢰성을 제공한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/08/p90531524_lowres_r-12-ninet-11-2023.jpg",
       "embedLogo": "",
       "embedSite": "탑스피드 Top Speed",
@@ -788,15 +1780,15 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "984929193",
       "category": "해외소식",
-      "title": "폭스바겐 해외소식 관련 해외 보도",
-      "summary": "빌24 Bil24가 전한 노르웨이 자동차 소식입니다.\n폭스바겐 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "빌24 Bil24가 전한 노르웨이 자동차 소식입니다.\n폭스바겐 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "폭스바겐, 엔비디아 프로세서 탑재 자율주행 ID 버즈 공개",
+      "summary": "폭스바겐 상용차는 ID.\nBuzz를 자율주행차 플랫폼으로 만들기 위해 전력을 다하고 있다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "폭스바겐 상용차는 ID.\nBuzz를 자율주행차 플랫폼으로 만들기 위해 전력을 다하고 있다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "빌24 Bil24",
       "sourceUrl": "https://bil24.no/vw-viser-fram-selvkjorende-id-buzz-med-nvidia-hjerne",
       "author": "자동차뉴스",
@@ -804,8 +1796,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://bil24.no/vw-viser-fram-selvkjorende-id-buzz-med-nvidia-hjerne",
-      "embedTitle": "폭스바겐 해외소식 관련 해외 보도",
-      "embedDescription": "빌24 Bil24가 전한 노르웨이 자동차 소식입니다.\n폭스바겐 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "폭스바겐, 엔비디아 프로세서 탑재 자율주행 ID 버즈 공개",
+      "embedDescription": "폭스바겐 상용차는 ID.\nBuzz를 자율주행차 플랫폼으로 만들기 위해 전력을 다하고 있다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "",
       "embedLogo": "",
       "embedSite": "빌24 Bil24",
@@ -820,15 +1812,15 @@
       "originalTitle": "",
       "originalLanguage": "no",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.941Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "932861266",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "렉서스 TZ 전기차가 스페인에서 첫선을 보였다. 408마력의 이 SUV는 길이 5.1미터이며 재활용 소재로 제작되었다",
+      "summary": "렉서스 전기차 TZ가 스페인에 출시되었으며, 최고 408마력, 길이 5,100mm, 6인승, 그리고 재활용 소재로 제작된 이 차량은 8만 8천 유로부터 시작한다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "렉서스 전기차 TZ가 스페인에 출시되었으며, 최고 408마력, 길이 5,100mm, 6인승, 그리고 재활용 소재로 제작된 이 차량은 8만 8천 유로부터 시작한다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/lexus-tz-electrico-espana",
       "author": "자동차뉴스",
@@ -836,8 +1828,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/lexus-tz-electrico-espana",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "렉서스 TZ 전기차가 스페인에서 첫선을 보였다. 408마력의 이 SUV는 길이 5.1미터이며 재활용 소재로 제작되었다",
+      "embedDescription": "렉서스 전기차 TZ가 스페인에 출시되었으며, 최고 408마력, 길이 5,100mm, 6인승, 그리고 재활용 소재로 제작된 이 차량은 8만 8천 유로부터 시작한다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/LEXUS-TZ-2.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -852,15 +1844,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "967797023",
       "category": "해외소식",
-      "title": "토요타·혼다 해외소식 관련 해외 보도",
-      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n토요타·혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n토요타·혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "몇 마일만 운전해도 엔진 오일 교환 시기를 놓칠 수 있다. 도요타와 혼다가 그 이유를 설명한다",
+      "summary": "일본 자동차 브랜드들이 오일 교환 전략 덕분에 차량 수명을 연장하고 있다.\n도요타는 오일의 노화가 주행 거리뿐만 아니라 운전 습관과 시간에도 영향을 받는다고 강조한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "일본 자동차 브랜드들이 오일 교환 전략 덕분에 차량 수명을 연장하고 있다.\n도요타는 오일의 노화가 주행 거리뿐만 아니라 운전 습관과 시간에도 영향을 받는다고 강조한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모토스 Motor.es",
       "sourceUrl": "https://www.motor.es/noticias/toyota-honda-aceite-motor-turbo-2026117196.html",
       "author": "자동차뉴스",
@@ -868,8 +1860,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor.es/noticias/toyota-honda-aceite-motor-turbo-2026117196.html",
-      "embedTitle": "토요타·혼다 해외소식 관련 해외 보도",
-      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n토요타·혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "몇 마일만 운전해도 엔진 오일 교환 시기를 놓칠 수 있다. 도요타와 혼다가 그 이유를 설명한다",
+      "embedDescription": "일본 자동차 브랜드들이 오일 교환 전략 덕분에 차량 수명을 연장하고 있다.\n도요타는 오일의 노화가 주행 거리뿐만 아니라 운전 습관과 시간에도 영향을 받는다고 강조한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor.es/fotos-noticias/2026/10/coches-2026117196-1792767372_2.jpg",
       "embedLogo": "",
       "embedSite": "모토스 Motor.es",
@@ -884,15 +1876,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "959277904",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "새로운 러시아 자동차 브랜드의 판매 데이터가 공개되었다",
+      "summary": "새로운 젤란드 브랜드는 1만 대 이상의 차량을 판매했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "새로운 젤란드 브랜드는 1만 대 이상의 차량을 판매했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987492-partnerstvo-s-defetoo-srabotal",
       "author": "자동차뉴스",
@@ -900,8 +1892,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987492-partnerstvo-s-defetoo-srabotal",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "새로운 러시아 자동차 브랜드의 판매 데이터가 공개되었다",
+      "embedDescription": "새로운 젤란드 브랜드는 1만 대 이상의 차량을 판매했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/n2DLFw87SpRYVXN8BMrpCw",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -916,15 +1908,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "1009134017",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "독일 교통총국(DGT)은 오토바이 전용 차선과 관련하여 오토바이 운전자를 위한 108가지 조치를 발표했지만, 아직 의무 사항은 아니다",
+      "summary": "스페인 교통총국(DGT)은 오토바이 전용 차선을 포함한 오토바이 운전자를 위한 108가지 모범 사례를 담은 가이드라인을 발표했다.\n이는 아직 법규가 아니며 시행 시한도 정해져 있지 않는다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "스페인 교통총국(DGT)은 오토바이 전용 차선을 포함한 오토바이 운전자를 위한 108가지 모범 사례를 담은 가이드라인을 발표했다.\n이는 아직 법규가 아니며 시행 시한도 정해져 있지 않는다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/carriles-exclusivos-motos-guia-dgt",
       "author": "자동차뉴스",
@@ -932,8 +1924,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/carriles-exclusivos-motos-guia-dgt",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "독일 교통총국(DGT)은 오토바이 전용 차선과 관련하여 오토바이 운전자를 위한 108가지 조치를 발표했지만, 아직 의무 사항은 아니다",
+      "embedDescription": "스페인 교통총국(DGT)은 오토바이 전용 차선을 포함한 오토바이 운전자를 위한 108가지 모범 사례를 담은 가이드라인을 발표했다.\n이는 아직 법규가 아니며 시행 시한도 정해져 있지 않는다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/carriles-exclusivos-motos-guia-dgt-portada.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -948,15 +1940,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "943017145",
       "category": "해외소식",
-      "title": "체코 자동차 해외소식 관련 해외 보도",
-      "summary": "Garáž.cz가 전한 체코 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "Garáž.cz가 전한 체코 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "인터넷을 뜨겁게 달군 길거리 폭행 사건: 폭행당한 여성이 어떻게 자신을 방어할 수 있었을까?",
+      "summary": "운전자들의 공격적인 운전 행태가 해마다 증가하고 있다.\n따라서 도로에서 충돌이 발생할 위험이 있거나 이미 충돌에 휘말렸을 때 어떻게 대처해야 하는지 알아두는 것이 유용한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "운전자들의 공격적인 운전 행태가 해마다 증가하고 있다.\n따라서 도로에서 충돌이 발생할 위험이 있거나 이미 충돌에 휘말렸을 때 어떻게 대처해야 하는지 알아두는 것이 유용한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "Garáž.cz",
       "sourceUrl": "https://www.garaz.cz/clanek/servis-agrese-na-silnici-ktera-pobourila-internet-napadena-zena-udelala-mnoho-chyb-21018110",
       "author": "자동차뉴스",
@@ -964,8 +1956,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.garaz.cz/clanek/servis-agrese-na-silnici-ktera-pobourila-internet-napadena-zena-udelala-mnoho-chyb-21018110",
-      "embedTitle": "체코 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "Garáž.cz가 전한 체코 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "인터넷을 뜨겁게 달군 길거리 폭행 사건: 폭행당한 여성이 어떻게 자신을 방어할 수 있었을까?",
+      "embedDescription": "운전자들의 공격적인 운전 행태가 해마다 증가하고 있다.\n따라서 도로에서 충돌이 발생할 위험이 있거나 이미 충돌에 휘말렸을 때 어떻게 대처해야 하는지 알아두는 것이 유용한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "",
       "embedLogo": "",
       "embedSite": "Garáž.cz",
@@ -980,15 +1972,47 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "920984864",
+      "category": "해외소식",
+      "title": "헝가리 자동차 해외소식 관련 해외 보도",
+      "summary": "토탈카 Totalcar가 전한 헝가리 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "body": "토탈카 Totalcar가 전한 헝가리 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "source": "토탈카 Totalcar",
+      "sourceUrl": "https://totalcar.hu/hirek/indycar-spanyolorszag-barcelona-2027",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T16:44:49.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://totalcar.hu/hirek/indycar-spanyolorszag-barcelona-2027",
+      "embedTitle": "헝가리 자동차 해외소식 관련 해외 보도",
+      "embedDescription": "토탈카 Totalcar가 전한 헝가리 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedImage": "https://totalcar.hu/media/images/GettyImages-2293789116.format-jpeg.max-1024x768.jpg",
+      "embedLogo": "",
+      "embedSite": "토탈카 Totalcar",
+      "embedProvider": "RSS",
+      "embedLang": "hu",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "헝가리|해외소식",
+      "country": "헝가리",
+      "region": "동유럽",
+      "originalTitle": "",
+      "originalLanguage": "hu",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "976794109",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "러시아의 신형 오토바이 판매량이 기록적인 수준을 경신하고 있다: 최신 통계 자료",
+      "summary": "러시아 자동차통계청(Avtostat): 2026년 첫 9개월 동안 러시아에서 신형 오토바이 51,595대가 판매되었다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "러시아 자동차통계청(Avtostat): 2026년 첫 9개월 동안 러시아에서 신형 오토바이 51,595대가 판매되었다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987519-vosem-mesyatsev-rosta-i-rekord",
       "author": "자동차뉴스",
@@ -996,8 +2020,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987519-vosem-mesyatsev-rosta-i-rekord",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "러시아의 신형 오토바이 판매량이 기록적인 수준을 경신하고 있다: 최신 통계 자료",
+      "embedDescription": "러시아 자동차통계청(Avtostat): 2026년 첫 9개월 동안 러시아에서 신형 오토바이 51,595대가 판매되었다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/vZsmU5kgVGOPCYq29Nh7QQ",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -1012,15 +2036,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "1001970686",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "‘레노 캘리포니아 법안’은 클래식 자동차의 배출가스 규제를 완화한다",
+      "summary": "캘리포니아 주, 레노 법안 통과: 1981년 이전에 제조된 클래식 자동차는 2년마다 실시하는 배출가스 검사에서 면제되며, 면제 기간은 1986년까지 연장된다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "캘리포니아 주, 레노 법안 통과: 1981년 이전에 제조된 클래식 자동차는 2년마다 실시하는 배출가스 검사에서 면제되며, 면제 기간은 1986년까지 연장된다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/ley-leno-california-coches-clasicos-2",
       "author": "자동차뉴스",
@@ -1028,8 +2052,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/ley-leno-california-coches-clasicos-2",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "‘레노 캘리포니아 법안’은 클래식 자동차의 배출가스 규제를 완화한다",
+      "embedDescription": "캘리포니아 주, 레노 법안 통과: 1981년 이전에 제조된 클래식 자동차는 2년마다 실시하는 배출가스 검사에서 면제되며, 면제 기간은 1986년까지 연장된다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/ley-leno-california-coches-clasicos-portada.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -1044,15 +2068,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "992218008",
       "category": "기술·부품",
-      "title": "미국 자동차 기술·부품 관련 해외 보도",
-      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n기술·부품 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n기술·부품 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "크롬 장식에 개성과 성능을 더한 할리데이비슨",
+      "summary": "크롬 도금은 보기 좋지만, 최고의 할리데이비슨은 클래식한 스타일뿐만 아니라 현대적인 엔지니어링, 개성, 그리고 성능으로 그 가치를 뒷받침한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "크롬 도금은 보기 좋지만, 최고의 할리데이비슨은 클래식한 스타일뿐만 아니라 현대적인 엔지니어링, 개성, 그리고 성능으로 그 가치를 뒷받침한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "탑스피드 Top Speed",
       "sourceUrl": "https://www.topspeed.com/harley-davidson-super-glide-delivers-more-than-chrome",
       "author": "자동차뉴스",
@@ -1060,8 +2084,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.topspeed.com/harley-davidson-super-glide-delivers-more-than-chrome",
-      "embedTitle": "미국 자동차 기술·부품 관련 해외 보도",
-      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n기술·부품 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "크롬 장식에 개성과 성능을 더한 할리데이비슨",
+      "embedDescription": "크롬 도금은 보기 좋지만, 최고의 할리데이비슨은 클래식한 스타일뿐만 아니라 현대적인 엔지니어링, 개성, 그리고 성능으로 그 가치를 뒷받침한다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/09/harley-davidson-super-glide-fuel-tank-close-up-detail.jpeg",
       "embedLogo": "",
       "embedSite": "탑스피드 Top Speed",
@@ -1076,15 +2100,15 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "948351123",
       "category": "해외소식",
-      "title": "그리스 자동차 해외소식 관련 해외 보도",
-      "summary": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "세바스티앙 로브의 새로운 \"장난감\"은 920마력 슈퍼카이다 (영상)",
+      "summary": "WRC 9회 우승자인 그는 30만 유로가 넘는 슈퍼카와 함께 있는 모습이 목격되었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "WRC 9회 우승자인 그는 30만 유로가 넘는 슈퍼카와 함께 있는 모습이 목격되었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "카앤드라이버 Car & Driver",
       "sourceUrl": "https://www.caranddriver.gr/eidiseis/arthro/to_neo_paixnidi_tou_sebastien_loeb_einai_ena_supercar_920_ps_video-7858170",
       "author": "자동차뉴스",
@@ -1092,8 +2116,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.caranddriver.gr/eidiseis/arthro/to_neo_paixnidi_tou_sebastien_loeb_einai_ena_supercar_920_ps_video-7858170",
-      "embedTitle": "그리스 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "세바스티앙 로브의 새로운 \"장난감\"은 920마력 슈퍼카이다 (영상)",
+      "embedDescription": "WRC 9회 우승자인 그는 30만 유로가 넘는 슈퍼카와 함께 있는 모습이 목격되었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://media.caranddriver.gr/filesystem/images/20261023/engine/imgi-7-sebastien-loeb-lamborghini-4_77761_489674_type10.jpg",
       "embedLogo": "",
       "embedSite": "카앤드라이버 Car & Driver",
@@ -1108,15 +2132,15 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.938Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "946432718",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "스페인 교통총국(DGT)은 고속도로에서의 타이어 교체를 금지하고 있으며, 이를 어길 경우 200유로의 벌금이 부과된다",
+      "summary": "고속도로에서 타이어를 교체하는 것은 금지되어 있으며, 적발 시 200유로의 벌금이 부과된다.\n법에 따라 V-16 경고 삼각대를 사용하고 긴급출동 서비스를 요청해야 한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "고속도로에서 타이어를 교체하는 것은 금지되어 있으며, 적발 시 200유로의 벌금이 부과된다.\n법에 따라 V-16 경고 삼각대를 사용하고 긴급출동 서비스를 요청해야 한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/cambiar-rueda-autopista-multa-dgt",
       "author": "자동차뉴스",
@@ -1124,8 +2148,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/cambiar-rueda-autopista-multa-dgt",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "스페인 교통총국(DGT)은 고속도로에서의 타이어 교체를 금지하고 있으며, 이를 어길 경우 200유로의 벌금이 부과된다",
+      "embedDescription": "고속도로에서 타이어를 교체하는 것은 금지되어 있으며, 적발 시 200유로의 벌금이 부과된다.\n법에 따라 V-16 경고 삼각대를 사용하고 긴급출동 서비스를 요청해야 한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/cambiar-rueda-autopista-multa-dgt-portada.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -1140,15 +2164,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "931262783",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "GWM은 오프로드 성능을 갖춘 패밀리 SUV인 신형 하발 H7의 가격을 책정하여 KGM 토레스와 경쟁 구도를 형성하고 있다",
+      "summary": "스페인에서 판매되는 신형 GWM 하발 H7의 가격과 라인업이 공개되었다.\n신형 GWM 하발 H7이 드디어 대리점에 출시될 예정이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "스페인에서 판매되는 신형 GWM 하발 H7의 가격과 라인업이 공개되었다.\n신형 GWM 하발 H7이 드디어 대리점에 출시될 예정이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모토스 Motor.es",
       "sourceUrl": "https://www.motor.es/noticias/gwm-haval-h7-lanzamiento-espana-2026117201.html",
       "author": "자동차뉴스",
@@ -1156,8 +2180,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor.es/noticias/gwm-haval-h7-lanzamiento-espana-2026117201.html",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "GWM은 오프로드 성능을 갖춘 패밀리 SUV인 신형 하발 H7의 가격을 책정하여 KGM 토레스와 경쟁 구도를 형성하고 있다",
+      "embedDescription": "스페인에서 판매되는 신형 GWM 하발 H7의 가격과 라인업이 공개되었다.\n신형 GWM 하발 H7이 드디어 대리점에 출시될 예정이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor.es/fotos-noticias/2026/10/gwm-haval-h7-lanzamiento-espana-2026117201-1792767308_2.jpg",
       "embedLogo": "",
       "embedSite": "모토스 Motor.es",
@@ -1172,15 +2196,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "985374944",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "바르셀로나는 2027년 새로운 인디카 캘린더의 주요 무대이다",
+      "summary": "2027년 인디카 레이싱은 몇 가지 변화를 제외하고는 비교적 안정적인 구성을 유지한다.\n미국 시리즈는 워싱턴 D.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "2027년 인디카 레이싱은 몇 가지 변화를 제외하고는 비교적 안정적인 구성을 유지한다.\n미국 시리즈는 워싱턴 D.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모토스 Motor.es",
       "sourceUrl": "https://www.motor.es/noticias/indycar-calendario-2027-2026117183.html",
       "author": "자동차뉴스",
@@ -1188,8 +2212,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor.es/noticias/indycar-calendario-2027-2026117183.html",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "바르셀로나는 2027년 새로운 인디카 캘린더의 주요 무대이다",
+      "embedDescription": "2027년 인디카 레이싱은 몇 가지 변화를 제외하고는 비교적 안정적인 구성을 유지한다.\n미국 시리즈는 워싱턴 D.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor.es/fotos-noticias/2026/10/el-retorno-europeo-de-indycar-en-barcelona-gran-protagonista-de-su-calendario-de-2027-2026117183-1792771069_1.jpg",
       "embedLogo": "",
       "embedSite": "모토스 Motor.es",
@@ -1204,15 +2228,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "992713750",
       "category": "해외소식",
-      "title": "프랑스 자동차 해외소식 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "맥라렌: 오스카 피아스트리, 랜도 노리스와의 충돌 후 입장을 밝히다",
+      "summary": "오스카 피아스트리는 싱가포르 그랑프리 스프린트 도중 랜도 노리스와의 충돌 사고에 대한 맥라렌의 대응 방식에 대해 언급했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "오스카 피아스트리는 싱가포르 그랑프리 스프린트 도중 랜도 노리스와의 충돌 사고에 대한 맥라렌의 대응 방식에 대해 언급했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://sports.auto-moto.com/f1/actualite/mclaren-oscar-piastri-prend-position-apres-laccrochage-avec-lando-norris-39584",
       "author": "자동차뉴스",
@@ -1220,8 +2244,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://sports.auto-moto.com/f1/actualite/mclaren-oscar-piastri-prend-position-apres-laccrochage-avec-lando-norris-39584",
-      "embedTitle": "프랑스 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "맥라렌: 오스카 피아스트리, 랜도 노리스와의 충돌 후 입장을 밝히다",
+      "embedDescription": "오스카 피아스트리는 싱가포르 그랑프리 스프린트 도중 랜도 노리스와의 충돌 사고에 대한 맥라렌의 대응 방식에 대해 언급했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39584/392753/1200-L-mclaren-oscar-piastri-prend-position-aprs-l-accrochage-avec-lando-norris.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -1236,15 +2260,15 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "936356386",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "증기 시대를 되살리는 1913년형 스탠리 스티머 모델 810이 AACA 상을 수상한 채 경매에 나온다",
+      "summary": "칼 암슬리가 복원한 1913년형 스탠리 스티머(Stanley Steamer) 12인승 마운틴 왜건이 AACA 상을 수상한 채 브링 어 트레일러(Bring a Trailer) 경매에 출품된다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "칼 암슬리가 복원한 1913년형 스탠리 스티머(Stanley Steamer) 12인승 마운틴 왜건이 AACA 상을 수상한 채 브링 어 트레일러(Bring a Trailer) 경매에 출품된다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/stanley-steamer-1913-subasta",
       "author": "자동차뉴스",
@@ -1252,8 +2276,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/stanley-steamer-1913-subasta",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "증기 시대를 되살리는 1913년형 스탠리 스티머 모델 810이 AACA 상을 수상한 채 경매에 나온다",
+      "embedDescription": "칼 암슬리가 복원한 1913년형 스탠리 스티머(Stanley Steamer) 12인승 마운틴 왜건이 AACA 상을 수상한 채 브링 어 트레일러(Bring a Trailer) 경매에 출품된다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/Stanley-Steamer-Model-810-bring-a-trailer.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -1268,15 +2292,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "951030166",
       "category": "해외소식",
-      "title": "스바루 해외소식 관련 해외 보도",
-      "summary": "오토네비게이터가 전한 헝가리 자동차 소식입니다.\n스바루 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토네비게이터가 전한 헝가리 자동차 소식입니다.\n스바루 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "스바루 박서 엔진, 60년 만에 유럽 시장에서 작별을 고하다",
+      "summary": "보도에 따르면 스바루는 2027년 말까지 유럽에서 모든 내연기관 모델 생산을 중단할 예정이며, 전기차만 계속 생산할 가능성이 있다고 한다.\n오토네비게이터가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "보도에 따르면 스바루는 2027년 말까지 유럽에서 모든 내연기관 모델 생산을 중단할 예정이며, 전기차만 계속 생산할 가능성이 있다고 한다.\n오토네비게이터가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토네비게이터",
       "sourceUrl": "https://www.autonavigator.hu/autosvilag_hirei/60-ev-utan-bucsuzik-a-subaru-boxermotor-europatol",
       "author": "자동차뉴스",
@@ -1284,8 +2308,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.autonavigator.hu/autosvilag_hirei/60-ev-utan-bucsuzik-a-subaru-boxermotor-europatol",
-      "embedTitle": "스바루 해외소식 관련 해외 보도",
-      "embedDescription": "오토네비게이터가 전한 헝가리 자동차 소식입니다.\n스바루 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "스바루 박서 엔진, 60년 만에 유럽 시장에서 작별을 고하다",
+      "embedDescription": "보도에 따르면 스바루는 2027년 말까지 유럽에서 모든 내연기관 모델 생산을 중단할 예정이며, 전기차만 계속 생산할 가능성이 있다고 한다.\n오토네비게이터가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.autonavigator.hu/wp-content/uploads/2026/10/Subaru-Motor-es-Elektromos-Jovo.webp",
       "embedLogo": "",
       "embedSite": "오토네비게이터",
@@ -1300,15 +2324,15 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "970637454",
       "category": "해외소식",
-      "title": "폭스바겐 해외소식 관련 해외 보도",
-      "summary": "테키니칸 마일마 Tekniikan Maailma가 전한 핀란드 자동차 소식입니다.\n폭스바겐 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "테키니칸 마일마 Tekniikan Maailma가 전한 핀란드 자동차 소식입니다.\n폭스바겐 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "이번 주 추천 중고차: 2001년형 폭스바겐 비틀 RSI – 비틀에 스테로이드를 투여했을 때, 로켓이 탄생했다",
+      "summary": "폭스바겐은 1990년대에 비틀을 부활시켜 몇 가지 흥미로운 스페셜 모델을 만들었다.\n테키니칸 마일마 Tekniikan Maailma가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "폭스바겐은 1990년대에 비틀을 부활시켜 몇 가지 흥미로운 스페셜 모델을 만들었다.\n테키니칸 마일마 Tekniikan Maailma가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "테키니칸 마일마 Tekniikan Maailma",
       "sourceUrl": "https://tekniikanmaailma.fi/viikon-kaytetty-vuoden-2001-volkswagen-beetle-rsi-kun-kuplalle-syotettiin-steroideja-syntyi-rataohjus",
       "author": "자동차뉴스",
@@ -1316,8 +2340,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://tekniikanmaailma.fi/viikon-kaytetty-vuoden-2001-volkswagen-beetle-rsi-kun-kuplalle-syotettiin-steroideja-syntyi-rataohjus",
-      "embedTitle": "폭스바겐 해외소식 관련 해외 보도",
-      "embedDescription": "테키니칸 마일마 Tekniikan Maailma가 전한 핀란드 자동차 소식입니다.\n폭스바겐 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "이번 주 추천 중고차: 2001년형 폭스바겐 비틀 RSI – 비틀에 스테로이드를 투여했을 때, 로켓이 탄생했다",
+      "embedDescription": "폭스바겐은 1990년대에 비틀을 부활시켜 몇 가지 흥미로운 스페셜 모델을 만들었다.\n테키니칸 마일마 Tekniikan Maailma가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://tekniikanmaailma.fi/wp-content/uploads/2026/10/1023-VW-Beetle-RSi-1.webp",
       "embedLogo": "",
       "embedSite": "테키니칸 마일마 Tekniikan Maailma",
@@ -1332,15 +2356,15 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "992088781",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "더 이상 자동차 대리점을 돌아다닐 필요가 없다. AI가 당신 대신 차량 가격을 협상해 드린다",
+      "summary": "전문가 차레프: AI 에이전트가 자동차 시장의 새로운 주자로 부상할 것이다\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "전문가 차레프: AI 에이전트가 자동차 시장의 새로운 주자로 부상할 것이다\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987491-bolshe-ne-nuzhno-ezdit-po-salo",
       "author": "자동차뉴스",
@@ -1348,8 +2372,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987491-bolshe-ne-nuzhno-ezdit-po-salo",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "더 이상 자동차 대리점을 돌아다닐 필요가 없다. AI가 당신 대신 차량 가격을 협상해 드린다",
+      "embedDescription": "전문가 차레프: AI 에이전트가 자동차 시장의 새로운 주자로 부상할 것이다\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/4CPbWucsZacFeeqs3Lyrew",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -1364,15 +2388,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "962294588",
       "category": "상용차",
-      "title": "스페인 자동차 상용차 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "운전자 65%가 밴과 내연기관 차량에 대한 폐차 보조금 지급 제도를 요구하고 있다",
+      "summary": "응답자의 65%는 밴과 내연기관 차량에 대한 보조금을 포함한 폐차 보조금 제도를 지지했으며, 57%는 기술 중립적인 재계약 인센티브를 원했다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "응답자의 65%는 밴과 내연기관 차량에 대한 보조금을 포함한 폐차 보조금 제도를 지지했으며, 57%는 기술 중립적인 재계약 인센티브를 원했다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/plan-renove-ayudas-furgonetas-combustion",
       "author": "자동차뉴스",
@@ -1380,8 +2404,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/plan-renove-ayudas-furgonetas-combustion",
-      "embedTitle": "스페인 자동차 상용차 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n상용차 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "운전자 65%가 밴과 내연기관 차량에 대한 폐차 보조금 지급 제도를 요구하고 있다",
+      "embedDescription": "응답자의 65%는 밴과 내연기관 차량에 대한 보조금을 포함한 폐차 보조금 제도를 지지했으며, 57%는 기술 중립적인 재계약 인센티브를 원했다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/plan-renove-ayudas-furgonetas-combustion-portada.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -1396,15 +2420,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "954489097",
       "category": "리콜·안전",
-      "title": "메르세데스-벤츠 리콜·안전 관련 해외 보도",
-      "summary": "車網 Car1.hk가 전한 홍콩 자동차 소식입니다.\n메르세데스-벤츠 관련 리콜·안전 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "車網 Car1.hk가 전한 홍콩 자동차 소식입니다.\n메르세데스-벤츠 관련 리콜·안전 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "향후 10년은 자율주행의 판도를 완전히 바꿔놓을까? 메르세데스-벤츠는 NVIDIA와 손잡고 세계에서 가장 강력한 AI 두뇌를 개발한다",
+      "summary": "메르세데스-벤츠와 글로벌 컴퓨팅 기업 엔비디아는 차세대 운전자 보조 및 고도 자율 주행 시스템 공동 개발을 위한 전략적 파트너십 확대를 공식 발표했다.\n車網 Car1.hk가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "메르세데스-벤츠와 글로벌 컴퓨팅 기업 엔비디아는 차세대 운전자 보조 및 고도 자율 주행 시스템 공동 개발을 위한 전략적 파트너십 확대를 공식 발표했다.\n車網 Car1.hk가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "車網 Car1.hk",
       "sourceUrl": "https://www.car1.hk/news/mercedes-benz-nvidia-autonomous-driving-partnership-next-gen-mbos",
       "author": "자동차뉴스",
@@ -1412,8 +2436,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.car1.hk/news/mercedes-benz-nvidia-autonomous-driving-partnership-next-gen-mbos",
-      "embedTitle": "메르세데스-벤츠 리콜·안전 관련 해외 보도",
-      "embedDescription": "車網 Car1.hk가 전한 홍콩 자동차 소식입니다.\n메르세데스-벤츠 관련 리콜·안전 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "향후 10년은 자율주행의 판도를 완전히 바꿔놓을까? 메르세데스-벤츠는 NVIDIA와 손잡고 세계에서 가장 강력한 AI 두뇌를 개발한다",
+      "embedDescription": "메르세데스-벤츠와 글로벌 컴퓨팅 기업 엔비디아는 차세대 운전자 보조 및 고도 자율 주행 시스템 공동 개발을 위한 전략적 파트너십 확대를 공식 발표했다.\n車網 Car1.hk가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "",
       "embedLogo": "",
       "embedSite": "車網 Car1.hk",
@@ -1428,47 +2452,15 @@
       "originalTitle": "",
       "originalLanguage": "zh-HK",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.966Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "955267448",
-      "category": "튜닝·클래식",
-      "title": "BMW 튜닝·클래식 관련 해외 보도",
-      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\nBMW 관련 튜닝·클래식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\nBMW 관련 튜닝·클래식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "source": "탑스피드 Top Speed",
-      "sourceUrl": "https://www.topspeed.com/m240i-best-used-sporty-bmw-without-m-badge",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T16:00:20.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.topspeed.com/m240i-best-used-sporty-bmw-without-m-badge",
-      "embedTitle": "BMW 튜닝·클래식 관련 해외 보도",
-      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\nBMW 관련 튜닝·클래식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/10/2021-bmw-m240i-coupe-10.jpg",
-      "embedLogo": "",
-      "embedSite": "탑스피드 Top Speed",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "미국|튜닝·클래식|BMW",
-      "country": "미국",
-      "region": "북미",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "994137513",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "DGT는 연결된 원뿔형 경고등을 제시한다. 이 경고등은 사고를 경고하며 V-16 신호등 이후에 나타난다",
+      "summary": "스페인 교통총국(DGT)은 도로 공사를 내비게이션 시스템에 알려주는 연결형 콘을 발표했으며, 이는 2026년부터 의무화될 V-16 신호등에 추가될 예정이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "스페인 교통총국(DGT)은 도로 공사를 내비게이션 시스템에 알려주는 연결형 콘을 발표했으며, 이는 2026년부터 의무화될 V-16 신호등에 추가될 예정이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/conos-conectados-dgt-balizas-v16",
       "author": "자동차뉴스",
@@ -1476,8 +2468,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/conos-conectados-dgt-balizas-v16",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "DGT는 연결된 원뿔형 경고등을 제시한다. 이 경고등은 사고를 경고하며 V-16 신호등 이후에 나타난다",
+      "embedDescription": "스페인 교통총국(DGT)은 도로 공사를 내비게이션 시스템에 알려주는 연결형 콘을 발표했으며, 이는 2026년부터 의무화될 V-16 신호등에 추가될 예정이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/10/conos-conectados-dgt-balizas-v16-portada.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -1492,15 +2484,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "1003110928",
       "category": "해외소식",
-      "title": "토요타 해외소식 관련 해외 보도",
-      "summary": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n토요타 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n토요타 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "세 가지는 괜찮고, 두 가지는 그다지 좋지 않다. 토요타 코롤라 60주년 기념 모델에 대한 제 생각은 딱 이렇다",
+      "summary": "이번에는 특별한 60주년 기념 해치백 모델인 코롤라를 다시 만났다.\n모토스 Motor.es가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "이번에는 특별한 60주년 기념 해치백 모델인 코롤라를 다시 만났다.\n모토스 Motor.es가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모토스 Motor.es",
       "sourceUrl": "https://www.motor.es/noticias/prueba-toyota-corolla-60-aniversario-2026117195.html",
       "author": "자동차뉴스",
@@ -1508,8 +2500,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor.es/noticias/prueba-toyota-corolla-60-aniversario-2026117195.html",
-      "embedTitle": "토요타 해외소식 관련 해외 보도",
-      "embedDescription": "모토스 Motor.es가 전한 스페인 자동차 소식입니다.\n토요타 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "세 가지는 괜찮고, 두 가지는 그다지 좋지 않다. 토요타 코롤라 60주년 기념 모델에 대한 제 생각은 딱 이렇다",
+      "embedDescription": "이번에는 특별한 60주년 기념 해치백 모델인 코롤라를 다시 만났다.\n모토스 Motor.es가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor.es/fotos-noticias/2026/10/prueba-toyota-corolla-60-aniversario-2026117195-1792757201_1.jpg",
       "embedLogo": "",
       "embedSite": "모토스 Motor.es",
@@ -1524,15 +2516,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "976362879",
       "category": "모터스포츠",
-      "title": "메르세데스-벤츠 모터스포츠 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n메르세데스-벤츠 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n메르세데스-벤츠 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "F1: 루이스 해밀턴, 키미 안토넬리의 챔피언십 경쟁에 대한 지지 표명",
+      "summary": "루이스 해밀턴은 미국 그랑프리를 앞두고 키미 안토넬리의 활약을 칭찬했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "루이스 해밀턴은 미국 그랑프리를 앞두고 키미 안토넬리의 활약을 칭찬했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://sports.auto-moto.com/f1/actualite/f1-lewis-hamilton-affiche-son-soutien-a-kimi-antonelli-dans-la-course-au-titre-39576",
       "author": "자동차뉴스",
@@ -1540,8 +2532,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://sports.auto-moto.com/f1/actualite/f1-lewis-hamilton-affiche-son-soutien-a-kimi-antonelli-dans-la-course-au-titre-39576",
-      "embedTitle": "메르세데스-벤츠 모터스포츠 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n메르세데스-벤츠 관련 모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "F1: 루이스 해밀턴, 키미 안토넬리의 챔피언십 경쟁에 대한 지지 표명",
+      "embedDescription": "루이스 해밀턴은 미국 그랑프리를 앞두고 키미 안토넬리의 활약을 칭찬했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39576/392751/1200-L-f1-lewis-hamilton-affiche-son-soutien-kimi-antonelli-dans-la-course-au-titre.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -1556,15 +2548,15 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "992561527",
       "category": "해외소식",
-      "title": "프랑스 자동차 해외소식 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "대도시의 주차 요금이 천정부지로 치솟아 통제 불가능한 수준에 이르렀다",
+      "summary": "프랑스 주요 도시의 주차 요금이 폭등했다는 조사 결과가 나왔다.\n이 조사에 따르면 프랑스에서 가장 발전된 도시들의 주차 요금이 터무니없이 높은 것으로 나타났다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "프랑스 주요 도시의 주차 요금이 폭등했다는 조사 결과가 나왔다.\n이 조사에 따르면 프랑스에서 가장 발전된 도시들의 주차 요금이 터무니없이 높은 것으로 나타났다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://www.auto-moto.com/en-bref/stationnement-prix-villes-83964",
       "author": "자동차뉴스",
@@ -1572,8 +2564,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.auto-moto.com/en-bref/stationnement-prix-villes-83964",
-      "embedTitle": "프랑스 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "대도시의 주차 요금이 천정부지로 치솟아 통제 불가능한 수준에 이르렀다",
+      "embedDescription": "프랑스 주요 도시의 주차 요금이 폭등했다는 조사 결과가 나왔다.\n이 조사에 따르면 프랑스에서 가장 발전된 도시들의 주차 요금이 터무니없이 높은 것으로 나타났다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://photos.auto-moto.com/32/2026/10/photo_article/83964/392743/1200-L-le-prix-du-stationnement-explose-et-devient-hors-de-contrle-dans-les-grandes-villes.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -1588,15 +2580,15 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "940954145",
       "category": "해외소식",
-      "title": "영국 자동차 해외소식 관련 해외 보도",
-      "summary": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "새로운 후륜구동 벤틀리 슈퍼스포츠 컨버터블이 출시될 예정이다",
+      "summary": "스파이샷에 포착된 사진은 컨티넨탈 GT 파생 모델의 컨버터블 버전이 뉘르부르크링 노르트슐라이페 인근에서 테스트 주행 중인 모습을 보여준다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "스파이샷에 포착된 사진은 컨티넨탈 GT 파생 모델의 컨버터블 버전이 뉘르부르크링 노르트슐라이페 인근에서 테스트 주행 중인 모습을 보여준다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토 익스프레스 Auto Express",
       "sourceUrl": "https://www.autoexpress.co.uk/bentley/continental-supersports/370755/new-rear-wheel-drive-bentley-supersports-convertible-way",
       "author": "자동차뉴스",
@@ -1604,8 +2596,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.autoexpress.co.uk/bentley/continental-supersports/370755/new-rear-wheel-drive-bentley-supersports-convertible-way",
-      "embedTitle": "영국 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "새로운 후륜구동 벤틀리 슈퍼스포츠 컨버터블이 출시될 예정이다",
+      "embedDescription": "스파이샷에 포착된 사진은 컨티넨탈 GT 파생 모델의 컨버터블 버전이 뉘르부르크링 노르트슐라이페 인근에서 테스트 주행 중인 모습을 보여준다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://images.autoexpress.co.uk/autoexpress/2026/10/New%20Bentley%20Supersports%20Convertible%20-%20front%203_4_a0jhh2.jpg?w=845&fit=scale&auto=format,compress",
       "embedLogo": "",
       "embedSite": "오토 익스프레스 Auto Express",
@@ -1620,15 +2612,15 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "960633296",
       "category": "해외소식",
-      "title": "영국 자동차 해외소식 관련 해외 보도",
-      "summary": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "신형 벤틀리 슈퍼스포츠 컨버터블, 테스트 주행 중 포착 - 사진",
+      "summary": "경량 후륜구동 벤틀리 슈퍼스포츠 컨버터블이 뉘르부르크링에서 테스트 주행 중인 모습이 포착되었다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "경량 후륜구동 벤틀리 슈퍼스포츠 컨버터블이 뉘르부르크링에서 테스트 주행 중인 모습이 포착되었다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토 익스프레스 Auto Express",
       "sourceUrl": "https://www.autoexpress.co.uk/bentley/continental-gt/370754/new-bentley-supersports-convertible-caught-testing-pictures",
       "author": "자동차뉴스",
@@ -1636,8 +2628,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.autoexpress.co.uk/bentley/continental-gt/370754/new-bentley-supersports-convertible-caught-testing-pictures",
-      "embedTitle": "영국 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "신형 벤틀리 슈퍼스포츠 컨버터블, 테스트 주행 중 포착 - 사진",
+      "embedDescription": "경량 후륜구동 벤틀리 슈퍼스포츠 컨버터블이 뉘르부르크링에서 테스트 주행 중인 모습이 포착되었다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://images.autoexpress.co.uk/autoexpress/2026/10/New%20Bentley%20Supersports%20Convertible%20-%20front%203_4_a0jhh2.jpg?w=845&fit=scale&auto=format,compress",
       "embedLogo": "",
       "embedSite": "오토 익스프레스 Auto Express",
@@ -1652,15 +2644,15 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "924503730",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "러시아에서 인기 있는 재쿠 크로스오버 차량의 가격이 변경되었다. 최신 가격표를 확인하세요",
+      "summary": "Jaecoo J7의 러시아 가격이 7.\n6% 인상되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "Jaecoo J7의 러시아 가격이 7.\n6% 인상되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987517-skidku-na-jaecoo-j7-otmenili",
       "author": "자동차뉴스",
@@ -1668,8 +2660,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987517-skidku-na-jaecoo-j7-otmenili",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "러시아에서 인기 있는 재쿠 크로스오버 차량의 가격이 변경되었다. 최신 가격표를 확인하세요",
+      "embedDescription": "Jaecoo J7의 러시아 가격이 7.\n6% 인상되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/yL7dOywJm_cvDLiyrjlgBw",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -1684,15 +2676,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "950616973",
       "category": "해외소식",
-      "title": "테슬라 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n테슬라 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n테슬라 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "테슬라의 글로벌 로보택시 전략: 머스크는 판매되는 차량을 자율주행 로봇으로 대체하고 있다",
+      "summary": "테슬라의 로보택시 전략: 머스크는 자율주행, 핸들이 없는 사이버캡, 그리고 옵티머스 휴머노이드 로봇으로 회사의 방향을 전환하고 있다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "테슬라의 로보택시 전략: 머스크는 자율주행, 핸들이 없는 사이버캡, 그리고 옵티머스 휴머노이드 로봇으로 회사의 방향을 전환하고 있다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/tesla-robotaxi-estrategia-musk-global",
       "author": "자동차뉴스",
@@ -1700,8 +2692,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/tesla-robotaxi-estrategia-musk-global",
-      "embedTitle": "테슬라 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n테슬라 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "테슬라의 글로벌 로보택시 전략: 머스크는 판매되는 차량을 자율주행 로봇으로 대체하고 있다",
+      "embedDescription": "테슬라의 로보택시 전략: 머스크는 자율주행, 핸들이 없는 사이버캡, 그리고 옵티머스 휴머노이드 로봇으로 회사의 방향을 전환하고 있다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2024/10/tesla-cybercab-coche-robot.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -1716,15 +2708,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "921727017",
       "category": "해외소식",
-      "title": "그리스 자동차 해외소식 관련 해외 보도",
-      "summary": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "그런데도! 이 안전벨트는 우리가 잘못 착용했는지 알아차린다",
+      "summary": "ZF Lifetec은 차량 내 적외선 카메라와 연동되는 새로운 안전벨트를 개발 중이다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "ZF Lifetec은 차량 내 적외선 카메라와 연동되는 새로운 안전벨트를 개발 중이다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "카앤드라이버 Car & Driver",
       "sourceUrl": "https://www.caranddriver.gr/texnologia/arthro/kai_omos_ayti_h_zoni_asfaleias_katalabainei_an_ti_forame_lathos-7857932",
       "author": "자동차뉴스",
@@ -1732,8 +2724,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.caranddriver.gr/texnologia/arthro/kai_omos_ayti_h_zoni_asfaleias_katalabainei_an_ti_forame_lathos-7857932",
-      "embedTitle": "그리스 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "그런데도! 이 안전벨트는 우리가 잘못 착용했는지 알아차린다",
+      "embedDescription": "ZF Lifetec은 차량 내 적외선 카메라와 연동되는 새로운 안전벨트를 개발 중이다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://media.caranddriver.gr/filesystem/images/20260212/engine/this-year-the-humble-seat-belt-celebrates-its-50th-anniversary_77761_477983_type10.jpg",
       "embedLogo": "",
       "embedSite": "카앤드라이버 Car & Driver",
@@ -1748,15 +2740,15 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.938Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "968760734",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "에볼루트(Evolute)와 보야(Voyah) 공장은 산업 단지로 탈바꿈될 예정이다",
+      "summary": "모터인베스트 공장 부지 내에 새로운 산업 단지가 건설될 예정이다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "모터인베스트 공장 부지 내에 새로운 산업 단지가 건설될 예정이다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987537-zavod-po-vypusku-evolute-i-voy",
       "author": "자동차뉴스",
@@ -1764,8 +2756,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987537-zavod-po-vypusku-evolute-i-voy",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "에볼루트(Evolute)와 보야(Voyah) 공장은 산업 단지로 탈바꿈될 예정이다",
+      "embedDescription": "모터인베스트 공장 부지 내에 새로운 산업 단지가 건설될 예정이다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/4lnu6zdBVElWopaipGZwkw",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -1780,15 +2772,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "960590368",
       "category": "해외소식",
-      "title": "루시드 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n루시드 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n루시드 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "마드리드의 자율주행: 볼트와 엔비디아, 2027년 알파마요와 함께 로보택시 도입 예정",
+      "summary": "볼트와 엔비디아는 2027년 마드리드에 최소 25,000대의 루시드 차량과 알파마요 스택을 활용한 무인 로보택시를 도입할 계획이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "볼트와 엔비디아는 2027년 마드리드에 최소 25,000대의 루시드 차량과 알파마요 스택을 활용한 무인 로보택시를 도입할 계획이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/conduccion-autonoma-madrid-robotaxi-2027",
       "author": "자동차뉴스",
@@ -1796,8 +2788,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/conduccion-autonoma-madrid-robotaxi-2027",
-      "embedTitle": "루시드 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n루시드 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "마드리드의 자율주행: 볼트와 엔비디아, 2027년 알파마요와 함께 로보택시 도입 예정",
+      "embedDescription": "볼트와 엔비디아는 2027년 마드리드에 최소 25,000대의 루시드 차량과 알파마요 스택을 활용한 무인 로보택시를 도입할 계획이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/03/Nissan_Wayve_Uber_robotaxi-madrid-tokio-12.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -1812,15 +2804,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "974275576",
       "category": "해외소식",
-      "title": "지리 해외소식 관련 해외 보도",
-      "summary": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n지리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n지리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "대량 생산 이전의 지리 항공기",
+      "summary": "지리는 교통수단을 하늘로 확장하고자 자회사에서 8개의 로터를 장착한 시속 230km의 전기 비행 택시를 시험 운행하고 있다.\n베지스 vezess.hu가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "지리는 교통수단을 하늘로 확장하고자 자회사에서 8개의 로터를 장착한 시속 230km의 전기 비행 택시를 시험 운행하고 있다.\n베지스 vezess.hu가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "베지스 vezess.hu",
       "sourceUrl": "https://www.vezess.hu/hirek/2026/10/23/sorozatgyartas-elott-a-geely-repulogepe",
       "author": "자동차뉴스",
@@ -1828,8 +2820,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.vezess.hu/hirek/2026/10/23/sorozatgyartas-elott-a-geely-repulogepe",
-      "embedTitle": "지리 해외소식 관련 해외 보도",
-      "embedDescription": "베지스 vezess.hu가 전한 헝가리 자동차 소식입니다.\n지리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "대량 생산 이전의 지리 항공기",
+      "embedDescription": "지리는 교통수단을 하늘로 확장하고자 자회사에서 8개의 로터를 장착한 시속 230km의 전기 비행 택시를 시험 운행하고 있다.\n베지스 vezess.hu가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://vezess2.p3k.hu/app/uploads/2026/10/geely_repulo_auto-1.jpeg",
       "embedLogo": "",
       "embedSite": "베지스 vezess.hu",
@@ -1844,15 +2836,15 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "961462048",
       "category": "해외소식",
-      "title": "체코 자동차 해외소식 관련 해외 보도",
-      "summary": "Garáž.cz가 전한 체코 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "Garáž.cz가 전한 체코 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "데드풀 50주년 기념! 라이언 레이놀즈는 오토바이를 좋아해서 차고에 수백만 달러짜리 전기 오토바이까지 가지고 있다고 하네요",
+      "summary": "할리우드 스타 라이언 레이놀즈는 거의 모든 슈퍼카를 살 수 있을 만큼 부유하지만, 오토바이를 타는 것을 더 좋아한다.\nGaráž.cz가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "할리우드 스타 라이언 레이놀즈는 거의 모든 슈퍼카를 살 수 있을 만큼 부유하지만, 오토바이를 타는 것을 더 좋아한다.\nGaráž.cz가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "Garáž.cz",
       "sourceUrl": "https://www.garaz.cz/clanek/zajimavosti-deadpool-slavi-50-let-ryan-reynolds-miluje-motorky-v-garazi-ma-i-elektricky-unikat-za-miliony-21018112",
       "author": "자동차뉴스",
@@ -1860,8 +2852,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.garaz.cz/clanek/zajimavosti-deadpool-slavi-50-let-ryan-reynolds-miluje-motorky-v-garazi-ma-i-elektricky-unikat-za-miliony-21018112",
-      "embedTitle": "체코 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "Garáž.cz가 전한 체코 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "데드풀 50주년 기념! 라이언 레이놀즈는 오토바이를 좋아해서 차고에 수백만 달러짜리 전기 오토바이까지 가지고 있다고 하네요",
+      "embedDescription": "할리우드 스타 라이언 레이놀즈는 거의 모든 슈퍼카를 살 수 있을 만큼 부유하지만, 오토바이를 타는 것을 더 좋아한다.\nGaráž.cz가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "",
       "embedLogo": "",
       "embedSite": "Garáž.cz",
@@ -1876,15 +2868,15 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "973939188",
       "category": "모터스포츠",
-      "title": "프랑스 자동차 모터스포츠 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "F1: 이삭 하자르의 발언 이후 막스 페르스타펜이 분명한 메시지를 전달했다",
+      "summary": "막스 페르스타펜은 최근 레드불 팀 동료인 이삭 하드자르의 발언으로 촉발된 논쟁을 \"말도 안 되는 소리\"라고 일축했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "막스 페르스타펜은 최근 레드불 팀 동료인 이삭 하드자르의 발언으로 촉발된 논쟁을 \"말도 안 되는 소리\"라고 일축했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://sports.auto-moto.com/f1/actualite/f1-max-verstappen-envoie-un-message-clair-apres-les-declarations-disack-hadjar-39571",
       "author": "자동차뉴스",
@@ -1892,8 +2884,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://sports.auto-moto.com/f1/actualite/f1-max-verstappen-envoie-un-message-clair-apres-les-declarations-disack-hadjar-39571",
-      "embedTitle": "프랑스 자동차 모터스포츠 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n모터스포츠 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "F1: 이삭 하자르의 발언 이후 막스 페르스타펜이 분명한 메시지를 전달했다",
+      "embedDescription": "막스 페르스타펜은 최근 레드불 팀 동료인 이삭 하드자르의 발언으로 촉발된 논쟁을 \"말도 안 되는 소리\"라고 일축했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39571/392750/1200-L-f1-max-verstappen-envoie-un-message-clair-aprs-les-dclarations-d-isack-hadjar.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -1908,47 +2900,15 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "1003228903",
-      "category": "해외소식",
-      "title": "혼다 해외소식 관련 해외 보도",
-      "summary": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "source": "탑스피드 Top Speed",
-      "sourceUrl": "https://www.topspeed.com/honda-cbr650r-everyday-sports-bike",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T15:30:21.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.topspeed.com/honda-cbr650r-everyday-sports-bike",
-      "embedTitle": "혼다 해외소식 관련 해외 보도",
-      "embedDescription": "탑스피드 Top Speed가 전한 미국 자동차 소식입니다.\n혼다 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2025/03/2025-honda-cbr650r-5.jpg",
-      "embedLogo": "",
-      "embedSite": "탑스피드 Top Speed",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "미국|해외소식|혼다",
-      "country": "미국",
-      "region": "북미",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "980413536",
       "category": "해외소식",
-      "title": "르노 해외소식 관련 해외 보도",
-      "summary": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n르노 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n르노 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "르노 5는 상당한 업그레이드가 예정되어 있지만, 혁명적인 변화를 기대하지는 마세요",
+      "summary": "인기 모델인 르노 5는 앞으로도 오랫동안 브랜드 라인업의 핵심 모델로 남겠지만, 미니 스타일의 추가 모델은 출시되지 않을 것이다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "인기 모델인 르노 5는 앞으로도 오랫동안 브랜드 라인업의 핵심 모델로 남겠지만, 미니 스타일의 추가 모델은 출시되지 않을 것이다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토 익스프레스 Auto Express",
       "sourceUrl": "https://www.autoexpress.co.uk/renault/5/370753/renault-5-has-significant-upgrades-come-dont-expect-revolution",
       "author": "자동차뉴스",
@@ -1956,8 +2916,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.autoexpress.co.uk/renault/5/370753/renault-5-has-significant-upgrades-come-dont-expect-revolution",
-      "embedTitle": "르노 해외소식 관련 해외 보도",
-      "embedDescription": "오토 익스프레스 Auto Express가 전한 영국 자동차 소식입니다.\n르노 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "르노 5는 상당한 업그레이드가 예정되어 있지만, 혁명적인 변화를 기대하지는 마세요",
+      "embedDescription": "인기 모델인 르노 5는 앞으로도 오랫동안 브랜드 라인업의 핵심 모델로 남겠지만, 미니 스타일의 추가 모델은 출시되지 않을 것이다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://images.autoexpress.co.uk/autoexpress/2026/09/Renault%205%202026-4.jpg?w=845&fit=scale&auto=format,compress",
       "embedLogo": "",
       "embedSite": "오토 익스프레스 Auto Express",
@@ -1972,15 +2932,15 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "990091992",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "내년에는 자동차 대출받기가 더 어려워질 것이다: 자세한 내용",
+      "summary": "러시아인들은 2027년 7월 1일부터 자동차 대출을 받는 데 어려움이 생길 수 있다는 경고를 받았다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "러시아인들은 2027년 7월 1일부터 자동차 대출을 받는 데 어려움이 생길 수 있다는 경고를 받았다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/news/987490-banki-perestanut-verit-dokhoda",
       "author": "자동차뉴스",
@@ -1988,8 +2948,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/news/987490-banki-perestanut-verit-dokhoda",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "내년에는 자동차 대출받기가 더 어려워질 것이다: 자세한 내용",
+      "embedDescription": "러시아인들은 2027년 7월 1일부터 자동차 대출을 받는 데 어려움이 생길 수 있다는 경고를 받았다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/yO27MgzcX8yhJabtv44jgQ",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -2004,15 +2964,15 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "1003779257",
       "category": "해외소식",
-      "title": "스페인 자동차 해외소식 관련 해외 보도",
-      "summary": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "굿우드가 대서양을 건너다: 미국 윌로우 스프링스에서 열리는 스피드 페스티벌 및 리바이벌 첫 공개",
+      "summary": "굿우드는 2028년 10월 캘리포니아주 윌로우 스프링스에서 페스티벌 오브 스피드 앤 리바이벌을 개최할 예정이며, 2027년부터는 미국 클럽도 운영할 계획이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "굿우드는 2028년 10월 캘리포니아주 윌로우 스프링스에서 페스티벌 오브 스피드 앤 리바이벌을 개최할 예정이며, 2027년부터는 미국 클럽도 운영할 계획이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "모터16 Motor16",
       "sourceUrl": "https://www.motor16.com/las-ultimas-noticias/goodwood-estados-unidos-willow-springs",
       "author": "자동차뉴스",
@@ -2020,8 +2980,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.motor16.com/las-ultimas-noticias/goodwood-estados-unidos-willow-springs",
-      "embedTitle": "스페인 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "모터16 Motor16가 전한 스페인 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "굿우드가 대서양을 건너다: 미국 윌로우 스프링스에서 열리는 스피드 페스티벌 및 리바이벌 첫 공개",
+      "embedDescription": "굿우드는 2028년 10월 캘리포니아주 윌로우 스프링스에서 페스티벌 오브 스피드 앤 리바이벌을 개최할 예정이며, 2027년부터는 미국 클럽도 운영할 계획이다.\n모터16 Motor16가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.motor16.com/wp-content/uploads/2026/06/aston-martin-s-models-goodwood-festival-speed-2026-4.webp",
       "embedLogo": "",
       "embedSite": "모터16 Motor16",
@@ -2036,15 +2996,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "996311614",
       "category": "해외소식",
-      "title": "페라리 해외소식 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "페라리: 루이스 해밀턴은 싱가포르에서 위험한 선택을 했다. 그 이유를 설명한다",
+      "summary": "건강 악화로 싱가포르 그랑프리 이후 침묵을 지켜왔던 루이스 해밀턴이 마침내 가상 안전 차량 상황에서 페라리의 전략적 지시를 무시했던 자신의 선택에 대해 입장을 밝혔다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "건강 악화로 싱가포르 그랑프리 이후 침묵을 지켜왔던 루이스 해밀턴이 마침내 가상 안전 차량 상황에서 페라리의 전략적 지시를 무시했던 자신의 선택에 대해 입장을 밝혔다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://sports.auto-moto.com/f1/actualite/ferrari-lewis-hamilton-a-fait-un-choix-risque-a-singapour-il-explique-pourquoi-39563",
       "author": "자동차뉴스",
@@ -2052,8 +3012,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://sports.auto-moto.com/f1/actualite/ferrari-lewis-hamilton-a-fait-un-choix-risque-a-singapour-il-explique-pourquoi-39563",
-      "embedTitle": "페라리 해외소식 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n페라리 관련 해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "페라리: 루이스 해밀턴은 싱가포르에서 위험한 선택을 했다. 그 이유를 설명한다",
+      "embedDescription": "건강 악화로 싱가포르 그랑프리 이후 침묵을 지켜왔던 루이스 해밀턴이 마침내 가상 안전 차량 상황에서 페라리의 전략적 지시를 무시했던 자신의 선택에 대해 입장을 밝혔다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39563/392748/1200-L-ferrari-lewis-hamilton-a-fait-un-choix-risqu-singapour-il-explique-pourquoi.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -2068,39 +3028,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "961583111",
-      "category": "시승·리뷰",
-      "title": "아라이 XD-5 헬멧 리뷰: 오프로드, 고속도로 모두에 적합",
-      "summary": "아라이 XD-5 헬멧 리뷰에서는 오프로드 코스와 포장도로에서 착용감, 편안함, 통풍성, 시야 확보를 꼼꼼히 살펴보고 이 어드벤처 헬멧이 모든 것을 만족시킬 수 있는지 알아보았다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "아라이 XD-5 헬멧 리뷰에서는 오프로드 코스와 포장도로에서 착용감, 편안함, 통풍성, 시야 확보를 꼼꼼히 살펴보고 이 어드벤처 헬멧이 모든 것을 만족시킬 수 있는지 알아보았다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "탑스피드 Top Speed",
-      "sourceUrl": "https://www.topspeed.com/2026-arai-xd-5-helmet-review",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T15:11:51.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.topspeed.com/2026-arai-xd-5-helmet-review",
-      "embedTitle": "아라이 XD-5 헬멧 리뷰: 오프로드, 고속도로 모두에 적합",
-      "embedDescription": "아라이 XD-5 헬멧 리뷰에서는 오프로드 코스와 포장도로에서 착용감, 편안함, 통풍성, 시야 확보를 꼼꼼히 살펴보고 이 어드벤처 헬멧이 모든 것을 만족시킬 수 있는지 알아보았다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/10/arai-xd-5-helmet-review-lead.jpg",
-      "embedLogo": "",
-      "embedSite": "탑스피드 Top Speed",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "미국|시승·리뷰",
-      "country": "미국",
-      "region": "북미",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2132,7 +3060,39 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "970576675",
+      "category": "해외소식",
+      "title": "그는 추월하려고 했지만, 사이렌을 울리며 달리는 경찰차 앞으로 갑자기 끼어들었다",
+      "summary": "경찰차 운전자의 신속한 대처 덕분에 사고를 막을 수 있었다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "경찰차 운전자의 신속한 대처 덕분에 사고를 막을 수 있었다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "source": "토탈카 Totalcar",
+      "sourceUrl": "https://totalcar.hu/hirek/balesetveszelyes-elozes-szirenazo-rendor-elott",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T15:09:06.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://totalcar.hu/hirek/balesetveszelyes-elozes-szirenazo-rendor-elott",
+      "embedTitle": "그는 추월하려고 했지만, 사이렌을 울리며 달리는 경찰차 앞으로 갑자기 끼어들었다",
+      "embedDescription": "경찰차 운전자의 신속한 대처 덕분에 사고를 막을 수 있었다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "embedImage": "https://totalcar.hu/media/images/rendorseg-rendorauto-villogo-po_VMhI7DQ.format-jpeg.max-1024x768.jpg",
+      "embedLogo": "",
+      "embedSite": "토탈카 Totalcar",
+      "embedProvider": "RSS",
+      "embedLang": "hu",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "헝가리|해외소식",
+      "country": "헝가리",
+      "region": "동유럽",
+      "originalTitle": "",
+      "originalLanguage": "hu",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2164,39 +3124,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "986381784",
-      "category": "기술·부품",
-      "title": "유럽 ​​슈퍼카의 독주 체제를 끝낼 수 있는 미국산 쿼드 터보 V12 엔진",
-      "summary": "이 엄청난 V12 엔진이 있었다면 미국은 국제 슈퍼카 시장의 선두주자로 자리매김했을 것이다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "이 엄청난 V12 엔진이 있었다면 미국은 국제 슈퍼카 시장의 선두주자로 자리매김했을 것이다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "탑스피드 Top Speed",
-      "sourceUrl": "https://www.topspeed.com/cancelled-american-quad-turbo-v12-supercar-dominance",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T15:00:21.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.topspeed.com/cancelled-american-quad-turbo-v12-supercar-dominance",
-      "embedTitle": "유럽 ​​슈퍼카의 독주 체제를 끝낼 수 있는 미국산 쿼드 터보 V12 엔진",
-      "embedDescription": "이 엄청난 V12 엔진이 있었다면 미국은 국제 슈퍼카 시장의 선두주자로 자리매김했을 것이다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2025/05/yumtyt.jpg",
-      "embedLogo": "",
-      "embedSite": "탑스피드 Top Speed",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "미국|기술·부품",
-      "country": "미국",
-      "region": "북미",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2228,7 +3156,7 @@
       "originalTitle": "",
       "originalLanguage": "sv",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2260,15 +3188,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "996692054",
       "category": "해외소식",
-      "title": "프랑스 자동차 해외소식 관련 해외 보도",
-      "summary": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "파리시는 자체 자율주행차를 확보하기 위해 볼트 및 스텔란티스와 협력하고 있으며, 이미 도입 날짜를 검토 중이다",
+      "summary": "파리 수도권은 볼트(Bolt)와 스텔란티스(Stellantis)와 함께 자율주행 차량을 시험 운행하는 계획을 발표했으며, 2030년대 말까지 상용 자율주행 차량을 도입하는 것을 목표로 하고 있습니…\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "파리 수도권은 볼트(Bolt)와 스텔란티스(Stellantis)와 함께 자율주행 차량을 시험 운행하는 계획을 발표했으며, 2030년대 말까지 상용 자율주행 차량을 도입하는 것을 목표로 하고 있습니…\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "오토모토 Auto moto",
       "sourceUrl": "https://www.auto-moto.com/en-bref/paris-voitures-autonomes-83959",
       "author": "자동차뉴스",
@@ -2276,8 +3204,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.auto-moto.com/en-bref/paris-voitures-autonomes-83959",
-      "embedTitle": "프랑스 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "오토모토 Auto moto가 전한 프랑스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "파리시는 자체 자율주행차를 확보하기 위해 볼트 및 스텔란티스와 협력하고 있으며, 이미 도입 날짜를 검토 중이다",
+      "embedDescription": "파리 수도권은 볼트(Bolt)와 스텔란티스(Stellantis)와 함께 자율주행 차량을 시험 운행하는 계획을 발표했으며, 2030년대 말까지 상용 자율주행 차량을 도입하는 것을 목표로 하고 있습니…\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://photos.auto-moto.com/32/2026/10/photo_article/83959/392742/1200-L-paris-veut-ses-voitures-autonomes-et-s-associe-bolt-et-stellantis-une-date-dj-envisage.jpg",
       "embedLogo": "",
       "embedSite": "오토모토 Auto moto",
@@ -2292,7 +3220,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2324,7 +3252,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2356,7 +3284,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2388,7 +3316,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2420,7 +3348,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2452,7 +3380,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2484,7 +3412,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.938Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2516,7 +3444,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2548,7 +3476,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2580,7 +3508,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2612,39 +3540,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "957511623",
-      "category": "해외소식",
-      "title": "고속도로 주행을 거의 힘들이지 않고 가능하게 해주는 투어링 바이크",
-      "summary": "혼다 골드윙 투어 DCT는 1,833cc 수평대향 6기통 엔진(126마력), 121L의 수납공간, 그리고 7단 DCT 변속기를 탑재하여 장거리 주행을 편안하게 즐길 수 있도록 설계되었다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "혼다 골드윙 투어 DCT는 1,833cc 수평대향 6기통 엔진(126마력), 121L의 수납공간, 그리고 7단 DCT 변속기를 탑재하여 장거리 주행을 편안하게 즐길 수 있도록 설계되었다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "탑스피드 Top Speed",
-      "sourceUrl": "https://www.topspeed.com/honda-gold-wing-makes-interstate-cruising-effortless",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T14:31:22.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.topspeed.com/honda-gold-wing-makes-interstate-cruising-effortless",
-      "embedTitle": "고속도로 주행을 거의 힘들이지 않고 가능하게 해주는 투어링 바이크",
-      "embedDescription": "혼다 골드윙 투어 DCT는 1,833cc 수평대향 6기통 엔진(126마력), 121L의 수납공간, 그리고 7단 DCT 변속기를 탑재하여 장거리 주행을 편안하게 즐길 수 있도록 설계되었다.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/08/front-shot-of-2025-honda-gold-wing-tour-riding-during-the-sunset.jpg",
-      "embedLogo": "",
-      "embedSite": "탑스피드 Top Speed",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "미국|해외소식|혼다",
-      "country": "미국",
-      "region": "북미",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2676,15 +3572,15 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "963172329",
       "category": "해외소식",
-      "title": "러시아 자동차 해외소식 관련 해외 보도",
-      "summary": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "중국 타이어에 맞서는 새로운 러시아 타이어 브랜드",
+      "summary": "러시아 타이어 제조업체 아이콘 타이어(Ikon Tyres)가 여러 신제품과 완전히 새로운 브랜드를 공개했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "러시아 타이어 제조업체 아이콘 타이어(Ikon Tyres)가 여러 신제품과 완전히 새로운 브랜드를 공개했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "zr.ru",
       "sourceUrl": "https://www.zr.ru/content/articles/987552-novyj-rossijskij-shinnyj-brend",
       "author": "자동차뉴스",
@@ -2692,8 +3588,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.zr.ru/content/articles/987552-novyj-rossijskij-shinnyj-brend",
-      "embedTitle": "러시아 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "zr.ru가 전한 러시아 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "중국 타이어에 맞서는 새로운 러시아 타이어 브랜드",
+      "embedDescription": "러시아 타이어 제조업체 아이콘 타이어(Ikon Tyres)가 여러 신제품과 완전히 새로운 브랜드를 공개했다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://www.zr.ru/_ah/img/JYnssTTTOhn0094rKW9Z1w",
       "embedLogo": "",
       "embedSite": "zr.ru",
@@ -2708,7 +3604,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2740,7 +3636,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2772,7 +3668,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2804,7 +3700,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2836,7 +3732,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2868,7 +3764,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2900,7 +3796,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2932,7 +3828,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2964,7 +3860,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -2996,7 +3892,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3028,39 +3924,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "927909331",
-      "category": "해외소식",
-      "title": "Charger R/T 또는 Scat Pack: 5,000달러 추가 비용으로 6팩 시대에 무엇을 얻을 수 있을까?",
-      "summary": "2026년형 닷지 차저 R/T와 스캣 팩 식스팩 모델을 마력, 성능 향상, 기능, 그리고 5,000달러의 가격 차이까지 비교해 보세요.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "2026년형 닷지 차저 R/T와 스캣 팩 식스팩 모델을 마력, 성능 향상, 기능, 그리고 5,000달러의 가격 차이까지 비교해 보세요.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "탑스피드 Top Speed",
-      "sourceUrl": "https://www.topspeed.com/charger-rt-or-scat-pack-which-one-to-buy",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T14:00:20.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.topspeed.com/charger-rt-or-scat-pack-which-one-to-buy",
-      "embedTitle": "Charger R/T 또는 Scat Pack: 5,000달러 추가 비용으로 6팩 시대에 무엇을 얻을 수 있을까?",
-      "embedDescription": "2026년형 닷지 차저 R/T와 스캣 팩 식스팩 모델을 마력, 성능 향상, 기능, 그리고 5,000달러의 가격 차이까지 비교해 보세요.\n탑스피드 Top Speed가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static0.topspeedimages.com/wordpress/wp-content/uploads/2026/10/2026-dodge-charger-scat-pack-and-2026-dodge-charger-r_t1.avif",
-      "embedLogo": "",
-      "embedSite": "탑스피드 Top Speed",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "미국|해외소식",
-      "country": "미국",
-      "region": "북미",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3092,7 +3956,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3124,7 +3988,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3156,7 +4020,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3188,7 +4052,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3220,7 +4084,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3252,7 +4116,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3284,7 +4148,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3316,7 +4180,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.951Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3348,7 +4212,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3380,7 +4244,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3412,7 +4276,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3444,7 +4308,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3476,15 +4340,15 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
       "id": "997263377",
       "category": "해외소식",
-      "title": "그리스 자동차 해외소식 관련 해외 보도",
-      "summary": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "title": "그리스 시장에서 가장 저렴한 스포츠 모델 5종 (가격)",
+      "summary": "이 모델들은 성능과 '독특한' 디자인을 결합하여 짜릿한 스릴을 선사한다.\n비록 항상 '아스팔트를 불태울' 정도는 아니더라도 말이죠.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "이 모델들은 성능과 '독특한' 디자인을 결합하여 짜릿한 스릴을 선사한다.\n비록 항상 '아스팔트를 불태울' 정도는 아니더라도 말이죠.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "source": "카앤드라이버 Car & Driver",
       "sourceUrl": "https://www.caranddriver.gr/byuing_guide/arthro/ta_5_fthinotera_sport_montela_tis_ellinikis_agoras_times-7858151",
       "author": "자동차뉴스",
@@ -3492,8 +4356,8 @@
       "thumbnail": "",
       "images": "",
       "embed": "https://www.caranddriver.gr/byuing_guide/arthro/ta_5_fthinotera_sport_montela_tis_ellinikis_agoras_times-7858151",
-      "embedTitle": "그리스 자동차 해외소식 관련 해외 보도",
-      "embedDescription": "카앤드라이버 Car & Driver가 전한 그리스 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
+      "embedTitle": "그리스 시장에서 가장 저렴한 스포츠 모델 5종 (가격)",
+      "embedDescription": "이 모델들은 성능과 '독특한' 디자인을 결합하여 짜릿한 스릴을 선사한다.\n비록 항상 '아스팔트를 불태울' 정도는 아니더라도 말이죠.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
       "embedImage": "https://media.caranddriver.gr/filesystem/images/20261023/engine/5-sport-models-2_77761_489751_type10.jpg",
       "embedLogo": "",
       "embedSite": "카앤드라이버 Car & Driver",
@@ -3508,7 +4372,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3540,7 +4404,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3572,7 +4436,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3604,7 +4468,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3636,7 +4500,39 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "985211230",
+      "category": "해외소식",
+      "title": "중국 브랜드가 유럽의 프리미엄 제조업체들을 이길 수 있을까?",
+      "summary": "지크르(Zeekr)의 유럽 책임자에 따르면, 이러한 가치들은 유럽 프리미엄 시장에서 경쟁력을 갖추게 해준다고 한다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "지크르(Zeekr)의 유럽 책임자에 따르면, 이러한 가치들은 유럽 프리미엄 시장에서 경쟁력을 갖추게 해준다고 한다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "source": "토탈카 Totalcar",
+      "sourceUrl": "https://totalcar.hu/hirek/zeekr-kinai-premium-auto-interju-europa",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T13:04:12.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://totalcar.hu/hirek/zeekr-kinai-premium-auto-interju-europa",
+      "embedTitle": "중국 브랜드가 유럽의 프리미엄 제조업체들을 이길 수 있을까?",
+      "embedDescription": "지크르(Zeekr)의 유럽 책임자에 따르면, 이러한 가치들은 유럽 프리미엄 시장에서 경쟁력을 갖추게 해준다고 한다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "embedImage": "https://totalcar.hu/media/images/Kepernyofoto_2026-05-07_-_15_bR.format-jpeg.max-1024x768.jpg",
+      "embedLogo": "",
+      "embedSite": "토탈카 Totalcar",
+      "embedProvider": "RSS",
+      "embedLang": "hu",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "헝가리|해외소식",
+      "country": "헝가리",
+      "region": "동유럽",
+      "originalTitle": "",
+      "originalLanguage": "hu",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3668,7 +4564,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3700,7 +4596,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3732,7 +4628,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3764,7 +4660,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3796,7 +4692,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3828,7 +4724,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3860,7 +4756,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3892,7 +4788,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3924,7 +4820,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3956,7 +4852,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -3988,7 +4884,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4020,7 +4916,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4052,7 +4948,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4084,7 +4980,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4116,7 +5012,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4148,7 +5044,39 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
+      "collector": "해외자동차뉴스봇"
+    },
+    {
+      "id": "951286298",
+      "category": "해외소식",
+      "title": "35년 된 토요타 픽업트럭이 세계에서 가장 빠른 픽업트럭이 되었다",
+      "summary": "1300마력으로 튜닝된 구형 힐룩스는 본네빌에서 놀라운 기록을 세웠다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "body": "1300마력으로 튜닝된 구형 힐룩스는 본네빌에서 놀라운 기록을 세웠다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "source": "토탈카 Totalcar",
+      "sourceUrl": "https://totalcar.hu/hirek/leggyorsabb-toyota-hilux-rekord-bonneville",
+      "author": "자동차뉴스",
+      "publishedAt": "2026-10-23T12:07:09.000Z",
+      "thumbnail": "",
+      "images": "",
+      "embed": "https://totalcar.hu/hirek/leggyorsabb-toyota-hilux-rekord-bonneville",
+      "embedTitle": "35년 된 토요타 픽업트럭이 세계에서 가장 빠른 픽업트럭이 되었다",
+      "embedDescription": "1300마력으로 튜닝된 구형 힐룩스는 본네빌에서 놀라운 기록을 세웠다.\n토탈카 Totalcar가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
+      "embedImage": "https://totalcar.hu/media/images/scott-birdsall_6_result.format-jpeg.max-1024x768.jpg",
+      "embedLogo": "",
+      "embedSite": "토탈카 Totalcar",
+      "embedProvider": "RSS",
+      "embedLang": "hu",
+      "views": "0",
+      "comments": "0",
+      "likes": "0",
+      "tags": "헝가리|해외소식|토요타",
+      "country": "헝가리",
+      "region": "동유럽",
+      "originalTitle": "",
+      "originalLanguage": "hu",
+      "relatedCount": "0",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4180,7 +5108,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4212,7 +5140,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4244,7 +5172,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4276,7 +5204,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4308,7 +5236,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4340,7 +5268,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4372,7 +5300,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4404,7 +5332,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4436,7 +5364,7 @@
       "originalTitle": "",
       "originalLanguage": "no",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.941Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4468,7 +5396,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4500,7 +5428,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4532,7 +5460,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4564,7 +5492,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4596,7 +5524,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4628,7 +5556,7 @@
       "originalTitle": "",
       "originalLanguage": "no",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.941Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4660,7 +5588,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4692,7 +5620,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4724,7 +5652,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4756,7 +5684,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4788,7 +5716,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4820,7 +5748,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4852,7 +5780,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4884,7 +5812,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4916,7 +5844,7 @@
       "originalTitle": "",
       "originalLanguage": "ru",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4948,7 +5876,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -4980,7 +5908,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5012,7 +5940,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5044,7 +5972,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5076,7 +6004,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5108,7 +6036,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5140,7 +6068,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5172,7 +6100,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5204,7 +6132,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5236,7 +6164,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5268,39 +6196,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "930964914",
-      "category": "해외소식",
-      "title": "2026년 휘발유: 엔진 위험을 줄이는 방법",
-      "summary": "허용되는 환경 등급의 휘발유 목록이 일시적으로 확대된 것은 연료 품질과 연료 분사 시스템 유지 관리에 더 주의를 기울여야 할 이유일 뿐, K5 등급 이외의 모든 휘발유가 엔진에 위험하다고 간주해야…\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "허용되는 환경 등급의 휘발유 목록이 일시적으로 확대된 것은 연료 품질과 연료 분사 시스템 유지 관리에 더 주의를 기울여야 할 이유일 뿐, K5 등급 이외의 모든 휘발유가 엔진에 위험하다고 간주해야…\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "zr.ru",
-      "sourceUrl": "https://www.zr.ru/content/articles/987270-benzin-v-2026-godu-kak-snizit",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T10:30:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.zr.ru/content/articles/987270-benzin-v-2026-godu-kak-snizit",
-      "embedTitle": "2026년 휘발유: 엔진 위험을 줄이는 방법",
-      "embedDescription": "허용되는 환경 등급의 휘발유 목록이 일시적으로 확대된 것은 연료 품질과 연료 분사 시스템 유지 관리에 더 주의를 기울여야 할 이유일 뿐, K5 등급 이외의 모든 휘발유가 엔진에 위험하다고 간주해야…\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://www.zr.ru/_ah/img/2Q_6e3OqeRIH4ZK_AmIDFw",
-      "embedLogo": "",
-      "embedSite": "zr.ru",
-      "embedProvider": "RSS",
-      "embedLang": "ru",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "러시아|해외소식",
-      "country": "러시아",
-      "region": "러시아/구소련/중앙아시아",
-      "originalTitle": "",
-      "originalLanguage": "ru",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5332,7 +6228,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5364,39 +6260,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "933699543",
-      "category": "해외소식",
-      "title": "러시아에서 사람들이 가장 오래된 차를 운전하는 곳은 어디일까?",
-      "summary": "러시아 통계청(Avtostat): 러시아에는 평균 연령 약 15년 ​​된 승용차가 4,770만 대 있다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "러시아 통계청(Avtostat): 러시아에는 평균 연령 약 15년 ​​된 승용차가 4,770만 대 있다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "zr.ru",
-      "sourceUrl": "https://www.zr.ru/content/news/987486-srednij-vozrast-mashiny-v-rossi",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T10:25:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.zr.ru/content/news/987486-srednij-vozrast-mashiny-v-rossi",
-      "embedTitle": "러시아에서 사람들이 가장 오래된 차를 운전하는 곳은 어디일까?",
-      "embedDescription": "러시아 통계청(Avtostat): 러시아에는 평균 연령 약 15년 ​​된 승용차가 4,770만 대 있다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://www.zr.ru/_ah/img/56We3xA9pA0B88CCjZG-LA",
-      "embedLogo": "",
-      "embedSite": "zr.ru",
-      "embedProvider": "RSS",
-      "embedLang": "ru",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "러시아|해외소식",
-      "country": "러시아",
-      "region": "러시아/구소련/중앙아시아",
-      "originalTitle": "",
-      "originalLanguage": "ru",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5428,7 +6292,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5460,7 +6324,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5492,7 +6356,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5524,7 +6388,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5556,7 +6420,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5588,7 +6452,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5620,7 +6484,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5652,39 +6516,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "987412473",
-      "category": "해외소식",
-      "title": "가스프롬네프트의 주유소 네트워크가 자동차 관광 및 도로변 서비스 개발에 기여한 공로를 인정받아 수상했다",
-      "summary": "가스프롬네프트 주유소 네트워크가 러시아 연방 경제개발부 산하 자동차 관광 프로젝트 사무국의 지원으로 개최된 전국 관광상 \"러시아 여행자 어워드.\n자동차 여행 2026\"에서 수상의 영예를 안았다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "가스프롬네프트 주유소 네트워크가 러시아 연방 경제개발부 산하 자동차 관광 프로젝트 사무국의 지원으로 개최된 전국 관광상 \"러시아 여행자 어워드.\n자동차 여행 2026\"에서 수상의 영예를 안았다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "zr.ru",
-      "sourceUrl": "https://www.zr.ru/content/news/987508-set-azs-gazpromneft-otmeche",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T10:02:45.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.zr.ru/content/news/987508-set-azs-gazpromneft-otmeche",
-      "embedTitle": "가스프롬네프트의 주유소 네트워크가 자동차 관광 및 도로변 서비스 개발에 기여한 공로를 인정받아 수상했다",
-      "embedDescription": "가스프롬네프트 주유소 네트워크가 러시아 연방 경제개발부 산하 자동차 관광 프로젝트 사무국의 지원으로 개최된 전국 관광상 \"러시아 여행자 어워드.\n자동차 여행 2026\"에서 수상의 영예를 안았다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://www.zr.ru/_ah/img/hS5wxEv1AHq-2uLoNKE_Vg",
-      "embedLogo": "",
-      "embedSite": "zr.ru",
-      "embedProvider": "RSS",
-      "embedLang": "ru",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "러시아|해외소식",
-      "country": "러시아",
-      "region": "러시아/구소련/중앙아시아",
-      "originalTitle": "",
-      "originalLanguage": "ru",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5716,7 +6548,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5748,7 +6580,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5780,7 +6612,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5812,7 +6644,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5844,7 +6676,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5876,7 +6708,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.961Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5908,7 +6740,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5940,7 +6772,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -5972,7 +6804,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6004,7 +6836,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6036,7 +6868,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6068,7 +6900,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6100,39 +6932,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "975583607",
-      "category": "해외소식",
-      "title": "이 르노 크로스오버는 러시아에서 볼가와 모스크비치보다 가격이 저렴한다",
-      "summary": "신형 르노 콜레오스 패밀리카가 모스크바에서 370만 루블에 판매되고 있다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "신형 르노 콜레오스 패밀리카가 모스크바에서 370만 루블에 판매되고 있다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "zr.ru",
-      "sourceUrl": "https://www.zr.ru/content/news/987527-ehtot-krossover-renault-stoit-v",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T09:45:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.zr.ru/content/news/987527-ehtot-krossover-renault-stoit-v",
-      "embedTitle": "이 르노 크로스오버는 러시아에서 볼가와 모스크비치보다 가격이 저렴한다",
-      "embedDescription": "신형 르노 콜레오스 패밀리카가 모스크바에서 370만 루블에 판매되고 있다.\nzr.ru가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://www.zr.ru/_ah/img/wRBGJXllixCR5bs_ZyAsoA",
-      "embedLogo": "",
-      "embedSite": "zr.ru",
-      "embedProvider": "RSS",
-      "embedLang": "ru",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "러시아|해외소식|르노",
-      "country": "러시아",
-      "region": "러시아/구소련/중앙아시아",
-      "originalTitle": "",
-      "originalLanguage": "ru",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.942Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6164,7 +6964,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6196,7 +6996,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6228,7 +7028,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6260,7 +7060,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6292,7 +7092,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6324,7 +7124,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6356,7 +7156,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6388,7 +7188,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6420,7 +7220,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6452,7 +7252,7 @@
       "originalTitle": "",
       "originalLanguage": "no",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.941Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6484,7 +7284,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6516,7 +7316,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6548,7 +7348,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6580,7 +7380,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6612,7 +7412,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6644,7 +7444,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6676,7 +7476,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6708,7 +7508,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6740,7 +7540,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6772,7 +7572,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6804,7 +7604,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6836,7 +7636,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6868,7 +7668,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6900,7 +7700,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6932,7 +7732,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6964,7 +7764,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -6996,7 +7796,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7028,7 +7828,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7060,7 +7860,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7092,7 +7892,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7124,7 +7924,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7156,7 +7956,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7188,7 +7988,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7220,7 +8020,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7252,7 +8052,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7284,7 +8084,7 @@
       "originalTitle": "",
       "originalLanguage": "sv",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7316,7 +8116,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.945Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7348,7 +8148,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7380,7 +8180,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7412,7 +8212,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7444,7 +8244,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7476,7 +8276,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7508,7 +8308,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7540,7 +8340,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7572,7 +8372,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7604,7 +8404,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7636,7 +8436,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7668,7 +8468,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7700,7 +8500,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7732,7 +8532,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7764,7 +8564,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7796,7 +8596,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7828,7 +8628,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7860,7 +8660,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7892,7 +8692,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7924,7 +8724,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7956,7 +8756,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -7988,7 +8788,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8020,7 +8820,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8052,7 +8852,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8084,7 +8884,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8116,39 +8916,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "958270148",
-      "category": "신차",
-      "title": "\"300 마력\"의 새로운 \"\"4WD\"4 도어 쿠페\"발표! 전장 4.5m급의 유려 바디&대경 “경량 휠”이 멋지다! 달리기를 닦은 BMW 「M235 그랑쿠페 어펙스 에디션」등장",
-      "summary": "BMW 재팬은 2026년 10월 22일, 고성능 4 도어 쿠페 「M235 xDrive 그랭크 쿠페」의 한정차 「어펙스 에디션」을 발표했다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "BMW 재팬은 2026년 10월 22일, 고성능 4 도어 쿠페 「M235 xDrive 그랭크 쿠페」의 한정차 「어펙스 에디션」을 발표했다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "쿠르마뉴스 kuruma-news.jp/",
-      "sourceUrl": "https://kuruma-news.jp/post/1129546",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T08:10:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://kuruma-news.jp/post/1129546",
-      "embedTitle": "\"300 마력\"의 새로운 \"\"4WD\"4 도어 쿠페\"발표! 전장 4.5m급의 유려 바디&대경 “경량 휠”이 멋지다! 달리기를 닦은 BMW 「M235 그랑쿠페 어펙스 에디션」등장",
-      "embedDescription": "BMW 재팬은 2026년 10월 22일, 고성능 4 도어 쿠페 「M235 xDrive 그랭크 쿠페」의 한정차 「어펙스 에디션」을 발표했다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://kuruma-news.jp/wp-content/uploads/2027/10/20261022_M235_YG_nasi.jpg?v=1792653796",
-      "embedLogo": "",
-      "embedSite": "쿠르마뉴스 kuruma-news.jp/",
-      "embedProvider": "RSS",
-      "embedLang": "ja",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "일본|신차|BMW",
-      "country": "일본",
-      "region": "일본",
-      "originalTitle": "",
-      "originalLanguage": "ja",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8180,7 +8948,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8212,7 +8980,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8244,7 +9012,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8276,7 +9044,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8308,7 +9076,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8340,7 +9108,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8372,7 +9140,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8404,7 +9172,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8436,7 +9204,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8468,7 +9236,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8500,7 +9268,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8532,39 +9300,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "983582744",
-      "category": "모터스포츠",
-      "title": "「굿 이어」가 WEC 후지에 타이어 1368개 공급도 1 타입만!? 시판용에도 활용되는 레이스 타이어의 최신 기술과는",
-      "summary": "후지 스피드웨이에서, 9월 27일에 「FIA 세계 내구 선수권 제6전 후지 6시간 내구 레이스」가 개최되었다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "후지 스피드웨이에서, 9월 27일에 「FIA 세계 내구 선수권 제6전 후지 6시간 내구 레이스」가 개최되었다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "쿠르마뉴스 kuruma-news.jp/",
-      "sourceUrl": "https://kuruma-news.jp/post/1126777",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T07:50:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://kuruma-news.jp/post/1126777",
-      "embedTitle": "「굿 이어」가 WEC 후지에 타이어 1368개 공급도 1 타입만!? 시판용에도 활용되는 레이스 타이어의 최신 기술과는",
-      "embedDescription": "후지 스피드웨이에서, 9월 27일에 「FIA 세계 내구 선수권 제6전 후지 6시간 내구 레이스」가 개최되었다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://kuruma-news.jp/wp-content/uploads/2027/10/261015_goodyear_21.jpg?v=1792114636",
-      "embedLogo": "",
-      "embedSite": "쿠르마뉴스 kuruma-news.jp/",
-      "embedProvider": "RSS",
-      "embedLang": "ja",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "일본|모터스포츠",
-      "country": "일본",
-      "region": "일본",
-      "originalTitle": "",
-      "originalLanguage": "ja",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8596,7 +9332,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8628,7 +9364,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8660,7 +9396,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8692,7 +9428,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8724,7 +9460,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8756,7 +9492,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8788,7 +9524,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8820,7 +9556,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8852,7 +9588,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8884,7 +9620,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.878Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8916,7 +9652,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8948,7 +9684,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -8980,39 +9716,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "922883707",
-      "category": "전기차·하이브리드",
-      "title": "도요타 「야리스 크로스」급 사이즈의 새로운 「“치이사이”SUV」발매! 1리터로 \"22.3km\" 달리는 터보 엔진 탑재! 전장 4m 바디의 시트로엥 「C3 프렌치 터치」등장",
-      "summary": "스텔란티스 재팬은 2026년 10월 22일, 시트로엥의 컴팩트 SUV 「C3」에, 특별 사양차 「C3 MAX HYBRID French Touch」를 설정해, 74대 한정으로 발매했다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "스텔란티스 재팬은 2026년 10월 22일, 시트로엥의 컴팩트 SUV 「C3」에, 특별 사양차 「C3 MAX HYBRID French Touch」를 설정해, 74대 한정으로 발매했다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "쿠르마뉴스 kuruma-news.jp/",
-      "sourceUrl": "https://kuruma-news.jp/post/1130049",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T07:10:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://kuruma-news.jp/post/1130049",
-      "embedTitle": "도요타 「야리스 크로스」급 사이즈의 새로운 「“치이사이”SUV」발매! 1리터로 \"22.3km\" 달리는 터보 엔진 탑재! 전장 4m 바디의 시트로엥 「C3 프렌치 터치」등장",
-      "embedDescription": "스텔란티스 재팬은 2026년 10월 22일, 시트로엥의 컴팩트 SUV 「C3」에, 특별 사양차 「C3 MAX HYBRID French Touch」를 설정해, 74대 한정으로 발매했다.\n쿠르마뉴스 kuruma-news.jp/가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://kuruma-news.jp/wp-content/uploads/2027/10/220261023_C3-MAX-HYBRIDFrenchTouch_YGnasi.jpg?v=1792729270",
-      "embedLogo": "",
-      "embedSite": "쿠르마뉴스 kuruma-news.jp/",
-      "embedProvider": "RSS",
-      "embedLang": "ja",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "일본|전기차·하이브리드",
-      "country": "일본",
-      "region": "일본",
-      "originalTitle": "",
-      "originalLanguage": "ja",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9044,7 +9748,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9076,7 +9780,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.959Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9108,7 +9812,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9140,7 +9844,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9172,7 +9876,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9204,7 +9908,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9236,7 +9940,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9268,7 +9972,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9300,7 +10004,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9332,7 +10036,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9364,7 +10068,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9396,7 +10100,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9428,7 +10132,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9460,7 +10164,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9492,7 +10196,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9524,7 +10228,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.867Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9556,7 +10260,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9588,7 +10292,7 @@
       "originalTitle": "",
       "originalLanguage": "no",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.941Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9620,7 +10324,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9652,7 +10356,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9684,7 +10388,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9716,7 +10420,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9748,7 +10452,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9780,7 +10484,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9812,7 +10516,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9844,7 +10548,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9876,7 +10580,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9908,7 +10612,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9940,7 +10644,7 @@
       "originalTitle": "",
       "originalLanguage": "sv",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.944Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -9972,7 +10676,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10004,7 +10708,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10036,7 +10740,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10068,7 +10772,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10100,7 +10804,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10132,7 +10836,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10164,7 +10868,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10196,7 +10900,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10228,7 +10932,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10260,7 +10964,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10292,7 +10996,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10324,7 +11028,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10356,7 +11060,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10388,7 +11092,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10420,39 +11124,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "1001326806",
-      "category": "해외소식",
-      "title": "이 연료는 집에서 운전할 때 가장 저렴한다",
-      "summary": "많은 사람들이 LPG를 두려워하지만, LPG를 사용함으로써 많은 비용을 절감하는 사람들도 있다.\n주행거리 322,000km의 가스 연료를 사용하는 스코다 파비아 중고차를 소개한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "많은 사람들이 LPG를 두려워하지만, LPG를 사용함으로써 많은 비용을 절감하는 사람들도 있다.\n주행거리 322,000km의 가스 연료를 사용하는 스코다 파비아 중고차를 소개한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "베지스 vezess.hu",
-      "sourceUrl": "https://www.vezess.hu/hasznaltauto-tesztek/2026/10/23/hasznalt-auto-lpg-s-skoda-fabia-322-000-kilometerrel",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T04:20:08.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.vezess.hu/hasznaltauto-tesztek/2026/10/23/hasznalt-auto-lpg-s-skoda-fabia-322-000-kilometerrel",
-      "embedTitle": "이 연료는 집에서 운전할 때 가장 저렴한다",
-      "embedDescription": "많은 사람들이 LPG를 두려워하지만, LPG를 사용함으로써 많은 비용을 절감하는 사람들도 있다.\n주행거리 322,000km의 가스 연료를 사용하는 스코다 파비아 중고차를 소개한다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://vezess2.p3k.hu/app/uploads/2026/10/skodafabia_ha_lpg_autogaz-23.jpg",
-      "embedLogo": "",
-      "embedSite": "베지스 vezess.hu",
-      "embedProvider": "RSS",
-      "embedLang": "hu",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "헝가리|해외소식",
-      "country": "헝가리",
-      "region": "동유럽",
-      "originalTitle": "",
-      "originalLanguage": "hu",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10484,7 +11156,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10516,7 +11188,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10548,7 +11220,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.865Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10580,7 +11252,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10612,7 +11284,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10644,7 +11316,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.946Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10676,7 +11348,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10708,7 +11380,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10740,7 +11412,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10772,7 +11444,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10804,7 +11476,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10836,7 +11508,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.955Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10868,7 +11540,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10900,7 +11572,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10932,7 +11604,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10964,7 +11636,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -10996,7 +11668,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11028,7 +11700,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11060,7 +11732,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11092,7 +11764,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11124,7 +11796,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11156,7 +11828,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11188,7 +11860,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11220,7 +11892,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11252,7 +11924,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11284,7 +11956,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11316,7 +11988,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11348,7 +12020,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11380,7 +12052,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11412,7 +12084,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11444,7 +12116,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11476,7 +12148,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11508,7 +12180,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11540,7 +12212,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11572,7 +12244,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.966Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11604,7 +12276,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11636,39 +12308,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "982286631",
-      "category": "해외소식",
-      "title": "더 이상 다른 물건 !!",
-      "summary": "같은 아쿠아에서 아쿠아까지 설마의 \"대체 환승\"!\n선택한 것은 스포티함을 더욱 높인 신형 아쿠아 GR 스포츠.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "같은 아쿠아에서 아쿠아까지 설마의 \"대체 환승\"!\n선택한 것은 스포티함을 더욱 높인 신형 아쿠아 GR 스포츠.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "베스트카웹",
-      "sourceUrl": "https://bestcarweb.jp/newcar/1661242",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-23T02:45:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://bestcarweb.jp/newcar/1661242",
-      "embedTitle": "더 이상 다른 물건 !!",
-      "embedDescription": "같은 아쿠아에서 아쿠아까지 설마의 \"대체 환승\"!\n선택한 것은 스포티함을 더욱 높인 신형 아쿠아 GR 스포츠.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://img.bestcarweb.jp/wp-content/uploads/2026/10/22102543/cover_2.jpg?v=1792632343",
-      "embedLogo": "",
-      "embedSite": "베스트카웹",
-      "embedProvider": "RSS",
-      "embedLang": "ja",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "일본|해외소식",
-      "country": "일본",
-      "region": "일본",
-      "originalTitle": "",
-      "originalLanguage": "ja",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11700,7 +12340,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11732,7 +12372,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11764,7 +12404,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11796,7 +12436,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11828,7 +12468,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11860,7 +12500,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11892,7 +12532,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11924,7 +12564,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11956,7 +12596,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -11988,7 +12628,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12020,7 +12660,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12052,7 +12692,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12084,7 +12724,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12116,7 +12756,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12148,7 +12788,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12180,7 +12820,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12212,7 +12852,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.873Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12244,7 +12884,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12276,7 +12916,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12308,7 +12948,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12340,7 +12980,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12372,7 +13012,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12404,7 +13044,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12436,7 +13076,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12468,7 +13108,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12500,7 +13140,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12532,7 +13172,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12564,7 +13204,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12596,7 +13236,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12628,7 +13268,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.966Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12660,7 +13300,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12692,7 +13332,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12724,103 +13364,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "961285780",
-      "category": "전기차·하이브리드",
-      "title": "EV가 된 신형 \"르노 5 E 테크 일렉트릭\"이 일본 도입 결정! 역대 썽크의 디자인을 재해석 11월 19일 발매 개시",
-      "summary": "르노로서 처음으로 정규로 일본 도입되는 전기 자동차, 신형 「르노 5」가 11월 19일에 발매된다.\n오토카 재팬 AUTOCAR JAPAN가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "르노로서 처음으로 정규로 일본 도입되는 전기 자동차, 신형 「르노 5」가 11월 19일에 발매된다.\n오토카 재팬 AUTOCAR JAPAN가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토카 재팬 AUTOCAR JAPAN",
-      "sourceUrl": "https://www.autocar.jp/post/1288754",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T22:25:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.autocar.jp/post/1288754",
-      "embedTitle": "EV가 된 신형 \"르노 5 E 테크 일렉트릭\"이 일본 도입 결정! 역대 썽크의 디자인을 재해석 11월 19일 발매 개시",
-      "embedDescription": "르노로서 처음으로 정규로 일본 도입되는 전기 자동차, 신형 「르노 5」가 11월 19일에 발매된다.\n오토카 재팬 AUTOCAR JAPAN가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://www.autocar.jp/wp-content/uploads/2026/10/20261022_Renault-5-E-Tech-Electric-official_00001.jpg",
-      "embedLogo": "",
-      "embedSite": "오토카 재팬 AUTOCAR JAPAN",
-      "embedProvider": "RSS",
-      "embedLang": "ja",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "일본|전기차·하이브리드",
-      "country": "일본",
-      "region": "일본",
-      "originalTitle": "",
-      "originalLanguage": "ja",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "989040620",
-      "category": "해외소식",
-      "title": "비가 새고 있던 E30형 카브리올레의 내장을 청소중",
-      "summary": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "body": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "source": "오토카 재팬 AUTOCAR JAPAN",
-      "sourceUrl": "https://www.autocar.jp/specialshop/2026/10/23/1288051",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T22:05:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.autocar.jp/specialshop/2026/10/23/1288051",
-      "embedTitle": "비가 새고 있던 E30형 카브리올레의 내장을 청소중",
-      "embedDescription": "오토카 재팬 AUTOCAR JAPAN가 전한 일본 자동차 소식입니다.\n해외소식 내용을 다룹니다.\n번역문 준비 전에는 원문 제목과 원문 요약을 화면에 노출하지 않습니다.",
-      "embedImage": "https://www.autocar.jp/wp-content/uploads/2026/10/261023_ENO-04.jpg",
-      "embedLogo": "",
-      "embedSite": "오토카 재팬 AUTOCAR JAPAN",
-      "embedProvider": "RSS",
-      "embedLang": "ja",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "일본|해외소식",
-      "country": "일본",
-      "region": "일본",
-      "originalTitle": "",
-      "originalLanguage": "ja",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "925581804",
-      "category": "신차",
-      "title": "피아트가 미니밴으로 회귀? '다음에 오는 트렌드'에 대비하여 참신한 '멀티 플레이' 콘셉트 양산화를 검토",
-      "summary": "피아트가 최근 공개한 컨셉카 '물티 플레이'는 SUV와 픽업 트럭을 융합시킨 모델이지만 차세대 미니밴으로 대량 생산될 가능성이 있다.\n신 CEO는 \"매우 의미가 있다\"고 말했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "피아트가 최근 공개한 컨셉카 '물티 플레이'는 SUV와 픽업 트럭을 융합시킨 모델이지만 차세대 미니밴으로 대량 생산될 가능성이 있다.\n신 CEO는 \"매우 의미가 있다\"고 말했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토카 재팬 AUTOCAR JAPAN",
-      "sourceUrl": "https://www.autocar.jp/post/1288658",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T22:05:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.autocar.jp/post/1288658",
-      "embedTitle": "피아트가 미니밴으로 회귀? '다음에 오는 트렌드'에 대비하여 참신한 '멀티 플레이' 콘셉트 양산화를 검토",
-      "embedDescription": "피아트가 최근 공개한 컨셉카 '물티 플레이'는 SUV와 픽업 트럭을 융합시킨 모델이지만 차세대 미니밴으로 대량 생산될 가능성이 있다.\n신 CEO는 \"매우 의미가 있다\"고 말했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://www.autocar.jp/wp-content/uploads/2026/10/fiat-multiplay-concept-paris_-1-1.jpg",
-      "embedLogo": "",
-      "embedSite": "오토카 재팬 AUTOCAR JAPAN",
-      "embedProvider": "RSS",
-      "embedLang": "ja",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "일본|신차",
-      "country": "일본",
-      "region": "일본",
-      "originalTitle": "",
-      "originalLanguage": "ja",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12852,7 +13396,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12884,7 +13428,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12916,7 +13460,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12948,7 +13492,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -12980,7 +13524,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13012,7 +13556,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13044,7 +13588,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13076,7 +13620,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.957Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13108,7 +13652,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13140,7 +13684,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13172,7 +13716,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13204,7 +13748,7 @@
       "originalTitle": "",
       "originalLanguage": "ja",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.956Z",
+      "collectedAt": "2026-10-23T22:23:53.875Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13236,7 +13780,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13268,7 +13812,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.871Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13300,7 +13844,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13332,7 +13876,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13364,7 +13908,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13396,7 +13940,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13428,7 +13972,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13460,7 +14004,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13492,7 +14036,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13524,39 +14068,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "952157204",
-      "category": "해외소식",
-      "title": "새로운 iCAUR V25가 출시되었다. 450마력 이상의 출력과 지능형 사륜구동 시스템을 탑재하여 도심 주행은 물론 오프로드 주행까지 가능한 SUV이다",
-      "summary": "새로운 iCAUR V25가 공개되었다.\n회색 iCAUR V25의 전면 및 측면 모습이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "새로운 iCAUR V25가 공개되었다.\n회색 iCAUR V25의 전면 및 측면 모습이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "모토스 Motor.es",
-      "sourceUrl": "https://www.motor.es/noticias/icaur-v25-2026117172.html",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T18:30:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.motor.es/noticias/icaur-v25-2026117172.html",
-      "embedTitle": "새로운 iCAUR V25가 출시되었다. 450마력 이상의 출력과 지능형 사륜구동 시스템을 탑재하여 도심 주행은 물론 오프로드 주행까지 가능한 SUV이다",
-      "embedDescription": "새로운 iCAUR V25가 공개되었다.\n회색 iCAUR V25의 전면 및 측면 모습이다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static.motor.es/fotos-noticias/2026/10/icaur-v25-2026117172-1792693034_1.jpg",
-      "embedLogo": "",
-      "embedSite": "모토스 Motor.es",
-      "embedProvider": "RSS",
-      "embedLang": "es",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "스페인|해외소식",
-      "country": "스페인",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "es",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13588,7 +14100,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13620,7 +14132,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13652,7 +14164,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13684,7 +14196,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13716,7 +14228,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13748,7 +14260,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13780,7 +14292,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13812,39 +14324,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "1002531672",
-      "category": "해외소식",
-      "title": "혼다는 알론소의 싱가포르전 지적이 옳았음을 인정하며, \"가속이 불안정했던 점이 있었고, 우리는 그 경험에서 교훈을 얻었다\"고 밝혔다",
-      "summary": "오리하라 신타로 사장이 오스틴 서킷에서 언론에 설명을 하고 있다.\n애스턴 마틴은 싱가포르 그랑프리에서 페르난도 알론소의 엔진 반응 문제를 인정했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "오리하라 신타로 사장이 오스틴 서킷에서 언론에 설명을 하고 있다.\n애스턴 마틴은 싱가포르 그랑프리에서 페르난도 알론소의 엔진 반응 문제를 인정했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "모토스 Motor.es",
-      "sourceUrl": "https://www.motor.es/formula-1/honda-alonso-tenia-razon-singapur-aceleracion-inestable-2026117171.html",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T17:43:03.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.motor.es/formula-1/honda-alonso-tenia-razon-singapur-aceleracion-inestable-2026117171.html",
-      "embedTitle": "혼다는 알론소의 싱가포르전 지적이 옳았음을 인정하며, \"가속이 불안정했던 점이 있었고, 우리는 그 경험에서 교훈을 얻었다\"고 밝혔다",
-      "embedDescription": "오리하라 신타로 사장이 오스틴 서킷에서 언론에 설명을 하고 있다.\n애스턴 마틴은 싱가포르 그랑프리에서 페르난도 알론소의 엔진 반응 문제를 인정했다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static.motor.es/fotos-noticias/2026/10/honda-alonso-tenia-razon-singapur-aceleracion-inestable-2026117171-1792690678_1.jpg",
-      "embedLogo": "",
-      "embedSite": "모토스 Motor.es",
-      "embedProvider": "RSS",
-      "embedLang": "es",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "스페인|해외소식|혼다",
-      "country": "스페인",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "es",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13876,39 +14356,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "925335511",
-      "category": "전기차·하이브리드",
-      "title": "폭스바겐은 더욱 저렴해진 136마력 모델로 토요타 C-HR에 도전장을 내밀며 T-Roc 하이브리드 라인업을 완성했다",
-      "summary": "스페인에서 판매되는 신형 폭스바겐 T-Roc TSI 하이브리드의 가격과 주행 가능 거리가 공개되었다.\n폭스바겐 T-Roc 하이브리드 라인업이 완성되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "스페인에서 판매되는 신형 폭스바겐 T-Roc TSI 하이브리드의 가격과 주행 가능 거리가 공개되었다.\n폭스바겐 T-Roc 하이브리드 라인업이 완성되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "모토스 Motor.es",
-      "sourceUrl": "https://www.motor.es/noticias/volkswagen-t-roc-tsi-hybrid-lanzamiento-nuevas-versiones-espana-2026117170.html",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T17:40:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.motor.es/noticias/volkswagen-t-roc-tsi-hybrid-lanzamiento-nuevas-versiones-espana-2026117170.html",
-      "embedTitle": "폭스바겐은 더욱 저렴해진 136마력 모델로 토요타 C-HR에 도전장을 내밀며 T-Roc 하이브리드 라인업을 완성했다",
-      "embedDescription": "스페인에서 판매되는 신형 폭스바겐 T-Roc TSI 하이브리드의 가격과 주행 가능 거리가 공개되었다.\n폭스바겐 T-Roc 하이브리드 라인업이 완성되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static.motor.es/fotos-noticias/2026/10/volkswagen-t-roc-tsi-hybrid-lanzamiento-nuevas-versiones-espana-2026117170-1792690017_1.jpg",
-      "embedLogo": "",
-      "embedSite": "모토스 Motor.es",
-      "embedProvider": "RSS",
-      "embedLang": "es",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "스페인|전기차·하이브리드|토요타|폭스바겐",
-      "country": "스페인",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "es",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.952Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13940,7 +14388,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -13972,7 +14420,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14004,7 +14452,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14036,7 +14484,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14068,7 +14516,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14100,7 +14548,7 @@
       "originalTitle": "",
       "originalLanguage": "pl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14132,7 +14580,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14164,7 +14612,7 @@
       "originalTitle": "",
       "originalLanguage": "no",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.941Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14196,7 +14644,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14228,7 +14676,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14260,7 +14708,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14292,7 +14740,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14324,7 +14772,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14356,7 +14804,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14388,7 +14836,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14420,7 +14868,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14452,7 +14900,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14484,7 +14932,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14516,7 +14964,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14548,7 +14996,7 @@
       "originalTitle": "",
       "originalLanguage": "hu",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.965Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14580,7 +15028,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14612,7 +15060,7 @@
       "originalTitle": "",
       "originalLanguage": "zh-HK",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.966Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14644,39 +15092,7 @@
       "originalTitle": "",
       "originalLanguage": "cs",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "954851795",
-      "category": "모터스포츠",
-      "title": "르노는 프랑스에서 F1의 새로운 장을 열며 한 시대의 막을 내렸다",
-      "summary": "르노는 프랑스 에손 주 비리샤티용에 위치한 역사적인 포뮬러 1 엔진 공장을 벨기에 그룹 뒤메레이에 매각한다고 발표했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "르노는 프랑스 에손 주 비리샤티용에 위치한 역사적인 포뮬러 1 엔진 공장을 벨기에 그룹 뒤메레이에 매각한다고 발표했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토모토 Auto moto",
-      "sourceUrl": "https://sports.auto-moto.com/f1/actualite/renault-ven-viry-chatillon",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T16:00:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://sports.auto-moto.com/f1/actualite/renault-ven-viry-chatillon",
-      "embedTitle": "르노는 프랑스에서 F1의 새로운 장을 열며 한 시대의 막을 내렸다",
-      "embedDescription": "르노는 프랑스 에손 주 비리샤티용에 위치한 역사적인 포뮬러 1 엔진 공장을 벨기에 그룹 뒤메레이에 매각한다고 발표했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39440/392718/1200-L-renault-tourne-la-page-de-la-f1-en-france-la-fin-d-une-poque.jpg",
-      "embedLogo": "",
-      "embedSite": "오토모토 Auto moto",
-      "embedProvider": "RSS",
-      "embedLang": "fr",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "프랑스|모터스포츠|르노",
-      "country": "프랑스",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "fr",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.876Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14708,7 +15124,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14740,7 +15156,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14772,7 +15188,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.947Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14804,7 +15220,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14836,7 +15252,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14868,7 +15284,7 @@
       "originalTitle": "",
       "originalLanguage": "fr",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
+      "collectedAt": "2026-10-23T22:23:53.877Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14900,39 +15316,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "980507982",
-      "category": "상용차",
-      "title": "호주 GP: 마르케스가 마르틴을 압박하고, 두카티 라이더는 신경전을 펼쳤다",
-      "summary": "마르크 마르케스는 아프릴리아의 팀 오더에 대해 언급하며 이번 주말 호주 그랑프리를 앞두고 호르헤 마르틴에게 압박을 가했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "마르크 마르케스는 아프릴리아의 팀 오더에 대해 언급하며 이번 주말 호주 그랑프리를 앞두고 호르헤 마르틴에게 압박을 가했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토모토 Auto moto",
-      "sourceUrl": "https://sports.auto-moto.com/moto-gp/gp-daustralie-la-pression-mise-par-marquez-a-martin-le-pilote-ducati-se-livre-a-une-guerre-de-nerfs-39428",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T15:31:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://sports.auto-moto.com/moto-gp/gp-daustralie-la-pression-mise-par-marquez-a-martin-le-pilote-ducati-se-livre-a-une-guerre-de-nerfs-39428",
-      "embedTitle": "호주 GP: 마르케스가 마르틴을 압박하고, 두카티 라이더는 신경전을 펼쳤다",
-      "embedDescription": "마르크 마르케스는 아프릴리아의 팀 오더에 대해 언급하며 이번 주말 호주 그랑프리를 앞두고 호르헤 마르틴에게 압박을 가했다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39428/392716/1200-L-gp-d-australie-la-pression-mise-par-mrquez-martn-le-pilote-ducati-se-livre-une-guerre-de-nerfs.jpg",
-      "embedLogo": "",
-      "embedSite": "오토모토 Auto moto",
-      "embedProvider": "RSS",
-      "embedLang": "fr",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "프랑스|상용차",
-      "country": "프랑스",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "fr",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14964,7 +15348,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -14996,7 +15380,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.963Z",
+      "collectedAt": "2026-10-23T22:23:53.879Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15028,7 +15412,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15060,7 +15444,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15092,7 +15476,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15124,7 +15508,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15156,7 +15540,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15188,7 +15572,7 @@
       "originalTitle": "",
       "originalLanguage": "ms",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.943Z",
+      "collectedAt": "2026-10-23T22:23:53.866Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15220,7 +15604,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15252,71 +15636,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "944505663",
-      "category": "모터스포츠",
-      "title": "레드불: 팀은 크리스티안 호너에게 전화를 걸어 엔진의 첫 F1 성공을 축하했다",
-      "summary": "레드불은 팀의 첫 포뮬러 1 엔진 성공을 기념하기 위해 크리스티안 호너에게 전화를 걸어 찬사를 보냈고, 오스트리아 팀의 전 수장이었던 호너가 직접 그 사실을 밝혔다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "레드불은 팀의 첫 포뮬러 1 엔진 성공을 기념하기 위해 크리스티안 호너에게 전화를 걸어 찬사를 보냈고, 오스트리아 팀의 전 수장이었던 호너가 직접 그 사실을 밝혔다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토모토 Auto moto",
-      "sourceUrl": "https://sports.auto-moto.com/f1/actualite/red-bull-lappel-de-lecurie-a-christian-horner-pour-celebrer-le-premier-succes-du-moteur-en-f1-39421",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T15:00:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://sports.auto-moto.com/f1/actualite/red-bull-lappel-de-lecurie-a-christian-horner-pour-celebrer-le-premier-succes-du-moteur-en-f1-39421",
-      "embedTitle": "레드불: 팀은 크리스티안 호너에게 전화를 걸어 엔진의 첫 F1 성공을 축하했다",
-      "embedDescription": "레드불은 팀의 첫 포뮬러 1 엔진 성공을 기념하기 위해 크리스티안 호너에게 전화를 걸어 찬사를 보냈고, 오스트리아 팀의 전 수장이었던 호너가 직접 그 사실을 밝혔다.\n오토모토 Auto moto가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://static.wui.fr/28/2026/10/photo_article/39421/392714/1200-L-red-bull-l-appel-de-l-curie-christian-horner-pour-clbrer-le-premier-succs-du-moteur-en-f1.jpg",
-      "embedLogo": "",
-      "embedSite": "오토모토 Auto moto",
-      "embedProvider": "RSS",
-      "embedLang": "fr",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "프랑스|모터스포츠",
-      "country": "프랑스",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "fr",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "964605738",
-      "category": "모터스포츠",
-      "title": "푸조 E-T16: 마우스 커서를 왼쪽에서 오른쪽으로 움직여 205 터보 16에서 영감을 받은 디자인을 확인해 보세요",
-      "summary": "2026 파리 모터쇼에서 최고의 콘셉트카로 선정된 푸조 E-T16은 1980년대 랠리 아이콘이었던 선조의 색상을 계승할 자격이 충분한다.\n인터랙티브 도구를 통해 새로운 모습을 미리 확인해 보세요.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "2026 파리 모터쇼에서 최고의 콘셉트카로 선정된 푸조 E-T16은 1980년대 랠리 아이콘이었던 선조의 색상을 계승할 자격이 충분한다.\n인터랙티브 도구를 통해 새로운 모습을 미리 확인해 보세요.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토모토 Auto moto",
-      "sourceUrl": "https://www.auto-moto.com/concept-car/peugeot-e-t16-faites-glisser-votre-curseur-de-gauche-a-droite-pour-decouvrir-sa-livree-inspiree-de-la-205-turbo-16-83833",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T15:00:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.auto-moto.com/concept-car/peugeot-e-t16-faites-glisser-votre-curseur-de-gauche-a-droite-pour-decouvrir-sa-livree-inspiree-de-la-205-turbo-16-83833",
-      "embedTitle": "푸조 E-T16: 마우스 커서를 왼쪽에서 오른쪽으로 움직여 205 터보 16에서 영감을 받은 디자인을 확인해 보세요",
-      "embedDescription": "2026 파리 모터쇼에서 최고의 콘셉트카로 선정된 푸조 E-T16은 1980년대 랠리 아이콘이었던 선조의 색상을 계승할 자격이 충분한다.\n인터랙티브 도구를 통해 새로운 모습을 미리 확인해 보세요.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://photos.auto-moto.com/32/2026/10/photo_article/83833/392715/1200-L-peugeot-e-t16-faites-glisser-votre-curseur-de-gauche-droite-pour-dcouvrir-sa-livre-inspire-de-la-205-turbo-16.jpg",
-      "embedLogo": "",
-      "embedSite": "오토모토 Auto moto",
-      "embedProvider": "RSS",
-      "embedLang": "fr",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "프랑스|모터스포츠|푸조",
-      "country": "프랑스",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "fr",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.962Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15348,7 +15668,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15380,7 +15700,7 @@
       "originalTitle": "",
       "originalLanguage": "fi",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
+      "collectedAt": "2026-10-23T22:23:53.880Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15412,7 +15732,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15444,7 +15764,7 @@
       "originalTitle": "",
       "originalLanguage": "en",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.872Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15476,7 +15796,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15508,7 +15828,7 @@
       "originalTitle": "",
       "originalLanguage": "zh-HK",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.966Z",
+      "collectedAt": "2026-10-23T22:23:53.881Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15540,7 +15860,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15572,7 +15892,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15604,7 +15924,7 @@
       "originalTitle": "",
       "originalLanguage": "el",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
+      "collectedAt": "2026-10-23T22:23:53.863Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15636,7 +15956,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
+      "collectedAt": "2026-10-23T22:23:53.868Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15668,7 +15988,7 @@
       "originalTitle": "",
       "originalLanguage": "nl",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.940Z",
+      "collectedAt": "2026-10-23T22:23:53.864Z",
       "collector": "해외자동차뉴스봇"
     },
     {
@@ -15700,327 +16020,7 @@
       "originalTitle": "",
       "originalLanguage": "es",
       "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.948Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "925273988",
-      "category": "해외소식",
-      "title": "드리프트 방법을 모른다면 포르쉐에서 510마력 911 GT3로 1,300유로 조금 넘는 비용에 드리프트 기술을 가르쳐 준다",
-      "summary": "독일 자동차 브랜드 포르쉐는 미국 내 다양한 ​​서킷에서 슈퍼카 소유주들을 위한 특별 주행 프로그램인 포르쉐 트랙 익스피리언스(PTX)를 출시한다.\n탑기어 Top Gear가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "독일 자동차 브랜드 포르쉐는 미국 내 다양한 ​​서킷에서 슈퍼카 소유주들을 위한 특별 주행 프로그램인 포르쉐 트랙 익스피리언스(PTX)를 출시한다.\n탑기어 Top Gear가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "탑기어 Top Gear",
-      "sourceUrl": "https://www.topgear.es/deportivos/si-no-sabes-porsche-te-ensena-derrapar-con-un-911-gt3-510-cv-previo-pago-algo-mas-1-300-euros_7052104_0.html",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T14:00:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.topgear.es/deportivos/si-no-sabes-porsche-te-ensena-derrapar-con-un-911-gt3-510-cv-previo-pago-algo-mas-1-300-euros_7052104_0.html",
-      "embedTitle": "드리프트 방법을 모른다면 포르쉐에서 510마력 911 GT3로 1,300유로 조금 넘는 비용에 드리프트 기술을 가르쳐 준다",
-      "embedDescription": "독일 자동차 브랜드 포르쉐는 미국 내 다양한 ​​서킷에서 슈퍼카 소유주들을 위한 특별 주행 프로그램인 포르쉐 트랙 익스피리언스(PTX)를 출시한다.\n탑기어 Top Gear가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://imagenes.topgear.es/files/image_1920_1080/uploads/imagenes/2026/10/22/6ada016eaf5f40-43816293.jpeg",
-      "embedLogo": "",
-      "embedSite": "탑기어 Top Gear",
-      "embedProvider": "RSS",
-      "embedLang": "es",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "스페인|해외소식|포르쉐",
-      "country": "스페인",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "es",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.953Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "970620959",
-      "category": "해외소식",
-      "title": "디젤 가격이 겨우 사흘 동안 떨어졌다가 다시 오를 건다! 휘발유 운전자들은 기뻐할 수 있겠네요",
-      "summary": "재무부가 매일 정하는 경유 최고 가격은 오늘보다 10센트 오른 리터당 48.\n70 체코 코루나로 금요일부터 인상된다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "재무부가 매일 정하는 경유 최고 가격은 오늘보다 10센트 오른 리터당 48.\n70 체코 코루나로 금요일부터 인상된다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "Garáž.cz",
-      "sourceUrl": "https://www.garaz.cz/clanek/novinky-cena-nafty-klesala-pouhe-tri-dny-ted-opet-zdrazi-radovat-se-mohou-ridici-benzinaku-21018104",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T14:00:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.garaz.cz/clanek/novinky-cena-nafty-klesala-pouhe-tri-dny-ted-opet-zdrazi-radovat-se-mohou-ridici-benzinaku-21018104",
-      "embedTitle": "디젤 가격이 겨우 사흘 동안 떨어졌다가 다시 오를 건다! 휘발유 운전자들은 기뻐할 수 있겠네요",
-      "embedDescription": "재무부가 매일 정하는 경유 최고 가격은 오늘보다 10센트 오른 리터당 48.\n70 체코 코루나로 금요일부터 인상된다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "",
-      "embedLogo": "",
-      "embedSite": "Garáž.cz",
-      "embedProvider": "RSS",
-      "embedLang": "cs",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "체코|해외소식",
-      "country": "체코",
-      "region": "동유럽",
-      "originalTitle": "",
-      "originalLanguage": "cs",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.958Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "964512895",
-      "category": "시승·리뷰",
-      "title": "대담하고 새로운 레파스 아우라 콘셉트는 시대를 앞서가는 해치백을 미리 보여준다",
-      "summary": "세련된 신형 소형 해치백은 Jaecoo와 자매 브랜드인 Omoda의 미래를 엿볼 수 있게 해준다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "세련된 신형 소형 해치백은 Jaecoo와 자매 브랜드인 Omoda의 미래를 엿볼 수 있게 해준다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토 익스프레스 Auto Express",
-      "sourceUrl": "https://www.autoexpress.co.uk/lepas/370735/bold-new-lepas-aura-concept-previews-hatch-thats-ahead-curve",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:55:30.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.autoexpress.co.uk/lepas/370735/bold-new-lepas-aura-concept-previews-hatch-thats-ahead-curve",
-      "embedTitle": "대담하고 새로운 레파스 아우라 콘셉트는 시대를 앞서가는 해치백을 미리 보여준다",
-      "embedDescription": "세련된 신형 소형 해치백은 Jaecoo와 자매 브랜드인 Omoda의 미래를 엿볼 수 있게 해준다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://images.autoexpress.co.uk/autoexpress/2026/10/Lepas%20Aura%20concept%20-%20front%203_4_ffleke.jpg?w=845&fit=scale&auto=format,compress",
-      "embedLogo": "",
-      "embedSite": "오토 익스프레스 Auto Express",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "영국|시승·리뷰",
-      "country": "영국",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "931622030",
-      "category": "해외소식",
-      "title": "새로운 Lepas Aura 컨셉 - 사진",
-      "summary": "중국 브랜드 레파스(Lepas)의 새로운 스포티 콘셉트 이미지\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "중국 브랜드 레파스(Lepas)의 새로운 스포티 콘셉트 이미지\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토 익스프레스 Auto Express",
-      "sourceUrl": "https://www.autoexpress.co.uk/lepas/370734/new-lepas-aura-concept-pictures",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:55:01.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.autoexpress.co.uk/lepas/370734/new-lepas-aura-concept-pictures",
-      "embedTitle": "새로운 Lepas Aura 컨셉 - 사진",
-      "embedDescription": "중국 브랜드 레파스(Lepas)의 새로운 스포티 콘셉트 이미지\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://images.autoexpress.co.uk/autoexpress/2026/10/Lepas%20Aura%20concept%20-%20front%203_4_ffleke.jpg?w=845&fit=scale&auto=format,compress",
-      "embedLogo": "",
-      "embedSite": "오토 익스프레스 Auto Express",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "영국|해외소식",
-      "country": "영국",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "967109379",
-      "category": "해외소식",
-      "title": "46만 명 이상을 대상으로 한 연구에서 초가공식품에 대한 인식이 바뀌었다 – 모든 제품이 암 위험 증가와 관련이 있는 것은 아니다",
-      "summary": "미국에서 진행된 대규모 연구에 따르면 초가공식품의 과다 섭취는 대장암 발병률 증가와 관련이 없는 것으로 나타났다.\n그러나 식품군별로 유의미한 차이가 발견되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "미국에서 진행된 대규모 연구에 따르면 초가공식품의 과다 섭취는 대장암 발병률 증가와 관련이 없는 것으로 나타났다.\n그러나 식품군별로 유의미한 차이가 발견되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "테키니칸 마일마 Tekniikan Maailma",
-      "sourceUrl": "https://tekniikanmaailma.fi/yli-460-000-ihmisen-tutkimus-haastaa-kasityksia-ultraprosessoidusta-ruoasta-kaikki-tuotteet-eivat-olleet-yhteydessa-suurempaan-syopariskiin",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:55:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://tekniikanmaailma.fi/yli-460-000-ihmisen-tutkimus-haastaa-kasityksia-ultraprosessoidusta-ruoasta-kaikki-tuotteet-eivat-olleet-yhteydessa-suurempaan-syopariskiin",
-      "embedTitle": "46만 명 이상을 대상으로 한 연구에서 초가공식품에 대한 인식이 바뀌었다 – 모든 제품이 암 위험 증가와 관련이 있는 것은 아니다",
-      "embedDescription": "미국에서 진행된 대규모 연구에 따르면 초가공식품의 과다 섭취는 대장암 발병률 증가와 관련이 없는 것으로 나타났다.\n그러나 식품군별로 유의미한 차이가 발견되었다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://tekniikanmaailma.fi/wp-content/uploads/2025/11/iStock-1125746563-1536x1024.webp",
-      "embedLogo": "",
-      "embedSite": "테키니칸 마일마 Tekniikan Maailma",
-      "embedProvider": "RSS",
-      "embedLang": "fi",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "핀란드|해외소식",
-      "country": "핀란드",
-      "region": "북유럽",
-      "originalTitle": "",
-      "originalLanguage": "fi",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.964Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "1006402089",
-      "category": "해외소식",
-      "title": "폴란드 사람들은 어떤 기준으로 자동차를 선택할까? 새로운 데이터에 따르면 실제로 구매 결정에 영향을 미치는 요인이 밝혀졌다",
-      "summary": "최신 자동차 구매 데이터에 따르면 폴란드 운전자들은 말로는 한 가지를 강조하지만, 최종적으로는 다소 다른 방식으로 차량을 선택한다.\n폴란드 Auto Świat가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "최신 자동차 구매 데이터에 따르면 폴란드 운전자들은 말로는 한 가지를 강조하지만, 최종적으로는 다소 다른 방식으로 차량을 선택한다.\n폴란드 Auto Świat가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "폴란드 Auto Świat",
-      "sourceUrl": "https://www.auto-swiat.pl/wiadomosci/aktualnosci/jak-kupujemy-samochody-co-decyduje-o-wyborze-marki-i-modelu/kfxtdwb",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:52:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.auto-swiat.pl/wiadomosci/aktualnosci/jak-kupujemy-samochody-co-decyduje-o-wyborze-marki-i-modelu/kfxtdwb",
-      "embedTitle": "폴란드 사람들은 어떤 기준으로 자동차를 선택할까? 새로운 데이터에 따르면 실제로 구매 결정에 영향을 미치는 요인이 밝혀졌다",
-      "embedDescription": "최신 자동차 구매 데이터에 따르면 폴란드 운전자들은 말로는 한 가지를 강조하지만, 최종적으로는 다소 다른 방식으로 차량을 선택한다.\n폴란드 Auto Świat가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://cdn.auto-swiat.pl/1/yeEk9lLaHR0cDovL29jZG4uZXUvaW1hZ2VzL3B1bHNjbXMvWVdZN01EQV8vZGM0MjA0YjVmNjBjMThkYWY5OGE0NmNiNzBlNTMzZDMuanBnkpUDAMyrzRWQzQwhkwXNCWDNBkDeAAKhMAehMQQ",
-      "embedLogo": "",
-      "embedSite": "폴란드 Auto Świat",
-      "embedProvider": "RSS",
-      "embedLang": "pl",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "폴란드|해외소식",
-      "country": "폴란드",
-      "region": "동유럽",
-      "originalTitle": "",
-      "originalLanguage": "pl",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "995679222",
-      "category": "리콜·안전",
-      "title": "회원 혜택: 9Ninewrap 세차 무료 이용권 (선착순 20명) 및 차량용 방향제 50개 증정",
-      "summary": "회원 여러분께 9Ninewrap에서 후원하는 선물을 드린다.\n9NINEWRAP 구룡베이 플래그십 스토어가 2026년에 공식 오픈한다!\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "회원 여러분께 9Ninewrap에서 후원하는 선물을 드린다.\n9NINEWRAP 구룡베이 플래그십 스토어가 2026년에 공식 오픈한다!\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "車網 Car1.hk",
-      "sourceUrl": "https://www.car1.hk/news/member-zone-2026-9ninewrap",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:39:18.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.car1.hk/news/member-zone-2026-9ninewrap",
-      "embedTitle": "회원 혜택: 9Ninewrap 세차 무료 이용권 (선착순 20명) 및 차량용 방향제 50개 증정",
-      "embedDescription": "회원 여러분께 9Ninewrap에서 후원하는 선물을 드린다.\n9NINEWRAP 구룡베이 플래그십 스토어가 2026년에 공식 오픈한다!\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "",
-      "embedLogo": "",
-      "embedSite": "車網 Car1.hk",
-      "embedProvider": "RSS",
-      "embedLang": "zh-HK",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "홍콩|리콜·안전",
-      "country": "홍콩",
-      "region": "중국/대만/홍콩",
-      "originalTitle": "",
-      "originalLanguage": "zh-HK",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.966Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "983770037",
-      "category": "해외소식",
-      "title": "시트로엥 2CV(2026). 파리 모터쇼 이후, 이 콘셉트카는 피에르 르클레르크와 함께 벨기에에 잠시 들렀다",
-      "summary": "파리 모터쇼에서 공개된 지 며칠 후, 시트로엥 2 CV 콘셉트카가 2026년 10월 24일과 25일 벨기에 바스토뉴를 방문할 예정이다.\n라르구스 L'Argus가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "파리 모터쇼에서 공개된 지 며칠 후, 시트로엥 2 CV 콘셉트카가 2026년 10월 24일과 25일 벨기에 바스토뉴를 방문할 예정이다.\n라르구스 L'Argus가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "라르구스 L'Argus",
-      "sourceUrl": "https://www.largus.fr/actualite-automobile/citroen-2-cv-2026-apres-le-mondial-de-paris-le-concept-fait-escale-en-belgique-avec-pierre-leclercq-40014099.html",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:31:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.largus.fr/actualite-automobile/citroen-2-cv-2026-apres-le-mondial-de-paris-le-concept-fait-escale-en-belgique-avec-pierre-leclercq-40014099.html",
-      "embedTitle": "시트로엥 2CV(2026). 파리 모터쇼 이후, 이 콘셉트카는 피에르 르클레르크와 함께 벨기에에 잠시 들렀다",
-      "embedDescription": "파리 모터쇼에서 공개된 지 며칠 후, 시트로엥 2 CV 콘셉트카가 2026년 10월 24일과 25일 벨기에 바스토뉴를 방문할 예정이다.\n라르구스 L'Argus가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://images.largus.fr/photos-cms/2026/10/citroen-2-cv-concept-2026-orange-avg-mk-bd-1-768x512.jpg",
-      "embedLogo": "",
-      "embedSite": "라르구스 L'Argus",
-      "embedProvider": "RSS",
-      "embedLang": "fr",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "프랑스|해외소식",
-      "country": "프랑스",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "fr",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.960Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "968149732",
-      "category": "모터스포츠",
-      "title": "WRC: 포드 피에스타 랠리1, 올해 포르투갈에서 데뷔",
-      "summary": "국제자동차연맹(FIA)은 M-Sport가 2027년 시즌을 앞두고 필요한 테스트를 진행하는 동안 올해 새로운 레이싱카로 경주에 참가할 수 있도록 특별 허가를 내주었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "국제자동차연맹(FIA)은 M-Sport가 2027년 시즌을 앞두고 필요한 테스트를 진행하는 동안 올해 새로운 레이싱카로 경주에 참가할 수 있도록 특별 허가를 내주었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "카앤드라이버 Car & Driver",
-      "sourceUrl": "https://www.caranddriver.gr/wrc/arthro/wrc_to_ford_fiesta_rally1_tha_kanei_ntempoyto_fetos_stin_portogalia-7858145",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:30:00.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.caranddriver.gr/wrc/arthro/wrc_to_ford_fiesta_rally1_tha_kanei_ntempoyto_fetos_stin_portogalia-7858145",
-      "embedTitle": "WRC: 포드 피에스타 랠리1, 올해 포르투갈에서 데뷔",
-      "embedDescription": "국제자동차연맹(FIA)은 M-Sport가 2027년 시즌을 앞두고 필요한 테스트를 진행하는 동안 올해 새로운 레이싱카로 경주에 참가할 수 있도록 특별 허가를 내주었다.\n카앤드라이버 Car & Driver가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://media.caranddriver.gr/filesystem/images/20261019/engine/m-sport-2027-ford-fiesta-wrc-prototype-exterior-001-front-three-quarters_77761_489413_type10.jpg",
-      "embedLogo": "",
-      "embedSite": "카앤드라이버 Car & Driver",
-      "embedProvider": "RSS",
-      "embedLang": "el",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "그리스|모터스포츠|포드",
-      "country": "그리스",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "el",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.939Z",
-      "collector": "해외자동차뉴스봇"
-    },
-    {
-      "id": "942116305",
-      "category": "시승·리뷰",
-      "title": "포드 트랜짓 커넥트 밴 리뷰",
-      "summary": "동급에서 더 뛰어난 밴들도 있지만, 폭스바겐이 제작한 포드 트랜짓 커넥트는 현대적이고 세련되었으며 운전하기 쉽다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "body": "동급에서 더 뛰어난 밴들도 있지만, 폭스바겐이 제작한 포드 트랜짓 커넥트는 현대적이고 세련되었으며 운전하기 쉽다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "source": "오토 익스프레스 Auto Express",
-      "sourceUrl": "https://www.autoexpress.co.uk/ford/transit-connect/370733/ford-transit-connect-review",
-      "author": "자동차뉴스",
-      "publishedAt": "2026-10-22T13:28:04.000Z",
-      "thumbnail": "",
-      "images": "",
-      "embed": "https://www.autoexpress.co.uk/ford/transit-connect/370733/ford-transit-connect-review",
-      "embedTitle": "포드 트랜짓 커넥트 밴 리뷰",
-      "embedDescription": "동급에서 더 뛰어난 밴들도 있지만, 폭스바겐이 제작한 포드 트랜짓 커넥트는 현대적이고 세련되었으며 운전하기 쉽다.\n오토 익스프레스 Auto Express가 제공한 기사 내용을 요약했습니다.\n세부 내용은 연결된 원문 기사에서 확인할 수 있습니다.",
-      "embedImage": "https://images.autoexpress.co.uk/autoexpress/2026/10/Ford%20Transit%20Connect-3.jpg?w=845&fit=scale&auto=format,compress",
-      "embedLogo": "",
-      "embedSite": "오토 익스프레스 Auto Express",
-      "embedProvider": "RSS",
-      "embedLang": "en",
-      "views": "0",
-      "comments": "0",
-      "likes": "0",
-      "tags": "영국|시승·리뷰|포드",
-      "country": "영국",
-      "region": "서/남유럽",
-      "originalTitle": "",
-      "originalLanguage": "en",
-      "relatedCount": "0",
-      "collectedAt": "2026-10-23T19:18:28.954Z",
+      "collectedAt": "2026-10-23T22:23:53.869Z",
       "collector": "해외자동차뉴스봇"
     }
   ]
