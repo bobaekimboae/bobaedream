@@ -633,11 +633,6 @@ function DealerBrandRail({ cars, brand, onPick, model, onPickModel }: { cars: Ca
   const brands = dealerBrandStock(cars);
   return <nav className="dp-brand-rail" aria-label="브랜드로 판매차량 보기">
     <div className="dp-brand-rail-track">
-      <button type="button" className={!brand ? "is-active" : undefined} aria-pressed={!brand} aria-label={`전체 ${cars.length}대`} onClick={() => onPick("")}>
-        <span className="dp-brand-rail-logo dp-brand-rail-all" aria-hidden="true">전체</span>
-        <span className="dp-brand-rail-name">전체 차량</span>
-        <span className="dp-brand-rail-count">({cars.length})</span>
-      </button>
       {brands.map(({ maker, count }) => {
         const logoIndex = luxuryLogoBrands.findIndex((item) => item.maker === maker);
         return <button type="button" key={maker} className={brand === maker ? "is-active" : undefined} aria-pressed={brand === maker} aria-label={`${maker} ${count}대`} onClick={() => onPick(maker)}>
