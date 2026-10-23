@@ -1221,9 +1221,9 @@ export default function DealerPage() {
   const matchedDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo));
   const dealer: SeoulAutoGalleryDealer = matchedDealer ?? dealers[0];
   MOCK = profileFor(dealer);
-  const cars = useMemo(() => dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : isDeutschShop(dealer.shopNo) ? deutschDealerCars(dealer) : dealer.shopNo === dealers[0].shopNo
+  const cars = useMemo(() => dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : isDeutschShop(dealer.shopNo) ? deutschDealerCars(dealer) : dealer.shopNo === dealers[0].shopNo && dealer.empNo === dealers[0].empNo
     ? seoulAutoGalleryCars
-    : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo]);
+    : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo, dealer.empNo]);
   const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));
 
   if (params.get("card") === "1") {

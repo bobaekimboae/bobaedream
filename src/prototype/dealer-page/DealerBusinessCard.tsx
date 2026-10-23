@@ -3,7 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 import { cardContact, cardCompanyName, cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, safePhoneNote, type CardContact, type CardExtras, type CardStyle } from "./business-card";
 import "./business-card.css";
 import { stockUrl } from "./dealer-stock";
-import { cardQr, cardServiceOrigin, fetchPublishedCard, publishingUrl, sharingUrl, type PublishedCard } from "./card-sharing";
+import { cardQr, cardServiceLive, cardServiceOrigin, fetchPublishedCard, publishingUrl, sharingUrl, type PublishedCard } from "./card-sharing";
 
 type Props = { contact: CardContact; shop: string; emp: string; standalone?: boolean; trigger?: ReactNode; extras?: CardExtras };
 
@@ -64,7 +64,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const draftChanged = useRef(false);
   const hashFields = new URLSearchParams(window.location.hash.slice(1));
   const legacy = standalone && ["theme", "intro", "title", "logo", "gallery", "company", ...cardFields.map(({ id }) => id)].some(id => hashFields.has(id));
-  const requiresPublished = standalone && !legacy && new URLSearchParams(window.location.search).get("published") === "1";
+  const requiresPublished = cardServiceLive && standalone && !legacy && new URLSearchParams(window.location.search).get("published") === "1";
   const receiverContact = standalone && !legacy && published ? { ...published.contact, listingCount: contact.listingCount } : contact;
   const effectiveContact = cardContact(receiverContact, style);
   const baseUrl = sharingUrl(window.location.href, shop, emp, style, published);
@@ -79,7 +79,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   useEffect(() => { setQrUrl(""); setImageUrl(""); setManualLink(false); }, [url]);
 
   useEffect(() => {
-    if (!open && !standalone) return;
+    if (!cardServiceLive || (!open && !standalone)) return;
     const controller = new AbortController();
     const refresh = async () => {
       try {
@@ -261,7 +261,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
       <fieldset><legend>명함 색상</legend><div className="dbc-swatches">{Object.entries(cardThemes).map(([theme, palette]) => <button type="button" key={theme} aria-pressed={style.theme === theme} onClick={() => updateStyle({ ...style, theme: theme as CardStyle["theme"] })}><i style={{ background: palette.background }} />{palette.label}{style.theme === theme ? <span aria-hidden="true">✓</span> : null}</button>)}</div></fieldset>
       <label>소개 문구<textarea maxLength={60} rows={2} value={style.intro} onChange={(event) => updateStyle({ ...style, intro: event.target.value.replace(/[\r\n]/g, " ") })} /><small>{style.intro.length}/60</small></label>
       <p>편집 내용은 이 기기에 임시 저장돼요. ‘고정 주소에 저장’을 누르면 관리자 확인 후 공개 명함에 반영돼요.</p>
-      <button type="button" className="dbc-publish" disabled={logoBusy} onClick={publish}>고정 주소에 저장 ↗</button>
+      {cardServiceLive ? <button type="button" className="dbc-publish" disabled={logoBusy} onClick={publish}>고정 주소에 저장 ↗</button> : null}
       {published && !isFixed ? <button type="button" className="dbc-publish dbc-restore" onClick={() => updateStyle(published.style)}>공개 명함 내용 불러오기</button> : null}
       {serverError ? <p>{serverError}</p> : null}
     </div> : null}
