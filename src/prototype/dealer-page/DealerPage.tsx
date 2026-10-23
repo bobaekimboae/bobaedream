@@ -446,7 +446,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
         <div className="dp-profile-inline is-dealership"><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
         <DealerSnsList sns={sns} pc homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
-        <SellPriceCta onRequest={onValuation} profile />
+        <SellPriceCta dealerName={dealer.name} onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
           <span><small>판매완료</small><b>{MOCK.sold}</b></span>
@@ -769,7 +769,7 @@ function ValuationSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; 
   return <section className="dp-content-card dp-valuation" aria-labelledby="dp-valuation-title">
     <div className="dp-valuation-heading">
       <span>내 차, 얼마에 팔 수 있을까요?</span>
-      <h2 id="dp-valuation-title">김태규 딜러에게 시세 문의</h2>
+      <h2 id="dp-valuation-title">{dealer.name} 딜러에게 시세 문의</h2>
       <p>차량번호와 소유자명을 입력하면 차량 기본정보를 확인해 상담을 시작합니다.</p>
     </div>
     <form onSubmit={(event) => { event.preventDefault(); if (canSubmit) notify(`${dealer.name} 딜러에게 시세 문의를 접수했어요`); }}>
@@ -1091,9 +1091,9 @@ function cardExtrasFor(dealer: SeoulAutoGalleryDealer, cars: Car[], rating = MOC
   };
 }
 
-function SellPriceCta({ onRequest, profile = false }: { onRequest: () => void; profile?: boolean }) {
-  return <aside className={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label="내 차 판매 가격 무료 견적">
-    <span><b>내 차 판매 가격, 무료 견적 받아보세요</b></span>
+function SellPriceCta({ dealerName, onRequest, profile = false }: { dealerName: string; onRequest: () => void; profile?: boolean }) {
+  return <aside className={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label={`${dealerName} 딜러에게 내 차 판매 가격 무료 견적 문의`}>
+    <span><b>{dealerName} 딜러에게 무료 견적 받아보세요</b></span>
     <button type="button" onClick={onRequest}>견적신청</button>
   </aside>;
 }
