@@ -2,6 +2,7 @@ import { useMemo, useState, type ReactNode } from "react";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
 import { asset, deutschAutoworldCars, type Car } from "../data";
 import { deutschAutoworldShops, type DeutschAutoworldShop } from "../data/deutsch-autoworld-shops-v01";
+import { deutschAutoworldStaffRaw } from "../data/deutsch-autoworld-staff-v01";
 import { SagGoogleMap } from "./sag-google-map";
 import type { SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import "./seoul-auto-gallery-dealer-rail.css";
@@ -57,6 +58,7 @@ export const deutschShopCars = (shopNo: string) => carsByShop.get(shopNo) ?? [];
 const shopLogoIds = new Set(["100003", "100004", "100007", "100008", "100010", "100011", "100014", "100016", "100017", "100018", "100019", "100020", "100021", "100022", "100023", "100024", "100025", "100026", "100027", "100029", "100031", "100032", "100033", "100034", "100035", "100038", "100040", "100041", "100045", "100046", "100047", "100049", "100050", "100053", "100055", "100058", "100059", "100061", "100062", "100063", "100064", "100065", "100067", "100068", "100069", "100070", "100072", "100073", "100075", "100077", "100079", "100082", "100083", "100084", "100087", "100088", "100090", "100093", "100094", "100100", "100101", "100102", "100105", "100112", "100113", "100115", "100121", "100122", "100123", "100125", "100129", "100132", "100139"]);
 export const deutschShopLogo = (shopNo: string) => shopLogoIds.has(shopNo.replace(DEUTSCH_SHOP_PREFIX, "")) ? asset(`deutsch-autoworld/shop-logos/${shopNo.replace(DEUTSCH_SHOP_PREFIX, "")}.webp`) : undefined;
 
+const staffRole: Record<string, string> = { o: "대표", m: "사무장", d: "소속딜러" };
 const illustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 
 // 상사마다 대표(대표 순번 1·2) → 매물이 많은 딜러 순으로 emp 번호를 매긴다. 대표 페이지는 그 상사 매물 전체를 보여 준다.
@@ -70,7 +72,18 @@ export const allDeutschDealers: readonly SeoulAutoGalleryDealer[] = allDeutschSh
     .filter(([name]) => !shop.owners.includes(name))
     .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "ko"))
     .map(([name, count], index): SeoulAutoGalleryDealer => ({ name, listingCount: count, shopNo: shop.shopNo, empNo: String(owners.length + index + 1), image: picture(owners.length + index), role: "소속딜러" }));
-  return [...owners, ...staff];
+  // 사이트 소속 인원 전수(2026-10-23 「딜러 전수 모두 추가해라」): 위에 없는 사람을 사이트 순서대로 뒤에 붙인다(기존 emp 번호는 그대로).
+  const known = new Set([...owners, ...staff].map((dealer) => dealer.name));
+  const roster = (deutschAutoworldStaffRaw[shop.shopNo] ?? "").split(",").filter(Boolean).map((item) => item.split(":") as [string, string]);
+  const rosterRole = new Map(roster.map(([name, code]) => [name, staffRole[code] ?? "소속딜러"]));
+  for (const dealer of staff) { const role = rosterRole.get(dealer.name); if (role && role !== "대표") dealer.role = role; }
+  const rest = roster
+    .filter(([name]) => !known.has(name))
+    .map(([name, code], index): SeoulAutoGalleryDealer => {
+      const order = owners.length + staff.length + index;
+      return { name, listingCount: 0, shopNo: shop.shopNo, empNo: String(order + 1), image: picture(order), role: staffRole[code] ?? "소속딜러" };
+    });
+  return [...owners, ...staff, ...rest];
 });
 
 export function deutschDealerCars(dealer: SeoulAutoGalleryDealer): Car[] {
