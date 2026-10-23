@@ -14,3 +14,6 @@
   cursor: pointer;
 }
 .daw-more:hover { background: #f7f8fa; }
+
+/* 상사 로고(2026-10-23): 흰 정사각 로고를 40 원 안에 담고 옅은 테두리로 바탕과 구분 */
+.sag-company-photo.is-logo { box-sizing: border-box; border: 1px solid #eceef0; background: #fff; object-fit: contain; }

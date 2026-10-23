@@ -8,7 +8,7 @@ import { FavoritesProvider, asset, joyMotorsCars, seoulAutoGalleryCars, setActiv
 import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
 import { allSeoulAutoGalleryDealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
-import { DEUTSCH_MAIN_ADDRESS, allDeutschDealers, deutschDealerCars, deutschShopByNo, deutschShopCars, isDeutschShop } from "../listing/deutsch-autoworld-directory";
+import { DEUTSCH_MAIN_ADDRESS, deutschShopLogo, allDeutschDealers, deutschDealerCars, deutschShopByNo, deutschShopCars, isDeutschShop } from "../listing/deutsch-autoworld-directory";
 
 // 조이모터스(SK V1 모터스 173호) 대표 이지유(2026-10-21 「조이모터스 상사페이지 만들어」). 공개 홈페이지의 대표·상호·사업자번호·대표번호·팩스·이메일·주소만 쓴다.
 export const JOY_SHOP_NO = "joy";
@@ -95,7 +95,7 @@ const TWOJ_PROFILE = {
 type DealerProfileInfo = {
   rating: number; reviewCount: number; sold: number; followers: number; lastActive: string; joined: string;
   company: string; complex: string; gallery: string; licenseNo: string; businessNo: string; employeeNo: string;
-  phone: string; phoneIsGallery?: boolean; homepage?: string; homepageLabel?: string; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
+  phone: string; phoneIsGallery?: boolean; logo?: string; homepage?: string; homepageLabel?: string; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
   soldCars: ReadonlyArray<readonly [string, string]>;
 };
 
@@ -199,6 +199,7 @@ function deutschProfileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
     mapAddress: DEUTSCH_MAIN_ADDRESS,
     mapPlace: "도이치오토월드 · 고색동",
     coverImage: DEUTSCH_COVER,
+    logo: deutschShopLogo(dealer.shopNo),
     fax: shop?.fax ?? "",
     email: "이메일 문의",
     staff: `${dealers.filter((item) => item.shopNo === dealer.shopNo).length}명`,
@@ -854,7 +855,7 @@ function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDeal
   const totalListings = isDeutschShop(currentDealer.shopNo) ? deutschShopCars(currentDealer.shopNo).length : staff.reduce((sum, item) => sum + item.listingCount, 0);
   return <section className="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
     <div className="dp-affiliated-company">
-      <img src={MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />
+      <img className={MOCK.logo ? "is-logo" : undefined} src={MOCK.logo ?? MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt={MOCK.logo ? `${stripCorp(MOCK.company)} 로고` : MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />
       <div>
         <span>{MOCK.complex}</span>
         <h2 id="dp-affiliated-title">{MOCK.company}</h2>

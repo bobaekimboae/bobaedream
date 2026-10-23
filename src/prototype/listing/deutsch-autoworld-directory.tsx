@@ -52,6 +52,11 @@ export const deutschShopByNo = new Map(allDeutschShops.map((shop) => [shop.shopN
 export const isDeutschShop = (shopNo: string) => shopNo.startsWith(DEUTSCH_SHOP_PREFIX);
 export const deutschShopCars = (shopNo: string) => carsByShop.get(shopNo) ?? [];
 
+// 상사 로고(2026-10-23 「사진도 업데이트해라」): dautoworld.com 상사 페이지(storeView)에 올라온 상사 대표 이미지 73곳을 240×240 흰 정사각에 맞춘 사본.
+// 원본 이미지는 고치지 않았다. 서류 사진(개인 얼굴 포함)이 올라온 케이에스자동차는 뺐다. 딜러 사진은 사이트에 실제 사진이 없어(전부 기본 그림) 넣지 않았다.
+const shopLogoIds = new Set(["100003", "100004", "100007", "100008", "100010", "100011", "100014", "100016", "100017", "100018", "100019", "100020", "100021", "100022", "100023", "100024", "100025", "100026", "100027", "100029", "100031", "100032", "100033", "100034", "100035", "100038", "100040", "100041", "100045", "100046", "100047", "100049", "100050", "100053", "100055", "100058", "100059", "100061", "100062", "100063", "100064", "100065", "100067", "100068", "100069", "100070", "100072", "100073", "100075", "100077", "100079", "100082", "100083", "100084", "100087", "100088", "100090", "100093", "100094", "100100", "100101", "100102", "100105", "100112", "100113", "100115", "100121", "100122", "100123", "100125", "100129", "100132", "100139"]);
+export const deutschShopLogo = (shopNo: string) => shopLogoIds.has(shopNo.replace(DEUTSCH_SHOP_PREFIX, "")) ? asset(`deutsch-autoworld/shop-logos/${shopNo.replace(DEUTSCH_SHOP_PREFIX, "")}.webp`) : undefined;
+
 const illustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 
 // 상사마다 대표(대표 순번 1·2) → 매물이 많은 딜러 순으로 emp 번호를 매긴다. 대표 페이지는 그 상사 매물 전체를 보여 준다.
@@ -121,7 +126,7 @@ export function DeutschAutoworldCompanyDirectory() {
       <div className="sag-company-list">
         {companies.map(({ shop, owner, memberCount, listingCount }) => (
           <button key={shop.shopNo} type="button" className="sag-company-row" onClick={() => openDealer(owner!)} aria-label={`${displayCompany(shop.company)} ${shop.owners.length ? `대표 ${shop.owners.join(", ")} ` : ""}판매자페이지 보기`}>
-            <img className="sag-company-photo" src={deutschDealerPhoto(owner!)} alt="" loading="lazy" />
+            <img className={`sag-company-photo${deutschShopLogo(shop.shopNo) ? " is-logo" : ""}`} src={deutschShopLogo(shop.shopNo) ?? deutschDealerPhoto(owner!)} alt="" loading="lazy" />
             <span>
               <strong>{displayCompany(shop.company)}</strong>
               <small>{[shop.room, shop.owners.length ? `대표 ${shop.owners.join(" · ")}` : "", `소속딜러 ${memberCount}명`].filter(Boolean).map((text) => <span key={text}>{text}</span>).reduce<ReactNode[]>((list, node, index) => index ? [...list, " · ", node] : [node], [])}</small>
