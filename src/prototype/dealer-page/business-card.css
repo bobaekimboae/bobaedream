@@ -185,3 +185,8 @@
 .dbc-consult .dbc-consult-form :is(select,input[type=tel]):is(:focus,:focus-visible){outline:0 !important;border-color:#222}
 /* 050 안심번호 표시(2026-10-22) */
 .dbc-safe{margin-left:6px;padding:0 5px;border-radius:4px;background:color-mix(in srgb,currentColor 16%,transparent);font-size:10px;font-style:normal;font-weight:600;line-height:16px;vertical-align:2px;white-space:nowrap}
+/* 2026-10-23 「카카오톡 보기 버튼 밸런스 큰거 아녀」: 공유 막대를 위 연락 버튼(48)보다 가볍게 */
+.dbc-sharebar{padding:10px 16px max(10px,env(safe-area-inset-bottom))}
+.dbc-sharebar-row{grid-template-columns:minmax(0,1fr) 64px}
+.dbc-sharebar .dbc-kakao-main{min-height:44px;font-size:15px;font-weight:700;border-radius:10px}
+.dbc-share-more-toggle{min-height:44px;font-size:14px;font-weight:600}
