@@ -2,6 +2,8 @@
 
 ## Shared Rules
 
+- 썸네일 날짜 축약(2026-10-23): 개발 시안 매물 카드의 `YYYY.MM.DD`·`YYYY-MM-DD` 날짜는 한국 자정 기준 `오늘`·`N일전`으로 표시한다. 확인일은 `오늘 확인`·`N일전 확인`으로 구분하고 원문 날짜는 title 및 기존 상세에 유지한다. 상대 시간은 `12분전`·`2시간전`·`3일전`처럼 표시한다. 상세 원문과 등록 정렬용 데이터는 바꾸지 않으며, ChoTot 비교 화면은 유지한다.
+
 - PC construction machinery (2026-10-18): place the left text filter and right quick-filter card at the same top edge, followed by results on the right. The left `유형 · 형식` list follows the existing equipment rail order and keeps inventory-only types available; the selected type reveals text subtypes inline. `제조사 · 모델` uses text rows and inventory counts. Both columns share HeavySelection, reset dependent values on parent changes, and restore valid selections from the URL. The existing mobile and ChoTot comparison layouts remain unchanged.
 
 - Preserve the depth order: `차량유형 → 제조사 → 모델 → 세대 → 트림`.

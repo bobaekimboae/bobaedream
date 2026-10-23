@@ -5,6 +5,7 @@ import { bbmCardBadges, bbmCardSpec, bbmSampleHorsepower } from "../data/bbm-car
 import { oldCarGeneration } from "../data/old-car-generation-v01";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
+import { thumbnailPostedText } from "./thumbnail-posted";
 import { useViewedListing } from "./viewed-listings";
 import { truckPlaceV09 } from "../truck/scenario-v09";
 import { formatLocalListingPrice, localPriceDisclosure, translateListingText, useListingLocale } from "./listing-i18n";
@@ -697,7 +698,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const squareOriginalPhoto = !!car.imageAspectRatio && !featured;
   const photoStyle = car.imageAspectRatio && !squareOriginalPhoto ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
   const photoCount = car.photoList?.length || car.photos;
-  const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span>{!featured && photoCount > 0 ? <span className="bbm-card-count">{photoCount}<img src={bbmIcon("card-photo-count")} alt="" /></span> : null}</div>;
+  const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time" title={car.posted}>{thumbnailPostedText(car.posted)}</span>{!featured && photoCount > 0 ? <span className="bbm-card-count">{photoCount}<img src={bbmIcon("card-photo-count")} alt="" /></span> : null}</div>;
   const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
     <div className="bbm-card-photo is-carousel" style={photoStyle}>
       <FeedPhotoCarousel photos={feedPhotos} alt={alt} fit={car.imageAspectRatio || car.imageFit === "contain" ? "contain" : "cover"} />
