@@ -1,7 +1,7 @@
 // 카카오톡 · 문자에 명함 링크를 보냈을 때 보이는 미리보기 카드(og 태그)를 만든다(2026-10-23 「명함 카톡 보내면 임베드 예쁘게」).
 // GitHub Pages는 정적 호스팅이라 딜러마다 짧은 정적 페이지 public/c/<shop>-<emp>.html 을 두고,
 // 그 페이지가 og 태그를 가진 뒤 실제 명함 화면(?profile=dealer&...&card=1)으로 바로 넘긴다.
-// 미리보기 그림은 실사진이 있는 딜러만 딜러별(public/assets/dealer-card-og/<shop>-<emp>.jpg),
+// 미리보기 그림은 실사진이 있는 딜러만 딜러별(public/c/og/<shop>-<emp>.jpg),
 // 나머지는 단지별 공용 그림을 쓴다. 실행: node scripts/dealer-card-og.mjs (public 폴더를 4790 포트로 띄워 둔 상태).
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { createServer } from "vite";
@@ -55,7 +55,7 @@ function pageHtml(d, image) {
 <meta name="description" content="${esc(desc)}">
 <meta property="og:type" content="profile"><meta property="og:site_name" content="보배드림">
 <meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}">
-<meta property="og:url" content="${url}"><meta property="og:image" content="${SITE}assets/dealer-card-og/${image}">
+<meta property="og:url" content="${url}"><meta property="og:image" content="${SITE}c/og/${image}">
 <meta property="og:image:width" content="800"><meta property="og:image:height" content="400"><meta property="og:image:alt" content="${esc(title)} 명함">
 <meta name="twitter:card" content="summary_large_image">
 <script>location.replace(${JSON.stringify(target)}+(location.search?"&"+location.search.slice(1):"")+location.hash)</script>
@@ -68,16 +68,16 @@ const dealers = (await server.ssrLoadModule("/src/prototype/dealer-page/DealerPa
 await server.close();
 
 rmSync("public/c", { recursive: true, force: true });
-rmSync("public/assets/dealer-card-og", { recursive: true, force: true });
+rmSync("public/c/og", { recursive: true, force: true });
 mkdirSync("public/c", { recursive: true });
-mkdirSync("public/assets/dealer-card-og", { recursive: true });
+mkdirSync("public/c/og", { recursive: true });
 
 const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
 const page = await browser.newPage({ viewport: { width: 800, height: 400 } });
 const shoot = async (html, file) => {
   await page.setContent(html, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
-  await page.screenshot({ path: `public/assets/dealer-card-og/${file}`, type: "jpeg", quality: 82 });
+  await page.screenshot({ path: `public/c/og/${file}`, type: "jpeg", quality: 82 });
 };
 for (const gallery of new Set(dealers.map((d) => d.gallery))) await shoot(imageHtml({ gallery, building: buildings[gallery] }), `${slug[gallery]}.jpg`);
 let personal = 0;
