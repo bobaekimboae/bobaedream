@@ -69,11 +69,19 @@ export const deutschShopLogo = (shopNo: string) => shopLogoIds.has(shopNo.replac
 const dealerPhotoIds: Record<string, string> = { "da100003:박기철": "100003_006", "da100003:조영진": "100003_030", "da100018:이재현": "100018_056", "da100020:장진영": "100020_108", "da100021:박병찬": "100021_006", "da100021:신청남": "100021_022", "da100023:황성원": "100023_020", "da100025:김남훈": "100025_003", "da100050:방효재": "100050_060", "da100055:곽현덕": "100055_003", "da100058:이영완": "100058_012", "da100063:신현우": "100063_010", "da100077:편수용": "100077_067", "da100088:주훈탁": "100088_030", "da100102:함정수": "100102_001", "da100102:조동혁": "100102_004", "da100102:김은혜": "100102_005", "da100102:여운혁": "100102_006", "da100102:김정헌": "100102_007", "da100102:양재동": "100102_016", "da100102:박진완": "100102_017", "da100102:선현우": "100102_018", "da100102:김수범": "100102_019", "da100102:오정윤": "100102_020", "da100102:전은희": "100102_022", "da100102:박성호": "100102_023", "da100102:김재희": "100102_024", "da100102:유연주": "100102_025", "da100102:김세형": "100102_026", "da100102:김지수": "100102_027", "da100102:서청원": "100102_028", "da100102:이부현": "100102_029", "da100102:남지훈": "100102_031" };
 // 매물 정보의 딜러 실사진(2026-10-23 「딜러사진 실제 매물정보에서 실사진 매핑시켜라」): 차란차 매물 딜러의 프로필 사진 276장을
 // 그 딜러의 상사(위와 같은 상사명 맞춤) + 이름으로 붙인다. 없으면 dautoworld 소속딜러 사진(33장), 그것도 없으면 정장 일러스트.
+// 검수(2026-10-23 「딜러 사진봐봐 맞는지」): 이름 · 상사명 앞뒤 빈칸을 지우고, 같은 상사 + 같은 이름에 서로 다른 사진이
+// 둘 이상이면(동명이인일 수 있음) 그 딜러에는 사진을 붙이지 않는다. 사진은 그 상사 명단 · 매물에 있는 이름에만 붙는다(아래 allDeutschDealers).
 const listingPhotoIds = new Map<string, string>();
+const conflictedPhotoKeys = new Set<string>();
 for (const [company, name, id] of deutschDealerPhotoRows) {
-  const shop = findDeutschShop(company);
-  if (shop) listingPhotoIds.set(`${shop.shopNo}:${name}`, id);
+  const shop = findDeutschShop(company.trim());
+  if (!shop) continue;
+  const key = `${shop.shopNo}:${name.trim()}`;
+  const prev = listingPhotoIds.get(key);
+  if (prev && prev !== id) conflictedPhotoKeys.add(key);
+  listingPhotoIds.set(key, id);
 }
+for (const key of conflictedPhotoKeys) listingPhotoIds.delete(key);
 const staffRole: Record<string, string> = { o: "대표", m: "사무장", d: "소속딜러" };
 const illustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 
