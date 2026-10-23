@@ -2,6 +2,8 @@
 
 ## Shared Rules
 
+- 판매자페이지 제조사 로고(2026-10-23): 고정 슈퍼카 16개 대신 해당 페이지 판매자 전체 재고에 있는 제조사를 매물 수 내림차순·동률 가나다순으로 표시한다. `전체 차량`은 첫 칸에 전체 재고 수를 표시하고 제조사·모델 선택을 해제한다. 브랜드 선택 중에도 전체 재고로 계산한 순서·대수를 유지한다. 매물 0대 제조사는 숨기며 기존 슈퍼카 로고는 원본 파일 번호를 보존하고 그 외는 공용 제조사 로고를 사용한다. 모바일·PC는 기존 한 줄 가로 스크롤과 로고 칸 크기를 유지한다. 딜러는 해당 딜러 재고, 상사 대표 페이지는 기존 해당 페이지의 전체 재고를 사용한다.
+
 - 썸네일 날짜 축약(2026-10-23): 개발 시안 매물 카드의 `YYYY.MM.DD`·`YYYY-MM-DD` 날짜는 한국 자정 기준 `오늘`·`N일전`으로 표시한다. 확인일은 `오늘 확인`·`N일전 확인`으로 구분하고 원문 날짜는 title 및 기존 상세에 유지한다. 상대 시간은 `12분전`·`2시간전`·`3일전`처럼 표시한다. 상세 원문과 등록 정렬용 데이터는 바꾸지 않으며, ChoTot 비교 화면은 유지한다.
 
 - PC construction machinery (2026-10-18): place the left text filter and right quick-filter card at the same top edge, followed by results on the right. The left `유형 · 형식` list follows the existing equipment rail order and keeps inventory-only types available; the selected type reveals text subtypes inline. `제조사 · 모델` uses text rows and inventory counts. Both columns share HeavySelection, reset dependent values on parent changes, and restore valid selections from the URL. The existing mobile and ChoTot comparison layouts remain unchanged.
