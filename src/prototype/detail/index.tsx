@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useRef, useState, type ReactNode } from "react";
+import { allDeutschDealers, deutschDealerForCar } from "../listing/deutsch-autoworld-directory";
 import { ChevronDownIcon, HeartFilledIcon, HeartIcon, LockClosedIcon, MobileIcon, QuestionMarkCircledIcon } from "@radix-ui/react-icons";
 import { BottomSheet, Carousel, MobileScroll, useFlow } from "../../mobile";
 import { bbmCardSpec, bbmSampleHorsepower } from "../data/bbm-card-samples";
@@ -472,7 +473,8 @@ function DetailTopSeller({ car, overlay }: { car: Car; overlay?: boolean }) {
   const isDealer = car.sellerType === "딜러";
   const shop = carShopName(car);
   const sagDealer = car.seoulAutoGallery ? sagDealerFor(car) : undefined;
-  const href = sagDealer ? `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}` : car.joyMotors ? `${window.location.pathname}?qf=guazi&profile=dealer&shop=joy&emp=1` : undefined;
+  const dawDealer = deutschDealerForCar(car);
+  const href = sagDealer ? `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}` : car.joyMotors ? `${window.location.pathname}?qf=guazi&profile=dealer&shop=joy&emp=1` : dawDealer ? `${window.location.pathname}?qf=guazi&profile=dealer&shop=${dawDealer.shopNo}&emp=${dawDealer.empNo}` : undefined;
   const body = (
     <>
       <img className="detail-top-seller-avatar" src={asset(sellerDetailPhoto(car))} alt="" draggable={false} />
@@ -1073,6 +1075,11 @@ function locationLinks(car: Car): Record<string, string> {
   const sagDealer = car.seoulAutoGallery ? sagDealerFor(car) : undefined;
   if (shop && sagDealer) links[shop] = `${window.location.pathname}?profile=dealer&shop=${sagDealer.shopNo}&emp=${sagDealer.empNo}`;
   if (shop && car.joyMotors) links[shop] = `${window.location.pathname}?qf=guazi&profile=dealer&shop=joy&emp=1`;
+  const dawDealer = deutschDealerForCar(car);
+  if (shop && dawDealer) {
+    const owner = allDeutschDealers.find((dealer) => dealer.shopNo === dawDealer.shopNo && dealer.empNo === "1") ?? dawDealer;
+    links[shop] = `${window.location.pathname}?qf=guazi&profile=dealer&shop=${owner.shopNo}&emp=${owner.empNo}`;
+  }
   return links;
 }
 

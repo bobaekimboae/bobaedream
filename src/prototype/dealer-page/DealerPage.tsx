@@ -8,11 +8,12 @@ import { FavoritesProvider, asset, joyMotorsCars, seoulAutoGalleryCars, setActiv
 import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
 import { allSeoulAutoGalleryDealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
+import { DEUTSCH_MAIN_ADDRESS, allDeutschDealers, deutschDealerCars, deutschShopByNo, deutschShopCars, isDeutschShop } from "../listing/deutsch-autoworld-directory";
 
 // 조이모터스(SK V1 모터스 173호) 대표 이지유(2026-10-21 「조이모터스 상사페이지 만들어」). 공개 홈페이지의 대표·상호·사업자번호·대표번호·팩스·이메일·주소만 쓴다.
 export const JOY_SHOP_NO = "joy";
 const joyDealer: SeoulAutoGalleryDealer = { name: "이지유", listingCount: joyMotorsCars.length, shopNo: JOY_SHOP_NO, empNo: "1", image: "dealer-02.png", role: "대표" };
-const dealers: readonly SeoulAutoGalleryDealer[] = [...allSeoulAutoGalleryDealers, joyDealer];
+const dealers: readonly SeoulAutoGalleryDealer[] = [...allSeoulAutoGalleryDealers, joyDealer, ...allDeutschDealers];
 import { SagGoogleMap } from "../listing/sag-google-map";
 import { dealerSnsLinks, snsLabel } from "../data/seoul-autogallery-sns-v01";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
@@ -107,6 +108,7 @@ const seedOf = (text: string) => [...text].reduce((sum, ch) => (sum * 31 + ch.ch
 function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
   if (dealer.shopNo === "450554") return TWOJ_PROFILE;
   if (dealer.shopNo === JOY_SHOP_NO) return JOY_PROFILE;
+  if (isDeutschShop(dealer.shopNo)) return deutschProfileFor(dealer);
   const shop = seoulAutoGalleryShopByNo.get(dealer.shopNo);
   const company = shop?.company ?? "서울오토갤러리 회원사";
   const room = shop?.room ?? "";
@@ -167,6 +169,44 @@ const JOY_PROFILE: DealerProfileInfo = {
   intro: "2001년부터 25년 동안 수입차·슈퍼카를 다뤄 온 e-조이모터스 대표 이지유입니다. 전시 중인 차량은 모두 대표가 직접 매입하고 검수했으며, 구매 상담부터 출고 이후 관리까지 같은 기준으로 책임집니다. 수원 SK V1 모터스 173호와 서울 성동구 쇼룸에서 만나실 수 있습니다. (상호 (주)이조이모터스24)",
   soldCars: TWOJ_PROFILE.soldCars.slice(0, 12),
 };
+
+// 도이치오토월드 상사 · 딜러(2026-10-23). 상사명 · 대표 · 상사 전화 · 팩스 · 층·호수는 dautoworld.com 공개 상사 목록 값,
+// 평점 · 리뷰 수 · 판매완료 · 팔로워 · 경력은 상사 번호로 정한 화면 확인용 가상 값이다. 전화는 안심번호로만 보인다.
+const DEUTSCH_COVER = asset("deutsch-autoworld/header/building-bluehour-v01.png");
+function deutschProfileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
+  const shop = deutschShopByNo.get(dealer.shopNo);
+  const company = shop?.company ?? "도이치오토월드 회원사";
+  const room = shop?.room ?? "";
+  const seed = seedOf(`${dealer.shopNo}-${dealer.name}`);
+  const sold = 6 + (seed % 7);
+  const isOwner = dealer.role === "대표";
+  const who = isOwner ? (shop && shop.owners.length > 1 ? `공동대표 ${shop.owners.join(" · ")}` : `대표 ${dealer.name}`) : `소속딜러 ${dealer.name}`;
+  return {
+    rating: Math.round((4.5 + (seed % 5) / 10) * 10) / 10,
+    reviewCount: 3 + (seed % 28),
+    sold,
+    followers: 40 + (seed % 860),
+    lastActive: `${1 + (seed % 22)}시간 전 활동`,
+    joined: `딜러 경력 ${3 + (seed % 15)}년`,
+    company,
+    complex: "도이치오토월드 · 수원",
+    gallery: "도이치오토월드",
+    licenseNo: "",
+    businessNo: "",
+    employeeNo: "",
+    phone: shop?.phone ?? "",
+    mapQuery: `도이치오토월드 ${DEUTSCH_MAIN_ADDRESS}`,
+    mapAddress: DEUTSCH_MAIN_ADDRESS,
+    mapPlace: "도이치오토월드 · 고색동",
+    coverImage: DEUTSCH_COVER,
+    fax: shop?.fax ?? "",
+    email: "이메일 문의",
+    staff: `${dealers.filter((item) => item.shopNo === dealer.shopNo).length}명`,
+    address: [DEUTSCH_MAIN_ADDRESS, `도이치오토월드${room ? ` ${room}` : ""}`].join(", "),
+    intro: `도이치오토월드${room ? ` ${room}` : ""}에 있는 ${stripCorp(company)} ${who}입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.`,
+    soldCars: TWOJ_PROFILE.soldCars.slice(0, sold),
+  };
+}
 
 // 한 화면에 딜러 한 명이라 렌더 전에 한 번 정한다(DealerPage).
 let MOCK: DealerProfileInfo = TWOJ_PROFILE;
@@ -306,12 +346,12 @@ function DealerSnsList({ sns, pc = false, homepage }: { sns?: ReturnType<typeof 
   </ul>;
 }
 
-function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) {
+function DealerCoverMedia({ fallback, alt, video = true }: { fallback: string; alt: string; video?: boolean }) {
   const [failedVideo, setFailedVideo] = useState(false);
   const [paused, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const showVideo = !failedVideo;
+  const showVideo = video && !failedVideo;
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !showVideo) return;
@@ -349,9 +389,9 @@ function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) 
       disablePictureInPicture
       onError={() => setFailedVideo(true)}
     /> : null}
-    <button type="button" className="dp-cover-playback" aria-label={paused ? "헤더 영상 재생" : "헤더 영상 일시정지"} aria-pressed={paused} onClick={togglePlayback} disabled={!showVideo}>
+    {video ? <button type="button" className="dp-cover-playback" aria-label={paused ? "헤더 영상 재생" : "헤더 영상 일시정지"} aria-pressed={paused} onClick={togglePlayback} disabled={!showVideo}>
       {paused ? <PlayIcon /> : <PauseIcon />}
-    </button>
+    </button> : null}
   </>;
 }
 
@@ -363,7 +403,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
 
   return <section className="dp-profile">
     <div className="dp-cover">
-      <DealerCoverMedia fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
+      <DealerCoverMedia video={!isDeutschShop(dealer.shopNo)} fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={isDeutschShop(dealer.shopNo) ? "도이치오토월드 전경" : MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
       <div className="dp-cover-brand-copy">
         <strong>{stripCorp(MOCK.company)}</strong>
         <span>수입차 전문 매매</span>
@@ -811,7 +851,7 @@ function SocialFeedSection({ cars, limit, embedded = false }: { cars: Car[]; lim
 
 function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDealer: SeoulAutoGalleryDealer; onOpenDealer: (dealer: SeoulAutoGalleryDealer) => void }) {
   const staff = dealers.filter((item) => item.shopNo === currentDealer.shopNo);
-  const totalListings = staff.reduce((sum, item) => sum + item.listingCount, 0);
+  const totalListings = isDeutschShop(currentDealer.shopNo) ? deutschShopCars(currentDealer.shopNo).length : staff.reduce((sum, item) => sum + item.listingCount, 0);
   return <section className="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
     <div className="dp-affiliated-company">
       <img src={MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />
@@ -1007,7 +1047,7 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
 function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
   const introduction = dealer.empNo === "1"
     ? MOCK.intro
-    : dealer.role === "대표" ? MOCK.intro : `서울오토갤러리 ${MOCK.company} 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
+    : dealer.role === "대표" ? MOCK.intro : `${MOCK.gallery} ${MOCK.company} 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
   return <section className="dp-content-card dp-about">
     <h2>소개</h2>
     <article className="dp-about-story">
@@ -1179,7 +1219,7 @@ export default function DealerPage() {
   const matchedDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo));
   const dealer: SeoulAutoGalleryDealer = matchedDealer ?? dealers[0];
   MOCK = profileFor(dealer);
-  const cars = useMemo(() => dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : dealer.shopNo === dealers[0].shopNo
+  const cars = useMemo(() => dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : isDeutschShop(dealer.shopNo) ? deutschDealerCars(dealer) : dealer.shopNo === dealers[0].shopNo
     ? seoulAutoGalleryCars
     : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo]);
   const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));

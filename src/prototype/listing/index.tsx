@@ -118,6 +118,7 @@ import "./truck-site-theme.css";
 import { dealers as seoulAutoGalleryDealers, SeoulAutoGalleryDealerRail, type SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import { SeoulAutoGalleryHeader } from "./seoul-auto-gallery-header";
 import { DeutschAutoworldHeader, SkV1MotorsHeader } from "./deutsch-autoworld-header";
+import { DeutschAutoworldAbout, DeutschAutoworldCompanyDirectory, DeutschAutoworldDealerDirectory, DeutschAutoworldDealerRail, DeutschAutoworldTabs } from "./deutsch-autoworld-directory";
 import { SupercarCategoryHeader } from "./supercar-category-header";
 import { FerrariCategoryHeader } from "./ferrari-category-header";
 import { OldcarCategoryHeader } from "./oldcar-category-header";
@@ -2750,7 +2751,9 @@ function MarketplaceScreen() {
   </> : baseQuickRail;
   const seoulAutoGalleryDealerRail = isGuaziQuickStyle && category === "서울오토갤러리" && !maker
     ? <SeoulAutoGalleryDealerRail onOpenDealer={openDealerProfile} />
-    : null;
+    : isGuaziQuickStyle && category === "도이치오토월드" && !maker
+      ? <DeutschAutoworldDealerRail />
+      : null;
   const seoulAutoGalleryHeader = isGuaziQuickStyle && category === "서울오토갤러리" && !maker
     ? <SeoulAutoGalleryHeader />
     : null;
@@ -2771,7 +2774,9 @@ function MarketplaceScreen() {
     : null;
   const categoryComplexHeader = ferrariCategoryHeader ?? supercarCategoryHeader ?? oldcarCategoryHeader ?? seoulAutoGalleryHeader ?? deutschAutoworldHeader ?? skV1Header;
   const isSeoulAutoGalleryLanding = isGuaziQuickStyle && category === "서울오토갤러리";
-  const showSeoulAutoGalleryVehicles = !isSeoulAutoGalleryLanding || seoulAutoGallerySection === "vehicles";
+  // 도이치오토월드도 서울오토갤러리와 같은 판매 차량 · 상사 · 딜러 · 소개 탭(2026-10-23). 탭 값은 같은 `sag` 주소 값을 쓴다.
+  const isDeutschLanding = isGuaziQuickStyle && category === "도이치오토월드";
+  const showSeoulAutoGalleryVehicles = !(isSeoulAutoGalleryLanding || isDeutschLanding) || seoulAutoGallerySection === "vehicles";
   const quickStyleSelect = (
             <label className="quick-style-select">
               <span>적용 사이트</span>
@@ -3511,13 +3516,13 @@ function MarketplaceScreen() {
     return (
       <>
         <MobileScroll className="app-screen">
-          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "올드카" ? " is-oldcar-category" : ""}${isSeoulAutoGalleryLanding ? " is-seoul-auto-gallery" : ""}`} aria-label="중고차 리스트">
+          <main className={`marketplace is-bbm-m${plainQuickCards ? " is-qf-plain" : ""}${guaziCardChipPreview ? " is-qf-guazi-card-chip" : ""}${isGuaziQuickStyle ? " is-qf-guazi" : ""}${isTruckCategory ? " is-truck-category" : ""}${isBikeCategory ? " is-bike-category" : ""}${isHeavyCategory ? " is-heavy-category" : ""}${category === "올드카" ? " is-oldcar-category" : ""}${isSeoulAutoGalleryLanding || isDeutschLanding ? " is-seoul-auto-gallery" : ""}`} aria-label="중고차 리스트">
             {luxuryHead ? <>
               <LuxuryThemeHero variant={luxuryHead} header={bbmMobileHeader} listingCount={luxuryCategoryCars.length} dealerCount={new Set(luxuryCategoryCars.map((car) => car.dealer)).size} onNotify={setSearchToast} />
               <div className="lux-hero-sheet"><div className="bbm-m-quick-slot">{quickRail}</div></div>
             </> : bbmMobileHeader}
             {luxuryHead ? null : categoryComplexHeader}
-            {luxuryHead ? null : isSeoulAutoGalleryLanding ? <SeoulAutoGalleryTabs value={seoulAutoGallerySection} onChange={chooseSeoulAutoGallerySection} /> : <section className="region-bar is-bbm" aria-label="지역 선택">
+            {luxuryHead ? null : isSeoulAutoGalleryLanding ? <SeoulAutoGalleryTabs value={seoulAutoGallerySection} onChange={chooseSeoulAutoGallerySection} /> : isDeutschLanding ? <DeutschAutoworldTabs value={seoulAutoGallerySection} onChange={chooseSeoulAutoGallerySection} /> : <section className="region-bar is-bbm" aria-label="지역 선택">
               <button type="button" aria-label={`현재 지역 ${isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}, 지역 선택 열기`} onClick={isGuaziQuickStyle ? () => setStableRegionOpen(true) : openRegionSheet}><span className="region-text">{isGuaziQuickStyle ? <img className="region-location-icon" src={bbmIcon("header-location-chotot-v01")} alt="" aria-hidden="true" /> : <span className="region-label">지역:</span>}<strong>{isGuaziQuickStyle ? stableRegionLabel(bbmValue) : regionLabel}</strong></span><span className="region-chevron-icon" aria-hidden="true"><img src={bbmIcon("triangle-down-chotot")} alt="" /></span></button>
               <button type="button" className="reset-button" onClick={() => resetFilters()}>초기화</button>
             </section>}
@@ -3532,6 +3537,9 @@ function MarketplaceScreen() {
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "companies" ? <SeoulAutoGalleryCompanyDirectory /> : null}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "dealers" ? <div className="sag-tab-panel"><SeoulAutoGalleryDealerRail all onOpenDealer={openDealerProfile} /></div> : null}
             {isSeoulAutoGalleryLanding && seoulAutoGallerySection === "about" ? <SeoulAutoGalleryAbout onBrowse={() => chooseSeoulAutoGallerySection("vehicles")} /> : null}
+            {isDeutschLanding && seoulAutoGallerySection === "companies" ? <DeutschAutoworldCompanyDirectory /> : null}
+            {isDeutschLanding && seoulAutoGallerySection === "dealers" ? <div className="sag-tab-panel"><DeutschAutoworldDealerDirectory /></div> : null}
+            {isDeutschLanding && seoulAutoGallerySection === "about" ? <DeutschAutoworldAbout onBrowse={() => chooseSeoulAutoGallerySection("vehicles")} /> : null}
             {luxuryUiTestMode ? <><p className="bbm-ui-test-notice">UI 테스트용 가상 매물 · 실제 판매 가격·조건이 아닙니다</p><BbmHeadlinePreviewLinks /></> : null}
             {!isGuaziQuickStyle ? (
               <section className="bbm-m-head" aria-label="목록 머리">
