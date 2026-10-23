@@ -30,6 +30,14 @@ export function matchCompany(query: string, name: string, extras: string[]) {
   return [name, ...extras].some((text) => norm(text).includes(q));
 }
 
+// 딜러 검색(2026-10-23 「딜러도 초성하자」): 이름 · 상사명을 찾고, 자음만 넣으면 이름 · 상사명의 초성으로 찾는다(ㄱㅁㅅ → 김민석).
+export function matchDealer(query: string, name: string, company: string) {
+  const q = norm(query);
+  if (!q) return true;
+  if (isChoseongQuery(q)) return choseongString(norm(name)).includes(q) || choseongString(norm(company)).includes(q);
+  return norm(name).includes(q) || norm(company).includes(q);
+}
+
 export function useCompanyFinder() {
   const [query, setQuery] = useState("");
   const [letter, setLetter] = useState("");

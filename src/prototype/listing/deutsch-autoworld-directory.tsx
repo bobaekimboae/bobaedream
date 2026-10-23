@@ -9,7 +9,7 @@ import type { SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import "./seoul-auto-gallery-dealer-rail.css";
 import "./seoul-auto-gallery-directory.css";
 import "./deutsch-autoworld-directory.css";
-import { CompanyFinder, companyIndexOf, matchCompany, useCompanyFinder } from "./company-finder";
+import { CompanyFinder, companyIndexOf, matchCompany, matchDealer, useCompanyFinder } from "./company-finder";
 
 // 도이치오토월드 단지 · 상사 · 딜러 페이지(2026-10-23 「우리 오토갤러리 처럼 딜러 상사 단지페이지 만들어라」).
 // 상사 = dautoworld.com 공개 상사 목록 114곳(대표 · 상사 전화 · 층·호수). 딜러 = 도이치오토월드 매물 4,298대의 실제 상사명 · 딜러명.
@@ -82,6 +82,7 @@ for (const [company, name, id] of deutschDealerPhotoRows) {
   listingPhotoIds.set(key, id);
 }
 for (const key of conflictedPhotoKeys) listingPhotoIds.delete(key);
+const DEUTSCH_DEFAULT_AVATAR = "deutsch-autoworld/dealer-avatar-as24.svg";
 const staffRole: Record<string, string> = { o: "대표", m: "사무장", d: "소속딜러" };
 const illustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 
@@ -111,7 +112,8 @@ export const allDeutschDealers: readonly SeoulAutoGalleryDealer[] = allDeutschSh
     const real = listingPhotoIds.get(`${dealer.shopNo}:${dealer.name}`);
     if (real) return { ...dealer, profileAsset: `deutsch-autoworld/dealer-photos-cha/${real}.webp` };
     const photo = dealerPhotoIds[`${dealer.shopNo}:${dealer.name}`];
-    return photo ? { ...dealer, profileAsset: `deutsch-autoworld/dealer-photos/${photo}.webp` } : dealer;
+    // 실사진이 없거나 맞는 사진을 가릴 수 없는 딜러는 정장 일러스트 대신 오토스카우트24 기본 프로필(사람 아이콘)로 둔다(2026-10-23 「사진 안맞는건 오토스카우트 프로필로해」).
+    return { ...dealer, profileAsset: photo ? `deutsch-autoworld/dealer-photos/${photo}.webp` : DEUTSCH_DEFAULT_AVATAR };
   });
 });
 
@@ -206,7 +208,6 @@ function DealerCard({ dealer, showCompany }: { dealer: SeoulAutoGalleryDealer; s
   );
 }
 
-const normalizeQuery = (value: string) => value.toLowerCase().replace(/\s+/g, "");
 const PAGE = 60;
 
 // 딜러 탭은 판매 차량이 많은 딜러부터(같으면 대표 먼저) 보여 준다. 카드의 대수는 딜러 본인 매물이다.
@@ -219,14 +220,13 @@ export function DeutschAutoworldDealerDirectory() {
   const shops = useMemo(() => companies
     .map(({ shop, memberCount }) => ({ shopNo: shop.shopNo, label: displayCompany(shop.company), count: memberCount }))
     .sort((a, b) => b.count - a.count), []);
-  const q = normalizeQuery(query);
-  const list = sortedDealers.filter((dealer) => (!shopNo || dealer.shopNo === shopNo) && (!q || normalizeQuery(dealer.name).includes(q) || normalizeQuery(deutschShopByNo.get(dealer.shopNo)?.company ?? "").includes(q)));
+  const list = sortedDealers.filter((dealer) => (!shopNo || dealer.shopNo === shopNo) && matchDealer(query, dealer.name, deutschShopByNo.get(dealer.shopNo)?.company ?? ""));
   const reset = (next: () => void) => { next(); setLimit(PAGE); };
   return (
     <section className="sag-dealer-rail is-all" aria-labelledby="daw-dealer-directory-title">
       <label className="sag-dealer-search">
         <img src={asset("bbm/header-search.svg")} alt="" aria-hidden="true" />
-        <input type="search" value={query} onChange={(event) => reset(() => setQuery(event.target.value))} placeholder="딜러 이름이나 상사로 검색" aria-label="딜러 검색" />
+        <input type="search" value={query} onChange={(event) => reset(() => setQuery(event.target.value))} placeholder="딜러 이름 · 상사 · 초성으로 검색" aria-label="딜러 검색" />
         {query ? <button type="button" aria-label="검색어 지우기" onClick={() => reset(() => setQuery(""))}>×</button> : null}
       </label>
       <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
