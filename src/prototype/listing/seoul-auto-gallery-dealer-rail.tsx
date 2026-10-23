@@ -34,6 +34,8 @@ export const dealers: readonly SeoulAutoGalleryDealer[] = [
 // 서울오토갤러리 회원사 79곳의 소속딜러 전원 판매자페이지(2026-10-21 「딜러 개개인 페이지 모두 만들어」).
 // 상사마다 사이트 「소속딜러」 순서대로 만든다. 위 레일 딜러는 같은 상사·이름이면 그대로 쓰고(주소 유지),
 // 대표는 대표 순번(emp 1·2), 나머지 딜러는 그 상사에서 비어 있는 다음 번호를 쓴다. 판매차량 수는 사이트 보유차량 대수.
+// 차란차 매물 딜러 프로필에서 얼굴만 잘라 붙인 실사진(2026-10-23 「차란차 프로필 백엔드에서 추출해 사진 매핑」). 상사 번호 + 이름이 같을 때만 쓴다.
+const seoulChaRealPhotos: Record<string, string> = { "450087:노대규": "seoul-autogallery/dealer-photos-cha/8b7ce883.webp", "450087:김동우": "seoul-autogallery/dealer-photos-cha/c8a13c76.webp" };
 const ownerIllustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 const sheetStock = (company: string, name: string) => seoulAutoGalleryRows.filter((row) => row.company === company && row.dealer === name).reduce((max, row) => Math.max(max, row.stock), 0);
 export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = seoulAutoGalleryShops.flatMap((shop, shopIndex) => {
@@ -47,7 +49,7 @@ export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = s
     const index = profileCursor.get(key) ?? 0;
     profileCursor.set(key, index + 1);
     const assets = seoulAutoGalleryFormalProfilesByShopAndName[key];
-    return assets?.[index] ?? assets?.[0];
+    return assets?.[index] ?? assets?.[0] ?? seoulChaRealPhotos[key];
   };
   const taken = new Set<SeoulAutoGalleryDealer>();
   const list: SeoulAutoGalleryDealer[] = [];
