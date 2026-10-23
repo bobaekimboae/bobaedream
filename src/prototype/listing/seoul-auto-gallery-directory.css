@@ -162,3 +162,6 @@
 .sag-company-index { margin-bottom: 2px; }
 .sag-company-index button { min-width: 40px; }
 .sag-company-index button:disabled { opacity: .35; }
+/* 딜러 탭(2026-10-23 「초성이 밑으로」): 상사 알약 → 8 → ㄱㄴㄷ 색인 → 14 → 「딜러 N명」 */
+.sag-dealer-rail.is-all .sag-dealer-shops:not(.sag-company-index) { margin-bottom: 8px; }
+.sag-dealer-rail.is-all .sag-company-index { margin-bottom: 14px; }

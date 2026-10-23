@@ -231,11 +231,11 @@ export function DeutschAutoworldDealerDirectory() {
         <input type="search" value={query} onChange={(event) => reset(() => setQuery(event.target.value))} placeholder="딜러 이름 · 상사 · 초성으로 검색" aria-label="딜러 검색" />
         {query ? <button type="button" aria-label="검색어 지우기" onClick={() => reset(() => setQuery(""))}>×</button> : null}
       </label>
-      <DealerIndex names={scoped.map((dealer) => dealer.name)} letter={letter} onChange={(next) => reset(() => setLetter(next))} />
       <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
         <button type="button" aria-pressed={!shopNo} className={!shopNo ? "is-selected" : ""} onClick={() => reset(() => setShopNo(""))}>전체 {allDeutschDealers.length.toLocaleString("ko-KR")}</button>
         {shops.map((shop) => <button key={shop.shopNo} type="button" aria-pressed={shopNo === shop.shopNo} className={shopNo === shop.shopNo ? "is-selected" : ""} onClick={() => reset(() => setShopNo(shopNo === shop.shopNo ? "" : shop.shopNo))}>{shop.label} {shop.count}</button>)}
       </div>
+      <DealerIndex names={scoped.map((dealer) => dealer.name)} letter={letter} onChange={(next) => reset(() => setLetter(next))} />
       <h2 id="daw-dealer-directory-title">딜러 {list.length.toLocaleString("ko-KR")}명</h2>
       {list.length ? (
         <>
