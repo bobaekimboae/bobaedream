@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { matchDealer } from "./company-finder";
 import { asset } from "../data";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
@@ -75,7 +76,6 @@ export const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.prof
 
 const shopLabel = (company: string) => company.replace(/\(주\)|\(유\)|주식회사/g, "").replace(/\s+/g, " ").trim();
 const companyOf = (dealer: SeoulAutoGalleryDealer) => shopLabel(seoulAutoGalleryShops.find((shop) => shop.shopNo === dealer.shopNo)?.company ?? "");
-const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, "");
 
 // 인스타그램 · 유튜브가 있는 딜러(본인 또는 상사 공식 계정) 표시(2026-10-21 「우리 딜러 페이지에 링크 걸어줘」)
 const iconBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -110,14 +110,13 @@ function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dea
     .map((shop, index) => ({ shopNo: shop.shopNo, label: shopLabel(shop.company), count: allSeoulAutoGalleryDealers.filter((dealer) => dealer.shopNo === shop.shopNo).length, index }))
     .filter((shop) => shop.count > 0)
     .sort((a, b) => b.count - a.count || a.index - b.index), []);
-  const q = normalize(query);
   const snsCount = allSeoulAutoGalleryDealers.filter((dealer) => snsOf(dealer)).length;
-  const list = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || (shopNo === "sns" ? Boolean(snsOf(dealer)) : dealer.shopNo === shopNo)) && (!q || normalize(dealer.name).includes(q) || normalize(companyOf(dealer)).includes(q)));
+  const list = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || (shopNo === "sns" ? Boolean(snsOf(dealer)) : dealer.shopNo === shopNo)) && matchDealer(query, dealer.name, companyOf(dealer)));
   return (
     <section className="sag-dealer-rail is-all" aria-labelledby="sag-dealer-rail-title">
       <label className="sag-dealer-search">
         <img src={asset("bbm/header-search.svg")} alt="" aria-hidden="true" />
-        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="딜러 이름이나 상사로 검색" aria-label="딜러 검색" />
+        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="딜러 이름 · 상사 · 초성으로 검색" aria-label="딜러 검색" />
         {query ? <button type="button" aria-label="검색어 지우기" onClick={() => setQuery("")}>×</button> : null}
       </label>
       <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
