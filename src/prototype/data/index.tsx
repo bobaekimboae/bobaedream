@@ -44,6 +44,7 @@ import { seoulAutoGalleryRows } from "./seoul-autogallery-v01";
 import { seoulAutoGallerySiteRows } from "./seoul-autogallery-site-v01";
 import deutschAutoworldRowsJson from "./deutsch-autoworld-all-v01.json";
 import deutschDriveLinks from "./deutsch-autoworld-drive-v01.json";
+import deutschTop10Rows from "./deutsch-top10-imported-v01.json";
 import joyMotorsRowsJson from "./joymotors-v01.json";
 import {
   campingScenarioV01,
@@ -195,6 +196,8 @@ type Car = {
   joyMotors?: { itemNo: string };
   /** 도이치오토월드 카테고리 실데이터(같은 표시 규칙: 실제 상사명·딜러명, 사진 5장) */
   realDealer?: { company: string; dealer: string };
+  /** 공식 수입차 목록의 공개 매물. 사진·제원은 2026-10-23 원본 확인값만 쓴다. */
+  deutschSource?: { id: string; url: string; collectedAt: string; firstRegistered: string; accident: string };
   /** 피드 사진 넘기기에 쓰는 실제 다중 사진(있으면 임시 슬라이드 대신 사용) */
   photoList?: string[];
   /** 올드카 카테고리 가상 매물 v01(차량 › 테마별 중고차 › 올드카). 시트 순번과 가격을 채운 값인지 */
@@ -1578,7 +1581,35 @@ const deutschCars: Car[] = deutschRowsByRecent.map((row, order) => {
     filter: { year, seats: "전체", condition: "중고", mileage: km, owners: "전체", transmission: "오토", fuel, color: "기타", origin: ["벤츠", "BMW", "아우디", "포르쉐", "미니", "폭스바겐"].includes(maker) ? "독일" : "수입", body: deutschBodyType(model), video: false },
   };
 });
-const deutschAutoworldCars = deutschCars.filter((car) => car.place === deutschPlaces[0]);
+const deutschTop10Cars: Car[] = deutschTop10Rows.map((row, order) => ({
+  id: row.id,
+  updateRank: 300_000 + deutschTop10Rows.length - order,
+  maker: row.maker,
+  modelGroup: row.model,
+  sellerType: "딜러",
+  image: row.photos[0]?.url ?? "",
+  photoList: row.photos.map((photo) => photo.url),
+  imageFit: "cover",
+  imageAspectRatio: row.photos[0] ? row.photos[0].width / row.photos[0].height : undefined,
+  title: row.title,
+  trim: "",
+  specs: [`${row.year}년식`, `${row.mileage.toLocaleString("ko-KR")}km`, row.fuel].filter(Boolean),
+  cardSpec: [`${String(row.year).slice(2)}년${row.month}월`, `${row.mileage.toLocaleString("ko-KR")}km`, row.fuel].filter(Boolean),
+  price: row.price === null ? "가격 상담" : `${row.price.toLocaleString("ko-KR")} 만원`,
+  place: deutschPlaces[0],
+  views: 0,
+  dealer: `${row.dealer} ${row.company.replace(/\(주\)|주식회사/g, "").trim()}`,
+  stock: deutschTop10Rows.filter((other) => other.dealer === row.dealer && other.company === row.company).length,
+  posted: `${row.collectedAt.replaceAll("-", ".")} 확인`,
+  photos: row.photos.length,
+  badges: [],
+  sellerProfile: null,
+  realDealer: { company: row.company, dealer: row.dealer },
+  deutschSource: { id: row.sourceId, url: row.sourceUrl, collectedAt: row.collectedAt, firstRegistered: row.firstRegistered, accident: row.accident },
+  filter: { year: row.year, seats: "전체", condition: "중고", mileage: row.mileage, owners: "전체", transmission: row.transmission, fuel: row.fuel, color: row.color, origin: "수입", body: "", video: false, ...(row.displacement ? { displacement: row.displacement } : {}) },
+}));
+const deutschReplacedIds = new Set(deutschTop10Rows.flatMap((row) => row.replacesId ? [row.replacesId] : []));
+const deutschAutoworldCars = [...deutschTop10Cars, ...deutschCars.filter((car) => car.place === deutschPlaces[0] && !deutschReplacedIds.has(car.id))];
 const deutschOtherComplexCars = deutschCars.filter((car) => car.place !== deutschPlaces[0]);
 
 // 조이모터스(SK V1 모터스 173호) 전체 매물(2026-10-21 「조이모터스 상사페이지 만들어, 모든 매물 등록하고, 단지도 새로 입력하고」).
@@ -1647,7 +1678,7 @@ const joyMotorsCars: Car[] = joyMotorsRows
   });
 
 const domesticPhotoById = new Map(charanchaDomesticPhotos.photos.map((photo) => [photo.id, photo.image]));
-const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...deutschOtherComplexCars].map((car): Car => {
+const bbmSampleCars: Car[] = [...chototTestCars, ...bbmExtraCars, ...bbmBodyExtraCars, ...bbmLuxuryAddCars, ...deutschTop10Cars, ...deutschOtherComplexCars].map((car): Car => {
   const image = domesticPhotoById.get(car.id);
   return image ? { ...car, image, imageFit: "cover", imageAspectRatio: 16 / 9, photoList: [image], photos: 1 } : car;
 });
@@ -2205,6 +2236,7 @@ export {
   supercarCategoryCars,
   seoulAutoGalleryCars,
   deutschAutoworldCars,
+  deutschTop10Cars,
   joyMotorsCars,
   isDesktopPreview,
   getInitialQuickFilterStyle,

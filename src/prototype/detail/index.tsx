@@ -153,6 +153,15 @@ const BMW_M3_HISTORY_MOCK = {
 const isBmwM3CompetitionXDrive = (car: Car, model: string) => car.maker === "BMW" && /M3/i.test(`${model} ${car.title} ${car.trim}`) && /xDrive|컴페티션|Competition/i.test(`${car.title} ${car.trim}`);
 
 function carFacts(car: Car): string[][] {
+  if (car.deutschSource) return [
+    ["제조사", car.maker], ["모델", car.modelGroup ?? car.title],
+    ["연식", bbmCardSpec(car, false).split(" · ")[0]],
+    ["주행거리", `${car.filter?.mileage.toLocaleString("ko-KR")}km`],
+    ["연료", car.filter?.fuel || NO_INFO], ["변속기", car.filter?.transmission || NO_INFO],
+    ["배기량", car.filter?.displacement ? `${car.filter.displacement.toLocaleString("ko-KR")}cc` : NO_INFO],
+    ["최초등록일", car.deutschSource.firstRegistered || NO_INFO],
+    ["외관 색상", car.filter?.color || NO_INFO], ["사고여부", car.deutschSource.accident],
+  ];
   const fd = car.ferrariDetail;
   const yearText = bbmCardSpec(car, false).split(" · ")[0];
   const model = (car.modelGroup ?? car.title.replace(new RegExp(`^${car.maker}\\s*`), "")).trim();
@@ -291,6 +300,13 @@ function VehicleInfoCard() {
   const facts = car ? carFacts(car) : [];
   const factGroups = car ? carFactGroups(car) : [];
   const factsMode = new URLSearchParams(window.location.search).get("facts");
+  if (car?.deutschSource) return (
+    <SectionCard title="차량 정보" className="vehicle-info-card">
+      <dl className="detail-facts">{facts.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
+      <p>도이치오토월드 · {car.deutschSource.collectedAt} 확인</p>
+      <a className="detail-more" href={car.deutschSource.url} target="_blank" rel="noreferrer">원본 매물 보기</a>
+    </SectionCard>
+  );
   if (car && factsMode === "chotot") {
     const chototRows = chototFactRows(car, factGroups);
     return (
@@ -641,7 +657,7 @@ function VehicleSummary() {
   useLocationWrap(summaryRef);
   useLocationLinks(summaryRef, car);
   // 상단 메타의 마력은 유지한다. 아래 차량 정보 8칸에서만 마력을 제외한다.
-  const detailPower = car ? (isBmwM3CompetitionXDrive(car, (car.modelGroup ?? car.title).trim()) ? "510마력" : bbmSampleHorsepower(car.id)) : undefined;
+  const detailPower = car && !car.deutschSource ? (isBmwM3CompetitionXDrive(car, (car.modelGroup ?? car.title).trim()) ? "510마력" : bbmSampleHorsepower(car.id)) : undefined;
   const detailBodyType = car ? carFacts(car).find(([label]) => label === "바디타입")?.[1] : undefined;
   if (car) return (
     <section ref={summaryRef} className="vehicle-summary is-list-summary marketplace is-bbm-m is-qf-guazi"><div className="bbm-m-list">
@@ -1268,11 +1284,19 @@ function DesktopHeader({ onBack }: { onBack: () => void }) {
 
 function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
   const content = useRef<HTMLDivElement>(null);
+  const sourceCar = getActiveDetailCar();
   const jump = (id: string) => {
     const target = content.current?.querySelector<HTMLElement>(`#${id}`);
     const scroll = content.current?.closest(".detail-screen");
     if (target && scroll) scroll.scrollTo({ top: target.getBoundingClientRect().top - scroll.getBoundingClientRect().top + scroll.scrollTop - 16, behavior: "smooth" });
   };
+  if (sourceCar?.deutschSource) return <div className="pc-detail" ref={content}>
+    <DesktopHeader onBack={onBack} />
+    <main className="pc-detail-container" aria-label="중고차 PC 상세">
+      <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery onBack={onBack} /><VehicleInfoCard /></div><aside className="pc-sidebar"><VehicleSummary /></aside></div>
+      <button className="pc-return" onClick={onBack}>목록으로 돌아가기</button>
+    </main>
+  </div>;
   return <div className="pc-detail" ref={content}>
     <DesktopHeader onBack={onBack} />
     <main className="pc-detail-container" aria-label="중고차 PC 상세">
@@ -1436,8 +1460,9 @@ function VehicleDetail() {
         <main className="vehicle-detail" aria-label="중고차 상세">
           <DetailHero onBack={goBack} />
           <VehicleSummary />
-          <DetailTabs />
+          {activeCar?.deutschSource ? null : <DetailTabs />}
           <div className="detail-gray-stack">
+            {activeCar?.deutschSource ? <VehicleInfoCard /> : <>
             <SellerCard />
             <DetailHighlights />
             <VehicleInfoCard />
@@ -1447,10 +1472,13 @@ function VehicleDetail() {
             <WarrantyCard />
             <SaleCard />
             <DescriptionCard />
+            </>}
           </div>
+          {activeCar?.deutschSource ? null : <>
           <CarRail title={`${sellerScenario.name}의 다른 매물`} cars={relatedCars} />
           <CarRail title="동급매물" cars={classCars} />
           <p className="safety-copy">안전한 거래와 허위매물 근절을 위해 안심번호(050) 이용 시 통화 내용이 보배드림에 안전하게 보관됩니다.<br />보배드림은 등록 시스템만 제공하며, 판매자가 직접 등록한 차량에 대한 모든 책임은 판매자에게 있습니다. <button type="button" onClick={() => notify("신고하기를 선택했어요")}>신고하기</button></p>
+          </>}
         </main>
         </>}
       </MobileScroll>
@@ -1467,6 +1495,7 @@ function VehicleDetail() {
 function DetailFooter() {
   const { setSheet, notify } = useDetailUi();
   const activeCar = getActiveDetailCar();
+  if (activeCar?.deutschSource) return <div className="detail-bottom-bar"><a className="detail-call" href={activeCar.deutschSource.url} target="_blank" rel="noreferrer">원본 매물 · 판매자 문의</a></div>;
   if (activeCar?.bike) {
     return (
       <div className="detail-bottom-bar">

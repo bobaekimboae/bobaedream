@@ -668,7 +668,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
     : bbmCardSpec(car, variant === "pc");
   // 피드형은 승용·지시값 매물도 연료 뒤에 마력을 붙인다(트럭은 이미 있고, 바이크·건설기계·캠핑카는 해당 없음). 올드카 세대는 그 뒤 맨 끝
   const isPassengerCar = !(car.truck || car.bike || car.heavy || car.virtualCategory);
-  const withFeedPower = featured && isPassengerCar && !specBase.includes("마력") ? `${specBase} · ${bbmSampleHorsepower(car.id)}` : specBase;
+  const withFeedPower = featured && isPassengerCar && !car.deutschSource && !specBase.includes("마력") ? `${specBase} · ${bbmSampleHorsepower(car.id)}` : specBase;
   const withDetailPower = detailSummary && detailPower && !withFeedPower.includes("마력") ? `${withFeedPower} · ${detailPower}` : withFeedPower;
   const withDetailBodyType = detailSummary && detailBodyType ? `${withDetailPower} · ${detailBodyType}` : withDetailPower;
   const specText = oldCarGen ? `${withDetailBodyType} · ${oldCarGen}` : withDetailBodyType;
