@@ -1,4 +1,6 @@
 import { luxuryLogoBrands, luxuryLogoPath, luxuryLogoSource } from "../listing/luxury-logo-rail";
+import { KrBrandLogo } from "../listing/bbm-brand-logos";
+import { dealerBrandStock } from "./dealer-brand-stock";
 import { instagramHandleFor, instagramPostsFor, type DealerInstagramPost } from "../data/seoul-autogallery-instagram-v01";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Cross2Icon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
@@ -597,8 +599,8 @@ function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCatego
   </section>;
 }
 
-// 판매차량 탭 위 슈퍼카 브랜드 로고 줄(2026-10-21 「판매차량 위 구분선에 우리 슈퍼카 로고 카드들 배치하자」).
-// 슈퍼카·럭셔리카 카테고리와 같은 오토홈 로고 16개 · 같은 칸(모바일 76×102 · PC 84×102). 누르면 그 브랜드 판매차량만, 다시 누르면 해제. 0대는 흐리게.
+// 판매차량 탭 위 브랜드 로고 줄: 판매자 전체 재고의 매물 수 내림차순·동률 가나다순.
+// 슈퍼카 16개는 기존 로고 원본 번호를 유지하고 나머지는 공용 제조사 로고를 쓴다. 0대 브랜드는 표시하지 않는다.
 // 페라리를 고르면 로고 줄 아래에 우리 페라리 모델 이미지 줄(2026-10-21 「페라리 다음에 우리 모델 이미지 나오게해라」).
 // 이미지·이름·순서는 차량 기준표(cars-index-v1)의 페라리 모델그룹 18개, 3/4 카탈로그 컷(ferrari-models/angle). 0대는 흐리게.
 const ferrariModelCards: Array<[string, string, string[]]> = [
@@ -628,15 +630,19 @@ function DealerModelRail({ cars, model, onPick }: { cars: Car[]; model: string; 
 
 function DealerBrandRail({ cars, brand, onPick, model, onPickModel }: { cars: Car[]; brand: string; onPick: (maker: string) => void; model: string; onPickModel: (model: string) => void }) {
   const source = luxuryLogoSource();
-  const counts = new Map<string, number>();
-  cars.forEach((car) => counts.set(car.maker, (counts.get(car.maker) ?? 0) + 1));
+  const brands = dealerBrandStock(cars);
   return <nav className="dp-brand-rail" aria-label="브랜드로 판매차량 보기">
     <div className="dp-brand-rail-track">
-      {luxuryLogoBrands.map((item, index) => {
-        const count = counts.get(item.maker) ?? 0;
-        return <button type="button" key={item.maker} className={`${brand === item.maker ? "is-active" : ""}${count ? "" : " is-empty"}`} aria-pressed={brand === item.maker} aria-label={`${item.maker} ${count}대`} onClick={() => onPick(item.maker)}>
-          <span className="dp-brand-rail-logo"><img src={asset(luxuryLogoPath(source, index))} alt="" draggable={false} /></span>
-          <span className="dp-brand-rail-name">{item.maker}</span>
+      <button type="button" className={!brand ? "is-active" : undefined} aria-pressed={!brand} aria-label={`전체 ${cars.length}대`} onClick={() => onPick("")}>
+        <span className="dp-brand-rail-logo dp-brand-rail-all" aria-hidden="true">전체</span>
+        <span className="dp-brand-rail-name">전체 차량</span>
+        <span className="dp-brand-rail-count">({cars.length})</span>
+      </button>
+      {brands.map(({ maker, count }) => {
+        const logoIndex = luxuryLogoBrands.findIndex((item) => item.maker === maker);
+        return <button type="button" key={maker} className={brand === maker ? "is-active" : undefined} aria-pressed={brand === maker} aria-label={`${maker} ${count}대`} onClick={() => onPick(maker)}>
+          <span className="dp-brand-rail-logo">{logoIndex >= 0 ? <img src={asset(luxuryLogoPath(source, logoIndex))} alt="" draggable={false} /> : <KrBrandLogo name={maker} kind="plain" initialFallback />}</span>
+          <span className="dp-brand-rail-name">{maker}</span>
           <span className="dp-brand-rail-count">({count})</span>
         </button>;
       })}

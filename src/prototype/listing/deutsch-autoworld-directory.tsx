@@ -83,6 +83,12 @@ for (const [company, name, id] of deutschDealerPhotoRows) {
 }
 for (const key of conflictedPhotoKeys) listingPhotoIds.delete(key);
 const DEUTSCH_DEFAULT_AVATAR = "deutsch-autoworld/dealer-avatar-as24.svg";
+// 차란차 사진이 없는 이병훈: 첫차 공개 프로필의 이름·제이원모터스·도이치오토월드가 모두 일치.
+// 원본과 확인 내역: public/assets/deutsch-autoworld/dealer-photos-verified/CREDITS.md,
+// docs/deutsch-top10-profile-audit.md. 상사+이름으로 한정해 다른 동명이인에게 붙이지 않는다.
+const verifiedPortraits: Record<string, string> = {
+  "da100079:이병훈": "deutsch-autoworld/dealer-photos-verified/lee-byeonghun.jpg",
+};
 const staffRole: Record<string, string> = { o: "대표", m: "사무장", d: "소속딜러" };
 const illustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 
@@ -109,6 +115,8 @@ export const allDeutschDealers: readonly SeoulAutoGalleryDealer[] = allDeutschSh
       return { name, listingCount: 0, shopNo: shop.shopNo, empNo: String(order + 1), image: picture(order), role: staffRole[code] ?? "소속딜러" };
     });
   return [...owners, ...staff, ...rest].map((dealer) => {
+    const verified = verifiedPortraits[`${dealer.shopNo}:${dealer.name}`];
+    if (verified) return { ...dealer, profileAsset: verified };
     const real = listingPhotoIds.get(`${dealer.shopNo}:${dealer.name}`);
     if (real) return { ...dealer, profileAsset: `deutsch-autoworld/dealer-photos-cha/${real}.webp` };
     const photo = dealerPhotoIds[`${dealer.shopNo}:${dealer.name}`];
