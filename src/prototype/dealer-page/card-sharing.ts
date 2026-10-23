@@ -1,4 +1,4 @@
-import { cardUrl, readCardStyle, serializeCardStyle, type CardContact, type CardStyle } from "./business-card";
+import { defaultCardStyle, readCardStyle, serializeCardStyle, type CardContact, type CardStyle } from "./business-card";
 
 export const cardServiceOrigin = "https://bobaedream-dealer-card.bobaekim.chatgpt.site";
 export type PublishedCard = { style: CardStyle; contact: CardContact; version: string; url: string };
@@ -9,9 +9,18 @@ export function fixedCardUrl(shop: string, emp: string): string {
   return `${cardServiceOrigin}/c/${shop}/${emp}`;
 }
 
+// 카카오톡 미리보기(2026-10-23): 공유 주소는 og 태그가 있는 짧은 정적 페이지 c/<shop>-<emp>(scripts/dealer-card-og.mjs).
+// 기본 꾸밈이면 # 뒤를 붙이지 않아 링크가 짧고, 꾸민 명함만 꾸밈 값을 # 뒤에 붙인다. 정적 페이지가 실제 명함 화면으로 넘긴다.
+export function shortCardUrl(base: string, shop: string, emp: string, style: CardStyle): string {
+  const url = new URL(`c/${encodeURIComponent(shop)}-${encodeURIComponent(emp)}`, new URL(".", base));
+  const styled = serializeCardStyle(style);
+  if (styled !== serializeCardStyle(defaultCardStyle)) url.hash = styled;
+  return url.href;
+}
+
 export function sharingUrl(base: string, shop: string, emp: string, style: CardStyle, published: PublishedCard | null) {
   return published && serializeCardStyle(style) === serializeCardStyle(published.style)
-    ? fixedCardUrl(shop, emp) : cardUrl(base, shop, emp, style);
+    ? fixedCardUrl(shop, emp) : shortCardUrl(base, shop, emp, style);
 }
 
 export async function fetchPublishedCard(shop: string, emp: string, signal?: AbortSignal): Promise<PublishedCard | null> {
