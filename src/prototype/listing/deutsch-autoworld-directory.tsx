@@ -9,7 +9,7 @@ import type { SeoulAutoGalleryDealer } from "./seoul-auto-gallery-dealer-rail";
 import "./seoul-auto-gallery-dealer-rail.css";
 import "./seoul-auto-gallery-directory.css";
 import "./deutsch-autoworld-directory.css";
-import { CompanyFinder, companyIndexOf, matchCompany, matchDealer, useCompanyFinder } from "./company-finder";
+import { CompanyFinder, companyIndexOf, DealerIndex, matchCompany, matchDealer, useCompanyFinder } from "./company-finder";
 
 // 도이치오토월드 단지 · 상사 · 딜러 페이지(2026-10-23 「우리 오토갤러리 처럼 딜러 상사 단지페이지 만들어라」).
 // 상사 = dautoworld.com 공개 상사 목록 114곳(대표 · 상사 전화 · 층·호수). 딜러 = 도이치오토월드 매물 4,298대의 실제 상사명 · 딜러명.
@@ -216,11 +216,13 @@ const sortedDealers = [...allDeutschDealers].sort((a, b) => b.listingCount - a.l
 export function DeutschAutoworldDealerDirectory() {
   const [query, setQuery] = useState("");
   const [shopNo, setShopNo] = useState("");
+  const [letter, setLetter] = useState("");
   const [limit, setLimit] = useState(PAGE);
   const shops = useMemo(() => companies
     .map(({ shop, memberCount }) => ({ shopNo: shop.shopNo, label: displayCompany(shop.company), count: memberCount }))
     .sort((a, b) => b.count - a.count), []);
-  const list = sortedDealers.filter((dealer) => (!shopNo || dealer.shopNo === shopNo) && matchDealer(query, dealer.name, deutschShopByNo.get(dealer.shopNo)?.company ?? ""));
+  const scoped = sortedDealers.filter((dealer) => (!shopNo || dealer.shopNo === shopNo) && matchDealer(query, dealer.name, deutschShopByNo.get(dealer.shopNo)?.company ?? ""));
+  const list = letter ? scoped.filter((dealer) => companyIndexOf(dealer.name) === letter).sort((a, b) => a.name.localeCompare(b.name, "ko")) : scoped;
   const reset = (next: () => void) => { next(); setLimit(PAGE); };
   return (
     <section className="sag-dealer-rail is-all" aria-labelledby="daw-dealer-directory-title">
@@ -229,6 +231,7 @@ export function DeutschAutoworldDealerDirectory() {
         <input type="search" value={query} onChange={(event) => reset(() => setQuery(event.target.value))} placeholder="딜러 이름 · 상사 · 초성으로 검색" aria-label="딜러 검색" />
         {query ? <button type="button" aria-label="검색어 지우기" onClick={() => reset(() => setQuery(""))}>×</button> : null}
       </label>
+      <DealerIndex names={scoped.map((dealer) => dealer.name)} letter={letter} onChange={(next) => reset(() => setLetter(next))} />
       <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
         <button type="button" aria-pressed={!shopNo} className={!shopNo ? "is-selected" : ""} onClick={() => reset(() => setShopNo(""))}>전체 {allDeutschDealers.length.toLocaleString("ko-KR")}</button>
         {shops.map((shop) => <button key={shop.shopNo} type="button" aria-pressed={shopNo === shop.shopNo} className={shopNo === shop.shopNo ? "is-selected" : ""} onClick={() => reset(() => setShopNo(shopNo === shop.shopNo ? "" : shop.shopNo))}>{shop.label} {shop.count}</button>)}
@@ -244,7 +247,7 @@ export function DeutschAutoworldDealerDirectory() {
       ) : (
         <div className="sag-dealer-empty">
           <p>찾는 딜러가 없어요. 이름이나 상사명을 다시 확인해 주세요.</p>
-          <button type="button" onClick={() => reset(() => { setQuery(""); setShopNo(""); })}>검색 초기화</button>
+          <button type="button" onClick={() => reset(() => { setQuery(""); setShopNo(""); setLetter(""); })}>검색 초기화</button>
         </div>
       )}
     </section>

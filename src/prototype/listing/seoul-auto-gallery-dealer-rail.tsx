@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { matchDealer } from "./company-finder";
+import { companyIndexOf, DealerIndex, matchDealer } from "./company-finder";
 import { asset } from "../data";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
@@ -108,12 +108,14 @@ function DealerCard({ dealer, onOpenDealer, showCompany }: { dealer: SeoulAutoGa
 function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void }) {
   const [query, setQuery] = useState("");
   const [shopNo, setShopNo] = useState("");
+  const [letter, setLetter] = useState("");
   const shops = useMemo(() => seoulAutoGalleryShops
     .map((shop, index) => ({ shopNo: shop.shopNo, label: shopLabel(shop.company), count: allSeoulAutoGalleryDealers.filter((dealer) => dealer.shopNo === shop.shopNo).length, index }))
     .filter((shop) => shop.count > 0)
     .sort((a, b) => b.count - a.count || a.index - b.index), []);
   const snsCount = allSeoulAutoGalleryDealers.filter((dealer) => snsOf(dealer)).length;
-  const list = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || (shopNo === "sns" ? Boolean(snsOf(dealer)) : dealer.shopNo === shopNo)) && matchDealer(query, dealer.name, companyOf(dealer)));
+  const scoped = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || (shopNo === "sns" ? Boolean(snsOf(dealer)) : dealer.shopNo === shopNo)) && matchDealer(query, dealer.name, companyOf(dealer)));
+  const list = letter ? scoped.filter((dealer) => companyIndexOf(dealer.name) === letter).sort((a, b) => a.name.localeCompare(b.name, "ko")) : scoped;
   return (
     <section className="sag-dealer-rail is-all" aria-labelledby="sag-dealer-rail-title">
       <label className="sag-dealer-search">
@@ -121,6 +123,7 @@ function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dea
         <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="딜러 이름 · 상사 · 초성으로 검색" aria-label="딜러 검색" />
         {query ? <button type="button" aria-label="검색어 지우기" onClick={() => setQuery("")}>×</button> : null}
       </label>
+      <DealerIndex names={scoped.map((dealer) => dealer.name)} letter={letter} onChange={setLetter} />
       <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
         <button type="button" aria-pressed={!shopNo} className={!shopNo ? "is-selected" : ""} onClick={() => setShopNo("")}>전체 {allSeoulAutoGalleryDealers.length}</button>
         <button type="button" aria-pressed={shopNo === "sns"} className={`is-sns${shopNo === "sns" ? " is-selected" : ""}`} onClick={() => setShopNo(shopNo === "sns" ? "" : "sns")}><img src={`${iconBase}icons/dealer-profile/instagram.svg`} alt="" aria-hidden="true" />인스타 · 유튜브 {snsCount}</button>
@@ -134,7 +137,7 @@ function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dea
       ) : (
         <div className="sag-dealer-empty">
           <p>찾는 딜러가 없어요. 이름이나 상사명을 다시 확인해 주세요.</p>
-          <button type="button" onClick={() => { setQuery(""); setShopNo(""); }}>검색 초기화</button>
+          <button type="button" onClick={() => { setQuery(""); setShopNo(""); setLetter(""); }}>검색 초기화</button>
         </div>
       )}
     </section>

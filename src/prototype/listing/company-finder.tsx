@@ -67,3 +67,20 @@ export function CompanyFinder({ finder, names }: { finder: ReturnType<typeof use
     </>
   );
 }
+
+// 딜러 이름 ㄱㄴㄷ 색인(2026-10-23 「딜러 초성검색」): 상사 탭과 같은 알약 줄. 이름 첫 글자(성)의 초성으로 묶는다.
+export function DealerIndex({ names, letter, onChange }: { names: string[]; letter: string; onChange: (next: string) => void }) {
+  const counts = new Map<string, number>();
+  for (const name of names) counts.set(companyIndexOf(name), (counts.get(companyIndexOf(name)) ?? 0) + 1);
+  return (
+    <div className="sag-dealer-shops sag-company-index" role="group" aria-label="딜러 이름 첫 글자">
+      <button type="button" aria-pressed={!letter} className={!letter ? "is-selected" : ""} onClick={() => onChange("")}>전체</button>
+      {COMPANY_INDEX.map((item) => {
+        const count = counts.get(item) ?? 0;
+        return (
+          <button key={item} type="button" disabled={!count} aria-pressed={letter === item} className={letter === item ? "is-selected" : ""} aria-label={`${item} 딜러 ${count}명`} onClick={() => onChange(letter === item ? "" : item)}>{item}</button>
+        );
+      })}
+    </div>
+  );
+}
