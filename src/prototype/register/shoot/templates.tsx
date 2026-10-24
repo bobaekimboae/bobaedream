@@ -28,7 +28,7 @@ function Arrow({ d, id }: { d: string; id: string }) {
           <path d="M0 0 10 5 0 10z" fill={ORANGE} />
         </marker>
       </defs>
-      <path className="shoot-tpl-arrow" d={d} fill="none" stroke={ORANGE} strokeWidth="6" strokeLinecap="round" markerEnd={`url(#${id}-head)`} pathLength={100} />
+      <path className="shoot-tpl-arrow" d={d} fill="none" stroke={ORANGE} strokeWidth="6" strokeLinecap="round" markerEnd={`url(#${id}-head)`} />
     </svg>
   );
 }
