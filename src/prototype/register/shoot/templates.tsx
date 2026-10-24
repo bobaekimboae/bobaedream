@@ -68,8 +68,11 @@ export function StageTemplate({ stage, large }: { stage: VideoStage; large?: boo
 }
 
 // 「촬영 규칙」 화면의 각도별 참고 사진(58은 실사 사진 9장). 같은 BMW M3 실매물 사진을 각도별로 잘라 쓴다.
-export type RuleAngle = "frontLeft" | "side" | "rear" | "front" | "frontSeat" | "rearSeat" | "dash" | "cluster" | "engine";
+// 어느 사진을 쓸지는 shoot-items.json 항목의 rule(·ruleFlip)이 정한다. 트렁크는 영상 예시 사진을 같이 쓴다.
+export type RuleAngle = string;
+const RULE_FILE: Record<string, string> = { trunk: "trk-1" };
 
-export function RuleIllustration({ angle }: { angle: RuleAngle }) {
-  return <img className="shoot-rule-img" src={tpl(`rule-${angle}`)} alt="" draggable={false} />;
+export function RuleIllustration({ angle, flip }: { angle?: RuleAngle; flip?: boolean }) {
+  if (!angle) return <span className="shoot-rule-img is-empty" aria-hidden="true" />;
+  return <img className="shoot-rule-img" src={tpl(RULE_FILE[angle] ?? `rule-${angle}`)} alt="" draggable={false} style={flip ? { transform: "scaleX(-1)" } : undefined} />;
 }

@@ -1,24 +1,12 @@
 import { useEffect, useState } from "react";
+import { itemOf, type GuideKind } from "./items";
 // 사진 촬영 윤곽선 안내 시안(2026-10-24 「촬영 앱 벤치마킹 → 시안」).
 // PhotoFairy · Car Studio AI · AOS AutoCAPTURE처럼 각도마다 반투명 차 윤곽을 화면에 깔아 위치를 맞추게 한다.
 // 윤곽은 보배드림이 새로 그린 단순 선 그림이다(다른 앱 그림을 쓰지 않음). ?register=shoot&guide=on 에서만 보인다.
 
 export const GUIDE_ON = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("guide") === "on";
 
-type Kind = "side" | "front" | "rear" | "q34" | "dash" | "cluster" | "engine" | "trunk" | "free";
-
-const SLOT_KIND: Record<string, { kind: Kind; flip?: boolean; hint: string }> = {
-  "좌측 전면 45°": { kind: "q34", hint: "차 앞모서리를 윤곽 모서리에 맞춰 주세요" },
-  정면: { kind: "front", hint: "차 정면이 윤곽 안에 꽉 차게 맞춰 주세요" },
-  "우측 전면 45°": { kind: "q34", flip: true, hint: "차 앞모서리를 윤곽 모서리에 맞춰 주세요" },
-  우측면: { kind: "side", flip: true, hint: "바퀴 두 개를 동그라미에 맞춰 주세요" },
-  후면: { kind: "rear", hint: "차 뒷면이 윤곽 안에 꽉 차게 맞춰 주세요" },
-  좌측면: { kind: "side", hint: "바퀴 두 개를 동그라미에 맞춰 주세요" },
-  계기판: { kind: "cluster", hint: "시동을 켜고 주행거리 숫자가 보이게 찍어 주세요" },
-  실내: { kind: "dash", hint: "핸들과 가운데 화면이 함께 보이게 찍어 주세요" },
-  엔진룸: { kind: "engine", hint: "보닛을 끝까지 열고 엔진룸 전체가 보이게 찍어 주세요" },
-  트렁크: { kind: "trunk", hint: "트렁크를 열고 바닥까지 보이게 찍어 주세요" },
-};
+type Kind = GuideKind;
 
 const WHEEL = (cx: number) => <circle cx={cx} cy={128} r={19} />;
 
@@ -128,8 +116,9 @@ function useTilt() {
   return tilt;
 }
 
+/** slot = 촬영 항목 id(shoot-items.json). 윤곽 종류·안내 문구도 JSON에서 읽는다. */
 export function ShotGuide({ slot }: { slot: string }) {
-  const def = SLOT_KIND[slot] ?? { kind: "free" as Kind, hint: "찍을 부분이 네 모서리 안에 들어오게 맞춰 주세요" };
+  const def = itemOf(slot).guide;
   const tilt = useTilt();
   const level = tilt === null ? null : Math.abs(tilt) <= 3;
   return (
