@@ -261,6 +261,16 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit .railCommunityAvatar.is-green{background:#eaf8f0;color:#16814b}
 .layout-reddit .railCommunityAvatar.is-orange{background:#fff2e7;color:#c26013}
 .layout-reddit .railResourceItem .railNavIcon{margin-right:12px}
+.layout-reddit .menuItem.has-avatar{height:42px;padding:0 6px;gap:10px;border-radius:8px;color:#3c4147;font-size:14px;line-height:20px;font-weight:500}
+.layout-reddit .menuItem.has-avatar:before{display:none}
+.layout-reddit .menuItem.has-avatar:hover{background:#f4f6f8;color:#111;text-decoration:none}
+.layout-reddit .menuItem.has-avatar.active{background:#edf4ff;color:#111;font-weight:700}
+.layout-reddit .boardAvatar{width:30px;height:30px;border-radius:50%;display:block;flex:0 0 30px;overflow:hidden;background-color:#eef3f8;background-image:url("assets/board-avatars-v01.png");background-repeat:no-repeat;background-size:120px 160px;box-shadow:0 0 0 1px rgba(28,39,54,.10)}
+.layout-reddit .boardAvatar.avatar-01{background-position:0 0}.layout-reddit .boardAvatar.avatar-02{background-position:-30px 0}.layout-reddit .boardAvatar.avatar-03{background-position:-60px 0}.layout-reddit .boardAvatar.avatar-04{background-position:-90px 0}
+.layout-reddit .boardAvatar.avatar-05{background-position:0 -32px}.layout-reddit .boardAvatar.avatar-06{background-position:-30px -32px}.layout-reddit .boardAvatar.avatar-07{background-position:-60px -32px}.layout-reddit .boardAvatar.avatar-08{background-position:-90px -32px}
+.layout-reddit .boardAvatar.avatar-09{background-position:0 -64px}.layout-reddit .boardAvatar.avatar-10{background-position:-30px -64px}.layout-reddit .boardAvatar.avatar-11{background-position:-60px -64px}.layout-reddit .boardAvatar.avatar-12{background-position:-90px -64px}
+.layout-reddit .boardAvatar.avatar-13{background-position:0 -96px}.layout-reddit .boardAvatar.avatar-14{background-position:-30px -96px}.layout-reddit .boardAvatar.avatar-15{background-position:-60px -96px}.layout-reddit .boardAvatar.avatar-16{background-position:-90px -96px}
+.layout-reddit .boardAvatar.avatar-17{background-position:0 -128px}.layout-reddit .boardAvatar.avatar-18{background-position:-30px -128px}.layout-reddit .boardAvatar.avatar-19{background-position:-60px -128px}.layout-reddit .boardAvatar.avatar-20{background-position:-90px -128px}
 .layout-reddit .imagePanel,.layout-reddit .guidePanel{display:none}
 .layout-reddit .centerPanel{margin-top:0}
 .layout-reddit .rightPanel{width:250px;margin-top:0}
@@ -424,49 +434,49 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
           <button class="railPrimaryItem" data-community-create type="button"><img class="railNavIcon" src="assets/reddit-rail/create-community.svg" alt="">커뮤니티 만들기</button>
         </nav>
         <button class="writeButton">글쓰기</button>
-        <a class="menuItem railAll active" data-board-name="전체 게시글" href="#"><img class="railAllIcon" src="assets/view-list.svg" alt="">전체 게시글</a>
+        <a class="menuItem has-avatar railAll active" data-board-name="전체 게시글" href="#"><span class="boardAvatar avatar-20" aria-hidden="true"></span>전체 게시글</a>
         <section class="railGroup">
           <div class="railGroupHeader"><img class="railGroupIcon" src="assets/reddit-rail/news.svg" alt="">자동차</div>
           <div class="railGroupBody">
-            <a class="menuItem" data-board-name="국산차" href="#">국산차 게시판</a>
-            <a class="menuItem" data-board-name="수입차" href="#">수입차 게시판</a>
-            <a class="menuItem" data-board-name="전기차" href="#">전기차 게시판<span class="newDot"></span></a>
-            <a class="menuItem" data-board-name="시승기" href="#">시승기</a>
-            <a class="menuItem" data-board-name="정비" href="#">정비/DIY</a>
+            <a class="menuItem has-avatar" data-board-name="국산차" href="#"><span class="boardAvatar avatar-01" aria-hidden="true"></span>국산차 게시판</a>
+            <a class="menuItem has-avatar" data-board-name="수입차" href="#"><span class="boardAvatar avatar-02" aria-hidden="true"></span>수입차 게시판</a>
+            <a class="menuItem has-avatar" data-board-name="전기차" href="#"><span class="boardAvatar avatar-03" aria-hidden="true"></span>전기차 게시판<span class="newDot"></span></a>
+            <a class="menuItem has-avatar" data-board-name="시승기" href="#"><span class="boardAvatar avatar-04" aria-hidden="true"></span>시승기</a>
+            <a class="menuItem has-avatar" data-board-name="정비" href="#"><span class="boardAvatar avatar-05" aria-hidden="true"></span>정비/DIY</a>
           </div>
         </section>
         <section class="railGroup">
           <div class="railGroupHeader"><img class="railGroupIcon" src="assets/reddit-rail/explore.svg" alt="">블랙박스·사고</div>
           <div class="railGroupBody">
-            <a class="menuItem" data-board-name="블랙박스" href="#">블랙박스 제보</a>
-            <a class="menuItem" data-board-name="사고/블박" href="#">교통사고 상담</a>
-            <a class="menuItem" data-board-name="보험" href="#">보험/과실 문의</a>
-            <a class="menuItem" data-board-name="교통법규" href="#">교통법규/단속</a>
+            <a class="menuItem has-avatar" data-board-name="블랙박스" href="#"><span class="boardAvatar avatar-06" aria-hidden="true"></span>블랙박스 제보</a>
+            <a class="menuItem has-avatar" data-board-name="사고/블박" href="#"><span class="boardAvatar avatar-07" aria-hidden="true"></span>교통사고 상담</a>
+            <a class="menuItem has-avatar" data-board-name="보험" href="#"><span class="boardAvatar avatar-08" aria-hidden="true"></span>보험/과실 문의</a>
+            <a class="menuItem has-avatar" data-board-name="교통법규" href="#"><span class="boardAvatar avatar-09" aria-hidden="true"></span>교통법규/단속</a>
           </div>
         </section>
         <section class="railGroup">
           <div class="railGroupHeader"><img class="railGroupIcon" src="assets/reddit-rail/popular.svg" alt="">커뮤니티</div>
           <div class="railGroupBody">
-            <a class="menuItem" data-board-name="자유" href="#">자유 게시판</a>
-            <a class="menuItem" data-board-name="유머" href="#">유머 게시판</a>
-            <a class="menuItem" data-board-name="정치/시사" href="#">정치/시사 게시판</a>
-            <a class="menuItem" data-board-name="베스트" href="#">베스트글</a>
+            <a class="menuItem has-avatar" data-board-name="자유" href="#"><span class="boardAvatar avatar-10" aria-hidden="true"></span>자유 게시판</a>
+            <a class="menuItem has-avatar" data-board-name="유머" href="#"><span class="boardAvatar avatar-11" aria-hidden="true"></span>유머 게시판</a>
+            <a class="menuItem has-avatar" data-board-name="정치/시사" href="#"><span class="boardAvatar avatar-12" aria-hidden="true"></span>정치/시사 게시판</a>
+            <a class="menuItem has-avatar" data-board-name="베스트" href="#"><span class="boardAvatar avatar-13" aria-hidden="true"></span>베스트글</a>
           </div>
         </section>
         <section class="railGroup">
           <div class="railGroupHeader"><img class="railGroupIcon" src="assets/reddit-rail/favorite.svg" alt="">차량 정보</div>
           <div class="railGroupBody">
-            <a class="menuItem" data-board-name="차량리뷰" href="./naver-cafe-list.html?board=vehicle-review">차량 리뷰</a>
-            <a class="menuItem" data-board-name="연비/전비" href="#">연비/전비 게시판</a>
-            <a class="menuItem" data-board-name="결함/불만" href="#">결함/불만 게시판</a>
+            <a class="menuItem has-avatar" data-board-name="차량리뷰" href="./naver-cafe-list.html?board=vehicle-review"><span class="boardAvatar avatar-14" aria-hidden="true"></span>차량 리뷰</a>
+            <a class="menuItem has-avatar" data-board-name="연비/전비" href="#"><span class="boardAvatar avatar-15" aria-hidden="true"></span>연비/전비 게시판</a>
+            <a class="menuItem has-avatar" data-board-name="결함/불만" href="#"><span class="boardAvatar avatar-16" aria-hidden="true"></span>결함/불만 게시판</a>
           </div>
         </section>
         <section class="railGroup">
           <div class="railGroupHeader"><img class="railGroupIcon" src="assets/reddit-rail/help.svg" alt="">운영 안내</div>
           <div class="railGroupBody">
-            <a class="menuItem" data-board-name="공지" href="#">공지사항</a>
-            <a class="menuItem" data-board-name="운영정책" href="#">운영정책</a>
-            <a class="menuItem" data-board-name="문의/제보" href="#">문의/오류 제보</a>
+            <a class="menuItem has-avatar" data-board-name="공지" href="#"><span class="boardAvatar avatar-17" aria-hidden="true"></span>공지사항</a>
+            <a class="menuItem has-avatar" data-board-name="운영정책" href="#"><span class="boardAvatar avatar-18" aria-hidden="true"></span>운영정책</a>
+            <a class="menuItem has-avatar" data-board-name="문의/제보" href="#"><span class="boardAvatar avatar-19" aria-hidden="true"></span>문의/오류 제보</a>
           </div>
         </section>
       </section>

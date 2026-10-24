@@ -31,6 +31,19 @@ final result: passed
 
 ---
 
+## 2026-10-24 레딧형 게시판 프로필 프사
+
+- Generated asset: `public/community/assets/board-avatars-v01.png` (built-in ImageGen, 투명 배경, 4×5 / 20개 프로필 스프라이트).
+- Mapping: 전체 게시글 1개, 자동차 5개, 블랙박스·사고 4개, 커뮤니티 4개, 차량 정보 3개, 운영 안내 3개를 각각 독립 프사로 연결했다.
+- Layout: 프사 30×30px, 게시판 행 42px, 텍스트 14/20px·500, 선택 행 700 및 `#edf4ff` 배경.
+- Visual rule: 상단 대메뉴와 게시글 목록에는 추가하지 않고 좌측 게시판 탐색에만 사용해 Reddit 서브레딧의 커뮤니티 식별 역할을 따른다.
+- Validation: 20/20 프사 배경 로드, 깨진 스프라이트 0개, 접근성 이름은 게시판 링크 텍스트로 유지.
+
+final result: passed
+
+
+---
+
 ## 2026-10-24 커뮤니티 헤더 · 보배드림 메인 규격 동일화
 
 - Source visual truth: 배포 중인 보배드림 PC 메인 `/?qf=guazi&pc=1&lang=ko` 헤더를 1280×720에서 직접 실측했다.
