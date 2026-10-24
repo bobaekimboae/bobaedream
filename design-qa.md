@@ -31,6 +31,23 @@ final result: passed
 
 ---
 
+## 2026-10-24 커뮤니티 헤더 · 보배드림 메인 규격 동일화
+
+- Source visual truth: 배포 중인 보배드림 PC 메인 `/?qf=guazi&pc=1&lang=ko` 헤더를 1280×720에서 직접 실측했다.
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit` 로컬 PC·모바일 렌더링.
+- PC parity: 헤더 72px, 내부 x=40~1240 / 1200px, 로고 엠블럼 30×30px, 타이틀 20/24px·800, 검색 520×40px, 우측 액션 40px 높이로 메인과 동일하다.
+- Main-to-community copy mapping: `차량 판매하기` 위치와 104×40px 규격은 유지하고 문구와 링크만 `글쓰기`로 변경했다. 검색 범위는 `커뮤니티`, 검색 문구는 `보배드림 검색`으로 현 문맥에 맞췄다.
+- Navigation: 홈·게시판·제보·결함은 검정 알약 대신 보배드림 메인형 3px 하단선으로 활성 상태를 표시한다.
+- Typography: 외부 공통 글꼴 규칙의 우선순위 충돌을 제거하고 `Pretendard Variable`을 실제 계산 글꼴의 첫 항목으로 고정했다.
+- Mobile regression: 390×844에서 햄버거·24px 엠블럼·17px 타이틀·가변 검색바가 한 줄을 유지하고, 우측 PC 액션은 숨김 처리했다. 가로 넘침은 0px이다.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
 ## 2026-10-24 네이버 게임 라운지 게시판 크로스체크
 
 - Source visual truth: `https://game.naver.com/lounge/Dungeon_Fighter/board`.

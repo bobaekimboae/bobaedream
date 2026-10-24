@@ -54,24 +54,39 @@ ul,ol{list-style:none;margin:0;padding:0}
 .ticketShape:before{left:-5px}.ticketShape:after{right:-5px}
 .loginButton{width:60px;height:30px;margin-left:8px;border:1px solid rgba(0,0,0,.2);border-radius:6px;color:#444;font-size:12px;line-height:14px;font-weight:700;background:#fff}
 .loungeHero{height:72px;background:#fff}
-.loungeHeroInner{width:1280px;height:72px;margin:0 auto;display:flex;align-items:center}
-.loungeTitleBlock{display:flex;align-items:center;color:#222}
-.loungeBrandHome{display:inline-flex;align-items:center;flex:0 0 auto}
-.loungeBrandLogo{display:block;width:142px;height:34px;object-fit:contain}
+.loungeHeroInner{width:calc(100% - 80px);max-width:1200px;height:72px;margin:0 auto;display:grid;grid-template-columns:minmax(180px,1fr) 520px auto;align-items:center;gap:16px}
+.loungeTitleBlock{min-width:0;display:flex;align-items:center;color:#222}
+.loungeBrandHome{height:40px;display:inline-flex;align-items:center;gap:7px;flex:0 0 auto}
+.loungeBrandEmblem{display:block;width:30px;height:30px;overflow:hidden;border-radius:50%;flex:0 0 30px}
+.loungeBrandEmblem img{display:block;width:122px;height:30px;max-width:none}
+.loungeBrandWord{color:#306bd9;font-size:20px;line-height:24px;font-weight:800;letter-spacing:-.045em;white-space:nowrap}
 .loungeBrandDivider{display:none}
-.loungeMenuButton{width:40px;height:40px;margin-left:-10px;margin-right:6px;border:0;border-radius:10px;background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 40px}
+.loungeMenuButton{display:none;width:40px;height:40px;border:0;border-radius:10px;background:transparent;align-items:center;justify-content:center;cursor:pointer;flex:0 0 40px}
 .loungeMenuButton:hover{background:#f5f6f7}
 .loungeMenuButton:focus-visible{outline:2px solid #222;outline-offset:2px}
 .loungeMenuButton img{display:block;width:24px;height:24px}
 .loungeTitleBlock h1{display:none}
-.loungeSearch{width:560px;height:44px;margin-left:78px;border-radius:24px;background:#f3f4f6;display:flex;align-items:center;overflow:hidden}
-.loungeSearchButton{width:46px;height:44px;display:flex;align-items:center;justify-content:flex-end;flex:0 0 46px;color:#8a8f9b}
-.loungeSearchButton img{display:block;width:20px;height:20px}
-.loungeSearchInput{min-width:0;height:44px;flex:1;border:0;outline:0;background:transparent;padding:0 18px 0 10px;color:#222;font-size:15px;line-height:20px;font-weight:400}
+.loungeSearch{width:520px;height:40px;padding:0 4px;border-radius:999px;background:#f4f4f4;display:flex;align-items:center;gap:0;overflow:hidden}
+.loungeSearchCategory{height:32px;padding:0 6px 0 12px;display:inline-flex;align-items:center;gap:5px;flex:0 0 auto;color:#222;font-size:15px;line-height:20px;font-weight:400;white-space:nowrap}
+.loungeSearchCategory img{display:block;width:16px;height:16px}
+.loungeSearchDivider{width:1px;height:20px;margin:0 8px;background:#d9d9d9;flex:0 0 1px}
+.loungeSearchButton{width:32px;height:32px;border-radius:50%;background:#306bd9;display:flex;align-items:center;justify-content:center;flex:0 0 32px;color:#fff}
+.loungeSearchButton img{display:block;width:16px;height:16px;filter:brightness(0) invert(1)}
+.loungeSearchInput{min-width:0;height:40px;flex:1;border:0;outline:0;background:transparent;padding:0 8px 0 0;color:#222;font-size:15px;line-height:24px;font-weight:400}
 .loungeSearchInput::placeholder{color:#9da2ad}
-.loungeSearch:focus-within{background:#fff;box-shadow:0 0 0 1.5px #222}
+.loungeSearch:focus-within{background:#fff;box-shadow:0 0 0 1.5px #306bd9}
+.loungeActions{height:40px;display:flex;align-items:center;justify-content:flex-end;gap:6px;white-space:nowrap}
+.loungeActionIcon{width:36px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:#fff;flex:0 0 36px}
+.loungeActionIcon img{display:block;width:24px;height:24px}
+.loungeLogin,.loungeWrite,.loungeAccount{height:40px;border:1px solid #e7e7e7;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#222;font-size:14px;line-height:20px;font-weight:600}
+.loungeLogin{padding:0 11px}
+.loungeWrite{width:104px;padding:0 13px;border-color:#306bd9;background:#306bd9;color:#fff}
+.loungeAccount{width:75px;padding:0 9px 0 7px;gap:7px}
+.loungeAccountAvatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f4f4f4}
+.loungeAccountAvatar img{display:block;width:20px;height:20px}
+.loungeAccountChevron{display:block;width:20px;height:20px}
 .loungeNav{height:52px;background:#fff;border-bottom:1px solid #e7e7e7}
-.loungeNavInner{width:1280px;height:52px;margin:0 auto;display:flex;align-items:center;gap:22px}
+.loungeNavInner{width:calc(100% - 80px);max-width:1200px;height:52px;margin:0 auto;display:flex;align-items:center;gap:22px}
 .loungeTab{position:relative;height:52px;color:#555;font-size:14px;line-height:18px;font-weight:600;padding:0 2px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:color .18s ease}
 .loungeTab:hover{color:#222}
 .loungeTab:focus-visible{outline:2px solid #222;outline-offset:1px}
@@ -271,22 +286,31 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
   .leftMenu{padding-left:20px;padding-right:20px}
   html.layout-reddit,html.layout-reddit body{min-width:1080px}
   .layout-reddit .loungeHeroInner,.layout-reddit .pageWrap,.layout-reddit .footer{width:1080px}
+  .layout-reddit .loungeHeroInner,.layout-reddit .loungeNavInner{width:calc(100% - 80px);max-width:1200px}
   .layout-reddit .layoutGrid{grid-template-columns:240px 742px;column-gap:24px}
   .layout-reddit .rightPanel{display:none}
+}
+@media(min-width:1200px) and (max-width:1320px){
+  .layout-reddit .loungeHeroInner,.layout-reddit .loungeNavInner{width:1200px;max-width:none;margin-left:40px;margin-right:0}
 }
 @media(max-width:767px){
   html,body,html.layout-reddit,html.layout-reddit body{width:100%;min-width:0;overflow-x:hidden;background:#f3f4f6}
   body.mobile-menu-open{overflow:hidden}
   .layout-reddit .loungeHero{height:56px;z-index:60;border-bottom:1px solid #eceef1;background:#fff}
-  .layout-reddit .loungeHeroInner{width:100%;height:56px;padding:0 12px}
+  .layout-reddit .loungeHeroInner{width:100%;max-width:none;height:56px;padding:0 12px;display:flex;align-items:center;gap:0}
   .layout-reddit .loungeTitleBlock{min-width:0;flex:0 0 auto}
-  .layout-reddit .loungeMenuButton{width:40px;height:40px;margin-left:-8px;margin-right:2px;flex:0 0 40px}
+  .layout-reddit .loungeMenuButton{width:40px;height:40px;margin-left:-8px;margin-right:2px;display:inline-flex;flex:0 0 40px}
   .layout-reddit .loungeMenuButton img{width:22px;height:22px}
-  .layout-reddit .loungeBrandLogo{width:104px;height:26px}
+  .layout-reddit .loungeBrandHome{height:36px;gap:5px}
+  .layout-reddit .loungeBrandEmblem{width:24px;height:24px;flex-basis:24px}
+  .layout-reddit .loungeBrandEmblem img{width:97.6px;height:24px}
+  .layout-reddit .loungeBrandWord{font-size:17px;line-height:21px}
   .layout-reddit .loungeSearch{width:auto;height:36px;margin-left:8px;border-radius:18px;flex:1 1 auto}
-  .layout-reddit .loungeSearchButton{width:36px;height:36px;flex-basis:36px}
-  .layout-reddit .loungeSearchButton img{width:18px;height:18px}
-  .layout-reddit .loungeSearchInput{height:36px;padding:0 10px 0 7px;font-size:13px;line-height:18px}
+  .layout-reddit .loungeSearchCategory,.layout-reddit .loungeSearchDivider{display:none}
+  .layout-reddit .loungeSearchButton{width:28px;height:28px;flex-basis:28px}
+  .layout-reddit .loungeSearchButton img{width:15px;height:15px}
+  .layout-reddit .loungeSearchInput{height:36px;padding:0 8px 0 12px;font-size:13px;line-height:18px}
+  .layout-reddit .loungeActions{display:none}
   .layout-reddit .loungeNav{display:none}
   .mobileCommunityNav{position:sticky;top:56px;z-index:28;height:52px;padding:0 12px;display:flex;gap:0;overflow:hidden;scrollbar-width:none;border-bottom:1px solid #eceef1;background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}
   .mobileCommunityNav::-webkit-scrollbar{display:none}
@@ -345,13 +369,25 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
       <button class="loungeMenuButton" type="button" aria-label="커뮤니티 전체 메뉴"><img src="assets/lounge-menu.svg" alt="" aria-hidden="true"></button>
       <!-- Encode one character so the Pages deploy rewrite only touches root /assets/ URLs. -->
       <a class="loungeBrandHome" href="../?qf=guazi&amp;pc=1" aria-label="보배드림 메인">
-        <img class="loungeBrandLogo" src="../a%73sets/bbm/main-home-logo.svg" alt="보배드림">
+        <span class="loungeBrandEmblem" aria-hidden="true"><img src="../a%73sets/bbm/header-logo.svg" alt=""></span>
+        <span class="loungeBrandWord" aria-hidden="true">보배드림</span>
       </a>
     </div>
     <form class="loungeSearch" role="search">
-      <button class="loungeSearchButton" type="submit" aria-label="보배드림 검색"><img src="assets/lounge-search.svg" alt="" aria-hidden="true"></button>
+      <button class="loungeSearchCategory" type="button" aria-label="검색 범위 커뮤니티"><span>커뮤니티</span><img src="../a%73sets/icons/bb/chevron-down.svg" alt="" aria-hidden="true"></button>
+      <span class="loungeSearchDivider" aria-hidden="true"></span>
       <input class="loungeSearchInput" type="search" name="q" placeholder="보배드림 검색" autocomplete="off" aria-label="보배드림 검색">
+      <button class="loungeSearchButton" type="submit" aria-label="보배드림 검색"><img src="assets/lounge-search.svg" alt="" aria-hidden="true"></button>
     </form>
+    <nav class="loungeActions" aria-label="회원 메뉴">
+      <a class="loungeActionIcon" href="bobaedream-pc-board-list.html?view=saved&amp;layout=reddit" aria-label="관심 게시글"><img src="../a%73sets/icons/bb/heart.svg" alt="" aria-hidden="true"></a>
+      <a class="loungeLogin" href="../?qf=guazi&amp;pc=1&amp;pcauth=member">로그인/회원가입</a>
+      <a class="loungeWrite" href="reddit-write.html?layout=reddit">글쓰기</a>
+      <button class="loungeAccount" type="button" aria-label="로그인 및 계정 메뉴">
+        <span class="loungeAccountAvatar" aria-hidden="true"><img src="../a%73sets/icons/bb/mypage.svg" alt=""></span>
+        <img class="loungeAccountChevron" src="../a%73sets/icons/bb/chevron-down.svg" alt="" aria-hidden="true">
+      </button>
+    </nav>
   </div>
 </section>
 <nav class="mobileCommunityNav" aria-label="모바일 커뮤니티 메뉴">
