@@ -9,7 +9,7 @@ export const ASPECT_SIZE: Record<ShortformAspect, [number, number]> = { "9:16": 
 
 export type CutSource =
   | { kind: "image"; image: HTMLImageElement }
-  | { kind: "video"; video: HTMLVideoElement; file: Blob; duration: number; frame?: CanvasImageSource | null };
+  | { kind: "video"; video: HTMLVideoElement; file: Blob; duration: number; frame?: CanvasImageSource | null; /** 영상 안에서 컷이 시작하는 시각(초). 촬영 앱 자동 쇼츠가 쓴다 */ offset?: number };
 
 export type Cut = { source: CutSource; duration: number; line: string };
 
@@ -27,7 +27,7 @@ export type ShortformPlan = {
   specs: string[];
   place: string;
   showPrice: boolean;
-  dealer: { name: string; company: string; phone: string; photo?: HTMLImageElement };
+  dealer: { name: string; company: string; phone: string; photo?: HTMLImageElement; /** 끝 장면 이름 줄(없으면 「이름 딜러」) */ label?: string; /** 전화번호 아래 줄(없으면 안심번호 안내) */ note?: string };
   /** 끝 장면 QR(매물 상세 주소) */
   qr?: HTMLCanvasElement | null;
   voice?: AudioBuffer | null;
@@ -213,6 +213,9 @@ function drawAvatar(ctx: CanvasRenderingContext2D, plan: ShortformPlan, cx: numb
 
 /* ───────── 끝 장면: 딜러 명함 (+ 매물 QR) ───────── */
 
+const dealerLine = (plan: ShortformPlan) => plan.dealer.label ?? `${plan.dealer.name} 딜러`;
+const phoneNote = (plan: ShortformPlan) => (plan.dealer.phone ? (plan.dealer.note ?? "안심번호로 바로 연결돼요") : "");
+
 function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: number) {
   const { width: W, height: H } = plan;
   drawBlurBackground(ctx, plan.cuts[plan.cuts.length - 1]?.source, W, H, 0.55);
@@ -241,7 +244,7 @@ function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: 
     ctx.textAlign = "center";
     ctx.fillStyle = INK;
     ctx.font = `800 44px ${FONT}`;
-    ctx.fillText(`${plan.dealer.name} 딜러`, W / 2, py + pr + 62);
+    ctx.fillText(dealerLine(plan), W / 2, py + pr + 62);
     ctx.fillStyle = "#595959";
     ctx.font = `500 28px ${FONT}`;
     ctx.fillText(plan.dealer.company, W / 2, py + pr + 104);
@@ -250,7 +253,7 @@ function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: 
     ctx.fillText(plan.dealer.phone, W / 2, py + pr + 172);
     ctx.fillStyle = "#8C8C8C";
     ctx.font = `500 24px ${FONT}`;
-    ctx.fillText("안심번호로 바로 연결돼요", W / 2, py + pr + 208);
+    ctx.fillText(phoneNote(plan), W / 2, py + pr + 208);
     if (qr) {
       const size = 168;
       ctx.drawImage(qr, (W - size) / 2, py + pr + 236, size, size);
@@ -279,7 +282,7 @@ function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: 
   ctx.textAlign = "left";
   ctx.fillStyle = INK;
   ctx.font = `800 36px ${FONT}`;
-  ctx.fillText(`${plan.dealer.name} 딜러`, tx, cy + 82);
+  ctx.fillText(dealerLine(plan), tx, cy + 82);
   ctx.fillStyle = "#595959";
   ctx.font = `500 24px ${FONT}`;
   ctx.fillText(plan.dealer.company, tx, cy + 118, qr ? cw - (tx - cx) - 200 : cw - (tx - cx) - 32);
@@ -288,7 +291,7 @@ function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: 
   ctx.fillText(plan.dealer.phone, cx + 40, cy + 212);
   ctx.fillStyle = "#8C8C8C";
   ctx.font = `500 22px ${FONT}`;
-  ctx.fillText("안심번호로 바로 연결돼요", cx + 40, cy + 248);
+  ctx.fillText(phoneNote(plan), cx + 40, cy + 248);
   if (qr) {
     const size = 160;
     ctx.drawImage(qr, cx + cw - 40 - size, cy + (ch - size) / 2 - 10, size, size);
@@ -423,7 +426,7 @@ function drawCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, index: num
     ctx.textAlign = "left";
     ctx.font = `700 28px ${FONT}`;
     ctx.fillStyle = "#fff";
-    ctx.fillText(`${plan.dealer.name} 딜러 · ${plan.dealer.company}`, 48, H * 0.12);
+    ctx.fillText([dealerLine(plan), plan.dealer.company].filter(Boolean).join(" · "), 48, H * 0.12);
     const y0 = top + ph + 56;
     ctx.font = `800 52px ${FONT}`;
     ctx.fillText(wrapWords(ctx, plan.title, W - 96)[0] ?? plan.title, 48, y0);
@@ -454,7 +457,7 @@ function drawCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, index: num
   ctx.textAlign = "left";
   ctx.fillStyle = "#fff";
   ctx.font = `700 24px ${FONT}`;
-  ctx.fillText(`${plan.dealer.name} 딜러 · ${plan.dealer.company}`, 40, 64);
+  ctx.fillText([dealerLine(plan), plan.dealer.company].filter(Boolean).join(" · "), 40, 64);
   const x = 40;
   ctx.font = `800 46px ${FONT}`;
   ctx.fillText(wrapWords(ctx, plan.title, W - 80)[0] ?? plan.title, x, H - 178);
@@ -553,7 +556,29 @@ export async function exportMp4(plan: ShortformPlan, onProgress: (ratio: number)
     if (cut.source.kind !== "video" || sinks.has(cut)) continue;
     const input = new mb.Input({ source: new mb.BlobSource(cut.source.file), formats: mb.ALL_FORMATS });
     const track = await input.getPrimaryVideoTrack();
-    if (track) sinks.set(cut, new mb.CanvasSink(track, { poolSize: 2 }) as never);
+    // 이 브라우저가 그 영상을 직접 풀지 못하면(촬영 앱이 녹화한 webm 등) 영상 요소를 해당 시각으로 옮겨 그린다.
+    const decodable = track ? await track.canDecode().catch(() => false) : false;
+    if (track && decodable) sinks.set(cut, new mb.CanvasSink(track, { poolSize: 2 }) as never);
+    else {
+      const v = cut.source.video;
+      sinks.set(cut, {
+        getCanvas: (t: number) =>
+          new Promise((resolve) => {
+            if (Math.abs(v.currentTime - t) < 0.02) return resolve({ canvas: v });
+            let done = false;
+            const finish = () => {
+              if (done) return;
+              done = true;
+              v.removeEventListener("seeked", finish);
+              resolve({ canvas: v });
+            };
+            v.addEventListener("seeked", finish);
+            window.setTimeout(finish, 700);
+            v.pause();
+            v.currentTime = t;
+          }),
+      });
+    }
   }
 
   const duration = planDuration(plan);
@@ -564,7 +589,7 @@ export async function exportMp4(plan: ShortformPlan, onProgress: (ratio: number)
       const t = frame / plan.fps;
       const at = cutAt(plan, t);
       if (at.cut && at.cut.source.kind === "video") {
-        const wrapped = await sinks.get(at.cut)?.getCanvas(Math.min(at.local, at.cut.source.duration - 0.05));
+        const wrapped = await sinks.get(at.cut)?.getCanvas(Math.min((at.cut.source.offset ?? 0) + at.local, at.cut.source.duration - 0.05));
         at.cut.source.frame = wrapped?.canvas ?? null;
       }
       drawFrame(ctx, plan, t);
