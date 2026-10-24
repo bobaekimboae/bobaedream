@@ -328,7 +328,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
       return;
     }
     if (item.action === "community") {
-      window.location.assign(`${import.meta.env.BASE_URL}community/bobaedream-pc-board-list.html?layout=reddit`);
+      window.location.assign(new URL("community/bobaedream-pc-board-list.html?layout=reddit", window.location.href).toString());
       return;
     }
     if (item.action === "bike-sell") {

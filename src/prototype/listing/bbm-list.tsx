@@ -856,7 +856,7 @@ export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void
   const chooseBottomMenu = (label: string, icon: string) => {
     if (icon === "home") return;
     if (icon === "community") {
-      window.location.assign(`${import.meta.env.BASE_URL}community/naver-cafe-list.html`);
+      window.location.assign(new URL("community/naver-cafe-list.html", window.location.href).toString());
       return;
     }
     onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`);
