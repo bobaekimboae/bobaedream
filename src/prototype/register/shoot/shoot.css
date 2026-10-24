@@ -1880,3 +1880,539 @@
 .shoot-editor {
   z-index: 12;
 }
+
+/* 자르기 틀 모서리 손잡이(보이지 않는 36×36 터치 영역, 보이는 모서리는 .shoot-corner) */
+.shoot-crop__h {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  touch-action: none;
+  z-index: 1;
+}
+.shoot-crop__h.is-tl {
+  left: -18px;
+  top: -18px;
+  cursor: nwse-resize;
+}
+.shoot-crop__h.is-tr {
+  right: -18px;
+  top: -18px;
+  cursor: nesw-resize;
+}
+.shoot-crop__h.is-bl {
+  left: -18px;
+  bottom: -18px;
+  cursor: nesw-resize;
+}
+.shoot-crop__h.is-br {
+  right: -18px;
+  bottom: -18px;
+  cursor: nwse-resize;
+}
+
+/* ── 2026-10-24 QA 10배 대조: 58 uiautomator 덤프·잉크 실측값(432 단위 ÷ 1.125 = CSS px) ── */
+/* 등록 화면 */
+.shoot-main__top {
+  height: 43px;
+  grid-template-columns: 52px 1fr 88px;
+}
+.shoot-main__title {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+.shoot-main__title h1 {
+  line-height: 22px;
+}
+.shoot-main__title span {
+  display: block;
+  line-height: 12px;
+  margin-top: 1.8px;
+}
+.shoot-main__top > .shoot-drafts {
+  grid-column: 3;
+}
+.shoot-field {
+  padding-left: 21px;
+  padding-right: 20px;
+}
+.shoot-main__body > .shoot-field:nth-of-type(2) {
+  padding-top: 9px;
+}
+.shoot-main__body > .shoot-field:nth-of-type(3) {
+  padding-top: 27.4px;
+}
+.shoot-field__value {
+  margin-top: 31.2px;
+}
+.shoot-hint {
+  margin-top: 7.1px;
+}
+.shoot-addcards {
+  margin-top: 18.4px;
+}
+.shoot-radios {
+  display: grid;
+  grid-template-columns: repeat(3, 124.4px);
+  justify-content: start;
+  padding-left: 5.7px;
+  margin-top: 16.9px;
+}
+
+/* 촬영 화면 공통: 아래 판 94(→83.6), 탭 줄 60(→53.3), 흰 막대는 화면 가운데 고정(58 slide_line 157~274) */
+.shoot-controls {
+  height: 83.6px;
+}
+.shoot-plate {
+  margin-left: 26.2px;
+  gap: 4px;
+}
+.shoot-capture .shoot-bottom:not(.is-album) .shoot-modes {
+  height: 53.3px;
+  align-items: flex-start;
+}
+.shoot-capture .shoot-bottom:not(.is-album) .shoot-modes button {
+  height: 40px;
+}
+.shoot-modes button.is-on::after {
+  content: none;
+}
+.shoot-modes::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 52px);
+  top: 39.3px;
+  width: 104px;
+  height: 5px;
+  border-radius: 2.5px;
+  background: #fff;
+}
+.shoot-pill {
+  top: 9.8px;
+}
+.shoot-capture.is-video .shoot-pill {
+  top: 20.4px;
+}
+
+/* 앨범: 배너 32(→28.4), 4열 108×140(→ 1fr × 124.4), 아래 줄 70(→62.2) */
+.shoot-album-banner {
+  height: 28.4px;
+  line-height: 28.4px;
+}
+.shoot-album-grid {
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 124.4px;
+}
+.shoot-bottom.is-album {
+  height: 62.2px;
+}
+.shoot-bottom.is-album .shoot-modes {
+  height: 62.2px;
+  padding-left: 78.2px;
+  align-items: flex-start;
+}
+.shoot-bottom.is-album .shoot-modes button {
+  height: 48.8px;
+}
+.shoot-bottom.is-album .shoot-modes::after {
+  left: 104.9px;
+  top: 48px;
+}
+.shoot-album-count {
+  left: 217.8px;
+}
+
+/* 영상 촬영: 틀 410×299 · 단계 칸 피치 101(=폭의 23.38%) · 칸 92×38 / 펼친 칸 92×84 */
+.shoot-vframe {
+  left: 9.8px;
+  right: 9.8px;
+  top: 99.6px;
+  height: 265.8px;
+  aspect-ratio: auto;
+  max-height: none;
+}
+.shoot-vhint {
+  top: calc(100% + 10.7px);
+  font-size: 14px;
+  line-height: 18.7px;
+}
+.shoot-capture.is-video .shoot-stages {
+  left: 0;
+  right: 0;
+  bottom: 9.8px;
+  display: grid;
+  grid-template-columns: repeat(4, 23.457%);
+  gap: 0;
+  align-items: end;
+}
+.shoot-capture.is-video .shoot-stage-chip {
+  flex: none;
+  width: 90.8%;
+  margin-left: 4.4%;
+  height: 33.8px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+.shoot-capture.is-video .shoot-stage-chip.is-done {
+  height: 33.8px;
+  grid-template-rows: 1fr 15px;
+}
+.shoot-capture.is-video .shoot-stage-chip.is-done .shoot-stage-chip__label {
+  line-height: 15px;
+  font-size: 11px;
+}
+.shoot-capture.is-video .shoot-stage-chip.is-done .shoot-stage-chip__time {
+  line-height: 18px;
+}
+.shoot-capture.is-video .shoot-stage-chip.is-expanded {
+  width: 90.8%;
+  height: 74.7px;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1.8px #fff;
+}
+.shoot-capture.is-video .shoot-stage-chip.is-expanded .shoot-tpl {
+  inset: 1.8px 1.8px 12.5px 1.8px;
+  border-radius: 2px 2px 0 0;
+}
+.shoot-capture.is-video .shoot-stage-chip.is-expanded .shoot-stage-chip__label {
+  left: 1.8px;
+  right: 1.8px;
+  bottom: 1.8px;
+  height: 10.7px;
+  line-height: 10.7px;
+  font-size: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  text-shadow: none;
+}
+.shoot-capture.is-video .shoot-stage-chip.is-expanded .shoot-stage-chip__tag {
+  left: 6.2px;
+  top: 5.3px;
+  height: 13.3px;
+  line-height: 13.3px;
+  min-width: 26.7px;
+  padding: 0 3px;
+  text-align: center;
+  font-size: 10px;
+  border-radius: 1px;
+}
+
+/* 영상 보기·편집(등록 화면 영상 칸) */
+.shoot-tile--video .shoot-tile__img {
+  display: block;
+}
+.shoot-tile--video .shoot-tile__img:disabled {
+  opacity: 1;
+}
+.shoot-stages.is-done-row .shoot-stage-chip.is-now {
+  box-shadow: inset 0 0 0 1.5px #fff;
+}
+.shoot-vedit-actions {
+  display: flex;
+  gap: 18px;
+}
+.shoot-vedit-actions button {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #fff !important;
+}
+.shoot-vedit-actions .shoot-mask {
+  width: 22px;
+  height: 22px;
+}
+.shoot-bottom.is-vpreview:has(.shoot-vedit-actions) {
+  justify-content: space-between;
+  gap: 0;
+}
+
+.shoot-capture.is-video .shoot-timer {
+  top: 21px;
+  right: 24px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+/* 사진 미리보기: 사진은 제목 아래 전체(99~907)에 맞추고 칸 줄·도구 판을 위에 얹는다 */
+.shoot-preview .shoot-tools {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  height: 68.4px;
+  display: block;
+  padding: 0;
+  background: #000;
+}
+.shoot-preview .shoot-tools > button:not(.shoot-done) {
+  position: absolute;
+  top: 13.3px;
+  width: 54px;
+  gap: 6.2px;
+  font-size: 10px;
+  line-height: 13.3px;
+}
+.shoot-preview .shoot-tools > button:nth-child(1) {
+  left: 23.2px;
+  width: 54px;
+}
+.shoot-preview .shoot-tools > button:nth-child(2) {
+  left: 72.6px;
+  width: 54px;
+}
+.shoot-preview .shoot-tools > button:nth-child(3) {
+  left: 117.9px;
+  width: 54px;
+}
+.shoot-preview .shoot-tools > button:nth-child(4) {
+  left: 162.3px;
+  width: 54px;
+}
+.shoot-preview .shoot-tools .shoot-mask,
+.shoot-preview .shoot-tools .shoot-mask.is-ring,
+.shoot-preview .shoot-plate__ico.is-accent {
+  width: 24.9px;
+  height: 24.9px;
+}
+.shoot-preview .shoot-tools .shoot-done {
+  position: absolute;
+  left: 304px;
+  top: 19.6px;
+  margin: 0;
+  min-width: 0;
+  width: 60.4px;
+  height: 28.4px;
+  border-radius: 14.2px;
+  font-size: 14px;
+}
+.shoot-preview .shoot-strip {
+  bottom: 68.4px;
+  height: 80px;
+  align-items: flex-start;
+  gap: 0;
+}
+.shoot-preview .shoot-strip__add {
+  width: 28.4px;
+  height: 70.2px;
+  margin-right: 5.4px;
+}
+.shoot-preview .shoot-strip__item,
+.shoot-preview .shoot-strip__redo {
+  width: 75.6px;
+  height: 65.8px;
+  margin: 1.8px 12.4px 0 0;
+}
+.shoot-preview .shoot-strip__hit img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.shoot-preview .shoot-strip__hit span {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 17.8px;
+  line-height: 17.8px;
+  font-size: 12px;
+}
+.shoot-preview .shoot-strip__x {
+  top: 0;
+  right: 0;
+  width: 17.8px;
+  height: 17.8px;
+}
+.shoot-preview .shoot-strip__x .shoot-mask {
+  width: 10px;
+  height: 10px;
+}
+
+/* 편집(모자이크·회전·자르기): 제목 51 · 사진 622 · 조절 135 · 아래 버튼 51(432 단위) */
+.shoot-editor__top {
+  height: 45.3px;
+}
+.shoot-editor__stage {
+  padding: 0;
+}
+.shoot-editor .shoot-stage-img,
+.shoot-editor .shoot-stage-img > img {
+  border-radius: 0;
+}
+.shoot-editor__controls {
+  position: relative;
+  display: block;
+  height: 120px;
+  padding: 0;
+}
+.shoot-editor__foot {
+  height: 45.3px;
+  grid-template-columns: 107.6px 1fr;
+}
+.shoot-editor__foot button {
+  font-size: 16px;
+}
+.shoot-brush-row {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+.shoot-brushes,
+.shoot-brushes__dots,
+.shoot-history {
+  display: contents;
+}
+.shoot-brush {
+  position: absolute;
+}
+.shoot-brush.is-0 {
+  left: 32px;
+  top: 34.7px;
+  width: 19.6px;
+  height: 19.6px;
+}
+.shoot-brush.is-1 {
+  left: 81.8px;
+  top: 32.9px;
+  width: 23.1px;
+  height: 23.1px;
+}
+.shoot-brush.is-2 {
+  left: 134.2px;
+  top: 32px;
+  width: 25.8px;
+  height: 25.8px;
+}
+/* 58은 고르기 전에는 세 붓 모두 테두리만 보인다. 누른 붓만 채운다. */
+.shoot-brush.is-on:not(.is-picked) {
+  background: transparent !important;
+}
+.shoot-brushes > span {
+  position: absolute;
+  left: 96px;
+  top: 72.9px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  line-height: 15px;
+  white-space: nowrap;
+}
+.shoot-history button {
+  position: absolute;
+  top: 32.9px;
+  width: 56px;
+  gap: 17.6px;
+  font-size: 12px;
+  line-height: 15px;
+}
+.shoot-history button:first-child {
+  left: 232.4px;
+}
+.shoot-history button:last-child {
+  left: 287.6px;
+}
+.shoot-history .shoot-mask {
+  width: 21.3px;
+  height: 21.3px;
+}
+.shoot-rotate-btn {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%);
+  font-size: 12px;
+  line-height: 15px;
+}
+.shoot-aspects {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.shoot-aspect {
+  height: 100%;
+  align-content: end;
+  padding-bottom: 25px;
+  gap: 18px;
+  font-size: 12px;
+  line-height: 15px;
+}
+.shoot-aspect.is-wide span {
+  width: 37.3px;
+  height: 28.4px;
+}
+.shoot-aspect.is-tall span {
+  width: 28.4px;
+  height: 40px;
+}
+.shoot-main__foot {
+  height: 63.8px;
+  padding-left: 9px;
+}
+.shoot-publish {
+  height: 47.1px;
+  border-radius: 23.6px;
+}
+.shoot-savedraft {
+  gap: 0;
+  line-height: 12.4px;
+}
+.shoot-savedraft .shoot-mask {
+  width: 26.7px;
+  height: 26.7px;
+}
+/* 등록 팁 카드·사진 칸(58: 칸 90×90 · 피치 95 · 말풍선 38×36 · 글 13/18.4 · 글 시작 x78) */
+.shoot-tipcard:not(.is-short) {
+  padding-left: 13.3px;
+}
+.shoot-tipcard__head .is-tipico {
+  width: 33.8px;
+  height: 32px;
+}
+.shoot-tipcard__head {
+  gap: 7px;
+}
+.shoot-tipcard__head .is-chev {
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+}
+.shoot-tipcard:not(.is-short) p {
+  padding-left: 35px;
+  padding-right: 6.7px;
+  font-size: 13px;
+  line-height: 18.4px;
+}
+.shoot-tiles {
+  gap: 4px 4.4px;
+}
+.shoot-tile,
+.shoot-tile__img,
+.shoot-tile__wait {
+  width: 80px;
+}
+.shoot-tile__img,
+.shoot-tile__wait {
+  height: 80px;
+}
+.shoot-tile--add {
+  height: 80px;
+}
+.shoot-tipcard__head {
+  gap: 4.3px;
+}
+.shoot-tipcard__head .is-chev {
+  margin-right: 9.6px;
+}
+.shoot-tiles {
+  margin: 22.9px 0 9.8px -1.4px;
+}
+/* 사진 촬영 칸 줄: 선택 칸 테두리 x4.4·y663(432 단위) */
+.shoot-rail {
+  bottom: 9.3px;
+  padding-left: 3.9px;
+  scroll-padding-left: 3.9px;
+}
+.shoot-plate {
+  margin-left: 22.6px;
+}

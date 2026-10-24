@@ -66,8 +66,16 @@ const STAGE_MAX = 22;
 /** 이보다 짧으면 「녹화 시간이 부족해요」(4초 거절 · 11초 허용 확인 → 10초로 정함) */
 const STAGE_MIN = 10;
 
-type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean };
-type Video = { url: string; cover: string; durations: number[]; uploading: boolean };
+type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean };
+/** 등록 화면 칸 순서: 촬영 레일 각도 순(기타는 맨 뒤), 같은 각도는 올린 순 */
+const slotOrder = (slot: string) => {
+  const i = (PHOTO_SLOTS as readonly string[]).indexOf(slot);
+  return i < 0 || slot === OTHER ? PHOTO_SLOTS.length : i;
+};
+const sortBySlot = (list: Photo[]) => list.map((p, i) => ({ p, i })).sort((a, b) => slotOrder(a.p.slot) - slotOrder(b.p.slot) || a.i - b.i).map((x) => x.p);
+/** 영상: 단계별 파일(segs[i] = 그 단계 영상, 불러온 영상은 한 개) · 단계별 길이(초) · 표지 */
+type Video = { segs: (string | null)[]; durations: number[]; cover: string; uploading: boolean; imported?: boolean };
+type Take = { segs: (string | null)[]; durations: number[]; thumbs: string[]; imported?: boolean };
 
 let seq = 0;
 const uid = () => `p${Date.now().toString(36)}${(seq++).toString(36)}`;
@@ -87,18 +95,18 @@ function Toast({ text }: { text: string }) {
   );
 }
 
-function Confirm({ text, onCancel, onOk }: { text: string; onCancel: () => void; onOk: () => void }) {
+function Confirm({ text, onCancel, onOk, cancelText = "취소", okText = "확인", onDim }: { text: string; onCancel: () => void; onOk: () => void; cancelText?: string; okText?: string; onDim?: () => void }) {
   return (
-    <div className="shoot-dim" role="presentation" onClick={onCancel}>
+    <div className="shoot-dim" role="presentation" onClick={onDim ?? onCancel}>
       <div className="shoot-confirm" role="alertdialog" aria-modal="true" aria-labelledby="shoot-confirm-t" onClick={(e) => e.stopPropagation()}>
         <strong id="shoot-confirm-t">안내</strong>
         <p>{text}</p>
         <div className="shoot-confirm__row">
           <button type="button" onClick={onCancel}>
-            취소
+            {cancelText}
           </button>
           <button type="button" className="is-ok" onClick={onOk} autoFocus>
-            확인
+            {okText}
           </button>
         </div>
       </div>
@@ -538,7 +546,7 @@ function PhotoPreview({
     for (const p of draft) {
       if (p.removed) continue;
       const src = await bakeSticker(p.src, p.sticker);
-      out.push({ id: p.id, src, slot: p.slot });
+      out.push({ id: p.id, src, slot: p.slot, uploading: p.uploading });
     }
     setBusy(false);
     onDone(out);
@@ -581,7 +589,7 @@ function PhotoPreview({
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
           <Mask src={rd("close-outline")} />
         </button>
-        <h2>사진 미리보기({draft.filter((p) => !p.removed).length})</h2>
+        <h2>사진 미리보기({cur + 1})</h2>
         <span className="shoot-icon-btn" />
       </header>
       <div className="shoot-stage" ref={stageRef}>
@@ -656,7 +664,7 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
   const [strokes, setStrokes] = useState<Stroke[]>([]);
   const [redo, setRedo] = useState<Stroke[]>([]);
   const [brush, setBrush] = useState(1);
-  const [frame, setFrame] = useState({ x: 0, y: 0 });
+  const [picked, setPicked] = useState(false);
   const [saving, setSaving] = useState(false);
   const [rotSrc, setRotSrc] = useState(src);
   useEffect(() => {
@@ -712,12 +720,45 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
     return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
   };
 
-  // 자르기 틀
+  // 자르기 틀: 비율을 지킨 채 끌어 옮기고(가운데), 네 모서리로 크기를 바꾼다(반대 모서리 고정).
   const ar = aspect === "4:3" ? 4 / 3 : 3 / 4;
-  const fw = Math.min(fit.w, fit.h * ar);
+  const maxW = Math.min(fit.w, fit.h * ar);
+  const minW = Math.min(maxW, 64);
+  const [frame, setFrame] = useState({ x: 0, y: 0, w: 0 });
+  const fw = Math.min(maxW, frame.w || maxW);
   const fh = fw / ar;
-  useEffect(() => setFrame({ x: (fit.w - fw) / 2, y: (fit.h - fh) / 2 }), [fit.w, fit.h, fw, fh]);
-  const frameDrag = useRef<{ sx: number; sy: number; f0: { x: number; y: number } } | null>(null);
+  useEffect(() => setFrame({ x: (fit.w - maxW) / 2, y: (fit.h - maxW / ar) / 2, w: maxW }), [fit.w, fit.h, maxW, ar]);
+  const frameDrag = useRef<{ kind: "move" | "tl" | "tr" | "bl" | "br"; sx: number; sy: number; f0: { x: number; y: number; w: number } } | null>(null);
+  const startFrame = (kind: "move" | "tl" | "tr" | "bl" | "br") => (e: RPointerEvent) => {
+    e.stopPropagation();
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    frameDrag.current = { kind, sx: e.clientX, sy: e.clientY, f0: { x: frame.x, y: frame.y, w: fw } };
+  };
+  const moveFrame = (e: RPointerEvent) => {
+    const d = frameDrag.current;
+    if (!d) return;
+    const dx = e.clientX - d.sx;
+    const dy = e.clientY - d.sy;
+    const { x, y, w } = d.f0;
+    const h = w / ar;
+    if (d.kind === "move") {
+      setFrame({ w, x: Math.min(fit.w - w, Math.max(0, x + dx)), y: Math.min(fit.h - h, Math.max(0, y + dy)) });
+      return;
+    }
+    // 고정할 반대 모서리
+    const left = d.kind === "tr" || d.kind === "br";
+    const top = d.kind === "bl" || d.kind === "br";
+    const ax = left ? x : x + w;
+    const ay = top ? y : y + h;
+    // 손가락 쪽으로 늘어난 폭(가로·세로 중 더 많이 움직인 쪽을 따른다)
+    const gx = left ? dx : -dx;
+    const gy = top ? dy : -dy;
+    const grow = Math.abs(gx) >= Math.abs(gy * ar) ? gx : gy * ar;
+    const room = Math.min(left ? fit.w - ax : ax, (top ? fit.h - ay : ay) * ar);
+    const nw = Math.max(minW, Math.min(room, w + grow));
+    setFrame({ w: nw, x: left ? ax : ax - nw, y: top ? ay : ay - nw / ar });
+  };
+  const endFrame = () => (frameDrag.current = null);
 
   const save = async () => {
     setSaving(true);
@@ -763,25 +804,19 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
               <div
                 className="shoot-crop__frame"
                 style={{ left: frame.x, top: frame.y, width: fw, height: fh, boxShadow: "0 0 0 9999px rgba(255,255,255,.62)" }}
-                onPointerDown={(e) => {
-                  (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-                  frameDrag.current = { sx: e.clientX, sy: e.clientY, f0: frame };
-                }}
-                onPointerMove={(e) => {
-                  const d = frameDrag.current;
-                  if (!d) return;
-                  setFrame({
-                    x: Math.min(fit.w - fw, Math.max(0, d.f0.x + e.clientX - d.sx)),
-                    y: Math.min(fit.h - fh, Math.max(0, d.f0.y + e.clientY - d.sy)),
-                  });
-                }}
-                onPointerUp={() => (frameDrag.current = null)}
+                onPointerDown={startFrame("move")}
+                onPointerMove={moveFrame}
+                onPointerUp={endFrame}
+                onPointerCancel={endFrame}
               >
                 <i className="shoot-crop__grid is-v1" />
                 <i className="shoot-crop__grid is-v2" />
                 <i className="shoot-crop__grid is-h1" />
                 <i className="shoot-crop__grid is-h2" />
                 <Corners />
+                {(["tl", "tr", "bl", "br"] as const).map((k) => (
+                  <span key={k} className={`shoot-crop__h is-${k}`} role="button" aria-label="자르기 크기 조절" onPointerDown={startFrame(k)} onPointerMove={moveFrame} onPointerUp={endFrame} onPointerCancel={endFrame} />
+                ))}
               </div>
             </div>
           ) : null}
@@ -793,7 +828,7 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
             <div className="shoot-brushes">
               <div className="shoot-brushes__dots">
                 {BRUSHES.map((b, i) => (
-                  <button key={b} type="button" className={`shoot-brush is-${i} ${i === brush ? "is-on" : ""}`} aria-pressed={i === brush} aria-label={`붓 ${["작게", "보통", "크게"][i]}`} onClick={() => setBrush(i)} />
+                  <button key={b} type="button" className={`shoot-brush is-${i} ${i === brush ? "is-on" : ""} ${picked ? "is-picked" : ""}`} aria-pressed={i === brush} aria-label={`붓 ${["작게", "보통", "크게"][i]}`} onClick={() => { setBrush(i); setPicked(true); }} />
                 ))}
               </div>
               <span>붓 설정</span>
@@ -857,19 +892,24 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
 // ── 영상 촬영 ──────────────────────────────────────────
 type RecPhase = "idle" | "countdown" | "recording" | "paused" | "merging";
 
-function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; onFinished: (blobUrl: string, durations: number[], thumbs: string[]) => void; notify: (t: string) => void }) {
+function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take; onClose: () => void; onFinished: (take: Take) => void; notify: (t: string) => void }) {
   const [mode, setMode] = useState<"cam" | "album">("cam");
   const cam = useCamera(mode === "cam", true);
   const [flash, setFlash] = useState(false);
-  const [stage, setStage] = useState(0);
-  const [phase, setPhase] = useState<RecPhase>("idle");
+  // 다시 찍기: 찍어 둔 단계는 그대로 두고, 고른 단계만 새로 찍어 바꾼다.
+  const firstEmpty = initial ? initial.durations.findIndex((d) => d === 0) : 0;
+  const [stage, setStage] = useState(Math.max(0, firstEmpty));
+  const [phase, setPhase] = useState<RecPhase>(initial?.durations.some(Boolean) ? "paused" : "idle");
+  const [changed, setChanged] = useState(false);
   const [count, setCount] = useState(3);
   const [elapsed, setElapsed] = useState(0);
-  const [durations, setDurations] = useState<number[]>([0, 0, 0, 0]);
+  const [durations, setDurations] = useState<number[]>(() => initial?.durations.slice() ?? [0, 0, 0, 0]);
   const [askLeave, setAskLeave] = useState(false);
   const [guide, setGuide] = useState(false);
   const recRef = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
+  const segs = useRef<(string | null)[]>(initial?.segs.slice() ?? [null, null, null, null]);
+  const saving = useRef<Promise<void>>(Promise.resolve());
   const fake = useRef<ReturnType<typeof fakeStream> | null>(null);
   const tick = useRef<number>(0);
   const segStart = useRef(0);
@@ -880,7 +920,7 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
   durRef.current = durations;
   const fileRef = useRef<HTMLInputElement>(null);
   const viewRef = useRef<HTMLDivElement>(null);
-  const liveThumbs = useRef<string[]>([]);
+  const liveThumbs = useRef<string[]>(initial?.thumbs.slice() ?? []);
   const done = durations.map((d) => d > 0);
   const anyDone = done.some(Boolean);
 
@@ -908,8 +948,21 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
     const next = [...durRef.current];
     next[s] = Math.min(STAGE_MAX, Math.round(secs));
     setDurations(next);
-    recRef.current?.pause();
-    const remaining = STAGES.findIndex((_, i) => i > s && next[i] === 0);
+    setChanged(true);
+    // 단계마다 파일 하나: 녹화를 끝내 그 단계 영상으로 저장한다.
+    const r = recRef.current;
+    recRef.current = null;
+    if (r && r.state !== "inactive") {
+      saving.current = new Promise<void>((resolve) => {
+        r.onstop = () => {
+          segs.current[s] = URL.createObjectURL(new Blob(chunks.current, { type: r.mimeType || "video/webm" }));
+          resolve();
+        };
+        r.stop();
+      });
+    }
+    let remaining = STAGES.findIndex((_, i) => i > s && next[i] === 0);
+    if (remaining < 0) remaining = STAGES.findIndex((_, i) => next[i] === 0);
     if (remaining < 0) stopAll(next);
     else {
       setStage(remaining);
@@ -952,22 +1005,20 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
         return;
       }
       window.clearInterval(t);
-      const rec = recRef.current;
-      if (!rec) {
-        const type = pickRecorderType();
-        let r: MediaRecorder;
-        try {
-          r = type ? new MediaRecorder(sourceStream(), { mimeType: type }) : new MediaRecorder(sourceStream());
-        } catch {
-          notify("이 브라우저는 영상 녹화를 지원하지 않아요");
-          setPhase("idle");
-          return;
-        }
-        chunks.current = [];
-        r.ondataavailable = (e) => e.data.size && chunks.current.push(e.data);
-        recRef.current = r;
-        r.start(500);
-      } else rec.resume();
+      const type = pickRecorderType();
+      let r: MediaRecorder;
+      try {
+        r = type ? new MediaRecorder(sourceStream(), { mimeType: type }) : new MediaRecorder(sourceStream());
+      } catch {
+        notify("이 브라우저는 영상 녹화를 지원하지 않아요");
+        setPhase(durRef.current.some(Boolean) ? "paused" : "idle");
+        return;
+      }
+      const list: Blob[] = [];
+      chunks.current = list;
+      r.ondataavailable = (e) => e.data.size && list.push(e.data);
+      recRef.current = r;
+      r.start(500);
       setPhase("recording");
       startTimer();
     }, 1000);
@@ -986,31 +1037,26 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
 
   const stopAll = (finalDur: number[]) => {
     setPhase("merging");
-    const r = recRef.current;
-    const finalize = () => {
-      const blob = new Blob(chunks.current, { type: r?.mimeType || "video/webm" });
+    void saving.current.then(() => {
       fake.current?.stop();
-      window.setTimeout(() => onFinished(URL.createObjectURL(blob), finalDur, liveThumbs.current), 900);
-    };
-    if (r && r.state !== "inactive") {
-      r.onstop = finalize;
-      r.stop();
-    } else finalize();
+      const out = segs.current.map((u, i) => (finalDur[i] ? u : null));
+      window.setTimeout(() => onFinished({ segs: out, durations: finalDur, thumbs: liveThumbs.current }), 600);
+    });
   };
 
   const recording = phase === "recording" || phase === "countdown";
-  const pillText = `${STAGES[stage].label} 촬영`;
+  const pillText = done[stage] && !recording ? `${STAGES[stage].label} 다시 찍기` : `${STAGES[stage].label} 촬영`;
 
   const importVideo = (files: FileList | null) => {
     const f = files?.[0];
     if (!f) return;
-    onFinished(URL.createObjectURL(f), [0, 0, 0, 0], []);
+    onFinished({ segs: [URL.createObjectURL(f)], durations: [0, 0, 0, 0], thumbs: [], imported: true });
   };
 
   return (
     <div className="shoot-layer shoot-capture is-video">
       <header className="shoot-top">
-        <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={() => (anyDone || recording ? setAskLeave(true) : onClose())}>
+        <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={() => ((initial ? changed : anyDone) || recording ? setAskLeave(true) : onClose())}>
           <Mask src={rd("close-outline")} />
         </button>
         <h2>차량 영상</h2>
@@ -1042,8 +1088,8 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
                     key={s.key}
                     type="button"
                     className={`shoot-stage-chip ${active ? "is-active" : ""} ${expanded ? "is-expanded" : ""} ${done[i] ? "is-done" : ""}`}
-                    disabled={recording || done[i]}
-                    aria-label={expanded ? `${s.label} 촬영 예시 크게 보기` : `${s.label} 단계 고르기`}
+                    disabled={recording || phase === "merging"}
+                    aria-label={expanded ? `${s.label} 촬영 예시 크게 보기` : done[i] ? `${s.label} 다시 찍기` : `${s.label} 단계 고르기`}
                     onClick={() => (expanded ? setGuide(true) : setStage(i))}
                   >
                     {expanded ? (
@@ -1056,7 +1102,7 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
                       </>
                     ) : null}
                     {active && recording ? <i className="shoot-stage-chip__bar" style={{ width: `${(Math.min(elapsed, STAGE_MAX) / STAGE_MAX) * 100}%` }} /> : null}
-                    {done[i] ? <span className="shoot-stage-chip__time">{mmss(durations[i])}</span> : null}
+                    {done[i] && !expanded ? <span className="shoot-stage-chip__time">{mmss(durations[i])}</span> : null}
                     <span className="shoot-stage-chip__label">
                       {s.label}
                       {active && phase === "recording" ? <i className="shoot-rec-dot" /> : null}
@@ -1122,77 +1168,131 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
           </div>
         </div>
       ) : null}
-      {askLeave ? <Confirm text="촬영한 영상을 지우고 나갈까요?" onCancel={() => setAskLeave(false)} onOk={onClose} /> : null}
+      {askLeave ? <Confirm text={initial ? "새로 찍은 내용을 버리고 나갈까요?" : "촬영한 영상을 지우고 나갈까요?"} onCancel={() => setAskLeave(false)} onOk={onClose} /> : null}
     </div>
   );
 }
 
-function VideoPreview({ url, durations, onClose, onNext }: { url: string; durations: number[]; onClose: () => void; onNext: () => void }) {
+function VideoPreview({
+  take,
+  edit,
+  onClose,
+  onNext,
+  onReshoot,
+  onCover,
+  onDelete,
+}: {
+  take: Take;
+  edit?: boolean;
+  onClose: () => void;
+  onNext?: () => void;
+  onReshoot?: () => void;
+  onCover?: () => void;
+  onDelete?: () => void;
+}) {
+  // 단계별 파일을 차례로 이어 튼다(외관 → 실내 → 엔진룸 → 트렁크).
+  const parts = take.segs.map((u, i) => ({ u, i })).filter((x): x is { u: string; i: number } => Boolean(x.u));
   const ref = useRef<HTMLVideoElement>(null);
+  const [k, setK] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [t, setT] = useState(0);
-  const total = durations.reduce((a, b) => a + b, 0);
+  const total = take.durations.reduce((a, b) => a + b, 0);
   const [dur, setDur] = useState(total);
+  const before = parts.slice(0, k).reduce((a, x) => a + (take.durations[x.i] || 0), 0);
+  const go = (n: number, play: boolean) => {
+    setK(n);
+    setT(0);
+    setPlaying(play);
+  };
+  useEffect(() => {
+    const v = ref.current;
+    if (v && playing) void v.play().catch(() => setPlaying(false));
+  }, [k, playing]);
+  const cur = parts[k];
   return (
-    <div className="shoot-layer shoot-vpreview">
+    <div className={`shoot-layer shoot-vpreview ${edit ? "is-edit" : ""}`}>
       <header className="shoot-top">
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
           <Mask src={rd("close-outline")} />
         </button>
-        <h2>영상 미리보기</h2>
+        <h2>{edit ? "차량 영상" : "영상 미리보기"}</h2>
         <span className="shoot-icon-btn" />
       </header>
       <div className="shoot-view">
-        <video
-          ref={ref}
-          src={url}
-          className="shoot-live"
-          playsInline
-          onTimeUpdate={(e) => setT(e.currentTarget.currentTime)}
-          onLoadedMetadata={(e) => Number.isFinite(e.currentTarget.duration) && !total && setDur(e.currentTarget.duration)}
-          onEnded={() => setPlaying(false)}
-          onClick={() => {
-            ref.current?.pause();
-            setPlaying(false);
-          }}
-        />
-        {!playing ? (
-          <button
-            type="button"
-            className="shoot-play"
-            aria-label="재생"
+        {cur ? (
+          <video
+            key={cur.u}
+            ref={ref}
+            src={cur.u}
+            className="shoot-live"
+            playsInline
+            onTimeUpdate={(e) => setT(e.currentTarget.currentTime)}
+            onLoadedMetadata={(e) => Number.isFinite(e.currentTarget.duration) && !total && setDur(e.currentTarget.duration)}
+            onEnded={() => (k < parts.length - 1 ? go(k + 1, true) : go(0, false))}
             onClick={() => {
-              void ref.current?.play();
-              setPlaying(true);
+              ref.current?.pause();
+              setPlaying(false);
             }}
-          >
+          />
+        ) : null}
+        {!playing ? (
+          <button type="button" className="shoot-play" aria-label="재생" onClick={() => setPlaying(true)}>
             <Mask src={rd("play-fill")} />
           </button>
         ) : null}
         {total ? (
           <div className="shoot-stages is-done-row">
-            {STAGES.map((s, i) => (
-              <span key={s.key} className={`shoot-stage-chip is-done ${durations[i] ? "" : "is-empty"}`}>
-                <span className="shoot-stage-chip__time">{mmss(durations[i])}</span>
-                <span className="shoot-stage-chip__label">{s.label}</span>
-              </span>
-            ))}
+            {STAGES.map((s, i) => {
+              const at = parts.findIndex((x) => x.i === i);
+              return (
+                <button
+                  type="button"
+                  key={s.key}
+                  className={`shoot-stage-chip is-done ${take.durations[i] ? "" : "is-empty"} ${cur?.i === i ? "is-now" : ""}`}
+                  disabled={at < 0}
+                  aria-label={`${s.label} 영상부터 보기`}
+                  onClick={() => go(at, true)}
+                >
+                  <span className="shoot-stage-chip__time">{mmss(take.durations[i])}</span>
+                  <span className="shoot-stage-chip__label">{s.label}</span>
+                </button>
+              );
+            })}
           </div>
         ) : null}
       </div>
       <div className="shoot-bottom is-vpreview">
         <span className="shoot-vtime">
-          {mmss(t)}/{mmss(dur || total)}
+          {mmss(before + t)}/{mmss(dur || total)}
         </span>
-        <button type="button" className="shoot-done" onClick={onNext}>
-          다음
-        </button>
+        {edit ? (
+          <div className="shoot-vedit-actions">
+            {onReshoot ? (
+              <button type="button" onClick={onReshoot}>
+                <Mask src={rd("video-camera-outline")} />
+                다시 찍기
+              </button>
+            ) : null}
+            <button type="button" onClick={onCover}>
+              <Mask src={rd("image-post-outline")} />
+              표지 바꾸기
+            </button>
+            <button type="button" onClick={onDelete}>
+              <Mask src={rd("delete-outline")} />
+              삭제
+            </button>
+          </div>
+        ) : (
+          <button type="button" className="shoot-done" onClick={onNext}>
+            다음
+          </button>
+        )}
       </div>
     </div>
   );
 }
 
-function CoverPicker({ url, fallback, onClose, onDone }: { url: string; fallback: string[]; onClose: () => void; onDone: (cover: string) => void }) {
+function CoverPicker({ segs, fallback, onClose, onDone }: { segs: (string | null)[]; fallback: string[]; onClose: () => void; onDone: (cover: string) => void }) {
   const [frames, setFrames] = useState<string[]>([]);
   const [pick, setPick] = useState(0);
   useEffect(() => {
@@ -1203,13 +1303,20 @@ function CoverPicker({ url, fallback, onClose, onDone }: { url: string; fallback
     };
     // 녹화 중 모은 장면을 먼저 보여 주고, 영상 파일에서 장면을 뽑으면 바꾼다.
     if (fallback.length) setFrames(pickFallback());
-    void extractFrames(url, 8)
-      .then((f) => live && setFrames(f.length ? f : pickFallback()))
+    // 단계 영상마다 고르게 나눠 모두 8장
+    const urls = segs.filter((u): u is string => Boolean(u));
+    const per = urls.map((_, i) => Math.floor(8 / urls.length) + (i < 8 % urls.length ? 1 : 0));
+    void Promise.all(urls.map((u, i) => (per[i] ? extractFrames(u, per[i]).catch(() => [] as string[]) : Promise.resolve([] as string[]))))
+      .then((lists) => {
+        const f = lists.flat();
+        if (live) setFrames(f.length ? f : pickFallback());
+      })
       .catch(() => live && setFrames(pickFallback()));
     return () => {
       live = false;
     };
-  }, [url]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [segs]);
   return (
     <div className="shoot-layer shoot-cover">
       <header className="shoot-top">
@@ -1303,17 +1410,16 @@ type Screen =
   | { name: "main" }
   | { name: "capture"; mode: "cam" | "album" }
   | { name: "preview"; id: string }
-  | { name: "video" }
-  | { name: "vpreview"; url: string; durations: number[]; thumbs: string[] }
-  | { name: "cover"; url: string; durations: number[]; thumbs: string[] }
+  | { name: "video"; reshoot?: boolean }
+  | { name: "vpreview"; take: Take }
+  | { name: "vedit" }
+  | { name: "cover"; take: Take; coverOnly?: boolean }
   | { name: "rules" };
 
-type PhotoStatus = "empty" | "uploading" | "done";
 
 export default function ShootRegister() {
   const [screen, setScreen] = useState<Screen>({ name: "main" });
   const [photos, setPhotos] = useState<Photo[]>([]);
-  const [status, setStatus] = useState<PhotoStatus>("empty");
   const [video, setVideo] = useState<Video | null>(null);
   const [toast, setToast] = useState("");
   const [tipOpen, setTipOpen] = useState(false);
@@ -1321,6 +1427,7 @@ export default function ShootRegister() {
   const [verify, setVerify] = useState<"reg" | "orig" | "plate">("reg");
   const [drafts, setDrafts] = useState(0);
   const [progress, setProgress] = useState(0);
+  const [askLeave, setAskLeave] = useState(false);
   const toastTimer = useRef(0);
 
   const notify = (t: string) => {
@@ -1347,21 +1454,18 @@ export default function ShootRegister() {
   const addPhotos = (added: Photo[]) => {
     setScreen({ name: "main" });
     if (!added.length) return;
-    setPhotos((p) => [...p, ...added]);
-    // 58: 「사진 인식 중」(약 1.5초 동안 처리 안내 토스트) → 「인식 완료」
-    setStatus("uploading");
+    // 새로 올린 사진만 「업로드 중」. 칸은 촬영 각도 순으로 끼워 넣는다.
+    const ids = new Set(added.map((p) => p.id));
+    setPhotos((p) => sortBySlot([...p, ...added.map((x) => ({ ...x, uploading: true }))]));
+    // 58: 「사진 인식 중」(처리 안내 토스트) → 「인식 완료」
     notify("사진을 처리하고 있어요. 앱을 나가지 마세요");
-    window.setTimeout(() => setStatus("done"), 3200);
+    window.setTimeout(() => setPhotos((p) => p.map((x) => (ids.has(x.id) ? { ...x, uploading: false } : x))), 3200);
   };
 
-  const removePhoto = (id: string) => {
-    setPhotos((p) => {
-      const next = p.filter((x) => x.id !== id);
-      if (!next.length) setStatus("empty");
-      return next;
-    });
-  };
+  const removePhoto = (id: string) => setPhotos((p) => p.filter((x) => x.id !== id));
 
+  const anyUploading = photos.some((p) => p.uploading);
+  const status = !photos.length ? "empty" : anyUploading ? "uploading" : "done";
   const sectionTitle = status === "uploading" ? "차량 사진 인식 중…" : status === "done" && photos.length ? "차량 사진 인식 완료" : "사진·영상 올리기";
   const hasMedia = photos.length > 0 || Boolean(video);
 
@@ -1370,7 +1474,7 @@ export default function ShootRegister() {
       <div className="shoot-phone">
         <section className="shoot-main" aria-label="중고차 등록">
           <header className="shoot-main__top">
-            <button type="button" className="shoot-icon-btn is-dark" aria-label="뒤로" onClick={() => window.history.back()}>
+            <button type="button" className="shoot-icon-btn is-dark" aria-label="뒤로" onClick={() => setAskLeave(true)}>
               <Mask src={rd("back-outline-24")} className="is-back" />
             </button>
             <div className="shoot-main__title">
@@ -1446,7 +1550,7 @@ export default function ShootRegister() {
                 <div className="shoot-tiles">
                   {photos.map((p) => (
                     <figure key={p.id} className="shoot-tile">
-                      {status === "uploading" ? (
+                      {p.uploading ? (
                         <div className="shoot-tile__wait">
                           <b>bb</b>
                         </div>
@@ -1456,17 +1560,17 @@ export default function ShootRegister() {
                           <span className="shoot-tile__wm">보배드림</span>
                         </button>
                       )}
-                      {status === "done" ? (
+                      {!p.uploading ? (
                         <button type="button" className="shoot-tile__del" aria-label="사진 삭제" onClick={() => setConfirm({ kind: "photo", id: p.id })}>
                           <Mask src={rd("delete-outline")} />
                         </button>
                       ) : null}
-                      <figcaption>{status === "uploading" ? "업로드 중" : p.slot}</figcaption>
+                      <figcaption>{p.uploading ? "업로드 중" : p.slot}</figcaption>
                     </figure>
                   ))}
                   {video ? (
-                    <figure className="shoot-tile">
-                      <div className="shoot-tile__img">
+                    <figure className="shoot-tile shoot-tile--video">
+                      <button type="button" className="shoot-tile__img" disabled={video.uploading} onClick={() => setScreen({ name: "vedit" })} aria-label="영상 보기·편집">
                         <img src={video.cover} alt="" />
                         {video.uploading ? (
                           <span className="shoot-tile__dots" role="status" aria-label="영상 올리는 중">
@@ -1482,10 +1586,12 @@ export default function ShootRegister() {
                           </span>
                         )}
                         <span className="shoot-tile__wm">보배드림</span>
-                      </div>
-                      <button type="button" className="shoot-tile__del" aria-label="영상 삭제" onClick={() => setConfirm({ kind: "video" })}>
-                        <Mask src={rd("delete-outline")} />
                       </button>
+                      {!video.uploading ? (
+                        <button type="button" className="shoot-tile__del" aria-label="영상 삭제" onClick={() => setConfirm({ kind: "video" })}>
+                          <Mask src={rd("delete-outline")} />
+                        </button>
+                      ) : null}
                       <figcaption>&nbsp;</figcaption>
                     </figure>
                   ) : null}
@@ -1559,24 +1665,45 @@ export default function ShootRegister() {
             onClose={() => setScreen({ name: "main" })}
             onAddMore={() => setScreen({ name: "capture", mode: "album" })}
             onDone={(next) => {
-              setPhotos(next);
-              if (!next.length) setStatus("empty");
+              setPhotos(sortBySlot(next));
               setScreen({ name: "main" });
             }}
           />
         ) : null}
         {screen.name === "video" ? (
-          <VideoCapture notify={notify} onClose={() => setScreen({ name: "main" })} onFinished={(url, durations, thumbs) => setScreen({ name: durations.some(Boolean) ? "vpreview" : "cover", url, durations, thumbs } as Screen)} />
+          <VideoCapture
+            notify={notify}
+            initial={screen.reshoot && video ? { segs: video.segs, durations: video.durations, thumbs: [] } : undefined}
+            onClose={() => setScreen(screen.reshoot ? { name: "vedit" } : { name: "main" })}
+            onFinished={(take) => setScreen(take.imported ? { name: "cover", take } : { name: "vpreview", take })}
+          />
         ) : null}
-        {screen.name === "vpreview" ? <VideoPreview url={screen.url} durations={screen.durations} onClose={() => setScreen({ name: "main" })} onNext={() => setScreen({ name: "cover", url: screen.url, durations: screen.durations, thumbs: screen.thumbs })} /> : null}
+        {screen.name === "vpreview" ? (
+          <VideoPreview take={screen.take} onClose={() => setScreen({ name: "main" })} onNext={() => setScreen({ name: "cover", take: screen.take })} />
+        ) : null}
+        {screen.name === "vedit" && video ? (
+          <VideoPreview
+            take={{ segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported }}
+            edit
+            onClose={() => setScreen({ name: "main" })}
+            onReshoot={video.imported ? undefined : () => setScreen({ name: "video", reshoot: true })}
+            onCover={() => setScreen({ name: "cover", take: { segs: video.segs, durations: video.durations, thumbs: [video.cover], imported: video.imported }, coverOnly: true })}
+            onDelete={() => setConfirm({ kind: "video" })}
+          />
+        ) : null}
         {screen.name === "cover" ? (
           <CoverPicker
-            url={screen.url}
-            fallback={screen.thumbs}
-            onClose={() => setScreen({ name: "main" })}
+            segs={screen.take.segs}
+            fallback={screen.take.thumbs}
+            onClose={() => setScreen(screen.coverOnly ? { name: "vedit" } : { name: "main" })}
             onDone={(cover) => {
-              setVideo({ url: screen.url, cover, durations: screen.durations, uploading: true });
+              const t = screen.take;
               setScreen({ name: "main" });
+              if (screen.coverOnly) {
+                setVideo((v) => (v ? { ...v, cover } : v));
+                return;
+              }
+              setVideo({ segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported });
               window.setTimeout(() => setVideo((v) => (v ? { ...v, uploading: false } : v)), 4000);
             }}
           />
@@ -1589,8 +1716,30 @@ export default function ShootRegister() {
             onCancel={() => setConfirm(null)}
             onOk={() => {
               if (confirm.kind === "photo") removePhoto(confirm.id);
-              else setVideo(null);
+              else {
+                setVideo(null);
+                if (screen.name === "vedit") setScreen({ name: "main" });
+              }
               setConfirm(null);
+            }}
+          />
+        ) : null}
+        {askLeave ? (
+          // 58: 「信息尚未发布完成,确认要离开吗？」 不保存 / 保存并退出(바깥을 누르면 그대로 머문다)
+          <Confirm
+            text="아직 등록을 마치지 않았어요. 나갈까요?"
+            cancelText="저장 안 함"
+            okText="저장하고 나가기"
+            onDim={() => setAskLeave(false)}
+            onCancel={() => {
+              setAskLeave(false);
+              window.history.back();
+            }}
+            onOk={() => {
+              setAskLeave(false);
+              setDrafts((d) => d + 1);
+              notify("임시저장했어요");
+              window.setTimeout(() => window.history.back(), 600);
             }}
           />
         ) : null}
