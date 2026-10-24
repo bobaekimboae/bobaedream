@@ -1961,7 +1961,8 @@
   margin-top: 16.9px;
 }
 .shoot-radios label {
-  font-size: min(16px, 3.9vw);
+  font-size: min(16px, 3.6vw);
+  gap: 6px;
   white-space: nowrap;
 }
 
