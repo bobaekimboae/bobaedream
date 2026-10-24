@@ -3055,3 +3055,76 @@
   background: var(--shoot-accent);
   transition: width 0.2s linear;
 }
+
+/* ── 촬영 앱(/shoot/) 설치 안내 (2026-10-25) — 등록 화면 하단 버튼 줄 위, 촬영 화면이 열리면 숨김 ── */
+.shoot-install {
+  position: fixed;
+  left: 50%;
+  bottom: calc(76px + env(safe-area-inset-bottom));
+  z-index: 1001;
+  transform: translateX(-50%);
+  width: min(398px, calc(100% - 32px));
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 8px 12px 12px;
+  border-radius: 16px;
+  background: #222;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+body:has(.shoot-layer) .shoot-install {
+  display: none;
+}
+.shoot-install img {
+  flex: none;
+  border-radius: 10px;
+}
+.shoot-install__text {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+.shoot-install__text strong {
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 700;
+}
+.shoot-install__text span {
+  font-size: 12px;
+  line-height: 17px;
+  color: rgba(255, 255, 255, 0.72);
+  word-break: keep-all;
+}
+.shoot-install button {
+  font: inherit;
+  border: 0;
+  cursor: pointer;
+}
+.shoot-install__go {
+  flex: none;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 16px;
+  background: #fff;
+  color: #222;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+}
+.shoot-install__x {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 16px;
+  background: none;
+  color: rgba(255, 255, 255, 0.72);
+}
+.shoot-install button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}

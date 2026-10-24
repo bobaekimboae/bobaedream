@@ -1918,7 +1918,7 @@ export default function ShootRegister() {
   }, []);
   useEffect(() => setProgress((p) => (p === 0 ? 0 : photos.length ? 28 : 20)), [photos.length]);
   useEffect(() => {
-    document.title = "보배드림 · 중고차 등록 촬영";
+    if (document.documentElement.dataset.site !== "shoot") document.title = "보배드림 · 중고차 등록 촬영";
   }, []);
 
   const missing = useMemo(() => {

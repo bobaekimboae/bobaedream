@@ -9,6 +9,7 @@ export default defineConfig({
         main: "index.html",
         bike: "bike/index.html",
         truck: "truck/index.html",
+        shoot: "shoot/index.html",
       },
     },
   },
