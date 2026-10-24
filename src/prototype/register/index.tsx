@@ -1,5 +1,6 @@
 // JOB-7: 매물 등록 화면(dev https://dev.bbmuseum.co.kr/car/register → /car/register/form 기준, 2026-10-07 실측).
 // ?register 로 연다. 1단계(차량번호·동의) → 다음(14러0927 목업 조회) → 등록 폼. 실제 API·업로드·등록 요청은 보내지 않는다.
+import "../preload-guard";
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import "../listing/bbm-list-area.css";
 import "./register.css";

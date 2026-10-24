@@ -1,6 +1,7 @@
 // 딜러용 숏폼 자동 제작기(2026-10-22 「숏폼 자동 제작 딜러용 프로그램 … 너가 만들어봐」, 2단계 「추가 기능」).
 // 매물 사진·딜러 영상과 매물 정보로 영상을 캔버스에 그리고, 브라우저 안에서 mp4로 만든다(WebCodecs + Mediabunny, 서버 없음).
 // 반사기 원칙: 사진·영상 자체는 고치지 않는다(자르기·이동·흐린 채움만). 차를 새로 그리는 AI 생성은 쓰지 않는다.
+import "../../preload-guard";
 
 export type ShortformTemplate = "reels" | "card";
 export type ShortformAspect = "9:16" | "1:1" | "16:9";
