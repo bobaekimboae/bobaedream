@@ -2883,6 +2883,480 @@
   opacity: 0.45;
 }
 
+/* 촬영 코스 설계 — 부위·순서·시간을 현장에서 바로 바꾸는 목록형 편집기 */
+.shoot-plan .shoot-xpick__box {
+  max-height: 94%;
+  border-radius: 20px 20px 0 0;
+  background: #f7f7f8;
+  color: #222;
+}
+.shoot-plan header {
+  padding: 20px 20px 10px;
+}
+.shoot-plan header strong {
+  font-size: 21px;
+  line-height: 29px;
+}
+.shoot-plan header p {
+  margin-top: 6px;
+  color: #666;
+}
+.shoot-plan header > span {
+  display: block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #777;
+}
+.shoot-plan__list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0;
+  padding: 0 14px 4px;
+  list-style: none;
+}
+.shoot-plan__list li {
+  min-height: 76px;
+  display: grid;
+  grid-template-columns: 24px 64px minmax(0, 1fr) 32px 34px 34px;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding: 8px 8px 8px 10px;
+  border: 1px solid #e7e7e9;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(20, 20, 30, 0.04);
+}
+.shoot-plan__list li.is-recorded {
+  background: #f1f1f2;
+}
+.shoot-plan__order {
+  font-size: 14px;
+  font-weight: 800;
+  color: #7d7d82;
+  text-align: center;
+}
+.shoot-plan__thumb {
+  width: 64px;
+  height: 52px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #ddd;
+}
+.shoot-plan__meta {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+.shoot-plan__meta b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+  line-height: 20px;
+}
+.shoot-plan__meta em {
+  font-style: normal;
+  font-size: 12px;
+  color: #777;
+}
+.shoot-plan__move {
+  display: grid;
+  gap: 1px;
+}
+.shoot-plan__move button,
+.shoot-plan__icon {
+  min-width: 32px;
+  min-height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+}
+.shoot-plan__move button:active,
+.shoot-plan__icon:active {
+  background: #eee !important;
+}
+.shoot-plan__move img,
+.shoot-plan__icon img {
+  width: 17px;
+  height: 17px;
+  opacity: 0.72;
+}
+.shoot-plan__move button:disabled,
+.shoot-plan__icon:disabled {
+  opacity: 0.28;
+}
+.shoot-plan__add {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px 16px 2px;
+}
+.shoot-plan__add button {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #d8d8dc !important;
+  border-radius: 10px;
+  background: #fff !important;
+  font-size: 13px;
+  font-weight: 700;
+}
+.shoot-plan__add .shoot-mask {
+  width: 18px;
+  height: 18px;
+}
+.shoot-plan__add button.is-ai {
+  border-color: #ffd5c9 !important;
+  background: #fff4f0 !important;
+  color: #e24420 !important;
+}
+.shoot-plan footer button {
+  background: #e8e8ea !important;
+  color: #333 !important;
+}
+.shoot-plan footer .is-ok {
+  background: #222 !important;
+  color: #fff !important;
+}
+.shoot-plan-edit {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: grid;
+  align-items: end;
+  background: rgba(0, 0, 0, 0.5);
+}
+.shoot-plan-edit > div {
+  padding: 22px 20px calc(18px + env(safe-area-inset-bottom));
+  border-radius: 18px 18px 0 0;
+  background: #fff;
+  color: #222;
+}
+.shoot-plan-edit strong {
+  display: block;
+  margin-bottom: 18px;
+  font-size: 19px;
+}
+.shoot-plan-edit label {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.shoot-plan-edit label b {
+  justify-self: end;
+  margin-top: -25px;
+  color: var(--shoot-accent);
+}
+.shoot-plan-edit input[type="text"],
+.shoot-plan-edit input:not([type]) {
+  box-sizing: border-box;
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d6d6da;
+  border-radius: 10px;
+  font: inherit;
+}
+.shoot-plan-edit input[type="range"] {
+  width: 100%;
+  accent-color: var(--shoot-accent);
+}
+.shoot-plan-edit p {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: #777;
+}
+.shoot-plan-edit footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 20px 0 0;
+}
+.shoot-plan-edit footer button {
+  height: 46px;
+  border-radius: 23px;
+  background: #eee !important;
+  font-weight: 700;
+}
+.shoot-plan-edit footer .is-ok {
+  background: #222 !important;
+  color: #fff !important;
+}
+
+/* 선택 시안 2번의 촬영 전용 블랙 화면 */
+.shoot-plan {
+  background: #0c0d0e;
+}
+.shoot-plan .shoot-xpick__box {
+  height: 100%;
+  max-height: 100%;
+  border-radius: 0;
+  background: #0c0d0e;
+  color: #fff;
+}
+.shoot-plan header {
+  padding: 10px 16px 8px;
+}
+.shoot-plan__top {
+  min-height: 44px;
+  display: grid;
+  grid-template-columns: 52px 1fr 52px;
+  align-items: center;
+}
+.shoot-plan__top strong {
+  text-align: center;
+  font-size: 20px;
+}
+.shoot-plan__top button {
+  min-width: 44px;
+  min-height: 44px;
+  display: grid;
+  place-items: center;
+  color: #bfc0c2 !important;
+  font-size: 13px;
+}
+.shoot-plan__top button:disabled {
+  opacity: .32;
+}
+.shoot-plan header p {
+  max-width: 300px;
+  margin: 8px auto 0;
+  color: #a8a9ac;
+  text-align: center;
+  line-height: 20px;
+}
+.shoot-plan header > span {
+  margin-top: 14px;
+  color: #8f9094;
+}
+.shoot-plan__list {
+  margin: 0 14px;
+  padding: 0;
+  border: 1px solid #292a2d;
+  border-radius: 14px;
+  background: #17181a;
+  scrollbar-width: none;
+}
+.shoot-plan__list::-webkit-scrollbar { display: none; }
+.shoot-plan__list li {
+  min-height: 84px;
+  margin: 0;
+  padding: 9px 8px 9px 10px;
+  border: 0;
+  border-bottom: 1px solid #303135;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.shoot-plan__list li:last-child {
+  border-bottom: 0;
+}
+.shoot-plan__list li.is-recorded {
+  background: rgba(255,255,255,.04);
+}
+.shoot-plan__order {
+  color: #e4e4e5;
+}
+.shoot-plan__thumb {
+  height: 58px;
+  border: 1px solid #33353a;
+  background: #292a2d;
+}
+.shoot-plan__meta b {
+  color: #fff;
+  font-size: 16px;
+}
+.shoot-plan__meta em {
+  width: max-content;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 9px;
+  border-radius: 13px;
+  background: #303135;
+  color: #d0d0d2;
+}
+.shoot-plan__meta em img {
+  width: 14px;
+  height: 14px;
+  filter: brightness(0) invert(1);
+  opacity: .76;
+}
+.shoot-plan__move button,
+.shoot-plan__icon {
+  color: #fff;
+}
+.shoot-plan__move img,
+.shoot-plan__icon img {
+  filter: brightness(0) invert(1);
+  opacity: .82;
+}
+.shoot-plan__icon:last-child {
+  background: rgba(217,65,65,.16) !important;
+}
+.shoot-plan__icon:last-child img {
+  filter: invert(42%) sepia(98%) saturate(1875%) hue-rotate(332deg) brightness(110%);
+}
+.shoot-plan__add {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 12px 16px 2px;
+}
+.shoot-plan__add button {
+  min-height: 54px;
+  border: 1px dashed #e66a43 !important;
+  border-radius: 13px;
+  background: transparent !important;
+  color: #ff8058 !important;
+  font-size: 14px;
+}
+.shoot-plan__add button.is-ai {
+  min-height: 62px;
+  justify-content: space-between;
+  padding: 8px 10px 8px 14px;
+  border: 1px solid #4b3028 !important;
+  background: #231916 !important;
+  color: #fff !important;
+  text-align: left;
+}
+.shoot-plan__add .is-ai > span {
+  display: grid;
+  gap: 3px;
+}
+.shoot-plan__add .is-ai small {
+  font-size: 10px;
+  font-weight: 400;
+  color: #aaa;
+}
+.shoot-plan__add .is-ai i {
+  display: flex;
+}
+.shoot-plan__add .is-ai img {
+  width: 34px;
+  height: 34px;
+  margin-left: -5px;
+  border: 2px solid #231916;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.shoot-plan footer {
+  grid-template-columns: 1fr;
+  padding-top: 12px;
+}
+.shoot-plan footer .is-ok {
+  position: relative;
+  height: 52px;
+  border-radius: 26px;
+  background: var(--shoot-accent) !important;
+  font-size: 16px;
+}
+.shoot-plan footer .is-ok > img {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  filter: brightness(0) invert(1);
+}
+
+/* 촬영 결과를 9:16 판매 쇼츠로 자동 편집하는 마지막 단계 */
+.shoot-shorts {
+  background: #f5f5f6;
+  color: #222;
+}
+.shoot-shorts .shoot-top {
+  background: #fff;
+  border-bottom: 1px solid #ececee;
+}
+.shoot-shorts__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 16px 16px 150px;
+}
+.shoot-shorts__preview {
+  position: relative;
+  width: min(62%, 240px);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #111;
+  color: #fff;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+.shoot-shorts__preview > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.shoot-shorts__preview::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.24), transparent 34%, transparent 62%, rgba(0,0,0,.72));
+}
+.shoot-shorts__brand,
+.shoot-shorts__preview > strong,
+.shoot-shorts__callouts,
+.shoot-shorts__price,
+.shoot-shorts__music {
+  position: absolute;
+  z-index: 2;
+}
+.shoot-shorts__brand { top: 13px; left: 13px; font-size: 9px; font-weight: 800; letter-spacing: .08em; }
+.shoot-shorts__preview > strong { top: 48px; left: 13px; right: 13px; font-size: 17px; line-height: 22px; }
+.shoot-shorts__callouts { top: 82px; left: 13px; right: 13px; display: flex; flex-wrap: wrap; gap: 5px; }
+.shoot-shorts__callouts span { padding: 4px 7px; border-radius: 999px; background: rgba(0,0,0,.58); font-size: 9px; }
+.shoot-shorts__price { left: 13px; right: 13px; bottom: 38px; display: grid; gap: 3px; }
+.shoot-shorts__price b { font-size: 20px; }
+.shoot-shorts__price span { font-size: 10px; }
+.shoot-shorts__music { left: 13px; bottom: 16px; font-size: 9px; opacity: .82; }
+.shoot-shorts__preview.is-mood { filter: saturate(1.16) contrast(1.04); }
+.shoot-shorts__preview.is-fast > strong { padding: 5px 7px; background: var(--shoot-accent); transform: rotate(-2deg); }
+.shoot-shorts__timeline,
+.shoot-shorts__settings {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #fff;
+}
+.shoot-shorts__timeline > div { display: flex; align-items: center; justify-content: space-between; }
+.shoot-shorts__timeline > div strong,
+.shoot-shorts__settings h3 { margin: 0; font-size: 16px; }
+.shoot-shorts__timeline > div button { min-height: 36px; padding: 0 11px; border-radius: 18px; background: #f0f0f2 !important; font-size: 12px; font-weight: 700; }
+.shoot-shorts__timeline ol { display: flex; gap: 8px; margin: 14px -2px 0; padding: 0 2px 5px; overflow-x: auto; list-style: none; }
+.shoot-shorts__timeline li { position: relative; flex: 0 0 82px; display: grid; gap: 4px; }
+.shoot-shorts__timeline li img { width: 82px; height: 54px; border-radius: 8px; object-fit: cover; }
+.shoot-shorts__timeline li > span { position: absolute; top: 5px; left: 5px; width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: #222; color: #fff; font-size: 10px; }
+.shoot-shorts__timeline li b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; }
+.shoot-shorts__timeline li em { font-style: normal; font-size: 10px; color: #777; }
+.shoot-shorts__styles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 12px; }
+.shoot-shorts__styles button { min-height: 54px; padding: 0 6px; border: 1px solid #dfdfe2 !important; border-radius: 10px; background: #fafafa !important; font-size: 11px; font-weight: 700; }
+.shoot-shorts__styles button.is-on { border-color: #222 !important; background: #222 !important; color: #fff !important; }
+.shoot-shorts__settings > label { min-height: 60px; display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid #eee; }
+.shoot-shorts__settings > label:last-child { border-bottom: 0; }
+.shoot-shorts__settings > label span { display: grid; gap: 3px; font-size: 14px; font-weight: 700; }
+.shoot-shorts__settings > label small { font-size: 11px; font-weight: 400; color: #777; }
+.shoot-shorts__settings input { width: 42px; height: 24px; accent-color: #222; }
+.shoot-shorts__foot { position: absolute; left: 0; right: 0; bottom: 0; z-index: 4; padding: 12px 16px calc(12px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); border-top: 1px solid #ececee; }
+.shoot-shorts__foot > .shoot-done { width: 100%; height: 50px; border-radius: 25px; background: #222 !important; color: #fff !important; font-weight: 800; }
+.shoot-shorts__foot > span { display: grid; gap: 7px; font-size: 12px; text-align: center; }
+.shoot-shorts__foot > span i { height: 4px; border-radius: 2px; background: var(--shoot-accent); transition: width .2s; }
+.shoot-shorts__done { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.shoot-shorts__done strong { grid-column: 1 / -1; text-align: center; font-size: 14px; }
+.shoot-shorts__done button { height: 46px; border-radius: 23px; background: #ededee !important; font-weight: 700; }
+.shoot-shorts__done button.is-main { background: #222 !important; color: #fff !important; }
+
 /* 사진 윤곽선 안내 시안(?guide=on, PhotoFairy · Car Studio AI · AOS 벤치마킹) */
 .shoot-guide {
   position: absolute;
@@ -2964,6 +3438,133 @@
 .shoot-guide-toggle.is-on {
   border-color: var(--shoot-accent);
   background: var(--shoot-accent);
+}
+
+/* 2026-10-25: 현장 촬영 앱 QA — 필수/권장 분리, 실시간 품질 안내, 모바일 터치 영역 */
+.shoot-media-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: -4px 0 14px;
+}
+.shoot-media-summary span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  background: #f4f5f6;
+  color: #555;
+  font-size: 12px;
+  font-weight: 600;
+}
+.shoot-media-summary span.is-required {
+  background: #fff0ec;
+  color: #d94424;
+}
+.shoot-media-summary span.is-done {
+  background: #edf8ef;
+  color: #187a35;
+}
+.shoot-addcards button strong {
+  font-size: 14px;
+  line-height: 18px;
+}
+.shoot-addcards button small {
+  margin-top: -8px;
+  color: var(--shoot-sub);
+  font-size: 11px;
+  line-height: 14px;
+}
+.shoot-quality {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  bottom: 94px;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: calc(100% - 32px);
+  min-height: 32px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.68);
+  color: #fff;
+  font-size: 12px;
+  line-height: 17px;
+  text-align: center;
+  white-space: nowrap;
+}
+.shoot-quality i {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  border-radius: 50%;
+  background: #a8a8a8;
+}
+.shoot-quality.is-ready i {
+  background: #5ed47a;
+  box-shadow: 0 0 0 3px rgba(94, 212, 122, 0.2);
+}
+.shoot-quality.is-warn i {
+  background: #ffb340;
+  box-shadow: 0 0 0 3px rgba(255, 179, 64, 0.2);
+}
+.shoot-finish-video {
+  min-width: 132px;
+}
+.shoot-rules-link,
+.shoot-plate,
+.shoot-done,
+.shoot-guide-toggle,
+.shoot-save-btn,
+.shoot-modes button {
+  min-height: 44px;
+}
+.shoot-rules-link {
+  padding: 0 4px;
+}
+.shoot-plate {
+  margin-left: 8px;
+  padding: 0 4px;
+}
+.shoot-done {
+  height: 44px;
+  border-radius: 22px;
+}
+.shoot-controls .shoot-done {
+  padding: 0 12px;
+  font-size: 13px;
+}
+.shoot-rec span {
+  max-width: 88px;
+  white-space: normal;
+  line-height: 14px;
+}
+.shoot-vhint {
+  left: 14px;
+  right: 14px;
+  width: auto;
+  min-height: 36px;
+  margin: 0;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.56);
+  color: #fff;
+  word-break: keep-all;
+}
+
+@media (max-width: 370px) {
+  .shoot-quality {
+    max-width: calc(100% - 16px);
+    font-size: 11px;
+  }
+  .shoot-finish-video {
+    min-width: 118px;
+    padding-inline: 9px;
+    font-size: 12px;
+  }
 }
 
 /* 내 폰에 저장(mp4) — 2026-10-24 */

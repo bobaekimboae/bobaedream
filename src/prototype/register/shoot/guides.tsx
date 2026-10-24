@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { itemOf, type GuideKind } from "./items";
 // 사진 촬영 윤곽선 안내 시안(2026-10-24 「촬영 앱 벤치마킹 → 시안」).
 // PhotoFairy · Car Studio AI · AOS AutoCAPTURE처럼 각도마다 반투명 차 윤곽을 화면에 깔아 위치를 맞추게 한다.
-// 윤곽은 보배드림이 새로 그린 단순 선 그림이다(다른 앱 그림을 쓰지 않음). ?register=shoot&guide=on 에서만 보인다.
+// 윤곽은 보배드림이 새로 그린 단순 선 그림이다(다른 앱 그림을 쓰지 않음).
+// 현장 촬영의 기본 기능으로 켜고, 비교가 필요할 때만 ?guide=off 로 숨긴다.
 
-export const GUIDE_ON = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("guide") === "on";
+export const GUIDE_ON = typeof window === "undefined" || new URLSearchParams(window.location.search).get("guide") !== "off";
 
 type Kind = GuideKind;
 

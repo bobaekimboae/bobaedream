@@ -3,7 +3,25 @@ import { useEffect, useState } from "react";
 // 58의 예시 영상은 58 저작물이라 쓰지 않고, 보배드림이 가진 실매물 사진(서울오토갤러리 BMW M3 스튜디오 촬영본)으로
 // 같은 구성(예시 표시 · 실제 촬영 장면 순서 · 카메라 이동 방향 화살표)을 만든다.
 
-export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort";
+export type VideoStage =
+  | "exterior"
+  | "interior"
+  | "driverSeat"
+  | "passengerSeat"
+  | "dashboard"
+  | "rearSeat"
+  | "custom"
+  | "engine"
+  | "trunk"
+  | "cluster"
+  | "start"
+  | "tyre"
+  | "damage"
+  | "feature"
+  | "under"
+  | "wheel"
+  | "door"
+  | "comfort";
 
 const ORANGE = "#FF7A1A";
 const base = typeof document === "undefined" ? "/" : new URL(".", document.baseURI).pathname;
@@ -14,6 +32,11 @@ export const STAGE_GUIDE: Record<VideoStage, { frames: string[]; arrow: string; 
   exterior: { frames: ["ext-1", "ext-2", "ext-3", "ext-4"], arrow: "M14 104 Q80 124 146 100", how: "차 앞에서 시작해 차 주위를 한 바퀴 천천히 돌며 찍어 주세요. 정면 → 좌측 앞 → 좌측 뒤 → 후면 순서예요.", pan: "orbit" },
   // 실내 세부 순서 = 실내 사진 항목 순서(2026-10-25 컨설팅): 계기판 → 대시보드(핸들 포함) → 앞좌석(천장 포함) → 뒷좌석
   interior: { frames: ["opt-cluster", "in-dash", "in-seat", "in-rear"], arrow: "M18 108 Q80 92 142 108", how: "계기판 → 대시보드 → 앞좌석 → 뒷좌석 순서로 찍어 주세요. 핸들은 잡아서, 시트는 손으로 눌러 보여 주면 좋아요.", pan: "sweep" },
+  driverSeat: { frames: ["in-seat"], arrow: "M18 108 Q80 92 142 108", how: "운전석 문을 열고 시트 전체가 보이게 천천히 훑어 주세요. 가죽 상태와 전동 버튼이 보이면 좋아요.", pan: "sweep" },
+  passengerSeat: { frames: ["in-comfort"], arrow: "M142 108 Q80 92 18 108", how: "조수석 문을 열고 시트와 도어 트림이 한 화면에 들어오게 찍어 주세요.", pan: "sweep" },
+  dashboard: { frames: ["in-dash"], arrow: "M18 108 Q80 92 142 108", how: "대시보드 전체를 수평으로 천천히 훑어 주세요. 화면과 송풍구가 선명해야 해요.", pan: "sweep" },
+  rearSeat: { frames: ["in-rear"], arrow: "M18 108 Q80 92 142 108", how: "뒷문을 열고 좌우 시트와 레그룸이 함께 보이도록 찍어 주세요.", pan: "sweep" },
+  custom: { frames: ["opt-feature-1"], arrow: "M18 108 Q80 92 142 108", how: "추가한 부위가 화면 중앙에 오도록 잡고, 기능이 있으면 직접 작동하는 모습까지 보여 주세요.", pan: "sweep" },
   engine: { frames: ["eng-1"], arrow: "M18 100 Q80 116 142 100", how: "보닛을 끝까지 열고 엔진룸 왼쪽에서 오른쪽으로 천천히 훑어 주세요.", pan: "sweep" },
   trunk: { frames: ["trk-1"], arrow: "M80 14 Q92 60 80 106", how: "트렁크를 열고 위에서 아래로 바닥까지 다 보이게 찍어 주세요.", pan: "tilt" },
   // 추가 촬영(CARS24식 부위별 확장 시안, ?vstage=plus)
