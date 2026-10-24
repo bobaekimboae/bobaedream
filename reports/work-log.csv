@@ -357,3 +357,4 @@
 PR #833,claude/dealer-complex-home-icon,e6f41a9,딜러 화면 매매단지 아이콘 AS24 홈으로 교체,배포
 PR #1003·#1004·#1005,fix/shoot-qa-x10,c6ffd9c,58 촬영 QA 10배 대조(영상 촬영 부위 칸·전 화면 위치·영상 편집·자르기 모서리),배포
 PR #1007·#1008,feat/shoot-extra-stages,57c15aa,58 영상 촬영 추가 부위 시안(?vstage=plus) 계기판·시동 소리·타이어·흠집 표시·옵션 작동·하부,배포
+PR #1010,feat/shoot-extra-default,4757262,58 촬영 추가 촬영 부위 기본 적용(58 비교 ?vstage=58),배포
