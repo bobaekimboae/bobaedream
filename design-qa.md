@@ -28,6 +28,20 @@
 
 final result: passed
 
+
+---
+
+## 2026-10-24 커뮤니티 좌측 필터 · Reddit 폭 조정
+
+- Source layout truth: 프로젝트의 기존 Reddit형 PC 레일 규격과 `https://www.reddit.com/`의 독립 좌측 탐색 영역.
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.
+- Viewport/state: PC 1280px 이상; 치지직식 게시판 계층과 목록 밀도 유지.
+- Spacing/layout: passed — 좌측 레일 240px, 중앙 목록 742px, 열 간격 24px로 고정하고 우측 보조 레일을 250px로 정렬함.
+- Responsiveness: passed — 1320px 이하에서는 우측 보조 레일만 숨기고 좌측 240px·중앙 742px 구조를 유지함. 모바일 서랍 구조는 변경하지 않음.
+- Content/behavior: passed — 게시판 그룹, 전체 게시글, 글쓰기 및 필터 동작은 그대로 유지함.
+
+final result: passed
+
 ## 2026-10-24 커뮤니티 좌측 필터 · 네이버 게임 라운지 기준
 
 - Source visual truth: `https://game.naver.com/lounge/Dragon_Village3/board/6`의 데스크톱 좌측 게시판 카드.
