@@ -19,7 +19,7 @@ import {
   type Sticker,
   type Stroke,
 } from "./image-ops";
-import { playShutter } from "./sound";
+import { playShutter, primeSound } from "./sound";
 import { RuleIllustration, StageTemplate, type RuleAngle, type VideoStage } from "./templates";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
@@ -129,7 +129,7 @@ function ModeTabs({ mode, onChange, hideAlbum, labels }: { mode: "cam" | "album"
           {labels[1]}
         </button>
       )}
-      <i className={`shoot-modes__bar ${mode === "album" ? "is-right" : ""} ${hideAlbum ? "is-single" : ""}`} />
+      
     </div>
   );
 }
@@ -645,7 +645,8 @@ function PhotoPreview({
   );
 }
 
-const BRUSHES = [0.03, 0.06, 0.1];
+/** 붓 굵기(화면 px). 58 실측: 작게 ≈10 · 보통 ≈16 · 크게 ≈24(384 기준) */
+const BRUSHES = [10, 16, 24];
 
 function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool, null>; src: string; onCancel: () => void; onSave: (src: string) => void }) {
   const title = tool === "mosaic" ? "모자이크" : tool === "rotate" ? "회전" : "자르기";
@@ -732,7 +733,8 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
               className="shoot-mosaic-canvas"
               onPointerDown={(e) => {
                 (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-                drawing.current = { size: BRUSHES[brush], points: [toLocal(e)] };
+                const cw = (e.currentTarget as HTMLElement).getBoundingClientRect().width || 1;
+                drawing.current = { size: BRUSHES[brush] / cw, points: [toLocal(e)] };
                 redraw([...strokes, drawing.current]);
               }}
               onPointerMove={(e) => {
@@ -1338,7 +1340,7 @@ export default function ShootRegister() {
   const hasMedia = photos.length > 0 || Boolean(video);
 
   return (
-    <div className="shoot-root">
+    <div className="shoot-root" onPointerDownCapture={primeSound}>
       <div className="shoot-phone">
         <section className="shoot-main" aria-label="중고차 등록">
           <header className="shoot-main__top">
