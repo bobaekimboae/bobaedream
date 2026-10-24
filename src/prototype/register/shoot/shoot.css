@@ -2650,3 +2650,83 @@
 .shoot-xpick footer .is-ok {
   background: linear-gradient(90deg, var(--shoot-accent), var(--shoot-accent-2)) !important;
 }
+
+/* 실내 세부 순서 카드(녹화 중 틀 위쪽) */
+.shoot-istep {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 40px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 4px 8px;
+  padding: 9px 10px 10px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+}
+.shoot-istep__dots {
+  grid-column: 1 / -1;
+  display: flex;
+  gap: 4px;
+}
+.shoot-istep__dots i {
+  flex: 1;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+}
+.shoot-istep__dots i.is-done {
+  background: rgba(255, 255, 255, 0.85);
+}
+.shoot-istep__dots i.is-on {
+  background: var(--shoot-accent);
+}
+.shoot-istep b {
+  font-size: 15px;
+  line-height: 21px;
+}
+.shoot-istep__hand {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  line-height: 17px;
+  color: #e6e6e6;
+}
+.shoot-istep__hand .shoot-mask {
+  flex: none;
+  width: 15px;
+  height: 15px;
+}
+.shoot-istep__next {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  height: 30px;
+  padding: 0 11px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #fff !important;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+/* 실내 칸 진행 막대 6칸 눈금 */
+.shoot-stage-chip__ticks {
+  position: absolute;
+  left: 3px;
+  right: 3px;
+  top: 3px;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, transparent 0 calc(16.666% - 1px), rgba(0, 0, 0, 0.6) calc(16.666% - 1px) 16.666%);
+  pointer-events: none;
+}
+.shoot-marks.is-steps button {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+.shoot-marks.is-up {
+  bottom: 92px;
+}

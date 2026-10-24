@@ -72,13 +72,26 @@ const STAGE_DEFS: Record<VideoStage, StageDef> = {
   damage: { key: "damage", label: "흠집 표시", min: 3, max: STAGE_MAX, extra: true },
   feature: { key: "feature", label: "옵션 작동", min: 5, max: 20, extra: true },
   under: { key: "under", label: "하부", min: 3, max: 10, extra: true },
+  wheel: { key: "wheel", label: "휠·브레이크", min: 3, max: 15, extra: true },
+  door: { key: "door", label: "문·트렁크", min: 3, max: 15, extra: true },
+  comfort: { key: "comfort", label: "편의 장비", min: 5, max: 20, extra: true },
 };
+/** 실내 단계 세부 순서와 손 안내(인스타 @nasserhessien 실내 촬영 순서). 한 부위 약 3.5초, 「다음 부위」로 넘길 수 있다. */
+const INTERIOR_STEPS: { label: string; hand: string }[] = [
+  { label: "운전석 시트", hand: "시트를 손으로 눌러 가죽을 보여 주세요" },
+  { label: "대시보드", hand: "송풍구와 화면을 천천히 훑어 주세요" },
+  { label: "핸들", hand: "핸들을 잡고 버튼을 보여 주세요" },
+  { label: "천장", hand: "고개를 들어 천장·선루프를 보여 주세요" },
+  { label: "뒷좌석", hand: "뒷좌석 쿠션을 손으로 눌러 주세요" },
+  { label: "편의 장비", hand: "컵홀더·콘솔·충전 단자를 열어 보여 주세요" },
+];
+const STEP_SEC = 3.5;
 const BASE_STAGES: VideoStage[] = ["exterior", "interior", "engine", "trunk"];
-const EXTRA_STAGES: VideoStage[] = ["cluster", "start", "tyre", "damage", "feature", "under"];
+const EXTRA_STAGES: VideoStage[] = ["cluster", "start", "tyre", "wheel", "damage", "feature", "comfort", "door", "under"];
 const STAGES = BASE_STAGES.map((k) => STAGE_DEFS[k]);
 /** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
 const PLUS = typeof window === "undefined" || new URLSearchParams(window.location.search).get("vstage") !== "58";
-const MAX_EXTRA = 3;
+const MAX_EXTRA = 4;
 /** 흠집 표시: 흠집 단계 영상의 몇 초에, 화면 어디를 눌렀는지(0~1) */
 type Mark = { t: number; x: number; y: number };
 
@@ -90,8 +103,8 @@ const slotOrder = (slot: string) => {
 };
 const sortBySlot = (list: Photo[]) => list.map((p, i) => ({ p, i })).sort((a, b) => slotOrder(a.p.slot) - slotOrder(b.p.slot) || a.i - b.i).map((x) => x.p);
 /** 영상: 단계별 파일(segs[i] = 그 단계 영상, 불러온 영상은 한 개) · 단계별 길이(초) · 표지 */
-type Video = { segs: (string | null)[]; durations: number[]; cover: string; uploading: boolean; imported?: boolean; stages?: VideoStage[]; marks?: Mark[] };
-type Take = { segs: (string | null)[]; durations: number[]; thumbs: string[]; imported?: boolean; stages?: VideoStage[]; marks?: Mark[] };
+type Video = { segs: (string | null)[]; durations: number[]; cover: string; uploading: boolean; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; steps?: number[] };
+type Take = { segs: (string | null)[]; durations: number[]; thumbs: string[]; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; steps?: number[] };
 
 let seq = 0;
 const uid = () => `p${Date.now().toString(36)}${(seq++).toString(36)}`;
@@ -921,6 +934,14 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const marksRef = useRef(marks);
   marksRef.current = marks;
   const [pickOpen, setPickOpen] = useState(false);
+  // 실내 세부 순서: 지금 부위와 부위별 시작 시각(초)
+  const [istep, setIstep] = useState(0);
+  const istepRef = useRef(0);
+  istepRef.current = istep;
+  const stepTimes = useRef<number[]>([0]);
+  const [steps, setSteps] = useState<number[]>(() => initial?.steps?.slice() ?? []);
+  const stepsRef = useRef(steps);
+  stepsRef.current = steps;
   const elapsedRef = useRef(0);
   const firstEmpty = initial ? initial.durations.findIndex((d) => d === 0) : 0;
   const [stage, setStage] = useState(Math.max(0, firstEmpty));
@@ -977,6 +998,11 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     const next = [...durRef.current];
     next[s] = Math.min(STAGE_DEFS[stagesRef.current[s]].max, Math.round(secs));
     setDurations(next);
+    if (stagesRef.current[s] === "interior") {
+      const st = stepTimes.current.filter((t) => t < next[s]);
+      setSteps(st);
+      stepsRef.current = st;
+    }
     setChanged(true);
     // 단계마다 파일 하나: 녹화를 끝내 그 단계 영상으로 저장한다.
     const r = recRef.current;
@@ -1015,6 +1041,10 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       }
       const max = STAGE_DEFS[stagesRef.current[stageRef.current]].max;
       elapsedRef.current = secs;
+      if (stagesRef.current[stageRef.current] === "interior") {
+        const last = stepTimes.current[stepTimes.current.length - 1] ?? 0;
+        if (istepRef.current < INTERIOR_STEPS.length - 1 && secs - last >= STEP_SEC) nextStep();
+      }
       if (secs >= max) {
         setElapsed(max);
         finishStage(max);
@@ -1051,6 +1081,11 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       recRef.current = r;
       r.start(500);
       // 흠집 단계를 다시 찍으면 전에 표시한 흠집은 지운다.
+      if (stagesRef.current[stageRef.current] === "interior") {
+        setIstep(0);
+        istepRef.current = 0;
+        stepTimes.current = [0];
+      }
       if (stagesRef.current[stageRef.current] === "damage") {
         setMarks([]);
         notify("흠집이 보이면 화면을 눌러 표시해 주세요");
@@ -1077,15 +1112,36 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       fake.current?.stop();
       const out = segs.current.map((u, i) => (finalDur[i] ? u : null));
       const ss = stagesRef.current;
-      window.setTimeout(() => onFinished({ segs: out, durations: finalDur, thumbs: liveThumbs.current, stages: ss, marks: finalDur[ss.indexOf("damage")] ? marksRef.current : [] }), 600);
+      window.setTimeout(
+        () =>
+          onFinished({
+            segs: out,
+            durations: finalDur,
+            thumbs: liveThumbs.current,
+            stages: ss,
+            marks: finalDur[ss.indexOf("damage")] ? marksRef.current : [],
+            steps: finalDur[ss.indexOf("interior")] ? stepsRef.current : [],
+          }),
+        600,
+      );
     });
   };
 
   const recording = phase === "recording" || phase === "countdown";
   const cur = defs[stage];
   const isDamage = cur.key === "damage";
+  const isInterior = cur.key === "interior";
+  function nextStep() {
+    const n = Math.min(INTERIOR_STEPS.length - 1, istepRef.current + 1);
+    if (n === istepRef.current) return;
+    istepRef.current = n;
+    stepTimes.current = [...stepTimes.current, Math.round(elapsedRef.current * 10) / 10];
+    setIstep(n);
+  }
   const pillText =
-    isDamage && phase === "recording" ? `흠집 ${marks.length}곳 표시함 · 화면을 눌러 표시` : done[stage] && !recording ? `${cur.label} 다시 찍기` : `${cur.label} 촬영`;
+    isInterior && phase === "recording"
+      ? `실내 ${istep + 1}/${INTERIOR_STEPS.length} · ${INTERIOR_STEPS[istep].label}`
+      : isDamage && phase === "recording" ? `흠집 ${marks.length}곳 표시함 · 화면을 눌러 표시` : done[stage] && !recording ? `${cur.label} 다시 찍기` : `${cur.label} 촬영`;
   const extras = stages.filter((k) => STAGE_DEFS[k].extra);
 
   /** 흠집 단계 녹화 중 화면을 누르면 그 자리·그 시각을 흠집으로 표시 */
@@ -1140,6 +1196,25 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
               <Corners />
               {phase === "countdown" ? <b className="shoot-countdown">{count}</b> : null}
               {phase === "recording" ? <span className="shoot-timer">{mmss(elapsed)}</span> : null}
+              {isInterior && phase === "recording" ? (
+                <div className="shoot-istep" role="status">
+                  <span className="shoot-istep__dots" aria-hidden="true">
+                    {INTERIOR_STEPS.map((_, i) => (
+                      <i key={i} className={i < istep ? "is-done" : i === istep ? "is-on" : ""} />
+                    ))}
+                  </span>
+                  <b>{INTERIOR_STEPS[istep].label}</b>
+                  <span className="shoot-istep__hand">
+                    <Mask src={rd("tap-outline")} />
+                    {INTERIOR_STEPS[istep].hand}
+                  </span>
+                  {istep < INTERIOR_STEPS.length - 1 ? (
+                    <button type="button" className="shoot-istep__next" onClick={nextStep}>
+                      다음 부위 ›
+                    </button>
+                  ) : null}
+                </div>
+              ) : null}
               <p className="shoot-vhint">{isDamage ? "흠집·찍힘이 보이면 화면을 눌러 주세요" : "촬영 항목이 맞는지 확인해 주세요"}</p>
             </div>
             {isDamage && phase === "recording"
@@ -1175,6 +1250,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                       </>
                     ) : null}
                     {active && recording ? <i className="shoot-stage-chip__bar" style={{ width: `${(Math.min(elapsed, s.max) / s.max) * 100}%` }} /> : null}
+                    {active && recording && s.key === "interior" ? <i className="shoot-stage-chip__ticks" aria-hidden="true" /> : null}
                     {done[i] && !expanded ? <span className="shoot-stage-chip__time">{mmss(durations[i])}</span> : null}
                     <span className="shoot-stage-chip__label">
                       {s.label}
@@ -1343,6 +1419,8 @@ function VideoPreview({
   const stageKeys = take.stages ?? BASE_STAGES;
   const damageIdx = stageKeys.indexOf("damage");
   const marks = damageIdx >= 0 && take.durations[damageIdx] ? (take.marks ?? []) : [];
+  const interiorIdx = stageKeys.indexOf("interior");
+  const isteps = interiorIdx >= 0 && take.durations[interiorIdx] ? (take.steps ?? []) : [];
   useEffect(() => {
     const v = ref.current;
     if (v && playing) void v.play().catch(() => setPlaying(false));
@@ -1409,6 +1487,16 @@ function VideoPreview({
         {cur?.i === damageIdx
           ? marks.filter((m) => Math.abs(m.t - t) < 1.2).map((m, i) => <i key={i} className="shoot-mark is-play" style={{ left: `${m.x * 100}%`, top: `${m.y * 100}%` }} aria-hidden="true" />)
           : null}
+        {isteps.length ? (
+          <div className={`shoot-marks is-steps ${marks.length ? "is-up" : ""}`} role="group" aria-label="실내 부위별로 보기">
+            <span>실내</span>
+            {isteps.map((t0, i) => (
+              <button type="button" key={i} onClick={() => go(parts.findIndex((x) => x.i === interiorIdx), true, t0)}>
+                {INTERIOR_STEPS[i]?.label ?? `부위 ${i + 1}`} · {mmss(t0)}
+              </button>
+            ))}
+          </div>
+        ) : null}
         {marks.length ? (
           <div className="shoot-marks" role="group" aria-label={`흠집 ${marks.length}곳`}>
             <span>흠집 {marks.length}곳</span>
@@ -1832,7 +1920,7 @@ export default function ShootRegister() {
         {screen.name === "video" ? (
           <VideoCapture
             notify={notify}
-            initial={screen.reshoot && video ? { segs: video.segs, durations: video.durations, thumbs: [], stages: video.stages, marks: video.marks } : undefined}
+            initial={screen.reshoot && video ? { segs: video.segs, durations: video.durations, thumbs: [], stages: video.stages, marks: video.marks, steps: video.steps } : undefined}
             onClose={() => setScreen(screen.reshoot ? { name: "vedit" } : { name: "main" })}
             onFinished={(take) => setScreen(take.imported ? { name: "cover", take } : { name: "vpreview", take })}
           />
@@ -1842,7 +1930,7 @@ export default function ShootRegister() {
         ) : null}
         {screen.name === "vedit" && video ? (
           <VideoPreview
-            take={{ segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, marks: video.marks }}
+            take={{ segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, marks: video.marks, steps: video.steps }}
             edit
             onClose={() => setScreen({ name: "main" })}
             onReshoot={video.imported ? undefined : () => setScreen({ name: "video", reshoot: true })}
@@ -1862,7 +1950,7 @@ export default function ShootRegister() {
                 setVideo((v) => (v ? { ...v, cover } : v));
                 return;
               }
-              setVideo({ segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported, stages: t.stages, marks: t.marks });
+              setVideo({ segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported, stages: t.stages, marks: t.marks, steps: t.steps });
               window.setTimeout(() => setVideo((v) => (v ? { ...v, uploading: false } : v)), 4000);
             }}
           />
