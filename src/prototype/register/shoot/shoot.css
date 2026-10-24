@@ -2965,3 +2965,93 @@
   border-color: var(--shoot-accent);
   background: var(--shoot-accent);
 }
+
+/* 내 폰에 저장(mp4) — 2026-10-24 */
+.shoot-save-btn {
+  min-width: 40px;
+}
+.shoot-dim.is-sheet {
+  place-items: end center;
+}
+.shoot-save-sheet {
+  width: 100%;
+  max-width: 480px;
+  padding: 20px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+  border-radius: 16px 16px 0 0;
+  background: #fff;
+  color: #222;
+  display: grid;
+  gap: 8px;
+}
+.shoot-save-sheet strong {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+}
+.shoot-save-sheet p {
+  margin: 0 0 6px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--shoot-sub);
+  word-break: keep-all;
+}
+.shoot-save-sheet button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 10px;
+  border: 1px solid #e4e7ec;
+  background: #fff;
+  color: #222;
+  font-size: 15px;
+  font-weight: 500;
+}
+.shoot-save-sheet button em {
+  font-style: normal;
+  font-size: 13px;
+  color: var(--shoot-sub);
+}
+.shoot-save-sheet button.is-all {
+  border-color: var(--shoot-accent);
+  background: var(--shoot-accent);
+  color: #fff;
+  font-weight: 600;
+}
+.shoot-save-sheet button.is-all em {
+  color: rgba(255, 255, 255, 0.85);
+}
+.shoot-save-sheet button.is-cancel {
+  justify-content: center;
+  border: 0;
+  color: var(--shoot-sub);
+}
+.shoot-save-progress {
+  width: 260px;
+  padding: 20px 18px 18px;
+  border-radius: 12px;
+  background: #fff;
+  color: #222;
+  display: grid;
+  gap: 6px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.shoot-save-progress strong {
+  font-size: 15px;
+  font-weight: 600;
+}
+.shoot-save-progress span {
+  font-size: 13px;
+  color: var(--shoot-sub);
+}
+.shoot-save-progress i {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--shoot-accent);
+  transition: width 0.2s linear;
+}

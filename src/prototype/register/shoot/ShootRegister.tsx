@@ -21,6 +21,7 @@ import {
 } from "./image-ops";
 import { playShutter, primeSound } from "./sound";
 import { GUIDE_ON, ShotGuide } from "./guides";
+import { makeMp4, mp4Name, saveToDevice } from "./save-mp4";
 import { RuleIllustration, STAGE_GUIDE, StageTemplate, stageThumb, type RuleAngle, type VideoStage } from "./templates";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
@@ -1586,6 +1587,30 @@ function VideoPreview({
     if (v && playing) void v.play().catch(() => setPlaying(false));
   }, [k, playing]);
   const cur = parts[k];
+  const [saveOpen, setSaveOpen] = useState(false);
+  const [saving, setSaving] = useState<{ label: string; p: number } | null>(null);
+  const [saveMsg, setSaveMsg] = useState("");
+  const say = (m: string) => {
+    setSaveMsg(m);
+    window.setTimeout(() => setSaveMsg(""), 2600);
+  };
+  const save = async (urls: string[], what: string, label: string) => {
+    setSaveOpen(false);
+    ref.current?.pause();
+    setPlaying(false);
+    setSaving({ label, p: 0 });
+    try {
+      const blob = await makeMp4(urls, (p) => setSaving({ label, p }));
+      setSaving(null);
+      const r = await saveToDevice(blob, mp4Name(what));
+      if (r === "downloaded") say(`${label} mp4를 저장했어요`);
+      else if (r === "shared") say("공유창에서 「동영상 저장」을 누르면 사진첩에 들어가요");
+    } catch (e) {
+      console.error("mp4 저장 실패", e);
+      setSaving(null);
+      say("이 브라우저에서는 mp4로 만들 수 없어요");
+    }
+  };
   return (
     <div className={`shoot-layer shoot-vpreview ${edit ? "is-edit" : ""}`}>
       <header className="shoot-top">
@@ -1593,7 +1618,13 @@ function VideoPreview({
           <Mask src={rd("close-outline")} />
         </button>
         <h2>{edit ? "차량 영상" : "영상 미리보기"}</h2>
-        <span className="shoot-icon-btn" />
+        {parts.length ? (
+          <button type="button" className="shoot-guide-toggle shoot-save-btn" onClick={() => setSaveOpen(true)}>
+            저장
+          </button>
+        ) : (
+          <span className="shoot-icon-btn" />
+        )}
       </header>
       <div className="shoot-view">
         {cur ? (
@@ -1695,6 +1726,43 @@ function VideoPreview({
           </button>
         )}
       </div>
+      {saveOpen ? (
+        <div className="shoot-dim is-sheet" role="presentation" onClick={() => setSaveOpen(false)}>
+          <div className="shoot-save-sheet" role="dialog" aria-modal="true" aria-labelledby="shoot-save-t" onClick={(e) => e.stopPropagation()}>
+            <strong id="shoot-save-t">내 폰에 저장</strong>
+            <p>mp4 파일로 저장해요. 윤곽선 같은 안내는 영상에 들어가지 않아요.</p>
+            {parts.length > 1 ? (
+              <button type="button" className="is-all" onClick={() => void save(parts.map((x) => x.u), "all", "전체 영상")}>
+                <span>전체 영상 한 파일로</span>
+                <em>{mmss(total)}</em>
+              </button>
+            ) : null}
+            {parts.map((x) => {
+              const key = stageKeys[x.i] ?? "video";
+              const label = take.imported ? "불러온 영상" : (STAGE_DEFS[key as VideoStage]?.label ?? "영상");
+              return (
+                <button type="button" key={x.u} onClick={() => void save([x.u], take.imported ? "video" : key, label)}>
+                  <span>{label}</span>
+                  <em>{mmss(take.durations[x.i] || 0)}</em>
+                </button>
+              );
+            })}
+            <button type="button" className="is-cancel" onClick={() => setSaveOpen(false)}>
+              닫기
+            </button>
+          </div>
+        </div>
+      ) : null}
+      {saving ? (
+        <div className="shoot-dim" role="status" aria-label="mp4로 만드는 중">
+          <div className="shoot-save-progress">
+            <strong>{saving.label} mp4로 만드는 중</strong>
+            <span>{Math.round(saving.p * 100)}%</span>
+            <i style={{ width: `${Math.round(saving.p * 100)}%` }} />
+          </div>
+        </div>
+      ) : null}
+      <Toast text={saveMsg} />
     </div>
   );
 }
