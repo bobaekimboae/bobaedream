@@ -1,10 +1,12 @@
 // JOB-7: 매물 등록 화면(dev https://dev.bbmuseum.co.kr/car/register → /car/register/form 기준, 2026-10-07 실측).
 // ?register 로 연다. 1단계(차량번호·동의) → 다음(14러0927 목업 조회) → 등록 폼. 실제 API·업로드·등록 요청은 보내지 않는다.
-import { Suspense, lazy, useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import "../listing/bbm-list-area.css";
 import "./register.css";
 import BikeRegister from "./BikeRegister";
 import ChototParityRegister from "./ChototParityRegister";
+import ShootRegister from "./shoot/ShootRegister";
+import ShootKitRegister from "./shoot-kit/ShootRegister";
 import { registerPhotoGuideHtml, registerPolicyHtml } from "./header-html";
 import { inspectionPcHtml } from "./inspection-pc-html";
 import {
@@ -850,25 +852,12 @@ function CarRegisterPage() {
   );
 }
 
-// 촬영 화면 두 가지는 따로 불러온다. 같은 이름의 화면 스타일(shoot.css)이 한 페이지에 함께 들어가 서로 덮지 않게 한다(2026-10-25).
-const ShootRegister = lazy(() => import("./shoot/ShootRegister"));
-const ShootKitRegister = lazy(() => import("./shoot-kit/ShootRegister"));
-const ShootFallback = () => <div style={{ position: "fixed", inset: 0, background: "#000" }} />;
 
 export default function RegisterPage() {
   const params = new URLSearchParams(window.location.search);
-  if (params.get("register") === "shoot")
-    return (
-      <Suspense fallback={<ShootFallback />}>
-        <ShootRegister />
-      </Suspense>
-    );
-  if (params.get("register") === "shootkit")
-    return (
-      <Suspense fallback={<ShootFallback />}>
-        <ShootKitRegister />
-      </Suspense>
-    );
+  // 두 촬영 화면의 스타일은 화면이 떠 있을 때만 들어간다(use-inline-css.ts).
+  if (params.get("register") === "shoot") return <ShootRegister />;
+  if (params.get("register") === "shootkit") return <ShootKitRegister />;
   if (params.get("register") === "bike" || params.get("category") === "바이크") return <BikeRegister />;
   return <CarRegisterPage />;
 }

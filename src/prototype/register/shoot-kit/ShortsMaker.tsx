@@ -3,7 +3,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { END_CARD, canMakeMp4, cutAt, drawFrame, exportMp4, loadImage, loadVideo, planDuration, type ShortformPlan, type ShortformTemplate } from "../../dealer-page/shortform/render";
 import { SnsPublish } from "../../dealer-page/shortform/SnsPublish";
 import "../../dealer-page/shortform/shortform-studio.css";
-import "./shorts.css";
+import shortsCss from "./shorts.css?inline";
+import { useInlineCss } from "./use-inline-css";
 import { SHOOT } from "./items";
 import { saveToDevice, mp4Name } from "./save-mp4";
 import { analyzeClip, buildSound, planCuts, type ClipInfo, type Highlight, type PlannedCut } from "./shorts";
@@ -28,6 +29,7 @@ function loadInfo(): Info {
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
 export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: () => void }) {
+  useInlineCss("bbm-shootkit-shorts-css", shortsCss);
   const [loaded, setLoaded] = useState<Loaded[] | null>(null);
   const [scan, setScan] = useState(0);
   const [length, setLength] = useState(CFG.lengths[1] ?? 30);
