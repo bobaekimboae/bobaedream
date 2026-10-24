@@ -31,6 +31,24 @@ final result: passed
 
 ---
 
+## 2026-10-24 커뮤니티 목록형 게시판 · 네이버 게임 라운지 기준
+
+- Source visual truth: `https://game.naver.com/lounge/Dragon_Village3/board/6` 데스크톱 목록 화면(CUA 실측).
+- Browser-rendered implementation: `http://127.0.0.1:4382/community/bobaedream-pc-board-list.html?layout=reddit` 데스크톱 목록 화면(CUA 실측).
+- Target scope: 보배드림 Reddit형 좌측 탐색은 유지하고 중앙 게시판을 네이버 게임 라운지의 고밀도 목록 규칙으로 전환.
+- Structure: 상단 게시판명, 인기순·최신순·추천순, 제목+내용 검색, 클린봇 안내, `제목·작성자·작성일·조회수·추천` 5열, 고정 공지, 44px 행, 페이지네이션.
+- Brand adaptation: 네이버 게임 고유 로고·게임 자산은 복제하지 않고 보배드림 공식 워드마크, Pretendard, 기존 `#222` 및 보배드림 블루 토큰을 유지.
+- Interaction verification: 기본 URL은 목록형, `view=feed`는 기존 카드 피드형으로 분리; 인기순 클릭 시 URL `sort=popular`과 조회수 내림차순이 함께 갱신됨. 카테고리 이동, 상세 링크, 검색 입력, 페이지네이션 노출을 확인.
+- Accessibility: 실제 `<table>` 구조와 caption, 열 머리글, 고정 공지 대체 텍스트, 정렬 버튼 접근성 이름을 유지.
+- Remaining P3: 모바일 목록은 정보 보존을 위해 가로 스크롤을 허용한다. 별도 모바일 목록 단순화는 다음 디자인 단계에서 다룰 수 있다.
+
+No actionable P0/P1/P2 differences remain for the requested list-board scope.
+
+final result: passed
+
+
+---
+
 ## 2026-10-22 Figma 모바일 메인 시안 2
 
 - Source visual truth: Figma file `O1xxBDUlO8UgYBY6dYJ2Vo`, node `1135:1707`.

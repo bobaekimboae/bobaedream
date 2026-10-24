@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0">
 <link rel="icon" href="data:,">
 <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
-<script>if(new URLSearchParams(location.search).get('layout')==='reddit'){document.documentElement.classList.add('layout-reddit')}</script>
+<script>(function(){var p=new URLSearchParams(location.search);if(p.get('layout')==='reddit'){document.documentElement.classList.add('layout-reddit');document.documentElement.classList.add(p.get('view')==='feed'?'view-feed':'view-board')}})()</script>
 <title>보배드림 커뮤니티 | 게시판</title>
 <style>
 :root{
@@ -138,6 +138,7 @@ ul,ol{list-style:none;margin:0;padding:0}
 .boardTable th.titleHead{text-align:left;padding-left:10px}
 .boardTable th.authorHead{text-align:left;padding-left:10px}
 .boardTable tbody tr{height:44px;border-bottom:1px solid var(--line);background:#fff}
+.boardTable tbody tr:hover{background:#fafbfc}
 .boardTable td{height:44px;padding:0;color:#000;font-size:12px;font-weight:400;vertical-align:middle}
 .redditFeed{display:none}
 .redditFeedCard{display:block;border:1px solid #e1e4e8;border-radius:12px;background:#fff;padding:18px 20px 16px;color:#222;transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
@@ -169,6 +170,9 @@ ul,ol{list-style:none;margin:0;padding:0}
 .locked{display:inline-flex;width:15px;height:15px;margin-left:4px;border-radius:50%;border:1px solid #c7ccd7;color:#98a0af;align-items:center;justify-content:center;font-size:10px;line-height:12px}
 .authorCell{padding-left:10px!important;color:#697183;font-size:13px;line-height:16px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .centerCell{text-align:center;color:#697183;font-size:13px;line-height:16px;font-weight:400}
+.boardNoticeIcon{display:block;width:13px;height:13px;margin:0 7px 0 5px;filter:brightness(0);opacity:.55;flex:0 0 13px}
+.boardTable tr.isNotice .articleTitle{margin-left:0;font-weight:700}
+.boardTable tr.isNotice .boardLabel{font-weight:700}
 .pagination{height:66px;margin-top:24px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;gap:17px}
 .pageNo{min-width:12px;height:25px;color:#697183;font-size:13px;line-height:25px;text-align:center}
 .pageNo.active{width:27px;border-radius:8px;background:#f0f1f5;color:#222;font-weight:700}
@@ -237,8 +241,16 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit .rightPanel{width:250px;margin-top:20px}
 .layout-reddit .boardTitleArea,.layout-reddit .boardTableCard,.layout-reddit .pagination,.layout-reddit .popularCard,.layout-reddit .hotBoards{border:1px solid #e1e4e8;box-shadow:none}
 .layout-reddit .boardTitleArea strong:after{content:""}
-.layout-reddit .cleanBot,.layout-reddit .boardTableCard,.layout-reddit .pagination{display:none}
-.layout-reddit .redditFeed{display:block;margin-top:12px}
+.layout-reddit .cleanBot{display:flex}
+.layout-reddit .boardTableCard{display:block;margin-top:12px}
+.layout-reddit .pagination{display:flex}
+.layout-reddit .redditFeed{display:none}
+.layout-reddit.view-feed .cleanBot,.layout-reddit.view-feed .boardTableCard,.layout-reddit.view-feed .pagination{display:none}
+.layout-reddit.view-feed .redditFeed{display:block;margin-top:12px}
+.layout-reddit.view-board .boardTableCard{padding:10px 24px 24px}
+.layout-reddit.view-board .boardLabel{height:auto;margin-left:5px;padding:0;background:transparent;color:#59616d;font-weight:600}
+.layout-reddit.view-board .boardLabel:before{content:"["}
+.layout-reddit.view-board .boardLabel:after{content:"]"}
 .layout-reddit .articleControl{margin-top:12px;border:1px solid #e1e4e8}
 .layout-reddit .footer{margin-top:56px}
 @media(max-width:1320px){
@@ -288,7 +300,11 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
   .layout-reddit .sortFilters{gap:20px}
   .layout-reddit .sortButton{height:44px;margin:0;font-size:13px;line-height:18px}
   .layout-reddit .searchBox{display:none}
-  .layout-reddit .redditFeed{margin-top:8px}
+  .layout-reddit.view-feed .redditFeed{margin-top:8px}
+  .layout-reddit.view-board .cleanBot{margin:8px 12px 0}
+  .layout-reddit.view-board .boardTableCard{margin-top:8px;padding:0 14px 10px;border:0;border-radius:0;overflow-x:auto}
+  .layout-reddit.view-board .boardTable{width:700px}
+  .layout-reddit.view-board .pagination{margin:8px 0 0;border:0;border-radius:0}
   .redditFeedCard{padding:16px;border:0;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;border-radius:0;box-shadow:none}
   .redditFeedCard+.redditFeedCard{margin-top:8px}
   .redditFeedCard:hover{border-color:#e8eaed;box-shadow:none}
@@ -330,8 +346,8 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 </section>
 <nav class="mobileCommunityNav" aria-label="모바일 커뮤니티 메뉴">
   <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?view=home&layout=reddit">홈</a>
-  <a class="mobileCommunityNavItem active" href="bobaedream-pc-board-list.html?view=feed&layout=reddit">피드</a>
-  <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?layout=reddit">게시판</a>
+  <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?view=feed&layout=reddit">피드</a>
+  <a class="mobileCommunityNavItem active" href="bobaedream-pc-board-list.html?layout=reddit">게시판</a>
   <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?board=%EC%9C%A0%EB%A8%B8&layout=reddit">유머</a>
   <a class="mobileCommunityNavItem" href="bobaedream-pc-board-list.html?board=%EC%A0%95%EC%B9%98&layout=reddit">정치</a>
 </nav>
@@ -552,6 +568,6 @@ if(document.documentElement.classList.contains('layout-reddit')){
   });
 }
 </script>
-<script src="bobaedream-pc-interactions.js?v=reddit-left-rail-v1"></script>
+<script src="bobaedream-pc-interactions.js?v=chzzk-list-v1"></script>
 </body>
 </html>

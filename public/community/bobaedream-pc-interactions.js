@@ -8,6 +8,11 @@
   var isList=!!document.getElementById('postRows');
   var isDetail=!!document.querySelector('.commentSection');
   var basePosts=window.bobaeScenarioPosts||window.bobaeBoardPosts||[];
+  var boardNotices=[
+    ['공지','보배드림 커뮤니티 이용 수칙 및 게시판 운영 안내','보배드림 운영팀','10.24','1,384',12,4,'','notice-guide','공지',true],
+    ['공지','자동차 매물·거래 사칭 피해 예방 안내','보배드림 운영팀','10.23','2,601',8,7,'','notice-safe-trade','공지',true],
+    ['공지','개인정보 노출 및 게시물 신고 기준 안내','보배드림 운영팀','10.21','3,872',6,11,'','notice-privacy','공지',true]
+  ];
   var boardNames=['전체 게시글','국산차 오너톡','수입차 라운지','전기차 충전소','SUV 패밀리카','화물·특장','중고차 문의','정비 상담','튜닝 인증','보험·사고','블랙박스 제보','공지','자유','질문','시승기','출석체크'];
   var boardConfig={
     '전체 게시글':{categories:[],label:'전체'},
@@ -145,6 +150,7 @@
   function setupTopNavigation(){
     updateTopNavigation(boardFromUrl());
     updateRailPrimary();
+    updateMobileNavigation();
     setupMobileMenu();
   }
 
@@ -170,6 +176,17 @@
     else if(params.get('board')==='공지') activeKey='news';
     document.querySelectorAll('.railPrimaryItem').forEach(function(link){
       var selected=layoutMode==='reddit'&&link.dataset.railKey===activeKey;
+      link.classList.toggle('active',selected);
+      if(selected) link.setAttribute('aria-current','page');
+      else link.removeAttribute('aria-current');
+    });
+  }
+
+  function updateMobileNavigation(){
+    var params=new URLSearchParams(location.search);
+    document.querySelectorAll('.mobileCommunityNavItem').forEach(function(link){
+      var target=new URL(link.href,location.href).searchParams;
+      var selected=params.get('view')==='feed'?target.get('view')==='feed':!target.get('view')&&!target.get('board');
       link.classList.toggle('active',selected);
       if(selected) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
@@ -294,10 +311,50 @@
   }
 
   function setupListPage(){
+    setupListControls();
     window.addEventListener('popstate', function(){
       setCurrentBoard(boardForCurrentUrl(), false);
     });
     setCurrentBoard(boardForCurrentUrl(), false);
+  }
+
+  function setupListControls(){
+    document.querySelectorAll('.sortButton').forEach(function(button){
+      button.addEventListener('click',function(){
+        var label=button.textContent.trim();
+        var sort=label==='인기순'?'popular':label==='추천순'?'recommended':'latest';
+        var url=new URL(location.href);
+        if(sort==='latest') url.searchParams.delete('sort');
+        else url.searchParams.set('sort',sort);
+        history.pushState({sort:sort},'',url.pathname+url.search+url.hash);
+        renderBoardRows(boardForCurrentUrl());
+        updateListControls();
+      });
+    });
+    var input=document.querySelector('.searchInputWrap input');
+    if(input){
+      input.value=(new URLSearchParams(location.search).get('q')||'');
+      input.addEventListener('keydown',function(event){
+        if(event.key!=='Enter') return;
+        event.preventDefault();
+        var url=new URL(location.href);
+        var query=input.value.trim();
+        if(query) url.searchParams.set('q',query);
+        else url.searchParams.delete('q');
+        history.pushState({q:query},'',url.pathname+url.search+url.hash);
+        renderBoardRows(boardForCurrentUrl());
+      });
+    }
+    updateListControls();
+  }
+
+  function updateListControls(){
+    var sort=new URLSearchParams(location.search).get('sort')||'latest';
+    document.querySelectorAll('.sortButton').forEach(function(button){
+      var label=button.textContent.trim();
+      var key=label==='인기순'?'popular':label==='추천순'?'recommended':'latest';
+      button.classList.toggle('active',key===sort);
+    });
   }
 
   function boardForCurrentUrl(){
@@ -358,13 +415,22 @@
       });
       if(title) title.textContent='“'+query+'” 검색 결과';
     }
-    if(layoutMode==='reddit'&&title&&!query) title.textContent=board==='전체 게시글'?'피드':board;
+    var sort=params.get('sort')||'latest';
+    if(sort==='popular') posts.sort(function(a,b){return numericMetric(b[4])-numericMetric(a[4]);});
+    if(sort==='recommended') posts.sort(function(a,b){return numericMetric(b[5])-numericMetric(a[5]);});
+    var isFeedView=layoutMode==='reddit'&&params.get('view')==='feed';
+    if(layoutMode==='reddit'&&title&&!query) title.textContent=isFeedView&&board==='전체 게시글'?'피드':board;
+    if(layoutMode==='reddit'&&!isFeedView&&!query&&board==='전체 게시글') posts=boardNotices.concat(posts);
     renderRedditFeed(posts,board,query);
     if(!posts.length){
       rows.innerHTML='<tr><td colspan="5" class="emptyBoardRows">'+(query?'“'+esc(query)+'” 검색 결과가 없습니다.':esc(board)+' 게시판의 새 글이 없습니다.')+'</td></tr>';
       return;
     }
     rows.innerHTML=posts.map(function(post){return renderRow(post, board)}).join('');
+  }
+
+  function numericMetric(value){
+    return Number(String(value==null?'0':value).replace(/[^0-9.-]/g,''))||0;
   }
 
   function renderRedditFeed(posts,board,query){
@@ -427,7 +493,9 @@
     href=withLayout(href);
     var reply=post[6]?'<span class="replyNum">('+post[6]+')</span>':'';
     var lock=post[0]==='사고/블박'?'<span class="locked">!</span>':'';
-    return '<tr><td><div class="boardTitleCell"><span class="boardLabel">'+esc(post[0])+'</span><a class="articleTitle" href="'+href+'">'+esc(post[1])+'</a>'+reply+lock+'</div></td><td class="authorCell">'+esc(post[2])+'</td><td class="centerCell">'+esc(post[3])+'</td><td class="centerCell">'+esc(post[4])+'</td><td class="centerCell">'+esc(post[5])+'</td></tr>';
+    var notice=post[10]===true;
+    var pin=notice?'<img class="boardNoticeIcon" src="assets/radix-drawing-pin-filled-white.svg" alt="고정">':'';
+    return '<tr'+(notice?' class="isNotice"':'')+'><td><div class="boardTitleCell">'+pin+'<span class="boardLabel">'+esc(post[0])+'</span><a class="articleTitle" href="'+href+'">'+esc(post[1])+'</a>'+reply+lock+'</div></td><td class="authorCell">'+esc(post[2])+'</td><td class="centerCell">'+esc(post[3])+'</td><td class="centerCell">'+esc(post[4])+'</td><td class="centerCell">'+esc(post[5])+'</td></tr>';
   }
 
   function renderWriteView(){
