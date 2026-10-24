@@ -2214,7 +2214,6 @@ export default function ShootRegister() {
   const status = !photos.length ? "empty" : anyUploading ? "uploading" : "done";
   const sectionTitle = status === "uploading" ? "차량 사진 인식 중…" : status === "done" && photos.length ? "차량 사진 인식 완료" : "차량 사진";
   const hasMedia = photos.length > 0 || Boolean(video);
-  const recommendedDone = RULE_ANGLES.length - missing.length;
 
   return (
     <div className="shoot-root" onPointerDownCapture={primeSound}>
