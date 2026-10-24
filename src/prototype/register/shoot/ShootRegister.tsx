@@ -698,6 +698,15 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
   };
   useEffect(() => redraw(strokes), [strokes]);
 
+  const endStroke = () => {
+    const st = drawing.current;
+    drawing.current = null;
+    if (st) {
+      setStrokes((l) => [...l, st]);
+      setRedo([]);
+    }
+  };
+
   const toLocal = (e: RPointerEvent) => {
     const r = (e.currentTarget as HTMLElement).getBoundingClientRect();
     return { x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height };
@@ -742,14 +751,9 @@ function EditorScreen({ tool, src, onCancel, onSave }: { tool: Exclude<EditTool,
                 drawing.current.points.push(toLocal(e));
                 redraw([...strokes, drawing.current]);
               }}
-              onPointerUp={() => {
-                const s = drawing.current;
-                drawing.current = null;
-                if (s) {
-                  setStrokes((l) => [...l, s]);
-                  setRedo([]);
-                }
-              }}
+              onPointerUp={endStroke}
+              onPointerCancel={endStroke}
+              onLostPointerCapture={endStroke}
             />
           ) : (
             <img src={shown} alt="" draggable={false} />
@@ -1450,7 +1454,9 @@ export default function ShootRegister() {
                           </span>
                         ) : (
                           <span className="shoot-tile__play">
-                            <Mask src={rd("play-fill")} />
+                            <i>
+                              <Mask src={rd("play-fill")} />
+                            </i>
                           </span>
                         )}
                         <span className="shoot-tile__wm">보배드림</span>
