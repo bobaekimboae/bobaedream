@@ -29,6 +29,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;min-width:1280px;background:var(--bg);color:#000;font-family:var(--font-system);font-size:12px;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased}
+html.qf-font-pretendard body{font-family:var(--font-system)}
 button,input,select{font:inherit}
 button,a{color:inherit}
 a{text-decoration:none}
@@ -169,8 +170,8 @@ ul,ol{list-style:none;margin:0;padding:0}
 .articleTitle{display:block;margin-left:7px;color:#222;font-size:14px;line-height:17px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .replyNum{display:inline;margin-left:4px;color:#1264c4;font-size:13px;line-height:15px;font-weight:400;vertical-align:1px}
 .locked{display:inline-flex;width:15px;height:15px;margin-left:4px;border-radius:50%;border:1px solid #c7ccd7;color:#98a0af;align-items:center;justify-content:center;font-size:10px;line-height:12px}
-.authorCell{padding-left:10px!important;color:#697183;font-size:13px;line-height:16px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.centerCell{text-align:center;color:#697183;font-size:13px;line-height:16px;font-weight:400}
+.boardTable td.authorCell{padding-left:10px!important;color:#697183;font-size:13px;line-height:15px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.boardTable td.centerCell{text-align:center;color:#697183;font-size:13px;line-height:16px;font-weight:400}
 .boardNoticeIcon{display:block;width:13px;height:13px;margin:0 7px 0 5px;filter:brightness(0);opacity:.55;flex:0 0 13px}
 .boardTable tr.isNotice .articleTitle{margin-left:0;font-weight:700}
 .boardTable tr.isNotice .boardLabel{font-weight:700}
@@ -254,7 +255,7 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit.view-feed .cleanBot,.layout-reddit.view-feed .boardTableCard,.layout-reddit.view-feed .pagination{display:none}
 .layout-reddit.view-feed .redditFeed{display:block;margin-top:12px}
 .layout-reddit.view-board .boardTableCard{padding:10px 24px 24px}
-.layout-reddit.view-board .boardLabel{height:auto;margin-left:5px;padding:0;background:transparent;color:#59616d;font-weight:600}
+.layout-reddit.view-board .boardLabel{height:auto;margin-left:5px;padding:0;background:transparent;color:#59616d;font-weight:400}
 .layout-reddit.view-board .boardLabel:before{content:"["}
 .layout-reddit.view-board .boardLabel:after{content:"]"}
 .layout-reddit .articleControl{margin-top:12px;border:1px solid #e1e4e8}
