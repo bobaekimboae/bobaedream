@@ -1,6 +1,6 @@
 // 58同城 二手车发布(중고차 등록) 사진·영상 촬영 흐름 재현(2026-10-24 폰 실측, run4 캡처 s01~z06).
 // ?register=shoot 으로 연다. 실제 등록·업로드 요청은 보내지 않는다(「등록하기」는 안내만).
-import { useEffect, useMemo, useRef, useState, type PointerEvent as RPointerEvent, type RefObject } from "react";
+import { useEffect, useMemo, useRef, useState, type KeyboardEvent as RKeyboardEvent, type PointerEvent as RPointerEvent, type RefObject } from "react";
 import "./shoot.css";
 import { extractFrames, fakeStream, grabFrame, pickRecorderType, useCamera } from "./camera";
 import {
@@ -28,6 +28,43 @@ import { GROUPS, ITEMS, OTHER_ID, PHOTO_MAX, PHOTO_MIN, RECOMMENDED_IDS, REQUIRE
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const icon = (dir: string, name: string) => `${base}icons/${dir}/${name}`;
 const rd = (n: string) => icon("reddit-shoot", `${n}.svg`);
+
+/** 바텀시트/전체화면 대화상자의 초점을 내부에 가두고, 닫힌 뒤 원래 위치로 돌려준다. */
+function useDialogFocus(onClose: () => void, initialSelector = "button:not(:disabled), input:not(:disabled)") {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const previous = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    const timer = window.requestAnimationFrame(() => {
+      ref.current?.querySelector<HTMLElement>(initialSelector)?.focus();
+    });
+    return () => {
+      window.cancelAnimationFrame(timer);
+      previous?.focus();
+    };
+  }, [initialSelector]);
+  const onKeyDown = (e: RKeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      e.stopPropagation();
+      onClose();
+      return;
+    }
+    if (e.key !== "Tab") return;
+    const focusable = [...(ref.current?.querySelectorAll<HTMLElement>("button:not(:disabled), input:not(:disabled), [href], [tabindex]:not([tabindex='-1'])") ?? [])]
+      .filter((el) => !el.closest("[aria-hidden='true']"));
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
+  };
+  return { ref, onKeyDown };
+}
 
 // ── 데이터 ─────────────────────────────────────────────
 // 촬영 항목(규칙 · 사진 칸 · 영상 단계)은 모두 src/prototype/data/shoot-items.json 에서 읽는다(items.ts).
@@ -1576,6 +1613,7 @@ function CoursePicker({ current, recorded, onClose, onApply }: { current: VideoP
   const [items, setItems] = useState<VideoPlanItem[]>(() => current.map((p) => ({ ...p })));
   const [editing, setEditing] = useState<VideoPlanItem | null>(null);
   const [adding, setAdding] = useState(false);
+  const dialog = useDialogFocus(onClose);
   const total = items.reduce((n, p) => n + p.target, 0);
   const move = (at: number, by: number) => {
     const to = at + by;
@@ -1598,7 +1636,7 @@ function CoursePicker({ current, recorded, onClose, onApply }: { current: VideoP
     setAdding(false);
   };
   return (
-    <div className="shoot-xpick shoot-plan" role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" onClick={onClose}>
+    <div ref={dialog.ref} className="shoot-xpick shoot-plan" role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" onClick={onClose} onKeyDown={dialog.onKeyDown}>
       <div className="shoot-xpick__box" onClick={(e) => e.stopPropagation()}>
         <header>
           <div className="shoot-plan__top">
@@ -1669,8 +1707,9 @@ function CoursePicker({ current, recorded, onClose, onApply }: { current: VideoP
 function StageEditor({ item, onCancel, onSave }: { item: VideoPlanItem; onCancel: () => void; onSave: (item: VideoPlanItem) => void }) {
   const [label, setLabel] = useState(item.label);
   const [target, setTarget] = useState(item.target || 6);
+  const dialog = useDialogFocus(onCancel, "input:not(:disabled)");
   return (
-    <div className="shoot-plan-edit" role="dialog" aria-modal="true" aria-labelledby="shoot-plan-edit-t" onClick={(e) => e.stopPropagation()}>
+    <div ref={dialog.ref} className="shoot-plan-edit" role="dialog" aria-modal="true" aria-labelledby="shoot-plan-edit-t" onClick={(e) => e.stopPropagation()} onKeyDown={(e) => { e.stopPropagation(); dialog.onKeyDown(e); }}>
       <div>
         <strong id="shoot-plan-edit-t">촬영 부위 설정</strong>
         <label>
@@ -1982,6 +2021,7 @@ function CoverPicker({ segs, fallback, onClose, onDone }: { segs: (string | null
 
 function ShortsBuilder({ take, cover, onBack, onUse }: { take: Take; cover: string; onBack: () => void; onUse: () => void }) {
   const plan = take.plan ?? makePlan(take.stages ?? BASE_STAGES);
+  const callouts = plan.slice(0, 3).map((item) => item.label);
   const [style, setStyle] = useState<"clean" | "mood" | "fast">("clean");
   const [caption, setCaption] = useState(true);
   const [spec, setSpec] = useState(true);
@@ -2032,7 +2072,7 @@ function ShortsBuilder({ take, cover, onBack, onUse }: { take: Take; cover: stri
           {caption ? <strong>사진보다 생생한 차량 상태</strong> : null}
           {spec ? (
             <div className="shoot-shorts__callouts">
-              <span>1인 소유</span><span>무사고</span><span>전동 시트</span>
+              {callouts.map((label) => <span key={label}>{label}</span>)}
             </div>
           ) : null}
           <div className="shoot-shorts__price"><b>3,890만원</b><span>2023년식 · 24,580km</span></div>
@@ -2055,7 +2095,7 @@ function ShortsBuilder({ take, cover, onBack, onUse }: { take: Take; cover: stri
           <h3>쇼츠 스타일</h3>
           <div className="shoot-shorts__styles">
             {([['clean', '깔끔한 매물형'], ['mood', '인스타 감성형'], ['fast', '빠른 쇼츠형']] as const).map(([key, label]) => (
-              <button type="button" key={key} className={style === key ? "is-on" : ""} onClick={() => setStyle(key)}>{label}</button>
+              <button type="button" key={key} className={style === key ? "is-on" : ""} aria-pressed={style === key} onClick={() => setStyle(key)}>{label}</button>
             ))}
           </div>
           <label><span>AI 자동 자막<small>촬영 부위에 맞춰 설명을 넣어요</small></span><input type="checkbox" checked={caption} onChange={(e) => setCaption(e.target.checked)} /></label>
@@ -2174,18 +2214,21 @@ export default function ShootRegister() {
   }, []);
   // 완성도 = 소재지 20 + 필수 사진 60 + 권장 사진 10 + 영상 10(2026-10-25 컨설팅: 영상은 선택이라 비중을 작게).
   const requiredDone = useMemo(() => new Set(photos.map((p) => p.slot).filter(isRequiredItem)).size, [photos]);
-  const videoDone = !video ? 0 : video.imported ? VIDEO_GROUPS.length : VIDEO_GROUPS.filter((g) => {
-    const i = (video.stages ?? BASE_STAGES).indexOf(g.videoKey!);
-    return i >= 0 && (video.durations[i] ?? 0) > 0;
-  }).length;
+  const videoTotal = video?.plan?.length || VIDEO_GROUPS.length;
+  const videoDone = !video ? 0 : video.imported ? videoTotal : video.plan
+    ? video.plan.filter((_, i) => (video.durations[i] ?? 0) > 0).length
+    : VIDEO_GROUPS.filter((g) => {
+      const i = (video.stages ?? BASE_STAGES).indexOf(g.videoKey!);
+      return i >= 0 && (video.durations[i] ?? 0) > 0;
+    }).length;
   const requiredOk = requiredDone >= REQUIRED_IDS.length;
   const recommendedDone = useMemo(() => new Set(photos.map((p) => p.slot).filter((id) => itemLevel(id) === "recommended")).size, [photos]);
   /** 등록하기를 눌렀는데 모자랄 때만 숫자를 빨갛게 */
   const [tried, setTried] = useState(false);
   const needPhotos = Math.max(0, REQUIRED_IDS.length - requiredDone);
   useEffect(
-    () => setProgress((p) => (p === 0 ? 0 : Math.round(20 + (60 * Math.min(requiredDone, PHOTO_MIN)) / PHOTO_MIN + (10 * recommendedDone) / RECOMMENDED_IDS.length + (10 * videoDone) / VIDEO_GROUPS.length))),
-    [requiredDone, recommendedDone, videoDone],
+    () => setProgress((p) => (p === 0 ? 0 : Math.round(20 + (60 * Math.min(requiredDone, PHOTO_MIN)) / PHOTO_MIN + (10 * recommendedDone) / RECOMMENDED_IDS.length + (10 * videoDone) / videoTotal))),
+    [requiredDone, recommendedDone, videoDone, videoTotal],
   );
   const mediaRef = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -2247,8 +2290,8 @@ export default function ShootRegister() {
                 <h3>
                   {sectionTitle} <em>(필수)</em>
                 </h3>
-                <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계(선택)`}>
-                  사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b> · 영상 <span className="is-opt">{videoDone}/{VIDEO_GROUPS.length} · 선택</span>
+                <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${videoTotal}단계(선택)`}>
+                  사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b> · 영상 <span className="is-opt">{videoDone}/{videoTotal} · 선택</span>
                 </span>
               </div>
               <div className="shoot-hint-row">

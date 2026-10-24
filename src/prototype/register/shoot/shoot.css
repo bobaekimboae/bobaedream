@@ -106,9 +106,15 @@
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   background: radial-gradient(circle at 50% 40%, #3a3f44, #121416 70%);
+  padding: 24px;
+  overflow-wrap: anywhere;
 }
 .shoot-nocam small {
+  display: block;
+  width: min(100%, 320px);
+  margin-inline: auto;
   font-size: 12px;
+  line-height: 18px;
   color: rgba(255, 255, 255, 0.45);
 }
 .shoot-pill {
@@ -2909,8 +2915,9 @@
   color: #777;
 }
 .shoot-plan__list {
-  flex: 1;
+  flex: 0 1 auto;
   min-height: 0;
+  max-height: calc(100dvh - 350px);
   overflow-y: auto;
   margin: 0;
   padding: 0 14px 4px;
@@ -2919,7 +2926,7 @@
 .shoot-plan__list li {
   min-height: 76px;
   display: grid;
-  grid-template-columns: 24px 64px minmax(0, 1fr) 32px 34px 34px;
+  grid-template-columns: 24px 64px minmax(0, 1fr) 44px 44px 44px;
   align-items: center;
   gap: 8px;
   margin-bottom: 8px;
@@ -2968,8 +2975,8 @@
 }
 .shoot-plan__move button,
 .shoot-plan__icon {
-  min-width: 32px;
-  min-height: 32px;
+  min-width: 44px;
+  min-height: 44px;
   display: grid;
   place-items: center;
   border-radius: 8px;
@@ -3264,7 +3271,7 @@
   position: relative;
   height: 52px;
   border-radius: 26px;
-  background: var(--shoot-accent) !important;
+  background: #c93a1a !important;
   font-size: 16px;
 }
 .shoot-plan footer .is-ok > img,
@@ -3276,6 +3283,20 @@
   height: 20px;
   transform: translateY(-50%);
   filter: brightness(0) invert(1);
+}
+
+@media (max-width: 380px) {
+  .shoot-plan__list {
+    margin-inline: 8px;
+  }
+  .shoot-plan__list li {
+    grid-template-columns: 20px 58px minmax(0, 1fr) 44px 44px 44px;
+    gap: 4px;
+    padding-inline: 4px;
+  }
+  .shoot-plan__thumb {
+    width: 58px;
+  }
 }
 
 /* 촬영 결과를 9:16 판매 쇼츠로 자동 편집하는 마지막 단계 */
