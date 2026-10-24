@@ -853,6 +853,14 @@ export function BbmTextViewTable({ cars, likedIds, onOpen, onToggleLike }: { car
 // ── 모바일 하단 탭바: 홈 · 채팅 · 매물등록(＋ 원형) · 커뮤니티 · 마이
 export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void }) {
   const items: Array<[string, string]> = [["홈", "home"], ["채팅", "chat"], ["매물등록", "register"], ["커뮤니티", "community"], ["마이", "my"]];
+  const chooseBottomMenu = (label: string, icon: string) => {
+    if (icon === "home") return;
+    if (icon === "community") {
+      window.location.assign(`${import.meta.env.BASE_URL}community/naver-cafe-list.html`);
+      return;
+    }
+    onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`);
+  };
   return (
     <nav className="bbm-bottom-gnb" aria-label="하단 메뉴">
       <img className="bbm-bottom-gnb__background" src={bbmIcon("m-gnb-background")} alt="" aria-hidden="true" />
@@ -863,7 +871,7 @@ export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void
             <span className="bbm-bottom-gnb__register-label">{label}</span>
           </button>
         ) : (
-          <button key={label} type="button" className={`bbm-bottom-gnb__item${icon === "home" ? " is-active" : ""}`} aria-current={icon === "home" ? "page" : undefined} onClick={() => icon === "home" ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>
+          <button key={label} type="button" className={`bbm-bottom-gnb__item${icon === "home" ? " is-active" : ""}`} aria-current={icon === "home" ? "page" : undefined} onClick={() => chooseBottomMenu(label, icon)}>
             <img src={bbmIcon(`m-gnb-${icon}`)} alt="" aria-hidden="true" />
             <span className="bbm-bottom-gnb__label">{label}</span>
           </button>
