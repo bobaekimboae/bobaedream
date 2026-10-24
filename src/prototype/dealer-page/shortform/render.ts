@@ -511,6 +511,17 @@ export function drawFrame(ctx: CanvasRenderingContext2D, plan: ShortformPlan, t:
 
 /* ───────── mp4 만들기 ───────── */
 
+/** mp4로 만들 때 쓸 영상 방식. "avc"(H.264)가 아니면 인스타그램 · 아이폰에서 안 올라갈 수 있다(2026-10-25). */
+export async function mp4VideoCodec(): Promise<string | null> {
+  if (typeof window === "undefined" || !("VideoEncoder" in window)) return null;
+  try {
+    const { getFirstEncodableVideoCodec } = await import("mediabunny");
+    return (await getFirstEncodableVideoCodec(["avc", "vp9", "av1"], { width: 720, height: 1280 })) ?? null;
+  } catch {
+    return null;
+  }
+}
+
 export async function canMakeMp4() {
   if (typeof window === "undefined" || !("VideoEncoder" in window)) return false;
   try {

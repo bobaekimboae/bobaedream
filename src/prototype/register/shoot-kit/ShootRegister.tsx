@@ -50,7 +50,7 @@ const DEFAULT_DEFS = Object.fromEntries([
 ]) as Record<string, StageDef>;
 /** 지금 쓰는 값 = 기본값 + 이 브라우저에 기억한 시간 설정 + 직접 만든 부위(2026-10-25) */
 const STAGE_DEFS: Record<string, StageDef> = {};
-let PREFS: StagePrefs = typeof window === "undefined" ? { custom: [], times: {}, autoStop: true, myCourse: null, target: 0 } : loadPrefs();
+let PREFS: StagePrefs = typeof window === "undefined" ? { custom: [], times: {}, autoStop: true, myCourse: null, target: 0, mode: "easy" } : loadPrefs();
 function applyPrefs(p: StagePrefs) {
   Object.keys(STAGE_DEFS).forEach((k) => delete STAGE_DEFS[k]);
   Object.entries(DEFAULT_DEFS).forEach(([k, d]) => (STAGE_DEFS[k] = { ...d, ...(p.times[k] ?? {}) }));
@@ -76,9 +76,10 @@ const MAX_EXTRA = 6;
 /** 촬영 코스(2026-10-24 「촬영 부위 순서를 정하자 · 8개 3개」 · 「흠집표시는 선택」): 차 주위를 걷는 순서대로 정한다. */
 type CourseKey = "basic" | "full" | "quick" | "custom" | "mine";
 const COURSES: { key: Exclude<CourseKey, "custom">; label: string; sub: string; stages: VideoStage[] }[] = [
-  { key: "full", label: "정밀 8단계", sub: "바깥 한 바퀴 → 문 열고 실내 → 시동 → 보닛 → 트렁크", stages: ["exterior", "tyre", "interior", "cluster", "start", "feature", "engine", "trunk"] },
-  { key: "basic", label: `기본 ${BASE_STAGES.length}단계`, sub: VIDEO_GROUPS.map((g) => g.label).join(" → "), stages: BASE_STAGES },
-  { key: "quick", label: "빠른 3단계", sub: "숏폼 한 편 길이 · 트렁크는 사진으로", stages: ["exterior", "interior", "engine"] },
+  // 2026-10-25 컨설팅: 빠른 · 표준 · 상세 3개, 상세에 시트를 넣는다. 쇼츠 길이는 촬영 길이와 따로 15/30/60초로 줄인다.
+  { key: "quick", label: "빠른 3단계", sub: "외관 → 실내 → 엔진룸 · 트렁크는 사진으로", stages: ["exterior", "interior", "engine"] },
+  { key: "basic", label: `표준 ${BASE_STAGES.length}단계`, sub: VIDEO_GROUPS.map((g) => g.label).join(" → "), stages: BASE_STAGES },
+  { key: "full", label: "상세 9단계", sub: "바깥 한 바퀴 → 실내 · 시트 → 시동 → 보닛 → 트렁크", stages: ["exterior", "tyre", "interior", "seat", "cluster", "start", "feature", "engine", "trunk"] },
 ];
 /** 흠집 표시는 어느 코스든 선택으로 더한다. 바깥을 도는 단계(타이어, 없으면 외관) 바로 뒤에 넣는다. */
 function withDamage(list: VideoStage[], on: boolean): VideoStage[] {
@@ -226,12 +227,17 @@ function PhotoCounter({ required, total }: { required: number; total: number }) 
     </span>
   );
 }
+/** 권한 안내는 지금 쓰는 환경 하나만(홈 화면 앱 = 휴대폰 설정, 브라우저 = 주소창 자물쇠) */
+const isStandalone = () =>
+  typeof window !== "undefined" && (window.matchMedia?.("(display-mode: standalone)").matches || (navigator as Navigator & { standalone?: boolean }).standalone === true);
+const permHelp = () =>
+  isStandalone() ? "휴대폰 설정 → 보배드림 촬영 → 카메라를 켜 주세요." : "주소창 옆 자물쇠(설정) 아이콘 → 카메라 → 허용을 눌러 주세요.";
 /** 카메라가 안 켜졌을 때 안내(실서비스용 권한 안내. 카메라가 없는 기기에서는 시안용 대체 화면으로 계속 찍을 수 있다) */
 function NoCam({ denied }: { denied: boolean }) {
   return denied ? (
     <div className="shoot-nocam">
       카메라 권한을 허용해 주세요
-      <small>주소창 옆 자물쇠(설정) 아이콘 → 카메라 → 허용을 눌러 주세요. 앱에서는 휴대폰 설정 → 보배드림 → 카메라를 켜 주세요.</small>
+      <small>{permHelp()}</small>
     </div>
   ) : (
     <div className="shoot-nocam">
@@ -1061,6 +1067,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const [elapsed, setElapsed] = useState(0);
   const [durations, setDurations] = useState<number[]>(() => initial?.durations.slice() ?? BASE_STAGES.map(() => 0));
   const [askLeave, setAskLeave] = useState(false);
+  /** 「끝내기」를 눌렀는데 아직 안 찍은 단계가 있을 때 */
+  const [askFinish, setAskFinish] = useState(false);
   const [guide, setGuide] = useState(false);
   const recRef = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
@@ -1315,7 +1323,29 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const pillText =
     isInterior && phase === "recording"
       ? `${cur.label} ${istep + 1}/${curSteps.length} · ${curSteps[Math.min(istep, curSteps.length - 1)].label}`
-      : isDamage && phase === "recording" ? `흠집 ${marks.length}곳 표시함 · 화면을 눌러 표시` : done[stage] && !recording ? `${cur.label} 다시 찍기${PLUS ? ` · ${cur.min}~${cur.max}초` : ""}` : `${cur.label} 촬영${PLUS ? ` · ${cur.min}~${cur.max}초` : ""}`;
+      : isDamage && phase === "recording"
+        ? `흠집 ${marks.length}곳 표시함 · 화면을 눌러 표시`
+        : PLUS
+          ? `${stage + 1}/${stages.length} ${cur.label}${done[stage] && !recording ? " 다시 찍기" : ""} · ${cur.min}~${cur.max}초`
+          : done[stage] && !recording
+            ? `${cur.label} 다시 찍기`
+            : `${cur.label} 촬영`;
+  /** 아직 안 찍은 단계(이름) — 「끝내기」 확인 · 미리보기 경고에 쓴다 */
+  const leftLabels = defs.filter((_, i) => !done[i]).map((d) => d.label);
+  /** 녹화 버튼 이름(2026-10-25 컨설팅 「버튼 이름과 실제 동작 일치」): 시작 · 완료 · 다음 부위 · 다시 찍기 */
+  const recLabel =
+    phase === "recording"
+      ? elapsed < cur.min
+        ? `${Math.ceil(cur.min - elapsed)}초 더 찍기`
+        : "촬영 완료"
+      : phase === "countdown"
+        ? "곧 시작"
+        : done[stage]
+          ? "다시 찍기"
+          : anyDone
+            ? "다음 부위 촬영"
+            : "촬영 시작";
+  const finish = () => (leftLabels.length ? setAskFinish(true) : stopAll(durations));
 
   /** 흠집 단계 녹화 중 화면을 누르면 그 자리·그 시각을 흠집으로 표시 */
   const markDamage = (e: RPointerEvent<HTMLDivElement>) => {
@@ -1486,15 +1516,34 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
           </div>
           <div className="shoot-bottom">
             <div className="shoot-controls">
-              <span />
-              <button type="button" className={`shoot-rec ${phase === "recording" ? "is-recording" : ""}`} aria-label={phase === "recording" ? "일시정지" : phase === "paused" ? "계속" : "녹화 시작"} onClick={pressMain} disabled={phase === "countdown" || phase === "merging"}>
-                <span>{phase === "recording" ? "일시정지" : phase === "paused" ? "계속" : ""}</span>
+              {PLUS ? (
+                <span className={`shoot-rec-label ${phase === "recording" && elapsed < cur.min ? "is-wait" : ""}`} aria-hidden="true">
+                  {recLabel}
+                </span>
+              ) : (
+                <span />
+              )}
+              <button
+                type="button"
+                className={`shoot-rec ${phase === "recording" ? "is-recording" : ""} ${PLUS ? "is-plus" : ""}`}
+                aria-label={PLUS ? recLabel : phase === "recording" ? "일시정지" : phase === "paused" ? "계속" : "녹화 시작"}
+                onClick={pressMain}
+                disabled={phase === "countdown" || phase === "merging"}
+              >
+                <span>{PLUS ? "" : phase === "recording" ? "일시정지" : phase === "paused" ? "계속" : ""}</span>
               </button>
               <div className="shoot-count">
                 {phase === "paused" ? (
-                  <button type="button" className="shoot-done" onClick={() => stopAll(durations)}>
-                    다음
-                  </button>
+                  PLUS ? (
+                    // 다음 부위는 가운데 버튼, 촬영 끝내기는 보조 버튼(안 찍은 단계가 있으면 한 번 더 묻는다)
+                    <button type="button" className="shoot-finish" onClick={finish}>
+                      끝내기
+                    </button>
+                  ) : (
+                    <button type="button" className="shoot-done" onClick={() => stopAll(durations)}>
+                      다음
+                    </button>
+                  )
                 ) : (
                   // 2026-10-25: 비어 있던 자리에 지금 단계 시간 / 최대 시간
                   <span className="shoot-vcount">
@@ -1565,11 +1614,87 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
         />
       ) : null}
       {askLeave ? <Confirm text={initial ? "새로 찍은 내용을 버리고 나갈까요?" : "촬영한 영상을 지우고 나갈까요?"} onCancel={() => setAskLeave(false)} onOk={onClose} /> : null}
+      {askFinish ? (
+        <Confirm
+          text={`아직 ${leftLabels.length}개 단계가 남았어요(${leftLabels.join(" · ")}). 지금까지 찍은 영상으로 끝낼까요?`}
+          cancelText="계속 촬영"
+          okText="여기까지 끝내기"
+          onCancel={() => setAskFinish(false)}
+          onOk={() => {
+            setAskFinish(false);
+            stopAll(durations);
+          }}
+        />
+      ) : null}
+      {PLUS && mode === "cam" && cam.error === "denied" ? (
+        <CamPermission onRetry={cam.retry} onAlbum={() => setMode("album")} />
+      ) : null}
+      {PLUS ? (
+        <span className="shoot-sr" role="status" aria-live="polite">
+          {phase === "recording" ? `${cur.label} 녹화 중` : phase === "paused" ? `${cur.label} 촬영 차례` : phase === "merging" ? "영상을 합치는 중" : ""}
+        </span>
+      ) : null}
     </div>
   );
 }
 
-/** 촬영 코스 고르기: 정밀 8단계 · 기본 4단계 · 빠른 3단계 · 직접 고르기. 흠집 표시는 선택으로 더한다. */
+/** 카메라 권한이 없을 때(2026-10-25 컨설팅): 촬영 화면을 그대로 두지 않고 따로 안내한다. 지금 쓰는 환경 안내만 보인다. */
+function CamPermission({ onRetry, onAlbum }: { onRetry: () => void; onAlbum: () => void }) {
+  return (
+    <div className="shoot-perm" role="alertdialog" aria-modal="true" aria-labelledby="shoot-perm-t">
+      <Mask src={rd("video-camera-outline")} className="shoot-perm__icon" />
+      <strong id="shoot-perm-t">카메라 사용 권한이 필요해요</strong>
+      <p>{permHelp()}</p>
+      <button type="button" className="is-ok" onClick={onRetry} autoFocus>
+        카메라 권한 허용
+      </button>
+      <button type="button" onClick={onAlbum}>
+        찍어 둔 영상 올리기
+      </button>
+    </div>
+  );
+}
+
+/** 창을 열면 포커스를 창 안으로 옮기고, Tab은 창 안에서만 돌며, Esc로 닫고, 닫으면 연 버튼으로 돌려보낸다(2026-10-25 컨설팅). */
+function useDialogFocus(ref: { current: HTMLElement | null }, onClose: () => void) {
+  const closeRef = useRef(onClose);
+  closeRef.current = onClose;
+  useEffect(() => {
+    const opener = document.activeElement as HTMLElement | null;
+    const box = ref.current;
+    const items = () => Array.from(box?.querySelectorAll<HTMLElement>('button:not(:disabled), input, [tabindex]:not([tabindex="-1"])') ?? []);
+    (box?.querySelector<HTMLElement>("[data-autofocus]") ?? items()[0])?.focus({ preventScroll: true });
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault();
+        closeRef.current();
+        return;
+      }
+      if (e.key !== "Tab") return;
+      const list = items();
+      if (!list.length) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      opener?.focus?.({ preventScroll: true });
+    };
+  }, [ref]);
+}
+
+/**
+ * 촬영 코스 고르기(2026-10-25 컨설팅 4건 통합).
+ * 딜러 간편: 차종 추천 + 빠른 · 표준 · 상세 코스 + 흠집 공개. 촬영팀 전문: 직접 고르기 · 내 부위 · 순서 · 부위별 시간 · 자동 멈춤.
+ */
 function CoursePicker({
   current,
   recorded,
@@ -1581,13 +1706,18 @@ function CoursePicker({
   onClose: () => void;
   onApply: (next: VideoStage[], prefs: StagePrefs) => void;
 }) {
+  const boxRef = useRef<HTMLDivElement>(null);
+  useDialogFocus(boxRef, onClose);
   const [course, setCourse] = useState<CourseKey>(() => courseOf(current));
   const [damage, setDamage] = useState(() => current.includes("damage"));
   const [picked, setPicked] = useState<VideoStage[]>(() => current.filter((k) => def(k).extra && k !== "damage"));
-  // 시간 설정 · 직접 만든 부위 · 자동 멈춤은 「적용」을 누를 때만 기억한다.
+  // 시간 설정 · 직접 만든 부위 · 자동 멈춤 · 화면 종류는 「적용」을 누를 때만 기억한다.
   const [draft, setDraft] = useState<StagePrefs>(() => ({ ...PREFS, times: { ...PREFS.times }, custom: [...PREFS.custom] }));
+  const pro = draft.mode === "pro";
   const [rec, setRec] = useState<string | null>(null);
   const [form, setForm] = useState<{ label: string; hint: string; t: number } | null>(null);
+  /** 전문 모드에서 바꾼 순서(없으면 코스 순서) */
+  const [order, setOrder] = useState<VideoStage[] | null>(() => (courseOf(current) === "custom" ? current.filter((k) => k !== "damage") : null));
   const customKeys = draft.custom.map((c) => c.key);
   const customExtras = [...EXTRA_STAGES.filter((k) => k !== "damage"), ...customKeys];
   /** 이 창 안에서 쓰는 단계 값(아직 저장 전 시간·직접 부위 포함) */
@@ -1596,25 +1726,29 @@ function CoursePicker({
     const b = c ? { key: k, label: c.label, min: c.min, max: c.max, hint: c.hint, extra: true, custom: true } : { ...(DEFAULT_DEFS[k] ?? def(k)) };
     return { ...b, ...(draft.times[k] ?? {}) };
   };
-  const recStages = rec ? SHOOT.video.recommend.find((r) => r.id === rec)?.stages ?? [] : [];
-  const listFor = (c: CourseKey, dmg: boolean) =>
-    withDamage(
-      c === "custom"
-        ? [...BASE_STAGES, ...customExtras.filter((k) => picked.includes(k))]
-        : c === "mine"
-          ? (PREFS.myCourse ?? BASE_STAGES).filter((k) => STAGE_DEFS[k] || customKeys.includes(k))
-          : COURSES.find((x) => x.key === c)!.stages,
-      dmg,
-    );
+  const recStages = rec ? (SHOOT.video.recommend.find((r) => r.id === rec)?.stages ?? []) : [];
+  const baseList = (c: CourseKey): VideoStage[] =>
+    c === "custom"
+      ? [...BASE_STAGES, ...customExtras.filter((k) => picked.includes(k))]
+      : c === "mine"
+        ? (PREFS.myCourse ?? BASE_STAGES).filter((k) => STAGE_DEFS[k] || customKeys.includes(k))
+        : COURSES.find((x) => x.key === c)!.stages;
+  /** 순서 적용: 바꾼 순서에 있는 것은 그 순서로, 새로 더한 것은 뒤에 */
+  const ordered = (list: VideoStage[]) => (order ? [...order.filter((k) => list.includes(k)), ...list.filter((k) => !order.includes(k))] : list);
+  const listFor = (c: CourseKey, dmg: boolean) => withDamage(c === course ? ordered(baseList(c)) : baseList(c), dmg);
   const next = listFor(course, damage);
   // 이미 찍은 부위가 빠지는 코스는 고를 수 없다.
   const drops = (list: VideoStage[]) => recorded.some((k) => !list.includes(k));
   const total = next.reduce((n, k) => n + dd(k).max, 0);
+  const pickCourse = (c: CourseKey) => {
+    setCourse(c);
+    setOrder(null);
+  };
   const toggle = (k: VideoStage) => {
     if (recorded.includes(k)) return;
     setPicked((p) => (p.includes(k) ? p.filter((x) => x !== k) : p.length >= MAX_EXTRA ? p : [...p, k]));
   };
-  /** 차종 추천: 직접 고르기로 바꾸고 추천 부위를 켠다 */
+  /** 차종 추천: 추천 부위를 더한 「직접 고르기」로 바꾼다. 무엇이 더해지는지는 알약 아래에 미리 보여 준다. */
   const pickRec = (id: string) => {
     if (rec === id) {
       setRec(null);
@@ -1623,43 +1757,30 @@ function CoursePicker({
     const r = SHOOT.video.recommend.find((x) => x.id === id);
     if (!r) return;
     setRec(id);
-    setCourse("custom");
+    pickCourse("custom");
     setPicked((p) => [...new Set([...p.filter((k) => recorded.includes(k)), ...r.stages])].slice(0, MAX_EXTRA));
   };
   const setTime = (k: VideoStage, min: number, max: number) => setDraft((d) => ({ ...d, times: { ...d.times, [k]: { min, max } } }));
   const bump = (k: VideoStage, by: number) => {
     const s = dd(k);
-    const max = Math.max(s.min + 3, Math.min(90, s.max + by));
-    setTime(k, s.min, max);
-    setDraft((d) => ({ ...d, target: 0 }));
+    setTime(k, s.min, Math.max(s.min + 3, Math.min(90, s.max + by)));
   };
-  /** 목표 길이: 지금 단계들의 최대 시간을 비율대로 줄이거나 늘린다(최소 시간 + 3초 아래로는 안 줄임) */
-  const pickTarget = (sec: number) => {
-    setDraft((d) => {
-      const times = { ...d.times };
-      if (sec === 0) next.forEach((k) => delete times[k]);
-      else {
-        const base = next.map((k) => {
-          const c = d.custom.find((x) => x.key === k);
-          return c ? { min: c.min, max: c.max } : DEFAULT_DEFS[k] ?? def(k);
-        });
-        const sum = base.reduce((n, b) => n + b.max, 0) || 1;
-        next.forEach((k, i) => {
-          const b = base[i];
-          const max = Math.max(3, Math.round((b.max * sec) / sum));
-          const min = Math.min(b.min, Math.max(1, max - 3));
-          times[k] = { min, max };
-        });
-      }
-      return { ...d, times, target: sec };
-    });
+  const move = (k: VideoStage, by: -1 | 1) => {
+    const list: VideoStage[] = next.filter((x) => x !== "damage");
+    const i = list.indexOf(k);
+    const j = i + by;
+    if (i < 0 || j < 0 || j >= list.length) return;
+    const nl = [...list];
+    [nl[i], nl[j]] = [nl[j], nl[i]];
+    // 고른 코스의 부위는 그대로 두고 순서만 바꾼다(적용하면 단계 칸이 이 순서가 된다).
+    setOrder(nl);
   };
   const addCustom = () => {
     if (!form || !form.label.trim()) return;
     const t = SHOOT.video.customTimes[form.t] ?? SHOOT.video.customTimes[0];
     const key = newCustomKey();
     setDraft((d) => ({ ...d, custom: [...d.custom, { key, label: form.label.trim().slice(0, 10), hint: form.hint.trim().slice(0, 40) || `${form.label.trim()}을(를) 천천히 찍어 주세요`, min: t.min, max: t.max }] }));
-    setCourse("custom");
+    if (course !== "custom") pickCourse("custom");
     setPicked((p) => (p.length >= MAX_EXTRA ? p : [...p, key]));
     setForm(null);
   };
@@ -1675,127 +1796,156 @@ function CoursePicker({
   const options = [
     ...(PREFS.myCourse ? [{ key: "mine" as const, label: "내 코스", sub: "저장해 둔 순서", stages: [] as VideoStage[] }] : []),
     ...COURSES,
-    { key: "custom" as const, label: "직접 고르기", sub: "기본 4단계 뒤에 원하는 부위를 더해요", stages: [] as VideoStage[] },
+    // 간편 화면에서는 차종 추천을 골랐을 때만 「○○ 추천」 코스로 보인다(직접 고르기 목록은 전문 화면에만).
+    ...(pro
+      ? [{ key: "custom" as const, label: "직접 고르기", sub: "표준 4단계 뒤에 부위를 더하고 순서를 바꿔요", stages: [] as VideoStage[] }]
+      : course === "custom"
+        ? [{ key: "custom" as const, label: rec ? `${SHOOT.video.recommend.find((r) => r.id === rec)?.label} 추천` : "직접 고른 코스", sub: "표준 4단계 + 추천 부위", stages: [] as VideoStage[] }]
+        : []),
   ];
+  const added = recStages.map((k) => dd(k).label);
   return (
-    <div className="shoot-xpick" role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" onClick={onClose}>
-      <div className="shoot-xpick__box" onClick={(e) => e.stopPropagation()}>
+    <div className="shoot-xpick" role="presentation" onClick={onClose}>
+      <div className="shoot-xpick__box" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" onClick={(e) => e.stopPropagation()}>
         <header>
           <strong id="shoot-xpick-t">촬영 코스 고르기</strong>
-          <p>차 주위를 걷는 순서대로 찍어요. 고른 순서대로 단계 칸이 바뀌어요.</p>
+          <p>차 주위를 걷는 순서대로 찍어요. 쇼츠는 찍은 영상에서 15 · 30 · 60초로 자동으로 줄여요.</p>
+          <div className="shoot-xpick__modes" role="radiogroup" aria-label="화면 종류">
+            {(
+              [
+                ["easy", "딜러 간편"],
+                ["pro", "촬영팀 전문"],
+              ] as const
+            ).map(([m, label]) => (
+              <button key={m} type="button" role="radio" aria-checked={draft.mode === m} className={draft.mode === m ? "is-on" : ""} onClick={() => setDraft((d) => ({ ...d, mode: m }))}>
+                {label}
+              </button>
+            ))}
+          </div>
         </header>
         <ul>
           <li className="shoot-recsel">
             <span className="shoot-recsel__t">차종 추천</span>
-            <div className="shoot-recsel__chips">
+            <div className="shoot-recsel__chips" role="radiogroup" aria-label="차종 추천">
               {SHOOT.video.recommend.map((r) => (
-                <button key={r.id} type="button" className={rec === r.id ? "is-on" : ""} aria-pressed={rec === r.id} onClick={() => pickRec(r.id)}>
+                <button key={r.id} type="button" role="radio" aria-checked={rec === r.id} className={rec === r.id ? "is-on" : ""} onClick={() => pickRec(r.id)}>
                   {r.label}
                 </button>
               ))}
             </div>
+            <p className="shoot-recsel__more" aria-live="polite">
+              {added.length ? `표준 4단계에 ${added.join(" · ")}을(를) 더해요` : "차종을 고르면 그 차에 맞는 부위를 더해요"}
+            </p>
           </li>
-          {options.map((c) => {
-            const list = listFor(c.key, damage);
-            const on = course === c.key;
-            const lock = drops(list);
-            return (
-              <li key={c.key}>
-                <button type="button" className={`shoot-course ${on ? "is-on" : ""}`} aria-pressed={on} disabled={lock} onClick={() => setCourse(c.key)}>
-                  <span className="shoot-xpick__check is-radio">{on ? <i /> : null}</span>
-                  <span className="shoot-xpick__txt">
-                    <b>
-                      {c.label}
-                      {c.key !== "custom" ? <em>최대 {mmss(list.reduce((n, k) => n + dd(k).max, 0))}</em> : null}
-                      {lock ? <em className="is-lock">찍은 부위가 빠져요</em> : null}
-                    </b>
-                    <span>{c.sub}</span>
-                    {c.key !== "custom" ? (
-                      <span className="shoot-course__steps">
-                        {list.map((k, i) => (
-                          <span key={k} className={k === "damage" ? "is-opt" : ""}>
-                            {i + 1}. {dd(k).label}
-                          </span>
-                        ))}
-                      </span>
-                    ) : null}
-                  </span>
-                </button>
-                {c.key === "custom" && on ? (
-                  <>
-                    {customExtras.map((k) => {
-                      const d = dd(k);
-                      const pon = picked.includes(k);
-                      const plock = recorded.includes(k);
-                      const full = !pon && picked.length >= MAX_EXTRA;
-                      const mine = customKeys.includes(k);
-                      return (
-                        <div key={k} className="shoot-xpick__line">
-                          <button type="button" className={`shoot-xpick__row ${pon ? "is-on" : ""}`} aria-pressed={pon} disabled={plock || full} onClick={() => toggle(k)}>
-                            <span className="shoot-xpick__check">{pon ? <Mask src={rd("checkmark-fill")} /> : null}</span>
-                            <img src={stageThumb(k)} alt="" />
-                            <span className="shoot-xpick__txt">
-                              <b>
-                                {d.label}
-                                <em>
-                                  {d.min}~{d.max}초
-                                </em>
-                                {recStages.includes(k) ? <em className="is-rec">추천</em> : null}
-                                {mine ? <em className="is-mine">내 부위</em> : null}
-                                {plock ? <em className="is-lock">찍음</em> : null}
-                              </b>
-                              <span>{mine ? d.hint : stageGuide(k).how}</span>
+          <li role="radiogroup" aria-label="촬영 코스" className="shoot-course-list">
+            {options.map((c) => {
+              const list = listFor(c.key, damage);
+              const on = course === c.key;
+              const lock = drops(list);
+              return (
+                <div key={c.key}>
+                  <button type="button" role="radio" aria-checked={on} className={`shoot-course ${on ? "is-on" : ""}`} disabled={lock} onClick={() => pickCourse(c.key)} data-autofocus={on ? "" : undefined}>
+                    <span className="shoot-xpick__check is-radio">{on ? <i /> : null}</span>
+                    <span className="shoot-xpick__txt">
+                      <b>
+                        {c.key === "custom" && !pro ? `${c.label} ${list.length}단계` : c.key === "mine" ? `${c.label} ${list.length}단계` : c.label}
+                        {c.key !== "custom" || !pro ? <em>최대 {mmss(list.reduce((n, k) => n + dd(k).max, 0))}</em> : null}
+                        {lock ? <em className="is-lock">찍은 부위가 빠져요</em> : null}
+                      </b>
+                      <span>{c.sub}</span>
+                      {/* 순서 알약은 고른 코스에만 보인다(반복을 줄임) */}
+                      {on && (c.key !== "custom" || !pro) ? (
+                        <span className="shoot-course__steps">
+                          {list.map((k, i) => (
+                            <span key={k} className={k === "damage" ? "is-opt" : ""}>
+                              {i + 1}. {dd(k).label}
                             </span>
-                          </button>
-                          {mine && !plock ? (
-                            <button type="button" className="shoot-xpick__del" onClick={() => removeCustom(k)}>
-                              삭제
-                            </button>
-                          ) : null}
-                        </div>
-                      );
-                    })}
-                    {form ? (
-                      <div className="shoot-myform">
-                        <label>
-                          <span>부위 이름</span>
-                          <input value={form.label} maxLength={10} placeholder="예: 루프탑 텐트" onChange={(e) => setForm({ ...form, label: e.target.value })} />
-                        </label>
-                        <label>
-                          <span>찍는 방법</span>
-                          <input value={form.hint} maxLength={40} placeholder="예: 텐트를 펼친 모습을 천천히" onChange={(e) => setForm({ ...form, hint: e.target.value })} />
-                        </label>
-                        <div className="shoot-myform__t" role="group" aria-label="촬영 시간">
-                          {SHOOT.video.customTimes.map((t, i) => (
-                            <button key={t.label} type="button" className={form.t === i ? "is-on" : ""} aria-pressed={form.t === i} onClick={() => setForm({ ...form, t: i })}>
-                              {t.label}
-                            </button>
                           ))}
-                        </div>
-                        <div className="shoot-myform__act">
-                          <button type="button" onClick={() => setForm(null)}>
-                            취소
-                          </button>
-                          <button type="button" className="is-ok" disabled={!form.label.trim() || picked.length >= MAX_EXTRA} onClick={addCustom}>
-                            부위 추가
-                          </button>
-                        </div>
-                      </div>
-                    ) : (
-                      <button type="button" className="shoot-myadd" onClick={() => setForm({ label: "", hint: "", t: 1 })}>
-                        ＋ 내 부위 만들기
+                        </span>
+                      ) : null}
+                    </span>
+                  </button>
+                  {c.key === "custom" && on && pro ? (
+                    <>
+                      {customExtras.map((k) => {
+                        const d = dd(k);
+                        const pon = picked.includes(k);
+                        const plock = recorded.includes(k);
+                        const full = !pon && picked.length >= MAX_EXTRA;
+                        const mine = customKeys.includes(k);
+                        return (
+                          <div key={k} className="shoot-xpick__line">
+                            <button type="button" role="checkbox" aria-checked={pon} className={`shoot-xpick__row ${pon ? "is-on" : ""}`} disabled={plock || full} onClick={() => toggle(k)}>
+                              <span className="shoot-xpick__check">{pon ? <Mask src={rd("checkmark-fill")} /> : null}</span>
+                              <img src={stageThumb(k)} alt="" />
+                              <span className="shoot-xpick__txt">
+                                <b>
+                                  {d.label}
+                                  <em>
+                                    {d.min}~{d.max}초
+                                  </em>
+                                  {recStages.includes(k) ? <em className="is-rec">추천</em> : null}
+                                  {mine ? <em className="is-mine">내 부위</em> : null}
+                                  {plock ? <em className="is-lock">찍음</em> : null}
+                                </b>
+                                <span>{mine ? d.hint : stageGuide(k).how}</span>
+                              </span>
+                            </button>
+                            {mine && !plock ? (
+                              <button type="button" className="shoot-xpick__del" onClick={() => removeCustom(k)} aria-label={`${d.label} 삭제`}>
+                                삭제
+                              </button>
+                            ) : null}
+                          </div>
+                        );
+                      })}
+                    </>
+                  ) : null}
+                </div>
+              );
+            })}
+          </li>
+          {pro ? (
+            <li className="shoot-mysec">
+              {form ? (
+                <div className="shoot-myform">
+                  <label>
+                    <span>부위 이름</span>
+                    <input value={form.label} maxLength={10} placeholder="예: 루프탑 텐트" onChange={(e) => setForm({ ...form, label: e.target.value })} />
+                  </label>
+                  <label>
+                    <span>찍는 방법</span>
+                    <input value={form.hint} maxLength={40} placeholder="예: 텐트를 펼친 모습을 천천히" onChange={(e) => setForm({ ...form, hint: e.target.value })} />
+                  </label>
+                  <div className="shoot-myform__t" role="radiogroup" aria-label="촬영 시간">
+                    {SHOOT.video.customTimes.map((t, i) => (
+                      <button key={t.label} type="button" role="radio" aria-checked={form.t === i} className={form.t === i ? "is-on" : ""} onClick={() => setForm({ ...form, t: i })}>
+                        {t.label}
                       </button>
-                    )}
-                  </>
-                ) : null}
-              </li>
-            );
-          })}
+                    ))}
+                  </div>
+                  <div className="shoot-myform__act">
+                    <button type="button" onClick={() => setForm(null)}>
+                      취소
+                    </button>
+                    <button type="button" className="is-ok" disabled={!form.label.trim() || picked.length >= MAX_EXTRA} onClick={addCustom}>
+                      부위 추가
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <button type="button" className="shoot-myadd" onClick={() => setForm({ label: "", hint: "", t: 1 })}>
+                  ＋ 내 부위 만들기
+                </button>
+              )}
+            </li>
+          ) : null}
           <li className="shoot-course__opt">
             <button
               type="button"
+              role="checkbox"
+              aria-checked={damage}
               className={`shoot-xpick__row ${damage ? "is-on" : ""}`}
-              aria-pressed={damage}
               disabled={recorded.includes("damage") && damage}
               onClick={() => setDamage((v) => !v)}
             >
@@ -1803,65 +1953,69 @@ function CoursePicker({
               <img src={stageThumb("damage")} alt="" />
               <span className="shoot-xpick__txt">
                 <b>
-                  흠집 표시 더하기
+                  흠집 공개 더하기
                   <em>선택 · {dd("damage").min}~{dd("damage").max}초</em>
                 </b>
-                <span>흠집이 있는 차만 찍어요. 바깥을 돈 다음에 찍고, 화면을 눌러 위치를 표시해요.</span>
+                <span>흠집이 있으면 직접 보여 줘요. 화면을 눌러 위치를 표시하면 매물에 「흠집 공개 N곳」이 붙어요.</span>
               </span>
             </button>
           </li>
-          <li className="shoot-time">
-            <span className="shoot-recsel__t">시간 설정</span>
-            <div className="shoot-recsel__chips" role="group" aria-label="목표 길이">
-              {SHOOT.video.targets.map((t) => (
-                <button key={t.sec} type="button" className={draft.target === t.sec ? "is-on" : ""} aria-pressed={draft.target === t.sec} onClick={() => pickTarget(t.sec)}>
-                  {t.sec ? `전체 ${t.label}` : t.label}
-                </button>
-              ))}
-            </div>
-            {next.map((k) => {
-              const d = dd(k);
-              return (
-                <div key={k} className="shoot-time__row">
-                  <span>{d.label}</span>
-                  <em>
-                    {d.min}~{d.max}초
-                  </em>
-                  <button type="button" aria-label={`${d.label} 최대 시간 5초 줄이기`} disabled={d.max <= d.min + 3} onClick={() => bump(k, -5)}>
-                    −
-                  </button>
-                  <button type="button" aria-label={`${d.label} 최대 시간 5초 늘리기`} disabled={d.max >= 90} onClick={() => bump(k, 5)}>
-                    ＋
-                  </button>
-                </div>
-              );
-            })}
-            <button
-              type="button"
-              className={`shoot-xpick__row shoot-time__auto ${draft.autoStop ? "is-on" : ""}`}
-              aria-pressed={draft.autoStop}
-              onClick={() => setDraft((d) => ({ ...d, autoStop: !d.autoStop }))}
-            >
-              <span className="shoot-xpick__check">{draft.autoStop ? <Mask src={rd("checkmark-fill")} /> : null}</span>
-              <span className="shoot-xpick__txt">
-                <b>최대 시간에 자동으로 멈추기</b>
-                <span>끄면 직접 멈출 때까지 찍어요(최대 {HARD_MAX / 60}분). 촬영팀이 길게 찍을 때 꺼 주세요.</span>
-              </span>
-            </button>
-          </li>
+          {pro ? (
+            <li className="shoot-time">
+              <span className="shoot-recsel__t">순서 · 시간</span>
+              {next.map((k, i) => {
+                const d = dd(k);
+                const movable = k !== "damage";
+                const list: VideoStage[] = next.filter((x) => x !== "damage");
+                const at = list.indexOf(k);
+                return (
+                  <div key={k} className="shoot-time__row is-order">
+                    <span>
+                      {i + 1}. {d.label}
+                    </span>
+                    <em>
+                      {d.min}~{d.max}초
+                    </em>
+                    <button type="button" aria-label={`${d.label} 앞으로`} disabled={!movable || at <= 0} onClick={() => move(k, -1)}>
+                      ↑
+                    </button>
+                    <button type="button" aria-label={`${d.label} 뒤로`} disabled={!movable || at >= list.length - 1} onClick={() => move(k, 1)}>
+                      ↓
+                    </button>
+                    <button type="button" aria-label={`${d.label} 최대 시간 5초 줄이기`} disabled={d.max <= d.min + 3} onClick={() => bump(k, -5)}>
+                      −
+                    </button>
+                    <button type="button" aria-label={`${d.label} 최대 시간 5초 늘리기`} disabled={d.max >= 90} onClick={() => bump(k, 5)}>
+                      ＋
+                    </button>
+                  </div>
+                );
+              })}
+              <button
+                type="button"
+                role="checkbox"
+                aria-checked={draft.autoStop}
+                className={`shoot-xpick__row shoot-time__auto ${draft.autoStop ? "is-on" : ""}`}
+                onClick={() => setDraft((d) => ({ ...d, autoStop: !d.autoStop }))}
+              >
+                <span className="shoot-xpick__check">{draft.autoStop ? <Mask src={rd("checkmark-fill")} /> : null}</span>
+                <span className="shoot-xpick__txt">
+                  <b>최대 시간에 자동으로 멈추기</b>
+                  <span>끄면 직접 멈출 때까지 찍어요 · 한 부위 최대 {HARD_MAX / 60}분. 촬영팀이 길게 찍을 때 꺼 주세요.</span>
+                </span>
+              </button>
+            </li>
+          ) : null}
         </ul>
-        <footer className="has-save">
+        <footer className={pro ? "has-save" : ""}>
           <button type="button" onClick={onClose}>
             취소
           </button>
-          <button
-            type="button"
-            className="is-save"
-            disabled={drops(next)}
-            onClick={() => onApply(next, { ...draft, myCourse: next })}
-          >
-            내 코스로 저장
-          </button>
+          {pro ? (
+            <button type="button" className="is-save" disabled={drops(next)} onClick={() => onApply(next, { ...draft, myCourse: next })}>
+              내 코스로 저장
+            </button>
+          ) : null}
           <button type="button" className="is-ok" disabled={drops(next)} onClick={() => onApply(next, draft)}>
             {next.length}단계 · 최대 {mmss(total)}
           </button>
@@ -1870,7 +2024,6 @@ function CoursePicker({
     </div>
   );
 }
-
 
 function VideoPreview({
   take,
@@ -1881,6 +2034,7 @@ function VideoPreview({
   onCover,
   onDelete,
   onShorts,
+  onContinue,
 }: {
   take: Take;
   edit?: boolean;
@@ -1891,6 +2045,8 @@ function VideoPreview({
   onDelete?: () => void;
   /** 찍은 영상으로 쇼츠 만들기(2026-10-25). 불러온 영상 · 58 비교 화면에는 없다 */
   onShorts?: () => void;
+  /** 안 찍은 단계를 마저 찍으러 촬영으로 돌아가기(2026-10-25 컨설팅 「촬영 누락 확인」) */
+  onContinue?: () => void;
 }) {
   // 단계별 파일을 차례로 이어 튼다(외관 → 실내 → 엔진룸 → 트렁크).
   const parts = take.segs.map((u, i) => ({ u, i })).filter((x): x is { u: string; i: number } => Boolean(x.u));
@@ -1924,6 +2080,10 @@ function VideoPreview({
   }, [k, playing]);
   const cur = parts[k];
   const [saveOpen, setSaveOpen] = useState(false);
+  const [askShorts, setAskShorts] = useState(false);
+  /** 안 찍은 단계 이름(불러온 영상은 단계가 없으니 세지 않는다) */
+  const missing = PLUS && !take.imported ? (take.stages ?? BASE_STAGES).filter((_, i) => !take.durations[i]).map((k) => def(k).label) : [];
+  const openShorts = () => (missing.length ? setAskShorts(true) : onShorts?.());
   const [saving, setSaving] = useState<{ label: string; p: number } | null>(null);
   const [saveMsg, setSaveMsg] = useState("");
   const say = (m: string) => {
@@ -2004,7 +2164,7 @@ function VideoPreview({
                   aria-label={`${s.label} 영상부터 보기`}
                   onClick={() => go(at, true)}
                 >
-                  <span className="shoot-stage-chip__time">{mmss(take.durations[i])}</span>
+                  <span className="shoot-stage-chip__time">{take.durations[i] || !PLUS ? mmss(take.durations[i]) : "안 찍음"}</span>
                   <span className="shoot-stage-chip__label">{s.label}</span>
                 </button>
               );
@@ -2052,7 +2212,7 @@ function VideoPreview({
               표지 바꾸기
             </button>
             {onShorts ? (
-              <button type="button" onClick={onShorts}>
+              <button type="button" onClick={openShorts}>
                 <Mask src={rd("powerup-outline")} />
                 쇼츠 만들기
               </button>
@@ -2065,18 +2225,40 @@ function VideoPreview({
         ) : (
           <div className="shoot-vprev-actions">
             {onShorts ? (
-              <button type="button" className="shoot-shorts-open" onClick={onShorts}>
+              <button type="button" className="shoot-shorts-open" onClick={openShorts}>
                 <Mask src={rd("powerup-outline")} />
                 쇼츠 만들기
                 {take.hl?.length ? <em>★ {take.hl.length}</em> : null}
               </button>
             ) : null}
             <button type="button" className="shoot-done" onClick={onNext}>
-              다음
+              {PLUS ? "이 영상 쓰기" : "다음"}
             </button>
           </div>
         )}
       </div>
+      {missing.length && onContinue ? (
+        <button type="button" className="shoot-missing" onClick={onContinue}>
+          아직 {missing.length}개 단계가 남았어요 · {missing.join(" · ")}
+          <b>계속 촬영 ›</b>
+        </button>
+      ) : null}
+      {askShorts ? (
+        <Confirm
+          text={`아직 ${missing.length}개 단계가 남았어요(${missing.join(" · ")}). 지금 영상으로 쇼츠를 만들까요?`}
+          cancelText={onContinue ? "계속 촬영" : "취소"}
+          okText="지금 영상으로 만들기"
+          onCancel={() => {
+            setAskShorts(false);
+            onContinue?.();
+          }}
+          onDim={() => setAskShorts(false)}
+          onOk={() => {
+            setAskShorts(false);
+            onShorts?.();
+          }}
+        />
+      ) : null}
       {saveOpen ? (
         <div className="shoot-dim is-sheet" role="presentation" onClick={() => setSaveOpen(false)}>
           <div className="shoot-save-sheet" role="dialog" aria-modal="true" aria-labelledby="shoot-save-t" onClick={(e) => e.stopPropagation()}>
@@ -2201,8 +2383,10 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
             <h3>
               {g.label}({g.items.length}장)
               <span className={`shoot-rules__badge is-${g.level}`}>
-                {levelLabel(g.level)}
-                {g.items.some((a) => a.level && a.level !== g.level) ? ` ${g.items.filter((a) => (a.level ?? g.level) === g.level).length}장` : ""}
+                {/* 2026-10-25 컨설팅: 「필수 4장」 → 「6장 중 4장 필수」 */}
+                {g.items.some((a) => a.level && a.level !== g.level)
+                  ? `${g.items.length}장 중 ${g.items.filter((a) => (a.level ?? g.level) === g.level).length}장 ${levelLabel(g.level)}`
+                  : levelLabel(g.level)}
               </span>
             </h3>
             <p>{g.items.map((a) => a.label).join(" | ")}</p>
@@ -2235,7 +2419,7 @@ type Screen =
   | { name: "main" }
   | { name: "capture"; mode: "cam" | "album" }
   | { name: "preview"; id: string }
-  | { name: "video"; reshoot?: boolean }
+  | { name: "video"; reshoot?: boolean; take?: Take }
   | { name: "vpreview"; take: Take }
   | { name: "vedit" }
   | { name: "cover"; take: Take; coverOnly?: boolean }
@@ -2308,7 +2492,7 @@ export default function ShootRegister() {
 
   const anyUploading = photos.some((p) => p.uploading);
   const status = !photos.length ? "empty" : anyUploading ? "uploading" : "done";
-  const sectionTitle = status === "uploading" ? "차량 사진 인식 중…" : status === "done" && photos.length ? "차량 사진 인식 완료" : "사진·영상 올리기";
+  const sectionTitle = status === "uploading" ? "차량 사진 인식 중…" : status === "done" && photos.length ? "차량 사진 인식 완료" : PLUS ? "사진 올리기(필수) · 영상 촬영(선택)" : "사진·영상 올리기";
   const hasMedia = photos.length > 0 || Boolean(video);
 
   return (
@@ -2341,10 +2525,11 @@ export default function ShootRegister() {
             <section className="shoot-field" ref={mediaRef}>
               <div className="shoot-field__head">
                 <h3>
-                  {sectionTitle} <em>(필수)</em>
+                  {sectionTitle} {PLUS && !(status === "uploading" || (status === "done" && photos.length)) ? null : <em>(필수)</em>}
                 </h3>
                 <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계(선택)`}>
-                  사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b> · 영상 <span className="is-opt">{videoDone}/{VIDEO_GROUPS.length} · 선택</span>
+                  사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b>
+                  {PLUS ? " 필수" : ""} · 영상 <span className="is-opt">{videoDone}/{VIDEO_GROUPS.length}{PLUS ? " 선택" : " · 선택"}</span>
                 </span>
               </div>
               <div className="shoot-hint-row">
@@ -2437,7 +2622,7 @@ export default function ShootRegister() {
                           <Mask src={rd("delete-outline")} />
                         </button>
                       ) : null}
-                      <figcaption>{video.marks?.length ? `흠집 ${video.marks.length}곳` : "\u00a0"}</figcaption>
+                      <figcaption>{video.marks?.length ? `흠집 공개 ${video.marks.length}곳` : "\u00a0"}</figcaption>
                     </figure>
                   ) : null}
                   {photos.length < MAX_PHOTOS ? (
@@ -2530,8 +2715,8 @@ export default function ShootRegister() {
         {screen.name === "video" ? (
           <VideoCapture
             notify={notify}
-            initial={screen.reshoot && video ? { segs: video.segs, durations: video.durations, thumbs: [], stages: video.stages, marks: video.marks, steps: video.steps, hl: video.hl } : undefined}
-            onClose={() => setScreen(screen.reshoot ? { name: "vedit" } : { name: "main" })}
+            initial={screen.take ?? (screen.reshoot && video ? { segs: video.segs, durations: video.durations, thumbs: [], stages: video.stages, marks: video.marks, steps: video.steps, hl: video.hl } : undefined)}
+            onClose={() => setScreen(screen.reshoot ? { name: "vedit" } : screen.take ? { name: "vpreview", take: screen.take } : { name: "main" })}
             onFinished={(take) => setScreen(take.imported ? { name: "cover", take } : { name: "vpreview", take })}
           />
         ) : null}
@@ -2541,6 +2726,7 @@ export default function ShootRegister() {
             onClose={() => setScreen({ name: "main" })}
             onNext={() => setScreen({ name: "cover", take: screen.take })}
             onShorts={PLUS && !screen.take.imported ? () => setScreen({ name: "shorts", take: screen.take, back: screen }) : undefined}
+            onContinue={PLUS && !screen.take.imported ? () => setScreen({ name: "video", take: screen.take }) : undefined}
           />
         ) : null}
         {screen.name === "vedit" && video ? (
@@ -2558,6 +2744,7 @@ export default function ShootRegister() {
                 : undefined
             }
             onClose={() => setScreen({ name: "main" })}
+            onContinue={PLUS && !video.imported ? () => setScreen({ name: "video", reshoot: true }) : undefined}
             onReshoot={video.imported ? undefined : () => setScreen({ name: "video", reshoot: true })}
             onCover={() => setScreen({ name: "cover", take: { segs: video.segs, durations: video.durations, thumbs: [video.cover], imported: video.imported }, coverOnly: true })}
             onDelete={() => setConfirm({ kind: "video" })}

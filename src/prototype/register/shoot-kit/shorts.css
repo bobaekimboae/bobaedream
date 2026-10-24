@@ -205,3 +205,52 @@
   border-radius: 12px;
   background: #111;
 }
+
+/* 2026-10-25 컨설팅: 못 만드는 길이 · 방식 경고 · ★ 빼기 · 계정 연결 접기 */
+.shoot-shorts__chips button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.shoot-shorts__note.is-len {
+  margin: 8px 0 0;
+}
+.shoot-shorts__warn {
+  margin: 8px 0 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #fff4e5;
+  color: #8a4b00;
+  font-size: 12px;
+  line-height: 17px;
+  word-break: keep-all;
+}
+.shoot-shorts__unhl {
+  margin-left: 6px;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 11px;
+  border: 1px solid #e4e7ec !important;
+  background: #fff !important;
+  color: #595959 !important;
+  font-size: 11px;
+}
+.shoot-shorts .sfp-more {
+  border-top: 1px solid #ececec;
+  padding-top: 12px;
+}
+.shoot-shorts .sfp-more summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: #595959;
+  list-style: none;
+}
+.shoot-shorts .sfp-more summary::-webkit-details-marker {
+  display: none;
+}
+.shoot-shorts .sfp-more summary::after {
+  content: " ›";
+}
+.shoot-shorts .sfp-more[open] summary {
+  margin-bottom: 12px;
+}
