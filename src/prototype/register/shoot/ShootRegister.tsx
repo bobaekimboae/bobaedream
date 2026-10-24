@@ -19,7 +19,7 @@ import {
   type Sticker,
   type Stroke,
 } from "./image-ops";
-import { playShutter } from "./sound";
+import { playShutter, primeSound } from "./sound";
 import { RuleIllustration, StageTemplate, type RuleAngle, type VideoStage } from "./templates";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
@@ -1338,7 +1338,7 @@ export default function ShootRegister() {
   const hasMedia = photos.length > 0 || Boolean(video);
 
   return (
-    <div className="shoot-root">
+    <div className="shoot-root" onPointerDownCapture={primeSound}>
       <div className="shoot-phone">
         <section className="shoot-main" aria-label="중고차 등록">
           <header className="shoot-main__top">

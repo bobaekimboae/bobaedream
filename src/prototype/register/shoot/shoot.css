@@ -13,7 +13,7 @@
   color: var(--shoot-text);
   -webkit-tap-highlight-color: transparent;
 }
-.shoot-root button {
+:where(.shoot-root) :where(button) {
   font: inherit;
   color: inherit;
   background: none;
