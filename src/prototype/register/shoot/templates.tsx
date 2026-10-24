@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // 58의 예시 영상은 58 저작물이라 쓰지 않고, 보배드림이 가진 실매물 사진(서울오토갤러리 BMW M3 스튜디오 촬영본)으로
 // 같은 구성(예시 표시 · 실제 촬영 장면 순서 · 카메라 이동 방향 화살표)을 만든다.
 
-export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under";
+export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort";
 
 const ORANGE = "#FF7A1A";
 const base = typeof document === "undefined" ? "/" : new URL(".", document.baseURI).pathname;
@@ -12,7 +12,8 @@ const tpl = (n: string) => `${base}assets/shoot-templates/${n}.webp`;
 /** 단계별 실사 장면(촬영 순서대로)과 카메라 이동 화살표, 촬영 안내 */
 export const STAGE_GUIDE: Record<VideoStage, { frames: string[]; arrow: string; how: string; pan: "orbit" | "sweep" | "tilt" }> = {
   exterior: { frames: ["ext-1", "ext-2", "ext-3", "ext-4"], arrow: "M14 104 Q80 124 146 100", how: "차 앞에서 시작해 차 주위를 한 바퀴 천천히 돌며 찍어 주세요. 정면 → 좌측 앞 → 좌측 뒤 → 후면 순서예요.", pan: "orbit" },
-  interior: { frames: ["int-1", "int-2", "int-3", "int-4"], arrow: "M18 108 Q80 92 142 108", how: "운전석 문을 열고 앞좌석 → 대시보드 → 계기판·핸들 → 뒷좌석 순서로 천천히 찍어 주세요.", pan: "sweep" },
+  // 실내 세부 순서(인스타 @nasserhessien 릴스 분석: 운전석 시트 → 대시보드 → 핸들 → 천장 → 뒷좌석 → 편의 장비, 손으로 누르고 잡으며 보여 줌)
+  interior: { frames: ["in-seat", "in-dash", "in-wheel", "in-ceiling", "in-rear", "in-comfort"], arrow: "M18 108 Q80 92 142 108", how: "운전석 시트 → 대시보드 → 핸들 → 천장 → 뒷좌석 → 편의 장비 순서로 찍어 주세요. 시트는 손으로 눌러 보고, 핸들은 잡아서 보여 주면 좋아요.", pan: "sweep" },
   engine: { frames: ["eng-1"], arrow: "M18 100 Q80 116 142 100", how: "보닛을 끝까지 열고 엔진룸 왼쪽에서 오른쪽으로 천천히 훑어 주세요.", pan: "sweep" },
   trunk: { frames: ["trk-1"], arrow: "M80 14 Q92 60 80 106", how: "트렁크를 열고 위에서 아래로 바닥까지 다 보이게 찍어 주세요.", pan: "tilt" },
   // 추가 촬영(CARS24식 부위별 확장 시안, ?vstage=plus)
@@ -21,6 +22,9 @@ export const STAGE_GUIDE: Record<VideoStage, { frames: string[]; arrow: string; 
   tyre: { frames: ["opt-tyre"], arrow: "M40 30 Q130 60 40 100", how: "바퀴 4개를 차례로, 타이어 홈이 보이게 가까이 찍어 주세요.", pan: "orbit" },
   damage: { frames: ["opt-damage-1", "opt-damage-2"], arrow: "M14 104 Q80 124 146 100", how: "차 주위를 돌며 흠집·찍힘이 보이면 화면을 눌러 표시해 주세요. 누른 곳이 매물 화면에 점으로 보여요.", pan: "orbit" },
   feature: { frames: ["opt-feature-1", "opt-feature-2", "opt-feature-3"], arrow: "M18 108 Q80 92 142 108", how: "후방카메라 · 내비게이션 · 선루프처럼 자랑할 옵션을 켜서 작동하는 모습을 찍어 주세요.", pan: "sweep" },
+  wheel: { frames: ["opt-wheel"], arrow: "M40 30 Q130 60 40 100", how: "휠 가운데와 브레이크 캘리퍼를 가까이 찍어 주세요. 휠 크기(인치)가 보이면 좋아요.", pan: "orbit" },
+  door: { frames: ["opt-door-1", "opt-door-2"], arrow: "M18 100 Q80 116 142 100", how: "문을 열고 닫는 모습, 트렁크가 열리는 모습을 찍어 주세요. 전동이면 버튼을 누르는 손도 보여 주세요.", pan: "sweep" },
+  comfort: { frames: ["in-comfort", "opt-comfort"], arrow: "M18 108 Q80 92 142 108", how: "통풍·열선 시트 버튼, 컵홀더·콘솔·충전 단자처럼 편의 장비를 손으로 눌러 보여 주세요.", pan: "sweep" },
   under: { frames: ["opt-under"], arrow: "M18 100 Q80 116 142 100", how: "차 아래와 머플러 쪽을 비스듬히 찍어 주세요. 기름이 샌 자국이 없는지 보여 주면 좋아요.", pan: "sweep" },
 };
 
