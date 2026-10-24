@@ -2979,10 +2979,15 @@
   background: #eee !important;
 }
 .shoot-plan__move img,
-.shoot-plan__icon img {
+.shoot-plan__icon img,
+.shoot-plan__move .shoot-mask,
+.shoot-plan__icon .shoot-mask {
   width: 17px;
   height: 17px;
   opacity: 0.72;
+}
+.shoot-plan__move .shoot-mask.is-plan-up {
+  transform: rotate(180deg);
 }
 .shoot-plan__move button:disabled,
 .shoot-plan__icon:disabled {
@@ -3195,15 +3200,19 @@
   color: #fff;
 }
 .shoot-plan__move img,
-.shoot-plan__icon img {
+.shoot-plan__icon img,
+.shoot-plan__move .shoot-mask,
+.shoot-plan__icon .shoot-mask {
   filter: brightness(0) invert(1);
   opacity: .82;
 }
 .shoot-plan__icon:last-child {
   background: rgba(217,65,65,.16) !important;
 }
-.shoot-plan__icon:last-child img {
+.shoot-plan__icon:last-child img,
+.shoot-plan__icon:last-child .shoot-mask {
   filter: invert(42%) sepia(98%) saturate(1875%) hue-rotate(332deg) brightness(110%);
+  color: #ff6554;
 }
 .shoot-plan__add {
   grid-template-columns: 1fr;
@@ -3258,7 +3267,8 @@
   background: var(--shoot-accent) !important;
   font-size: 16px;
 }
-.shoot-plan footer .is-ok > img {
+.shoot-plan footer .is-ok > img,
+.shoot-plan footer .is-ok > .shoot-mask {
   position: absolute;
   right: 18px;
   top: 50%;

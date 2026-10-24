@@ -1622,17 +1622,17 @@ function CoursePicker({ current, recorded, onClose, onApply }: { current: VideoP
                 </span>
                 <span className="shoot-plan__move">
                   <button type="button" disabled={locked || i === 0} onClick={() => move(i, -1)} aria-label={`${item.label} 위로 이동`}>
-                    <img src={`${base}community/assets/reddit-ui/chevron-up.svg`} alt="" />
+                    <Mask src={rd("caret-down-fill")} className="is-plan-up" />
                   </button>
                   <button type="button" disabled={locked || i === items.length - 1} onClick={() => move(i, 1)} aria-label={`${item.label} 아래로 이동`}>
-                    <img src={`${base}community/assets/reddit-ui/chevron-down.svg`} alt="" />
+                    <Mask src={rd("caret-down-fill")} />
                   </button>
                 </span>
                 <button type="button" className="shoot-plan__icon" disabled={locked} onClick={() => setEditing({ ...item })} aria-label={`${item.label} 수정`}>
-                  <img src={`${base}community/assets/reddit-ui/edit.svg`} alt="" />
+                  <Mask src={rd("edit-outline")} />
                 </button>
                 <button type="button" className="shoot-plan__icon" disabled={locked || items.length <= 1} onClick={() => setItems((old) => old.filter((p) => p.id !== item.id))} aria-label={`${item.label} 삭제`}>
-                  <img src={`${base}community/assets/reddit-ui/delete.svg`} alt="" />
+                  <Mask src={rd("delete-outline")} />
                 </button>
               </li>
             );
@@ -1657,7 +1657,7 @@ function CoursePicker({ current, recorded, onClose, onApply }: { current: VideoP
         <footer>
           <button type="button" className="is-ok" disabled={!items.length} onClick={() => onApply(items)}>
             총 {items.length}개 · {total < 60 ? `${total}초` : mmss(total)} 코스로 촬영
-            <img src={`${base}community/assets/reddit-ui/chevron-right.svg`} alt="" />
+            <Mask src={rd("forward-outline")} />
           </button>
         </footer>
       </div>
