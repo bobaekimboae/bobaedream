@@ -25,6 +25,6 @@
 .pf-sheet .mf-confirm:not(:disabled) { background: var(--pf-accent); }
 .pf-sheet .mf-reset:focus-visible, .pf-sheet .mf-confirm:focus-visible, .pf-sheet .mf-close:focus-visible { outline-color: var(--pf-accent); }
 /* 적용한 가격 요약 칩에만 브랜드 색을 사용한다. 카테고리·다른 조건은 그대로 둔다. */
-.marketplace.is-qf-guazi .bbm-chips .filter-chip.is-price.is-active,
-.marketplace.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-price.is-active { background: var(--bbm-blue, #1b4c8c); color: #fff; }
+.marketplace.is-bbm.is-qf-guazi .bbm-chips .filter-chip.is-price.is-active,
+.marketplace.is-bbm-m.is-qf-guazi .filter-shell.is-bbm .filter-chip.is-price.is-active { background: var(--bbm-blue, #1b4c8c); color: #fff; }
 @media (max-width: 359px) { .pf-inputs { grid-template-columns: minmax(0, 1fr); row-gap: 8px; } .pf-sep { display: none; } .pf-chips { grid-template-columns: minmax(0, 1fr); } }
