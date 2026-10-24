@@ -54,7 +54,9 @@ ul,ol{list-style:none;margin:0;padding:0}
 .loungeHero{height:64px;background:#fff}
 .loungeHeroInner{width:1280px;height:64px;margin:0 auto;display:flex;align-items:center}
 .loungeTitleBlock{display:flex;align-items:center;color:#222}
-.loungeBrandLogo{display:block;width:32px;height:32px;margin-right:10px;object-fit:contain}
+.loungeBrandHome{display:inline-flex;align-items:center;flex:0 0 auto}
+.loungeBrandLogo{display:block;width:122px;height:30px;object-fit:contain}
+.loungeBrandDivider{width:1px;height:18px;margin:0 12px;background:#dfe2e7;flex:0 0 1px}
 .loungeMenuButton{width:40px;height:40px;margin-left:-10px;margin-right:6px;border:0;border-radius:10px;background:transparent;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 40px}
 .loungeMenuButton:hover{background:#f5f6f7}
 .loungeMenuButton:focus-visible{outline:2px solid #222;outline-offset:2px}
@@ -314,8 +316,11 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
     <div class="loungeTitleBlock">
       <button class="loungeMenuButton" type="button" aria-label="커뮤니티 전체 메뉴"><img src="assets/lounge-menu.svg" alt="" aria-hidden="true"></button>
       <!-- Encode one character so the Pages deploy rewrite only touches root /assets/ URLs. -->
-      <img class="loungeBrandLogo" src="../a%73sets/bbm/service-logos/v01/bobaedream-community-v01.png" alt="">
-      <h1>보배드림 커뮤니티</h1>
+      <a class="loungeBrandHome" href="../?qf=guazi&amp;pc=1" aria-label="보배드림 메인">
+        <img class="loungeBrandLogo" src="../a%73sets/bbm/main-home-logo.svg" alt="보배드림">
+      </a>
+      <span class="loungeBrandDivider" aria-hidden="true"></span>
+      <h1>커뮤니티</h1>
     </div>
     <form class="loungeSearch" role="search">
       <button class="loungeSearchButton" type="submit" aria-label="커뮤니티 검색"><img src="assets/lounge-search.svg" alt="" aria-hidden="true"></button>
