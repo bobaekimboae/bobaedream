@@ -31,6 +31,20 @@ final result: passed
 
 ---
 
+## 2026-10-24 네이버 게임 라운지 게시판 크로스체크
+
+- Source visual truth: `https://game.naver.com/lounge/Dungeon_Fighter/board`.
+- Reference capture: `.design-qa/community-board-naver-crosscheck-2026-10-24/01-naver-reference.png`.
+- Implementation capture: `.design-qa/community-board-naver-crosscheck-2026-10-24/02-bobaedream-implementation.png`.
+- Focused measurements: 15px text, 20px control height, 14px item gap, 11px selected-state check icon.
+- Behavior: 인기순·최신순·추천순 세 상태에서 필터 그룹의 시작점·전체 폭·높이가 유지되고 게시글 정렬이 정상 동작함.
+- Deliberate deviation: 좌측 레일은 사용자가 확정한 Reddit 규격 240px을 유지함.
+
+final result: passed
+
+
+---
+
 ## 2026-10-24 커뮤니티 게시판 정렬 탭 위치 안정화
 
 - Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.

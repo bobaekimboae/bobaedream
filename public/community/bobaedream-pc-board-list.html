@@ -114,10 +114,11 @@ ul,ol{list-style:none;margin:0;padding:0}
 .boardTitleArea{height:72px;border-radius:12px;background:#fff;padding:26px 24px 25px}
 .boardTitleArea strong{font-size:18px;line-height:21px;font-weight:700;color:#222}
 .articleControl{height:69px;display:flex;align-items:center;padding:14px 0 15px;position:relative}
-.sortFilters{display:flex;align-items:center;gap:4px;height:40px}
-.sortButton{width:54px;height:40px;margin:0;display:inline-flex;align-items:center;justify-content:center;flex:0 0 54px;color:#858894;font-size:14px;line-height:17px;font-weight:400;white-space:nowrap;vertical-align:top}
-.sortButton.active{color:#222;font-weight:700}
-.sortButton.active:before{content:"";display:block;width:10px;height:7px;margin-right:4px;flex:0 0 10px;border-left:2px solid #222;border-bottom:2px solid #222;transform:rotate(-45deg) translateY(-1px)}
+.sortFilters{display:flex;align-items:center;gap:14px;height:20px}
+.sortButton{width:auto;height:20px;margin:0;display:inline-flex;align-items:center;flex:0 0 auto;color:#858894;font-size:15px;line-height:19px;font-weight:400;white-space:nowrap;vertical-align:top}
+.sortButton.active{color:#222;font-weight:800}
+.sortCheckIcon{display:none;width:11px;height:11px;margin-right:4px;flex:0 0 11px;color:currentColor}
+.sortButton.active .sortCheckIcon{display:block}
 .searchBox{margin-left:auto;display:flex;height:40px}
 .searchSelect{width:110px;height:40px;border:0;border-radius:5px;background:#edf0f6;color:#4f5561;padding:0 35px 0 15px;font-size:13px;font-weight:400;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#a2a8b5 50%),linear-gradient(135deg,#a2a8b5 50%,transparent 50%);background-position:calc(100% - 15px) 17px,calc(100% - 10px) 17px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
 .searchInputWrap{width:196px;height:40px;margin-left:6px;border-radius:5px;background:#edf0f6;display:flex;align-items:center;padding:0 13px}
@@ -302,8 +303,8 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
   .layout-reddit .boardTitleArea{height:58px;padding:18px 16px 14px;border:0;border-radius:0;background:#fff}
   .layout-reddit .boardTitleArea strong{font-size:20px;line-height:26px}
   .layout-reddit .articleControl{height:48px;margin:0;padding:0 16px;border:0;border-top:1px solid #f0f1f3;border-bottom:1px solid #eceef1;border-radius:0;background:#fff}
-  .layout-reddit .sortFilters{gap:4px;height:44px}
-  .layout-reddit .sortButton{width:54px;height:44px;flex-basis:54px;margin:0;font-size:13px;line-height:18px}
+  .layout-reddit .sortFilters{gap:14px;height:20px}
+  .layout-reddit .sortButton{width:auto;height:20px;flex-basis:auto;margin:0;font-size:15px;line-height:19px}
   .layout-reddit .searchBox{display:none}
   .layout-reddit.view-feed .redditFeed{margin-top:8px}
   .layout-reddit.view-board .cleanBot{margin:8px 12px 0}
@@ -451,9 +452,9 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
       </section>
       <section class="articleControl" aria-label="게시글 필터">
         <div class="sortFilters">
-          <button class="sortButton">인기순</button>
-          <button class="sortButton active">최신순</button>
-          <button class="sortButton">추천순</button>
+          <button class="sortButton"><img class="sortCheckIcon" src="assets/reddit-ui/sort-check.svg" alt="" aria-hidden="true">인기순</button>
+          <button class="sortButton active"><img class="sortCheckIcon" src="assets/reddit-ui/sort-check.svg" alt="" aria-hidden="true">최신순</button>
+          <button class="sortButton"><img class="sortCheckIcon" src="assets/reddit-ui/sort-check.svg" alt="" aria-hidden="true">추천순</button>
         </div>
         <div class="searchBox">
           <select class="searchSelect" aria-label="검색 범위">
