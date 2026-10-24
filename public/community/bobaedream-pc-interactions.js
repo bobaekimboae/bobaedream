@@ -172,12 +172,9 @@
 
   function updateTopNavigation(board){
     var params=new URLSearchParams(location.search);
-    var section=sectionKeyFromParams(params,board);
-    var activeLabel=section?sectionConfig[section].label:'';
-    if(params.get('view')==='home') activeLabel='홈';
-    else if(params.get('view')==='feed') activeLabel='피드';
+    var activeKey=params.get('view')==='home'?'home':params.get('board')==='블랙박스'?'report':'board';
     document.querySelectorAll('.loungeTab').forEach(function(link){
-      var selected=link.textContent.trim()===activeLabel;
+      var selected=link.dataset.topMenu===activeKey;
       link.classList.toggle('active',selected);
       if(selected) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
@@ -200,9 +197,9 @@
 
   function updateMobileNavigation(){
     var params=new URLSearchParams(location.search);
+    var activeKey=params.get('view')==='home'?'home':params.get('board')==='블랙박스'?'report':'board';
     document.querySelectorAll('.mobileCommunityNavItem').forEach(function(link){
-      var target=new URL(link.href,location.href).searchParams;
-      var selected=params.get('view')==='feed'?target.get('view')==='feed':!target.get('view')&&!target.get('board');
+      var selected=link.dataset.topMenu===activeKey;
       link.classList.toggle('active',selected);
       if(selected) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');

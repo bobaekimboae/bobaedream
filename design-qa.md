@@ -47,12 +47,26 @@ final result: passed
 
 ---
 
-## 2026-10-24 커뮤니티 게시판 정렬 탭 위치 안정화
+## 2026-10-24 커뮤니티 메인형 상단 헤더
+
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.
+- Header hierarchy: 72px 상단에 공식 보배드림 로고 142×34px와 560×44px 통합 검색창을 배치하고, 바로 아래 52px 메뉴 행에 `홈 · 게시판 · 제보 · 결함`만 노출함.
+- Typography: 전체 화면에 `Pretendard Variable`, `Pretendard`를 최우선 적용하고 메뉴는 14px, 검색어는 15px을 유지함.
+- Alignment: 1265px 브라우저 실측에서 로고 x=128.4px, 검색창 x=348.4px, 게시판 본문 시작 y=144px이며 가로 넘침은 0px임.
+- Behavior: 홈·게시판·제보 URL 상태에 따라 PC와 모바일 메뉴의 활성 항목 및 `aria-current`가 동일하게 전환됨. 결함은 독립 결함/불만 게시판으로 연결함.
+- Regression: 네이버 기준 정렬 15/19px, 글 제목 14/17px, 작성자 13/15px 규격은 유지됨.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 커뮤니티 게시판 정렬 탭 위치 안정화 (1차 시안, 후속 네이버 실측안으로 대체)
 
 - Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.
 - Checked states: 인기순, 최신순, 추천순을 각각 선택해 세 상태를 교차 검수함.
 - Spacing/layout: passed — 세 버튼을 동일한 54px 폭으로 고정하고 4px 간격, 동일 높이·수직 중심 정렬을 적용함.
-- State stability: passed — 선택 체크 아이콘이 이동해도 세 버튼의 x/y 좌표와 전체 필터 폭이 변하지 않음.
+- State stability: passed — 선택 체크 아이콘이 이동해도 세 버튼의 x/y 좌표와 전체 필터 폭이 변하지 않음. 이후 네이버 원본 실측에 따라 고정 54px 대신 자연 폭·14px 간격·11px 체크 아이콘으로 교체함.
 - Behavior: passed — 인기순·최신순·추천순 URL 상태와 게시글 정렬 동작을 유지함.
 
 final result: passed
