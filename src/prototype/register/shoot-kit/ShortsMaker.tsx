@@ -1,13 +1,13 @@
 // 촬영 영상으로 쇼츠 만들기(2026-10-25). 한 번 찍으면 매물 등록용 원본 영상과 SNS용 쇼츠가 함께 나온다.
 import { useEffect, useMemo, useRef, useState } from "react";
-import { END_CARD, canMakeMp4, cutAt, drawFrame, exportMp4, loadImage, loadVideo, planDuration, type ShortformPlan, type ShortformTemplate } from "../../dealer-page/shortform/render";
+import { END_CARD, canMakeMp4, mp4VideoCodec, cutAt, drawFrame, exportMp4, loadImage, loadVideo, planDuration, type ShortformPlan, type ShortformTemplate } from "../../dealer-page/shortform/render";
 import { SnsPublish } from "../../dealer-page/shortform/SnsPublish";
 import "../../dealer-page/shortform/shortform-studio.css";
 import shortsCss from "./shorts.css?inline";
 import { useInlineCss } from "./use-inline-css";
 import { SHOOT } from "./items";
 import { saveToDevice, mp4Name } from "./save-mp4";
-import { analyzeClip, buildSound, planCuts, type ClipInfo, type Highlight, type PlannedCut } from "./shorts";
+import { analyzeClip, buildSound, maxShortsLength, planCuts, type ClipInfo, type Highlight, type PlannedCut } from "./shorts";
 import type { VideoStage } from "./templates";
 
 const CFG = SHOOT.video.shorts;
@@ -32,7 +32,11 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
   useInlineCss("bbm-shootkit-shorts-css", shortsCss);
   const [loaded, setLoaded] = useState<Loaded[] | null>(null);
   const [scan, setScan] = useState(0);
-  const [length, setLength] = useState(CFG.lengths[1] ?? 30);
+  /** 길이: 0 = 원본 길이(찍은 영상을 다 씀), 그 밖 = 15 · 30 · 60초. 고르기 전에는 영상 분량에 맞춰 정한다. */
+  const [length, setLength] = useState<number | null>(null);
+  /** 표시한 장면(★). 잘못 표시했으면 여기서 뺀다. */
+  const [hlList, setHlList] = useState<Highlight[]>(() => input.hl.slice());
+  const [codec, setCodec] = useState<string | null>(null);
   const [template, setTemplate] = useState<ShortformTemplate>("reels");
   const [info, setInfo] = useState<Info>(loadInfo);
   const [hook, setHook] = useState("");
@@ -62,6 +66,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
   }, [info]);
   useEffect(() => {
     void canMakeMp4().then(setCan);
+    void mp4VideoCodec().then(setCodec);
     void loadImage(`${base}shoot/icon-192.png`).then(setLogo);
   }, []);
 
@@ -99,7 +104,19 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
     };
   }, [input]);
 
-  const cuts: PlannedCut[] = useMemo(() => (loaded ? planCuts(loaded.map((l) => l.clip), input.hl, length, END_CARD) : []), [loaded, input.hl, length]);
+  // 길이(2026-10-25 컨설팅): 찍은 분량으로 못 채우는 길이는 고를 수 없고, 같은 장면을 되풀이해 늘리지 않는다.
+  const clips = useMemo(() => (loaded ?? []).map((l) => l.clip), [loaded]);
+  const maxLen = useMemo(() => maxShortsLength(clips, END_CARD), [clips]);
+  const origLen = useMemo(() => Math.min(60, maxShortsLength(clips, END_CARD, 60)), [clips]);
+  // 15 · 30 · 60초는 컷당 최대 6초로 짜되, 분량이 모자라면 컷을 길게 써서 원본 길이까지는 만든다.
+  const fits = (s: number) => s <= origLen + 1;
+  const autoLen = [...CFG.lengths].reverse().find((s) => s <= 30 && s <= maxLen + 1) ?? 0;
+  const len = length ?? autoLen;
+  const cuts: PlannedCut[] = useMemo(
+    () => (loaded ? (len === 0 ? planCuts(clips, hlList, origLen, END_CARD, 60) : planCuts(clips, hlList, len, END_CARD, len <= maxLen + 1 ? undefined : 60)) : []),
+    [loaded, clips, hlList, len, origLen],
+  );
+  const dropHighlight = (c: PlannedCut) => setHlList((h) => h.filter((x) => !(x.k === c.clip.key && x.t >= c.offset - 0.05 && x.t <= c.offset + c.duration + 0.05)));
   const cutKey = (c: PlannedCut) => `${c.clip.index}@${c.offset}`;
   const byIndex = useMemo(() => new Map((loaded ?? []).map((l) => [l.clip.index, l])), [loaded]);
   const hasSound = cuts.some((c) => CFG.keepSound.includes(c.clip.key));
@@ -250,7 +267,9 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
               initialHandles={{}}
               caption={caption}
               onToast={say}
+              compact
             />
+            {codec && codec !== "avc" ? <p className="shoot-shorts__warn">{codec.toUpperCase()} 방식으로 만든 영상이에요. SNS에 안 올라가면 크롬 최신판이나 사파리에서 다시 만들어 주세요.</p> : null}
             <button type="button" className="shoot-shorts__ghost" onClick={() => setMade(null)}>
               다시 고치기
             </button>
@@ -269,23 +288,29 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
               </span>
             </div>
             <section className="shoot-shorts__panel">
-              <h3>길이</h3>
-              <div className="shoot-shorts__chips">
+              <h3 id="shoot-shorts-len">길이</h3>
+              <div className="shoot-shorts__chips" role="radiogroup" aria-labelledby="shoot-shorts-len">
+                <button type="button" role="radio" aria-checked={len === 0} className={len === 0 ? "is-on" : ""} onClick={() => setLength(0)}>
+                  원본 {origLen}초
+                </button>
                 {CFG.lengths.map((s) => (
-                  <button key={s} type="button" className={length === s ? "is-on" : ""} aria-pressed={length === s} onClick={() => setLength(s)}>
+                  <button key={s} type="button" role="radio" aria-checked={len === s} className={len === s ? "is-on" : ""} disabled={!fits(s)} onClick={() => setLength(s)}>
                     {s}초
                   </button>
                 ))}
               </div>
-              <h3>틀</h3>
-              <div className="shoot-shorts__chips">
+              {CFG.lengths.some((s) => !fits(s)) ? (
+                <p className="shoot-shorts__note is-len">찍은 영상으로 최대 {origLen}초까지 만들 수 있어요. 다른 부위도 찍으면 길어져요.</p>
+              ) : null}
+              <h3 id="shoot-shorts-tpl">틀</h3>
+              <div className="shoot-shorts__chips" role="radiogroup" aria-labelledby="shoot-shorts-tpl">
                 {(
                   [
                     ["reels", "릴스형"],
                     ["card", "매물 카드형"],
                   ] as const
                 ).map(([k, l]) => (
-                  <button key={k} type="button" className={template === k ? "is-on" : ""} aria-pressed={template === k} onClick={() => setTemplate(k)}>
+                  <button key={k} type="button" role="radio" aria-checked={template === k} className={template === k ? "is-on" : ""} onClick={() => setTemplate(k)}>
                     {l}
                   </button>
                 ))}
@@ -296,20 +321,22 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
                   시동 소리는 원래 소리 그대로 넣기
                 </label>
               ) : null}
-              <h3>차량 · 판매자</h3>
+              <h3>
+                차량 · 판매자 <small>선택 · 지난번에 적은 값을 기억해요</small>
+              </h3>
               <div className="shoot-shorts__form">
-                <input value={info.title} maxLength={30} placeholder="차량 이름 (예: 벤츠 S580 4MATIC)" onChange={(e) => setInfo({ ...info, title: e.target.value })} aria-label="차량 이름" />
+                <input value={info.title} maxLength={30} placeholder="차량 이름 (선택 · 예: 벤츠 S580 4MATIC)" onChange={(e) => setInfo({ ...info, title: e.target.value })} aria-label="차량 이름" />
                 <input value={info.price} maxLength={16} placeholder="가격 (예: 1억 2,500만원 · 비우면 안 보임)" onChange={(e) => setInfo({ ...info, price: e.target.value })} aria-label="가격" />
                 <div className="shoot-shorts__row2">
-                  <input value={info.name} maxLength={10} placeholder="딜러 이름" onChange={(e) => setInfo({ ...info, name: e.target.value })} aria-label="딜러 이름" />
-                  <input value={info.company} maxLength={16} placeholder="상사" onChange={(e) => setInfo({ ...info, company: e.target.value })} aria-label="상사" />
+                  <input value={info.name} maxLength={10} placeholder="딜러 이름 (선택)" onChange={(e) => setInfo({ ...info, name: e.target.value })} aria-label="딜러 이름" />
+                  <input value={info.company} maxLength={16} placeholder="상사 (선택)" onChange={(e) => setInfo({ ...info, company: e.target.value })} aria-label="상사" />
                 </div>
-                <input value={info.phone} maxLength={16} inputMode="tel" placeholder="연락처 (끝 장면에 보여요)" onChange={(e) => setInfo({ ...info, phone: e.target.value })} aria-label="연락처" />
+                <input value={info.phone} maxLength={16} inputMode="tel" placeholder="연락처 (선택 · 끝 장면에 보여요)" onChange={(e) => setInfo({ ...info, phone: e.target.value })} aria-label="연락처" />
               </div>
               <h3>첫 화면 문구</h3>
               <input className="shoot-shorts__input" value={hook} maxLength={24} placeholder={info.title.trim() ? `${info.title.trim()} 실매물 영상` : CFG.hookDefault} onChange={(e) => setHook(e.target.value)} aria-label="첫 화면 문구" />
               <h3>
-                컷별 자막 <small>자동으로 고른 장면 · {input.hl.length ? `표시한 장면 ${input.hl.length}곳 포함` : "두 번 눌러 표시한 장면이 있으면 먼저 써요"}</small>
+                컷별 자막 <small>자동으로 고른 장면 · {hlList.length ? `표시한 장면 ${hlList.length}곳 포함` : "두 번 눌러 표시한 장면이 있으면 먼저 써요"}</small>
               </h3>
               <ol className="shoot-shorts__cuts">
                 {cuts.map((c) => (
@@ -317,6 +344,11 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
                     <span className="shoot-shorts__cutmeta">
                       {c.highlight ? <b className="is-hl">★</b> : null}
                       {c.clip.label} · {c.offset.toFixed(1)}~{(c.offset + c.duration).toFixed(1)}초
+                      {c.highlight ? (
+                        <button type="button" className="shoot-shorts__unhl" onClick={() => dropHighlight(c)} aria-label={`${c.clip.label} 표시한 장면 빼기`}>
+                          ★ 빼기
+                        </button>
+                      ) : null}
                     </span>
                     <input value={lines[cutKey(c)] ?? c.line} maxLength={20} onChange={(e) => setLines({ ...lines, [cutKey(c)]: e.target.value })} aria-label={`${c.clip.label} 자막`} />
                   </li>
@@ -332,6 +364,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
           <button type="button" className="shoot-shorts__primary" disabled={!plan || can === false || making != null} onClick={() => void make()}>
             {can === false ? "이 브라우저에서는 mp4를 만들 수 없어요" : `쇼츠 mp4 만들기 · ${mmss(total)}`}
           </button>
+          {codec && codec !== "avc" ? <p className="shoot-shorts__warn">이 브라우저는 H.264로 만들지 못해 {codec.toUpperCase()} 방식으로 만들어요. 인스타그램 · 아이폰에서 안 올라갈 수 있어요.</p> : null}
         </footer>
       ) : null}
       {making != null ? (

@@ -21,7 +21,8 @@ const PLATFORMS: Array<{ id: PlatformId; name: string; where: string; rule: stri
 
 const STEP_LABEL: Record<Status, string> = { idle: "", upload: "영상 올리는 중", process: "처리 중", done: "게시 완료(시안)" };
 
-export function SnsPublish({ made, storageKey, initialHandles, caption: initialCaption, onToast }: { made: MadeShortform; storageKey: string; initialHandles: Partial<Record<PlatformId, string>>; caption: string; onToast: (message: string) => void }) {
+/** compact: 촬영 앱 쇼츠용(2026-10-25 컨설팅) — 앱으로 올리기를 먼저, 계정 직접 연결은 「고급」으로 접는다. 딜러 숏폼 제작기는 그대로. */
+export function SnsPublish({ made, storageKey, initialHandles, caption: initialCaption, onToast, compact = false }: { made: MadeShortform; storageKey: string; initialHandles: Partial<Record<PlatformId, string>>; caption: string; onToast: (message: string) => void; compact?: boolean }) {
   const [accounts, setAccounts] = useState<Partial<Record<PlatformId, PlatformState>>>(() => {
     try { return JSON.parse(window.localStorage.getItem(storageKey) ?? "{}"); } catch { return {}; }
   });
@@ -81,7 +82,7 @@ export function SnsPublish({ made, storageKey, initialHandles, caption: initialC
   };
 
   return <section className="sfp" aria-labelledby="sfp-title">
-    <h3 id="sfp-title">내 SNS 계정에 올리기</h3>
+    <h3 id="sfp-title">{compact ? "공유하기" : "내 SNS 계정에 올리기"}</h3>
 
     <div className="sfp-caption">
       <label htmlFor="sfp-caption-text">함께 올릴 글</label>
@@ -102,7 +103,11 @@ export function SnsPublish({ made, storageKey, initialHandles, caption: initialC
       <p className="sfp-hint">보배드림 앱에서는 버튼 하나로 인스타그램 릴스 · 틱톡 · 페이스북 릴스 편집 화면이 바로 열려요(캡컷과 같은 방식). 웹에서는 공유창에서 앱을 골라 주세요.</p>
     </div>
 
-    <div className="sfp-block">
+    {compact ? <details className="sfp-more"><summary>SNS 계정 직접 연결 · 고급</summary>{connectBlock()}</details> : connectBlock()}
+  </section>;
+
+  function connectBlock() {
+    return <div className="sfp-block">
       <b>연결한 계정에 바로 올리기 <em>시안</em></b>
       <p>한 번 연결하면 버튼 하나로 여러 계정에 동시에 올려요. 실제 연결·게시는 서버 단계에서 열려요.</p>
       <ul className="sfp-list">{PLATFORMS.map((item) => {
@@ -126,8 +131,8 @@ export function SnsPublish({ made, storageKey, initialHandles, caption: initialC
         </li>;
       })}</ul>
       <button type="button" className="sfp-primary" disabled={!targets.length || running} onClick={publishAll}>{running ? "올리는 중…" : targets.length ? `${targets.length}개 계정에 올리기` : "계정을 연결해 주세요"}</button>
-    </div>
-  </section>;
+    </div>;
+  }
 }
 
 export function captionFor(input: { title: string; price: string; specs: string[]; dealerName: string; company: string; phone: string; maker: string; model: string }) {

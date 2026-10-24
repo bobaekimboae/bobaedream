@@ -12,12 +12,14 @@ export type StagePrefs = {
   autoStop: boolean;
   /** 「내 코스로 저장」한 단계 순서 */
   myCourse: VideoStage[] | null;
-  /** 고른 목표 길이(초, 0 = 제한 없음) */
+  /** 고른 목표 길이(초, 0 = 제한 없음). 2026-10-25 컨설팅으로 화면에서는 뺐다(쇼츠 길이와 헷갈림) */
   target: number;
+  /** 코스 고르기 화면: 딜러 간편(easy) · 촬영팀 전문(pro) */
+  mode: "easy" | "pro";
 };
 
 const KEY = "bbm-shoot-stage-prefs-v1";
-const EMPTY: StagePrefs = { custom: [], times: {}, autoStop: true, myCourse: null, target: 0 };
+const EMPTY: StagePrefs = { custom: [], times: {}, autoStop: true, myCourse: null, target: 0, mode: "easy" };
 
 export function loadPrefs(): StagePrefs {
   try {
@@ -30,6 +32,7 @@ export function loadPrefs(): StagePrefs {
       autoStop: p.autoStop !== false,
       myCourse: Array.isArray(p.myCourse) && p.myCourse.length ? p.myCourse : null,
       target: typeof p.target === "number" ? p.target : 0,
+      mode: p.mode === "pro" ? "pro" : "easy",
     };
   } catch {
     return { ...EMPTY };

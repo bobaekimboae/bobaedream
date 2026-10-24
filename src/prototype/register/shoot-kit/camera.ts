@@ -4,6 +4,8 @@ export type CameraState = {
   stream: MediaStream | null;
   /** "denied" 권한 거절, "unavailable" 카메라 없음(PC 등) */
   error: "" | "denied" | "unavailable";
+  /** 권한을 다시 물어본다 */
+  retry: () => void;
   torchSupported: boolean;
   setTorch: (on: boolean) => void;
 };
@@ -13,6 +15,7 @@ export function useCamera(active: boolean, withAudio: boolean): CameraState {
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [error, setError] = useState<CameraState["error"]>("");
   const [torchSupported, setTorchSupported] = useState(false);
+  const [nonce, setNonce] = useState(0);
   const ref = useRef<MediaStream | null>(null);
 
   useEffect(() => {
@@ -49,7 +52,7 @@ export function useCamera(active: boolean, withAudio: boolean): CameraState {
       ref.current = null;
       setStream(null);
     };
-  }, [active, withAudio]);
+  }, [active, withAudio, nonce]);
 
   const setTorch = (on: boolean) => {
     const track = ref.current?.getVideoTracks()[0];
@@ -57,7 +60,7 @@ export function useCamera(active: boolean, withAudio: boolean): CameraState {
     void track.applyConstraints({ advanced: [{ torch: on } as MediaTrackConstraintSet] }).catch(() => undefined);
   };
 
-  return { stream, error, torchSupported, setTorch };
+  return { stream, error, torchSupported, setTorch, retry: () => setNonce((n) => n + 1) };
 }
 
 /** 비디오 화면의 현재 장면을 JPEG로 */

@@ -88,7 +88,7 @@ function bestOffset(clip: ClipInfo, d: number) {
  * 쇼츠 컷 고르기. 외관이 맨 앞(첫 화면), 나머지는 찍은 순서. 표시한 장면이 있는 부위는 그 장면을 쓴다.
  * 길이(초)에서 끝 명함 3초를 뺀 만큼을 컷에 나누고, 컷이 너무 많으면 우선순위가 낮은 컷부터 뺀다.
  */
-export function planCuts(clips: ClipInfo[], highlights: Highlight[], length: number, endCard = 3): PlannedCut[] {
+export function planCuts(clips: ClipInfo[], highlights: Highlight[], length: number, endCard = 3, cutMax: number = CFG.cutMax): PlannedCut[] {
   const usable = clips.filter((c) => c.duration >= 1 && !CFG.skip.includes(c.key));
   const ordered = [...usable.filter((c) => c.key === "exterior"), ...usable.filter((c) => c.key !== "exterior")];
   type Cand = { clip: ClipInfo; center?: number; prio: number; seq: number };
@@ -109,7 +109,7 @@ export function planCuts(clips: ClipInfo[], highlights: Highlight[], length: num
     keep.splice(drop, 1);
   }
   if (!keep.length) return [];
-  const cap = (c: Cand) => Math.min(CFG.cutMax, c.clip.duration);
+  const cap = (c: Cand) => Math.min(cutMax, c.clip.duration);
   const durs = keep.map((c) => Math.min(cap(c), Math.max(CFG.cutMin, budget / keep.length)));
   // 남는 시간은 더 길게 쓸 수 있는 컷에 나눠 준다.
   for (let round = 0; round < 6; round += 1) {
@@ -126,6 +126,12 @@ export function planCuts(clips: ClipInfo[], highlights: Highlight[], length: num
     const offset = c.center == null ? bestOffset(c.clip, d) : Math.min(Math.max(0, c.center - d / 2), Math.max(0, c.clip.duration - d));
     return { clip: c.clip, offset: Math.round(offset * 10) / 10, duration: d, line: c.clip.label, highlight: c.center != null };
   });
+}
+
+/** 이 영상들로 만들 수 있는 가장 긴 쇼츠(초): 컷당 최대 길이까지 쓰고 끝 명함을 더한다. */
+export function maxShortsLength(clips: ClipInfo[], endCard = 3, cutMax: number = CFG.cutMax) {
+  const usable = clips.filter((c) => c.duration >= 1 && !CFG.skip.includes(c.key));
+  return usable.length ? Math.round(usable.reduce((n, c) => n + Math.min(cutMax, c.duration), 0) + endCard) : 0;
 }
 
 /** 시동 소리처럼 원래 소리를 살리는 부위: 그 컷 자리에 원래 소리를 옮긴 오디오 한 개를 만든다. */

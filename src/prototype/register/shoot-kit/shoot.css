@@ -3593,3 +3593,166 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-xpick footer.has-save button {
   font-size: 14px;
 }
+
+/* ── 2026-10-25 컨설팅 4건 반영 ─────────────────────── */
+/* 녹화 버튼: 가운데는 모양만(빨간 원 = 시작, 흰 네모 = 완료), 이름은 왼쪽에 */
+.shoot-rec.is-plus span {
+  transition: border-radius 0.15s, width 0.15s, height 0.15s;
+}
+.shoot-rec.is-plus.is-recording span {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #fff;
+}
+.shoot-rec-label {
+  justify-self: end;
+  margin-right: 12px;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-align: right;
+  white-space: nowrap;
+}
+.shoot-rec-label.is-wait {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+.shoot-finish {
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shoot-rec.is-plus span { transition: none; }
+}
+/* 화면 낭독기만 읽는 상태 알림 */
+.shoot-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+/* 카메라 권한 안내: 촬영 화면 위를 덮는 따로 된 화면 */
+.shoot-perm {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 0 32px;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
+.shoot-perm__icon {
+  width: 44px;
+  height: 44px;
+  margin-bottom: 4px;
+}
+.shoot-perm strong {
+  font-size: 18px;
+  line-height: 26px;
+}
+.shoot-perm p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #bdbdbd;
+  word-break: keep-all;
+}
+.shoot-perm button {
+  width: min(100%, 300px);
+  height: 48px;
+  border-radius: 24px;
+  background: #333 !important;
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+.shoot-perm button.is-ok {
+  background: linear-gradient(90deg, var(--shoot-accent), var(--shoot-accent-2)) !important;
+}
+/* 미리보기: 안 찍은 단계 알림 줄 */
+.shoot-missing {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 60px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 40px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.78) !important;
+  color: #fff !important;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: left;
+  word-break: keep-all;
+}
+.shoot-missing b {
+  flex: none;
+  color: var(--shoot-accent-2);
+  font-weight: 700;
+}
+.shoot-stage-chip.is-empty .shoot-stage-chip__time {
+  color: rgba(255, 255, 255, 0.55);
+}
+/* 코스 고르기: 딜러 간편 / 촬영팀 전문 */
+.shoot-xpick__modes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin-top: 12px;
+  padding: 3px;
+  border-radius: 10px;
+  background: #2a2a2a;
+}
+.shoot-xpick__modes button {
+  height: 36px;
+  border-radius: 8px;
+  background: transparent !important;
+  color: #bdbdbd !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+.shoot-xpick__modes button.is-on {
+  background: #444 !important;
+  color: #fff !important;
+}
+.shoot-recsel__more {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 17px;
+  color: #bdbdbd;
+  word-break: keep-all;
+}
+.shoot-course-list {
+  list-style: none;
+}
+.shoot-mysec {
+  padding: 0 0 4px;
+}
+.shoot-time__row.is-order {
+  grid-template-columns: 1fr auto 32px 32px 32px 32px;
+}
+.shoot-xpick__box:focus-within button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
