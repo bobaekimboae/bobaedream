@@ -355,3 +355,4 @@
 2026-10-15,그림자 카드 PC 간격 정리,claude/used-car-detail-1013,,,,PC 지역줄→카드16·줄사이16·카드→끝16 / 트럭 알약→카드16,qf-brand-shadowcard.css,,페라리 PC 18 남음,verify:qf
 2026-10-15,그림자 카드 전체 카드 제거,claude/used-car-detail-1013,,,,로고 줄 맨 앞 전체 (N) 카드 삭제,listing/index.tsx,,기본 화면 변화 없음,verify:qf
 PR #833,claude/dealer-complex-home-icon,e6f41a9,딜러 화면 매매단지 아이콘 AS24 홈으로 교체,배포
+PR #1003·#1004·#1005,fix/shoot-qa-x10,c6ffd9c,58 촬영 QA 10배 대조(영상 촬영 부위 칸·전 화면 위치·영상 편집·자르기 모서리),배포
