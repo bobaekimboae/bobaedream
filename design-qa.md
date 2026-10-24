@@ -31,6 +31,34 @@ final result: passed
 
 ---
 
+## 2026-10-24 커뮤니티 게시판 무채색 바탕 제거
+
+- Source visual truth: `https://game.naver.com/esports/Valorant/board`.
+- Reference capture: `.design-qa/reference-naver-valorant-board-flat-2026-10-24.png`.
+- Browser-rendered implementation: `.design-qa/community-flat-board-local-2026-10-24.png`.
+- Combined comparison evidence: `.design-qa/flat-board-side-by-side-2026-10-24.png`.
+- Viewport/state: 1265×711 CSS px, DPR 1, 데스크톱 게시판 첫 화면·최신순 선택.
+
+### Required fidelity surfaces
+
+- Typography: passed — Pretendard와 기존 제목·표 위계는 유지하고 배경 처리만 변경했다.
+- Spacing/layout: passed — 240px 좌측 레일과 742px 목록 열, 42px 게시판 탐색 행, 44px 게시글 행은 유지했다. 카드 사이의 회색 면과 둥근 외곽만 제거해 한 장의 게시판처럼 연결했다.
+- Colors/tokens: passed — 페이지·좌측 메뉴·게시판 제목·정렬 바·클린봇·목록 카드의 바탕을 흰색/투명으로 통일하고 구획은 `#e7e9ec` 구분선만 사용했다. 선택 게시판은 채운 배경 대신 보배드림 블루 텍스트로 표시한다.
+- Image quality: passed — Reddit 공식 기본 프사 8종을 20개 게시판에 유지했으며 누락 0건이다.
+- Copy/content: passed — 게시판명, 정렬, 검색, 공지와 목록 데이터는 변경하지 않았다.
+- Behavior/accessibility: passed — 수입차 게시판 선택 시 활성 텍스트와 제목이 함께 갱신되고 20개 링크의 접근성 이름을 유지한다.
+
+### Comparison history
+
+- Pass 1 [P2, visual density]: 기존 화면은 페이지 `#f8f9fd`, 흰 카드, 파란 선택 행이 겹쳐 목록형 게시판이 여러 카드로 분절돼 보였다.
+- Fix: 바탕과 카드 면색을 제거하고 제목·정렬·클린봇·표를 얇은 회색 구분선으로 연결했다. 좌측 선택 행의 파란 면색도 제거했다.
+- Pass 2: 같은 크기의 원본/구현 비교판에서 흰 바탕, 선 중심 구획, 목록 밀도를 재검사했고 남은 P0/P1/P2가 없다.
+
+final result: passed
+
+
+---
+
 ## 2026-10-24 레딧형 게시판 프로필 프사
 
 - Source assets: Reddit 공식 기본 프로필 아바타 8종 `https://www.redditstatic.com/avatars/defaults/v2/avatar_default_0.png` ~ `avatar_default_7.png`을 `public/community/assets/reddit-avatars/`에 저장했다.
