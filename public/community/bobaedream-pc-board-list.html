@@ -199,20 +199,37 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
 .layout-reddit .pageWrap{width:1280px;margin:0 auto}
 .layout-reddit .topBanner{display:none}
 .layout-reddit .layoutGrid{grid-template-columns:240px 742px 250px;column-gap:24px;margin-top:0}
-.layout-reddit .leftPanel{width:240px;min-height:calc(100vh - 64px);padding:16px 20px 40px 0;border-right:1px solid #e1e4e8;background:#fff;position:sticky;top:64px;align-self:start}
-.layout-reddit .sideCard.leftMenu{min-height:0;padding:0 20px 0 0;border-radius:0;background:transparent}
-.layout-reddit .railPrimary{display:block;margin:0 0 16px;padding-bottom:16px;border-bottom:1px solid #eceff2}
-.layout-reddit .railPrimaryItem{height:40px;padding:0 12px;border-radius:9px;display:flex;align-items:center;color:#343a40;font-size:14px;line-height:18px;font-weight:600}
+.layout-reddit .leftPanel{width:240px;height:calc(100vh - 64px);min-height:0;padding:12px 12px 28px 0;border-right:1px solid #e1e4e8;background:#fff;position:sticky;top:64px;align-self:start;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#d8dadd transparent}
+.layout-reddit .leftPanel::-webkit-scrollbar{width:8px}
+.layout-reddit .leftPanel::-webkit-scrollbar-thumb{border:2px solid transparent;border-radius:8px;background:#d8dadd;background-clip:padding-box}
+.layout-reddit .sideCard.leftMenu{min-height:0;padding:0 12px 0 0;border-radius:0;background:transparent}
+.layout-reddit .railPrimary{display:block;margin:0;padding:0 0 10px;border-bottom:1px solid #e6e8ea}
+.layout-reddit .railPrimaryItem{width:100%;height:40px;padding:0 12px;border-radius:8px;display:flex;align-items:center;color:#21272a;font-size:14px;line-height:20px;font-weight:500;text-align:left}
 .layout-reddit .railPrimaryItem:hover{background:#f2f4f5}
-.layout-reddit .railPrimaryItem.active{background:#e9ebee;color:#111;font-weight:700}
-.layout-reddit .railPrimaryItem+.railPrimaryItem{margin-top:2px}
-.layout-reddit .writeButton{height:40px;margin-bottom:16px;border-radius:20px}
-.layout-reddit .menuSection{padding:12px 8px 15px}
-.layout-reddit .menuSection+.menuSection{padding-top:14px}
-.layout-reddit .menuItem{height:34px;margin-top:2px;padding:0 8px;border-radius:8px}
+.layout-reddit .railPrimaryItem.active{background:#e5ebee;color:#0f1a1c;font-weight:700}
+.layout-reddit .railPrimaryItem+.railPrimaryItem{margin-top:1px}
+.layout-reddit .railNavIcon{display:block;width:20px;height:20px;margin-right:12px;object-fit:contain;flex:0 0 20px}
+.layout-reddit .railPrimaryItem[data-community-create]{margin-top:2px}
+.layout-reddit .writeButton{height:40px;margin:12px 0;border-radius:20px;display:flex;align-items:center;justify-content:center;gap:8px}
+.layout-reddit .writeButtonMark{font-size:21px;line-height:20px;font-weight:400}
+.layout-reddit .railGroup{padding:9px 0;border-bottom:1px solid #e6e8ea}
+.layout-reddit .railGroup:last-child{border-bottom:0}
+.layout-reddit .railGroupHeader{width:100%;height:36px;padding:0 12px;display:flex;align-items:center;border-radius:8px;color:#576065;font-size:12px;line-height:16px;font-weight:600;letter-spacing:.02em;text-align:left}
+.layout-reddit .railGroupHeader:hover{background:#f6f7f8;color:#21272a}
+.layout-reddit .railGroupCaret{display:block;width:16px;height:16px;margin-left:auto;transition:transform .18s ease}
+.layout-reddit .railGroup.is-collapsed .railGroupCaret{transform:rotate(-90deg)}
+.layout-reddit .railGroup.is-collapsed .railGroupBody{display:none}
+.layout-reddit .menuItem,.layout-reddit .railResourceItem{height:40px;margin-top:1px;padding:0 12px;border-radius:8px;display:flex;align-items:center;color:#21272a;font-size:14px;line-height:20px;font-weight:500;white-space:nowrap}
 .layout-reddit .menuItem:hover{background:#f2f4f5}
 .layout-reddit .menuItem:before{display:none}
-.layout-reddit .menuItem.active{background:#e9ebee;color:#111}
+.layout-reddit .menuItem.active{background:#e5ebee;color:#0f1a1c;font-weight:700}
+.layout-reddit .railResourceItem:hover{background:#f2f4f5}
+.layout-reddit .railCommunityAvatar{width:24px;height:24px;margin-right:10px;border-radius:50%;display:grid;place-items:center;flex:0 0 24px;background:#edf1f4;color:#354148;font-size:10px;line-height:12px;font-weight:800}
+.layout-reddit .railCommunityAvatar.is-blue{background:#e7f0ff;color:#1264c4}
+.layout-reddit .railCommunityAvatar.is-red{background:#fff0f0;color:#d43b3b}
+.layout-reddit .railCommunityAvatar.is-green{background:#eaf8f0;color:#16814b}
+.layout-reddit .railCommunityAvatar.is-orange{background:#fff2e7;color:#c26013}
+.layout-reddit .railResourceItem .railNavIcon{margin-right:12px}
 .layout-reddit .imagePanel,.layout-reddit .guidePanel{display:none}
 .layout-reddit .centerPanel{margin-top:20px}
 .layout-reddit .rightPanel{width:250px;margin-top:20px}
@@ -335,41 +352,40 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
     <aside class="leftPanel" aria-label="게시판 메뉴">
       <section class="sideCard leftMenu">
         <nav class="railPrimary" aria-label="커뮤니티 주요 메뉴">
-          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?view=home">홈</a>
-          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?view=feed">피드</a>
-          <a class="railPrimaryItem active" href="bobaedream-pc-board-list.html">게시판</a>
-          <a class="railPrimaryItem" href="./naver-cafe-list.html?board=vehicle-review">차량리뷰</a>
-          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?board=%EC%9C%A0%EB%A8%B8">유머</a>
-          <a class="railPrimaryItem" href="bobaedream-pc-board-list.html?board=%EC%A0%95%EC%B9%98">정치</a>
+          <a class="railPrimaryItem" data-rail-key="home" href="bobaedream-pc-board-list.html?view=home"><img class="railNavIcon" src="assets/reddit-rail/home.svg" alt="">홈</a>
+          <a class="railPrimaryItem" data-rail-key="popular" href="bobaedream-pc-board-list.html?view=feed&amp;sort=popular"><img class="railNavIcon" src="assets/reddit-rail/popular.svg" alt="">인기</a>
+          <a class="railPrimaryItem" data-rail-key="news" href="bobaedream-pc-board-list.html?board=%EA%B3%B5%EC%A7%80"><img class="railNavIcon" src="assets/reddit-rail/news.svg" alt="">뉴스</a>
+          <a class="railPrimaryItem" data-rail-key="explore" href="bobaedream-pc-board-list.html"><img class="railNavIcon" src="assets/reddit-rail/explore.svg" alt="">둘러보기</a>
+          <button class="railPrimaryItem" data-community-create type="button"><img class="railNavIcon" src="assets/reddit-rail/create-community.svg" alt="">커뮤니티 만들기</button>
         </nav>
-        <button class="writeButton">글쓰기</button>
-        <div class="menuSection">
-          <a class="menuItem active" href="#">전체 게시글</a>
-        </div>
-        <div class="menuSection">
-          <strong class="menuTitle">커뮤니티</strong>
-          <a class="menuItem" href="#">공지</a>
-          <a class="menuItem" href="#">자유</a>
-          <a class="menuItem" href="#">질문</a>
-          <a class="menuItem" href="#">시승기</a>
-          <a class="menuItem" href="#">출석체크</a>
-        </div>
-        <div class="menuSection">
-          <strong class="menuTitle">차량 이야기</strong>
-          <a class="menuItem" href="#">국산차 오너톡<span class="newDot"></span></a>
-          <a class="menuItem" href="#">수입차 라운지</a>
-          <a class="menuItem" href="#">전기차 충전소<span class="newDot"></span></a>
-          <a class="menuItem" href="#">SUV 패밀리카</a>
-          <a class="menuItem" href="#">화물·특장</a>
-        </div>
-        <div class="menuSection">
-          <strong class="menuTitle">구매/정비</strong>
-          <a class="menuItem" href="#">중고차 문의</a>
-          <a class="menuItem" href="#">정비 상담<span class="newDot"></span></a>
-          <a class="menuItem" href="#">튜닝 인증</a>
-          <a class="menuItem" href="#">보험·사고</a>
-          <a class="menuItem" href="#">블랙박스 제보</a>
-        </div>
+        <button class="writeButton"><span class="writeButtonMark" aria-hidden="true">+</span>글쓰기</button>
+        <section class="railGroup" data-rail-group>
+          <button class="railGroupHeader" type="button" aria-expanded="true">즐겨찾기<img class="railGroupCaret" src="assets/reddit-rail/section-toggle.svg" alt=""></button>
+          <div class="railGroupBody">
+            <a class="menuItem active" data-board-name="전체 게시글" href="#"><span class="railCommunityAvatar">전체</span>전체 게시글</a>
+            <a class="menuItem" data-board-name="국산차 오너톡" href="#"><span class="railCommunityAvatar is-blue">국산</span>국산차 오너톡</a>
+            <a class="menuItem" data-board-name="수입차 라운지" href="#"><span class="railCommunityAvatar is-red">수입</span>수입차 라운지</a>
+            <a class="menuItem" data-board-name="전기차 충전소" href="#"><span class="railCommunityAvatar is-green">EV</span>전기차 충전소<span class="newDot"></span></a>
+            <a class="railResourceItem" href="./naver-cafe-list.html?board=vehicle-review"><img class="railNavIcon" src="assets/reddit-rail/favorite.svg" alt="">차량리뷰</a>
+          </div>
+        </section>
+        <section class="railGroup" data-rail-group>
+          <button class="railGroupHeader" type="button" aria-expanded="true">자동차 커뮤니티<img class="railGroupCaret" src="assets/reddit-rail/section-toggle.svg" alt=""></button>
+          <div class="railGroupBody">
+            <a class="menuItem" data-board-name="자유" href="#"><span class="railCommunityAvatar">자유</span>자유</a>
+            <a class="menuItem" data-board-name="시승기" href="#"><span class="railCommunityAvatar is-blue">시승</span>시승기</a>
+            <a class="menuItem" data-board-name="정비 상담" href="#"><span class="railCommunityAvatar is-orange">정비</span>정비 상담</a>
+            <a class="menuItem" data-board-name="블랙박스 제보" href="#"><span class="railCommunityAvatar is-red">BB</span>블랙박스 제보</a>
+            <a class="menuItem" data-board-name="보험·사고" href="#"><span class="railCommunityAvatar">보험</span>보험·사고</a>
+          </div>
+        </section>
+        <section class="railGroup" data-rail-group>
+          <button class="railGroupHeader" type="button" aria-expanded="true">리소스<img class="railGroupCaret" src="assets/reddit-rail/section-toggle.svg" alt=""></button>
+          <div class="railGroupBody">
+            <a class="menuItem" data-board-name="공지" href="#"><span class="railCommunityAvatar">공지</span>공지</a>
+            <a class="railResourceItem" href="#"><img class="railNavIcon" src="assets/reddit-rail/help.svg" alt="">커뮤니티 이용안내</a>
+          </div>
+        </section>
       </section>
       <section class="sideCard imagePanel">
         <div class="imagePanelHead"><strong>이미지</strong><span>더보기</span></div>
@@ -531,6 +547,6 @@ if(document.documentElement.classList.contains('layout-reddit')){
   });
 }
 </script>
-<script src="bobaedream-pc-interactions.js?v=reddit-feed-v48"></script>
+<script src="bobaedream-pc-interactions.js?v=reddit-left-rail-v1"></script>
 </body>
 </html>

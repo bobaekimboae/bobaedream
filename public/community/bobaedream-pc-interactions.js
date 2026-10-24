@@ -63,6 +63,7 @@
   setupTopicNavigation();
   setupHeaderSearch();
   setupBoardNavigation();
+  setupRailGroups();
   setupWriteButtons();
   if(isList) setupListPage();
   if(isDetail) setupDetailPage();
@@ -162,12 +163,33 @@
   }
 
   function updateRailPrimary(){
+    var params=new URLSearchParams(location.search);
+    var activeKey='explore';
+    if(params.get('view')==='home') activeKey='home';
+    else if(params.get('view')==='feed') activeKey='popular';
+    else if(params.get('board')==='공지') activeKey='news';
     document.querySelectorAll('.railPrimaryItem').forEach(function(link){
-      var label=link.textContent.trim();
-      var selected=layoutMode==='reddit'?label==='피드':link.classList.contains('active');
+      var selected=layoutMode==='reddit'&&link.dataset.railKey===activeKey;
       link.classList.toggle('active',selected);
       if(selected) link.setAttribute('aria-current','page');
       else link.removeAttribute('aria-current');
+    });
+  }
+
+  function setupRailGroups(){
+    if(layoutMode!=='reddit') return;
+    document.querySelectorAll('[data-rail-group]').forEach(function(group){
+      var button=group.querySelector('.railGroupHeader');
+      if(!button) return;
+      button.addEventListener('click',function(){
+        var collapsed=group.classList.toggle('is-collapsed');
+        button.setAttribute('aria-expanded',collapsed?'false':'true');
+      });
+    });
+    var create=document.querySelector('[data-community-create]');
+    if(create) create.addEventListener('click',function(){toast('커뮤니티 만들기 기능은 다음 단계에서 연결합니다.');});
+    document.querySelectorAll('.railResourceItem[href="#"]').forEach(function(link){
+      link.addEventListener('click',function(event){event.preventDefault();toast('커뮤니티 이용안내를 준비 중입니다.');});
     });
   }
 
@@ -336,7 +358,7 @@
       });
       if(title) title.textContent='“'+query+'” 검색 결과';
     }
-    if(layoutMode==='reddit'&&title&&!query) title.textContent='피드';
+    if(layoutMode==='reddit'&&title&&!query) title.textContent=board==='전체 게시글'?'피드':board;
     renderRedditFeed(posts,board,query);
     if(!posts.length){
       rows.innerHTML='<tr><td colspan="5" class="emptyBoardRows">'+(query?'“'+esc(query)+'” 검색 결과가 없습니다.':esc(board)+' 게시판의 새 글이 없습니다.')+'</td></tr>';
@@ -775,7 +797,7 @@
   }
 
   function cleanBoardName(link){
-    return link.textContent.replace(/\s+/g,' ').trim();
+    return link.dataset.boardName||link.textContent.replace(/\s+/g,' ').trim();
   }
 
   function shortcutToBoard(label){
