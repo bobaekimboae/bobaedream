@@ -31,6 +31,19 @@ final result: passed
 
 ---
 
+## 2026-10-24 커뮤니티 게시판 정렬 탭 위치 안정화
+
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.
+- Checked states: 인기순, 최신순, 추천순을 각각 선택해 세 상태를 교차 검수함.
+- Spacing/layout: passed — 세 버튼을 동일한 54px 폭으로 고정하고 4px 간격, 동일 높이·수직 중심 정렬을 적용함.
+- State stability: passed — 선택 체크 아이콘이 이동해도 세 버튼의 x/y 좌표와 전체 필터 폭이 변하지 않음.
+- Behavior: passed — 인기순·최신순·추천순 URL 상태와 게시글 정렬 동작을 유지함.
+
+final result: passed
+
+
+---
+
 ## 2026-10-24 커뮤니티 좌측 필터 · Reddit 폭 조정
 
 - Source layout truth: 프로젝트의 기존 Reddit형 PC 레일 규격과 `https://www.reddit.com/`의 독립 좌측 탐색 영역.
