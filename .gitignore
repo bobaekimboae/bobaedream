@@ -10,3 +10,4 @@ data/*.sqlite-wal
 reports/diff/
 .env.production.local
 tmp/
+.preview-*.log

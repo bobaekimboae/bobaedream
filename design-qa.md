@@ -28,6 +28,32 @@
 
 final result: passed
 
+## 2026-10-24 커뮤니티 좌측 필터 · 네이버 게임 라운지 기준
+
+- Source visual truth: `https://game.naver.com/lounge/Dragon_Village3/board/6`의 데스크톱 좌측 게시판 카드.
+- Browser-rendered implementation: `http://127.0.0.1:4381/community/bobaedream-pc-board-list.html?layout=reddit&v=left-chzzk-final`.
+- Evidence capture: Codex IAB 동일 출력에서 원본과 구현을 연속 배치해 비교함.
+- Viewport/state: 원본과 구현 모두 1263×709 CSS px, DPR 1, 데스크톱 목록 첫 화면. 모바일은 390×844 CSS px에서 기본 목록과 열린 좌측 서랍을 별도 확인함.
+- Scope: 원본의 게임 전용 히어로·광고·브랜드 자산은 제외하고, 사용자가 요청한 좌측 필터의 폭·카드·계층·행 밀도·글쓰기 동작만 비교함.
+
+### Required fidelity surfaces
+
+- Typography: passed — 13px 게시판 항목, 14px/800 그룹명, 15px/700 글쓰기 버튼으로 원본의 위계를 재현하고 Pretendard 계열을 유지함.
+- Spacing/layout: passed — 좌측 카드 186px, 24px 좌우 패딩, 42px 글쓰기 버튼, 31px 메뉴 행, 22px 열 간격으로 원본의 고밀도 구조와 일치함.
+- Colors/tokens: passed — 원본의 흰 카드·검정 CTA·회색 보조 텍스트를 보배드림 중립 토큰에 매핑함.
+- Image quality: passed — 네이버 고유 자산을 복제하지 않고 프로젝트의 기존 SVG 아이콘과 공식 보배드림 워드마크를 사용함.
+- Copy/content: passed — 자동차, 블랙박스·사고, 커뮤니티, 차량 정보, 운영 안내로 보배드림 정보 구조에 맞게 치환함.
+- Behavior/accessibility: passed — 좌측 게시판 선택 시 URL, 제목, 목록, 활성 상태가 함께 변경되고 모바일에서는 햄버거 서랍이 열리고 선택 후 닫힘. 콘솔 오류 0.
+
+### Comparison history
+
+- Pass 1 [P1, layout]: 기존 레딧형 240px 아이콘 레일과 큰 원형 아바타가 원본 186px 계층형 게시판 카드와 달랐음. 카드 폭·그룹·들여쓰기 구조를 전면 교체함.
+- Pass 1 [P2, responsive]: 1320px 이하에서 예전 240px 그리드가 다시 적용되어 좌측과 중앙 사이가 과도하게 벌어졌음. 기준점을 1230px로 낮추고 186px/730px 그리드로 수정함.
+- Pass 1 [P1, behavior]: 새 메뉴명이 기존 필터 키와 달라 선택 후 전체글로 복귀함. 모든 신규 메뉴를 게시판 데이터 구성에 등록함.
+- Pass 2: 데스크톱 3열 균형, 모바일 서랍, 국산차 필터 전환, 콘솔 오류를 재검수했고 추가 P0/P1/P2 차이가 없음.
+
+final result: passed
+
 
 ---
 
