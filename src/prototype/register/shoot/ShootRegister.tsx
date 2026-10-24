@@ -92,6 +92,28 @@ const STAGES = BASE_STAGES.map((k) => STAGE_DEFS[k]);
 /** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
 const PLUS = typeof window === "undefined" || new URLSearchParams(window.location.search).get("vstage") !== "58";
 const MAX_EXTRA = 4;
+/** 촬영 코스(2026-10-24 「촬영 부위 순서를 정하자 · 8개 3개」 · 「흠집표시는 선택」): 차 주위를 걷는 순서대로 정한다. */
+type CourseKey = "basic" | "full" | "quick" | "custom";
+const COURSES: { key: Exclude<CourseKey, "custom">; label: string; sub: string; stages: VideoStage[] }[] = [
+  { key: "full", label: "정밀 8단계", sub: "바깥 한 바퀴 → 문 열고 실내 → 시동 → 보닛 → 트렁크", stages: ["exterior", "tyre", "interior", "cluster", "start", "feature", "engine", "trunk"] },
+  { key: "basic", label: "기본 4단계", sub: "외관 → 실내 → 엔진룸 → 트렁크", stages: BASE_STAGES },
+  { key: "quick", label: "빠른 3단계", sub: "숏폼 한 편 길이 · 트렁크는 사진으로", stages: ["exterior", "interior", "engine"] },
+];
+/** 흠집 표시는 어느 코스든 선택으로 더한다. 바깥을 도는 단계(타이어, 없으면 외관) 바로 뒤에 넣는다. */
+function withDamage(list: VideoStage[], on: boolean): VideoStage[] {
+  const base = list.filter((k) => k !== "damage");
+  if (!on) return base;
+  const at = base.includes("tyre") ? base.indexOf("tyre") + 1 : base.indexOf("exterior") + 1;
+  return [...base.slice(0, at), "damage", ...base.slice(at)];
+}
+function courseOf(list: VideoStage[]): CourseKey {
+  const base = list.filter((k) => k !== "damage").join(",");
+  return COURSES.find((c) => c.stages.join(",") === base)?.key ?? "custom";
+}
+const courseLabel = (list: VideoStage[]) => {
+  const c = COURSES.find((x) => x.key === courseOf(list));
+  return c ? `${c.label}${list.includes("damage") ? " + 흠집" : ""}` : `직접 고름 ${list.length}단계`;
+};
 /** 흠집 표시: 흠집 단계 영상의 몇 초에, 화면 어디를 눌렀는지(0~1) */
 type Mark = { t: number; x: number; y: number };
 
@@ -1192,7 +1214,6 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     isInterior && phase === "recording"
       ? `실내 ${istep + 1}/${INTERIOR_STEPS.length} · ${INTERIOR_STEPS[istep].label}`
       : isDamage && phase === "recording" ? `흠집 ${marks.length}곳 표시함 · 화면을 눌러 표시` : done[stage] && !recording ? `${cur.label} 다시 찍기${PLUS ? ` · ${cur.min}~${cur.max}초` : ""}` : `${cur.label} 촬영${PLUS ? ` · ${cur.min}~${cur.max}초` : ""}`;
-  const extras = stages.filter((k) => STAGE_DEFS[k].extra);
 
   /** 흠집 단계 녹화 중 화면을 누르면 그 자리·그 시각을 흠집으로 표시 */
   const markDamage = (e: RPointerEvent<HTMLDivElement>) => {
@@ -1202,18 +1223,17 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     setMarks((m) => [...m, { t: Math.round(elapsedRef.current * 10) / 10, x: (e.clientX - r.left) / r.width, y: (e.clientY - r.top) / r.height }]);
   };
 
-  /** 추가 촬영 고르기 적용: 찍어 둔 단계의 영상·길이는 이름으로 옮긴다. */
-  const applyExtras = (picked: VideoStage[]) => {
-    const next = [...BASE_STAGES, ...EXTRA_STAGES.filter((k) => picked.includes(k))];
+  /** 촬영 코스·추가 부위 적용: 찍어 둔 단계의 영상·길이는 이름으로 옮긴다. */
+  const applyStages = (next: VideoStage[]) => {
     const byKey = new Map(stages.map((k, i) => [k, { d: durRef.current[i], u: segs.current[i] }]));
     const curKey = stages[stage];
     setStages(next);
     setDurations(next.map((k) => byKey.get(k)?.d ?? 0));
     segs.current = next.map((k) => byKey.get(k)?.u ?? null);
-    const firstNew = next.findIndex((k) => !byKey.has(k));
-    setStage(firstNew >= 0 ? firstNew : Math.max(0, next.indexOf(curKey)));
+    const firstEmptyNext = next.findIndex((k) => !(byKey.get(k)?.d ?? 0));
+    setStage(next.includes(curKey) && !(byKey.get(curKey)?.d ?? 0) ? next.indexOf(curKey) : Math.max(0, firstEmptyNext >= 0 ? firstEmptyNext : next.indexOf(curKey)));
     setPickOpen(false);
-    if (firstNew >= 0) setChanged(true);
+    if (next.join() !== stages.join()) setChanged(true);
   };
 
   const importVideo = (files: FileList | null) => {
@@ -1293,9 +1313,9 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
               : null}
             {PLUS && !recording ? (
               // 4칸은 58과 같은 자리에 두고, 추가 버튼은 칸 줄 위 오른쪽에 늘 보이게 띄운다.
-              <button type="button" className="shoot-stage-add" disabled={phase === "merging"} onClick={() => setPickOpen(true)} aria-label="추가 촬영 부위 고르기">
+              <button type="button" className="shoot-stage-add" disabled={phase === "merging"} onClick={() => setPickOpen(true)} aria-label="촬영 코스 고르기">
                 <Mask src={rd("add-outline-24")} />
-                추가 촬영 {extras.length}/{MAX_EXTRA}
+                {courseLabel(stages)}
               </button>
             ) : null}
             <div className={`shoot-stages ${recording ? "is-recording" : ""} ${PLUS ? "is-plus" : ""}`}>
@@ -1393,15 +1413,24 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
         휴대폰을 세로로 들어 주세요
         <small>숏폼(9:16)으로 바로 쓸 수 있게 세로로 찍어요</small>
       </div>
-      {pickOpen ? <ExtraPicker current={stages} recorded={stages.filter((_, i) => done[i])} onClose={() => setPickOpen(false)} onApply={applyExtras} /> : null}
+      {pickOpen ? <CoursePicker current={stages} recorded={stages.filter((_, i) => done[i])} onClose={() => setPickOpen(false)} onApply={applyStages} /> : null}
       {askLeave ? <Confirm text={initial ? "새로 찍은 내용을 버리고 나갈까요?" : "촬영한 영상을 지우고 나갈까요?"} onCancel={() => setAskLeave(false)} onOk={onClose} /> : null}
     </div>
   );
 }
 
-/** 추가 촬영 고르기(CARS24식 부위 확장 시안). 필수 4단계 뒤에 최대 3개 */
-function ExtraPicker({ current, recorded, onClose, onApply }: { current: VideoStage[]; recorded: VideoStage[]; onClose: () => void; onApply: (picked: VideoStage[]) => void }) {
-  const [picked, setPicked] = useState<VideoStage[]>(() => current.filter((k) => STAGE_DEFS[k].extra));
+/** 촬영 코스 고르기: 정밀 8단계 · 기본 4단계 · 빠른 3단계 · 직접 고르기. 흠집 표시는 선택으로 더한다. */
+function CoursePicker({ current, recorded, onClose, onApply }: { current: VideoStage[]; recorded: VideoStage[]; onClose: () => void; onApply: (next: VideoStage[]) => void }) {
+  const [course, setCourse] = useState<CourseKey>(() => courseOf(current));
+  const [damage, setDamage] = useState(() => current.includes("damage"));
+  const [picked, setPicked] = useState<VideoStage[]>(() => current.filter((k) => STAGE_DEFS[k].extra && k !== "damage"));
+  const customExtras = EXTRA_STAGES.filter((k) => k !== "damage");
+  const listFor = (c: CourseKey, dmg: boolean) =>
+    withDamage(c === "custom" ? [...BASE_STAGES, ...customExtras.filter((k) => picked.includes(k))] : COURSES.find((x) => x.key === c)!.stages, dmg);
+  const next = listFor(course, damage);
+  // 이미 찍은 부위가 빠지는 코스는 고를 수 없다.
+  const drops = (list: VideoStage[]) => recorded.some((k) => !list.includes(k));
+  const total = next.reduce((n, k) => n + STAGE_DEFS[k].max, 0);
   const toggle = (k: VideoStage) => {
     if (recorded.includes(k)) return;
     setPicked((p) => (p.includes(k) ? p.filter((x) => x !== k) : p.length >= MAX_EXTRA ? p : [...p, k]));
@@ -1410,43 +1439,89 @@ function ExtraPicker({ current, recorded, onClose, onApply }: { current: VideoSt
     <div className="shoot-xpick" role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" onClick={onClose}>
       <div className="shoot-xpick__box" onClick={(e) => e.stopPropagation()}>
         <header>
-          <strong id="shoot-xpick-t">추가 촬영 고르기</strong>
-          <p>
-            필수 4단계 뒤에 최대 {MAX_EXTRA}개까지 더 찍을 수 있어요. 구매자가 많이 묻는 부위예요.
-          </p>
+          <strong id="shoot-xpick-t">촬영 코스 고르기</strong>
+          <p>차 주위를 걷는 순서대로 찍어요. 고른 순서대로 단계 칸이 바뀌어요.</p>
         </header>
         <ul>
-          {EXTRA_STAGES.map((k) => {
-            const d = STAGE_DEFS[k];
-            const on = picked.includes(k);
-            const lock = recorded.includes(k);
-            const full = !on && picked.length >= MAX_EXTRA;
+          {[...COURSES, { key: "custom" as const, label: "직접 고르기", sub: "기본 4단계 뒤에 원하는 부위를 더해요", stages: [] as VideoStage[] }].map((c) => {
+            const list = listFor(c.key, damage);
+            const on = course === c.key;
+            const lock = drops(list);
             return (
-              <li key={k}>
-                <button type="button" className={`shoot-xpick__row ${on ? "is-on" : ""}`} aria-pressed={on} disabled={lock || full} onClick={() => toggle(k)}>
-                  <span className="shoot-xpick__check">{on ? <Mask src={rd("checkmark-fill")} /> : null}</span>
-                  <img src={stageThumb(k)} alt="" />
+              <li key={c.key}>
+                <button type="button" className={`shoot-course ${on ? "is-on" : ""}`} aria-pressed={on} disabled={lock} onClick={() => setCourse(c.key)}>
+                  <span className="shoot-xpick__check is-radio">{on ? <i /> : null}</span>
                   <span className="shoot-xpick__txt">
                     <b>
-                      {d.label}
-                      <em>
-                        {d.min}~{d.max}초
-                      </em>
-                      {lock ? <em className="is-lock">찍음</em> : null}
+                      {c.label}
+                      {c.key !== "custom" ? <em>최대 {mmss(list.reduce((n, k) => n + STAGE_DEFS[k].max, 0))}</em> : null}
+                      {lock ? <em className="is-lock">찍은 부위가 빠져요</em> : null}
                     </b>
-                    <span>{STAGE_GUIDE[k].how}</span>
+                    <span>{c.sub}</span>
+                    {c.key !== "custom" ? (
+                      <span className="shoot-course__steps">
+                        {list.map((k, i) => (
+                          <span key={k} className={k === "damage" ? "is-opt" : ""}>
+                            {i + 1}. {STAGE_DEFS[k].label}
+                          </span>
+                        ))}
+                      </span>
+                    ) : null}
                   </span>
                 </button>
+                {c.key === "custom" && on
+                  ? customExtras.map((k) => {
+                      const d = STAGE_DEFS[k];
+                      const pon = picked.includes(k);
+                      const plock = recorded.includes(k);
+                      const full = !pon && picked.length >= MAX_EXTRA;
+                      return (
+                        <button key={k} type="button" className={`shoot-xpick__row ${pon ? "is-on" : ""}`} aria-pressed={pon} disabled={plock || full} onClick={() => toggle(k)}>
+                          <span className="shoot-xpick__check">{pon ? <Mask src={rd("checkmark-fill")} /> : null}</span>
+                          <img src={stageThumb(k)} alt="" />
+                          <span className="shoot-xpick__txt">
+                            <b>
+                              {d.label}
+                              <em>
+                                {d.min}~{d.max}초
+                              </em>
+                              {plock ? <em className="is-lock">찍음</em> : null}
+                            </b>
+                            <span>{STAGE_GUIDE[k].how}</span>
+                          </span>
+                        </button>
+                      );
+                    })
+                  : null}
               </li>
             );
           })}
+          <li className="shoot-course__opt">
+            <button
+              type="button"
+              className={`shoot-xpick__row ${damage ? "is-on" : ""}`}
+              aria-pressed={damage}
+              disabled={recorded.includes("damage") && damage}
+              onClick={() => setDamage((v) => !v)}
+            >
+              <span className="shoot-xpick__check">{damage ? <Mask src={rd("checkmark-fill")} /> : null}</span>
+              <img src={stageThumb("damage")} alt="" />
+              <span className="shoot-xpick__txt">
+                <b>
+                  흠집 표시 더하기
+                  <em>선택 · {STAGE_DEFS.damage.min}~{STAGE_DEFS.damage.max}초</em>
+                </b>
+                <span>흠집이 있는 차만 찍어요. 바깥을 돈 다음에 찍고, 화면을 눌러 위치를 표시해요.</span>
+              </span>
+            </button>
+          </li>
         </ul>
         <footer>
           <button type="button" onClick={onClose}>
             취소
           </button>
-          <button type="button" className="is-ok" onClick={() => onApply(picked)}>
-            {picked.length ? `${picked.length}개 추가` : "추가 안 함"}
+          <button type="button" className="is-ok" disabled={drops(next)} onClick={() => onApply(next)}>
+            {next.length}단계 · 최대 {mmss(total)}
           </button>
         </footer>
       </div>
