@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import "../listing/bbm-list-area.css";
 import "./register.css";
+import ShootRegister from "./shoot/ShootRegister";
 import BikeRegister from "./BikeRegister";
 import ChototParityRegister from "./ChototParityRegister";
 import { registerPhotoGuideHtml, registerPolicyHtml } from "./header-html";
@@ -852,6 +853,7 @@ function CarRegisterPage() {
 
 export default function RegisterPage() {
   const params = new URLSearchParams(window.location.search);
+  if (params.get("register") === "shoot") return <ShootRegister />;
   if (params.get("register") === "bike" || params.get("category") === "바이크") return <BikeRegister />;
   return <CarRegisterPage />;
 }
