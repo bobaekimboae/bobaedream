@@ -1953,12 +1953,16 @@
 .shoot-addcards {
   margin-top: 18.4px;
 }
+/* 58: 첫 칸 x30, 셋째 칸은 오른쪽 끝(409)에 붙는다. 한국어 이름이 길어 좁은 폰에서는 글자를 조금 줄인다. */
 .shoot-radios {
-  display: grid;
-  grid-template-columns: repeat(3, 124.4px);
-  justify-content: start;
+  display: flex;
+  justify-content: space-between;
   padding-left: 5.7px;
   margin-top: 16.9px;
+}
+.shoot-radios label {
+  font-size: min(16px, 3.9vw);
+  white-space: nowrap;
 }
 
 /* 촬영 화면 공통: 아래 판 94(→83.6), 탭 줄 60(→53.3), 흰 막대는 화면 가운데 고정(58 slide_line 157~274) */
@@ -2179,7 +2183,8 @@
 }
 .shoot-preview .shoot-tools .shoot-done {
   position: absolute;
-  left: 304px;
+  left: auto;
+  right: 19.6px;
   top: 19.6px;
   margin: 0;
   min-width: 0;
