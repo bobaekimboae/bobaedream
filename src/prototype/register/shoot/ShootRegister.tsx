@@ -1,7 +1,8 @@
 // 58同城 二手车发布(중고차 등록) 사진·영상 촬영 흐름 재현(2026-10-24 폰 실측, run4 캡처 s01~z06).
 // ?register=shoot 으로 연다. 실제 등록·업로드 요청은 보내지 않는다(「등록하기」는 안내만).
 import { useEffect, useMemo, useRef, useState, type KeyboardEvent as RKeyboardEvent, type PointerEvent as RPointerEvent, type RefObject } from "react";
-import "./shoot.css";
+import shootCss from "./shoot.css?inline";
+import { useInlineCss } from "./use-inline-css";
 import { extractFrames, fakeStream, grabFrame, pickRecorderType, useCamera } from "./camera";
 import {
   applyMosaic,
@@ -2186,6 +2187,7 @@ type Screen =
 
 
 export default function ShootRegister() {
+  useInlineCss("bbm-shoot-css", shootCss);
   const [studioOpen, setStudioOpen] = useState(() => new URLSearchParams(window.location.search).get('studio') === '1');
   const studioUrls = useRef<string[]>([]);
   useEffect(() => () => studioUrls.current.forEach(url => URL.revokeObjectURL(url)), []);
