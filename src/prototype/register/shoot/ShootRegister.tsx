@@ -328,6 +328,10 @@ function PhotoCapture({
 
   return (
     <div className="shoot-layer shoot-capture" {...swipe}>
+      <div className="shoot-rotate-hint" role="status">
+        <Mask src={rd("rotate-image-outline")} />
+        휴대폰을 세로로 들어 주세요
+      </div>
       <header className="shoot-top">
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
           <Mask src={rd("close-outline")} />
@@ -946,6 +950,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const firstEmpty = initial ? initial.durations.findIndex((d) => d === 0) : 0;
   const [stage, setStage] = useState(Math.max(0, firstEmpty));
   const [phase, setPhase] = useState<RecPhase>(initial?.durations.some(Boolean) ? "paused" : "idle");
+  const phaseRef = useRef(phase);
+  phaseRef.current = phase;
   const [changed, setChanged] = useState(false);
   const [count, setCount] = useState(3);
   const [elapsed, setElapsed] = useState(0);
@@ -985,6 +991,44 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     },
     [],
   );
+
+  // 촬영하는 동안 화면이 꺼지지 않게(지원하는 브라우저만)
+  useEffect(() => {
+    let lock: { release: () => Promise<void> } | null = null;
+    const nav = navigator as Navigator & { wakeLock?: { request: (t: "screen") => Promise<{ release: () => Promise<void> }> } };
+    const get = () => void nav.wakeLock?.request("screen").then((l) => (lock = l)).catch(() => undefined);
+    get();
+    const onVis = () => document.visibilityState === "visible" && get();
+    document.addEventListener("visibilitychange", onVis);
+    return () => {
+      document.removeEventListener("visibilitychange", onVis);
+      void lock?.release().catch(() => undefined);
+    };
+  }, []);
+  // 전화가 오거나 다른 앱으로 가면(화면이 가려지면) 지금 단계를 멈춘다.
+  // 최소 길이를 넘었으면 그대로 저장하고, 못 넘었으면 그 단계만 버린다.
+  useEffect(() => {
+    const onHide = () => {
+      if (document.visibilityState !== "hidden" || phaseRef.current !== "recording") return;
+      const st = STAGE_DEFS[stagesRef.current[stageRef.current]];
+      if (elapsedRef.current >= st.min) finishStage(elapsedRef.current);
+      else {
+        window.clearInterval(tick.current);
+        const r = recRef.current;
+        recRef.current = null;
+        if (r && r.state !== "inactive") {
+          r.onstop = null;
+          r.stop();
+        }
+        setPhase(durRef.current.some(Boolean) ? "paused" : "idle");
+        setElapsed(0);
+        notify(`화면을 나가서 ${st.label} 녹화를 멈췄어요. 다시 찍어 주세요`);
+      }
+    };
+    document.addEventListener("visibilitychange", onHide);
+    return () => document.removeEventListener("visibilitychange", onHide);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const sourceStream = () => {
     if (cam.stream) return cam.stream;
@@ -1069,7 +1113,9 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       const type = pickRecorderType();
       let r: MediaRecorder;
       try {
-        r = type ? new MediaRecorder(sourceStream(), { mimeType: type }) : new MediaRecorder(sourceStream());
+        // 숏폼에 다시 쓸 수 있게 화질을 정한다(영상 4Mbps · 소리 128kbps ≈ 1분 30MB).
+        const opts: MediaRecorderOptions = { videoBitsPerSecond: 4_000_000, audioBitsPerSecond: 128_000 };
+        r = new MediaRecorder(sourceStream(), type ? { ...opts, mimeType: type } : opts);
       } catch {
         notify("이 브라우저는 영상 녹화를 지원하지 않아요");
         setPhase(durRef.current.some(Boolean) ? "paused" : "idle");
@@ -1085,6 +1131,9 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
         setIstep(0);
         istepRef.current = 0;
         stepTimes.current = [0];
+      }
+      if (stagesRef.current[stageRef.current] === "start" && !sourceStream().getAudioTracks().length) {
+        notify("마이크가 꺼져 있어 시동 소리가 녹음되지 않아요");
       }
       if (stagesRef.current[stageRef.current] === "damage") {
         setMarks([]);
@@ -1142,7 +1191,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const pillText =
     isInterior && phase === "recording"
       ? `실내 ${istep + 1}/${INTERIOR_STEPS.length} · ${INTERIOR_STEPS[istep].label}`
-      : isDamage && phase === "recording" ? `흠집 ${marks.length}곳 표시함 · 화면을 눌러 표시` : done[stage] && !recording ? `${cur.label} 다시 찍기` : `${cur.label} 촬영`;
+      : isDamage && phase === "recording" ? `흠집 ${marks.length}곳 표시함 · 화면을 눌러 표시` : done[stage] && !recording ? `${cur.label} 다시 찍기${PLUS ? ` · ${cur.min}~${cur.max}초` : ""}` : `${cur.label} 촬영${PLUS ? ` · ${cur.min}~${cur.max}초` : ""}`;
   const extras = stages.filter((k) => STAGE_DEFS[k].extra);
 
   /** 흠집 단계 녹화 중 화면을 누르면 그 자리·그 시각을 흠집으로 표시 */
@@ -1196,7 +1245,22 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
             <div className="shoot-vframe">
               <Corners />
               {phase === "countdown" ? <b className="shoot-countdown">{count}</b> : null}
-              {phase === "recording" ? <span className="shoot-timer">{mmss(elapsed)}</span> : null}
+              {phase === "recording" ? <span className="shoot-timer">{mmss(elapsed)}{PLUS ? <small> / {mmss(cur.max)}</small> : null}</span> : null}
+              {PLUS && phase === "recording" ? (
+                // 시간대: 최소(여기부터 멈출 수 있음)·최대(자동 멈춤)와 지금 위치를 한 줄로 보여 준다.
+                <div className={`shoot-timeline ${elapsed >= cur.min ? "is-ok" : ""}`} role="img" aria-label={`권장 ${cur.min}~${cur.max}초 중 ${Math.floor(elapsed)}초`}>
+                  <span className="shoot-timeline__track">
+                    <i className="shoot-timeline__fill" style={{ width: `${(Math.min(elapsed, cur.max) / cur.max) * 100}%` }} />
+                    <i className="shoot-timeline__min" style={{ left: `${(cur.min / cur.max) * 100}%` }} />
+                    {isInterior
+                      ? INTERIOR_STEPS.slice(1).map((_, i) => <i key={i} className="shoot-timeline__step" style={{ left: `${(Math.min(cur.max, (i + 1) * STEP_SEC) / cur.max) * 100}%` }} />)
+                      : null}
+                  </span>
+                  <span className="shoot-timeline__text">
+                    {elapsed < cur.min ? `${Math.ceil(cur.min - elapsed)}초 더 찍으면 멈출 수 있어요` : `${Math.max(0, Math.ceil(cur.max - elapsed))}초 뒤 자동으로 멈춰요`}
+                  </span>
+                </div>
+              ) : null}
               {isInterior && phase === "recording" ? (
                 <div className="shoot-istep" role="status">
                   <span className="shoot-istep__dots" aria-hidden="true">
@@ -1204,7 +1268,13 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                       <i key={i} className={i < istep ? "is-done" : i === istep ? "is-on" : ""} />
                     ))}
                   </span>
-                  <b>{INTERIOR_STEPS[istep].label}</b>
+                  <b>
+                    {INTERIOR_STEPS[istep].label}
+                    <small className="shoot-istep__slot">
+                      {" "}
+                      {mmss(istep * STEP_SEC)}~{mmss(Math.min(cur.max, (istep + 1) * STEP_SEC))}
+                    </small>
+                  </b>
                   <span className="shoot-istep__hand">
                     <Mask src={rd("tap-outline")} />
                     {INTERIOR_STEPS[istep].hand}
@@ -1318,6 +1388,11 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
           </div>
         </div>
       ) : null}
+      <div className="shoot-rotate-hint" role="status">
+        <Mask src={rd("rotate-image-outline")} />
+        휴대폰을 세로로 들어 주세요
+        <small>숏폼(9:16)으로 바로 쓸 수 있게 세로로 찍어요</small>
+      </div>
       {pickOpen ? <ExtraPicker current={stages} recorded={stages.filter((_, i) => done[i])} onClose={() => setPickOpen(false)} onApply={applyExtras} /> : null}
       {askLeave ? <Confirm text={initial ? "새로 찍은 내용을 버리고 나갈까요?" : "촬영한 영상을 지우고 나갈까요?"} onCancel={() => setAskLeave(false)} onOk={onClose} /> : null}
     </div>
