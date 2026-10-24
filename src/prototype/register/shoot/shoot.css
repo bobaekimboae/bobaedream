@@ -2882,3 +2882,86 @@
 .shoot-xpick footer .is-ok:disabled {
   opacity: 0.45;
 }
+
+/* 사진 윤곽선 안내 시안(?guide=on, PhotoFairy · Car Studio AI · AOS 벤치마킹) */
+.shoot-guide {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  top: 48px;
+  bottom: 94px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  pointer-events: none;
+}
+.shoot-guide__shape {
+  width: 100%;
+  max-height: calc(100% - 64px);
+  fill: rgba(255, 255, 255, 0.06);
+  stroke: rgba(255, 255, 255, 0.92);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.55));
+}
+.shoot-guide__shape .is-ground {
+  fill: none;
+  stroke-dasharray: 6 6;
+  stroke: rgba(255, 255, 255, 0.6);
+}
+.shoot-guide__hint {
+  margin: 0;
+  max-width: 300px;
+  padding: 6px 12px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: center;
+  word-break: keep-all;
+}
+.shoot-guide__level {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 24px;
+  padding: 0 10px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 12px;
+}
+.shoot-guide__level i {
+  width: 28px;
+  height: 2px;
+  border-radius: 1px;
+  background: #fff;
+  transition: transform 0.1s linear;
+}
+.shoot-guide__level.is-ok {
+  color: #7ee08a;
+}
+.shoot-guide__level.is-ok i {
+  background: #7ee08a;
+}
+.shoot-guide-toggle {
+  justify-self: end;
+  height: 28px;
+  margin-right: 6px;
+  padding: 0 7px;
+  white-space: nowrap;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.shoot-guide-toggle.is-on {
+  border-color: var(--shoot-accent);
+  background: var(--shoot-accent);
+}

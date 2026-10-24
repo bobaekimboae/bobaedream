@@ -20,6 +20,7 @@ import {
   type Stroke,
 } from "./image-ops";
 import { playShutter, primeSound } from "./sound";
+import { GUIDE_ON, ShotGuide } from "./guides";
 import { RuleIllustration, STAGE_GUIDE, StageTemplate, stageThumb, type RuleAngle, type VideoStage } from "./templates";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
@@ -241,6 +242,7 @@ function PhotoCapture({
   const cam = useCamera(mode === "cam", false);
   const videoRef = useRef<HTMLDivElement>(null);
   const [plate, setPlate] = useState(false);
+  const [guide, setGuide] = useState(GUIDE_ON);
   const [session, setSession] = useState<CamSession>({ shots: [], picked: [], imported: [] });
   const filledByMain = useMemo(() => new Set(existing.map((p) => p.slot)), [existing]);
   // 이미 채운 각도는 레일에서 빠진다(다시 열면 「정면」부터 시작 확인).
@@ -365,14 +367,21 @@ function PhotoCapture({
             내 앨범 <Mask src={rd("caret-down-fill")} className="is-caret" />
           </h2>
         )}
-        {/* 58 사진 촬영 화면에는 플래시가 없다(영상 촬영 화면에만 있음) */}
-        <span className="shoot-icon-btn" />
+        {/* 58 사진 촬영 화면에는 플래시가 없다(영상 촬영 화면에만 있음). 윤곽선 시안(?guide=on)에서만 이 자리에 켜고 끄는 버튼을 둔다. */}
+        {GUIDE_ON && mode === "cam" ? (
+          <button type="button" className={`shoot-guide-toggle ${guide ? "is-on" : ""}`} aria-pressed={guide} onClick={() => setGuide((v) => !v)}>
+            윤곽선
+          </button>
+        ) : (
+          <span className="shoot-icon-btn" />
+        )}
       </header>
 
       {mode === "cam" ? (
         <>
           <div className="shoot-view" ref={videoRef}>
             {cam.stream ? <LiveVideo stream={cam.stream} /> : <div className="shoot-nocam">{cam.error === "denied" ? "카메라 권한을 허용해 주세요" : "카메라를 켜는 중이에요"}<small>카메라가 없으면 촬영 버튼으로 시험 사진이 만들어져요</small></div>}
+            {guide ? <ShotGuide slot={rail[sel] ?? OTHER} /> : null}
             <span className="shoot-pill">{(rail[sel] ?? OTHER) === OTHER ? "기타 사진 촬영" : `${rail[sel]} 촬영`}</span>
             <div className="shoot-rail" ref={railEl}>
               {[...rail.keys()].map((i) => {
