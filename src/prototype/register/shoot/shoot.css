@@ -1040,29 +1040,46 @@
   height: 100%;
 }
 .shoot-tpl-arrow {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  animation: shoot-arrow 2.4s ease-in-out infinite;
   filter: drop-shadow(0 0 1.5px rgba(0, 0, 0, 0.5));
 }
-@keyframes shoot-arrow {
+/* 화살표가 카메라 이동 방향으로 꼬리부터 머리까지 그려졌다 사라진다(머리가 선에 붙은 채) */
+.shoot-tpl-overlay {
+  animation: shoot-arrow-x 2.4s ease-in-out infinite;
+}
+.shoot-tpl.is-tilt .shoot-tpl-overlay {
+  animation-name: shoot-arrow-y;
+}
+@keyframes shoot-arrow-x {
   0% {
-    stroke-dashoffset: 100;
+    clip-path: inset(0 100% 0 0);
     opacity: 1;
   }
   70% {
-    stroke-dashoffset: 0;
+    clip-path: inset(0 0 0 0);
     opacity: 1;
   }
   100% {
-    stroke-dashoffset: 0;
+    clip-path: inset(0 0 0 0);
+    opacity: 0;
+  }
+}
+@keyframes shoot-arrow-y {
+  0% {
+    clip-path: inset(0 0 100% 0);
+    opacity: 1;
+  }
+  70% {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
     opacity: 0;
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .shoot-tpl-arrow {
-    animation: none;
-    stroke-dashoffset: 0;
+  .shoot-tpl-overlay {
+    animation: none !important;
   }
   .shoot-tpl > img {
     animation: none !important;
