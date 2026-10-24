@@ -29,7 +29,8 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;min-width:1280px;background:var(--bg);color:#000;font-family:var(--font-system);font-size:12px;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased}
-html.qf-font-pretendard body{font-family:var(--font-system)}
+html.qf-font-pretendard{--qf-font:var(--font-system)}
+html.qf-font-pretendard body{font-family:var(--font-system)!important}
 button,input,select{font:inherit}
 button,a{color:inherit}
 a{text-decoration:none}
