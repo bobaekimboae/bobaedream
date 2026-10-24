@@ -20,7 +20,7 @@ import {
   type Stroke,
 } from "./image-ops";
 import { playShutter, primeSound } from "./sound";
-import { RuleIllustration, StageTemplate, type RuleAngle, type VideoStage } from "./templates";
+import { RuleIllustration, STAGE_GUIDE, StageTemplate, type RuleAngle, type VideoStage } from "./templates";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const icon = (dir: string, name: string) => `${base}icons/${dir}/${name}`;
@@ -867,6 +867,7 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
   const [elapsed, setElapsed] = useState(0);
   const [durations, setDurations] = useState<number[]>([0, 0, 0, 0]);
   const [askLeave, setAskLeave] = useState(false);
+  const [guide, setGuide] = useState(false);
   const recRef = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
   const fake = useRef<ReturnType<typeof fakeStream> | null>(null);
@@ -1042,12 +1043,16 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
                     type="button"
                     className={`shoot-stage-chip ${active ? "is-active" : ""} ${expanded ? "is-expanded" : ""} ${done[i] ? "is-done" : ""}`}
                     disabled={recording || done[i]}
-                    onClick={() => setStage(i)}
+                    aria-label={expanded ? `${s.label} 촬영 예시 크게 보기` : `${s.label} 단계 고르기`}
+                    onClick={() => (expanded ? setGuide(true) : setStage(i))}
                   >
                     {expanded ? (
                       <>
                         <StageTemplate stage={s.key} />
                         <span className="shoot-stage-chip__tag">예시</span>
+                        <i className="shoot-stage-chip__zoom">
+                          <Mask src={rd("aspect-ratio-outline")} />
+                        </i>
                       </>
                     ) : null}
                     {active && recording ? <i className="shoot-stage-chip__bar" style={{ width: `${(Math.min(elapsed, STAGE_MAX) / STAGE_MAX) * 100}%` }} /> : null}
@@ -1100,6 +1105,23 @@ function VideoCapture({ onClose, onFinished, notify }: { onClose: () => void; on
           </div>
         </>
       )}
+      {guide ? (
+        <div className="shoot-tpl-sheet" role="dialog" aria-modal="true" aria-label={`${STAGES[stage].label} 촬영 예시`} onClick={() => setGuide(false)}>
+          <div className="shoot-tpl-sheet__box" onClick={(e) => e.stopPropagation()}>
+            <div className="shoot-tpl-sheet__media">
+              <StageTemplate stage={STAGES[stage].key} large />
+              <span className="shoot-stage-chip__tag">예시</span>
+            </div>
+            <div className="shoot-tpl-sheet__text">
+              <strong>{STAGES[stage].label} 이렇게 찍어 주세요</strong>
+              <p>{STAGE_GUIDE[STAGES[stage].key].how}</p>
+            </div>
+            <button type="button" className="shoot-tpl-sheet__ok" onClick={() => setGuide(false)} autoFocus>
+              확인
+            </button>
+          </div>
+        </div>
+      ) : null}
       {askLeave ? <Confirm text="촬영한 영상을 지우고 나갈까요?" onCancel={() => setAskLeave(false)} onOk={onClose} /> : null}
     </div>
   );
