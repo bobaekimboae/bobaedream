@@ -1916,7 +1916,9 @@ export default function ShootRegister() {
     const t = window.setTimeout(() => setProgress(20), 600);
     return () => window.clearTimeout(t);
   }, []);
-  useEffect(() => setProgress((p) => (p === 0 ? 0 : photos.length ? 28 : 20)), [photos.length]);
+  // 완성도: 기본 20 + 사진 8 + 영상 8(2026-10-25 「영상을 넣어도 완성도가 안 오른다」 수정). 첫 0 → 20 전환 전에는 0 유지.
+  const hasVideo = Boolean(video);
+  useEffect(() => setProgress((p) => (p === 0 ? 0 : 20 + (photos.length ? 8 : 0) + (hasVideo ? 8 : 0))), [photos.length, hasVideo]);
   useEffect(() => {
     if (document.documentElement.dataset.site !== "shoot") document.title = "보배드림 · 중고차 등록 촬영";
   }, []);
