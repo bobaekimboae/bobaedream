@@ -76,8 +76,8 @@ const STAGE_DEFS: Record<VideoStage, StageDef> = {
 const BASE_STAGES: VideoStage[] = ["exterior", "interior", "engine", "trunk"];
 const EXTRA_STAGES: VideoStage[] = ["cluster", "start", "tyre", "damage", "feature", "under"];
 const STAGES = BASE_STAGES.map((k) => STAGE_DEFS[k]);
-/** 추가 촬영 시안은 ?vstage=plus 에서만(기본은 58과 같은 4단계) */
-const PLUS = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("vstage") === "plus";
+/** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
+const PLUS = typeof window === "undefined" || new URLSearchParams(window.location.search).get("vstage") !== "58";
 const MAX_EXTRA = 3;
 /** 흠집 표시: 흠집 단계 영상의 몇 초에, 화면 어디를 눌렀는지(0~1) */
 type Mark = { t: number; x: number; y: number };
