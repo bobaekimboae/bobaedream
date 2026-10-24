@@ -359,3 +359,4 @@ PR #1003·#1004·#1005,fix/shoot-qa-x10,c6ffd9c,58 촬영 QA 10배 대조(영상
 PR #1007·#1008,feat/shoot-extra-stages,57c15aa,58 영상 촬영 추가 부위 시안(?vstage=plus) 계기판·시동 소리·타이어·흠집 표시·옵션 작동·하부,배포
 PR #1010,feat/shoot-extra-default,4757262,58 촬영 추가 촬영 부위 기본 적용(58 비교 ?vstage=58),배포
 PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서 카드·손 안내·부위별 이동·추가 후보 9개,배포
+2026-10-24,PR #1015,fix/shoot-field-ready,2d63c0b,58 촬영 현장 대비(세로 안내·화면 켜짐·이탈 처리·4Mbps·마이크)와 시간대 표시(권장 길이·남은 시간 줄·실내 부위 시간),배포
