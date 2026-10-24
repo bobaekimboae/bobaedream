@@ -1145,6 +1145,13 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
             {isDamage && phase === "recording"
               ? marks.map((m, i) => <i key={i} className="shoot-mark" style={{ left: `${m.x * 100}%`, top: `${m.y * 100}%` }} aria-hidden="true" />)
               : null}
+            {PLUS && !recording ? (
+              // 4칸은 58과 같은 자리에 두고, 추가 버튼은 칸 줄 위 오른쪽에 늘 보이게 띄운다.
+              <button type="button" className="shoot-stage-add" disabled={phase === "merging"} onClick={() => setPickOpen(true)} aria-label="추가 촬영 부위 고르기">
+                <Mask src={rd("add-outline-24")} />
+                추가 촬영 {extras.length}/{MAX_EXTRA}
+              </button>
+            ) : null}
             <div className={`shoot-stages ${recording ? "is-recording" : ""} ${PLUS ? "is-plus" : ""}`}>
               {defs.map((s, i) => {
                 const active = i === stage;
@@ -1176,14 +1183,6 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                   </button>
                 );
               })}
-              {PLUS ? (
-                <button type="button" className="shoot-stage-chip shoot-stage-add" disabled={recording || phase === "merging"} onClick={() => setPickOpen(true)} aria-label="추가 촬영 부위 고르기">
-                  <span className="shoot-stage-chip__label">＋ 추가 촬영</span>
-                  <span className="shoot-stage-add__n">
-                    {extras.length}/{MAX_EXTRA}
-                  </span>
-                </button>
-              ) : null}
             </div>
           </div>
           <div className="shoot-bottom">
