@@ -12,6 +12,8 @@ export type ShootItem = {
   rule?: string;
   ruleFlip?: boolean;
   repeatable?: boolean;
+  /** 그룹 등급과 다를 때만(예: 외관 그룹 안의 권장 각도) */
+  level?: ShootLevel;
   guide: { kind: GuideKind; flip?: boolean; hint: string };
 };
 export type ShootGroup = {
@@ -20,15 +22,19 @@ export type ShootGroup = {
   level: ShootLevel;
   videoStage: boolean;
   videoKey?: VideoStage;
-  videoSteps?: { label: string; hand: string }[];
+  /** 이 단계 영상 길이(초). 없으면 video.perStageSec */
+  videoSec?: { min: number; max: number };
+  videoSteps?: { item?: string; label: string; hand: string }[];
   items: ShootItem[];
 };
 type ShootData = {
   rulesTitle: string;
   rulesNotice: string;
   levelLabels: Record<ShootLevel, string>;
-  photo: { min: number; max: number; hint: string; otherItemId: string };
-  video: { perStageSec: { min: number; max: number }; extraStages: { key: VideoStage; label: string; min: number; max: number }[] };
+  vehicleType: string;
+  vehicleNote: string;
+  photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string };
+  video: { optional: boolean; perStageSec: { min: number; max: number }; extraStages: { key: VideoStage; label: string; min: number; max: number }[] };
   groups: ShootGroup[];
 };
 
@@ -42,11 +48,16 @@ export const OTHER_ID = SHOOT.photo.otherItemId;
 export const itemOf = (id: string) => itemMap.get(id) ?? itemMap.get(OTHER_ID)!;
 export const itemLabel = (id: string) => itemOf(id).label;
 export const groupOf = (id: string) => groupMap.get(id) ?? groupMap.get(OTHER_ID)!;
-export const isRequiredItem = (id: string) => groupOf(id).level === "required";
-export const REQUIRED_IDS = GROUPS.filter((g) => g.level === "required").flatMap((g) => g.items.map((i) => i.id));
+/** 항목 등급 = 항목의 level(있으면) → 그룹 level */
+export const itemLevel = (id: string): ShootLevel => itemOf(id).level ?? groupOf(id).level;
+export const isRequiredItem = (id: string) => itemLevel(id) === "required";
+export const REQUIRED_IDS = ITEMS.filter((i) => isRequiredItem(i.id)).map((i) => i.id);
+/** 권장 항목(완성도 가산용) */
+export const RECOMMENDED_IDS = ITEMS.filter((i) => itemLevel(i.id) === "recommended").map((i) => i.id);
 export const PHOTO_MIN = SHOOT.photo.min;
 export const PHOTO_MAX = SHOOT.photo.max;
 /** 영상 단계 = videoStage:true 그룹(칩 이름 = 그룹 이름) */
 export const VIDEO_GROUPS = GROUPS.filter((g) => g.videoStage && g.videoKey);
 export const PER_STAGE = SHOOT.video.perStageSec;
+export const stageSec = (g: ShootGroup) => g.videoSec ?? PER_STAGE;
 export const levelLabel = (l: ShootLevel) => SHOOT.levelLabels[l];
