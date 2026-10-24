@@ -1,6 +1,6 @@
 # 차량 숏폼 촬영 스튜디오
 
-기준 소스: main `51e8c2d8`. 작업 브랜치: `codex/shoot-studio-parts`.
+초기 기준 소스: main `51e8c2d8`. 배포 준비 시 최신 촬영 QA `399139d9` 위로 통합했다. 작업 브랜치: `codex/shoot-studio-parts`.
 
 ## 진입과 범위
 
@@ -8,7 +8,11 @@
 - 기존 등록 화면의 `영상 추가`와 `보배드림 숏폼 스튜디오`에서 연다.
 - 사진·차량 인증·실제 매물 등록 기능은 변경하지 않는다.
 - 완성 후 `이 영상을 등록 화면에 추가`는 세션 내 영상 칸에만 반영한다. 외부 등록 요청을 보내지 않는다.
-- 공개 배포는 수행하지 않았다. 로컬 개발 서버는 4192 포트다.
+- 공개 배포 완료: 코드 커밋 `90ea699130372be8e10900dbdcd23e0c64177bbe`, URL 버전 `90ea6991`.
+- 공개 주소: https://bobaekimboae.github.io/bobaedream/?register=shoot&studio=1&v=90ea6991
+- GitHub Pages 배포 성공: https://github.com/bobaekimboae/bobaedream/actions/runs/40122221887
+- 배포 번들: `ShootRegister-DFiHjBsL.js`, `ShootRegister-CB66Ck3i.css`.
+- 공개 주소에서 스튜디오 진입과 앞좌석 시트 시간 설정 시트를 확인했다. 로컬 개발 서버는 4192 포트다.
 
 ## 구현
 
@@ -29,6 +33,7 @@
 
 ## 검증
 
+- 배포 전 `npm run verify` 전체 통과: 관리자·카탈로그 29개, Sites 4개, 보호 런타임·TypeScript·빌드 통과. 숏폼 모델 테스트 8개 별도 통과.
 - `npm run verify:qf`: 런타임 28개 보호 파일 무변경, TypeScript와 Vite 통과.
 - `node --test tests/shoot-studio-model.test.mjs`: 8개 통과.
 - 생성 부위 7초 설정과 순서 이동 확인.
