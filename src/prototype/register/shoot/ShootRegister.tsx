@@ -23,7 +23,7 @@ import { playShutter, primeSound } from "./sound";
 import { GUIDE_ON, ShotGuide } from "./guides";
 import { makeMp4, mp4Name, saveToDevice } from "./save-mp4";
 import { RuleIllustration, STAGE_GUIDE, StageTemplate, stageThumb, type VideoStage } from "./templates";
-import { GROUPS, ITEMS, OTHER_ID, PER_STAGE, PHOTO_MAX, PHOTO_MIN, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemOf, levelLabel } from "./items";
+import { GROUPS, ITEMS, OTHER_ID, PHOTO_MAX, PHOTO_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf, levelLabel, stageSec } from "./items";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const icon = (dir: string, name: string) => `${base}icons/${dir}/${name}`;
@@ -39,12 +39,12 @@ const MAX_PHOTOS = PHOTO_MAX;
 type StageDef = { key: VideoStage; label: string; min: number; max: number; extra?: boolean };
 /** 기본 단계 = videoStage 그룹(이름 = 그룹 이름, 길이 = video.perStageSec), 추가 단계 = video.extraStages */
 const STAGE_DEFS = Object.fromEntries([
-  ...VIDEO_GROUPS.map((g) => [g.videoKey!, { key: g.videoKey!, label: g.label, min: PER_STAGE.min, max: PER_STAGE.max }]),
+  ...VIDEO_GROUPS.map((g) => [g.videoKey!, { key: g.videoKey!, label: g.label, ...stageSec(g) }]),
   ...SHOOT.video.extraStages.map((x) => [x.key, { ...x, extra: true }]),
 ]) as Record<VideoStage, StageDef>;
 /** 실내 단계 세부 순서와 손 안내(인스타 @nasserhessien 실내 촬영 순서). 한 부위 약 3.5초, 「다음 부위」로 넘길 수 있다. */
 const INTERIOR_STEPS: { label: string; hand: string }[] = VIDEO_GROUPS.find((g) => g.videoKey === "interior")?.videoSteps ?? [];
-const STEP_SEC = 3.5;
+const STEP_SEC = 4;
 const BASE_STAGES: VideoStage[] = VIDEO_GROUPS.map((g) => g.videoKey!);
 const EXTRA_STAGES: VideoStage[] = SHOOT.video.extraStages.map((x) => x.key);
 const STAGES = BASE_STAGES.map((k) => STAGE_DEFS[k]);
@@ -191,17 +191,28 @@ function FlashToggle({ on, onToggle }: { on: boolean; onToggle: () => void }) {
     </button>
   );
 }
-/** 사진 카운터: 필수를 다 채우기 전에는 「N/6 필수」, 다 채우면 「N/30」(상한) */
+/** 사진 카운터: 필수와 전체를 함께(「필수 2/4 · 전체 5/30」) 보여 줘 숫자의 뜻이 바뀌지 않게 한다 */
 function PhotoCounter({ required, total }: { required: number; total: number }) {
-  return required < PHOTO_MIN ? (
-    <span className="shoot-photo-count" title={`최대 ${MAX_PHOTOS}장`}>
-      {required}/{PHOTO_MIN}
-      <small> 필수</small>
+  const ok = required >= PHOTO_MIN;
+  return (
+    <span className={`shoot-photo-count ${ok ? "is-ok" : ""}`} aria-label={`필수 ${Math.min(required, PHOTO_MIN)}/${PHOTO_MIN}장, 전체 ${total}/${MAX_PHOTOS}장`}>
+      <b>필수 {Math.min(required, PHOTO_MIN)}/{PHOTO_MIN}</b>
+      <small>전체 {total}/{MAX_PHOTOS}</small>
     </span>
+  );
+}
+/** 카메라가 안 켜졌을 때 안내(실서비스용 권한 안내. 카메라가 없는 기기에서는 시안용 대체 화면으로 계속 찍을 수 있다) */
+function NoCam({ denied }: { denied: boolean }) {
+  return denied ? (
+    <div className="shoot-nocam">
+      카메라 권한을 허용해 주세요
+      <small>주소창 옆 자물쇠(설정) 아이콘 → 카메라 → 허용을 눌러 주세요. 앱에서는 휴대폰 설정 → 보배드림 → 카메라를 켜 주세요.</small>
+    </div>
   ) : (
-    <span className="shoot-photo-count">
-      {total}/{MAX_PHOTOS}
-    </span>
+    <div className="shoot-nocam">
+      카메라를 켜는 중이에요
+      <small>카메라 사용을 물으면 「허용」을 눌러 주세요</small>
+    </div>
   );
 }
 type CamSession = { shots: Photo[]; picked: string[]; imported: Photo[] };
@@ -266,6 +277,27 @@ function PhotoCapture({
     const el = railEl.current?.querySelector<HTMLElement>(`[data-i="${sel}"]`);
     el?.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
   }, [sel]);
+  // 칸 줄 오른쪽 밖에 남은 필수 빈 칸 수(「+N」 표시). 누르면 그 칸으로 이동한다.
+  const [hiddenReq, setHiddenReq] = useState<number[]>([]);
+  useEffect(() => {
+    const el = railEl.current;
+    if (!el) return undefined;
+    const measure = () => {
+      const right = el.getBoundingClientRect().right;
+      const out: number[] = [];
+      el.querySelectorAll<HTMLElement>(".shoot-slot.is-required:not(.is-shot)").forEach((n) => {
+        if (n.getBoundingClientRect().right > right + 1) out.push(Number(n.dataset.i));
+      });
+      setHiddenReq((prev) => (prev.join() === out.join() ? prev : out));
+    };
+    measure();
+    el.addEventListener("scroll", measure, { passive: true });
+    window.addEventListener("resize", measure);
+    return () => {
+      el.removeEventListener("scroll", measure);
+      window.removeEventListener("resize", measure);
+    };
+  }, [rail, slotShots, mode]);
 
   const shoot = () => {
     if (total >= MAX_PHOTOS) {
@@ -376,7 +408,7 @@ function PhotoCapture({
       {mode === "cam" ? (
         <>
           <div className="shoot-view" ref={videoRef}>
-            {cam.stream ? <LiveVideo stream={cam.stream} /> : <div className="shoot-nocam">{cam.error === "denied" ? "카메라 권한을 허용해 주세요" : "카메라를 켜는 중이에요"}<small>카메라가 없으면 촬영 버튼으로 시험 사진이 만들어져요</small></div>}
+            {cam.stream ? <LiveVideo stream={cam.stream} /> : <NoCam denied={cam.error === "denied"} />}
             {guide ? <ShotGuide slot={rail[sel] ?? OTHER} /> : null}
             <span className="shoot-pill">{`${itemLabel(rail[sel] ?? OTHER)}${(rail[sel] ?? OTHER) === OTHER ? " 사진" : ""} 촬영`}</span>
             <div className="shoot-rail" ref={railEl}>
@@ -384,17 +416,15 @@ function PhotoCapture({
                 const shot = slotShots[i];
                 const it = itemOf(rail[i]);
                 const req = isRequiredItem(it.id);
-                // 첫 칸(대표 사진) 안내: 예전 메인 안내문을 칸 이름 아래로 옮겼다(JSON note).
+                // 첫 칸(대표 사진): 왼쪽 위 「대표」 딱지(JSON note).
                 const note = it.note && i === 0 ? it.note : "";
                 return (
                   <div key={i} data-i={i} className={`shoot-slot ${i === sel ? "is-sel" : ""} ${req ? "is-required" : ""} ${shot ? "is-shot" : ""}`}>
                     <button type="button" className="shoot-slot__hit" onClick={() => setSel(i)} aria-label={`${it.label}${req ? " (필수)" : ""} 칸 선택`}>
                       {shot ? <img src={shot.src} alt="" /> : null}
-                      <span className="shoot-slot__label">
-                        {it.label}
-                        {note ? <small className="shoot-slot__note">{note}</small> : null}
-                      </span>
+                      <span className="shoot-slot__label">{it.label}</span>
                     </button>
+                    {note ? <em className="shoot-slot__tag">{note}</em> : null}
                     {req && !shot ? <i className="shoot-slot__req" aria-hidden="true" /> : null}
                     {shot ? (
                       <button type="button" className="shoot-slot__x" aria-label={`${it.label} 사진 지우기`} onClick={() => removeSlotShot(i)}>
@@ -405,6 +435,11 @@ function PhotoCapture({
                 );
               })}
             </div>
+            {hiddenReq.length ? (
+              <button type="button" className="shoot-rail-more" aria-label={`오른쪽에 필수 칸 ${hiddenReq.length}개 더 있어요`} onClick={() => setSel(hiddenReq[0])}>
+                +{hiddenReq.length}
+              </button>
+            ) : null}
           </div>
           <div className="shoot-bottom">
             <div className="shoot-controls">
@@ -1269,7 +1304,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       {mode === "cam" ? (
         <>
           <div className="shoot-view" ref={viewRef} onPointerDown={markDamage}>
-            {cam.stream ? <LiveVideo stream={cam.stream} /> : <div className="shoot-nocam">{cam.error === "denied" ? "카메라 권한을 허용해 주세요" : "카메라를 켜는 중이에요"}<small>카메라가 없으면 시험 화면으로 녹화돼요</small></div>}
+            {cam.stream ? <LiveVideo stream={cam.stream} /> : <NoCam denied={cam.error === "denied"} />}
             <span className="shoot-pill">{pillText}</span>
             <div className="shoot-vframe">
               <Corners />
@@ -1323,7 +1358,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
             {PLUS && !recording ? (
               // 4칸은 58과 같은 자리에 두고, 추가 버튼은 칸 줄 위 오른쪽에 늘 보이게 띄운다.
               <button type="button" className="shoot-stage-add" disabled={phase === "merging"} onClick={() => setPickOpen(true)} aria-label={`단계 편집 · 지금 ${courseLabel(stages)}`}>
-                <Mask src={rd("add-outline-24")} />
+                <Mask src={rd("edit-outline")} />
                 단계 편집
               </button>
             ) : null}
@@ -1852,19 +1887,26 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
         <section className="shoot-rules__notice">
           <strong>{SHOOT.rulesTitle}</strong>
           <p>{SHOOT.rulesNotice}</p>
+          <small className="shoot-rules__vehicle">{SHOOT.vehicleNote}</small>
         </section>
         {GROUPS.map((g) => (
           <section key={g.id} className={`shoot-rules__group is-${g.level}`}>
             <h3>
               {g.label}({g.items.length}장)
-              <span className={`shoot-rules__badge is-${g.level}`}>{levelLabel(g.level)}</span>
+              <span className={`shoot-rules__badge is-${g.level}`}>
+                {levelLabel(g.level)}
+                {g.items.some((a) => a.level && a.level !== g.level) ? ` ${g.items.filter((a) => (a.level ?? g.level) === g.level).length}장` : ""}
+              </span>
             </h3>
             <p>{g.items.map((a) => a.label).join(" | ")}</p>
             <div className="shoot-rules__grid">
               {g.items.map((a) => (
                 <figure key={a.id}>
                   <RuleIllustration angle={a.rule} flip={a.ruleFlip} />
-                  <figcaption>{a.label}</figcaption>
+                  <figcaption>
+                    {a.label}
+                    {a.level && a.level !== g.level ? <span className={`shoot-rules__itembadge is-${a.level}`}>{levelLabel(a.level)}</span> : null}
+                  </figcaption>
                 </figure>
               ))}
             </div>
@@ -1917,16 +1959,20 @@ export default function ShootRegister() {
     const t = window.setTimeout(() => setProgress(20), 600);
     return () => window.clearTimeout(t);
   }, []);
-  // 진행: 필수 사진(외관 6) · 영상 단계(4). 완성도 = 기본 20 + 필수 사진 40 + 영상 40(2026-10-25 shoot-items.json 기준).
+  // 완성도 = 소재지 20 + 필수 사진 60 + 권장 사진 10 + 영상 10(2026-10-25 컨설팅: 영상은 선택이라 비중을 작게).
   const requiredDone = useMemo(() => new Set(photos.map((p) => p.slot).filter(isRequiredItem)).size, [photos]);
   const videoDone = !video ? 0 : video.imported ? VIDEO_GROUPS.length : VIDEO_GROUPS.filter((g) => {
     const i = (video.stages ?? BASE_STAGES).indexOf(g.videoKey!);
     return i >= 0 && (video.durations[i] ?? 0) > 0;
   }).length;
   const requiredOk = requiredDone >= REQUIRED_IDS.length;
+  const recommendedDone = useMemo(() => new Set(photos.map((p) => p.slot).filter((id) => itemLevel(id) === "recommended")).size, [photos]);
+  /** 등록하기를 눌렀는데 모자랄 때만 숫자를 빨갛게 */
+  const [tried, setTried] = useState(false);
+  const needPhotos = Math.max(0, REQUIRED_IDS.length - requiredDone);
   useEffect(
-    () => setProgress((p) => (p === 0 ? 0 : Math.round(20 + (40 * Math.min(requiredDone, PHOTO_MIN)) / PHOTO_MIN + (40 * videoDone) / VIDEO_GROUPS.length))),
-    [requiredDone, videoDone],
+    () => setProgress((p) => (p === 0 ? 0 : Math.round(20 + (60 * Math.min(requiredDone, PHOTO_MIN)) / PHOTO_MIN + (10 * recommendedDone) / RECOMMENDED_IDS.length + (10 * videoDone) / VIDEO_GROUPS.length))),
+    [requiredDone, recommendedDone, videoDone],
   );
   const mediaRef = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -1988,12 +2034,12 @@ export default function ShootRegister() {
                 <h3>
                   {sectionTitle} <em>(필수)</em>
                 </h3>
-                <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계`}>
-                  사진 <b className={requiredOk ? "is-ok" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b> · 영상 <b className={videoDone >= VIDEO_GROUPS.length ? "is-ok" : ""}>{videoDone}/{VIDEO_GROUPS.length}</b>
+                <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계(선택)`}>
+                  사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b> · 영상 <span className="is-opt">{videoDone}/{VIDEO_GROUPS.length} · 선택</span>
                 </span>
               </div>
               <div className="shoot-hint-row">
-                <p className="shoot-hint">{SHOOT.photo.hint}</p>
+                <p className="shoot-hint">{requiredOk ? SHOOT.photo.hintDone : SHOOT.photo.hint}</p>
                 <button type="button" className="shoot-rules-link" onClick={() => setScreen({ name: "rules" })}>
                   <Mask src={rd("help-outline")} />
                   촬영 규칙 보기
@@ -2145,16 +2191,16 @@ export default function ShootRegister() {
               aria-disabled={!requiredOk}
               onClick={() => {
                 if (!requiredOk) {
-                  // 필수 그룹(외관)이 덜 찼으면 사진·영상 칸으로 올려 보낸다.
+                  // 필수 사진이 덜 찼으면 사진·영상 칸으로 올려 보내고 숫자를 빨갛게 한다.
+                  setTried(true);
                   mediaRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  const need = GROUPS.filter((g) => g.level === "required").map((g) => g.label).join("·");
-                  notify(`${need} 사진 ${REQUIRED_IDS.length - requiredDone}장을 더 찍어 주세요`);
+                  notify(`외관 사진 ${needPhotos}장을 더 찍어 주세요`);
                   return;
                 }
                 notify("시안 화면이라 실제로 등록하지 않아요");
               }}
             >
-              등록하기
+              {requiredOk ? "등록하기" : <span className="shoot-publish__need">외관 사진 {needPhotos}장 더 찍어 주세요</span>}
             </button>
           </footer>
         </section>

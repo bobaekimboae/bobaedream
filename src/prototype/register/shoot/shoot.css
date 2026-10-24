@@ -3247,3 +3247,97 @@ body:has(.shoot-layer) .shoot-install {
   background: #d9d9d9 !important;
   color: #fff !important;
 }
+
+/* ── 2026-10-25 컨설팅 2건 반영 ── */
+/* 첫 칸 「대표」 딱지(예전 10px 안내를 대체) */
+.shoot-slot__tag {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: 16px;
+  padding: 0 5px;
+  border-radius: 3px;
+  background: var(--shoot-accent);
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  pointer-events: none;
+}
+/* 칸 줄 오른쪽 밖 필수 빈 칸 수 */
+.shoot-rail-more {
+  position: absolute;
+  right: 6px;
+  bottom: calc(9.3px + 35px - 12px);
+  height: 24px;
+  min-width: 32px;
+  padding: 0 8px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+.shoot-rail-more::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  border-radius: 50%;
+  background: #ff2d2d;
+  vertical-align: 1px;
+}
+/* 사진 카운터 2줄: 필수 / 전체 */
+.shoot-photo-count {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 15px;
+}
+.shoot-photo-count b {
+  font-weight: 600;
+}
+.shoot-photo-count small {
+  font-size: 11px;
+  opacity: 0.75;
+}
+/* 메인 카운터: 처음엔 회색, 등록하기를 눌렀는데 모자랄 때만 빨강. 영상은 선택이라 회색 */
+.shoot-media-count b {
+  color: var(--shoot-sub);
+}
+.shoot-media-count b.is-warn {
+  color: #e8342b;
+}
+.shoot-media-count .is-opt {
+  color: var(--shoot-sub);
+}
+/* 회색 등록하기 버튼에 이유 문구 */
+.shoot-publish__need {
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+/* 촬영 규칙: 그룹과 등급이 다른 항목 딱지, 차종 안내 */
+.shoot-rules__itembadge {
+  display: inline-block;
+  margin-left: 4px;
+  padding: 0 5px;
+  height: 16px;
+  border-radius: 8px;
+  font-size: 10px;
+  line-height: 16px;
+  font-weight: 600;
+  background: #fff1ec;
+  color: var(--shoot-accent);
+}
+.shoot-rules__vehicle {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--shoot-sub);
+}
