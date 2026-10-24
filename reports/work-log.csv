@@ -364,3 +364,5 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-10-24,PR #1019,feat/shoot-outline-guide,86ef30a,58 사진 촬영 윤곽선 안내 시안(?guide=on · 칸별 차 윤곽 · 수평 막대 · 켜기/끄기),배포
 2026-10-24,PR #1021,feat/shoot-save-mp4,495ab99,58 촬영 영상 mp4 내 폰에 저장(전체 한 파일·부위별 · 이어 붙이기 우선),배포
 2026-10-25,PR #1023,feat/shoot-app,182907d,보배드림 촬영 앱 /shoot/ 홈 화면 설치형(PWA · 매니페스트 · 아이콘 · 설치 안내),배포
+2026-10-25,PR #1025,fix/shoot-video-progress,8129864,58 촬영 등록 완성도에 영상 반영(+8) — PR #1026에서 새 계산으로 대체,배포
+2026-10-25,PR #1026,feat/shoot-items-json,aebb91e,58 촬영 항목 shoot-items.json 통일(규칙=사진 칸 13 · 영상 4 · 필수 표시 · 카운터 · 등록하기 비활성 · 8~15초),배포
