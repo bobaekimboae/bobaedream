@@ -2821,3 +2821,64 @@
   font-weight: 400;
   color: rgba(255, 255, 255, 0.75);
 }
+
+/* 촬영 코스 고르기(2026-10-24): 코스 행 = 원형 선택 + 이름·최대 길이 + 동선 설명 + 순서 알약 */
+.shoot-course {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  align-items: start;
+  gap: 10px;
+  padding: 12px 8px;
+  border-radius: 10px;
+  text-align: left;
+  color: #fff !important;
+}
+.shoot-course.is-on {
+  background: rgba(255, 85, 46, 0.12) !important;
+}
+.shoot-course:disabled {
+  opacity: 0.45;
+}
+.shoot-course .shoot-xpick__txt > span:not(.shoot-course__steps) {
+  -webkit-line-clamp: 2;
+}
+.shoot-xpick__check.is-radio {
+  margin-top: 0;
+}
+.shoot-course.is-on .shoot-xpick__check {
+  border-color: var(--shoot-accent);
+}
+.shoot-xpick__check.is-radio i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--shoot-accent);
+}
+.shoot-course__steps {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+  -webkit-line-clamp: unset !important;
+}
+.shoot-course__steps span {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 12px;
+  line-height: 17px;
+  color: #e6e6e6;
+}
+.shoot-course__steps span.is-opt {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+.shoot-course__opt {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+.shoot-xpick footer .is-ok:disabled {
+  opacity: 0.45;
+}
