@@ -3128,3 +3128,122 @@ body:has(.shoot-layer) .shoot-install {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
+
+/* ── 촬영 항목 JSON 연동(2026-10-25 shoot-items.json) ── */
+/* 사진 화면 머리줄 오른쪽: 플래시(윤곽선 시안이면 그 왼쪽에 윤곽선 버튼) */
+.shoot-top__right {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+/* 필수 칸: 아직 안 찍었으면 오른쪽 위 빨간 점 */
+.shoot-slot__req {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff2d2d;
+  box-shadow: 0 0 0 1.5px #fff;
+  pointer-events: none;
+}
+/* 첫 칸(대표 사진) 안내: 이름 위 한 줄 */
+.shoot-slot__label:has(.shoot-slot__note) {
+  height: 32px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  line-height: 14px;
+}
+.shoot-slot__note {
+  display: block;
+  font-size: 10px;
+  line-height: 13px;
+  color: var(--shoot-accent-2);
+}
+.shoot-photo-count {
+  white-space: nowrap;
+}
+.shoot-photo-count small {
+  font-size: 11px;
+  opacity: 0.8;
+}
+/* 영상 화면 아래 시간(0:00 / 0:15) */
+.shoot-vcount {
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+/* 단계 칩 완료 체크 + 녹화 길이 */
+.shoot-stage-chip__time {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+}
+.shoot-stage-chip__check {
+  width: 11px;
+  height: 11px;
+  color: var(--shoot-accent);
+}
+/* 촬영 규칙 필수·권장·선택 배지 */
+.shoot-rules__badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 0 7px;
+  height: 20px;
+  border-radius: 10px;
+  vertical-align: 3px;
+  font-size: 11px;
+  line-height: 20px;
+  font-weight: 600;
+  background: #f2f2f2;
+  color: #595959;
+}
+.shoot-rules__badge.is-required {
+  background: var(--shoot-accent);
+  color: #fff;
+}
+.shoot-rules__badge.is-recommended {
+  background: #fff1ec;
+  color: var(--shoot-accent);
+}
+.shoot-rule-img.is-empty {
+  box-sizing: border-box;
+  border: 1px dashed #d0d0d0;
+  background: #fafafa;
+}
+/* 메인: 섹션 머리 오른쪽 진행 카운터 · 규칙 보기는 안내 줄 오른쪽으로 */
+.shoot-media-count {
+  flex: none;
+  font-size: 13px;
+  color: var(--shoot-sub);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.shoot-media-count b {
+  font-weight: 600;
+  color: #e8342b;
+}
+.shoot-media-count b.is-ok {
+  color: var(--shoot-text);
+}
+.shoot-hint-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.shoot-hint-row .shoot-hint {
+  flex: 1;
+  min-width: 0;
+}
+/* 필수 미충족 등록하기: 회색(누르면 사진·영상 칸으로 이동) */
+.shoot-publish.is-disabled {
+  background: #d9d9d9 !important;
+  color: #fff !important;
+}
