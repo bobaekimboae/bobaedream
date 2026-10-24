@@ -70,11 +70,12 @@ ul,ol{list-style:none;margin:0;padding:0}
 .loungeSearchInput::placeholder{color:#9da2ad}
 .loungeSearch:focus-within{background:#fff;box-shadow:0 0 0 1.5px #222}
 .loungeNav{height:52px;background:#fff;border-bottom:1px solid #e7e7e7}
-.loungeNavInner{width:1280px;height:52px;margin:0 auto;display:flex;align-items:center;gap:8px}
-.loungeTab{height:40px;color:#555;font-size:14px;line-height:18px;font-weight:600;padding:0 8px;border:3px solid transparent;border-radius:999px;background:transparent;background-clip:padding-box;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:background-color .18s ease,color .18s ease}
-.loungeTab:hover{background:#f4f5f7;background-clip:padding-box;color:#222}
+.loungeNavInner{width:1280px;height:52px;margin:0 auto;display:flex;align-items:center;gap:22px}
+.loungeTab{position:relative;height:52px;color:#555;font-size:14px;line-height:18px;font-weight:600;padding:0 2px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:color .18s ease}
+.loungeTab:hover{color:#222}
 .loungeTab:focus-visible{outline:2px solid #222;outline-offset:1px}
-.loungeTab.active{padding-left:14px;padding-right:14px;background:#222;background-clip:padding-box;color:#fff;font-weight:700;box-shadow:none}
+.loungeTab.active{color:#222;font-weight:700}
+.loungeTab.active:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:#222}
 .topicNav{height:56px;background:#fff;border-bottom:1px solid #e7e7e7}
 .topicNav.is-hidden{display:none}
 .topicNavInner{width:1280px;height:56px;margin:0 auto;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
@@ -286,10 +287,11 @@ html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#f8f9fd}
   .layout-reddit .loungeSearchButton img{width:18px;height:18px}
   .layout-reddit .loungeSearchInput{height:36px;padding:0 10px 0 7px;font-size:13px;line-height:18px}
   .layout-reddit .loungeNav{display:none}
-  .mobileCommunityNav{position:sticky;top:56px;z-index:28;height:52px;padding:7px 12px;display:flex;gap:6px;overflow:hidden;scrollbar-width:none;border-bottom:1px solid #eceef1;background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}
+  .mobileCommunityNav{position:sticky;top:56px;z-index:28;height:52px;padding:0 12px;display:flex;gap:0;overflow:hidden;scrollbar-width:none;border-bottom:1px solid #eceef1;background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}
   .mobileCommunityNav::-webkit-scrollbar{display:none}
-  .mobileCommunityNavItem{height:36px;padding:0 12px;border-radius:18px;display:inline-flex;align-items:center;justify-content:center;flex:1 1 0;color:#555d68;font-size:14px;line-height:18px;font-weight:600;white-space:nowrap}
-  .mobileCommunityNavItem.active{background:#222;color:#fff;font-weight:700}
+  .mobileCommunityNavItem{position:relative;height:52px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;flex:1 1 0;color:#555d68;font-size:14px;line-height:18px;font-weight:600;white-space:nowrap}
+  .mobileCommunityNavItem.active{color:#222;font-weight:700}
+  .mobileCommunityNavItem.active:after{content:"";position:absolute;left:calc(50% - 18px);bottom:-1px;width:36px;height:3px;border-radius:3px 3px 0 0;background:#222}
   .mobileMenuBackdrop{position:fixed;inset:56px 0 0;z-index:49;width:100%;height:auto;background:rgba(15,18,24,.48);opacity:0;pointer-events:none;transition:opacity .2s ease}
   .mobile-menu-open .mobileMenuBackdrop{display:block;opacity:1;pointer-events:auto}
   .layout-reddit .pageWrap{width:100%;margin:0}
