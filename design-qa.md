@@ -59,13 +59,15 @@ final result: passed
 
 ---
 
-## 2026-10-24 레딧형 게시판 프로필 프사
+## 2026-10-24 실제 Reddit 서브레딧 커뮤니티 아이콘
 
-- Source assets: Reddit 공식 기본 프로필 아바타 8종 `https://www.redditstatic.com/avatars/defaults/v2/avatar_default_0.png` ~ `avatar_default_7.png`을 `public/community/assets/reddit-avatars/`에 저장했다.
-- Mapping: 전체 게시글 1개, 자동차 5개, 블랙박스·사고 4개, 커뮤니티 4개, 차량 정보 3개, 운영 안내 3개에 실제 Reddit Snoo 프사를 교차 매핑했다.
-- Layout: 프사 30×30px, 게시판 행 42px, 텍스트 14/20px·500, 선택 행 700 및 `#edf4ff` 배경.
-- Visual rule: 상단 대메뉴와 게시글 목록에는 추가하지 않고 좌측 게시판 탐색에만 사용해 Reddit 서브레딧의 커뮤니티 식별 역할을 따른다.
-- Validation: 20/20 프사 배경 로드, 깨진 이미지 0개, 접근성 이름은 게시판 링크 텍스트로 유지.
+- Source truth: 실제 공개 서브레딧의 `styles.redditmedia.com/.../communityIcon...` 자산을 브라우저에서 직접 확인하고 로컬 저장했다. Reddit 기본 사용자 프사는 더 이상 화면에서 참조하지 않는다.
+- Source communities: `r/cars`, `r/Hyundai`, `r/electricvehicles`, `r/Dashcam`, `r/IdiotsInCars`, `r/Insurance`, `r/carmemes`, `r/Cartalk`, `r/AutoDetailing`, `r/hypermiling`, `r/CarTalkUK`, `r/modhelp`, `r/help`.
+- Browser-rendered implementation: `.design-qa/community-actual-subreddit-icons-local-2026-10-24.png`, 1265×711 CSS px, 데스크톱 전체 게시글 상태.
+- Mapping: 전체·자유·베스트=`r/cars`; 국산차=`r/Hyundai`; 수입차·정치/시사=`r/CarTalkUK`; 전기차=`r/electricvehicles`; 시승기·차량리뷰=`r/AutoDetailing`; 정비·결함=`r/Cartalk`; 블랙박스·교통법규=`r/Dashcam`; 사고=`r/IdiotsInCars`; 보험=`r/Insurance`; 유머=`r/carmemes`; 연비/전비=`r/hypermiling`; 공지·운영정책=`r/modhelp`; 문의/제보=`r/help`.
+- Layout: 커뮤니티 아이콘 30×30px, 게시판 행 42px, 텍스트 14/20px·500. 선택 상태는 배경 없이 보배드림 블루 텍스트와 700 굵기로 표시한다.
+- Asset storage: `public/community/assets/subreddit-icons/`에 13개 WebP를 보관해 Reddit CDN 차단이나 외부 변경에도 화면이 깨지지 않게 했다.
+- Validation: 20/20 커뮤니티 아이콘 로드, 13개 고유 서브레딧 자산, 깨진 이미지 0개, 접근성 이름은 게시판 링크 텍스트로 유지.
 
 final result: passed
 
