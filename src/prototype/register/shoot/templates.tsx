@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 // 58의 예시 영상은 58 저작물이라 쓰지 않고, 보배드림이 가진 실매물 사진(서울오토갤러리 BMW M3 스튜디오 촬영본)으로
 // 같은 구성(예시 표시 · 실제 촬영 장면 순서 · 카메라 이동 방향 화살표)을 만든다.
 
-export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort";
+export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort" | "seat" | `my-${string}`;
 
 const ORANGE = "#FF7A1A";
 const base = typeof document === "undefined" ? "/" : new URL(".", document.baseURI).pathname;
 const tpl = (n: string) => `${base}assets/shoot-templates/${n}.webp`;
 
 /** 단계별 실사 장면(촬영 순서대로)과 카메라 이동 화살표, 촬영 안내 */
-export const STAGE_GUIDE: Record<VideoStage, { frames: string[]; arrow: string; how: string; pan: "orbit" | "sweep" | "tilt" }> = {
+type StageGuide = { frames: string[]; arrow: string; how: string; pan: "orbit" | "sweep" | "tilt" };
+const STAGE_GUIDE_BASE: Record<string, StageGuide> = {
   exterior: { frames: ["ext-1", "ext-2", "ext-3", "ext-4"], arrow: "M14 104 Q80 124 146 100", how: "차 앞에서 시작해 차 주위를 한 바퀴 천천히 돌며 찍어 주세요. 정면 → 좌측 앞 → 좌측 뒤 → 후면 순서예요.", pan: "orbit" },
   // 실내 세부 순서 = 실내 사진 항목 순서(2026-10-25 컨설팅): 계기판 → 대시보드(핸들 포함) → 앞좌석(천장 포함) → 뒷좌석
   interior: { frames: ["opt-cluster", "in-dash", "in-seat", "in-rear"], arrow: "M18 108 Q80 92 142 108", how: "계기판 → 대시보드 → 앞좌석 → 뒷좌석 순서로 찍어 주세요. 핸들은 잡아서, 시트는 손으로 눌러 보여 주면 좋아요.", pan: "sweep" },
@@ -25,6 +26,7 @@ export const STAGE_GUIDE: Record<VideoStage, { frames: string[]; arrow: string; 
   wheel: { frames: ["opt-wheel"], arrow: "M40 30 Q130 60 40 100", how: "휠 가운데와 브레이크 캘리퍼를 가까이 찍어 주세요. 휠 크기(인치)가 보이면 좋아요.", pan: "orbit" },
   door: { frames: ["opt-door-1", "opt-door-2"], arrow: "M18 100 Q80 116 142 100", how: "문을 열고 닫는 모습, 트렁크가 열리는 모습을 찍어 주세요. 전동이면 버튼을 누르는 손도 보여 주세요.", pan: "sweep" },
   comfort: { frames: ["in-comfort", "opt-comfort"], arrow: "M18 108 Q80 92 142 108", how: "통풍·열선 시트 버튼, 컵홀더·콘솔·충전 단자처럼 편의 장비를 손으로 눌러 보여 주세요.", pan: "sweep" },
+  seat: { frames: ["in-seat", "in-rear", "in-comfort"], arrow: "M18 108 Q80 92 142 108", how: "운전석 → 조수석 → 뒷좌석 → 시트 기능 → 가죽 상태 순서로 시트만 따로 찍어요. 손으로 눌러 쿠션과 가죽을 보여 주세요.", pan: "sweep" },
   under: { frames: ["opt-under"], arrow: "M18 100 Q80 116 142 100", how: "차 아래와 머플러 쪽을 비스듬히 찍어 주세요. 기름이 샌 자국이 없는지 보여 주면 좋아요.", pan: "sweep" },
 };
 
@@ -46,10 +48,18 @@ function Arrow({ d, id }: { d: string; id: string }) {
 
 /** 실사 장면을 차례로 보여 주는 예시 영상(사진 전환 + 천천히 움직이는 카메라) */
 /** 단계의 첫 예시 사진(추가 촬영 고르기 목록용) */
-export const stageThumb = (stage: VideoStage) => tpl(STAGE_GUIDE[stage].frames[0]);
+/** 직접 만든 부위(my-…)는 예시 사진이 없어 옵션 작동 예시를 쓰고, 안내 문구는 딜러가 적은 글을 쓴다. */
+const customHow = new Map<string, string>();
+export function setCustomGuide(key: string, how: string) {
+  customHow.set(key, how);
+}
+export function stageGuide(stage: VideoStage): StageGuide {
+  return STAGE_GUIDE_BASE[stage] ?? { frames: ["opt-feature-1"], arrow: "M18 108 Q80 92 142 108", how: customHow.get(stage) || "찍을 부분이 틀 안에 들어오게 천천히 비춰 주세요.", pan: "sweep" };
+}
+export const stageThumb = (stage: VideoStage) => tpl(stageGuide(stage).frames[0]);
 
 export function StageTemplate({ stage, large }: { stage: VideoStage; large?: boolean }) {
-  const g = STAGE_GUIDE[stage];
+  const g = stageGuide(stage);
   const [i, setI] = useState(0);
   useEffect(() => {
     setI(0);

@@ -3341,3 +3341,255 @@ body:has(.shoot-layer) .shoot-install {
   line-height: 17px;
   color: var(--shoot-sub);
 }
+
+/* 쇼츠 장면 표시(2026-10-25): 녹화 중 두 번 누르면 틀 왼쪽 위에 ★ 개수, 가운데에 잠깐 알림 */
+.shoot-hl-badge {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  z-index: 3;
+  height: 24px;
+  padding: 0 9px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 12px;
+  background: var(--shoot-accent);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.shoot-hl-flash {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+  padding: 8px 14px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 13px;
+  line-height: 18px;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: shoot-hl-pop 0.9s ease-out both;
+}
+@keyframes shoot-hl-pop {
+  0% { opacity: 0; transform: translate(-50%, -40%); }
+  15% { opacity: 1; transform: translate(-50%, -50%); }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shoot-hl-flash { animation: none; }
+}
+.shoot-timeline.is-over .shoot-timeline__fill {
+  background: #ffb020;
+}
+
+/* 미리보기 아래: 쇼츠 만들기 + 다음 */
+.shoot-vprev-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.shoot-bottom.is-vpreview:has(.shoot-vprev-actions .shoot-shorts-open) {
+  justify-content: space-between;
+  gap: 0;
+}
+.shoot-shorts-open {
+  height: 36px;
+  padding: 0 14px 0 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #fff !important;
+  font-size: 13px;
+  font-weight: 600;
+}
+.shoot-shorts-open .shoot-mask {
+  width: 18px;
+  height: 18px;
+}
+.shoot-shorts-open em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--shoot-accent-2);
+  margin-left: 2px;
+}
+
+/* 촬영 코스: 차종 추천 · 내 부위 · 시간 설정 */
+.shoot-recsel,
+.shoot-time {
+  padding: 6px 8px 10px;
+}
+.shoot-time {
+  margin-top: 6px;
+  border-top: 1px solid #2e2e2e;
+  padding-top: 14px;
+}
+.shoot-recsel__t {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #bdbdbd;
+  margin-bottom: 8px;
+}
+.shoot-recsel__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.shoot-recsel__chips button,
+.shoot-myform__t button {
+  height: 30px;
+  padding: 0 12px;
+  border-radius: 15px;
+  border: 1px solid #444 !important;
+  background: transparent !important;
+  color: #ddd !important;
+  font-size: 13px;
+}
+.shoot-recsel__chips button.is-on,
+.shoot-myform__t button.is-on {
+  border-color: var(--shoot-accent) !important;
+  background: rgba(255, 85, 46, 0.16) !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+.shoot-xpick__txt em.is-rec {
+  color: var(--shoot-accent-2);
+}
+.shoot-xpick__txt em.is-mine {
+  color: #7fb4ff;
+}
+.shoot-xpick__line {
+  position: relative;
+}
+.shoot-xpick__line:has(.shoot-xpick__del) .shoot-xpick__row {
+  padding-right: 56px;
+}
+.shoot-xpick__del {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 28px;
+  padding: 0 10px;
+  border-radius: 14px;
+  background: #333 !important;
+  color: #ddd !important;
+  font-size: 12px;
+}
+.shoot-myadd {
+  width: calc(100% - 16px);
+  margin: 4px 8px 6px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px dashed #555 !important;
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+.shoot-myform {
+  margin: 4px 8px 8px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #252525;
+  display: grid;
+  gap: 10px;
+}
+.shoot-myform label {
+  display: grid;
+  gap: 4px;
+}
+.shoot-myform label span {
+  font-size: 12px;
+  color: #bdbdbd;
+}
+.shoot-myform input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: 8px;
+  border: 1px solid #444;
+  background: #1b1b1b;
+  color: #fff;
+  font-size: 15px;
+}
+.shoot-myform input:focus {
+  outline: none;
+  border-color: #fff;
+}
+.shoot-myform__t {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.shoot-myform__act {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 8px;
+}
+.shoot-myform__act button {
+  height: 40px;
+  border-radius: 20px;
+  background: #333 !important;
+  color: #fff !important;
+  font-size: 14px;
+  font-weight: 600;
+}
+.shoot-myform__act .is-ok {
+  background: var(--shoot-accent) !important;
+}
+.shoot-myform__act .is-ok:disabled {
+  opacity: 0.4;
+}
+.shoot-time__row {
+  display: grid;
+  grid-template-columns: 1fr auto 32px 32px;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  font-size: 14px;
+}
+.shoot-time__row em {
+  font-style: normal;
+  font-size: 13px;
+  color: #bdbdbd;
+  margin-right: 4px;
+}
+.shoot-time__row button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #333 !important;
+  color: #fff !important;
+  font-size: 16px;
+}
+.shoot-time__row button:disabled {
+  opacity: 0.35;
+}
+.shoot-time__auto {
+  grid-template-columns: 22px 1fr;
+  margin-top: 6px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.shoot-xpick footer.has-save {
+  grid-template-columns: 0.8fr 1.1fr 1.6fr;
+  gap: 8px;
+}
+.shoot-xpick footer .is-save:disabled,
+.shoot-xpick footer .is-ok:disabled {
+  opacity: 0.4;
+}
+.shoot-xpick footer.has-save button {
+  font-size: 14px;
+}

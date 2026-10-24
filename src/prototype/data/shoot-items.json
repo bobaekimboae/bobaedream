@@ -23,6 +23,35 @@
     },
     "extraStages": [
       {
+        "key": "seat",
+        "label": "시트",
+        "min": 10,
+        "max": 25,
+        "hint": "운전석부터 뒷좌석까지 시트만 따로 찍어요. 가죽 상태와 시트 기능을 손으로 눌러 보여 주세요.",
+        "steps": [
+          {
+            "label": "운전석",
+            "hand": "운전석 시트 전체와 옆 볼스터를 천천히 비춰 주세요"
+          },
+          {
+            "label": "조수석",
+            "hand": "조수석 시트를 같은 높이에서 비춰 주세요"
+          },
+          {
+            "label": "뒷좌석",
+            "hand": "뒷문을 열고 뒷좌석 쿠션과 등받이를 비춰 주세요"
+          },
+          {
+            "label": "시트 기능",
+            "hand": "통풍·열선·마사지·메모리 버튼을 눌러 작동을 보여 주세요"
+          },
+          {
+            "label": "가죽 상태",
+            "hand": "가죽 주름·마모가 있는 곳을 가까이 비춰 주세요"
+          }
+        ]
+      },
+      {
         "key": "cluster",
         "label": "계기판",
         "min": 3,
@@ -77,7 +106,107 @@
         "max": 10
       }
     ],
-    "optional": true
+    "optional": true,
+    "customTimes": [
+      {
+        "label": "3~10초",
+        "min": 3,
+        "max": 10
+      },
+      {
+        "label": "5~15초",
+        "min": 5,
+        "max": 15
+      },
+      {
+        "label": "10~30초",
+        "min": 10,
+        "max": 30
+      },
+      {
+        "label": "15~40초",
+        "min": 15,
+        "max": 40
+      }
+    ],
+    "targets": [
+      {
+        "label": "제한 없음",
+        "sec": 0
+      },
+      {
+        "label": "30초",
+        "sec": 30
+      },
+      {
+        "label": "60초",
+        "sec": 60
+      }
+    ],
+    "recommend": [
+      {
+        "id": "super",
+        "label": "슈퍼카",
+        "stages": [
+          "start",
+          "wheel",
+          "feature"
+        ]
+      },
+      {
+        "id": "luxury",
+        "label": "고급 세단",
+        "stages": [
+          "seat",
+          "comfort",
+          "feature"
+        ]
+      },
+      {
+        "id": "suv",
+        "label": "SUV·미니밴",
+        "stages": [
+          "seat",
+          "door",
+          "feature"
+        ]
+      },
+      {
+        "id": "ev",
+        "label": "전기차",
+        "stages": [
+          "cluster",
+          "feature",
+          "tyre"
+        ]
+      },
+      {
+        "id": "old",
+        "label": "10년 넘은 차",
+        "stages": [
+          "under",
+          "tyre",
+          "start"
+        ]
+      }
+    ],
+    "shorts": {
+      "lengths": [
+        15,
+        30,
+        60
+      ],
+      "skip": [
+        "damage"
+      ],
+      "keepSound": [
+        "start"
+      ],
+      "hookDefault": "실매물 영상 그대로",
+      "cutMin": 1.5,
+      "cutMax": 6,
+      "highlightCut": 2.5
+    }
   },
   "groups": [
     {

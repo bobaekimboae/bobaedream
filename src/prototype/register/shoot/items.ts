@@ -34,7 +34,15 @@ type ShootData = {
   vehicleType: string;
   vehicleNote: string;
   photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string };
-  video: { optional: boolean; perStageSec: { min: number; max: number }; extraStages: { key: VideoStage; label: string; min: number; max: number }[] };
+  video: {
+    optional: boolean;
+    perStageSec: { min: number; max: number };
+    extraStages: { key: VideoStage; label: string; min: number; max: number; hint?: string; steps?: { label: string; hand: string }[] }[];
+    customTimes: { label: string; min: number; max: number }[];
+    targets: { label: string; sec: number }[];
+    recommend: { id: string; label: string; stages: VideoStage[] }[];
+    shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; hookDefault: string; cutMin: number; cutMax: number; highlightCut: number };
+  };
   groups: ShootGroup[];
 };
 
@@ -60,4 +68,10 @@ export const PHOTO_MAX = SHOOT.photo.max;
 export const VIDEO_GROUPS = GROUPS.filter((g) => g.videoStage && g.videoKey);
 export const PER_STAGE = SHOOT.video.perStageSec;
 export const stageSec = (g: ShootGroup) => g.videoSec ?? PER_STAGE;
+/** 녹화 중 순서 카드를 띄우는 단계의 세부 부위(실내 그룹 videoSteps · 추가 단계 steps) */
+export function stepsOf(key: string): { label: string; hand: string }[] {
+  const g = VIDEO_GROUPS.find((x) => x.videoKey === key);
+  if (g?.videoSteps?.length) return g.videoSteps;
+  return SHOOT.video.extraStages.find((x) => x.key === key)?.steps ?? [];
+}
 export const levelLabel = (l: ShootLevel) => SHOOT.levelLabels[l];
