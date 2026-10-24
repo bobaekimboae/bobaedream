@@ -24,6 +24,7 @@ import { GUIDE_ON, ShotGuide } from "./guides";
 import { makeMp4, mp4Name, saveToDevice } from "./save-mp4";
 import { RuleIllustration, STAGE_GUIDE, StageTemplate, stageThumb, type VideoStage } from "./templates";
 import { GROUPS, ITEMS, OTHER_ID, PHOTO_MAX, PHOTO_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf, levelLabel, stageSec } from "./items";
+import ShortformStudio from "./ShortformStudio";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const icon = (dir: string, name: string) => `${base}icons/${dir}/${name}`;
@@ -1824,6 +1825,7 @@ function VideoPreview({
             key={cur.u}
             ref={ref}
             src={cur.u}
+            poster={take.thumbs[0]}
             className="shoot-live"
             playsInline
             onTimeUpdate={(e) => setT(e.currentTarget.currentTime)}
@@ -1846,7 +1848,7 @@ function VideoPreview({
             <Mask src={rd("play-fill")} />
           </button>
         ) : null}
-        {total ? (
+        {total && !take.imported ? (
           <div className={`shoot-stages is-done-row ${stageKeys.length > 4 ? "is-plus" : ""}`}>
             {stagePlan.map((item, i) => {
               const s = planDef(item);
@@ -1860,7 +1862,7 @@ function VideoPreview({
                   aria-label={`${s.label} 영상부터 보기`}
                   onClick={() => go(at, true)}
                 >
-                  <span className="shoot-stage-chip__time">{mmss(take.durations[i])}</span>
+                  <span className="shoot-stage-chip__time">{mmss(take.durations[i] || 0)}</span>
                   <span className="shoot-stage-chip__label">{s.label}</span>
                 </button>
               );
@@ -2184,6 +2186,9 @@ type Screen =
 
 
 export default function ShootRegister() {
+  const [studioOpen, setStudioOpen] = useState(() => new URLSearchParams(window.location.search).get('studio') === '1');
+  const studioUrls = useRef<string[]>([]);
+  useEffect(() => () => studioUrls.current.forEach(url => URL.revokeObjectURL(url)), []);
   const [screen, setScreen] = useState<Screen>({ name: "main" });
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [video, setVideo] = useState<Video | null>(null);
@@ -2232,8 +2237,8 @@ export default function ShootRegister() {
   );
   const mediaRef = useRef<HTMLElement>(null);
   useEffect(() => {
-    if (document.documentElement.dataset.site !== "shoot") document.title = "보배드림 · 중고차 등록 촬영";
-  }, []);
+    if (document.documentElement.dataset.site !== "shoot") document.title = studioOpen ? "보배드림 · 차량 숏폼 스튜디오" : "보배드림 · 중고차 등록 촬영";
+  }, [studioOpen]);
 
   const missing = useMemo(() => {
     const got = new Set(photos.map((p) => p.slot));
@@ -2260,7 +2265,7 @@ export default function ShootRegister() {
 
   return (
     <div className="shoot-root" onPointerDownCapture={primeSound}>
-      <div className="shoot-phone">
+      <div className="shoot-phone" inert={studioOpen}>
         <section className="shoot-main" aria-label="중고차 등록">
           <header className="shoot-main__top">
             <button type="button" className="shoot-icon-btn is-dark" aria-label="뒤로" onClick={() => setAskLeave(true)}>
@@ -2333,7 +2338,7 @@ export default function ShootRegister() {
                     <small>필수</small>
                   </button>
                   <i />
-                  <button type="button" onClick={() => setScreen({ name: "video" })}>
+                  <button type="button" onClick={() => setStudioOpen(true)}>
                     <Mask src={rd("video-camera-outline")} className="is-big" />
                     <strong>영상 촬영</strong>
                     <small>선택</small>
@@ -2395,7 +2400,7 @@ export default function ShootRegister() {
                     </button>
                   ) : null}
                   {!video ? (
-                    <button type="button" className="shoot-tile shoot-tile--add" onClick={() => setScreen({ name: "video" })}>
+                    <button type="button" className="shoot-tile shoot-tile--add" onClick={() => setStudioOpen(true)}>
                       <Mask src={rd("video-camera-outline")} className="is-big" />
                       <span>영상 추가</span>
                     </button>
@@ -2403,6 +2408,10 @@ export default function ShootRegister() {
                 </div>
               )}
             </section>
+
+            <button type="button" className="shoot-studio-entry" onClick={() => setStudioOpen(true)}>
+              <span><strong>보배드림 숏폼 스튜디오</strong><small>부위별 촬영 · 시간 설정 · 세로 MP4 만들기</small></span><span>열기 →</span>
+            </button>
 
             <section className="shoot-field">
               <h3>
@@ -2488,7 +2497,7 @@ export default function ShootRegister() {
         ) : null}
         {screen.name === "vedit" && video ? (
           <VideoPreview
-            take={{ segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, plan: video.plan, marks: video.marks, steps: video.steps }}
+            take={{ segs: video.segs, durations: video.durations, thumbs: [video.cover], imported: video.imported, stages: video.stages, plan: video.plan, marks: video.marks, steps: video.steps }}
             edit
             onClose={() => setScreen({ name: "main" })}
             onReshoot={video.imported ? undefined : () => setScreen({ name: "video", reshoot: true })}
@@ -2550,6 +2559,15 @@ export default function ShootRegister() {
         ) : null}
         <Toast text={toast} />
       </div>
+      <ShortformStudio open={studioOpen} onClose={() => setStudioOpen(false)} onUse={output => {
+        const url = URL.createObjectURL(output.blob);
+        const cover = URL.createObjectURL(output.cover);
+        studioUrls.current.push(url, cover);
+        setVideo({ segs: [url], durations: [output.duration], cover, uploading: false, imported: true });
+        setScreen({ name: 'main' });
+        setStudioOpen(false);
+        notify('완성한 숏폼을 추가했어요. 실제 등록은 하지 않았어요.');
+      }} />
     </div>
   );
 }
