@@ -998,7 +998,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     const next = [...durRef.current];
     next[s] = Math.min(STAGE_DEFS[stagesRef.current[s]].max, Math.round(secs));
     setDurations(next);
-    if (stagesRef.current[s] === "interior") {
+    if (PLUS && stagesRef.current[s] === "interior") {
       const st = stepTimes.current.filter((t) => t < next[s]);
       setSteps(st);
       stepsRef.current = st;
@@ -1041,7 +1041,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       }
       const max = STAGE_DEFS[stagesRef.current[stageRef.current]].max;
       elapsedRef.current = secs;
-      if (stagesRef.current[stageRef.current] === "interior") {
+      if (PLUS && stagesRef.current[stageRef.current] === "interior") {
         const last = stepTimes.current[stepTimes.current.length - 1] ?? 0;
         if (istepRef.current < INTERIOR_STEPS.length - 1 && secs - last >= STEP_SEC) nextStep();
       }
@@ -1130,7 +1130,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const recording = phase === "recording" || phase === "countdown";
   const cur = defs[stage];
   const isDamage = cur.key === "damage";
-  const isInterior = cur.key === "interior";
+  // 실내 순서 카드는 58에 없어 ?vstage=58 비교 화면에서는 뺀다.
+  const isInterior = PLUS && cur.key === "interior";
   function nextStep() {
     const n = Math.min(INTERIOR_STEPS.length - 1, istepRef.current + 1);
     if (n === istepRef.current) return;
