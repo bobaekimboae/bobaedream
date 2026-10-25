@@ -4033,3 +4033,338 @@ body:has(.shoot-layer) .shoot-install {
   width: 32px;
   height: 32px;
 }
+
+/* ── 부위 나누기 · 사진 끌어서 칸 바꾸기(2026-10-25) ───────────── */
+.shoot-tile[data-drag-id],
+.shoot-sort__cell[data-drag-id] {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.shoot-tile.is-drag-src,
+.shoot-sort__cell.is-drag-src {
+  opacity: 0.35;
+}
+.shoot-tile.is-drop .shoot-tile__img,
+.shoot-sort__cell.is-drop .shoot-sort__img {
+  box-shadow: 0 0 0 3px var(--shoot-accent);
+}
+.shoot-drag-ghost {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 200;
+  margin: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  border-radius: 8px;
+  background: #fff;
+  transform-origin: 0 0;
+}
+.shoot-tile__rep,
+.shoot-sort__rep {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: var(--shoot-accent);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+}
+.shoot-sortlink {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--shoot-sub);
+}
+.shoot-sortlink button {
+  flex: none;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 16px;
+  box-shadow: inset 0 0 0 1px #e4e7ec;
+  color: var(--shoot-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+.shoot-sort {
+  background: #fff;
+  color: var(--shoot-text);
+}
+.shoot-sort__body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 4px 16px 112px;
+}
+.shoot-sort__card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 12px;
+  background: #f6f7f9;
+}
+.shoot-sort__card strong {
+  font-size: 16px;
+  line-height: 22px;
+}
+.shoot-sort__card p,
+.shoot-sort__sum p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #444;
+  word-break: keep-all;
+}
+.shoot-sort__card small {
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--shoot-sub);
+  word-break: keep-all;
+}
+.shoot-sort__card.is-warn {
+  background: #fff4ef;
+}
+.shoot-sort__row {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+.shoot-sort__row button {
+  height: 44px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: inset 0 0 0 1px #e4e7ec;
+  font-size: 15px;
+  font-weight: 600;
+}
+.shoot-sort__row button.is-ok {
+  background: var(--shoot-accent);
+  box-shadow: none;
+  color: #fff;
+}
+.shoot-sort__bar {
+  display: block;
+  height: 6px;
+  border-radius: 3px;
+  background: #e4e7ec;
+  overflow: hidden;
+}
+.shoot-sort__bar b {
+  display: block;
+  height: 100%;
+  background: var(--shoot-accent);
+  transition: width 0.2s;
+}
+.shoot-sort__sum {
+  display: grid;
+  gap: 4px;
+  padding: 4px 0 4px;
+}
+.shoot-sort__sum strong {
+  font-size: 16px;
+  line-height: 22px;
+}
+.shoot-sort__sum em {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--shoot-accent);
+}
+.shoot-sort__sum em.is-ok {
+  color: #1a7f37;
+}
+.shoot-sort__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 8px;
+  margin-top: 14px;
+}
+.shoot-sort__cell {
+  margin: 0;
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+.shoot-sort__img {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f1f1;
+  display: block;
+  width: 100%;
+}
+.shoot-sort__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.shoot-sort__cell.is-wait .shoot-sort__img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.55);
+}
+.shoot-sort__cell.is-empty .shoot-sort__img {
+  display: grid;
+  place-items: center;
+  background: #fff;
+  box-shadow: inset 0 0 0 1.5px #f4b39c;
+  border: 0;
+  font-size: 13px;
+  color: var(--shoot-accent);
+  outline: 1px dashed transparent;
+}
+.shoot-sort__check {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: #fff;
+  color: var(--shoot-accent);
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+.shoot-sort__cell figcaption {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  min-width: 0;
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: 500;
+}
+.shoot-sort__cell figcaption.is-req {
+  color: var(--shoot-accent);
+  font-weight: 600;
+}
+.shoot-sort__cell figcaption.is-other {
+  color: var(--shoot-sub);
+}
+.shoot-sort__cell figcaption .is-caret {
+  flex: none;
+  width: 14px;
+  height: 14px;
+}
+.shoot-sort__foot {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px 16px calc(16px + env(safe-area-inset-bottom));
+  background: #fff;
+  box-shadow: 0 -1px 0 #eee;
+}
+.shoot-sort__done {
+  width: 100%;
+  height: 52px;
+  border-radius: 26px;
+  background: var(--shoot-accent);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.shoot-sort__done:disabled {
+  background: #d9d9d9;
+}
+.shoot-sort-sheet {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 80%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px 16px 0 0;
+  background: #fff;
+  color: var(--shoot-text);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.shoot-sort-sheet__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 16px 8px;
+}
+.shoot-sort-sheet__head img {
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+.shoot-sort-sheet__head strong {
+  font-size: 17px;
+  line-height: 24px;
+}
+.shoot-sort-sheet__list {
+  overflow-y: auto;
+  padding: 0 16px 8px;
+}
+.shoot-sort-sheet__list h4 {
+  margin: 12px 0 8px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--shoot-sub);
+}
+.shoot-sort-sheet__list section > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.shoot-sort-sheet__list button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 18px;
+  box-shadow: inset 0 0 0 1px #e4e7ec;
+  font-size: 14px;
+  font-weight: 500;
+}
+.shoot-sort-sheet__list button.is-req {
+  color: var(--shoot-accent);
+}
+.shoot-sort-sheet__list button.is-on {
+  background: #222;
+  color: #fff;
+  box-shadow: none;
+}
+.shoot-sort-sheet__list button img {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+.shoot-sort-sheet__note {
+  margin: 0;
+  padding: 8px 16px 16px;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--shoot-sub);
+}
+.shoot-sort__shoot {
+  justify-self: start;
+  height: 36px;
+  margin: 4px 0 2px;
+  padding: 0 14px;
+  border-radius: 18px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
