@@ -3756,3 +3756,76 @@ body:has(.shoot-layer) .shoot-install {
   outline: 2px solid #fff;
   outline-offset: 2px;
 }
+
+/* 2026-10-25 배포본 컨설팅 반영 */
+/* 확인창 글자가 창 가장자리에 붙지 않게 */
+.shoot-confirm p {
+  padding: 0 20px;
+  line-height: 20px;
+  word-break: keep-all;
+}
+/* 권한 화면 닫기: 다른 촬영 화면과 같은 왼쪽 위 자리 */
+.shoot-perm .shoot-perm__close {
+  position: absolute;
+  top: 0;
+  left: 4px;
+  width: 44px;
+  height: 44px;
+  border-radius: 0;
+  background: transparent !important;
+  color: #fff !important;
+}
+/* 녹화 중 표시(아래 오른쪽 시간 자리) */
+.shoot-recstate {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+}
+.shoot-recstate i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff3b30;
+  animation: shoot-recblink 1s steps(2, start) infinite;
+}
+@keyframes shoot-recblink {
+  to { visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shoot-recstate i { animation: none; }
+}
+/* 단계 칩 글자 대비: 회색 바탕 위 어두운 회색 → 밝은 글자 */
+.shoot-stages.is-kit .shoot-stage-chip {
+  background: rgba(60, 60, 60, 0.88) !important;
+  color: #e6e6e6 !important;
+}
+.shoot-stages.is-kit .shoot-stage-chip.is-done .shoot-stage-chip__time {
+  color: #e6e6e6;
+}
+/* 미리보기의 안 찍은 단계: 흐리게 숨기지 않고 주황 점선으로 구분 */
+.shoot-stages.is-done-row.is-kit .shoot-stage-chip.is-empty {
+  opacity: 1;
+  background: rgba(40, 40, 40, 0.88) !important;
+  box-shadow: none;
+  outline: 1px dashed rgba(255, 120, 40, 0.9);
+  outline-offset: -1px;
+}
+.shoot-stages.is-done-row.is-kit .shoot-stage-chip.is-empty .shoot-stage-chip__time {
+  color: #ffb27a;
+  font-weight: 600;
+}
+.shoot-stages.is-done-row.is-kit .shoot-stage-chip.is-empty .shoot-stage-chip__label {
+  background: transparent;
+  color: #e6e6e6;
+}
+/* 순서 버튼(↑↓)과 시간 버튼(−＋) 사이를 띄워 잘못 누르지 않게 */
+.shoot-time__row.is-order {
+  grid-template-columns: 1fr auto 32px 32px 8px 32px 32px;
+}
+.shoot-time__row.is-order button:nth-of-type(3) {
+  grid-column: 6;
+}

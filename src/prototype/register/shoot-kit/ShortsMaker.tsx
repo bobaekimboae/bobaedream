@@ -133,8 +133,8 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
         const l = byIndex.get(c.clip.index)!;
         return { source: { kind: "video" as const, video: l.video, file: l.blob, duration: c.clip.duration, offset: c.offset }, duration: c.duration, line: lines[cutKey(c)] ?? c.line };
       }),
-      hook: hook || (title ? `${title} 실매물 영상` : CFG.hookDefault),
-      title: title || "보배드림 실매물",
+      hook: hook.trim(),
+      title,
       trim: "",
       price: info.price.trim(),
       specs: [],
@@ -334,7 +334,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
                 <input value={info.phone} maxLength={16} inputMode="tel" placeholder="연락처 (선택 · 끝 장면에 보여요)" onChange={(e) => setInfo({ ...info, phone: e.target.value })} aria-label="연락처" />
               </div>
               <h3>첫 화면 문구</h3>
-              <input className="shoot-shorts__input" value={hook} maxLength={24} placeholder={info.title.trim() ? `${info.title.trim()} 실매물 영상` : CFG.hookDefault} onChange={(e) => setHook(e.target.value)} aria-label="첫 화면 문구" />
+              <input className="shoot-shorts__input" value={hook} maxLength={24} placeholder="비워 두면 첫 화면 문구 없이 만들어요" onChange={(e) => setHook(e.target.value)} aria-label="첫 화면 문구" />
               <h3>
                 컷별 자막 <small>자동으로 고른 장면 · {hlList.length ? `표시한 장면 ${hlList.length}곳 포함` : "두 번 눌러 표시한 장면이 있으면 먼저 써요"}</small>
               </h3>
@@ -361,10 +361,10 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
       </div>
       {loaded && cuts.length && !made ? (
         <footer className="shoot-shorts__foot">
+          {codec && codec !== "avc" ? <p className="shoot-shorts__warn">이 브라우저는 H.264로 만들지 못해 {codec.toUpperCase()} 방식으로 만들어요. 인스타그램 · 아이폰에서 안 올라갈 수 있어요.</p> : null}
           <button type="button" className="shoot-shorts__primary" disabled={!plan || can === false || making != null} onClick={() => void make()}>
             {can === false ? "이 브라우저에서는 mp4를 만들 수 없어요" : `쇼츠 mp4 만들기 · ${mmss(total)}`}
           </button>
-          {codec && codec !== "avc" ? <p className="shoot-shorts__warn">이 브라우저는 H.264로 만들지 못해 {codec.toUpperCase()} 방식으로 만들어요. 인스타그램 · 아이폰에서 안 올라갈 수 있어요.</p> : null}
         </footer>
       ) : null}
       {making != null ? (
