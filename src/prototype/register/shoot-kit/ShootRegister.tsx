@@ -29,6 +29,7 @@ import { RuleIllustration, StageTemplate, setCustomGuide, stageGuide, stageThumb
 import { loadPrefs, newCustomKey, savePrefs, type CustomStage, type StagePrefs } from "./stage-prefs";
 import type { Highlight } from "./shorts";
 import { ShortsMaker } from "./ShortsMaker";
+import regionsKr from "../../data/regions-kr.json";
 import { GROUPS, ITEMS, OTHER_ID, PHOTO_MAX, PHOTO_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf, levelLabel, stageSec, stepsOf } from "./items";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
@@ -268,7 +269,8 @@ function PhotoCapture({
     if (cam.torchSupported) cam.setTorch(flash);
   }, [flash, cam]);
   const videoRef = useRef<HTMLDivElement>(null);
-  const [plate, setPlate] = useState(false);
+  // 2026-10-25 컨설팅 6건: 번호판 가리기는 켜짐이 기본(58 원본 재현은 꺼짐)
+  const [plate, setPlate] = useState(PLUS);
   const [guide, setGuide] = useState(GUIDE_ON);
   const [session, setSession] = useState<CamSession>({ shots: [], picked: [], imported: [] });
   const filledByMain = useMemo(() => new Set(existing.map((p) => p.slot)), [existing]);
@@ -346,7 +348,11 @@ function PhotoCapture({
       if (sel >= next.length) next.push(shot);
       else next[sel] = shot;
       // 다음 빈 칸으로. 빈 칸이 없으면 「기타」 칸을 하나 더 만든다.
-      let n = next.findIndex((p, i) => !p && i > sel);
+      // 키트(2026-10-25 컨설팅 6건): 필수 칸이 남았으면 그 칸부터 채운다(필수 4장을 먼저 끝내게).
+      const reqEmpty = (i: number) => !next[i] && i < rail.length && isRequiredItem(rail[i]) && !existing.some((e) => e.slot === rail[i]);
+      let n = PLUS ? next.findIndex((_, i) => i > sel && reqEmpty(i)) : -1;
+      if (PLUS && n < 0) n = next.findIndex((_, i) => reqEmpty(i));
+      if (n < 0) n = next.findIndex((p, i) => !p && i > sel);
       if (n < 0) n = next.findIndex((p) => !p);
       if (n < 0) {
         n = next.length;
@@ -486,9 +492,16 @@ function PhotoCapture({
               </button>
               <div className="shoot-count">
                 <PhotoCounter required={requiredNow} total={total} />
-                <button type="button" className="shoot-done" onClick={done}>
-                  완료
-                </button>
+                {PLUS ? (
+                  // 2026-10-25 컨설팅 6건: 한 장도 없으면 완료를 막고, 몇 장을 가져가는지 보여 준다(나눠 찍기는 허용)
+                  <button type="button" className="shoot-done" disabled={!session.picked.length} onClick={done}>
+                    완료{session.picked.length ? ` ${session.picked.length}장` : ""}
+                  </button>
+                ) : (
+                  <button type="button" className="shoot-done" onClick={done}>
+                    완료
+                  </button>
+                )}
               </div>
             </div>
             <ModeTabs mode={mode} onChange={setMode} labels={["촬영", "앨범"]} />
@@ -1027,6 +1040,15 @@ type RecPhase = "idle" | "countdown" | "recording" | "paused" | "merging";
 function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take; onClose: () => void; onFinished: (take: Take) => void; notify: (t: string) => void }) {
   const [mode, setMode] = useState<"cam" | "album">("cam");
   const cam = useCamera(mode === "cam", true);
+  // 2026-10-25 컨설팅 6건: 5초가 지나도 카메라 화면이 안 뜨면 「카메라를 쓸 수 없어요」로 빠져나갈 길을 준다.
+  const [camSlow, setCamSlow] = useState(false);
+  const [camTries, setCamTries] = useState(0);
+  useEffect(() => {
+    setCamSlow(false);
+    if (!PLUS || mode !== "cam" || cam.stream || cam.error) return undefined;
+    const t = window.setTimeout(() => setCamSlow(true), 5000);
+    return () => window.clearTimeout(t);
+  }, [mode, cam.stream, cam.error, camTries]);
   const [flash, setFlash] = useState(false);
   // 다시 찍기: 찍어 둔 단계는 그대로 두고, 고른 단계만 새로 찍어 바꾼다.
   const [stages, setStages] = useState<VideoStage[]>(() => initial?.stages?.slice() ?? BASE_STAGES);
@@ -1574,15 +1596,30 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
         </>
       ) : (
         <>
-          <div className="shoot-album-banner">휴대폰에 있는 차량 영상을 불러와요</div>
-          <div className="shoot-album-grid">
-            <button type="button" className="shoot-album-import" onClick={() => fileRef.current?.click()}>
-              <Mask src={rd("video-camera-outline")} />
-              휴대폰 영상
-              <br />
-              불러오기
-            </button>
-          </div>
+          {PLUS ? (
+            // 2026-10-25 컨설팅 6건: 빈 검은 화면 대신 큰 불러오기 버튼과 다음 할 일 안내
+            <div className="shoot-vimport">
+              <Mask src={rd("video-camera-outline")} className="shoot-vimport__ico" />
+              <strong>찍어 둔 차량 영상을 불러와요</strong>
+              <p>휴대폰에서 영상 1개를 고르면 바로 미리보기로 넘어가요. 거기서 저장하거나 쇼츠로 만들 수 있어요.</p>
+              <button type="button" className="shoot-vimport__btn" onClick={() => fileRef.current?.click()}>
+                휴대폰 영상 불러오기
+              </button>
+              <small>부위별로 나눠 찍으려면 아래 「촬영」을 눌러 주세요</small>
+            </div>
+          ) : (
+            <>
+              <div className="shoot-album-banner">휴대폰에 있는 차량 영상을 불러와요</div>
+              <div className="shoot-album-grid">
+                <button type="button" className="shoot-album-import" onClick={() => fileRef.current?.click()}>
+                  <Mask src={rd("video-camera-outline")} />
+                  휴대폰 영상
+                  <br />
+                  불러오기
+                </button>
+              </div>
+            </>
+          )}
           <input ref={fileRef} type="file" accept="video/*" hidden onChange={(e) => importVideo(e.target.files)} />
           <div className="shoot-bottom is-album">
             <ModeTabs mode={mode} onChange={setMode} labels={["촬영", "앨범"]} />
@@ -1638,8 +1675,17 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
           }}
         />
       ) : null}
-      {PLUS && mode === "cam" && cam.error === "denied" ? (
-        <CamPermission onRetry={cam.retry} onAlbum={() => setMode("album")} onClose={onClose} />
+      {PLUS && mode === "cam" && !pickOpen && !cam.stream && (cam.error || camSlow) ? (
+        <CamPermission
+          kind={cam.error === "denied" ? "denied" : "unavailable"}
+          onRetry={() => {
+            setCamTries((n) => n + 1);
+            cam.retry();
+          }}
+          onAlbum={() => setMode("album")}
+          onCourse={() => setPickOpen(true)}
+          onClose={onClose}
+        />
       ) : null}
       {PLUS ? (
         <span className="shoot-sr" role="status" aria-live="polite">
@@ -1651,20 +1697,27 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
 }
 
 /** 카메라 권한이 없을 때(2026-10-25 컨설팅): 촬영 화면을 그대로 두지 않고 따로 안내한다. 지금 쓰는 환경 안내만 보인다. */
-function CamPermission({ onRetry, onAlbum, onClose }: { onRetry: () => void; onAlbum: () => void; onClose: () => void }) {
+function CamPermission({ kind, onRetry, onAlbum, onCourse, onClose }: { kind: "denied" | "unavailable"; onRetry: () => void; onAlbum: () => void; onCourse: () => void; onClose: () => void }) {
+  // 권한 거절과 카메라 없음(또는 5초 넘게 안 뜸)을 나눠 안내한다. Esc로 닫고, 포커스는 이 화면 안에서만 돈다.
+  const ref = useRef<HTMLDivElement>(null);
+  useDialogFocus(ref, onClose);
+  const denied = kind === "denied";
   return (
-    <div className="shoot-perm" role="alertdialog" aria-modal="true" aria-labelledby="shoot-perm-t">
+    <div ref={ref} className="shoot-perm" role="alertdialog" aria-modal="true" aria-labelledby="shoot-perm-t" aria-describedby="shoot-perm-d">
       <button type="button" className="shoot-icon-btn shoot-perm__close" aria-label="닫기" onClick={onClose}>
         <Mask src={rd("close-outline")} />
       </button>
       <Mask src={rd("video-camera-outline")} className="shoot-perm__icon" />
-      <strong id="shoot-perm-t">카메라 사용 권한이 필요해요</strong>
-      <p>{permHelp()}</p>
-      <button type="button" className="is-ok" onClick={onRetry} autoFocus>
-        카메라 권한 허용
+      <strong id="shoot-perm-t">{denied ? "카메라 사용 권한이 필요해요" : "카메라를 쓸 수 없어요"}</strong>
+      <p id="shoot-perm-d">{denied ? permHelp() : "다른 앱이 카메라를 쓰고 있거나 카메라가 없는 기기예요. 다시 시도하거나 찍어 둔 영상을 올려 주세요."}</p>
+      <button type="button" className="is-ok" onClick={onRetry} data-autofocus="">
+        {denied ? "카메라 권한 허용" : "다시 시도"}
       </button>
       <button type="button" onClick={onAlbum}>
-        찍어 둔 영상 올리기
+        {denied ? "찍어 둔 영상 올리기" : "앨범에서 선택"}
+      </button>
+      <button type="button" className="shoot-perm__link" onClick={onCourse}>
+        촬영 코스 먼저 고르기
       </button>
     </div>
   );
@@ -2028,11 +2081,12 @@ function CoursePicker({
           </button>
           {pro ? (
             <button type="button" className="is-save" disabled={drops(next)} onClick={() => onApply(next, { ...draft, myCourse: next })}>
-              내 코스로 저장
+              코스 저장
             </button>
           ) : null}
           <button type="button" className="is-ok" disabled={drops(next)} onClick={() => onApply(next, draft)}>
-            {next.length}단계 · 최대 {mmss(total)}
+            {/* 2026-10-25 컨설팅 6건: 버튼에 할 일(동사)을 쓴다 */}
+            {next.length}단계로 찍기 <small>최대 {mmss(total)}</small>
           </button>
         </footer>
       </div>
@@ -2375,6 +2429,54 @@ function CoverPicker({ segs, fallback, onClose, onDone }: { segs: (string | null
   );
 }
 
+// ── 차량 소재지 ────────────────────────────────────────
+// 2026-10-25 컨설팅 6건: 기본값 없이 시·도 → 시·군·구 두 단계로 고른다(세종은 시·도만). 지역 자료는 regions-kr.json.
+const SIDO = regionsKr.sido as string[];
+const DISTRICTS = regionsKr.districts as Record<string, string[]>;
+function RegionSheet({ value, onClose, onPick }: { value: { sido: string; gu: string } | null; onClose: () => void; onPick: (r: { sido: string; gu: string }) => void }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [sido, setSido] = useState<string | null>(null);
+  useDialogFocus(ref, onClose);
+  const list = sido ? DISTRICTS[sido] ?? [] : [];
+  return (
+    <div className="shoot-region" onClick={(e) => e.target === e.currentTarget && onClose()}>
+      <div ref={ref} className="shoot-region__box" role="dialog" aria-modal="true" aria-labelledby="shoot-region-t">
+        <header>
+          {sido ? (
+            <button type="button" className="shoot-icon-btn" aria-label="시·도 다시 고르기" onClick={() => setSido(null)}>
+              <Mask src={rd("back-outline-24")} className="is-back" />
+            </button>
+          ) : (
+            <span className="shoot-icon-btn" />
+          )}
+          <h2 id="shoot-region-t">{sido ? `${sido} · 시·군·구` : "차량 소재지"}</h2>
+          <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
+            <Mask src={rd("close-outline")} />
+          </button>
+        </header>
+        <div className={`shoot-region__grid ${sido ? "is-gu" : ""}`} key={sido ?? "sido"}>
+          {sido
+            ? list.map((g) => (
+                <button key={g} type="button" className={value?.sido === sido && value.gu === g ? "is-on" : ""} onClick={() => onPick({ sido, gu: g })}>
+                  {g}
+                </button>
+              ))
+            : SIDO.map((x) => (
+                <button
+                  key={x}
+                  type="button"
+                  className={value?.sido === x ? "is-on" : ""}
+                  onClick={() => ((DISTRICTS[x] ?? []).length ? setSido(x) : onPick({ sido: x, gu: "" }))}
+                >
+                  {x}
+                </button>
+              ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── 촬영 규칙 ──────────────────────────────────────────
 function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void }) {
   // 그룹·항목·필수 여부는 모두 shoot-items-kit.json. 사진 칸 레일과 같은 순서·같은 이름이다.
@@ -2393,31 +2495,47 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
           <p>{SHOOT.rulesNotice}</p>
           <small className="shoot-rules__vehicle">{SHOOT.vehicleNote}</small>
         </section>
-        {GROUPS.map((g) => (
-          <section key={g.id} className={`shoot-rules__group is-${g.level}`}>
-            <h3>
-              {g.label}({g.items.length}장)
-              <span className={`shoot-rules__badge is-${g.level}`}>
-                {/* 2026-10-25 컨설팅: 「필수 4장」 → 「6장 중 4장 필수」 */}
-                {g.items.some((a) => a.level && a.level !== g.level)
-                  ? `${g.items.length}장 중 ${g.items.filter((a) => (a.level ?? g.level) === g.level).length}장 ${levelLabel(g.level)}`
-                  : levelLabel(g.level)}
-              </span>
-            </h3>
-            <p>{g.items.map((a) => a.label).join(" | ")}</p>
-            <div className="shoot-rules__grid">
-              {g.items.map((a) => (
-                <figure key={a.id}>
+        {/* 2026-10-25 컨설팅 6건: 필수 4장을 맨 위 한 줄로 모으고, 그룹에는 나머지(권장·선택)만 둔다 */}
+        <section className="shoot-rules__group is-required">
+          <h3>
+            필수 {REQUIRED_IDS.length}장
+            <span className="shoot-rules__badge is-required">필수</span>
+          </h3>
+          <div className="shoot-rules__grid">
+            {REQUIRED_IDS.map((id) => {
+              const a = itemOf(id);
+              return (
+                <figure key={id}>
                   <RuleIllustration angle={a.rule} flip={a.ruleFlip} />
-                  <figcaption>
-                    {a.label}
-                    {a.level && a.level !== g.level ? <span className={`shoot-rules__itembadge is-${a.level}`}>{levelLabel(a.level)}</span> : null}
-                  </figcaption>
+                  <figcaption>{a.label}</figcaption>
                 </figure>
-              ))}
-            </div>
-          </section>
-        ))}
+              );
+            })}
+          </div>
+        </section>
+        {GROUPS.map((g) => {
+          const rest = g.items.filter((a) => !isRequiredItem(a.id));
+          if (!rest.length) return null;
+          return (
+            <section key={g.id} className={`shoot-rules__group is-${g.level}`}>
+              <h3>
+                {g.label} {rest.length}장
+                <span className={`shoot-rules__badge is-${g.level}`}>{levelLabel(g.level)}</span>
+              </h3>
+              <div className="shoot-rules__grid">
+                {rest.map((a) => (
+                  <figure key={a.id}>
+                    <RuleIllustration angle={a.rule} flip={a.ruleFlip} />
+                    <figcaption>
+                      {a.label}
+                      {itemLevel(a.id) !== g.level ? <span className={`shoot-rules__itembadge is-${itemLevel(a.id)}`}>{levelLabel(itemLevel(a.id))}</span> : null}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
       <div className="shoot-rules__cta">
         <button type="button" onClick={onAdd}>
@@ -2453,6 +2571,9 @@ export default function ShootRegister() {
   const [verify, setVerify] = useState<"reg" | "orig" | "plate">("reg");
   const [drafts, setDrafts] = useState(0);
   const [progress, setProgress] = useState(0);
+  // 2026-10-25 컨설팅 6건: 소재지는 기본값 없이 직접 고른다(58 재현은 「서울」 고정).
+  const [region, setRegion] = useState<{ sido: string; gu: string } | null>(null);
+  const [regionOpen, setRegionOpen] = useState(false);
   const [askLeave, setAskLeave] = useState(false);
   const toastTimer = useRef(0);
 
@@ -2463,7 +2584,8 @@ export default function ShootRegister() {
   };
 
   useEffect(() => {
-    // 들어오면 0% → 소재지가 채워지며 20%(58 확인)
+    // 들어오면 0% → 소재지가 채워지며 20%(58 확인). 키트는 사용자가 직접 한 것만 센다.
+    if (PLUS) return undefined;
     const t = window.setTimeout(() => setProgress(20), 600);
     return () => window.clearTimeout(t);
   }, []);
@@ -2479,9 +2601,17 @@ export default function ShootRegister() {
   const [tried, setTried] = useState(false);
   const needPhotos = Math.max(0, REQUIRED_IDS.length - requiredDone);
   useEffect(
-    () => setProgress((p) => (p === 0 ? 0 : Math.round(20 + (60 * Math.min(requiredDone, PHOTO_MIN)) / PHOTO_MIN + (10 * recommendedDone) / RECOMMENDED_IDS.length + (10 * videoDone) / VIDEO_GROUPS.length))),
-    [requiredDone, recommendedDone, videoDone],
+    () =>
+      setProgress((p) => {
+        const media = (60 * Math.min(requiredDone, PHOTO_MIN)) / PHOTO_MIN + (10 * recommendedDone) / RECOMMENDED_IDS.length + (10 * videoDone) / VIDEO_GROUPS.length;
+        // 키트: 소재지를 고르면 20(처음엔 0). 58 재현: 들어온 뒤 자동 20.
+        if (PLUS) return Math.round((region ? 20 : 0) + media);
+        return p === 0 ? 0 : Math.round(20 + media);
+      }),
+    [requiredDone, recommendedDone, videoDone, region],
   );
+  const regionOk = !PLUS || Boolean(region);
+  const canPublish = requiredOk && regionOk;
   const mediaRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (document.documentElement.dataset.site !== "shoot") document.title = "보배드림 · 중고차 등록 촬영";
@@ -2507,11 +2637,20 @@ export default function ShootRegister() {
 
   const anyUploading = photos.some((p) => p.uploading);
   const status = !photos.length ? "empty" : anyUploading ? "uploading" : "done";
-  const sectionTitle = status === "uploading" ? "차량 사진 인식 중…" : status === "done" && photos.length ? "차량 사진 인식 완료" : PLUS ? "사진 올리기(필수) · 영상 촬영(선택)" : "사진·영상 올리기";
+  // 키트: 실제로 인식하지 않으므로 「인식 중 · 인식 완료」 대신 사실대로 쓴다(58 재현은 원문 유지).
+  const sectionTitle = PLUS
+    ? status === "uploading"
+      ? "사진을 올리고 있어요"
+      : "사진 · 영상"
+    : status === "uploading"
+      ? "차량 사진 인식 중…"
+      : status === "done" && photos.length
+        ? "차량 사진 인식 완료"
+        : "사진·영상 올리기";
   const hasMedia = photos.length > 0 || Boolean(video);
 
   return (
-    <div className="shoot-root" onPointerDownCapture={primeSound}>
+    <div className={`shoot-root ${PLUS ? "is-kit" : ""}`} onPointerDownCapture={primeSound}>
       <div className="shoot-phone">
         <section className="shoot-main" aria-label="중고차 등록">
           <header className="shoot-main__top">
@@ -2534,7 +2673,14 @@ export default function ShootRegister() {
               <h3>
                 차량 소재지 <em>(필수)</em>
               </h3>
-              <p className="shoot-field__value">서울</p>
+              {PLUS ? (
+                <button type="button" className={`shoot-region-btn ${region ? "is-on" : tried && !region ? "is-warn" : ""}`} onClick={() => setRegionOpen(true)} aria-haspopup="dialog">
+                  {region ? `${region.sido}${region.gu ? ` ${region.gu}` : ""}` : "시·도와 시·군·구를 골라 주세요"}
+                  <Mask src={rd("back-outline-24")} className="is-fwd" />
+                </button>
+              ) : (
+                <p className="shoot-field__value">서울</p>
+              )}
             </section>
 
             <section className="shoot-field" ref={mediaRef}>
@@ -2544,7 +2690,7 @@ export default function ShootRegister() {
                 </h3>
                 <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계(선택)`}>
                   사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b>
-                  {PLUS ? " 필수" : ""} · 영상 <span className="is-opt">{videoDone}/{VIDEO_GROUPS.length}{PLUS ? " 선택" : " · 선택"}</span>
+                  {PLUS ? " 필수" : ""} · 영상 <span className="is-opt">{PLUS ? (videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택") : `${videoDone}/${VIDEO_GROUPS.length} · 선택`}</span>
                 </span>
               </div>
               <div className="shoot-hint-row">
@@ -2656,6 +2802,13 @@ export default function ShootRegister() {
               )}
             </section>
 
+            {PLUS ? (
+              <section className="shoot-field">
+                <h3>차량 인증</h3>
+                <p className="shoot-field__soon">자동차등록증 · 등록원부 · 차대번호 명판 인증은 준비 중이에요</p>
+              </section>
+            ) : (
+              <>
             <section className="shoot-field">
               <h3>
                 차량 인증 <em>(하나만 인증하면 돼요)</em>
@@ -2680,6 +2833,8 @@ export default function ShootRegister() {
                 {verify === "reg" ? "자동차등록증" : verify === "orig" ? "등록원부" : "차대번호 명판"} 사진
               </button>
             </section>
+              </>
+            )}
           </div>
 
           <footer className="shoot-main__foot">
@@ -2696,24 +2851,44 @@ export default function ShootRegister() {
             </button>
             <button
               type="button"
-              className={`shoot-publish ${requiredOk ? "" : "is-disabled"}`}
-              aria-disabled={!requiredOk}
+              className={`shoot-publish ${canPublish ? "" : "is-disabled"}`}
+              aria-disabled={!canPublish}
               onClick={() => {
-                if (!requiredOk) {
-                  // 필수 사진이 덜 찼으면 사진·영상 칸으로 올려 보내고 숫자를 빨갛게 한다.
+                if (!canPublish) {
+                  // 덜 찬 것(필수 사진 → 소재지 순)으로 올려 보내고 그 칸을 빨갛게 한다.
                   setTried(true);
-                  mediaRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  notify(`외관 사진 ${needPhotos}장을 더 찍어 주세요`);
+                  if (!requiredOk) {
+                    mediaRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    notify(`필수 사진 ${needPhotos}장을 더 찍어 주세요`);
+                  } else {
+                    setRegionOpen(true);
+                  }
                   return;
                 }
                 notify("시안 화면이라 실제로 등록하지 않아요");
               }}
             >
-              {requiredOk ? "등록하기" : <span className="shoot-publish__need">외관 사진 {needPhotos}장 더 찍어 주세요</span>}
+              {canPublish ? (
+                "등록하기"
+              ) : !requiredOk ? (
+                <span className="shoot-publish__need">필수 사진 {needPhotos}장 더 찍어 주세요</span>
+              ) : (
+                <span className="shoot-publish__need">차량 소재지를 골라 주세요</span>
+              )}
             </button>
           </footer>
         </section>
 
+        {regionOpen ? (
+          <RegionSheet
+            value={region}
+            onClose={() => setRegionOpen(false)}
+            onPick={(r) => {
+              setRegion(r);
+              setRegionOpen(false);
+            }}
+          />
+        ) : null}
         {screen.name === "capture" ? <PhotoCapture existing={photos} startMode={screen.mode} notify={notify} onClose={() => setScreen({ name: "main" })} onDone={addPhotos} /> : null}
         {screen.name === "preview" ? (
           <PhotoPreview

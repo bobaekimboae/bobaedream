@@ -1,9 +1,9 @@
 {
   "version": 1,
   "updated": "2026-10-25",
-  "source": "노션 「등록 촬영 사진·영상 컨설팅 (58동성 비교)」 2026-10-25 · 58同城 二手车发布 촬영 레일 · 컨설팅 2건 통합 반영 2026-10-25",
-  "rulesTitle": "외관 4장은 꼭 찍어 주세요",
-  "rulesNotice": "좌측 전면 45° · 정면 · 후면 · 좌측면 4장을 찍어야 등록할 수 있어요. 나머지 각도와 실내·엔진룸·트렁크도 찍으면 매물이 더 잘 보여요.",
+  "source": "노션 「등록 촬영 사진·영상 컨설팅 (58동성 비교)」 2026-10-25 · 58同城 二手车发布 촬영 레일 · 컨설팅 2건 통합 반영 2026-10-25 · 컨설팅 6건 통합(필수 4장 = 대각 2장 + 계기판 · 대시보드) 2026-10-25",
+  "rulesTitle": "필수 4장은 꼭 찍어 주세요",
+  "rulesNotice": "좌측 전면 45° · 우측 후면 45° · 계기판 · 대시보드 4장을 찍어야 등록할 수 있어요. 대각선 2장이면 차의 네 면이 다 보이고, 계기판으로 주행거리를 확인할 수 있어요.",
   "levelLabels": {
     "required": "필수",
     "recommended": "권장",
@@ -12,9 +12,9 @@
   "photo": {
     "min": 4,
     "max": 30,
-    "hint": "외관 4장을 찍으면 등록할 수 있어요",
+    "hint": "필수 4장을 찍으면 등록할 수 있어요",
     "otherItemId": "other",
-    "hintDone": "실내·엔진룸·트렁크도 찍으면 더 잘 보여요"
+    "hintDone": "나머지 각도와 엔진룸·트렁크도 찍으면 더 잘 보여요"
   },
   "video": {
     "perStageSec": {
@@ -212,7 +212,7 @@
     {
       "id": "exterior",
       "label": "외관",
-      "level": "required",
+      "level": "recommended",
       "videoStage": true,
       "videoKey": "exterior",
       "items": [
@@ -224,7 +224,8 @@
           "guide": {
             "kind": "q34",
             "hint": "차 앞모서리를 윤곽 모서리에 맞춰 주세요"
-          }
+          },
+          "level": "required"
         },
         {
           "id": "front",
@@ -243,8 +244,7 @@
             "kind": "q34",
             "flip": true,
             "hint": "차 앞모서리를 윤곽 모서리에 맞춰 주세요"
-          },
-          "level": "recommended"
+          }
         },
         {
           "id": "side-right",
@@ -254,8 +254,18 @@
             "kind": "side",
             "flip": true,
             "hint": "바퀴 두 개를 동그라미에 맞춰 주세요"
-          },
-          "level": "recommended"
+          }
+        },
+        {
+          "id": "rear-right-45",
+          "label": "우측 후면 45°",
+          "rule": "rearRight",
+          "level": "required",
+          "guide": {
+            "kind": "q34",
+            "flip": true,
+            "hint": "차 뒷모서리를 윤곽 모서리에 맞춰 주세요"
+          }
         },
         {
           "id": "rear",
@@ -317,7 +327,8 @@
           "guide": {
             "kind": "cluster",
             "hint": "시동을 켜고 주행거리 숫자가 보이게 찍어 주세요"
-          }
+          },
+          "level": "required"
         },
         {
           "id": "dashboard",
@@ -326,7 +337,8 @@
           "guide": {
             "kind": "dash",
             "hint": "핸들과 가운데 화면이 함께 보이게 찍어 주세요"
-          }
+          },
+          "level": "required"
         },
         {
           "id": "front-seat",
@@ -407,5 +419,5 @@
     }
   ],
   "vehicleType": "car",
-  "vehicleNote": "중고차(승용) 기준 목록이에요. 트럭·바이크 등은 차종별 목록을 따로 둘 예정이에요."
+  "vehicleNote": "중고차(승용) 기준 목록이에요."
 }
