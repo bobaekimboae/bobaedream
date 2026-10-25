@@ -2,7 +2,7 @@
 // 58同城 二手车发布(중고차 등록) 사진·영상 촬영 흐름 재현(2026-10-24 폰 실측, run4 캡처 s01~z06).
 // ?register=shootkit 으로 연다. 실제 등록·업로드 요청은 보내지 않는다(「등록하기」는 안내만).
 import "../../preload-guard";
-import { useEffect, useMemo, useRef, useState, type PointerEvent as RPointerEvent } from "react";
+import { useEffect, useMemo, useRef, useState, type HTMLAttributes, type PointerEvent as RPointerEvent, type ReactNode } from "react";
 import shootCss from "./shoot.css?inline";
 import { useInlineCss } from "./use-inline-css";
 import { extractFrames, fakeStream, grabFrame, pickRecorderType, useCamera } from "./camera";
@@ -134,21 +134,32 @@ function Toast({ text }: { text: string }) {
   );
 }
 
+/** 최종 크로스체크(2026-10-25): 확인창 · 저장 시트 · 예시 창도 Esc로 닫고 Tab이 창 안에서만 돈다(다른 창과 같게). */
+function FocusBox({ onClose, children, ...rest }: { onClose: () => void; children: ReactNode } & HTMLAttributes<HTMLDivElement>) {
+  const ref = useRef<HTMLDivElement>(null);
+  useDialogFocus(ref, onClose);
+  return (
+    <div ref={ref} {...rest}>
+      {children}
+    </div>
+  );
+}
+
 function Confirm({ text, onCancel, onOk, cancelText = "취소", okText = "확인", onDim }: { text: string; onCancel: () => void; onOk: () => void; cancelText?: string; okText?: string; onDim?: () => void }) {
   return (
     <div className="shoot-dim" role="presentation" onClick={onDim ?? onCancel}>
-      <div className="shoot-confirm" role="alertdialog" aria-modal="true" aria-labelledby="shoot-confirm-t" onClick={(e) => e.stopPropagation()}>
+      <FocusBox onClose={onDim ?? onCancel} className="shoot-confirm" role="alertdialog" aria-modal="true" aria-labelledby="shoot-confirm-t" onClick={(e) => e.stopPropagation()}>
         <strong id="shoot-confirm-t">안내</strong>
         <p>{text}</p>
         <div className="shoot-confirm__row">
           <button type="button" onClick={onCancel}>
             {cancelText}
           </button>
-          <button type="button" className="is-ok" onClick={onOk} autoFocus>
+          <button type="button" className="is-ok" onClick={onOk} data-autofocus>
             {okText}
           </button>
         </div>
-      </div>
+      </FocusBox>
     </div>
   );
 }
@@ -1628,7 +1639,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       )}
       {guide ? (
         <div className="shoot-tpl-sheet" role="dialog" aria-modal="true" aria-label={`${cur.label} 촬영 예시`} onClick={() => setGuide(false)}>
-          <div className="shoot-tpl-sheet__box" onClick={(e) => e.stopPropagation()}>
+          <FocusBox onClose={() => setGuide(false)} className="shoot-tpl-sheet__box" onClick={(e) => e.stopPropagation()}>
             <div className="shoot-tpl-sheet__media">
               <StageTemplate stage={cur.key} large />
               <span className="shoot-stage-chip__tag">예시</span>
@@ -1637,10 +1648,10 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
               <strong>{cur.label} 이렇게 찍어 주세요</strong>
               <p>{stageGuide(cur.key).how}</p>
             </div>
-            <button type="button" className="shoot-tpl-sheet__ok" onClick={() => setGuide(false)} autoFocus>
+            <button type="button" className="shoot-tpl-sheet__ok" onClick={() => setGuide(false)} data-autofocus>
               확인
             </button>
-          </div>
+          </FocusBox>
         </div>
       ) : null}
       <div className="shoot-rotate-hint" role="status">
@@ -1724,6 +1735,8 @@ function CamPermission({ kind, onRetry, onAlbum, onCourse, onClose }: { kind: "d
 }
 
 /** 창을 열면 포커스를 창 안으로 옮기고, Tab은 창 안에서만 돌며, Esc로 닫고, 닫으면 연 버튼으로 돌려보낸다(2026-10-25 컨설팅). */
+// 창이 겹쳐 열리면(코스 고르기 위의 확인창 등) 맨 위 창만 Esc · Tab을 받는다.
+const dialogStack: object[] = [];
 function useDialogFocus(ref: { current: HTMLElement | null }, onClose: () => void) {
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
@@ -1732,7 +1745,10 @@ function useDialogFocus(ref: { current: HTMLElement | null }, onClose: () => voi
     const box = ref.current;
     const items = () => Array.from(box?.querySelectorAll<HTMLElement>('button:not(:disabled), input, [tabindex]:not([tabindex="-1"])') ?? []);
     (box?.querySelector<HTMLElement>("[data-autofocus]") ?? items()[0])?.focus({ preventScroll: true });
+    const me = {};
+    dialogStack.push(me);
     const onKey = (e: KeyboardEvent) => {
+      if (dialogStack[dialogStack.length - 1] !== me) return;
       if (e.key === "Escape") {
         e.preventDefault();
         closeRef.current();
@@ -1754,6 +1770,7 @@ function useDialogFocus(ref: { current: HTMLElement | null }, onClose: () => voi
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
+      dialogStack.splice(dialogStack.indexOf(me), 1);
       opener?.focus?.({ preventScroll: true });
     };
   }, [ref]);
@@ -2330,7 +2347,7 @@ function VideoPreview({
       ) : null}
       {saveOpen ? (
         <div className="shoot-dim is-sheet" role="presentation" onClick={() => setSaveOpen(false)}>
-          <div className="shoot-save-sheet" role="dialog" aria-modal="true" aria-labelledby="shoot-save-t" onClick={(e) => e.stopPropagation()}>
+          <FocusBox onClose={() => setSaveOpen(false)} className="shoot-save-sheet" role="dialog" aria-modal="true" aria-labelledby="shoot-save-t" onClick={(e) => e.stopPropagation()}>
             <strong id="shoot-save-t">내 폰에 저장</strong>
             <p>mp4 파일로 저장해요. 윤곽선 같은 안내는 영상에 들어가지 않아요.</p>
             {parts.length > 1 ? (
@@ -2352,7 +2369,7 @@ function VideoPreview({
             <button type="button" className="is-cancel" onClick={() => setSaveOpen(false)}>
               닫기
             </button>
-          </div>
+          </FocusBox>
         </div>
       ) : null}
       {saving ? (
