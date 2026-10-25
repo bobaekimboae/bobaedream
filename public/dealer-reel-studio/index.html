@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#2f6fdf">
+  <meta name="description" content="차량 영상과 판매 원문으로 딜러 릴스 자막을 자동 구성하는 보배드림 숏폼 도구">
+  <title>보배드림 딜러 릴스 스튜디오</title>
+  <link rel="icon" href="../assets/bbm/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="보배드림 홈">
+      <svg viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="15" fill="#306bd9"/><path fill="#fff" d="M16.3 5.6h-2.6c-4.9 0-8.9 4-8.9 9v2.3c0 4.1 3.3 7.5 7.4 7.5h5.7c4 0 7.3-3.4 7.3-7.5v-2.3c0-5-4-9-8.9-9Zm-4.1 16.8c-2.5 0-4.7-1.8-5.3-4.2-.2-.8.6-1 1.3-1.1 2.4-.5 3.6.5 4.7 2.5.7 1.2 1.4 2.1-.7 2.8Zm5.6 0c-2.1-.7-1.4-1.6-.7-2.8 1.1-2 2.3-3 4.7-2.5.7.1 1.5.3 1.3 1.1-.6 2.4-2.8 4.2-5.3 4.2Zm2.2-7.4c-1.7-.1-2.6-.7-3.2-.9-.6-.2-1.3-.3-1.8-.3s-1.1.1-1.8.3c-.6.2-1.5.8-3.2.9-2.9.1-3.3-.4-3.2-1.4.4-3.4 3.2-6 6.5-6h3.4c3.3 0 6.1 2.6 6.5 6 .1 1-.3 1.5-3.2 1.4Z"/><circle cx="15" cy="17" r="1.5" fill="#ff2626"/></svg>
+      <span>보배드림</span>
+    </a>
+    <span class="product">딜러 릴스 스튜디오 <b>BETA</b></span>
+  </header>
+
+  <main class="shell">
+    <section class="editor">
+      <div class="hero-copy">
+        <p>AUTO REEL EDITOR</p>
+        <h1>차량 영상 하나로<br><strong>판매 릴스를 자동 구성</strong></h1>
+        <span>판매 원문에 있는 사실만 사용합니다. 짧은 자막, 장면 순서, 보배드림 아웃트로를 휴대폰에서도 바로 구성할 수 있습니다.</span>
+      </div>
+
+      <section class="card">
+        <div class="heading"><i>1</i><div><h2>차량 영상</h2><p>MP4 또는 WebM · 기기 안에서 처리</p></div></div>
+        <label class="drop" for="videoInput">
+          <input id="videoInput" type="file" accept="video/mp4,video/webm,video/*">
+          <b>＋ 영상을 선택하세요</b><span>가로 영상도 9:16 화면으로 미리 볼 수 있습니다.</span>
+        </label>
+        <div id="fileInfo" class="file-info" hidden></div>
+      </section>
+
+      <section class="card">
+        <div class="heading"><i>2</i><div><h2>판매 정보</h2><p>실제 매물 정보만 입력하세요</p></div></div>
+        <div class="fields">
+          <label>차량명<input id="vehicleTitle" value="BMW X5"></label>
+          <label>세부 모델<input id="vehicleSubtitle" value="xDrive 30d M 스포츠"></label>
+          <label>판매가<input id="vehiclePrice" value="7,900만원"></label>
+        </div>
+        <label class="facts">판매 원문<textarea id="listingFacts" rows="7">2026년 1월식
+주행거리 9,700km
+1인 소유
+무사고
+제조사 보증 가능
+어댑티브 에어 서스펜션
+헤드업 디스플레이
+하만카돈 오디오</textarea></label>
+        <button id="generateCopy" class="blue-button">릴스 문구 자동 구성</button>
+        <p id="plannerStatus" class="status">입력한 문장만 압축해 자막으로 사용합니다.</p>
+      </section>
+
+      <section class="card">
+        <div class="heading line-heading"><i>3</i><div><h2>릴스 자막</h2><p>장면별 문구와 노출 시간을 조정하세요</p></div><button id="autoTime" class="minor">자동 시간</button></div>
+        <div id="scenes" class="scenes"></div>
+        <button id="addScene" class="add">＋ 자막 추가</button>
+      </section>
+
+      <div class="action-bar">
+        <div><b id="summary">0개 장면</b><span>9:16 · 원문 검증형</span></div>
+        <button id="savePlan" class="dark-button">편집 구성 저장</button>
+      </div>
+    </section>
+
+    <aside class="preview-wrap">
+      <div class="preview-card">
+        <div class="preview-title"><div><span>LIVE PREVIEW</span><b>9:16 세로형</b></div><button id="playPreview">재생</button></div>
+        <div class="phone">
+          <video id="video" playsinline controls preload="metadata"></video>
+          <div class="caption"><strong id="captionText">아빠들의 로망</strong></div>
+          <div class="safe">REELS SAFE AREA</div>
+          <div class="outro" id="outro"><b>🚘</b><strong>By.보배드림</strong></div>
+        </div>
+        <div class="timeline"><div><b>자동 타임라인</b><span id="duration">0초</span></div><div id="segments" class="segments"></div></div>
+        <div class="mobile-note"><b>휴대폰 공개 버전</b><span>영상은 서버로 전송되지 않습니다. 이 페이지는 자막 구성·미리보기·편집 JSON 저장을 지원합니다.</span></div>
+      </div>
+    </aside>
+  </main>
+
+  <template id="sceneTemplate">
+    <article class="scene-row">
+      <b class="scene-index"></b>
+      <label>자막<input data-key="caption" maxlength="32"></label>
+      <label>시작<input data-key="sourceStart" type="number" min="0" step="0.1"></label>
+      <label>노출<input data-key="duration" type="number" min="0.7" max="4" step="0.05"></label>
+      <button class="remove" aria-label="자막 삭제">×</button>
+    </article>
+  </template>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js" type="module"></script>
+</body>
+</html>
