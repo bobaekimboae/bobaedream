@@ -1,7 +1,7 @@
 // 앨범 사진 부위 자동 선별 화면 + 사진 끌어서 칸 바꾸기(2026-10-25).
 // 딜러 · 보배드림 촬영팀이 한 번에 수십 장을 올려도 필수 4장이 바로 채워지게 하고, 틀린 칸은 누르거나 끌어서 바로 고친다.
 import { useEffect, useRef, useState, type ReactElement, type RefObject } from "react";
-import { GROUPS, ITEMS, OTHER_ID, REQUIRED_IDS, isRequiredItem, itemLabel } from "./items";
+import { GROUPS, ITEMS, OTHER_ID, REQUIRED_IDS, isRequiredItem, itemLabel, levelLabel } from "./items";
 import { assignSlots, autoSortConsented, loadSorter, setAutoSortConsent, type SortResult } from "./autosort";
 
 export type SortPhoto = { id: string; src: string; slot: string; uploading?: boolean };
@@ -283,7 +283,7 @@ export function PhotoSort<T extends SortPhoto>({
         {phase === "done" || phase === "manual" ? (
           <section className="shoot-sort__sum">
             <strong>
-              필수 {filledReq.length}/{REQUIRED_IDS.length}
+              {levelLabel("required")} {filledReq.length}/{REQUIRED_IDS.length}
               {missReq.length ? <em> · {missReq.map(itemLabel).join(" · ")} 없음</em> : <em className="is-ok"> · 다 찼어요</em>}
             </strong>
             {missReq.length && onShoot ? (

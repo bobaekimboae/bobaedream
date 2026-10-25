@@ -31,7 +31,7 @@ import type { Highlight } from "./shorts";
 import { ShortsMaker } from "./ShortsMaker";
 import { PhotoSort, swapPhotos, useDragSwap } from "./photo-sort";
 import regionsKr from "../../data/regions-kr.json";
-import { GROUPS, ITEMS, OTHER_ID, PHOTO_MAX, PHOTO_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf, levelLabel, stageSec, stepsOf } from "./items";
+import { GROUPS, ITEMS, OTHER_ID, ENFORCE_REQUIRED, PHOTO_MAX, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf, levelLabel, stageSec, stepsOf } from "./items";
 
 const base = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.baseURI).pathname;
 const icon = (dir: string, name: string) => `${base}icons/${dir}/${name}`;
@@ -233,6 +233,14 @@ function FlashToggle({ on, onToggle }: { on: boolean; onToggle: () => void }) {
 /** 사진 카운터: 필수와 전체를 함께(「필수 2/4 · 전체 5/30」) 보여 줘 숫자의 뜻이 바뀌지 않게 한다 */
 function PhotoCounter({ required, total }: { required: number; total: number }) {
   const ok = required >= PHOTO_MIN;
+  // 강제를 뺐을 때(2026-10-25): 전체 장수를 크게, 추천 4장은 작은 보조 숫자로
+  if (!ENFORCE_REQUIRED)
+    return (
+      <span className={`shoot-photo-count ${total >= PUBLISH_MIN ? "is-ok" : ""}`} aria-label={`사진 ${total}/${MAX_PHOTOS}장, 추천 ${Math.min(required, PHOTO_MIN)}/${PHOTO_MIN}장`}>
+        <b>사진 {total}/{MAX_PHOTOS}</b>
+        <small>추천 {Math.min(required, PHOTO_MIN)}/{PHOTO_MIN}</small>
+      </span>
+    );
   return (
     <span className={`shoot-photo-count ${ok ? "is-ok" : ""}`} aria-label={`필수 ${Math.min(required, PHOTO_MIN)}/${PHOTO_MIN}장, 전체 ${total}/${MAX_PHOTOS}장`}>
       <b>필수 {Math.min(required, PHOTO_MIN)}/{PHOTO_MIN}</b>
@@ -474,12 +482,12 @@ function PhotoCapture({
                 const note = it.note && i === 0 ? it.note : "";
                 return (
                   <div key={i} data-i={i} className={`shoot-slot ${i === sel ? "is-sel" : ""} ${req ? "is-required" : ""} ${shot ? "is-shot" : ""}`}>
-                    <button type="button" className="shoot-slot__hit" onClick={() => setSel(i)} aria-label={`${it.label}${req ? " (필수)" : ""} 칸 선택`}>
+                    <button type="button" className="shoot-slot__hit" onClick={() => setSel(i)} aria-label={`${it.label}${req ? ` (${levelLabel("required")})` : ""} 칸 선택`}>
                       {shot ? <img src={shot.src} alt="" /> : null}
                       <span className="shoot-slot__label">{it.label}</span>
                     </button>
                     {note ? <em className="shoot-slot__tag">{note}</em> : null}
-                    {req && !shot ? <i className="shoot-slot__req" aria-hidden="true" /> : null}
+                    {req && !shot && ENFORCE_REQUIRED ? <i className="shoot-slot__req" aria-hidden="true" /> : null}
                     {shot ? (
                       <button type="button" className="shoot-slot__x" aria-label={`${it.label} 사진 지우기`} onClick={() => removeSlotShot(i)}>
                         <Mask src={rd("close-outline")} />
@@ -489,8 +497,8 @@ function PhotoCapture({
                 );
               })}
             </div>
-            {hiddenReq.length ? (
-              <button type="button" className="shoot-rail-more" aria-label={`오른쪽에 필수 칸 ${hiddenReq.length}개 더 있어요`} onClick={() => setSel(hiddenReq[0])}>
+            {hiddenReq.length && ENFORCE_REQUIRED ? (
+              <button type="button" className="shoot-rail-more" aria-label={`오른쪽에 ${levelLabel("required")} 칸 ${hiddenReq.length}개 더 있어요`} onClick={() => setSel(hiddenReq[0])}>
                 +{hiddenReq.length}
               </button>
             ) : null}
@@ -2521,8 +2529,8 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
         {/* 2026-10-25 컨설팅 6건: 필수 4장을 맨 위 한 줄로 모으고, 그룹에는 나머지(권장·선택)만 둔다 */}
         <section className="shoot-rules__group is-required">
           <h3>
-            필수 {REQUIRED_IDS.length}장
-            <span className="shoot-rules__badge is-required">필수</span>
+            {ENFORCE_REQUIRED ? "필수" : (SHOOT.photo.keyTitle ?? levelLabel("required"))} {REQUIRED_IDS.length}장
+            <span className="shoot-rules__badge is-required">{levelLabel("required")}</span>
           </h3>
           <div className="shoot-rules__grid">
             {REQUIRED_IDS.map((id) => {
@@ -2635,7 +2643,10 @@ export default function ShootRegister() {
     [requiredDone, recommendedDone, videoDone, region],
   );
   const regionOk = !PLUS || Boolean(region);
-  const canPublish = requiredOk && regionOk;
+  // 2026-10-25 「필수 사진 강제를 일단은 빼자」: 강제를 끄면 사진 PUBLISH_MIN장(1장)부터 등록할 수 있다
+  const photosOk = ENFORCE_REQUIRED ? requiredOk : photos.length >= PUBLISH_MIN;
+  const needCount = ENFORCE_REQUIRED ? needPhotos : Math.max(0, PUBLISH_MIN - photos.length);
+  const canPublish = photosOk && regionOk;
   const mediaRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (document.documentElement.dataset.site !== "shoot") document.title = "보배드림 · 중고차 등록 촬영";
@@ -2729,10 +2740,16 @@ export default function ShootRegister() {
                 <h3>
                   {sectionTitle} {PLUS && !(status === "uploading" || (status === "done" && photos.length)) ? null : <em>(필수)</em>}
                 </h3>
+                {ENFORCE_REQUIRED ? (
                 <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계(선택)`}>
                   사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b>
                   {PLUS ? " 필수" : ""} · 영상 <span className="is-opt">{PLUS ? (videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택") : `${videoDone}/${VIDEO_GROUPS.length} · 선택`}</span>
                 </span>
+                ) : (
+                <span className="shoot-media-count" aria-label={`사진 ${photos.length}장, 추천 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 선택`}>
+                  사진 <b className={photosOk ? "is-ok" : tried ? "is-warn" : ""}>{photos.length}장</b> · 영상 <span className="is-opt">{videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택"}</span>
+                </span>
+                )}
               </div>
               <div className="shoot-hint-row">
                 <p className="shoot-hint">{requiredOk ? SHOOT.photo.hintDone : SHOOT.photo.hint}</p>
@@ -2745,7 +2762,7 @@ export default function ShootRegister() {
               {status === "uploading" ? (
                 <div className="shoot-tipcard is-short">
                   <p>
-                    {requiredOk ? "사진을 처리하고 있어요" : <>필수 사진까지 <em>{REQUIRED_IDS.length - requiredDone}</em>장 부족해요. 더 올려 주세요</>}
+                    {requiredOk || !ENFORCE_REQUIRED ? "사진을 처리하고 있어요" : <>필수 사진까지 <em>{REQUIRED_IDS.length - requiredDone}</em>장 부족해요. 더 올려 주세요</>}
                   </p>
                   <button type="button" className="shoot-tipcard__btn" onClick={() => setScreen({ name: "capture", mode: "cam" })}>
                     <Mask src={rd("camera-outline-24")} />
@@ -2907,9 +2924,9 @@ export default function ShootRegister() {
                 if (!canPublish) {
                   // 덜 찬 것(필수 사진 → 소재지 순)으로 올려 보내고 그 칸을 빨갛게 한다.
                   setTried(true);
-                  if (!requiredOk) {
+                  if (!photosOk) {
                     mediaRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    notify(`필수 사진 ${needPhotos}장을 더 찍어 주세요`);
+                    notify(ENFORCE_REQUIRED ? `필수 사진 ${needPhotos}장을 더 찍어 주세요` : `사진을 ${needCount}장 이상 올려 주세요`);
                   } else {
                     setRegionOpen(true);
                   }
@@ -2920,8 +2937,8 @@ export default function ShootRegister() {
             >
               {canPublish ? (
                 "등록하기"
-              ) : !requiredOk ? (
-                <span className="shoot-publish__need">필수 사진 {needPhotos}장 더 찍어 주세요</span>
+              ) : !photosOk ? (
+                <span className="shoot-publish__need">{ENFORCE_REQUIRED ? `필수 사진 ${needPhotos}장 더 찍어 주세요` : `사진을 ${needCount}장 이상 올려 주세요`}</span>
               ) : (
                 <span className="shoot-publish__need">차량 소재지를 골라 주세요</span>
               )}

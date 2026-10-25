@@ -35,7 +35,7 @@ type ShootData = {
   levelLabels: Record<ShootLevel, string>;
   vehicleType: string;
   vehicleNote: string;
-  photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string };
+  photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string; enforceRequired?: boolean; publishMin?: number; keyTitle?: string };
   video: {
     optional: boolean;
     perStageSec: { min: number; max: number };
@@ -66,6 +66,10 @@ export const REQUIRED_IDS = ITEMS.filter((i) => isRequiredItem(i.id)).map((i) =>
 export const RECOMMENDED_IDS = ITEMS.filter((i) => itemLevel(i.id) === "recommended").map((i) => i.id);
 export const PHOTO_MIN = SHOOT.photo.min;
 export const PHOTO_MAX = SHOOT.photo.max;
+/** 2026-10-25 「필수 사진 강제를 일단은 빼자」: false면 필수 4장은 「추천」 안내만 하고 등록은 막지 않는다 */
+export const ENFORCE_REQUIRED = SHOOT.photo.enforceRequired !== false;
+/** 등록에 필요한 최소 사진 수(강제를 뺐을 때). 강제 중이면 필수 4장이 기준이다 */
+export const PUBLISH_MIN = SHOOT.photo.publishMin ?? 1;
 /** 영상 단계 = videoStage:true 그룹(칩 이름 = 그룹 이름) */
 export const VIDEO_GROUPS = GROUPS.filter((g) => g.videoStage && g.videoKey);
 export const PER_STAGE = SHOOT.video.perStageSec;
