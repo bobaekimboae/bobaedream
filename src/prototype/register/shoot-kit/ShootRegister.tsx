@@ -29,6 +29,7 @@ import { RuleIllustration, StageTemplate, setCustomGuide, stageGuide, stageThumb
 import { loadPrefs, newCustomKey, savePrefs, type CustomStage, type StagePrefs } from "./stage-prefs";
 import type { Highlight } from "./shorts";
 import { ShortsMaker } from "./ShortsMaker";
+import { PhotoSort, swapPhotos, useDragSwap } from "./photo-sort";
 import regionsKr from "../../data/regions-kr.json";
 import { GROUPS, ITEMS, OTHER_ID, PHOTO_MAX, PHOTO_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf, levelLabel, stageSec, stepsOf } from "./items";
 
@@ -302,7 +303,12 @@ function PhotoCapture({
   }, [existing, filledByMain]);
   const [rail, setRail] = useState<string[]>(initialRail);
   const [slotShots, setSlotShots] = useState<(Photo | null)[]>(() => initialRail.map(() => null));
-  const [sel, setSel] = useState(0);
+  // 키트: 처음 고른 칸 = 아직 안 찍은 필수 칸(부위 나누기에서 「빠진 칸 바로 찍기」로 들어온 경우 포함)
+  const [sel, setSel] = useState(() => {
+    if (!PLUS) return 0;
+    const i = initialRail.findIndex((s) => isRequiredItem(s));
+    return i < 0 ? 0 : i;
+  });
   const railEl = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const total = existing.length + session.picked.length;
@@ -2574,7 +2580,8 @@ type Screen =
   | { name: "vedit" }
   | { name: "cover"; take: Take; coverOnly?: boolean }
   | { name: "shorts"; take: Take; back: Screen }
-  | { name: "rules" };
+  | { name: "rules" }
+  | { name: "sort"; fresh: string[] };
 
 
 export default function ShootRegister() {
@@ -2640,17 +2647,34 @@ export default function ShootRegister() {
   }, [photos]);
 
   const addPhotos = (added: Photo[]) => {
-    setScreen({ name: "main" });
+    // 키트: 앨범에서 올린 사진(칸 없음 = 기타)은 부위 나누기 화면으로 먼저 간다(2026-10-25 자동 선별)
+    const fresh = PLUS ? added.filter((p) => p.slot === OTHER).map((p) => p.id) : [];
+    setScreen(fresh.length ? { name: "sort", fresh } : { name: "main" });
     if (!added.length) return;
     // 새로 올린 사진만 「업로드 중」. 칸은 촬영 각도 순으로 끼워 넣는다.
     const ids = new Set(added.map((p) => p.id));
     setPhotos((p) => sortBySlot([...p, ...added.map((x) => ({ ...x, uploading: true }))]));
     // 58: 「사진 인식 중」(처리 안내 토스트) → 「인식 완료」
-    notify("사진을 처리하고 있어요. 앱을 나가지 마세요");
+    if (!fresh.length) notify("사진을 처리하고 있어요. 앱을 나가지 마세요");
     window.setTimeout(() => setPhotos((p) => p.map((x) => (ids.has(x.id) ? { ...x, uploading: false } : x))), 3200);
   };
 
+  // 정렬 화면은 열 때의 사진을 받으므로, 칸 · 순서만 가져오고 「업로드 중」 같은 지금 상태는 지금 사진에서 쓴다
+  const applySort = (next: Photo[]) =>
+    setPhotos((cur) => {
+      const now = new Map(cur.map((x) => [x.id, x]));
+      const kept = next.filter((x) => now.has(x.id)).map((x) => ({ ...now.get(x.id)!, slot: x.slot }));
+      const rest = cur.filter((x) => !next.some((y) => y.id === x.id));
+      return sortBySlot([...kept, ...rest]);
+    });
   const removePhoto = (id: string) => setPhotos((p) => p.filter((x) => x.id !== id));
+  // 등록 화면 사진: 길게 눌러 다른 사진 위에 놓으면 칸을 맞바꾼다(키트)
+  const tilesRef = useRef<HTMLDivElement>(null);
+  useDragSwap(tilesRef, (a, b) => {
+    if (!PLUS) return;
+    setPhotos((p) => sortBySlot(swapPhotos(p, a, b)));
+    notify("두 사진의 칸을 바꿨어요");
+  });
 
   const anyUploading = photos.some((p) => p.uploading);
   const status = !photos.length ? "empty" : anyUploading ? "uploading" : "done";
@@ -2755,21 +2779,22 @@ export default function ShootRegister() {
                   </button>
                 </div>
               ) : (
-                <div className="shoot-tiles">
-                  {photos.map((p) => (
-                    <figure key={p.id} className="shoot-tile">
+                <div className="shoot-tiles" ref={tilesRef}>
+                  {photos.map((p, idx) => (
+                    <figure key={p.id} className="shoot-tile" data-drag-id={PLUS && !p.uploading ? p.id : undefined}>
                       {p.uploading ? (
                         <div className="shoot-tile__wait">
                           <b>bb</b>
                         </div>
                       ) : (
                         <button type="button" className="shoot-tile__img" onClick={() => setScreen({ name: "preview", id: p.id })} aria-label={`${itemLabel(p.slot)} 사진 편집`}>
-                          <img src={p.src} alt="" />
+                          <img src={p.src} alt="" draggable={false} />
                           <span className="shoot-tile__wm">보배드림</span>
+                          {PLUS && idx === 0 ? <span className="shoot-tile__rep">대표</span> : null}
                         </button>
                       )}
                       {!p.uploading ? (
-                        <button type="button" className="shoot-tile__del" aria-label="사진 삭제" onClick={() => setConfirm({ kind: "photo", id: p.id })}>
+                        <button type="button" className="shoot-tile__del" data-nodrag aria-label="사진 삭제" onClick={() => setConfirm({ kind: "photo", id: p.id })}>
                           <Mask src={rd("delete-outline")} />
                         </button>
                       ) : null}
@@ -2817,6 +2842,14 @@ export default function ShootRegister() {
                   ) : null}
                 </div>
               )}
+              {PLUS && photos.length && !anyUploading ? (
+                <div className="shoot-sortlink">
+                  <span>길게 눌러 끌면 두 사진의 칸이 바뀌어요</span>
+                  <button type="button" onClick={() => setScreen({ name: "sort", fresh: photos.filter((p) => p.slot === OTHER).map((p) => p.id) })}>
+                    부위 나누기
+                  </button>
+                </div>
+              ) : null}
             </section>
 
             {PLUS ? (
@@ -2907,6 +2940,24 @@ export default function ShootRegister() {
           />
         ) : null}
         {screen.name === "capture" ? <PhotoCapture existing={photos} startMode={screen.mode} notify={notify} onClose={() => setScreen({ name: "main" })} onDone={addPhotos} /> : null}
+        {screen.name === "sort" ? (
+          <PhotoSort
+            photos={photos}
+            fresh={screen.fresh}
+            Mask={Mask}
+            icon={rd}
+            onClose={() => setScreen({ name: "main" })}
+            onShoot={(next) => {
+              applySort(next);
+              setScreen({ name: "capture", mode: "cam" });
+            }}
+            onDone={(next) => {
+              // 정렬 화면은 열 때의 사진을 받으므로, 칸 · 순서만 가져오고 「업로드 중」 같은 지금 상태는 지금 사진에서 쓴다
+              applySort(next);
+              setScreen({ name: "main" });
+            }}
+          />
+        ) : null}
         {screen.name === "preview" ? (
           <PhotoPreview
             photos={photos}

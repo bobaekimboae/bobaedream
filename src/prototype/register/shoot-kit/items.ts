@@ -14,6 +14,8 @@ export type ShootItem = {
   repeatable?: boolean;
   /** 그룹 등급과 다를 때만(예: 외관 그룹 안의 권장 각도) */
   level?: ShootLevel;
+  /** 앨범 사진 부위 자동 선별: 이 칸에 넣을 인식 부류(shoot-autosort-v1.json classes) */
+  auto?: string[];
   guide: { kind: GuideKind; flip?: boolean; hint: string };
 };
 export type ShootGroup = {
