@@ -68,7 +68,7 @@
 
     <aside class="preview-wrap">
       <div class="preview-card">
-        <div class="preview-title"><div><span>LIVE PREVIEW</span><b>9:16 세로형</b></div><button id="playPreview">재생</button></div>
+        <div class="preview-title"><div><span>LIVE PREVIEW</span><b>9:16 세로형</b></div><div class="preview-actions"><button id="voiceToggle" class="active">음성 켜짐</button><button id="playPreview">재생</button></div></div>
         <div class="phone">
           <video id="video" playsinline controls muted preload="metadata" src="../videos/bmw-x5-features/BMW_X5_FEATURES.mp4"></video>
           <div class="caption"><strong id="captionText">아빠들의 로망</strong></div>
@@ -76,7 +76,7 @@
           <div class="outro" id="outro"><b>🚘</b><strong>By.보배드림</strong></div>
         </div>
         <div class="timeline"><div><b>자동 타임라인</b><span id="duration">0초</span></div><div id="segments" class="segments"></div></div>
-        <div class="mobile-note"><b id="mediaStatus">BMW X5 샘플 영상 준비 중</b><span>재생 버튼으로 즉시 체험할 수 있습니다. 내 영상을 선택하면 샘플 대신 해당 영상이 재생되며 외부 서버로 전송되지 않습니다.</span></div>
+        <div class="mobile-note"><b id="mediaStatus">BMW X5 샘플 영상 준비 중</b><span>재생하면 장면 자막을 한국어 음성으로 읽습니다. 내 영상을 선택하면 샘플 대신 해당 영상이 재생되며 외부 서버로 전송되지 않습니다.</span><div class="voice-grid"><label class="voice-select">미리보기 음성<select id="voiceSelect"><option>한국어 음성 확인 중</option></select></label><label class="voice-select">읽기 속도<select id="voiceRate"><option value="0.95">차분하게</option><option value="1.05" selected>표준</option><option value="1.15">빠르게</option><option value="1.25">릴스 속도</option></select></label></div><small id="voiceStatus">기기의 한국어 남성 음성을 우선 선택합니다.</small></div>
       </div>
     </aside>
   </main>
