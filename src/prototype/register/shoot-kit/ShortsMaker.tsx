@@ -321,6 +321,11 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
                   시동 소리는 원래 소리 그대로 넣기
                 </label>
               ) : null}
+              {/* 2026-10-25 컨설팅 6건: 결과를 먼저 보고, 자막·정보는 필요할 때 펼쳐 고친다 */}
+              <details className="shoot-shorts__more">
+                <summary>
+                  자막 · 정보 고치기 <small>선택</small>
+                </summary>
               <h3>
                 차량 · 판매자 <small>선택 · 지난번에 적은 값을 기억해요</small>
               </h3>
@@ -355,6 +360,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
                 ))}
               </ol>
               <p className="shoot-shorts__note">자막은 직접 적은 내용만 들어가요. 사고·정비 이력은 확인한 것만 적어 주세요.</p>
+              </details>
             </section>
           </>
         )}

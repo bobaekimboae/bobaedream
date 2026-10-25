@@ -3829,3 +3829,175 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-time__row.is-order button:nth-of-type(3) {
   grid-column: 6;
 }
+
+/* ── 2026-10-25 컨설팅 6건 통합 반영(키트 전용 .is-kit) ── */
+/* 작은 회색·주황 글자 대비(흰 바탕): #8C8C8C 3.4:1 → #707070 5.0:1, #FF552E 3.2:1 → #D63E12 4.6:1 */
+.shoot-root.is-kit :is(.shoot-main, .shoot-rules, .shoot-confirm, .shoot-region) {
+  --shoot-sub: #707070;
+}
+.shoot-root.is-kit :is(.shoot-tipcard em, .shoot-main__title span, .shoot-confirm__row .is-ok, .shoot-field h3 em, .shoot-media-count .is-warn) {
+  color: #d63e12 !important;
+}
+/* 작은 글자 버튼도 손가락 터치 영역 44 (보이는 크기는 그대로) */
+.shoot-root.is-kit .shoot-drafts,
+.shoot-root.is-kit .shoot-rules-link {
+  position: relative;
+}
+.shoot-root.is-kit .shoot-drafts::after,
+.shoot-root.is-kit .shoot-rules-link::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  top: 50%;
+  height: 44px;
+  transform: translateY(-50%);
+}
+/* 차량 소재지 고르기 */
+.shoot-region-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 48px;
+  margin-top: 10px;
+  padding: 0 2px 0 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 17px;
+  color: #b0b0b0 !important;
+  text-align: left;
+}
+.shoot-region-btn.is-on {
+  color: #222 !important;
+}
+.shoot-region-btn.is-warn {
+  border-bottom-color: #d63e12;
+  color: #d63e12 !important;
+}
+.shoot-region-btn .shoot-mask {
+  width: 18px;
+  height: 18px;
+  color: #b0b0b0;
+}
+.shoot-mask.is-fwd {
+  transform: scaleX(-1);
+}
+.shoot-region {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: flex-end;
+  background: rgba(0, 0, 0, 0.45);
+}
+.shoot-region__box {
+  width: 100%;
+  max-height: 78%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px 16px 0 0;
+  background: #fff;
+  color: #222;
+}
+.shoot-region__box header {
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  height: 56px;
+  padding: 0 6px;
+  border-bottom: 1px solid #eee;
+}
+.shoot-region__box h2 {
+  margin: 0;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 700;
+}
+.shoot-region__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 16px 16px calc(20px + env(safe-area-inset-bottom));
+  overflow-y: auto;
+}
+.shoot-region__grid button {
+  height: 44px;
+  border-radius: 10px;
+  border: 1px solid #e4e7ec;
+  background: #fff !important;
+  color: #222 !important;
+  font-size: 15px;
+}
+.shoot-region__grid button.is-on {
+  border-color: #222;
+  font-weight: 700;
+}
+.shoot-field__soon {
+  margin: 10px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--shoot-sub);
+}
+/* 권한 · 카메라 없음 화면: 코스 먼저 고르기는 글자 버튼 */
+.shoot-perm .shoot-perm__link {
+  height: 44px;
+  background: transparent !important;
+  color: #ddd !important;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+/* 영상 앨범: 빈 화면 대신 큰 불러오기 */
+.shoot-vimport {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 32px;
+  text-align: center;
+  color: #fff;
+}
+.shoot-vimport__ico {
+  width: 44px;
+  height: 44px;
+  color: #fff;
+}
+.shoot-vimport strong {
+  font-size: 18px;
+  line-height: 26px;
+}
+.shoot-vimport p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 21px;
+  color: #bdbdbd;
+  word-break: keep-all;
+}
+.shoot-vimport__btn {
+  width: min(100%, 300px);
+  height: 52px;
+  border-radius: 26px;
+  background: linear-gradient(90deg, var(--shoot-accent), var(--shoot-accent-2)) !important;
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 700;
+}
+.shoot-vimport small {
+  font-size: 12px;
+  line-height: 17px;
+  color: #9a9a9a;
+}
+/* 코스 확정 버튼: 할 일 + 최대 시간 */
+.shoot-xpick footer .is-ok small {
+  margin-left: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+/* 촬영 규칙: 마지막 사진이 아래 고정 버튼에 가리지 않게 */
+.shoot-root.is-kit .shoot-rules__body {
+  padding-bottom: calc(120px + env(safe-area-inset-bottom));
+}
