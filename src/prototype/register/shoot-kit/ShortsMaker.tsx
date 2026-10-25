@@ -53,10 +53,14 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
   const timeRef = useRef(0);
   const cancelRef = useRef(false);
 
+  const sayTimer = useRef(0);
   const say = (m: string) => {
     setMsg(m);
-    window.setTimeout(() => setMsg(""), 2600);
+    // 앞 알림의 타이머가 새 알림을 일찍 지우지 않게 지운 뒤 다시 건다
+    window.clearTimeout(sayTimer.current);
+    sayTimer.current = window.setTimeout(() => setMsg(""), 2600);
   };
+  useEffect(() => () => window.clearTimeout(sayTimer.current), []);
   useEffect(() => {
     try {
       window.localStorage.setItem(INFO_KEY, JSON.stringify(info));

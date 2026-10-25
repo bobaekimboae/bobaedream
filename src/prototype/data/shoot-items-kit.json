@@ -5,21 +5,21 @@
   "rulesTitle": "이 4장을 먼저 찍어 주세요",
   "rulesNotice": "좌측 전면 45° · 우측 후면 45° · 계기판 · 대시보드 4장을 먼저 찍으면 좋아요. 대각선 2장이면 차의 네 면이 다 보이고, 계기판으로 주행거리를 확인할 수 있어요. 사진은 1장부터 등록할 수 있어요.",
   "levelLabels": {
-    "required": "추천",
+    "required": "우선",
     "recommended": "권장",
     "optional": "선택"
   },
   "photo": {
     "min": 4,
     "max": 30,
-    "hint": "사진 1장부터 등록할 수 있어요 · 추천 4장을 먼저 찍으면 좋아요",
+    "hint": "사진 1장부터 등록할 수 있어요 · 우선 4장부터 찍어 보세요",
     "otherItemId": "other",
     "hintDone": "나머지 각도와 엔진룸·트렁크도 찍으면 더 잘 보여요",
     "autoSortNote": "앨범 사진 부위 자동 선별(2026-10-25): 항목 auto = 인식 부류. 같은 부류가 여러 칸이면 레일 순서대로 채운다(좌우 방향은 구분하지 않음).",
     "enforceRequired": false,
     "publishMin": 1,
     "keyTitle": "먼저 찍으면 좋은",
-    "enforceNote": "2026-10-25 「필수 사진 강제를 일단은 빼자」: enforceRequired=false. 되돌리려면 true로 바꾸고 levelLabels.required를 「필수」로."
+    "enforceNote": "2026-10-25 「필수 사진 강제를 일단은 빼자」: enforceRequired=false면 4장은 「우선」 안내만 하고 사진 publishMin장 + 소재지로 등록. 「권장」과 헷갈리지 않게 「추천」 대신 「우선」. 58 재현(&vstage=58)은 enforcedText 문구로 늘 강제."
   },
   "video": {
     "perStageSec": {
@@ -464,5 +464,12 @@
     }
   ],
   "vehicleType": "car",
-  "vehicleNote": "중고차(승용) 기준 목록이에요."
+  "vehicleNote": "중고차(승용) 기준 목록이에요.",
+  "enforcedText": {
+    "note": "강제할 때(enforceRequired true 또는 58 재현 &vstage=58) 쓰는 문구",
+    "levelLabel": "필수",
+    "rulesTitle": "필수 4장은 꼭 찍어 주세요",
+    "rulesNotice": "좌측 전면 45° · 우측 후면 45° · 계기판 · 대시보드 4장을 찍어야 등록할 수 있어요. 대각선 2장이면 차의 네 면이 다 보이고, 계기판으로 주행거리를 확인할 수 있어요.",
+    "hint": "필수 4장을 찍으면 등록할 수 있어요"
+  }
 }

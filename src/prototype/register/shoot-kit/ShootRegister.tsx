@@ -74,6 +74,11 @@ const EXTRA_STAGES: VideoStage[] = SHOOT.video.extraStages.map((x) => x.key);
 const STAGES = BASE_STAGES.map((k) => def(k));
 /** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
 const PLUS = typeof window === "undefined" || new URLSearchParams(window.location.search).get("vstage") !== "58";
+/** 필수 4장 강제 여부. 58 재현(&vstage=58)은 예전처럼 늘 강제하고, 키트는 JSON photo.enforceRequired를 따른다(2026-10-25 강제 뺌) */
+const ENFORCE = !PLUS || ENFORCE_REQUIRED;
+const ENF_TEXT = SHOOT.enforcedText;
+/** 필수 등급 이름: 강제하면 「필수」, 아니면 JSON levelLabels.required(「우선」) */
+const reqLabel = () => (ENFORCE ? ENF_TEXT.levelLabel : levelLabel("required"));
 const MAX_EXTRA = 6;
 /** 촬영 코스(2026-10-24 「촬영 부위 순서를 정하자 · 8개 3개」 · 「흠집표시는 선택」): 차 주위를 걷는 순서대로 정한다. */
 type CourseKey = "basic" | "full" | "quick" | "custom" | "mine";
@@ -234,11 +239,11 @@ function FlashToggle({ on, onToggle }: { on: boolean; onToggle: () => void }) {
 function PhotoCounter({ required, total }: { required: number; total: number }) {
   const ok = required >= PHOTO_MIN;
   // 강제를 뺐을 때(2026-10-25): 전체 장수를 크게, 추천 4장은 작은 보조 숫자로
-  if (!ENFORCE_REQUIRED)
+  if (!ENFORCE)
     return (
-      <span className={`shoot-photo-count ${total >= PUBLISH_MIN ? "is-ok" : ""}`} aria-label={`사진 ${total}/${MAX_PHOTOS}장, 추천 ${Math.min(required, PHOTO_MIN)}/${PHOTO_MIN}장`}>
+      <span className={`shoot-photo-count ${total >= PUBLISH_MIN ? "is-ok" : ""}`} aria-label={`사진 ${total}/${MAX_PHOTOS}장, ${reqLabel()} ${Math.min(required, PHOTO_MIN)}/${PHOTO_MIN}장`}>
         <b>사진 {total}/{MAX_PHOTOS}</b>
-        <small>추천 {Math.min(required, PHOTO_MIN)}/{PHOTO_MIN}</small>
+        <small>{reqLabel()} {Math.min(required, PHOTO_MIN)}/{PHOTO_MIN}</small>
       </span>
     );
   return (
@@ -317,6 +322,13 @@ function PhotoCapture({
     const i = initialRail.findIndex((s) => isRequiredItem(s));
     return i < 0 ? 0 : i;
   });
+  // 연속 촬영 · StrictMode에서도 최신 값을 읽도록 칸 상태를 ref로 함께 들고 있다
+  const slotShotsRef = useRef(slotShots);
+  slotShotsRef.current = slotShots;
+  const railRef = useRef(rail);
+  railRef.current = rail;
+  const selRef = useRef(sel);
+  selRef.current = sel;
   const railEl = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const total = existing.length + session.picked.length;
@@ -367,26 +379,35 @@ function PhotoCapture({
     const src = (video && cam.stream && grabFrame(video)) || placeholderShot(itemLabel(label), session.shots.length + existing.length);
     playShutter();
     const shot: Photo = { id: uid(), src, slot: label, plateOn: plate };
-    setSession((s) => ({ ...s, shots: [shot, ...s.shots], picked: [...s.picked, shot.id] }));
-    setSlotShots((prev) => {
-      const next = [...prev];
-      if (sel >= next.length) next.push(shot);
-      else next[sel] = shot;
-      // 다음 빈 칸으로. 빈 칸이 없으면 「기타」 칸을 하나 더 만든다.
-      // 키트(2026-10-25 컨설팅 6건): 필수 칸이 남았으면 그 칸부터 채운다(필수 4장을 먼저 끝내게).
-      const reqEmpty = (i: number) => !next[i] && i < rail.length && isRequiredItem(rail[i]) && !existing.some((e) => e.slot === rail[i]);
-      let n = PLUS ? next.findIndex((_, i) => i > sel && reqEmpty(i)) : -1;
-      if (PLUS && n < 0) n = next.findIndex((_, i) => reqEmpty(i));
-      if (n < 0) n = next.findIndex((p, i) => !p && i > sel);
-      if (n < 0) n = next.findIndex((p) => !p);
-      if (n < 0) {
-        n = next.length;
-        setRail((r) => [...r, OTHER]);
-        next.push(null);
-      }
-      setSel(n);
-      return next;
-    });
+    // 상태 갱신 함수 밖에서 다음 칸을 계산한다(StrictMode에서 갱신 함수가 두 번 돌아도 「기타」 칸이 두 개 생기지 않게).
+    // 빠른 연속 촬영에도 최신 값을 쓰도록 ref로 읽는다.
+    const cur = selRef.current;
+    const next = [...slotShotsRef.current];
+    const replaced = cur < next.length ? next[cur] : null;
+    if (cur >= next.length) next.push(shot);
+    else next[cur] = shot;
+    // 같은 칸을 다시 찍으면 앞 사진은 이번 선택에서 뺀다(앨범에는 남김) — 같은 칸 사진이 두 장 올라가지 않게
+    setSession((s) => ({ ...s, shots: [shot, ...s.shots], picked: [...s.picked.filter((id) => id !== replaced?.id), shot.id] }));
+    // 다음 빈 칸으로. 빈 칸이 없으면 「기타」 칸을 하나 더 만든다.
+    // 키트(2026-10-25 컨설팅 6건): 필수 칸이 남았으면 그 칸부터 채운다(필수 4장을 먼저 끝내게).
+    const railNow = railRef.current;
+    const reqEmpty = (i: number) => !next[i] && i < railNow.length && isRequiredItem(railNow[i]) && !existing.some((e) => e.slot === railNow[i]);
+    // 2026-10-25 강제를 끈 뒤에는 건너뛰지 않고 칸 줄 순서(차를 도는 순서)대로 간다.
+    const jumpReq = PLUS && ENFORCE;
+    let n = jumpReq ? next.findIndex((_, i) => i > cur && reqEmpty(i)) : -1;
+    if (jumpReq && n < 0) n = next.findIndex((_, i) => reqEmpty(i));
+    if (n < 0) n = next.findIndex((p, i) => !p && i > cur);
+    if (n < 0) n = next.findIndex((p) => !p);
+    if (n < 0) {
+      n = next.length;
+      next.push(null);
+      railRef.current = [...railNow, OTHER];
+      setRail(railRef.current);
+    }
+    slotShotsRef.current = next;
+    selRef.current = n;
+    setSlotShots(next);
+    setSel(n);
   };
 
   const removeSlotShot = (i: number) => {
@@ -482,12 +503,12 @@ function PhotoCapture({
                 const note = it.note && i === 0 ? it.note : "";
                 return (
                   <div key={i} data-i={i} className={`shoot-slot ${i === sel ? "is-sel" : ""} ${req ? "is-required" : ""} ${shot ? "is-shot" : ""}`}>
-                    <button type="button" className="shoot-slot__hit" onClick={() => setSel(i)} aria-label={`${it.label}${req ? ` (${levelLabel("required")})` : ""} 칸 선택`}>
+                    <button type="button" className="shoot-slot__hit" onClick={() => setSel(i)} aria-label={`${it.label}${req ? ` (${reqLabel()})` : ""} 칸 선택`}>
                       {shot ? <img src={shot.src} alt="" /> : null}
                       <span className="shoot-slot__label">{it.label}</span>
                     </button>
                     {note ? <em className="shoot-slot__tag">{note}</em> : null}
-                    {req && !shot && ENFORCE_REQUIRED ? <i className="shoot-slot__req" aria-hidden="true" /> : null}
+                    {req && !shot && ENFORCE ? <i className="shoot-slot__req" aria-hidden="true" /> : null}
                     {shot ? (
                       <button type="button" className="shoot-slot__x" aria-label={`${it.label} 사진 지우기`} onClick={() => removeSlotShot(i)}>
                         <Mask src={rd("close-outline")} />
@@ -497,8 +518,8 @@ function PhotoCapture({
                 );
               })}
             </div>
-            {hiddenReq.length && ENFORCE_REQUIRED ? (
-              <button type="button" className="shoot-rail-more" aria-label={`오른쪽에 ${levelLabel("required")} 칸 ${hiddenReq.length}개 더 있어요`} onClick={() => setSel(hiddenReq[0])}>
+            {hiddenReq.length && ENFORCE ? (
+              <button type="button" className="shoot-rail-more" aria-label={`오른쪽에 ${reqLabel()} 칸 ${hiddenReq.length}개 더 있어요`} onClick={() => setSel(hiddenReq[0])}>
                 +{hiddenReq.length}
               </button>
             ) : null}
@@ -1773,6 +1794,12 @@ function useDialogFocus(ref: { current: HTMLElement | null }, onClose: () => voi
       if (!list.length) return;
       const first = list[0];
       const last = list[list.length - 1];
+      // 포커스가 창 밖에 있으면(예: 누른 버튼이 다음 단계로 바뀌며 사라짐) 창 안 처음/끝으로 되돌린다
+      if (!box?.contains(document.activeElement)) {
+        e.preventDefault();
+        (e.shiftKey ? last : first).focus();
+        return;
+      }
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault();
         last.focus();
@@ -2186,10 +2213,13 @@ function VideoPreview({
   const openShorts = () => (missing.length ? setAskShorts(true) : onShorts?.());
   const [saving, setSaving] = useState<{ label: string; p: number } | null>(null);
   const [saveMsg, setSaveMsg] = useState("");
+  const sayTimer = useRef(0);
   const say = (m: string) => {
     setSaveMsg(m);
-    window.setTimeout(() => setSaveMsg(""), 2600);
+    window.clearTimeout(sayTimer.current);
+    sayTimer.current = window.setTimeout(() => setSaveMsg(""), 2600);
   };
+  useEffect(() => () => window.clearTimeout(sayTimer.current), []);
   const save = async (urls: string[], what: string, label: string) => {
     setSaveOpen(false);
     ref.current?.pause();
@@ -2468,6 +2498,13 @@ function RegionSheet({ value, onClose, onPick }: { value: { sido: string; gu: st
   const ref = useRef<HTMLDivElement>(null);
   const [sido, setSido] = useState<string | null>(null);
   useDialogFocus(ref, onClose);
+  // 시·도 ↔ 시·군·구 단계가 바뀌면 누른 버튼이 사라지므로 새 목록 첫 칸으로 포커스를 옮긴다(첫 화면은 useDialogFocus가 맡음)
+  const prevSido = useRef(sido);
+  useEffect(() => {
+    if (prevSido.current === sido) return;
+    prevSido.current = sido;
+    ref.current?.querySelector<HTMLElement>(".shoot-region__grid button")?.focus({ preventScroll: true });
+  }, [sido]);
   const list = sido ? DISTRICTS[sido] ?? [] : [];
   return (
     <div className="shoot-region" onClick={(e) => e.target === e.currentTarget && onClose()}>
@@ -2488,7 +2525,7 @@ function RegionSheet({ value, onClose, onPick }: { value: { sido: string; gu: st
         <div className={`shoot-region__grid ${sido ? "is-gu" : ""}`} key={sido ?? "sido"}>
           {sido
             ? list.map((g) => (
-                <button key={g} type="button" className={value?.sido === sido && value.gu === g ? "is-on" : ""} onClick={() => onPick({ sido, gu: g })}>
+                <button key={g} type="button" className={value?.sido === sido && value.gu === g ? "is-on" : ""} aria-pressed={value?.sido === sido && value.gu === g} onClick={() => onPick({ sido, gu: g })}>
                   {g}
                 </button>
               ))
@@ -2497,6 +2534,7 @@ function RegionSheet({ value, onClose, onPick }: { value: { sido: string; gu: st
                   key={x}
                   type="button"
                   className={value?.sido === x ? "is-on" : ""}
+                  aria-pressed={value?.sido === x}
                   onClick={() => ((DISTRICTS[x] ?? []).length ? setSido(x) : onPick({ sido: x, gu: "" }))}
                 >
                   {x}
@@ -2522,15 +2560,15 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
       </header>
       <div className="shoot-rules__body">
         <section className="shoot-rules__notice">
-          <strong>{SHOOT.rulesTitle}</strong>
-          <p>{SHOOT.rulesNotice}</p>
+          <strong>{ENFORCE ? ENF_TEXT.rulesTitle : SHOOT.rulesTitle}</strong>
+          <p>{ENFORCE ? ENF_TEXT.rulesNotice : SHOOT.rulesNotice}</p>
           <small className="shoot-rules__vehicle">{SHOOT.vehicleNote}</small>
         </section>
         {/* 2026-10-25 컨설팅 6건: 필수 4장을 맨 위 한 줄로 모으고, 그룹에는 나머지(권장·선택)만 둔다 */}
         <section className="shoot-rules__group is-required">
           <h3>
-            {ENFORCE_REQUIRED ? "필수" : (SHOOT.photo.keyTitle ?? levelLabel("required"))} {REQUIRED_IDS.length}장
-            <span className="shoot-rules__badge is-required">{levelLabel("required")}</span>
+            {ENFORCE ? ENF_TEXT.levelLabel : (SHOOT.photo.keyTitle ?? reqLabel())} {REQUIRED_IDS.length}장
+            <span className="shoot-rules__badge is-required">{reqLabel()}</span>
           </h3>
           <div className="shoot-rules__grid">
             {REQUIRED_IDS.map((id) => {
@@ -2595,6 +2633,22 @@ type Screen =
 export default function ShootRegister() {
   useInlineCss("bbm-shootkit-css", shootCss);
   const [screen, setScreen] = useState<Screen>({ name: "main" });
+  // 쇼츠 입력은 같은 촬영본이면 같은 객체를 넘긴다. 매번 새 객체면 부모가 다시 그려질 때(알림·업로드 표시 등)마다
+  // ShortsMaker가 영상을 처음부터 다시 불러와 고르던 컷이 바뀐다.
+  const shortsTake = screen.name === "shorts" ? screen.take : null;
+  const shortsInput = useMemo(
+    () =>
+      shortsTake
+        ? {
+            segs: shortsTake.segs,
+            durations: shortsTake.durations,
+            stages: shortsTake.stages ?? BASE_STAGES,
+            labels: (shortsTake.stages ?? BASE_STAGES).map((k) => def(k).label),
+            hl: shortsTake.hl ?? [],
+          }
+        : null,
+    [shortsTake],
+  );
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [video, setVideo] = useState<Video | null>(null);
   const [toast, setToast] = useState("");
@@ -2635,7 +2689,9 @@ export default function ShootRegister() {
   useEffect(
     () =>
       setProgress((p) => {
-        const media = (60 * Math.min(requiredDone, PHOTO_MIN)) / PHOTO_MIN + (10 * recommendedDone) / RECOMMENDED_IDS.length + (10 * videoDone) / VIDEO_GROUPS.length;
+        // 분모는 JSON이 바뀌어 0개가 돼도 NaN이 되지 않게 1 이상(우선 칸 수는 requiredOk와 같은 REQUIRED_IDS 기준)
+        const reqN = Math.max(1, REQUIRED_IDS.length);
+        const media = (60 * Math.min(requiredDone, reqN)) / reqN + (10 * recommendedDone) / Math.max(1, RECOMMENDED_IDS.length) + (10 * videoDone) / Math.max(1, VIDEO_GROUPS.length);
         // 키트: 소재지를 고르면 20(처음엔 0). 58 재현: 들어온 뒤 자동 20.
         if (PLUS) return Math.round((region ? 20 : 0) + media);
         return p === 0 ? 0 : Math.round(20 + media);
@@ -2644,9 +2700,15 @@ export default function ShootRegister() {
   );
   const regionOk = !PLUS || Boolean(region);
   // 2026-10-25 「필수 사진 강제를 일단은 빼자」: 강제를 끄면 사진 PUBLISH_MIN장(1장)부터 등록할 수 있다
-  const photosOk = ENFORCE_REQUIRED ? requiredOk : photos.length >= PUBLISH_MIN;
-  const needCount = ENFORCE_REQUIRED ? needPhotos : Math.max(0, PUBLISH_MIN - photos.length);
+  // 올리는 중(업로드 표시)인 사진은 세지 않는다 — 다 올라간 뒤에 등록되게
+  const readyPhotos = photos.filter((p) => !p.uploading).length;
+  const photosOk = ENFORCE ? requiredOk : readyPhotos >= PUBLISH_MIN;
+  const needCount = ENFORCE ? needPhotos : Math.max(0, PUBLISH_MIN - photos.length);
+  /** 강제를 끈 키트에서 장수는 찼는데 아직 올리는 중 */
+  const waitUpload = !ENFORCE && !photosOk && photos.length >= PUBLISH_MIN;
   const canPublish = photosOk && regionOk;
+  // 사진 장수가 바뀌면 경고를 끈다(다시 모자라도 등록하기를 누르기 전에는 빨갛게 하지 않음)
+  useEffect(() => setTried(false), [photos.length]);
   const mediaRef = useRef<HTMLElement>(null);
   useEffect(() => {
     if (document.documentElement.dataset.site !== "shoot") document.title = "보배드림 · 중고차 등록 촬영";
@@ -2740,19 +2802,19 @@ export default function ShootRegister() {
                 <h3>
                   {sectionTitle} {PLUS && !(status === "uploading" || (status === "done" && photos.length)) ? null : <em>(필수)</em>}
                 </h3>
-                {ENFORCE_REQUIRED ? (
+                {ENFORCE ? (
                 <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계(선택)`}>
                   사진 <b className={requiredOk ? "is-ok" : tried ? "is-warn" : ""}>{Math.min(requiredDone, PHOTO_MIN)}/{PHOTO_MIN}</b>
                   {PLUS ? " 필수" : ""} · 영상 <span className="is-opt">{PLUS ? (videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택") : `${videoDone}/${VIDEO_GROUPS.length} · 선택`}</span>
                 </span>
                 ) : (
-                <span className="shoot-media-count" aria-label={`사진 ${photos.length}장, 추천 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 선택`}>
+                <span className="shoot-media-count" aria-label={`사진 ${photos.length}장, ${reqLabel()} 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone ? `${videoDone}/${VIDEO_GROUPS.length}단계 ` : ""}선택`}>
                   사진 <b className={photosOk ? "is-ok" : tried ? "is-warn" : ""}>{photos.length}장</b> · 영상 <span className="is-opt">{videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택"}</span>
                 </span>
                 )}
               </div>
               <div className="shoot-hint-row">
-                <p className="shoot-hint">{requiredOk ? SHOOT.photo.hintDone : SHOOT.photo.hint}</p>
+                <p className="shoot-hint">{requiredOk ? SHOOT.photo.hintDone : ENFORCE ? ENF_TEXT.hint : SHOOT.photo.hint}</p>
                 <button type="button" className="shoot-rules-link" onClick={() => setScreen({ name: "rules" })}>
                   <Mask src={rd("help-outline")} />
                   촬영 규칙 보기
@@ -2762,7 +2824,7 @@ export default function ShootRegister() {
               {status === "uploading" ? (
                 <div className="shoot-tipcard is-short">
                   <p>
-                    {requiredOk || !ENFORCE_REQUIRED ? "사진을 처리하고 있어요" : <>필수 사진까지 <em>{REQUIRED_IDS.length - requiredDone}</em>장 부족해요. 더 올려 주세요</>}
+                    {requiredOk || !ENFORCE ? "사진을 처리하고 있어요" : <>필수 사진까지 <em>{REQUIRED_IDS.length - requiredDone}</em>장 부족해요. 더 올려 주세요</>}
                   </p>
                   <button type="button" className="shoot-tipcard__btn" onClick={() => setScreen({ name: "capture", mode: "cam" })}>
                     <Mask src={rd("camera-outline-24")} />
@@ -2926,7 +2988,7 @@ export default function ShootRegister() {
                   setTried(true);
                   if (!photosOk) {
                     mediaRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    notify(ENFORCE_REQUIRED ? `필수 사진 ${needPhotos}장을 더 찍어 주세요` : `사진을 ${needCount}장 이상 올려 주세요`);
+                    notify(ENFORCE ? `필수 사진 ${needPhotos}장을 더 찍어 주세요` : waitUpload ? "사진을 올리고 있어요. 잠시 뒤 다시 눌러 주세요" : `사진을 ${needCount}장 이상 올려 주세요`);
                   } else {
                     setRegionOpen(true);
                   }
@@ -2938,7 +3000,7 @@ export default function ShootRegister() {
               {canPublish ? (
                 "등록하기"
               ) : !photosOk ? (
-                <span className="shoot-publish__need">{ENFORCE_REQUIRED ? `필수 사진 ${needPhotos}장 더 찍어 주세요` : `사진을 ${needCount}장 이상 올려 주세요`}</span>
+                <span className="shoot-publish__need">{ENFORCE ? `필수 사진 ${needPhotos}장 더 찍어 주세요` : waitUpload ? "사진을 올리고 있어요" : `사진을 ${needCount}장 이상 올려 주세요`}</span>
               ) : (
                 <span className="shoot-publish__need">차량 소재지를 골라 주세요</span>
               )}
@@ -3042,15 +3104,9 @@ export default function ShootRegister() {
             }}
           />
         ) : null}
-        {screen.name === "shorts" ? (
+        {screen.name === "shorts" && shortsInput ? (
           <ShortsMaker
-            input={{
-              segs: screen.take.segs,
-              durations: screen.take.durations,
-              stages: screen.take.stages ?? BASE_STAGES,
-              labels: (screen.take.stages ?? BASE_STAGES).map((k) => def(k).label),
-              hl: screen.take.hl ?? [],
-            }}
+            input={shortsInput}
             onClose={() => setScreen(screen.back)}
           />
         ) : null}

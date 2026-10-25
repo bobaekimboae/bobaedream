@@ -94,7 +94,16 @@ export function planCuts(clips: ClipInfo[], highlights: Highlight[], length: num
   type Cand = { clip: ClipInfo; center?: number; prio: number; seq: number };
   const cands: Cand[] = [];
   ordered.forEach((clip) => {
-    const hs = highlights.filter((h) => h.k === clip.key && h.t <= clip.duration).sort((a, b) => a.t - b.t);
+    // 가까운 표시(한 컷 길이 안)는 하나로 합친다 — 같은 장면이 두 번 나오지 않게
+    const hs: Highlight[] = [];
+    highlights
+      .filter((h) => h.k === clip.key && h.t <= clip.duration)
+      .sort((x, y) => x.t - y.t)
+      .forEach((h) => {
+        const last = hs[hs.length - 1];
+        if (last && h.t - last.t < cutMax) last.t = (last.t + h.t) / 2;
+        else hs.push({ ...h });
+      });
     const head = clip.key === "exterior" ? 4 : 2;
     if (!hs.length) cands.push({ clip, prio: head, seq: cands.length });
     else hs.forEach((h, i) => cands.push({ clip, center: h.t, prio: i === 0 ? Math.max(head, 3) : 3, seq: cands.length }));
@@ -121,11 +130,25 @@ export function planCuts(clips: ClipInfo[], highlights: Highlight[], length: num
       if (cap(c) - durs[i] > 0.05) durs[i] = Math.min(cap(c), durs[i] + add);
     });
   }
-  return keep.map((c, i) => {
+  const cuts = keep.map((c, i) => {
     const d = Math.round(durs[i] * 10) / 10;
     const offset = c.center == null ? bestOffset(c.clip, d) : Math.min(Math.max(0, c.center - d / 2), Math.max(0, c.clip.duration - d));
     return { clip: c.clip, offset: Math.round(offset * 10) / 10, duration: d, line: c.clip.label, highlight: c.center != null };
   });
+  // 같은 부위의 컷끼리 겹치면 뒤 컷을 앞 컷 끝으로 밀고, 영상 끝을 넘는 만큼 줄인다(겹친 장면 되풀이 금지).
+  const byClip = new Map<number, PlannedCut[]>();
+  cuts.forEach((c) => byClip.set(c.clip.index, [...(byClip.get(c.clip.index) ?? []), c]));
+  byClip.forEach((list) => {
+    list.sort((a, b) => a.offset - b.offset);
+    for (let i = 1; i < list.length; i += 1) {
+      const end = list[i - 1].offset + list[i - 1].duration;
+      if (list[i].offset < end) {
+        list[i].offset = Math.round(end * 10) / 10;
+        list[i].duration = Math.round(Math.max(0, Math.min(list[i].duration, list[i].clip.duration - list[i].offset)) * 10) / 10;
+      }
+    }
+  });
+  return cuts.filter((c) => c.duration >= 0.5);
 }
 
 /** 이 영상들로 만들 수 있는 가장 긴 쇼츠(초): 컷당 최대 길이까지 쓰고 끝 명함을 더한다. */
