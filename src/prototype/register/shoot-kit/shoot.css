@@ -4368,3 +4368,14 @@ body:has(.shoot-layer) .shoot-install {
   font-size: 14px;
   font-weight: 600;
 }
+
+/* ── 10배 기준 크로스체크(2026-10-25): 등록 화면 사진 삭제 버튼 22px → 누르는 곳 36px(보이는 크기는 그대로) ── */
+.shoot-root.is-kit .shoot-tile__del::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 36px;
+  height: 36px;
+  transform: translate(-50%, -50%);
+}

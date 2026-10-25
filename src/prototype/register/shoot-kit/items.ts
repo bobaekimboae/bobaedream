@@ -46,6 +46,7 @@ type ShootData = {
     shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; hookDefault: string; cutMin: number; cutMax: number; highlightCut: number };
   };
   groups: ShootGroup[];
+  enforcedText: { levelLabel: string; rulesTitle: string; rulesNotice: string; hint: string };
 };
 
 export const SHOOT = raw as unknown as ShootData;
