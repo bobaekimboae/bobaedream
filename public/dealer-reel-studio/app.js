@@ -1,6 +1,6 @@
 const $ = (id) => document.getElementById(id);
 const state = {
-  file: null,
+  file: { sample: true, name: "BMW X5 샘플 영상" },
   duration: 0,
   selected: 0,
   scenes: [
@@ -150,13 +150,36 @@ $("videoInput").addEventListener("change", (event) => {
   state.file = { file, url };
   const video = $("video");
   video.src = url;
+  video.muted = true;
   video.load();
+  $("mediaStatus").textContent = "내 영상 불러오는 중";
   $("fileInfo").hidden = false;
   $("fileInfo").textContent = `${file.name} · ${(file.size / 1024 / 1024).toFixed(1)}MB · 외부 전송 없음`;
   video.addEventListener("loadedmetadata", () => {
     state.duration = Number(video.duration) || 0;
     autoTime();
+    $("mediaStatus").textContent = "내 영상 재생 준비 완료";
+    video.play().catch(() => {});
   }, { once: true });
+});
+
+$("video").addEventListener("loadedmetadata", () => {
+  const video = $("video");
+  state.duration = Number(video.duration) || state.duration;
+  if (state.file?.sample) $("mediaStatus").textContent = "BMW X5 샘플 영상 재생 준비 완료";
+});
+
+$("video").addEventListener("canplay", () => {
+  $("playPreview").disabled = false;
+});
+
+$("video").addEventListener("error", () => {
+  const error = $("video").error;
+  const message = error?.code === 4
+    ? "이 영상 형식은 휴대폰 브라우저에서 지원되지 않습니다. H.264 MP4 영상을 선택해 주세요."
+    : "영상을 불러오지 못했습니다. 다시 선택해 주세요.";
+  $("mediaStatus").textContent = message;
+  toast(message);
 });
 
 $("video").addEventListener("timeupdate", () => {
@@ -173,11 +196,24 @@ $("video").addEventListener("timeupdate", () => {
 
 $("video").addEventListener("pause", () => $("outro").classList.remove("show"));
 $("playPreview").addEventListener("click", async () => {
-  if (!state.file) return toast("먼저 차량 영상을 선택하세요.");
   const video = $("video");
-  video.currentTime = state.scenes[0]?.sourceStart || 0;
-  try { await video.play(); } catch { toast("영상의 재생 버튼을 눌러 주세요."); }
+  if (!video.currentSrc) return toast("영상을 불러오는 중입니다. 잠시 후 다시 눌러 주세요.");
+  if (video.ended || video.currentTime >= video.duration - .2) video.currentTime = 0;
+  try {
+    if (video.paused) {
+      await video.play();
+      $("playPreview").textContent = "일시정지";
+    } else {
+      video.pause();
+      $("playPreview").textContent = "재생";
+    }
+  } catch (error) {
+    $("mediaStatus").textContent = `재생 실패: ${error.message || "브라우저 재생 제한"}`;
+    toast("아래 영상 화면의 재생 아이콘을 한 번 눌러 주세요.");
+  }
 });
+$("video").addEventListener("play", () => { $("playPreview").textContent = "일시정지"; });
+$("video").addEventListener("pause", () => { $("playPreview").textContent = "재생"; });
 $("generateCopy").addEventListener("click", makePlan);
 $("autoTime").addEventListener("click", autoTime);
 $("addScene").addEventListener("click", () => {
@@ -196,7 +232,7 @@ $("savePlan").addEventListener("click", () => {
       price: $("vehiclePrice").value.trim()
     },
     sourceFacts: $("listingFacts").value.split(/\r?\n/).map(cleanLine).filter(Boolean),
-    video: state.file ? { name: state.file.file.name, size: state.file.file.size, duration: state.duration } : null,
+    video: state.file?.file ? { name: state.file.file.name, size: state.file.file.size, duration: state.duration } : { sample: true, name: state.file?.name, duration: state.duration },
     scenes: state.scenes,
     outro: { label: "By.보배드림", duration: 2.2 },
     safety: { factualSourceOnly: true, generatedAt: new Date().toISOString() }
