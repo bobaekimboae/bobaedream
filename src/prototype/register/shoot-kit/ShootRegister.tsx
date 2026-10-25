@@ -1475,7 +1475,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                 단계 편집
               </button>
             ) : null}
-            <div className={`shoot-stages ${recording ? "is-recording" : ""} ${PLUS ? "is-plus" : ""}`}>
+            <div className={`shoot-stages ${recording ? "is-recording" : ""} ${PLUS ? "is-plus is-kit" : ""}`}>
               {defs.map((s, i) => {
                 const active = i === stage;
                 const expanded = active && !recording;
@@ -1545,10 +1545,22 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                     </button>
                   )
                 ) : (
-                  // 2026-10-25: 비어 있던 자리에 지금 단계 시간 / 최대 시간
-                  <span className="shoot-vcount">
-                    {msec(phase === "recording" ? elapsed : 0)} / {msec(cur.max)}
-                  </span>
+                  PLUS ? (
+                    // 2026-10-25 컨설팅: 시간은 틀 안에만 두고, 이 자리는 녹화 상태 표시
+                    phase === "recording" ? (
+                      <span className="shoot-recstate">
+                        <i aria-hidden="true" />
+                        녹화 중
+                      </span>
+                    ) : (
+                      <span />
+                    )
+                  ) : (
+                    // 2026-10-25: 비어 있던 자리에 지금 단계 시간 / 최대 시간
+                    <span className="shoot-vcount">
+                      {msec(phase === "recording" ? elapsed : 0)} / {msec(cur.max)}
+                    </span>
+                  )
                 )}
               </div>
             </div>
@@ -1627,7 +1639,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
         />
       ) : null}
       {PLUS && mode === "cam" && cam.error === "denied" ? (
-        <CamPermission onRetry={cam.retry} onAlbum={() => setMode("album")} />
+        <CamPermission onRetry={cam.retry} onAlbum={() => setMode("album")} onClose={onClose} />
       ) : null}
       {PLUS ? (
         <span className="shoot-sr" role="status" aria-live="polite">
@@ -1639,9 +1651,12 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
 }
 
 /** 카메라 권한이 없을 때(2026-10-25 컨설팅): 촬영 화면을 그대로 두지 않고 따로 안내한다. 지금 쓰는 환경 안내만 보인다. */
-function CamPermission({ onRetry, onAlbum }: { onRetry: () => void; onAlbum: () => void }) {
+function CamPermission({ onRetry, onAlbum, onClose }: { onRetry: () => void; onAlbum: () => void; onClose: () => void }) {
   return (
     <div className="shoot-perm" role="alertdialog" aria-modal="true" aria-labelledby="shoot-perm-t">
+      <button type="button" className="shoot-icon-btn shoot-perm__close" aria-label="닫기" onClick={onClose}>
+        <Mask src={rd("close-outline")} />
+      </button>
       <Mask src={rd("video-camera-outline")} className="shoot-perm__icon" />
       <strong id="shoot-perm-t">카메라 사용 권한이 필요해요</strong>
       <p>{permHelp()}</p>
@@ -1809,7 +1824,7 @@ function CoursePicker({
       <div className="shoot-xpick__box" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" onClick={(e) => e.stopPropagation()}>
         <header>
           <strong id="shoot-xpick-t">촬영 코스 고르기</strong>
-          <p>차 주위를 걷는 순서대로 찍어요. 쇼츠는 찍은 영상에서 15 · 30 · 60초로 자동으로 줄여요.</p>
+          <p>차 주위를 걷는 순서대로 찍어요.</p>
           <div className="shoot-xpick__modes" role="radiogroup" aria-label="화면 종류">
             {(
               [
@@ -2151,7 +2166,7 @@ function VideoPreview({
           </button>
         ) : null}
         {total ? (
-          <div className={`shoot-stages is-done-row ${stageKeys.length > 4 ? "is-plus" : ""}`}>
+          <div className={`shoot-stages is-done-row ${stageKeys.length > 4 ? "is-plus" : ""} ${PLUS ? "is-kit" : ""}`}>
             {stageKeys.map((key, i) => {
               const s = def(key);
               const at = parts.findIndex((x) => x.i === i);

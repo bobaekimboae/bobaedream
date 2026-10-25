@@ -254,3 +254,8 @@
 .shoot-shorts .sfp-more[open] summary {
   margin-bottom: 12px;
 }
+
+/* 경고는 만들기 버튼 위(누르기 전에 보이게) */
+.shoot-shorts__foot .shoot-shorts__warn {
+  margin: 0 0 8px;
+}
