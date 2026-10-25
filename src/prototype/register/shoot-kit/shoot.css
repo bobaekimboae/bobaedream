@@ -4001,3 +4001,35 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-root.is-kit .shoot-rules__body {
   padding-bottom: calc(120px + env(safe-area-inset-bottom));
 }
+
+/* ── 최종 크로스체크(2026-10-25) ───────────────────────── */
+/* 「● +N」 알약이 마지막 칸(빨간 점·사진)을 덮던 것: 칸 줄 바로 위 오른쪽으로 올린다 */
+.shoot-root.is-kit .shoot-rail-more {
+  bottom: calc(9.3px + 70px + 8px);
+  right: 8px;
+}
+.shoot-root.is-kit .shoot-rail-more::after,
+.shoot-root.is-kit .shoot-plate::after,
+.shoot-root.is-kit .shoot-slot__x::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+/* 보이는 크기는 그대로 두고 누르는 곳만 넓힌다 */
+.shoot-root.is-kit .shoot-rail-more::after {
+  width: calc(100% + 8px);
+  height: 40px;
+}
+.shoot-root.is-kit .shoot-plate {
+  position: relative;
+}
+.shoot-root.is-kit .shoot-plate::after {
+  width: 100%;
+  height: 44px;
+}
+.shoot-root.is-kit .shoot-slot__x::after {
+  width: 32px;
+  height: 32px;
+}
