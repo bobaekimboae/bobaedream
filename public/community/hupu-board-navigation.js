@@ -43,7 +43,7 @@
   ];
   var storageKey='bbm.community.boardChannels.v2';
   var legacyStorageKey='bbm.community.boardOrder.v1';
-  var fixedIds=['home','best'];
+  var fixedIds=['home','all','best'];
   var movableBoards=boards.filter(function(board){return !board.fixed});
   var defaultActiveOrder=movableBoards.map(function(board){return board.id});
   var boardById={};
@@ -100,7 +100,7 @@
     var queryParams=new URLSearchParams(location.search);
     var previewGrid=queryParams.get('boardGrid');
     var panelColumns=previewGrid==='3'?3:4;
-    var selectedId=queryId==='home'||boardById[queryId]?queryId:'home';
+    var selectedId=queryId==='home'||queryId==='all'||boardById[queryId]?queryId:'home';
     var editing=false;
     var draftOrder=[];
     var activeSection='게시판';
@@ -112,7 +112,11 @@
     var panelOpener=null;
     var toastTimer=null;
 
-    function boardForId(id){return id==='home'?{id:'home',displayName:'전체 게시글',shortName:'전체',topicKey:'전체',fixed:true,avatarLabel:'ALL',avatarColor:'#202124',avatarAccent:'#666a70'}:boardById[id]}
+    function boardForId(id){
+      if(id==='home')return{id:'home',displayName:'전체 게시글',shortName:'홈',topicKey:'전체',fixed:true,avatarLabel:'HOME',avatarColor:'#202124',avatarAccent:'#666a70'};
+      if(id==='all')return{id:'all',displayName:'전체 게시글',shortName:'전체',topicKey:'전체',fixed:true,avatarLabel:'ALL',avatarColor:'#202124',avatarAccent:'#666a70'};
+      return boardById[id];
+    }
     function updateCurrentBoardAvatar(board){
       var avatar=document.querySelector('.boardAvatar');
       if(!avatar||!board)return;
@@ -144,7 +148,7 @@
     }
     function renderNav(){
       var state=loadState();
-      var items=[navButton('home','전체','전체 게시글',true),navButton('best','베스트','베스트글',false)];
+      var items=[navButton('home','홈','커뮤니티 홈',true),navButton('all','전체','전체 게시글',false),navButton('best','베스트','베스트글',false)];
       state.activeOrder.forEach(function(id){var board=boardById[id];if(board)items.push(navButton(board.id,board.shortName,board.displayName,false))});
       track.innerHTML=items.join('');
       Array.prototype.forEach.call(track.querySelectorAll('[data-board-id]'),function(button){button.onclick=function(){choose(button.dataset.boardId)}});
@@ -203,7 +207,7 @@
     function updateItemLabels(){
       var items=myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]');
       Array.prototype.forEach.call(items,function(item,index){
-        item.setAttribute('aria-label',item.dataset.boardName+' 현재 '+(index+3)+'번째, 방향키로 이동');
+        item.setAttribute('aria-label',item.dataset.boardName+' 현재 '+(index+4)+'번째, 방향키로 이동');
         item.setAttribute('aria-posinset',String(index+1));
         item.setAttribute('aria-setsize',String(items.length));
       });
@@ -267,7 +271,7 @@
           if(event.key==='ArrowRight')next=index+1;
           if(event.key==='ArrowUp')next=index-columns;
           if(event.key==='ArrowDown')next=index+columns;
-          if(next!==index&&next>=0&&next<items.length){event.preventDefault();myGrid.insertBefore(item,next>index?items[next].nextSibling:items[next]);updateDraftFromGrid();updateItemLabels();commitDraft(item.dataset.boardName+' '+(next+3)+'번째로 이동·저장');item.focus()}
+          if(next!==index&&next>=0&&next<items.length){event.preventDefault();myGrid.insertBefore(item,next>index?items[next].nextSibling:items[next]);updateDraftFromGrid();updateItemLabels();commitDraft(item.dataset.boardName+' '+(next+4)+'번째로 이동·저장');item.focus()}
         };
         if(!editing||item.dataset.movable!=='true')return;
         item.ondragstart=function(event){startDrag(item,null);event.dataTransfer.effectAllowed='move';event.dataTransfer.setData('text/plain',id)};
@@ -341,7 +345,7 @@
       editButton.textContent=editing?'완료':'편집';
       editButton.setAttribute('aria-pressed',String(editing));
       backdrop.classList.toggle('isEditing',editing);
-      myGrid.innerHTML=fixedTile('home','전체','전체 게시글')+fixedTile('best','베스트','베스트글')+order.map(function(id){return movableTile(boardById[id])}).join('');
+      myGrid.innerHTML=fixedTile('home','홈','커뮤니티 홈')+fixedTile('all','전체','전체 게시글')+fixedTile('best','베스트','베스트글')+order.map(function(id){return movableTile(boardById[id])}).join('');
       Array.prototype.forEach.call(backdrop.querySelectorAll('.boardOrderSectionTabs [role="tab"]'),function(tab){var on=tab.dataset.section===activeSection;tab.classList.toggle('on',on);tab.setAttribute('aria-selected',String(on));tab.tabIndex=on?0:-1;tab.onclick=function(){activeSection=tab.dataset.section;renderPanel()}});
       var reset=backdrop.querySelector('.boardOrderReset');
       reset.hidden=!editing;
@@ -394,7 +398,7 @@
     });
 
     renderNav();
-    if(queryId==='home'||boardById[queryId])choose(queryId,{skipQuery:true,silent:true});else choose('home',{skipQuery:true,silent:true});
+    if(queryId==='home'||queryId==='all'||boardById[queryId])choose(queryId,{skipQuery:true,silent:true});else choose('home',{skipQuery:true,silent:true});
     if(queryParams.get('menu')==='all')requestAnimationFrame(function(){openPanel({showViewEntry:false})});
     return{
       setSelectedByLabel:function(label){var board=boards.find(function(item){return item.displayName===label});if(board){selectedId=board.id;renderNav();updateCurrentBoardAvatar(board);updateQuery(board.id);scrollSelected()}else if(label==='전체 게시글'||label==='전체'){selectedId='home';renderNav();updateCurrentBoardAvatar(boardForId('home'));updateQuery('home');scrollSelected()}},
