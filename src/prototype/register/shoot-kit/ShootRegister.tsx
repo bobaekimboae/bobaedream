@@ -2325,6 +2325,22 @@ function VideoPreview({
           </div>
         ) : null}
       </div>
+      {PLUS && !edit && parts.length ? (
+        <div className="shoot-vsave">
+          {/* 큰 저장 버튼(2026-10-26): 찍은 직후 한 번에 전체 영상을 mp4로. 부위별 저장은 위 「저장」 시트 */}
+          <button
+            type="button"
+            onClick={() => {
+              if (parts.length > 1) return void save(parts.map((x) => x.u), "all", "전체 영상");
+              const key = stageKeys[parts[0].i] ?? "video";
+              void save([parts[0].u], take.imported ? "video" : key, take.imported ? "불러온 영상" : (def(key as VideoStage)?.label ?? "영상"));
+            }}
+          >
+            내 폰에 저장
+            <em>mp4 · {mmss(total || dur)}</em>
+          </button>
+        </div>
+      ) : null}
       <div className="shoot-bottom is-vpreview">
         <span className="shoot-vtime">
           {mmss(before + t)}/{mmss(dur || total)}
