@@ -42,7 +42,7 @@ type ShootData = {
     extraStages: { key: VideoStage; label: string; min: number; max: number; hint?: string; steps?: { label: string; hand: string }[] }[];
     customTimes: { label: string; min: number; max: number }[];
     targets: { label: string; sec: number }[];
-    recommend: { id: string; label: string; stages: VideoStage[] }[];
+    recommend: { id: string; label: string; stages: VideoStage[]; replace?: Partial<Record<VideoStage, VideoStage>>; hide?: VideoStage[] }[];
     shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; hookDefault: string; cutMin: number; cutMax: number; highlightCut: number };
   };
   groups: ShootGroup[];

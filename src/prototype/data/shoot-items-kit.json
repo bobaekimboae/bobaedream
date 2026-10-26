@@ -109,6 +109,12 @@
         "label": "하부",
         "min": 3,
         "max": 10
+      },
+      {
+        "key": "charge",
+        "label": "충전구·프렁크",
+        "min": 3,
+        "max": 15
       }
     ],
     "optional": true,
@@ -179,6 +185,13 @@
       {
         "id": "ev",
         "label": "전기차",
+        "replace": {
+          "engine": "charge"
+        },
+        "hide": [
+          "start",
+          "under"
+        ],
         "stages": [
           "cluster",
           "feature",

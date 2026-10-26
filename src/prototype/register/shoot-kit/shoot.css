@@ -4553,3 +4553,14 @@ body:has(.shoot-layer) .shoot-install {
   color: rgba(255, 255, 255, 0.7);
   font-size: 12px;
 }
+/* 완성도 버튼 누르는 곳 44 높이(보이는 글자 11px 그대로) */
+.shoot-root.is-kit .shoot-progress-why::after {
+  inset: -16px -12px;
+}
+.shoot-course__secs {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #8c8c8c;
+}
