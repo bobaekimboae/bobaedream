@@ -4434,3 +4434,51 @@ body:has(.shoot-layer) .shoot-install {
   position: absolute;
   inset: -12px -10px;
 }
+
+/* ── 2026-10-26 10배 크로스체크 ── */
+/* 회색 등록하기: 흰 글자 대비 1.4:1 → 진한 회색 글자 4.7:1. 이 글자가 「사진을 1장 이상 올려 주세요」 같은 핵심 안내다. */
+.shoot-root.is-kit .shoot-publish.is-disabled {
+  background: #ebebeb !important;
+  color: #6b6b6b !important;
+}
+/* 안내 문구가 낱말 중간(「보 / 여요」)에서 끊기지 않게 */
+.shoot-root.is-kit .shoot-hint,
+.shoot-root.is-kit .shoot-confirm p,
+.shoot-root.is-kit .shoot-perm p {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+/* 미리보기: 썸네일 줄(아래 겹침)이 세로 사진 아래쪽(번호판 자리)을 가리지 않게 사진을 그 위에만 놓는다 */
+.shoot-root.is-kit .shoot-preview .shoot-stage {
+  padding-bottom: 82px;
+}
+/* 작은 누름 영역: 보이는 크기는 그대로, 누르는 곳만 넓힌다 */
+/* (× · 스티커 손잡이 · 붓 점은 이미 absolute라 그대로 둔다) */
+.shoot-root.is-kit .shoot-preview .shoot-strip__add,
+.shoot-root.is-kit .shoot-vedit-actions button {
+  position: relative;
+}
+.shoot-root.is-kit .shoot-preview .shoot-strip__x::after,
+.shoot-root.is-kit .shoot-sticker__h::after {
+  content: "";
+  position: absolute;
+  inset: -11px;
+}
+.shoot-root.is-kit .shoot-preview .shoot-strip__add::after {
+  content: "";
+  position: absolute;
+  inset: 0 -6px;
+}
+.shoot-root.is-kit .shoot-brush::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+}
+.shoot-root.is-kit .shoot-vedit-actions {
+  gap: 6px;
+}
+.shoot-root.is-kit .shoot-vedit-actions button {
+  min-width: 52px;
+  min-height: 44px;
+}

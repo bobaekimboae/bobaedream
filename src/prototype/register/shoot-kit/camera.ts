@@ -28,7 +28,7 @@ export function useCamera(active: boolean, withAudio: boolean): CameraState {
     }
     const video: MediaTrackConstraints = { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } };
     md.getUserMedia({ video, audio: withAudio })
-      .catch(() => (withAudio ? md.getUserMedia({ video, audio: false }) : Promise.reject(new Error("no camera"))))
+      .catch((e: unknown) => (withAudio ? md.getUserMedia({ video, audio: false }) : Promise.reject(e)))
       .then((s) => {
         if (cancelled) {
           s.getTracks().forEach((t) => t.stop());

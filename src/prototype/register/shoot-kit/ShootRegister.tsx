@@ -24,7 +24,8 @@ import {
 } from "./image-ops";
 import { playShutter, primeSound } from "./sound";
 import { GUIDE_ON, ShotGuide } from "./guides";
-import { makeMp4, mp4Name, saveToDevice } from "./save-mp4";
+import { dialogStack, useLayerEsc } from "./layer-esc";
+import { makeMp4, mp4Codec, mp4Name, saveToDevice } from "./save-mp4";
 import { RuleIllustration, StageTemplate, setCustomGuide, stageGuide, stageThumb, type VideoStage } from "./templates";
 import { loadPrefs, newCustomKey, savePrefs, type CustomStage, type StagePrefs } from "./stage-prefs";
 import type { Highlight } from "./shorts";
@@ -119,7 +120,11 @@ const courseLabel = (list: VideoStage[]) => {
 /** 흠집 표시: 흠집 단계 영상의 몇 초에, 화면 어디를 눌렀는지(0~1) */
 type Mark = { t: number; x: number; y: number };
 
-type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean };
+/** raw = 번호판 가림을 굽기 전 원본(키트: 가림을 다시 옮길 수 있게), fromAlbum = 앨범에서 고른 사진(부위 나누기 대상) */
+type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean; raw?: string; fromAlbum?: boolean };
+/** 번호판이 보이는 각도(정면 · 후면 · 45°)만 촬영 때 가림을 자동으로 붙인다 */
+const PLATE_KINDS = new Set(["front", "rear", "q34"]);
+const platePlace = (): Sticker => ({ ...defaultSticker(), cy: 0.64 });
 /** 등록 화면 칸 순서: 촬영 레일 각도 순(기타는 맨 뒤), 같은 각도는 올린 순 */
 const slotOrder = (slot: string) => {
   const i = (PHOTO_SLOTS as readonly string[]).indexOf(slot);
@@ -168,10 +173,11 @@ function Confirm({ text, onCancel, onOk, cancelText = "취소", okText = "확인
         <strong id="shoot-confirm-t">안내</strong>
         <p>{text}</p>
         <div className="shoot-confirm__row">
-          <button type="button" onClick={onCancel}>
+          {/* 키트: 지우기 · 버리기 같은 확인은 실수로 Enter를 눌러도 되돌릴 수 있게 「취소」 쪽에 먼저 포커스 */}
+          <button type="button" onClick={onCancel} data-autofocus={PLUS ? true : undefined}>
             {cancelText}
           </button>
-          <button type="button" className="is-ok" onClick={onOk} data-autofocus>
+          <button type="button" className="is-ok" onClick={onOk} data-autofocus={PLUS ? undefined : true}>
             {okText}
           </button>
         </div>
@@ -385,7 +391,8 @@ function PhotoCapture({
       return;
     }
     const video = videoRef.current?.querySelector("video");
-    const label = rail[sel] ?? OTHER;
+    // 빠른 연속 촬영(2026-10-26 크로스체크): 칸 이름도 ref로 읽어 사진과 칸이 어긋나지 않게
+    const label = railRef.current[selRef.current] ?? OTHER;
     const src = (video && cam.stream && grabFrame(video)) || placeholderShot(itemLabel(label), session.shots.length + existing.length);
     playShutter();
     const shot: Photo = { id: uid(), src, slot: label, plateOn: plate };
@@ -453,7 +460,7 @@ function PhotoCapture({
       ),
     );
     const photos: Photo[] = [];
-    for (const src of list) photos.push({ id: uid(), src: await normalize(src), slot: OTHER });
+    for (const src of list) photos.push({ id: uid(), src: await normalize(src), slot: OTHER, fromAlbum: true });
     setSession((s) => {
       const room = MAX_PHOTOS - existing.length - s.picked.length;
       if (photos.length > room) notify(`사진은 최대 ${MAX_PHOTOS}장까지 올릴 수 있어요`);
@@ -597,6 +604,10 @@ function PhotoCapture({
           </div>
         </>
       )}
+      {/* 2026-10-26 크로스체크: 사진 화면도 권한을 거절하면 따로 된 안내 화면(대체 그림을 실제 사진처럼 올리지 않게) */}
+      {PLUS && mode === "cam" && !cam.stream && cam.error === "denied" ? (
+        <CamPermission kind="denied" what="photo" onRetry={cam.retry} onAlbum={() => setMode("album")} onClose={onClose} />
+      ) : null}
     </div>
   );
 }
@@ -729,7 +740,7 @@ function PhotoPreview({
   onDone: (next: Photo[]) => void;
   onAddMore: () => void;
 }) {
-  const [draft, setDraft] = useState<(Photo & { removed?: boolean })[]>(() => photos.map((p) => ({ ...p })));
+  const [draft, setDraft] = useState<(Photo & { removed?: boolean })[]>(() => photos.map((p) => (p.raw && p.sticker ? { ...p, src: p.raw } : { ...p })));
   const [cur, setCur] = useState(() => Math.max(0, photos.findIndex((p) => p.id === startId)));
   const [tool, setTool] = useState<EditTool>(null);
   const [stageRef, box] = useBox<HTMLDivElement>();
@@ -737,6 +748,9 @@ function PhotoPreview({
   const fit = useFit(photo?.src ?? "", box);
   const [busy, setBusy] = useState(false);
   const replaceRef = useRef<HTMLInputElement>(null);
+  const layerRef = useRef<HTMLDivElement>(null);
+  // 키트: Esc = 편집기가 열려 있으면 편집 취소, 아니면 닫기(2026-10-26 크로스체크)
+  useLayerEsc(layerRef, () => (tool ? setTool(null) : onClose()), PLUS);
 
   if (!photo) return null;
   const patch = (p: Partial<Photo & { removed: boolean }>) => setDraft((d) => d.map((x, i) => (i === cur ? { ...x, ...p } : x)));
@@ -747,7 +761,9 @@ function PhotoPreview({
     for (const p of draft) {
       if (p.removed) continue;
       const src = await bakeSticker(p.src, p.sticker);
-      out.push({ id: p.id, src, slot: p.slot, uploading: p.uploading });
+      // 키트: 가림을 굽기 전 원본과 가림 위치를 남겨 다시 열면 옮길 수 있다(58은 구운 사진만 남긴다)
+      const keep = PLUS && p.sticker?.visible ? { raw: p.src, sticker: p.sticker } : {};
+      out.push({ id: p.id, src, slot: p.slot, uploading: p.uploading, fromAlbum: p.fromAlbum, ...keep });
     }
     setBusy(false);
     onDone(out);
@@ -785,7 +801,7 @@ function PhotoPreview({
   return (
     <>
     {editor}
-    <div className="shoot-layer shoot-preview" hidden={Boolean(tool)}>
+    <div ref={layerRef} className="shoot-layer shoot-preview" hidden={Boolean(tool)}>
       <header className="shoot-top">
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
           <Mask src={rd("close-outline")} />
@@ -1142,6 +1158,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   phaseRef.current = phase;
   const [changed, setChanged] = useState(false);
   const [count, setCount] = useState(3);
+  const countdownRef = useRef(0);
   const [elapsed, setElapsed] = useState(0);
   const [durations, setDurations] = useState<number[]>(() => initial?.durations.slice() ?? BASE_STAGES.map(() => 0));
   const [askLeave, setAskLeave] = useState(false);
@@ -1176,6 +1193,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   useEffect(
     () => () => {
       window.clearInterval(tick.current);
+      // 카운트다운 중에 닫으면 녹화기가 뒤늦게 켜지지 않게(2026-10-26 크로스체크)
+      window.clearInterval(countdownRef.current);
       fake.current?.stop();
       if (recRef.current && recRef.current.state !== "inactive") recRef.current.stop();
     },
@@ -1306,6 +1325,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     setPhase("countdown");
     setCount(3);
     let n = 3;
+    window.clearInterval(countdownRef.current);
     const t = window.setInterval(() => {
       n -= 1;
       if (n > 0) {
@@ -1327,8 +1347,14 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       const list: Blob[] = [];
       chunks.current = list;
       r.ondataavailable = (e) => e.data.size && list.push(e.data);
+      try {
+        r.start(500);
+      } catch {
+        notify("녹화를 시작하지 못했어요. 다시 눌러 주세요");
+        setPhase(durRef.current.some(Boolean) ? "paused" : "idle");
+        return;
+      }
       recRef.current = r;
-      r.start(500);
       buzz.current = { min: false, end: false };
       // 다시 찍으면 그 단계에 표시해 둔 쇼츠 장면은 지운다.
       const nowKey = stagesRef.current[stageRef.current];
@@ -1349,6 +1375,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       setPhase("recording");
       startTimer();
     }, 1000);
+    countdownRef.current = t;
   };
 
   const pressMain = () => {
@@ -1459,9 +1486,14 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     if (next.join() !== stages.join()) setChanged(true);
   };
 
-  const importVideo = (files: FileList | null) => {
-    const f = files?.[0];
+  // 2026-10-26 크로스체크: 찍어 둔 단계가 있으면 불러온 영상으로 확인 없이 덮어쓰지 않는다
+  const [askImport, setAskImport] = useState<File | null>(null);
+  const importVideo = (f: File | null | undefined, sure = false) => {
     if (!f) return;
+    if (PLUS && !sure && durRef.current.some(Boolean)) {
+      setAskImport(f);
+      return;
+    }
     // 불러온 영상은 실제 길이를 먼저 읽어 두고(2026-10-26 컨설팅: 미리보기 0:12 · 저장창 0:00 불일치) 한 파일로 다룬다.
     const url = URL.createObjectURL(f);
     void readDuration(url).then((d) => onFinished({ segs: [url], durations: [d], thumbs: [], imported: true }));
@@ -1678,7 +1710,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
               </div>
             </>
           )}
-          <input ref={fileRef} type="file" accept="video/*" hidden onChange={(e) => importVideo(e.target.files)} />
+          <input ref={fileRef} type="file" accept="video/*" hidden onChange={(e) => { importVideo(e.target.files?.[0]); e.target.value = ""; }} />
           <div className="shoot-bottom is-album">
             <ModeTabs mode={mode} onChange={setMode} labels={["촬영", "앨범"]} />
           </div>
@@ -1721,6 +1753,19 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
         />
       ) : null}
       {askLeave ? <Confirm text={initial ? "새로 찍은 내용을 버리고 나갈까요?" : "촬영한 영상을 지우고 나갈까요?"} onCancel={() => setAskLeave(false)} onOk={onClose} /> : null}
+      {askImport ? (
+        <Confirm
+          text={`찍어 둔 ${durRef.current.filter(Boolean).length}개 단계 대신 불러온 영상을 쓸까요? 찍은 영상은 지워져요.`}
+          cancelText="취소"
+          okText="불러온 영상 쓰기"
+          onCancel={() => setAskImport(null)}
+          onOk={() => {
+            const f = askImport;
+            setAskImport(null);
+            importVideo(f, true);
+          }}
+        />
+      ) : null}
       {askFinish ? (
         <Confirm
           text={`아직 ${leftLabels.length}개 단계가 남았어요(${leftLabels.join(" · ")}). 지금까지 찍은 영상으로 끝낼까요?`}
@@ -1755,7 +1800,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
 }
 
 /** 카메라 권한이 없을 때(2026-10-25 컨설팅): 촬영 화면을 그대로 두지 않고 따로 안내한다. 지금 쓰는 환경 안내만 보인다. */
-function CamPermission({ kind, onRetry, onAlbum, onCourse, onClose }: { kind: "denied" | "unavailable"; onRetry: () => void; onAlbum: () => void; onCourse: () => void; onClose: () => void }) {
+function CamPermission({ kind, onRetry, onAlbum, onCourse, onClose, what = "video" }: { kind: "denied" | "unavailable"; onRetry: () => void; onAlbum: () => void; onCourse?: () => void; onClose: () => void; what?: "video" | "photo" }) {
   // 권한 거절과 카메라 없음(또는 5초 넘게 안 뜸)을 나눠 안내한다. Esc로 닫고, 포커스는 이 화면 안에서만 돈다.
   const ref = useRef<HTMLDivElement>(null);
   useDialogFocus(ref, onClose);
@@ -1767,23 +1812,24 @@ function CamPermission({ kind, onRetry, onAlbum, onCourse, onClose }: { kind: "d
       </button>
       <Mask src={rd("video-camera-outline")} className="shoot-perm__icon" />
       <strong id="shoot-perm-t">{denied ? "카메라 사용 권한이 필요해요" : "카메라를 쓸 수 없어요"}</strong>
-      <p id="shoot-perm-d">{denied ? permHelp() : "다른 앱이 카메라를 쓰고 있거나 카메라가 없는 기기예요. 다시 시도하거나 찍어 둔 영상을 올려 주세요."}</p>
+      <p id="shoot-perm-d">{denied ? permHelp() : `다른 앱이 카메라를 쓰고 있거나 카메라가 없는 기기예요. 다시 시도하거나 찍어 둔 ${what === "photo" ? "사진" : "영상"}을 올려 주세요.`}</p>
       <button type="button" className="is-ok" onClick={onRetry} data-autofocus="">
         {denied ? "카메라 권한 허용" : "다시 시도"}
       </button>
       <button type="button" onClick={onAlbum}>
-        {denied ? "찍어 둔 영상 올리기" : "앨범에서 선택"}
+        {denied ? (what === "photo" ? "앨범에서 사진 올리기" : "찍어 둔 영상 올리기") : "앨범에서 선택"}
       </button>
-      <button type="button" className="shoot-perm__link" onClick={onCourse}>
-        촬영 코스 먼저 고르기
-      </button>
+      {onCourse ? (
+        <button type="button" className="shoot-perm__link" onClick={onCourse}>
+          촬영 코스 먼저 고르기
+        </button>
+      ) : null}
     </div>
   );
 }
 
 /** 창을 열면 포커스를 창 안으로 옮기고, Tab은 창 안에서만 돌며, Esc로 닫고, 닫으면 연 버튼으로 돌려보낸다(2026-10-25 컨설팅). */
 // 창이 겹쳐 열리면(코스 고르기 위의 확인창 등) 맨 위 창만 Esc · Tab을 받는다.
-const dialogStack: object[] = [];
 function useDialogFocus(ref: { current: HTMLElement | null }, onClose: () => void) {
   const closeRef = useRef(onClose);
   closeRef.current = onClose;
@@ -2223,16 +2269,20 @@ function VideoPreview({
   const [askShorts, setAskShorts] = useState(false);
   /** 안 찍은 단계 이름(불러온 영상은 단계가 없으니 세지 않는다) */
   const missing = PLUS && !take.imported ? (take.stages ?? BASE_STAGES).filter((_, i) => !take.durations[i]).map((k) => def(k).label) : [];
-  const openShorts = () => (missing.length ? setAskShorts(true) : onShorts?.());
+  // 한 번 「지금 영상으로 만들기」를 고르면 이 화면에서는 다시 묻지 않는다(2026-10-26 크로스체크)
+  const shortsSure = useRef(false);
+  const openShorts = () => (missing.length && !shortsSure.current ? setAskShorts(true) : onShorts?.());
   const [saving, setSaving] = useState<{ label: string; p: number } | null>(null);
   const [saveMsg, setSaveMsg] = useState("");
   const sayTimer = useRef(0);
   const say = (m: string) => {
     setSaveMsg(m);
     window.clearTimeout(sayTimer.current);
-    sayTimer.current = window.setTimeout(() => setSaveMsg(""), 2600);
+    sayTimer.current = window.setTimeout(() => setSaveMsg(""), m.length > 30 ? 4200 : 2600);
   };
   useEffect(() => () => window.clearTimeout(sayTimer.current), []);
+  const layerRef = useRef<HTMLDivElement>(null);
+  useLayerEsc(layerRef, onClose, PLUS);
   const save = async (urls: string[], what: string, label: string) => {
     setSaveOpen(false);
     ref.current?.pause();
@@ -2241,8 +2291,11 @@ function VideoPreview({
     try {
       const blob = await makeMp4(urls, (p) => setSaving({ label, p }));
       setSaving(null);
+      // 키트: H.264가 아니면(VP9 등) 아이폰 · 인스타그램에서 안 열릴 수 있다고 함께 알린다
+      const odd = PLUS ? (await mp4Codec(blob).catch(() => null)) !== "avc" : false;
       const r = await saveToDevice(blob, mp4Name(what));
-      if (r === "downloaded") say(`${label} mp4를 저장했어요`);
+      if (odd && r !== "cancelled") say("저장했어요 · 이 폰은 VP9 방식이라 아이폰·인스타그램에서 안 열릴 수 있어요");
+      else if (r === "downloaded") say(`${label} mp4를 저장했어요`);
       else if (r === "shared") say("공유창에서 「동영상 저장」을 누르면 사진첩에 들어가요");
     } catch (e) {
       console.error("mp4 저장 실패", e);
@@ -2251,7 +2304,7 @@ function VideoPreview({
     }
   };
   return (
-    <div className={`shoot-layer shoot-vpreview ${edit ? "is-edit" : ""}`}>
+    <div ref={layerRef} className={`shoot-layer shoot-vpreview ${edit ? "is-edit" : ""}`}>
       <header className="shoot-top">
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
           <Mask src={rd("close-outline")} />
@@ -2414,6 +2467,7 @@ function VideoPreview({
           onDim={() => setAskShorts(false)}
           onOk={() => {
             setAskShorts(false);
+            shortsSure.current = true;
             onShorts?.();
           }}
         />
@@ -2504,8 +2558,10 @@ function CoverPicker({ segs, fallback, fit, onClose, onDone }: { segs: (string |
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [segs]);
+  const layerRef = useRef<HTMLDivElement>(null);
+  useLayerEsc(layerRef, onClose, PLUS);
   return (
-    <div className="shoot-layer shoot-cover">
+    <div ref={layerRef} className="shoot-layer shoot-cover">
       <header className="shoot-top">
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
           <Mask src={rd("close-outline")} />
@@ -2692,7 +2748,7 @@ export default function ShootRegister() {
             segs: shortsTake.segs,
             durations: shortsTake.durations,
             stages: shortsTake.imported ? (["exterior"] as VideoStage[]) : (shortsTake.stages ?? BASE_STAGES),
-            labels: shortsTake.imported ? ["불러온 영상"] : (shortsTake.stages ?? BASE_STAGES).map((k) => def(k).label),
+            labels: shortsTake.imported ? [""] : (shortsTake.stages ?? BASE_STAGES).map((k) => def(k).label),
             hl: shortsTake.hl ?? [],
           }
         : null,
@@ -2700,6 +2756,9 @@ export default function ShootRegister() {
   );
   const [photos, setPhotos] = useState<Photo[]>([]);
   const [video, setVideo] = useState<Video | null>(null);
+  // 키트(2026-10-26 크로스체크): 찍은 영상을 확인 없이 버리지 않는다
+  const [askDiscard, setAskDiscard] = useState<null | (() => void)>(null);
+  const discardTake = (go: () => void) => (PLUS ? setAskDiscard(() => go) : go());
   const [toast, setToast] = useState("");
   const [tipOpen, setTipOpen] = useState(false);
   const [confirm, setConfirm] = useState<null | { kind: "photo"; id: string } | { kind: "video" }>(null);
@@ -2716,6 +2775,24 @@ export default function ShootRegister() {
     window.clearTimeout(toastTimer.current);
     setToast(t);
     toastTimer.current = window.setTimeout(() => setToast(""), 2000);
+  };
+  // 나가기(2026-10-26 크로스체크): 같은 사이트에서 들어왔을 때만 뒤로 간다. 주소로 바로 열었거나 홈 화면 앱이면
+  // 뒤로 갈 곳이 없으므로(빈 페이지로 나가거나 아무 일도 없음) 내용을 비우고 처음 화면에 머문다.
+  const leave = () => {
+    let sameSite = false;
+    try {
+      sameSite = Boolean(document.referrer) && new URL(document.referrer).origin === window.location.origin;
+    } catch {
+      sameSite = false;
+    }
+    if (!PLUS || (sameSite && window.history.length > 1)) return void window.history.back();
+    setPhotos([]);
+    setVideo(null);
+    setRegion(null);
+    setTried(false);
+    setScreen({ name: "main" });
+    window.scrollTo(0, 0);
+    window.setTimeout(() => notify("새 매물 등록을 처음부터 시작해요"), 0);
   };
 
   useEffect(() => {
@@ -2770,12 +2847,22 @@ export default function ShootRegister() {
 
   const addPhotos = (added: Photo[]) => {
     // 키트: 앨범에서 올린 사진(칸 없음 = 기타)은 부위 나누기 화면으로 먼저 간다(2026-10-25 자동 선별)
-    const fresh = PLUS ? added.filter((p) => p.slot === OTHER).map((p) => p.id) : [];
+    // 2026-10-26: 카메라로 「기타」 칸을 찍은 사진은 앨범 사진이 아니므로 나누기 화면을 띄우지 않는다
+    const fresh = PLUS ? added.filter((p) => p.fromAlbum && p.slot === OTHER).map((p) => p.id) : [];
     setScreen(fresh.length ? { name: "sort", fresh } : { name: "main" });
     if (!added.length) return;
     // 새로 올린 사진만 「업로드 중」. 칸은 촬영 각도 순으로 끼워 넣는다.
     const ids = new Set(added.map((p) => p.id));
     setPhotos((p) => sortBySlot([...p, ...added.map((x) => ({ ...x, uploading: true }))]));
+    // 키트: 「번호판 가리기」를 켜고 찍은 정면 · 후면 · 45° 사진에 가림을 바로 굽는다. 사진을 눌러 위치를 옮길 수 있다.
+    const plated = PLUS ? added.filter((x) => x.plateOn && PLATE_KINDS.has(itemOf(x.slot).guide.kind)) : [];
+    if (plated.length) {
+      void Promise.all(plated.map(async (x) => { const st = platePlace(); return [x.id, { raw: x.src, sticker: st, src: await bakeSticker(x.src, st) }] as const; })).then((done) => {
+        const m = new Map(done);
+        setPhotos((p) => p.map((x) => (m.has(x.id) ? { ...x, ...m.get(x.id)! } : x)));
+        notify(`번호판 가림을 ${plated.length}장에 붙였어요 · 사진을 눌러 위치를 맞춰 주세요`);
+      });
+    }
     // 58: 「사진 인식 중」(처리 안내 토스트) → 「인식 완료」
     if (!fresh.length) notify("사진을 처리하고 있어요. 앱을 나가지 마세요");
     window.setTimeout(() => setPhotos((p) => p.map((x) => (ids.has(x.id) ? { ...x, uploading: false } : x))), 3200);
@@ -2855,7 +2942,7 @@ export default function ShootRegister() {
             <section className="shoot-field" ref={mediaRef}>
               <div className="shoot-field__head">
                 <h3>
-                  {sectionTitle} {PLUS && !(status === "uploading" || (status === "done" && photos.length)) ? null : <em>(필수)</em>}
+                  {sectionTitle} {PLUS ? null : <em>(필수)</em>}
                 </h3>
                 {ENFORCE ? (
                 <span className="shoot-media-count" aria-label={`필수 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone}/${VIDEO_GROUPS.length}단계(선택)`}>
@@ -3115,7 +3202,7 @@ export default function ShootRegister() {
         {screen.name === "vpreview" ? (
           <VideoPreview
             take={screen.take}
-            onClose={() => setScreen({ name: "main" })}
+            onClose={() => discardTake(() => setScreen({ name: "main" }))}
             onNext={() => setScreen({ name: "cover", take: screen.take })}
             onShorts={PLUS ? () => setScreen({ name: "shorts", take: screen.take, back: screen }) : undefined}
             onContinue={PLUS && !screen.take.imported ? () => setScreen({ name: "video", take: screen.take }) : undefined}
@@ -3147,7 +3234,7 @@ export default function ShootRegister() {
             segs={screen.take.segs}
             fallback={screen.take.thumbs}
             fit={screen.take.imported}
-            onClose={() => setScreen(screen.coverOnly ? { name: "vedit" } : { name: "main" })}
+            onClose={() => (screen.coverOnly ? setScreen({ name: "vedit" }) : discardTake(() => setScreen({ name: "main" })))}
             onDone={(cover) => {
               const t = screen.take;
               setScreen({ name: "main" });
@@ -3182,6 +3269,20 @@ export default function ShootRegister() {
             }}
           />
         ) : null}
+        {askDiscard ? (
+          <Confirm
+            text="찍은 영상을 버리고 나갈까요? 등록 화면에는 남지 않아요."
+            cancelText="계속 보기"
+            okText="버리기"
+            onDim={() => setAskDiscard(null)}
+            onCancel={() => setAskDiscard(null)}
+            onOk={() => {
+              const go = askDiscard;
+              setAskDiscard(null);
+              go();
+            }}
+          />
+        ) : null}
         {askLeave ? (
           // 58: 「信息尚未发布完成,确认要离开吗？」 不保存 / 保存并退出(바깥을 누르면 그대로 머문다)
           <Confirm
@@ -3191,13 +3292,13 @@ export default function ShootRegister() {
             onDim={() => setAskLeave(false)}
             onCancel={() => {
               setAskLeave(false);
-              window.history.back();
+              leave();
             }}
             onOk={() => {
               setAskLeave(false);
               setDrafts((d) => d + 1);
-              notify("임시저장했어요");
-              window.setTimeout(() => window.history.back(), 600);
+              notify(PLUS ? "임시저장함에 담았어요 · 시안이라 다시 열 수는 없어요" : "임시저장했어요");
+              window.setTimeout(leave, 600);
             }}
           />
         ) : null}
