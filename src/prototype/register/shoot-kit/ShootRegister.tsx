@@ -14,6 +14,7 @@ import {
   drawStickerFace,
   loadImage,
   normalize,
+  normalizeFile,
   pixelate,
   placeholderShot,
   renderMosaic,
@@ -80,6 +81,8 @@ const PHOTO_SLOTS: string[] = PLUS
 /** 필수 4장 강제 여부. 58 재현(&vstage=58)은 예전처럼 늘 강제하고, 키트는 JSON photo.enforceRequired를 따른다(2026-10-25 강제 뺌) */
 const ENFORCE = !PLUS || ENFORCE_REQUIRED;
 const ENF_TEXT = SHOOT.enforcedText;
+/** 카메라가 안 켜졌을 때 시험용 대체 그림으로 찍기를 허락할지(2026-10-27 실기 대비: 키트는 ?debug · ?fakecam 일 때만) */
+const ALLOW_FAKE = !PLUS || (typeof window !== "undefined" && /[?&](debug|fakecam)=/.test(window.location.search));
 /** 필수 등급 이름: 강제하면 「필수」, 아니면 JSON levelLabels.required(「우선」) */
 const reqLabel = () => (ENFORCE ? ENF_TEXT.levelLabel : levelLabel("required"));
 const MAX_EXTRA = 6;
@@ -307,9 +310,11 @@ function PhotoCapture({
   const [mode, setMode] = useState<"cam" | "album">(startMode);
   const cam = useCamera(mode === "cam", false);
   const [flash, setFlash] = useState(false);
+  // 실기 대비: 다시 그릴 때마다 플래시 설정을 보내지 않게, 플래시·지원 여부가 바뀔 때만
   useEffect(() => {
     if (cam.torchSupported) cam.setTorch(flash);
-  }, [flash, cam]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flash, cam.torchSupported, cam.stream]);
   const videoRef = useRef<HTMLDivElement>(null);
   // 2026-10-25 컨설팅 6건: 번호판 가리기는 켜짐이 기본(58 원본 재현은 꺼짐)
   const [plate, setPlate] = useState(PLUS);
@@ -349,6 +354,9 @@ function PhotoCapture({
   const railEl = useRef<HTMLDivElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
   const total = existing.length + session.picked.length;
+  // 빠른 연속 촬영에서도 30장을 넘지 않게 고른 장수를 ref로도 센다(2026-10-27 코드 검토)
+  const pickedRef = useRef(session.picked);
+  pickedRef.current = session.picked;
   // 필수 칸 채움 수: 메인에 이미 있는 사진 + 이번에 찍어 고른 사진의 필수 항목(중복 제외)
   const requiredNow = useMemo(() => {
     const picked = new Set(session.picked);
@@ -387,14 +395,21 @@ function PhotoCapture({
   }, [rail, slotShots, mode]);
 
   const shoot = () => {
-    if (total >= MAX_PHOTOS) {
+    const prev = slotShotsRef.current[selRef.current];
+    const isReplace = Boolean(prev && pickedRef.current.includes(prev.id));
+    if (!isReplace && existing.length + pickedRef.current.length >= MAX_PHOTOS) {
       notify(`사진은 최대 ${MAX_PHOTOS}장까지 올릴 수 있어요`);
       return;
     }
     const video = videoRef.current?.querySelector("video");
     // 빠른 연속 촬영(2026-10-26 크로스체크): 칸 이름도 ref로 읽어 사진과 칸이 어긋나지 않게
     const label = railRef.current[selRef.current] ?? OTHER;
-    const src = (video && cam.stream && grabFrame(video)) || placeholderShot(itemLabel(label), session.shots.length + existing.length);
+    const real = video && cam.stream ? grabFrame(video) : null;
+    if (!real && !ALLOW_FAKE) {
+      notify("카메라 화면이 뜨면 찍을 수 있어요");
+      return;
+    }
+    const src = real || placeholderShot(itemLabel(label), session.shots.length + existing.length);
     playShutter();
     const shot: Photo = { id: uid(), src, slot: label, plateOn: plate };
     // 상태 갱신 함수 밖에서 다음 칸을 계산한다(StrictMode에서 갱신 함수가 두 번 돌아도 「기타」 칸이 두 개 생기지 않게).
@@ -405,6 +420,7 @@ function PhotoCapture({
     if (cur >= next.length) next.push(shot);
     else next[cur] = shot;
     // 같은 칸을 다시 찍으면 앞 사진은 이번 선택에서 뺀다(앨범에는 남김) — 같은 칸 사진이 두 장 올라가지 않게
+    pickedRef.current = [...pickedRef.current.filter((id) => id !== replaced?.id), shot.id];
     setSession((s) => ({ ...s, shots: [shot, ...s.shots], picked: [...s.picked.filter((id) => id !== replaced?.id), shot.id] }));
     // 다음 빈 칸으로. 빈 칸이 없으면 「기타」 칸을 하나 더 만든다.
     // 키트(2026-10-25 컨설팅 6건): 필수 칸이 남았으면 그 칸부터 채운다(필수 4장을 먼저 끝내게).
@@ -450,18 +466,18 @@ function PhotoCapture({
 
   const importFiles = async (files: FileList | null) => {
     if (!files?.length) return;
-    const list = await Promise.all(
-      Array.from(files).map(
-        (f) =>
-          new Promise<string>((resolve) => {
-            const r = new FileReader();
-            r.onload = () => resolve(String(r.result));
-            r.readAsDataURL(f);
-          }),
-      ),
-    );
+    // 2026-10-27 실기 대비: 한 장씩 처리하고(메모리), 못 여는 사진(HEIC 등)만 건너뛰고 몇 장인지 알린다.
     const photos: Photo[] = [];
-    for (const src of list) photos.push({ id: uid(), src: await normalize(src), slot: OTHER, fromAlbum: true });
+    let failed = 0;
+    for (const f of Array.from(files)) {
+      try {
+        photos.push({ id: uid(), src: await normalizeFile(f), slot: OTHER, fromAlbum: true });
+      } catch {
+        failed += 1;
+      }
+    }
+    if (failed) notify(`${failed}장은 열 수 없는 사진이라 빼고 불러왔어요`);
+    if (!photos.length) return;
     setSession((s) => {
       const room = MAX_PHOTOS - existing.length - s.picked.length;
       if (photos.length > room) notify(`사진은 최대 ${MAX_PHOTOS}장까지 올릴 수 있어요`);
@@ -514,7 +530,8 @@ function PhotoCapture({
             <span className="shoot-pill">{`${itemLabel(rail[sel] ?? OTHER)}${(rail[sel] ?? OTHER) === OTHER ? " 사진" : ""} 촬영`}</span>
             <div className="shoot-rail" ref={railEl}>
               {[...rail.keys()].map((i) => {
-                const shot = slotShots[i];
+                // 앨범에서 선택을 푼 사진은 칸에서도 빈 칸으로 보인다(2026-10-27 코드 검토)
+                const shot = slotShots[i] && session.picked.includes(slotShots[i]!.id) ? slotShots[i] : null;
                 const it = itemOf(rail[i]);
                 const req = isRequiredItem(it.id);
                 // 첫 칸(대표 사진): 왼쪽 위 「대표」 딱지(JSON note).
@@ -606,8 +623,8 @@ function PhotoCapture({
         </>
       )}
       {/* 2026-10-26 크로스체크: 사진 화면도 권한을 거절하면 따로 된 안내 화면(대체 그림을 실제 사진처럼 올리지 않게) */}
-      {PLUS && mode === "cam" && !cam.stream && cam.error === "denied" ? (
-        <CamPermission kind="denied" what="photo" onRetry={cam.retry} onAlbum={() => setMode("album")} onClose={onClose} />
+      {PLUS && mode === "cam" && !cam.stream && cam.error ? (
+        <CamPermission kind={cam.error === "denied" ? "denied" : "unavailable"} what="photo" onRetry={cam.retry} onAlbum={() => setMode("album")} onClose={onClose} />
       ) : null}
     </div>
   );
@@ -739,7 +756,7 @@ function PhotoPreview({
   startId: string;
   onClose: () => void;
   onDone: (next: Photo[]) => void;
-  onAddMore: () => void;
+  onAddMore: (saved?: Photo[]) => void;
 }) {
   const [draft, setDraft] = useState<(Photo & { removed?: boolean })[]>(() => photos.map((p) => (p.raw && p.sticker ? { ...p, src: p.raw } : { ...p })));
   const [cur, setCur] = useState(() => Math.max(0, photos.findIndex((p) => p.id === startId)));
@@ -771,7 +788,7 @@ function PhotoPreview({
   if (!photo) return null;
   const patch = (p: Partial<Photo & { removed: boolean }>) => setDraft((d) => d.map((x, i) => (i === cur ? { ...x, ...p } : x)));
 
-  const commit = async () => {
+  const commit = async (then?: (out: Photo[]) => void) => {
     setBusy(true);
     const out: Photo[] = [];
     for (const p of draft) {
@@ -782,7 +799,7 @@ function PhotoPreview({
       out.push({ id: p.id, src, slot: p.slot, uploading: p.uploading, fromAlbum: p.fromAlbum, ...keep });
     }
     setBusy(false);
-    onDone(out);
+    (then ?? onDone)(out);
   };
 
   const showPlate = () => {
@@ -793,12 +810,11 @@ function PhotoPreview({
   const replace = async (files: FileList | null) => {
     const f = files?.[0];
     if (!f) return;
-    const src = await new Promise<string>((resolve) => {
-      const r = new FileReader();
-      r.onload = () => resolve(String(r.result));
-      r.readAsDataURL(f);
-    });
-    patch({ src: await normalize(src), removed: false, sticker: undefined });
+    try {
+      patch({ src: await normalizeFile(f), removed: false, sticker: undefined });
+    } catch {
+      // 못 여는 사진(HEIC 등)은 바꾸지 않는다
+    }
   };
 
   const editor = tool ? (
@@ -832,7 +848,7 @@ function PhotoPreview({
         </div>
       </div>
       <div className="shoot-strip">
-        <button type="button" className="shoot-strip__add" aria-label="사진 더 추가" onClick={onAddMore}>
+        <button type="button" className="shoot-strip__add" aria-label="사진 더 추가" onClick={() => (PLUS ? void commit((out) => onAddMore(out)) : onAddMore())} disabled={busy}>
           <Mask src={rd("add-outline-24")} />
         </button>
         {draft.map((p, i) =>
@@ -1174,6 +1190,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const [phase, setPhase] = useState<RecPhase>(initial?.durations.some(Boolean) ? "paused" : "idle");
   const phaseRef = useRef(phase);
   phaseRef.current = phase;
+  const beforeCount = useRef<"idle" | "paused">("idle");
+  const undoMarks = useRef<{ hl: typeof hl; marks: typeof marks } | null>(null);
   const [changed, setChanged] = useState(false);
   const [count, setCount] = useState(3);
   const countdownRef = useRef(0);
@@ -1203,7 +1221,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
 
   useEffect(() => {
     if (cam.torchSupported) cam.setTorch(flash);
-  }, [flash, cam]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [flash, cam.torchSupported, cam.stream]);
   useEffect(() => {
     // 추가 단계가 화면 밖이면 고른 칸이 보이게 칸 줄을 옮긴다.
     viewRef.current?.querySelector(".shoot-stages.is-plus .is-active")?.scrollIntoView({ inline: "nearest", block: "nearest", behavior: "smooth" });
@@ -1236,7 +1255,14 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   // 최소 길이를 넘었으면 그대로 저장하고, 못 넘었으면 그 단계만 버린다.
   useEffect(() => {
     const onHide = () => {
-      if (document.visibilityState !== "hidden" || phaseRef.current !== "recording") return;
+      if (document.visibilityState !== "hidden") return;
+      // 카운트다운 중에 나가면 녹화를 시작하지 않는다(2026-10-27 실기 대비)
+      if (phaseRef.current === "countdown") {
+        window.clearInterval(countdownRef.current);
+        setPhase(beforeCount.current);
+        return;
+      }
+      if (phaseRef.current !== "recording") return;
       const st = def(stagesRef.current[stageRef.current]);
       if (elapsedRef.current >= st.min) finishStage(elapsedRef.current);
       else {
@@ -1249,6 +1275,11 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
         }
         setPhase(durRef.current.some(Boolean) ? "paused" : "idle");
         setElapsed(0);
+        // 이번 촬영은 버려졌으니 전 영상의 ★ · 흠집 표시를 되돌린다
+        if (undoMarks.current) {
+          setHl(undoMarks.current.hl);
+          setMarks(undoMarks.current.marks);
+        }
         notify(`화면을 나가서 ${st.label} 녹화를 멈췄어요. 다시 찍어 주세요`);
       }
     };
@@ -1267,7 +1298,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     window.clearInterval(tick.current);
     const s = stageRef.current;
     const next = [...durRef.current];
-    next[s] = Math.min(autoStopRef.current ? def(stagesRef.current[s]).max : HARD_MAX, Math.round(secs));
+    next[s] = Math.min(autoStopRef.current ? def(stagesRef.current[s]).max : HARD_MAX, Math.max(0.1, Math.floor(secs * 10) / 10));
     setDurations(next);
     if (PLUS && stagesRef.current[s] === "interior") {
       const st = stepTimes.current.filter((t) => t < next[s]);
@@ -1279,9 +1310,10 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     const r = recRef.current;
     recRef.current = null;
     if (r && r.state !== "inactive") {
+      const parts = chunks.current;
       saving.current = new Promise<void>((resolve) => {
         r.onstop = () => {
-          segs.current[s] = URL.createObjectURL(new Blob(chunks.current, { type: r.mimeType || "video/webm" }));
+          segs.current[s] = URL.createObjectURL(new Blob(parts, { type: r.mimeType || "video/webm" }));
           resolve();
         };
         r.stop();
@@ -1307,8 +1339,12 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       // 표지 후보: 녹화 중 2초마다 한 장(영상 파일에서 장면을 못 뽑을 때 쓴다)
       if (Math.floor(secs / 2) !== Math.floor((secs - 0.2) / 2)) {
         const v = viewRef.current?.querySelector("video");
-        const src = v && cam.stream ? grabFrame(v) : (fake.current?.canvas.toDataURL("image/jpeg", 0.7) ?? null);
-        if (src) liveThumbs.current.push(src);
+        // 실기 대비: 표지 후보는 작게(긴 변 360) · 최대 40장(넘으면 하나 건너 하나만 남김)
+        const src = v && cam.stream ? grabFrame(v, 360, 0.7) : (fake.current?.canvas.toDataURL("image/jpeg", 0.7) ?? null);
+        if (src) {
+          liveThumbs.current.push(src);
+          if (liveThumbs.current.length > 40) liveThumbs.current = liveThumbs.current.filter((_, i) => i % 2 === 0);
+        }
       }
       const st = def(stagesRef.current[stageRef.current]);
       const max = st.max;
@@ -1339,7 +1375,13 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   };
 
   const begin = () => {
+    // 실기 대비(2026-10-27): 카메라가 안 켜졌으면 가짜 화면을 녹화하지 않는다
+    if (!cam.stream && !ALLOW_FAKE) {
+      notify("카메라 화면이 뜨면 찍을 수 있어요");
+      return;
+    }
     // 3 · 2 · 1 카운트다운 뒤 녹화(58 확인: 화면 가운데 큰 숫자)
+    beforeCount.current = phaseRef.current === "paused" ? "paused" : "idle";
     setPhase("countdown");
     setCount(3);
     let n = 3;
@@ -1376,6 +1418,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       buzz.current = { min: false, end: false };
       // 다시 찍으면 그 단계에 표시해 둔 쇼츠 장면은 지운다.
       const nowKey = stagesRef.current[stageRef.current];
+      // 중간에 그만두면 되돌릴 수 있게 지우기 전 표시를 남겨 둔다
+      undoMarks.current = { hl: hlRef.current, marks: marksRef.current };
       setHl((h) => h.filter((x) => x.k !== nowKey));
       setNudge(0);
       // 흠집 단계를 다시 찍으면 전에 표시한 흠집은 지운다.
@@ -1438,6 +1482,13 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   // 세부 순서 카드(실내 · 시트 · 세부 순서가 있는 부위)는 58에 없어 ?vstage=58 비교 화면에서는 뺀다.
   const curSteps = PLUS ? stepsOf(cur.key) : [];
   const isInterior = curSteps.length > 0;
+  /** 세부 부위 i가 시작하는(또는 시작할) 시각: 이미 넘긴 부위는 실제 넘긴 시각, 남은 부위는 4초씩 이어서 */
+  const stepAt = (i: number) => {
+    const known = stepTimes.current;
+    if (i < known.length) return known[i];
+    const last = known[known.length - 1] ?? 0;
+    return last + (i - (known.length - 1)) * STEP_SEC;
+  };
   function nextStep() {
     const ks = stepsOf(stagesRef.current[stageRef.current]);
     const n = Math.min(ks.length - 1, istepRef.current + 1);
@@ -1549,7 +1600,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                     <i className="shoot-timeline__fill" style={{ width: `${(Math.min(elapsed, cur.max) / cur.max) * 100}%` }} />
                     <i className="shoot-timeline__min" style={{ left: `${(cur.min / cur.max) * 100}%` }} />
                     {isInterior
-                      ? curSteps.slice(1).map((_, i) => <i key={i} className="shoot-timeline__step" style={{ left: `${(Math.min(cur.max, (i + 1) * STEP_SEC) / cur.max) * 100}%` }} />)
+                      ? curSteps.slice(1).map((_, i) => <i key={i} className="shoot-timeline__step" style={{ left: `${(Math.min(cur.max, stepAt(i + 1)) / cur.max) * 100}%` }} />)
                       : null}
                   </span>
                   <span key={elapsed < cur.min ? nudge : -1} className={`shoot-timeline__text ${nudge && elapsed < cur.min ? "is-nudge" : ""}`}>
@@ -1574,7 +1625,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                     {curSteps[Math.min(istep, curSteps.length - 1)].label}
                     <small className="shoot-istep__slot">
                       {" "}
-                      {mmss(istep * STEP_SEC)}~{mmss(Math.min(cur.max, (istep + 1) * STEP_SEC))}
+                      {mmss(stepAt(istep))}~{mmss(Math.min(cur.max, stepAt(istep + 1)))}
                     </small>
                   </b>
                   <span className="shoot-istep__hand">
@@ -1920,7 +1971,15 @@ function CoursePicker({
   // 시간 설정 · 직접 만든 부위 · 자동 멈춤 · 화면 종류는 「적용」을 누를 때만 기억한다.
   const [draft, setDraft] = useState<StagePrefs>(() => ({ ...PREFS, times: { ...PREFS.times }, custom: [...PREFS.custom] }));
   const pro = draft.mode === "pro";
-  const [rec, setRec] = useState<string | null>(null);
+  // 다시 열 때 기본 단계를 바꾼 추천(전기차: 엔진룸 → 충전구·프렁크)이 적용돼 있으면 그 추천으로 시작한다.
+  // (2026-10-27 코드 검토: 그대로 두면 엔진룸이 되살아나 단계가 하나 늘었다)
+  const [rec, setRec] = useState<string | null>(
+    () =>
+      SHOOT.video.recommend.find((r) => {
+        const pairs = Object.entries(r.replace ?? {}) as [VideoStage, VideoStage][];
+        return pairs.length > 0 && pairs.every(([a, b]) => current.includes(b) && !current.includes(a));
+      })?.id ?? null,
+  );
   const [form, setForm] = useState<{ label: string; hint: string; t: number } | null>(null);
   /** 전문 모드에서 바꾼 순서(없으면 코스 순서) */
   const [order, setOrder] = useState<VideoStage[] | null>(() => (courseOf(current) === "custom" ? current.filter((k) => k !== "damage") : null));
@@ -1962,6 +2021,10 @@ function CoursePicker({
   /** 차종 추천: 추천 부위를 더한 「직접 고르기」로 바꾼다. 무엇이 더해지는지는 알약 아래에 미리 보여 준다. */
   const pickRec = (id: string) => {
     if (rec === id) {
+      // 추천을 끄면 그 추천이 더한 부위도 뺀다(이미 찍은 부위는 남김)
+      const off = SHOOT.video.recommend.find((x) => x.id === id);
+      const drop = new Set<VideoStage>([...(off?.stages ?? []), ...(Object.values(off?.replace ?? {}) as VideoStage[])]);
+      setPicked((p) => p.filter((k) => recorded.includes(k) || !drop.has(k)));
       setRec(null);
       return;
     }
@@ -2015,7 +2078,8 @@ function CoursePicker({
         ? [{ key: "custom" as const, label: rec ? `${SHOOT.video.recommend.find((r) => r.id === rec)?.label} 추천` : "직접 고른 코스", sub: "표준 4단계 + 추천 부위", stages: [] as VideoStage[] }]
         : []),
   ];
-  const added = recStages.map((k) => dd(k).label);
+  // 실제로 더해진 부위만 안내(최대 개수에서 잘린 것은 빼고)
+  const added = recStages.filter((k) => picked.includes(k)).map((k) => dd(k).label);
   const swapped = (Object.entries(recReplace) as [VideoStage, VideoStage][]).map(([a, b]) => `${dd(a).label} → ${dd(b).label}`);
   return (
     <div className="shoot-xpick" role="presentation" onClick={onClose}>
@@ -2566,11 +2630,38 @@ function readDuration(url: string) {
   });
 }
 
+/** 장면을 못 뽑았을 때 쓰는 기본 표지(어두운 바탕 + 재생 표시) */
+function plainCover() {
+  const c = document.createElement("canvas");
+  c.width = 640;
+  c.height = 360;
+  const g = c.getContext("2d")!;
+  g.fillStyle = "#2A2A2A";
+  g.fillRect(0, 0, 640, 360);
+  g.fillStyle = "rgba(255,255,255,.85)";
+  g.beginPath();
+  g.moveTo(296, 140);
+  g.lineTo(356, 180);
+  g.lineTo(296, 220);
+  g.closePath();
+  g.fill();
+  return c.toDataURL("image/jpeg", 0.8);
+}
+
+/** 지운 영상의 임시 주소를 풀어 메모리를 돌려준다(2026-10-27 실기 대비). 화면이 바뀐 뒤에 풀도록 조금 늦춘다 */
+function releaseVideo(v: { segs: (string | null)[] } | null) {
+  if (!v) return;
+  window.setTimeout(() => v.segs.forEach((u) => u && u.startsWith("blob:") && URL.revokeObjectURL(u)), 1500);
+}
+
 function CoverPicker({ segs, fallback, fit, onClose, onDone }: { segs: (string | null)[]; fallback: string[]; fit?: boolean; onClose: () => void; onDone: (cover: string) => void }) {
   const [frames, setFrames] = useState<string[]>([]);
   const [pick, setPick] = useState(0);
+  // 실기 대비(2026-10-27): 영상에서 장면을 못 뽑으면(지원 안 되는 형식 등) 막히지 않게 기본 표지로 쓰게 한다
+  const [failed, setFailed] = useState(false);
   useEffect(() => {
     let live = true;
+    setFailed(false);
     const pickFallback = () => {
       const n = fallback.length;
       return n <= 8 ? fallback : Array.from({ length: 8 }, (_, i) => fallback[Math.floor((i * n) / 8)]);
@@ -2583,9 +2674,18 @@ function CoverPicker({ segs, fallback, fit, onClose, onDone }: { segs: (string |
     void Promise.all(urls.map((u, i) => (per[i] ? extractFrames(u, per[i]).catch(() => [] as string[]) : Promise.resolve([] as string[]))))
       .then((lists) => {
         const f = lists.flat();
-        if (live) setFrames(f.length ? f : pickFallback());
+        const out = f.length ? f : pickFallback();
+        if (live) {
+          setFrames(out);
+          setFailed(!out.length);
+        }
       })
-      .catch(() => live && setFrames(pickFallback()));
+      .catch(() => {
+        if (!live) return;
+        const out = pickFallback();
+        setFrames(out);
+        setFailed(!out.length);
+      });
     return () => {
       live = false;
     };
@@ -2603,7 +2703,14 @@ function CoverPicker({ segs, fallback, fit, onClose, onDone }: { segs: (string |
         <span className="shoot-icon-btn" />
       </header>
       <div className="shoot-view">
-        {frames[pick] ? <img className={`shoot-live ${fit ? "is-fit" : ""}`} src={frames[pick]} alt="" /> : <div className="shoot-nocam">장면을 고르는 중이에요</div>}
+        {frames[pick] ? (
+          <img className={`shoot-live ${fit ? "is-fit" : ""}`} src={frames[pick]} alt="" />
+        ) : (
+          <div className="shoot-nocam" role="status">
+            {failed && PLUS ? "이 영상에서는 장면을 뽑지 못했어요" : "장면을 고르는 중이에요"}
+            {failed && PLUS ? <small>기본 표지로 쓰고, 영상은 그대로 올라가요</small> : null}
+          </div>
+        )}
         <span className="shoot-pill">영상 표지 선택</span>
         <div className="shoot-cover-strip">
           {frames.map((f, i) => (
@@ -2620,9 +2727,15 @@ function CoverPicker({ segs, fallback, fit, onClose, onDone }: { segs: (string |
       </div>
       <div className="shoot-bottom is-cover">
         <span>영상에서 한 장면을 골라 표지로 정해 주세요</span>
-        <button type="button" className="shoot-done" disabled={!frames.length} onClick={() => onDone(frames[pick])}>
-          완료
-        </button>
+        {failed && PLUS && !frames.length ? (
+          <button type="button" className="shoot-done" onClick={() => onDone(plainCover())}>
+            기본 표지로 쓰기
+          </button>
+        ) : (
+          <button type="button" className="shoot-done" disabled={!frames.length} onClick={() => onDone(frames[pick])}>
+            완료
+          </button>
+        )}
       </div>
     </div>
   );
@@ -2827,6 +2940,7 @@ export default function ShootRegister() {
     }
     if (!PLUS || (sameSite && window.history.length > 1)) return void window.history.back();
     setPhotos([]);
+    releaseVideo(video);
     setVideo(null);
     setRegion(null);
     setTried(false);
@@ -3238,7 +3352,11 @@ export default function ShootRegister() {
             photos={photos}
             startId={screen.id}
             onClose={() => setScreen({ name: "main" })}
-            onAddMore={() => setScreen({ name: "capture", mode: "album" })}
+            onAddMore={(saved) => {
+              // 실기 대비(2026-10-27): 번호판 가림·모자이크 같은 편집을 먼저 저장하고 앨범으로 간다
+              if (saved) setPhotos(sortBySlot(saved));
+              setScreen({ name: "capture", mode: "album" });
+            }}
             onDone={(next) => {
               setPhotos(sortBySlot(next));
               setScreen({ name: "main" });
@@ -3297,7 +3415,7 @@ export default function ShootRegister() {
                 return;
               }
               setVideo({ segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported, stages: t.stages, marks: t.marks, steps: t.steps, hl: t.hl });
-              window.setTimeout(() => setVideo((v) => (v ? { ...v, uploading: false } : v)), 4000);
+              window.setTimeout(() => setVideo((v) => (v && v.segs === t.segs ? { ...v, uploading: false } : v)), 4000);
             }}
           />
         ) : null}
@@ -3316,6 +3434,7 @@ export default function ShootRegister() {
             onOk={() => {
               if (confirm.kind === "photo") removePhoto(confirm.id);
               else {
+                releaseVideo(video);
                 setVideo(null);
                 if (screen.name === "vedit") setScreen({ name: "main" });
               }

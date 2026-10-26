@@ -140,9 +140,11 @@ export function moveToSlot<T extends SortPhoto>(list: T[], id: string, slot: str
   return list.map((p) => (p.id === id ? { ...p, slot } : other && p.id === other.id ? { ...p, slot: me.slot } : p));
 }
 
+// 등록 화면과 같은 순서(우선 4장 먼저)로 정렬해 두 화면의 「대표」 사진이 같게 한다(2026-10-27 코드 검토)
+const SORT_ORDER = [...ITEMS.filter((it) => isRequiredItem(it.id)), ...ITEMS.filter((it) => !isRequiredItem(it.id))];
 const slotIndex = (slot: string) => {
-  const i = ITEMS.findIndex((it) => it.id === slot);
-  return i < 0 || slot === OTHER_ID ? ITEMS.length : i;
+  const i = SORT_ORDER.findIndex((it) => it.id === slot);
+  return i < 0 || slot === OTHER_ID ? SORT_ORDER.length : i;
 };
 const bySlot = <T extends SortPhoto>(list: T[]) =>
   list

@@ -121,7 +121,7 @@ const sameConfig = (a: unknown, b: unknown) => {
   const strip = (c: unknown) => {
     const o = { ...(c as Record<string, unknown>) };
     const d = o.description as ArrayBuffer | ArrayBufferView | undefined;
-    o.description = d ? Array.from(new Uint8Array(ArrayBuffer.isView(d) ? d.buffer : d)).join(",") : "";
+    o.description = d ? Array.from((ArrayBuffer.isView(d) ? new Uint8Array(d.buffer, d.byteOffset, d.byteLength) : new Uint8Array(d))).join(",") : "";
     return JSON.stringify(o);
   };
   return strip(a) === strip(b);

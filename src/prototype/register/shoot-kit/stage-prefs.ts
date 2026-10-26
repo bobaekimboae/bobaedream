@@ -26,11 +26,20 @@ export function loadPrefs(): StagePrefs {
     const raw = window.localStorage.getItem(KEY);
     if (!raw) return { ...EMPTY };
     const p = JSON.parse(raw) as Partial<StagePrefs>;
+    // 2026-10-27 코드 검토: 숫자가 아닌 시간 값이 남아 있으면 자동 멈춤이 영원히 안 되므로 맞지 않는 항목은 버린다
+    const okTime = (t: unknown): t is { min: number; max: number } => {
+      const v = t as { min?: unknown; max?: unknown } | null;
+      return Boolean(v) && Number.isFinite(v!.min) && Number.isFinite(v!.max) && (v!.min as number) > 0 && (v!.max as number) >= (v!.min as number) && (v!.max as number) <= 300;
+    };
+    const times: StagePrefs["times"] = {};
+    if (p.times && typeof p.times === "object") for (const [k, t] of Object.entries(p.times)) if (okTime(t)) times[k] = { min: t.min, max: t.max };
     return {
-      custom: Array.isArray(p.custom) ? p.custom.filter((c) => c && typeof c.key === "string" && c.key.startsWith("my-")) : [],
-      times: p.times && typeof p.times === "object" ? p.times : {},
+      custom: Array.isArray(p.custom)
+        ? p.custom.filter((c) => c && typeof c.key === "string" && c.key.startsWith("my-") && typeof c.label === "string" && c.label.trim() && okTime(c)).map((c) => ({ ...c, label: c.label.slice(0, 10), hint: typeof c.hint === "string" ? c.hint.slice(0, 40) : "" }))
+        : [],
+      times,
       autoStop: p.autoStop !== false,
-      myCourse: Array.isArray(p.myCourse) && p.myCourse.length ? p.myCourse : null,
+      myCourse: Array.isArray(p.myCourse) && p.myCourse.length && p.myCourse.every((k) => typeof k === "string") ? p.myCourse : null,
       target: typeof p.target === "number" ? p.target : 0,
       mode: p.mode === "pro" ? "pro" : "easy",
     };
