@@ -40,8 +40,6 @@ const rd = (n: string) => icon("reddit-shoot", `${n}.svg`);
 // ── 데이터 ─────────────────────────────────────────────
 // 촬영 항목(규칙 · 사진 칸 · 영상 단계)은 모두 src/prototype/data/shoot-items-kit.json 에서 읽는다(items.ts).
 const OTHER = OTHER_ID;
-/** 사진 칸 레일 순서(그룹 순서대로 펼친 항목 id) */
-const PHOTO_SLOTS: string[] = ITEMS.map((i) => i.id);
 const MAX_PHOTOS = PHOTO_MAX;
 
 type StageDef = { key: VideoStage; label: string; min: number; max: number; extra?: boolean; custom?: boolean; hint?: string };
@@ -74,12 +72,24 @@ const EXTRA_STAGES: VideoStage[] = SHOOT.video.extraStages.map((x) => x.key);
 const STAGES = BASE_STAGES.map((k) => def(k));
 /** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
 const PLUS = typeof window === "undefined" || new URLSearchParams(window.location.search).get("vstage") !== "58";
+/** 사진 칸 레일 순서(그룹 순서대로 펼친 항목 id). 키트는 규칙 화면처럼 우선 4장을 맨 앞에 둔다(2026-10-26 컨설팅: 규칙·레일 순서 통일) */
+const PHOTO_SLOTS: string[] = PLUS
+  ? [...ITEMS.filter((i) => isRequiredItem(i.id)), ...ITEMS.filter((i) => !isRequiredItem(i.id))].map((i) => i.id)
+  : ITEMS.map((i) => i.id);
 /** 필수 4장 강제 여부. 58 재현(&vstage=58)은 예전처럼 늘 강제하고, 키트는 JSON photo.enforceRequired를 따른다(2026-10-25 강제 뺌) */
 const ENFORCE = !PLUS || ENFORCE_REQUIRED;
 const ENF_TEXT = SHOOT.enforcedText;
 /** 필수 등급 이름: 강제하면 「필수」, 아니면 JSON levelLabels.required(「우선」) */
 const reqLabel = () => (ENFORCE ? ENF_TEXT.levelLabel : levelLabel("required"));
 const MAX_EXTRA = 6;
+/** 녹화 전 한 줄 동작 안내(2026-10-26 컨설팅: 「촬영 항목이 맞는지 확인」 대신 할 일을 말한다). 없으면 예시 안내의 첫 문장 */
+const STAGE_DO: Partial<Record<string, string>> = {
+  exterior: "차 앞에서 시작해 차 주위를 천천히 한 바퀴 돌아 주세요",
+  interior: "계기판부터 뒷좌석까지 천천히 비춰 주세요",
+  engine: "보닛을 열고 엔진룸을 천천히 훑어 주세요",
+  trunk: "트렁크를 열고 바닥까지 보여 주세요",
+};
+const stageDo = (k: VideoStage) => STAGE_DO[k] ?? stageGuide(k).how.split(/(?<=[.요])\s/)[0].replace(/\.$/, "");
 /** 촬영 코스(2026-10-24 「촬영 부위 순서를 정하자 · 8개 3개」 · 「흠집표시는 선택」): 차 주위를 걷는 순서대로 정한다. */
 type CourseKey = "basic" | "full" | "quick" | "custom" | "mine";
 const COURSES: { key: Exclude<CourseKey, "custom">; label: string; sub: string; stages: VideoStage[] }[] = [
@@ -1452,7 +1462,9 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   const importVideo = (files: FileList | null) => {
     const f = files?.[0];
     if (!f) return;
-    onFinished({ segs: [URL.createObjectURL(f)], durations: BASE_STAGES.map(() => 0), thumbs: [], imported: true });
+    // 불러온 영상은 실제 길이를 먼저 읽어 두고(2026-10-26 컨설팅: 미리보기 0:12 · 저장창 0:00 불일치) 한 파일로 다룬다.
+    const url = URL.createObjectURL(f);
+    void readDuration(url).then((d) => onFinished({ segs: [url], durations: [d], thumbs: [], imported: true }));
   };
 
   return (
@@ -1524,7 +1536,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                 </div>
               ) : null}
               <p className="shoot-vhint">
-                {isDamage ? "흠집·찍힘이 보이면 화면을 눌러 주세요" : PLUS && phase === "recording" ? "멋진 장면은 화면을 두 번 눌러 쇼츠용으로 표시해요" : "촬영 항목이 맞는지 확인해 주세요"}
+                {isDamage ? "흠집·찍힘이 보이면 화면을 눌러 주세요" : PLUS && phase === "recording" ? "멋진 장면은 화면을 두 번 눌러 쇼츠용으로 표시해요" : PLUS ? stageDo(cur.key) : "촬영 항목이 맞는지 확인해 주세요"}
               </p>
               {PLUS && phase === "recording" && !isDamage && hl.some((x) => x.k === cur.key) ? (
                 <span className="shoot-hl-badge" aria-label={`쇼츠 장면 ${hl.filter((x) => x.k === cur.key).length}곳 표시`}>
@@ -1935,7 +1947,7 @@ function CoursePicker({
       <div className="shoot-xpick__box" ref={boxRef} role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" onClick={(e) => e.stopPropagation()}>
         <header>
           <strong id="shoot-xpick-t">촬영 코스 고르기</strong>
-          <p>차 주위를 걷는 순서대로 찍어요.</p>
+          <p>차 주위를 걷는 순서대로 찍어요. 아래 시간은 찍는 원본 길이이고, 쇼츠는 찍은 뒤 15·30·60초로 따로 만들어요.</p>
           <div className="shoot-xpick__modes" role="radiogroup" aria-label="화면 종류">
             {(
               [
@@ -1975,7 +1987,7 @@ function CoursePicker({
                     <span className="shoot-xpick__txt">
                       <b>
                         {c.key === "custom" && !pro ? `${c.label} ${list.length}단계` : c.key === "mine" ? `${c.label} ${list.length}단계` : c.label}
-                        {c.key !== "custom" || !pro ? <em>최대 {mmss(list.reduce((n, k) => n + dd(k).max, 0))}</em> : null}
+                        {c.key !== "custom" || !pro ? <em>원본 최대 {mmss(list.reduce((n, k) => n + dd(k).max, 0))}</em> : null}
                         {lock ? <em className="is-lock">찍은 부위가 빠져요</em> : null}
                       </b>
                       <span>{c.sub}</span>
@@ -2144,7 +2156,7 @@ function CoursePicker({
           ) : null}
           <button type="button" className="is-ok" disabled={drops(next)} onClick={() => onApply(next, draft)}>
             {/* 2026-10-25 컨설팅 6건: 버튼에 할 일(동사)을 쓴다 */}
-            {next.length}단계로 찍기 <small>최대 {mmss(total)}</small>
+            {next.length}단계로 찍기 <small>원본 최대 {mmss(total)}</small>
           </button>
         </footer>
       </div>
@@ -2258,7 +2270,7 @@ function VideoPreview({
             key={cur.u}
             ref={ref}
             src={cur.u}
-            className="shoot-live"
+            className={`shoot-live ${take.imported ? "is-fit" : ""}`}
             playsInline
             onTimeUpdate={(e) => setT(e.currentTarget.currentTime)}
             onLoadedMetadata={(e) => {
@@ -2280,7 +2292,7 @@ function VideoPreview({
             <Mask src={rd("play-fill")} />
           </button>
         ) : null}
-        {total ? (
+        {total && !take.imported ? (
           <div className={`shoot-stages is-done-row ${stageKeys.length > 4 ? "is-plus" : ""} ${PLUS ? "is-kit" : ""}`}>
             {stageKeys.map((key, i) => {
               const s = def(key);
@@ -2446,7 +2458,27 @@ function VideoPreview({
   );
 }
 
-function CoverPicker({ segs, fallback, onClose, onDone }: { segs: (string | null)[]; fallback: string[]; onClose: () => void; onDone: (cover: string) => void }) {
+/** 영상 파일 길이(초). 메타데이터를 4초 안에 못 읽으면 0 */
+function readDuration(url: string) {
+  return new Promise<number>((resolve) => {
+    const v = document.createElement("video");
+    let done = false;
+    const end = (d: number) => {
+      if (done) return;
+      done = true;
+      v.removeAttribute("src");
+      resolve(Number.isFinite(d) && d > 0 ? Math.round(d * 10) / 10 : 0);
+    };
+    v.preload = "metadata";
+    v.muted = true;
+    v.onloadedmetadata = () => end(v.duration);
+    v.onerror = () => end(0);
+    window.setTimeout(() => end(0), 4000);
+    v.src = url;
+  });
+}
+
+function CoverPicker({ segs, fallback, fit, onClose, onDone }: { segs: (string | null)[]; fallback: string[]; fit?: boolean; onClose: () => void; onDone: (cover: string) => void }) {
   const [frames, setFrames] = useState<string[]>([]);
   const [pick, setPick] = useState(0);
   useEffect(() => {
@@ -2481,11 +2513,11 @@ function CoverPicker({ segs, fallback, onClose, onDone }: { segs: (string | null
         <span className="shoot-icon-btn" />
       </header>
       <div className="shoot-view">
-        {frames[pick] ? <img className="shoot-live" src={frames[pick]} alt="" /> : <div className="shoot-nocam">장면을 고르는 중이에요</div>}
+        {frames[pick] ? <img className={`shoot-live ${fit ? "is-fit" : ""}`} src={frames[pick]} alt="" /> : <div className="shoot-nocam">장면을 고르는 중이에요</div>}
         <span className="shoot-pill">영상 표지 선택</span>
         <div className="shoot-cover-strip">
           {frames.map((f, i) => (
-            <button key={f.slice(-24) + i} type="button" className={`shoot-cover-cell ${i === pick ? "is-on" : ""}`} aria-pressed={i === pick} onClick={() => setPick(i)}>
+            <button key={f.slice(-24) + i} type="button" className={`shoot-cover-cell ${i === pick ? "is-on" : ""}`} aria-pressed={i === pick} aria-label={`표지 후보 ${i + 1}`} onClick={() => setPick(i)}>
               <img src={f} alt="" />
               {i === pick ? (
                 <span className="shoot-cover-check">
@@ -2566,12 +2598,12 @@ function RegionSheet({ value, onClose, onPick }: { value: { sido: string; gu: st
 function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void }) {
   // 그룹·항목·필수 여부는 모두 shoot-items-kit.json. 사진 칸 레일과 같은 순서·같은 이름이다.
   return (
-    <div className="shoot-layer shoot-rules">
+    <FocusBox onClose={onBack} className="shoot-layer shoot-rules" role="dialog" aria-modal="true" aria-labelledby="shoot-rules-t">
       <header className="shoot-page-top">
         <button type="button" className="shoot-icon-btn" aria-label="뒤로" onClick={onBack}>
           <Mask src={rd("back-outline-24")} className="is-back" />
         </button>
-        <h2>차량 사진 촬영 규칙</h2>
+        <h2 id="shoot-rules-t">차량 사진 촬영 규칙</h2>
         <span className="shoot-icon-btn" />
       </header>
       <div className="shoot-rules__body">
@@ -2628,7 +2660,7 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
           차량 사진 추가
         </button>
       </div>
-    </div>
+    </FocusBox>
   );
 }
 
@@ -2658,8 +2690,8 @@ export default function ShootRegister() {
         ? {
             segs: shortsTake.segs,
             durations: shortsTake.durations,
-            stages: shortsTake.stages ?? BASE_STAGES,
-            labels: (shortsTake.stages ?? BASE_STAGES).map((k) => def(k).label),
+            stages: shortsTake.imported ? (["exterior"] as VideoStage[]) : (shortsTake.stages ?? BASE_STAGES),
+            labels: shortsTake.imported ? ["불러온 영상"] : (shortsTake.stages ?? BASE_STAGES).map((k) => def(k).label),
             hl: shortsTake.hl ?? [],
           }
         : null,
@@ -2789,7 +2821,13 @@ export default function ShootRegister() {
             </button>
             <div className="shoot-main__title">
               <h1>중고차 등록</h1>
-              <span>완성도 {progress}%</span>
+              {PLUS ? (
+                <button type="button" className="shoot-progress-why" aria-label={`완성도 ${progress}%, 계산 방법 보기`} onClick={() => notify("완성도 = 소재지 20% · 우선 4장 60% · 추가 사진 10% · 영상 10%")}>
+                  완성도 {progress}% <i aria-hidden="true">ⓘ</i>
+                </button>
+              ) : (
+                <span>완성도 {progress}%</span>
+              )}
             </div>
             <button type="button" className="shoot-drafts" onClick={() => notify("임시저장함은 시안에서 열지 않아요")}>
               임시저장함
@@ -2824,8 +2862,8 @@ export default function ShootRegister() {
                   {PLUS ? " 필수" : ""} · 영상 <span className="is-opt">{PLUS ? (videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택") : `${videoDone}/${VIDEO_GROUPS.length} · 선택`}</span>
                 </span>
                 ) : (
-                <span className="shoot-media-count" aria-label={`사진 ${photos.length}장, ${reqLabel()} 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${videoDone ? `${videoDone}/${VIDEO_GROUPS.length}단계 ` : ""}선택`}>
-                  사진 <b className={photosOk ? "is-ok" : tried ? "is-warn" : ""}>{photos.length}장</b> · 영상 <span className="is-opt">{videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택"}</span>
+                <span className="shoot-media-count" aria-label={`사진 ${photos.length}장, ${reqLabel()} 사진 ${Math.min(requiredDone, PHOTO_MIN)}/${PHOTO_MIN}장, 영상 ${video?.imported ? `불러온 영상 1개 ` : videoDone ? `${videoDone}/${VIDEO_GROUPS.length}단계 ` : ""}선택`}>
+                  사진 <b className={photosOk ? "is-ok" : tried ? "is-warn" : ""}>{photos.length}장</b> · 영상 <span className="is-opt">{video?.imported ? `1개 · ${mmss(video.durations[0] ?? 0)}` : videoDone ? `${videoDone}/${VIDEO_GROUPS.length} 선택` : "선택"}</span>
                 </span>
                 )}
               </div>
@@ -3070,7 +3108,7 @@ export default function ShootRegister() {
             notify={notify}
             initial={screen.take ?? (screen.reshoot && video ? { segs: video.segs, durations: video.durations, thumbs: [], stages: video.stages, marks: video.marks, steps: video.steps, hl: video.hl } : undefined)}
             onClose={() => setScreen(screen.reshoot ? { name: "vedit" } : screen.take ? { name: "vpreview", take: screen.take } : { name: "main" })}
-            onFinished={(take) => setScreen(take.imported ? { name: "cover", take } : { name: "vpreview", take })}
+            onFinished={(take) => setScreen(take.imported && !PLUS ? { name: "cover", take } : { name: "vpreview", take })}
           />
         ) : null}
         {screen.name === "vpreview" ? (
@@ -3078,7 +3116,7 @@ export default function ShootRegister() {
             take={screen.take}
             onClose={() => setScreen({ name: "main" })}
             onNext={() => setScreen({ name: "cover", take: screen.take })}
-            onShorts={PLUS && !screen.take.imported ? () => setScreen({ name: "shorts", take: screen.take, back: screen }) : undefined}
+            onShorts={PLUS ? () => setScreen({ name: "shorts", take: screen.take, back: screen }) : undefined}
             onContinue={PLUS && !screen.take.imported ? () => setScreen({ name: "video", take: screen.take }) : undefined}
           />
         ) : null}
@@ -3087,11 +3125,11 @@ export default function ShootRegister() {
             take={{ segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, marks: video.marks, steps: video.steps, hl: video.hl }}
             edit
             onShorts={
-              PLUS && !video.imported
+              PLUS
                 ? () =>
                     setScreen({
                       name: "shorts",
-                      take: { segs: video.segs, durations: video.durations, thumbs: [], stages: video.stages, hl: video.hl },
+                      take: { segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, hl: video.hl },
                       back: { name: "vedit" },
                     })
                 : undefined
@@ -3107,6 +3145,7 @@ export default function ShootRegister() {
           <CoverPicker
             segs={screen.take.segs}
             fallback={screen.take.thumbs}
+            fit={screen.take.imported}
             onClose={() => setScreen(screen.coverOnly ? { name: "vedit" } : { name: "main" })}
             onDone={(cover) => {
               const t = screen.take;
