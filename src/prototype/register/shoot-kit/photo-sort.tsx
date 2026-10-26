@@ -1,6 +1,7 @@
 // 앨범 사진 부위 자동 선별 화면 + 사진 끌어서 칸 바꾸기(2026-10-25).
 // 딜러 · 보배드림 촬영팀이 한 번에 수십 장을 올려도 필수 4장이 바로 채워지게 하고, 틀린 칸은 누르거나 끌어서 바로 고친다.
 import { useEffect, useRef, useState, type ReactElement, type RefObject } from "react";
+import { useLayerEsc } from "./layer-esc";
 import { GROUPS, ITEMS, OTHER_ID, REQUIRED_IDS, isRequiredItem, itemLabel, levelLabel } from "./items";
 import { assignSlots, autoSortConsented, loadSorter, setAutoSortConsent, type SortResult } from "./autosort";
 
@@ -171,6 +172,8 @@ export function PhotoSort<T extends SortPhoto>({
   icon: (name: string) => string;
 }) {
   const [list, setList] = useState<T[]>(() => bySlot(photos));
+  // 2026-10-26 크로스체크: 하나도 못 나눴는데 「자동으로 나눴어요」라고 하지 않게 나눈 장수를 센다
+  const [placed, setPlaced] = useState({ n: 0, of: 0 });
   const [phase, setPhase] = useState<Phase>(() => (!fresh.length ? "manual" : autoSortConsented() ? "download" : "ask"));
   const [pct, setPct] = useState(0);
   const [doneN, setDoneN] = useState(0);
@@ -206,6 +209,7 @@ export function PhotoSort<T extends SortPhoto>({
         const taken = new Set(l.filter((p) => p.slot !== OTHER_ID).map((p) => p.slot));
         const got = assignSlots(results, taken);
         setCheck(new Set([...got].filter(([, v]) => v.check).map(([k]) => k)));
+        setPlaced({ n: [...got.values()].filter((v) => v.slot !== OTHER_ID).length, of: results.length });
         return bySlot(l.map((p) => (got.has(p.id) ? { ...p, slot: got.get(p.id)!.slot } : p)));
       });
       setPhase("done");
@@ -224,9 +228,12 @@ export function PhotoSort<T extends SortPhoto>({
   const missReq = REQUIRED_IDS.filter((id) => !filledReq.includes(id));
   const picked = pick ? list.find((p) => p.id === pick) : null;
   const busy = phase === "download" || phase === "sorting";
+  // 열면 포커스를 이 화면으로, Esc로 닫기(2026-10-26 크로스체크)
+  const layerRef = useRef<HTMLDivElement>(null);
+  useLayerEsc(layerRef, onClose);
 
   return (
-    <div className="shoot-layer shoot-sort" role="dialog" aria-modal="true" aria-labelledby="shoot-sort-t">
+    <div ref={layerRef} className="shoot-layer shoot-sort" role="dialog" aria-modal="true" aria-labelledby="shoot-sort-t">
       <header className="shoot-page-top">
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
           <Mask src={icon("close-outline")} />
@@ -291,7 +298,7 @@ export function PhotoSort<T extends SortPhoto>({
                 빠진 {missReq.length}장 바로 찍기
               </button>
             ) : null}
-            <p>{phase === "done" ? "자동으로 나눴어요. 틀린 칸은 사진을 눌러 고르거나, 길게 눌러 다른 사진 위로 끌어 맞바꿔요. 좌우 방향은 확인해 주세요." : "사진을 눌러 칸을 고르거나, 길게 눌러 다른 사진 위로 끌어 맞바꿔요."}</p>
+            <p>{phase === "done" && !placed.n ? "사진에서 부위를 알아보지 못했어요. 사진을 눌러 칸을 직접 골라 주세요." : phase === "done" && placed.n < placed.of ? `${placed.of}장 중 ${placed.n}장을 나눴어요. 나머지는 사진을 눌러 칸을 골라 주세요. 좌우 방향은 확인해 주세요.` : phase === "done" ? "자동으로 나눴어요. 틀린 칸은 사진을 눌러 고르거나, 길게 눌러 다른 사진 위로 끌어 맞바꿔요. 좌우 방향은 확인해 주세요." : "사진을 눌러 칸을 고르거나, 길게 눌러 다른 사진 위로 끌어 맞바꿔요."}</p>
           </section>
         ) : null}
         <div className="shoot-sort__grid" ref={gridRef}>

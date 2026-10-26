@@ -1,6 +1,7 @@
 // 촬영 영상으로 쇼츠 만들기(2026-10-25). 한 번 찍으면 매물 등록용 원본 영상과 SNS용 쇼츠가 함께 나온다.
 import { useEffect, useMemo, useRef, useState } from "react";
 import { END_CARD, canMakeMp4, mp4VideoCodec, cutAt, drawFrame, exportMp4, loadImage, loadVideo, planDuration, type ShortformPlan, type ShortformTemplate } from "../../dealer-page/shortform/render";
+import { useLayerEsc } from "./layer-esc";
 import { SnsPublish } from "../../dealer-page/shortform/SnsPublish";
 import "../../dealer-page/shortform/shortform-studio.css";
 import shortsCss from "./shorts.css?inline";
@@ -149,7 +150,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
         company: info.company.trim(),
         phone: info.phone.trim(),
         label: info.name.trim() ? `${info.name.trim()} 딜러` : "보배드림",
-        note: "전화로 바로 상담하세요",
+        note: info.phone.trim() ? "전화로 바로 상담하세요" : "",
         photo: logo ?? undefined,
       },
       qr: null,
@@ -226,12 +227,15 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
   };
 
   const total = plan ? planDuration(plan) : 0;
-  const caption = [info.title.trim() || "보배드림 실매물", info.price.trim(), [info.name.trim() && `${info.name.trim()} 딜러`, info.company.trim(), info.phone.trim()].filter(Boolean).join(" · "), "#보배드림 #중고차 #실매물 #Shorts"]
+  // Esc = 만드는 중이면 멈추기, 아니면 닫기(2026-10-26 크로스체크)
+  const layerRef = useRef<HTMLDivElement>(null);
+  useLayerEsc(layerRef, () => (making != null ? (cancelRef.current = true) : onClose()));
+  const caption = [info.title.trim(), info.price.trim(), [info.name.trim() && `${info.name.trim()} 딜러`, info.company.trim(), info.phone.trim()].filter(Boolean).join(" · "), "#보배드림 #중고차 #실매물 #Shorts"]
     .filter(Boolean)
     .join("\n");
 
   return (
-    <div className="shoot-layer shoot-shorts" role="dialog" aria-modal="true" aria-label="쇼츠 만들기">
+    <div ref={layerRef} className="shoot-layer shoot-shorts" role="dialog" aria-modal="true" aria-label="쇼츠 만들기">
       <header className="shoot-page-top">
         <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={() => (making != null ? (cancelRef.current = true) : onClose())}>
           <span className="shoot-mask" style={{ WebkitMaskImage: `url("${base}icons/reddit-shoot/close-outline.svg")`, maskImage: `url("${base}icons/reddit-shoot/close-outline.svg")` }} aria-hidden="true" />
@@ -253,7 +257,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
           </div>
         ) : made ? (
           <div className="shoot-shorts__done">
-            <video src={made.url} controls playsInline className="shoot-shorts__video" />
+            <video src={`${made.url}#t=0.1`} controls playsInline preload="metadata" className="shoot-shorts__video" />
             <button
               type="button"
               className="shoot-shorts__primary"
@@ -304,7 +308,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
                 ))}
               </div>
               {CFG.lengths.some((s) => !fits(s)) ? (
-                <p className="shoot-shorts__note is-len">찍은 영상으로 최대 {origLen}초까지 만들 수 있어요. 다른 부위도 찍으면 길어져요.</p>
+                <p className="shoot-shorts__note is-len">찍은 영상 {Math.max(0, origLen - END_CARD)}초 + 끝 명함 {END_CARD}초로 최대 {origLen}초까지 만들 수 있어요. 다른 부위도 찍으면 길어져요.</p>
               ) : null}
               <h3 id="shoot-shorts-tpl">틀</h3>
               <div className="shoot-shorts__chips" role="radiogroup" aria-labelledby="shoot-shorts-tpl">

@@ -24,6 +24,19 @@ async function alreadyMp4(blob: Blob) {
   }
 }
 
+/** 만든 mp4의 영상 압축 방식(avc = H.264). 모르면 null(2026-10-26 크로스체크: VP9이면 저장 뒤 경고). */
+export async function mp4Codec(blob: Blob): Promise<string | null> {
+  const mb = await import("mediabunny");
+  const input = new mb.Input({ source: new mb.BlobSource(blob), formats: mb.ALL_FORMATS });
+  try {
+    return (await input.getPrimaryVideoTrack())?.codec ?? null;
+  } catch {
+    return null;
+  } finally {
+    input.dispose();
+  }
+}
+
 /** 여러 영상을 차례로 이어 붙인 mp4 한 개를 만든다. onProgress(0~1). */
 export async function makeMp4(urls: string[], onProgress?: (p: number) => void): Promise<Blob> {
   const blobs = await Promise.all(urls.map((u) => fetch(u).then((r) => r.blob())));
