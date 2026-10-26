@@ -309,6 +309,16 @@ function PhotoCapture({
 }) {
   const [mode, setMode] = useState<"cam" | "album">(startMode);
   const cam = useCamera(mode === "cam", false);
+  // 실기 대비(2026-10-27): 5초가 지나도 카메라 화면이 안 뜨면 안내 화면으로(영상 화면과 같게)
+  const [camSlow, setCamSlow] = useState(false);
+  useEffect(() => {
+    setCamSlow(false);
+    if (!PLUS || mode !== "cam" || cam.stream || cam.error) return undefined;
+    const t = window.setTimeout(() => setCamSlow(true), 5000);
+    return () => window.clearTimeout(t);
+  }, [mode, cam.stream, cam.error]);
+  // 찍은 사진이 있으면 닫기 전에 묻는다(영상과 같게)
+  const [askClose, setAskClose] = useState(false);
   const [flash, setFlash] = useState(false);
   // 실기 대비: 다시 그릴 때마다 플래시 설정을 보내지 않게, 플래시·지원 여부가 바뀔 때만
   useEffect(() => {
@@ -497,7 +507,7 @@ function PhotoCapture({
         휴대폰을 세로로 들어 주세요
       </div>
       <header className="shoot-top">
-        <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={onClose}>
+        <button type="button" className="shoot-icon-btn" aria-label="닫기" onClick={() => (PLUS && session.picked.length ? setAskClose(true) : onClose())}>
           <Mask src={rd("close-outline")} />
         </button>
         {mode === "cam" ? (
@@ -568,7 +578,13 @@ function PhotoCapture({
                 </span>
                 번호판 가리기
               </button>
-              <button type="button" className="shoot-shutter" aria-label="사진 찍기" onClick={shoot}>
+              <button
+                type="button"
+                className="shoot-shutter"
+                aria-label={PLUS && total >= MAX_PHOTOS && !(slotShots[sel] && session.picked.includes(slotShots[sel]!.id)) ? `사진 찍기 (최대 ${MAX_PHOTOS}장이라 더 찍을 수 없어요)` : "사진 찍기"}
+                disabled={PLUS && total >= MAX_PHOTOS && !(slotShots[sel] && session.picked.includes(slotShots[sel]!.id))}
+                onClick={shoot}
+              >
                 <span />
               </button>
               <div className="shoot-count">
@@ -623,7 +639,16 @@ function PhotoCapture({
         </>
       )}
       {/* 2026-10-26 크로스체크: 사진 화면도 권한을 거절하면 따로 된 안내 화면(대체 그림을 실제 사진처럼 올리지 않게) */}
-      {PLUS && mode === "cam" && !cam.stream && cam.error ? (
+      {askClose ? (
+        <Confirm
+          text={`찍은 사진 ${session.picked.length}장을 올리지 않고 나갈까요?`}
+          cancelText="계속 찍기"
+          okText="버리고 나가기"
+          onCancel={() => setAskClose(false)}
+          onOk={onClose}
+        />
+      ) : null}
+      {PLUS && mode === "cam" && !cam.stream && (cam.error || camSlow) ? (
         <CamPermission kind={cam.error === "denied" ? "denied" : "unavailable"} what="photo" onRetry={cam.retry} onAlbum={() => setMode("album")} onClose={onClose} />
       ) : null}
     </div>
@@ -1883,7 +1908,7 @@ function CamPermission({ kind, onRetry, onAlbum, onCourse, onClose, what = "vide
       <button type="button" className="shoot-icon-btn shoot-perm__close" aria-label="닫기" onClick={onClose}>
         <Mask src={rd("close-outline")} />
       </button>
-      <Mask src={rd("video-camera-outline")} className="shoot-perm__icon" />
+      <Mask src={rd(what === "photo" ? "camera-outline-24" : "video-camera-outline")} className="shoot-perm__icon" />
       <strong id="shoot-perm-t">{denied ? "카메라 사용 권한이 필요해요" : "카메라를 쓸 수 없어요"}</strong>
       <p id="shoot-perm-d">{denied ? permHelp() : `다른 앱이 카메라를 쓰고 있거나 카메라가 없는 기기예요. 다시 시도하거나 찍어 둔 ${what === "photo" ? "사진" : "영상"}을 올려 주세요.`}</p>
       <button type="button" className="is-ok" onClick={onRetry} data-autofocus="">
@@ -2030,10 +2055,13 @@ function CoursePicker({
     }
     const r = SHOOT.video.recommend.find((x) => x.id === id);
     if (!r) return;
+    // 다른 차종 추천으로 바꾸면 앞 추천이 더한 부위는 빼고 새 추천만 더한다(2026-10-27 실행 점검: 칩을 바꿔 누르면 부위가 쌓였다)
+    const prevR = rec ? SHOOT.video.recommend.find((x) => x.id === rec) : undefined;
+    const prevAdd = new Set<VideoStage>([...(prevR?.stages ?? []), ...(Object.values(prevR?.replace ?? {}) as VideoStage[])]);
     setRec(id);
     pickCourse("custom");
     const hide = new Set<VideoStage>([...(r.hide ?? [])]);
-    setPicked((p) => [...new Set([...p.filter((k) => recorded.includes(k) || !hide.has(k)), ...r.stages])].slice(0, MAX_EXTRA));
+    setPicked((p) => [...new Set([...p.filter((k) => recorded.includes(k) || (!hide.has(k) && !prevAdd.has(k))), ...r.stages])].slice(0, MAX_EXTRA));
   };
   const setTime = (k: VideoStage, min: number, max: number) => setDraft((d) => ({ ...d, times: { ...d.times, [k]: { min, max } } }));
   const bump = (k: VideoStage, by: number) => {
@@ -2923,6 +2951,19 @@ export default function ShootRegister() {
   const toastTimer = useRef(0);
 
   const toastAt = useRef(0);
+  // 실기 대비(2026-10-27): 사진·영상이 있는데 새로고침·뒤로가기·탭 닫기로 나가면 브라우저가 한 번 묻게 한다(임시저장이 아직 없어서)
+  const hasWork = photos.length > 0 || Boolean(video);
+  const leavingRef = useRef(false);
+  useEffect(() => {
+    if (!PLUS || !hasWork) return undefined;
+    const warn = (e: BeforeUnloadEvent) => {
+      if (leavingRef.current) return;
+      e.preventDefault();
+      e.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warn);
+    return () => window.removeEventListener("beforeunload", warn);
+  }, [hasWork]);
   const notify = (t: string) => {
     window.clearTimeout(toastTimer.current);
     toastAt.current = Date.now();
@@ -2938,7 +2979,10 @@ export default function ShootRegister() {
     } catch {
       sameSite = false;
     }
-    if (!PLUS || (sameSite && window.history.length > 1)) return void window.history.back();
+    if (!PLUS || (sameSite && window.history.length > 1)) {
+      leavingRef.current = true;
+      return void window.history.back();
+    }
     setPhotos([]);
     releaseVideo(video);
     setVideo(null);
@@ -3058,7 +3102,7 @@ export default function ShootRegister() {
       <div className="shoot-phone">
         <section className="shoot-main" aria-label="중고차 등록">
           <header className="shoot-main__top">
-            <button type="button" className="shoot-icon-btn is-dark" aria-label="뒤로" onClick={() => setAskLeave(true)}>
+            <button type="button" className="shoot-icon-btn is-dark" aria-label="뒤로" onClick={() => (PLUS && !photos.length && !video && !region ? leave() : setAskLeave(true))}>
               <Mask src={rd("back-outline-24")} className="is-back" />
             </button>
             <div className="shoot-main__title">
