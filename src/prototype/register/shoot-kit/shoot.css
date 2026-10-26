@@ -3835,7 +3835,7 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-root.is-kit :is(.shoot-main, .shoot-rules, .shoot-confirm, .shoot-region) {
   --shoot-sub: #707070;
 }
-.shoot-root.is-kit :is(.shoot-tipcard em, .shoot-main__title span, .shoot-confirm__row .is-ok, .shoot-field h3 em, .shoot-media-count .is-warn) {
+.shoot-root.is-kit :is(.shoot-tipcard em, .shoot-main__title span, .shoot-main__title .shoot-progress-why, .shoot-confirm__row .is-ok, .shoot-field h3 em, .shoot-media-count .is-warn) {
   color: #d63e12 !important;
 }
 /* 작은 글자 버튼도 손가락 터치 영역 44 (보이는 크기는 그대로) */
@@ -4406,4 +4406,31 @@ body:has(.shoot-layer) .shoot-install {
   font-size: 13px;
   font-weight: 500;
   color: #707070;
+}
+
+/* 불러온 영상(가로 원본 포함)은 미리보기·표지에서 자르지 않고 전체를 보여 준다(2026-10-26 컨설팅) */
+.shoot-root.is-kit .shoot-live.is-fit {
+  object-fit: contain;
+  background: #000;
+}
+
+/* 완성도를 누르면 계산 방법 안내(2026-10-26 컨설팅: 무엇을 채우면 오르는지). 보이는 크기는 그대로, 누르는 곳만 넓힘 */
+.shoot-root.is-kit .shoot-progress-why {
+  position: relative;
+  display: block;
+  margin: 1.8px auto 0;
+  padding: 0;
+  font-size: 11px;
+  line-height: 12px;
+  color: var(--shoot-accent);
+  background: none;
+}
+.shoot-root.is-kit .shoot-progress-why i {
+  font-style: normal;
+  font-size: 10px;
+}
+.shoot-root.is-kit .shoot-progress-why::after {
+  content: "";
+  position: absolute;
+  inset: -12px -10px;
 }
