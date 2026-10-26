@@ -303,3 +303,18 @@
 .shoot-shorts:has(.shoot-shorts__foot .shoot-shorts__warn) .shoot-shorts__body {
   padding-bottom: 176px;
 }
+
+/* 2026-10-27 컨설팅: 경고를 한 줄로 줄여 아래 고정 영역이 「틀」을 덜 가리게 */
+.shoot-shorts__foot .shoot-shorts__warn.is-short {
+  margin: 0 0 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+.shoot-shorts:has(.shoot-shorts__foot .shoot-shorts__warn.is-short) .shoot-shorts__body {
+  padding-bottom: 136px;
+}

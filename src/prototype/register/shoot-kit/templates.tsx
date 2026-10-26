@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 // 58의 예시 영상은 58 저작물이라 쓰지 않고, 보배드림이 가진 실매물 사진(서울오토갤러리 BMW M3 스튜디오 촬영본)으로
 // 같은 구성(예시 표시 · 실제 촬영 장면 순서 · 카메라 이동 방향 화살표)을 만든다.
 
-export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort" | "seat" | `my-${string}`;
+export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort" | "seat" | "charge" | `my-${string}`;
 
 const ORANGE = "#FF7A1A";
 const base = typeof document === "undefined" ? "/" : new URL(".", document.baseURI).pathname;
@@ -27,6 +27,8 @@ const STAGE_GUIDE_BASE: Record<string, StageGuide> = {
   door: { frames: ["opt-door-1", "opt-door-2"], arrow: "M18 100 Q80 116 142 100", how: "문을 열고 닫는 모습, 트렁크가 열리는 모습을 찍어 주세요. 전동이면 버튼을 누르는 손도 보여 주세요.", pan: "sweep" },
   comfort: { frames: ["in-comfort", "opt-comfort"], arrow: "M18 108 Q80 92 142 108", how: "통풍·열선 시트 버튼, 컵홀더·콘솔·충전 단자처럼 편의 장비를 손으로 눌러 보여 주세요.", pan: "sweep" },
   seat: { frames: ["in-seat", "in-rear", "in-comfort"], arrow: "M18 108 Q80 92 142 108", how: "운전석 → 조수석 → 뒷좌석 → 시트 기능 → 가죽 상태 순서로 시트만 따로 찍어요. 손으로 눌러 쿠션과 가죽을 보여 주세요.", pan: "sweep" },
+  // 전기차(2026-10-27 컨설팅 7건): 엔진룸 대신. 고전압 부품은 만지지 않게 안내한다. 예시 사진은 실사가 없어 문 열기 사진을 임시로 쓴다.
+  charge: { frames: ["opt-door-1"], arrow: "M18 100 Q80 116 142 100", how: "충전구 뚜껑을 열어 충전 단자를 보여 주세요. 앞 트렁크(프렁크)가 있으면 열어서 함께 찍어 주세요. 고전압 부품은 만지지 마세요.", pan: "sweep" },
   under: { frames: ["opt-under"], arrow: "M18 100 Q80 116 142 100", how: "차 아래와 머플러 쪽을 비스듬히 찍어 주세요. 기름이 샌 자국이 없는지 보여 주면 좋아요.", pan: "sweep" },
 };
 
@@ -82,7 +84,24 @@ export function StageTemplate({ stage, large }: { stage: VideoStage; large?: boo
 export type RuleAngle = string;
 const RULE_FILE: Record<string, string> = { trunk: "trk-1" };
 
-export function RuleIllustration({ angle, flip }: { angle?: RuleAngle; flip?: boolean }) {
+// 번호판이 보이는 규칙 사진의 번호판 자리(화면에 보이는 92:82 칸 기준 %: 왼쪽 · 위 · 폭 · 높이).
+// 2026-10-27 컨설팅: 사진 파일은 고치지 않고 촬영 화면의 가림 스티커와 같은 흰 판을 위에 덮는다(키트만).
+const RULE_PLATES: Record<string, [number, number, number, number]> = {
+  front: [33.6, 58, 32.4, 9.6],
+  rear: [33.6, 34.2, 32.4, 9.6],
+  frontLeft: [0, 52.4, 6, 10],
+  side: [0, 31.4, 9.6, 9.6],
+};
+
+export function RuleIllustration({ angle, flip, plates }: { angle?: RuleAngle; flip?: boolean; plates?: boolean }) {
   if (!angle) return <span className="shoot-rule-img is-empty" aria-hidden="true" />;
-  return <img className="shoot-rule-img" src={tpl(RULE_FILE[angle] ?? `rule-${angle}`)} alt="" draggable={false} style={flip ? { transform: "scaleX(-1)" } : undefined} />;
+  const img = <img className="shoot-rule-img" src={tpl(RULE_FILE[angle] ?? `rule-${angle}`)} alt="" draggable={false} style={flip && !plates ? { transform: "scaleX(-1)" } : undefined} />;
+  if (!plates) return img;
+  const pl = RULE_PLATES[angle];
+  return (
+    <span className="shoot-rule-wrap" style={flip ? { transform: "scaleX(-1)" } : undefined}>
+      {img}
+      {pl ? <i className="shoot-rule-plate" aria-hidden="true" style={{ left: `${pl[0]}%`, top: `${pl[1]}%`, width: `${pl[2]}%`, height: `${pl[3]}%` }} /> : null}
+    </span>
+  );
 }

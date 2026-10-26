@@ -4497,3 +4497,70 @@ body:has(.shoot-layer) .shoot-install {
   text-shadow: none;
   word-break: keep-all;
 }
+
+/* ── 2026-10-27 배포본 컨설팅 2차 ── */
+/* 최소 시간 전 멈춤 버튼: 흐리게(누르면 안내 글자만 흔들림) */
+.shoot-root.is-kit .shoot-rec.is-wait span {
+  opacity: 0.45;
+}
+.shoot-timeline__text.is-nudge {
+  color: #ffd166;
+  font-weight: 700;
+  animation: shoot-nudge 0.4s ease-in-out;
+}
+@keyframes shoot-nudge {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-4px); }
+  40%, 80% { transform: translateX(4px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shoot-timeline__text.is-nudge { animation: none; }
+}
+/* 규칙 사진의 번호판 가림(촬영 화면 스티커와 같은 흰 판) */
+.shoot-rule-wrap {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.shoot-rule-plate {
+  position: absolute;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+}
+/* 완성도: 빨강처럼 보이던 진한 주황 대신 중립 회색(채운 막대는 주황 그대로) */
+.shoot-root.is-kit .shoot-main__title .shoot-progress-why {
+  color: #595959 !important;
+}
+.shoot-root.is-kit .shoot-region-tip {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 16px;
+  color: #707070;
+}
+/* 내 폰에 저장: 주 버튼(쇼츠 만들기 · 이 영상 쓰기)보다 가볍게 — 테두리 · 44 */
+.shoot-root.is-kit .shoot-vsave button {
+  height: 44px;
+  background: transparent !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 600;
+}
+.shoot-root.is-kit .shoot-vsave em {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+/* 완성도 버튼 누르는 곳 44 높이(보이는 글자 11px 그대로) */
+.shoot-root.is-kit .shoot-progress-why::after {
+  inset: -16px -12px;
+}
+.shoot-course__secs {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #8c8c8c;
+}

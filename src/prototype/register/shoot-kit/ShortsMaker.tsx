@@ -375,7 +375,7 @@ export function ShortsMaker({ input, onClose }: { input: ShortsInput; onClose: (
       </div>
       {loaded && cuts.length && !made ? (
         <footer className="shoot-shorts__foot">
-          {codec && codec !== "avc" ? <p className="shoot-shorts__warn">이 브라우저는 H.264로 만들지 못해 {codec.toUpperCase()} 방식으로 만들어요. 인스타그램 · 아이폰에서 안 올라갈 수 있어요.</p> : null}
+          {codec && codec !== "avc" ? <p className="shoot-shorts__warn is-short" title="이 브라우저는 H.264로 만들지 못해요">{codec.toUpperCase()} 방식이라 인스타그램·아이폰에 안 올라갈 수 있어요</p> : null}
           <button type="button" className="shoot-shorts__primary" disabled={!plan || can === false || making != null} onClick={() => void make()}>
             {can === false ? "이 브라우저에서는 mp4를 만들 수 없어요" : `쇼츠 mp4 만들기 · ${mmss(total)}`}
           </button>
