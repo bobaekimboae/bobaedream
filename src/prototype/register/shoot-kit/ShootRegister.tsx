@@ -2146,8 +2146,9 @@ function CoursePicker({
           ) : null}
         </ul>
         <footer className={pro ? "has-save" : ""}>
+          {/* 2026-10-26 컨설팅: 내 부위 만들기의 「취소」와 헷갈리지 않게 창 전체를 닫는 버튼은 「닫기」 */}
           <button type="button" onClick={onClose}>
-            취소
+            닫기
           </button>
           {pro ? (
             <button type="button" className="is-save" disabled={drops(next)} onClick={() => onApply(next, { ...draft, myCourse: next })}>

@@ -3835,7 +3835,7 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-root.is-kit :is(.shoot-main, .shoot-rules, .shoot-confirm, .shoot-region) {
   --shoot-sub: #707070;
 }
-.shoot-root.is-kit :is(.shoot-tipcard em, .shoot-main__title span, .shoot-confirm__row .is-ok, .shoot-field h3 em, .shoot-media-count .is-warn) {
+.shoot-root.is-kit :is(.shoot-tipcard em, .shoot-main__title span, .shoot-main__title .shoot-progress-why, .shoot-confirm__row .is-ok, .shoot-field h3 em, .shoot-media-count .is-warn) {
   color: #d63e12 !important;
 }
 /* 작은 글자 버튼도 손가락 터치 영역 44 (보이는 크기는 그대로) */
