@@ -1152,6 +1152,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
   hlRef.current = hl;
   const lastTap = useRef(0);
   const [hlFlash, setHlFlash] = useState(false);
+  /** 최소 시간 전에 멈춤을 누른 횟수(키트) — 바뀔 때마다 시간 안내 글자를 한 번 흔든다 */
+  const [nudge, setNudge] = useState(0);
   // 자동 멈춤(촬영팀은 끄고 길게 찍는다)
   const [autoStop, setAutoStop] = useState(PREFS.autoStop);
   const autoStopRef = useRef(autoStop);
@@ -1374,6 +1376,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
       // 다시 찍으면 그 단계에 표시해 둔 쇼츠 장면은 지운다.
       const nowKey = stagesRef.current[stageRef.current];
       setHl((h) => h.filter((x) => x.k !== nowKey));
+      setNudge(0);
       // 흠집 단계를 다시 찍으면 전에 표시한 흠집은 지운다.
       if (stepsOf(nowKey).length) {
         setIstep(0);
@@ -1397,7 +1400,9 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
     if (phase === "idle" || phase === "paused") begin();
     else if (phase === "recording") {
       if (elapsed < defs[stage].min) {
-        notify("녹화 시간이 부족해요");
+        // 키트(2026-10-27 컨설팅): 알림을 겹쳐 띄우지 않고, 이미 보이는 「N초 더 찍으면 멈출 수 있어요」를 흔들어 강조한다.
+        if (PLUS) setNudge((n) => n + 1);
+        else notify("녹화 시간이 부족해요");
         return;
       }
       finishStage(elapsed);
@@ -1546,7 +1551,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                       ? curSteps.slice(1).map((_, i) => <i key={i} className="shoot-timeline__step" style={{ left: `${(Math.min(cur.max, (i + 1) * STEP_SEC) / cur.max) * 100}%` }} />)
                       : null}
                   </span>
-                  <span className="shoot-timeline__text">
+                  <span key={elapsed < cur.min ? nudge : -1} className={`shoot-timeline__text ${nudge && elapsed < cur.min ? "is-nudge" : ""}`}>
                     {elapsed < cur.min
                       ? `${Math.ceil(cur.min - elapsed)}초 더 찍으면 멈출 수 있어요`
                       : autoStop
@@ -1583,7 +1588,7 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
                 </div>
               ) : null}
               <p className="shoot-vhint">
-                {isDamage ? "흠집·찍힘이 보이면 화면을 눌러 주세요" : PLUS && phase === "recording" ? "멋진 장면은 화면을 두 번 눌러 쇼츠용으로 표시해요" : PLUS ? stageDo(cur.key) : "촬영 항목이 맞는지 확인해 주세요"}
+                {isDamage ? "흠집·찍힘이 보이면 화면을 눌러 주세요" : PLUS && phase === "recording" && elapsed >= 3 && elapsed < 7 ? "멋진 장면은 화면을 두 번 눌러 쇼츠용으로 표시해요" : PLUS ? stageDo(cur.key) : "촬영 항목이 맞는지 확인해 주세요"}
               </p>
               {PLUS && phase === "recording" && !isDamage && hl.some((x) => x.k === cur.key) ? (
                 <span className="shoot-hl-badge" aria-label={`쇼츠 장면 ${hl.filter((x) => x.k === cur.key).length}곳 표시`}>
@@ -1652,7 +1657,8 @@ function VideoCapture({ initial, onClose, onFinished, notify }: { initial?: Take
               )}
               <button
                 type="button"
-                className={`shoot-rec ${phase === "recording" ? "is-recording" : ""} ${PLUS ? "is-plus" : ""}`}
+                className={`shoot-rec ${phase === "recording" ? "is-recording" : ""} ${PLUS ? "is-plus" : ""} ${PLUS && phase === "recording" && elapsed < cur.min ? "is-wait" : ""}`}
+                aria-disabled={PLUS && phase === "recording" && elapsed < cur.min ? true : undefined}
                 aria-label={PLUS ? recLabel : phase === "recording" ? "일시정지" : phase === "paused" ? "계속" : "녹화 시작"}
                 onClick={pressMain}
                 disabled={phase === "countdown" || phase === "merging"}
@@ -2695,7 +2701,7 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
               const a = itemOf(id);
               return (
                 <figure key={id}>
-                  <RuleIllustration angle={a.rule} flip={a.ruleFlip} />
+                  <RuleIllustration angle={a.rule} flip={a.ruleFlip} plates={PLUS} />
                   <figcaption>{a.label}</figcaption>
                 </figure>
               );
@@ -2714,7 +2720,7 @@ function RulesPage({ onBack, onAdd }: { onBack: () => void; onAdd: () => void })
               <div className="shoot-rules__grid">
                 {rest.map((a) => (
                   <figure key={a.id}>
-                    <RuleIllustration angle={a.rule} flip={a.ruleFlip} />
+                    <RuleIllustration angle={a.rule} flip={a.ruleFlip} plates={PLUS} />
                     <figcaption>
                       {a.label}
                       {itemLevel(a.id) !== g.level ? <span className={`shoot-rules__itembadge is-${itemLevel(a.id)}`}>{levelLabel(itemLevel(a.id))}</span> : null}
@@ -2925,7 +2931,7 @@ export default function ShootRegister() {
             <div className="shoot-main__title">
               <h1>중고차 등록</h1>
               {PLUS ? (
-                <button type="button" className="shoot-progress-why" aria-label={`완성도 ${progress}%, 계산 방법 보기`} onClick={() => notify("완성도 = 소재지 20% · 우선 4장 60% · 추가 사진 10% · 영상 10%")}>
+                <button type="button" className="shoot-progress-why" aria-label={`완성도 ${progress}%, 계산 방법 보기`} onClick={() => notify(region ? "완성도 = 소재지 20% · 우선 4장 60% · 추가 사진 10% · 영상 10%" : "차량 소재지를 고르면 완성도가 20% 올라요 · 우선 4장 60% · 추가 사진 10% · 영상 10%")}>
                   완성도 {progress}% <i aria-hidden="true">ⓘ</i>
                 </button>
               ) : (
@@ -2952,6 +2958,7 @@ export default function ShootRegister() {
               ) : (
                 <p className="shoot-field__value">서울</p>
               )}
+              {PLUS && !region ? <p className="shoot-region-tip">고르면 완성도가 20% 올라요</p> : null}
             </section>
 
             <section className="shoot-field" ref={mediaRef}>
@@ -2971,7 +2978,10 @@ export default function ShootRegister() {
                 )}
               </div>
               <div className="shoot-hint-row">
-                <p className="shoot-hint">{requiredOk ? SHOOT.photo.hintDone : ENFORCE ? ENF_TEXT.hint : SHOOT.photo.hint}</p>
+                {/* 키트(2026-10-27 컨설팅): 아래 등록 팁 카드가 같은 말을 하므로 그때는 안내 글자를 숨긴다 */}
+                <p className="shoot-hint">
+                  {PLUS && status === "done" && photos.length && missing.length ? "" : requiredOk ? SHOOT.photo.hintDone : ENFORCE ? ENF_TEXT.hint : SHOOT.photo.hint}
+                </p>
                 <button type="button" className="shoot-rules-link" onClick={() => setScreen({ name: "rules" })}>
                   <Mask src={rd("help-outline")} />
                   촬영 규칙 보기
@@ -3087,12 +3097,15 @@ export default function ShootRegister() {
                   ) : null}
                 </div>
               )}
-              {PLUS && photos.length && !anyUploading ? (
+              {PLUS && (photos.length > 1 || photos.some((p) => p.fromAlbum)) && !anyUploading ? (
                 <div className="shoot-sortlink">
-                  <span>길게 눌러 끌면 두 사진의 칸이 바뀌어요</span>
-                  <button type="button" onClick={() => setScreen({ name: "sort", fresh: photos.filter((p) => p.slot === OTHER).map((p) => p.id) })}>
-                    부위 나누기
-                  </button>
+                  {photos.length > 1 ? <span>길게 눌러 끌면 두 사진의 칸이 바뀌어요</span> : <span />}
+                  {/* 2026-10-27 컨설팅: 부위 나누기는 앨범에서 올린 사진이 있을 때만(카메라로 찍은 사진은 이미 칸이 정해져 있다) */}
+                  {photos.some((p) => p.fromAlbum) ? (
+                    <button type="button" onClick={() => setScreen({ name: "sort", fresh: photos.filter((p) => p.slot === OTHER).map((p) => p.id) })}>
+                      부위 나누기
+                    </button>
+                  ) : null}
                 </div>
               ) : null}
             </section>

@@ -82,7 +82,24 @@ export function StageTemplate({ stage, large }: { stage: VideoStage; large?: boo
 export type RuleAngle = string;
 const RULE_FILE: Record<string, string> = { trunk: "trk-1" };
 
-export function RuleIllustration({ angle, flip }: { angle?: RuleAngle; flip?: boolean }) {
+// 번호판이 보이는 규칙 사진의 번호판 자리(화면에 보이는 92:82 칸 기준 %: 왼쪽 · 위 · 폭 · 높이).
+// 2026-10-27 컨설팅: 사진 파일은 고치지 않고 촬영 화면의 가림 스티커와 같은 흰 판을 위에 덮는다(키트만).
+const RULE_PLATES: Record<string, [number, number, number, number]> = {
+  front: [33.6, 58, 32.4, 9.6],
+  rear: [33.6, 34.2, 32.4, 9.6],
+  frontLeft: [0, 52.4, 6, 10],
+  side: [0, 31.4, 9.6, 9.6],
+};
+
+export function RuleIllustration({ angle, flip, plates }: { angle?: RuleAngle; flip?: boolean; plates?: boolean }) {
   if (!angle) return <span className="shoot-rule-img is-empty" aria-hidden="true" />;
-  return <img className="shoot-rule-img" src={tpl(RULE_FILE[angle] ?? `rule-${angle}`)} alt="" draggable={false} style={flip ? { transform: "scaleX(-1)" } : undefined} />;
+  const img = <img className="shoot-rule-img" src={tpl(RULE_FILE[angle] ?? `rule-${angle}`)} alt="" draggable={false} style={flip && !plates ? { transform: "scaleX(-1)" } : undefined} />;
+  if (!plates) return img;
+  const pl = RULE_PLATES[angle];
+  return (
+    <span className="shoot-rule-wrap" style={flip ? { transform: "scaleX(-1)" } : undefined}>
+      {img}
+      {pl ? <i className="shoot-rule-plate" aria-hidden="true" style={{ left: `${pl[0]}%`, top: `${pl[1]}%`, width: `${pl[2]}%`, height: `${pl[3]}%` }} /> : null}
+    </span>
+  );
 }
