@@ -4482,3 +4482,18 @@ body:has(.shoot-layer) .shoot-install {
   min-width: 52px;
   min-height: 44px;
 }
+
+/* ── 2026-10-27 배포본 컨설팅 ── */
+/* 녹화 전·중 안내 글자: 밝은 화면(낮 · 흰 차)에서도 읽히게 위 단계 알약과 같은 반투명 검정 알약 */
+.shoot-root.is-kit .shoot-vhint {
+  left: 50%;
+  right: auto;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  transform: translateX(-50%);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  text-shadow: none;
+  word-break: keep-all;
+}

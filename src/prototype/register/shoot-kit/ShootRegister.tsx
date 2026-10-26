@@ -694,7 +694,7 @@ function StickerFace() {
     const g = c.getContext("2d")!;
     g.scale(dpr, dpr);
     g.translate(w / 2, h / 2);
-    drawStickerFace(g, w, h);
+    drawStickerFace(g, w, h, PLUS);
   }, []);
   return <canvas ref={ref} className="shoot-sticker__canvas" />;
 }
@@ -751,6 +751,21 @@ function PhotoPreview({
   const layerRef = useRef<HTMLDivElement>(null);
   // 키트: Esc = 편집기가 열려 있으면 편집 취소, 아니면 닫기(2026-10-26 크로스체크)
   useLayerEsc(layerRef, () => (tool ? setTool(null) : onClose()), PLUS);
+  // 키트(2026-10-27): 아래 썸네일 줄도 번호판 가림을 그려 등록 화면 사진과 같아 보이게 한다(가림을 옮기면 잠시 뒤 따라 바뀜)
+  const [stripThumbs, setStripThumbs] = useState<Record<string, string>>({});
+  const thumbKey = draft.map((p) => `${p.id}:${p.src.length}:${p.sticker?.visible ? `${p.sticker.cx},${p.sticker.cy},${p.sticker.w},${p.sticker.rot}` : ""}`).join("|");
+  useEffect(() => {
+    if (!PLUS) return undefined;
+    let alive = true;
+    const t = window.setTimeout(() => {
+      void Promise.all(draft.map(async (p) => [p.id, p.sticker?.visible ? await bakeSticker(p.src, p.sticker, true) : p.src] as const)).then((r) => alive && setStripThumbs(Object.fromEntries(r)));
+    }, 250);
+    return () => {
+      alive = false;
+      window.clearTimeout(t);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [thumbKey]);
 
   if (!photo) return null;
   const patch = (p: Partial<Photo & { removed: boolean }>) => setDraft((d) => d.map((x, i) => (i === cur ? { ...x, ...p } : x)));
@@ -760,7 +775,7 @@ function PhotoPreview({
     const out: Photo[] = [];
     for (const p of draft) {
       if (p.removed) continue;
-      const src = await bakeSticker(p.src, p.sticker);
+      const src = await bakeSticker(p.src, p.sticker, PLUS);
       // 키트: 가림을 굽기 전 원본과 가림 위치를 남겨 다시 열면 옮길 수 있다(58은 구운 사진만 남긴다)
       const keep = PLUS && p.sticker?.visible ? { raw: p.src, sticker: p.sticker } : {};
       out.push({ id: p.id, src, slot: p.slot, uploading: p.uploading, fromAlbum: p.fromAlbum, ...keep });
@@ -830,7 +845,7 @@ function PhotoPreview({
           ) : (
             <div key={p.id} className={`shoot-strip__item ${i === cur ? "is-sel" : ""}`}>
               <button type="button" className="shoot-strip__hit" onClick={() => setCur(i)} aria-label={`${itemLabel(p.slot)} 사진 보기`}>
-                <img src={p.src} alt="" />
+                <img src={stripThumbs[p.id] ?? p.src} alt="" />
                 <span>{itemLabel(p.slot)}</span>
               </button>
               <button type="button" className="shoot-strip__x" aria-label="이 사진 빼기" onClick={() => setDraft((d) => d.map((x, k) => (k === i ? { ...x, removed: true } : x)))}>
@@ -2857,7 +2872,7 @@ export default function ShootRegister() {
     // 키트: 「번호판 가리기」를 켜고 찍은 정면 · 후면 · 45° 사진에 가림을 바로 굽는다. 사진을 눌러 위치를 옮길 수 있다.
     const plated = PLUS ? added.filter((x) => x.plateOn && PLATE_KINDS.has(itemOf(x.slot).guide.kind)) : [];
     if (plated.length) {
-      void Promise.all(plated.map(async (x) => { const st = platePlace(); return [x.id, { raw: x.src, sticker: st, src: await bakeSticker(x.src, st) }] as const; })).then((done) => {
+      void Promise.all(plated.map(async (x) => { const st = platePlace(); return [x.id, { raw: x.src, sticker: st, src: await bakeSticker(x.src, st, PLUS) }] as const; })).then((done) => {
         const m = new Map(done);
         setPhotos((p) => p.map((x) => (m.has(x.id) ? { ...x, ...m.get(x.id)! } : x)));
         notify(`번호판 가림을 ${plated.length}장에 붙였어요 · 사진을 눌러 위치를 맞춰 주세요`);
@@ -2981,9 +2996,18 @@ export default function ShootRegister() {
                     <Mask src={rd("caret-down-fill")} className={`is-chev ${tipOpen ? "is-up" : ""}`} />
                   </button>
                   <p>
-                    매물이 더 잘 보이도록 모든 각도의 차량 사진을 올려 주세요. 아직 <em>{missing.length}</em>개 각도가 부족해요. 펼쳐서 확인하고 더 올려 주세요.
+                    {PLUS && !ENFORCE ? (
+                      // 2026-10-27: 강제하지 않는 키트는 「부족해요」 대신 권하는 말투
+                      <>
+                        <em>{missing.length}</em>개 각도를 더 찍으면 매물이 더 잘 보여요. 펼쳐서 어떤 각도인지 확인해 보세요.
+                      </>
+                    ) : (
+                      <>
+                        매물이 더 잘 보이도록 모든 각도의 차량 사진을 올려 주세요. 아직 <em>{missing.length}</em>개 각도가 부족해요. 펼쳐서 확인하고 더 올려 주세요.
+                      </>
+                    )}
                   </p>
-                  {tipOpen ? <p className="shoot-tipcard__list">더 올려 주세요: {missing.map((m) => m.label).join(" | ")}</p> : null}
+                  {tipOpen ? <p className="shoot-tipcard__list">{PLUS && !ENFORCE ? "더 찍으면 좋은 각도" : "더 올려 주세요"}: {missing.map((m) => m.label).join(" | ")}</p> : null}
                 </div>
               ) : null}
 

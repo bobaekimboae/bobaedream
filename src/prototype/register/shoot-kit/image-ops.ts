@@ -126,7 +126,8 @@ export async function applyMosaic(src: string, strokes: Stroke[]): Promise<strin
 }
 
 /** 번호판 가림 스티커 그림(보배드림 표시). 58은 「58同城」 로고 스티커 */
-export function drawStickerFace(g: CanvasRenderingContext2D, w: number, h: number) {
+// plain(키트, 2026-10-27): 글자 없는 흰 판. 사진 칸 오른쪽 아래 워터마크 「보배드림」과 겹쳐 두 번 보이지 않게 한다.
+export function drawStickerFace(g: CanvasRenderingContext2D, w: number, h: number, plain = false) {
   const r = h * 0.18;
   g.fillStyle = "#FFFFFF";
   g.beginPath();
@@ -137,6 +138,12 @@ export function drawStickerFace(g: CanvasRenderingContext2D, w: number, h: numbe
   g.arcTo(-w / 2, -h / 2, w / 2, -h / 2, r);
   g.closePath();
   g.fill();
+  if (plain) {
+    g.strokeStyle = "rgba(0,0,0,.18)";
+    g.lineWidth = Math.max(1, h * 0.04);
+    g.stroke();
+    return;
+  }
   g.fillStyle = "#306BD9";
   g.font = `800 ${Math.round(h * 0.5)}px "Pretendard Variable", Pretendard, sans-serif`;
   g.textAlign = "center";
@@ -145,7 +152,7 @@ export function drawStickerFace(g: CanvasRenderingContext2D, w: number, h: numbe
 }
 
 /** 스티커를 사진에 굽는다 */
-export async function bakeSticker(src: string, s: Sticker | undefined): Promise<string> {
+export async function bakeSticker(src: string, s: Sticker | undefined, plain = false): Promise<string> {
   if (!s || !s.visible) return src;
   const img = await loadImage(src);
   const c = canvasFor(img.naturalWidth, img.naturalHeight);
@@ -156,7 +163,7 @@ export async function bakeSticker(src: string, s: Sticker | undefined): Promise<
   g.save();
   g.translate(s.cx * c.width, s.cy * c.height);
   g.rotate((s.rot * Math.PI) / 180);
-  drawStickerFace(g, w, h);
+  drawStickerFace(g, w, h, plain);
   g.restore();
   return c.toDataURL("image/jpeg", 0.9);
 }
