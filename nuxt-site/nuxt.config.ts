@@ -24,6 +24,11 @@ export default defineNuxtConfig({
       // 공용 파일이 불러오기 전에 사이트 맨 위 주소를 정해 둔다(/bobaedream/nuxt/ → /bobaedream/)
       base: { href: siteBase },
       script: [{ innerHTML: `globalThis.__BBM_SITE_BASE__=${JSON.stringify(siteBase)}`, tagPosition: "head" }],
+      // 리액트 index.html 과 같이 공용 덮어쓰기 CSS · 파비콘을 붙인다(문서 기준 주소가 사이트 맨 위라 상대 주소로 쓴다)
+      link: [
+        { rel: "icon", type: "image/svg+xml", href: "assets/bbm/favicon.svg" },
+        { rel: "stylesheet", href: "assets/detail-title-override.css" },
+      ],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
         { name: "theme-color", content: "#ffffff" },

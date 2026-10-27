@@ -27,7 +27,8 @@ import { setPretendard } from "@proto/fonts/pretendard";
 import type { CardExtras } from "@proto/dealer-page/business-card";
 import { safePhoneFor, safePhoneNote } from "@proto/dealer-page/business-card";
 import { matchesStockCategories, matchesStockCategory, readStockCategories, stockCategories, type StockCategory } from "@proto/dealer-page/dealer-stock";
-import { JOY_SHOP_NO } from "@proto/dealer-page/DealerPage";
+// 리액트 DealerPage.tsx 의 같은 상수(그 파일을 불러오면 리액트 부품 묶음까지 딸려 와서 값만 옮김)
+const JOY_SHOP_NO = "joy";
 import "@proto/dealer-page/dealer-page.css";
 import { renderHooks } from "../../lib/render-hooks";
 import { useState } from "../../lib/listing/react-state";

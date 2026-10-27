@@ -7,6 +7,7 @@ export const useContext = warn("useContext");
 export const useState = warn("useState");
 export const useEffect = warn("useEffect");
 export const useLayoutEffect = warn("useLayoutEffect");
+export const useInsertionEffect = warn("useInsertionEffect");
 export const useMemo = warn("useMemo");
 export const useCallback = warn("useCallback");
 export const useRef = warn("useRef");

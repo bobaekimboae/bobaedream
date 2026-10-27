@@ -1,6 +1,7 @@
 <script setup lang="ts">
 // 리액트 src/main.tsx · src/App.tsx · src/Prototype.tsx 의 목록 경로(MobileRuntime > ListingLocaleProvider > FavoritesProvider > DetailUiProvider > FlowStack + BuildBadge).
-// 메인 홈 · 딜러 화면 · 매물 등록 · 커뮤니티 경로는 아직 옮기지 않아 주소와 상관없이 목록을 그린다.
+// 판매자페이지(?profile=dealer)는 리액트와 같이 따로 그린다(?card=1 은 명함만). 메인 홈 · 매물 등록 · 커뮤니티 경로는 아직 옮기지 않아 목록을 그린다.
+// 판매자페이지의 ?listing=<id> 상세는 DealerPage 안의 FlowStack 이 그린다. 상세 부품과 아래 막대(DetailFooter)가 useDetailUi 를 쓰므로 DetailUiProvider 로 감싼다.
 import { onBeforeUnmount, onMounted } from "vue";
 import { isForcedMobileView, forcedMobileDesignWidth } from "@proto/data";
 import { registerPrototypeApp } from "@proto/app/register";
@@ -12,12 +13,18 @@ import { DetailUiProvider, vehicleDetailScreen } from "./components/detail";
 import BuildBadge from "./components/BuildBadge.vue";
 import { listScreen, savedListingsScreen } from "./components/listing/listing-flow-screens";
 import { configureListingScreens } from "./lib/listing/listing-screens";
+import { DealerPage } from "./components/dealer-page";
 // 리액트와 같은 순서: 화면 부품(목록 · 상세)의 CSS 다음에 main.tsx 의 roboto · styles.css · prototype.css
 import "@fontsource/roboto/latin-500.css";
 import "@src/styles.css";
 import "@src/prototype.css";
 
 configureListingScreens({ detailScreen: vehicleDetailScreen, savedListingsScreen });
+
+const params = new URLSearchParams(window.location.search);
+const showDealerPage = params.get("profile") === "dealer";
+const showDealerCard = showDealerPage && params.get("card") === "1";
+const dealerDetailScreen = vehicleDetailScreen;
 
 const root = document.documentElement;
 const updateForcedMobileViewport = () => {
@@ -33,6 +40,8 @@ const updateForcedMobileViewport = () => {
 };
 onMounted(() => {
   registerPrototypeApp();
+  // 리액트: 판매자페이지는 강제 모바일 표시를 쓰지 않는다
+  if (showDealerPage) return;
   updateForcedMobileViewport();
   window.addEventListener("resize", updateForcedMobileViewport);
   window.visualViewport?.addEventListener("resize", updateForcedMobileViewport);
@@ -48,6 +57,8 @@ onBeforeUnmount(() => {
 </script>
 <template>
   <MobileRuntime>
-    <ListingLocaleProvider><FavoritesProvider><DetailUiProvider><FlowStack :initial="listScreen" /><BuildBadge /></DetailUiProvider></FavoritesProvider></ListingLocaleProvider>
+    <template v-if="showDealerCard"><DetailUiProvider><DealerPage /></DetailUiProvider><BuildBadge /></template>
+    <ListingLocaleProvider v-else-if="showDealerPage"><DetailUiProvider><DealerPage :detail-screen="dealerDetailScreen" /></DetailUiProvider><BuildBadge /></ListingLocaleProvider>
+    <ListingLocaleProvider v-else><FavoritesProvider><DetailUiProvider><FlowStack :initial="listScreen" /><BuildBadge /></DetailUiProvider></FavoritesProvider></ListingLocaleProvider>
   </MobileRuntime>
 </template>
