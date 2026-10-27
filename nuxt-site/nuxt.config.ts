@@ -5,6 +5,9 @@
 import { fileURLToPath } from "node:url";
 
 const src = fileURLToPath(new URL("../src", import.meta.url));
+const baseURL = process.env.NUXT_APP_BASE_URL || "/bobaedream/nuxt/";
+// 공용 파일은 리액트 판(/bobaedream/)에서 쓰던 상대 주소를 그대로 쓴다. 그래서 문서의 기준 주소를 사이트 맨 위로 둔다.
+const siteBase = baseURL.replace(/nuxt\/$/, "");
 const shim = (f: string) => fileURLToPath(new URL(`./shims/${f}`, import.meta.url));
 
 export default defineNuxtConfig({
@@ -12,12 +15,13 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: false },
   app: {
-    baseURL: process.env.NUXT_APP_BASE_URL || "/bobaedream/nuxt/",
+    baseURL,
     head: {
       htmlAttrs: { lang: "ko" },
       title: "보배드림 · 넉스트",
       // 공용 파일이 불러오기 전에 사이트 맨 위 주소를 정해 둔다(/bobaedream/nuxt/ → /bobaedream/)
-      script: [{ innerHTML: 'globalThis.__BBM_SITE_BASE__=new URL("../",document.baseURI).pathname', tagPosition: "head" }],
+      base: { href: siteBase },
+      script: [{ innerHTML: `globalThis.__BBM_SITE_BASE__=${JSON.stringify(siteBase)}`, tagPosition: "head" }],
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
         { name: "theme-color", content: "#ffffff" },
@@ -33,6 +37,7 @@ export default defineNuxtConfig({
       alias: [
         
         { find: /^react$/, replacement: shim("react.ts") },
+        { find: /^react-dom(\/client)?$/, replacement: shim("react-dom.ts") },
       ],
     },
     // 공용 파일의 import.meta.env.BASE_URL(사이트 맨 위 /bobaedream/)을 실행할 때 계산한다.
