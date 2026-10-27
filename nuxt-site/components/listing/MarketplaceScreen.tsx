@@ -329,7 +329,8 @@ export default defineComponent({
     const [pcFilterCanScroll$, setPcFilterCanScroll] = useState(false);
     const [selectedBikeShop$, setSelectedBikeShop] = useState<string | null>(() => new URLSearchParams(window.location.search).get("bikeShop"));
     const [allRailOpen$, setAllRailOpen] = useState<Record<string, boolean>>({ type: true, region: true, info: true });
-    const railLeftWide = useRef<number | null | null>(null);    const desktop$ = useDesktopLayout(() => quickFilterStyle$.value === "guazi" && pcLayoutStyle === "bbmuseum" ? hybridLayoutQuery : desktopLayoutQuery);
+    const railLeftWide = useRef<number | null>(null);
+    const desktop$ = useDesktopLayout(() => quickFilterStyle$.value === "guazi" && pcLayoutStyle === "bbmuseum" ? hybridLayoutQuery : desktopLayoutQuery);
     const hybridNarrow$ = useMediaMatch(hybridNarrowQuery);
     const vehicleCatalog = useVehicleCatalog(() => (filters$.value.category === "바이크" ? "bike" : "car"), () => filters$.value.maker);
     const hooks = renderHooks();
