@@ -6,7 +6,8 @@
     "dev": "nuxt dev --port 5190",
     "build": "nuxt generate",
     "preview": "node scripts/serve.mjs",
-    "typecheck": "nuxt typecheck"
+    "typecheck": "nuxt typecheck",
+    "export": "nuxt generate && node scripts/copy-to-site.mjs"
   },
   "dependencies": {
     "@huggingface/transformers": "3.8.1",

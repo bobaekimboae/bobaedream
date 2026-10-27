@@ -490,6 +490,7 @@ const leaveSave = () => {
         v-if="screen.name === 'sort'"
         :photos="photos"
         :fresh="screen.fresh"
+        show-shoot
         @close="setScreen({ name: 'main' })"
         @shoot="
           (next: Photo[]) => {
