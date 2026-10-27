@@ -28,17 +28,13 @@ const confirm = () => { emit("apply", draft.value); emit("close"); };
           class="bbmf-seller-reset"
           :disabled="!selected.length"
           @click="draft = setBbmChecks(draft, 'sellerKind', [])"
-        >
-          초기화
-        </button>
+        >초기화</button>
         <button
           type="button"
           class="bbmf-seller-confirm"
           :aria-label="`${resultCount.toLocaleString('ko-KR')}대 보기`"
           @click="confirm"
-        >
-          {{ resultCount.toLocaleString("ko-KR") }}대 보기
-        </button>
+        >{{ resultCount.toLocaleString("ko-KR") }}대 보기</button>
       </div>
     </template>
   </BbmSheet>

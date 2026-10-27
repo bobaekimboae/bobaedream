@@ -2,7 +2,7 @@
 // 리액트 bbm-list.tsx 의 BbmResultCard(원본 car-list-result-card). variant pc: 사진 160, 마력 포함 / mobile 목록형: 초톳 기준 사진 120×120, 마력 없음
 // 콜백 → emit: onToggleLike → "toggleLike", onOpen → "open", onChat → "chat", onCall → "call"(리액트도 없으면 아무 일 없음이라 보이는 차이 없음).
 // 피드 사양 줄(renderFeedSpec)은 bbm-list-local.ts 의 feedSpecItems 로 항목을 만들고 이 템플릿에서 같은 DOM을 그린다.
-import { computed } from "vue";
+import { computed, type CSSProperties } from "vue";
 import { asset, displayListPlace, placeSidoGugun, sellerAvatar, sellerLabel, sellerRealPhoto, type Car } from "@proto/data";
 import { bbmCardBadges, bbmCardSpec, bbmSampleHorsepower } from "@proto/data/bbm-card-samples";
 import { oldCarGeneration } from "@proto/data/old-car-generation-v01";
@@ -89,11 +89,11 @@ const view = computed(() => {
   const headlineTone = car.uiTest ? getHeadlineTone() : "default";
   const alt = car.uiTest?.fullTitle ?? `${car.title} ${car.trim}`.trim();
   const squareOriginalPhoto = !!car.imageAspectRatio && !featured;
-  const photoStyle = car.imageAspectRatio && !squareOriginalPhoto ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
+  const photoStyle: CSSProperties | undefined = car.imageAspectRatio && !squareOriginalPhoto ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
   const photoCount = car.photoList?.length || car.photos;
   const isCarousel = Boolean(featured && car.image && feedPhotos && feedPhotos.length > 1);
   const showFill = Boolean(car.image && (squareOriginalPhoto || listCrop && listCrop[0] === 100 && !listPhoto));
-  const imgStyle = listCrop && !listPhoto
+  const imgStyle: CSSProperties = listCrop && !listPhoto
     ? { position: "absolute", width: `${listCrop[0]}%`, height: `${listCrop[1]}%`, left: `${listCrop[2]}%`, top: `${listCrop[3]}%`, objectFit: "fill" }
     : { objectFit: car.imageAspectRatio ? "contain" : undefined, objectPosition: listPhoto ? "center center" : car.imagePosition ?? "center center" };
   const imgClass = squareOriginalPhoto ? "is-square-original" : car.imageFit === "contain" ? "is-catalog" : "";
