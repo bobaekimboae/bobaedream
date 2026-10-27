@@ -16,3 +16,8 @@ export function captionFor(input: { title: string; price: string; specs: string[
     [tag("보배드림"), tag("중고차"), tag(input.maker), tag(`${input.maker}${input.model}`), tag(input.company), "#Shorts"].filter((item) => item.length > 1).join(" "),
   ].join("\n");
 }
+
+// 촬영 영상으로 쇼츠 만들기(원본 shoot-kit/ShortsMaker.tsx 의 입력 형식)
+import type { Highlight } from "./shorts";
+import type { VideoStage } from "./stages";
+export type ShortsInput = { segs: (string | null)[]; durations: number[]; stages: VideoStage[]; labels: string[]; hl: Highlight[] };

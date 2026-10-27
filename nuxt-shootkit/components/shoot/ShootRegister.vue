@@ -547,8 +547,6 @@ const leaveSave = () => {
         :show-shorts="PLUS"
         :show-continue="PLUS && !video.imported"
         :show-reshoot="!video.imported"
-        show-cover
-        show-delete
         @shorts="video && setScreen({ name: 'shorts', take: { segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, hl: video.hl }, back: { name: 'vedit' } })"
         @close="setScreen({ name: 'main' })"
         @continue="setScreen({ name: 'video', reshoot: true })"
