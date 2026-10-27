@@ -3090,6 +3090,7 @@ export default defineComponent({
           {searchToast ? <div class="market-toast" role="status" aria-live="polite">{searchToast}</div> : null}
           {marketSheet}
         </>
-      );    };
+      );
+    };
   },
 });

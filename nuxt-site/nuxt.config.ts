@@ -16,6 +16,8 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   app: {
     baseURL,
+    // 리액트 판(src/main.tsx)은 #root 에 그린다. 공용 CSS(styles.css · base.css)가 #root 를 쓰므로 같은 id 로 둔다.
+    rootAttrs: { id: "root" },
     head: {
       htmlAttrs: { lang: "ko" },
       title: "보배드림 · 넉스트",

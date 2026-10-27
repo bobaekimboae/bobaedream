@@ -33,7 +33,7 @@ import { detailScreen } from "../../lib/listing/listing-screens";
 import { useKeyboard } from "../../composables/mobile/useKeyboard";
 import { useFlow } from "../../composables/mobile/useFlow";
 import { useFavorites } from "../../composables/data/useFavorites";
-import KeyboardInput from "../mobile/KeyboardInput.vue";
+import KeyboardInputVue from "../mobile/KeyboardInput.vue";
 import MobileScroll from "../mobile/MobileScroll.vue";
 import Icon from "../shared/Icon.vue";
 import CatalogSearchResults from "../vehicle-catalog/CatalogSearchResults.vue";
@@ -48,6 +48,8 @@ import HeartIcon from "../icons/HeartIcon.vue";
 import MagnifyingGlassIcon from "../icons/MagnifyingGlassIcon.vue";
 
 type ReactNode = VNodeChild;
+// KeyboardInput 은 props 를 선언하지 않고 모든 속성을 input 으로 넘긴다(형식만 느슨하게)
+const KeyboardInput = KeyboardInputVue as unknown as FunctionalComponent<Record<string, unknown>>;
 const inputValue = (event: Event) => (event.currentTarget as HTMLInputElement).value;
 // KeyboardInput 은 Vue 부품이라 ref 가 부품을 가리킨다. 리액트처럼 input 요소를 담는다.
 const inputRefOf = (box: { current: HTMLInputElement | null }) => (instance: unknown) => {
