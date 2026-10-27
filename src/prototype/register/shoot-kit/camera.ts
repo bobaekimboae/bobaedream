@@ -64,16 +64,16 @@ export function useCamera(active: boolean, withAudio: boolean): CameraState {
 }
 
 /** 비디오 화면의 현재 장면을 JPEG로 */
-export function grabFrame(video: HTMLVideoElement): string | null {
+export function grabFrame(video: HTMLVideoElement, maxSide = 1600, quality = 0.9): string | null {
   const w = video.videoWidth;
   const h = video.videoHeight;
   if (!w || !h) return null;
   const c = document.createElement("canvas");
-  const s = Math.min(1, 1600 / Math.max(w, h));
+  const s = Math.min(1, maxSide / Math.max(w, h));
   c.width = Math.round(w * s);
   c.height = Math.round(h * s);
   c.getContext("2d")!.drawImage(video, 0, 0, c.width, c.height);
-  return c.toDataURL("image/jpeg", 0.9);
+  return c.toDataURL("image/jpeg", quality);
 }
 
 /** 영상 파일에서 표지 후보 장면 n장 */
@@ -127,7 +127,8 @@ export async function extractFrames(url: string, n: number): Promise<string[]> {
 }
 
 export function pickRecorderType(): string {
-  const types = ["video/mp4;codecs=avc1", "video/mp4", "video/webm;codecs=vp9,opus", "video/webm;codecs=vp8,opus", "video/webm"];
+  // 실기 대비(2026-10-27): 소리 트랙이 있는 카메라 스트림에서 영상 코덱만 적은 형식은 녹화 시작이 막힐 수 있어 소리 코덱을 같이 적은 형식을 먼저 고른다
+  const types = ["video/mp4;codecs=avc1,mp4a.40.2", "video/mp4;codecs=avc1.42E01E,mp4a.40.2", "video/mp4", "video/mp4;codecs=avc1", "video/webm;codecs=vp9,opus", "video/webm;codecs=vp8,opus", "video/webm"];
   return types.find((t) => typeof MediaRecorder !== "undefined" && MediaRecorder.isTypeSupported?.(t)) ?? "";
 }
 

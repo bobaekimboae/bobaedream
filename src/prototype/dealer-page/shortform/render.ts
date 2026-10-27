@@ -78,8 +78,16 @@ export function loadVideo(file: Blob): Promise<HTMLVideoElement | null> {
     video.muted = true;
     video.playsInline = true;
     video.preload = "auto";
-    video.onloadeddata = () => resolve(video.videoWidth ? video : null);
-    video.onerror = () => resolve(null);
+    // 2026-10-27 실기 대비: 아이폰 사파리 등에서 이벤트가 안 오면 영원히 기다리지 않게 10초 뒤 포기한다
+    let done = false;
+    const finish = (v: HTMLVideoElement | null) => {
+      if (done) return;
+      done = true;
+      resolve(v);
+    };
+    video.onloadeddata = () => finish(video.videoWidth ? video : null);
+    video.onerror = () => finish(null);
+    window.setTimeout(() => finish(null), 10000);
     video.src = URL.createObjectURL(file);
   });
 }

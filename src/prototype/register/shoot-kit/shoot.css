@@ -4564,3 +4564,13 @@ body:has(.shoot-layer) .shoot-install {
   line-height: 16px;
   color: #8c8c8c;
 }
+
+/* ── 2026-10-27 실제 폰 시험 전 점검 ── */
+/* 작은 화면(360×640 · 320×568): 틀 높이를 줄여 안내 문구가 단계 칸·예시에 가리지 않게 한다. 큰 화면은 그대로(265.8) */
+.shoot-root.is-kit .shoot-capture.is-video .shoot-vframe {
+  height: min(265.8px, max(120px, calc(100% - 262px)));
+}
+/* 30장을 채우면 셔터를 흐리게 */
+.shoot-root.is-kit .shoot-shutter:disabled {
+  opacity: 0.35;
+}

@@ -34,6 +34,16 @@ function canvasFor(w: number, h: number) {
 }
 
 /** 파일·카메라 이미지를 긴 변 1600px 이하 JPEG로 정리 */
+/** 파일 하나를 사진으로(2026-10-27 실기 대비): data URL로 통째 읽지 않고 임시 주소로 열어 바로 줄인 뒤 주소를 해제한다 */
+export async function normalizeFile(f: Blob): Promise<string> {
+  const url = URL.createObjectURL(f);
+  try {
+    return await normalize(url);
+  } finally {
+    URL.revokeObjectURL(url);
+  }
+}
+
 export async function normalize(src: string): Promise<string> {
   const img = await loadImage(src);
   const s = Math.min(1, MAX / Math.max(img.naturalWidth, img.naturalHeight));
