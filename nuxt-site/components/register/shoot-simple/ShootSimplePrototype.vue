@@ -1,7 +1,7 @@
 <script setup lang="ts">
 // 리액트 src/prototype/register/shoot-simple/ShootSimplePrototype.tsx 의 Vue 판(?register=shootsimple).
 // STAGES · COURSES · Progress · Header 는 리액트 파일에서 export 하지 않아 이 파일에 옮겼다(keep in sync).
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, watch, type Directive } from "vue";
 import "@proto/register/shoot-simple/shoot-simple.css";
 import CameraIcon from "../../icons/CameraIcon.vue";
 import CheckIcon from "../../icons/CheckIcon.vue";
@@ -95,6 +95,11 @@ const goBack = () => {
 };
 
 const goHistoryBack = () => history.back();
+
+// 리액트 defaultValue(비제어 입력칸). 글자 그대로 value="…"로 쓰면 Vue 가 정적 요소로 복제해 고친 글자가 다음 진입에도 남고,
+// :value 로 묶으면 다시 그릴 때마다 처음 값으로 되돌린다 → 처음 그릴 때 한 번만 넣는다(React 와 같이 value 속성도 둠).
+const vDefaultValue: Directive<HTMLInputElement, string> = { mounted(el, binding) { el.setAttribute("value", binding.value); el.value = binding.value; } };
+const defaults = { name: "BMW M3 컴페티션", price: "11,020만원", hook: "실매물 영상 그대로" };
 
 const continueShooting = () => {
   const firstMissing = visibleStages.value.findIndex((item) => !captured.value.includes(item.key));
@@ -238,9 +243,9 @@ const continueShooting = () => {
           </div>
           <div class="sc-form-section">
             <div class="sc-form-title"><h2>매물 정보</h2><span>자동 입력</span></div>
-            <label>차량명<input value="BMW M3 컴페티션"></label>
-            <label>가격<input value="11,020만원"></label>
-            <label>첫 화면 문구 <small>선택</small><input value="실매물 영상 그대로"></label>
+            <label>차량명<input v-default-value="defaults.name"></label>
+            <label>가격<input v-default-value="defaults.price"></label>
+            <label>첫 화면 문구 <small>선택</small><input v-default-value="defaults.hook"></label>
           </div>
           <p class="sc-safety-copy">자막에는 직접 확인한 정보만 사용됩니다. 사고·정비 이력은 자동으로 만들지 않습니다.</p>
         </div>
