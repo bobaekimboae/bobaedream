@@ -1,0 +1,20 @@
+{
+  "name": "bobaedream-nuxt-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev --port 5192",
+    "build": "nuxt generate",
+    "preview": "node scripts/serve.mjs",
+    "typecheck": "vue-tsc --noEmit",
+    "export": "nuxt generate && node scripts/copy-to-site.mjs"
+  },
+  "dependencies": {
+    "nuxt": "3.21.11",
+    "vue": "3.5.43"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vue-tsc": "^3.3.11"
+  }
+}
