@@ -1,0 +1,1320 @@
+// 리액트 src/prototype/dealer-page/DealerPage.tsx 를 Vue 렌더 함수(TSX)로 옮김(판매자페이지 · ?profile=dealer).
+// 리액트 판과 줄 단위로 대조할 수 있게 같은 JSX · 같은 순서를 그대로 두었다. 안쪽 부품(SiteHeader · DealerProfile · ListingsSection …)도 같은 이름으로
+// 이 파일 안에 있고, 콜백(onXxx · setXxx)은 리액트처럼 함수 prop 이다. 상태는 setup 의 shallowRef(lib/listing/react-state useState),
+// useEffect · useMemo 는 lib/render-hooks.ts 로 옮겼다.
+// 이 파일에서 export 하지 않은 데이터·계산 함수(profileFor · STORE_REVIEWS · ferrariModelCards …)는 공유할 수 없어 그대로 복사했다.
+//
+// props(맨 바깥 DealerPage): detailScreen?: FlowScreen
+//   리액트는 ?listing=<id> 로 연 매물을 <FavoritesProvider><DetailUiProvider><FlowStack initial={상세 화면}/></…> 로 그렸다.
+//   상세 화면(VehicleDetail · DetailFooter · DetailUiProvider)은 아직 이 묶음 밖이라, 바깥에서 FlowScreen 을 넘겨받아
+//   <FavoritesProvider><FlowStack :initial="detailScreen"/></FavoritesProvider> 로 그린다(setActiveDetailCar 는 이 부품이 부른다).
+//   detailScreen 을 안 주면 그 경우 아무것도 그리지 않는다.
+// 바깥 감싸기: ?card=1 이 아니면 리액트처럼 ListingLocaleProvider 안에서 그려야 한다(BbmResultCard · ListingLanguageSelect 가 쓴다).
+// 차이:
+//  · 원본 publicBase(new URL(".", location.href))는 넉스트 판에서 nuxt/ 아래를 가리키므로 사이트 맨 위 주소(import.meta.env.BASE_URL)를 쓴다.
+//  · 050 안심번호는 리액트와 같이 tel: 링크를 만들지 않는다(버튼 → 안내 토스트).
+//  · 글자 입력칸 onChange → onInput.
+import { defineComponent, ref, type CSSProperties, type FunctionalComponent } from "vue";
+import { luxuryLogoBrands, luxuryLogoPath, luxuryLogoSource } from "@proto/listing/luxury-logo-rail";
+import { dealerBrandName, dealerBrandStock } from "@proto/dealer-page/dealer-brand-stock";
+import { instagramHandleFor, instagramPostsFor, type DealerInstagramPost } from "@proto/data/seoul-autogallery-instagram-v01";
+import { asset, joyMotorsCars, seoulAutoGalleryCars, setActiveDetailCar, type Car } from "@proto/data";
+import { allSeoulAutoGalleryDealers, dealerPhoto, type SeoulAutoGalleryDealer } from "@proto/listing/seoul-auto-gallery-dealer-rail";
+import { DEUTSCH_MAIN_ADDRESS, deutschShopLogo, allDeutschDealers, deutschDealerCars, deutschShopByNo, deutschShopCars, isDeutschShop } from "@proto/listing/deutsch-autoworld-directory";
+import { dealerSnsLinks, snsLabel } from "@proto/data/seoul-autogallery-sns-v01";
+import { seoulAutoGalleryShopByNo } from "@proto/data/seoul-autogallery-shops-v01";
+import { setPretendard } from "@proto/fonts/pretendard";
+import type { CardExtras } from "@proto/dealer-page/business-card";
+import { safePhoneFor, safePhoneNote } from "@proto/dealer-page/business-card";
+import { matchesStockCategories, matchesStockCategory, readStockCategories, stockCategories, type StockCategory } from "@proto/dealer-page/dealer-stock";
+// 리액트 DealerPage.tsx 의 같은 상수(그 파일을 불러오면 리액트 부품 묶음까지 딸려 와서 값만 옮김)
+const JOY_SHOP_NO = "joy";
+import "@proto/dealer-page/dealer-page.css";
+import { renderHooks } from "../../lib/render-hooks";
+import { useState } from "../../lib/listing/react-state";
+import type { FlowScreen } from "../../composables/mobile/useFlow";
+import FlowStack from "../mobile/FlowStack.vue";
+import FavoritesProvider from "../data/FavoritesProvider.vue";
+import BbmResultCard from "../listing/BbmResultCard.vue";
+import KrBrandLogo from "../listing/KrBrandLogo.vue";
+import ListingLanguageSelect from "../listing/ListingLanguageSelect.vue";
+import SagGoogleMap from "../listing/SagGoogleMap.vue";
+import Cross2Icon from "../icons/Cross2Icon.vue";
+import PauseIcon from "../icons/PauseIcon.vue";
+import PlayIcon from "../icons/PlayIcon.vue";
+import DealerBusinessCard from "./DealerBusinessCard.vue";
+import ShortformStudio, { type MadeShortform } from "./shortform/ShortformStudio";
+
+export { JOY_SHOP_NO };
+
+const joyDealer: SeoulAutoGalleryDealer = { name: "이지유", listingCount: joyMotorsCars.length, shopNo: JOY_SHOP_NO, empNo: "1", image: "dealer-02.png", role: "대표" };
+const dealers: readonly SeoulAutoGalleryDealer[] = [...allSeoulAutoGalleryDealers, joyDealer, ...allDeutschDealers];
+
+const publicBase: string = import.meta.env.BASE_URL;
+const icon = (name: string) => `${publicBase}icons/chotot/${name}`;
+const dealerIcon = (name: string) => `${publicBase}icons/dealer-profile/${name}.${name === "dealership-building" ? "png" : "svg"}`;
+const bobaeAsset = (name: string) => asset(`pc-detail/${name}`);
+
+type SectionId = "home" | "ads" | "community" | "valuation" | "reviews" | "social" | "dealers" | "intro";
+type ListingMode = "active" | "sold" | "sns";
+// SNS 판매 차량 = SNS 게시물 중 차량이 걸린 글(2026-10-21 「SNS 탭을 없애고 판매완료 옆으로 SNS 판매 차량 (2)」).
+const SNS_LISTING_COUNT = 2;
+type ReviewFilter = "all" | "buyer" | "seller";
+type StoreReview = {
+  id: number;
+  name: string;
+  role: Exclude<ReviewFilter, "all">;
+  score: number;
+  date: string;
+  body?: string;
+  tags: string[];
+  carIndex: number;
+  reply?: string;
+  replyDate?: string;
+  transactionKey?: string;
+};
+
+const TWOJ_PROFILE = {
+  rating: 4.9,
+  reviewCount: 17,
+  sold: 12,
+  followers: 425,
+  lastActive: "6시간 전 활동",
+  joined: "딜러 경력 7년",
+  company: "(주)투제이모터웍스",
+  complex: "서울SAG · 서울오토갤러리",
+  gallery: "서울오토갤러리",
+  licenseNo: "02-1123-000075",
+  businessNo: "462-86-03494",
+  employeeNo: "26-003-00097",
+  phone: "02-2059-5211",
+  fax: "02-2059-5200",
+  email: "이메일 문의",
+  staff: "4명",
+  address: "서울 서초구 양재대로11길 36, 은관 421호",
+  intro: "서울오토갤러리 은관에 위치한 (주)투제이모터웍스 대표 김태규입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.",
+  soldCars: [
+    ["BMW X5 xDrive40i M 스포츠", "3일 전"],
+    ["벤츠 GLE 450 4매틱", "1개월 전"],
+    ["포르쉐 카이엔 3.0", "2개월 전"],
+    ["BMW 740Li xDrive", "3개월 전"],
+    ["벤츠 S580 4매틱", "4개월 전"],
+    ["아우디 Q8 55 TFSI", "5개월 전"],
+    ["랜드로버 레인지로버 스포츠", "7개월 전"],
+    ["마세라티 르반떼", "8개월 전"],
+    ["BMW M4 컴페티션", "10개월 전"],
+    ["벤츠 AMG GT 43", "1년 전"],
+    ["포르쉐 파나메라 4", "1년 전"],
+    ["BMW 530i M 스포츠", "1년 전"],
+  ] as const,
+} as const;
+
+type DealerProfileInfo = {
+  rating: number; reviewCount: number; sold: number; followers: number; lastActive: string; joined: string;
+  company: string; complex: string; gallery: string; licenseNo: string; businessNo: string; employeeNo: string;
+  phone: string; phoneIsGallery?: boolean; logo?: string; homepage?: string; homepageLabel?: string; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
+  soldCars: ReadonlyArray<readonly [string, string]>;
+};
+
+const stripCorp = (name: string) => name.replace(/\(주\)|\(유\)|주식회사|\(주$|\)$/g, "").replace(/\s+/g, " ").trim();
+const seedOf = (text: string) => [...text].reduce((sum, ch) => (sum * 31 + ch.charCodeAt(0)) % 100003, 7);
+const SAG_MAIN_PHONE = "02-2059-5000"; // 서울오토갤러리 공식 일반문의(사이트 하단). 상사 대표 전화가 0000(미기재)인 22곳에 쓴다.
+
+// 투제이모터웍스(김태규)는 실제 확인한 값 그대로, 나머지 78개 상사 대표는 공개 목록의 상사명·대표·호수만 쓰고
+// 상사 대표 전화도 공개 목록 값을 쓴다(미기재 상사는 전화 줄을 뺀다). 평점·판매완료·팔로워·리뷰 수·경력은
+// 상사 번호로 정한 화면 확인용 가상 값이다. 팩스·허가·사업자 번호는 목록에 없어 화면에서 뺀다.
+function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
+  if (dealer.shopNo === "450554") return TWOJ_PROFILE;
+  if (dealer.shopNo === JOY_SHOP_NO) return JOY_PROFILE;
+  if (isDeutschShop(dealer.shopNo)) return deutschProfileFor(dealer);
+  const shop = seoulAutoGalleryShopByNo.get(dealer.shopNo);
+  const company = shop?.company ?? "서울오토갤러리 회원사";
+  const room = shop?.room ?? "";
+  const hall = room.startsWith("금관") ? room : `은관 ${room}`;
+  const seed = seedOf(`${dealer.shopNo}-${dealer.name}`);
+  const sold = 6 + (seed % 7);
+  const years = 3 + (seed % 15);
+  const coOwners = dealer.role && dealer.role !== "대표" ? `소속딜러 ${dealer.name}` : shop && shop.owners.length > 1 ? `공동대표 ${shop.owners.join(" · ")}` : `대표 ${dealer.name}`;
+  return {
+    rating: Math.round((4.5 + (seed % 5) / 10) * 10) / 10,
+    reviewCount: 3 + (seed % 28),
+    sold,
+    followers: 40 + (seed % 860),
+    lastActive: `${1 + (seed % 22)}시간 전 활동`,
+    joined: `딜러 경력 ${years}년`,
+    company,
+    complex: "서울SAG · 서울오토갤러리",
+    gallery: "서울오토갤러리",
+    licenseNo: "",
+    businessNo: "",
+    employeeNo: "",
+    phone: shop?.phone || SAG_MAIN_PHONE,
+    phoneIsGallery: !shop?.phone,
+    fax: "",
+    email: "이메일 문의",
+    staff: `${dealers.filter((item) => item.shopNo === dealer.shopNo).length}명`,
+    address: `서울 서초구 양재대로11길 36, ${hall}`.trim(),
+    intro: `서울오토갤러리 ${hall}에 위치한 ${company} ${coOwners}입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.`,
+    soldCars: TWOJ_PROFILE.soldCars.slice(0, sold),
+  };
+}
+
+const JOY_PROFILE: DealerProfileInfo = {
+  rating: 4.9,
+  reviewCount: 27,
+  sold: 12,
+  followers: 1280,
+  lastActive: "1시간 전 활동",
+  joined: "딜러 경력 25년",
+  company: "e-조이모터스",
+  complex: "SK V1 모터스 · 수원",
+  homepage: "https://xn--v52b29lt4d12ac80a.com/",
+  homepageLabel: "조이모터스.com",
+  gallery: "SK V1 모터스",
+  licenseNo: "",
+  businessNo: "203-85-06411",
+  employeeNo: "",
+  phone: "031-278-3030",
+  mapQuery: "SK V1 모터스 경기도 수원시 권선구 평동로79번길 45",
+  mapAddress: "경기 수원시 권선구 평동로79번길 45",
+  mapPlace: "SK V1 모터스 · 평동",
+  coverImage: joyMotorsCars.find((car) => car.image)?.image,
+  specialty: "수입차 · 슈퍼카 · 신차 · 수출",
+  fax: "0504-203-7388",
+  email: "ejoymotors24@naver.com",
+  staff: "",
+  address: "경기 수원시 권선구 평동로79번길 45, SK V1 모터스 173호",
+  intro: "2001년부터 25년 동안 수입차·슈퍼카를 다뤄 온 e-조이모터스 대표 이지유입니다. 전시 중인 차량은 모두 대표가 직접 매입하고 검수했으며, 구매 상담부터 출고 이후 관리까지 같은 기준으로 책임집니다. 수원 SK V1 모터스 173호와 서울 성동구 쇼룸에서 만나실 수 있습니다. (상호 (주)이조이모터스24)",
+  soldCars: TWOJ_PROFILE.soldCars.slice(0, 12),
+};
+
+// 도이치오토월드 상사 · 딜러(2026-10-23). 상사명 · 대표 · 상사 전화 · 팩스 · 층·호수는 dautoworld.com 공개 상사 목록 값,
+// 평점 · 리뷰 수 · 판매완료 · 팔로워 · 경력은 상사 번호로 정한 화면 확인용 가상 값이다. 전화는 안심번호로만 보인다.
+const DEUTSCH_COVER = asset("deutsch-autoworld/header/building-bluehour-v01.png");
+function deutschProfileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
+  const shop = deutschShopByNo.get(dealer.shopNo);
+  const company = shop?.company ?? "도이치오토월드 회원사";
+  const room = shop?.room ?? "";
+  const seed = seedOf(`${dealer.shopNo}-${dealer.name}`);
+  const sold = 6 + (seed % 7);
+  const isOwner = dealer.role === "대표";
+  const who = isOwner ? (shop && shop.owners.length > 1 ? `공동대표 ${shop.owners.join(" · ")}` : `대표 ${dealer.name}`) : `소속딜러 ${dealer.name}`;
+  return {
+    rating: Math.round((4.5 + (seed % 5) / 10) * 10) / 10,
+    reviewCount: 3 + (seed % 28),
+    sold,
+    followers: 40 + (seed % 860),
+    lastActive: `${1 + (seed % 22)}시간 전 활동`,
+    joined: `딜러 경력 ${3 + (seed % 15)}년`,
+    company,
+    complex: "도이치오토월드 · 수원",
+    gallery: "도이치오토월드",
+    licenseNo: "",
+    businessNo: "",
+    employeeNo: "",
+    phone: shop?.phone ?? "",
+    mapQuery: `도이치오토월드 ${DEUTSCH_MAIN_ADDRESS}`,
+    mapAddress: DEUTSCH_MAIN_ADDRESS,
+    mapPlace: "도이치오토월드 · 고색동",
+    coverImage: DEUTSCH_COVER,
+    logo: deutschShopLogo(dealer.shopNo),
+    fax: shop?.fax ?? "",
+    email: "이메일 문의",
+    staff: `${dealers.filter((item) => item.shopNo === dealer.shopNo).length}명`,
+    address: [DEUTSCH_MAIN_ADDRESS, `도이치오토월드${room ? ` ${room}` : ""}`].join(", "),
+    intro: `도이치오토월드${room ? ` ${room}` : ""}에 있는 ${stripCorp(company)} ${who}입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.`,
+    soldCars: TWOJ_PROFILE.soldCars.slice(0, sold),
+  };
+}
+
+// 한 화면에 딜러 한 명이라 그리기 전에 한 번 정한다(DealerPage setup).
+let MOCK: DealerProfileInfo = TWOJ_PROFILE;
+
+const STORE_REVIEW_TAGS = [
+  "친절한 상담",
+  "믿을 수 있어요",
+  "차량 상태가 설명과 같아요",
+  "차량 품질이 좋아요",
+  "가격이 합리적이에요",
+  "약속을 잘 지켜요",
+] as const;
+
+const REVIEW_RATING_COPY = ["", "매우 아쉬웠어요", "아쉬웠어요", "보통이에요", "만족했어요", "매우 만족했어요"] as const;
+const REVIEW_TAG_OPTIONS = {
+  buyer: {
+    low: ["설명이 부족해요", "응답이 아쉬워요", "약속 시간이 아쉬워요", "차량 상태 확인이 필요해요"],
+    neutral: ["응대가 무난해요", "설명이 충분해요", "거래가 원활해요"],
+    high: [...STORE_REVIEW_TAGS],
+  },
+  seller: {
+    low: ["가격 안내가 아쉬워요", "응답이 아쉬워요", "약속 시간이 아쉬워요"],
+    neutral: ["응대가 무난해요", "가격 설명이 충분해요", "거래가 원활해요"],
+    high: ["친절한 상담", "믿을 수 있어요", "가격이 합리적이에요", "약속을 잘 지켜요", "응답이 빨라요", "거래가 원활해요"],
+  },
+} as const;
+
+const STORE_REVIEWS: StoreReview[] = [
+  { id: 1, name: "김민수", role: "buyer", score: 5, date: "2주 전", body: "차량 상태와 이력을 하나씩 설명해 주셔서 안심하고 계약했습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 0, reply: "소중한 후기 감사합니다. 안전하고 즐거운 운행 되시길 바랍니다.", replyDate: "2주 전" },
+  { id: 2, name: "오토라이프", role: "buyer", score: 5, date: "1개월 전", body: "사진과 실제 차량 상태가 같았고 출고 준비도 꼼꼼했습니다.", tags: ["차량 상태가 설명과 같아요", "차량 품질이 좋아요"], carIndex: 1 },
+  { id: 3, name: "박준호", role: "buyer", score: 5, date: "2개월 전", body: "질문이 많았는데 끝까지 친절하게 안내해 주셨습니다.", tags: ["친절한 상담", "약속을 잘 지켜요"], carIndex: 2, reply: "믿고 방문해 주셔서 감사합니다. 궁금한 점은 언제든 편하게 연락 주세요.", replyDate: "2개월 전" },
+  { id: 4, name: "이서연", role: "buyer", score: 4, date: "3개월 전", body: "가격과 이전 절차를 투명하게 알려주셔서 편하게 거래했습니다.", tags: ["가격이 합리적이에요", "믿을 수 있어요"], carIndex: 3 },
+  { id: 5, name: "드림카찾기", role: "buyer", score: 5, date: "4개월 전", body: "멀리서 방문했는데 차량을 미리 준비해 주셔서 바로 확인할 수 있었습니다.", tags: ["친절한 상담", "차량 상태가 설명과 같아요"], carIndex: 4 },
+  { id: 6, name: "최현우", role: "buyer", score: 5, date: "5개월 전", body: "상담부터 출고까지 진행이 빠르고 설명도 정확했습니다.", tags: ["믿을 수 있어요"], carIndex: 0, reply: "좋은 차량을 함께 찾아드릴 수 있어 기쁩니다. 감사합니다.", replyDate: "5개월 전" },
+  { id: 7, name: "서울드라이버", role: "buyer", score: 5, date: "6개월 전", body: "시승할 때 장단점을 솔직하게 알려주셔서 선택에 도움이 됐습니다.", tags: ["친절한 상담", "차량 품질이 좋아요"], carIndex: 1 },
+  { id: 8, name: "정우성", role: "buyer", score: 5, date: "7개월 전", tags: ["믿을 수 있어요"], carIndex: 2 },
+  { id: 9, name: "카라이프", role: "buyer", score: 5, date: "8개월 전", body: "필요한 서류와 보험 절차까지 차분하게 안내받았습니다.", tags: ["친절한 상담"], carIndex: 3 },
+  { id: 10, name: "윤지호", role: "buyer", score: 5, date: "9개월 전", tags: [], carIndex: 4 },
+  { id: 11, name: "패밀리카", role: "buyer", score: 5, date: "10개월 전", body: "가족이 탈 차라 꼼꼼히 확인했는데 관리 상태가 좋았습니다.", tags: ["차량 품질이 좋아요", "차량 상태가 설명과 같아요"], carIndex: 0 },
+  { id: 12, name: "로드트립", role: "buyer", score: 4, date: "11개월 전", tags: ["친절한 상담"], carIndex: 1 },
+  { id: 13, name: "강민호", role: "buyer", score: 5, date: "1년 전", body: "과장 없이 필요한 내용만 설명해 주셔서 믿음이 갔습니다.", tags: [], carIndex: 2 },
+  { id: 14, name: "주말오너", role: "buyer", score: 5, date: "1년 전", tags: [], carIndex: 3 },
+  { id: 15, name: "모터로그", role: "buyer", score: 5, date: "1년 전", body: "차량 인도 뒤에도 궁금한 점을 바로 답변해 주셨습니다.", tags: [], carIndex: 4 },
+  { id: 16, name: "윤서진", role: "buyer", score: 5, date: "1년 전", tags: [], carIndex: 0 },
+  { id: 17, name: "스피드모터스", role: "seller", score: 5, date: "3개월 전", body: "응대가 빠르고 거래 조건을 명확하게 조율해 주셨습니다.", tags: ["친절한 상담", "믿을 수 있어요"], carIndex: 1 },
+];
+
+const SOCIAL_CHANNELS = [
+  { id: "facebook", label: "페이스북", description: "판매 소식", href: "https://www.facebook.com/search/top?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
+  { id: "youtube", label: "유튜브", description: "차량 영상", href: "https://www.youtube.com/results?search_query=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
+  { id: "instagram", label: "인스타그램", description: "신규 매물", href: "https://www.instagram.com/explore/tags/%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4/" },
+  { id: "tiktok", label: "틱톡", description: "숏폼 영상", href: "https://www.tiktok.com/search?q=%ED%88%AC%EC%A0%9C%EC%9D%B4%EB%AA%A8%ED%84%B0%EC%9B%8D%EC%8A%A4" },
+] as const;
+
+const DEALER_HERO_POSTER = asset("seoul-auto-gallery/header/building-bluehour-v01.png");
+
+// 유료 딜러 페이지 공통 헤더: Ferrari 12Cilindri와 Lamborghini Revuelto의
+// 공식 양산 모델 영상을 웹 배너 비율로 재편집한 무음 루프다. 로컬 파일로 제공해
+// 외부 CDN 상태와 무관하게 모든 딜러 페이지에서 같은 품질을 유지한다.
+const DEALER_HERO_VIDEO = {
+  brand: "Ferrari · Lamborghini",
+  model: "12Cilindri · Revuelto",
+  src: asset("dealer-page/supercar-header-v01.mp4"),
+  poster: asset("dealer-page/supercar-header-v01.webp"),
+} as const;
+
+const Icon: FunctionalComponent<{ name: string; className?: string }> = ({ name, className }) =>
+  <img class={`dp-icon${className ? ` ${className}` : ""}`} src={icon(name)} alt="" aria-hidden="true" draggable={false} />;
+Icon.props = ["name", "className"];
+
+// 바깥 링크 표시 = 노션 「독일_오토24 › 아웃 링크_24_24」 원본(파일 수정 없음). 글자색을 따르도록 마스크로 그린다
+const OutLinkIcon: FunctionalComponent = () =>
+  <span class="dp-outlink-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${dealerIcon("outlink-as24")})`, maskImage: `url(${dealerIcon("outlink-as24")})` }} />;
+
+const DealerIcon: FunctionalComponent<{ name: string; className?: string }> = ({ name, className }) =>
+  <img class={`dp-icon dp-dealer-icon${className ? ` ${className}` : ""}`} src={dealerIcon(name)} alt="" aria-hidden="true" draggable={false} />;
+DealerIcon.props = ["name", "className"];
+
+const Stars: FunctionalComponent<{ score: number }> = ({ score }) => {
+  const filled = Math.round(score);
+  const star = `url(${icon("chotot-list-detail-review-star.svg")})`;
+  return <span class="dp-stars" aria-label={`별점 ${score.toFixed(1)}점`}>
+    {Array.from({ length: 5 }, (_, index) => <span key={index} class={`dp-star${index < filled ? " is-on" : ""}`} style={{ maskImage: star, WebkitMaskImage: star }} />)}
+  </span>;
+};
+Stars.props = ["score"];
+
+const SiteHeader: FunctionalComponent = () => <header class="dp-site-header">
+  <div class="dp-mobile-channel-head">
+    <button type="button" aria-label="뒤로가기" onClick={() => window.history.back()}><img src={asset("detail/back.svg")} alt="" aria-hidden="true" /></button>
+    <strong class="dp-mobile-channel-name">{stripCorp(MOCK.company)}</strong>
+    <div>
+      <ListingLanguageSelect compact />
+      <button type="button" aria-label="판매자 매물 검색"><Icon name="chotot-common-search-thin-line.svg" /></button>
+      <button type="button" aria-label="판매자 메뉴"><Icon name="chotot-common-menu.svg" /></button>
+    </div>
+  </div>
+  <div class="dp-site-main">
+    <button type="button" class="dp-site-menu" aria-label="전체 메뉴"><Icon name="chotot-common-menu.svg" /></button>
+    <a class="dp-wordmark" href="./" aria-label="보배드림 홈">
+      <span class="dp-wordmark-mark"><img src={bobaeAsset("9546-imgGroup.svg")} alt="" /></span>
+      <img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" />
+    </a>
+    <button type="button" class="dp-region"><Icon name="chotot-common-location-pin.svg" />전국 <Icon name="chotot-pc-detail-chevron-down-white-bg.svg" /></button>
+    <div class="dp-search-country">
+      <ListingLanguageSelect compact />
+      <label class="dp-search"><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
+    </div>
+    <div class="dp-site-actions">
+      <button type="button" aria-label="관심 차량"><Icon name="chotot-common-favorite.svg" /></button>
+      <button type="button" aria-label="채팅"><Icon name="chotot-common-chat.svg" /></button>
+      <button type="button" class="dp-login">로그인</button>
+      <button type="button" class="dp-register">내차팔기</button>
+    </div>
+    <button type="button" class="dp-open-app">앱 열기</button>
+  </div>
+  <div class="dp-mobile-search">
+    <label><Icon name="chotot-pc-detail-search-magnifier-gray.svg" /><input aria-label="차량 검색" placeholder="차량을 검색해 보세요" /></label>
+    <button type="button" aria-label="관심 차량"><Icon name="chotot-common-favorite.svg" /></button>
+    <button type="button" aria-label="채팅"><Icon name="chotot-common-chat.svg" /></button>
+  </div>
+</header>;
+
+// 딜러·상사 인스타그램·유튜브 링크(2026-10-21): 인스타그램 프로필 소개 아래 링크 줄처럼 아이콘 + 짧은 주소.
+const DealerSnsList: FunctionalComponent<{ sns?: ReturnType<typeof dealerSnsLinks>; pc?: boolean; homepage?: { href: string; label: string } }> = ({ sns, pc = false, homepage }) => {
+  if (!sns && !homepage) return null;
+  return <ul class={`dp-profile-sns${pc ? " is-pc" : ""}`} aria-label={sns?.shop ? "상사 SNS" : "딜러 SNS"}>
+    {/* 홈페이지 = 인스타그램 프로필 링크 줄처럼 체인 아이콘 + 짧은 주소(2026-10-21 「인스타처럼 링크걸자」) */}
+    {homepage ? <li class="is-homepage"><a href={homepage.href} target="_blank" rel="noreferrer"><span class="dp-profile-link-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${dealerIcon("link-reddit")})`, maskImage: `url(${dealerIcon("link-reddit")})` }} />{homepage.label}</a></li> : null}
+    {sns?.links.instagram ? <li><a href={sns.links.instagram} target="_blank" rel="noreferrer"><img src={dealerIcon("instagram")} alt="" aria-hidden="true" />{snsLabel(sns.links.instagram)}</a></li> : null}
+    {sns?.links.youtube ? <li><a href={sns.links.youtube} target="_blank" rel="noreferrer"><img src={dealerIcon("youtube")} alt="" aria-hidden="true" />{snsLabel(sns.links.youtube)}</a></li> : null}
+    {sns?.shop ? <li class="is-note">상사 공식 계정</li> : null}
+  </ul>;
+};
+DealerSnsList.props = ["sns", "pc", "homepage"];
+
+const DealerCoverMedia = defineComponent((props: { fallback: string; alt: string; video?: boolean }) => {
+  const [failedVideo$, setFailedVideo] = useState(false);
+  const [paused$, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+  const videoRef = ref<HTMLVideoElement | null>(null);
+  const hooks = renderHooks();
+  return () => {
+    hooks.begin();
+    const { fallback, alt, video = true } = props;
+    const failedVideo = failedVideo$.value;
+    const paused = paused$.value;
+    const showVideo = video && !failedVideo;
+    hooks.effect(() => {
+      const video = videoRef.value;
+      if (!video || !showVideo) return;
+      if (paused) {
+        video.pause();
+        return;
+      }
+      void video.play().catch(() => setPaused(true));
+    }, [paused, showVideo]);
+    const togglePlayback = () => {
+      const video = videoRef.value;
+      if (!video || !showVideo) return;
+      if (paused) {
+        void video.play().then(() => setPaused(false)).catch(() => setPaused(true));
+      } else {
+        video.pause();
+        setPaused(true);
+      }
+    };
+
+    return <>
+      <img class="dp-cover-photo" src={fallback} alt={alt} draggable={false} />
+      {showVideo ? <video
+        ref={videoRef}
+        class="dp-cover-video"
+        src={DEALER_HERO_VIDEO.src}
+        poster={DEALER_HERO_VIDEO.poster}
+        autoplay={!paused}
+        loop
+        muted
+        playsinline
+        preload="metadata"
+        tabindex={-1}
+        aria-hidden="true"
+        disablePictureInPicture
+        onError={() => setFailedVideo(true)}
+      /> : null}
+      {video ? <button type="button" class="dp-cover-playback" aria-label={paused ? "헤더 영상 재생" : "헤더 영상 일시정지"} aria-pressed={paused} onClick={togglePlayback} disabled={!showVideo}>
+        {paused ? <PlayIcon /> : <PauseIcon />}
+      </button> : null}
+    </>;
+  };
+}, { name: "DealerCoverMedia", props: ["fallback", "alt", "video"] });
+
+type DealerProfileProps = { dealer: SeoulAutoGalleryDealer; cars: Car[]; following: boolean; setFollowing: (value: boolean) => void; notify: (message: string) => void; onValuation: () => void; rating?: number; reviewCount?: number };
+const DealerProfile = defineComponent((props: DealerProfileProps) => {
+  const [bioExpanded$, setBioExpanded] = useState(false);
+  return () => {
+    const { dealer, cars, following, setFollowing, notify, onValuation, rating = MOCK.rating, reviewCount = MOCK.reviewCount } = props;
+    const bioExpanded = bioExpanded$.value;
+    const listingCount = cars.length;
+    const bioPreview = `${MOCK.intro.slice(0, 46).trimEnd()}…`;
+    const sns = dealerSnsLinks(dealer.shopNo, dealer.name);
+
+    return <section class="dp-profile">
+      <div class="dp-cover">
+        <DealerCoverMedia video={!isDeutschShop(dealer.shopNo)} fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={isDeutschShop(dealer.shopNo) ? "도이치오토월드 전경" : MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
+        <div class="dp-cover-brand-copy">
+          <strong>{stripCorp(MOCK.company)}</strong>
+          <span>수입차 전문 매매</span>
+          <small>수입차 판매·구매 상담은 언제든 문의하세요.</small>
+        </div>
+        <button type="button" class="dp-cover-more" aria-label="판매자 메뉴"><Icon name="chotot-common-more.svg" /></button>
+      </div>
+      <div class="dp-profile-body">
+        <img class="dp-avatar" src={dealerPhoto(dealer)} alt={`${dealer.name} 프로필`} draggable={false} />
+        <div class="dp-profile-copy">
+          <h1>{dealer.name}<Icon name="chotot-list-detail-verified-dealer-wavy-badge.svg" className="is-badge" /></h1>
+          <div class="dp-profile-stats dp-profile-stats-mobile" aria-label="판매 실적">
+            <span><small>판매중</small><b>{listingCount.toLocaleString("ko-KR")}</b></span>
+            <span><small>판매완료</small><b>{MOCK.sold.toLocaleString("ko-KR")}</b></span>
+            <span><small>팔로워</small><b>{(MOCK.followers + (following ? 1 : 0)).toLocaleString("ko-KR")}</b></span>
+          </div>
+          <div class="dp-profile-bio">
+            <b>{MOCK.company} · {dealer.role ?? "인증딜러"}</b>
+            <p>
+              <span>{bioExpanded ? MOCK.intro : bioPreview}</span>{" "}
+              <button type="button" aria-expanded={bioExpanded} onClick={() => setBioExpanded((expanded) => !expanded)}>{bioExpanded ? "접기" : "더 보기"}</button>
+            </p>
+            <DealerSnsList sns={sns} homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
+          </div>
+          <div class="dp-profile-actions has-card">
+            <button type="button" class="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
+            <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅</button>
+            {MOCK.phone ? <button type="button" aria-label={`${dealer.name} 딜러에게 안심번호로 전화하기`} onClick={() => notify(safePhoneNote(safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)))}><DealerIcon name="phone" />전화</button> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
+            <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), safe: true, address: MOCK.address, photo: dealerPhoto(dealer), listingCount }} extras={cardExtrasFor(dealer, cars, rating, reviewCount)}>{{
+              trigger: () => <button type="button" class="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>,
+            }}</DealerBusinessCard>
+          </div>
+          <div class="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
+          <div class="dp-profile-inline is-mobile-rating"><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
+          <div class="dp-profile-career-meta">
+            <div class="dp-profile-inline is-career"><DealerIcon name="dealership" />{MOCK.joined}</div>
+          </div>
+          {MOCK.phone ? <div class="dp-profile-inline is-phone"><DealerIcon name="phone" /><button type="button" class="dp-safe-phone" onClick={() => notify(safePhoneNote(safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)))}>{safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)}</button><em class="dp-safe-badge">안심번호</em></div> : null}
+          <div class="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
+          <div class="dp-profile-inline is-dealership"><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+          <DealerSnsList sns={sns} pc homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
+          <SellPriceCta dealerName={dealer.name} onRequest={onValuation} profile />
+          <div class="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
+            <span><small>판매중</small><b>{listingCount}</b></span>
+            <span><small>판매완료</small><b>{MOCK.sold}</b></span>
+            <span><small>팔로워</small><b>{MOCK.followers + (following ? 1 : 0)}</b></span>
+          </div>
+        </div>
+      </div>
+    </section>;
+  };
+}, { name: "DealerProfile", props: ["dealer", "cars", "following", "setFollowing", "notify", "onValuation", "rating", "reviewCount"] });
+
+type DealerListView = "list" | "feed";
+const ActiveCards = defineComponent((props: { cars: Car[]; limit: number; onOpen: (car: Car) => void; view?: DealerListView }) => {
+  const [liked$, setLiked] = useState<Set<number>>(new Set());
+  const [desktop$, setDesktop] = useState(() => window.matchMedia("(min-width: 820px)").matches);
+  const hooks = renderHooks();
+  return () => {
+    hooks.begin();
+    const { cars, limit, onOpen, view = "list" } = props;
+    const liked = liked$.value;
+    const desktop = desktop$.value;
+    hooks.effect(() => {
+      const media = window.matchMedia("(min-width: 820px)");
+      const update = () => setDesktop(media.matches);
+      update();
+      media.addEventListener("change", update);
+      return () => media.removeEventListener("change", update);
+    }, []);
+    const toggleLiked = (id: number) => setLiked((current) => {
+      const next = new Set(current);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+    // 피드 보기: 목록 화면의 모바일 피드 카드(큰 사진 · 넘기기)를 그대로 쓴다. PC도 같은 카드를 가운데 한 열로
+    const feed = view === "feed";
+    return <div class={`dp-listings-shell marketplace ${desktop && !feed ? "is-bbm" : "is-bbm-m is-qf-guazi"}${feed ? " is-dp-feed" : ""}`}>
+      <div class={`bbm-m-list${feed ? " is-feed" : ""}`}>{cars.slice(0, limit).map((car, index) => <BbmResultCard
+        key={car.id}
+        car={car}
+        variant={desktop && !feed ? "pc" : "mobile"}
+        featured={feed}
+        eagerPhoto={index < 4}
+        feedPhotos={feed ? (car.photoList?.length ? car.photoList : [car.image]) : undefined}
+        liked={liked.has(car.id)}
+        onToggleLike={() => toggleLiked(car.id)}
+        onOpen={() => onOpen(car)}
+        onChat={() => undefined}
+      />)}</div>
+    </div>;
+  };
+}, { name: "ActiveCards", props: ["cars", "limit", "onOpen", "view"] });
+
+const SoldCards: FunctionalComponent<{ limit: number }> = ({ limit }) => <div class="dp-sold-grid">{MOCK.soldCars.slice(0, limit).map(([title, time]) => (
+  <article class="dp-sold-card" key={title}>
+    <span><i />판매완료</span>
+    <h3>{title}</h3>
+    <time>{time}</time>
+  </article>
+))}</div>;
+SoldCards.props = ["limit"];
+
+// 커뮤니티 임베드(public/community/community-embed.js)와 같은 방식: 인스타 겉틀(본문·반응 줄)을 잘라
+// 사진 게시물은 계정 줄 + 사진만, 릴스는 9:16 영상만 우리 SNS 카드 안에 보여 준다(2026-10-21 「우리 임베드 인스타 기능, 우리 화면에서」).
+// 인스타가 보내는 높이 신호(MEASURE)로 사진 게시물 칸 높이를 맞춘다(판매차량 · 커뮤니티 피드 공용, 한 번만 등록 — 리액트 파일과 같은 깃발을 쓴다).
+if (typeof window !== "undefined" && !(window as unknown as { __dpIgMeasure?: boolean }).__dpIgMeasure) {
+  (window as unknown as { __dpIgMeasure?: boolean }).__dpIgMeasure = true;
+  window.addEventListener("message", (event: MessageEvent) => {
+    let host = "";
+    try { host = new URL(event.origin).hostname; } catch { return; }
+    if (!/(^|\.)instagram\.com$/.test(host)) return;
+    let data = event.data;
+    try { if (typeof data === "string") data = JSON.parse(data); } catch { return; }
+    const height = data && data.type === "MEASURE" && data.details ? Number(data.details.height) : 0;
+    if (!(height > 50)) return;
+    document.querySelectorAll<HTMLIFrameElement>(".dp-ig-crop iframe").forEach((frame) => {
+      if (frame.contentWindow !== event.source) return;
+      frame.parentElement?.style.setProperty("--crop-h", `${Math.max(120, Math.ceil(height) - 154)}px`);
+    });
+  });
+}
+
+const igHref = (post: DealerInstagramPost) => `https://www.instagram.com/${post.kind === "reel" ? "reel" : "p"}/${post.code}/`;
+const igVehicleLabel = (post: DealerInstagramPost) => post.maker && post.model ? `${post.maker} ㆍ ${post.model}` : "";
+const IgMedia: FunctionalComponent<{ post: DealerInstagramPost }> = ({ post }) => {
+  const href = igHref(post);
+  if (post.kind === "reel" && post.video) {
+    return <div class="dp-ig-reel is-native"><video controls playsinline preload="metadata" poster={post.poster ? asset(post.poster) : undefined} aria-label={`인스타그램 릴스 ${post.date}`}><source src={asset(post.video)} type="video/mp4" />이 브라우저에서는 영상을 재생할 수 없습니다.</video></div>;
+  }
+  return post.kind === "reel"
+    ? <div class="dp-ig-reel"><iframe src={`${href}embed/`} title={`인스타그램 릴스 ${post.date}`} loading="lazy" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-presentation" /></div>
+    : <div class="dp-ig-crop"><iframe src={`${href}embed/`} title={`인스타그램 게시물 ${post.date}`} loading="lazy" scrolling="no" allow="encrypted-media; picture-in-picture" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts" /></div>;
+};
+IgMedia.props = ["post"];
+const igDateText = (date: string) => { const [y, m, d] = date.split("-"); return `${Number(y) % 100}.${m}.${d}`; };
+
+const InstagramEmbeds: FunctionalComponent<{ posts: readonly DealerInstagramPost[]; limit: number; handle: string }> = ({ posts, limit, handle }) => <div class="dp-social-feed-list dp-ig-embeds">
+  {posts.slice(0, limit).map((post) => {
+    const href = igHref(post);
+    const label = post.kind === "reel" ? "릴스" : "게시물";
+    return <article class="dp-social-post dp-ig-post" key={post.code}>
+      <header>
+        <DealerIcon name="instagram" />
+        <span><b>{igVehicleLabel(post) || `인스타그램 ${label}`}</b><small>@{handle} · {igDateText(post.date)}</small></span>
+        <a href={href} target="_blank" rel="noreferrer" aria-label={`인스타그램 ${label} 원문 보기`}><OutLinkIcon /></a>
+      </header>
+      <IgMedia post={post} />
+      <footer><span>판매 문의는 채팅·전화로</span><a href={href} target="_blank" rel="noreferrer">원문 보기 <OutLinkIcon /></a></footer>
+    </article>;
+  })}
+</div>;
+InstagramEmbeds.props = ["posts", "limit", "handle"];
+
+// 숏폼 「내 SNS 계정에 올리기」 연결 칸에 미리 넣을 딜러 계정(판매자페이지 SNS 링크에서).
+function snsHandlesFor(dealer: SeoulAutoGalleryDealer) {
+  const links = dealerSnsLinks(dealer.shopNo, dealer.name)?.links;
+  const handle = (url?: string) => {
+    if (!url) return undefined;
+    try { const path = decodeURIComponent(new URL(url).pathname).replace(/\/$/, "").split("/").filter(Boolean); return path[0]?.startsWith("@") ? path[0] : path[0] === "channel" ? snsLabel(url) : path[0] ? `@${path[0]}` : undefined; } catch { return undefined; }
+  };
+  return { instagram: handle(links?.instagram), youtube: handle(links?.youtube) };
+}
+
+// 딜러용 숏폼 자동 제작기(2026-10-22 「숏폼 자동 제작하는 딜러용 프로그램 … 너가 만들어봐」): 안내 줄 + 이번에 만든 숏폼 카드.
+const ShortformCta: FunctionalComponent<{ onMake: () => void }> = ({ onMake }) => <aside class="dp-shortform-cta" aria-label="숏폼 만들기">
+  <span><b>내 매물로 숏폼 만들기</b><small>사진과 매물 정보로 세로 영상을 자동으로 만들어요</small></span>
+  <button type="button" onClick={onMake}>만들기</button>
+</aside>;
+ShortformCta.props = ["onMake"];
+const MadeShortforms: FunctionalComponent<{ items: MadeShortform[]; dealerName: string; avatar: string }> = ({ items, dealerName, avatar }) => <div class="dp-social-feed-list dp-ig-embeds">{items.map((item) => <article class="dp-social-post dp-ig-post" key={item.id}>
+  <header>
+    <img class="dp-made-avatar" src={avatar} alt="" aria-hidden="true" />
+    <span><b>{item.title}</b><small>{dealerName} 딜러 · 방금 · 보배드림 숏폼 {item.seconds}초</small></span>
+    <a href={item.url} download={`bobae-shortform-${item.carId}.mp4`} aria-label="숏폼 내려받기"><OutLinkIcon /></a>
+  </header>
+  <div class="dp-ig-reel is-native is-made" style={{ aspectRatio: item.aspect.replace(":", " / ") }}><video controls playsinline preload="metadata" poster={item.poster} src={item.url} aria-label={`${item.title} 숏폼`} /></div>
+  <footer><span>판매 문의는 채팅·전화로</span><a href={item.url} download={`bobae-shortform-${item.carId}.mp4`}>내려받기</a></footer>
+</article>)}</div>;
+MadeShortforms.props = ["items", "dealerName", "avatar"];
+
+type ListingsSectionProps = { madeShorts?: MadeShortform[]; onMakeShortform?: () => void; dealerName?: string; dealerAvatar?: string; view?: DealerListView; setView?: (view: DealerListView) => void; cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; categories: readonly StockCategory[]; toggleCategory: (category: StockCategory) => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string };
+const ListingsSection = defineComponent((props: ListingsSectionProps) => {
+  const [limit$, setLimit] = useState(5);
+  return () => {
+    const { cars, mode, setMode, onOpen, categories, toggleCategory, igPosts = [], igHandle = "", view = "list", setView, madeShorts = [], onMakeShortform, dealerName = "", dealerAvatar = "" } = props;
+    const limit = limit$.value;
+    const filteredCars = cars.filter((car) => matchesStockCategories(car, categories));
+    const categoryLabel = categories.length ? categories.join(" · ") : "전체";
+    const snsCount = (igPosts.length || SNS_LISTING_COUNT) + madeShorts.length;
+    const max = mode === "active" ? filteredCars.length : mode === "sold" ? MOCK.soldCars.length : snsCount;
+    return <section class="dp-content-card dp-listings">
+      <div class="dp-listing-modes" role="tablist" aria-label="판매 상태">
+        <button type="button" role="tab" aria-selected={mode === "active"} onClick={() => { setMode("active"); setLimit(5); }}>판매중 ({cars.length})</button>
+        <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
+        <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({snsCount})</button>
+      </div>
+      {mode === "active" ? <><div class="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}<span class="dp-stock-category-count">{cars.filter((car) => matchesStockCategory(car, item)).length}</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}<div class="dp-view-toggle is-icons" role="group" aria-label="보기 방식">{([["list", "목록 보기"], ["feed", "피드 보기"]] as const).map(([id, label]) => <button key={id} type="button" aria-pressed={view === id} aria-label={label} title={label} onClick={() => setView?.(id)}><span class="dp-view-toggle-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${publicBase}${["community", "assets", `view-${id}.svg`].join("/")})`, maskImage: `url(${publicBase}${["community", "assets", `view-${id}.svg`].join("/")})` }} /></button>)}</div></div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} view={view} /> : <p class="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : <>{onMakeShortform ? <ShortformCta onMake={onMakeShortform} /> : null}{madeShorts.length ? <MadeShortforms items={madeShorts} dealerName={dealerName} avatar={dealerAvatar} /> : null}{igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}</>}
+      {limit < max ? <button type="button" class="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
+    </section>;
+  };
+}, { name: "ListingsSection", props: ["madeShorts", "onMakeShortform", "dealerName", "dealerAvatar", "view", "setView", "cars", "mode", "setMode", "onOpen", "categories", "toggleCategory", "igPosts", "igHandle"] });
+
+// 판매차량 탭 위 브랜드 로고 줄: 판매자 전체 재고의 매물 수 내림차순·동률 가나다순.
+// 슈퍼카 16개는 기존 로고 원본 번호를 유지하고 나머지는 공용 제조사 로고를 쓴다. 0대 브랜드는 표시하지 않는다.
+// 페라리를 고르면 로고 줄 아래에 우리 페라리 모델 이미지 줄(2026-10-21 「페라리 다음에 우리 모델 이미지 나오게해라」).
+// 이미지·이름·순서는 차량 기준표(cars-index-v1)의 페라리 모델그룹 18개, 3/4 카탈로그 컷(ferrari-models/angle). 0대는 흐리게.
+const ferrariModelCards: Array<[string, string, string[]]> = [
+  ["12 칠린드리", "12cilindri", ["12칠린드리", "12cilindri"]], ["296", "296", ["296"]], ["360", "360", ["360"]], ["458", "458", ["458"]], ["488", "488", ["488"]], ["599", "599", ["599"]], ["812", "812", ["812"]],
+  ["F12 베를리네타", "f12", ["f12"]], ["F355", "f355", ["f355"]], ["F430", "f430", ["f430"]], ["F8", "f8", ["f8"]], ["FF", "ff", ["ff"]], ["GTC4 루쏘", "gtc4lusso", ["gtc4"]], ["SF90", "sf90", ["sf90"]],
+  ["로마", "roma", ["로마", "roma"]], ["캘리포니아", "california", ["캘리포니아", "california"]], ["포르토피노", "portofino", ["포르토피노", "portofino"]], ["푸로산게", "purosangue", ["푸로산게", "purosangue"]],
+];
+const modelKey = (value: string) => value.replace(/[\s-]/g, "").toLowerCase();
+function dealerFerrariModelOf(car: Car) {
+  const text = modelKey(car.modelGroup || car.title.replace(/^페라리\s*/, ""));
+  return ferrariModelCards.find(([, , keys]) => keys.some((key) => text.startsWith(key)))?.[0] ?? "";
+}
+const DealerModelRail: FunctionalComponent<{ cars: Car[]; model: string; onPick: (model: string) => void }> = ({ cars, model, onPick }) => {
+  const counts = new Map<string, number>();
+  cars.forEach((car) => { const name = dealerFerrariModelOf(car); if (name) counts.set(name, (counts.get(name) ?? 0) + 1); });
+  return <div class="dp-brand-rail-track dp-model-rail" role="group" aria-label="페라리 모델로 판매차량 보기">
+    {ferrariModelCards.map(([name, slug]) => {
+      const count = counts.get(name) ?? 0;
+      return <button type="button" key={name} class={`${model === name ? "is-active" : ""}${count ? "" : " is-empty"}`} aria-pressed={model === name} aria-label={`페라리 ${name} ${count}대`} onClick={() => onPick(name)}>
+        <span class="dp-model-rail-image"><img src={asset(["quickfilter", "car", "ferrari-models", "angle", `ferrari_${slug}_angle_v01.png`].join("/"))} alt="" draggable={false} loading="lazy" /></span>
+        <span class="dp-brand-rail-name">{name}</span>
+        <span class="dp-brand-rail-count">({count})</span>
+      </button>;
+    })}
+  </div>;
+};
+DealerModelRail.props = ["cars", "model", "onPick"];
+
+const DealerBrandRail: FunctionalComponent<{ cars: Car[]; brand: string; onPick: (maker: string) => void; model: string; onPickModel: (model: string) => void }> = ({ cars, brand, onPick, model, onPickModel }) => {
+  const source = luxuryLogoSource();
+  const brands = dealerBrandStock(cars);
+  return <nav class="dp-brand-rail" aria-label="브랜드로 판매차량 보기">
+    <div class="dp-brand-rail-track">
+      {brands.map(({ maker, count }) => {
+        const logoIndex = luxuryLogoBrands.findIndex((item) => item.maker === maker);
+        return <button type="button" key={maker} class={brand === maker ? "is-active" : undefined} aria-pressed={brand === maker} aria-label={`${maker} ${count}대`} onClick={() => onPick(maker)}>
+          <span class="dp-brand-rail-logo">{logoIndex >= 0 ? <img src={asset(luxuryLogoPath(source, logoIndex))} alt="" draggable={false} /> : <KrBrandLogo name={maker} kind="plain" initialFallback />}</span>
+          <span class="dp-brand-rail-name">{maker}</span>
+          <span class="dp-brand-rail-count">({count})</span>
+        </button>;
+      })}
+    </div>
+    {brand === "페라리" ? <DealerModelRail cars={cars.filter((car) => car.maker === "페라리")} model={model} onPick={onPickModel} /> : null}
+  </nav>;
+};
+DealerBrandRail.props = ["cars", "brand", "onPick", "model", "onPickModel"];
+
+const AnchorNav: FunctionalComponent<{ active: SectionId; onChange: (section: SectionId) => void }> = ({ active, onChange }) => {
+  const items: Array<[SectionId, string]> = [["home", "홈"], ["ads", "판매차량"], ["community", "커뮤니티"], ["dealers", "소속딜러"], ["valuation", "내차견적"], ["reviews", "리뷰"], ["intro", "소개"]];
+  return <nav class="dp-anchor-nav" aria-label="딜러페이지 구역" role="tablist">{items.map(([id, label]) => <button key={id} type="button" role="tab" aria-selected={active === id} class={`${active === id ? "is-active" : ""}${id === "valuation" ? " is-valuation" : ""}`} onClick={() => onChange(id)}>{label}</button>)}</nav>;
+};
+AnchorNav.props = ["active", "onChange"];
+
+const HomeSection: FunctionalComponent = () => <section class="dp-content-card dp-home-pending" aria-labelledby="dp-home-title">
+  <h2 id="dp-home-title">홈</h2>
+  <p>판매자 홈 구성은 다음 단계에서 준비합니다.</p>
+</section>;
+
+// 판매자페이지 커뮤니티 = 우리 커뮤니티 기본 보기 「네이버 토론 피드」와 같은 카드(2026-10-21 「판매자페이지 커뮤니티 네이버 토론 피드로」).
+// 분류 칩 → 프사 24 · 작성자 · 시간 → 제목 → 본문 3줄 → 사진 → 버프·너프·댓글 · 조회. 글·반응 수는 화면 확인용 가상 값이다.
+// 배포 빌드가 코드 안의 "/assets/" 문자열을 다시 고쳐 쓰므로 경로를 조각으로 이어 붙인다(2026-10-21 아이콘 깨짐 수정).
+const communityIcon = (name: string) => ["community", "assets", "chzzk-detail", "icons", `${name}.svg`].join("/");
+// 딜러 커뮤니티 말머리(2026-10-21 「말머리 딜러에 맞게 추가」).
+const noticePinStyle = { "--pin": `url("${dealerIcon("pin-reddit")}")` } as CSSProperties;
+const dealerCommunityTags = ["전체", "공지", "입고 소식", "출고 후기", "관리 팁", "시세 정보", "SNS", "딜러 구인", "이벤트"] as const;
+type DealerCommunityTag = (typeof dealerCommunityTags)[number];
+
+const CommunitySection = defineComponent((props: { cars: Car[]; dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) => {
+  const [tag$, setTag] = useState<DealerCommunityTag>("전체");
+  const [noticeIndex$, setNoticeIndex] = useState(0);
+  const noticeTrack = ref<HTMLDivElement | null>(null);
+  return () => {
+    const { cars, dealer, notify } = props;
+    const tag = tag$.value;
+    const noticeIndex = noticeIndex$.value;
+    const company = stripCorp(MOCK.company);
+    const pick = (index: number) => cars.length ? cars[index % cars.length] : undefined;
+    const allPosts: { category: Exclude<DealerCommunityTag, "전체">; title: string; copy: string; author: string; byDealer: boolean; photo?: string; time: string; views: number; comments: number; up: number; down: number; car?: Car; ig?: DealerInstagramPost }[] = [
+      { category: "공지", photo: MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png"), title: "방문 상담 예약 안내", copy: "주말에는 상담이 몰려 대기 시간이 길어질 수 있습니다. 방문 전 채팅이나 전화로 시간을 정해 주시면 차량을 미리 준비해 두겠습니다.", author: company, byDealer: false, time: "1시간 전", views: 302, comments: 2, up: 18, down: 0 },
+      { category: "공지", title: "추석 연휴 영업 시간 안내", copy: "연휴 기간에도 전시장은 오전 10시부터 오후 6시까지 엽니다. 시승은 미리 예약해 주세요.", author: company, byDealer: false, time: "3일 전", views: 221, comments: 1, up: 9, down: 0 },
+      { category: "공지", title: "차량 사진과 이력은 직접 확인합니다", copy: "올린 모든 차량은 담당 딜러가 사진과 보험 이력, 성능점검 기록을 직접 확인한 뒤 등록합니다.", author: company, byDealer: false, time: "1주 전", views: 488, comments: 5, up: 41, down: 0 },
+      { category: "입고 소식", title: `${pick(0)?.title ?? "새 차량"} 입고`, copy: "관리 상태와 주요 옵션을 직접 확인했습니다. 실내·외 사진을 함께 올려 두었으니 방문 전 궁금한 점을 댓글로 남겨 주세요.", author: dealer.name, byDealer: true, time: "2시간 전", views: 128, comments: 6, up: 14, down: 0, car: pick(0) },
+      { category: "출고 후기", title: "멀리서 방문해 주신 고객님 출고 후기", copy: "차량 이력과 상품화 과정을 함께 확인하고 안전하게 출고를 마쳤습니다. 먼 길 와 주셔서 감사합니다.", author: dealer.name, byDealer: true, time: "1일 전", views: 193, comments: 4, up: 21, down: 0, car: pick(1) },
+      { category: "관리 팁", title: "수입차 장기 보관 전 확인할 세 가지", copy: "배터리와 타이어 공기압, 실내 습도만 점검해도 차량 컨디션을 오래 유지할 수 있습니다. 겨울철에는 배터리 충전 상태를 한 번 더 확인해 주세요.", author: dealer.name, byDealer: true, time: "2일 전", views: 246, comments: 11, up: 32, down: 1 },
+      { category: "시세 정보", title: "요즘 수입 SUV 시세, 상담하면서 느낀 점", copy: "연식 3~4년 차 수입 SUV는 주행거리보다 사고 이력과 보증 잔여 기간이 가격 차이를 더 크게 만듭니다. 비교하실 때 참고해 주세요.", author: dealer.name, byDealer: true, time: "4일 전", views: 412, comments: 17, up: 45, down: 3, car: pick(2) },
+      { category: "SNS", title: "인스타그램에 올린 출고 영상 반응이 좋아요", copy: "어제 올린 실내·외 워크어라운드 영상에 문의가 많았습니다. 영상 속 차량은 판매차량 탭의 SNS 판매 차량에서도 볼 수 있어요.", author: dealer.name, byDealer: true, time: "5일 전", views: 154, comments: 4, up: 19, down: 0, car: pick(3) },
+      { category: "딜러 구인", title: "함께 일할 딜러를 찾습니다", copy: "수입차 상담 경험이 있는 분이면 좋습니다. 상사 사무실과 전시 공간을 함께 씁니다. 관심 있는 분은 채팅으로 연락 주세요.", author: company, byDealer: false, time: "1주 전", views: 98, comments: 2, up: 7, down: 0 },
+      { category: "이벤트", title: "이달 출고 고객 실내 클리닝 무료", copy: "이번 달 계약 후 출고하시는 고객님께 실내 클리닝을 무료로 해 드립니다. 자세한 조건은 상담 때 안내해 드릴게요.", author: company, byDealer: false, time: "6일 전", views: 167, comments: 3, up: 12, down: 0 },
+    ];
+    // 인스타 게시물이 있는 딜러는 피드에도 릴스를 그대로 띄운다(2026-10-21 「인스타 릴스 매물 임베드, 피드와 매물 두곳 다」).
+    const igPosts = instagramPostsFor(dealer.shopNo, dealer.name);
+    const igHandle = instagramHandleFor(dealer.shopNo, dealer.name);
+    if (igPosts.length) {
+      const fakeSns = allPosts.findIndex((post) => post.category === "SNS");
+      const igFeed = [...igPosts.filter((post) => post.kind === "reel"), ...igPosts.filter((post) => post.kind !== "reel")].slice(0, 30).map((post, index) => ({ category: "SNS" as const, title: igVehicleLabel(post) || (post.kind === "reel" ? (index === 0 ? "인스타그램 새 릴스" : "인스타그램 릴스") : (index === 0 ? "인스타그램 새 게시물" : "인스타그램 게시물")), copy: `@${igHandle}에 올린 ${igVehicleLabel(post) ? `${igVehicleLabel(post)} ` : "매물 "}${post.kind === "reel" ? "영상" : "사진"}이에요. 영상 속 차량 문의는 채팅이나 전화로 주세요.`, author: dealer.name, byDealer: true, time: igDateText(post.date), views: 0, comments: 0, up: 0, down: 0, ig: post }));
+      allPosts.splice(fakeSns >= 0 ? fakeSns : 1, fakeSns >= 0 ? 1 : 0);
+      allPosts.splice(4, 0, ...igFeed);
+    }
+    const notices = allPosts.filter((post) => post.category === "공지");
+    // 「전체」에서는 공지를 네이버 증권 토론 「핫글」처럼 회색 띠 안의 가로 넘김 카드로 따로 모은다(2026-10-21 「공지는 인기글처럼」).
+    const posts = tag === "전체" ? allPosts.filter((post) => post.category !== "공지") : allPosts.filter((post) => post.category === tag);
+    const onNoticeScroll = () => {
+      const el = noticeTrack.value;
+      if (!el) return;
+      const card = el.firstElementChild as HTMLElement | null;
+      const pitch = card ? card.offsetWidth + 10 : el.clientWidth;
+      setNoticeIndex(Math.max(0, Math.min(notices.length - 1, Math.round(el.scrollLeft / pitch))));
+    };
+    return <section class="dp-content-card dp-community" aria-labelledby="dp-community-title">
+      <div class="dp-section-heading">
+        <div><h2 id="dp-community-title">커뮤니티</h2><p>딜러가 전하는 차량 소식과 관리 정보입니다.</p></div>
+        <button type="button" onClick={() => notify("커뮤니티 글쓰기를 준비 중이에요")}>글쓰기</button>
+      </div>
+      <div class="dp-discussion-tags" role="tablist" aria-label="말머리">
+        {dealerCommunityTags.map((item) => <button type="button" role="tab" key={item} aria-selected={tag === item} class={tag === item ? "is-active" : undefined} onClick={() => setTag(item)}>{item}</button>)}
+      </div>
+      {tag === "전체" && notices.length ? <section class="dp-notice-band" aria-labelledby="dp-notice-title">
+        <h3 id="dp-notice-title"><i class="dp-notice-pin" aria-hidden="true" style={noticePinStyle} />공지</h3>
+        <div class="dp-notice-track" ref={noticeTrack} onScroll={onNoticeScroll}>
+          {notices.map((post) => <article class="dp-notice-card" key={post.title}>
+            <div class="dp-notice-identity">
+              <i aria-hidden="true">{company.slice(0, 1)}</i>
+              <strong>{post.author}</strong>
+              <time>{post.time}</time>
+            </div>
+            <div class={post.photo ? "dp-thumb-row has-thumb" : "dp-thumb-row"}>
+              <div class="dp-thumb-text">
+                <button type="button" class="dp-notice-title" onClick={() => notify(post.title)}><i class="dp-notice-pin" aria-hidden="true" style={noticePinStyle} /><span class="dp-notice-title-text">{post.title}</span></button>
+                <p>{post.copy}</p>
+              </div>
+              {post.photo ? <span class="dp-notice-media"><img src={post.photo} alt="" loading="lazy" draggable={false} /></span> : null}
+            </div>
+            <div class="dp-discussion-metrics is-notice" aria-label="게시물 반응">
+              <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
+              <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
+              <button type="button" aria-label={`댓글 ${post.comments}개`} onClick={() => notify("댓글은 상세 화면에서 볼 수 있어요")}><img src={communityIcon("comment-reddit")} alt="" />{post.comments}</button>
+              <span>조회 {post.views.toLocaleString("ko-KR")}</span>
+            </div>
+          </article>)}
+        </div>
+        {notices.length > 1 ? <div class="dp-notice-dots" aria-hidden="true">{notices.map((post, index) => <i key={post.title} class={index === noticeIndex ? "is-active" : undefined} />)}</div> : null}
+      </section> : null}
+      <div class="dp-discussion-list">
+        {posts.length === 0 ? <p class="dp-discussion-empty">아직 이 말머리의 글이 없어요</p> : null}
+        {posts.map((post) => <article class="dp-discussion-card" key={post.ig?.code ?? post.title}>
+          <div class="dp-discussion-chips"><span class={post.category === "공지" ? "is-notice" : undefined}>{post.category}</span></div>
+          <div class="dp-discussion-identity">
+            {post.byDealer ? <img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /> : <i aria-hidden="true">{company.slice(0, 1)}</i>}
+            <strong>{post.author}</strong>
+            <time>{post.time}</time>
+          </div>
+          <button type="button" class="dp-discussion-title" onClick={() => notify(post.title)}>{post.title}</button>
+          <p class="dp-discussion-body">{post.copy}</p>
+          {post.ig ? <div class="dp-discussion-ig"><IgMedia post={post.ig} /></div> : null}
+          {!post.ig && post.car ? <button type="button" class="dp-discussion-media" onClick={() => notify(post.title)} aria-label={`${post.title} 사진 보기`}><img src={asset(post.car.image)} alt="" draggable={false} loading="lazy" /></button> : null}
+          <div class="dp-discussion-metrics" aria-label="게시물 반응">
+            <button type="button" aria-label={`버프 ${post.up}`}><img src={communityIcon("buff")} alt="" />{post.up}</button>
+            <button type="button" aria-label={`너프 ${post.down}`}><img src={communityIcon("nerf")} alt="" />{post.down}</button>
+            <button type="button" aria-label={`댓글 ${post.comments}개`} onClick={() => notify("댓글은 상세 화면에서 볼 수 있어요")}><img src={communityIcon("comment-reddit")} alt="" />{post.comments}</button>
+            {post.ig ? <span class="dp-discussion-ig-link is-local">보배드림에서 재생</span> : <span>조회 {post.views.toLocaleString("ko-KR")}</span>}
+          </div>
+        </article>)}
+      </div>
+    </section>;
+  };
+}, { name: "CommunitySection", props: ["cars", "dealer", "notify"] });
+
+const ValuationSection = defineComponent((props: { dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) => {
+  const [plate$, setPlate] = useState("");
+  const [owner$, setOwner] = useState("");
+  return () => {
+    const { dealer, notify } = props;
+    const plate = plate$.value;
+    const owner = owner$.value;
+    const canSubmit = plate.trim().length >= 6 && owner.trim().length >= 2;
+    return <section class="dp-content-card dp-valuation" aria-labelledby="dp-valuation-title">
+      <div class="dp-valuation-heading">
+        <span>내 차, 얼마에 팔 수 있을까요?</span>
+        <h2 id="dp-valuation-title">{dealer.name} 딜러에게 시세 문의</h2>
+        <p>차량번호와 소유자명을 입력하면 차량 기본정보를 확인해 상담을 시작합니다.</p>
+      </div>
+      <form onSubmit={(event: Event) => { event.preventDefault(); if (canSubmit) notify(`${dealer.name} 딜러에게 시세 문의를 접수했어요`); }}>
+        <label><span>차량번호</span><input value={plate} onInput={(event: Event) => setPlate((event.target as HTMLInputElement).value)} placeholder="예: 12가 3456" autocomplete="off" /></label>
+        <label><span>소유자명</span><input value={owner} onInput={(event: Event) => setOwner((event.target as HTMLInputElement).value)} placeholder="차량 소유자 이름" autocomplete="name" /></label>
+        <button type="submit" disabled={!canSubmit}>내 차 시세 확인하기</button>
+      </form>
+      <small>입력한 정보는 차량 조회 및 시세 상담 목적으로만 사용됩니다.</small>
+    </section>;
+  };
+}, { name: "ValuationSection", props: ["dealer", "notify"] });
+
+const SocialFeedSection: FunctionalComponent<{ cars: Car[]; limit?: number; embedded?: boolean }> = ({ cars, limit, embedded = false }) => {
+  const allPosts = [
+    {
+      platform: "instagram",
+      label: "인스타그램",
+      handle: "@twoj_motorworks",
+      time: "2일 전",
+      copy: "입고부터 상품화까지 직접 확인한 레인지로버 LWB입니다. 실내외 상태와 옵션을 영상으로 확인해 보세요.",
+      car: cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "instagram")?.href ?? "#",
+      stats: "좋아요 128 · 댓글 9",
+    },
+    {
+      platform: "youtube",
+      label: "유튜브",
+      handle: "투제이모터웍스",
+      time: "5일 전",
+      copy: "BMW M3 xDrive 컴페티션, 실제 주행감과 관리 상태를 한 번에 소개합니다.",
+      car: cars[1] ?? cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "youtube")?.href ?? "#",
+      stats: "조회 1.2천회",
+    },
+    {
+      platform: "facebook",
+      label: "페이스북",
+      handle: "(주)투제이모터웍스",
+      time: "1주 전",
+      copy: "새로 입고된 수입차 라인업을 공개합니다. 차량별 상세 상담과 방문 예약은 딜러페이지에서 가능합니다.",
+      car: cars[2] ?? cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "facebook")?.href ?? "#",
+      stats: "반응 46 · 공유 3",
+    },
+    {
+      platform: "tiktok",
+      label: "틱톡",
+      handle: "@twoj_motorworks",
+      time: "2주 전",
+      copy: "출고 전 최종 점검 현장을 짧은 영상으로 담았습니다. 상담 차량의 실제 상태를 투명하게 확인해 보세요.",
+      car: cars[3] ?? cars[0],
+      href: SOCIAL_CHANNELS.find((channel) => channel.id === "tiktok")?.href ?? "#",
+      stats: "조회 3.4천회 · 좋아요 182",
+    },
+  ];
+
+  const posts = (embedded ? allPosts.filter((post) => post.car) : allPosts).slice(0, limit ?? allPosts.length);
+  const list = <div class="dp-social-feed-list">
+      {posts.map((post) => <article class="dp-social-post" key={`${post.platform}-${post.time}`}>
+        <header>
+          <DealerIcon name={post.platform} />
+          <span><b>{post.label}</b><small>{post.handle} · {post.time}</small></span>
+          <a href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label} 원문 보기`}><OutLinkIcon /></a>
+        </header>
+        <p>{post.copy}</p>
+        {post.car ? <a class="dp-social-media" href={post.href} target="_blank" rel="noreferrer" aria-label={`${post.label}에서 ${post.car.title} 게시물 보기`}>
+          <img src={asset(post.car.listThumb ?? post.car.image)} alt={`${post.car.title} SNS 게시물`} draggable={false} />
+          <span><b>{post.car.title}</b><small>{/상담/.test(String(post.car.price)) ? "가격 상담" : /만원/.test(String(post.car.price)) ? String(post.car.price).replace(/\s*만원/, "만원") : `${post.car.price}만원`}</small></span>
+        </a> : null}
+        <footer><span>{post.stats}</span><a href={post.href} target="_blank" rel="noreferrer">원문 보기 <OutLinkIcon /></a></footer>
+      </article>)}
+    </div>;
+  if (embedded) return <div class="dp-social-feed is-embedded">{list}</div>;
+  return <section class="dp-content-card dp-social-feed" aria-labelledby="dp-social-title">
+    <div class="dp-section-heading">
+      <div><h2 id="dp-social-title">SNS</h2><p>판매자가 등록한 채널의 최신 게시물입니다.</p></div>
+      <span>{posts.length}개 채널 게시물</span>
+    </div>
+    {list}
+  </section>;
+};
+SocialFeedSection.props = ["cars", "limit", "embedded"];
+
+const AffiliatedDealersSection: FunctionalComponent<{ currentDealer: SeoulAutoGalleryDealer; onOpenDealer: (dealer: SeoulAutoGalleryDealer) => void }> = ({ currentDealer, onOpenDealer }) => {
+  const staff = dealers.filter((item) => item.shopNo === currentDealer.shopNo);
+  const totalListings = isDeutschShop(currentDealer.shopNo) ? deutschShopCars(currentDealer.shopNo).length : staff.reduce((sum, item) => sum + item.listingCount, 0);
+  return <section class="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
+    <div class="dp-affiliated-company">
+      <img class={MOCK.logo ? "is-logo" : undefined} src={MOCK.logo ?? MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt={MOCK.logo ? `${stripCorp(MOCK.company)} 로고` : MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />
+      <div>
+        <span>{MOCK.complex}</span>
+        <h2 id="dp-affiliated-title">{MOCK.company}</h2>
+        <p>{MOCK.address}</p>
+      </div>
+    </div>
+    <div class="dp-affiliated-stats" aria-label="상사 운영 정보">
+      <span><b>{staff.length}명</b>등록 딜러</span>
+      <span><b>{totalListings}대</b>판매중 차량</span>
+      <span><b>확인</b>상사 허가</span>
+    </div>
+    <div class="dp-affiliated-trust"><span>사업자 확인</span><span>상사 허가 확인</span><span>실매물 운영</span></div>
+    <div class="dp-affiliated-heading"><h3>소속 딜러</h3><small>딜러를 선택하면 등록 매물을 확인할 수 있습니다.</small></div>
+    <div class="dp-dealer-grid">
+      {staff.map((item) => <button key={`${item.shopNo}-${item.empNo}`} type="button" class="dp-dealer-card" onClick={() => onOpenDealer(item)} aria-label={`${item.name} 딜러 판매차량 ${item.listingCount}대 보기`}>
+        <img src={dealerPhoto(item)} alt="" aria-hidden="true" draggable={false} />
+        <span><b>{item.name}{item.name === currentDealer.name ? <em>현재</em> : null}</b><small>{item.role ?? "인증딜러"} · {stripCorp(MOCK.company)}</small>{item.employeeNo ? <small>종사원번호 {item.employeeNo}</small> : null}</span>
+        <strong><span>판매차량</span><b>{item.listingCount}</b></strong>
+      </button>)}
+    </div>
+  </section>;
+};
+AffiliatedDealersSection.props = ["currentDealer", "onOpenDealer"];
+
+const ReviewWriteDialog = defineComponent((props: { cars: Car[]; reviews: StoreReview[]; onClose: () => void; onSubmit: (review: StoreReview) => void }) => {
+  const [role$, setRole] = useState<Exclude<ReviewFilter, "all">>("buyer");
+  const [transactionKey$, setTransactionKey] = useState("");
+  const [score$, setScore] = useState(0);
+  const [tags$, setTags] = useState<string[]>([]);
+  const [body$, setBody] = useState("");
+  const [verified$, setVerified] = useState(false);
+  const [confirming$, setConfirming] = useState(false);
+  const dialogRef = ref<HTMLDivElement | null>(null);
+  const hooks = renderHooks();
+  return () => {
+    hooks.begin();
+    const { cars, reviews, onClose, onSubmit } = props;
+    const role = role$.value; const transactionKey = transactionKey$.value; const score = score$.value; const tags = tags$.value; const body = body$.value; const verified = verified$.value; const confirming = confirming$.value;
+    const transactionOptions = role === "buyer"
+      ? cars.slice(0, 5).map((car, index) => ({ key: `buyer-${car.id}`, label: car.title, carIndex: index }))
+      : TWOJ_PROFILE.soldCars.slice(0, 5).map(([title], index) => ({ key: `seller-${index}-${title}`, label: title, carIndex: index % Math.max(cars.length, 1) }));
+    const selectedTransaction = transactionOptions.find((item) => item.key === transactionKey);
+    const alreadyReviewed = Boolean(transactionKey && reviews.some((review) => review.transactionKey === transactionKey));
+    const tagGroup = score <= 2 ? "low" : score === 3 ? "neutral" : "high";
+    const tagOptions: readonly string[] = REVIEW_TAG_OPTIONS[role][tagGroup];
+    const canContinue = Boolean(selectedTransaction && score && verified && !alreadyReviewed);
+
+    hooks.effect(() => {
+      dialogRef.value?.focus();
+      const closeOnEscape = (event: KeyboardEvent) => { if (event.key === "Escape") props.onClose(); };
+      document.addEventListener("keydown", closeOnEscape);
+      return () => document.removeEventListener("keydown", closeOnEscape);
+    }, [onClose]);
+
+    const changeRole = (nextRole: Exclude<ReviewFilter, "all">) => {
+      setRole(nextRole);
+      setTransactionKey("");
+      setScore(0);
+      setTags([]);
+      setConfirming(false);
+    };
+    const changeScore = (nextScore: number) => {
+      setScore(nextScore);
+      setTags([]);
+      setConfirming(false);
+    };
+    const toggleTag = (tag: string) => setTags((current) => current.includes(tag) ? current.filter((item) => item !== tag) : current.length < 3 ? [...current, tag] : current);
+    const submit = () => {
+      if (!selectedTransaction || !canContinue) return;
+      onSubmit({
+        id: Date.now(),
+        name: "보배회원",
+        role,
+        score,
+        date: "방금 전",
+        body: body.trim() || undefined,
+        tags,
+        carIndex: selectedTransaction.carIndex,
+        transactionKey: selectedTransaction.key,
+      });
+    };
+
+    return <div class="dp-review-dialog-backdrop" role="presentation" onMousedown={(event: MouseEvent) => { if (event.target === event.currentTarget) onClose(); }}>
+      <div class="dp-review-dialog" role="dialog" aria-modal="true" aria-labelledby="dp-review-write-title" tabindex={-1} ref={dialogRef}>
+        <header class="dp-review-dialog-head">
+          <button type="button" onClick={onClose} aria-label="리뷰 작성 닫기">×</button>
+          <div><h2 id="dp-review-write-title">리뷰 작성</h2><p>{stripCorp(MOCK.company)}와 거래한 경험을 알려주세요.</p></div>
+        </header>
+        {!confirming ? <div class="dp-review-form">
+          <section>
+            <h3>어떤 거래였나요?</h3>
+            <div class="dp-review-role-options">
+              <button type="button" aria-pressed={role === "buyer"} onClick={() => changeRole("buyer")}><b>차량 구매</b><span>이 판매점에서 차를 샀어요</span></button>
+              <button type="button" aria-pressed={role === "seller"} onClick={() => changeRole("seller")}><b>내차 판매</b><span>이 판매점에 차를 팔았어요</span></button>
+            </div>
+          </section>
+          <section>
+            <label for="dp-review-transaction"><b>거래 차량</b><span>거래가 완료된 차량만 리뷰할 수 있어요.</span></label>
+            <select id="dp-review-transaction" value={transactionKey} onChange={(event: Event) => { setTransactionKey((event.target as HTMLSelectElement).value); setConfirming(false); }}>
+              <option value="">거래 차량을 선택하세요</option>
+              {transactionOptions.map((item) => <option key={item.key} value={item.key} disabled={reviews.some((review) => review.transactionKey === item.key)}>{item.label}{reviews.some((review) => review.transactionKey === item.key) ? " · 작성 완료" : ""}</option>)}
+            </select>
+            {alreadyReviewed ? <p class="dp-review-field-error" role="alert">이 거래의 리뷰는 이미 등록되었습니다.</p> : null}
+          </section>
+          <section class="dp-review-score-input">
+            <h3>거래는 어떠셨나요?</h3>
+            <div class="dp-review-score-stars" role="radiogroup" aria-label="별점 선택">
+              {Array.from({ length: 5 }, (_, index) => {
+                const value = index + 1;
+                return <button type="button" key={value} role="radio" aria-checked={score === value} aria-label={`${value}점`} onClick={() => changeScore(value)}><span class={value <= score ? "is-on" : ""} style={{ maskImage: `url(${icon("chotot-list-detail-review-star.svg")})`, WebkitMaskImage: `url(${icon("chotot-list-detail-review-star.svg")})` }} /></button>;
+              })}
+            </div>
+            <strong aria-live="polite">{score ? REVIEW_RATING_COPY[score] : "별점을 선택해 주세요"}</strong>
+          </section>
+          {score ? <section>
+            <h3>어떤 점이 기억에 남나요? <small>최대 3개</small></h3>
+            <div class="dp-review-write-tags">{tagOptions.map((tag) => <button type="button" key={tag} aria-pressed={tags.includes(tag)} onClick={() => toggleTag(tag)}>{tag}</button>)}</div>
+          </section> : null}
+          <section>
+            <label for="dp-review-body"><b>상세 후기 <small>선택</small></b><span>개인정보나 연락처는 입력하지 마세요.</span></label>
+            <textarea id="dp-review-body" value={body} maxlength={300} placeholder="차량 상태, 상담, 계약 과정에서 느낀 점을 적어주세요." onInput={(event: Event) => setBody((event.target as HTMLTextAreaElement).value)} />
+            <small class="dp-review-character-count">{body.length}/300</small>
+          </section>
+          <label class="dp-review-verified"><input type="checkbox" checked={verified} onChange={(event: Event) => setVerified((event.target as HTMLInputElement).checked)} /><span>실제 거래 경험을 바탕으로 작성했습니다.</span></label>
+          <button type="button" class="dp-review-submit" disabled={!canContinue} onClick={() => setConfirming(true)}>등록하기</button>
+        </div> : <div class="dp-review-confirm">
+          <span class="dp-review-confirm-icon">✓</span>
+          <h3>리뷰를 등록할까요?</h3>
+          <p>등록한 별점과 후기는 수정하거나 삭제할 수 없습니다. 거래 경험에 맞게 작성했는지 한 번 더 확인해 주세요.</p>
+          <dl><div><dt>거래</dt><dd>{role === "buyer" ? "차량 구매" : "내차 판매"}</dd></div><div><dt>차량</dt><dd>{selectedTransaction?.label}</dd></div><div><dt>평점</dt><dd>{score}.0 · {REVIEW_RATING_COPY[score]}</dd></div></dl>
+          <div><button type="button" onClick={() => setConfirming(false)}>다시 확인</button><button type="button" onClick={submit}>확인하고 등록</button></div>
+        </div>}
+      </div>
+    </div>;
+  };
+}, { name: "ReviewWriteDialog", props: ["cars", "reviews", "onClose", "onSubmit"] });
+
+const StoreRatingsSection = defineComponent((props: { cars: Car[]; allReviews: StoreReview[]; onSubmit: (review: StoreReview) => void }) => {
+  const [filter$, setFilter] = useState<ReviewFilter>("all");
+  const [selectedTag$, setSelectedTag] = useState<string | null>(null);
+  const [writeOpen$, setWriteOpen] = useState(false);
+  return () => {
+    const { cars, allReviews, onSubmit } = props;
+    const filter = filter$.value; const selectedTag = selectedTag$.value; const writeOpen = writeOpen$.value;
+    const reviews = allReviews.filter((review) => (filter === "all" || review.role === filter) && (!selectedTag || review.tags.includes(selectedTag)));
+    const average = allReviews.reduce((sum, review) => sum + review.score, 0) / Math.max(allReviews.length, 1);
+    const buyerCount = allReviews.filter((review) => review.role === "buyer").length;
+    const sellerCount = allReviews.filter((review) => review.role === "seller").length;
+    const filterItems: Array<[ReviewFilter, string]> = [["all", `전체 (${allReviews.length})`], ["buyer", `차량 구매 (${buyerCount})`], ["seller", `내차 판매 (${sellerCount})`]];
+    const selectTag = (tag: string) => {
+      setFilter("all");
+      setSelectedTag((current) => current === tag ? null : tag);
+    };
+    const selectRole = (role: ReviewFilter) => {
+      setSelectedTag(null);
+      setFilter(role);
+    };
+    return <section class="dp-content-card dp-ratings" aria-labelledby="dp-store-rating-title">
+      <div class="dp-store-rating-summary">
+        <div class="dp-store-rating-score">
+          <h2 id="dp-store-rating-title" class="dp-visually-hidden">리뷰</h2>
+          <span><b>{average.toFixed(1)}</b><Stars score={average} /></span>
+          <button type="button" class="dp-review-write-button" onClick={() => setWriteOpen(true)}>리뷰 쓰기</button>
+        </div>
+        <div class="dp-store-rating-tags" aria-label="판매점 평가 키워드">
+          {STORE_REVIEW_TAGS.map((label) => {
+            const count = allReviews.filter((review) => review.tags.includes(label)).length;
+            return <button type="button" key={label} aria-pressed={selectedTag === label} onClick={() => selectTag(label)}>{label} <b>({count})</b></button>;
+          })}
+        </div>
+      </div>
+      <div class="dp-store-review-panel">
+        <div class="dp-review-filters" role="tablist" aria-label="리뷰 유형">
+          {filterItems.map(([id, label]) => <button type="button" role="tab" aria-selected={!selectedTag && filter === id} key={id} onClick={() => selectRole(id)}>{label}</button>)}
+        </div>
+        <p class="dp-visually-hidden" role="status" aria-live="polite">{selectedTag ? `${selectedTag} 리뷰 ${reviews.length}개` : `${filterItems.find(([id]) => id === filter)?.[1]} 리뷰`}</p>
+        <div class="dp-review-list">{reviews.length ? reviews.map((review) => {
+          const car = cars.length ? cars[review.carIndex % cars.length] : undefined;
+          const price = car?.price === "상담" ? "가격 상담" : car?.price ?? "거래 완료";
+          return <article class="dp-review" key={review.id}>
+            <header>
+              <span class="dp-review-avatar" aria-hidden="true">{review.name.slice(0, 1)}</span>
+              <b>{review.name}</b>
+            </header>
+            {review.body ? <p class="dp-review-body">{review.body}</p> : null}
+            {review.tags.length ? <div class="dp-review-tags">{review.tags.map((tag) => <span key={tag}>{tag}</span>)}</div> : null}
+            <div class="dp-review-meta"><b>{review.score.toFixed(1)}</b><Stars score={review.score} /><i /> <time>{review.date}</time></div>
+            <div class="dp-review-car">
+              <img src={car ? asset(car.listThumb ?? car.image) : asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt="" aria-hidden="true" />
+              <span><b>{car?.title ?? "거래 차량"}</b><strong>{price}</strong></span>
+            </div>
+            {review.reply ? <div class="dp-review-reply"><b>딜러 답글</b><p>{review.reply}</p><time>{review.replyDate}</time></div> : null}
+          </article>;
+        }) : <div class="dp-review-empty"><b>조건에 맞는 리뷰가 없습니다.</b><span>다른 유형이나 키워드를 선택해 주세요.</span></div>}</div>
+      </div>
+      {writeOpen ? <ReviewWriteDialog cars={cars} reviews={allReviews} onClose={() => setWriteOpen(false)} onSubmit={(review) => { onSubmit(review); setFilter(review.role); setSelectedTag(null); setWriteOpen(false); }} /> : null}
+    </section>;
+  };
+}, { name: "StoreRatingsSection", props: ["cars", "allReviews", "onSubmit"] });
+
+const AboutSection: FunctionalComponent<{ dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }> = ({ dealer, notify }) => {
+  const introduction = dealer.empNo === "1"
+    ? MOCK.intro
+    : dealer.role === "대표" ? MOCK.intro : `${MOCK.gallery} ${MOCK.company} 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
+  return <section class="dp-content-card dp-about">
+    <h2>소개</h2>
+    <article class="dp-about-story">
+      <header><img src={dealerPhoto(dealer)} alt="" aria-hidden="true" draggable={false} /><span><b>{dealer.name}</b><small>{MOCK.company} · {MOCK.joined}</small></span></header>
+      <p>{introduction}</p>
+    </article>
+    <dl>
+      <div><dt><DealerIcon name="car-sale-as24" />전문 분야</dt><dd>{MOCK.specialty ?? "수입차"}</dd></div>
+      <div><dt><DealerIcon name="location-as24" />활동 지역</dt><dd>{MOCK.address}</dd></div>
+      <div><dt><DealerIcon name="calendar-as24" />딜러 경력</dt><dd>{MOCK.joined.replace("딜러 경력 ", "")}</dd></div>
+      <div><dt><DealerIcon name="complex-home-as24" />소속 상사</dt><dd>{MOCK.company}</dd></div>
+      {dealer.employeeNo ?? MOCK.employeeNo ? <div><dt><DealerIcon name="person-as24" />종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div> : null}
+      {MOCK.licenseNo ? <div><dt><DealerIcon name="document-as24" />상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div> : null}
+      {MOCK.businessNo ? <div><dt><DealerIcon name="document-as24" />사업자 번호</dt><dd>{MOCK.businessNo}</dd></div> : null}
+      {MOCK.phone ? <div><dt><DealerIcon name="phone-as24" />안심번호</dt><dd><button type="button" class="dp-about-link" onClick={() => notify(safePhoneNote(safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)))}>{safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)}</button></dd></div> : null}
+      <div><dt><DealerIcon name="email-as24" />이메일</dt><dd><button type="button" class="dp-about-link" onClick={() => notify("딜러 이메일 문의를 준비 중이에요")}>{MOCK.email}</button></dd></div>
+      {MOCK.fax ? <div><dt><DealerIcon name="printer-as24" />팩스</dt><dd>{MOCK.fax}</dd></div> : null}
+      {MOCK.staff ? <div><dt><DealerIcon name="person-as24" />소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}
+    </dl>
+    <SagGoogleMap title="상사 위치" address={MOCK.mapAddress ?? "서울 서초구 양재대로11길 36"} detail={MOCK.address.split(", ").slice(1).join(", ") || undefined} query={MOCK.mapQuery} place={MOCK.mapPlace} />
+  </section>;
+};
+AboutSection.props = ["dealer", "notify"];
+
+// 명함에 함께 보여 줄 판매자페이지 값: 실적 · 대표 매물 3대 · 0대가 아닌 분류 · SNS · 릴스(2026-10-22 명함 컨설팅).
+function cardExtrasFor(dealer: SeoulAutoGalleryDealer, cars: Car[], rating = MOCK.rating, reviewCount = MOCK.reviewCount): CardExtras {
+  const listingHref = (id: number) => {
+    const url = new URL(window.location.href);
+    url.search = new URLSearchParams({ qf: "guazi", profile: "dealer", shop: dealer.shopNo, emp: dealer.empNo, listing: String(id) }).toString();
+    url.hash = "";
+    return url.href;
+  };
+  const priceText = (price: string) => /상담/.test(price) ? "가격 상담" : /만원/.test(price) ? price.replace(/\s*만원/, "만원") : `${price}만원`;
+  return {
+    rating, reviewCount, sold: MOCK.sold,
+    listings: cars.filter((car) => car.image).slice(0, 12).map((car) => ({ id: car.id, title: car.title, image: asset(car.listThumb ?? car.image), price: priceText(String(car.price)), href: listingHref(car.id) })),
+    categories: stockCategories.map((label) => ({ label, count: cars.filter((car) => matchesStockCategory(car, label)).length })).filter((item) => item.count > 0),
+    sns: dealerSnsLinks(dealer.shopNo, dealer.name)?.links,
+    reels: instagramPostsFor(dealer.shopNo, dealer.name).filter((post) => post.kind === "reel").map((post) => ({ href: `https://www.instagram.com/reel/${post.code}/`, poster: post.poster ? asset(post.poster) : undefined, label: post.maker ? `${post.maker} ${post.model ?? ""}`.trim() : undefined })),
+  };
+}
+
+const SellPriceCta: FunctionalComponent<{ dealerName: string; onRequest: () => void; profile?: boolean }> = ({ dealerName, onRequest, profile = false }) => <aside class={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label={`${dealerName} 딜러에게 내 차 판매 가격 무료 견적 문의`}>
+  <span><b>{dealerName} 딜러에게 무료 견적 받아보세요</b></span>
+  <button type="button" onClick={onRequest}>견적신청</button>
+</aside>;
+SellPriceCta.props = ["dealerName", "onRequest", "profile"];
+
+const Footer: FunctionalComponent = () => <footer class="dp-footer"><div class="dp-footer-brand"><img src={bobaeAsset("9546-imgLogo.svg")} alt="보배드림" /><span>믿을 수 있는 자동차 거래</span></div><div class="dp-footer-links"><span>회사소개</span><span>이용약관</span><span>개인정보처리방침</span><span>고객센터</span></div><small>© BOBae Network. All rights reserved.</small></footer>;
+
+const DealerProfilePage = defineComponent((props: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) => {
+  const dealerAtStart = props.dealer;
+  const [following$, setFollowing] = useState(true);
+  const [mode$, setMode] = useState<ListingMode>("active");
+  const [brand$, setBrand] = useState("");
+  const [model$, setModel] = useState("");
+  // 모바일 프로필은 유튜브 채널 머리 크기가 기본(2026-10-21 「유튜브 사이즈로 가자」). 이전 숫자 3칸 프로필은 &dpprofile=old 로 비교
+  const ytProfile = new URLSearchParams(window.location.search).get("dpprofile") !== "old";
+  const [listView$, setListView] = useState<DealerListView>(() => new URLSearchParams(window.location.search).get("view") === "feed" ? "feed" : "list");
+  const [selectedStockCategories$, setSelectedStockCategories] = useState<StockCategory[]>(() => readStockCategories(new URLSearchParams(window.location.search).getAll("stockCategory")));
+  const [activeSection$, setActiveSection] = useState<SectionId>(() => {
+    const requested = new URLSearchParams(window.location.search).get("tab");
+    return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) && requested !== "social" ? requested as SectionId : "ads";
+  });
+  const [toast$, setToast] = useState("");
+  // 숏폼 만들기 창: 주소 &shortform=1(매물 고르기) 또는 &shortform=<매물 id>로 바로 열 수 있다.
+  const [studio$, setStudio] = useState<{ carId?: number } | null>(() => {
+    const value = new URLSearchParams(window.location.search).get("shortform");
+    return value ? { carId: Number(value) || undefined } : null;
+  });
+  const [madeShorts$, setMadeShorts] = useState<MadeShortform[]>([]);
+  const reviewStorageKey = `bobaedream:dealer-reviews:${dealerAtStart.shopNo}:${dealerAtStart.empNo}`;
+  const [submittedReviews$, setSubmittedReviews] = useState<StoreReview[]>(() => {
+    try {
+      const saved = window.localStorage.getItem(reviewStorageKey);
+      return saved ? JSON.parse(saved) as StoreReview[] : [];
+    } catch {
+      return [];
+    }
+  });
+  const scrollRef = ref<HTMLDivElement | null>(null);
+  const hooks = renderHooks();
+  return () => {
+    hooks.begin();
+    const { dealer, cars } = props;
+    const following = following$.value; const mode = mode$.value; const brand = brand$.value; const model = model$.value; const listView = listView$.value;
+    const selectedStockCategories = selectedStockCategories$.value; const activeSection = activeSection$.value; const toast = toast$.value; const studio = studio$.value;
+    const madeShorts = madeShorts$.value; const submittedReviews = submittedReviews$.value;
+    const toggleStockCategory = (category: StockCategory) => {
+      const next = selectedStockCategories.includes(category)
+        ? selectedStockCategories.filter((item) => item !== category)
+        : stockCategories.filter((item) => selectedStockCategories.includes(item) || item === category);
+      setSelectedStockCategories(next);
+      const target = new URL(window.location.href);
+      target.searchParams.delete("stockCategory");
+      next.forEach((item) => target.searchParams.append("stockCategory", item));
+      window.history.replaceState(null, "", `${target.pathname}${target.search}${target.hash}`);
+    };
+    const allReviews = [...submittedReviews, ...STORE_REVIEWS];
+    const reviewRating = allReviews.reduce((sum, review) => sum + review.score, 0) / Math.max(allReviews.length, 1);
+
+    hooks.effect(() => { setPretendard(true); document.title = `${dealer.name} 딜러`; }, [dealer.name]);
+
+    const notify = (message: string) => { setToast(message); window.setTimeout(() => setToast(""), 1800); };
+    const submitReview = (review: StoreReview) => {
+      setSubmittedReviews((current) => {
+        const next = [review, ...current];
+        try { window.localStorage.setItem(reviewStorageKey, JSON.stringify(next)); } catch { /* Prototype still works for this session. */ }
+        return next;
+      });
+      notify("리뷰가 등록되었습니다");
+    };
+    const openListing = (car: Car) => {
+      const target = new URL(window.location.href);
+      target.searchParams.set("profile", "dealer");
+      target.searchParams.set("shop", dealer.shopNo);
+      target.searchParams.set("emp", dealer.empNo);
+      target.searchParams.set("listing", String(car.id));
+      window.location.assign(`${target.pathname}${target.search}${target.hash}`);
+    };
+    const openDealer = (targetDealer: SeoulAutoGalleryDealer) => {
+      if (targetDealer.shopNo === dealer.shopNo && targetDealer.empNo === dealer.empNo) {
+        setActiveSection("ads");
+        return;
+      }
+      const target = new URL(window.location.href);
+      target.searchParams.set("profile", "dealer");
+      target.searchParams.set("shop", targetDealer.shopNo);
+      target.searchParams.set("emp", targetDealer.empNo);
+      target.searchParams.delete("listing");
+      target.searchParams.delete("stockCategory");
+      window.location.assign(`${target.pathname}${target.search}${target.hash}`);
+    };
+    const changeSection = (section: SectionId) => {
+      setActiveSection(section);
+      const target = new URL(window.location.href);
+      target.searchParams.set("tab", section);
+      window.history.replaceState(null, "", `${target.pathname}${target.search}${target.hash}`);
+      const root = scrollRef.value;
+      const nav = root?.querySelector<HTMLElement>(".dp-anchor-nav");
+      if (root && nav && nav.getBoundingClientRect().top < 50) root.scrollTo({ top: nav.offsetTop - 50, behavior: "smooth" });
+    };
+
+    return <div class="dp-root">
+      <div class="dp-scroll" ref={scrollRef}>
+        <SiteHeader />
+        <main class={`dp-page${activeSection === "reviews" ? " is-reviews" : ""}${ytProfile ? " is-yt-profile" : ""}`} aria-label={`${dealer.name} 딜러페이지`}>
+          {activeSection === "reviews" ? <div class="dp-review-page-shell">
+            <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
+            <div class="dp-review-page-main">
+              <AnchorNav active={activeSection} onChange={changeSection} />
+              <StoreRatingsSection cars={cars} allReviews={allReviews} onSubmit={submitReview} />
+            </div>
+          </div> : <>
+            <DealerProfile dealer={dealer} cars={cars} following={following} setFollowing={setFollowing} notify={notify} onValuation={() => changeSection("valuation")} rating={reviewRating} reviewCount={allReviews.length} />
+            {cars.length ? <DealerBrandRail cars={cars} brand={brand} model={model} onPick={(maker) => { setBrand((value) => value === maker ? "" : maker); setModel(""); setMode("active"); changeSection("ads"); }} onPickModel={(name) => { setModel((value) => value === name ? "" : name); setMode("active"); changeSection("ads"); }} /> : null}
+            <AnchorNav active={activeSection} onChange={changeSection} />
+            {activeSection === "home" ? <HomeSection /> : null}
+            {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} view={listView} setView={setListView} cars={brand ? cars.filter((car) => dealerBrandName(car.maker) === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} madeShorts={madeShorts} onMakeShortform={() => setStudio({})} dealerName={dealer.name} dealerAvatar={dealerPhoto(dealer)} /> : null}
+            {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
+            {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
+            {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
+            {activeSection === "intro" ? <AboutSection dealer={dealer} notify={notify} /> : null}
+          </>}
+        </main>
+        <Footer />
+      </div>
+      {studio ? <ShortformStudio cars={cars} initialCarId={studio.carId} dealer={{ name: dealer.name, company: stripCorp(MOCK.company), phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), photo: dealerPhoto(dealer), storageKey: `bobaedream:shortform-sns:${dealer.shopNo}:${dealer.empNo}`, snsHandles: snsHandlesFor(dealer), shop: dealer.shopNo, emp: dealer.empNo }} onToast={notify} onClose={() => setStudio(null)} onPublish={(made: MadeShortform) => { setMadeShorts((current) => [made, ...current]); setMode("sns"); changeSection("ads"); notify("SNS 판매 차량에 숏폼을 올렸어요"); }} /> : null}
+      {toast ? <div class="dp-toast" role="status">{toast}</div> : null}
+    </div>;
+  };
+}, { name: "DealerProfilePage", props: ["dealer", "cars"] });
+
+const DealerCardPage = defineComponent((props: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) => {
+  const hooks = renderHooks();
+  return () => {
+    hooks.begin();
+    const { dealer, cars } = props;
+    hooks.effect(() => { setPretendard(true); }, []);
+    return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), safe: true, address: MOCK.address, photo: dealerPhoto(dealer), listingCount: cars.length }} extras={cardExtrasFor(dealer, cars)} />;
+  };
+}, { name: "DealerCardPage", props: ["dealer", "cars"] });
+
+/** 판매자페이지(?profile=dealer). 리액트 default export DealerPage. */
+const DealerPage = defineComponent((props: { detailScreen?: FlowScreen }) => {
+  // 리액트는 그릴 때마다 주소를 읽었지만 이 화면에서 shop/emp/listing/card 는 바뀌지 않는다(바뀌면 새로 연다) → setup 에서 한 번.
+  const params = new URLSearchParams(window.location.search);
+  const matchedDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo));
+  const dealer: SeoulAutoGalleryDealer = matchedDealer ?? dealers[0];
+  MOCK = profileFor(dealer);
+  const cars = dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : isDeutschShop(dealer.shopNo) ? deutschDealerCars(dealer) : dealer.shopNo === dealers[0].shopNo && dealer.empNo === dealers[0].empNo
+    ? seoulAutoGalleryCars
+    : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company));
+  const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));
+  if (linkedCar && params.get("card") !== "1") setActiveDetailCar(linkedCar);
+  return () => {
+    if (params.get("card") === "1") {
+      if (!matchedDealer) return <main class="dbc-page"><div class="dbc-page-wrap"><h1>명함을 찾을 수 없어요</h1><p>공유받은 딜러 명함 주소를 다시 확인해 주세요.</p><a class="dbc-home" href="./?qf=guazi">보배드림으로 이동 →</a></div></main>;
+      return <DealerCardPage dealer={dealer} cars={cars} />;
+    }
+
+    if (linkedCar) {
+      return props.detailScreen ? <FavoritesProvider><FlowStack initial={props.detailScreen} /></FavoritesProvider> : null;
+    }
+
+    return <DealerProfilePage dealer={dealer} cars={cars} />;
+  };
+}, { name: "DealerPage", props: ["detailScreen"] });
+
+export default DealerPage;
