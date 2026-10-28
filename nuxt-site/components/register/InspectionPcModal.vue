@@ -21,16 +21,13 @@ const onClick = (event: MouseEvent) => {
     emit("close");
   }
 };
-// 리액트 onChange(합성 이벤트)는 change 가 거품처럼 올라오는 것을 받는다
-const onChange = (event: Event) => {
-  const input = event.target as HTMLInputElement;
-  if (input.type !== "radio" && input.type !== "checkbox") return;
-  const scope = input.closest(".ui-choice-group") ?? input.closest(".register-inspection-pc-modal__body");
-  scope?.querySelectorAll<HTMLInputElement>(`input[name="${CSS.escape(input.name)}"]`).forEach((item) => item.closest(".ui-choice")?.classList.toggle("is-selected", item.checked));
-};
+// 리액트 판은 v-html 로 넣은 입력칸에 onChange 를 달아 두었지만, 리액트가 직접 그리지 않은 입력칸이라 change 가 오지 않아
+// 실제로는 선택 표시(is-selected)가 바뀌지 않는다. 두 판의 동작을 같게 하려고 여기서도 change 를 연결하지 않는다.
+// 리액트 쪽이 고쳐지면 아래처럼 연결한다:
+//   @change="(e) => { const input = e.target; ... item.closest('.ui-choice')?.classList.toggle('is-selected', item.checked) }"
 </script>
 <template>
   <RegisterLayer>
-    <div class="bbm-register-layer-host" @click="onClick" @change="onChange" v-html="html" />
+    <div class="bbm-register-layer-host" @click="onClick" v-html="html" />
   </RegisterLayer>
 </template>
