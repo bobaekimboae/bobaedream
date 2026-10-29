@@ -154,7 +154,8 @@ const confirmOk = () => {
     <header class="shoot-top">
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="emit('close')"><Mask :src="rd('close-outline')" /></button>
       <h2>{{ edit ? "차량 영상" : "영상 미리보기" }}</h2>
-      <button v-if="parts.length" type="button" class="shoot-guide-toggle shoot-save-btn" @click="saveOpen = true">저장</button>
+      <!-- 2026-10-29 컨설팅: 아래 큰 「내 폰에 저장」과 겹쳐서, 미리보기에서는 부위가 여럿일 때만 「부위별」 저장으로 둔다 -->
+      <button v-if="parts.length && (edit || !PLUS || parts.length > 1)" type="button" class="shoot-guide-toggle shoot-save-btn" @click="saveOpen = true">{{ PLUS && !edit ? "부위별" : "저장" }}</button>
       <span v-else class="shoot-icon-btn" />
     </header>
     <div class="shoot-view">
@@ -194,7 +195,8 @@ const confirmOk = () => {
           aria-hidden="true"
         />
       </template>
-      <div v-if="isteps.length" :class="`shoot-marks is-steps ${marks.length ? 'is-up' : ''}`" role="group" aria-label="실내 부위별로 보기">
+      <!-- 2026-10-29 컨설팅: 실내 부위 버튼은 실내 영상을 볼 때만(외관을 보는데 실내 칩이 떠 있었다) -->
+      <div v-if="isteps.length && (!PLUS || cur?.i === interiorIdx)" :class="`shoot-marks is-steps ${marks.length ? 'is-up' : ''}`" role="group" aria-label="실내 부위별로 보기">
         <span>실내</span>
         <button
           v-for="(t0, i) in isteps"
@@ -216,6 +218,8 @@ const confirmOk = () => {
     <div v-if="PLUS && !edit && parts.length" class="shoot-vsave">
       <!-- 큰 저장 버튼(2026-10-26): 찍은 직후 한 번에 전체 영상을 mp4로. 부위별 저장은 위 「저장」 시트 -->
       <button type="button" @click="saveBig">내 폰에 저장<em>mp4 · {{ mmss(total || dur) }}</em></button>
+      <!-- 2026-10-29 컨설팅: 사진과 달리 영상 속 번호판은 자동으로 가리지 않는다 -->
+      <p class="shoot-vsave__note">영상 속 번호판은 가려지지 않아요. 올리기 전에 확인해 주세요.</p>
     </div>
     <div class="shoot-bottom is-vpreview">
       <span class="shoot-vtime">{{ mmss(before + t) }}/{{ mmss(dur || total) }}</span>
@@ -244,7 +248,7 @@ const confirmOk = () => {
     <div v-if="saveOpen" class="shoot-dim is-sheet" role="presentation" @click="saveOpen = false">
       <FocusBox class="shoot-save-sheet" role="dialog" aria-modal="true" aria-labelledby="shoot-save-t" @close="saveOpen = false" @click.stop>
         <strong id="shoot-save-t">내 폰에 저장</strong>
-        <p>mp4 파일로 저장해요. 윤곽선 같은 안내는 영상에 들어가지 않아요.</p>
+        <p>mp4 파일로 저장해요. 윤곽선 같은 안내는 영상에 들어가지 않아요.<template v-if="PLUS"> 영상 속 번호판은 가려지지 않아요.</template></p>
         <button v-if="parts.length > 1" type="button" class="is-all" @click="save(parts.map((x) => x.u), 'all', '전체 영상')"><span>전체 영상 한 파일로</span><em>{{ mmss(total) }}</em></button>
         <button v-for="x in parts" :key="x.u" type="button" @click="save([x.u], partWhat(x.i), partLabel(x.i))"><span>{{ partLabel(x.i) }}</span><em>{{ mmss(take.durations[x.i] || 0) }}</em></button>
         <button type="button" class="is-cancel" @click="saveOpen = false">닫기</button>

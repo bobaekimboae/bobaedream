@@ -19,6 +19,7 @@ import { useDragSwap } from "../../composables/useDragSwap";
 import { swapPhotos } from "../../lib/photo-sort";
 import { bakeSticker } from "../../lib/image-ops";
 import { primeSound } from "../../lib/sound";
+import { dialogStack } from "../../lib/dialog-stack";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
 import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, releaseVideo, reqLabel, sortBySlot, type Photo, type Take, type Video } from "../../lib/core";
@@ -119,7 +120,9 @@ const leave = () => {
   }
   if (!PLUS || (sameSite && window.history.length > 1)) {
     leaving = true;
-    return void window.history.back();
+    delete (window as PopWin).__bbmShootPop;
+    // 뒤로가기 막이 칸을 쌓아 두었으면 그 칸까지 두 칸 뒤로 간다
+    return void window.history.go(guarded ? -2 : -1);
   }
   photos.value = [];
   releaseVideo(video.value);
@@ -131,7 +134,29 @@ const leave = () => {
   later(() => notify("새 매물 등록을 처음부터 시작해요"), 0);
 };
 
+// 2026-10-29 컨설팅(여러 검수 공통 1순위): 휴대폰 뒤로가기(안드로이드 뒤로 · 아이폰 밀어서 뒤로)로 나가면 찍은 사진이 사라졌다.
+// 처음에 기록을 한 칸 더 쌓아 두고, 뒤로가기가 오면 그 칸을 다시 쌓은 뒤 X · Esc와 같은 길로 지금 맨 위 창을 닫는다.
+// 촬영 화면은 찍은 사진·영상이 있으면 먼저 묻고, 등록 화면은 내용이 있으면 「나갈까요?」를 띄운다(아이폰은 나가기 경고가 없어서 이것이 유일한 보호).
+let guarded = false;
+// 넉스트의 라우터 없는 기본 처리가 뒤로가기마다 주소를 두 겹으로 만들어서, 뒤로가기는 nuxt.config의 머리 스크립트가 먼저 받아
+// window.__bbmShootPop(이 함수)로만 넘긴다.
+type PopWin = Window & { __bbmShootPop?: () => void };
+function onPop() {
+  if (leaving) return;
+  window.history.pushState({ ...(window.history.state ?? {}), bbmShoot: 1 }, "", window.location.href);
+  if (dialogStack.length) {
+    document.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    return;
+  }
+  if (screen.value.name !== "main") return setScreen({ name: "main" });
+  onBack();
+}
 onMounted(() => {
+  if (PLUS) {
+    window.history.pushState({ ...(window.history.state ?? {}), bbmShoot: 1 }, "", window.location.href);
+    guarded = true;
+    (window as PopWin).__bbmShootPop = onPop;
+  }
   // 들어오면 0% → 소재지가 채워지며 20%(58 확인). 키트는 사용자가 직접 한 것만 센다.
   if (!PLUS) later(() => (progress.value = 20), 600);
   if (document.documentElement.dataset.site !== "shoot") document.title = "보배드림 · 중고차 등록 촬영";
@@ -140,6 +165,7 @@ onBeforeUnmount(() => {
   window.clearTimeout(toastTimer);
   timers.forEach((t) => window.clearTimeout(t));
   window.removeEventListener("beforeunload", warn);
+  delete (window as PopWin).__bbmShootPop;
 });
 
 // 완성도 = 소재지 20 + 필수 사진 60 + 권장 사진 10 + 영상 10(2026-10-25 컨설팅: 영상은 선택이라 비중을 작게).
@@ -414,7 +440,9 @@ const leaveSave = () => {
             </div>
             <div v-else ref="tilesRef" class="shoot-tiles">
               <figure v-for="(p, idx) in photos" :key="p.id" class="shoot-tile" :data-drag-id="PLUS && !p.uploading ? p.id : undefined">
-                <div v-if="p.uploading" class="shoot-tile__wait"><b>bb</b></div>
+                <!-- 2026-10-29 컨설팅: 키트는 「bb」 자리 글자 대신 찍은 사진을 흐리게 보이고 올리는 점을 띄운다 -->
+                <div v-if="p.uploading && PLUS" class="shoot-tile__wait is-kit" role="status" aria-label="사진 올리는 중"><img :src="p.src" alt="" draggable="false" /><span class="shoot-tile__dots"><i /><i /><i /></span></div>
+                <div v-else-if="p.uploading" class="shoot-tile__wait"><b>bb</b></div>
                 <button v-else type="button" class="shoot-tile__img" :aria-label="`${itemLabel(p.slot)} 사진 편집`" @click="setScreen({ name: 'preview', id: p.id })">
                   <img :src="p.src" alt="" draggable="false" />
                   <span class="shoot-tile__wm">보배드림</span>
@@ -442,6 +470,10 @@ const leaveSave = () => {
                 <span>영상 추가</span>
               </button>
             </div>
+            <!-- 2026-10-29 컨설팅: 쇼츠 만들기가 영상 편집 안에만 있어 찾기 어려웠다 → 영상이 있으면 등록 화면에서 바로 -->
+            <button v-if="PLUS && video && !video.uploading" type="button" class="shoot-shortslink" @click="video && setScreen({ name: 'shorts', take: { segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, hl: video.hl }, back: { name: 'main' } })">
+              <Mask :src="rd('powerup-outline')" />이 영상으로 쇼츠 만들기<b>15·30·60초</b>
+            </button>
             <div v-if="PLUS && (photos.length > 1 || photos.some((p) => p.fromAlbum)) && !anyUploading" class="shoot-sortlink">
               <span v-if="photos.length > 1">길게 눌러 끌면 두 사진의 칸이 바뀌어요</span>
               <span v-else />
@@ -465,7 +497,8 @@ const leaveSave = () => {
         </div>
 
         <footer class="shoot-main__foot">
-          <button type="button" class="shoot-savedraft" @click="saveDraft"><Mask :src="rd('image-post-outline')" />임시저장</button>
+          <!-- 2026-10-29 컨설팅: 사진 아이콘이 「사진 추가」로 읽혀 키트는 저장(책갈피) 아이콘 -->
+          <button type="button" class="shoot-savedraft" @click="saveDraft"><Mask :src="PLUS ? icon('chotot', 'chotot-common-bookmark.svg') : rd('image-post-outline')" />임시저장</button>
           <button type="button" :class="`shoot-publish ${canPublish ? '' : 'is-disabled'}`" :aria-disabled="!canPublish" @click="publish">
             <template v-if="canPublish">등록하기</template>
             <span v-else-if="!photosOk" class="shoot-publish__need">{{ ENFORCE ? `필수 사진 ${needPhotos}장 더 찍어 주세요` : waitUpload ? "사진을 올리고 있어요" : `사진을 ${needCount}장 이상 올려 주세요` }}</span>
@@ -570,7 +603,8 @@ const leaveSave = () => {
       <Confirm v-if="askDiscard" text="찍은 영상을 버리고 나갈까요? 등록 화면에는 남지 않아요." cancel-text="계속 보기" ok-text="버리기" has-dim @dim="askDiscard = null" @cancel="askDiscard = null" @ok="discardOk" />
       <!-- 58: 「信息尚未发布完成,确认要离开吗？」 不保存 / 保存并退出(바깥을 누르면 그대로 머문다) -->
       <Confirm v-if="askLeave" text="아직 등록을 마치지 않았어요. 나갈까요?" cancel-text="저장 안 함" ok-text="저장하고 나가기" has-dim @dim="askLeave = false" @cancel="leaveNoSave" @ok="leaveSave" />
-      <Toast :text="toast" />
+      <!-- 2026-10-29 컨설팅: 등록 화면 알림이 사진 칸을 가려서 아래 버튼 바로 위로 내린다 -->
+      <Toast :text="toast" :class="PLUS && screen.name === 'main' && !regionOpen ? 'is-low' : ''" />
     </div>
   </div>
 </template>
