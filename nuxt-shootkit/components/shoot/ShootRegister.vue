@@ -25,7 +25,7 @@ import { dialogStack } from "../../lib/dialog-stack";
 import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
-import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, sortBySlot, stageGroup, uid, type Photo, type Take, type Video } from "../../lib/core";
+import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, noteCount, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, sortBySlot, stageGroup, uid, type Notes, type Photo, type Take, type Video } from "../../lib/core";
 import { ITEMS, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf } from "../../lib/items";
 
 type Screen =
@@ -113,6 +113,8 @@ const shortsInput = computed(() => {
         stages: t.imported ? (["exterior"] as VideoStage[]) : (t.stages ?? BASE_STAGES),
         labels: t.imported ? [""] : (t.stages ?? BASE_STAGES).map((k) => def(k).label),
         hl: t.hl ?? [],
+        // 공개로 켠 컷 메모 글만 그 컷 자막 초안으로(내부 메모는 쇼츠에 안 들어간다)
+        notes: Object.fromEntries(Object.entries(t.notes ?? {}).filter(([, n]) => n?.pub && n.text.trim()).map(([k, n]) => [k, n!.text.trim()])),
       }
     : null;
 });
@@ -497,8 +499,16 @@ const videoInitial = computed<Take | undefined>(() => {
   const s = screen.value;
   if (s.name !== "video") return undefined;
   const v = video.value;
-  return s.take ?? (s.reshoot && v ? { segs: v.segs, durations: v.durations, thumbs: [], stages: v.stages, marks: v.marks, hl: v.hl } : undefined);
+  return s.take ?? (s.reshoot && v ? { segs: v.segs, durations: v.durations, thumbs: [], stages: v.stages, marks: v.marks, hl: v.hl, notes: v.notes } : undefined);
 });
+// 컷별 메모(2026-10-29 후속 ②): 미리보기에서 적은 메모를 지금 촬영본(또는 등록된 영상)에 붙인다
+const onTakeNotes = (n: Notes) => {
+  const s = screen.value;
+  if (s.name === "vpreview") s.take.notes = n;
+};
+const onVideoNotes = (n: Notes) => {
+  if (video.value) video.value = { ...video.value, notes: n };
+};
 const closeVideo = () => {
   const s = screen.value;
   if (s.name !== "video") return;
@@ -506,7 +516,7 @@ const closeVideo = () => {
 };
 const editTake = computed<Take | null>(() => {
   const v = video.value;
-  return v ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, marks: v.marks, hl: v.hl } : null;
+  return v ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, marks: v.marks, hl: v.hl, notes: v.notes } : null;
 });
 const coverDone = (cover: string) => {
   const s = screen.value;
@@ -517,7 +527,7 @@ const coverDone = (cover: string) => {
     video.value = video.value ? { ...video.value, cover } : video.value;
     return;
   }
-  video.value = { segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported, stages: t.stages, marks: t.marks, hl: t.hl };
+  video.value = { segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported, stages: t.stages, marks: t.marks, hl: t.hl, notes: t.notes };
   later(() => {
     const v = video.value;
     if (v && v.segs === t.segs) video.value = { ...v, uploading: false };
@@ -652,7 +662,7 @@ const leaveSave = async () => {
                   <span class="shoot-tile__wm">보배드림</span>
                 </button>
                 <button v-if="!video.uploading" type="button" class="shoot-tile__del" aria-label="영상 삭제" @click="confirm = { kind: 'video' }"><Mask :src="rd('delete-outline')" /></button>
-                <figcaption>{{ video.marks?.length ? `흠집 표시 ${video.marks.length}곳` : " " }}</figcaption>
+                <figcaption>{{ [video.marks?.length ? `흠집 표시 ${video.marks.length}곳` : "", noteCount(video.notes) ? `메모 ${noteCount(video.notes)}개` : ""].filter(Boolean).join(" · ") || " " }}</figcaption>
               </figure>
               <button v-if="photos.length < MAX_PHOTOS" type="button" class="shoot-tile shoot-tile--add" @click="setScreen({ name: 'capture', mode: 'cam' })">
                 <Mask :src="rd('camera-outline-24')" cls="is-big" />
@@ -778,6 +788,8 @@ const leaveSave = async () => {
         :take="screen.take"
         :show-shorts="PLUS"
         :show-continue="PLUS && !screen.take.imported"
+        @notes="onTakeNotes"
+        @notify="notify"
         @close="discardTake(() => setScreen({ name: 'main' }))"
         @next="screen.name === 'vpreview' && setScreen({ name: 'cover', take: screen.take })"
         @shorts="screen.name === 'vpreview' && setScreen({ name: 'shorts', take: screen.take, back: screen })"
@@ -790,7 +802,9 @@ const leaveSave = async () => {
         :show-shorts="PLUS"
         :show-continue="PLUS && !video.imported"
         :show-reshoot="!video.imported"
-        @shorts="video && setScreen({ name: 'shorts', take: { segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, hl: video.hl }, back: { name: 'vedit' } })"
+        @notes="onVideoNotes"
+        @notify="notify"
+        @shorts="video && setScreen({ name: 'shorts', take: { segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, hl: video.hl, notes: video.notes }, back: { name: 'vedit' } })"
         @close="setScreen({ name: 'main' })"
         @continue="setScreen({ name: 'video', reshoot: true })"
         @reshoot="setScreen({ name: 'video', reshoot: true })"

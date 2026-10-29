@@ -164,8 +164,14 @@ export const slotOrder = (slot: string) => {
 };
 export const sortBySlot = (list: Photo[]) => list.map((p, i) => ({ p, i })).sort((a, b) => slotOrder(a.p.slot) - slotOrder(b.p.slot) || a.i - b.i).map((x) => x.p);
 /** 영상: 단계별 파일(segs[i] = 그 단계 영상, 불러온 영상은 한 개) · 단계별 길이(초) · 표지 */
-export type Video = { segs: (string | null)[]; durations: number[]; cover: string; uploading: boolean; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; hl?: Highlight[] };
-export type Take = { segs: (string | null)[]; durations: number[]; thumbs: string[]; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; hl?: Highlight[] };
+/** 컷별 메모(2026-10-29 후속 ②): text = 글 메모(80자), audio = 음성 메모 주소(blob: · data:), audioSec = 길이, pub = 매물 상세·쇼츠 자막에 공개(기본 false = 내부 메모) */
+export type Note = { text: string; audio?: string; audioSec?: number; pub: boolean };
+export type Notes = Partial<Record<VideoStage, Note>>;
+export const NOTE_MAX = 80;
+export const NOTE_AUDIO_MAX = 30;
+export const noteCount = (n?: Notes) => Object.values(n ?? {}).filter((x) => x && (x.text.trim() || x.audio)).length;
+export type Video = { segs: (string | null)[]; durations: number[]; cover: string; uploading: boolean; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; hl?: Highlight[]; notes?: Notes };
+export type Take = { segs: (string | null)[]; durations: number[]; thumbs: string[]; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; hl?: Highlight[]; notes?: Notes };
 
 let seq = 0;
 export const uid = () => `p${Date.now().toString(36)}${(seq++).toString(36)}`;

@@ -20,4 +20,5 @@ export function captionFor(input: { title: string; price: string; specs: string[
 // 촬영 영상으로 쇼츠 만들기(원본 shoot-kit/ShortsMaker.tsx 의 입력 형식)
 import type { Highlight } from "./shorts";
 import type { VideoStage } from "./stages";
-export type ShortsInput = { segs: (string | null)[]; durations: number[]; stages: VideoStage[]; labels: string[]; hl: Highlight[] };
+/** notes(2026-10-29 후속 ②): 공개로 켠 컷 메모 글 — 그 컷 자막의 초안으로 쓴다(단계 키 → 글) */
+export type ShortsInput = { segs: (string | null)[]; durations: number[]; stages: VideoStage[]; labels: string[]; hl: Highlight[]; notes?: Partial<Record<VideoStage, string>> };

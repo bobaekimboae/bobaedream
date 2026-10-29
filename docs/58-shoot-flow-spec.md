@@ -525,3 +525,12 @@ Claude 3차 검수 · 클로드 건설기계 마스터 · 코덱스 UX 재검수
 - 역할 단일 축: `roleNow()`가 `58 · dealer · crew` 셋 중 하나를 돌려주고 `PLUS`는 「역할이 58이 아님」의 줄임이다(`roles.58` 프리셋 추가, `courses.58 = []`). 화면 분기는 이 축 하나만 쓴다(기존 `PLUS` 분기 122곳은 그대로 동작).
 - 실내 세부 순서 카드(`steps` · `stepsOf` · `INTERIOR_STEPS` · `STEP_SEC` · `videoSteps`)는 실내가 독립 컷으로 바뀐 뒤 어느 화면에서도 쓰이지 않아 지웠다(VideoCapture · VideoPreview · Take/Video 타입 · CSS). 저장된 옛 임시저장의 `steps` 값은 무시된다.
 - 쇼츠 공유 파일 이름: 매물 번호가 없을 때(등록 전) `bobae-shortform-YYYYMMDD-HHMM.mp4`(이전 `…-0.mp4`).
+
+### 30-3. 후속 ② 컷별 음성·글 메모 (2026-10-29 「진행해라」, 넉스트 판만)
+
+- 영상 미리보기(촬영 직후 · 등록 화면의 영상 편집)에서 보고 있는 부위 아래에 「○○ 메모 (선택)」 칸(`CutMemo.vue`): 글 80자 + 「음성」 버튼(마이크, 최대 30초, 다시 누르면 끝) + 「매물 상세에 공개」 체크. 부위 칩을 바꾸면 그 부위 메모로 바뀐다.
+- 기본은 **내부 메모**(딜러·촬영팀만 봄, `pub: false`). 공개를 켜면 매물 상세와 쇼츠 자막 초안에 쓰인다 — 쇼츠에서는 공개 메모 글(20자까지)이 그 컷의 자막 기본값이 되고, 내부 메모는 쇼츠에 들어가지 않는다.
+- 녹음 중 브라우저 음성 인식(Web Speech API, ko-KR)이 있으면 말한 내용을 받아쓰기 초안으로 글 칸에 넣는다(글이 있으면 뒤에 이어 붙임). 음성이 브라우저 제공사 서버로 가는 점을 칸 문구로 알린다. 영상 파일 받아쓰기(ASR)는 서버 과제(3차 7라운드 부록 판단: 온디바이스 Whisper 77MB는 딜러 데이터 부담).
+- 값은 `Take.notes` → `Video.notes`(단계 키 → `{text, audio, audioSec, pub}`)로 이어지고, 다시 찍기·계속 촬영에도 남는다. 임시저장은 음성(blob:)을 data URL로 바꿔 담는다. 등록 화면 영상 칸 아래에 「메모 N개」.
+- 마이크 아이콘은 레딧 공식 원본 `icon-mic-outline.svg`(reddit/devvit-docs `docs/assets/icons`, 수정 없음)를 `public/icons/reddit-shoot/microphone-outline.svg`로 둔다.
+- 58 재현(`&vstage=58`)에는 메모 칸이 없다.
