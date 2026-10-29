@@ -20,7 +20,10 @@
     "publishMin": 1,
     "keyTitle": "먼저 찍으면 좋은",
     "enforceNote": "2026-10-25 「필수 사진 강제를 일단은 빼자」: enforceRequired=false면 4장은 「우선」 안내만 하고 사진 publishMin장 + 소재지로 등록. 「권장」과 헷갈리지 않게 「추천」 대신 「우선」. 58 재현(&vstage=58)은 enforcedText 문구로 늘 강제.",
-    "orientationNote": "사진 방향(2026-10-29 3차 컨설팅): landscape = 가로 4:3 틀(외관 · 엔진룸 · 트렁크, 매물 목록·상세·엔카 재사용), portrait = 세로 허용(실내 · 계기판), any = 틀 없음. 58 재현(&vstage=58)은 방향을 쓰지 않는다"
+    "orientationNote": "사진 방향(2026-10-29 3차 컨설팅): landscape = 가로 4:3 틀(외관 · 엔진룸 · 트렁크, 매물 목록·상세·엔카 재사용), portrait = 세로 허용(실내 · 계기판), any = 틀 없음. 58 재현(&vstage=58)은 방향을 쓰지 않는다",
+    "plateDefault": false,
+    "plateHeroLock": true,
+    "plateNote": "번호판 가리기(2026-10-29 후속 ④ 결정): 키트 기본 꺼짐(딜러 매물은 번호판 공개 원칙 · 클린엔카 07 노출 1장 필수). 대표 사진(첫 칸)은 가림을 붙일 수 없다(plateHeroLock). 58 재현은 원본대로 꺼짐."
   },
   "video": {
     "perStageSec": {
@@ -354,7 +357,8 @@
             "trunk"
           ]
         }
-      ]
+      ],
+      "58": []
     },
     "coursesNote": "역할별 코스(2026-10-29): 딜러는 빠른·표준 2개만(결정을 줄임), 촬영팀은 표준·상세 + 직접 고르기. 58 재현은 그룹 4단계 그대로"
   },
@@ -469,28 +473,6 @@
       "level": "recommended",
       "videoStage": true,
       "videoKey": "interior",
-      "videoSteps": [
-        {
-          "item": "cluster",
-          "label": "계기판",
-          "hand": "시동을 켜고 주행거리 숫자를 잠깐 멈춰 보여 주세요"
-        },
-        {
-          "item": "dashboard",
-          "label": "대시보드",
-          "hand": "핸들을 잡고 버튼, 가운데 화면까지 천천히 훑어 주세요"
-        },
-        {
-          "item": "front-seat",
-          "label": "앞좌석",
-          "hand": "시트를 손으로 눌러 보고 천장·선루프도 같이 보여 주세요"
-        },
-        {
-          "item": "rear-seat",
-          "label": "뒷좌석",
-          "hand": "뒷문을 열고 뒷좌석 쿠션을 손으로 눌러 주세요"
-        }
-      ],
       "items": [
         {
           "id": "cluster",
@@ -634,7 +616,13 @@
       "orientationToggle": true,
       "course": "basic",
       "maxExtra": 8
+    },
+    "58": {
+      "label": "58 재현",
+      "orientationToggle": false,
+      "course": "58",
+      "maxExtra": 0
     }
   },
-  "rolesNote": "역할 값(2026-10-29 3차 컨설팅): ?role=dealer|crew 또는 코스 창의 「딜러 간편 / 촬영팀 전문」. 로그인이 생기면 계정 역할로 바꾼다. orientationToggle = 사진 가로·세로 전환 버튼, course = 기본 코스, maxExtra = 더할 수 있는 부위 수 · 촬영팀도 표준으로 시작하고 상세는 코스 창에서 고른다(2026-10-29 자가 체크)"
+  "rolesNote": "역할 값(2026-10-29 3차 컨설팅): ?role=dealer|crew 또는 코스 창의 「딜러 간편 / 촬영팀 전문」. 로그인이 생기면 계정 역할로 바꾼다. orientationToggle = 사진 가로·세로 전환 버튼, course = 기본 코스, maxExtra = 더할 수 있는 부위 수 · 촬영팀도 표준으로 시작하고 상세는 코스 창에서 고른다(2026-10-29 자가 체크) · 2026-10-29 후속 ④: 「58」도 역할 프리셋(?vstage=58). 화면 분기의 단일 축은 roleNow() 하나이고 PLUS = 역할이 58이 아님."
 }

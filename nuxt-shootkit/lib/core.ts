@@ -4,12 +4,14 @@ import { setCustomGuide, stageGuide, type VideoStage } from "./stages";
 import { loadPrefs, type StagePrefs } from "./stage-prefs";
 import type { Highlight } from "./shorts";
 import { query } from "./site";
-import { CUTS, ENFORCE_REQUIRED, ITEMS, OTHER_ID, PHOTO_MAX, ROLES, SHOOT, VIDEO_GROUPS, coursesOf, cutOf, groupOf, isRequiredItem, levelLabel, stageSec, stepsOf, type RoleDef, type ShootRole } from "./items";
+import { CUTS, ENFORCE_REQUIRED, ITEMS, OTHER_ID, PHOTO_MAX, PLATE_DEFAULT, PLATE_HERO_LOCK, ROLES, SHOOT, VIDEO_GROUPS, coursesOf, cutOf, groupOf, isRequiredItem, levelLabel, stageSec, type RoleDef, type ShootRole } from "./items";
 
 export const OTHER = OTHER_ID;
 export const MAX_PHOTOS = PHOTO_MAX;
+/** 역할 단일 축(2026-10-29 후속 ④): ?vstage=58 이면 역할 「58」(원본 재현). PLUS 는 「역할이 58이 아님」의 줄임이고, 화면 분기는 이 둘 외의 축을 두지 않는다 */
+const IS_58 = query().get("vstage") === "58";
 /** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
-export const PLUS = query().get("vstage") !== "58";
+export const PLUS = !IS_58;
 
 /** 이 브라우저에 기억한 촬영 설정(코스 창에서 바꾸면 setPrefs로 바꾼다) */
 export let PREFS: StagePrefs = typeof window === "undefined" ? { custom: [], times: {}, autoStop: true, myCourse: null, target: 0, mode: "easy" } : loadPrefs();
@@ -43,8 +45,8 @@ export function setRole(r: ShootRole) {
     PREFS = { ...PREFS, mode: "easy" };
   }
 }
-/** 지금 역할: 이 탭에 기억한 역할(코스 창의 「촬영팀 전문」 = crew). 58 재현은 늘 dealer */
-export const roleNow = (): ShootRole => (PLUS && PREFS.mode === "pro" ? "crew" : "dealer");
+/** 지금 역할(단일 축): 58 재현 = "58", 그 밖은 이 탭에 기억한 역할(코스 창의 「촬영팀 전문」 = crew) */
+export const roleNow = (): ShootRole => (IS_58 ? "58" : PREFS.mode === "pro" ? "crew" : "dealer");
 export const roleDef = (r: ShootRole = roleNow()): RoleDef => ROLES[r];
 export const roleLabel = (r: ShootRole = roleNow()) => roleDef(r).label;
 /** 역할별 기본 코스 단계(키트). 58 재현은 그룹 4단계 */
@@ -81,9 +83,6 @@ export function applyPrefs(p: StagePrefs) {
 applyPrefs(PREFS);
 /** 지워진 직접 부위 등 없는 단계도 화면이 깨지지 않게 기본 모양을 돌려준다. */
 export const def = (k: VideoStage): StageDef => STAGE_DEFS[k] ?? { key: k, label: "부위", min: 3, max: 15, extra: true };
-/** 실내 단계 세부 순서(미리보기 부위별 보기) */
-export const INTERIOR_STEPS: { label: string; hand: string }[] = stepsOf("interior");
-export const STEP_SEC = 4;
 /** 자동 멈춤을 끈 촬영팀 모드의 녹화 상한(초) */
 export const HARD_MAX = 120;
 /** 기본 단계(역할의 표준 코스 · 58 재현은 그룹 4단계). 화면이 열릴 때 역할에 따라 다를 수 있어 baseStages()를 쓴다 */
@@ -96,6 +95,11 @@ export const STAGES = BASE_STAGES.map((k) => def(k));
 export const PHOTO_SLOTS: string[] = PLUS
   ? [...ITEMS.filter((i) => isRequiredItem(i.id)), ...ITEMS.filter((i) => !isRequiredItem(i.id))].map((i) => i.id)
   : ITEMS.map((i) => i.id);
+/** 대표 사진 칸(첫 칸). 번호판 가림을 붙일 수 없다(2026-10-29 후속 ④ 결정: 대표 1장 노출 잠금) */
+export const HERO_SLOT = PHOTO_SLOTS[0];
+export const plateLocked = (slot: string) => PLUS && PLATE_HERO_LOCK && slot === HERO_SLOT;
+/** 키트의 「번호판 가리기」 기본값(JSON photo.plateDefault, 기본 꺼짐). 58 재현은 원본대로 꺼짐 */
+export const PLATE_START = PLUS && PLATE_DEFAULT;
 /** 필수 4장 강제 여부. 58 재현(&vstage=58)은 예전처럼 늘 강제하고, 키트는 JSON photo.enforceRequired를 따른다(2026-10-25 강제 뺌) */
 export const ENFORCE = !PLUS || ENFORCE_REQUIRED;
 export const ENF_TEXT = SHOOT.enforcedText;
@@ -160,8 +164,8 @@ export const slotOrder = (slot: string) => {
 };
 export const sortBySlot = (list: Photo[]) => list.map((p, i) => ({ p, i })).sort((a, b) => slotOrder(a.p.slot) - slotOrder(b.p.slot) || a.i - b.i).map((x) => x.p);
 /** 영상: 단계별 파일(segs[i] = 그 단계 영상, 불러온 영상은 한 개) · 단계별 길이(초) · 표지 */
-export type Video = { segs: (string | null)[]; durations: number[]; cover: string; uploading: boolean; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; steps?: number[]; hl?: Highlight[] };
-export type Take = { segs: (string | null)[]; durations: number[]; thumbs: string[]; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; steps?: number[]; hl?: Highlight[] };
+export type Video = { segs: (string | null)[]; durations: number[]; cover: string; uploading: boolean; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; hl?: Highlight[] };
+export type Take = { segs: (string | null)[]; durations: number[]; thumbs: string[]; imported?: boolean; stages?: VideoStage[]; marks?: Mark[]; hl?: Highlight[] };
 
 let seq = 0;
 export const uid = () => `p${Date.now().toString(36)}${(seq++).toString(36)}`;
