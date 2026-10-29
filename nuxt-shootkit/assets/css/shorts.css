@@ -325,3 +325,15 @@
 .shoot-shorts:has(.shoot-shorts__foot .shoot-shorts__warn.is-short) .shoot-shorts__body {
   padding-bottom: 136px;
 }
+
+/* 사진 쇼츠(2026-10-29 후속 ③): 소재 고르기 알약(영상/사진) · 틱톡 사진 묶음 버튼 */
+.shoot-shorts__chips.is-source {
+  padding: 12px 0 0;
+}
+.shoot-shorts__ghost.is-frames {
+  width: 100%;
+  margin-top: 8px;
+}
+.shoot-shorts__ghost.is-frames:disabled {
+  opacity: 0.5;
+}

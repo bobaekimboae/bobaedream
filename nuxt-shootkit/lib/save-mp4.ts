@@ -208,3 +208,30 @@ export async function saveToDevice(blob: Blob, name: string): Promise<"shared" |
   window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
   return "downloaded";
 }
+
+/** 여러 장의 사진(틱톡 사진 묶음)을 한 번에: 폰은 공유창에 파일을 모두 넘기고, 공유창이 없으면 한 장씩 내려받는다(2026-10-29 후속 ③). */
+export async function saveFilesToDevice(blobs: Blob[], baseName: string, ext = "jpg", type = "image/jpeg"): Promise<"shared" | "downloaded" | "cancelled"> {
+  const files = blobs.map((b, i) => new File([b], `${baseName}_${String(i + 1).padStart(2, "0")}.${ext}`, { type }));
+  const touch = typeof window !== "undefined" && window.matchMedia?.("(pointer: coarse)").matches;
+  const nav = navigator as Navigator & { canShare?: (d: ShareData) => boolean };
+  if (touch && nav.canShare?.({ files })) {
+    try {
+      await nav.share({ files, title: baseName });
+      return "shared";
+    } catch (e) {
+      if ((e as Error)?.name === "AbortError") return "cancelled";
+    }
+  }
+  for (const f of files) {
+    const url = URL.createObjectURL(f);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = f.name;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    window.setTimeout(() => URL.revokeObjectURL(url), 60_000);
+    await new Promise((r) => window.setTimeout(r, 250));
+  }
+  return "downloaded";
+}

@@ -4,7 +4,8 @@
 // (Nuxt: 미리 불러오기 보정은 nuxt.config에서 처리)
 import { collectText, loadGlyphs } from "./fonts";
 
-export type ShortformTemplate = "reels" | "card";
+/** band = 가로 사진 띠형(2026-10-29 후속 ③ 사진 쇼츠): 사진을 자르지 않고 가운데에 두고 위·아래 띠에 정보·자막 */
+export type ShortformTemplate = "reels" | "card" | "band";
 export type ShortformAspect = "9:16" | "1:1" | "16:9";
 
 export const ASPECT_SIZE: Record<ShortformAspect, [number, number]> = { "9:16": [720, 1280], "1:1": [720, 720], "16:9": [1280, 720] };
@@ -40,7 +41,7 @@ const YELLOW = "#FFE34F";
 const BLUE = "#306BD9";
 const INK = "#222222";
 
-export const CUT = { reels: 2.2, card: 2.6 } as const;
+export const CUT = { reels: 2.2, card: 2.6, band: 2.4 } as const;
 export const END_CARD = 3;
 export const VIDEO_CUT_MAX = 6;
 
@@ -501,6 +502,74 @@ function drawChip(ctx: CanvasRenderingContext2D, line: string, x: number, y: num
   ctx.restore();
 }
 
+/* ───────── 가로 사진 띠형(사진 쇼츠): 사진 원본 비율 그대로 가운데, 위 띠 = 차명·가격, 아래 띠 = 한 마디 자막 ───────── */
+
+function drawBand(ctx: CanvasRenderingContext2D, plan: ShortformPlan, index: number, cut: Cut, local: number) {
+  const { width: W, height: H } = plan;
+  const p = local / cut.duration;
+  const media = mediaOf(cut.source);
+  // 사진 칸: 폭 전체, 높이는 원본 비율(최대 화면의 52%), 세로 가운데보다 조금 위
+  const ratio = media.h / Math.max(1, media.w);
+  const pw = W;
+  const ph = Math.min(H * 0.52, pw * ratio);
+  const top = H * 0.42 - ph / 2;
+  const fade = index > 0 ? easeOut(local / 0.3) : 1;
+  const zoom = cut.source.kind === "image" ? 1 + 0.04 * p : 1;
+  ctx.save();
+  ctx.globalAlpha = fade;
+  ctx.beginPath();
+  ctx.rect(0, top, pw, ph);
+  ctx.clip();
+  drawCover(ctx, media.el, media.w, media.h, 0, top, pw, ph, 0.5, zoom);
+  ctx.restore();
+  // 위 띠: 딜러 줄 · 차명 · 가격 알약
+  ctx.textAlign = "left";
+  ctx.textBaseline = "middle";
+  ctx.fillStyle = "rgba(255,255,255,.75)";
+  ctx.font = `600 26px ${FONT}`;
+  ctx.fillText([dealerLine(plan), plan.dealer.company].filter(Boolean).join(" · "), 48, 84);
+  if (plan.title) {
+    ctx.fillStyle = "#fff";
+    ctx.font = `800 54px ${FONT}`;
+    const tl = wrapWords(ctx, plan.title, W - 96).slice(0, 2);
+    tl.forEach((line, i) => ctx.fillText(line, 48, 150 + i * 62));
+  }
+  if (plan.showPrice && plan.price) {
+    ctx.font = `900 40px ${FONT}`;
+    const tw = ctx.measureText(plan.price).width + 48;
+    const y = Math.max(230, top - 86);
+    ctx.fillStyle = YELLOW;
+    roundRect(ctx, 48, y, tw, 66, 33);
+    ctx.fill();
+    ctx.fillStyle = INK;
+    ctx.fillText(plan.price, 72, y + 34);
+  }
+  // 아래 띠: 한 마디 자막(릴스형과 같은 리듬)
+  const chunks = captionChunks(cut.line);
+  const slot = (cut.duration - 0.1) / Math.max(1, chunks.length);
+  const chunkIndex = Math.min(chunks.length - 1, Math.floor(Math.max(0, local - 0.05) / slot));
+  const chunk = chunks[chunkIndex];
+  if (chunk) {
+    const since = local - 0.05 - chunkIndex * slot;
+    const scale = 0.86 + 0.14 * easeOut(since / 0.16);
+    ctx.save();
+    ctx.textAlign = "center";
+    ctx.translate(W / 2, top + ph + (H - top - ph) * 0.42);
+    ctx.scale(scale, scale);
+    ctx.font = `900 64px ${FONT}`;
+    const lines = wrapWords(ctx, chunk, W - 100);
+    lines.forEach((line, i) => strokeText(ctx, line, 0, (i - (lines.length - 1) / 2) * 76, isHighlight(chunk) ? YELLOW : "#fff", 12));
+    ctx.restore();
+  }
+  if (plan.specs.length || plan.place) {
+    ctx.textAlign = "center";
+    ctx.font = `600 26px ${FONT}`;
+    ctx.fillStyle = "rgba(255,255,255,.8)";
+    ctx.fillText([...plan.specs, plan.place].filter(Boolean).join("  ·  "), W / 2, H - 64, W - 96);
+  }
+  drawProgress(ctx, plan, index, p);
+}
+
 /* ───────── 한 장면 그리기 ───────── */
 
 export function drawFrame(ctx: CanvasRenderingContext2D, plan: ShortformPlan, t: number) {
@@ -514,6 +583,7 @@ export function drawFrame(ctx: CanvasRenderingContext2D, plan: ShortformPlan, t:
   const at = cutAt(plan, t);
   if (!at.cut) drawEndCard(ctx, plan, at.local);
   else if (plan.template === "reels") drawReels(ctx, plan, at.index, at.cut, at.local);
+  else if (plan.template === "band") drawBand(ctx, plan, at.index, at.cut, at.local);
   else drawCard(ctx, plan, at.index, at.cut, at.local);
   ctx.restore();
 }
@@ -550,6 +620,29 @@ export async function canMakeHq() {
   } catch {
     return false;
   }
+}
+
+/**
+ * 틱톡 사진 묶음(2026-10-29 후속 ③): 컷마다 가운데 시각의 한 장면을 JPEG로 뽑는다(틱톡 사진 모드 · 인스타 캐러셀용, 최대 35장).
+ * 끝 명함은 마지막 장으로 넣는다. scale 1.5 = 1080×1920.
+ */
+export async function exportFrames(plan: ShortformPlan, scale = 1, quality = 0.9): Promise<Blob[]> {
+  await loadGlyphs(collectText(plan).join(""));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(plan.width * scale);
+  canvas.height = Math.round(plan.height * scale);
+  const ctx = canvas.getContext("2d")!;
+  if (scale !== 1) ctx.scale(scale, scale);
+  const out: Blob[] = [];
+  let t = 0;
+  const times = plan.cuts.map((c) => { const mid = t + c.duration / 2; t += c.duration; return mid; });
+  times.push(t + END_CARD / 2);
+  for (const at of times.slice(0, 35)) {
+    drawFrame(ctx, plan, at);
+    const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", quality));
+    if (blob) out.push(blob);
+  }
+  return out;
 }
 
 // 녹음한 목소리를 영상 길이에 맞춘 AudioBuffer로 만든다(없으면 무음 — 페이스북 등은 오디오 트랙을 기대한다).

@@ -190,3 +190,16 @@ export async function buildSound(cuts: PlannedCut[], blobs: Map<number, Blob>, t
   }
   return any ? out : null;
 }
+
+/**
+ * 사진 쇼츠(2026-10-29 후속 ③): 사진 n장을 길이에 맞춰 같은 시간씩 나눈다. 컷당 1.2~4초, 최대 12장(앞에서부터 = 대표·우선 칸 순).
+ * 분량이 길이에 못 미치면 되풀이하지 않고 짧게 만든다(영상 쇼츠와 같은 원칙).
+ */
+export const PHOTO_CUT_MAX = 12;
+export function planPhotoCuts(labels: string[], length: number, endCard = 3): PlannedCut[] {
+  const n = Math.min(PHOTO_CUT_MAX, labels.length);
+  if (!n) return [];
+  const d = Math.round(Math.min(4, Math.max(1.2, (length - endCard) / n)) * 10) / 10;
+  return labels.slice(0, n).map((label, i) => ({ clip: { index: 1000 + i, key: "photo" as VideoStage, label, duration: d, samples: [] }, offset: 0, duration: d, line: label, highlight: false }));
+}
+export const isPhotoClip = (c: ClipInfo) => c.index >= 1000;

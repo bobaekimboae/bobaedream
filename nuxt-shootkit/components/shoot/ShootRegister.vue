@@ -115,9 +115,18 @@ const shortsInput = computed(() => {
         hl: t.hl ?? [],
         // 공개로 켠 컷 메모 글만 그 컷 자막 초안으로(내부 메모는 쇼츠에 안 들어간다)
         notes: Object.fromEntries(Object.entries(t.notes ?? {}).filter(([, n]) => n?.pub && n.text.trim()).map(([k, n]) => [k, n!.text.trim()])),
+        // 사진 쇼츠 소재(2026-10-29 후속 ③): 올린 사진을 칸 순서(대표·우선 먼저)대로
+        photos: shortsPhotos.value,
       }
     : null;
 });
+// 쇼츠 화면이 열린 동안 사진 목록이 바뀌어도 같은 배열을 넘긴다(바뀌면 ShortsMaker가 처음부터 다시 불러온다)
+const shortsPhotos = computed(() => (screen.value.name === "shorts" ? photos.value.filter((p) => !p.uploading).map((p) => ({ src: p.src, label: p.slot === OTHER ? "기타" : itemLabel(p.slot), slot: p.slot })) : []));
+const EMPTY_TAKE: Take = { segs: [], durations: [], thumbs: [] };
+const openShortsFromMain = () => {
+  const v = video.value;
+  setScreen({ name: "shorts", take: v && !v.uploading ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, hl: v.hl, notes: v.notes } : EMPTY_TAKE, back: { name: "main" } });
+};
 
 // 실기 대비(2026-10-27): 사진·영상이 있는데 새로고침·뒤로가기·탭 닫기로 나가면 브라우저가 한 번 묻게 한다(임시저장이 아직 없어서)
 const hasWork = computed(() => photos.value.length > 0 || Boolean(video.value) || Boolean(docs.value.inspection));
@@ -674,8 +683,9 @@ const leaveSave = async () => {
               </button>
             </div>
             <!-- 2026-10-29 컨설팅: 쇼츠 만들기가 영상 편집 안에만 있어 찾기 어려웠다 → 영상이 있으면 등록 화면에서 바로 -->
-            <button v-if="PLUS && video && !video.uploading" type="button" class="shoot-shortslink" @click="video && setScreen({ name: 'shorts', take: { segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, hl: video.hl }, back: { name: 'main' } })">
-              <Mask :src="rd('powerup-outline')" />이 영상으로 쇼츠 만들기<b>15·30·60초</b>
+            <!-- 2026-10-29 후속 ③: 쇼츠 입구는 여기 한 곳. 영상이 있으면 영상으로, 사진만 있어도 사진으로 만든다 -->
+            <button v-if="PLUS && ((video && !video.uploading) || readyPhotos >= 1)" type="button" class="shoot-shortslink" @click="openShortsFromMain">
+              <Mask :src="rd('powerup-outline')" />쇼츠 만들기<b>{{ video && !video.uploading ? (readyPhotos ? `영상 · 사진 ${readyPhotos}장` : "영상") : `사진 ${readyPhotos}장` }}</b>
             </button>
             <div v-if="PLUS && (photos.length > 1 || photos.some((p) => p.fromAlbum)) && !anyUploading" class="shoot-sortlink">
               <span v-if="photos.length > 1">길게 눌러 끌면 두 사진의 칸이 바뀌어요</span>
