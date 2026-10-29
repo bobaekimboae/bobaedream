@@ -44,6 +44,8 @@ const scan = ref(0);
 const length = ref<number | null>(null);
 /** 표시한 장면(★). 잘못 표시했으면 여기서 뺀다. */
 const hlList = shallowRef<Highlight[]>(props.input.hl.slice());
+// 컷 자막 초안(2026-10-29 후속 ②): 공개로 켠 컷 메모 글이 있으면 부위 이름 대신 그 글(20자까지)
+const noteLine = (c: PlannedCut) => (props.input.notes?.[c.clip.key]?.trim() ? props.input.notes[c.clip.key]!.trim().slice(0, 20) : c.line);
 const codec = ref<string | null>(null);
 const template = ref<ShortformTemplate>("reels");
 const info = ref<Info>(loadInfo());
@@ -173,7 +175,7 @@ const plan = computed<ShortformPlan | null>(() => {
     fps: 30,
     cuts: cuts.value.map((c) => {
       const l = byIndex.value.get(c.clip.index)!;
-      return { source: { kind: "video" as const, video: l.video, file: l.blob, duration: c.clip.duration, offset: c.offset }, duration: c.duration, line: lines.value[cutKey(c)] ?? c.line };
+      return { source: { kind: "video" as const, video: l.video, file: l.blob, duration: c.clip.duration, offset: c.offset }, duration: c.duration, line: lines.value[cutKey(c)] ?? noteLine(c) };
     }),
     hook: hook.value.trim(),
     title,
@@ -381,7 +383,7 @@ const setLine = (c: PlannedCut, e: Event) => {
             <ol class="shoot-shorts__cuts">
               <li v-for="c in cuts" :key="cutKey(c)">
                 <span class="shoot-shorts__cutmeta"><b v-if="c.highlight" class="is-hl">★</b>{{ c.clip.label }} · {{ c.offset.toFixed(1) }}~{{ (c.offset + c.duration).toFixed(1) }}초<button v-if="c.highlight" type="button" class="shoot-shorts__unhl" :aria-label="`${c.clip.label} 표시한 장면 빼기`" @click="dropHighlight(c)">★ 빼기</button></span>
-                <input :value="lines[cutKey(c)] ?? c.line" :maxlength="20" :aria-label="`${c.clip.label} 자막`" @input="setLine(c, $event)" />
+                <input :value="lines[cutKey(c)] ?? noteLine(c)" :maxlength="20" :aria-label="`${c.clip.label} 자막`" @input="setLine(c, $event)" />
               </li>
             </ol>
             <p class="shoot-shorts__note">자막은 직접 적은 내용만 들어가요. 사고·정비 이력은 확인한 것만 적어 주세요.</p>

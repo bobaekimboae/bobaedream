@@ -14,6 +14,7 @@
     delete()                   — 삭제
     shorts()                   — 쇼츠 만들기
     continue()                 — 안 찍은 단계를 마저 찍으러 촬영으로
+    notes(n: Notes)            — 컷별 음성·글 메모가 바뀜(2026-10-29 후속 ②)
 -->
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref, watch } from "vue";
@@ -21,8 +22,9 @@ import Mask from "./Mask.vue";
 import Toast from "./Toast.vue";
 import Confirm from "./Confirm.vue";
 import FocusBox from "./FocusBox.vue";
+import CutMemo from "./CutMemo.vue";
 import { useLayerEsc } from "../../composables/useLayerEsc";
-import { BASE_STAGES, PLUS, def, mmss, type Take } from "../../lib/core";
+import { BASE_STAGES, PLUS, def, mmss, type Note, type Notes, type Take } from "../../lib/core";
 import { makeMp4, mp4Codec, mp4Name, saveToDevice } from "../../lib/save-mp4";
 import type { VideoStage } from "../../lib/stages";
 import { rd } from "../../lib/site";
@@ -39,7 +41,15 @@ const props = withDefaults(
   }>(),
   { edit: false, showReshoot: false, showShorts: false, showContinue: false },
 );
-const emit = defineEmits<{ close: []; next: []; reshoot: []; cover: []; delete: []; shorts: []; continue: [] }>();
+const emit = defineEmits<{ close: []; next: []; reshoot: []; cover: []; delete: []; shorts: []; continue: []; notes: [n: Notes]; notify: [t: string] }>();
+// 컷별 메모(2026-10-29 후속 ②): 보고 있는 부위의 메모를 아래 칸에서 적고, 바뀔 때마다 부모에게 올린다
+const notes = ref<Notes>({ ...(props.take.notes ?? {}) });
+const curKey = computed<VideoStage | null>(() => (cur.value && !props.take.imported ? (props.take.stages ?? BASE_STAGES)[cur.value.i] ?? null : null));
+const setNote = (n: Note) => {
+  if (!curKey.value) return;
+  notes.value = { ...notes.value, [curKey.value]: n };
+  emit("notes", notes.value);
+};
 
 // 단계별 파일을 차례로 이어 튼다(외관 → 실내 → 엔진룸 → 트렁크).
 const parts = computed(() => props.take.segs.map((u, i) => ({ u, i })).filter((x): x is { u: string; i: number } => Boolean(x.u)));
@@ -203,6 +213,8 @@ const confirmOk = () => {
         >{{ i + 1 }} · {{ mmss(m.t) }}</button>
       </div>
     </div>
+    <!-- 컷별 음성·글 메모(2026-10-29 후속 ②): 기본 내부 메모, 「매물 상세에 공개」를 켜면 상세·쇼츠 자막 초안에 쓰인다 -->
+    <CutMemo v-if="PLUS && curKey" :label="def(curKey).label" :note="notes[curKey]" @change="setNote" @notify="(t) => emit('notify', t)" />
     <div v-if="PLUS && !edit && parts.length" class="shoot-vsave">
       <!-- 큰 저장 버튼(2026-10-26): 찍은 직후 한 번에 전체 영상을 mp4로. 부위별 저장은 위 「저장」 시트 -->
       <button type="button" @click="saveBig">내 폰에 저장<em>mp4 · {{ mmss(total || dur) }}</em></button>

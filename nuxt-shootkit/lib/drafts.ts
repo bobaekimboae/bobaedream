@@ -75,7 +75,11 @@ export async function toRecord(id: string, d: Draft): Promise<DraftRec> {
   let video: VideoRec | null = null;
   if (d.video) {
     const { segs, uploading: _u, ...rest } = d.video;
-    video = { ...rest, cover: (await keepStr(rest.cover)) ?? "", segs: await Promise.all(segs.map(segBlob)) };
+    // 컷별 음성 메모(blob:)도 글자(data URL)로 바꿔 담는다
+    const notes = rest.notes
+      ? Object.fromEntries(await Promise.all(Object.entries(rest.notes).map(async ([k, n]) => [k, n ? { ...n, audio: await keepStr(n.audio) } : n])))
+      : undefined;
+    video = { ...rest, notes, cover: (await keepStr(rest.cover)) ?? "", segs: await Promise.all(segs.map(segBlob)) };
   }
   return { id, savedAt: Date.now(), region: d.region, photos, video, docs: d.docs ?? EMPTY_DOCS };
 }

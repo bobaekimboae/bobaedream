@@ -354,6 +354,7 @@ function stopAll(finalDur: number[]) {
           stages: ss,
           marks: finalDur[ss.indexOf("damage")] ? marks.value : [],
           hl: hl.value.filter((x) => finalDur[ss.indexOf(x.k)] && x.t <= finalDur[ss.indexOf(x.k)]),
+          notes: initial?.notes,
         }),
       600,
     );
