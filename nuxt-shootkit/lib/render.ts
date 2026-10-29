@@ -34,6 +34,8 @@ export type ShortformPlan = {
   /** 끝 장면 QR(매물 상세 주소) */
   qr?: HTMLCanvasElement | null;
   voice?: AudioBuffer | null;
+  /** 판매자가 흠집 표시 단계에서 표시한 흠집 수(2026-10-30 K1). 1곳 이상이면 끝 장면에 「판매자 표시 흠집 N곳 · 상세에서 확인」 */
+  damage?: number;
 };
 
 const FONT = '"Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
@@ -225,6 +227,26 @@ function drawAvatar(ctx: CanvasRenderingContext2D, plan: ShortformPlan, cx: numb
 /* ───────── 끝 장면: 딜러 명함 (+ 매물 QR) ───────── */
 
 const dealerLine = (plan: ShortformPlan) => plan.dealer.label ?? `${plan.dealer.name} 딜러`;
+export const damageLine = (n?: number) => (n && n > 0 ? `판매자 표시 흠집 ${n}곳 · 상세에서 확인` : "");
+// 끝 장면 흠집 알림: 카드 바로 아래 검정 알약(사실만 · 차 사진은 건드리지 않음). 그린 높이(아래 여백 포함)를 돌려준다
+function drawDamage(ctx: CanvasRenderingContext2D, plan: ShortformPlan, top: number, size: number) {
+  const text = damageLine(plan.damage);
+  if (!text) return 0;
+  ctx.save();
+  ctx.font = `700 ${size}px ${FONT}`;
+  const tw = Math.min(ctx.measureText(text).width, plan.width - 120);
+  const h = Math.round(size * 1.9);
+  const w = tw + size * 1.6;
+  ctx.fillStyle = "rgba(0,0,0,.66)";
+  roundRect(ctx, (plan.width - w) / 2, top, w, h, h / 2);
+  ctx.fill();
+  ctx.fillStyle = "#fff";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(text, plan.width / 2, top + h / 2 + 1, plan.width - 120);
+  ctx.restore();
+  return h + Math.round(size * 0.6);
+}
 const phoneNote = (plan: ShortformPlan) => (plan.dealer.phone ? (plan.dealer.note ?? "안심번호로 바로 연결돼요") : "");
 
 function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: number) {
@@ -273,9 +295,10 @@ function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: 
     ctx.restore();
     ctx.save();
     ctx.globalAlpha = easeOut((local - 0.3) / 0.4);
+    const dmg = drawDamage(ctx, plan, cy + ch + 24, 26);
     ctx.textAlign = "center";
     ctx.font = `800 34px ${FONT}`;
-    strokeText(ctx, "보배드림에서 매물 보기", W / 2, cy + ch + 70, "#fff", 8);
+    strokeText(ctx, "보배드림에서 매물 보기", W / 2, cy + ch + 70 + dmg, "#fff", 8);
     ctx.restore();
     return;
   }
@@ -313,9 +336,10 @@ function drawEndCard(ctx: CanvasRenderingContext2D, plan: ShortformPlan, local: 
   ctx.restore();
   ctx.save();
   ctx.globalAlpha = easeOut((local - 0.3) / 0.4);
+  const dmg = drawDamage(ctx, plan, cy + ch + 16, 22);
   ctx.textAlign = "center";
   ctx.font = `800 30px ${FONT}`;
-  strokeText(ctx, "보배드림에서 매물 보기", W / 2, cy + ch + 58, "#fff", 7);
+  strokeText(ctx, "보배드림에서 매물 보기", W / 2, cy + ch + 58 + dmg, "#fff", 7);
   ctx.restore();
 }
 

@@ -8,7 +8,7 @@ export type { ShortsInput } from "../../lib/shortform-types";
 // 촬영 영상으로 쇼츠 만들기(2026-10-25). 한 번 찍으면 매물 등록용 원본 영상과 SNS용 쇼츠가 함께 나온다.
 // 스타일(shorts.css · shortform-studio.css)은 nuxt.config 전역 css로 이미 들어간다.
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
-import { END_CARD, canMakeHq, canMakeMp4, mp4VideoCodec, cutAt, drawFrame, exportFrames, exportMp4, loadImage, loadVideo, planDuration, type CutSource, type ShortformPlan, type ShortformTemplate } from "../../lib/render";
+import { END_CARD, canMakeHq, canMakeMp4, mp4VideoCodec, cutAt, damageLine, drawFrame, exportFrames, exportMp4, loadImage, loadVideo, planDuration, type CutSource, type ShortformPlan, type ShortformTemplate } from "../../lib/render";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import SnsPublish from "./SnsPublish.vue";
 import { SHOOT } from "../../lib/items";
@@ -34,7 +34,8 @@ function loadInfo(): Info {
 }
 const mmss = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
-const props = defineProps<{ input: ShortsInput }>();
+// auto(2026-10-30 등록 완료 자동 쇼츠): 화면이 준비되면 고르지 않고 기본값(길이 자동 · 릴스형)으로 바로 mp4를 만든다
+const props = defineProps<{ input: ShortsInput; auto?: boolean }>();
 const emit = defineEmits<{ close: [] }>();
 
 const closeIcon = rd("close-outline");
@@ -216,6 +217,7 @@ const plan = computed<ShortformPlan | null>(() => {
       photo: logo.value ?? undefined,
     },
     qr: null,
+    damage: props.input.damage ?? 0,
     voice: keepSound.value ? sound.value : null,
   };
 });
@@ -302,6 +304,17 @@ const make = async () => {
     making.value = null;
   }
 };
+// 영상이 흠집 표시 단계뿐이라 쇼츠 컷이 없으면(흠집 단계는 쇼츠에서 뺀다) 사진이 있을 때 사진 쇼츠로 바꾼다
+watch([loaded, cuts], ([l]) => {
+  if (l && source.value === "video" && !cuts.value.length && hasPhotoInput.value) source.value = "photo";
+});
+// 등록 완료 자동 쇼츠: 처음 한 번만. 실패하거나 사용자가 멈추면 다시 자동으로 하지 않는다
+let autoDone = !props.auto;
+watch([ready, plan, can], ([r, p, c]) => {
+  if (autoDone || !r || !p || c === null) return;
+  autoDone = true;
+  if (c) void make();
+}, { immediate: true });
 const saveMade = async () => {
   const m = made.value;
   if (!m) return;
@@ -323,7 +336,7 @@ const layerRef = ref<HTMLElement | null>(null);
 useLayerEsc(layerRef, closeOrCancel);
 const caption = computed(() => {
   const i = info.value;
-  return [i.title.trim(), i.price.trim(), [i.name.trim() && `${i.name.trim()} 딜러`, i.company.trim(), i.phone.trim()].filter(Boolean).join(" · "), "#보배드림 #중고차 #실매물 #Shorts"].filter(Boolean).join("\n");
+  return [i.title.trim(), i.price.trim(), damageLine(props.input.damage), [i.name.trim() && `${i.name.trim()} 딜러`, i.company.trim(), i.phone.trim()].filter(Boolean).join(" · "), "#보배드림 #중고차 #실매물 #Shorts"].filter(Boolean).join("\n");
 });
 const madeInfo = computed<MadeShortform | null>(() =>
   made.value ? { id: "shoot-shorts", url: made.value.url, poster: "", carId: 0, title: info.value.title.trim() || "보배드림 실매물", template: template.value, seconds: made.value.seconds, aspect: "9:16" } : null,
@@ -365,7 +378,7 @@ const setLine = (c: PlannedCut, e: Event) => {
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="closeOrCancel">
         <span class="shoot-mask" :style="closeMaskStyle" aria-hidden="true" />
       </button>
-      <h2>쇼츠 만들기</h2>
+      <h2>{{ auto ? "등록 완료 · 쇼츠 자동 만들기" : "쇼츠 만들기" }}</h2>
       <span class="shoot-icon-btn" />
     </header>
     <div class="shoot-shorts__body">
@@ -448,7 +461,7 @@ const setLine = (c: PlannedCut, e: Event) => {
     </footer>
     <div v-if="making != null" class="shoot-dim" role="status" aria-label="쇼츠를 만드는 중">
       <div class="shoot-save-progress">
-        <strong>쇼츠를 만드는 중</strong>
+        <strong>{{ auto ? "등록한 사진·영상으로 쇼츠를 만드는 중" : "쇼츠를 만드는 중" }}</strong>
         <span>{{ Math.round(making * 100) }}%</span>
         <i :style="{ width: `${Math.round(making * 100)}%` }" />
         <button type="button" class="shoot-shorts__ghost" @click="stopMaking">그만 만들기</button>

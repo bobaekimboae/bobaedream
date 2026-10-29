@@ -22,4 +22,4 @@ import type { Highlight } from "./shorts";
 import type { VideoStage } from "./stages";
 /** notes(2026-10-29 후속 ②): 공개로 켠 컷 메모 글 — 그 컷 자막의 초안으로 쓴다(단계 키 → 글) */
 /** photos(2026-10-29 후속 ③): 사진 쇼츠 소재 — 등록 화면 사진(칸 순서 = 대표·우선 먼저). label = 칸 이름(자막 초안) */
-export type ShortsInput = { segs: (string | null)[]; durations: number[]; stages: VideoStage[]; labels: string[]; hl: Highlight[]; notes?: Partial<Record<VideoStage, string>>; photos?: { src: string; label: string; slot: string }[] };
+export type ShortsInput = { segs: (string | null)[]; durations: number[]; stages: VideoStage[]; labels: string[]; hl: Highlight[]; notes?: Partial<Record<VideoStage, string>>; photos?: { src: string; label: string; slot: string }[]; /** 판매자 표시 흠집 수(끝 장면 · 글) */ damage?: number };

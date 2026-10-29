@@ -36,7 +36,7 @@ type Screen =
   | { name: "vpreview"; take: Take }
   | { name: "vedit" }
   | { name: "cover"; take: Take; coverOnly?: boolean }
-  | { name: "shorts"; take: Take; back: Screen }
+  | { name: "shorts"; take: Take; back: Screen; auto?: boolean }
   | { name: "rules" }
   | { name: "sort"; fresh: string[] };
 
@@ -117,6 +117,8 @@ const shortsInput = computed(() => {
         notes: Object.fromEntries(Object.entries(t.notes ?? {}).filter(([, n]) => n?.pub && n.text.trim()).map(([k, n]) => [k, n!.text.trim()])),
         // 사진 쇼츠 소재(2026-10-29 후속 ③): 올린 사진을 칸 순서(대표·우선 먼저)대로
         photos: shortsPhotos.value,
+        // 끝 장면 「판매자 표시 흠집 N곳」(2026-10-30 K1): 흠집 표시 단계에서 표시한 수
+        damage: t.marks?.length ?? 0,
       }
     : null;
 });
@@ -125,7 +127,15 @@ const shortsPhotos = computed(() => (screen.value.name === "shorts" ? photos.val
 const EMPTY_TAKE: Take = { segs: [], durations: [], thumbs: [] };
 const openShortsFromMain = () => {
   const v = video.value;
-  setScreen({ name: "shorts", take: v && !v.uploading ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, hl: v.hl, notes: v.notes } : EMPTY_TAKE, back: { name: "main" } });
+  setScreen({ name: "shorts", take: v && !v.uploading ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, marks: v.marks, hl: v.hl, notes: v.notes } : EMPTY_TAKE, back: { name: "main" } });
+};
+// 등록 완료 → 쇼츠 자동 만들기(2026-10-30): 등록하기를 누르면 묻고, 「쇼츠 만들기」면 고르기 없이 바로 mp4를 만든다
+const doneAsk = ref(false);
+const canAutoShorts = computed(() => PLUS && ((video.value && !video.value.uploading) || readyPhotos.value >= 1));
+const startAutoShorts = () => {
+  doneAsk.value = false;
+  const v = video.value;
+  setScreen({ name: "shorts", auto: true, take: v && !v.uploading ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, marks: v.marks, hl: v.hl, notes: v.notes } : EMPTY_TAKE, back: { name: "main" } });
 };
 
 // 실기 대비(2026-10-27): 사진·영상이 있는데 새로고침·뒤로가기·탭 닫기로 나가면 브라우저가 한 번 묻게 한다(임시저장이 아직 없어서)
@@ -494,6 +504,10 @@ const publish = () => {
     }
     return;
   }
+  if (canAutoShorts.value) {
+    doneAsk.value = true;
+    return;
+  }
   notify("시안 화면이라 실제로 등록하지 않아요");
 };
 const verifyLabel = computed(() => (verify.value === "reg" ? "자동차등록증" : verify.value === "orig" ? "등록원부" : "차대번호 명판"));
@@ -829,7 +843,7 @@ const leaveSave = async () => {
         @close="screen.name === 'cover' && screen.coverOnly ? setScreen({ name: 'vedit' }) : discardTake(() => setScreen({ name: 'main' }))"
         @done="coverDone"
       />
-      <ShortsMaker v-if="screen.name === 'shorts' && shortsInput" :input="shortsInput" @close="screen.name === 'shorts' && setScreen(screen.back)" />
+      <ShortsMaker v-if="screen.name === 'shorts' && shortsInput" :input="shortsInput" :auto="screen.auto" @close="screen.name === 'shorts' && setScreen(screen.back)" />
       <RulesPage v-if="screen.name === 'rules'" @back="setScreen({ name: 'main' })" @add="setScreen({ name: 'capture', mode: 'cam' })" />
 
       <ProgressSheet v-if="progressOpen" :rows="progressRows" :total="progress" @close="progressOpen = false" />
@@ -843,6 +857,14 @@ const leaveSave = async () => {
         @dim="() => undefined"
         @cancel="resumeNo"
         @ok="resumeOk"
+      />
+      <Confirm
+        v-if="doneAsk"
+        :text="`등록했어요(시안 화면이라 실제로 등록하지는 않아요). 올린 ${video && !video.uploading ? (readyPhotos ? '사진·영상' : '영상') : `사진 ${readyPhotos}장`}으로 쇼츠도 바로 만들까요? 고르지 않아도 알아서 만들어요.`"
+        cancel-text="나중에"
+        ok-text="쇼츠 바로 만들기"
+        @cancel="doneAsk = false"
+        @ok="startAutoShorts"
       />
       <Confirm v-if="confirm" :text="confirm.kind === 'photo' ? '사진을 삭제할까요?' : '영상을 삭제할까요?'" @cancel="confirm = null" @ok="confirmOk" />
       <Confirm v-if="askDiscard" text="찍은 영상을 버리고 나갈까요? 등록 화면에는 남지 않아요." cancel-text="계속 보기" ok-text="버리기" has-dim @dim="askDiscard = null" @cancel="askDiscard = null" @ok="discardOk" />
