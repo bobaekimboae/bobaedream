@@ -10,10 +10,26 @@ export default defineNuxtConfig({
     baseURL: process.env.NUXT_APP_BASE_URL || "/bobaedream/nuxt-shootkit/",
     head: {
       htmlAttrs: { lang: "ko" },
-      title: "보배드림 촬영 · 넉스트",
+      // 2026-10-29 컨설팅: 탭 제목에 기술 이름(넉스트)을 쓰지 않는다
+      title: "보배드림 · 중고차 등록 촬영",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1, viewport-fit=cover" },
         { name: "theme-color", content: "#000000" },
+        { name: "apple-mobile-web-app-capable", content: "yes" },
+        { name: "apple-mobile-web-app-title", content: "보배드림 등록 촬영" },
+      ],
+      // 뒤로가기 막이(2026-10-29): 넉스트의 라우터 없는 기본 처리는 뒤로가기마다 주소 앞에 앱 주소를 한 번 더 붙인다(주소가 두 겹이 됨).
+      // 넉스트보다 먼저 뒤로가기를 받아, 등록 화면이 막이를 켰으면(window.__bbmShootPop) 넉스트 처리로 넘기지 않는다.
+      script: [
+        {
+          innerHTML:
+            'addEventListener("popstate",function(e){var f=window.__bbmShootPop;if(f){e.stopImmediatePropagation();f(e)}},true)',
+        },
+      ],
+      // 홈 화면에 앱으로 설치(아이콘은 /shoot/ 촬영 앱 아이콘을 같이 쓴다)
+      link: [
+        { rel: "manifest", href: "manifest.webmanifest" },
+        { rel: "apple-touch-icon", href: "../shoot/apple-touch-icon.png?v=1" },
       ],
     },
   },
@@ -23,6 +39,12 @@ export default defineNuxtConfig({
   components: false,
   imports: { autoImport: false },
   typescript: { strict: true },
+  hooks: {
+    // 2026-10-29 컨설팅: 쓸 때만 받는 무거운 조각(mp4 · 인식기 · 쇼츠)을 첫 화면에서 미리 받지 않는다(약 1.5MB)
+    "build:manifest": (manifest) => {
+      for (const key of Object.keys(manifest)) manifest[key].prefetch = false;
+    },
+  },
   vite: {
     optimizeDeps: { exclude: ["@huggingface/transformers"] },
   },

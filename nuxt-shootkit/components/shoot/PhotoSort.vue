@@ -61,7 +61,8 @@ const run = async () => {
     const l = list.value;
     const taken = new Set(l.filter((p) => p.slot !== OTHER_ID).map((p) => p.slot));
     const got = assignSlots(results, taken);
-    check.value = new Set([...got].filter(([, v]) => v.check).map(([k]) => k));
+    // 2026-10-29 컨설팅: 인식기는 좌우를 구분하지 못하므로 좌·우 칸에 들어간 사진은 모두 「확인」 표시를 단다
+    check.value = new Set([...got].filter(([, v]) => v.check || (v.slot !== OTHER_ID && /좌측|우측/.test(itemLabel(v.slot)))).map(([k]) => k));
     placed.value = { n: [...got.values()].filter((v) => v.slot !== OTHER_ID).length, of: results.length };
     list.value = bySlot(l.map((p) => (got.has(p.id) ? { ...p, slot: got.get(p.id)!.slot } : p)));
     phase.value = "done";

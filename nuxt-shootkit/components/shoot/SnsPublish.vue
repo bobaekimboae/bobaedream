@@ -7,7 +7,9 @@
 // compact: 촬영 앱 쇼츠용(2026-10-25 컨설팅) — 앱으로 올리기를 먼저, 계정 직접 연결은 「고급」으로 접는다. 딜러 숏폼 제작기는 그대로.
 import { computed, onBeforeUnmount, ref, watch } from "vue";
 import type { MadeShortform, PlatformId } from "../../lib/shortform-types";
-import { icon } from "../../lib/site";
+import { icon, query } from "../../lib/site";
+// 2026-10-29 컨설팅: 촬영 앱(compact)의 「계정 직접 연결」은 서버가 없어 흉내만 내므로 개발 확인(?debug)일 때만 보인다
+const SHOW_DIRECT = query().has("debug");
 
 type PlatformState = { handle: string; on: boolean };
 type Status = "idle" | "upload" | "process" | "done";
@@ -163,7 +165,7 @@ const primaryText = computed(() => (running.value ? "올리는 중…" : targets
       <p class="sfp-hint">보배드림 앱에서는 버튼 하나로 인스타그램 릴스 · 틱톡 · 페이스북 릴스 편집 화면이 바로 열려요(캡컷과 같은 방식). 웹에서는 공유창에서 앱을 골라 주세요.</p>
     </div>
 
-    <details v-if="compact" class="sfp-more">
+    <details v-if="compact && SHOW_DIRECT" class="sfp-more">
       <summary>SNS 계정 직접 연결 · 고급</summary>
       <div class="sfp-block">
         <b>연결한 계정에 바로 올리기 <em>시안</em></b>
@@ -188,7 +190,7 @@ const primaryText = computed(() => (running.value ? "올리는 중…" : targets
         <button type="button" class="sfp-primary" :disabled="!targets.length || running" @click="publishAll">{{ primaryText }}</button>
       </div>
     </details>
-    <div v-else class="sfp-block">
+    <div v-else-if="!compact" class="sfp-block">
       <b>연결한 계정에 바로 올리기 <em>시안</em></b>
       <p>한 번 연결하면 버튼 하나로 여러 계정에 동시에 올려요. 실제 연결·게시는 서버 단계에서 열려요.</p>
       <ul class="sfp-list">

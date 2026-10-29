@@ -24,6 +24,7 @@ import CamPermission from "./CamPermission.vue";
 import StageTemplate from "./StageTemplate.vue";
 import CoursePicker from "./CoursePicker.vue";
 import { useCamera } from "../../composables/useCamera";
+import { useLayerEsc } from "../../composables/useLayerEsc";
 import { fakeStream, grabFrame, pickRecorderType } from "../../lib/camera";
 import { ALLOW_FAKE, BASE_STAGES, HARD_MAX, PLUS, PREFS, STEP_SEC, applyPrefs, courseLabel, def, mmss, msec, readDuration, setPrefs, stageDo, type Mark, type Take } from "../../lib/core";
 import { stepsOf } from "../../lib/items";
@@ -493,6 +494,9 @@ function onCloseClick() {
   if ((initial ? changed.value : anyDone.value) || recording.value) askLeave.value = true;
   else emit("close");
 }
+// 2026-10-29 컨설팅: 휴대폰 뒤로가기 · Esc도 X와 같게(찍은 영상이 있으면 먼저 묻는다)
+const rootRef = ref<HTMLElement | null>(null);
+useLayerEsc(rootRef, onCloseClick, () => PLUS);
 function onImportOk() {
   const f = askImport.value;
   askImport.value = null;
@@ -533,7 +537,7 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
 </script>
 
 <template>
-  <div class="shoot-layer shoot-capture is-video">
+  <div ref="rootRef" class="shoot-layer shoot-capture is-video">
     <header class="shoot-top">
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="onCloseClick"><Mask :src="rd('close-outline')" /></button>
       <h2>차량 영상</h2>

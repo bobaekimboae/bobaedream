@@ -22,6 +22,7 @@ import CamPermission from "./CamPermission.vue";
 import ShotGuide from "./ShotGuide.vue";
 import { useCamera } from "../../composables/useCamera";
 import { useSwipe } from "../../composables/useSwipe";
+import { useLayerEsc } from "../../composables/useLayerEsc";
 import { grabFrame } from "../../lib/camera";
 import { normalizeFile, placeholderShot } from "../../lib/image-ops";
 import { playShutter } from "../../lib/sound";
@@ -245,13 +246,16 @@ const done = () => {
 };
 
 const onClickClose = () => (PLUS && session.value.picked.length ? (askClose.value = true) : emit("close"));
+// 2026-10-29 컨설팅: 휴대폰 뒤로가기 · Esc도 X와 같게(찍은 사진이 있으면 먼저 묻는다). 뒤로가기는 등록 화면이 Esc로 바꿔 보낸다.
+const rootRef = ref<HTMLElement | null>(null);
+useLayerEsc(rootRef, onClickClose, () => PLUS);
 const curSlot = computed(() => rail.value[sel.value] ?? OTHER);
 /** 칸에 보일 사진: 앨범에서 선택을 푼 사진은 칸에서도 빈 칸으로 보인다(2026-10-27 코드 검토) */
 const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.value[i] : null);
 </script>
 
 <template>
-  <div class="shoot-layer shoot-capture" v-on="swipe">
+  <div ref="rootRef" class="shoot-layer shoot-capture" v-on="swipe">
     <div class="shoot-rotate-hint" role="status"><Mask :src="rd('rotate-image-outline')" />휴대폰을 세로로 들어 주세요</div>
     <header class="shoot-top">
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="onClickClose">
@@ -311,7 +315,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
             <span class="shoot-plate__ico" aria-hidden="true">
               <i />
               <i />
-            </span>번호판 가리기
+            </span><span v-if="PLUS" class="shoot-plate__txt">번호판 가리기<em class="shoot-plate__state">{{ plate ? "켜짐" : "꺼짐" }}</em></span><template v-else>번호판 가리기</template>
           </button>
           <button
             type="button"
