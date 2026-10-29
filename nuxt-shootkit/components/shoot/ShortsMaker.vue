@@ -377,7 +377,7 @@ const setLine = (c: PlannedCut, e: Event) => {
       </template>
     </div>
     <footer v-if="loaded && cuts.length && !made" class="shoot-shorts__foot">
-      <p v-if="codec && codec !== 'avc'" class="shoot-shorts__warn is-short" title="이 브라우저는 H.264로 만들지 못해요">{{ codec.toUpperCase() }} 방식이라 인스타그램·아이폰에 안 올라갈 수 있어요</p>
+      <p v-if="codec && codec !== 'avc'" class="shoot-shorts__warn is-short" title="이 브라우저는 H.264로 만들지 못해요">{{ codec.toUpperCase() }} 방식으로 만들어져요 · 인스타그램·아이폰용은 사파리나 최신 크롬에서 만들어 주세요</p>
       <button type="button" class="shoot-shorts__primary" :disabled="!plan || can === false || making != null" @click="make()">{{ can === false ? "이 브라우저에서는 mp4를 만들 수 없어요" : `쇼츠 mp4 만들기 · ${mmss(total)}` }}</button>
     </footer>
     <div v-if="making != null" class="shoot-dim" role="status" aria-label="쇼츠를 만드는 중">

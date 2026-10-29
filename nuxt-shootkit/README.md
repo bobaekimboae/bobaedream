@@ -3,7 +3,8 @@
 리액트 시안 `?register=shootkit`(`src/prototype/register/shoot-kit/`)을 보배드림 프런트엔드와 같은 **Nuxt 3 + Vue 3**로 옮긴 것이다. 화면 · 글자 · 동작은 리액트 판과 같고, 같은 자동 시험을 그대로 통과하는 것을 기준으로 옮겼다.
 
 - 확인 주소: https://bobaekimboae.github.io/bobaedream/nuxt-shootkit/
-- 리액트 판(비교용): https://bobaekimboae.github.io/bobaedream/?register=shootkit
+- 리액트 판(비교용, 2026-10-29부터 더 고치지 않음): https://bobaekimboae.github.io/bobaedream/?register=shootkit
+- **2026-10-29 「넉스트 하나만 가자」: 촬영 쇼츠 키트는 이 폴더만 고친다.** 리액트 판과 같게 맞추던 규칙은 끝났다. 새 기능·수정은 여기에만 넣는다.
 - 주소 검색어는 리액트 판과 같다: `?vstage=58`(58 원본 재현) · `?fakecam=1`(카메라 없는 PC 시험) · `?debug=1` · `?guide=on`(사진 윤곽선 시안)
 - 실제 등록 · 업로드 요청은 보내지 않는다(「등록하기」는 안내만).
 
