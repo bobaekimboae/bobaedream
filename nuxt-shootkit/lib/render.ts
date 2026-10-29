@@ -2,6 +2,7 @@
 // 매물 사진·딜러 영상과 매물 정보로 영상을 캔버스에 그리고, 브라우저 안에서 mp4로 만든다(WebCodecs + Mediabunny, 서버 없음).
 // 반사기 원칙: 사진·영상 자체는 고치지 않는다(자르기·이동·흐린 채움만). 차를 새로 그리는 AI 생성은 쓰지 않는다.
 // (Nuxt: 미리 불러오기 보정은 nuxt.config에서 처리)
+import { collectText, loadGlyphs } from "./fonts";
 
 export type ShortformTemplate = "reels" | "card";
 export type ShortformAspect = "9:16" | "1:1" | "16:9";
@@ -554,6 +555,8 @@ async function soundtrack(plan: ShortformPlan, seconds: number) {
 }
 
 export async function exportMp4(plan: ShortformPlan, onProgress: (ratio: number) => void, isCancelled: () => boolean = () => false) {
+  // 조각본 글꼴: 자막 · 명함 글자를 먼저 받아 둔다(lib/fonts.ts)
+  await loadGlyphs(collectText(plan).join(""));
   const mb = await import("mediabunny");
   const { Output, Mp4OutputFormat, BufferTarget, CanvasSource, AudioBufferSource, QUALITY_HIGH, getFirstEncodableVideoCodec, getFirstEncodableAudioCodec } = mb;
   const codec = await getFirstEncodableVideoCodec(["avc", "vp9", "av1"], { width: plan.width, height: plan.height });

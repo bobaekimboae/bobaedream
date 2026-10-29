@@ -16,6 +16,7 @@ import { saveToDevice, mp4Name } from "../../lib/save-mp4";
 import { analyzeClip, buildSound, maxShortsLength, planCuts, type ClipInfo, type Highlight, type PlannedCut } from "../../lib/shorts";
 import type { MadeShortform, ShortsInput } from "../../lib/shortform-types";
 import { rd, sitePath } from "../../lib/site";
+import { collectText, loadGlyphs } from "../../lib/fonts";
 
 const CFG = SHOOT.video.shorts;
 const INFO_KEY = "bbm-shoot-shorts-info";
@@ -187,6 +188,9 @@ const plan = computed<ShortformPlan | null>(() => {
     voice: keepSound.value ? sound.value : null,
   };
 });
+// 조각본 글꼴: 미리보기 캔버스에 그릴 자막 글자를 먼저 받는다(lib/fonts.ts)
+watch(plan, (p) => { if (p) void loadGlyphs(collectText(p).join("")); }, { immediate: true });
+
 
 // 시동 소리 원음: 컷이 바뀔 때마다 다시 만든다.
 watch(

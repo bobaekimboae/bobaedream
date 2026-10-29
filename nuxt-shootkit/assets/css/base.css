@@ -1,5 +1,5 @@
 /* 리액트 시안의 기본 바탕(src/styles.css · src/prototype/base.css 중 촬영 화면에 닿는 것만) */
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css");
+/* 글꼴은 plugins/font.client.ts 가 사이트 공용 Pretendard Variable(쓰는 글자 조각만 받음)을 붙인다(2026-10-29, 전체본 4개 3.1MB 대신) */
 :root {
   color: #151515;
   background: #ffffff;

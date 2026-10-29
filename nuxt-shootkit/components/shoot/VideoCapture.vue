@@ -521,6 +521,8 @@ const timelineText = computed(() => {
         ? `권장 ${c.max}초 · 다 찍으면 직접 멈춰 주세요`
         : "권장 시간을 넘었어요 · 다 찍었으면 멈춰 주세요";
 });
+/** 번호판이 보이는 바깥 단계(외관 · 흠집 표시 · 타이어 · 휠) */
+const plateStage = computed(() => ["exterior", "damage", "tyre", "wheel"].includes(cur.value.key));
 const vhint = computed(() =>
   isDamage.value
     ? "흠집·찍힘이 보이면 화면을 눌러 주세요"
@@ -578,6 +580,8 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
             <button v-if="istep < curSteps.length - 1" type="button" class="shoot-istep__next" @click="nextStep">다음 부위 ›</button>
           </div>
           <p class="shoot-vhint">{{ vhint }}</p>
+          <!-- 2026-10-29 컨설팅: 사진과 달리 영상 속 번호판은 가려지지 않는다는 것을 찍기 전에 알린다(바깥을 찍는 단계만) -->
+          <p v-if="PLUS && phase !== 'recording' && plateStage" class="shoot-vplate">영상 속 번호판은 자동으로 가려지지 않아요</p>
           <span v-if="PLUS && phase === 'recording' && !isDamage && hl.some((x) => x.k === cur.key)" class="shoot-hl-badge" :aria-label="`쇼츠 장면 ${hlCount}곳 표시`">{{ "★ " + hlCount }}</span>
           <span v-if="hlFlash" class="shoot-hl-flash">★ 쇼츠에 쓸 장면으로 표시했어요</span>
         </div>
