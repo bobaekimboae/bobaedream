@@ -595,6 +595,8 @@ const leaveSave = async () => {
                   <img :src="p.src" alt="" draggable="false" />
                   <span class="shoot-tile__wm">보배드림</span>
                   <span v-if="PLUS && idx === 0" class="shoot-tile__rep">대표</span>
+                  <!-- 2026-10-29 컨설팅: 번호판 가림이 붙은 사진은 알림이 사라져도 칸에 표시를 남긴다(누르면 위치 맞추기 화면) -->
+                  <span v-if="PLUS && p.plateOn && p.sticker?.visible" class="shoot-tile__plate">번호판 가림</span>
                 </button>
                 <button v-if="!p.uploading" type="button" class="shoot-tile__del" data-nodrag="" aria-label="사진 삭제" @click="confirm = { kind: 'photo', id: p.id }"><Mask :src="rd('delete-outline')" /></button>
                 <figcaption>{{ p.uploading ? "업로드 중" : itemLabel(p.slot) }}</figcaption>
@@ -607,7 +609,7 @@ const leaveSave = async () => {
                   <span class="shoot-tile__wm">보배드림</span>
                 </button>
                 <button v-if="!video.uploading" type="button" class="shoot-tile__del" aria-label="영상 삭제" @click="confirm = { kind: 'video' }"><Mask :src="rd('delete-outline')" /></button>
-                <figcaption>{{ video.marks?.length ? `흠집 공개 ${video.marks.length}곳` : " " }}</figcaption>
+                <figcaption>{{ video.marks?.length ? `흠집 표시 ${video.marks.length}곳` : " " }}</figcaption>
               </figure>
               <button v-if="photos.length < MAX_PHOTOS" type="button" class="shoot-tile shoot-tile--add" @click="setScreen({ name: 'capture', mode: 'cam' })">
                 <Mask :src="rd('camera-outline-24')" cls="is-big" />

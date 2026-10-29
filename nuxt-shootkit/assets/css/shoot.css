@@ -4743,3 +4743,37 @@ body:has(.shoot-layer) .shoot-install {
   right: -10px;
   top: -8px;
 }
+
+/* ── 2026-10-29 「고쳐」(컨설팅 P0) ── */
+/* 번호판 가림이 붙은 사진 칸: 왼쪽 위 대표·지우기 줄 아래 작은 표시(워터마크는 오른쪽 아래) */
+.shoot-tile__plate {
+  position: absolute;
+  left: 4px;
+  top: 28px;
+  height: 16px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 16px;
+  white-space: nowrap;
+}
+/* 영상 속 번호판 안내: 안내 알약 바로 아래 한 줄 */
+.shoot-root.is-kit .shoot-vplate {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 52px);
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 12px;
+  line-height: 16px;
+  text-align: center;
+}

@@ -11,7 +11,7 @@
 <script setup lang="ts">
 /**
  * 촬영 코스 고르기(2026-10-25 컨설팅 4건 통합).
- * 딜러 간편: 차종 추천 + 빠른 · 표준 · 상세 코스 + 흠집 공개. 촬영팀 전문: 직접 고르기 · 내 부위 · 순서 · 부위별 시간 · 자동 멈춤.
+ * 딜러 간편: 차종 추천 + 빠른 · 표준 · 상세 코스 + 흠집 표시. 촬영팀 전문: 직접 고르기 · 내 부위 · 순서 · 부위별 시간 · 자동 멈춤.
  */
 import { computed, ref } from "vue";
 import Mask from "./Mask.vue";
@@ -301,8 +301,8 @@ const onInput = (e: Event) => (e.target as HTMLInputElement).value;
             <span class="shoot-xpick__check"><Mask v-if="damage" :src="rd('checkmark-fill')" /></span>
             <img :src="stageThumb('damage')" alt="" />
             <span class="shoot-xpick__txt">
-              <b>흠집 공개 더하기<em>선택 · {{ dd("damage").min }}~{{ dd("damage").max }}초</em></b>
-              <span>흠집이 있으면 직접 보여 줘요. 화면을 눌러 위치를 표시하면 매물에 「흠집 공개 N곳」이 붙어요.</span>
+              <b>흠집 표시 더하기<em>선택 · {{ dd("damage").min }}~{{ dd("damage").max }}초</em></b>
+              <span>흠집이 있으면 직접 보여 줘요. 화면을 눌러 위치를 표시하면 매물에 「판매자가 표시한 흠집 N곳」이 붙어요.</span>
             </span>
           </button>
         </li>
