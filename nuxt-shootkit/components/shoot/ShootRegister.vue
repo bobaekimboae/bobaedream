@@ -15,6 +15,7 @@ import CoverPicker from "./CoverPicker.vue";
 import RegionSheet from "./RegionSheet.vue";
 import RulesPage from "./RulesPage.vue";
 import DraftSheet from "./DraftSheet.vue";
+import ProgressSheet from "./ProgressSheet.vue";
 import ShortsMaker from "./ShortsMaker.vue";
 import { useDragSwap } from "../../composables/useDragSwap";
 import { swapPhotos } from "../../lib/photo-sort";
@@ -296,8 +297,21 @@ const showTipCard = computed(() => status.value === "done" && photos.value.lengt
 const hintText = computed(() => (PLUS && showTipCard.value ? "" : requiredOk.value ? SHOOT.photo.hintDone : ENFORCE ? ENF_TEXT.hint : SHOOT.photo.hint));
 
 const onBack = () => (PLUS && !photos.value.length && !video.value && !region.value ? leave() : (askLeave.value = true));
-const progressWhy = () =>
-  notify(region.value ? "완성도 = 소재지 20% · 우선 4장 60% · 추가 사진 10% · 영상 10%" : "차량 소재지를 고르면 완성도가 20% 올라요 · 우선 4장 60% · 추가 사진 10% · 영상 10%");
+// 2026-10-29 크로스체크 「고쳐」: 완성도를 누르면 알림 대신 항목별 점수 시트(누르는 곳은 44px 이상)
+const progressOpen = ref(false);
+const progressWhy = () => (progressOpen.value = true);
+const progressRows = computed(() => {
+  const reqN = Math.max(1, REQUIRED_IDS.length);
+  const recN = Math.max(1, RECOMMENDED_IDS.length);
+  const vidN = Math.max(1, VIDEO_GROUPS.length);
+  const req = Math.min(requiredDone.value, reqN);
+  return [
+    { label: "차량 소재지", got: region.value ? 20 : 0, max: 20, note: region.value ? `${region.value.sido}${region.value.gu ? ` ${region.value.gu}` : ""}` : "아직 안 골랐어요" },
+    { label: "우선 4장", got: Math.round((60 * req) / reqN), max: 60, note: `${req}/${REQUIRED_IDS.length}장 · ${REQUIRED_IDS.map((id) => itemLabel(id)).join(" · ")}` },
+    { label: "추가 사진", got: Math.round((10 * Math.min(recommendedDone.value, recN)) / recN), max: 10, note: `${recommendedDone.value}/${RECOMMENDED_IDS.length}각도` },
+    { label: "영상", got: Math.round((10 * Math.min(videoDone.value, vidN)) / vidN), max: 10, note: `${videoDone.value}/${VIDEO_GROUPS.length}부위 · 선택` },
+  ];
+});
 // ── 임시저장(2026-10-29 「수정하고 병합해라」): 이 폰 브라우저(IndexedDB)에 실제로 보관하고 「저장한 글」에서 다시 연다 ──
 const draftList = shallowRef<DraftMeta[]>([]);
 const draftsOpen = ref(false);
@@ -749,6 +763,7 @@ const leaveSave = async () => {
       <ShortsMaker v-if="screen.name === 'shorts' && shortsInput" :input="shortsInput" @close="screen.name === 'shorts' && setScreen(screen.back)" />
       <RulesPage v-if="screen.name === 'rules'" @back="setScreen({ name: 'main' })" @add="setScreen({ name: 'capture', mode: 'cam' })" />
 
+      <ProgressSheet v-if="progressOpen" :rows="progressRows" :total="progress" @close="progressOpen = false" />
       <DraftSheet v-if="draftsOpen" :items="draftList" :busy="draftBusy" @close="draftsOpen = false" @open="openDraft" @remove="removeDraft" />
       <Confirm
         v-if="resume"

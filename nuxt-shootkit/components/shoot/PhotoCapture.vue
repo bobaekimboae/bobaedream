@@ -20,6 +20,7 @@ import PhotoCounter from "./PhotoCounter.vue";
 import NoCam from "./NoCam.vue";
 import CamPermission from "./CamPermission.vue";
 import ShotGuide from "./ShotGuide.vue";
+import LevelMeter from "./LevelMeter.vue";
 import { useCamera } from "../../composables/useCamera";
 import { useSwipe } from "../../composables/useSwipe";
 import { useLayerEsc } from "../../composables/useLayerEsc";
@@ -29,7 +30,7 @@ import { playShutter } from "../../lib/sound";
 import { ALLOW_FAKE, ENFORCE, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLUS, reqLabel, uid, type Photo } from "../../lib/core";
 import { REQUIRED_IDS, isRequiredItem, itemLabel, itemOf } from "../../lib/items";
 import { rd } from "../../lib/site";
-import { GUIDE_ON, type CamSession } from "../../lib/photo-capture";
+import { GUIDE_ON, askTilt, type CamSession } from "../../lib/photo-capture";
 
 const props = defineProps<{ existing: Photo[]; startMode: "cam" | "album" }>();
 const emit = defineEmits<{ close: []; done: [added: Photo[]]; notify: [t: string] }>();
@@ -255,7 +256,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
 </script>
 
 <template>
-  <div ref="rootRef" class="shoot-layer shoot-capture" v-on="swipe">
+  <div ref="rootRef" class="shoot-layer shoot-capture" v-on="swipe" @pointerdown.capture="askTilt">
     <div class="shoot-rotate-hint" role="status"><Mask :src="rd('rotate-image-outline')" />휴대폰을 세로로 들어 주세요</div>
     <header class="shoot-top">
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="onClickClose">
@@ -276,6 +277,8 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
         <LiveVideo v-if="stream" :stream="stream" />
         <NoCam v-else :denied="error === 'denied'" />
         <ShotGuide v-if="guide" :slot="curSlot" />
+        <!-- 수평계: 윤곽선과 따로(계기판·대시보드처럼 안을 찍는 칸은 숨김) -->
+        <LevelMeter v-if="PLUS && !['dash', 'cluster'].includes(itemOf(curSlot).guide.kind)" />
         <span class="shoot-pill">{{ `${itemLabel(curSlot)}${curSlot === OTHER ? " 사진" : ""} 촬영` }}</span>
         <!-- 첫 칸(대표 사진): 왼쪽 위 「대표」 딱지(JSON note). -->
         <div ref="railEl" class="shoot-rail">

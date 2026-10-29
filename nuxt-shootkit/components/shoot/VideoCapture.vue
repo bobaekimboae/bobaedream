@@ -614,7 +614,8 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
       </div>
       <div class="shoot-bottom">
         <div class="shoot-controls">
-          <span v-if="PLUS" :class="`shoot-rec-label ${phase === 'recording' && elapsed < cur.min ? 'is-wait' : ''}`" aria-hidden="true">{{ recLabel }}</span>
+          <!-- 2026-10-29 크로스체크 「고쳐」: 버튼 옆 글자를 눌러도 버튼과 같이 동작한다(화면 낭독기는 버튼 이름으로 읽으므로 글자는 숨김 유지) -->
+          <span v-if="PLUS" :class="`shoot-rec-label is-tap ${phase === 'recording' && elapsed < cur.min ? 'is-wait' : ''}`" aria-hidden="true" @click="phase !== 'countdown' && phase !== 'merging' && pressMain()">{{ recLabel }}</span>
           <span v-else />
           <button
             type="button"
