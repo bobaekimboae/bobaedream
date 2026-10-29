@@ -5,7 +5,6 @@ import { loadPrefs, type StagePrefs } from "./stage-prefs";
 import type { Highlight } from "./shorts";
 import { query } from "./site";
 import { CUTS, ENFORCE_REQUIRED, ITEMS, OTHER_ID, PHOTO_MAX, ROLES, SHOOT, VIDEO_GROUPS, coursesOf, cutOf, groupOf, isRequiredItem, levelLabel, stageSec, stepsOf, type RoleDef, type ShootRole } from "./items";
-import { savePrefs } from "./stage-prefs";
 
 export const OTHER = OTHER_ID;
 export const MAX_PHOTOS = PHOTO_MAX;
@@ -14,18 +13,37 @@ export const PLUS = query().get("vstage") !== "58";
 
 /** 이 브라우저에 기억한 촬영 설정(코스 창에서 바꾸면 setPrefs로 바꾼다) */
 export let PREFS: StagePrefs = typeof window === "undefined" ? { custom: [], times: {}, autoStop: true, myCourse: null, target: 0, mode: "easy" } : loadPrefs();
-// 역할 값(2026-10-29 3차 컨설팅): ?role=dealer|crew 가 오면 코스 창의 화면 종류(easy/pro)를 그 역할로 맞춘다. 로그인이 생기면 계정 역할로 바꾼다.
-{
-  const q = typeof window === "undefined" ? null : query().get("role");
-  if (q === "dealer" || q === "crew") {
-    const mode = q === "crew" ? "pro" : "easy";
-    if (PREFS.mode !== mode) {
-      PREFS = { ...PREFS, mode };
-      savePrefs(PREFS);
-    }
+// 역할 값(2026-10-29 3차 컨설팅 · 자가 체크로 보완): ?role=dealer|crew 가 오면 그 역할로. 공용 폰에서 촬영팀 화면이 딜러에게 남지 않게
+// 역할은 이 탭(세션)에만 기억하고, 코스 창의 「딜러 간편 / 촬영팀 전문」도 같은 자리에 쓴다. 로그인이 생기면 계정 역할로 바꾼다.
+const ROLE_KEY = "bbm-shoot-role";
+const readRole = (): ShootRole | null => {
+  try {
+    const v = window.sessionStorage.getItem(ROLE_KEY);
+    return v === "crew" || v === "dealer" ? v : null;
+  } catch {
+    return null;
+  }
+};
+export function setRole(r: ShootRole) {
+  try {
+    window.sessionStorage.setItem(ROLE_KEY, r);
+  } catch {
+    /* 사생활 보호 창: 이번 화면에서만 */
   }
 }
-/** 지금 역할: 코스 창의 「촬영팀 전문」이면 crew, 아니면 dealer. 58 재현은 늘 dealer */
+{
+  const q = typeof window === "undefined" ? null : query().get("role");
+  if (q === "dealer" || q === "crew") setRole(q);
+  const r = typeof window === "undefined" ? null : readRole();
+  if (r) {
+    const mode = r === "crew" ? "pro" : "easy";
+    if (PREFS.mode !== mode) PREFS = { ...PREFS, mode };
+  } else if (typeof window !== "undefined" && PREFS.mode === "pro") {
+    // 예전 저장값(localStorage)에만 촬영팀이 남아 있으면 이 탭에서는 딜러로 시작한다
+    PREFS = { ...PREFS, mode: "easy" };
+  }
+}
+/** 지금 역할: 이 탭에 기억한 역할(코스 창의 「촬영팀 전문」 = crew). 58 재현은 늘 dealer */
 export const roleNow = (): ShootRole => (PLUS && PREFS.mode === "pro" ? "crew" : "dealer");
 export const roleDef = (r: ShootRole = roleNow()): RoleDef => ROLES[r];
 export const roleLabel = (r: ShootRole = roleNow()) => roleDef(r).label;
@@ -33,7 +51,7 @@ export const roleLabel = (r: ShootRole = roleNow()) => roleDef(r).label;
 export function baseStagesOf(r: ShootRole): VideoStage[] {
   if (!PLUS) return VIDEO_GROUPS.map((g) => g.videoKey!);
   const list = coursesOf(r);
-  const key = r === "crew" ? "basic" : roleDef(r).course;
+  const key = roleDef(r).course;
   return (list.find((c) => c.key === key) ?? list[0])?.stages ?? VIDEO_GROUPS.map((g) => g.videoKey!);
 }
 
@@ -133,7 +151,8 @@ export type Photo = { id: string; src: string; slot: string; sticker?: Sticker; 
 /** raw = 번호판 가림을 굽기 전 원본, orient = 찍을 때 쓴 방향(2026-10-29: 가로 4:3 틀로 찍은 사진은 landscape) */
 /** 번호판이 보이는 각도(정면 · 후면 · 45°)만 촬영 때 가림을 자동으로 붙인다 */
 export const PLATE_KINDS = new Set(["front", "rear", "q34"]);
-export const platePlace = (): Sticker => ({ ...defaultSticker(), cy: 0.64 });
+/** 가로 4:3 사진은 번호판이 더 아래에 온다(2026-10-29 자가 체크, 실제 폰 사진으로 보정 필요) */
+export const platePlace = (orient?: "landscape" | "portrait"): Sticker => ({ ...defaultSticker(), cy: orient === "landscape" ? 0.74 : 0.64 });
 /** 등록 화면 칸 순서: 촬영 레일 각도 순(기타는 맨 뒤), 같은 각도는 올린 순 */
 export const slotOrder = (slot: string) => {
   const i = (PHOTO_SLOTS as readonly string[]).indexOf(slot);
@@ -202,4 +221,5 @@ export function releaseVideo(v: { segs: (string | null)[] } | null) {
 /** 코스 창에서 설정을 저장하면 여기서 바꾼다(리액트의 `PREFS = prefs` 자리) */
 export function setPrefs(p: StagePrefs) {
   PREFS = p;
+  setRole(p.mode === "pro" ? "crew" : "dealer");
 }

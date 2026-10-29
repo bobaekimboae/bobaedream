@@ -632,9 +632,9 @@
     "crew": {
       "label": "촬영팀",
       "orientationToggle": true,
-      "course": "full",
+      "course": "basic",
       "maxExtra": 8
     }
   },
-  "rolesNote": "역할 값(2026-10-29 3차 컨설팅): ?role=dealer|crew 또는 코스 창의 「딜러 간편 / 촬영팀 전문」. 로그인이 생기면 계정 역할로 바꾼다. orientationToggle = 사진 가로·세로 전환 버튼, course = 기본 코스, maxExtra = 더할 수 있는 부위 수"
+  "rolesNote": "역할 값(2026-10-29 3차 컨설팅): ?role=dealer|crew 또는 코스 창의 「딜러 간편 / 촬영팀 전문」. 로그인이 생기면 계정 역할로 바꾼다. orientationToggle = 사진 가로·세로 전환 버튼, course = 기본 코스, maxExtra = 더할 수 있는 부위 수 · 촬영팀도 표준으로 시작하고 상세는 코스 창에서 고른다(2026-10-29 자가 체크)"
 }
