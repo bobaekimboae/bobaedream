@@ -4,21 +4,54 @@ import { setCustomGuide, stageGuide, type VideoStage } from "./stages";
 import { loadPrefs, type StagePrefs } from "./stage-prefs";
 import type { Highlight } from "./shorts";
 import { query } from "./site";
-import { ENFORCE_REQUIRED, ITEMS, OTHER_ID, PHOTO_MAX, SHOOT, VIDEO_GROUPS, isRequiredItem, levelLabel, stageSec, stepsOf } from "./items";
+import { CUTS, ENFORCE_REQUIRED, ITEMS, OTHER_ID, PHOTO_MAX, ROLES, SHOOT, VIDEO_GROUPS, coursesOf, cutOf, groupOf, isRequiredItem, levelLabel, stageSec, stepsOf, type RoleDef, type ShootRole } from "./items";
+import { savePrefs } from "./stage-prefs";
 
 export const OTHER = OTHER_ID;
 export const MAX_PHOTOS = PHOTO_MAX;
+/** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
+export const PLUS = query().get("vstage") !== "58";
 
-export type StageDef = { key: VideoStage; label: string; min: number; max: number; extra?: boolean; custom?: boolean; hint?: string };
-/** 기본 단계 = videoStage 그룹(이름 = 그룹 이름, 길이 = videoSec), 추가 단계 = video.extraStages. 바꾸지 않는 기본값 */
+/** 이 브라우저에 기억한 촬영 설정(코스 창에서 바꾸면 setPrefs로 바꾼다) */
+export let PREFS: StagePrefs = typeof window === "undefined" ? { custom: [], times: {}, autoStop: true, myCourse: null, target: 0, mode: "easy" } : loadPrefs();
+// 역할 값(2026-10-29 3차 컨설팅): ?role=dealer|crew 가 오면 코스 창의 화면 종류(easy/pro)를 그 역할로 맞춘다. 로그인이 생기면 계정 역할로 바꾼다.
+{
+  const q = typeof window === "undefined" ? null : query().get("role");
+  if (q === "dealer" || q === "crew") {
+    const mode = q === "crew" ? "pro" : "easy";
+    if (PREFS.mode !== mode) {
+      PREFS = { ...PREFS, mode };
+      savePrefs(PREFS);
+    }
+  }
+}
+/** 지금 역할: 코스 창의 「촬영팀 전문」이면 crew, 아니면 dealer. 58 재현은 늘 dealer */
+export const roleNow = (): ShootRole => (PLUS && PREFS.mode === "pro" ? "crew" : "dealer");
+export const roleDef = (r: ShootRole = roleNow()): RoleDef => ROLES[r];
+export const roleLabel = (r: ShootRole = roleNow()) => roleDef(r).label;
+/** 역할별 기본 코스 단계(키트). 58 재현은 그룹 4단계 */
+export function baseStagesOf(r: ShootRole): VideoStage[] {
+  if (!PLUS) return VIDEO_GROUPS.map((g) => g.videoKey!);
+  const list = coursesOf(r);
+  const key = r === "crew" ? "basic" : roleDef(r).course;
+  return (list.find((c) => c.key === key) ?? list[0])?.stages ?? VIDEO_GROUPS.map((g) => g.videoKey!);
+}
+
+export type StageDef = { key: VideoStage; label: string; min: number; max: number; extra?: boolean; custom?: boolean; hint?: string; cut?: boolean; item?: string };
+/** 기본 단계 = videoStage 그룹(이름 = 그룹 이름, 길이 = videoSec), 추가 단계 = video.extraStages, 실내 독립 컷 = video.cuts(2026-10-29). 바꾸지 않는 기본값 */
 export const DEFAULT_DEFS = Object.fromEntries([
   ...VIDEO_GROUPS.map((g) => [g.videoKey!, { key: g.videoKey!, label: g.label, ...stageSec(g) }]),
   ...SHOOT.video.extraStages.map((x) => [x.key, { key: x.key, label: x.label, min: x.min, max: x.max, hint: x.hint, extra: true }]),
+  ...CUTS.map((c) => [c.key, { key: c.key, label: c.label, min: c.min, max: c.max, hint: c.hint, extra: true, cut: true, item: c.item }]),
 ]) as Record<string, StageDef>;
+/** 단계가 속한 사진 그룹 id(부위 컷 마스터: 컷은 item의 그룹, 기본 단계는 그룹 videoKey). 없으면 null */
+export function stageGroup(k: VideoStage): string | null {
+  const c = cutOf(k);
+  if (c) return groupOf(c.item).id;
+  return VIDEO_GROUPS.find((g) => g.videoKey === k)?.id ?? null;
+}
 /** 지금 쓰는 값 = 기본값 + 이 브라우저에 기억한 시간 설정 + 직접 만든 부위(2026-10-25) */
 export const STAGE_DEFS: Record<string, StageDef> = {};
-/** 이 브라우저에 기억한 촬영 설정(코스 창에서 바꾸면 setPrefs로 바꾼다) */
-export let PREFS: StagePrefs = typeof window === "undefined" ? { custom: [], times: {}, autoStop: true, myCourse: null, target: 0, mode: "easy" } : loadPrefs();
 export function applyPrefs(p: StagePrefs) {
   Object.keys(STAGE_DEFS).forEach((k) => delete STAGE_DEFS[k]);
   Object.entries(DEFAULT_DEFS).forEach(([k, d]) => (STAGE_DEFS[k] = { ...d, ...(p.times[k] ?? {}) }));
@@ -35,11 +68,12 @@ export const INTERIOR_STEPS: { label: string; hand: string }[] = stepsOf("interi
 export const STEP_SEC = 4;
 /** 자동 멈춤을 끈 촬영팀 모드의 녹화 상한(초) */
 export const HARD_MAX = 120;
-export const BASE_STAGES: VideoStage[] = VIDEO_GROUPS.map((g) => g.videoKey!);
-export const EXTRA_STAGES: VideoStage[] = SHOOT.video.extraStages.map((x) => x.key);
+/** 기본 단계(역할의 표준 코스 · 58 재현은 그룹 4단계). 화면이 열릴 때 역할에 따라 다를 수 있어 baseStages()를 쓴다 */
+export const BASE_STAGES: VideoStage[] = baseStagesOf(roleNow());
+export const baseStages = () => baseStagesOf(roleNow());
+/** 더할 수 있는 부위 = 추가 부위 + 표준 코스에 없는 실내 컷 */
+export const EXTRA_STAGES: VideoStage[] = [...SHOOT.video.extraStages.map((x) => x.key), ...CUTS.map((c) => c.key)];
 export const STAGES = BASE_STAGES.map((k) => def(k));
-/** 추가 촬영 부위는 기본으로 켠다(2026-10-24 「촬영 부위는 추가해라」). 58과 같은 4단계만 보려면 ?vstage=58 */
-export const PLUS = query().get("vstage") !== "58";
 /** 사진 칸 레일 순서(그룹 순서대로 펼친 항목 id). 키트는 규칙 화면처럼 우선 4장을 맨 앞에 둔다(2026-10-26 컨설팅: 규칙·레일 순서 통일) */
 export const PHOTO_SLOTS: string[] = PLUS
   ? [...ITEMS.filter((i) => isRequiredItem(i.id)), ...ITEMS.filter((i) => !isRequiredItem(i.id))].map((i) => i.id)
@@ -52,6 +86,8 @@ export const ALLOW_FAKE = !PLUS || (typeof window !== "undefined" && /[?&](debug
 /** 필수 등급 이름: 강제하면 「필수」, 아니면 JSON levelLabels.required(「우선」) */
 export const reqLabel = () => (ENFORCE ? ENF_TEXT.levelLabel : levelLabel("required"));
 export const MAX_EXTRA = 6;
+/** 역할별로 더할 수 있는 부위 수(JSON roles.maxExtra) */
+export const maxExtraOf = (r: ShootRole = roleNow()) => roleDef(r).maxExtra ?? MAX_EXTRA;
 /** 녹화 전 한 줄 동작 안내(2026-10-26 컨설팅: 「촬영 항목이 맞는지 확인」 대신 할 일을 말한다). 없으면 예시 안내의 첫 문장 */
 export const STAGE_DO: Partial<Record<string, string>> = {
   exterior: "차 앞에서 시작해 차 주위를 천천히 한 바퀴 돌아 주세요",
@@ -60,15 +96,17 @@ export const STAGE_DO: Partial<Record<string, string>> = {
   trunk: "트렁크를 열고 바닥까지 보여 주세요",
 };
 export const stageDo = (k: VideoStage) => STAGE_DO[k] ?? stageGuide(k).how.split(/(?<=[.요])\s/)[0].replace(/\.$/, "");
-/** 촬영 코스(2026-10-24 「촬영 부위 순서를 정하자 · 8개 3개」 · 「흠집표시는 선택」): 차 주위를 걷는 순서대로 정한다. */
+/** 촬영 코스(2026-10-24 「촬영 부위 순서를 정하자」 · 2026-10-29 3차 컨설팅: 역할별 코스는 JSON video.courses). 차 주위를 걷는 순서대로 정한다. */
 export type CourseKey = "basic" | "full" | "quick" | "custom" | "mine";
-export const COURSES: { key: Exclude<CourseKey, "custom">; label: string; sub: string; stages: VideoStage[] }[] = [
-  // 2026-10-25 컨설팅: 빠른 · 표준 · 상세 3개, 상세에 시트를 넣는다. 쇼츠 길이는 촬영 길이와 따로 15/30/60초로 줄인다.
-  // 2026-10-27 컨설팅 7건: 영상으로 보여 줄 가치가 큰 트렁크를 넣고, 엔진룸은 사진으로(또는 직접 더하기)
+export type Course = { key: Exclude<CourseKey, "custom">; label: string; sub: string; stages: VideoStage[] };
+/** 58 재현(&vstage=58)의 코스: 그룹 4단계 그대로 */
+const COURSES_58: Course[] = [
   { key: "quick", label: "빠른 3단계", sub: "외관 → 실내 → 트렁크 · 엔진룸은 사진으로", stages: ["exterior", "interior", "trunk"] },
-  { key: "basic", label: `표준 ${BASE_STAGES.length}단계`, sub: VIDEO_GROUPS.map((g) => g.label).join(" → "), stages: BASE_STAGES },
+  { key: "basic", label: `표준 ${VIDEO_GROUPS.length}단계`, sub: VIDEO_GROUPS.map((g) => g.label).join(" → "), stages: VIDEO_GROUPS.map((g) => g.videoKey!) },
   { key: "full", label: "상세 9단계", sub: "외관 → 타이어 → 실내 → 시트 → 계기판 → 시동 소리 → 옵션 작동 → 엔진룸 → 트렁크", stages: ["exterior", "tyre", "interior", "seat", "cluster", "start", "feature", "engine", "trunk"] },
 ];
+export const coursesFor = (r: ShootRole): Course[] => (PLUS ? (coursesOf(r) as Course[]) : COURSES_58);
+export const COURSES: Course[] = coursesFor(roleNow());
 /** 흠집 표시는 어느 코스든 선택으로 더한다. 바깥을 도는 단계(타이어, 없으면 외관) 바로 뒤에 넣는다. */
 export function withDamage(list: VideoStage[], on: boolean): VideoStage[] {
   const base = list.filter((k) => k !== "damage");
@@ -76,22 +114,23 @@ export function withDamage(list: VideoStage[], on: boolean): VideoStage[] {
   const at = base.includes("tyre") ? base.indexOf("tyre") + 1 : base.indexOf("exterior") + 1;
   return [...base.slice(0, at), "damage", ...base.slice(at)];
 }
-export function courseOf(list: VideoStage[]): CourseKey {
+export function courseOf(list: VideoStage[], r: ShootRole = roleNow()): CourseKey {
   const base = list.filter((k) => k !== "damage").join(",");
   if (PREFS.myCourse && PREFS.myCourse.filter((k) => k !== "damage").join(",") === base) return "mine";
-  return COURSES.find((c) => c.stages.join(",") === base)?.key ?? "custom";
+  return coursesFor(r).find((c) => c.stages.join(",") === base)?.key ?? "custom";
 }
 export const courseLabel = (list: VideoStage[]) => {
   const key = courseOf(list);
   if (key === "mine") return `내 코스 ${list.length}단계`;
-  const c = COURSES.find((x) => x.key === key);
+  const c = coursesFor(roleNow()).find((x) => x.key === key);
   return c ? `${c.label}${list.includes("damage") ? " + 흠집" : ""}` : `직접 고름 ${list.length}단계`;
 };
 /** 흠집 표시: 흠집 단계 영상의 몇 초에, 화면 어디를 눌렀는지(0~1) */
 export type Mark = { t: number; x: number; y: number };
 
 /** raw = 번호판 가림을 굽기 전 원본(키트: 가림을 다시 옮길 수 있게), fromAlbum = 앨범에서 고른 사진(부위 나누기 대상) */
-export type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean; raw?: string; fromAlbum?: boolean };
+export type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean; raw?: string; fromAlbum?: boolean; orient?: "landscape" | "portrait" };
+/** raw = 번호판 가림을 굽기 전 원본, orient = 찍을 때 쓴 방향(2026-10-29: 가로 4:3 틀로 찍은 사진은 landscape) */
 /** 번호판이 보이는 각도(정면 · 후면 · 45°)만 촬영 때 가림을 자동으로 붙인다 */
 export const PLATE_KINDS = new Set(["front", "rear", "q34"]);
 export const platePlace = (): Sticker => ({ ...defaultSticker(), cy: 0.64 });

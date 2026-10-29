@@ -1,7 +1,12 @@
 // 촬영 부위 템플릿 데이터(리액트 templates.tsx에서 그림 부분을 뺀 것). 그림은 components/shoot/StageTemplate.vue · RuleIllustration.vue
 import { sitePath } from "./site";
 
-export type VideoStage = "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort" | "seat" | "charge" | `my-${string}`;
+export type VideoStage =
+  | "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort" | "seat" | "charge"
+  // 2026-10-29 3차 컨설팅: 세부 컷(라이트·그릴 등)과 실내 독립 컷
+  | "light-front" | "light-rear" | "mirror"
+  | "in-door" | "in-seat" | "in-dash" | "in-center" | "in-console" | "in-pass" | "in-rear" | "in-roof" | "in-third"
+  | `my-${string}`;
 
 export const ORANGE = "#FF7A1A";
 /** 예시 사진(public/assets/shoot-templates) */
@@ -27,6 +32,20 @@ const STAGE_GUIDE_BASE: Record<string, StageGuide> = {
   seat: { frames: ["in-seat", "in-rear", "in-comfort"], arrow: "M18 108 Q80 92 142 108", how: "운전석 → 조수석 → 뒷좌석 → 시트 기능 → 가죽 상태 순서로 시트만 따로 찍어요. 손으로 눌러 쿠션과 가죽을 보여 주세요.", pan: "sweep" },
   // 전기차(2026-10-27 컨설팅 7건): 엔진룸 대신. 고전압 부품은 만지지 않게 안내한다. 예시 사진은 실사가 없어 문 열기 사진을 임시로 쓴다.
   charge: { frames: ["opt-door-1"], arrow: "M18 100 Q80 116 142 100", how: "충전구 뚜껑을 열어 충전 단자를 보여 주세요. 앞 트렁크(프렁크)가 있으면 열어서 함께 찍어 주세요. 고전압 부품은 만지지 마세요.", pan: "sweep" },
+  // 2026-10-29 3차 컨설팅: 세부 컷(영국 Autotrader 세부 컷 목록) — 예시 사진은 실사가 없어 외관 사진을 임시로 쓴다
+  "light-front": { frames: ["ext-1"], arrow: "M18 100 Q80 116 142 100", how: "라이트를 켜고 정면에서 시작해 그릴 가까이 다가가요. 라이트가 켜진 채로 찍어요.", pan: "sweep" },
+  "light-rear": { frames: ["ext-4"], arrow: "M18 100 Q80 116 142 100", how: "브레이크를 밟아 뒤 라이트가 켜진 모습과 배기구를 가까이 찍어요.", pan: "sweep" },
+  mirror: { frames: ["ext-2"], arrow: "M30 60 Q80 48 130 60", how: "사이드미러가 접히는 모습과 도어 핸들(터치 잠금·웰컴 라이트)을 손으로 보여 주세요.", pan: "sweep" },
+  // 실내 독립 컷(컷마다 따로 녹화)
+  "in-door": { frames: ["int-1"], arrow: "M18 108 Q80 92 142 108", how: "운전석 문을 열고 실내 전체가 보이게 한 번에 비춰 주세요(첫인상 컷).", pan: "sweep" },
+  "in-seat": { frames: ["in-seat"], arrow: "M18 108 Q80 92 142 108", how: "운전석 시트 전체와 옆 볼스터를 비추고 손으로 눌러 쿠션을 보여 주세요.", pan: "sweep" },
+  "in-dash": { frames: ["opt-cluster", "in-dash"], arrow: "M18 108 Q80 92 142 108", how: "핸들을 잡고 계기판 주행거리 → 가운데 화면 순서로 천천히 비춰 주세요.", pan: "sweep" },
+  "in-center": { frames: ["in-dash"], arrow: "M18 108 Q80 92 142 108", how: "가운데 화면을 켜고 내비·후방카메라 화면을 눌러 보여 주세요.", pan: "sweep" },
+  "in-console": { frames: ["in-comfort"], arrow: "M18 108 Q80 92 142 108", how: "기어 노브와 콘솔 버튼, 컵홀더·충전 단자를 비춰 주세요.", pan: "sweep" },
+  "in-pass": { frames: ["int-2"], arrow: "M18 108 Q80 92 142 108", how: "조수석 문을 열고 시트와 글로브박스를 비춰 주세요.", pan: "sweep" },
+  "in-rear": { frames: ["in-rear"], arrow: "M18 108 Q80 92 142 108", how: "뒷문을 열고 뒷좌석 쿠션과 등받이, 발 공간을 비춰 주세요.", pan: "sweep" },
+  "in-roof": { frames: ["in-ceiling"], arrow: "M80 106 Q92 60 80 14", how: "천장과 선루프(있으면 열어서)를 비춰 주세요.", pan: "tilt" },
+  "in-third": { frames: ["int-4"], arrow: "M18 108 Q80 92 142 108", how: "3열 시트를 펴고 접는 모습까지 비춰 주세요(SUV·미니밴).", pan: "sweep" },
   under: { frames: ["opt-under"], arrow: "M18 100 Q80 116 142 100", how: "차 아래와 머플러 쪽을 비스듬히 찍어 주세요. 기름이 샌 자국이 없는지 보여 주면 좋아요.", pan: "sweep" },
 };
 

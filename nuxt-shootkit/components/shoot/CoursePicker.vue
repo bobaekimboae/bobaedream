@@ -17,22 +17,22 @@ import { computed, ref } from "vue";
 import Mask from "./Mask.vue";
 import { useDialogFocus } from "../../composables/useDialogFocus";
 import {
-  BASE_STAGES,
-  COURSES,
   DEFAULT_DEFS,
   EXTRA_STAGES,
   HARD_MAX,
-  MAX_EXTRA,
   PREFS,
   STAGE_DEFS,
+  baseStagesOf,
   courseOf,
+  coursesFor,
   def,
+  maxExtraOf,
   mmss,
   withDamage,
   type CourseKey,
   type StageDef,
 } from "../../lib/core";
-import { SHOOT } from "../../lib/items";
+import { SHOOT, cutOf, type ShootRole } from "../../lib/items";
 import { rd } from "../../lib/site";
 import { stageGuide, stageThumb, type VideoStage } from "../../lib/stages";
 import { newCustomKey, type StagePrefs } from "../../lib/stage-prefs";
@@ -44,12 +44,17 @@ const boxRef = ref<HTMLElement | null>(null);
 const onClose = () => emit("close");
 useDialogFocus(boxRef, onClose);
 
-const course = ref<CourseKey>(courseOf(props.current));
-const damage = ref(props.current.includes("damage"));
-const picked = ref<VideoStage[]>(props.current.filter((k) => def(k).extra && k !== "damage"));
 // 시간 설정 · 직접 만든 부위 · 자동 멈춤 · 화면 종류는 「적용」을 누를 때만 기억한다.
 const draft = ref<StagePrefs>({ ...PREFS, times: { ...PREFS.times }, custom: [...PREFS.custom] });
 const pro = computed(() => draft.value.mode === "pro");
+// 역할(2026-10-29 3차 컨설팅): 화면 종류가 곧 역할. 딜러는 빠른·표준 2개, 촬영팀은 표준·상세 + 직접 고르기
+const role = computed<ShootRole>(() => (pro.value ? "crew" : "dealer"));
+const COURSES = computed(() => coursesFor(role.value));
+const BASE_STAGES = computed(() => baseStagesOf(role.value));
+const MAX_EXTRA = computed(() => maxExtraOf(role.value));
+const course = ref<CourseKey>(courseOf(props.current, role.value));
+const damage = ref(props.current.includes("damage"));
+const picked = ref<VideoStage[]>(props.current.filter((k) => def(k).extra && k !== "damage" && !BASE_STAGES.value.includes(k)));
 // 다시 열 때 기본 단계를 바꾼 추천(전기차: 엔진룸 → 충전구·프렁크)이 적용돼 있으면 그 추천으로 시작한다.
 // (2026-10-27 코드 검토: 그대로 두면 엔진룸이 되살아나 단계가 하나 늘었다)
 const rec = ref<string | null>(
@@ -63,7 +68,8 @@ const form = ref<{ label: string; hint: string; t: number } | null>(null);
 const order = ref<VideoStage[] | null>(courseOf(props.current) === "custom" ? props.current.filter((k) => k !== "damage") : null);
 
 const customKeys = computed(() => draft.value.custom.map((c) => c.key));
-const customExtras = computed(() => [...EXTRA_STAGES.filter((k) => k !== "damage"), ...customKeys.value]);
+// 더할 수 있는 부위: 추가 부위 + 이 역할의 표준 코스에 없는 실내 컷(촬영팀 전용 컷은 촬영팀만)
+const customExtras = computed(() => [...EXTRA_STAGES.filter((k) => k !== "damage" && !BASE_STAGES.value.includes(k) && (pro.value || !cutOf(k)?.crewOnly)), ...customKeys.value]);
 /** 이 창 안에서 쓰는 단계 값(아직 저장 전 시간·직접 부위 포함) */
 const dd = (k: VideoStage): StageDef => {
   const c = draft.value.custom.find((x) => x.key === k);
@@ -75,13 +81,13 @@ const recStages = computed(() => recDef.value?.stages ?? []);
 // 차종 추천이 기본 단계를 바꿀 때(전기차: 엔진룸 → 충전구·프렁크). 바꾼 단계는 추가 목록에서 빼 중복되지 않게 한다.
 const recReplace = computed(() => recDef.value?.replace ?? {});
 const recHide = computed(() => new Set<VideoStage>([...(recDef.value?.hide ?? []), ...(Object.values(recReplace.value) as VideoStage[])]));
-const recBase = computed(() => BASE_STAGES.map((k) => (recReplace.value as Partial<Record<VideoStage, VideoStage>>)[k] ?? k));
+const recBase = computed(() => BASE_STAGES.value.map((k) => (recReplace.value as Partial<Record<VideoStage, VideoStage>>)[k] ?? k));
 const baseList = (c: CourseKey): VideoStage[] =>
   c === "custom"
     ? [...recBase.value, ...customExtras.value.filter((k) => picked.value.includes(k) && !recBase.value.includes(k))]
     : c === "mine"
-      ? (PREFS.myCourse ?? BASE_STAGES).filter((k) => STAGE_DEFS[k] || customKeys.value.includes(k))
-      : COURSES.find((x) => x.key === c)!.stages;
+      ? (PREFS.myCourse ?? BASE_STAGES.value).filter((k) => STAGE_DEFS[k] || customKeys.value.includes(k))
+      : (COURSES.value.find((x) => x.key === c) ?? COURSES.value[0]).stages;
 /** 순서 적용: 바꾼 순서에 있는 것은 그 순서로, 새로 더한 것은 뒤에 */
 const ordered = (list: VideoStage[]) => {
   const o = order.value;
@@ -99,7 +105,7 @@ const pickCourse = (c: CourseKey) => {
 const toggle = (k: VideoStage) => {
   if (props.recorded.includes(k)) return;
   const p = picked.value;
-  picked.value = p.includes(k) ? p.filter((x) => x !== k) : p.length >= MAX_EXTRA ? p : [...p, k];
+  picked.value = p.includes(k) ? p.filter((x) => x !== k) : p.length >= MAX_EXTRA.value ? p : [...p, k];
 };
 /** 차종 추천: 추천 부위를 더한 「직접 고르기」로 바꾼다. 무엇이 더해지는지는 알약 아래에 미리 보여 준다. */
 const pickRec = (id: string) => {
@@ -119,7 +125,7 @@ const pickRec = (id: string) => {
   rec.value = id;
   pickCourse("custom");
   const hide = new Set<VideoStage>([...(r.hide ?? [])]);
-  picked.value = [...new Set([...picked.value.filter((k) => props.recorded.includes(k) || (!hide.has(k) && !prevAdd.has(k))), ...r.stages])].slice(0, MAX_EXTRA);
+  picked.value = [...new Set([...picked.value.filter((k) => props.recorded.includes(k) || (!hide.has(k) && !prevAdd.has(k))), ...r.stages.filter((k) => !BASE_STAGES.value.includes(k))])].slice(0, MAX_EXTRA.value);
 };
 const setTime = (k: VideoStage, min: number, max: number) => {
   const d = draft.value;
@@ -148,7 +154,7 @@ const addCustom = () => {
   draft.value = { ...d, custom: [...d.custom, { key, label: f.label.trim().slice(0, 10), hint: f.hint.trim().slice(0, 40) || `「${f.label.trim()}」 부분을 천천히 찍어 주세요`, min: t.min, max: t.max }] };
   if (course.value !== "custom") pickCourse("custom");
   const p = picked.value;
-  picked.value = p.length >= MAX_EXTRA ? p : [...p, key];
+  picked.value = p.length >= MAX_EXTRA.value ? p : [...p, key];
   form.value = null;
 };
 const removeCustom = (k: VideoStage) => {
@@ -159,14 +165,15 @@ const removeCustom = (k: VideoStage) => {
   draft.value = { ...d, times, custom: d.custom.filter((c) => c.key !== k), myCourse: d.myCourse?.filter((x) => x !== k) ?? null };
   picked.value = picked.value.filter((x) => x !== k);
 };
+const basicLabel = computed(() => COURSES.value.find((c) => c.key === "basic")?.label ?? "표준 코스");
 const options = computed(() => [
   ...(PREFS.myCourse ? [{ key: "mine" as const, label: "내 코스", sub: "저장해 둔 순서", stages: [] as VideoStage[] }] : []),
-  ...COURSES,
+  ...COURSES.value,
   // 간편 화면에서는 차종 추천을 골랐을 때만 「○○ 추천」 코스로 보인다(직접 고르기 목록은 전문 화면에만).
   ...(pro.value
-    ? [{ key: "custom" as const, label: "직접 고르기", sub: "표준 4단계 뒤에 부위를 더하고 순서를 바꿔요", stages: [] as VideoStage[] }]
+    ? [{ key: "custom" as const, label: "직접 고르기", sub: `${basicLabel.value} 뒤에 부위를 더하고 순서를 바꿔요`, stages: [] as VideoStage[] }]
     : course.value === "custom"
-      ? [{ key: "custom" as const, label: rec.value ? `${SHOOT.video.recommend.find((r) => r.id === rec.value)?.label} 추천` : "직접 고른 코스", sub: "표준 4단계 + 추천 부위", stages: [] as VideoStage[] }]
+      ? [{ key: "custom" as const, label: rec.value ? `${SHOOT.video.recommend.find((r) => r.id === rec.value)?.label} 추천` : "직접 고른 코스", sub: `${basicLabel.value} + 추천 부위`, stages: [] as VideoStage[] }]
       : []),
 ]);
 /** 코스 행마다 쓰는 값(원본 map 안의 list · on · lock) */
@@ -192,6 +199,10 @@ const MODES = [
 ] as const;
 const setMode = (m: "easy" | "pro") => {
   draft.value = { ...draft.value, mode: m };
+  // 역할이 바뀌면 그 역할에 없는 코스(딜러의 「상세」 등)는 표준으로 되돌린다
+  const r: ShootRole = m === "pro" ? "crew" : "dealer";
+  if (course.value !== "custom" && course.value !== "mine" && !coursesFor(r).some((c) => c.key === course.value)) pickCourse("basic");
+  if (course.value === "custom" && !pro.value && !rec.value) pickCourse("basic");
 };
 const toggleAuto = () => {
   draft.value = { ...draft.value, autoStop: !draft.value.autoStop };
@@ -206,7 +217,7 @@ const onInput = (e: Event) => (e.target as HTMLInputElement).value;
     <div ref="boxRef" class="shoot-xpick__box" role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" @click.stop>
       <header>
         <strong id="shoot-xpick-t">촬영 코스 고르기</strong>
-        <p>차 주위를 걷는 순서대로 찍어요. 아래 시간은 찍는 원본 길이이고, 쇼츠는 찍은 뒤 15·30·60초로 따로 만들어요.</p>
+        <p>차 주위를 걷는 순서대로 찍어요. 실내는 시트·대시보드·뒷좌석을 컷마다 따로 찍어요.</p>
         <div class="shoot-xpick__modes" role="radiogroup" aria-label="화면 종류">
           <button v-for="[m, label] in MODES" :key="m" type="button" role="radio" :aria-checked="draft.mode === m" :class="draft.mode === m ? 'is-on' : ''" @click="setMode(m)">
             {{ label }}

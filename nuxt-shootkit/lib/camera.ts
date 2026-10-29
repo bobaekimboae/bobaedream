@@ -12,6 +12,30 @@ export function grabFrame(video: HTMLVideoElement, maxSide = 1600, quality = 0.9
   return c.toDataURL("image/jpeg", quality);
 }
 
+/**
+ * 화면에 보이는 대로 저장(2026-10-29 3차 컨설팅: 보이는 구도 = 저장 구도).
+ * 비디오는 object-fit: cover 로 view(viewW×viewH) 를 채우고 있다. rect = view 기준 px 영역(가로 4:3 틀 또는 view 전체).
+ * 그 영역을 영상 픽셀로 바꿔 잘라 JPEG로 만든다. 영상이 아직 없으면 null.
+ */
+export function grabView(video: HTMLVideoElement, viewW: number, viewH: number, rect: { x: number; y: number; w: number; h: number }, maxSide = 1600, quality = 0.9): string | null {
+  const vw = video.videoWidth;
+  const vh = video.videoHeight;
+  if (!vw || !vh || !viewW || !viewH || rect.w <= 0 || rect.h <= 0) return null;
+  const s = Math.max(viewW / vw, viewH / vh);
+  const offX = (viewW - vw * s) / 2;
+  const offY = (viewH - vh * s) / 2;
+  const sx = Math.max(0, Math.min(vw, (rect.x - offX) / s));
+  const sy = Math.max(0, Math.min(vh, (rect.y - offY) / s));
+  const sw = Math.max(1, Math.min(vw - sx, rect.w / s));
+  const sh = Math.max(1, Math.min(vh - sy, rect.h / s));
+  const c = document.createElement("canvas");
+  const k = Math.min(1, maxSide / Math.max(sw, sh));
+  c.width = Math.max(1, Math.round(sw * k));
+  c.height = Math.max(1, Math.round(sh * k));
+  c.getContext("2d")!.drawImage(video, sx, sy, sw, sh, 0, 0, c.width, c.height);
+  return c.toDataURL("image/jpeg", quality);
+}
+
 /** 영상 파일에서 표지 후보 장면 n장 */
 export async function extractFrames(url: string, n: number): Promise<string[]> {
   const v = document.createElement("video");

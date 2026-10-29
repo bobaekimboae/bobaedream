@@ -25,7 +25,7 @@ import { dialogStack } from "../../lib/dialog-stack";
 import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
-import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, releaseVideo, reqLabel, sortBySlot, uid, type Photo, type Take, type Video } from "../../lib/core";
+import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, releaseVideo, reqLabel, roleNow, sortBySlot, stageGroup, uid, type Photo, type Take, type Video } from "../../lib/core";
 import { ITEMS, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf } from "../../lib/items";
 
 type Screen =
@@ -191,10 +191,9 @@ const videoDone = computed(() => {
   const v = video.value;
   if (!v) return 0;
   if (v.imported) return VIDEO_GROUPS.length;
-  return VIDEO_GROUPS.filter((g) => {
-    const i = (v.stages ?? BASE_STAGES).indexOf(g.videoKey!);
-    return i >= 0 && (v.durations[i] ?? 0) > 0;
-  }).length;
+  // 부위 컷 마스터(2026-10-29): 실내 독립 컷(in-seat 등)은 실내 그룹으로 센다
+  const ss = v.stages ?? BASE_STAGES;
+  return VIDEO_GROUPS.filter((g) => ss.some((k, i) => stageGroup(k) === g.id && (v.durations[i] ?? 0) > 0)).length;
 });
 const requiredOk = computed(() => requiredDone.value >= REQUIRED_IDS.length);
 const recommendedDone = computed(() => new Set(photos.value.map((p) => p.slot).filter((id) => itemLevel(id) === "recommended")).size);
@@ -529,7 +528,7 @@ const leaveSave = async () => {
 </script>
 
 <template>
-  <div :class="`shoot-root ${PLUS ? 'is-kit' : ''}`" @pointerdown.capture="primeSound">
+  <div :class="`shoot-root ${PLUS ? 'is-kit' : ''}`" :data-role="PLUS ? roleNow() : undefined" @pointerdown.capture="primeSound">
     <div class="shoot-phone">
       <section class="shoot-main" aria-label="중고차 등록">
         <header class="shoot-main__top">

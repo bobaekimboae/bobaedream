@@ -18,10 +18,18 @@ export type ShootItem = {
   auto?: string[];
   guide: { kind: GuideKind; flip?: boolean; hint: string };
 };
+/** 사진 방향(2026-10-29 3차 컨설팅): landscape = 가로 4:3 틀, portrait = 세로 허용, any = 틀 없음 */
+export type Orientation = "landscape" | "portrait" | "any";
+export type ShootRole = "dealer" | "crew";
+export type RoleDef = { label: string; orientationToggle: boolean; course: string; maxExtra: number };
+/** 실내 독립 컷(부위 컷 마스터): item = 같은 부위의 사진 칸 id */
+export type CutDef = { key: VideoStage; label: string; item: string; min: number; max: number; hint: string; crewOnly?: boolean };
+export type CourseDef = { key: string; label: string; sub: string; stages: VideoStage[] };
 export type ShootGroup = {
   id: string;
   label: string;
   level: ShootLevel;
+  orientation?: Orientation;
   videoStage: boolean;
   videoKey?: VideoStage;
   /** 이 단계 영상 길이(초). 없으면 video.perStageSec */
@@ -43,8 +51,11 @@ type ShootData = {
     customTimes: { label: string; min: number; max: number }[];
     targets: { label: string; sec: number }[];
     recommend: { id: string; label: string; stages: VideoStage[]; replace?: Partial<Record<VideoStage, VideoStage>>; hide?: VideoStage[] }[];
-    shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; hookDefault: string; cutMin: number; cutMax: number; highlightCut: number };
+    cuts: CutDef[];
+    courses: Record<ShootRole, CourseDef[]>;
+    shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; cutMin: number; cutMax: number; highlightCut: number };
   };
+  roles: Record<ShootRole, RoleDef>;
   groups: ShootGroup[];
   enforcedText: { levelLabel: string; rulesTitle: string; rulesNotice: string; hint: string };
 };
@@ -82,3 +93,9 @@ export function stepsOf(key: string): { label: string; hand: string }[] {
   return SHOOT.video.extraStages.find((x) => x.key === key)?.steps ?? [];
 }
 export const levelLabel = (l: ShootLevel) => SHOOT.levelLabels[l];
+/** 사진 칸의 방향 = 그룹 orientation(없으면 any) */
+export const orientationOf = (id: string): Orientation => groupOf(id).orientation ?? "any";
+export const CUTS = SHOOT.video.cuts;
+export const cutOf = (key: string) => CUTS.find((c) => c.key === key);
+export const ROLES = SHOOT.roles;
+export const coursesOf = (role: ShootRole): CourseDef[] => SHOOT.video.courses[role] ?? [];
