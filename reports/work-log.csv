@@ -385,3 +385,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-10-29,PR #1069,fix/shootkit-drafts-1029,427def6,배포,완료,"촬영 쇼츠 키트(넉스트) 임시저장 실제 보관(IndexedDB 최대 5건) · 저장한 글 시트 열기·지우기 · 자동 보관 → 이어서 하기 · 저장 안 함이면 자동 보관 삭제","nuxt-shootkit/lib/drafts.ts · DraftSheet.vue · ShootRegister.vue · shoot.css · public/nuxt-shootkit · docs","없음","실제 폰 큰 영상 용량 · 서버 저장","verify:qf 통과 · vue-tsc 통과 · 배포본 저장·복원 자동 시험 통과 · 콘솔 오류 0"
 2026-10-29,PR #1065,feat/nuxt-site-2-1028,9345722,배포,완료,"넉스트 사이트 2차: 메인 홈 · 중고차/바이크 등록 · 58 촬영 · 간편 촬영 · 차량 후기 · 연비 /nuxt/ 이식, shootkit은 /nuxt-shootkit/로 이동","nuxt-site/* · public/nuxt · docs","리액트 기록부 선택 표시 문제 동일 유지","/bike/ · /truck/ · /shoot/ 미이식","verify:qf 통과 · 22개 주소 리액트와 동일 · 배포본 6개 주소 오류 0"
 2026-10-29,PR #1071,nuxt-shootkit-p0-font-plate,1b7fb613,촬영 키트 P0: 글꼴 조각본 · 영상 번호판 안내 · 번호판 가림 표시 · 흠집 표시 문구,병합·배포 v=ec0d6e0
+2026-10-29,PR #1073,nuxt-shootkit-p0-guide-touch,a220da4b,촬영 키트 크로스체크 P0: 윤곽선 기본 · 수평계 분리 · 누르는 곳 44 · 완성도 시트,푸시(병합 대기)
