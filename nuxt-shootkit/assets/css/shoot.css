@@ -4777,3 +4777,85 @@ body:has(.shoot-layer) .shoot-install {
   line-height: 16px;
   text-align: center;
 }
+
+/* ── 2026-10-29 컨설팅 8건 크로스체크 「고쳐」 ── */
+/* 수평계: 윤곽선과 따로, 각도 알약 아래 가운데 */
+.shoot-root.is-kit .shoot-level {
+  position: absolute;
+  left: 50%;
+  top: 52px;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+}
+/* 녹화 버튼 옆 글자: 버튼과 같이 눌리게, 누르는 곳은 높이 44 */
+.shoot-root.is-kit .shoot-rec-label.is-tap {
+  position: relative;
+  cursor: pointer;
+}
+.shoot-root.is-kit .shoot-rec-label.is-tap::after {
+  content: "";
+  position: absolute;
+  inset: -13px -10px;
+}
+/* 촬영 · 앨범 탭: 누르는 곳 44×44 이상(58 재현 40은 그대로) */
+.shoot-root.is-kit .shoot-capture .shoot-bottom:not(.is-album) .shoot-modes button {
+  height: 44px;
+  min-width: 44px;
+}
+/* 완성도 ⓘ: 누르는 곳 높이 44 이상 */
+.shoot-root.is-kit .shoot-progress-why::after {
+  inset: -16px -12px;
+}
+/* 완성도 시트 */
+.shoot-progress-sheet ul {
+  margin: 0;
+  padding: 4px 20px 0;
+  list-style: none;
+}
+.shoot-progress-sheet li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.shoot-progress-sheet li:last-child {
+  border-bottom: 0;
+}
+.shoot-progress-sheet li > span {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.shoot-progress-sheet li b {
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: 600;
+  color: #222;
+}
+.shoot-progress-sheet li small {
+  font-size: 13px;
+  line-height: 18px;
+  color: #707070;
+  word-break: keep-all;
+}
+.shoot-progress-sheet li em {
+  font-style: normal;
+  font-size: 14px;
+  font-weight: 600;
+  color: #707070;
+  white-space: nowrap;
+}
+.shoot-progress-sheet li.is-done em {
+  color: var(--shoot-accent);
+}
+.shoot-progress-sheet__note {
+  margin: 4px 20px 0;
+  padding: 0 0 calc(20px + env(safe-area-inset-bottom));
+  font-size: 13px;
+  line-height: 18px;
+  color: #707070;
+}
