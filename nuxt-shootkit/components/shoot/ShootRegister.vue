@@ -14,15 +14,17 @@ import VideoPreview from "./VideoPreview.vue";
 import CoverPicker from "./CoverPicker.vue";
 import RegionSheet from "./RegionSheet.vue";
 import RulesPage from "./RulesPage.vue";
+import DraftSheet from "./DraftSheet.vue";
 import ShortsMaker from "./ShortsMaker.vue";
 import { useDragSwap } from "../../composables/useDragSwap";
 import { swapPhotos } from "../../lib/photo-sort";
 import { bakeSticker } from "../../lib/image-ops";
 import { primeSound } from "../../lib/sound";
 import { dialogStack } from "../../lib/dialog-stack";
+import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
-import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, releaseVideo, reqLabel, sortBySlot, type Photo, type Take, type Video } from "../../lib/core";
+import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, releaseVideo, reqLabel, sortBySlot, uid, type Photo, type Take, type Video } from "../../lib/core";
 import { ITEMS, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf } from "../../lib/items";
 
 type Screen =
@@ -156,6 +158,17 @@ onMounted(() => {
     window.history.pushState({ ...(window.history.state ?? {}), bbmShoot: 1 }, "", window.location.href);
     guarded = true;
     (window as PopWin).__bbmShootPop = onPop;
+    // 임시저장: 저장한 글 수를 세고, 지난번에 찍던 내용(자동 보관)이 있으면 이어서 할지 묻는다
+    void refreshDrafts();
+    autoOff = true;
+    void getDraft(AUTO_ID)
+      .then((rec) => {
+        if (rec && (rec.photos.length || rec.video)) resume.value = rec;
+        else autoOff = false;
+      })
+      .catch(() => (autoOff = false));
+    document.addEventListener("visibilitychange", onHide);
+    window.addEventListener("pagehide", onHide);
   }
   // 들어오면 0% → 소재지가 채워지며 20%(58 확인). 키트는 사용자가 직접 한 것만 센다.
   if (!PLUS) later(() => (progress.value = 20), 600);
@@ -166,6 +179,9 @@ onBeforeUnmount(() => {
   timers.forEach((t) => window.clearTimeout(t));
   window.removeEventListener("beforeunload", warn);
   delete (window as PopWin).__bbmShootPop;
+  window.clearTimeout(autoTimer);
+  document.removeEventListener("visibilitychange", onHide);
+  window.removeEventListener("pagehide", onHide);
 });
 
 // 완성도 = 소재지 20 + 필수 사진 60 + 권장 사진 10 + 영상 10(2026-10-25 컨설팅: 영상은 선택이라 비중을 작게).
@@ -282,9 +298,135 @@ const hintText = computed(() => (PLUS && showTipCard.value ? "" : requiredOk.val
 const onBack = () => (PLUS && !photos.value.length && !video.value && !region.value ? leave() : (askLeave.value = true));
 const progressWhy = () =>
   notify(region.value ? "완성도 = 소재지 20% · 우선 4장 60% · 추가 사진 10% · 영상 10%" : "차량 소재지를 고르면 완성도가 20% 올라요 · 우선 4장 60% · 추가 사진 10% · 영상 10%");
-const saveDraft = () => {
-  drafts.value += 1;
-  notify(PLUS ? "임시저장했어요 · 시안이라 다시 열기는 아직 안 돼요" : "임시저장했어요");
+// ── 임시저장(2026-10-29 「수정하고 병합해라」): 이 폰 브라우저(IndexedDB)에 실제로 보관하고 「저장한 글」에서 다시 연다 ──
+const draftList = shallowRef<DraftMeta[]>([]);
+const draftsOpen = ref(false);
+const draftBusy = ref(false);
+/** 지난번 자동 보관 — 「이어서 할까요?」 */
+const resume = shallowRef<DraftRec | null>(null);
+let autoOff = false;
+let autoTimer = 0;
+const current = (): Draft => ({ region: region.value, photos: photos.value, video: video.value });
+async function refreshDrafts() {
+  try {
+    draftList.value = await listDrafts();
+    drafts.value = draftList.value.length;
+  } catch {
+    draftList.value = [];
+  }
+}
+// 자동 보관: 작업이 바뀌면 1.2초 뒤 덮어쓴다(탭을 닫거나 폰이 꺼져도 다음에 이어서 하기). 비면 지운다.
+async function writeAuto() {
+  if (!PLUS || autoOff) return;
+  const d = current();
+  try {
+    if (isEmptyDraft(d)) await deleteDraft(AUTO_ID);
+    else await putDraft(await toRecord(AUTO_ID, d));
+  } catch (e) {
+    console.warn("[자동 보관]", e);
+  }
+}
+const scheduleAuto = () => {
+  window.clearTimeout(autoTimer);
+  if (PLUS && !autoOff) autoTimer = window.setTimeout(() => void writeAuto(), 1200);
+};
+watch([photos, video, region], scheduleAuto);
+// 다른 앱으로 가거나 화면이 꺼질 때는 기다리지 않고 바로 보관한다(아이폰은 나가기 경고가 없다)
+function onHide() {
+  if (document.visibilityState === "hidden" || !document.visibilityState) {
+    window.clearTimeout(autoTimer);
+    void writeAuto();
+  }
+}
+const applyDraft = (d: Draft) => {
+  releaseVideo(video.value);
+  photos.value = sortBySlot(d.photos);
+  video.value = d.video;
+  region.value = d.region;
+  tried.value = false;
+  setScreen({ name: "main" });
+};
+const resumeOk = () => {
+  const rec = resume.value;
+  resume.value = null;
+  if (rec) applyDraft(fromRecord(rec));
+  autoOff = false;
+  notify("지난번 작업을 이어서 해요");
+};
+const resumeNo = () => {
+  resume.value = null;
+  void deleteDraft(AUTO_ID).catch(() => undefined);
+  autoOff = false;
+};
+const saveDraft = async (): Promise<boolean> => {
+  if (!PLUS) {
+    drafts.value += 1;
+    notify("임시저장했어요");
+    return true;
+  }
+  const d = current();
+  if (isEmptyDraft(d)) {
+    notify("아직 저장할 내용이 없어요");
+    return false;
+  }
+  if (photos.value.some((p) => p.uploading) || video.value?.uploading) {
+    notify("사진·영상을 올리는 중이에요. 잠시 뒤 다시 눌러 주세요");
+    return false;
+  }
+  try {
+    await addDraft(uid(), d);
+    await refreshDrafts();
+    notify("임시저장했어요 · 「저장한 글」에서 다시 열 수 있어요");
+    return true;
+  } catch (e) {
+    console.warn("[임시저장]", e);
+    notify(isQuota(e) ? "폰 저장 공간이 부족해 임시저장하지 못했어요" : "이 브라우저에서는 임시저장할 수 없어요");
+    return false;
+  }
+};
+const openDrafts = async () => {
+  if (!PLUS) return notify("임시저장함은 시안에서 열지 않아요");
+  await refreshDrafts();
+  draftsOpen.value = true;
+};
+const openDraft = async (id: string) => {
+  draftBusy.value = true;
+  try {
+    const rec = await getDraft(id);
+    if (!rec) return void notify("저장한 글을 찾지 못했어요");
+    // 지금 하던 작업은 버리지 않고 저장한 글에 담아 둔다
+    const cur = current();
+    const keep = !isEmptyDraft(cur) && !photos.value.some((p) => p.uploading) && !video.value?.uploading;
+    if (keep) await addDraft(uid(), cur);
+    // 연 글은 지금 작업이 되므로 목록에서 뺀다(다시 임시저장하면 다시 담긴다)
+    await deleteDraft(id);
+    applyDraft(fromRecord(rec));
+    draftsOpen.value = false;
+    notify(keep ? "하던 작업은 저장한 글에 담고, 고른 글을 열었어요" : "저장한 글을 열었어요");
+  } catch (e) {
+    console.warn("[저장한 글 열기]", e);
+    notify("저장한 글을 열지 못했어요");
+  } finally {
+    draftBusy.value = false;
+    void refreshDrafts();
+  }
+};
+const removeDraft = async (id: string) => {
+  draftBusy.value = true;
+  try {
+    await deleteDraft(id);
+    notify("저장한 글을 지웠어요");
+  } finally {
+    draftBusy.value = false;
+    await refreshDrafts();
+  }
+};
+// 나가기 전에 자동 보관을 지운다(「저장 안 함」을 고르거나 저장한 글에 담았으므로 다음에 「이어서 할까요?」를 묻지 않게)
+const dropAuto = async () => {
+  autoOff = true;
+  window.clearTimeout(autoTimer);
+  await deleteDraft(AUTO_ID).catch(() => undefined);
+  autoOff = false;
 };
 const publish = () => {
   if (!canPublish.value) {
@@ -354,14 +496,20 @@ const discardOk = () => {
   askDiscard.value = null;
   go?.();
 };
-const leaveNoSave = () => {
+const leaveNoSave = async () => {
   askLeave.value = false;
+  if (PLUS) await dropAuto();
   leave();
 };
-const leaveSave = () => {
+const leaveSave = async () => {
   askLeave.value = false;
-  drafts.value += 1;
-  notify(PLUS ? "임시저장함에 담았어요 · 시안이라 다시 열 수는 없어요" : "임시저장했어요");
+  if (!PLUS) {
+    drafts.value += 1;
+    notify("임시저장했어요");
+    return void later(leave, 600);
+  }
+  if (!(await saveDraft())) return;
+  await dropAuto();
   later(leave, 600);
 };
 </script>
@@ -377,7 +525,7 @@ const leaveSave = () => {
             <button v-if="PLUS" type="button" class="shoot-progress-why" :aria-label="`완성도 ${progress}%, 계산 방법 보기`" @click="progressWhy">완성도 {{ progress }}% <i aria-hidden="true">ⓘ</i></button>
             <span v-else>완성도 {{ progress }}%</span>
           </div>
-          <button type="button" class="shoot-drafts" @click="notify(PLUS ? '저장한 글은 시안에서 열지 않아요' : '임시저장함은 시안에서 열지 않아요')">
+          <button type="button" class="shoot-drafts" @click="openDrafts">
             {{ PLUS ? "저장한 글" : "임시저장함" }}<i v-if="drafts">{{ drafts }}</i>
           </button>
           <i class="shoot-main__progress" :style="{ width: `${progress}%` }" />
@@ -599,6 +747,17 @@ const leaveSave = () => {
       <ShortsMaker v-if="screen.name === 'shorts' && shortsInput" :input="shortsInput" @close="screen.name === 'shorts' && setScreen(screen.back)" />
       <RulesPage v-if="screen.name === 'rules'" @back="setScreen({ name: 'main' })" @add="setScreen({ name: 'capture', mode: 'cam' })" />
 
+      <DraftSheet v-if="draftsOpen" :items="draftList" :busy="draftBusy" @close="draftsOpen = false" @open="openDraft" @remove="removeDraft" />
+      <Confirm
+        v-if="resume"
+        :text="`지난번에 찍던 내용이 있어요(사진 ${resume.photos.length}장${resume.video ? ' · 영상' : ''}). 이어서 할까요?`"
+        cancel-text="새로 시작"
+        ok-text="이어서 하기"
+        has-dim
+        @dim="() => undefined"
+        @cancel="resumeNo"
+        @ok="resumeOk"
+      />
       <Confirm v-if="confirm" :text="confirm.kind === 'photo' ? '사진을 삭제할까요?' : '영상을 삭제할까요?'" @cancel="confirm = null" @ok="confirmOk" />
       <Confirm v-if="askDiscard" text="찍은 영상을 버리고 나갈까요? 등록 화면에는 남지 않아요." cancel-text="계속 보기" ok-text="버리기" has-dim @dim="askDiscard = null" @cancel="askDiscard = null" @ok="discardOk" />
       <!-- 58: 「信息尚未发布完成,确认要离开吗？」 不保存 / 保存并退出(바깥을 누르면 그대로 머문다) -->

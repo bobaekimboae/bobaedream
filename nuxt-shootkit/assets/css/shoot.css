@@ -4662,3 +4662,84 @@ body:has(.shoot-layer) .shoot-install {
   text-align: center;
   word-break: keep-all;
 }
+/* 저장한 글 시트(2026-10-29 임시저장 실제 보관) */
+.shoot-drafts-empty,
+.shoot-drafts-note {
+  margin: 0;
+  padding: 16px 20px;
+  color: #707070;
+  font-size: 14px;
+  line-height: 20px;
+  word-break: keep-all;
+}
+.shoot-drafts-note {
+  padding-top: 8px;
+  font-size: 12px;
+  line-height: 17px;
+}
+.shoot-drafts-list {
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+.shoot-drafts-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px 0 20px;
+}
+.shoot-drafts-open {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  text-align: left;
+}
+.shoot-drafts-open img,
+.shoot-drafts-open .is-blank {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 6px;
+  object-fit: cover;
+  background: #eee;
+}
+.shoot-drafts-open span {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.shoot-drafts-open b {
+  color: #222;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 21px;
+}
+.shoot-drafts-open small {
+  overflow: hidden;
+  color: #707070;
+  font-size: 13px;
+  line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shoot-drafts-del {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+}
+.shoot-drafts-del .shoot-mask {
+  width: 20px;
+  height: 20px;
+}
+/* 저장한 글 수 배지가 「글」 글자를 덮지 않게 오른쪽 위로 */
+.shoot-root.is-kit .shoot-drafts i {
+  right: -10px;
+  top: -8px;
+}
