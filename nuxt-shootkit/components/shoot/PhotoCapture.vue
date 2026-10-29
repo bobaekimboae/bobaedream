@@ -24,11 +24,11 @@ import LevelMeter from "./LevelMeter.vue";
 import { useCamera } from "../../composables/useCamera";
 import { useSwipe } from "../../composables/useSwipe";
 import { useLayerEsc } from "../../composables/useLayerEsc";
-import { grabFrame } from "../../lib/camera";
+import { grabFrame, grabView } from "../../lib/camera";
 import { normalizeFile, placeholderShot } from "../../lib/image-ops";
 import { playShutter } from "../../lib/sound";
-import { ALLOW_FAKE, ENFORCE, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLUS, reqLabel, uid, type Photo } from "../../lib/core";
-import { REQUIRED_IDS, isRequiredItem, itemLabel, itemOf } from "../../lib/items";
+import { ALLOW_FAKE, ENFORCE, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLUS, reqLabel, roleDef, uid, type Photo } from "../../lib/core";
+import { REQUIRED_IDS, isRequiredItem, itemLabel, itemOf, orientationOf, type Orientation } from "../../lib/items";
 import { rd } from "../../lib/site";
 import { GUIDE_ON, askTilt, type CamSession } from "../../lib/photo-capture";
 
@@ -68,6 +68,10 @@ const videoRef = ref<HTMLDivElement | null>(null);
 // 2026-10-25 컨설팅 6건: 번호판 가리기는 켜짐이 기본(58 원본 재현은 꺼짐)
 const plate = ref(PLUS);
 const guide = ref(GUIDE_ON);
+// 사진 방향(2026-10-29 3차 컨설팅): 외관·엔진룸·트렁크는 가로 4:3 틀, 실내는 세로. 딜러는 바꿀 수 없고 촬영팀만 칸마다 바꾼다.
+const canFlipOrient = PLUS && roleDef().orientationToggle;
+const orientOverride = ref<Record<string, Orientation>>({});
+const frameRef = ref<HTMLDivElement | null>(null);
 const session = ref<CamSession>({ shots: [], picked: [], imported: [] });
 // 이미 채운 각도는 레일에서 빠진다(다시 열면 「정면」부터 시작 확인). 처음 상태로만 쓴다(원본 useState 초기값).
 const initialRail = (() => {
@@ -158,14 +162,24 @@ const shoot = () => {
   const video = videoRef.value?.querySelector("video");
   // 빠른 연속 촬영(2026-10-26 크로스체크): 칸 이름도 최신 값으로 읽어 사진과 칸이 어긋나지 않게
   const label = rail.value[sel.value] ?? OTHER;
-  const real = video && stream.value ? grabFrame(video) : null;
+  // 키트: 화면에 보이는 대로 저장(가로 칸은 4:3 틀 안, 그 밖은 보이는 영역). 58 재현은 영상 전체 프레임.
+  let real: string | null = null;
+  if (video && stream.value) {
+    const view = videoRef.value;
+    if (PLUS && view) {
+      const vr = view.getBoundingClientRect();
+      const fr = isLandscape.value ? frameRef.value?.getBoundingClientRect() : null;
+      const rect = fr ? { x: fr.left - vr.left, y: fr.top - vr.top, w: fr.width, h: fr.height } : { x: 0, y: 0, w: vr.width, h: vr.height };
+      real = grabView(video, vr.width, vr.height, rect) ?? grabFrame(video);
+    } else real = grabFrame(video);
+  }
   if (!real && !ALLOW_FAKE) {
     notify("카메라 화면이 뜨면 찍을 수 있어요");
     return;
   }
   const src = real || placeholderShot(itemLabel(label), session.value.shots.length + props.existing.length);
   playShutter();
-  const shot: Photo = { id: uid(), src, slot: label, plateOn: plate.value };
+  const shot: Photo = { id: uid(), src, slot: label, plateOn: plate.value, ...(PLUS && curOrient.value !== "any" ? { orient: curOrient.value } : {}) };
   const cur = sel.value;
   const next = [...slotShots.value];
   const replaced = cur < next.length ? next[cur] : null;
@@ -251,6 +265,12 @@ const onClickClose = () => (PLUS && session.value.picked.length ? (askClose.valu
 const rootRef = ref<HTMLElement | null>(null);
 useLayerEsc(rootRef, onClickClose, () => PLUS);
 const curSlot = computed(() => rail.value[sel.value] ?? OTHER);
+const curOrient = computed<Orientation>(() => (PLUS ? (orientOverride.value[curSlot.value] ?? orientationOf(curSlot.value)) : "any"));
+const isLandscape = computed(() => curOrient.value === "landscape");
+const flipOrient = () => {
+  const k = curSlot.value;
+  orientOverride.value = { ...orientOverride.value, [k]: isLandscape.value ? "portrait" : "landscape" };
+};
 /** 칸에 보일 사진: 앨범에서 선택을 푼 사진은 칸에서도 빈 칸으로 보인다(2026-10-27 코드 검토) */
 const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.value[i] : null);
 </script>
@@ -266,6 +286,8 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       <h2 v-else class="shoot-album-title">내 앨범 <Mask :src="rd('caret-down-fill')" cls="is-caret" /></h2>
       <!-- 2026-10-25: 빈 자리에 영상 화면과 같은 플래시 버튼. 윤곽선 시안(?guide=on)에서는 그 왼쪽에 켜고 끄는 버튼을 함께 둔다. -->
       <span v-if="mode === 'cam'" class="shoot-top__right">
+        <!-- 촬영팀만: 지금 칸의 가로·세로 전환(딜러는 칸마다 정해진 방향) -->
+        <button v-if="canFlipOrient && curOrient !== 'any'" type="button" class="shoot-guide-toggle shoot-orient-toggle" :aria-label="`사진 방향 바꾸기 · 지금 ${isLandscape ? '가로' : '세로'}`" @click="flipOrient">{{ isLandscape ? "가로" : "세로" }}</button>
         <button v-if="GUIDE_ON" type="button" :class="`shoot-guide-toggle ${guide ? 'is-on' : ''}`" :aria-pressed="guide" @click="guide = !guide">윤곽선</button>
         <FlashToggle :on="flash" @toggle="flash = !flash" />
       </span>
@@ -276,7 +298,9 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       <div ref="videoRef" class="shoot-view">
         <LiveVideo v-if="stream" :stream="stream" />
         <NoCam v-else :denied="error === 'denied'" />
-        <ShotGuide v-if="guide" :slot="curSlot" />
+        <!-- 가로 칸: 4:3 틀(틀 밖은 어둡게) — 저장되는 사진 = 틀 안(2026-10-29) -->
+        <div v-if="isLandscape" class="shoot-frame43" aria-hidden="true"><div ref="frameRef" class="shoot-frame43__box"><em>가로 4:3</em></div></div>
+        <ShotGuide v-if="guide" :slot="curSlot" :class="isLandscape ? 'is-landscape' : ''" />
         <!-- 수평계: 윤곽선과 따로(계기판·대시보드처럼 안을 찍는 칸은 숨김) -->
         <LevelMeter v-if="PLUS && !['dash', 'cluster'].includes(itemOf(curSlot).guide.kind)" />
         <span class="shoot-pill">{{ `${itemLabel(curSlot)}${curSlot === OTHER ? " 사진" : ""} 촬영` }}</span>

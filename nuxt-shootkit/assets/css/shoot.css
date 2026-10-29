@@ -4859,3 +4859,54 @@ body:has(.shoot-layer) .shoot-install {
   line-height: 18px;
   color: #707070;
 }
+
+/* 사진 가로 4:3 틀(2026-10-29 3차 컨설팅: 외관·엔진룸·트렁크는 가로, 매물 목록·상세·엔카 재사용에 맞춤) */
+.shoot-frame43 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 44px;
+  bottom: 94px;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 2;
+}
+.shoot-frame43__box {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.55);
+  outline: 1px solid rgba(255, 255, 255, 0.55);
+}
+.shoot-frame43__box em {
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+}
+/* 가로 칸에서는 윤곽선을 틀 안에 맞춘다 */
+.shoot-guide.is-landscape {
+  z-index: 3;
+  top: 44px;
+}
+.shoot-guide.is-landscape .shoot-guide__shape {
+  max-height: calc(100% - 90px);
+}
+.shoot-orient-toggle {
+  min-width: 44px;
+}
+.shoot-root.is-kit .shoot-level {
+  z-index: 4;
+}
+.shoot-capture .shoot-pill,
+.shoot-capture .shoot-rail,
+.shoot-capture .shoot-rail-more {
+  z-index: 5;
+}

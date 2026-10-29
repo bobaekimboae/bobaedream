@@ -26,7 +26,7 @@ import CoursePicker from "./CoursePicker.vue";
 import { useCamera } from "../../composables/useCamera";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import { fakeStream, grabFrame, pickRecorderType } from "../../lib/camera";
-import { ALLOW_FAKE, BASE_STAGES, HARD_MAX, PLUS, PREFS, STEP_SEC, applyPrefs, courseLabel, def, mmss, msec, readDuration, setPrefs, stageDo, type Mark, type Take } from "../../lib/core";
+import { ALLOW_FAKE, HARD_MAX, PLUS, PREFS, STEP_SEC, applyPrefs, baseStages, courseLabel, def, mmss, msec, readDuration, setPrefs, stageDo, type Mark, type Take } from "../../lib/core";
 import { stepsOf } from "../../lib/items";
 import { stageGuide, type VideoStage } from "../../lib/stages";
 import { savePrefs, type StagePrefs } from "../../lib/stage-prefs";
@@ -63,6 +63,8 @@ watch(
 );
 const flash = ref(false);
 // 다시 찍기: 찍어 둔 단계는 그대로 두고, 고른 단계만 새로 찍어 바꾼다.
+// 기본 단계 = 지금 역할의 표준 코스(딜러 6단계 · 58 재현 4단계)
+const BASE_STAGES = baseStages();
 const stages = shallowRef<VideoStage[]>(initial?.stages?.slice() ?? BASE_STAGES);
 /** 코스 창에서 시간·직접 부위를 바꾸면(전역 STAGE_DEFS) defs를 다시 계산하게 하는 표시 */
 const prefsVer = ref(0);
@@ -522,7 +524,7 @@ const timelineText = computed(() => {
         : "권장 시간을 넘었어요 · 다 찍었으면 멈춰 주세요";
 });
 /** 번호판이 보이는 바깥 단계(외관 · 흠집 표시 · 타이어 · 휠) */
-const plateStage = computed(() => ["exterior", "damage", "tyre", "wheel"].includes(cur.value.key));
+const plateStage = computed(() => ["exterior", "damage", "tyre", "wheel", "light-front", "light-rear", "mirror"].includes(cur.value.key));
 const vhint = computed(() =>
   isDamage.value
     ? "흠집·찍힘이 보이면 화면을 눌러 주세요"
