@@ -8,12 +8,12 @@ export type { ShortsInput } from "../../lib/shortform-types";
 // 촬영 영상으로 쇼츠 만들기(2026-10-25). 한 번 찍으면 매물 등록용 원본 영상과 SNS용 쇼츠가 함께 나온다.
 // 스타일(shorts.css · shortform-studio.css)은 nuxt.config 전역 css로 이미 들어간다.
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
-import { END_CARD, canMakeHq, canMakeMp4, mp4VideoCodec, cutAt, drawFrame, exportMp4, loadImage, loadVideo, planDuration, type ShortformPlan, type ShortformTemplate } from "../../lib/render";
+import { END_CARD, canMakeHq, canMakeMp4, mp4VideoCodec, cutAt, drawFrame, exportFrames, exportMp4, loadImage, loadVideo, planDuration, type CutSource, type ShortformPlan, type ShortformTemplate } from "../../lib/render";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import SnsPublish from "./SnsPublish.vue";
 import { SHOOT } from "../../lib/items";
-import { saveToDevice, mp4Name } from "../../lib/save-mp4";
-import { analyzeClip, buildSound, maxShortsLength, planCuts, type ClipInfo, type Highlight, type PlannedCut } from "../../lib/shorts";
+import { saveFilesToDevice, saveToDevice, mp4Name } from "../../lib/save-mp4";
+import { analyzeClip, buildSound, isPhotoClip, maxShortsLength, planCuts, planPhotoCuts, type ClipInfo, type Highlight, type PlannedCut } from "../../lib/shorts";
 import type { MadeShortform, ShortsInput } from "../../lib/shortform-types";
 import { rd, sitePath } from "../../lib/site";
 import { collectText, loadGlyphs } from "../../lib/fonts";
@@ -23,6 +23,7 @@ const INFO_KEY = "bbm-shoot-shorts-info";
 type Info = { title: string; price: string; name: string; company: string; phone: string };
 const EMPTY_INFO: Info = { title: "", price: "", name: "", company: "", phone: "" };
 type Loaded = { clip: ClipInfo; video: HTMLVideoElement; blob: Blob };
+type LoadedPhoto = { image: HTMLImageElement; label: string; slot: string };
 
 function loadInfo(): Info {
   try {
@@ -39,6 +40,12 @@ const emit = defineEmits<{ close: [] }>();
 const closeIcon = rd("close-outline");
 const closeMaskStyle = { WebkitMaskImage: `url("${closeIcon}")`, maskImage: `url("${closeIcon}")` };
 const loaded = shallowRef<Loaded[] | null>(null);
+// 사진 쇼츠(2026-10-29 후속 ③): 등록 화면 사진을 소재로. 영상과 사진이 둘 다 있으면 위에서 고른다
+const photosLoaded = shallowRef<LoadedPhoto[] | null>(null);
+const source = ref<"video" | "photo">(props.input.segs.some((u, i) => u && props.input.durations[i]) ? "video" : "photo");
+const isPhoto = computed(() => source.value === "photo");
+const hasVideoInput = computed(() => props.input.segs.some((u, i) => u && props.input.durations[i]));
+const hasPhotoInput = computed(() => (props.input.photos?.length ?? 0) > 0);
 const scan = ref(0);
 /** 길이: 0 = 원본 길이(찍은 영상을 다 씀), 그 밖 = 15 · 30 · 60초. 고르기 전에는 영상 분량에 맞춰 정한다. */
 const length = ref<number | null>(null);
@@ -138,6 +145,15 @@ watch(
       }
       if (alive) loaded.value = out;
     })();
+    void (async () => {
+      const ps: LoadedPhoto[] = [];
+      for (const p of input.photos ?? []) {
+        const image = await loadImage(p.src);
+        if (image) ps.push({ image, label: p.label, slot: p.slot });
+        if (!alive) return;
+      }
+      if (alive) photosLoaded.value = ps;
+    })();
   },
   { immediate: true },
 );
@@ -147,11 +163,14 @@ const clips = computed(() => (loaded.value ?? []).map((l) => l.clip));
 const maxLen = computed(() => maxShortsLength(clips.value, END_CARD));
 const origLen = computed(() => Math.min(60, maxShortsLength(clips.value, END_CARD, 60)));
 // 15 · 30 · 60초는 컷당 최대 6초로 짜되, 분량이 모자라면 컷을 길게 써서 원본 길이까지는 만든다.
-const fits = (s: number) => s <= origLen.value + 1;
+const fits = (s: number) => isPhoto.value || s <= origLen.value + 1;
 const autoLen = computed(() => [...CFG.lengths].reverse().find((s) => s <= 30 && s <= maxLen.value + 1) ?? 0);
-const len = computed(() => length.value ?? autoLen.value);
+const len = computed(() => (isPhoto.value ? length.value || 15 : (length.value ?? autoLen.value)));
+const photoLabels = computed(() => (photosLoaded.value ?? []).map((p) => p.label));
 const cuts = computed<PlannedCut[]>(() =>
-  loaded.value
+  isPhoto.value
+    ? planPhotoCuts(photoLabels.value, len.value, END_CARD)
+    : loaded.value
     ? len.value === 0
       ? planCuts(clips.value, hlList.value, origLen.value, END_CARD, 60)
       : planCuts(clips.value, hlList.value, len.value, END_CARD, len.value <= maxLen.value + 1 ? undefined : 60)
@@ -163,6 +182,8 @@ const dropHighlight = (c: PlannedCut) => {
 const cutKey = (c: PlannedCut) => `${c.clip.index}@${c.offset}`;
 const byIndex = computed(() => new Map((loaded.value ?? []).map((l) => [l.clip.index, l])));
 const hasSound = computed(() => cuts.value.some((c) => CFG.keepSound.includes(c.clip.key)));
+const photoByIndex = computed(() => new Map((photosLoaded.value ?? []).map((p, i) => [1000 + i, p])));
+const ready = computed(() => (isPhoto.value ? photosLoaded.value !== null : loaded.value !== null));
 
 const plan = computed<ShortformPlan | null>(() => {
   if (!cuts.value.length) return null;
@@ -174,8 +195,10 @@ const plan = computed<ShortformPlan | null>(() => {
     height: 1280,
     fps: 30,
     cuts: cuts.value.map((c) => {
-      const l = byIndex.value.get(c.clip.index)!;
-      return { source: { kind: "video" as const, video: l.video, file: l.blob, duration: c.clip.duration, offset: c.offset }, duration: c.duration, line: lines.value[cutKey(c)] ?? noteLine(c) };
+      const source: CutSource = isPhotoClip(c.clip)
+        ? { kind: "image", image: photoByIndex.value.get(c.clip.index)!.image }
+        : (() => { const l = byIndex.value.get(c.clip.index)!; return { kind: "video" as const, video: l.video, file: l.blob, duration: c.clip.duration, offset: c.offset }; })();
+      return { source, duration: c.duration, line: lines.value[cutKey(c)] ?? noteLine(c) };
     }),
     hook: hook.value.trim(),
     title,
@@ -305,10 +328,30 @@ const caption = computed(() => {
 const madeInfo = computed<MadeShortform | null>(() =>
   made.value ? { id: "shoot-shorts", url: made.value.url, poster: "", carId: 0, title: info.value.title.trim() || "보배드림 실매물", template: template.value, seconds: made.value.seconds, aspect: "9:16" } : null,
 );
-const TEMPLATES = [
-  ["reels", "릴스형"],
-  ["card", "매물 카드형"],
-] as const;
+const TEMPLATES = computed<readonly (readonly [ShortformTemplate, string])[]>(() =>
+  isPhoto.value
+    ? ([["reels", "릴스형"], ["band", "가로 사진 띠형"], ["card", "매물 카드형"]] as const)
+    : ([["reels", "릴스형"], ["card", "매물 카드형"]] as const),
+);
+watch(source, (v) => { if (v === "video" && template.value === "band") template.value = "reels"; made.value = null; lines.value = {}; });
+// 틱톡 사진 묶음(사진 모드): 컷마다 한 장면을 JPEG로 뽑아 공유창(폰) 또는 내려받기
+const framing = ref(false);
+const saveFrames = async () => {
+  const p = plan.value;
+  if (!p || framing.value) return;
+  framing.value = true;
+  try {
+    const blobs = await exportFrames(p, hq.value && canHq.value ? 1.5 : 1);
+    const r = await saveFilesToDevice(blobs, `bobae-photos-${Date.now().toString(36)}`);
+    if (r === "downloaded") say(`사진 ${blobs.length}장을 저장했어요 · 틱톡 「사진」 모드나 인스타 여러 장 게시물에 올려요`);
+    else if (r === "shared") say("공유창에서 틱톡·인스타그램 앱을 골라 사진 모드로 올려요");
+  } catch (e) {
+    console.error("사진 묶음 실패", e);
+    say("사진 묶음을 만들지 못했어요. 다시 눌러 주세요");
+  } finally {
+    framing.value = false;
+  }
+};
 const setInfo = (key: keyof Info, e: Event) => {
   info.value = { ...info.value, [key]: (e.target as HTMLInputElement).value };
 };
@@ -326,14 +369,19 @@ const setLine = (c: PlannedCut, e: Event) => {
       <span class="shoot-icon-btn" />
     </header>
     <div class="shoot-shorts__body">
-      <div v-if="!loaded" class="shoot-shorts__scan" role="status">
-        <strong>좋은 장면을 고르는 중이에요</strong>
-        <span>흔들림이 적고 밝은 구간을 찾고 있어요 · {{ Math.round(scan * 100) }}%</span>
-        <i :style="{ width: `${Math.round(scan * 100)}%` }" />
+      <!-- 소재 고르기(2026-10-29 후속 ③): 영상과 사진이 둘 다 있을 때만 -->
+      <div v-if="hasVideoInput && hasPhotoInput && !made" class="shoot-shorts__chips is-source" role="radiogroup" aria-label="쇼츠 소재">
+        <button type="button" role="radio" :aria-checked="source === 'video'" :class="source === 'video' ? 'is-on' : ''" @click="source = 'video'">영상으로</button>
+        <button type="button" role="radio" :aria-checked="source === 'photo'" :class="source === 'photo' ? 'is-on' : ''" @click="source = 'photo'">사진으로 · {{ input.photos?.length }}장</button>
+      </div>
+      <div v-if="!ready" class="shoot-shorts__scan" role="status">
+        <strong>{{ isPhoto ? "사진을 불러오는 중이에요" : "좋은 장면을 고르는 중이에요" }}</strong>
+        <span v-if="!isPhoto">흔들림이 적고 밝은 구간을 찾고 있어요 · {{ Math.round(scan * 100) }}%</span>
+        <i v-if="!isPhoto" :style="{ width: `${Math.round(scan * 100)}%` }" />
       </div>
       <div v-else-if="!cuts.length" class="shoot-shorts__scan">
-        <strong>쇼츠로 만들 영상이 없어요</strong>
-        <span>부위별로 1초 넘게 찍은 영상이 있어야 해요.</span>
+        <strong>{{ isPhoto ? "쇼츠로 만들 사진이 없어요" : "쇼츠로 만들 영상이 없어요" }}</strong>
+        <span>{{ isPhoto ? "사진을 1장 이상 올려 주세요." : "부위별로 1초 넘게 찍은 영상이 있어야 해요." }}</span>
       </div>
       <div v-else-if="made && madeInfo" class="shoot-shorts__done">
         <video :src="`${made.url}#t=0.1`" controls playsinline preload="metadata" class="shoot-shorts__video" />
@@ -351,10 +399,11 @@ const setLine = (c: PlannedCut, e: Event) => {
         <section class="shoot-shorts__panel">
           <h3 id="shoot-shorts-len">길이</h3>
           <div class="shoot-shorts__chips" role="radiogroup" aria-labelledby="shoot-shorts-len">
-            <button type="button" role="radio" :aria-checked="len === 0" :class="len === 0 ? 'is-on' : ''" @click="length = 0">원본 {{ origLen }}초</button>
+            <button v-if="!isPhoto" type="button" role="radio" :aria-checked="len === 0" :class="len === 0 ? 'is-on' : ''" @click="length = 0">원본 {{ origLen }}초</button>
             <button v-for="s in CFG.lengths" :key="s" type="button" role="radio" :aria-checked="len === s" :class="len === s ? 'is-on' : ''" :disabled="!fits(s)" @click="length = s">{{ s }}초</button>
           </div>
-          <p v-if="CFG.lengths.some((s) => !fits(s))" class="shoot-shorts__note is-len">찍은 영상 {{ Math.max(0, origLen - END_CARD) }}초 + 끝 명함 {{ END_CARD }}초로 최대 {{ origLen }}초까지 만들 수 있어요. 다른 부위도 찍으면 길어져요.</p>
+          <p v-if="isPhoto" class="shoot-shorts__note is-len">사진 {{ cuts.length }}장을 컷당 {{ cuts[0]?.duration ?? 0 }}초씩 보여요 · 사진이 적으면 고른 길이보다 짧게 만들어요(같은 사진 되풀이 없음)</p>
+          <p v-else-if="CFG.lengths.some((s) => !fits(s))" class="shoot-shorts__note is-len">찍은 영상 {{ Math.max(0, origLen - END_CARD) }}초 + 끝 명함 {{ END_CARD }}초로 최대 {{ origLen }}초까지 만들 수 있어요. 다른 부위도 찍으면 길어져요.</p>
           <h3 id="shoot-shorts-tpl">틀</h3>
           <div class="shoot-shorts__chips" role="radiogroup" aria-labelledby="shoot-shorts-tpl">
             <button v-for="[k, l] in TEMPLATES" :key="k" type="button" role="radio" :aria-checked="template === k" :class="template === k ? 'is-on' : ''" @click="template = k">{{ l }}</button>
@@ -391,9 +440,11 @@ const setLine = (c: PlannedCut, e: Event) => {
         </section>
       </template>
     </div>
-    <footer v-if="loaded && cuts.length && !made" class="shoot-shorts__foot">
+    <footer v-if="ready && cuts.length && !made" class="shoot-shorts__foot">
       <p v-if="codec && codec !== 'avc'" class="shoot-shorts__warn is-short" title="이 브라우저는 H.264로 만들지 못해요">{{ codec.toUpperCase() }} 방식으로 만들어져요 · 인스타그램·아이폰용은 사파리나 최신 크롬에서 만들어 주세요</p>
       <button type="button" class="shoot-shorts__primary" :disabled="!plan || can === false || making != null" @click="make()">{{ can === false ? "이 브라우저에서는 mp4를 만들 수 없어요" : `쇼츠 mp4 만들기 · ${mmss(total)}` }}</button>
+      <!-- 틱톡 사진 묶음(2026-10-29 후속 ③): 영상이 아니라 장면 사진 N장을 그대로 틱톡 사진 모드·인스타 여러 장 게시물에 -->
+      <button v-if="isPhoto" type="button" class="shoot-shorts__ghost is-frames" :disabled="!plan || framing" @click="saveFrames">{{ framing ? "사진을 만드는 중…" : `틱톡 사진 묶음으로 저장 · ${cuts.length + 1}장` }}</button>
     </footer>
     <div v-if="making != null" class="shoot-dim" role="status" aria-label="쇼츠를 만드는 중">
       <div class="shoot-save-progress">
