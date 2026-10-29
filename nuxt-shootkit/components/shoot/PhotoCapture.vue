@@ -27,7 +27,7 @@ import { useLayerEsc } from "../../composables/useLayerEsc";
 import { grabFrame, grabView } from "../../lib/camera";
 import { normalizeFile, placeholderShot } from "../../lib/image-ops";
 import { playShutter } from "../../lib/sound";
-import { ALLOW_FAKE, ENFORCE, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLUS, reqLabel, roleDef, uid, type Photo } from "../../lib/core";
+import { ALLOW_FAKE, ENFORCE, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLATE_START, PLUS, plateLocked, reqLabel, roleDef, uid, type Photo } from "../../lib/core";
 import { REQUIRED_IDS, isRequiredItem, itemLabel, itemOf, orientationOf, type Orientation } from "../../lib/items";
 import { rd } from "../../lib/site";
 import { GUIDE_ON, askTilt, type CamSession } from "../../lib/photo-capture";
@@ -68,7 +68,8 @@ watch(
 );
 const videoRef = ref<HTMLDivElement | null>(null);
 // 2026-10-25 컨설팅 6건: 번호판 가리기는 켜짐이 기본(58 원본 재현은 꺼짐)
-const plate = ref(PLUS);
+// 번호판 가리기(2026-10-29 후속 ④ 결정): 키트 기본 꺼짐, 대표 칸(첫 칸)은 늘 노출(plateLocked)
+const plate = ref(PLATE_START);
 const guide = ref(GUIDE_ON);
 // 사진 방향(2026-10-29 3차 컨설팅): 외관·엔진룸·트렁크는 가로 4:3 틀, 실내는 세로. 딜러는 바꿀 수 없고 촬영팀만 칸마다 바꾼다.
 const canFlipOrient = PLUS && roleDef().orientationToggle;
@@ -181,7 +182,7 @@ const shoot = () => {
   }
   const src = real || placeholderShot(itemLabel(label), session.value.shots.length + props.existing.length);
   playShutter();
-  const shot: Photo = { id: uid(), src, slot: label, plateOn: plate.value, ...(PLUS && curOrient.value !== "any" ? { orient: curOrient.value } : {}) };
+  const shot: Photo = { id: uid(), src, slot: label, plateOn: plate.value && !plateLocked(label), ...(PLUS && curOrient.value !== "any" ? { orient: curOrient.value } : {}) };
   const cur = sel.value;
   const next = [...slotShots.value];
   const replaced = cur < next.length ? next[cur] : null;
@@ -275,6 +276,8 @@ const onClickClose = () => (PLUS && session.value.picked.length ? (askClose.valu
 const rootRef = ref<HTMLElement | null>(null);
 useLayerEsc(rootRef, onClickClose, () => PLUS);
 const curSlot = computed(() => rail.value[sel.value] ?? OTHER);
+/** 대표 칸(첫 칸)에서는 번호판 가리기를 쓸 수 없다(결정: 대표 1장 노출 잠금) */
+const heroLock = computed(() => plateLocked(curSlot.value));
 const curOrient = computed<Orientation>(() => (PLUS ? (orientOverride.value[curSlot.value] ?? orientationOf(curSlot.value)) : "any"));
 const isLandscape = computed(() => curOrient.value === "landscape");
 const flipOrient = () => {
@@ -348,11 +351,18 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       </div>
       <div class="shoot-bottom">
         <div class="shoot-controls">
-          <button type="button" :class="`shoot-plate ${plate ? 'is-on' : ''}`" :aria-pressed="plate" @click="plate = !plate">
+          <button
+            type="button"
+            :class="`shoot-plate ${plate && !heroLock ? 'is-on' : ''} ${heroLock ? 'is-locked' : ''}`"
+            :aria-pressed="plate && !heroLock"
+            :aria-disabled="heroLock"
+            :title="heroLock ? '대표 사진은 번호판이 보여야 해요' : undefined"
+            @click="heroLock ? notify('대표 사진은 번호판이 보여야 해요 · 다른 각도에서 가릴 수 있어요') : (plate = !plate)"
+          >
             <span class="shoot-plate__ico" aria-hidden="true">
               <i />
               <i />
-            </span><span v-if="PLUS" class="shoot-plate__txt">번호판 가리기<em class="shoot-plate__state">{{ plate ? "켜짐" : "꺼짐" }}</em></span><template v-else>번호판 가리기</template>
+            </span><span v-if="PLUS" class="shoot-plate__txt">번호판 가리기<em class="shoot-plate__state">{{ heroLock ? "대표는 노출" : plate ? "켜짐" : "꺼짐" }}</em></span><template v-else>번호판 가리기</template>
           </button>
           <button
             type="button"

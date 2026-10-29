@@ -10,10 +10,14 @@ const DB_NAME = "bbm-shootkit";
 const STORE = "drafts";
 
 export type Region = { sido: string; gu: string } | null;
+/** 서류(2026-10-29 후속 ④): 성능·상태점검기록부 1건. 사진 줄과 따로 두고 상세 「성능점검」에 연결한다. src = data URL(사진 또는 PDF) */
+export type DocFile = { name: string; src: string; isPdf: boolean; thumb: string };
+export type Docs = { inspection: DocFile | null };
+export const EMPTY_DOCS: Docs = { inspection: null };
 type VideoRec = Omit<Video, "segs" | "uploading"> & { segs: (Blob | null)[] };
-export type DraftRec = { id: string; savedAt: number; region: Region; photos: Photo[]; video: VideoRec | null };
+export type DraftRec = { id: string; savedAt: number; region: Region; photos: Photo[]; video: VideoRec | null; docs?: Docs };
 export type DraftMeta = { id: string; savedAt: number; region: Region; photoCount: number; hasVideo: boolean; thumb: string };
-export type Draft = { region: Region; photos: Photo[]; video: Video | null };
+export type Draft = { region: Region; photos: Photo[]; video: Video | null; docs?: Docs };
 
 let dbp: Promise<IDBDatabase> | null = null;
 function db(): Promise<IDBDatabase> {
@@ -62,7 +66,7 @@ const segBlob = async (u: string | null) => {
   return b;
 };
 
-export const isEmptyDraft = (d: Draft) => !d.photos.length && !d.video && !d.region;
+export const isEmptyDraft = (d: Draft) => !d.photos.length && !d.video && !d.region && !d.docs?.inspection;
 
 export async function toRecord(id: string, d: Draft): Promise<DraftRec> {
   const photos = await Promise.all(
@@ -73,7 +77,7 @@ export async function toRecord(id: string, d: Draft): Promise<DraftRec> {
     const { segs, uploading: _u, ...rest } = d.video;
     video = { ...rest, cover: (await keepStr(rest.cover)) ?? "", segs: await Promise.all(segs.map(segBlob)) };
   }
-  return { id, savedAt: Date.now(), region: d.region, photos, video };
+  return { id, savedAt: Date.now(), region: d.region, photos, video, docs: d.docs ?? EMPTY_DOCS };
 }
 
 export function fromRecord(r: DraftRec): Draft {
@@ -82,7 +86,7 @@ export function fromRecord(r: DraftRec): Draft {
     ? { ...v, uploading: false, segs: v.segs.map((b) => (b ? URL.createObjectURL(b) : null)) }
     : null;
   video?.segs.forEach((u, i) => u && v!.segs[i] && blobCache.set(u, v!.segs[i]!));
-  return { region: r.region, photos: r.photos.map((p) => ({ ...p, uploading: false })), video };
+  return { region: r.region, photos: r.photos.map((p) => ({ ...p, uploading: false })), video, docs: r.docs ?? EMPTY_DOCS };
 }
 
 const meta = (r: DraftRec): DraftMeta => ({

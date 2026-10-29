@@ -19,13 +19,13 @@ import ProgressSheet from "./ProgressSheet.vue";
 import ShortsMaker from "./ShortsMaker.vue";
 import { useDragSwap } from "../../composables/useDragSwap";
 import { swapPhotos } from "../../lib/photo-sort";
-import { bakeSticker } from "../../lib/image-ops";
+import { bakeSticker, normalizeFile } from "../../lib/image-ops";
 import { primeSound } from "../../lib/sound";
 import { dialogStack } from "../../lib/dialog-stack";
-import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
+import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
-import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, releaseVideo, reqLabel, roleNow, sortBySlot, stageGroup, uid, type Photo, type Take, type Video } from "../../lib/core";
+import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, sortBySlot, stageGroup, uid, type Photo, type Take, type Video } from "../../lib/core";
 import { ITEMS, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf } from "../../lib/items";
 
 type Screen =
@@ -45,6 +45,34 @@ const setScreen = (s: Screen) => (screen.value = s);
 
 const photos = shallowRef<Photo[]>([]);
 const video = shallowRef<Video | null>(null);
+// 서류(2026-10-29 후속 ④ 결정): 성능·상태점검기록부는 사진 줄이 아니라 따로 둔다(선택). 매물 상세 「성능점검」에 연결될 값
+const docs = shallowRef<Docs>(EMPTY_DOCS);
+const docInput = ref<HTMLInputElement | null>(null);
+const DOC_MAX = 10 * 1024 * 1024;
+const readAsDataUrl = (f: Blob) =>
+  new Promise<string>((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(String(r.result));
+    r.onerror = () => reject(r.error);
+    r.readAsDataURL(f);
+  });
+const onDocChange = async (e: Event) => {
+  const el = e.target as HTMLInputElement;
+  const f = el.files?.[0];
+  el.value = "";
+  if (!f) return;
+  if (f.size > DOC_MAX) return notify("10MB 이하 파일만 올릴 수 있어요");
+  const isPdf = f.type === "application/pdf" || /\.pdf$/i.test(f.name);
+  try {
+    const src = isPdf ? await readAsDataUrl(f) : await normalizeFile(f);
+    const doc: DocFile = { name: f.name, src, isPdf, thumb: isPdf ? "" : src };
+    docs.value = { ...docs.value, inspection: doc };
+    notify("성능·상태점검기록부를 올렸어요 · 매물 상세의 「성능점검」에 보여요");
+  } catch {
+    notify("파일을 열 수 없어요 · 사진(JPG·PNG) 또는 PDF를 올려 주세요");
+  }
+};
+const removeDoc = () => (docs.value = { ...docs.value, inspection: null });
 // 키트(2026-10-26 크로스체크): 찍은 영상을 확인 없이 버리지 않는다
 const askDiscard = shallowRef<null | (() => void)>(null);
 const discardTake = (go: () => void) => (PLUS ? (askDiscard.value = go) : go());
@@ -90,7 +118,7 @@ const shortsInput = computed(() => {
 });
 
 // 실기 대비(2026-10-27): 사진·영상이 있는데 새로고침·뒤로가기·탭 닫기로 나가면 브라우저가 한 번 묻게 한다(임시저장이 아직 없어서)
-const hasWork = computed(() => photos.value.length > 0 || Boolean(video.value));
+const hasWork = computed(() => photos.value.length > 0 || Boolean(video.value) || Boolean(docs.value.inspection));
 let leaving = false;
 const warn = (e: BeforeUnloadEvent) => {
   if (leaving) return;
@@ -131,6 +159,7 @@ const leave = () => {
   releaseVideo(video.value);
   video.value = null;
   region.value = null;
+  docs.value = EMPTY_DOCS;
   tried.value = false;
   setScreen({ name: "main" });
   window.scrollTo(0, 0);
@@ -242,7 +271,7 @@ const addPhotos = (added: Photo[]) => {
   const ids = new Set(added.map((p) => p.id));
   photos.value = sortBySlot([...photos.value, ...added.map((x) => ({ ...x, uploading: true }))]);
   // 키트: 「번호판 가리기」를 켜고 찍은 정면 · 후면 · 45° 사진에 가림을 바로 굽는다. 사진을 눌러 위치를 옮길 수 있다.
-  const plated = PLUS ? added.filter((x) => x.plateOn && PLATE_KINDS.has(itemOf(x.slot).guide.kind)) : [];
+  const plated = PLUS ? added.filter((x) => x.plateOn && !plateLocked(x.slot) && PLATE_KINDS.has(itemOf(x.slot).guide.kind)) : [];
   if (plated.length) {
     void Promise.all(
       plated.map(async (x) => {
@@ -295,7 +324,7 @@ const hasMedia = computed(() => photos.value.length > 0 || Boolean(video.value))
 const showTipCard = computed(() => status.value === "done" && photos.value.length > 0 && missing.value.length > 0);
 const hintText = computed(() => (PLUS && showTipCard.value ? "" : requiredOk.value ? SHOOT.photo.hintDone : ENFORCE ? ENF_TEXT.hint : SHOOT.photo.hint));
 
-const onBack = () => (PLUS && !photos.value.length && !video.value && !region.value ? leave() : (askLeave.value = true));
+const onBack = () => (PLUS && !photos.value.length && !video.value && !region.value && !docs.value.inspection ? leave() : (askLeave.value = true));
 // 2026-10-29 크로스체크 「고쳐」: 완성도를 누르면 알림 대신 항목별 점수 시트(누르는 곳은 44px 이상)
 const progressOpen = ref(false);
 const progressWhy = () => (progressOpen.value = true);
@@ -319,7 +348,7 @@ const draftBusy = ref(false);
 const resume = shallowRef<DraftRec | null>(null);
 let autoOff = false;
 let autoTimer = 0;
-const current = (): Draft => ({ region: region.value, photos: photos.value, video: video.value });
+const current = (): Draft => ({ region: region.value, photos: photos.value, video: video.value, docs: docs.value });
 async function refreshDrafts() {
   try {
     draftList.value = await listDrafts();
@@ -343,7 +372,7 @@ const scheduleAuto = () => {
   window.clearTimeout(autoTimer);
   if (PLUS && !autoOff) autoTimer = window.setTimeout(() => void writeAuto(), 1200);
 };
-watch([photos, video, region], scheduleAuto);
+watch([photos, video, region, docs], scheduleAuto);
 // 다른 앱으로 가거나 화면이 꺼질 때는 기다리지 않고 바로 보관한다(아이폰은 나가기 경고가 없다)
 function onHide() {
   if (document.visibilityState === "hidden" || !document.visibilityState) {
@@ -356,6 +385,7 @@ const applyDraft = (d: Draft) => {
   photos.value = sortBySlot(d.photos);
   video.value = d.video;
   region.value = d.region;
+  docs.value = d.docs ?? EMPTY_DOCS;
   tried.value = false;
   setScreen({ name: "main" });
 };
@@ -467,7 +497,7 @@ const videoInitial = computed<Take | undefined>(() => {
   const s = screen.value;
   if (s.name !== "video") return undefined;
   const v = video.value;
-  return s.take ?? (s.reshoot && v ? { segs: v.segs, durations: v.durations, thumbs: [], stages: v.stages, marks: v.marks, steps: v.steps, hl: v.hl } : undefined);
+  return s.take ?? (s.reshoot && v ? { segs: v.segs, durations: v.durations, thumbs: [], stages: v.stages, marks: v.marks, hl: v.hl } : undefined);
 });
 const closeVideo = () => {
   const s = screen.value;
@@ -476,7 +506,7 @@ const closeVideo = () => {
 };
 const editTake = computed<Take | null>(() => {
   const v = video.value;
-  return v ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, marks: v.marks, steps: v.steps, hl: v.hl } : null;
+  return v ? { segs: v.segs, durations: v.durations, thumbs: [], imported: v.imported, stages: v.stages, marks: v.marks, hl: v.hl } : null;
 });
 const coverDone = (cover: string) => {
   const s = screen.value;
@@ -487,7 +517,7 @@ const coverDone = (cover: string) => {
     video.value = video.value ? { ...video.value, cover } : video.value;
     return;
   }
-  video.value = { segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported, stages: t.stages, marks: t.marks, steps: t.steps, hl: t.hl };
+  video.value = { segs: t.segs, durations: t.durations, cover, uploading: true, imported: t.imported, stages: t.stages, marks: t.marks, hl: t.hl };
   later(() => {
     const v = video.value;
     if (v && v.segs === t.segs) video.value = { ...v, uploading: false };
@@ -645,6 +675,21 @@ const leaveSave = async () => {
             </div>
           </section>
 
+          <!-- 서류(2026-10-29 후속 ④ 결정): 성능·상태점검기록부는 법정 서류라 사진 줄에 섞지 않고 선택 칸으로 둔다. 쇼츠·부위 나누기 대상이 아니다 -->
+          <section v-if="PLUS" class="shoot-field shoot-docs">
+            <h3>서류 <em>(선택)</em></h3>
+            <p class="shoot-docs__desc">성능·상태점검기록부를 올리면 매물 상세의 「성능점검」에 보여요. 사진 줄에는 들어가지 않아요.</p>
+            <div v-if="docs.inspection" class="shoot-docs__row">
+              <img v-if="docs.inspection.thumb" :src="docs.inspection.thumb" alt="" class="shoot-docs__thumb" />
+              <span v-else class="shoot-docs__thumb is-pdf" aria-hidden="true">PDF</span>
+              <span class="shoot-docs__name"><b>성능·상태점검기록부</b><small>{{ docs.inspection.name }}</small></span>
+              <button type="button" class="shoot-docs__del" aria-label="성능·상태점검기록부 지우기" @click="removeDoc">지우기</button>
+            </div>
+            <button v-else type="button" class="shoot-docbox is-doc" @click="docInput?.click()">
+              <Mask :src="rd('camera-outline-24')" cls="is-big" />성능·상태점검기록부 올리기<small>사진 또는 PDF · 10MB 이하</small>
+            </button>
+            <input ref="docInput" type="file" accept="image/*,application/pdf" hidden @change="onDocChange" />
+          </section>
           <!-- 2026-10-27 컨설팅 7건: 아직 할 수 없는 「차량 인증 준비 중」은 키트 첫 화면에서 뺀다(기능이 생기면 다시 넣음) -->
           <section v-if="!PLUS" class="shoot-field">
             <h3>차량 인증 <em>(하나만 인증하면 돼요)</em></h3>
@@ -705,6 +750,7 @@ const leaveSave = async () => {
         v-if="screen.name === 'preview'"
         :photos="photos"
         :start-id="screen.id"
+        @notify="notify"
         @close="setScreen({ name: 'main' })"
         @add-more="
           (saved?: Photo[]) => {

@@ -26,8 +26,7 @@ import CoursePicker from "./CoursePicker.vue";
 import { useCamera } from "../../composables/useCamera";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import { fakeStream, grabFrame, pickRecorderType } from "../../lib/camera";
-import { ALLOW_FAKE, HARD_MAX, PLUS, PREFS, STEP_SEC, applyPrefs, baseStages, courseLabel, def, mmss, msec, readDuration, setPrefs, stageDo, type Mark, type Take } from "../../lib/core";
-import { stepsOf } from "../../lib/items";
+import { ALLOW_FAKE, HARD_MAX, PLUS, PREFS, applyPrefs, baseStages, courseLabel, def, mmss, msec, readDuration, setPrefs, stageDo, type Mark, type Take } from "../../lib/core";
 import { stageGuide, type VideoStage } from "../../lib/stages";
 import { savePrefs, type StagePrefs } from "../../lib/stage-prefs";
 import type { Highlight } from "../../lib/shorts";
@@ -84,10 +83,6 @@ const nudge = ref(0);
 // 자동 멈춤(촬영팀은 끄고 길게 찍는다)
 const autoStop = ref(PREFS.autoStop);
 let buzz = { min: false, end: false };
-// 세부 순서(실내 · 시트 등): 지금 부위와 부위별 시작 시각(초)
-const istep = ref(0);
-let stepTimes: number[] = [0];
-const steps = shallowRef<number[]>(initial?.steps?.slice() ?? []);
 let elapsedNow = 0;
 const firstEmpty = initial ? initial.durations.findIndex((d) => d === 0) : 0;
 const stage = ref(Math.max(0, firstEmpty));
@@ -205,9 +200,6 @@ function finishStage(secs: number) {
   const next = [...durations.value];
   next[s] = Math.min(autoStop.value ? def(stages.value[s]).max : HARD_MAX, Math.max(0.1, Math.floor(secs * 10) / 10));
   durations.value = next;
-  if (PLUS && stages.value[s] === "interior") {
-    steps.value = stepTimes.filter((t) => t < next[s]);
-  }
   changed.value = true;
   // 단계마다 파일 하나: 녹화를 끝내 그 단계 영상으로 저장한다.
   const r = rec;
@@ -252,11 +244,6 @@ function startTimer() {
     const st = def(stages.value[stage.value]);
     const max = st.max;
     elapsedNow = secs;
-    const ks = PLUS ? stepsOf(st.key) : [];
-    if (ks.length) {
-      const last = stepTimes[stepTimes.length - 1] ?? 0;
-      if (istep.value < ks.length - 1 && secs - last >= STEP_SEC) nextStep();
-    }
     // 최소 시간에 닿으면 짧게, 자동 멈춤 3초 전에 한 번 더 진동(지원하는 폰만)
     const vib = (p: number | number[]) => (navigator as Navigator & { vibrate?: (p: number | number[]) => boolean }).vibrate?.(p);
     if (!buzz.min && secs >= st.min) {
@@ -326,10 +313,6 @@ function begin() {
     hl.value = hl.value.filter((x) => x.k !== nowKey);
     nudge.value = 0;
     // 흠집 단계를 다시 찍으면 전에 표시한 흠집은 지운다.
-    if (stepsOf(nowKey).length) {
-      istep.value = 0;
-      stepTimes = [0];
-    }
     if (stages.value[stage.value] === "start" && !sourceStream().getAudioTracks().length) {
       notify("마이크가 꺼져 있어 시동 소리가 녹음되지 않아요");
     }
@@ -370,7 +353,6 @@ function stopAll(finalDur: number[]) {
           thumbs: liveThumbs,
           stages: ss,
           marks: finalDur[ss.indexOf("damage")] ? marks.value : [],
-          steps: finalDur[ss.indexOf("interior")] ? steps.value : [],
           hl: hl.value.filter((x) => finalDur[ss.indexOf(x.k)] && x.t <= finalDur[ss.indexOf(x.k)]),
         }),
       600,
@@ -381,29 +363,9 @@ function stopAll(finalDur: number[]) {
 const recording = computed(() => phase.value === "recording" || phase.value === "countdown");
 const cur = computed(() => defs.value[stage.value]);
 const isDamage = computed(() => cur.value.key === "damage");
-// 세부 순서 카드(실내 · 시트 · 세부 순서가 있는 부위)는 58에 없어 ?vstage=58 비교 화면에서는 뺀다.
-const curSteps = computed(() => (PLUS ? stepsOf(cur.value.key) : []));
-const isInterior = computed(() => curSteps.value.length > 0);
-/** 세부 부위 i가 시작하는(또는 시작할) 시각: 이미 넘긴 부위는 실제 넘긴 시각, 남은 부위는 4초씩 이어서 */
-function stepAt(i: number) {
-  const known = stepTimes;
-  if (i < known.length) return known[i];
-  const last = known[known.length - 1] ?? 0;
-  return last + (i - (known.length - 1)) * STEP_SEC;
-}
-function nextStep() {
-  const ks = stepsOf(stages.value[stage.value]);
-  const n = Math.min(ks.length - 1, istep.value + 1);
-  if (n === istep.value) return;
-  stepTimes = [...stepTimes, Math.round(elapsedNow * 10) / 10];
-  istep.value = n;
-}
 const pillText = computed(() => {
   const c = cur.value;
-  const cs = curSteps.value;
-  return isInterior.value && phase.value === "recording"
-    ? `${c.label} ${istep.value + 1}/${cs.length} · ${cs[Math.min(istep.value, cs.length - 1)].label}`
-    : isDamage.value && phase.value === "recording"
+  return isDamage.value && phase.value === "recording"
       ? `흠집 ${marks.value.length}곳 표시함 · 화면을 눌러 표시`
       : PLUS
         ? `${stage.value + 1}/${stages.value.length} ${c.label}${done.value[stage.value] && !recording.value ? " 다시 찍기" : ""} · ${c.min}~${c.max}초`
@@ -567,19 +529,8 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
             <span class="shoot-timeline__track">
               <i class="shoot-timeline__fill" :style="{ width: `${(Math.min(elapsed, cur.max) / cur.max) * 100}%` }" />
               <i class="shoot-timeline__min" :style="{ left: `${(cur.min / cur.max) * 100}%` }" />
-              <template v-if="isInterior">
-                <i v-for="(_, i) in curSteps.slice(1)" :key="i" class="shoot-timeline__step" :style="{ left: `${(Math.min(cur.max, stepAt(i + 1)) / cur.max) * 100}%` }" />
-              </template>
             </span>
             <span :key="elapsed < cur.min ? nudge : -1" :class="`shoot-timeline__text ${nudge && elapsed < cur.min ? 'is-nudge' : ''}`">{{ timelineText }}</span>
-          </div>
-          <div v-if="isInterior && phase === 'recording'" class="shoot-istep" role="status">
-            <span class="shoot-istep__dots" aria-hidden="true">
-              <i v-for="(_, i) in curSteps" :key="i" :class="i < istep ? 'is-done' : i === istep ? 'is-on' : ''" />
-            </span>
-            <b>{{ curSteps[Math.min(istep, curSteps.length - 1)].label }}<small class="shoot-istep__slot">{{ " " + mmss(stepAt(istep)) + "~" + mmss(Math.min(cur.max, stepAt(istep + 1))) }}</small></b>
-            <span class="shoot-istep__hand"><Mask :src="rd('tap-outline')" />{{ curSteps[Math.min(istep, curSteps.length - 1)].hand }}</span>
-            <button v-if="istep < curSteps.length - 1" type="button" class="shoot-istep__next" @click="nextStep">다음 부위 ›</button>
           </div>
           <p class="shoot-vhint">{{ vhint }}</p>
           <!-- 2026-10-29 컨설팅: 사진과 달리 영상 속 번호판은 가려지지 않는다는 것을 찍기 전에 알린다(바깥을 찍는 단계만) -->
@@ -608,7 +559,6 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
               <i class="shoot-stage-chip__zoom"><Mask :src="rd('aspect-ratio-outline')" /></i>
             </template>
             <i v-if="i === stage && recording" class="shoot-stage-chip__bar" :style="{ width: `${(Math.min(elapsed, s.max) / s.max) * 100}%` }" />
-            <i v-if="i === stage && recording && stepsOf(s.key).length" class="shoot-stage-chip__ticks" aria-hidden="true" />
             <span v-if="done[i] && !(i === stage && !recording)" class="shoot-stage-chip__time"><Mask :src="rd('checkmark-fill')" cls="shoot-stage-chip__check" />{{ mmss(durations[i]) }}</span>
             <span class="shoot-stage-chip__label">{{ s.label }}<i v-if="i === stage && phase === 'recording'" class="shoot-rec-dot" /></span>
           </button>

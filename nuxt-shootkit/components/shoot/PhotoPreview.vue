@@ -15,7 +15,7 @@ import Mask from "./Mask.vue";
 import StickerBox from "./StickerBox.vue";
 import EditorScreen from "./EditorScreen.vue";
 import { rd } from "../../lib/site";
-import { OTHER, PLUS, type Photo } from "../../lib/core";
+import { OTHER, PLUS, plateLocked, type Photo } from "../../lib/core";
 import { itemLabel } from "../../lib/items";
 import { bakeSticker, defaultSticker, normalizeFile, type Sticker } from "../../lib/image-ops";
 import { useBox } from "../../composables/useBox";
@@ -26,7 +26,7 @@ import { useLayerEsc } from "../../composables/useLayerEsc";
 type EditTool = null | "mosaic" | "rotate" | "crop";
 
 const props = defineProps<{ photos: Photo[]; startId: string }>();
-const emit = defineEmits<{ close: []; done: [next: Photo[]]; addMore: [saved?: Photo[]] }>();
+const emit = defineEmits<{ close: []; done: [next: Photo[]]; addMore: [saved?: Photo[]]; notify: [t: string] }>();
 
 const draft = ref<(Photo & { removed?: boolean })[]>(props.photos.map((p) => (p.raw && p.sticker ? { ...p, src: p.raw } : { ...p })));
 const cur = ref(Math.max(0, props.photos.findIndex((p) => p.id === props.startId)));
@@ -83,6 +83,8 @@ const commit = async (then?: (out: Photo[]) => void) => {
 const showPlate = () => {
   // 한 장에 스티커 하나. 지운 뒤 다시 누르면 마지막 위치·크기·각도 그대로 돌아온다(58 확인).
   const ph = photo.value!;
+  // 대표 칸(첫 칸)은 번호판이 보여야 한다(2026-10-29 후속 ④ 결정)
+  if (plateLocked(ph.slot)) return emit("notify", "대표 사진은 번호판이 보여야 해요 · 다른 각도에서 가릴 수 있어요");
   patch({ sticker: ph.sticker ? { ...ph.sticker, visible: true } : defaultSticker() });
 };
 
@@ -140,7 +142,7 @@ const onReplaceChange = (e: Event) => void replace((e.target as HTMLInputElement
       </div>
       <input ref="replaceEl" type="file" accept="image/*" hidden @change="onReplaceChange" />
       <footer class="shoot-tools">
-        <button type="button" class="is-accent" @click="showPlate"><span class="shoot-plate__ico is-accent" aria-hidden="true"><i /><i /></span>번호판 가리기</button>
+        <button type="button" :class="`is-accent ${photo && plateLocked(photo.slot) ? 'is-locked' : ''}`" :aria-disabled="photo ? plateLocked(photo.slot) : false" :title="photo && plateLocked(photo.slot) ? '대표 사진은 번호판이 보여야 해요' : undefined" @click="showPlate"><span class="shoot-plate__ico is-accent" aria-hidden="true"><i /><i /></span>번호판 가리기</button>
         <button type="button" @click="tool = 'mosaic'"><Mask :src="rd('view-grid-outline')" cls="is-ring" />모자이크</button>
         <button type="button" @click="tool = 'rotate'"><Mask :src="rd('rotate-image-outline')" />회전</button>
         <button type="button" @click="tool = 'crop'"><Mask :src="rd('crop-outline')" />자르기</button>

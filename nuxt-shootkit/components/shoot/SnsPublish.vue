@@ -20,12 +20,12 @@ const onToast = (m: string) => emit("toast", m);
 
 const iconOf = (id: PlatformId) => icon("dealer-profile", `${id}.svg`);
 
-// 공식 개발자 문서 기준 조건(2026-10-22 확인)
+// 공식 개발자 문서 기준 조건(2026-10-22 확인 · 2026-10-29 유튜브 정정: 해시태그 요구 없음, 미검증 프로젝트도 비공개 강제 아님(공식 문서))
 const PLATFORMS: Array<{ id: PlatformId; name: string; where: string; rule: string; placeholder: string }> = [
   { id: "instagram", name: "인스타그램", where: "릴스", rule: "프로페셔널(비즈니스·크리에이터) 계정만 가능 · 하루 100개까지", placeholder: "인스타그램 계정" },
   { id: "tiktok", name: "틱톡", where: "동영상", rule: "보배드림 앱 심사 전에는 ‘나만 보기’로 올라가요", placeholder: "틱톡 계정" },
   { id: "facebook", name: "페이스북", where: "페이지 릴스", rule: "개인 프로필은 안 되고 상사·딜러 페이지만 가능 · 하루 30개", placeholder: "페이스북 페이지 이름" },
-  { id: "youtube", name: "유튜브", where: "쇼츠", rule: "제목에 #Shorts를 붙여 쇼츠로 올려요 · 앱 인증 전에는 비공개", placeholder: "유튜브 채널 이름" },
+  { id: "youtube", name: "유튜브", where: "쇼츠", rule: "3분 이하 세로 영상은 자동으로 쇼츠가 돼요 · 하루 100개까지", placeholder: "유튜브 채널 이름" },
 ];
 const APP_ORDER: PlatformId[] = ["instagram", "tiktok", "youtube", "facebook"];
 const appItem = (id: PlatformId) => PLATFORMS.find((platform) => platform.id === id)!;
@@ -60,7 +60,13 @@ watch(
 
 const connected = computed(() => PLATFORMS.filter((item) => accounts.value[item.id]?.handle));
 const targets = computed(() => connected.value.filter((item) => accounts.value[item.id]?.on));
-const fileName = () => `bobae-shortform-${props.made.carId}.mp4`;
+// 매물 번호가 없을 때(촬영 키트: 등록 전)는 날짜·시각으로 이름을 짓는다(2026-10-29 후속 ④)
+const fileName = () => {
+  if (props.made.carId) return `bobae-shortform-${props.made.carId}.mp4`;
+  const d = new Date();
+  const two = (n: number) => String(n).padStart(2, "0");
+  return `bobae-shortform-${d.getFullYear()}${two(d.getMonth() + 1)}${two(d.getDate())}-${two(d.getHours())}${two(d.getMinutes())}.mp4`;
+};
 
 const copyCaption = async () => {
   try {

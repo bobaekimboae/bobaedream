@@ -20,7 +20,8 @@ export type ShootItem = {
 };
 /** 사진 방향(2026-10-29 3차 컨설팅): landscape = 가로 4:3 틀, portrait = 세로 허용, any = 틀 없음 */
 export type Orientation = "landscape" | "portrait" | "any";
-export type ShootRole = "dealer" | "crew";
+/** 역할 프리셋(2026-10-29 후속 ④): dealer · crew · 58(원본 재현, ?vstage=58). 화면 분기의 단일 축 */
+export type ShootRole = "dealer" | "crew" | "58";
 export type RoleDef = { label: string; orientationToggle: boolean; course: string; maxExtra: number };
 /** 실내 독립 컷(부위 컷 마스터): item = 같은 부위의 사진 칸 id */
 export type CutDef = { key: VideoStage; label: string; item: string; min: number; max: number; hint: string; crewOnly?: boolean };
@@ -34,7 +35,6 @@ export type ShootGroup = {
   videoKey?: VideoStage;
   /** 이 단계 영상 길이(초). 없으면 video.perStageSec */
   videoSec?: { min: number; max: number };
-  videoSteps?: { item?: string; label: string; hand: string }[];
   items: ShootItem[];
 };
 type ShootData = {
@@ -43,11 +43,11 @@ type ShootData = {
   levelLabels: Record<ShootLevel, string>;
   vehicleType: string;
   vehicleNote: string;
-  photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string; enforceRequired?: boolean; publishMin?: number; keyTitle?: string };
+  photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string; enforceRequired?: boolean; publishMin?: number; keyTitle?: string; plateDefault?: boolean; plateHeroLock?: boolean };
   video: {
     optional: boolean;
     perStageSec: { min: number; max: number };
-    extraStages: { key: VideoStage; label: string; min: number; max: number; hint?: string; steps?: { label: string; hand: string }[] }[];
+    extraStages: { key: VideoStage; label: string; min: number; max: number; hint?: string }[];
     customTimes: { label: string; min: number; max: number }[];
     targets: { label: string; sec: number }[];
     recommend: { id: string; label: string; stages: VideoStage[]; replace?: Partial<Record<VideoStage, VideoStage>>; hide?: VideoStage[] }[];
@@ -86,12 +86,6 @@ export const PUBLISH_MIN = SHOOT.photo.publishMin ?? 1;
 export const VIDEO_GROUPS = GROUPS.filter((g) => g.videoStage && g.videoKey);
 export const PER_STAGE = SHOOT.video.perStageSec;
 export const stageSec = (g: ShootGroup) => g.videoSec ?? PER_STAGE;
-/** 녹화 중 순서 카드를 띄우는 단계의 세부 부위(실내 그룹 videoSteps · 추가 단계 steps) */
-export function stepsOf(key: string): { label: string; hand: string }[] {
-  const g = VIDEO_GROUPS.find((x) => x.videoKey === key);
-  if (g?.videoSteps?.length) return g.videoSteps;
-  return SHOOT.video.extraStages.find((x) => x.key === key)?.steps ?? [];
-}
 export const levelLabel = (l: ShootLevel) => SHOOT.levelLabels[l];
 /** 사진 칸의 방향 = 그룹 orientation(없으면 any) */
 export const orientationOf = (id: string): Orientation => groupOf(id).orientation ?? "any";
@@ -99,3 +93,6 @@ export const CUTS = SHOOT.video.cuts;
 export const cutOf = (key: string) => CUTS.find((c) => c.key === key);
 export const ROLES = SHOOT.roles;
 export const coursesOf = (role: ShootRole): CourseDef[] => SHOOT.video.courses[role] ?? [];
+/** 번호판 가리기 기본값(키트) · 대표 사진 노출 잠금(2026-10-29 후속 ④) */
+export const PLATE_DEFAULT = SHOOT.photo.plateDefault ?? false;
+export const PLATE_HERO_LOCK = SHOOT.photo.plateHeroLock ?? true;

@@ -541,6 +541,17 @@ export async function canMakeMp4() {
   }
 }
 
+/** 고화질 1080×1920(2026-10-29 후속 ④ 결정: 기본 720, 선택 1080). 이 폰의 인코더가 1080을 받는지 먼저 본다 */
+export async function canMakeHq() {
+  if (typeof window === "undefined" || !("VideoEncoder" in window)) return false;
+  try {
+    const { getFirstEncodableVideoCodec } = await import("mediabunny");
+    return Boolean(await getFirstEncodableVideoCodec(["avc", "vp9", "av1"], { width: 1080, height: 1920 }));
+  } catch {
+    return false;
+  }
+}
+
 // 녹음한 목소리를 영상 길이에 맞춘 AudioBuffer로 만든다(없으면 무음 — 페이스북 등은 오디오 트랙을 기대한다).
 async function soundtrack(plan: ShortformPlan, seconds: number) {
   const rate = 48000;
@@ -554,18 +565,25 @@ async function soundtrack(plan: ShortformPlan, seconds: number) {
   return offline.startRendering();
 }
 
-export async function exportMp4(plan: ShortformPlan, onProgress: (ratio: number) => void, isCancelled: () => boolean = () => false) {
+/**
+ * scale(2026-10-29 후속 ④): 1 = 720×1280(기본), 1.5 = 1080×1920(고화질). 글자·여백은 720 기준으로 그린 뒤 캔버스만 키워
+ * 두 화질의 화면 구성이 같다. 인코딩 시간은 픽셀 수만큼(약 2.25배) 늘어난다.
+ */
+export async function exportMp4(plan: ShortformPlan, onProgress: (ratio: number) => void, isCancelled: () => boolean = () => false, scale = 1) {
   // 조각본 글꼴: 자막 · 명함 글자를 먼저 받아 둔다(lib/fonts.ts)
   await loadGlyphs(collectText(plan).join(""));
   const mb = await import("mediabunny");
   const { Output, Mp4OutputFormat, BufferTarget, CanvasSource, AudioBufferSource, QUALITY_HIGH, getFirstEncodableVideoCodec, getFirstEncodableAudioCodec } = mb;
-  const codec = await getFirstEncodableVideoCodec(["avc", "vp9", "av1"], { width: plan.width, height: plan.height });
+  const outW = Math.round(plan.width * scale);
+  const outH = Math.round(plan.height * scale);
+  const codec = await getFirstEncodableVideoCodec(["avc", "vp9", "av1"], { width: outW, height: outH });
   if (!codec) throw new Error("이 브라우저에서는 mp4를 만들 수 없어요. 크롬·엣지·최신 사파리에서 열어 주세요.");
   const audioCodec = typeof OfflineAudioContext !== "undefined" ? await getFirstEncodableAudioCodec(["aac", "opus"], { numberOfChannels: 2, sampleRate: 48000 }).catch(() => null) : null;
   const canvas = document.createElement("canvas");
-  canvas.width = plan.width;
-  canvas.height = plan.height;
+  canvas.width = outW;
+  canvas.height = outH;
   const ctx = canvas.getContext("2d")!;
+  if (scale !== 1) ctx.scale(scale, scale);
   const output = new Output({ format: new Mp4OutputFormat({ fastStart: "in-memory" }), target: new BufferTarget() });
   const source = new CanvasSource(canvas, { codec, bitrate: QUALITY_HIGH });
   output.addVideoTrack(source, { frameRate: plan.fps });

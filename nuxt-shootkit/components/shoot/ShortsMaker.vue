@@ -8,7 +8,7 @@ export type { ShortsInput } from "../../lib/shortform-types";
 // 촬영 영상으로 쇼츠 만들기(2026-10-25). 한 번 찍으면 매물 등록용 원본 영상과 SNS용 쇼츠가 함께 나온다.
 // 스타일(shorts.css · shortform-studio.css)은 nuxt.config 전역 css로 이미 들어간다.
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
-import { END_CARD, canMakeMp4, mp4VideoCodec, cutAt, drawFrame, exportMp4, loadImage, loadVideo, planDuration, type ShortformPlan, type ShortformTemplate } from "../../lib/render";
+import { END_CARD, canMakeHq, canMakeMp4, mp4VideoCodec, cutAt, drawFrame, exportMp4, loadImage, loadVideo, planDuration, type ShortformPlan, type ShortformTemplate } from "../../lib/render";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import SnsPublish from "./SnsPublish.vue";
 import { SHOOT } from "../../lib/items";
@@ -54,8 +54,13 @@ const sound = shallowRef<AudioBuffer | null>(null);
 const playing = ref(false);
 const logo = shallowRef<HTMLImageElement | null>(null);
 const can = ref<boolean | null>(null);
+// 고화질 1080×1920(2026-10-29 후속 ④ 결정): 기본 720, 선택 1080. 이 폰 인코더가 1080을 못 받으면 선택지를 막는다. 선택은 이 브라우저에 기억
+const HQ_KEY = "bbm-shoot-shorts-hq";
+const canHq = ref(false);
+const hq = ref<boolean>((() => { try { return window.localStorage.getItem(HQ_KEY) === "1"; } catch { return false; } })());
+watch(hq, (v) => { try { window.localStorage.setItem(HQ_KEY, v ? "1" : "0"); } catch { /* 이번 화면에서만 */ } });
 const making = ref<number | null>(null);
-const made = shallowRef<{ url: string; blob: Blob; seconds: number } | null>(null);
+const made = shallowRef<{ url: string; blob: Blob; seconds: number; hq?: boolean } | null>(null);
 const msg = ref("");
 const canvasRef = ref<HTMLCanvasElement | null>(null);
 let time = 0;
@@ -82,6 +87,7 @@ watch(
 );
 onMounted(() => {
   void canMakeMp4().then((v) => (can.value = v));
+  void canMakeHq().then((v) => (canHq.value = v));
   void mp4VideoCodec().then((v) => (codec.value = v));
   void loadImage(sitePath("shoot", "icon-192.png")).then((v) => (logo.value = v));
 });
@@ -259,9 +265,9 @@ const make = async () => {
   cancelled = false;
   making.value = 0;
   try {
-    const blob = await exportMp4(p, (r) => (making.value = r), () => cancelled);
+    const blob = await exportMp4(p, (r) => (making.value = r), () => cancelled, hq.value && canHq.value ? 1.5 : 1);
     if (unmounted) return;
-    made.value = { url: URL.createObjectURL(blob), blob, seconds: Math.round(planDuration(p)) };
+    made.value = { url: URL.createObjectURL(blob), blob, seconds: Math.round(planDuration(p)), hq: hq.value && canHq.value };
   } catch (e) {
     if ((e as Error).message !== "cancelled") {
       console.error("쇼츠 만들기 실패", e);
@@ -329,7 +335,7 @@ const setLine = (c: PlannedCut, e: Event) => {
       </div>
       <div v-else-if="made && madeInfo" class="shoot-shorts__done">
         <video :src="`${made.url}#t=0.1`" controls playsinline preload="metadata" class="shoot-shorts__video" />
-        <button type="button" class="shoot-shorts__primary" @click="saveMade">내 폰에 저장 · {{ mmss(made.seconds) }}</button>
+        <button type="button" class="shoot-shorts__primary" @click="saveMade">내 폰에 저장 · {{ mmss(made.seconds) }}{{ made.hq ? " · 1080" : "" }}</button>
         <SnsPublish :made="madeInfo" storage-key="bbm-shoot-sns-v1" :initial-handles="{}" :caption="caption" compact @toast="say" />
         <p v-if="codec && codec !== 'avc'" class="shoot-shorts__warn">{{ codec.toUpperCase() }} 방식으로 만든 영상이에요. SNS에 안 올라가면 크롬 최신판이나 사파리에서 다시 만들어 주세요.</p>
         <button type="button" class="shoot-shorts__ghost" @click="made = null">다시 고치기</button>
@@ -353,6 +359,9 @@ const setLine = (c: PlannedCut, e: Event) => {
           </div>
           <label v-if="hasSound" class="shoot-shorts__check">
             <input type="checkbox" :checked="keepSound" @change="keepSound = ($event.target as HTMLInputElement).checked" />시동 소리는 원래 소리 그대로 넣기</label>
+          <!-- 2026-10-29 후속 ④: 기본 720×1280, 고화질 1080×1920은 선택(인스타 릴스 권장 1080 · 만드는 시간 약 2배) -->
+          <label :class="`shoot-shorts__check ${canHq ? '' : 'is-off'}`" :title="canHq ? undefined : '이 폰에서는 1080 영상을 만들 수 없어요'">
+            <input type="checkbox" :checked="hq && canHq" :disabled="!canHq" @change="hq = ($event.target as HTMLInputElement).checked" />고화질 1080으로 만들기 <small>{{ canHq ? "만드는 시간이 약 2배 걸려요" : "이 폰에서는 720만 돼요" }}</small></label>
           <!-- 2026-10-25 컨설팅 6건: 결과를 먼저 보고, 자막·정보는 필요할 때 펼쳐 고친다 -->
           <details class="shoot-shorts__more">
             <summary>자막 · 정보 고치기 <small>선택</small></summary>

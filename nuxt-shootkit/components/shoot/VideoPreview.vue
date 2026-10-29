@@ -22,7 +22,7 @@ import Toast from "./Toast.vue";
 import Confirm from "./Confirm.vue";
 import FocusBox from "./FocusBox.vue";
 import { useLayerEsc } from "../../composables/useLayerEsc";
-import { BASE_STAGES, INTERIOR_STEPS, PLUS, def, mmss, type Take } from "../../lib/core";
+import { BASE_STAGES, PLUS, def, mmss, type Take } from "../../lib/core";
 import { makeMp4, mp4Codec, mp4Name, saveToDevice } from "../../lib/save-mp4";
 import type { VideoStage } from "../../lib/stages";
 import { rd } from "../../lib/site";
@@ -65,8 +65,6 @@ const go = (n: number, play: boolean, at = 0) => {
 const stageKeys = computed(() => props.take.stages ?? BASE_STAGES);
 const damageIdx = computed(() => stageKeys.value.indexOf("damage"));
 const marks = computed(() => (damageIdx.value >= 0 && props.take.durations[damageIdx.value] ? (props.take.marks ?? []) : []));
-const interiorIdx = computed(() => stageKeys.value.indexOf("interior"));
-const isteps = computed(() => (interiorIdx.value >= 0 && props.take.durations[interiorIdx.value] ? (props.take.steps ?? []) : []));
 watch(
   [k, playing],
   () => {
@@ -195,16 +193,6 @@ const confirmOk = () => {
           aria-hidden="true"
         />
       </template>
-      <!-- 2026-10-29 컨설팅: 실내 부위 버튼은 실내 영상을 볼 때만(외관을 보는데 실내 칩이 떠 있었다) -->
-      <div v-if="isteps.length && (!PLUS || cur?.i === interiorIdx)" :class="`shoot-marks is-steps ${marks.length ? 'is-up' : ''}`" role="group" aria-label="실내 부위별로 보기">
-        <span>실내</span>
-        <button
-          v-for="(t0, i) in isteps"
-          :key="i"
-          type="button"
-          @click="go(parts.findIndex((x) => x.i === interiorIdx), true, t0)"
-        >{{ INTERIOR_STEPS[i]?.label ?? `부위 ${i + 1}` }} · {{ mmss(t0) }}</button>
-      </div>
       <div v-if="marks.length" class="shoot-marks" role="group" :aria-label="`흠집 ${marks.length}곳`">
         <span>흠집 {{ marks.length }}곳</span>
         <button

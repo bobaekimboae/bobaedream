@@ -107,6 +107,13 @@
   margin-top: 14px;
   font-size: 14px;
 }
+.shoot-shorts__check small {
+  font-size: 12px;
+  color: #8c8c8c;
+}
+.shoot-shorts__check.is-off {
+  color: #8c8c8c;
+}
 .shoot-shorts__form {
   display: grid;
   gap: 8px;
