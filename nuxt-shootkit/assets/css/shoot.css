@@ -4910,3 +4910,33 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-capture .shoot-rail-more {
   z-index: 5;
 }
+
+/* 2026-10-29 자가 체크: 머리줄 알약 버튼(윤곽선 · 가로/세로)은 보이는 크기는 두고 누르는 곳만 44 */
+.shoot-root.is-kit .shoot-guide-toggle {
+  position: relative;
+}
+.shoot-root.is-kit .shoot-guide-toggle::after {
+  content: "";
+  position: absolute;
+  inset: -8px -4px;
+}
+/* 역할 딱지(촬영팀일 때만) */
+.shoot-role-tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  background: var(--shoot-accent);
+  color: #fff;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  vertical-align: 2px;
+}
+/* 가로 4:3 사진은 칸에서 양옆을 자르지 않고 전체를 보인다 */
+.shoot-root.is-kit .shoot-tile__img.is-landscape {
+  background: #111;
+}
+.shoot-root.is-kit .shoot-tile__img.is-landscape img {
+  object-fit: contain;
+}

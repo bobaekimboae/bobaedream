@@ -12,7 +12,7 @@ export type CameraState = {
   setTorch: (on: boolean) => void;
 };
 
-export function useCamera(active: () => boolean, withAudio: () => boolean): CameraState {
+export function useCamera(active: () => boolean, withAudio: () => boolean, size?: { width: { ideal: number }; height: { ideal: number } }): CameraState {
   const stream = shallowRef<MediaStream | null>(null);
   const error = ref<CameraError>("");
   const torchSupported = ref(false);
@@ -31,7 +31,7 @@ export function useCamera(active: () => boolean, withAudio: () => boolean): Came
       return;
     }
     const audio = withAudio();
-    const video: MediaTrackConstraints = { facingMode: { ideal: "environment" }, width: { ideal: 1920 }, height: { ideal: 1080 } };
+    const video: MediaTrackConstraints = { facingMode: { ideal: "environment" }, ...(size ?? { width: { ideal: 1920 }, height: { ideal: 1080 } }) };
     md.getUserMedia({ video, audio })
       .catch((e: unknown) => (audio ? md.getUserMedia({ video, audio: false }) : Promise.reject(e)))
       .then((s) => {

@@ -246,7 +246,7 @@ const addPhotos = (added: Photo[]) => {
   if (plated.length) {
     void Promise.all(
       plated.map(async (x) => {
-        const st = platePlace();
+        const st = platePlace(x.orient);
         return [x.id, { raw: x.src, sticker: st, src: await bakeSticker(x.src, st, PLUS) }] as const;
       }),
     ).then((done) => {
@@ -308,7 +308,7 @@ const progressRows = computed(() => {
     { label: "차량 소재지", got: region.value ? 20 : 0, max: 20, note: region.value ? `${region.value.sido}${region.value.gu ? ` ${region.value.gu}` : ""}` : "아직 안 골랐어요" },
     { label: "우선 4장", got: Math.round((60 * req) / reqN), max: 60, note: `${req}/${REQUIRED_IDS.length}장 · ${REQUIRED_IDS.map((id) => itemLabel(id)).join(" · ")}` },
     { label: "추가 사진", got: Math.round((10 * Math.min(recommendedDone.value, recN)) / recN), max: 10, note: `${recommendedDone.value}/${RECOMMENDED_IDS.length}각도` },
-    { label: "영상", got: Math.round((10 * Math.min(videoDone.value, vidN)) / vidN), max: 10, note: `${videoDone.value}/${VIDEO_GROUPS.length}부위 · 선택` },
+    { label: "영상", got: Math.round((10 * Math.min(videoDone.value, vidN)) / vidN), max: 10, note: `${videoDone.value}/${VIDEO_GROUPS.length}묶음(${VIDEO_GROUPS.map((g) => g.label).join(" · ")}) · 선택` },
   ];
 });
 // ── 임시저장(2026-10-29 「수정하고 병합해라」): 이 폰 브라우저(IndexedDB)에 실제로 보관하고 「저장한 글」에서 다시 연다 ──
@@ -534,7 +534,7 @@ const leaveSave = async () => {
         <header class="shoot-main__top">
           <button type="button" class="shoot-icon-btn is-dark" aria-label="뒤로" @click="onBack"><Mask :src="rd('back-outline-24')" cls="is-back" /></button>
           <div class="shoot-main__title">
-            <h1>중고차 등록</h1>
+            <h1>중고차 등록<em v-if="PLUS && roleNow() === 'crew'" class="shoot-role-tag">촬영팀</em></h1>
             <button v-if="PLUS" type="button" class="shoot-progress-why" :aria-label="`완성도 ${progress}%, 계산 방법 보기`" @click="progressWhy">완성도 {{ progress }}% <i aria-hidden="true">ⓘ</i></button>
             <span v-else>완성도 {{ progress }}%</span>
           </div>
@@ -604,7 +604,7 @@ const leaveSave = async () => {
                 <!-- 2026-10-29 컨설팅: 키트는 「bb」 자리 글자 대신 찍은 사진을 흐리게 보이고 올리는 점을 띄운다 -->
                 <div v-if="p.uploading && PLUS" class="shoot-tile__wait is-kit" role="status" aria-label="사진 올리는 중"><img :src="p.src" alt="" draggable="false" /><span class="shoot-tile__dots"><i /><i /><i /></span></div>
                 <div v-else-if="p.uploading" class="shoot-tile__wait"><b>bb</b></div>
-                <button v-else type="button" class="shoot-tile__img" :aria-label="`${itemLabel(p.slot)} 사진 편집`" @click="setScreen({ name: 'preview', id: p.id })">
+                <button v-else type="button" :class="`shoot-tile__img ${p.orient === 'landscape' ? 'is-landscape' : ''}`" :aria-label="`${itemLabel(p.slot)} 사진 편집`" @click="setScreen({ name: 'preview', id: p.id })">
                   <img :src="p.src" alt="" draggable="false" />
                   <span class="shoot-tile__wm">보배드림</span>
                   <span v-if="PLUS && idx === 0" class="shoot-tile__rep">대표</span>

@@ -37,9 +37,11 @@ const emit = defineEmits<{ close: []; done: [added: Photo[]]; notify: [t: string
 const notify = (t: string) => emit("notify", t);
 
 const mode = ref<"cam" | "album">(props.startMode);
+// 2026-10-29 자가 체크(7라운드 지적): 사진 카메라는 4:3으로 요청해 가로 틀 저장 크기를 키운다(세로 폰 1200×900). 58 재현은 예전 16:9
 const { stream, error, torchSupported, retry, setTorch } = useCamera(
   () => mode.value === "cam",
   () => false,
+  PLUS ? { width: { ideal: 1600 }, height: { ideal: 1200 } } : undefined,
 );
 // 실기 대비(2026-10-27): 5초가 지나도 카메라 화면이 안 뜨면 안내 화면으로(영상 화면과 같게)
 const camSlow = ref(false);
@@ -239,7 +241,15 @@ const importFiles = async (files: FileList | null) => {
   let failed = 0;
   for (const f of Array.from(files)) {
     try {
-      photos.push({ id: uid(), src: await normalizeFile(f), slot: OTHER, fromAlbum: true });
+      const src = await normalizeFile(f);
+      // 불러온 사진도 방향을 남긴다(가로 폭이 더 크면 landscape)
+      const orient = await new Promise<"landscape" | "portrait" | undefined>((resolve) => {
+        const im = new Image();
+        im.onload = () => resolve(im.naturalWidth > im.naturalHeight ? "landscape" : "portrait");
+        im.onerror = () => resolve(undefined);
+        im.src = src;
+      });
+      photos.push({ id: uid(), src, slot: OTHER, fromAlbum: true, ...(orient ? { orient } : {}) });
     } catch {
       failed += 1;
     }
@@ -277,7 +287,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
 
 <template>
   <div ref="rootRef" class="shoot-layer shoot-capture" v-on="swipe" @pointerdown.capture="askTilt">
-    <div class="shoot-rotate-hint" role="status"><Mask :src="rd('rotate-image-outline')" />휴대폰을 세로로 들어 주세요</div>
+    <div class="shoot-rotate-hint" role="status"><Mask :src="rd('rotate-image-outline')" />{{ isLandscape ? "휴대폰을 세로로 든 채 가로 틀에 맞춰 주세요" : "휴대폰을 세로로 들어 주세요" }}<small v-if="isLandscape">가로 사진은 화면의 4:3 틀 안이 저장돼요</small></div>
     <header class="shoot-top">
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="onClickClose">
         <Mask :src="rd('close-outline')" />
