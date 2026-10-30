@@ -1,0 +1,30 @@
+{
+  "name": "bobaedream-3d-feature-mvp",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "typecheck": "nuxt typecheck",
+    "preview": "nuxt preview"
+  },
+  "dependencies": {
+    "nuxt": "4.6.2",
+    "three": "0.187.0",
+    "vue": "3.5.33"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.2",
+    "@types/three": "0.186.0",
+    "typescript": "6.0.3",
+    "vue-tsc": "3.1.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "@vue/server-renderer": "3.5.33",
+      "vue": "3.5.33"
+    }
+  },
+  "packageManager": "pnpm@10.33.0"
+}
