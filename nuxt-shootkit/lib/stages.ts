@@ -5,7 +5,7 @@ export type VideoStage =
   | "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort" | "seat" | "charge"
   // 2026-10-29 3차 컨설팅: 세부 컷(라이트·그릴 등)과 실내 독립 컷
   | "light-front" | "light-rear" | "mirror"
-  | "in-door" | "in-seat" | "in-dash" | "in-center" | "in-console" | "in-pass" | "in-rear" | "in-roof" | "in-third"
+  | "in-door" | "in-seat" | "in-wheel" | "in-cluster" | "in-dash" | "in-center" | "in-console" | "in-pass" | "in-rear" | "in-roof" | "in-third"
   | `my-${string}`;
 
 export const ORANGE = "#FF7A1A";
@@ -25,7 +25,7 @@ const STAGE_GUIDE_BASE: Record<string, StageGuide> = {
   start: { frames: ["opt-start-1"], arrow: "M18 100 Q80 116 142 100", how: "보닛을 연 채로 녹화를 시작한 뒤 시동을 걸어 주세요. 시동 소리와 엔진 떨림이 담겨야 해요.", pan: "sweep" },
   tyre: { frames: ["opt-tyre"], arrow: "M40 30 Q130 60 40 100", how: "바퀴 4개를 차례로, 타이어 홈이 보이게 가까이 찍어 주세요.", pan: "orbit" },
   damage: { frames: ["opt-damage-1", "opt-damage-2"], arrow: "M14 104 Q80 124 146 100", how: "차 주위를 돌며 흠집·찍힘이 보이면 화면을 눌러 표시해 주세요. 누른 곳이 매물 화면에 점으로 보여요.", pan: "orbit" },
-  feature: { frames: ["opt-feature-1", "opt-feature-2", "opt-feature-3"], arrow: "M18 108 Q80 92 142 108", how: "후방카메라 · 내비게이션 · 선루프처럼 자랑할 옵션을 켜서 작동하는 모습을 찍어 주세요.", pan: "sweep" },
+  feature: { frames: ["opt-feature-1", "opt-feature-2", "opt-feature-3"], arrow: "M18 108 Q80 92 142 108", how: "마사지시트 · 냉장고 · 뒷좌석 모니터 · 엠비언트 라이트처럼 실내 컷에서 못 보여 준 옵션을 켜서 작동하는 모습을 찍어 주세요.", pan: "sweep" },
   wheel: { frames: ["opt-wheel"], arrow: "M40 30 Q130 60 40 100", how: "휠 가운데와 브레이크 캘리퍼를 가까이 찍어 주세요. 휠 크기(인치)가 보이면 좋아요.", pan: "orbit" },
   door: { frames: ["opt-door-1", "opt-door-2"], arrow: "M18 100 Q80 116 142 100", how: "문을 열고 닫는 모습, 트렁크가 열리는 모습을 찍어 주세요. 전동이면 버튼을 누르는 손도 보여 주세요.", pan: "sweep" },
   comfort: { frames: ["in-comfort", "opt-comfort"], arrow: "M18 108 Q80 92 142 108", how: "통풍·열선 시트 버튼, 컵홀더·콘솔·충전 단자처럼 편의 장비를 손으로 눌러 보여 주세요.", pan: "sweep" },
@@ -37,14 +37,17 @@ const STAGE_GUIDE_BASE: Record<string, StageGuide> = {
   "light-rear": { frames: ["ext-4"], arrow: "M18 100 Q80 116 142 100", how: "브레이크를 밟아 뒤 라이트가 켜진 모습과 배기구를 가까이 찍어요.", pan: "sweep" },
   mirror: { frames: ["ext-2"], arrow: "M30 60 Q80 48 130 60", how: "사이드미러가 접히는 모습과 도어 핸들(터치 잠금·웰컴 라이트)을 손으로 보여 주세요.", pan: "sweep" },
   // 실내 독립 컷(컷마다 따로 녹화)
-  "in-door": { frames: ["int-1"], arrow: "M18 108 Q80 92 142 108", how: "운전석 문을 열고 실내 전체가 보이게 한 번에 비춰 주세요(첫인상 컷).", pan: "sweep" },
-  "in-seat": { frames: ["in-seat"], arrow: "M18 108 Q80 92 142 108", how: "운전석 시트 전체와 옆 볼스터를 비추고 손으로 눌러 쿠션을 보여 주세요.", pan: "sweep" },
+  "in-door": { frames: ["int-1"], arrow: "M18 108 Q80 92 142 108", how: "운전석 문을 열고 실내 전체를 한 번에 비춘 뒤 도어 트림·스피커 배지까지 보여 주세요(첫인상 컷).", pan: "sweep" },
+  "in-seat": { frames: ["in-seat"], arrow: "M18 108 Q80 92 142 108", how: "시트 전체 → 옆 볼스터 가까이 → 손으로 쿠션 누르기 → 시트 버튼(전동·통풍·메모리) 순서로 보여 주세요.", pan: "sweep" },
+  // 2026-10-30 실내 10컷 확정: 「대시보드·계기판」을 핸들과 시동·계기판으로 나눔(in-dash는 예전 기록용으로 남김)
+  "in-wheel": { frames: ["in-dash"], arrow: "M30 60 Q80 48 130 60", how: "핸들 가죽 잡는 부분 → 핸들 버튼 → 패들시프트 순서로 가까이 보여 주세요.", pan: "sweep" },
+  "in-cluster": { frames: ["opt-cluster"], arrow: "M30 60 Q80 48 130 60", how: "시동 버튼을 누르고 경고등이 켜졌다 꺼지는 모습 → 주행거리 숫자에서 2초 멈춰 주세요. 전기차는 충전량·주행 가능 거리 화면이에요.", pan: "sweep" },
   "in-dash": { frames: ["opt-cluster", "in-dash"], arrow: "M18 108 Q80 92 142 108", how: "핸들을 잡고 계기판 주행거리 → 가운데 화면 순서로 천천히 비춰 주세요.", pan: "sweep" },
-  "in-center": { frames: ["in-dash"], arrow: "M18 108 Q80 92 142 108", how: "가운데 화면을 켜고 내비·후방카메라 화면을 눌러 보여 주세요.", pan: "sweep" },
-  "in-console": { frames: ["in-comfort"], arrow: "M18 108 Q80 92 142 108", how: "기어 노브와 콘솔 버튼, 컵홀더·충전 단자를 비춰 주세요.", pan: "sweep" },
-  "in-pass": { frames: ["int-2"], arrow: "M18 108 Q80 92 142 108", how: "조수석 문을 열고 시트와 글로브박스를 비춰 주세요.", pan: "sweep" },
-  "in-rear": { frames: ["in-rear"], arrow: "M18 108 Q80 92 142 108", how: "뒷문을 열고 뒷좌석 쿠션과 등받이, 발 공간을 비춰 주세요.", pan: "sweep" },
-  "in-roof": { frames: ["in-ceiling"], arrow: "M80 106 Q92 60 80 14", how: "천장과 선루프(있으면 열어서)를 비춰 주세요.", pan: "tilt" },
+  "in-center": { frames: ["in-dash"], arrow: "M18 108 Q80 92 142 108", how: "가운데 화면을 켜고 내비 → 후진 기어로 후방·360 카메라 화면까지 보여 주세요.", pan: "sweep" },
+  "in-console": { frames: ["in-comfort"], arrow: "M18 108 Q80 92 142 108", how: "에어컨 패널 → 기어 노브 → 컵홀더·무선충전·USB 순서로 비춰 주세요.", pan: "sweep" },
+  "in-pass": { frames: ["int-2"], arrow: "M18 108 Q80 92 142 108", how: "조수석 문을 열고 시트를 비춘 뒤 글로브박스를 열어 주세요.", pan: "sweep" },
+  "in-rear": { frames: ["in-rear"], arrow: "M18 108 Q80 92 142 108", how: "뒷문을 열고 쿠션·등받이 → 발 공간 → 뒷좌석 송풍구·열선·커튼 순서로 비춰 주세요.", pan: "sweep" },
+  "in-roof": { frames: ["in-ceiling"], arrow: "M80 106 Q92 60 80 14", how: "천장 → 선루프 열기(있으면) → 실내등 순서로 비춰 주세요.", pan: "tilt" },
   "in-third": { frames: ["int-4"], arrow: "M18 108 Q80 92 142 108", how: "3열 시트를 펴고 접는 모습까지 비춰 주세요(SUV·미니밴).", pan: "sweep" },
   under: { frames: ["opt-under"], arrow: "M18 100 Q80 116 142 100", how: "차 아래와 머플러 쪽을 비스듬히 찍어 주세요. 기름이 샌 자국이 없는지 보여 주면 좋아요.", pan: "sweep" },
 };

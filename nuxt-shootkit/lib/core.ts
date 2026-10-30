@@ -89,7 +89,8 @@ export const HARD_MAX = 120;
 export const BASE_STAGES: VideoStage[] = baseStagesOf(roleNow());
 export const baseStages = () => baseStagesOf(roleNow());
 /** 더할 수 있는 부위 = 추가 부위 + 표준 코스에 없는 실내 컷 */
-export const EXTRA_STAGES: VideoStage[] = [...SHOOT.video.extraStages.map((x) => x.key), ...CUTS.map((c) => c.key)];
+/** retired(2026-10-30 실내 컷 확정: 계기판 · 편의 장비) = 예전 기록은 열리지만 새로 고르는 목록에선 숨긴다 */
+export const EXTRA_STAGES: VideoStage[] = [...SHOOT.video.extraStages.filter((x) => !x.retired).map((x) => x.key), ...CUTS.map((c) => c.key)];
 export const STAGES = BASE_STAGES.map((k) => def(k));
 /** 사진 칸 레일 순서(그룹 순서대로 펼친 항목 id). 키트는 규칙 화면처럼 우선 4장을 맨 앞에 둔다(2026-10-26 컨설팅: 규칙·레일 순서 통일) */
 export const PHOTO_SLOTS: string[] = PLUS
