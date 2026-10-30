@@ -392,3 +392,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-10-29,PR #1080,nuxt-shootkit-followup2,754608fa,촬영 키트 후속 ②(컷별 음성·글 메모 · 내부 기본 · 공개 토글 · 받아쓰기 초안 · 쇼츠 자막 초안),병합 483965f · 배포 v=483965f
 2026-10-29,PR #1082,nuxt-shootkit-followup3,6b56f4be,촬영 키트 후속 ③(사진 쇼츠 3종 · 틱톡 사진 묶음 · 쇼츠 입구 1곳),병합 d67ed8a · 배포 v=d67ed8a
 2026-10-30,PR #1084,shootkit-autoshorts,3da3ba49,촬영 키트 등록 완료 자동 쇼츠 · 끝 장면 흠집 알림,병합 0c7a047 · 배포 v=0c7a047
+2026-10-30,PR #1086,agents-tech-stack,967c8904,병합,문서,보배드림 리뉴얼 기술 스택 필수 기준 추가,AGENTS.md,,Nuxt 3→4 이관 필요,문서만

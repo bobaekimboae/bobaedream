@@ -6,6 +6,16 @@
 - For quick-filter work, also read `docs/quick-filter-spec.md` and `docs/보배드림_차량이미지_로고_에셋지침_v1.md`.
 - Add new quick-filter rules to `docs/quick-filter-spec.md`, not to this file.
 
+## 보배드림 기술 스택 (2026-10-30, 필수)
+
+- 모든 새 작업(깃허브 시안, 키트 솔루션, 프런트엔드·백엔드·API)은 보배드림 리뉴얼 기술 스택으로 만든다. 리액트로 새 화면·기능을 만들지 않는다. 기존 리액트 시안(`src/`)은 비교·참고용이다.
+- 기준 문서: 노션 「리뉴얼 기술 스택」 https://app.notion.com/p/408ee9c4b60680c3be52caefde283895
+- 프런트엔드: TypeScript 6.0.3 · Nuxt 4.6.2 · Vue 3.5.33 · Node.js 24.22.1 · CSS Custom Properties(SCSS 안 씀) · 상태는 Nuxt `useState` + Vue Composition API(Pinia 안 씀) · 에디터 Tiptap 3.27.3 · 패키지 pnpm 10.33.0
+- 관리자 프런트엔드: TypeScript 5.9.3 · Nuxt 4.5.2 · Vue 3.5.43 · Vuetify 3.10.8 · SCSS/Sass · Pinia · Tiptap 2.27.1 · pnpm 10.33.0
+- 백엔드: PHP 8.4.27(PHP-FPM) · Laravel 12 · PostgreSQL 15.15 · Redis 7.0.15 · 검색 Meilisearch 1.54.3 · Composer
+- 화면이 쓰는 데이터는 Laravel API가 줄 모양(JSON)으로 두고, 검색·필터 대수는 Meilisearch 패싯(항목별 개수)으로 계산될 수 있게 설계한다.
+- 지금 `nuxt-site/`·`nuxt-shootkit/`은 Nuxt 3.21 · TypeScript 5.9 · npm이다. 새로 손댈 때 위 버전(Nuxt 4.6.2 · TS 6.0.3 · pnpm)으로 올리는 작업을 먼저 하거나 함께 한다.
+
 ## Editing Boundary
 
 - App-specific prototype code lives in `src/Prototype.tsx`, `src/prototype.css`, and `src/prototype/`.
