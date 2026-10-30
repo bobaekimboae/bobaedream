@@ -217,7 +217,7 @@ const onInput = (e: Event) => (e.target as HTMLInputElement).value;
     <div ref="boxRef" class="shoot-xpick__box" role="dialog" aria-modal="true" aria-labelledby="shoot-xpick-t" @click.stop>
       <header>
         <strong id="shoot-xpick-t">촬영 코스 고르기</strong>
-        <p>차 주위를 걷는 순서대로 찍어요. 실내는 시트·대시보드·뒷좌석을 컷마다 따로 찍어요.</p>
+        <p>차 주위를 걷는 순서대로 찍어요. 실내는 시트 → 계기판 → 뒷좌석처럼 정해진 순서대로 컷마다 따로 찍어요.</p>
         <div class="shoot-xpick__modes" role="radiogroup" aria-label="화면 종류">
           <button v-for="[m, label] in MODES" :key="m" type="button" role="radio" :aria-checked="draft.mode === m" :class="draft.mode === m ? 'is-on' : ''" @click="setMode(m)">
             {{ label }}

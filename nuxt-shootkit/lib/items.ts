@@ -47,7 +47,7 @@ type ShootData = {
   video: {
     optional: boolean;
     perStageSec: { min: number; max: number };
-    extraStages: { key: VideoStage; label: string; min: number; max: number; hint?: string }[];
+    extraStages: { key: VideoStage; label: string; min: number; max: number; hint?: string; retired?: boolean }[];
     customTimes: { label: string; min: number; max: number }[];
     targets: { label: string; sec: number }[];
     recommend: { id: string; label: string; stages: VideoStage[]; replace?: Partial<Record<VideoStage, VideoStage>>; hide?: VideoStage[] }[];
