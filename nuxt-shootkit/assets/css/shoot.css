@@ -5046,14 +5046,14 @@ body:has(.shoot-layer) .shoot-install {
   left: 12px;
   right: 12px;
   bottom: 94px;
-  z-index: 3;
+  z-index: 20;
   display: grid;
   grid-template-columns: 1fr auto auto;
   align-items: center;
   gap: 8px;
   padding: 10px 10px 10px 14px;
   border-radius: 12px;
-  background: rgba(20, 20, 20, 0.88);
+  background: rgba(20, 20, 20, 0.95); /* 뒤 윤곽선 안내 글자가 비치지 않게 */
   color: #fff;
   box-shadow: inset 3px 0 0 #ffc21a;
 }
@@ -5092,10 +5092,35 @@ body:has(.shoot-layer) .shoot-install {
   color: #222;
 }
 @media (max-width: 360px) {
-  .shoot-qc-card {
-    grid-template-columns: 1fr auto;
-  }
   .shoot-qc-card p {
     grid-column: 1 / -1;
   }
+  .shoot-qc-card__keep {
+    grid-column: 2;
+  }
+}
+
+/* 미리보기: 품질 검사 한 줄(사진 위쪽) */
+.shoot-qc-note {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 8px;
+  margin: 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(20, 20, 20, 0.85);
+  box-shadow: inset 3px 0 0 #ffc21a;
+  color: #ddd;
+  font-size: 12px;
+  line-height: 17px;
+  word-break: keep-all;
+}
+.shoot-qc-note b {
+  color: #ffc21a;
+  font-weight: 700;
+}
+/* 알림 카드가 떠 있는 동안 윤곽선 안내 글자는 숨긴다(카드 뒤로 비침) */
+.shoot-view:has(.shoot-qc-card) .shoot-guide__hint {
+  visibility: hidden;
 }

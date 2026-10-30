@@ -17,6 +17,7 @@ import EditorScreen from "./EditorScreen.vue";
 import { rd } from "../../lib/site";
 import { OTHER, PLUS, plateLocked, type Photo } from "../../lib/core";
 import { itemLabel } from "../../lib/items";
+import { QC_TEXT, QC_TIP, firstIssue } from "../../lib/quality";
 import { bakeSticker, defaultSticker, normalizeFile, type Sticker } from "../../lib/image-ops";
 import { useBox } from "../../composables/useBox";
 import { useFit } from "../../composables/useFit";
@@ -129,6 +130,8 @@ const onReplaceChange = (e: Event) => void replace((e.target as HTMLInputElement
           <img :src="photo.src" alt="" draggable="false" />
           <StickerBox v-if="photo.sticker?.visible" :sticker="photo.sticker" :frame="fit" @change="onSticker" />
         </div>
+        <!-- 촬영 후 품질 검사(2026-10-31 크로스체크): 딱지가 붙은 사진을 열면 무엇이 문제인지 한 줄로 -->
+        <p v-if="PLUS && firstIssue(photo.qc)" class="shoot-qc-note" role="status"><b>{{ QC_TEXT[firstIssue(photo.qc)!] }}</b> {{ QC_TIP[firstIssue(photo.qc)!] }}</p>
       </div>
       <div class="shoot-strip">
         <button type="button" class="shoot-strip__add" aria-label="사진 더 추가" :disabled="busy" @click="onAddMoreClick"><Mask :src="rd('add-outline-24')" /></button>

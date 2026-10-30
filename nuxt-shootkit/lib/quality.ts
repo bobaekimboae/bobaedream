@@ -20,8 +20,10 @@ export const QC_LIMIT = {
   side: 320, // 이 폭으로 줄여서 잰다
   darkMean: 30, // 평균 밝기(0~255)가 이보다 낮으면 어두움(검은 실내·계기판 사진은 원래 40 안팎이라 그보다 낮게)
   darkShare: 0.85, // 또는 아주 어두운 점(<40)이 이 비율 이상
-  brightShare: 0.3, // 하얗게 날아간 점(≥250)이 이 비율 이상
+  brightShare: 0.2, // 가운데(차가 있을 자리)에서 하얗게 날아간 점(≥250)이 이 비율 이상
+  // 2026-10-31 크로스체크: 흰 스튜디오 벽 · 바닥은 원래 하얗다 → 사진 전체가 아니라 가운데 영역만 본다(슈퍼카 매물 16/100 잘못 표시 → 수정)
   blurVar: 60, // 가장자리 세기(라플라시안 분산)가 이보다 낮으면 흔들림
+  shakeRatio: 0.3, // 가로·세로 가장자리 세기 비율이 이보다 낮으면 한쪽으로 끌린 손떨림(실매물 원본은 2%만 0.37 아래)
   blurMinMean: 50, // 이보다 어두운 사진은 원래 가장자리가 약해 흔들림을 재지 않는다
 };
 
@@ -31,23 +33,35 @@ export function analyzePixels(data: Uint8ClampedArray | Uint8Array, w: number, h
   const g = new Float32Array(n);
   let sum = 0;
   let dark = 0;
-  let blown = 0;
+  let cBlown = 0;
+  let cN = 0;
+  const x0 = Math.floor(w * 0.25), x1 = Math.ceil(w * 0.75), y0 = Math.floor(h * 0.3), y1 = Math.ceil(h * 0.8);
   for (let i = 0, p = 0; i < n; i++, p += 4) {
     const y = 0.299 * data[p] + 0.587 * data[p + 1] + 0.114 * data[p + 2];
     g[i] = y;
     sum += y;
     if (y < 40) dark++;
-    if (y >= 250) blown++;
+    const px = i % w, py = (i / w) | 0;
+    if (px >= x0 && px < x1 && py >= y0 && py < y1) {
+      cN++;
+      if (y >= 250) cBlown++;
+    }
   }
   const mean = sum / n;
   // 라플라시안(위아래양옆 − 4×가운데) 분산. 하얗게 날아간 점과 아주 어두운 점은 빼고 잰다.
   let s = 0;
   let s2 = 0;
   let m = 0;
+  let gx = 0;
+  let gy = 0;
   for (let y = 1; y < h - 1; y++) {
     for (let x = 1; x < w - 1; x++) {
       const i = y * w + x;
       const c = g[i];
+      const dx = g[i + 1] - g[i - 1];
+      const dy = g[i + w] - g[i - w];
+      gx += dx * dx;
+      gy += dy * dy;
       if (c >= 250 || c < 8) continue;
       const v = g[i - 1] + g[i + 1] + g[i - w] + g[i + w] - 4 * c;
       s += v;
@@ -56,11 +70,13 @@ export function analyzePixels(data: Uint8ClampedArray | Uint8Array, w: number, h
     }
   }
   const sharp = m ? s2 / m - (s / m) ** 2 : 0;
+  // 한쪽으로 끌린 손떨림(2026-10-31 크로스체크): 끌린 방향의 가장자리만 약해진다 → 가로·세로 세기 비율
+  const ratio = Math.max(gx, gy) ? Math.min(gx, gy) / Math.max(gx, gy) : 1;
   const issues: QcIssue[] = [];
   if (mean < QC_LIMIT.darkMean || dark / n >= QC_LIMIT.darkShare) issues.push("dark");
-  else if (blown / n >= QC_LIMIT.brightShare) issues.push("bright");
+  else if (cN && cBlown / cN >= QC_LIMIT.brightShare) issues.push("bright");
   // 어두운 사진은 원래 가장자리가 약해 흔들림으로 잘못 나오므로 흔들림은 밝은 사진에서만 잰다.
-  if (!issues.includes("dark") && mean >= QC_LIMIT.blurMinMean && sharp < QC_LIMIT.blurVar) issues.push("blur");
+  if (!issues.includes("dark") && mean >= QC_LIMIT.blurMinMean && (sharp < QC_LIMIT.blurVar || ratio < QC_LIMIT.shakeRatio)) issues.push("blur");
   return { issues, mean, sharp };
 }
 
