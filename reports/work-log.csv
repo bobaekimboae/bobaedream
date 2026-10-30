@@ -395,3 +395,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-10-30,PR #1086,agents-tech-stack,967c8904,병합,문서,보배드림 리뉴얼 기술 스택 필수 기준 추가,AGENTS.md,,Nuxt 3→4 이관 필요,문서만
 2026-10-30,PR #1087,shootkit-interior-cuts,0e4f7ef4,병합,넉스트 촬영키트,실내 10컷 순서 촬영 · 코스 정리,nuxt-shootkit data/lib,,실제 폰 확인,58 재현 그대로
 2026-10-31,PR #1088,shootkit-photo-qc,,병합,넉스트 촬영키트,촬영 후 품질 검사(흔들림·어두움·빛 번짐),nuxt-shootkit lib/quality.ts,,실제 폰 기준 재조정,58 재현 그대로
+2026-10-31,PR #1090,shootkit-qc-crosscheck,,병합,넉스트 촬영키트,품질 검사 크로스체크 보정(흰 배경 오탐·손떨림·미리보기·360),nuxt-shootkit lib/quality.ts,,실제 폰 기준 재조정,58 재현 그대로
