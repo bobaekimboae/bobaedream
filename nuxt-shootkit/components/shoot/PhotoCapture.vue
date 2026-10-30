@@ -31,6 +31,7 @@ import { ALLOW_FAKE, ENFORCE, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLATE_START, PLUS,
 import { REQUIRED_IDS, isRequiredItem, itemLabel, itemOf, orientationOf, type Orientation } from "../../lib/items";
 import { rd } from "../../lib/site";
 import { GUIDE_ON, askTilt, type CamSession } from "../../lib/photo-capture";
+import { QC_TAG, QC_TEXT, QC_TIP, checkPhoto, firstIssue, type QcIssue } from "../../lib/quality";
 
 const props = defineProps<{ existing: Photo[]; startMode: "cam" | "album" }>();
 const emit = defineEmits<{ close: []; done: [added: Photo[]]; notify: [t: string] }>();
@@ -155,7 +156,32 @@ const shotPicked = (p: Photo | null | undefined) => Boolean(p && session.value.p
 /** 30장이 차서 지금 칸에 새로 찍을 수 없는지(지금 칸 사진을 다시 찍는 것은 허용) */
 const atCap = computed(() => PLUS && total.value >= MAX_PHOTOS && !shotPicked(slotShots.value[sel.value]));
 
+// 촬영 후 품질 검사(2026-10-31): 찍은 직후 폰 안에서 밝기 · 흔들림을 재고, 문제가 있으면 알림 카드와 칸 딱지를 띄운다.
+// 사진은 고치지 않고 다시 찍을지는 사용자가 정한다. 키트만(58 재현은 원본대로 없음).
+const qcCard = ref<{ id: string; issue: QcIssue } | null>(null);
+/** 사진 하나에 검사 결과를 붙인다(찍은 사진 · 칸 · 불러온 사진 모두) */
+const setQc = (id: string, qc: QcIssue[]) => {
+  const put = (p: Photo | null) => (p && p.id === id ? { ...p, qc } : p);
+  const s = session.value;
+  session.value = { ...s, shots: s.shots.map((p) => put(p)!), imported: s.imported.map((p) => put(p)!) };
+  slotShots.value = slotShots.value.map(put);
+};
+const runQc = (shot: Photo) =>
+  void checkPhoto(shot.src).then((qc) => {
+    if (!alive) return;
+    setQc(shot.id, qc);
+    const issue = firstIssue(qc);
+    // 이미 다른 칸으로 다시 찍었으면(그 사진이 선택에서 빠졌으면) 알리지 않는다
+    if (issue && session.value.picked.includes(shot.id)) qcCard.value = { id: shot.id, issue };
+  });
+const qcSlotIndex = computed(() => (qcCard.value ? slotShots.value.findIndex((p) => p?.id === qcCard.value!.id) : -1));
+const retakeQc = () => {
+  if (qcSlotIndex.value >= 0) sel.value = qcSlotIndex.value;
+  qcCard.value = null;
+};
+
 const shoot = () => {
+  qcCard.value = null;
   const prev = slotShots.value[sel.value];
   const isReplace = Boolean(prev && session.value.picked.includes(prev.id));
   if (!isReplace && props.existing.length + session.value.picked.length >= MAX_PHOTOS) {
@@ -208,11 +234,13 @@ const shoot = () => {
   }
   slotShots.value = next;
   sel.value = n;
+  if (PLUS && real) runQc(shot);
 };
 
 const removeSlotShot = (i: number) => {
   const shot = slotShots.value[i];
   if (!shot) return;
+  if (qcCard.value?.id === shot.id) qcCard.value = null;
   slotShots.value = slotShots.value.map((p, k) => (k === i ? null : p));
   const s = session.value;
   session.value = { ...s, shots: s.shots.filter((p) => p.id !== shot.id), picked: s.picked.filter((id) => id !== shot.id) };
@@ -261,6 +289,8 @@ const importFiles = async (files: FileList | null) => {
   const room = MAX_PHOTOS - props.existing.length - s.picked.length;
   if (photos.length > room) notify(`사진은 최대 ${MAX_PHOTOS}장까지 올릴 수 있어요`);
   session.value = { ...s, imported: [...photos, ...s.imported], picked: [...s.picked, ...photos.slice(0, Math.max(0, room)).map((p) => p.id)] };
+  // 불러온 사진도 품질 검사(알림 카드 없이 칸 딱지만)
+  if (PLUS) for (const p of photos) void checkPhoto(p.src).then((qc) => alive && setQc(p.id, qc));
 };
 
 const done = () => {
@@ -335,6 +365,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
               <span class="shoot-slot__label">{{ itemOf(rail[i]).label }}</span>
             </button>
             <em v-if="itemOf(rail[i]).note && i === 0" class="shoot-slot__tag">{{ itemOf(rail[i]).note }}</em>
+            <em v-if="PLUS && firstIssue(slotShot(i)?.qc)" class="shoot-qc-tag">{{ QC_TAG[firstIssue(slotShot(i)?.qc)!] }}</em>
             <i v-if="isRequiredItem(itemOf(rail[i]).id) && !slotShot(i) && ENFORCE" class="shoot-slot__req" aria-hidden="true" />
             <button v-if="slotShot(i)" type="button" class="shoot-slot__x" :aria-label="`${itemOf(rail[i]).label} 사진 지우기`" @click="removeSlotShot(i)">
               <Mask :src="rd('close-outline')" />
@@ -348,6 +379,12 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
           :aria-label="`오른쪽에 ${reqLabel()} 칸 ${hiddenReq.length}개 더 있어요`"
           @click="sel = hiddenReq[0]"
         >+{{ hiddenReq.length }}</button>
+        <!-- 촬영 후 품질 검사 알림(2026-10-31): 칸 줄 바로 위. 다시 찍기 = 그 칸으로 돌아가기 -->
+        <div v-if="PLUS && qcCard" class="shoot-qc-card" role="status">
+          <p><b>{{ QC_TEXT[qcCard.issue] }}</b><span>{{ QC_TIP[qcCard.issue] }}</span></p>
+          <button type="button" class="shoot-qc-card__keep" @click="qcCard = null">그대로 둘게요</button>
+          <button type="button" class="shoot-qc-card__retake" @click="retakeQc">다시 찍기</button>
+        </div>
       </div>
       <div class="shoot-bottom">
         <div class="shoot-controls">

@@ -1,4 +1,5 @@
 // 촬영 쇼츠 키트 공통 값 · 형식 · 도움 함수(리액트 ShootRegister.tsx 47~147줄 · 277~280줄 · 2642~2684줄을 그대로 옮김).
+import type { QcIssue } from "./quality";
 import { defaultSticker, type Sticker } from "./image-ops";
 import { setCustomGuide, stageGuide, type VideoStage } from "./stages";
 import { loadPrefs, type StagePrefs } from "./stage-prefs";
@@ -152,7 +153,8 @@ export const courseLabel = (list: VideoStage[]) => {
 export type Mark = { t: number; x: number; y: number };
 
 /** raw = 번호판 가림을 굽기 전 원본(키트: 가림을 다시 옮길 수 있게), fromAlbum = 앨범에서 고른 사진(부위 나누기 대상) */
-export type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean; raw?: string; fromAlbum?: boolean; orient?: "landscape" | "portrait" };
+export type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean; raw?: string; fromAlbum?: boolean; orient?: "landscape" | "portrait"; qc?: QcIssue[] };
+/** qc = 촬영 후 품질 검사 결과(2026-10-31, lib/quality.ts). 빈 배열 = 문제 없음, 없음 = 아직 안 잼 */
 /** raw = 번호판 가림을 굽기 전 원본, orient = 찍을 때 쓴 방향(2026-10-29: 가로 4:3 틀로 찍은 사진은 landscape) */
 /** 번호판이 보이는 각도(정면 · 후면 · 45°)만 촬영 때 가림을 자동으로 붙인다 */
 export const PLATE_KINDS = new Set(["front", "rear", "q34"]);
