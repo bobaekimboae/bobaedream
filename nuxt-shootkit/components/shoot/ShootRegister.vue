@@ -124,7 +124,16 @@ const shortsInput = computed(() => {
     : null;
 });
 // 쇼츠 화면이 열린 동안 사진 목록이 바뀌어도 같은 배열을 넘긴다(바뀌면 ShortsMaker가 처음부터 다시 불러온다)
-const shortsPhotos = computed(() => (screen.value.name === "shorts" ? photos.value.filter((p) => !p.uploading).map((p) => ({ src: p.src, label: p.slot === OTHER ? "기타" : itemLabel(p.slot), slot: p.slot })) : []));
+// 2026-10-31 50배 크로스체크: 계산식으로 두면 업로드 끝 · 품질 검사 결과처럼 사진과 상관없는 변화에도 새 배열이 되어
+// 고친 자막 · 「★ 빼기」가 지워졌다 → 쇼츠 화면을 열 때 한 번만 담는다
+const shortsPhotos = shallowRef<{ src: string; label: string; slot: string }[]>([]);
+watch(
+  () => screen.value.name === "shorts",
+  (on) => {
+    shortsPhotos.value = on ? photos.value.filter((p) => !p.uploading).map((p) => ({ src: p.src, label: p.slot === OTHER ? "기타" : itemLabel(p.slot), slot: p.slot })) : [];
+  },
+  { immediate: true },
+);
 const EMPTY_TAKE: Take = { segs: [], durations: [], thumbs: [] };
 const openShortsFromMain = () => {
   const v = video.value;
@@ -215,7 +224,8 @@ onMounted(() => {
     autoOff = true;
     void getDraft(AUTO_ID)
       .then((rec) => {
-        if (rec && (rec.photos.length || rec.video)) resume.value = rec;
+        // 2026-10-31 50배 크로스체크: 소재지 · 서류만 있어도 되살린다(전에는 무시하고 덮어써 사라졌다)
+        if (rec && (rec.photos.length || rec.video || rec.region || rec.docs?.inspection)) resume.value = rec;
         else autoOff = false;
       })
       .catch(() => (autoOff = false));
@@ -322,6 +332,21 @@ const addPhotos = (added: Photo[]) => {
   later(() => (photos.value = photos.value.map((x) => (ids.has(x.id) ? { ...x, uploading: false } : x))), 3200);
 };
 
+// 미리보기도 열 때의 사진을 받는다(2026-10-31 50배 크로스체크): 「업로드 중」은 지금 상태를 쓰고,
+// 편집으로 사진이 바뀌어 품질 검사(qc)가 비워진 사진은 다시 잰다.
+const fromPreview = (next: Photo[]) => {
+  const now = new Map(photos.value.map((x) => [x.id, x]));
+  const out = sortBySlot(next.map((x) => (now.has(x.id) ? { ...x, uploading: now.get(x.id)!.uploading } : x)));
+  if (PLUS) {
+    const todo = out.filter((x) => !x.qc);
+    if (todo.length)
+      void Promise.all(todo.map(async (x) => [x.id, await checkPhoto(x.raw ?? x.src)] as const)).then((res) => {
+        const m = new Map(res);
+        photos.value = photos.value.map((x) => (m.has(x.id) && !x.qc ? { ...x, qc: m.get(x.id)! } : x));
+      });
+  }
+  return out;
+};
 // 정렬 화면은 열 때의 사진을 받으므로, 칸 · 순서만 가져오고 「업로드 중」 같은 지금 상태는 지금 사진에서 쓴다
 const applySort = (next: Photo[]) => {
   const cur = photos.value;
@@ -391,12 +416,19 @@ async function refreshDrafts() {
   }
 }
 // 자동 보관: 작업이 바뀌면 1.2초 뒤 덮어쓴다(탭을 닫거나 폰이 꺼져도 다음에 이어서 하기). 비면 지운다.
+// 자동 보관 차례(2026-10-31 50배 크로스체크): 늦게 끝난 보관이 「저장 안 함」으로 지운 뒤에 다시 쓰지 않게 한다
+let autoGen = 0;
 async function writeAuto() {
   if (!PLUS || autoOff) return;
+  const gen = ++autoGen;
   const d = current();
   try {
     if (isEmptyDraft(d)) await deleteDraft(AUTO_ID);
-    else await putDraft(await toRecord(AUTO_ID, d));
+    else {
+      const rec = await toRecord(AUTO_ID, d);
+      if (gen !== autoGen || autoOff) return;
+      await putDraft(rec);
+    }
   } catch (e) {
     console.warn("[자동 보관]", e);
   }
@@ -422,6 +454,8 @@ const applyDraft = (d: Draft) => {
   tried.value = false;
   setScreen({ name: "main" });
 };
+const resumeSummary = (r: DraftRec) =>
+  [r.photos.length ? `사진 ${r.photos.length}장` : "", r.video ? "영상" : "", r.region ? `소재지 ${r.region.sido}${r.region.gu ? ` ${r.region.gu}` : ""}` : "", r.docs?.inspection ? "점검기록부" : ""].filter(Boolean).join(" · ");
 const resumeOk = () => {
   const rec = resume.value;
   resume.value = null;
@@ -471,11 +505,14 @@ const openDraft = async (id: string) => {
     const rec = await getDraft(id);
     if (!rec) return void notify("저장한 글을 찾지 못했어요");
     // 지금 하던 작업은 버리지 않고 저장한 글에 담아 둔다
+    // 2026-10-31 50배 크로스체크: 올리는 중에 열면 하던 작업을 담지 못하고 덮어썼다 → 다 올라간 뒤에 열게 한다
+    if (photos.value.some((p) => p.uploading) || video.value?.uploading) return void notify("사진·영상을 올리는 중이에요. 잠시 뒤 다시 열어 주세요");
     const cur = current();
-    const keep = !isEmptyDraft(cur) && !photos.value.some((p) => p.uploading) && !video.value?.uploading;
-    if (keep) await addDraft(uid(), cur);
-    // 연 글은 지금 작업이 되므로 목록에서 뺀다(다시 임시저장하면 다시 담긴다)
+    const keep = !isEmptyDraft(cur);
+    // 연 글은 지금 작업이 되므로 목록에서 먼저 뺀다(다시 임시저장하면 다시 담긴다).
+    // 먼저 빼야 5건이 차 있을 때 하던 작업을 담으며 손대지 않은 오래된 글이 지워지지 않는다.
     await deleteDraft(id);
+    if (keep) await addDraft(uid(), cur);
     applyDraft(fromRecord(rec));
     draftsOpen.value = false;
     notify(keep ? "하던 작업은 저장한 글에 담고, 고른 글을 열었어요" : "저장한 글을 열었어요");
@@ -500,6 +537,7 @@ const removeDraft = async (id: string) => {
 // 나가기 전에 자동 보관을 지운다(「저장 안 함」을 고르거나 저장한 글에 담았으므로 다음에 「이어서 할까요?」를 묻지 않게)
 const dropAuto = async () => {
   autoOff = true;
+  autoGen += 1;
   window.clearTimeout(autoTimer);
   await deleteDraft(AUTO_ID).catch(() => undefined);
   autoOff = false;
@@ -605,7 +643,7 @@ const leaveSave = async () => {
 <template>
   <div :class="`shoot-root ${PLUS ? 'is-kit' : ''}`" :data-role="PLUS ? roleNow() : undefined" @pointerdown.capture="primeSound">
     <div class="shoot-phone">
-      <section class="shoot-main" aria-label="중고차 등록">
+      <section class="shoot-main" aria-label="중고차 등록" :inert="PLUS && screen.name !== 'main' ? true : undefined">
         <header class="shoot-main__top">
           <button type="button" class="shoot-icon-btn is-dark" aria-label="뒤로" @click="onBack"><Mask :src="rd('back-outline-24')" cls="is-back" /></button>
           <div class="shoot-main__title">
@@ -688,7 +726,7 @@ const leaveSave = async () => {
                   <!-- 촬영 후 품질 검사(2026-10-31): 흔들림 · 어두움 · 빛 번짐 딱지(사진은 그대로) -->
                   <span v-if="PLUS && firstIssue(p.qc)" class="shoot-tile__qc" :title="QC_TEXT[firstIssue(p.qc)!]">{{ QC_TAG[firstIssue(p.qc)!] }}</span>
                 </button>
-                <button v-if="!p.uploading" type="button" class="shoot-tile__del" data-nodrag="" aria-label="사진 삭제" @click="confirm = { kind: 'photo', id: p.id }"><Mask :src="rd('delete-outline')" /></button>
+                <button v-if="!p.uploading" type="button" class="shoot-tile__del" data-nodrag="" :aria-label="`${p.slot === OTHER ? '기타' : itemLabel(p.slot)} 사진 삭제`" @click="confirm = { kind: 'photo', id: p.id }"><Mask :src="rd('delete-outline')" /></button>
                 <figcaption>{{ p.uploading ? "업로드 중" : itemLabel(p.slot) }}</figcaption>
               </figure>
               <figure v-if="video" class="shoot-tile shoot-tile--video">
@@ -701,7 +739,7 @@ const leaveSave = async () => {
                 <button v-if="!video.uploading" type="button" class="shoot-tile__del" aria-label="영상 삭제" @click="confirm = { kind: 'video' }"><Mask :src="rd('delete-outline')" /></button>
                 <figcaption>{{ [video.marks?.length ? `흠집 표시 ${video.marks.length}곳` : "", noteCount(video.notes) ? `메모 ${noteCount(video.notes)}개` : ""].filter(Boolean).join(" · ") || " " }}</figcaption>
               </figure>
-              <button v-if="photos.length < MAX_PHOTOS" type="button" class="shoot-tile shoot-tile--add" @click="setScreen({ name: 'capture', mode: 'cam' })">
+              <button v-if="photos.length < MAX_PHOTOS" type="button" class="shoot-tile shoot-tile--add" :aria-label="`사진 추가 · 지금 ${photos.length}/${MAX_PHOTOS}장`" @click="setScreen({ name: 'capture', mode: 'cam' })">
                 <Mask :src="rd('camera-outline-24')" cls="is-big" />
                 <PhotoCounter :required="requiredDone" :total="photos.length" />
               </button>
@@ -803,13 +841,13 @@ const leaveSave = async () => {
         @add-more="
           (saved?: Photo[]) => {
             // 실기 대비(2026-10-27): 번호판 가림·모자이크 같은 편집을 먼저 저장하고 앨범으로 간다
-            if (saved) photos = sortBySlot(saved);
+            if (saved) photos = fromPreview(saved);
             setScreen({ name: 'capture', mode: 'album' });
           }
         "
         @done="
           (next: Photo[]) => {
-            photos = sortBySlot(next);
+            photos = fromPreview(next);
             setScreen({ name: 'main' });
           }
         "
@@ -842,7 +880,7 @@ const leaveSave = async () => {
         :show-reshoot="!video.imported"
         @notes="onVideoNotes"
         @notify="notify"
-        @shorts="video && setScreen({ name: 'shorts', take: { segs: video.segs, durations: video.durations, thumbs: [], imported: video.imported, stages: video.stages, hl: video.hl, notes: video.notes }, back: { name: 'vedit' } })"
+        @shorts="editTake && setScreen({ name: 'shorts', take: editTake, back: { name: 'vedit' } })"
         @close="setScreen({ name: 'main' })"
         @continue="setScreen({ name: 'video', reshoot: true })"
         @reshoot="setScreen({ name: 'video', reshoot: true })"
@@ -864,7 +902,7 @@ const leaveSave = async () => {
       <DraftSheet v-if="draftsOpen" :items="draftList" :busy="draftBusy" @close="draftsOpen = false" @open="openDraft" @remove="removeDraft" />
       <Confirm
         v-if="resume"
-        :text="`지난번에 찍던 내용이 있어요(사진 ${resume.photos.length}장${resume.video ? ' · 영상' : ''}). 이어서 할까요?`"
+:text="`지난번에 쓰던 내용이 있어요(${resumeSummary(resume)}). 이어서 할까요?`"
         cancel-text="새로 시작"
         ok-text="이어서 하기"
         has-dim

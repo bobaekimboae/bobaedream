@@ -45,9 +45,10 @@ const emit = defineEmits<{ close: []; next: []; reshoot: []; cover: []; delete: 
 // 컷별 메모(2026-10-29 후속 ②): 보고 있는 부위의 메모를 아래 칸에서 적고, 바뀔 때마다 부모에게 올린다
 const notes = ref<Notes>({ ...(props.take.notes ?? {}) });
 const curKey = computed<VideoStage | null>(() => (cur.value && !props.take.imported ? (props.take.stages ?? BASE_STAGES)[cur.value.i] ?? null : null));
-const setNote = (n: Note) => {
-  if (!curKey.value) return;
-  notes.value = { ...notes.value, [curKey.value]: n };
+const setNote = (n: Note, key?: string) => {
+  const k = (key as VideoStage | undefined) ?? curKey.value;
+  if (!k) return;
+  notes.value = { ...notes.value, [k]: n };
   emit("notes", notes.value);
 };
 
@@ -112,15 +113,30 @@ const save = async (urls: string[], what: string, label: string) => {
     saving.value = null;
     // 키트: H.264가 아니면(VP9 등) 아이폰 · 인스타그램에서 안 열릴 수 있다고 함께 알린다
     const odd = PLUS ? (await mp4Codec(blob).catch(() => null)) !== "avc" : false;
-    const r = await saveToDevice(blob, mp4Name(what));
-    if (odd && r !== "cancelled") say("저장했어요 · 이 폰은 VP9 방식이라 아이폰·인스타그램에서 안 열릴 수 있어요");
-    else if (r === "downloaded") say(`${label} mp4를 저장했어요`);
-    else if (r === "shared") say("공유창에서 「동영상 저장」을 누르면 사진첩에 들어가요");
+    const item = { blob, name: mp4Name(what), label, odd };
+    // 2026-10-31 50배 크로스체크: mp4를 만드는 몇 초 사이 누름의 효력이 끝나 휴대폰 공유창이 막혔다(아이폰은 사진첩 저장을 못 함).
+    // 공유창을 쓰는 폰은 다 만든 뒤 「저장하기」를 한 번 더 눌러 연다.
+    if (PLUS && canShareFile(item.blob, item.name)) ready.value = item;
+    else await deliver(item);
   } catch (e) {
     console.error("mp4 저장 실패", e);
     saving.value = null;
     say("이 브라우저에서는 mp4로 만들 수 없어요");
   }
+};
+type Ready = { blob: Blob; name: string; label: string; odd: boolean };
+const ready = ref<Ready | null>(null);
+const canShareFile = (blob: Blob, name: string) => {
+  const touch = window.matchMedia?.("(pointer: coarse)").matches;
+  const nav = navigator as Navigator & { canShare?: (d: ShareData) => boolean };
+  return Boolean(touch && nav.canShare?.({ files: [new File([blob], name, { type: "video/mp4" })] }));
+};
+const deliver = async (x: Ready) => {
+  ready.value = null;
+  const r = await saveToDevice(x.blob, x.name);
+  if (x.odd && r !== "cancelled") say("저장했어요 · 이 폰은 VP9 방식이라 아이폰·인스타그램에서 안 열릴 수 있어요");
+  else if (r === "downloaded") say(`${x.label} mp4를 저장했어요`);
+  else if (r === "shared") say("공유창에서 「동영상 저장」을 누르면 사진첩에 들어가요");
 };
 const partLabel = (i: number) => {
   const key = stageKeys.value[i] ?? "video";
@@ -214,7 +230,7 @@ const confirmOk = () => {
       </div>
     </div>
     <!-- 컷별 음성·글 메모(2026-10-29 후속 ②): 기본 내부 메모, 「매물 상세에 공개」를 켜면 상세·쇼츠 자막 초안에 쓰인다 -->
-    <CutMemo v-if="PLUS && curKey" :label="def(curKey).label" :note="notes[curKey]" @change="setNote" @notify="(t) => emit('notify', t)" />
+    <CutMemo v-if="PLUS && curKey" :label="def(curKey).label" :stage-key="curKey" :note="notes[curKey]" @change="setNote" @notify="(t) => emit('notify', t)" />
     <div v-if="PLUS && !edit && parts.length" class="shoot-vsave">
       <!-- 큰 저장 버튼(2026-10-26): 찍은 직후 한 번에 전체 영상을 mp4로. 부위별 저장은 위 「저장」 시트 -->
       <button type="button" @click="saveBig">내 폰에 저장<em>mp4 · {{ mmss(total || dur) }}</em></button>
@@ -254,6 +270,14 @@ const confirmOk = () => {
         <button type="button" class="is-cancel" @click="saveOpen = false">닫기</button>
       </FocusBox>
     </div>
+    <Confirm
+      v-if="ready"
+      :text="`${ready.label} mp4가 준비됐어요. 「저장하기」를 누르면 공유창이 열려요 · 「동영상 저장」을 고르면 사진첩에 들어가요`"
+      cancel-text="닫기"
+      ok-text="저장하기"
+      @cancel="ready = null"
+      @ok="ready && deliver(ready)"
+    />
     <div v-if="saving" class="shoot-dim" role="status" aria-label="mp4로 만드는 중">
       <div class="shoot-save-progress">
         <strong>{{ saving.label }} mp4로 만드는 중</strong>

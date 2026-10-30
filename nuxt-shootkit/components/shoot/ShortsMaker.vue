@@ -63,6 +63,9 @@ const keepSound = ref(true);
 const sound = shallowRef<AudioBuffer | null>(null);
 const playing = ref(false);
 const logo = shallowRef<HTMLImageElement | null>(null);
+// 자동 쇼츠는 끝 장면 로고 · 시동 소리 원음이 준비된 뒤에 만든다(2026-10-31 50배 크로스체크)
+const logoDone = ref(false);
+const soundBusy = ref(false);
 const can = ref<boolean | null>(null);
 // 고화질 1080×1920(2026-10-29 후속 ④ 결정): 기본 720, 선택 1080. 이 폰 인코더가 1080을 못 받으면 선택지를 막는다. 선택은 이 브라우저에 기억
 const HQ_KEY = "bbm-shoot-shorts-hq";
@@ -99,13 +102,25 @@ onMounted(() => {
   void canMakeMp4().then((v) => (can.value = v));
   void canMakeHq().then((v) => (canHq.value = v));
   void mp4VideoCodec().then((v) => (codec.value = v));
-  void loadImage(sitePath("shoot", "icon-192.png")).then((v) => (logo.value = v));
+  void loadImage(sitePath("shoot", "icon-192.png"))
+    .then((v) => (logo.value = v))
+    .catch(() => undefined)
+    .finally(() => (logoDone.value = true));
 });
 // 만든 mp4 주소는 다시 고치거나 화면을 닫으면 놓아 준다
 watch(made, (_v, old) => {
   if (old) URL.revokeObjectURL(old.url);
 });
+const releaseVideo = (v: HTMLVideoElement) => {
+  const u = v.src;
+  v.removeAttribute("src");
+  v.load();
+  if (u.startsWith("blob:")) URL.revokeObjectURL(u);
+};
+// 영상 목록이 바뀌면 지난 영상은 놓아 준다
+watch(loaded, (_v, old) => old?.forEach((x) => releaseVideo(x.video)));
 onBeforeUnmount(() => {
+  loaded.value?.forEach((x) => releaseVideo(x.video));
   unmounted = true;
   window.clearTimeout(sayTimer);
   cancelled = true;
@@ -131,13 +146,18 @@ watch(
         try {
           const blob = await (await fetch(url)).blob();
           const [video, probe] = await Promise.all([loadVideo(blob), loadVideo(blob)]);
-          if (!video) continue;
+          if (!video) {
+            if (probe) releaseVideo(probe);
+            continue;
+          }
           const samples = probe
             ? await analyzeClip(probe, duration, () => {
                 n += 1;
                 if (alive) scan.value = Math.min(1, n / total);
               })
             : [];
+          // 2026-10-31 50배 크로스체크: 점수만 매기는 영상은 바로 놓아준다(쇼츠를 여러 번 열면 폰 메모리가 쌓였다)
+          if (probe) releaseVideo(probe);
           out.push({ clip: { index: i, key: input.stages[i], label: input.labels[i], duration, samples }, video, blob });
         } catch {
           /* 그 부위는 뺀다 */
@@ -145,6 +165,7 @@ watch(
         if (!alive) return;
       }
       if (alive) loaded.value = out;
+      else out.forEach((x) => releaseVideo(x.video));
     })();
     void (async () => {
       const ps: LoadedPhoto[] = [];
@@ -235,13 +256,20 @@ watch(
     });
     if (!hs || !cs.length) {
       sound.value = null;
+      soundBusy.value = false;
       return;
     }
     const blobs = new Map((ld ?? []).map((l) => [l.clip.index, l.blob]));
     const total = cs.reduce((n, c) => n + c.duration, 0) + END_CARD;
-    void buildSound(cs, blobs, total).then((b) => {
-      if (alive) sound.value = b;
-    });
+    soundBusy.value = true;
+    void buildSound(cs, blobs, total)
+      .then((b) => {
+        if (alive) sound.value = b;
+      })
+      .catch(() => undefined)
+      .finally(() => {
+        if (alive) soundBusy.value = false;
+      });
   },
   { immediate: true },
 );
@@ -310,8 +338,8 @@ watch([loaded, cuts], ([l]) => {
 });
 // 등록 완료 자동 쇼츠: 처음 한 번만. 실패하거나 사용자가 멈추면 다시 자동으로 하지 않는다
 let autoDone = !props.auto;
-watch([ready, plan, can], ([r, p, c]) => {
-  if (autoDone || !r || !p || c === null) return;
+watch([ready, plan, can, soundBusy, logoDone], ([r, p, c, sb, ld]) => {
+  if (autoDone || !r || !p || c === null || sb || !ld) return;
   autoDone = true;
   if (c) void make();
 }, { immediate: true });

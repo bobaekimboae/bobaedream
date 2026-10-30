@@ -102,8 +102,20 @@ const meta = (r: DraftRec): DraftMeta => ({
   thumb: r.photos[0]?.src ?? r.video?.cover ?? "",
 });
 
+/** Vue 반응형(Proxy) 배열 · 객체는 IndexedDB에 그대로 넣지 못한다(DataCloneError, 2026-10-31 50배 크로스체크:
+ *  품질 검사 결과 qc 배열이 붙은 사진이 있으면 자동 보관이 통째로 실패했다). 일반 배열 · 객체로 깊게 바꿔 넣는다. Blob 등은 그대로 둔다. */
+function plain<T>(x: T): T {
+  if (Array.isArray(x)) return x.map(plain) as T;
+  if (x && typeof x === "object" && Object.prototype.toString.call(x) === "[object Object]") {
+    const o: Record<string, unknown> = {};
+    for (const k of Object.keys(x)) o[k] = plain((x as Record<string, unknown>)[k]);
+    return o as T;
+  }
+  return x;
+}
 export async function putDraft(rec: DraftRec) {
-  await run("readwrite", (s) => s.put(rec));
+  const clean = plain(rec);
+  await run("readwrite", (s) => s.put(clean));
 }
 export async function getDraft(id: string): Promise<DraftRec | undefined> {
   return run("readonly", (s) => s.get(id) as IDBRequest<DraftRec | undefined>);
