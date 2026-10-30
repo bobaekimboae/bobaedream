@@ -11,12 +11,13 @@ import Mask from "./Mask.vue";
 import { NOTE_AUDIO_MAX, NOTE_MAX, type Note } from "../../lib/core";
 import { rd } from "../../lib/site";
 
-const props = defineProps<{ label: string; note?: Note }>();
-const emit = defineEmits<{ change: [n: Note]; notify: [t: string] }>();
+const props = defineProps<{ label: string; note?: Note; stageKey?: string }>();
+// key = 그 메모가 속한 부위(녹음 중 다음 부위로 넘어가도 녹음을 시작한 부위에 담는다, 2026-10-31 50배 크로스체크)
+const emit = defineEmits<{ change: [n: Note, key?: string]; notify: [t: string] }>();
 
 const EMPTY: Note = { text: "", pub: false };
 const cur = computed<Note>(() => props.note ?? EMPTY);
-const set = (patch: Partial<Note>) => emit("change", { ...cur.value, ...patch });
+const set = (patch: Partial<Note>) => emit("change", { ...cur.value, ...patch }, props.stageKey);
 
 // 브라우저 음성 인식(Web Speech API)은 TS 기본 타입에 없어 쓰는 만큼만 적는다
 type SRResult = { isFinal: boolean; 0: { transcript: string } };
@@ -62,13 +63,15 @@ const start = async () => {
   const mime = ["audio/webm;codecs=opus", "audio/mp4", "audio/webm"].find((m) => MediaRecorder.isTypeSupported(m));
   rec = new MediaRecorder(stream, mime ? { mimeType: mime } : undefined);
   const startedAt = Date.now();
+  const startKey = props.stageKey;
+  const startNote = cur.value;
   rec.ondataavailable = (e) => e.data.size && chunks.push(e.data);
   rec.onstop = () => {
     const blob = new Blob(chunks, { type: rec?.mimeType || "audio/webm" });
     const audioSec = Math.min(NOTE_AUDIO_MAX, Math.round((Date.now() - startedAt) / 1000));
     if (blob.size && audioSec >= 1) {
-      if (cur.value.audio?.startsWith("blob:")) URL.revokeObjectURL(cur.value.audio);
-      set({ audio: URL.createObjectURL(blob), audioSec, ...(asrFinal.trim() ? { text: (asrBase + asrFinal).trim().slice(0, NOTE_MAX) } : {}) });
+      if (startNote.audio?.startsWith("blob:")) URL.revokeObjectURL(startNote.audio);
+      emit("change", { ...startNote, audio: URL.createObjectURL(blob), audioSec, ...(asrFinal.trim() ? { text: (asrBase + asrFinal).trim().slice(0, NOTE_MAX) } : {}) }, startKey);
       asrNote.value = Boolean(asrFinal.trim());
       emit("notify", asrFinal.trim() ? `음성 메모 ${audioSec}초 · 받아쓰기 초안을 글 칸에 넣었어요` : `음성 메모 ${audioSec}초를 남겼어요`);
     } else emit("notify", "너무 짧아요 · 1초 넘게 말해 주세요");

@@ -5124,3 +5124,47 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-view:has(.shoot-qc-card) .shoot-guide__hint {
   visibility: hidden;
 }
+
+/* ── 2026-10-31 50배 크로스체크 ── */
+/* 셔터는 늘 화면 가운데: 「완료 N장」이 길어져도 옆 칸이 넓어지며 셔터를 밀지 않게 한다 */
+.shoot-root.is-kit .shoot-capture .shoot-controls {
+  grid-template-columns: minmax(0, 1fr) 84px minmax(0, 1fr);
+  padding: 0 12px;
+}
+.shoot-root.is-kit .shoot-capture .shoot-count {
+  gap: 6px;
+  min-width: 0;
+}
+.shoot-root.is-kit .shoot-capture .shoot-done {
+  padding: 0 10px;
+  min-width: 56px;
+  font-size: 14px;
+}
+.shoot-root.is-kit .shoot-capture .shoot-plate {
+  margin-left: 8px;
+}
+/* 키 작은 화면(아이폰 SE · 360×640): 아래쪽 안내 글자와 「단계 편집」이 겹치지 않게 버튼을 위 오른쪽으로 */
+@media (max-height: 700px) {
+  .shoot-root.is-kit .shoot-stage-add {
+    bottom: auto;
+    top: 12px;
+  }
+}
+.shoot-root.is-kit .shoot-vnotes {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 10.7px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+}
+.shoot-root.is-kit .shoot-vnotes .shoot-vhint,
+.shoot-root.is-kit .shoot-vnotes .shoot-vplate {
+  position: static;
+  transform: none;
+  left: auto;
+  top: auto;
+}

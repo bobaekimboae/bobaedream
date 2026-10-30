@@ -225,6 +225,7 @@ function finishStage(secs: number) {
 }
 
 function startTimer() {
+  elapsedNow = 0;
   segStart = performance.now();
   segBase = 0;
   elapsed.value = 0;
@@ -283,6 +284,12 @@ function begin() {
       return;
     }
     window.clearInterval(t);
+    // 카운트다운 동안 카메라가 끊겼으면 가짜 화면을 녹화하지 않는다(2026-10-31 50배 크로스체크)
+    if (!camStream.value && !ALLOW_FAKE) {
+      phase.value = beforeCount;
+      notify("카메라 화면이 뜨면 찍을 수 있어요");
+      return;
+    }
     const type = pickRecorderType();
     let r: MediaRecorder;
     try {
@@ -415,7 +422,9 @@ function markDamage(e: PointerEvent) {
 }
 
 /** 촬영 코스·추가 부위 적용: 찍어 둔 단계의 영상·길이는 이름으로 옮긴다. */
-function applyStages(next: VideoStage[]) {
+async function applyStages(next: VideoStage[]) {
+  // 2026-10-31 50배 크로스체크: 방금 멈춘 단계의 영상 파일이 다 저장된 뒤에 순서를 바꾼다(아니면 다른 칸에 들어갔다)
+  await saving;
   const prev = stages.value;
   const byKey = new Map(prev.map((k, i) => [k, { d: durations.value[i], u: segs[i] }]));
   const curKey = prev[stage.value];
@@ -435,7 +444,7 @@ function onApplyCourse(next: VideoStage[], prefs: StagePrefs) {
   applyPrefs(prefs);
   prefsVer.value += 1;
   autoStop.value = prefs.autoStop;
-  applyStages(next);
+  void applyStages(next);
 }
 
 // 2026-10-26 크로스체크: 찍어 둔 단계가 있으면 불러온 영상으로 확인 없이 덮어쓰지 않는다
@@ -533,9 +542,13 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
             </span>
             <span :key="elapsed < cur.min ? nudge : -1" :class="`shoot-timeline__text ${nudge && elapsed < cur.min ? 'is-nudge' : ''}`">{{ timelineText }}</span>
           </div>
-          <p class="shoot-vhint">{{ vhint }}</p>
-          <!-- 2026-10-29 컨설팅: 사진과 달리 영상 속 번호판은 가려지지 않는다는 것을 찍기 전에 알린다(바깥을 찍는 단계만) -->
-          <p v-if="PLUS && phase !== 'recording' && plateStage" class="shoot-vplate">영상 속 번호판은 자동으로 가려지지 않아요</p>
+          <!-- 키트: 안내가 두 줄로 꺾여도 번호판 안내와 겹치지 않게 한 묶음으로 쌓는다(2026-10-31 50배 크로스체크) -->
+          <div v-if="PLUS" class="shoot-vnotes">
+            <p class="shoot-vhint">{{ vhint }}</p>
+            <!-- 2026-10-29 컨설팅: 사진과 달리 영상 속 번호판은 가려지지 않는다는 것을 찍기 전에 알린다(바깥을 찍는 단계만) -->
+            <p v-if="phase !== 'recording' && plateStage" class="shoot-vplate">영상 속 번호판은 자동으로 가려지지 않아요</p>
+          </div>
+          <p v-else class="shoot-vhint">{{ vhint }}</p>
           <span v-if="PLUS && phase === 'recording' && !isDamage && hl.some((x) => x.k === cur.key)" class="shoot-hl-badge" :aria-label="`쇼츠 장면 ${hlCount}곳 표시`">{{ "★ " + hlCount }}</span>
           <span v-if="hlFlash" class="shoot-hl-flash">★ 쇼츠에 쓸 장면으로 표시했어요</span>
         </div>
@@ -651,13 +664,13 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
       @ok="onFinishOk"
     />
     <CamPermission
-      v-if="PLUS && mode === 'cam' && !pickOpen && !camStream && (camError || camSlow)"
+      v-if="PLUS && mode === 'cam' && !pickOpen && !askLeave && !camStream && (camError || camSlow)"
       :kind="camError === 'denied' ? 'denied' : 'unavailable'"
       show-course
       @retry="onRetry"
       @album="mode = 'album'"
       @course="pickOpen = true"
-      @close="emit('close')"
+      @close="onCloseClick"
     />
     <span v-if="PLUS" class="shoot-sr" role="status" aria-live="polite">{{ srText }}</span>
   </div>

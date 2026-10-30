@@ -319,7 +319,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
 </script>
 
 <template>
-  <div ref="rootRef" class="shoot-layer shoot-capture" v-on="swipe" @pointerdown.capture="askTilt">
+  <div ref="rootRef" class="shoot-layer shoot-capture" v-on="swipe" @pointerdown.capture="PLUS && askTilt()">
     <div class="shoot-rotate-hint" role="status"><Mask :src="rd('rotate-image-outline')" />{{ isLandscape ? "휴대폰을 세로로 든 채 가로 틀에 맞춰 주세요" : "휴대폰을 세로로 들어 주세요" }}<small v-if="isLandscape">가로 사진은 화면의 4:3 틀 안이 저장돼요</small></div>
     <header class="shoot-top">
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="onClickClose">
@@ -358,7 +358,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
             <button
               type="button"
               class="shoot-slot__hit"
-              :aria-label="`${itemOf(rail[i]).label}${isRequiredItem(itemOf(rail[i]).id) ? ` (${reqLabel()})` : ''} 칸 선택`"
+              :aria-label="`${itemOf(rail[i]).label}${isRequiredItem(itemOf(rail[i]).id) ? ` (${reqLabel()})` : ''} 칸 선택${PLUS && firstIssue(slotShot(i)?.qc) ? ` · ${QC_TEXT[firstIssue(slotShot(i)?.qc)!]}` : ''}`"
               @click="sel = i"
             >
               <img v-if="slotShot(i)" :src="slotShot(i)!.src" alt="" />
@@ -455,12 +455,12 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       @ok="emit('close')"
     />
     <CamPermission
-      v-if="PLUS && mode === 'cam' && !stream && (error || camSlow)"
+      v-if="PLUS && mode === 'cam' && !askClose && !stream && (error || camSlow)"
       :kind="error === 'denied' ? 'denied' : 'unavailable'"
       what="photo"
       @retry="retry"
       @album="mode = 'album'"
-      @close="emit('close')"
+      @close="onClickClose"
     />
   </div>
 </template>

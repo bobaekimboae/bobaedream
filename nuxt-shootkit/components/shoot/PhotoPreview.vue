@@ -75,7 +75,10 @@ const commit = async (then?: (out: Photo[]) => void) => {
     const src = await bakeSticker(p.src, p.sticker, PLUS);
     // 키트: 가림을 굽기 전 원본과 가림 위치를 남겨 다시 열면 옮길 수 있다(58은 구운 사진만 남긴다)
     const keep = PLUS && p.sticker?.visible ? { raw: p.src, sticker: p.sticker } : {};
-    out.push({ id: p.id, src, slot: p.slot, uploading: p.uploading, fromAlbum: p.fromAlbum, ...keep });
+    // 2026-10-31 50배 크로스체크: 방향(orient) · 품질 검사(qc) 같은 다른 정보는 그대로 넘긴다(전에는 빠져 딱지가 사라졌다).
+    // 「업로드 중」은 부모가 지금 상태로 덮어쓴다(열 때 복사본이라 낡았을 수 있다).
+    const { removed: _r, raw: _raw, sticker: _st, ...rest } = p;
+    out.push(PLUS ? { ...rest, src, plateOn: Boolean(p.sticker?.visible), ...keep } : { id: p.id, src, slot: p.slot, uploading: p.uploading, fromAlbum: p.fromAlbum, ...keep });
   }
   busy.value = false;
   (then ?? ((o: Photo[]) => emit("done", o)))(out);
@@ -93,7 +96,7 @@ const replace = async (files: FileList | null) => {
   const f = files?.[0];
   if (!f) return;
   try {
-    patch({ src: await normalizeFile(f), removed: false, sticker: undefined });
+    patch({ src: await normalizeFile(f), removed: false, sticker: undefined, qc: undefined });
   } catch {
     // 못 여는 사진(HEIC 등)은 바꾸지 않는다
   }
@@ -102,7 +105,8 @@ const replace = async (files: FileList | null) => {
 const onEditorSave = (src: string) => {
   // 모양이 바뀌는 편집(회전·자르기) 뒤에는 스티커를 가운데로 되돌린다.
   const ph = photo.value!;
-  patch({ src, sticker: tool.value === "mosaic" ? ph.sticker : ph.sticker ? { ...defaultSticker(), visible: ph.sticker.visible } : undefined });
+  // 사진이 바뀌었으니 품질 검사는 다시 잰다(qc를 비우면 등록 화면이 다시 잰다)
+  patch({ src, qc: undefined, sticker: tool.value === "mosaic" ? ph.sticker : ph.sticker ? { ...defaultSticker(), visible: ph.sticker.visible } : undefined });
   tool.value = null;
 };
 const onAddMoreClick = () => (PLUS ? void commit((out) => emit("addMore", out)) : emit("addMore"));
@@ -139,7 +143,7 @@ const onReplaceChange = (e: Event) => void replace((e.target as HTMLInputElement
           <button v-if="p.removed" type="button" :class="`shoot-strip__redo ${i === cur ? 'is-sel' : ''}`" @click="redoAt(i)"><Mask :src="rd('camera-outline-24')" />다시 올리기<br />{{ p.slot === OTHER ? "차량" : itemLabel(p.slot) }}</button>
           <div v-else :class="`shoot-strip__item ${i === cur ? 'is-sel' : ''}`">
             <button type="button" class="shoot-strip__hit" :aria-label="`${itemLabel(p.slot)} 사진 보기`" @click="cur = i"><img :src="stripThumbs[p.id] ?? p.src" alt="" /><span>{{ itemLabel(p.slot) }}</span></button>
-            <button type="button" class="shoot-strip__x" aria-label="이 사진 빼기" @click="removeAt(i)"><Mask :src="rd('close-outline')" /></button>
+            <button type="button" class="shoot-strip__x" :aria-label="`${i + 1}번째 사진 빼기`" @click="removeAt(i)"><Mask :src="rd('close-outline')" /></button>
           </div>
         </template>
       </div>

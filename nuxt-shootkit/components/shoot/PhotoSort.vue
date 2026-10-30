@@ -8,6 +8,7 @@
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, type Component } from "vue";
 import MaskDefault from "./Mask.vue";
 import SlotSheet from "./SlotSheet.vue";
+import Confirm from "./Confirm.vue";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import { useDragSwap } from "../../composables/useDragSwap";
 import { OTHER_ID, REQUIRED_IDS, isRequiredItem, itemLabel, levelLabel } from "../../lib/items";
@@ -93,7 +94,12 @@ const barWidth = computed(() => `${(phase.value === "download" ? pct.value : tot
 
 // 열면 포커스를 이 화면으로, Esc로 닫기(2026-10-26 크로스체크)
 const layerRef = ref<HTMLElement | null>(null);
-useLayerEsc(layerRef, () => emit("close"));
+// 2026-10-31 50배 크로스체크: 나눈 칸이 있으면 버리기 전에 한 번 묻는다(닫기 · Esc · 뒤로가기 모두)
+const askLeave = ref(false);
+const slotKey = (l: T[]) => l.map((p) => `${p.id}:${p.slot}`).join("|");
+const startKey = slotKey(bySlot(props.photos));
+const tryClose = () => (slotKey(list.value) !== startKey ? (askLeave.value = true) : emit("close"));
+useLayerEsc(layerRef, tryClose);
 
 const consentAndRun = () => {
   setAutoSortConsent(true);
@@ -112,7 +118,7 @@ const onPickSlot = (slot: string) => {
 <template>
   <div ref="layerRef" class="shoot-layer shoot-sort" role="dialog" aria-modal="true" aria-labelledby="shoot-sort-t">
     <header class="shoot-page-top">
-      <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="emit('close')">
+      <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="tryClose">
         <component :is="MaskC" :src="icon('close-outline')" />
       </button>
       <h2 id="shoot-sort-t">부위 나누기</h2>
@@ -174,5 +180,6 @@ const onPickSlot = (slot: string) => {
     <div v-if="picked" class="shoot-dim is-sheet" role="presentation" @click="pick = null">
       <SlotSheet :photo="picked" :list="list" @close="pick = null" @pick="onPickSlot" />
     </div>
+    <Confirm v-if="askLeave" text="나눈 칸을 쓰지 않고 나갈까요? 사진은 「기타」 칸에 남아요" cancel-text="계속 나누기" ok-text="나가기" @cancel="askLeave = false" @ok="emit('close')" />
   </div>
 </template>
