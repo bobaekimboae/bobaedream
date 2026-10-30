@@ -5018,3 +5018,84 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-root.is-kit .shoot-tile__img.is-landscape img {
   object-fit: contain;
 }
+
+/* ── 촬영 후 품질 검사(2026-10-31): 흔들림 · 어두움 · 빛 번짐 알림. 노랑 = 주의(실패 아님) ── */
+.shoot-qc-tag,
+.shoot-tile__qc {
+  position: absolute;
+  left: 4px;
+  bottom: 4px;
+  height: 16px;
+  padding: 0 5px;
+  border-radius: 4px;
+  background: #ffc21a;
+  color: #222;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.shoot-qc-tag {
+  bottom: auto;
+  top: 24px; /* 칸 아래 이름 띠 · 왼쪽 위 「대표」 딱지와 겹치지 않게 */
+}
+.shoot-qc-card {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 94px;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 10px 10px 14px;
+  border-radius: 12px;
+  background: rgba(20, 20, 20, 0.88);
+  color: #fff;
+  box-shadow: inset 3px 0 0 #ffc21a;
+}
+.shoot-qc-card p {
+  margin: 0;
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+.shoot-qc-card b {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #ffc21a;
+}
+.shoot-qc-card span {
+  font-size: 12px;
+  line-height: 17px;
+  color: #ddd;
+  word-break: keep-all;
+}
+.shoot-qc-card button {
+  height: 36px;
+  min-width: 44px;
+  padding: 0 12px;
+  border-radius: 18px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.shoot-qc-card__keep {
+  color: #ccc;
+}
+.shoot-qc-card__retake {
+  background: #fff;
+  color: #222;
+}
+@media (max-width: 360px) {
+  .shoot-qc-card {
+    grid-template-columns: 1fr auto;
+  }
+  .shoot-qc-card p {
+    grid-column: 1 / -1;
+  }
+}

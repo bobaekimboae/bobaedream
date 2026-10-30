@@ -20,6 +20,7 @@ import ShortsMaker from "./ShortsMaker.vue";
 import { useDragSwap } from "../../composables/useDragSwap";
 import { swapPhotos } from "../../lib/photo-sort";
 import { bakeSticker, normalizeFile } from "../../lib/image-ops";
+import { QC_TAG, QC_TEXT, checkPhoto, firstIssue } from "../../lib/quality";
 import { primeSound } from "../../lib/sound";
 import { dialogStack } from "../../lib/dialog-stack";
 import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
@@ -303,6 +304,17 @@ const addPhotos = (added: Photo[]) => {
       const m = new Map(done);
       photos.value = photos.value.map((x) => (m.has(x.id) ? { ...x, ...m.get(x.id)! } : x));
       notify(`번호판 가림을 ${plated.length}장에 붙였어요 · 사진을 눌러 위치를 맞춰 주세요`);
+    });
+  }
+  // 촬영 후 품질 검사(2026-10-31): 촬영 화면에서 다 못 잰 사진(완료를 빨리 누른 경우)을 여기서 잰다. 원본(raw) 기준.
+  if (PLUS) {
+    const todo = added.filter((x) => !x.qc);
+    void Promise.all(todo.map(async (x) => [x.id, await checkPhoto(x.raw ?? x.src)] as const)).then((res) => {
+      const m = new Map(res);
+      if (res.length) photos.value = photos.value.map((x) => (m.has(x.id) ? { ...x, qc: m.get(x.id)! } : x));
+      const bad = added.filter((x) => (m.get(x.id) ?? x.qc)?.length).length;
+      // 업로드 안내 알림이 끝난 뒤 한 번만
+      if (bad) later(() => notify(`다시 찍어 보면 좋은 사진 ${bad}장에 표시했어요`), 3400);
     });
   }
   // 58: 「사진 인식 중」(처리 안내 토스트) → 「인식 완료」
@@ -667,12 +679,14 @@ const leaveSave = async () => {
                 <!-- 2026-10-29 컨설팅: 키트는 「bb」 자리 글자 대신 찍은 사진을 흐리게 보이고 올리는 점을 띄운다 -->
                 <div v-if="p.uploading && PLUS" class="shoot-tile__wait is-kit" role="status" aria-label="사진 올리는 중"><img :src="p.src" alt="" draggable="false" /><span class="shoot-tile__dots"><i /><i /><i /></span></div>
                 <div v-else-if="p.uploading" class="shoot-tile__wait"><b>bb</b></div>
-                <button v-else type="button" :class="`shoot-tile__img ${p.orient === 'landscape' ? 'is-landscape' : ''}`" :aria-label="`${itemLabel(p.slot)} 사진 편집`" @click="setScreen({ name: 'preview', id: p.id })">
+                <button v-else type="button" :class="`shoot-tile__img ${p.orient === 'landscape' ? 'is-landscape' : ''}`" :aria-label="`${itemLabel(p.slot)} 사진 편집${PLUS && firstIssue(p.qc) ? ` · ${QC_TEXT[firstIssue(p.qc)!]}` : ''}`" @click="setScreen({ name: 'preview', id: p.id })">
                   <img :src="p.src" alt="" draggable="false" />
                   <span class="shoot-tile__wm">보배드림</span>
                   <span v-if="PLUS && idx === 0" class="shoot-tile__rep">대표</span>
                   <!-- 2026-10-29 컨설팅: 번호판 가림이 붙은 사진은 알림이 사라져도 칸에 표시를 남긴다(누르면 위치 맞추기 화면) -->
                   <span v-if="PLUS && p.plateOn && p.sticker?.visible" class="shoot-tile__plate">번호판 가림</span>
+                  <!-- 촬영 후 품질 검사(2026-10-31): 흔들림 · 어두움 · 빛 번짐 딱지(사진은 그대로) -->
+                  <span v-if="PLUS && firstIssue(p.qc)" class="shoot-tile__qc" :title="QC_TEXT[firstIssue(p.qc)!]">{{ QC_TAG[firstIssue(p.qc)!] }}</span>
                 </button>
                 <button v-if="!p.uploading" type="button" class="shoot-tile__del" data-nodrag="" aria-label="사진 삭제" @click="confirm = { kind: 'photo', id: p.id }"><Mask :src="rd('delete-outline')" /></button>
                 <figcaption>{{ p.uploading ? "업로드 중" : itemLabel(p.slot) }}</figcaption>
