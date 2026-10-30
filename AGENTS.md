@@ -6,6 +6,12 @@
 - For quick-filter work, also read `docs/quick-filter-spec.md` and `docs/보배드림_차량이미지_로고_에셋지침_v1.md`.
 - Add new quick-filter rules to `docs/quick-filter-spec.md`, not to this file.
 
+## 보배드림 기술 스택 (2026-10-30, 모든 에이전트 필수)
+
+- 보배드림의 모든 저장소·키트·솔루션은 보배드림 리뉴얼 기술 스택으로 만든다: 사용자 화면 Nuxt 4 · Vue 3 · TypeScript, 관리자 화면 Nuxt 4 · Vuetify 3 · Pinia, 백엔드 Laravel 12 · PHP 8.4 · PostgreSQL · Redis · Meilisearch, 패키지는 pnpm·Composer.
+- **새 화면·새 기능은 React로 만들지 않는다. Nuxt로 만든다.** 백엔드·API가 필요하면 Laravel 규칙으로 설계한다.
+- 버전·작업 규칙은 `docs/tech-stack.md`를 먼저 읽는다(원본: 노션 「리뉴얼 기술 스택」).
+
 ## Editing Boundary
 
 - App-specific prototype code lives in `src/Prototype.tsx`, `src/prototype.css`, and `src/prototype/`.
