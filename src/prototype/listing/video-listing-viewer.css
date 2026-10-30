@@ -66,11 +66,14 @@
 .vlf-thumbs img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .vlf-seller { display: grid; height: 61px; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 12px; margin: 16px 20px 0; padding: 0; }
 .vlf-avatar { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 50%; background: #306bd9; color: #fff; font-size: 18px; }
-.vlf-seller > span:nth-child(2) { display: grid; gap: 2px; }
+.vlf-seller-identity { display: grid; gap: 0; }
 .vlf-seller strong { display: flex; align-items: center; gap: 4px; font-size: 14px; line-height: 20px; }
 .vlf-seller strong img { width: 15px; height: 15px; }
 .vlf-seller small { color: #8b8b8b; font-size: 12px; line-height: 18px; }
-.vlf-seller > b { color: #555; font-size: 12px; font-weight: 600; }
+.vlf-seller-rating { display: grid; justify-items: end; gap: 1px; }
+.vlf-seller-rating strong { height: 20px; font-size: 14px; line-height: 20px; }
+.vlf-seller-rating strong svg { width: 16px; height: 16px; color: #222; }
+.vlf-seller-rating button { height: 21px; padding: 0; border: 0; border-bottom: 1px solid #777; background: transparent; color: #555; font-size: 14px; line-height: 20px; cursor: pointer; }
 .vlf-tabs { position: sticky; z-index: 4; top: 0; display: grid; height: 53px; grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; border-bottom: 1px solid #eee; background: #fff; }
 .vlf-tabs button { position: relative; padding: 16px; border: 0; background: #fff; color: #595959; font-size: 14px; line-height: 20px; cursor: pointer; }
 .vlf-tabs button.is-active { color: #222; font-weight: 700; }
@@ -91,24 +94,28 @@
 .vlf-detail > footer img { width: 20px; height: 20px; filter: brightness(0) invert(1); }
 
 @media (max-width: 900px) {
-  .vlf { display: block; background: #000; }
-  .vlf-shell { width: 100%; height: 100dvh; grid-template-columns: minmax(0, 1fr); }
+  .vlf { display: block; overflow-x: hidden; overflow-y: auto; background: #000; overscroll-behavior: contain; }
+  .vlf { scrollbar-width: none; }
+  .vlf::-webkit-scrollbar { display: none; }
+  .vlf-shell { display: block; width: 100%; height: auto; min-height: 100dvh; }
   .vlf-stage { width: 100%; height: 100dvh; border-radius: 0; }
-  .vlf-stage > video { object-fit: cover; }
-  .vlf-close { left: 0; transform: none; }
-  .vlf-discovery { top: 0; left: 54px; }
-  .vlf-volume { right: 16px; }
-  .vlf-actions { position: absolute; z-index: 4; right: 12px; bottom: 116px; width: 48px; padding: 0; }
-  .vlf-actions-list { position: static; gap: 12px; }
-  .vlf-action-item > button { background: rgb(66 66 66 / 90%); backdrop-filter: blur(8px); }
-  .vlf-action-item small { color: #fff; text-shadow: 0 1px 3px #000; }
-  .vlf-stepper { display: none; }
-  .vlf-detail { display: none; }
-  .vlf-progress { right: 0; bottom: 82px; left: 0; height: 52px; padding: 0 16px; }
-  .vlf-filmstrip { right: 0; bottom: 14px; left: 0; box-sizing: border-box; padding: 0 8px; }
-  .vlf-filmstrip > div { height: 34px; }
-  .vlf-mobile-summary { display: grid; position: absolute; z-index: 3; right: 74px; bottom: 121px; left: 16px; gap: 3px; color: #fff; text-shadow: 0 1px 3px #000; }
-  .vlf-mobile-summary strong { font-size: 17px; line-height: 23px; }
-  .vlf-mobile-summary span { overflow: hidden; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
-  .vlf-mobile-summary b { color: #ffd34e; font-size: 16px; }
+  .vlf-stage > video { position: absolute; top: 72px; right: 0; left: 0; width: 100%; height: calc(100dvh - 150px); object-fit: cover; }
+  .vlf-stage-shade { top: 72px; bottom: 78px; }
+  .vlf-close { top: 8px; left: 8px; background: transparent; transform: none; }
+  .vlf-discovery { top: 0; left: 64px; }
+  .vlf-more { top: 8px; right: 8px; }
+  .vlf-volume { top: 96px; right: 6px; }
+  .vlf-actions { display: none; }
+  .vlf-detail { display: block; width: 100%; height: auto; min-height: 100dvh; overflow: visible; border-radius: 0; }
+  .vlf-progress { display: none; }
+  .vlf-filmstrip { position: fixed; z-index: 12; right: auto; bottom: 5px; left: 50%; display: block; width: 130px; height: 14px; transform: translateX(-50%); }
+  .vlf-filmstrip > div { width: 130px; height: 14px; gap: 4px; padding: 0 6px; }
+  .vlf-filmstrip > div button { width: 4px; height: 4px; }
+  .vlf-filmstrip > div button.is-active { width: 6px; height: 6px; }
+  .vlf-film-arrow { display: none; }
+  .vlf-mobile-summary { display: none; }
+  .vlf-detail > header { margin-right: 16px; margin-left: 16px; }
+  .vlf-thumbs { margin-right: 16px; margin-left: 16px; }
+  .vlf-seller { width: 348px; max-width: calc(100% - 32px); height: 87px; margin: 19px auto 0 16px; }
+  .vlf-detail > footer { position: fixed; z-index: 11; right: 0; bottom: 0; left: 0; height: 68px; padding-top: 16px; padding-bottom: 12px; }
 }

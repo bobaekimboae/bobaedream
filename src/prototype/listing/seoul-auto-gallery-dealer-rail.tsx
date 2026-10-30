@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { companyIndexOf, DealerIndex, matchDealer } from "./company-finder";
 import { asset } from "../data";
 import { seoulAutoGalleryShops } from "../data/seoul-autogallery-shops-v01";
 import { seoulAutoGalleryRows } from "../data/seoul-autogallery-v01";
@@ -33,6 +34,8 @@ export const dealers: readonly SeoulAutoGalleryDealer[] = [
 // 서울오토갤러리 회원사 79곳의 소속딜러 전원 판매자페이지(2026-10-21 「딜러 개개인 페이지 모두 만들어」).
 // 상사마다 사이트 「소속딜러」 순서대로 만든다. 위 레일 딜러는 같은 상사·이름이면 그대로 쓰고(주소 유지),
 // 대표는 대표 순번(emp 1·2), 나머지 딜러는 그 상사에서 비어 있는 다음 번호를 쓴다. 판매차량 수는 사이트 보유차량 대수.
+// 차란차 매물 딜러 프로필에서 얼굴만 잘라 붙인 실사진(2026-10-23 「차란차 프로필 백엔드에서 추출해 사진 매핑」). 상사 번호 + 이름이 같을 때만 쓴다.
+const seoulChaRealPhotos: Record<string, string> = { "450087:노대규": "seoul-autogallery/dealer-photos-cha/8b7ce883.webp", "450087:김동우": "seoul-autogallery/dealer-photos-cha/c8a13c76.webp" };
 const ownerIllustrations = ["dealer-01.png", "dealer-02.png", "dealer-03.png", "dealer-04.png", "dealer-05.png"] as const;
 const sheetStock = (company: string, name: string) => seoulAutoGalleryRows.filter((row) => row.company === company && row.dealer === name).reduce((max, row) => Math.max(max, row.stock), 0);
 export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = seoulAutoGalleryShops.flatMap((shop, shopIndex) => {
@@ -46,7 +49,7 @@ export const seoulAutoGalleryOwnerDealers: readonly SeoulAutoGalleryDealer[] = s
     const index = profileCursor.get(key) ?? 0;
     profileCursor.set(key, index + 1);
     const assets = seoulAutoGalleryFormalProfilesByShopAndName[key];
-    return assets?.[index] ?? assets?.[0];
+    return assets?.[index] ?? assets?.[0] ?? seoulChaRealPhotos[key];
   };
   const taken = new Set<SeoulAutoGalleryDealer>();
   const list: SeoulAutoGalleryDealer[] = [];
@@ -75,7 +78,6 @@ export const dealerPhoto = (dealer: SeoulAutoGalleryDealer) => asset(dealer.prof
 
 const shopLabel = (company: string) => company.replace(/\(주\)|\(유\)|주식회사/g, "").replace(/\s+/g, " ").trim();
 const companyOf = (dealer: SeoulAutoGalleryDealer) => shopLabel(seoulAutoGalleryShops.find((shop) => shop.shopNo === dealer.shopNo)?.company ?? "");
-const normalize = (value: string) => value.toLowerCase().replace(/\s+/g, "");
 
 // 인스타그램 · 유튜브가 있는 딜러(본인 또는 상사 공식 계정) 표시(2026-10-21 「우리 딜러 페이지에 링크 걸어줘」)
 const iconBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -106,18 +108,19 @@ function DealerCard({ dealer, onOpenDealer, showCompany }: { dealer: SeoulAutoGa
 function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dealer: SeoulAutoGalleryDealer) => void }) {
   const [query, setQuery] = useState("");
   const [shopNo, setShopNo] = useState("");
+  const [letter, setLetter] = useState("");
   const shops = useMemo(() => seoulAutoGalleryShops
     .map((shop, index) => ({ shopNo: shop.shopNo, label: shopLabel(shop.company), count: allSeoulAutoGalleryDealers.filter((dealer) => dealer.shopNo === shop.shopNo).length, index }))
     .filter((shop) => shop.count > 0)
     .sort((a, b) => b.count - a.count || a.index - b.index), []);
-  const q = normalize(query);
   const snsCount = allSeoulAutoGalleryDealers.filter((dealer) => snsOf(dealer)).length;
-  const list = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || (shopNo === "sns" ? Boolean(snsOf(dealer)) : dealer.shopNo === shopNo)) && (!q || normalize(dealer.name).includes(q) || normalize(companyOf(dealer)).includes(q)));
+  const scoped = allSeoulAutoGalleryDealers.filter((dealer) => (!shopNo || (shopNo === "sns" ? Boolean(snsOf(dealer)) : dealer.shopNo === shopNo)) && matchDealer(query, dealer.name, companyOf(dealer)));
+  const list = letter ? scoped.filter((dealer) => companyIndexOf(dealer.name) === letter).sort((a, b) => a.name.localeCompare(b.name, "ko")) : scoped;
   return (
     <section className="sag-dealer-rail is-all" aria-labelledby="sag-dealer-rail-title">
       <label className="sag-dealer-search">
         <img src={asset("bbm/header-search.svg")} alt="" aria-hidden="true" />
-        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="딜러 이름이나 상사로 검색" aria-label="딜러 검색" />
+        <input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="딜러 이름 · 상사 · 초성으로 검색" aria-label="딜러 검색" />
         {query ? <button type="button" aria-label="검색어 지우기" onClick={() => setQuery("")}>×</button> : null}
       </label>
       <div className="sag-dealer-shops" role="group" aria-label="소속 상사">
@@ -125,6 +128,7 @@ function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dea
         <button type="button" aria-pressed={shopNo === "sns"} className={`is-sns${shopNo === "sns" ? " is-selected" : ""}`} onClick={() => setShopNo(shopNo === "sns" ? "" : "sns")}><img src={`${iconBase}icons/dealer-profile/instagram.svg`} alt="" aria-hidden="true" />인스타 · 유튜브 {snsCount}</button>
         {shops.map((shop) => <button key={shop.shopNo} type="button" aria-pressed={shopNo === shop.shopNo} className={shopNo === shop.shopNo ? "is-selected" : ""} onClick={() => setShopNo(shopNo === shop.shopNo ? "" : shop.shopNo)}>{shop.label} {shop.count}</button>)}
       </div>
+      <DealerIndex names={scoped.map((dealer) => dealer.name)} letter={letter} onChange={setLetter} />
       <h2 id="sag-dealer-rail-title">딜러 {list.length}명</h2>
       {list.length ? (
         <div className="sag-dealer-track">
@@ -133,7 +137,7 @@ function SeoulAutoGalleryDealerDirectory({ onOpenDealer }: { onOpenDealer?: (dea
       ) : (
         <div className="sag-dealer-empty">
           <p>찾는 딜러가 없어요. 이름이나 상사명을 다시 확인해 주세요.</p>
-          <button type="button" onClick={() => { setQuery(""); setShopNo(""); }}>검색 초기화</button>
+          <button type="button" onClick={() => { setQuery(""); setShopNo(""); setLetter(""); }}>검색 초기화</button>
         </div>
       )}
     </section>

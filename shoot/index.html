@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 화면 그림·아이콘은 사이트 루트 기준으로 불러온다(촬영 화면 코드가 document.baseURI 기준). -->
+    <base href="../" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="보배드림 촬영 — 매물 사진과 영상을 찍고 mp4로 내 폰에 저장" />
+    <link rel="manifest" href="./shoot/manifest.webmanifest?v=1" />
+    <link rel="icon" type="image/png" href="./shoot/icon-192.png?v=1" />
+    <link rel="apple-touch-icon" href="./shoot/apple-touch-icon.png?v=1" />
+    <meta name="apple-mobile-web-app-title" content="보배드림 촬영" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <title>보배드림 촬영</title>
+  </head>
+  <body style="margin:0;background:#000">
+    <div id="root"></div>
+    <script type="module" src="/src/shoot-main.tsx"></script>
+  </body>
+</html>

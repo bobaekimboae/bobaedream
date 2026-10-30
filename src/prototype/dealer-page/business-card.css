@@ -171,3 +171,22 @@
 .dbc-share-more,.dbc-share-car,.dbc-share-car-list{min-width:0;max-width:100%}
 .dbc-sharebar{min-width:0;grid-template-columns:minmax(0,1fr)}
 .dbc-stock-chips{margin:0 0 12px}
+/* 상담 폼 넘침 보정(2026-10-22 크로스체크): 긴 차량 이름의 select가 칸을 밀어내지 않게 */
+.dbc-consult,.dbc-consult-form,.dbc-consult-form>*,.dbc-consult-form label,.dbc-consult-form fieldset{min-width:0;max-width:100%;box-sizing:border-box}
+.dbc-consult-form :is(select,input[type=tel]){display:block;width:100%;min-width:0;max-width:100%;box-sizing:border-box;-webkit-appearance:none;appearance:none;outline:none;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+.dbc-consult-form select{padding-right:36px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23667085' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center}
+.dbc-consult-form :is(select,input[type=tel]):focus,.dbc-consult-form :is(select,input[type=tel]):focus-visible{border-color:#222;box-shadow:none;outline:none}
+.dbc-consult-times{flex-wrap:wrap}
+.dbc-consult-actions{grid-template-columns:92px minmax(0,1fr)}
+.dbc-consult-actions button{min-width:0}
+.dbc-consult-form .dbc-consult-agree{word-break:keep-all;overflow-wrap:break-word}
+.dbc-consult-agree span{min-width:0}
+.dbc-consult .dbc-consult-form select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath d='M4 6l4 4 4-4' fill='none' stroke='%23667085' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 12px center}
+.dbc-consult .dbc-consult-form :is(select,input[type=tel]):is(:focus,:focus-visible){outline:0 !important;border-color:#222}
+/* 050 안심번호 표시(2026-10-22) */
+.dbc-safe{margin-left:6px;padding:0 5px;border-radius:4px;background:color-mix(in srgb,currentColor 16%,transparent);font-size:10px;font-style:normal;font-weight:600;line-height:16px;vertical-align:2px;white-space:nowrap}
+/* 2026-10-23 「카카오톡 보기 버튼 밸런스 큰거 아녀」: 공유 막대를 위 연락 버튼(48)보다 가볍게 */
+.dbc-sharebar{padding:10px 16px max(10px,env(safe-area-inset-bottom))}
+.dbc-sharebar-row{grid-template-columns:minmax(0,1fr) 64px}
+.dbc-sharebar .dbc-kakao-main{min-height:44px;font-size:15px;font-weight:700;border-radius:10px}
+.dbc-share-more-toggle{min-height:44px;font-size:14px;font-weight:600}

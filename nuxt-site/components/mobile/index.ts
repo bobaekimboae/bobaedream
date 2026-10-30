@@ -1,0 +1,22 @@
+// 리액트 src/mobile/index.ts 와 같은 이름으로 다시 내보낸다(Vue 부품 + composable).
+export { default as BottomSheet } from "./BottomSheet.vue";
+export { default as Carousel } from "./Carousel.vue";
+export { default as DevicePicker } from "./DevicePicker.vue";
+export { default as MobileDeviceProvider } from "./MobileDeviceProvider.vue";
+export { default as FlowStack } from "./FlowStack.vue";
+export { default as KeyboardDock } from "./KeyboardDock.vue";
+export { default as KeyboardInput } from "./KeyboardInput.vue";
+export { default as KeyboardProvider } from "./KeyboardProvider.vue";
+export { default as KeyboardTextarea } from "./KeyboardTextarea.vue";
+export { default as MobileScroll } from "./MobileScroll.vue";
+export { default as MobileRuntime } from "./MobileRuntime.vue";
+export { default as PhoneFrame } from "./PhoneFrame.vue";
+export { default as HomeIndicator } from "./HomeIndicator.vue";
+export { default as MobileTextField } from "./MobileTextField.vue";
+export { default as StatusBar } from "./StatusBar.vue";
+export { mobileDevices, useMobileDevice, type MobileDeviceId } from "../../composables/mobile/useMobileDevice";
+export { useFlow, type FlowControls, type FlowScreen } from "../../composables/mobile/useFlow";
+export { useKeyboard, useKeyboardInsets, useKeyboardDismissDrag } from "../../composables/mobile/useKeyboard";
+export { useScreenPortal } from "../../composables/mobile/useScreenPortal";
+export { mobileAssets } from "@src/mobile/assets";
+export { iphoneGeometry, pixelGeometry, type IPhoneGeometry, type MobileDeviceGeometry } from "@src/mobile/geometry";

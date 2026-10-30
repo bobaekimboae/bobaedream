@@ -814,3 +814,12 @@
 .dp-stock-categories .dp-view-toggle.is-icons button[aria-pressed="true"],
 .dp-stock-categories .dp-view-toggle.is-icons button[aria-pressed="true"]:hover { width: 32px; height: 32px; padding: 0 !important; border: 0; border-radius: 6px; background: transparent !important; color: #b0b0b0; }
 .dp-stock-categories .dp-view-toggle.is-icons button[aria-pressed="true"] { color: #222; }
+/* 050 안심번호 표시(2026-10-22) */
+.dp-safe-phone { padding: 0; border: 0; background: none; color: inherit; font: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 2px; }
+.dp-safe-badge { margin-left: 6px; padding: 0 6px; border-radius: 4px; background: #F4F5F6; color: #595959; font-size: 11px; font-style: normal; font-weight: 600; line-height: 18px; white-space: nowrap; }
+/* 단지·상사 줄을 주소 밑에 붙임(2026-10-22 「주소 밑 단지 아이콘 빼고 붙이는건」): 집 아이콘 없이 주소 글자 시작선(핀 22 + 8)에 맞춰 바로 아래 둔다. */
+.dp-profile-inline.is-dealership, .dp-review-page-shell .dp-profile-inline.is-dealership { margin-top: 2px; padding-left: 30px; }
+.dp-profile-inline.is-dealership .dp-profile-homepage { padding-left: 0; }
+
+/* 도이치오토월드 상사 로고(2026-10-23): 소속딜러 탭 상사 칸 사진 자리에 로고를 자르지 않고 담는다 */
+.dp-affiliated-company > img.is-logo { box-sizing: border-box; padding: 10px; border-right: 1px solid #eceef0; background: #fff; object-fit: contain; }

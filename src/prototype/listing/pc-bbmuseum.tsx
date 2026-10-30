@@ -10,6 +10,7 @@ import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type 
 import { truckFormatCatalog, truckFormatImageFor, truckSubtypeImageFor, truckSubtypeSecondaryLabel } from "../data/truck-format-catalog";
 import { BbmVehicleTypeDropdown } from "./bbm-vehicle-type-dropdown";
 import { ListingLanguageSelect } from "./listing-i18n";
+import { thumbnailPostedText } from "./thumbnail-posted";
 
 // 보배드림 개발 시안(bbmuseum) PC 매물리스트 1단계 이식(QF-048~050). 구조·수치·문구만 따르고 코드·이미지는 새로 만든다.
 
@@ -327,7 +328,7 @@ function BbHeader({ category, onChooseCategory, onNotify, onOpenFavorites, searc
       return;
     }
     if (item.action === "community") {
-      onNotify("커뮤니티는 정식 서비스에서 이용해 주세요.");
+      window.location.assign(new URL("community/bobaedream-pc-board-list.html?layout=reddit", window.location.href).toString());
       return;
     }
     if (item.action === "bike-sell") {
@@ -1006,7 +1007,7 @@ function BbCarCard({ car, liked, onToggleLike, onOpen, onNotify }: { car: Car; l
       <div className="bbm-card-main">
         <div className="bbm-card-image">
           <img className={car.imageFit === "contain" ? "is-catalog" : ""} src={asset(car.image)} alt={`${car.title} ${car.trim}`} draggable={false} />
-          <div className="bbm-card-media-footer" aria-hidden="true"><span>{car.posted}</span></div>
+          <div className="bbm-card-media-footer" aria-hidden="true"><span title={car.posted}>{thumbnailPostedText(car.posted)}</span></div>
         </div>
         <div className="bbm-card-content">
           <h2 className="bbm-card-title">{car.title} {car.trim}</h2>

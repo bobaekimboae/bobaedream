@@ -1,4 +1,6 @@
 import { luxuryLogoBrands, luxuryLogoPath, luxuryLogoSource } from "../listing/luxury-logo-rail";
+import { KrBrandLogo } from "../listing/bbm-brand-logos";
+import { dealerBrandName, dealerBrandStock } from "./dealer-brand-stock";
 import { instagramHandleFor, instagramPostsFor, type DealerInstagramPost } from "../data/seoul-autogallery-instagram-v01";
 import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Cross2Icon, PauseIcon, PlayIcon } from "@radix-ui/react-icons";
@@ -8,18 +10,21 @@ import { FavoritesProvider, asset, joyMotorsCars, seoulAutoGalleryCars, setActiv
 import { BbmResultCard } from "../listing/bbm-list";
 import { ListingLanguageSelect } from "../listing/listing-i18n";
 import { allSeoulAutoGalleryDealers, type SeoulAutoGalleryDealer } from "../listing/seoul-auto-gallery-dealer-rail";
+import { DEUTSCH_MAIN_ADDRESS, deutschShopLogo, allDeutschDealers, deutschDealerCars, deutschShopByNo, deutschShopCars, isDeutschShop } from "../listing/deutsch-autoworld-directory";
 
 // 조이모터스(SK V1 모터스 173호) 대표 이지유(2026-10-21 「조이모터스 상사페이지 만들어」). 공개 홈페이지의 대표·상호·사업자번호·대표번호·팩스·이메일·주소만 쓴다.
 export const JOY_SHOP_NO = "joy";
 const joyDealer: SeoulAutoGalleryDealer = { name: "이지유", listingCount: joyMotorsCars.length, shopNo: JOY_SHOP_NO, empNo: "1", image: "dealer-02.png", role: "대표" };
-const dealers: readonly SeoulAutoGalleryDealer[] = [...allSeoulAutoGalleryDealers, joyDealer];
+const dealers: readonly SeoulAutoGalleryDealer[] = [...allSeoulAutoGalleryDealers, joyDealer, ...allDeutschDealers];
 import { SagGoogleMap } from "../listing/sag-google-map";
 import { dealerSnsLinks, snsLabel } from "../data/seoul-autogallery-sns-v01";
 import { seoulAutoGalleryShopByNo } from "../data/seoul-autogallery-shops-v01";
 import { setPretendard } from "../fonts/pretendard";
 import { DealerBusinessCard } from "./DealerBusinessCard";
 import type { CardExtras } from "./business-card";
+import { safePhoneFor, safePhoneNote } from "./business-card";
 import { matchesStockCategories, matchesStockCategory, readStockCategories, stockCategories, type StockCategory } from "./dealer-stock";
+import { ShortformStudio, type MadeShortform } from "./shortform/ShortformStudio";
 import "./dealer-page.css";
 
 const publicBase = typeof document === "undefined" ? import.meta.env.BASE_URL : new URL(".", document.location.href).pathname;
@@ -92,7 +97,7 @@ const TWOJ_PROFILE = {
 type DealerProfileInfo = {
   rating: number; reviewCount: number; sold: number; followers: number; lastActive: string; joined: string;
   company: string; complex: string; gallery: string; licenseNo: string; businessNo: string; employeeNo: string;
-  phone: string; phoneIsGallery?: boolean; homepage?: string; homepageLabel?: string; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
+  phone: string; phoneIsGallery?: boolean; logo?: string; homepage?: string; homepageLabel?: string; mapQuery?: string; mapAddress?: string; mapPlace?: string; coverImage?: string; specialty?: string; fax: string; email: string; staff: string; address: string; intro: string;
   soldCars: ReadonlyArray<readonly [string, string]>;
 };
 
@@ -105,6 +110,7 @@ const seedOf = (text: string) => [...text].reduce((sum, ch) => (sum * 31 + ch.ch
 function profileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
   if (dealer.shopNo === "450554") return TWOJ_PROFILE;
   if (dealer.shopNo === JOY_SHOP_NO) return JOY_PROFILE;
+  if (isDeutschShop(dealer.shopNo)) return deutschProfileFor(dealer);
   const shop = seoulAutoGalleryShopByNo.get(dealer.shopNo);
   const company = shop?.company ?? "서울오토갤러리 회원사";
   const room = shop?.room ?? "";
@@ -165,6 +171,45 @@ const JOY_PROFILE: DealerProfileInfo = {
   intro: "2001년부터 25년 동안 수입차·슈퍼카를 다뤄 온 e-조이모터스 대표 이지유입니다. 전시 중인 차량은 모두 대표가 직접 매입하고 검수했으며, 구매 상담부터 출고 이후 관리까지 같은 기준으로 책임집니다. 수원 SK V1 모터스 173호와 서울 성동구 쇼룸에서 만나실 수 있습니다. (상호 (주)이조이모터스24)",
   soldCars: TWOJ_PROFILE.soldCars.slice(0, 12),
 };
+
+// 도이치오토월드 상사 · 딜러(2026-10-23). 상사명 · 대표 · 상사 전화 · 팩스 · 층·호수는 dautoworld.com 공개 상사 목록 값,
+// 평점 · 리뷰 수 · 판매완료 · 팔로워 · 경력은 상사 번호로 정한 화면 확인용 가상 값이다. 전화는 안심번호로만 보인다.
+const DEUTSCH_COVER = asset("deutsch-autoworld/header/building-bluehour-v01.png");
+function deutschProfileFor(dealer: SeoulAutoGalleryDealer): DealerProfileInfo {
+  const shop = deutschShopByNo.get(dealer.shopNo);
+  const company = shop?.company ?? "도이치오토월드 회원사";
+  const room = shop?.room ?? "";
+  const seed = seedOf(`${dealer.shopNo}-${dealer.name}`);
+  const sold = 6 + (seed % 7);
+  const isOwner = dealer.role === "대표";
+  const who = isOwner ? (shop && shop.owners.length > 1 ? `공동대표 ${shop.owners.join(" · ")}` : `대표 ${dealer.name}`) : `소속딜러 ${dealer.name}`;
+  return {
+    rating: Math.round((4.5 + (seed % 5) / 10) * 10) / 10,
+    reviewCount: 3 + (seed % 28),
+    sold,
+    followers: 40 + (seed % 860),
+    lastActive: `${1 + (seed % 22)}시간 전 활동`,
+    joined: `딜러 경력 ${3 + (seed % 15)}년`,
+    company,
+    complex: "도이치오토월드 · 수원",
+    gallery: "도이치오토월드",
+    licenseNo: "",
+    businessNo: "",
+    employeeNo: "",
+    phone: shop?.phone ?? "",
+    mapQuery: `도이치오토월드 ${DEUTSCH_MAIN_ADDRESS}`,
+    mapAddress: DEUTSCH_MAIN_ADDRESS,
+    mapPlace: "도이치오토월드 · 고색동",
+    coverImage: DEUTSCH_COVER,
+    logo: deutschShopLogo(dealer.shopNo),
+    fax: shop?.fax ?? "",
+    email: "이메일 문의",
+    staff: `${dealers.filter((item) => item.shopNo === dealer.shopNo).length}명`,
+    address: [DEUTSCH_MAIN_ADDRESS, `도이치오토월드${room ? ` ${room}` : ""}`].join(", "),
+    intro: `도이치오토월드${room ? ` ${room}` : ""}에 있는 ${stripCorp(company)} ${who}입니다. 모든 차량의 상태와 이력을 직접 확인하고, 정확한 정보와 투명한 상담을 약속드립니다.`,
+    soldCars: TWOJ_PROFILE.soldCars.slice(0, sold),
+  };
+}
 
 // 한 화면에 딜러 한 명이라 렌더 전에 한 번 정한다(DealerPage).
 let MOCK: DealerProfileInfo = TWOJ_PROFILE;
@@ -304,12 +349,12 @@ function DealerSnsList({ sns, pc = false, homepage }: { sns?: ReturnType<typeof 
   </ul>;
 }
 
-function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) {
+function DealerCoverMedia({ fallback, alt, video = true }: { fallback: string; alt: string; video?: boolean }) {
   const [failedVideo, setFailedVideo] = useState(false);
   const [paused, setPaused] = useState(() => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const showVideo = !failedVideo;
+  const showVideo = video && !failedVideo;
   useEffect(() => {
     const video = videoRef.current;
     if (!video || !showVideo) return;
@@ -347,9 +392,9 @@ function DealerCoverMedia({ fallback, alt }: { fallback: string; alt: string }) 
       disablePictureInPicture
       onError={() => setFailedVideo(true)}
     /> : null}
-    <button type="button" className="dp-cover-playback" aria-label={paused ? "헤더 영상 재생" : "헤더 영상 일시정지"} aria-pressed={paused} onClick={togglePlayback} disabled={!showVideo}>
+    {video ? <button type="button" className="dp-cover-playback" aria-label={paused ? "헤더 영상 재생" : "헤더 영상 일시정지"} aria-pressed={paused} onClick={togglePlayback} disabled={!showVideo}>
       {paused ? <PlayIcon /> : <PauseIcon />}
-    </button>
+    </button> : null}
   </>;
 }
 
@@ -361,7 +406,7 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
 
   return <section className="dp-profile">
     <div className="dp-cover">
-      <DealerCoverMedia fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
+      <DealerCoverMedia video={!isDeutschShop(dealer.shopNo)} fallback={MOCK.coverImage ?? DEALER_HERO_POSTER} alt={isDeutschShop(dealer.shopNo) ? "도이치오토월드 전경" : MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} />
       <div className="dp-cover-brand-copy">
         <strong>{stripCorp(MOCK.company)}</strong>
         <span>수입차 전문 매매</span>
@@ -389,19 +434,19 @@ function DealerProfile({ dealer, cars, following, setFollowing, notify, onValuat
         <div className="dp-profile-actions has-card">
           <button type="button" className="is-follow" aria-pressed={following} onClick={() => setFollowing(!following)}><Icon name={following ? "chotot-listing-register-check-mark.svg" : "chotot-list-detail-follow.svg"} />{following ? "팔로우 중" : "팔로우"}</button>
           <button type="button" onClick={() => notify(`${dealer.name} 딜러와 채팅을 시작할 수 있어요`)}><Icon name="chotot-list-detail-chat.svg" />채팅</button>
-          {MOCK.phone ? <a href={`tel:${MOCK.phone.replaceAll("-", "")}`} aria-label={`${dealer.name} 딜러에게 전화하기`}><DealerIcon name="phone" />전화</a> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
-          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount }} extras={cardExtrasFor(dealer, cars, rating, reviewCount)} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>} />
+          {MOCK.phone ? <button type="button" aria-label={`${dealer.name} 딜러에게 안심번호로 전화하기`} onClick={() => notify(safePhoneNote(safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)))}><DealerIcon name="phone" />전화</button> : <button type="button" onClick={() => notify(`${stripCorp(MOCK.company)}은 등록된 연락처가 없어요. 채팅으로 문의해 주세요`)}><DealerIcon name="phone" />전화</button>}
+          <DealerBusinessCard shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), safe: true, address: MOCK.address, photo: dealerPhoto(dealer), listingCount }} extras={cardExtrasFor(dealer, cars, rating, reviewCount)} trigger={<button type="button" className="is-card" aria-label={`${dealer.name} 딜러 명함 보기·공유`}><DealerIcon name="business-card-as24-143" />명함</button>} />
         </div>
         <div className="dp-profile-inline is-first"><DealerIcon name="clock" />{MOCK.lastActive}<i /><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
         <div className="dp-profile-inline is-mobile-rating"><b>{rating.toFixed(1)}</b><Stars score={rating} /><u>리뷰 {reviewCount}</u></div>
         <div className="dp-profile-career-meta">
           <div className="dp-profile-inline is-career"><DealerIcon name="dealership" />{MOCK.joined}</div>
         </div>
-        {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></div> : null}
+        {MOCK.phone ? <div className="dp-profile-inline is-phone"><DealerIcon name="phone" /><button type="button" className="dp-safe-phone" onClick={() => notify(safePhoneNote(safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)))}>{safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)}</button><em className="dp-safe-badge">안심번호</em></div> : null}
         <div className="dp-profile-inline is-location"><Icon name="chotot-profile-location.svg" /><span>{MOCK.address}</span></div>
-        <div className="dp-profile-inline is-dealership"><DealerIcon name="complex-home-as24" /><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
+        <div className="dp-profile-inline is-dealership"><span>{MOCK.gallery}<i>·</i><b>{MOCK.company}</b></span></div>
         <DealerSnsList sns={sns} pc homepage={MOCK.homepage ? { href: MOCK.homepage, label: MOCK.homepageLabel ?? MOCK.homepage } : undefined} />
-        <SellPriceCta onRequest={onValuation} profile />
+        <SellPriceCta dealerName={dealer.name} onRequest={onValuation} profile />
         <div className="dp-profile-stats dp-profile-stats-desktop" aria-label="판매 실적">
           <span><small>판매중</small><b>{listingCount}</b></span>
           <span><small>판매완료</small><b>{MOCK.sold}</b></span>
@@ -508,11 +553,40 @@ function InstagramEmbeds({ posts, limit, handle }: { posts: readonly DealerInsta
   </div>;
 }
 
-function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCategory, igPosts = [], igHandle = "", view = "list", setView }: { view?: DealerListView; setView?: (view: DealerListView) => void; cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; categories: readonly StockCategory[]; toggleCategory: (category: StockCategory) => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string }) {
+// 숏폼 「내 SNS 계정에 올리기」 연결 칸에 미리 넣을 딜러 계정(판매자페이지 SNS 링크에서).
+function snsHandlesFor(dealer: SeoulAutoGalleryDealer) {
+  const links = dealerSnsLinks(dealer.shopNo, dealer.name)?.links;
+  const handle = (url?: string) => {
+    if (!url) return undefined;
+    try { const path = decodeURIComponent(new URL(url).pathname).replace(/\/$/, "").split("/").filter(Boolean); return path[0]?.startsWith("@") ? path[0] : path[0] === "channel" ? snsLabel(url) : path[0] ? `@${path[0]}` : undefined; } catch { return undefined; }
+  };
+  return { instagram: handle(links?.instagram), youtube: handle(links?.youtube) };
+}
+
+// 딜러용 숏폼 자동 제작기(2026-10-22 「숏폼 자동 제작하는 딜러용 프로그램 … 너가 만들어봐」): 안내 줄 + 이번에 만든 숏폼 카드.
+function ShortformCta({ onMake }: { onMake: () => void }) {
+  return <aside className="dp-shortform-cta" aria-label="숏폼 만들기">
+    <span><b>내 매물로 숏폼 만들기</b><small>사진과 매물 정보로 세로 영상을 자동으로 만들어요</small></span>
+    <button type="button" onClick={onMake}>만들기</button>
+  </aside>;
+}
+function MadeShortforms({ items, dealerName, avatar }: { items: MadeShortform[]; dealerName: string; avatar: string }) {
+  return <div className="dp-social-feed-list dp-ig-embeds">{items.map((item) => <article className="dp-social-post dp-ig-post" key={item.id}>
+    <header>
+      <img className="dp-made-avatar" src={avatar} alt="" aria-hidden="true" />
+      <span><b>{item.title}</b><small>{dealerName} 딜러 · 방금 · 보배드림 숏폼 {item.seconds}초</small></span>
+      <a href={item.url} download={`bobae-shortform-${item.carId}.mp4`} aria-label="숏폼 내려받기"><OutLinkIcon /></a>
+    </header>
+    <div className="dp-ig-reel is-native is-made" style={{ aspectRatio: item.aspect.replace(":", " / ") }}><video controls playsInline preload="metadata" poster={item.poster} src={item.url} aria-label={`${item.title} 숏폼`} /></div>
+    <footer><span>판매 문의는 채팅·전화로</span><a href={item.url} download={`bobae-shortform-${item.carId}.mp4`}>내려받기</a></footer>
+  </article>)}</div>;
+}
+
+function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCategory, igPosts = [], igHandle = "", view = "list", setView, madeShorts = [], onMakeShortform, dealerName = "", dealerAvatar = "" }: { madeShorts?: MadeShortform[]; onMakeShortform?: () => void; dealerName?: string; dealerAvatar?: string; view?: DealerListView; setView?: (view: DealerListView) => void; cars: Car[]; mode: ListingMode; setMode: (mode: ListingMode) => void; onOpen: (car: Car) => void; categories: readonly StockCategory[]; toggleCategory: (category: StockCategory) => void; igPosts?: readonly DealerInstagramPost[]; igHandle?: string }) {
   const [limit, setLimit] = useState(5);
   const filteredCars = cars.filter((car) => matchesStockCategories(car, categories));
   const categoryLabel = categories.length ? categories.join(" · ") : "전체";
-  const snsCount = igPosts.length || SNS_LISTING_COUNT;
+  const snsCount = (igPosts.length || SNS_LISTING_COUNT) + madeShorts.length;
   const max = mode === "active" ? filteredCars.length : mode === "sold" ? MOCK.soldCars.length : snsCount;
   return <section className="dp-content-card dp-listings">
     <div className="dp-listing-modes" role="tablist" aria-label="판매 상태">
@@ -520,13 +594,13 @@ function ListingsSection({ cars, mode, setMode, onOpen, categories, toggleCatego
       <button type="button" role="tab" aria-selected={mode === "sold"} onClick={() => { setMode("sold"); setLimit(5); }}>판매완료 ({MOCK.sold})</button>
       <button type="button" role="tab" aria-selected={mode === "sns"} onClick={() => { setMode("sns"); setLimit(5); }}>SNS 판매 차량 ({snsCount})</button>
     </div>
-    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}<span className="dp-stock-category-count">{cars.filter((car) => matchesStockCategory(car, item)).length}</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}<div className="dp-view-toggle is-icons" role="group" aria-label="보기 방식">{([["list", "목록 보기"], ["feed", "피드 보기"]] as const).map(([id, label]) => <button key={id} type="button" aria-pressed={view === id} aria-label={label} title={label} onClick={() => setView?.(id)}><span className="dp-view-toggle-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${publicBase}community/assets/view-${id}.svg)`, maskImage: `url(${publicBase}community/assets/view-${id}.svg)` }} /></button>)}</div></div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} view={view} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}
+    {mode === "active" ? <><div className="dp-stock-categories" role="group" aria-label="판매차량 분류">{stockCategories.map((item) => { const selected = categories.includes(item); return <button key={item} type="button" aria-pressed={selected} onClick={() => { toggleCategory(item); setLimit(5); }}>{item}<span className="dp-stock-category-count">{cars.filter((car) => matchesStockCategory(car, item)).length}</span>{selected ? <Cross2Icon aria-hidden="true" /> : null}</button>; })}<div className="dp-view-toggle is-icons" role="group" aria-label="보기 방식">{([["list", "목록 보기"], ["feed", "피드 보기"]] as const).map(([id, label]) => <button key={id} type="button" aria-pressed={view === id} aria-label={label} title={label} onClick={() => setView?.(id)}><span className="dp-view-toggle-icon" aria-hidden="true" style={{ WebkitMaskImage: `url(${publicBase}${["community", "assets", `view-${id}.svg`].join("/")})`, maskImage: `url(${publicBase}${["community", "assets", `view-${id}.svg`].join("/")})` }} /></button>)}</div></div>{filteredCars.length ? <ActiveCards cars={filteredCars} limit={limit} onOpen={onOpen} view={view} /> : <p className="dp-listings-empty">지금 판매 중인 {categoryLabel} 차량이 없어요. 새 차량이 등록되면 이곳에 보여드릴게요.</p>}</> : mode === "sold" ? <SoldCards limit={limit} /> : <>{onMakeShortform ? <ShortformCta onMake={onMakeShortform} /> : null}{madeShorts.length ? <MadeShortforms items={madeShorts} dealerName={dealerName} avatar={dealerAvatar} /> : null}{igPosts.length ? <InstagramEmbeds posts={igPosts} limit={limit} handle={igHandle} /> : <SocialFeedSection cars={cars} limit={SNS_LISTING_COUNT} embedded />}</>}
     {limit < max ? <button type="button" className="dp-more" onClick={() => setLimit((value) => Math.min(value + 5, max))}>매물 더보기</button> : null}
   </section>;
 }
 
-// 판매차량 탭 위 슈퍼카 브랜드 로고 줄(2026-10-21 「판매차량 위 구분선에 우리 슈퍼카 로고 카드들 배치하자」).
-// 슈퍼카·럭셔리카 카테고리와 같은 오토홈 로고 16개 · 같은 칸(모바일 76×102 · PC 84×102). 누르면 그 브랜드 판매차량만, 다시 누르면 해제. 0대는 흐리게.
+// 판매차량 탭 위 브랜드 로고 줄: 판매자 전체 재고의 매물 수 내림차순·동률 가나다순.
+// 슈퍼카 16개는 기존 로고 원본 번호를 유지하고 나머지는 공용 제조사 로고를 쓴다. 0대 브랜드는 표시하지 않는다.
 // 페라리를 고르면 로고 줄 아래에 우리 페라리 모델 이미지 줄(2026-10-21 「페라리 다음에 우리 모델 이미지 나오게해라」).
 // 이미지·이름·순서는 차량 기준표(cars-index-v1)의 페라리 모델그룹 18개, 3/4 카탈로그 컷(ferrari-models/angle). 0대는 흐리게.
 const ferrariModelCards: Array<[string, string, string[]]> = [
@@ -556,15 +630,14 @@ function DealerModelRail({ cars, model, onPick }: { cars: Car[]; model: string; 
 
 function DealerBrandRail({ cars, brand, onPick, model, onPickModel }: { cars: Car[]; brand: string; onPick: (maker: string) => void; model: string; onPickModel: (model: string) => void }) {
   const source = luxuryLogoSource();
-  const counts = new Map<string, number>();
-  cars.forEach((car) => counts.set(car.maker, (counts.get(car.maker) ?? 0) + 1));
+  const brands = dealerBrandStock(cars);
   return <nav className="dp-brand-rail" aria-label="브랜드로 판매차량 보기">
     <div className="dp-brand-rail-track">
-      {luxuryLogoBrands.map((item, index) => {
-        const count = counts.get(item.maker) ?? 0;
-        return <button type="button" key={item.maker} className={`${brand === item.maker ? "is-active" : ""}${count ? "" : " is-empty"}`} aria-pressed={brand === item.maker} aria-label={`${item.maker} ${count}대`} onClick={() => onPick(item.maker)}>
-          <span className="dp-brand-rail-logo"><img src={asset(luxuryLogoPath(source, index))} alt="" draggable={false} /></span>
-          <span className="dp-brand-rail-name">{item.maker}</span>
+      {brands.map(({ maker, count }) => {
+        const logoIndex = luxuryLogoBrands.findIndex((item) => item.maker === maker);
+        return <button type="button" key={maker} className={brand === maker ? "is-active" : undefined} aria-pressed={brand === maker} aria-label={`${maker} ${count}대`} onClick={() => onPick(maker)}>
+          <span className="dp-brand-rail-logo">{logoIndex >= 0 ? <img src={asset(luxuryLogoPath(source, logoIndex))} alt="" draggable={false} /> : <KrBrandLogo name={maker} kind="plain" initialFallback />}</span>
+          <span className="dp-brand-rail-name">{maker}</span>
           <span className="dp-brand-rail-count">({count})</span>
         </button>;
       })}
@@ -696,7 +769,7 @@ function ValuationSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; 
   return <section className="dp-content-card dp-valuation" aria-labelledby="dp-valuation-title">
     <div className="dp-valuation-heading">
       <span>내 차, 얼마에 팔 수 있을까요?</span>
-      <h2 id="dp-valuation-title">김태규 딜러에게 시세 문의</h2>
+      <h2 id="dp-valuation-title">{dealer.name} 딜러에게 시세 문의</h2>
       <p>차량번호와 소유자명을 입력하면 차량 기본정보를 확인해 상담을 시작합니다.</p>
     </div>
     <form onSubmit={(event) => { event.preventDefault(); if (canSubmit) notify(`${dealer.name} 딜러에게 시세 문의를 접수했어요`); }}>
@@ -780,10 +853,10 @@ function SocialFeedSection({ cars, limit, embedded = false }: { cars: Car[]; lim
 
 function AffiliatedDealersSection({ currentDealer, onOpenDealer }: { currentDealer: SeoulAutoGalleryDealer; onOpenDealer: (dealer: SeoulAutoGalleryDealer) => void }) {
   const staff = dealers.filter((item) => item.shopNo === currentDealer.shopNo);
-  const totalListings = staff.reduce((sum, item) => sum + item.listingCount, 0);
+  const totalListings = isDeutschShop(currentDealer.shopNo) ? deutschShopCars(currentDealer.shopNo).length : staff.reduce((sum, item) => sum + item.listingCount, 0);
   return <section className="dp-content-card dp-affiliated" aria-labelledby="dp-affiliated-title">
     <div className="dp-affiliated-company">
-      <img src={MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt={MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />
+      <img className={MOCK.logo ? "is-logo" : undefined} src={MOCK.logo ?? MOCK.coverImage ?? asset("seoul-auto-gallery/header/building-bluehour-v01.png")} alt={MOCK.logo ? `${stripCorp(MOCK.company)} 로고` : MOCK.coverImage ? `${stripCorp(MOCK.company)} 전시 차량` : "서울오토갤러리 전경"} draggable={false} />
       <div>
         <span>{MOCK.complex}</span>
         <h2 id="dp-affiliated-title">{MOCK.company}</h2>
@@ -976,7 +1049,7 @@ function StoreRatingsSection({ cars, allReviews, onSubmit }: { cars: Car[]; allR
 function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; notify: (message: string) => void }) {
   const introduction = dealer.empNo === "1"
     ? MOCK.intro
-    : dealer.role === "대표" ? MOCK.intro : `서울오토갤러리 ${MOCK.company} 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
+    : dealer.role === "대표" ? MOCK.intro : `${MOCK.gallery} ${MOCK.company} 소속 ${dealer.name} 딜러입니다. 차량 상태와 이력을 꼼꼼히 확인하고 정확한 정보로 상담드리겠습니다.`;
   return <section className="dp-content-card dp-about">
     <h2>소개</h2>
     <article className="dp-about-story">
@@ -991,7 +1064,7 @@ function AboutSection({ dealer, notify }: { dealer: SeoulAutoGalleryDealer; noti
       {dealer.employeeNo ?? MOCK.employeeNo ? <div><dt><DealerIcon name="person-as24" />종사원 번호</dt><dd>{dealer.employeeNo ?? MOCK.employeeNo}</dd></div> : null}
       {MOCK.licenseNo ? <div><dt><DealerIcon name="document-as24" />상사 허가번호</dt><dd>{MOCK.licenseNo}</dd></div> : null}
       {MOCK.businessNo ? <div><dt><DealerIcon name="document-as24" />사업자 번호</dt><dd>{MOCK.businessNo}</dd></div> : null}
-      {MOCK.phone ? <div><dt><DealerIcon name="phone-as24" />{MOCK.phoneIsGallery ? "단지 대표 전화" : "상사 연락처"}</dt><dd><a href={`tel:${MOCK.phone.replaceAll("-", "")}`}>{MOCK.phone}</a></dd></div> : null}
+      {MOCK.phone ? <div><dt><DealerIcon name="phone-as24" />안심번호</dt><dd><button type="button" className="dp-about-link" onClick={() => notify(safePhoneNote(safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)))}>{safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`)}</button></dd></div> : null}
       <div><dt><DealerIcon name="email-as24" />이메일</dt><dd><button type="button" className="dp-about-link" onClick={() => notify("딜러 이메일 문의를 준비 중이에요")}>{MOCK.email}</button></dd></div>
       {MOCK.fax ? <div><dt><DealerIcon name="printer-as24" />팩스</dt><dd>{MOCK.fax}</dd></div> : null}
       {MOCK.staff ? <div><dt><DealerIcon name="person-as24" />소속 직원</dt><dd>{MOCK.staff}</dd></div> : null}
@@ -1018,9 +1091,9 @@ function cardExtrasFor(dealer: SeoulAutoGalleryDealer, cars: Car[], rating = MOC
   };
 }
 
-function SellPriceCta({ onRequest, profile = false }: { onRequest: () => void; profile?: boolean }) {
-  return <aside className={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label="내 차 판매 가격 무료 견적">
-    <span><b>내 차 판매 가격, 무료 견적 받아보세요</b></span>
+function SellPriceCta({ dealerName, onRequest, profile = false }: { dealerName: string; onRequest: () => void; profile?: boolean }) {
+  return <aside className={`dp-sell-price-cta${profile ? " is-profile" : ""}`} aria-label={`${dealerName} 딜러에게 내 차 판매 가격 무료 견적 문의`}>
+    <span><b>{dealerName} 딜러에게 무료 견적 받아보세요</b></span>
     <button type="button" onClick={onRequest}>견적신청</button>
   </aside>;
 }
@@ -1053,6 +1126,12 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
     return (["home", "ads", "community", "valuation", "reviews", "social", "dealers", "intro"] as SectionId[]).includes(requested as SectionId) && requested !== "social" ? requested as SectionId : "ads";
   });
   const [toast, setToast] = useState("");
+  // 숏폼 만들기 창: 주소 &shortform=1(매물 고르기) 또는 &shortform=<매물 id>로 바로 열 수 있다.
+  const [studio, setStudio] = useState<{ carId?: number } | null>(() => {
+    const value = new URLSearchParams(window.location.search).get("shortform");
+    return value ? { carId: Number(value) || undefined } : null;
+  });
+  const [madeShorts, setMadeShorts] = useState<MadeShortform[]>([]);
   const reviewStorageKey = `bobaedream:dealer-reviews:${dealer.shopNo}:${dealer.empNo}`;
   const [submittedReviews, setSubmittedReviews] = useState<StoreReview[]>(() => {
     try {
@@ -1123,7 +1202,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
           {cars.length ? <DealerBrandRail cars={cars} brand={brand} model={model} onPick={(maker) => { setBrand((value) => value === maker ? "" : maker); setModel(""); setMode("active"); changeSection("ads"); }} onPickModel={(name) => { setModel((value) => value === name ? "" : name); setMode("active"); changeSection("ads"); }} /> : null}
           <AnchorNav active={activeSection} onChange={changeSection} />
           {activeSection === "home" ? <HomeSection /> : null}
-          {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} view={listView} setView={setListView} cars={brand ? cars.filter((car) => car.maker === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} /> : null}
+          {activeSection === "ads" ? <ListingsSection key={`${brand}|${model}`} view={listView} setView={setListView} cars={brand ? cars.filter((car) => dealerBrandName(car.maker) === brand && (!model || dealerFerrariModelOf(car) === model)) : cars} mode={mode} setMode={setMode} onOpen={openListing} categories={selectedStockCategories} toggleCategory={toggleStockCategory} igPosts={instagramPostsFor(dealer.shopNo, dealer.name)} igHandle={instagramHandleFor(dealer.shopNo, dealer.name)} madeShorts={madeShorts} onMakeShortform={() => setStudio({})} dealerName={dealer.name} dealerAvatar={dealerPhoto(dealer)} /> : null}
           {activeSection === "community" ? <CommunitySection cars={cars} dealer={dealer} notify={notify} /> : null}
           {activeSection === "valuation" ? <ValuationSection dealer={dealer} notify={notify} /> : null}
           {activeSection === "dealers" ? <AffiliatedDealersSection currentDealer={dealer} onOpenDealer={openDealer} /> : null}
@@ -1132,6 +1211,7 @@ function DealerProfilePage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; c
       </main>
       <Footer />
     </div>
+    {studio ? <ShortformStudio cars={cars} initialCarId={studio.carId} dealer={{ name: dealer.name, company: stripCorp(MOCK.company), phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), photo: dealerPhoto(dealer), storageKey: `bobaedream:shortform-sns:${dealer.shopNo}:${dealer.empNo}`, snsHandles: snsHandlesFor(dealer), shop: dealer.shopNo, emp: dealer.empNo }} onToast={notify} onClose={() => setStudio(null)} onPublish={(made) => { setMadeShorts((current) => [made, ...current]); setMode("sns"); changeSection("ads"); notify("SNS 판매 차량에 숏폼을 올렸어요"); }} /> : null}
     {toast ? <div className="dp-toast" role="status">{toast}</div> : null}
   </div>;
 }
@@ -1141,9 +1221,9 @@ export default function DealerPage() {
   const matchedDealer = dealers.find((item) => item.shopNo === params.get("shop") && item.empNo === (params.get("emp") ?? item.empNo));
   const dealer: SeoulAutoGalleryDealer = matchedDealer ?? dealers[0];
   MOCK = profileFor(dealer);
-  const cars = useMemo(() => dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : dealer.shopNo === dealers[0].shopNo
+  const cars = useMemo(() => dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars : isDeutschShop(dealer.shopNo) ? deutschDealerCars(dealer) : dealer.shopNo === dealers[0].shopNo && dealer.empNo === dealers[0].empNo
     ? seoulAutoGalleryCars
-    : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo]);
+    : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)), [dealer.name, dealer.shopNo, dealer.empNo]);
   const linkedCar = cars.find((car) => String(car.id) === params.get("listing"));
 
   if (params.get("card") === "1") {
@@ -1161,5 +1241,15 @@ export default function DealerPage() {
 
 function DealerCardPage({ dealer, cars }: { dealer: SeoulAutoGalleryDealer; cars: Car[] }) {
   useEffect(() => { setPretendard(true); }, []);
-  return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: MOCK.phone, address: MOCK.address, photo: dealerPhoto(dealer), listingCount: cars.length }} extras={cardExtrasFor(dealer, cars)} />;
+  return <DealerBusinessCard standalone shop={dealer.shopNo} emp={dealer.empNo} contact={{ name: dealer.name, role: dealer.role ?? "딜러", company: MOCK.company, gallery: MOCK.gallery, phone: safePhoneFor(`${dealer.shopNo}-${dealer.empNo}-${dealer.name}`), safe: true, address: MOCK.address, photo: dealerPhoto(dealer), listingCount: cars.length }} extras={cardExtrasFor(dealer, cars)} />;
+}
+
+// 카카오톡 미리보기용 정적 명함 페이지(scripts/dealer-card-og.mjs)가 쓰는 딜러 요약. 화면에서는 쓰지 않는다.
+export function dealerCardSummaries() {
+  return dealers.map((dealer) => {
+    const profile = profileFor(dealer);
+    const count = dealer.shopNo === JOY_SHOP_NO ? joyMotorsCars.length : isDeutschShop(dealer.shopNo) ? deutschDealerCars(dealer).length
+      : seoulAutoGalleryCars.filter((car) => car.seoulAutoGallery?.dealer === dealer.name && (!seoulAutoGalleryShopByNo.has(dealer.shopNo) || car.seoulAutoGallery?.company === seoulAutoGalleryShopByNo.get(dealer.shopNo)?.company)).length;
+    return { shop: dealer.shopNo, emp: dealer.empNo, name: dealer.name, role: dealer.role ?? "딜러", company: stripCorp(profile.company), gallery: profile.gallery, photo: dealer.profileAsset ?? `dealer-illustrations/seoul-auto-gallery/v02/suit/${dealer.image}`, count };
+  });
 }

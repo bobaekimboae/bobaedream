@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState, type CSSProperties, type FormEvent, type ReactNode } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
-import { cardContact, cardCompanyName, cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, type CardContact, type CardExtras, type CardStyle } from "./business-card";
+import { cardContact, cardCompanyName, cardPng, cardThemes, cardVcf, defaultCardStyle, downloadBlob, profileUrl, readCardStyle, serializeCardStyle, cardFields, cardFieldHref, loadCardLogo, safePhoneNote, type CardContact, type CardExtras, type CardStyle } from "./business-card";
 import "./business-card.css";
 import { stockUrl } from "./dealer-stock";
-import { cardQr, cardServiceOrigin, fetchPublishedCard, publishingUrl, sharingUrl, type PublishedCard } from "./card-sharing";
+import { cardQr, cardServiceLive, cardServiceOrigin, fetchPublishedCard, publishingUrl, sharingUrl, type PublishedCard } from "./card-sharing";
 
 type Props = { contact: CardContact; shop: string; emp: string; standalone?: boolean; trigger?: ReactNode; extras?: CardExtras };
 
@@ -35,7 +35,7 @@ function CardPreview({ contact, style }: { contact: CardContact; style: CardStyl
       {!photoFailed && contact.photo ? <div className="dbc-photo-frame"><img className="dbc-photo" src={contact.photo} alt={`${contact.name} 프로필`} onError={() => setPhotoFailed(true)} /></div> : null}
     </div>
     <p className="dbc-intro">{style.intro}</p>
-    <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}</strong> : null}<span>{contact.address}</span></div>
+    <div className="dbc-contact">{cardFieldHref("mobile", style.fields.mobile) || contact.phone ? <strong>{cardFieldHref("mobile", style.fields.mobile) ? style.fields.mobile : contact.phone}{!cardFieldHref("mobile", style.fields.mobile) && contact.safe ? <em className="dbc-safe">안심번호</em> : null}</strong> : null}<span>{contact.address}</span></div>
   </article>;
 }
 
@@ -64,7 +64,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const draftChanged = useRef(false);
   const hashFields = new URLSearchParams(window.location.hash.slice(1));
   const legacy = standalone && ["theme", "intro", "title", "logo", "gallery", "company", ...cardFields.map(({ id }) => id)].some(id => hashFields.has(id));
-  const requiresPublished = standalone && !legacy && new URLSearchParams(window.location.search).get("published") === "1";
+  const requiresPublished = cardServiceLive && standalone && !legacy && new URLSearchParams(window.location.search).get("published") === "1";
   const receiverContact = standalone && !legacy && published ? { ...published.contact, listingCount: contact.listingCount } : contact;
   const effectiveContact = cardContact(receiverContact, style);
   const baseUrl = sharingUrl(window.location.href, shop, emp, style, published);
@@ -73,13 +73,13 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const featuredId = standalone ? Number(new URLSearchParams(window.location.search).get("car")) || undefined : undefined;
   const featured = featuredId ? extras?.listings?.find((car) => car.id === featuredId) : undefined;
   const dealerUrl = profileUrl(window.location.href, shop, emp);
-  const phoneHref = cardFieldHref("mobile", style.fields.mobile) || (receiverContact.phone ? `tel:${receiverContact.phone.replace(/[^+\d]/g, "")}` : null);
+  const phoneHref = cardFieldHref("mobile", style.fields.mobile) || (receiverContact.phone && !receiverContact.safe ? `tel:${receiverContact.phone.replace(/[^+\d]/g, "")}` : null);
 
   useEffect(() => { if (open) dialogRef.current?.scrollTo({ top: 0 }); }, [editing, open]);
   useEffect(() => { setQrUrl(""); setImageUrl(""); setManualLink(false); }, [url]);
 
   useEffect(() => {
-    if (!open && !standalone) return;
+    if (!cardServiceLive || (!open && !standalone)) return;
     const controller = new AbortController();
     const refresh = async () => {
       try {
@@ -153,7 +153,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
     if (!valid()) return;
     if (!navigator.share) { await copy(); if (kakao) setStatus("명함 링크를 카카오톡 대화방에 붙여 넣어 주세요. 복사가 안 되면 아래 링크를 직접 복사하세요."); return; }
     const car = shareCar ? extras?.listings?.find((item) => item.id === shareCar) : undefined;
-    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || effectiveContact.company}`, text: car ? `${car.title} · ${car.price} — ${contact.name} 딜러가 추천하는 차량이에요.` : `${contact.name} 딜러의 명함입니다.`, url }); setStatus("공유 창을 닫았어요."); }
+    try { await navigator.share({ title: `${contact.name} · ${style.title.trim() || effectiveContact.company}`, text: car ? `${car.title} · ${car.price} — ${contact.name} 딜러가 추천하는 차량이에요.` : `${contact.name} 딜러 명함 · ${cardCompanyName(effectiveContact.company)}`, url }); setStatus("공유 창을 닫았어요."); }
     catch (error) { if (!(error instanceof DOMException && error.name === "AbortError")) await copy(); }
   };
   const saveImage = async () => {
@@ -188,7 +188,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
   const customer = <>
     {trust.length || effectiveContact.gallery ? <p className="dbc-trust" aria-label="딜러 확인 정보">{effectiveContact.gallery ? <b className="dbc-verified"><Ico name="verified" />{effectiveContact.gallery} 등록 딜러</b> : null}{trust.map((item) => <span key={item}>{item}</span>)}</p> : null}
     <div className="dbc-cta" role="group" aria-label="딜러에게 연락">
-      {phoneHref ? <a className="is-primary" href={phoneHref}><Ico name="phone" />전화</a> : <button type="button" onClick={() => setStatus("등록된 전화번호가 없어요. 채팅으로 문의해 주세요.")}><Ico name="phone" />전화</button>}
+      {phoneHref ? <a className="is-primary" href={phoneHref}><Ico name="phone" />전화</a> : receiverContact.safe && receiverContact.phone ? <button type="button" className="is-primary" onClick={() => setStatus(safePhoneNote(receiverContact.phone))}><Ico name="phone" />전화</button> : <button type="button" onClick={() => setStatus("등록된 전화번호가 없어요. 채팅으로 문의해 주세요.")}><Ico name="phone" />전화</button>}
       {smsHref ? <a href={smsHref}><Ico name="sms" />문자</a> : null}
       <a href={dealerUrl}><Ico name="chat" />채팅</a>
     </div>
@@ -200,7 +200,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
         <label>관심 차량<select value={consult.car} onChange={(event) => setConsult({ ...consult, car: event.target.value })}><option value="">아직 정하지 않았어요</option>{(extras?.listings ?? []).map((car) => <option key={car.id} value={car.title}>{car.title}</option>)}</select></label>
         <fieldset><legend>연락받을 시간</legend><div className="dbc-consult-times">{contactTimes.map((time) => <button key={time} type="button" aria-pressed={consult.time === time} onClick={() => setConsult({ ...consult, time })}>{time}</button>)}</div></fieldset>
         <label>휴대폰 번호<input type="tel" inputMode="tel" autoComplete="tel" maxLength={13} placeholder="010-0000-0000" value={consult.phone} onChange={(event) => setConsult({ ...consult, phone: event.target.value, error: "" })} /></label>
-        <label className="dbc-consult-agree"><input type="checkbox" checked={consult.agree} onChange={(event) => setConsult({ ...consult, agree: event.target.checked, error: "" })} />상담을 위해 번호를 {contact.name} 딜러에게 전달하는 데 동의해요</label>
+        <label className="dbc-consult-agree"><input type="checkbox" checked={consult.agree} onChange={(event) => setConsult({ ...consult, agree: event.target.checked, error: "" })} /><span>상담을 위해 번호를 {contact.name} 딜러에게 전달하는 데 동의해요</span></label>
         {consult.error ? <p className="dbc-consult-error" role="alert">{consult.error}</p> : null}
         <div className="dbc-consult-actions"><button type="button" onClick={() => setConsultOpen(false)}>취소</button><button type="submit">상담 남기기</button></div>
       </form>}
@@ -261,7 +261,7 @@ export function DealerBusinessCard({ contact, shop, emp, standalone = false, tri
       <fieldset><legend>명함 색상</legend><div className="dbc-swatches">{Object.entries(cardThemes).map(([theme, palette]) => <button type="button" key={theme} aria-pressed={style.theme === theme} onClick={() => updateStyle({ ...style, theme: theme as CardStyle["theme"] })}><i style={{ background: palette.background }} />{palette.label}{style.theme === theme ? <span aria-hidden="true">✓</span> : null}</button>)}</div></fieldset>
       <label>소개 문구<textarea maxLength={60} rows={2} value={style.intro} onChange={(event) => updateStyle({ ...style, intro: event.target.value.replace(/[\r\n]/g, " ") })} /><small>{style.intro.length}/60</small></label>
       <p>편집 내용은 이 기기에 임시 저장돼요. ‘고정 주소에 저장’을 누르면 관리자 확인 후 공개 명함에 반영돼요.</p>
-      <button type="button" className="dbc-publish" disabled={logoBusy} onClick={publish}>고정 주소에 저장 ↗</button>
+      {cardServiceLive ? <button type="button" className="dbc-publish" disabled={logoBusy} onClick={publish}>고정 주소에 저장 ↗</button> : null}
       {published && !isFixed ? <button type="button" className="dbc-publish dbc-restore" onClick={() => updateStyle(published.style)}>공개 명함 내용 불러오기</button> : null}
       {serverError ? <p>{serverError}</p> : null}
     </div> : null}

@@ -31,6 +31,268 @@ final result: passed
 
 ---
 
+## 2026-10-24 커뮤니티 게시판 무채색 바탕 제거
+
+- Source visual truth: `https://game.naver.com/esports/Valorant/board`.
+- Reference capture: `.design-qa/reference-naver-valorant-board-flat-2026-10-24.png`.
+- Browser-rendered implementation: `.design-qa/community-flat-board-local-2026-10-24.png`.
+- Combined comparison evidence: `.design-qa/flat-board-side-by-side-2026-10-24.png`.
+- Viewport/state: 1265×711 CSS px, DPR 1, 데스크톱 게시판 첫 화면·최신순 선택.
+
+### Required fidelity surfaces
+
+- Typography: passed — Pretendard와 기존 제목·표 위계는 유지하고 배경 처리만 변경했다.
+- Spacing/layout: passed — 240px 좌측 레일과 742px 목록 열, 42px 게시판 탐색 행, 44px 게시글 행은 유지했다. 카드 사이의 회색 면과 둥근 외곽만 제거해 한 장의 게시판처럼 연결했다.
+- Colors/tokens: passed — 페이지·좌측 메뉴·게시판 제목·정렬 바·클린봇·목록 카드의 바탕을 흰색/투명으로 통일하고 구획은 `#e7e9ec` 구분선만 사용했다. 선택 게시판은 채운 배경 대신 보배드림 블루 텍스트로 표시한다.
+- Image quality: passed — Reddit 공식 기본 프사 8종을 20개 게시판에 유지했으며 누락 0건이다.
+- Copy/content: passed — 게시판명, 정렬, 검색, 공지와 목록 데이터는 변경하지 않았다.
+- Behavior/accessibility: passed — 수입차 게시판 선택 시 활성 텍스트와 제목이 함께 갱신되고 20개 링크의 접근성 이름을 유지한다.
+
+### Comparison history
+
+- Pass 1 [P2, visual density]: 기존 화면은 페이지 `#f8f9fd`, 흰 카드, 파란 선택 행이 겹쳐 목록형 게시판이 여러 카드로 분절돼 보였다.
+- Fix: 바탕과 카드 면색을 제거하고 제목·정렬·클린봇·표를 얇은 회색 구분선으로 연결했다. 좌측 선택 행의 파란 면색도 제거했다.
+- Pass 2: 같은 크기의 원본/구현 비교판에서 흰 바탕, 선 중심 구획, 목록 밀도를 재검사했고 남은 P0/P1/P2가 없다.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 실제 Reddit 서브레딧 커뮤니티 아이콘
+
+- Source truth: 실제 공개 서브레딧의 `styles.redditmedia.com/.../communityIcon...` 자산을 브라우저에서 직접 확인하고 로컬 저장했다. Reddit 기본 사용자 프사는 더 이상 화면에서 참조하지 않는다.
+- Source communities: `r/cars`, `r/Hyundai`, `r/electricvehicles`, `r/Dashcam`, `r/IdiotsInCars`, `r/Insurance`, `r/carmemes`, `r/Cartalk`, `r/AutoDetailing`, `r/hypermiling`, `r/CarTalkUK`, `r/modhelp`, `r/help`.
+- Browser-rendered implementation: `.design-qa/community-actual-subreddit-icons-local-2026-10-24.png`, 1265×711 CSS px, 데스크톱 전체 게시글 상태.
+- Mapping: 전체·자유·베스트=`r/cars`; 국산차=`r/Hyundai`; 수입차·정치/시사=`r/CarTalkUK`; 전기차=`r/electricvehicles`; 시승기·차량리뷰=`r/AutoDetailing`; 정비·결함=`r/Cartalk`; 블랙박스·교통법규=`r/Dashcam`; 사고=`r/IdiotsInCars`; 보험=`r/Insurance`; 유머=`r/carmemes`; 연비/전비=`r/hypermiling`; 공지·운영정책=`r/modhelp`; 문의/제보=`r/help`.
+- Layout: 커뮤니티 아이콘 30×30px, 게시판 행 42px, 텍스트 14/20px·500. 선택 상태는 배경 없이 보배드림 블루 텍스트와 700 굵기로 표시한다.
+- Asset storage: `public/community/assets/subreddit-icons/`에 13개 WebP를 보관해 Reddit CDN 차단이나 외부 변경에도 화면이 깨지지 않게 했다.
+- Validation: 20/20 커뮤니티 아이콘 로드, 13개 고유 서브레딧 자산, 깨진 이미지 0개, 접근성 이름은 게시판 링크 텍스트로 유지.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 커뮤니티 헤더 · 보배드림 메인 규격 동일화
+
+- Source visual truth: 배포 중인 보배드림 PC 메인 `/?qf=guazi&pc=1&lang=ko` 헤더를 1280×720에서 직접 실측했다.
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit` 로컬 PC·모바일 렌더링.
+- PC parity: 헤더 72px, 내부 x=40~1240 / 1200px, 로고 엠블럼 30×30px, 타이틀 20/24px·800, 검색 520×40px, 우측 액션 40px 높이로 메인과 동일하다.
+- Main-to-community copy mapping: `차량 판매하기` 위치와 104×40px 규격은 유지하고 문구와 링크만 `글쓰기`로 변경했다. 검색 범위는 `커뮤니티`, 검색 문구는 `보배드림 검색`으로 현 문맥에 맞췄다.
+- Navigation: 홈·게시판·제보·결함은 보배드림 메인 GNB와 동일한 PC `16/22px·500`, 선택 `700` 규격이며, 검정 알약 대신 3px 하단선으로 활성 상태를 표시한다. 모바일은 메인 반응형 규격인 `14/18px·600`, 선택 `700`을 유지한다.
+- Typography: 외부 공통 글꼴 규칙의 우선순위 충돌을 제거하고 `Pretendard Variable`을 실제 계산 글꼴의 첫 항목으로 고정했다.
+- Mobile regression: 390×844에서 햄버거·24px 엠블럼·17px 타이틀·가변 검색바가 한 줄을 유지하고, 우측 PC 액션은 숨김 처리했다. 가로 넘침은 0px이다.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 네이버 게임 라운지 게시판 크로스체크
+
+- Source visual truth: `https://game.naver.com/lounge/Dungeon_Fighter/board`.
+- Reference capture: `.design-qa/community-board-naver-crosscheck-2026-10-24/01-naver-reference.png`.
+- Implementation capture: `.design-qa/community-board-naver-crosscheck-2026-10-24/02-bobaedream-implementation.png`.
+- Focused measurements: 15px text, 20px control height, 14px item gap, 11px selected-state check icon.
+- Typography cross-check: 게시판 제목 18/21px·700, 표 헤더 13/16px·600, 분류 12/14px·400, 글 제목 14/17px·400, 작성자 13/15px·400, 날짜·조회·추천 13/16px·400으로 원본과 대조함.
+- Product font: 네이버의 시스템 글꼴은 이식하지 않고 보배드림 규칙에 따라 `Pretendard Variable`, `Pretendard`를 최우선으로 고정함.
+- Behavior: 인기순·최신순·추천순 세 상태에서 필터 그룹의 시작점·전체 폭·높이가 유지되고 게시글 정렬이 정상 동작함.
+- Deliberate deviation: 좌측 레일은 사용자가 확정한 Reddit 규격 240px을 유지함.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 커뮤니티 메인형 상단 헤더
+
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.
+- Header hierarchy: 72px 상단에 공식 보배드림 로고 142×34px와 560×44px 통합 검색창을 배치하고, 바로 아래 52px 메뉴 행에 `홈 · 게시판 · 제보 · 결함`만 노출함.
+- Typography: 전체 화면에 `Pretendard Variable`, `Pretendard`를 최우선 적용하고 메뉴는 14px, 검색어는 15px을 유지함.
+- Alignment: 1265px 브라우저 실측에서 로고 x=128.4px, 검색창 x=348.4px, 게시판 본문 시작 y=144px이며 가로 넘침은 0px임.
+- Behavior: 홈·게시판·제보 URL 상태에 따라 PC와 모바일 메뉴의 활성 항목 및 `aria-current`가 동일하게 전환됨. 결함은 독립 결함/불만 게시판으로 연결함.
+- Regression: 네이버 기준 정렬 15/19px, 글 제목 14/17px, 작성자 13/15px 규격은 유지됨.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 커뮤니티 게시판 정렬 탭 위치 안정화 (1차 시안, 후속 네이버 실측안으로 대체)
+
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.
+- Checked states: 인기순, 최신순, 추천순을 각각 선택해 세 상태를 교차 검수함.
+- Spacing/layout: passed — 세 버튼을 동일한 54px 폭으로 고정하고 4px 간격, 동일 높이·수직 중심 정렬을 적용함.
+- State stability: passed — 선택 체크 아이콘이 이동해도 세 버튼의 x/y 좌표와 전체 필터 폭이 변하지 않음. 이후 네이버 원본 실측에 따라 고정 54px 대신 자연 폭·14px 간격·11px 체크 아이콘으로 교체함.
+- Behavior: passed — 인기순·최신순·추천순 URL 상태와 게시글 정렬 동작을 유지함.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 커뮤니티 좌측 필터 · Reddit 폭 조정
+
+- Source layout truth: 프로젝트의 기존 Reddit형 PC 레일 규격과 `https://www.reddit.com/`의 독립 좌측 탐색 영역.
+- Browser-rendered implementation: `/community/bobaedream-pc-board-list.html?layout=reddit`.
+- Viewport/state: PC 1280px 이상; 치지직식 게시판 계층과 목록 밀도 유지.
+- Spacing/layout: passed — 좌측 레일 240px, 중앙 목록 742px, 열 간격 24px로 고정하고 우측 보조 레일을 250px로 정렬함.
+- Responsiveness: passed — 1320px 이하에서는 우측 보조 레일만 숨기고 좌측 240px·중앙 742px 구조를 유지함. 모바일 서랍 구조는 변경하지 않음.
+- Content/behavior: passed — 게시판 그룹, 전체 게시글, 글쓰기 및 필터 동작은 그대로 유지함.
+
+final result: passed
+
+## 2026-10-24 커뮤니티 좌측 필터 · 네이버 게임 라운지 기준
+
+- Source visual truth: `https://game.naver.com/lounge/Dragon_Village3/board/6`의 데스크톱 좌측 게시판 카드.
+- Browser-rendered implementation: `http://127.0.0.1:4381/community/bobaedream-pc-board-list.html?layout=reddit&v=left-chzzk-final`.
+- Evidence capture: Codex IAB 동일 출력에서 원본과 구현을 연속 배치해 비교함.
+- Viewport/state: 원본과 구현 모두 1263×709 CSS px, DPR 1, 데스크톱 목록 첫 화면. 모바일은 390×844 CSS px에서 기본 목록과 열린 좌측 서랍을 별도 확인함.
+- Scope: 원본의 게임 전용 히어로·광고·브랜드 자산은 제외하고, 사용자가 요청한 좌측 필터의 폭·카드·계층·행 밀도·글쓰기 동작만 비교함.
+
+### Required fidelity surfaces
+
+- Typography: passed — 13px 게시판 항목, 14px/800 그룹명, 15px/700 글쓰기 버튼으로 원본의 위계를 재현하고 Pretendard 계열을 유지함.
+- Spacing/layout: passed — 좌측 카드 186px, 24px 좌우 패딩, 42px 글쓰기 버튼, 31px 메뉴 행, 22px 열 간격으로 원본의 고밀도 구조와 일치함.
+- Colors/tokens: passed — 원본의 흰 카드·검정 CTA·회색 보조 텍스트를 보배드림 중립 토큰에 매핑함.
+- Image quality: passed — 네이버 고유 자산을 복제하지 않고 프로젝트의 기존 SVG 아이콘과 공식 보배드림 워드마크를 사용함.
+- Copy/content: passed — 자동차, 블랙박스·사고, 커뮤니티, 차량 정보, 운영 안내로 보배드림 정보 구조에 맞게 치환함.
+- Behavior/accessibility: passed — 좌측 게시판 선택 시 URL, 제목, 목록, 활성 상태가 함께 변경되고 모바일에서는 햄버거 서랍이 열리고 선택 후 닫힘. 콘솔 오류 0.
+
+### Comparison history
+
+- Pass 1 [P1, layout]: 기존 레딧형 240px 아이콘 레일과 큰 원형 아바타가 원본 186px 계층형 게시판 카드와 달랐음. 카드 폭·그룹·들여쓰기 구조를 전면 교체함.
+- Pass 1 [P2, responsive]: 1320px 이하에서 예전 240px 그리드가 다시 적용되어 좌측과 중앙 사이가 과도하게 벌어졌음. 기준점을 1230px로 낮추고 186px/730px 그리드로 수정함.
+- Pass 1 [P1, behavior]: 새 메뉴명이 기존 필터 키와 달라 선택 후 전체글로 복귀함. 모든 신규 메뉴를 게시판 데이터 구성에 등록함.
+- Pass 2: 데스크톱 3열 균형, 모바일 서랍, 국산차 필터 전환, 콘솔 오류를 재검수했고 추가 P0/P1/P2 차이가 없음.
+
+final result: passed
+
+
+---
+
+## 2026-10-24 커뮤니티 목록형 게시판 · 네이버 게임 라운지 기준
+
+- Source visual truth: `https://game.naver.com/lounge/Dragon_Village3/board/6` 데스크톱 목록 화면(CUA 실측).
+- Browser-rendered implementation: `http://127.0.0.1:4382/community/bobaedream-pc-board-list.html?layout=reddit` 데스크톱 목록 화면(CUA 실측).
+- Target scope: 보배드림 Reddit형 좌측 탐색은 유지하고 중앙 게시판을 네이버 게임 라운지의 고밀도 목록 규칙으로 전환.
+- Structure: 상단 게시판명, 인기순·최신순·추천순, 제목+내용 검색, 클린봇 안내, `제목·작성자·작성일·조회수·추천` 5열, 고정 공지, 44px 행, 페이지네이션.
+- Brand adaptation: 네이버 게임 고유 로고·게임 자산은 복제하지 않고 보배드림 공식 워드마크, Pretendard, 기존 `#222` 및 보배드림 블루 토큰을 유지.
+- Interaction verification: 기본 URL은 목록형, `view=feed`는 기존 카드 피드형으로 분리; 인기순 클릭 시 URL `sort=popular`과 조회수 내림차순이 함께 갱신됨. 카테고리 이동, 상세 링크, 검색 입력, 페이지네이션 노출을 확인.
+- Accessibility: 실제 `<table>` 구조와 caption, 열 머리글, 고정 공지 대체 텍스트, 정렬 버튼 접근성 이름을 유지.
+- Remaining P3: 모바일 목록은 정보 보존을 위해 가로 스크롤을 허용한다. 별도 모바일 목록 단순화는 다음 디자인 단계에서 다룰 수 있다.
+
+No actionable P0/P1/P2 differences remain for the requested list-board scope.
+
+final result: passed
+
+
+---
+
+## 2026-10-22 Figma 모바일 메인 시안 2
+
+- Source visual truth: Figma file `O1xxBDUlO8UgYBY6dYJ2Vo`, node `1135:1707`.
+- Source captures: `.design-qa/figma-main-concept-2-reference.png`, `.design-qa/figma-main-concept-2-reference-lower.png`.
+- Browser-rendered implementation: `.design-qa/figma-main-concept-2-local.png`.
+- Viewport/state: 430×1000 CSS px, 홈 선택, 인기글 `1~10위` 선택.
+- Connector note: Figma 구조 API는 연결 재인증 상태가 남아 있어, 로그인된 Figma 브라우저에서 선택 프레임을 직접 렌더링하고 상·하단을 캡처해 시각 기준으로 사용함.
+
+### Required fidelity surfaces
+
+- Typography: 15px 주요 탭, 14px 검색·숏폼 제목, 12px 보조 정보와 순위표로 원본 위계를 재현.
+- Spacing/layout: 흰색 헤더, 5열 탭, 51px 검색창, 2×5 서비스 그리드, 숏폼 2행, 인기글 순위를 원본 순서와 모바일 폭에 맞춤.
+- Colors/tokens: 보배드림 블루 `#3866b4`, 활성 탭·기간 필터는 검정, 구분면은 `#f6f7f8`.
+- Image quality: 공식 벡터 로고·헤더 아이콘과 저장소 내 고해상도 차량 자산을 사용.
+- Copy/content: 시안의 메뉴명, 서비스명, 숏폼 제목·메타정보, 인기글 제목·댓글 수를 반영.
+- Behavior/accessibility: 검색 제출, 검색 포커스, 탭 이동, 서비스 목록 이동, 더보기 메뉴, 정치글 토글, 인기 기간 선택을 실제 버튼으로 구현.
+- Scroll regression: 전역 `body { overflow:hidden }`과 루트 높이 규칙의 영향을 받지 않도록 메인을 독립된 `100dvh` 세로 스크롤 컨테이너로 구성해 10위와 마지막 여백까지 스크롤 가능하도록 검증.
+- Primary navigation: 기존 밑줄 탭을 보배드림 공통 알약칩 규칙(34px 높이, 999px 반경, 기본 `#F2F3F5`, 활성 `#222`)으로 통일하고 작은 화면에서는 한 줄 가로 스크롤을 유지.
+- Header reference: `1000019001.jpg`의 모바일 헤더 구조를 적용해 좌측 햄버거·중앙 로고·우측 파란 `앱 열기` 알약을 배치하고, 검색창을 54px 회색 원형 바로 분리. 기존 주요 메뉴 알약칩은 검색바 아래에 유지.
+- Header QA iteration: 320px 1차 캡처에서 비대칭 좌우 버튼 폭 때문에 로고 중심이 화면 중앙보다 22px 왼쪽으로 이동한 P2를 확인. 로고를 헤더의 절대 중앙(`left:50%`)에 고정해 교정.
+
+### 2026-10-22 ViecLamTot 헤더 비교
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/ebabcf17-9806-47df-b045-9b23888c99a5/1-1000019001.jpg` (591×1280px).
+- Browser-rendered implementation: `.design-qa/main-home-vieclamtot-header-local-320.png` (320×668 CSS px, DPR 1).
+- Combined comparison evidence: `.design-qa/main-home-vieclamtot-header-comparison.png`; 구현 캡처를 591px 폭으로 정규화해 원본과 한 캔버스에서 대조.
+- State: 모바일 메인 첫 화면, 홈 알약 선택, 검색창 비활성, 메뉴 닫힘.
+- Full-view comparison: 레퍼런스의 햄버거·중앙 로고·파란 CTA·회색 검색바 수직 구조를 유지하되, 보배드림 기존 알약칩과 차량 서비스 그리드를 아래에 연결했다.
+- Focused comparison: 헤더만 확대해 로고 중심을 측정했으며 최종 중심값은 `160px / 320px`, 편차 `0px`; 페이지 가로 넘침은 `0px`.
+- Typography: 레퍼런스의 굵은 CTA와 중간 굵기 검색 문구 위계를 보배드림 한글 워드마크 및 시스템 글꼴로 유지.
+- Spacing/layout rhythm: 70px 헤더, 40px CTA, 54px 검색바, 좌우 16px 여백과 완전 원형 반경을 적용. 브랜드 워드마크 길이와 기존 알약 메뉴는 의도적 제품 차이.
+- Colors/tokens: 레퍼런스 파란 CTA를 보배드림 블루 `#3866B4`로 치환하고 검색 면색은 `#F4F4F5`로 맞춤.
+- Image quality: 기존 보배드림 SVG 로고와 헤더 아이콘을 사용해 확대 시 래스터 깨짐 없음.
+- Copy/content: `Mở app`은 `앱 열기`, 검색 문구는 차량 포털 문맥의 `원하는 차량을 검색하세요`로 현지화.
+- Interactions: 햄버거 메뉴 열기, 앱 준비 안내, 검색 제출, 알약 메뉴 이동을 유지. 빌드 및 모바일 런타임 검사 통과.
+- Comparison history: Pass 1에서 로고 중심이 22px 왼쪽으로 이동한 P2를 발견했고, 절대 중앙 고정 후 Pass 2에서 편차 0px과 가로 넘침 0px을 확인.
+
+final result: passed
+
+
+---
+
+## 2026-10-22 모바일 메인 블루 통합 검색 헤더
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/64db43a0-22be-43e2-b766-87078a70882a/1-1000018991.jpg`.
+- Browser-rendered implementation: `.design-qa/bobaedream-mobile-exact-chotot-header-local.png`.
+- Viewport/state: 390×844 CSS px, DPR 1, 모바일 메인 첫 화면. 첨부 이미지의 기기 상태바는 앱 UI가 아니므로 비교 대상에서 제외함.
+- Full-view comparison: 첨부 화면의 상단 한 줄 구조를 적용해 `햄버거 | 흰색 알약 검색창 | 즐겨찾기·알림`을 보배드림 블루 배경 위에 배치하고, 기존 중앙 로고와 별도 검색 행은 제거함. 원본의 빨간 알림 수 배지와 블루 배경 위로 겹치는 둥근 흰색 콘텐츠 전환부까지 반영함.
+
+### Required fidelity surfaces
+
+- Typography: passed — 검색 문구 16px과 기존 시스템 한글 글꼴을 유지해 모바일에서 잘리지 않음.
+- Spacing/layout: passed — 헤더 72px, 좌우 12px, 햄버거 44px, 검색창 203.2×48px, 우측 아이콘 영역 88px으로 한 줄 정렬됨. 다음 콘텐츠는 y=71px에서 22px 상단 라운드로 연결됨.
+- Colors/tokens: passed — 보배드림 기본 블루 `#306bd9`와 흰색 검색창·아이콘의 대비가 명확함.
+- Image quality: passed — 기존 벡터 아이콘을 25px 슬롯에 사용해 뭉개짐 없음.
+- Copy/content: passed — 기존 검색 안내 문구와 서비스 메뉴는 유지함.
+- Behavior/accessibility: passed — 검색 제출, 메뉴, 즐겨찾기, 알림 동작과 접근성 이름 유지; 알림 버튼은 `알림 94개`로 노출됨. 헤더는 스크롤 시 고정되고 중복 검색 폼 0개, 중앙 로고 0개, 콘솔 오류 0.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
+## 2026-10-22 모바일 메인 로고·검색 영역 네이버스토어 재실측
+
+- Source visual truth: `https://shopping.naver.com/ns/home`의 모바일 렌더와 `.design-qa/source-naver-mobile-header.png` (378×820 px).
+- Browser-rendered implementation: `.design-qa/implementation-mobile-header-remeasured.png` (393×852 px).
+- Combined focused comparison: `.design-qa/comparison-naver-logo-spacing.png` (780×190 px); 양쪽을 378px 폭으로 정규화하고 로고 행과 검색 행을 각각 같은 높이로 비교했다.
+- Viewport/state: 네이버 CSS viewport 378×852, 구현 CSS viewport 393×852, 양쪽 모두 모바일 첫 화면·검색 비활성 상태.
+
+### Comparison history
+
+- Pass 1 [P1, scale/rhythm]: 구현이 로고 114×28px, 상단 행 64px, 검색창 48px여서 네이버 실측 로고 99×20px, 행 50px, 검색창 41.6px보다 과대했다. 상단 행 50px, 검색창 42px, 하단 여백 14px로 교정했다.
+- Pass 2 [P2, logo optical size]: 첫 교정은 로고 폭 99px을 우선해 원본 종횡비상 높이가 24.34px로 남았다. 로고 본체 높이를 네이버와 같은 20px로 고정하고 폭은 보배드림 원본 비율에 따라 81.33px로 조정했다.
+- Pass 3: 네이버 검색창의 좌우 16px, 높이 41.6px, 아이콘 24px, placeholder 15px/500/#949494/-0.5px을 확인했고 구현은 좌우 16px, 높이 42px, 아이콘 24px, 동일 placeholder 타이포로 재검증했다. 브랜드 차이로 2px 블루 테두리와 검정 검색 아이콘은 의도적으로 유지했다.
+
+### Required fidelity surfaces
+
+- Typography: passed — 검색 placeholder를 15px/500, `-0.5px`, `#949494`로 맞췄다.
+- Spacing/layout: passed — 로고 행 50px, 검색창 42px, 좌우 16px, 검색창 아래 14px이 실측값과 일치한다.
+- Colors/tokens: passed — 네이버 퍼플은 복제하지 않고 보배드림 기본 블루 `#306BD9`를 유지했다.
+- Image quality: passed — 기존 벡터 보배드림 로고를 원본 종횡비로 20px 높이에 표시해 늘어짐과 흐림이 없다.
+- Copy/content: passed — 기존 보배드림 검색 문구와 기능 아이콘은 유지하고 크기·리듬만 교정했다.
+- Responsive/accessibility: passed — 393px 모바일에서 가로 오버플로가 없고 로고 링크·검색 입력의 접근성 이름이 유지된다.
+
+### Header balance follow-up
+
+- Browser-rendered implementation: `.design-qa/implementation-mobile-header-balanced.png` (393×852 px).
+- Focused comparison: `.design-qa/comparison-naver-header-balance.png` (780×112 px).
+- [P2, alignment] 첫 교정은 좌측 로고 슬롯 99px, 우측 아이콘 슬롯 88px, 바깥 여백 좌 16px·우 12px로 비대칭이었다. 로고와 아이콘 슬롯을 각각 88px로 통일하고 바깥 여백도 좌우 16px로 맞췄다.
+- 44×44px 터치 영역과 24px 기능 아이콘은 접근성을 위해 유지했다. 최종 상단 행은 좌·우 슬롯 88px, 좌·우 여백 16px, 높이 50px으로 재검증했다.
+
+No actionable P0/P1/P2 differences remain for the requested logo and search-header sizing scope.
+
+final result: passed
+
+
+---
+
 ## 2026-10-21 e-조이모터스 공식 슈퍼카 헤더 영상
 
 - Source visual truth: `https://www.ferrari.com/en-US`, `https://www.lamborghini.com/en-en`의 현재 공식 홈페이지 히어로 영상.
@@ -42,6 +304,84 @@ final result: passed
 - Accessibility: named Ferrari/Lamborghini selection buttons, named pause/play control, `prefers-reduced-motion` starts paused, source failure retains the dealer's existing cover image.
 
 No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
+## 2026-10-22 모바일 메인 로고 복원 · 회색 검색창
+
+- Source visual truth: 기존 보배드림 결합 로고 `public/assets/bbm/main-home-logo.svg`, 직전 배포 화면 `.design-qa/bobaedream-mobile-chotot-header-live.png`, 사용자 지정 초톳형 회색 검색창.
+- Browser-rendered implementation: `.design-qa/bobaedream-mobile-logo-gray-search-local.png`.
+- Combined comparison: `.design-qa/bobaedream-mobile-header-before-after.png`.
+- Viewport/state: 394×852 CSS px, DPR 1, 모바일 메인 초기 상태.
+- Full-view comparison: 헤더 구성과 본문 배치는 유지하고 중앙 텍스트 로고만 기존 원형 심볼 결합 로고로 복원했으며, 파란 검색창을 중립 회색으로 교체함.
+- Focused evidence: 로고 중심 x=189.594px, 헤더 중심 x=189.600px; 로고 89.46×22px; 검색창 355.2×40px; 검색창 배경 `#f4f4f4`, 테두리 `#d5d7db` 1px.
+
+### Required fidelity surfaces
+
+- Typography: passed — 로고는 텍스트 재현이 아닌 기존 공식 결합 SVG를 사용하며 본문 타이포그래피는 변경하지 않음.
+- Spacing/layout: passed — 좌우 88px 대칭 영역과 중앙 로고의 광학 중심이 일치하고, 검색창 높이·좌우 여백은 기존 40px·12px을 유지함.
+- Colors/tokens: passed — 검색창 배경·테두리·돋보기를 회색 계열로 통일하고 활성 서비스 칩의 검정 포인트는 유지함.
+- Image quality: passed — 공식 벡터 로고를 22px 높이로 사용해 원형 심볼과 워드마크가 선명함.
+- Copy/content: passed — 검색 안내 문구와 서비스 이름은 변경하지 않음.
+- Behavior/accessibility: passed — 검색 제출, 메뉴, 즐겨찾기, 알림 동작 유지; 브라우저 콘솔 오류 0.
+
+### Comparison history
+
+- Pass 1 [P1, brand identity]: 텍스트 `보배드림`만 노출되어 원형 심볼이 누락됨. 기존 `main-home-logo.svg`로 복원함.
+- Pass 1 [P2, color]: 검색창의 2px 파란 테두리가 요청한 중립 검색 UI보다 강했음. 1px `#d5d7db` 테두리, `#f4f4f4` 배경, 회색 돋보기로 수정함.
+- Pass 2: 동일 뷰포트 재캡처에서 중앙 정렬, 치수, 대비와 콘솔 오류를 확인했으며 추가 P0/P1/P2 차이가 없음.
+
+final result: passed
+
+
+---
+
+## 2026-10-22 초톳 모바일 검색바·알약칩 크기 적용
+
+- 전체 검수 보고서: `docs/design-qa-chotot-control-sizing-2026-10-22.md`
+- Source visual truth: `.design-qa/chotot-my-ads-mobile-reference.png` (`https://www.chotot.com/my-ads`, 390×844px, DPR 1).
+- Browser-rendered implementation: `.design-qa/bobaedream-main-chotot-sizing-mobile.png` (394×851px, CSS viewport 394×852, DPR 1).
+- Combined comparison evidence: `.design-qa/comparison-chotot-sizing-mobile.png`.
+- Focused result: 검색바 40px·좌우 12/16px·16px/400, 알약칩 32px·4/8px·14px/500·간격 8px로 원본 실측값을 반영했다.
+- Required fidelity surfaces: Pretendard 계열 타이포, 12px 레일 인셋, 기존 보배드림 블루/블랙 토큰, 기존 원본 아이콘, 한국어 문구를 유지했다.
+- Interaction/runtime: `중고차` 칩 선택, `BMW 5시리즈` 검색 이동, 깨진 이미지 0, 콘솔 오류 0, `npm run verify` 통과.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
+## 2026-10-22 모바일 메인 네이버스토어형 로고·검색바
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/cb3c6087-9af5-4ddb-866a-591f81bbbefe/1-1000018969.jpg` (591 × 1280px Android 캡처).
+- Browser-rendered implementation: `.design-qa/implementation-naver-search.png` (1280 × 720px 브라우저 캡처; 앱 콘텐츠 430px 폭, DPR 1.25).
+- Combined comparison: `.design-qa/comparison-naver-search.png`; 네이버 기준 화면은 430px 폭으로 정규화하고 로고·검색 영역을 같은 캔버스에서 비교했다.
+- State: 모바일 메인 상단, 전체 메뉴 선택, 검색 입력 기본 상태.
+- Primary interaction tested: 검색창에 `BMW 5시리즈` 입력·초기화 정상, 브라우저 경고·오류 0건.
+
+### Comparison history
+
+- Pass 1 [P2, hierarchy]: 기존 검색바는 48px 높이는 적절했으나 테두리가 없고 15px/400 문구와 22px 돋보기여서 네이버 기준보다 검색 진입점이 약했다.
+- Fix: 2px `#306BD9` 테두리, 흰 배경, 24px 돋보기, 16px/500 문구, 12px 모서리와 14px 내부 여백으로 조정했다.
+- Pass 1 [P2, logo proportion]: 기존 122 × 30px 로고는 430px 모바일 폭에서 네이버 정규화 기준보다 상대적으로 넓고 높았다.
+- Fix: 로고를 114 × 28px로 줄이고 44px 헤더 슬롯의 수직 중앙에 유지했다.
+- Pass 2: 정규화 비교판에서 검색바는 네이버 기준 394 × 약 47px, 구현 398 × 48px로 맞고, 로고는 기준 약 112 × 25px, 구현 114 × 28px로 허용 범위다. 남은 차이는 보배드림 고유 GNB 유지에 따른 의도적 수직 구조 차이다.
+
+### Required fidelity surfaces
+
+- Typography: passed — 검색 문구 16px/500, 로고 원본 벡터 사용.
+- Spacing/layout: passed — 16px 좌우 여백, 48px 검색바, 12px radius, 기존 GNB와 충돌 없음.
+- Colors/tokens: passed — Việc Làm Tốt와 동일한 보배드림 기준색 `#306BD9`를 로고·검색 테두리에 사용.
+- Image quality: passed — 기존 공식 보배드림 SVG를 114 × 28px로 비율 유지해 렌더링.
+- Copy/content: passed — 기존 한국어 검색 문구와 메뉴 구조 유지.
+- Behavior/accessibility: passed — 검색 입력·초기화 정상, 포커스 링 유지, 콘솔 오류 0건.
+
+No actionable P0/P1/P2 differences remain. 오른쪽 카메라·서비스 아이콘은 보배드림 검색 기능 범위에 없으므로 의도적으로 추가하지 않았다.
 
 final result: passed
 
@@ -6646,5 +6986,34 @@ final result: passed
 - Accessibility/behavior: 모델명이 포함된 영상 선택 접근성 라벨, 재생·일시정지, reduced-motion, 정적 이미지 fallback 유지.
 
 No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
+## 2026-10-22 모바일 메인 초톳 헤더 치수 · 보배드림 중앙 정렬
+
+- Source visual truth: `https://xe.chotot.com/`, `.design-qa/chotot-mobile-header-reference-20261022.png`.
+- Browser-rendered implementation: `.design-qa/bobaedream-mobile-header-chotot-spacing-local.png`.
+- Combined comparison: `.design-qa/chotot-bobaedream-header-spacing-comparison.png`.
+- Viewport/state: 390×844 CSS px, DPR 1, 양쪽 모두 모바일 첫 화면 상단.
+- Full-view comparison: 초톳의 헤더 높이·외곽 여백·아이콘 치수를 적용하되, 보배드림 로고는 사용자 지정에 따라 화면 정중앙에 고정하고 우측 즐겨찾기·알림을 같은 수직 중심선에 유지함.
+- Focused evidence: 초톳과 구현 모두 헤더 87px, 좌우 바깥 여백 24px, 아이콘 버튼 40×40px @ y=23.5px, 로고 104×28px @ y=29.5px. 구현 로고 중심과 헤더 중심이 일치함.
+
+### Required fidelity surfaces
+
+- Typography: passed — 공식 보배드림 SVG 워드마크를 사용하고 별도 텍스트 대체를 하지 않음.
+- Spacing/layout: passed — 헤더 높이, 좌우 여백, 햄버거와 우측 아이콘 크기는 초톳 실측값과 일치하며, 80px 대칭 좌우 영역으로 로고를 화면 정중앙에 고정함.
+- Colors/tokens: passed — 보배드림 블루 로고와 중립 헤더 배경을 유지하며 회색 검색창과 충돌하지 않음.
+- Image quality: passed — 벡터 로고를 정확히 104×28px 슬롯에 배치해 뭉개짐 없음.
+- Copy/content: passed — 서비스·검색 문구는 변경하지 않음.
+- Behavior/accessibility: passed — 메뉴, 홈, 즐겨찾기, 알림 접근성 이름과 기존 동작 유지; 콘솔 오류 0.
+
+### Comparison history
+
+- Pass 1 [P1, layout]: 초톳 원본의 햄버거 옆 로고 구조를 그대로 적용했으나 보배드림에서는 중앙 로고가 요구됨. 좌우를 동일한 80px 영역으로 구성한 3열 그리드로 수정함.
+- Pass 1 [P2, dimensions]: 기존 헤더 50px·버튼 44px·로고 22px이 초톳 실측 87px·40px·28px과 달랐음. 모든 치수를 실측값으로 수정함.
+- Pass 2: 로고 중심, 헤더 높이, 버튼 높이와 좌우 여백을 재측정했으며 추가 P0/P1/P2 차이가 없음.
 
 final result: passed

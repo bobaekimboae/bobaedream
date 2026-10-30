@@ -5,6 +5,7 @@ import { bbmCardBadges, bbmCardSpec, bbmSampleHorsepower } from "../data/bbm-car
 import { oldCarGeneration } from "../data/old-car-generation-v01";
 import { truckFormatCatalog } from "../data/truck-format-catalog";
 import { normalizedListThumb } from "./list-thumbs";
+import { thumbnailPostedText } from "./thumbnail-posted";
 import { useViewedListing } from "./viewed-listings";
 import { truckPlaceV09 } from "../truck/scenario-v09";
 import { formatLocalListingPrice, localPriceDisclosure, translateListingText, useListingLocale } from "./listing-i18n";
@@ -668,7 +669,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
     : bbmCardSpec(car, variant === "pc");
   // 피드형은 승용·지시값 매물도 연료 뒤에 마력을 붙인다(트럭은 이미 있고, 바이크·건설기계·캠핑카는 해당 없음). 올드카 세대는 그 뒤 맨 끝
   const isPassengerCar = !(car.truck || car.bike || car.heavy || car.virtualCategory);
-  const withFeedPower = featured && isPassengerCar && !specBase.includes("마력") ? `${specBase} · ${bbmSampleHorsepower(car.id)}` : specBase;
+  const withFeedPower = featured && isPassengerCar && !car.deutschSource && !specBase.includes("마력") ? `${specBase} · ${bbmSampleHorsepower(car.id)}` : specBase;
   const withDetailPower = detailSummary && detailPower && !withFeedPower.includes("마력") ? `${withFeedPower} · ${detailPower}` : withFeedPower;
   const withDetailBodyType = detailSummary && detailBodyType ? `${withDetailPower} · ${detailBodyType}` : withDetailPower;
   const specText = oldCarGen ? `${withDetailBodyType} · ${oldCarGen}` : withDetailBodyType;
@@ -697,7 +698,7 @@ export function BbmResultCard({ car, variant, featured = false, detailSummary = 
   const squareOriginalPhoto = !!car.imageAspectRatio && !featured;
   const photoStyle = car.imageAspectRatio && !squareOriginalPhoto ? { height: "auto", aspectRatio: car.imageAspectRatio, alignSelf: "flex-start" } : undefined;
   const photoCount = car.photoList?.length || car.photos;
-  const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time">{car.posted.replace(/\s/g, "")}</span>{!featured && photoCount > 0 ? <span className="bbm-card-count">{photoCount}<img src={bbmIcon("card-photo-count")} alt="" /></span> : null}</div>;
+  const timeFooter = <div className="bbm-card-media-footer" aria-hidden="true"><span className="bbm-card-time" title={car.posted}>{thumbnailPostedText(car.posted)}</span>{!featured && photoCount > 0 ? <span className="bbm-card-count">{photoCount}<img src={bbmIcon("card-photo-count")} alt="" /></span> : null}</div>;
   const photo = featured && car.image && feedPhotos && feedPhotos.length > 1 ? (
     <div className="bbm-card-photo is-carousel" style={photoStyle}>
       <FeedPhotoCarousel photos={feedPhotos} alt={alt} fit={car.imageAspectRatio || car.imageFit === "contain" ? "contain" : "cover"} />
@@ -852,6 +853,14 @@ export function BbmTextViewTable({ cars, likedIds, onOpen, onToggleLike }: { car
 // ── 모바일 하단 탭바: 홈 · 채팅 · 매물등록(＋ 원형) · 커뮤니티 · 마이
 export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void }) {
   const items: Array<[string, string]> = [["홈", "home"], ["채팅", "chat"], ["매물등록", "register"], ["커뮤니티", "community"], ["마이", "my"]];
+  const chooseBottomMenu = (label: string, icon: string) => {
+    if (icon === "home") return;
+    if (icon === "community") {
+      window.location.assign(new URL("community/naver-cafe-list.html", window.location.href).toString());
+      return;
+    }
+    onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`);
+  };
   return (
     <nav className="bbm-bottom-gnb" aria-label="하단 메뉴">
       <img className="bbm-bottom-gnb__background" src={bbmIcon("m-gnb-background")} alt="" aria-hidden="true" />
@@ -862,7 +871,7 @@ export function BbmBottomGnb({ onNotify }: { onNotify: (message: string) => void
             <span className="bbm-bottom-gnb__register-label">{label}</span>
           </button>
         ) : (
-          <button key={label} type="button" className={`bbm-bottom-gnb__item${icon === "home" ? " is-active" : ""}`} aria-current={icon === "home" ? "page" : undefined} onClick={() => icon === "home" ? undefined : onNotify(`${label}은(는) 정식 서비스에서 이용해 주세요.`)}>
+          <button key={label} type="button" className={`bbm-bottom-gnb__item${icon === "home" ? " is-active" : ""}`} aria-current={icon === "home" ? "page" : undefined} onClick={() => chooseBottomMenu(label, icon)}>
             <img src={bbmIcon(`m-gnb-${icon}`)} alt="" aria-hidden="true" />
             <span className="bbm-bottom-gnb__label">{label}</span>
           </button>

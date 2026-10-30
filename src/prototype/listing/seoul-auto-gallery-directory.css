@@ -156,3 +156,12 @@
 /* 공동대표 + 소속딜러 수가 한 줄을 넘으면 말줄임 대신 두 줄로 */
 .sag-company-row small { white-space: normal; overflow: visible; word-break: keep-all; }
 .sag-company-row small > span { white-space: nowrap; }
+
+/* 상사 탭 검색바 + ㄱㄴㄷ 색인(2026-10-23 「상사에 검색바랑 ㄱㄴㄷ」): 딜러 탭 검색·알약 모양을 그대로 쓰고, 상사가 없는 글자는 흐리게 */
+.sag-company-directory .sag-company-search { margin-top: 14px; }
+.sag-company-index { margin-bottom: 2px; }
+.sag-company-index button { min-width: 40px; }
+.sag-company-index button:disabled { opacity: .35; }
+/* 딜러 탭(2026-10-23 「초성이 밑으로」): 상사 알약 → 8 → ㄱㄴㄷ 색인 → 14 → 「딜러 N명」 */
+.sag-dealer-rail.is-all .sag-dealer-shops:not(.sag-company-index) { margin-bottom: 8px; }
+.sag-dealer-rail.is-all .sag-company-index { margin-bottom: 14px; }

@@ -1,183 +1,165 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./main-home.css";
 
-type ServiceKey = "all" | "used-car" | "community" | "truck" | "bike" | "construction" | "camping" | "parts";
-
-const prototypeAsset = (path: string) => `./prototypes/autotrader-bobaedream-main/${path}`;
-const brandAsset = (path: string) => ["assets", "brand", "kr", path].join("/");
 const bbmAsset = (path: string) => ["assets", "bbm", path].join("/");
-const serviceLogoAsset = (name: string) => bbmAsset(`service-logos/v01/bobaedream-${name}-v01.png`);
-const luxuryListingAsset = (path: string) => ["assets", "cars", "luxury-ui-test", path].join("/");
 
-const services: Array<{ key: ServiceKey; label: string }> = [
-  { key: "all", label: "전체" },
-  { key: "used-car", label: "중고차" },
-  { key: "community", label: "커뮤니티" },
-  { key: "truck", label: "트럭 · 특장" },
-  { key: "bike", label: "바이크" },
-  { key: "construction", label: "건설기계" },
-  { key: "camping", label: "캠핑카" },
-  { key: "parts", label: "부품/용품" },
+const vehicleIcon = (name: string) => `./prototypes/autotrader-bobaedream-main/category-vehicles-v3/${name}-left-v01.png`;
+const categoryItems = [
+  { label: "숏폼카", icon: "short", category: "중고차" },
+  { label: "국산차", icon: "domestic", category: "중고차", image: vehicleIcon("domestic") },
+  { label: "수입차", icon: "import", category: "수입차", image: vehicleIcon("imported") },
+  { label: "화물·특장", icon: "truck", category: "트럭 · 특장", image: vehicleIcon("truck") },
+  { label: "전기차", icon: "electric", category: "전기차", image: vehicleIcon("electric") },
+  { label: "바이크", icon: "bike", category: "바이크", image: vehicleIcon("bike") },
+  { label: "슈퍼카", icon: "super", category: "수입차", image: "./prototypes/autotrader-bobaedream-main/autotrader-body-types-v2/coupe.png" },
+  { label: "올드카", icon: "old", category: "올드카", image: bbmAsset("generated/quickfilter-v01/car_mercedes_gclass_w460_v01.png") },
+  { label: "캠핑카", icon: "camping", category: "캠핑카", image: vehicleIcon("camper") },
+  { label: "더보기", icon: "more", category: "more" },
 ];
 
-const vehicleTypes = [
-  { value: "중고차", label: "자동차", icon: "category-used.svg" },
-  { value: "트럭 · 특장", label: "트럭 · 특장", icon: serviceLogoAsset("truck") },
-  { value: "바이크", label: "바이크", icon: serviceLogoAsset("bike") },
-  { value: "캠핑카", label: "캠핑카", icon: "category-camping.svg" },
-  { value: "올드카", label: "올드카", icon: serviceLogoAsset("oldcar") },
-  { value: "건설기계", label: "건설기계", icon: serviceLogoAsset("construction") },
-  { value: "부품 · 용품", label: "부품 · 용품", icon: "category-equipment.svg" },
-];
-
-const luxuryBrands = [
-  [brandAsset("porsche.png"), "포르쉐", ""],
-  [brandAsset("lamborghini.png"), "람보르기니", ""],
-  [brandAsset("ferrari.png"), "페라리", ""],
-  [brandAsset("bentley.png"), "벤틀리", "wide"],
-  [brandAsset("rolls-royce.png"), "롤스로이스", "tall"],
-];
-
-const featuredOffers = [
+const shortformItems = [
   {
-    image: "001_람보르기니_28635648.jpg",
-    title: "람보르기니 우르스 SE 4.0 V8",
-    spec: "26년식 · 120km",
-    price: "4억 4,500만원",
+    rank: 1,
+    image: bbmAsset("generated/quickfilter-v01/car_mercedes_gclass_w465_v01.png"),
+    title: "포드 머스탱 코스트 67",
+    description: "맞춤 제작된 클래식의 정석",
+    author: "조이모터스 이인걸",
   },
   {
-    image: "011_롤스로이스_28786128.jpg",
-    title: "롤스로이스 고스트 6.6 V12 EWB",
-    spec: "15년식 · 10.8만km",
-    price: "1억 3,500만원",
-  },
-  {
-    image: "021_페라리_28661957.jpg",
-    title: "페라리 488 GTB 3.9 V8",
-    spec: "18년식 · 2.4만km",
-    price: "2억 4,000만원",
+    rank: 2,
+    image: bbmAsset("generated/quickfilter-v01/car_mercedes_gclass_w460_v01.png"),
+    title: "로터스 에미라 V6",
+    description: "AMG와 협업한 6기통 괴물 엔진",
+    author: "벤츠인증중고차",
   },
 ];
 
-const ArrowLink = ({ children }: { children: string }) => (
-  <span className="mh-more">{children}<img src={prototypeAsset("icons/arrow-right.svg")} alt="" aria-hidden="true" /></span>
-);
+const communityPosts = [
+  ["대패 삼겹살 개발자.", "3241"],
+  ["남자들이 여자 배 만지는걸 좋아하는 이유", "248"],
+  ["아스날 교수님 렌즈를 통해본 손흥민", "248"],
+  ["실시간 국뽕타임 손 흥 민", "248"],
+  ["경기도 중학교 운동회 도중 경찰이 출동했어요.", "248"],
+  ["출소 후 다시 찾아온 성폭행범 불태운 엄마", "248"],
+  ["컬러화한 광복군 창설식 사진", "248"],
+  ["30년 다닌 직장에서 퇴직금 갖고 장난치는것 같습니다...", "248"],
+  ["손흥민에 대해 엄청난 리스펙을 보이는 제이미 캐러거", "248"],
+  ["팁으로 50달러 받고 빡친 이유", "248"],
+];
 
 export default function MainHome() {
-  const [activeService, setActiveService] = useState<ServiceKey>("all");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [toast, setToast] = useState("");
+  const [popularRange, setPopularRange] = useState("1~10위");
+  const [hidePolitics, setHidePolitics] = useState(false);
+  const searchRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    document.documentElement.classList.add("main-home-open");
+    document.body.classList.add("main-home-open");
+    return () => {
+      document.documentElement.classList.remove("main-home-open");
+      document.body.classList.remove("main-home-open");
+    };
+  }, []);
+
   useEffect(() => {
     if (!toast) return;
     const timer = window.setTimeout(() => setToast(""), 1800);
     return () => window.clearTimeout(timer);
   }, [toast]);
-  const openCommunity = () => {
-    window.location.href = "./community/bobaedream-pc-board-list.html?layout=reddit";
-  };
-  const navigateToListing = ({ query, maker, category }: { query?: string; maker?: string; category?: string } = {}) => {
-    const params = new URLSearchParams({ qf: "guazi", filtericon: "notion" });
+
+  const openCommunity = () => { window.location.href = "./community/bobaedream-pc-board-list.html?layout=reddit"; };
+  const navigateToListing = ({ query, category }: { query?: string; category?: string } = {}) => {
+    const params = new URLSearchParams({ qf: "guazi" });
     if (query?.trim()) params.set("q", query.trim());
-    if (maker) params.set("maker", maker);
     if (category && category !== "중고차") params.set("category", category);
     window.location.href = `./?${params.toString()}`;
-  };
-  const openListing = () => navigateToListing();
-  const openVehicleType = (value: string) => {
-    navigateToListing({ category: value });
   };
   const showPreparing = (message: string) => setToast(message);
 
   return (
     <div className="main-home-stage">
-      <main className="main-home" aria-label="보배드림 중고차 메인">
-        <header className="mh-topbar">
-          <a className="mh-logo" href="./" aria-label="보배드림 홈">
-            <img src={bbmAsset("header-logo.svg")} alt="보배드림" />
+      <main className="main-home" aria-label="보배드림 모바일 메인 시안 2">
+        <header className="mh-header">
+          <button className="mh-header-menu" type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={bbmAsset("header-menu.svg")} alt="" /></button>
+          <a className="mh-brand" href="./?home=1" aria-label="보배드림 홈">
+            <img src={bbmAsset("main-home-logo.svg")} alt="보배드림" />
           </a>
-          <div className="mh-top-icons">
-            <button type="button" aria-label="즐겨찾기" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={prototypeAsset("icons/favorite.svg")} alt="" /></button>
-            <button type="button" aria-label="전체 메뉴" aria-expanded={menuOpen} onClick={() => setMenuOpen(true)}><img src={prototypeAsset("icons/menu.svg")} alt="" /></button>
-          </div>
+          <button className="mh-open-app" type="button" onClick={() => showPreparing("보배드림 앱을 준비 중입니다.")}>앱 열기</button>
         </header>
 
-        <nav className="mh-service-menu" aria-label="서비스 메뉴">
-          {services.map((service) => (
-            <button
-              key={service.key}
-              className={`mh-service-chip${activeService === service.key ? " is-active" : ""}`}
-              type="button"
-              aria-pressed={activeService === service.key}
-              onClick={(event) => {
-                if (service.key === "community") {
-                  openCommunity();
-                  return;
-                }
-                setActiveService(service.key);
-                event.currentTarget.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
-              }}
-            >{service.label}</button>
-          ))}
-        </nav>
-
-        <form className="mh-search-strip" role="search" onSubmit={(event) => { event.preventDefault(); navigateToListing({ query: searchQuery }); }}>
-            <label className="mh-search-field">
-              <img src={prototypeAsset("icons/search.svg")} alt="" aria-hidden="true" />
-              <input type="search" aria-label="중고차 검색" placeholder="어떤 차량을 찾고 있나요?" value={searchQuery} onChange={(event) => setSearchQuery(event.currentTarget.value)} />
-            </label>
+        <form className="mh-search-wrap" role="search" onSubmit={(event) => { event.preventDefault(); navigateToListing({ query: searchQuery }); }}>
+          <label className="mh-search-box">
+            <img src={bbmAsset("header-search.svg")} alt="" aria-hidden="true" />
+            <input ref={searchRef} type="search" value={searchQuery} onChange={(event) => setSearchQuery(event.currentTarget.value)} placeholder="원하는 차량을 검색하세요" aria-label="차량 검색" />
+          </label>
         </form>
 
-        <section className="mh-section mh-category-section" aria-labelledby="mh-body-title">
-          <div className="mh-section-head">
-            <div className="mh-section-heading-copy"><h2 id="mh-body-title">차량 유형</h2></div>
-            <ArrowLink>전체보기</ArrowLink>
-          </div>
-          <div className="mh-category-rows">
-            <div className="mh-category-rail" aria-label="차량 유형 가로 목록">
-              {vehicleTypes.map(({ value, label, icon }) => <button className="mh-category-item" type="button" key={value} onClick={() => openVehicleType(value)}><span className="mh-category-image"><img src={icon.includes("/") ? icon : bbmAsset(icon)} alt="" aria-hidden="true" /></span><strong>{label}</strong></button>)}
-            </div>
-            <div className="mh-category-rail mh-luxury-rail" aria-label="럭셔리 제조사 가로 목록">
-              {luxuryBrands.map(([image, label, variant]) => <button className="mh-luxury-item" type="button" key={label} onClick={() => navigateToListing({ maker: label })}><span className="mh-luxury-disc"><img className={variant} src={image} alt="" /><strong>{label}</strong></span></button>)}
-            </div>
-          </div>
+        <nav className="mh-primary-nav" aria-label="주요 메뉴">
+          <a className="is-active" href="./?home=1" aria-current="page">홈</a>
+          <button type="button" onClick={() => document.getElementById("today-shortform")?.scrollIntoView({ behavior: "smooth" })}>숏폼카</button>
+          <button type="button" onClick={() => navigateToListing()}>차량 검색</button>
+          <button type="button" onClick={() => showPreparing("내차팔기 등록 화면을 준비 중입니다.")}>내차팔기</button>
+          <button type="button" onClick={openCommunity}>커뮤니티</button>
+        </nav>
+
+        <section className="mh-category-grid" aria-label="차량 서비스">
+          {categoryItems.map((item) => (
+            <button key={item.label} type="button" onClick={() => item.category === "more" ? setMenuOpen(true) : navigateToListing({ category: item.category })}>
+              <span className={`mh-category-icon is-${item.icon}`} aria-hidden="true">
+                {item.image ? <img src={item.image} alt="" /> : null}
+                {item.icon === "more" ? <><i /><i /><i /><i /></> : null}
+              </span>
+              <strong>{item.label}</strong>
+            </button>
+          ))}
         </section>
 
-        <section className="mh-sell-block">
-          <button className="mh-sell-card" type="button" onClick={() => showPreparing("내 차 팔기 등록 시안을 준비 중입니다.")}><span><h2>내 차 팔기,<br />빠르고 쉽게</h2><p>간단한 정보 입력으로<br />내 차의 가치를 확인해보세요.</p></span><img src={prototypeAsset("autotrader-body-types-v2/sedan.png")} alt="" /></button>
-        </section>
+        <div className="mh-section-divider" />
 
-        <section className="mh-section" aria-labelledby="mh-offer-title">
-          <div className="mh-section-head">
-            <div className="mh-section-heading-copy"><h2 id="mh-offer-title">추천 매물</h2><p>지금 관심 있게 볼 만한 차량이에요</p></div>
-            <ArrowLink>전체</ArrowLink>
-          </div>
-          <div className="mh-offer-rail">
-            {featuredOffers.map(({ image, title, spec, price }) => (
-              <button className="mh-offer-card" type="button" key={title} onClick={openListing} aria-label={`${title} ${price}`}><div><img src={luxuryListingAsset(image)} alt="" /></div><p><strong>{title}</strong><small>{spec}</small><span>{price}</span></p></button>
+        <section className="mh-content-section mh-shortform" id="today-shortform" aria-labelledby="mh-shortform-title">
+          <header className="mh-section-title"><h2 id="mh-shortform-title">오늘의 숏폼카</h2><button type="button" onClick={() => showPreparing("숏폼카 전체 목록을 준비 중입니다.")}>더보기</button></header>
+          <div className="mh-shortform-list">
+            {shortformItems.map((item) => (
+              <button className="mh-shortform-row" type="button" key={item.rank} onClick={() => showPreparing(`${item.title} 영상을 준비 중입니다.`)}>
+                <span className="mh-shortform-thumb"><img src={item.image} alt="" /></span>
+                <span className="mh-shortform-copy">
+                  <strong><em>{item.rank}</em>{item.title}</strong>
+                  <span>{item.description}</span>
+                  <small>{item.author} · 조회 <b>30,000</b></small>
+                </span>
+              </button>
             ))}
           </div>
         </section>
 
-        <nav className="mh-bottom-nav" aria-label="모바일 주요 메뉴">
-          <a className="is-active" href="./" aria-current="page"><img src={bbmAsset("m-gnb-home.svg")} alt="" /><span>홈</span></a>
-          <button type="button" onClick={openListing}><img src={bbmAsset("category-used.svg")} alt="" /><span>매물</span></button>
-          <button className="mh-register-nav" type="button" onClick={() => showPreparing("내 차 팔기 등록 시안을 준비 중입니다.")}><b><img src={bbmAsset("m-gnb-register.svg")} alt="" /></b><span>내 차 팔기</span></button>
-          <button type="button" onClick={openCommunity}><img className="is-service-logo" src={serviceLogoAsset("community")} alt="" /><span>커뮤니티</span></button>
-          <button type="button" onClick={() => showPreparing("찜한 차량 화면을 준비 중입니다.")}><img src={prototypeAsset("icons/favorite.svg")} alt="" /><span>찜</span></button>
-        </nav>
+        <div className="mh-section-divider" />
+
+        <section className="mh-content-section mh-community" aria-labelledby="mh-community-title">
+          <header className="mh-section-title">
+            <h2 id="mh-community-title">커뮤니티 인기글</h2>
+            <label className="mh-politics-toggle"><input type="checkbox" checked={hidePolitics} onChange={(event) => setHidePolitics(event.currentTarget.checked)} /><span aria-hidden="true" />정치 X</label>
+          </header>
+          <div className="mh-popular-tabs" role="tablist" aria-label="인기글 기간">
+            {["1~10위", "11~20위", "실시간", "어제", "주간", "댓글순"].map((label) => <button key={label} type="button" className={popularRange === label ? "is-active" : ""} onClick={() => setPopularRange(label)}>{label}</button>)}
+          </div>
+          <ol className="mh-popular-list">
+            {communityPosts.map(([title, comments], index) => <li key={title}><button type="button" onClick={openCommunity}><b>{index + 1}</b><span>{title}</span><em>[{comments}]</em></button></li>)}
+          </ol>
+        </section>
 
         {menuOpen ? <div className="mh-menu-layer">
           <button className="mh-menu-dim" type="button" aria-label="전체 메뉴 닫기" onClick={() => setMenuOpen(false)} />
           <aside className="mh-menu-panel" role="dialog" aria-modal="true" aria-labelledby="mh-menu-title">
             <header><h2 id="mh-menu-title">전체 메뉴</h2><button type="button" aria-label="닫기" onClick={() => setMenuOpen(false)}><img src={bbmAsset("m-full-close.svg")} alt="" /></button></header>
             <nav aria-label="전체 서비스">
-              <button type="button" onClick={openListing}><strong>중고차</strong><span>국산·수입 중고차 찾기</span></button>
+              <button type="button" onClick={() => navigateToListing()}><strong>차량 검색</strong><span>국산·수입 중고차 찾기</span></button>
               <button type="button" onClick={openCommunity}><strong>커뮤니티</strong><span>자동차 이야기와 실시간 피드</span></button>
-              <button type="button" onClick={() => showPreparing("트럭·특장 메인 시안을 준비 중입니다.")}><strong>트럭·특장</strong><span>화물차와 특장차 매물</span></button>
-              <button type="button" onClick={() => showPreparing("바이크 메인 시안을 준비 중입니다.")}><strong>바이크</strong><span>모터사이클 매물</span></button>
-              <button type="button" onClick={() => showPreparing("건설기계 메인 시안을 준비 중입니다.")}><strong>건설기계</strong><span>중장비 매물</span></button>
-              <button type="button" onClick={() => showPreparing("부품·용품 메인 시안을 준비 중입니다.")}><strong>부품·용품</strong><span>자동차 관련 용품</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "트럭 · 특장" })}><strong>화물·특장</strong><span>화물차와 특장차 매물</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "바이크" })}><strong>바이크</strong><span>모터사이클 매물</span></button>
+              <button type="button" onClick={() => navigateToListing({ category: "캠핑카" })}><strong>캠핑카</strong><span>캠핑카와 트레일러 매물</span></button>
             </nav>
           </aside>
         </div> : null}

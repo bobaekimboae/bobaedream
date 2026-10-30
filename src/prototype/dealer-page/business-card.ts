@@ -8,7 +8,17 @@ export type CardExtras = {
   sns?: { instagram?: string; youtube?: string };
   reels?: { href: string; poster?: string; label?: string }[];
 };
-export type CardContact = { name: string; role: string; company: string; gallery?: string; phone: string; address: string; photo: string; listingCount?: number };
+export type CardContact = { name: string; role: string; company: string; gallery?: string; phone: string; address: string; photo: string; listingCount?: number; safe?: boolean };
+
+// 050 안심번호(2026-10-22 「050 번호」 → 「안심번호로 표시」): 딜러 연락처는 실제 번호 대신 0507 안심번호로 보인다.
+// 시안 단계라 번호는 딜러별로 정한 예시 값이고 실제로 걸리지 않게 tel: 링크를 만들지 않는다(실서비스는 서버가 발급).
+export function safePhoneFor(seedText: string): string {
+  const seed = [...seedText].reduce((sum, ch) => (sum * 131 + ch.charCodeAt(0)) % 9999991, 17);
+  const mid = String(seed % 1000).padStart(3, "0");
+  const tail = String(Math.floor(seed / 1000) % 10000).padStart(4, "0");
+  return `0507-1${mid}-${tail}`;
+}
+export const safePhoneNote = (phone: string) => `안심번호 ${phone}로 딜러에게 연결돼요. 시안 화면이라 실제로 전화가 걸리지는 않아요.`;
 
 export const defaultCardStyle: CardStyle = { theme: "blue", intro: "좋은 차와 좋은 인연을 연결합니다.", title: "", logo: "", fields: {} };
 export const cardThemes = { blue: { label: "블루", background: "#306bd9", ink: "#ffffff" }, navy: { label: "클래식 네이비", background: "#14243d", ink: "#ffffff" }, white: { label: "심플 화이트", background: "#ffffff", ink: "#14243d" } } as const;
