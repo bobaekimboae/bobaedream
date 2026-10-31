@@ -2,6 +2,8 @@
 // 목록 화면의 filters(ChoTotFilterState).bbm 에 들어가며, 제조사·모델·세대·등급은 기존 퀵필터 상태를 그대로 쓴다.
 // 원본처럼 고르는 즉시 조건이 걸린다. 우리 데이터(Car.filter 등)에 값이 있는 항목만 목록을 거르고(BBM_DATA_*), 나머지는 선택 모양만 남는다.
 
+import { bbmCurrentYearPreset, bbmYearBounds, matchesBbmYear } from "./bbm-year-range";
+
 export type BbmCheckKey =
   | "bodyType" | "carClass" | "region" | "district" | "neighborhood" | "complex" | "seats" | "drive" | "history" | "sellerKind" | "saleType"
   | "exteriorColor" | "seatColor" | "seatFinish" | "fuel" | "transmission" | "options" | "features"
@@ -104,7 +106,6 @@ const chipOrder = ["check:partsSubtype", "check:partsCondition", "check:partsFit
 
 // ── 범위 해석: 입력칸(최저·최대) 또는 구간 칩 → 숫자 범위
 const num = (text: string) => { const n = Number(text.replace(/[^\d.]/g, "")); return Number.isFinite(n) && text.trim() ? n : null; };
-const thisYear = 2026;
 export function bbmPresetBounds(key: BbmRangeKey, preset: string): { min: number | null; max: number | null } {
   if (key === "price") {
     if (preset === "전체") return { min: null, max: null };
@@ -120,9 +121,7 @@ export function bbmPresetBounds(key: BbmRangeKey, preset: string): { min: number
     return from ? { min: Number(from[1]), max: null } : { min: null, max: null };
   }
   if (key === "year") {
-    if (preset === "6년~") return { min: null, max: thisYear - 6 };
-    const m = preset.match(/^~(\d)년$/);
-    return m ? { min: thisYear - Number(m[1]), max: null } : { min: null, max: null };
+    return bbmYearBounds({ min: "", max: "", preset });
   }
   const unit = (text: string) => text.includes("만") ? Number(text.replace(/[^\d.]/g, "")) * 10000 : text.includes("천") ? Number(text.replace(/[^\d.]/g, "")) * 1000 : num(text) ?? 0;
   const parts = preset.replace(/km|ps|cc|kg|km\/L/g, "").trim().split("~").map((part) => part.trim());
@@ -136,18 +135,12 @@ export function bbmPresetBounds(key: BbmRangeKey, preset: string): { min: number
 }
 export function bbmRangeBounds(key: BbmRangeKey, range: BbmRange | undefined) {
   if (!range) return { min: null, max: null };
+  if (key === "year") return bbmYearBounds(range);
   if (range.preset && !range.min && !range.max) return bbmPresetBounds(key, range.preset);
-  if (key === "year") return { min: range.min ? num(range.min.slice(0, 4)) : null, max: range.max ? num(range.max.slice(0, 4)) : null };
   return { min: range.min ? num(range.min) : null, max: range.max ? num(range.max) : null };
 }
-// 연식 구간 칩 → 년·월 채움(원본: ~3년 → 2023년 9월 ~ 2026년 9월, 기준 2026년 9월)
-export const BBM_TODAY = { year: 2026, month: 9 };
-export function bbmYearPresetRange(preset: string): BbmRange {
-  const now = `${BBM_TODAY.year}년 ${BBM_TODAY.month}월`;
-  if (preset === "6년~") return { min: "", max: `${BBM_TODAY.year - 6}년 ${BBM_TODAY.month}월`, preset };
-  const m = preset.match(/^~(\d)년$/);
-  return m ? { min: `${BBM_TODAY.year - Number(m[1])}년 ${BBM_TODAY.month}월`, max: now, preset } : { min: "", max: "", preset };
-}
+// Resolve on selection, not at build time. Shared with the Nuxt presets.
+export const bbmYearPresetRange = bbmCurrentYearPreset;
 // 주행거리 구간 칩 → km 입력칸 채움(원본: 5천~1만km → 5,000 · 10,000)
 export function bbmMileagePresetRange(preset: string): BbmRange {
   const { min, max } = bbmPresetBounds("mileage", preset);
@@ -168,7 +161,10 @@ export type BbmCarLike = {
   photos: number;
   place?: string;
   price?: string;
-  filter?: { year: number; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean; displacement?: number; bikeGenre?: string; bikeLicense?: string; partsSubtype?: string; partsCondition?: string; partsFit?: string; bikeSource?: string };
+  registrationYearMonth?: string | null;
+  specs?: string[];
+  cardSpec?: string[];
+  filter?: { year: number; registrationMonth?: number | null; seats: string; mileage: number; transmission: string; fuel: string; color: string; origin: string; body: string; video: boolean; displacement?: number; bikeGenre?: string; bikeLicense?: string; partsSubtype?: string; partsCondition?: string; partsFit?: string; bikeSource?: string };
   truck?: {
     axle?: string;
     inspection?: string;
@@ -235,6 +231,10 @@ export function matchesBbmFilters(car: BbmCarLike, value: BbmFilterValues | unde
   }
   for (const key of BBM_DATA_RANGE_KEYS) {
     if (key === except) continue;
+    if (key === "year") {
+      if (!matchesBbmYear(car, value.ranges.year)) return false;
+      continue;
+    }
     const { min, max } = bbmRangeBounds(key, value.ranges[key]);
     if (min === null && max === null) continue;
     const actual = carRangeValue(car, key);

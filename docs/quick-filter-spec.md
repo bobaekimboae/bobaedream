@@ -1,5 +1,13 @@
 # Quick Filter Spec
 
+## Registration-month range correction (2026-11-01)
+
+- PC/mobile/Nuxt use the shared TypeScript `bbm-year-range.ts` contract. Relative year presets resolve the current Asia/Seoul year/month at selection time, not a fixed September 2026 date. Year choices run from the current Korean year to 1980.
+- Year bounds are inclusive YYYYMM: a year-only lower bound means January and an upper bound means December. `~3년` on November 2026 means November 2023–November 2026. Invalid/inverted ranges fail closed; an empty range remains unrestricted.
+- Registration data priority: explicit `registrationYearMonth` → `filter.year` + verified `registrationMonth` → original `cardSpec`/`specs` registration-month text → known year only. A registration date may differ from model-year. Do not use generated illustrative card months as search facts.
+- Unknown-month listings match only when the whole known year fits inside the range; unknown registration years do not match an active year range. Never fabricate a month. Full-year rails, open ends, reset and combined AND filters retain their meaning; PC and mobile share the same predicate.
+- This is a shared logic correction to the existing deployed prototype and Nuxt consumer, not a new React screen, framework migration or Laravel/search-index integration. Existing manifest/runtime versions differ from the renewal stack; this patch does not replace dependencies.
+
 ## Filter Footer Action Color (2026-11-01)
 
 - Bobaedream Guazi filter bottom sheets and their shared PC modal counterparts use `#306BD9` (`rgb(48, 107, 217)`) with white text for enabled primary footer actions (`확인`, `적용`, `선택완료`, `N대 보기`). This supersedes the older navy/black footer-color notes below, without changing layout or filter behavior.

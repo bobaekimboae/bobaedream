@@ -1,6 +1,7 @@
 // 리액트 src/prototype/filters/bbm-filter-panels.tsx 안의 내보내지 않은 데이터·계산 함수(여러 Vue 부품이 같이 쓰므로 한 곳에 복사).
 // 원본을 고치면 여기도 같이 고친다.
 import { bbmOriginalCounts } from "@proto/filters/bbm-original-counts";
+import { bbmYearOptions } from "@proto/filters/bbm-year-range";
 import type { BbmCheckKey, BbmFilterValues, BbmRangeKey } from "@proto/filters/bbm-filter-state";
 
 // countOf: 우리 데이터로 거르는 항목의 선택지 옆 매물 수(QF-090). null 이면 원본 숫자 글자
@@ -54,8 +55,7 @@ export const bikeGenreImages: Partial<Record<string, string>> = {
 
 // 슬라이더 눈금 끝(원본 가격 슬라이더: 0 ~ 1억)
 export const sliderMax: Partial<Record<BbmRangeKey, number>> = { price: 10000, mileage: 300000, power: 600, efficiency: 20, displacement: 5000, weight: 3000, evRange: 600, length: 6000, width: 2200, height: 2200 };
-const thisYear = 2026;
-export const years = Array.from({ length: thisYear - 1979 }, (_, index) => `${thisYear - index}년`);
+export const years = bbmYearOptions();
 export const months = Array.from({ length: 12 }, (_, index) => `${index + 1}월`);
 
 // 외부색상·시트색상 동그라미 색(원본 칩 모양을 따라 새로 정한 색. 투톤은 반반)
