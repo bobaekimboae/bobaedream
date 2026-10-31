@@ -23,7 +23,13 @@
     "orientationNote": "사진 방향(2026-10-29 3차 컨설팅): landscape = 가로 4:3 틀(외관 · 엔진룸 · 트렁크, 매물 목록·상세·엔카 재사용), portrait = 세로 허용(실내 · 계기판), any = 틀 없음. 58 재현(&vstage=58)은 방향을 쓰지 않는다",
     "plateDefault": false,
     "plateHeroLock": true,
-    "plateNote": "번호판 가리기(2026-10-29 후속 ④ 결정): 키트 기본 꺼짐(딜러 매물은 번호판 공개 원칙 · 클린엔카 07 노출 1장 필수). 대표 사진(첫 칸)은 가림을 붙일 수 없다(plateHeroLock). 58 재현은 원본대로 꺼짐."
+    "bodies": [
+      { "id": "car", "label": "승용", "hide": [] },
+      { "id": "two", "label": "2인승", "hide": ["rear-seat"] },
+      { "id": "truck", "label": "트럭·화물", "hide": ["rear-seat", "trunk-open"] }
+    ],
+    "bodyNote": "차 종류별 사진 칸(2026-10-31, Motorway식): 고른 차 종류에 없는 칸(2인승 뒷좌석 · 트럭 트렁크)은 촬영 칸 줄 · 촬영 규칙 · 등록 팁 · 완성도에서 뺀다. 우선 4장은 빼지 않는다. 58 재현은 쓰지 않는다.",
+    "plateNote":"번호판 가리기(2026-10-29 후속 ④ 결정): 키트 기본 꺼짐(딜러 매물은 번호판 공개 원칙 · 클린엔카 07 노출 1장 필수). 대표 사진(첫 칸)은 가림을 붙일 수 없다(plateHeroLock). 58 재현은 원본대로 꺼짐."
   },
   "video": {
     "perStageSec": {

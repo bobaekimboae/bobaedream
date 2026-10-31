@@ -29,8 +29,9 @@ import { dialogStack } from "../../lib/dialog-stack";
 import { AUTO_ID, addDraft, deleteDraft, draftWhen, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
-import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, noteCount, PREFS, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, setPrefs, sortBySlot, stageGroup, uid, type Notes, type Photo, type Take, type Video } from "../../lib/core";
+import { photoOrigin, BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, noteCount, PREFS, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, setPrefs, sortBySlot, stageGroup, uid, type Notes, type Photo, type Take, type Video } from "../../lib/core";
 import { ITEMS, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf } from "../../lib/items";
+import { BODIES, DEFAULT_BODY, body, setBody, slotShown } from "../../lib/body";
 
 type Screen =
   | { name: "main" }
@@ -194,6 +195,7 @@ const leave = () => {
   video.value = null;
   region.value = null;
   docs.value = EMPTY_DOCS;
+  setBody(DEFAULT_BODY);
   tried.value = false;
   setScreen({ name: "main" });
   window.scrollTo(0, 0);
@@ -260,15 +262,20 @@ const videoDone = computed(() => {
   return VIDEO_GROUPS.filter((g) => ss.some((k, i) => stageGroup(k) === g.id && (v.durations[i] ?? 0) > 0)).length;
 });
 const requiredOk = computed(() => requiredDone.value >= REQUIRED_IDS.length);
-const recommendedDone = computed(() => new Set(photos.value.map((p) => p.slot).filter((id) => itemLevel(id) === "recommended")).size);
+const recommendedDone = computed(() => new Set(photos.value.map((p) => p.slot).filter((id) => itemLevel(id) === "recommended" && (!PLUS || slotShown(id)))).size);
+/** 권장 칸 수: 차 종류에 없는 칸(2인승 뒷좌석 등)은 분모에서 뺀다(2026-10-31) */
+const recommendedN = computed(() => (PLUS ? RECOMMENDED_IDS.filter(slotShown).length : RECOMMENDED_IDS.length));
+/** 촬영 출처(2026-10-31): 현장 촬영 · 앨범 장수 */
+const liveCount = computed(() => photos.value.filter((p) => photoOrigin(p) === "live").length);
+const albumCount = computed(() => photos.value.filter((p) => photoOrigin(p) === "album").length);
 const needPhotos = computed(() => Math.max(0, REQUIRED_IDS.length - requiredDone.value));
 watch(
-  [requiredDone, recommendedDone, videoDone, region],
+  [requiredDone, recommendedDone, recommendedN, videoDone, region],
   () => {
     const p = progress.value;
     // 분모는 JSON이 바뀌어 0개가 돼도 NaN이 되지 않게 1 이상(우선 칸 수는 requiredOk와 같은 REQUIRED_IDS 기준)
     const reqN = Math.max(1, REQUIRED_IDS.length);
-    const media = (60 * Math.min(requiredDone.value, reqN)) / reqN + (10 * recommendedDone.value) / Math.max(1, RECOMMENDED_IDS.length) + (10 * videoDone.value) / Math.max(1, VIDEO_GROUPS.length);
+    const media = (60 * Math.min(requiredDone.value, reqN)) / reqN + (10 * recommendedDone.value) / Math.max(1, recommendedN.value) + (10 * videoDone.value) / Math.max(1, VIDEO_GROUPS.length);
     // 키트: 소재지를 고르면 20(처음엔 0). 58 재현: 들어온 뒤 자동 20.
     if (PLUS) progress.value = Math.round((region.value ? 20 : 0) + media);
     else progress.value = p === 0 ? 0 : Math.round(20 + media);
@@ -293,7 +300,7 @@ const mediaRef = ref<HTMLElement | null>(null);
 
 const missing = computed(() => {
   const got = new Set(photos.value.map((p) => p.slot));
-  return ITEMS.filter((a) => a.id !== OTHER && !got.has(a.id));
+  return ITEMS.filter((a) => a.id !== OTHER && !got.has(a.id) && (!PLUS || slotShown(a.id)));
 });
 
 const addPhotos = (added: Photo[]) => {
@@ -446,13 +453,13 @@ const progressOpen = ref(false);
 const progressWhy = () => (progressOpen.value = true);
 const progressRows = computed(() => {
   const reqN = Math.max(1, REQUIRED_IDS.length);
-  const recN = Math.max(1, RECOMMENDED_IDS.length);
+  const recN = Math.max(1, recommendedN.value);
   const vidN = Math.max(1, VIDEO_GROUPS.length);
   const req = Math.min(requiredDone.value, reqN);
   return [
     { label: "차량 소재지", got: region.value ? 20 : 0, max: 20, note: region.value ? `${region.value.sido}${region.value.gu ? ` ${region.value.gu}` : ""}` : "아직 안 골랐어요" },
     { label: "우선 4장", got: Math.round((60 * req) / reqN), max: 60, note: `${req}/${REQUIRED_IDS.length}장 · ${REQUIRED_IDS.map((id) => itemLabel(id)).join(" · ")}` },
-    { label: "추가 사진", got: Math.round((10 * Math.min(recommendedDone.value, recN)) / recN), max: 10, note: `${recommendedDone.value}/${RECOMMENDED_IDS.length}각도` },
+    { label: "추가 사진", got: Math.round((10 * Math.min(recommendedDone.value, recN)) / recN), max: 10, note: `${recommendedDone.value}/${recommendedN.value}각도` },
     { label: "영상", got: Math.round((10 * Math.min(videoDone.value, vidN)) / vidN), max: 10, note: `${videoDone.value}/${VIDEO_GROUPS.length}묶음(${VIDEO_GROUPS.map((g) => g.label).join(" · ")}) · 선택` },
   ];
 });
@@ -464,7 +471,7 @@ const draftBusy = ref(false);
 const resume = shallowRef<DraftRec | null>(null);
 let autoOff = false;
 let autoTimer = 0;
-const current = (): Draft => ({ region: region.value, photos: photos.value, video: video.value, docs: docs.value });
+const current = (): Draft => ({ region: region.value, photos: photos.value, video: video.value, docs: docs.value, ...(PLUS && body.value !== DEFAULT_BODY ? { body: body.value } : {}) });
 async function refreshDrafts() {
   try {
     draftList.value = await listDrafts();
@@ -509,6 +516,7 @@ const applyDraft = (d: Draft) => {
   video.value = d.video;
   region.value = d.region;
   docs.value = d.docs ?? EMPTY_DOCS;
+  setBody(d.body);
   tried.value = false;
   setScreen({ name: "main" });
 };
@@ -685,6 +693,7 @@ const upFresh = () => {
   video.value = null;
   region.value = null;
   docs.value = EMPTY_DOCS;
+  setBody(DEFAULT_BODY);
   tried.value = false;
   setScreen({ name: "main" });
   window.scrollTo(0, 0);
@@ -799,6 +808,13 @@ const leaveSave = async () => {
             <p v-else class="shoot-field__value">서울</p>
           </section>
 
+          <!-- 차 종류(2026-10-31, Motorway식): 고른 차에 없는 사진 칸은 촬영 칸 줄 · 규칙 · 등록 팁에서 빠진다 -->
+          <section v-if="PLUS && BODIES.length > 1" class="shoot-field shoot-bodyfield">
+            <h3>차 종류</h3>
+            <div class="shoot-bodypick" role="radiogroup" aria-label="차 종류">
+              <button v-for="b in BODIES" :key="b.id" type="button" role="radio" :aria-checked="body === b.id" :class="body === b.id ? 'is-on' : ''" @click="setBody(b.id)">{{ b.label }}</button>
+            </div>
+          </section>
           <section ref="mediaRef" class="shoot-field">
             <div class="shoot-field__head">
               <h3>{{ sectionTitle }} <em v-if="!PLUS">(필수)</em></h3>
@@ -816,10 +832,20 @@ const leaveSave = async () => {
               </span>
             </div>
             <div class="shoot-hint-row">
+              <!-- 촬영 출처(2026-10-31): 현장에서 찍은 사진과 앨범에서 올린 사진 장수. 앨범을 막지는 않는다.
+                   안내 글자가 비는 자리(등록 팁 카드가 같은 말을 할 때)에 둬서 줄을 늘리지 않는다 -->
+              <p v-if="PLUS && photos.length && !hintText" class="shoot-origin-line" :aria-label="`현장 촬영 ${liveCount}장, 앨범 ${albumCount}장`">
+                <span><i class="is-live" aria-hidden="true" /><span>현장 촬영 <b>{{ liveCount }}</b>장</span></span>
+                <span v-if="albumCount"><i aria-hidden="true" /><span>앨범 <b>{{ albumCount }}</b>장</span></span>
+              </p>
               <!-- 키트(2026-10-27 컨설팅): 아래 등록 팁 카드가 같은 말을 하므로 그때는 안내 글자를 숨긴다 -->
-              <p class="shoot-hint">{{ hintText }}</p>
+              <p v-else class="shoot-hint">{{ hintText }}</p>
               <button type="button" class="shoot-rules-link" @click="setScreen({ name: 'rules' })"><Mask :src="rd('help-outline')" />촬영 규칙 보기</button>
             </div>
+            <p v-if="PLUS && photos.length && hintText" class="shoot-origin-line is-below" :aria-label="`현장 촬영 ${liveCount}장, 앨범 ${albumCount}장`">
+              <span><i class="is-live" aria-hidden="true" /><span>현장 촬영 <b>{{ liveCount }}</b>장</span></span>
+              <span v-if="albumCount"><i aria-hidden="true" /><span>앨범 <b>{{ albumCount }}</b>장</span></span>
+            </p>
 
             <div v-if="status === 'uploading'" class="shoot-tipcard is-short">
               <p v-if="requiredOk || !ENFORCE">사진을 처리하고 있어요</p>
@@ -848,7 +874,7 @@ const leaveSave = async () => {
                 <!-- 2026-10-29 컨설팅: 키트는 「bb」 자리 글자 대신 찍은 사진을 흐리게 보이고 올리는 점을 띄운다 -->
                 <div v-if="p.uploading && PLUS" class="shoot-tile__wait is-kit" role="status" aria-label="사진 올리는 중"><img :src="p.src" alt="" draggable="false" /><span class="shoot-tile__dots"><i /><i /><i /></span></div>
                 <div v-else-if="p.uploading" class="shoot-tile__wait"><b>bb</b></div>
-                <button v-else type="button" :class="`shoot-tile__img ${p.orient === 'landscape' ? 'is-landscape' : ''}`" :aria-label="`${itemLabel(p.slot)} 사진 편집${PLUS && firstIssue(p.qc) ? ` · ${QC_TEXT[firstIssue(p.qc)!]}` : ''}`" @click="setScreen({ name: 'preview', id: p.id })">
+                <button v-else type="button" :class="`shoot-tile__img ${p.orient === 'landscape' ? 'is-landscape' : ''}`" :aria-label="`${itemLabel(p.slot)} 사진 편집${PLUS && firstIssue(p.qc) ? ` · ${QC_TEXT[firstIssue(p.qc)!]}` : ''}${PLUS && p.guess ? ` · ${itemLabel(p.guess)} 사진 같아요` : ''}`" @click="setScreen({ name: 'preview', id: p.id })">
                   <img :src="p.src" alt="" draggable="false" />
                   <span class="shoot-tile__wm">보배드림</span>
                   <span v-if="PLUS && idx === 0" class="shoot-tile__rep">대표</span>
@@ -857,6 +883,8 @@ const leaveSave = async () => {
                   <!-- 촬영 후 품질 검사(2026-10-31): 흔들림 · 어두움 · 빛 번짐 딱지(사진은 그대로) -->
                   <span v-if="PLUS && p.showroom" class="shoot-tile__showroom">+쇼룸</span>
                   <span v-if="PLUS && firstIssue(p.qc)" class="shoot-tile__qc" :title="QC_TEXT[firstIssue(p.qc)!]">{{ QC_TAG[firstIssue(p.qc)!] }}</span>
+                  <!-- 칸 검사(2026-10-31): 부위 인식이 다른 부위로 본 사진 -->
+                  <span v-else-if="PLUS && p.guess" class="shoot-tile__qc" :title="`${itemLabel(p.slot)} 칸인데 ${itemLabel(p.guess)} 사진 같아요`">칸 확인</span>
                 </button>
                 <span v-if="PLUS && reorder && !p.uploading" class="shoot-tile__move" data-nodrag="">
                   <button type="button" :disabled="idx === 0 || photos[idx - 1]?.uploading" :aria-label="`${itemLabel(p.slot)} 사진 앞으로`" @click="movePhoto(idx, -1)">‹</button>

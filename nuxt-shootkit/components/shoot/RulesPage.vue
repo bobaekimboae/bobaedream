@@ -12,10 +12,12 @@ import RuleIllustration from "./RuleIllustration.vue";
 import { ENFORCE, ENF_TEXT, PLUS, reqLabel } from "../../lib/core";
 import { GROUPS, REQUIRED_IDS, SHOOT, isRequiredItem, itemLevel, itemOf, levelLabel } from "../../lib/items";
 import { rd } from "../../lib/site";
+import { bodyOf, body, slotShown } from "../../lib/body";
 
 const emit = defineEmits<{ back: []; add: [] }>();
 // 그룹·항목·필수 여부는 모두 shoot-items-kit.json. 사진 칸 레일과 같은 순서·같은 이름이다.
-const restOf = (g: (typeof GROUPS)[number]) => g.items.filter((a) => !isRequiredItem(a.id));
+// 차 종류(2026-10-31): 고른 차에 없는 칸(2인승 뒷좌석 · 트럭 트렁크)은 규칙에서도 뺀다
+const restOf = (g: (typeof GROUPS)[number]) => g.items.filter((a) => !isRequiredItem(a.id) && (!PLUS || slotShown(a.id)));
 </script>
 <template>
   <FocusBox class="shoot-layer shoot-rules" role="dialog" aria-modal="true" aria-labelledby="shoot-rules-t" @close="emit('back')">
@@ -28,7 +30,7 @@ const restOf = (g: (typeof GROUPS)[number]) => g.items.filter((a) => !isRequired
       <section class="shoot-rules__notice">
         <strong>{{ ENFORCE ? ENF_TEXT.rulesTitle : SHOOT.rulesTitle }}</strong>
         <p>{{ ENFORCE ? ENF_TEXT.rulesNotice : SHOOT.rulesNotice }}</p>
-        <small class="shoot-rules__vehicle">{{ SHOOT.vehicleNote }}</small>
+        <small class="shoot-rules__vehicle">{{ SHOOT.vehicleNote }}<template v-if="PLUS && bodyOf(body)?.hide.length"> · {{ bodyOf(body)!.label }}이라 {{ bodyOf(body)!.hide.map((id) => itemOf(id).label).join(" · ") }} 칸은 뺐어요</template></small>
       </section>
       <!-- 2026-10-25 컨설팅 6건: 필수 4장을 맨 위 한 줄로 모으고, 그룹에는 나머지(권장·선택)만 둔다 -->
       <section class="shoot-rules__group is-required">

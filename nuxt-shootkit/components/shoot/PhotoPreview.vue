@@ -16,7 +16,7 @@ import StickerBox from "./StickerBox.vue";
 import EditorScreen from "./EditorScreen.vue";
 import ShowroomSheet from "./ShowroomSheet.vue";
 import { rd } from "../../lib/site";
-import { OTHER, PLUS, plateLocked, type Photo } from "../../lib/core";
+import { OTHER, PLUS, photoOrigin, plateLocked, type Photo } from "../../lib/core";
 import { groupOf, itemLabel } from "../../lib/items";
 import { SHOWROOM_GROUP } from "../../lib/showroom";
 import { QC_TEXT, QC_TIP, firstIssue } from "../../lib/quality";
@@ -25,6 +25,12 @@ import { useBox } from "../../composables/useBox";
 import { useFit } from "../../composables/useFit";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 
+/** 현장 촬영 시각: 10.31 23:20 */
+const when = (t: number) => {
+  const d = new Date(t);
+  const z = (n: number) => String(n).padStart(2, "0");
+  return `${d.getMonth() + 1}.${z(d.getDate())} ${z(d.getHours())}:${z(d.getMinutes())}`;
+};
 // ── 사진 미리보기·편집 ─────────────────────────────────
 type EditTool = null | "mosaic" | "rotate" | "crop";
 
@@ -98,7 +104,8 @@ const replace = async (files: FileList | null) => {
   const f = files?.[0];
   if (!f) return;
   try {
-    patch({ src: await normalizeFile(f), removed: false, sticker: undefined, qc: undefined, showroom: undefined });
+    // 다른 사진으로 바꾸면 앨범 사진이 된다(현장 촬영 시각 · 칸 검사 결과는 지운다)
+    patch({ src: await normalizeFile(f), removed: false, sticker: undefined, qc: undefined, showroom: undefined, at: undefined, guess: undefined, ...(PLUS ? { fromAlbum: true } : {}) });
   } catch {
     // 못 여는 사진(HEIC 등)은 바꾸지 않는다
   }
@@ -143,9 +150,12 @@ const onReplaceChange = (e: Event) => void replace((e.target as HTMLInputElement
         <div class="shoot-stage-img" :style="{ width: `${fit.w}px`, height: `${fit.h}px` }">
           <img :src="photo.src" alt="" draggable="false" />
           <StickerBox v-if="photo.sticker?.visible" :sticker="photo.sticker" :frame="fit" @change="onSticker" />
+          <!-- 촬영 출처(2026-10-31): 사진 아래쪽 가운데 -->
+          <p v-if="PLUS && photoOrigin(photo) !== 'unknown'" class="shoot-origin-note">{{ photoOrigin(photo) === "live" ? `현장 촬영 · ${when(photo.at!)}` : "앨범에서 올린 사진" }}</p>
         </div>
         <!-- 촬영 후 품질 검사(2026-10-31 크로스체크): 딱지가 붙은 사진을 열면 무엇이 문제인지 한 줄로 -->
         <p v-if="PLUS && firstIssue(photo.qc)" class="shoot-qc-note" role="status"><b>{{ QC_TEXT[firstIssue(photo.qc)!] }}</b> {{ QC_TIP[firstIssue(photo.qc)!] }}</p>
+        <p v-else-if="PLUS && photo.guess" class="shoot-qc-note" role="status"><b>{{ itemLabel(photo.slot) }} 칸인데 {{ itemLabel(photo.guess) }} 사진 같아요</b> 칸을 바꾸거나 다시 찍어 주세요</p>
       </div>
       <div class="shoot-strip">
         <button type="button" class="shoot-strip__add" aria-label="사진 더 추가" :disabled="busy" @click="onAddMoreClick"><Mask :src="rd('add-outline-24')" /></button>
