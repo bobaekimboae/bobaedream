@@ -27,7 +27,7 @@ import { QC_TAG, QC_TEXT, checkPhoto, firstIssue } from "../../lib/quality";
 import { primeSound } from "../../lib/sound";
 import { dialogStack } from "../../lib/dialog-stack";
 import { AUTO_ID, addDraft, deleteDraft, draftWhen, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
-import { icon, rd } from "../../lib/site";
+import { icon, query, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
 import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, noteCount, PREFS, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, setPrefs, sortBySlot, stageGroup, uid, type Notes, type Photo, type Take, type Video } from "../../lib/core";
 import { ITEMS, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf } from "../../lib/items";
@@ -275,7 +275,14 @@ watch(
   },
   { immediate: true },
 );
-const regionOk = computed(() => !PLUS || Boolean(region.value));
+// 매물 등록 화면에서 왔을 때(2026-11-01, ?from=register&back=…): 소재지는 등록 화면에서 고르고,
+// 「등록 화면으로 보내기」를 누르면 사진 · 영상을 같은 사이트 IndexedDB(id "handoff")에 두고 돌아간다(nuxt-register/lib/shoot-handoff.ts).
+const FROM_REG = PLUS && query().get("from") === "register";
+const REG_BACK = (() => {
+  const b = query().get("back") ?? "";
+  return b.startsWith("/") && !b.startsWith("//") ? b : "";
+})();
+const regionOk = computed(() => !PLUS || FROM_REG || Boolean(region.value));
 // 2026-10-25 「필수 사진 강제를 일단은 빼자」: 강제를 끄면 사진 PUBLISH_MIN장(1장)부터 등록할 수 있다
 // 올리는 중(업로드 표시)인 사진은 세지 않는다 — 다 올라간 뒤에 등록되게
 const readyPhotos = computed(() => photos.value.filter((p) => !p.uploading).length);
@@ -593,6 +600,16 @@ const removeDraft = async (id: string) => {
     await refreshDrafts();
   }
 };
+const sendToRegister = async () => {
+  try {
+    await putDraft(await toRecord("handoff", current()));
+  } catch (e) {
+    return notify(isQuota(e) ? "폰 저장 공간이 부족해 보내지 못했어요" : "보내지 못했어요. 다시 눌러 주세요");
+  }
+  await dropAuto();
+  leaving = true;
+  window.location.href = REG_BACK;
+};
 // 나가기 전에 자동 보관을 지운다(「저장 안 함」을 고르거나 저장한 글에 담았으므로 다음에 「이어서 할까요?」를 묻지 않게)
 const dropAuto = async () => {
   autoOff = true;
@@ -613,6 +630,7 @@ const publish = () => {
     }
     return;
   }
+  if (FROM_REG && REG_BACK) return void sendToRegister();
   // 2026-10-31: 서버 주소가 있으면 실제로 올린다(임시 무료 서버). 없으면 예전처럼 시안 안내.
   if (PLUS && uploadOn()) return void startUpload();
   if (canAutoShorts.value) {
@@ -790,7 +808,7 @@ const leaveSave = async () => {
           <div v-if="PLUS" class="shoot-rolepick" role="radiogroup" aria-label="누가 찍나요">
             <button v-for="[r, label] in ([['dealer', '딜러'], ['crew', '촬영팀']] as const)" :key="r" type="button" role="radio" :aria-checked="role === r" :class="role === r ? 'is-on' : ''" @click="pickRole(r)">{{ label }}</button>
           </div>
-          <section class="shoot-field">
+          <section v-if="!FROM_REG" class="shoot-field">
             <h3>차량 소재지 <em>(필수)</em></h3>
             <button v-if="PLUS" type="button" :class="`shoot-region-btn ${region ? 'is-on' : tried && !region ? 'is-warn' : ''}`" aria-haspopup="dialog" @click="regionOpen = true">
               {{ region ? `${region.sido}${region.gu ? ` ${region.gu}` : ""}` : "시·도와 시·군·구를 골라 주세요" }}
@@ -930,7 +948,7 @@ const leaveSave = async () => {
           <!-- 2026-10-29 컨설팅: 사진 아이콘이 「사진 추가」로 읽혀 키트는 저장(책갈피) 아이콘 -->
           <button type="button" class="shoot-savedraft" @click="saveDraft"><Mask :src="PLUS ? icon('chotot', 'chotot-common-bookmark.svg') : rd('image-post-outline')" />임시저장</button>
           <button type="button" :class="`shoot-publish ${canPublish ? '' : 'is-disabled'}`" :aria-disabled="!canPublish" @click="publish">
-            <template v-if="canPublish">등록하기</template>
+            <template v-if="canPublish">{{ FROM_REG ? "등록 화면으로 보내기" : "등록하기" }}</template>
             <span v-else-if="!photosOk" class="shoot-publish__need">{{ ENFORCE ? `필수 사진 ${needPhotos}장 더 찍어 주세요` : waitUpload ? "사진을 올리고 있어요" : `사진을 ${needCount}장 이상 올려 주세요` }}</span>
             <span v-else class="shoot-publish__need">차량 소재지를 골라 주세요</span>
           </button>
