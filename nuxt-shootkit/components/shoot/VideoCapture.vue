@@ -26,7 +26,7 @@ import CoursePicker from "./CoursePicker.vue";
 import { useCamera } from "../../composables/useCamera";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import { fakeStream, grabFrame, pickRecorderType } from "../../lib/camera";
-import { ALLOW_FAKE, HARD_MAX, PLUS, PREFS, applyPrefs, baseStages, courseLabel, def, mmss, msec, readDuration, setPrefs, stageDo, type Mark, type Take } from "../../lib/core";
+import { ALLOW_FAKE, FAKE_ONLY, HARD_MAX, PLUS, PREFS, applyPrefs, baseStages, courseLabel, def, mmss, msec, readDuration, setPrefs, stageDo, type Mark, type Take } from "../../lib/core";
 import { stageGuide, type VideoStage } from "../../lib/stages";
 import { savePrefs, type StagePrefs } from "../../lib/stage-prefs";
 import type { Highlight } from "../../lib/shorts";
@@ -151,23 +151,35 @@ const onHide = () => {
   const st = def(stages.value[stage.value]);
   if (elapsedNow >= st.min) finishStage(elapsedNow);
   else {
-    window.clearInterval(tick);
-    const r = rec;
-    rec = null;
-    if (r && r.state !== "inactive") {
-      r.onstop = null;
-      r.stop();
-    }
-    phase.value = durations.value.some(Boolean) ? "paused" : "idle";
-    elapsed.value = 0;
-    // 이번 촬영은 버려졌으니 전 영상의 ★ · 흠집 표시를 되돌린다
-    if (undoMarks) {
-      hl.value = undoMarks.hl;
-      marks.value = undoMarks.marks;
-    }
+    dropRecording();
     notify(`화면을 나가서 ${st.label} 녹화를 멈췄어요. 다시 찍어 주세요`);
   }
 };
+/** 지금 녹화 중인 단계를 저장하지 않고 버린다(전에 찍어 둔 그 단계 영상은 그대로 남는다) */
+function dropRecording() {
+  window.clearInterval(tick);
+  const r = rec;
+  rec = null;
+  if (r && r.state !== "inactive") {
+    r.onstop = null;
+    r.stop();
+  }
+  phase.value = durations.value.some(Boolean) ? "paused" : "idle";
+  elapsed.value = 0;
+  // 이번 촬영은 버려졌으니 전 영상의 ★ · 흠집 표시를 되돌린다
+  if (undoMarks) {
+    hl.value = undoMarks.hl;
+    marks.value = undoMarks.marks;
+  }
+}
+// 키트(2026-10-31 컨설팅 전체 대조): 녹화 중 「버리고 다시」 = 이번 단계만 버리고 같은 단계를 처음부터
+const redoStage = () => {
+  if (phase.value !== "recording") return;
+  dropRecording();
+  notify(`${def(stages.value[stage.value]).label} 녹화를 버렸어요. 다시 찍어 주세요`);
+};
+// 녹화 전 마이크 상태: 시동 소리 · 설명 음성이 담기는지 미리 알려 준다
+const micOn = computed(() => Boolean(camStream.value?.getAudioTracks().some((t) => t.readyState === "live" && t.enabled)));
 
 onMounted(() => {
   getLock();
@@ -622,7 +634,11 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
             </template>
             <template v-else-if="PLUS">
               <!-- 2026-10-25 컨설팅: 시간은 틀 안에만 두고, 이 자리는 녹화 상태 표시 -->
-              <span v-if="phase === 'recording'" class="shoot-recstate"><i aria-hidden="true" />녹화 중</span>
+              <span v-if="phase === 'recording'" class="shoot-recwrap">
+                <span class="shoot-recstate"><i aria-hidden="true" />녹화 중</span>
+                <button type="button" class="shoot-redo" @click.stop="redoStage">버리고 다시</button>
+              </span>
+              <span v-else-if="phase === 'idle' && camStream" :class="`shoot-mic ${micOn ? 'is-on' : 'is-off'}`">{{ micOn ? "마이크 켜짐" : "마이크 꺼짐" }}<small>{{ micOn ? "소리도 녹음돼요" : "화면만 녹화돼요" }}</small></span>
               <span v-else />
             </template>
             <span v-else class="shoot-vcount"><!-- 2026-10-25: 비어 있던 자리에 지금 단계 시간 / 최대 시간 -->{{ msec(phase === "recording" ? elapsed : 0) + " / " + msec(cur.max) }}</span>
@@ -685,7 +701,7 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
       @ok="onFinishOk"
     />
     <CamPermission
-      v-if="PLUS && mode === 'cam' && !pickOpen && !askLeave && !camStream && (camError || camSlow)"
+      v-if="PLUS && !FAKE_ONLY && mode === 'cam' && !pickOpen && !askLeave && !camStream && (camError || camSlow)"
       :kind="camError === 'denied' ? 'denied' : 'unavailable'"
       show-course
       @retry="onRetry"

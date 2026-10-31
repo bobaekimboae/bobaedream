@@ -129,10 +129,12 @@ export async function listDrafts(): Promise<DraftMeta[]> {
   return all.filter((r) => r.id !== AUTO_ID).sort((a, b) => b.savedAt - a.savedAt).map(meta);
 }
 /** 저장한 글에 한 건 추가하고 MAX_DRAFTS건을 넘으면 오래된 것부터 지운다 */
-export async function addDraft(id: string, d: Draft) {
+export async function addDraft(id: string, d: Draft): Promise<DraftMeta[]> {
   await putDraft(await toRecord(id, d));
   const list = await listDrafts();
-  await Promise.all(list.slice(MAX_DRAFTS).map((m) => deleteDraft(m.id)));
+  const gone = list.slice(MAX_DRAFTS);
+  await Promise.all(gone.map((m) => deleteDraft(m.id)));
+  return gone;
 }
 
 export const draftWhen = (t: number) => {

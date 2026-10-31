@@ -24,7 +24,7 @@ import { bakeSticker, normalizeFile } from "../../lib/image-ops";
 import { QC_TAG, QC_TEXT, checkPhoto, firstIssue } from "../../lib/quality";
 import { primeSound } from "../../lib/sound";
 import { dialogStack } from "../../lib/dialog-stack";
-import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
+import { AUTO_ID, addDraft, deleteDraft, draftWhen, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
 import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, noteCount, PREFS, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, setPrefs, sortBySlot, stageGroup, uid, type Notes, type Photo, type Take, type Video } from "../../lib/core";
@@ -357,6 +357,33 @@ const applySort = (next: Photo[]) => {
   photos.value = sortBySlot([...kept, ...rest]);
 };
 const removePhoto = (id: string) => (photos.value = photos.value.filter((x) => x.id !== id));
+// 키트(2026-10-31 컨설팅 전체 대조): 지우기는 확인창 없이 바로 지우고, 5초 동안 「되돌리기」를 보여 준다
+const undo = shallowRef<{ photo: Photo; index: number } | null>(null);
+let undoTimer = 0;
+const dropPhoto = (p: Photo) => {
+  if (!PLUS) {
+    confirm.value = { kind: "photo", id: p.id };
+    return;
+  }
+  const index = photos.value.findIndex((x) => x.id === p.id);
+  if (index < 0) return;
+  removePhoto(p.id);
+  undo.value = { photo: p, index };
+  window.clearTimeout(undoTimer);
+  undoTimer = window.setTimeout(() => (undo.value = null), 5000);
+};
+const undoDrop = () => {
+  const u = undo.value;
+  if (!u) return;
+  window.clearTimeout(undoTimer);
+  undo.value = null;
+  if (photos.value.length >= MAX_PHOTOS || photos.value.some((x) => x.id === u.photo.id)) return;
+  const next = [...photos.value];
+  next.splice(Math.min(u.index, next.length), 0, u.photo);
+  photos.value = next;
+  notify("사진을 되돌렸어요");
+};
+onBeforeUnmount(() => window.clearTimeout(undoTimer));
 // 등록 화면 사진: 길게 눌러 다른 사진 위에 놓으면 칸을 맞바꾼다(키트)
 const tilesRef = ref<HTMLElement | null>(null);
 useDragSwap(tilesRef, (a, b) => {
@@ -513,9 +540,10 @@ const saveDraft = async (): Promise<boolean> => {
     return false;
   }
   try {
-    await addDraft(uid(), d);
+    const gone = await addDraft(uid(), d);
     await refreshDrafts();
-    notify("임시저장했어요 · 「저장한 글」에서 다시 열 수 있어요");
+    // 5건이 넘으면 가장 오래된 글이 지워진다 → 조용히 지우지 않고 알린다(2026-10-31 컨설팅 전체 대조)
+    notify(gone.length ? `임시저장했어요 · 5건이 넘어 가장 오래된 글(${draftWhen(gone[0].savedAt)})은 지웠어요` : "임시저장했어요 · 「저장한 글」에서 다시 열 수 있어요");
     return true;
   } catch (e) {
     console.warn("[임시저장]", e);
@@ -761,7 +789,7 @@ const leaveSave = async () => {
                   <button type="button" :disabled="idx === 0 || photos[idx - 1]?.uploading" :aria-label="`${itemLabel(p.slot)} 사진 앞으로`" @click="movePhoto(idx, -1)">‹</button>
                   <button type="button" :disabled="idx === photos.length - 1 || photos[idx + 1]?.uploading" :aria-label="`${itemLabel(p.slot)} 사진 뒤로`" @click="movePhoto(idx, 1)">›</button>
                 </span>
-                <button v-if="!p.uploading && !(PLUS && reorder)" type="button" class="shoot-tile__del" data-nodrag="" :aria-label="`${p.slot === OTHER ? '기타' : itemLabel(p.slot)} 사진 삭제`" @click="confirm = { kind: 'photo', id: p.id }"><Mask :src="rd('delete-outline')" /></button>
+                <button v-if="!p.uploading && !(PLUS && reorder)" type="button" class="shoot-tile__del" data-nodrag="" :aria-label="`${p.slot === OTHER ? '기타' : itemLabel(p.slot)} 사진 삭제`" @click="dropPhoto(p)"><Mask :src="rd('delete-outline')" /></button>
                 <figcaption>{{ p.uploading ? "업로드 중" : itemLabel(p.slot) }}</figcaption>
               </figure>
               <figure v-if="video" class="shoot-tile shoot-tile--video">
@@ -776,7 +804,7 @@ const leaveSave = async () => {
               </figure>
               <button v-if="photos.length < MAX_PHOTOS" type="button" class="shoot-tile shoot-tile--add" :aria-label="`사진 추가 · 지금 ${photos.length}/${MAX_PHOTOS}장`" @click="setScreen({ name: 'capture', mode: 'cam' })">
                 <Mask :src="rd('camera-outline-24')" cls="is-big" />
-                <PhotoCounter :required="requiredDone" :total="photos.length" />
+                <PhotoCounter :required="requiredDone" :total="photos.length" :crew="PLUS && role === 'crew'" />
               </button>
               <button v-if="!video" type="button" class="shoot-tile shoot-tile--add" @click="setScreen({ name: 'video' })">
                 <Mask :src="rd('video-camera-outline')" cls="is-big" />
@@ -959,6 +987,10 @@ const leaveSave = async () => {
       <Confirm v-if="askLeave" text="아직 등록을 마치지 않았어요. 나갈까요?" cancel-text="저장 안 함" ok-text="저장하고 나가기" has-dim @dim="askLeave = false" @cancel="leaveNoSave" @ok="leaveSave" />
       <!-- 2026-10-29 컨설팅: 등록 화면 알림이 사진 칸을 가려서 아래 버튼 바로 위로 내린다 -->
       <Toast :text="toast" :class="PLUS && screen.name === 'main' && !regionOpen ? 'is-low' : ''" />
+      <div v-if="PLUS && undo && screen.name === 'main'" class="shoot-undo" role="status">
+        <span>{{ undo.photo.slot === OTHER ? "기타" : itemLabel(undo.photo.slot) }} 사진을 지웠어요</span>
+        <button type="button" @click="undoDrop">되돌리기</button>
+      </div>
     </div>
   </div>
 </template>

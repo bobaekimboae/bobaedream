@@ -4,7 +4,7 @@ import { sitePath } from "./site";
 export type VideoStage =
   | "exterior" | "interior" | "engine" | "trunk" | "cluster" | "start" | "tyre" | "damage" | "feature" | "under" | "wheel" | "door" | "comfort" | "seat" | "charge"
   // 2026-10-29 3차 컨설팅: 세부 컷(라이트·그릴 등)과 실내 독립 컷
-  | "light-front" | "light-rear" | "mirror"
+  | "light-front" | "light-rear" | "mirror" | "key"
   | "in-door" | "in-seat" | "in-wheel" | "in-cluster" | "in-dash" | "in-center" | "in-console" | "in-pass" | "in-rear" | "in-roof" | "in-third"
   | `my-${string}`;
 
@@ -49,6 +49,8 @@ const STAGE_GUIDE_BASE: Record<string, StageGuide> = {
   "in-rear": { frames: ["in-rear"], arrow: "M18 108 Q80 92 142 108", how: "뒷문을 열고 쿠션·등받이 → 발 공간 → 뒷좌석 송풍구·열선·커튼 순서로 비춰 주세요.", pan: "sweep" },
   "in-roof": { frames: ["in-ceiling"], arrow: "M80 106 Q92 60 80 14", how: "천장 → 선루프 열기(있으면) → 실내등 순서로 비춰 주세요.", pan: "tilt" },
   "in-third": { frames: ["int-4"], arrow: "M18 108 Q80 92 142 108", how: "3열 시트를 펴고 접는 모습까지 비춰 주세요(SUV·미니밴).", pan: "sweep" },
+  // 2026-10-31 컨설팅 전체 대조: 차 키 개수(스마트키 · 보조키). 실사 예시가 없어 편의 장비 사진을 임시로 쓴다
+  key: { frames: ["opt-comfort"], arrow: "M30 60 Q80 48 130 60", how: "차 키를 모두 손바닥에 올려 보여 주세요. 스마트키 · 보조키 · 카드키 개수가 보이게 찍어요.", pan: "sweep" },
   under: { frames: ["opt-under"], arrow: "M18 100 Q80 116 142 100", how: "차 아래와 머플러 쪽을 비스듬히 찍어 주세요. 기름이 샌 자국이 없는지 보여 주면 좋아요.", pan: "sweep" },
 };
 

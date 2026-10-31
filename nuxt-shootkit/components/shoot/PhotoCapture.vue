@@ -27,7 +27,7 @@ import { useLayerEsc } from "../../composables/useLayerEsc";
 import { grabFrame, grabView } from "../../lib/camera";
 import { normalizeFile, placeholderShot } from "../../lib/image-ops";
 import { playShutter } from "../../lib/sound";
-import { ALLOW_FAKE, ENFORCE, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLATE_START, PLUS, plateLocked, reqLabel, roleDef, uid, type Photo } from "../../lib/core";
+import { ALLOW_FAKE, ENFORCE, FAKE_ONLY, MAX_PHOTOS, OTHER, PHOTO_SLOTS, PLATE_START, PLUS, plateLocked, reqLabel, roleDef, roleNow, uid, type Photo } from "../../lib/core";
 import { REQUIRED_IDS, isRequiredItem, itemLabel, itemOf, orientationOf, type Orientation } from "../../lib/items";
 import { rd } from "../../lib/site";
 import { GUIDE_ON, askTilt, type CamSession } from "../../lib/photo-capture";
@@ -411,7 +411,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
             <span />
           </button>
           <div class="shoot-count">
-            <PhotoCounter :required="requiredNow" :total="total" />
+            <PhotoCounter :required="requiredNow" :total="total" :crew="PLUS && roleNow() === 'crew'" />
             <!-- 2026-10-25 컨설팅 6건: 한 장도 없으면 완료를 막고, 몇 장을 가져가는지 보여 준다(나눠 찍기는 허용) -->
             <button v-if="PLUS" type="button" class="shoot-done" :disabled="!session.picked.length" @click="done">완료{{ session.picked.length ? ` ${session.picked.length}장` : "" }}</button>
             <button v-else type="button" class="shoot-done" @click="done">완료</button>
@@ -440,7 +440,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       <div class="shoot-bottom is-album">
         <ModeTabs :mode="mode" :labels="['촬영', '앨범']" @change="(m) => (mode = m)" />
         <span class="shoot-album-count">
-          <PhotoCounter :required="requiredNow" :total="total" />
+          <PhotoCounter :required="requiredNow" :total="total" :crew="PLUS && roleNow() === 'crew'" />
         </span>
         <button v-if="session.picked.length" type="button" class="shoot-done shoot-album-done" @click="done">완료</button>
       </div>
@@ -455,7 +455,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       @ok="emit('close')"
     />
     <CamPermission
-      v-if="PLUS && mode === 'cam' && !askClose && !stream && (error || camSlow)"
+      v-if="PLUS && !FAKE_ONLY && mode === 'cam' && !askClose && !stream && (error || camSlow)"
       :kind="error === 'denied' ? 'denied' : 'unavailable'"
       what="photo"
       @retry="retry"
