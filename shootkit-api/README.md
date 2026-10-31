@@ -20,7 +20,7 @@
 
 | 종류 | 개수 | 한 개 크기 | 형식 |
 |---|---|---|---|
-| 사진 | 30 | 15MB | jpg · png · webp |
+| 사진 | 60(원본 30 + 쇼룸 30) | 15MB | jpg · png · webp |
 | 영상 | 12 | 300MB | mp4 · webm · mov |
 
 허락하는 화면 주소(`SHOOT_ORIGINS`): `https://bobaekimboae.github.io`, `http://localhost:5191`.

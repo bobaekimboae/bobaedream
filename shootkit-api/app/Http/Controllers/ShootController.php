@@ -45,7 +45,7 @@ class ShootController
             'planned.video' => 'required|integer|min:0|max:' . config('shoot.limits.video.count'),
             'client' => 'nullable|string|max:32',
             // 칸 이름표(파일 번호 → 「좌측 전면 45°」 · 「외관」). 보기 화면에서 쓴다
-            'items' => 'nullable|array|max:42',
+            'items' => 'nullable|array|max:80',
             'items.*.n' => 'required_with:items|integer|min:1|max:99',
             'items.*.kind' => 'required_with:items|in:photo,video',
             'items.*.label' => 'required_with:items|string|max:40',
@@ -109,7 +109,7 @@ class ShootController
         if ($done = $this->store->submission($id)) {
             return response()->json(['ok' => true, 'already' => true] + $this->view($id, $meta, $done));
         }
-        $r->validate(['files' => 'required|array|min:1|max:42', 'files.*' => 'required|string|max:200']);
+        $r->validate(['files' => 'required|array|min:1|max:80', 'files.*' => 'required|string|max:200']);
         $have = collect($this->store->files($id))->keyBy('pathname');
         $missing = array_values(array_filter($r->input('files'), fn ($p) => !$have->has($p)));
         if ($missing) {
