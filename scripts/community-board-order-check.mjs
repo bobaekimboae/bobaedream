@@ -9,9 +9,13 @@ const check=(condition,message)=>{if(!condition)failures.push(message)};
 let catalogBoardCount=0;
 const storageKey='bbm.community.boardChannels.v2';
 const legacyStorageKey='bbm.community.boardOrder.v1';
+const defaultHomeStorageKey='bbm.community.defaultBoard.v1';
 
 await mkdir(outputDir,{recursive:true});
-const browser=await chromium.launch({headless:true});
+const browser=await chromium.launch({
+  headless:true,
+  ...(process.env.PLAYWRIGHT_EXECUTABLE_PATH?{executablePath:process.env.PLAYWRIGHT_EXECUTABLE_PATH}:{})
+});
 
 for(const width of [360,384,412,592,1280]){
   const page=await browser.newPage({viewport:{width,height:width===592?1280:844}});
@@ -58,16 +62,22 @@ for(const width of [360,384,412,592,1280]){
 
   await page.locator('#boardOrderMenu').click();
   check(await page.locator('.boardOrderPanel').isVisible(),'전체 게시판 화면이 열리지 않았습니다');
-  check(await page.locator('.boardOrderViewEntry').isVisible(),'햄버거 메뉴에 보기 방식이 없습니다');
-  check(await page.locator('.boardOrderCurrentView').count()===0,'보기 방식에 현재 유형 문구가 남아 있습니다');
-  await page.locator('.boardOrderViewEntry').click();
-  check(await page.locator('.boardOrderBackdrop').isHidden(),'보기 방식 진입 뒤 햄버거 메뉴가 닫히지 않았습니다');
+  check(await page.locator('.boardOrderViewEntry').count()===0,'전체 게시판 화면에 보기 방식이 남아 있습니다');
+  check(await page.locator('.boardOrderDefaultEntry').isVisible(),'바이두형 기본 홈 설정 행이 없습니다');
+  check((await page.locator('.boardOrderDefaultValue').textContent())?.trim()==='전체 게시글','기본 홈 설정값이 다릅니다');
+  await page.locator('.boardOrderClose').click();
+  await page.locator('.appbar .hamburger').click();
+  check(await page.locator('.communityMenuPanel').isVisible(),'상단 햄버거에서 전체 메뉴가 열리지 않았습니다');
+  check(await page.locator('.communityMenuViewEntry').isVisible(),'상단 전체 메뉴에 보기 방식이 없습니다');
+  await page.locator('.communityMenuClose').focus();
+  await page.keyboard.press('Shift+Tab');
+  check(await page.locator('.communityMenuPanel').evaluate(panel=>panel.contains(document.activeElement)),'전체 메뉴에서 Shift+Tab 포커스가 밖으로 빠졌습니다');
+  await page.locator('.communityMenuViewEntry').click();
+  check(await page.locator('.communityMenuBackdrop').isHidden(),'보기 방식 진입 뒤 전체 메뉴가 닫히지 않았습니다');
   check(await page.locator('#sheet').isVisible(),'햄버거에서 보기 방식 시트가 열리지 않았습니다');
   check((await page.locator('.sheetTitle').textContent())?.trim()==='보기방식 편집','보기 방식 시트 제목이 다릅니다');
   await page.locator('#sheetClose').click();
-  await page.locator('.appbar .hamburger').click();
-  check(await page.locator('.boardOrderPanel').isVisible(),'상단 햄버거에서 커뮤니티 메뉴가 열리지 않았습니다');
-  check(!await page.locator('.boardOrderViewEntry').isVisible(),'상단 전체 메뉴에 보기 방식이 노출되었습니다');
+  await page.locator('#boardOrderMenu').click();
   await page.locator('.boardOrderClose').focus();
   await page.keyboard.press('Shift+Tab');
   check(await page.locator('.boardOrderPanel').evaluate(panel=>panel.contains(document.activeElement)),'모달에서 Shift+Tab 포커스가 밖으로 빠졌습니다');
@@ -79,7 +89,7 @@ for(const width of [360,384,412,592,1280]){
   const columns=await page.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);
   check(columns===4,`${width}px 기본 그리드 열 수가 ${columns}개입니다`);
   const itemHeight=await page.locator('.boardOrderItem').first().evaluate(element=>element.getBoundingClientRect().height);
-  check(itemHeight===40,`${width}px 채널 높이가 ${itemHeight}px입니다`);
+  check(itemHeight===(width>=768?40:35),`${width}px 채널 높이가 ${itemHeight}px입니다`);
   const clipped=await page.locator('.boardOrderName').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clipped.length===0,`${width}px 잘린 축약명이 있습니다: ${clipped.join(', ')}`);
   if(width===384)await page.screenshot({path:path.join(outputDir,'mobile-384-channel-normal.png'),fullPage:false});
@@ -204,6 +214,20 @@ const saved=await migration.evaluate(storageKey=>JSON.parse(localStorage.getItem
 check(saved?.version===2&&JSON.stringify(saved.fixedIds)===JSON.stringify(['home','all','best']),'v2 저장 구조가 다릅니다');
 await migration.close();
 
+const defaultHome=await browser.newPage({viewport:{width:384,height:844}});
+await defaultHome.goto(baseUrl,{waitUntil:'domcontentloaded'});
+await defaultHome.evaluate(defaultHomeStorageKey=>localStorage.removeItem(defaultHomeStorageKey),defaultHomeStorageKey);
+await defaultHome.reload({waitUntil:'domcontentloaded'});
+await defaultHome.locator('#boardOrderMenu').click();
+await defaultHome.locator('.boardOrderItem[data-board-id="free"]').click();
+await defaultHome.locator('#boardOrderMenu').click();
+await defaultHome.locator('.boardOrderDefaultEntry').click();
+check((await defaultHome.locator('.boardOrderDefaultValue').textContent())?.trim()==='자유게시판','기본 홈 설정값이 현재 게시판으로 바뀌지 않았습니다');
+await defaultHome.locator('.boardOrderClose').click();
+await defaultHome.goto(baseUrl,{waitUntil:'domcontentloaded'});
+check(await defaultHome.locator('.boardChannelTab[data-board-id="free"]').getAttribute('aria-current')==='page','저장한 기본 홈이 다시 열 때 적용되지 않았습니다');
+await defaultHome.close();
+
 for(const columns of [3,4]){
   const preview=await browser.newPage({viewport:{width:384,height:844}});
   await preview.goto(`${baseUrl}${baseUrl.includes('?')?'&':'?'}menu=all&boardGrid=${columns}`,{waitUntil:'domcontentloaded'});
@@ -211,13 +235,13 @@ for(const columns of [3,4]){
   const actualColumns=await preview.locator('.boardOrderMyGrid').evaluate(element=>getComputedStyle(element).gridTemplateColumns.split(' ').length);
   check(actualColumns===columns,`384px ${columns}열 시안이 ${actualColumns}열로 표시됩니다`);
   const chipStyles=await preview.locator('.boardOrderItem').first().evaluate(element=>{const style=getComputedStyle(element);return{height:element.getBoundingClientRect().height,backgroundColor:style.backgroundColor,borderRadius:style.borderRadius}});
-  check(chipStyles.height===40,`${columns}열 시안 칩 높이가 ${chipStyles.height}px입니다`);
-  check(chipStyles.backgroundColor==='rgb(241, 242, 243)',`${columns}열 시안 고정 칩 바탕색이 ${chipStyles.backgroundColor}입니다`);
-  check(chipStyles.borderRadius==='8px',`${columns}열 시안 칩 모서리가 ${chipStyles.borderRadius}입니다`);
+  check(chipStyles.height===35,`${columns}열 시안 칩 높이가 ${chipStyles.height}px입니다`);
+  check(chipStyles.backgroundColor==='rgb(245, 246, 247)',`${columns}열 시안 고정 칩 바탕색이 ${chipStyles.backgroundColor}입니다`);
+  check(chipStyles.borderRadius==='4px',`${columns}열 시안 칩 모서리가 ${chipStyles.borderRadius}입니다`);
   await preview.screenshot({path:path.join(outputDir,`mobile-384-baidu-${columns}-column.png`),fullPage:false});
   await preview.close();
 }
 await browser.close();
 
 if(failures.length){console.error(JSON.stringify({ok:false,failures},null,2));process.exit(1)}
-console.log(JSON.stringify({ok:true,channels:catalogBoardCount+3,fixed:['홈','전체','베스트'],movable:catalogBoardCount,widths:[360,384,412,592,1280],defaultColumns:4,previewColumns:[3,4],chipHeight:40,removeTarget:44,undoSeconds:5,migration:'v1-to-v2',outputDir},null,2));
+console.log(JSON.stringify({ok:true,channels:catalogBoardCount+3,fixed:['홈','전체','베스트'],movable:catalogBoardCount,widths:[360,384,412,592,1280],defaultColumns:4,previewColumns:[3,4],chipHeight:35,removeTarget:44,undoSeconds:5,migration:'v1-to-v2',outputDir},null,2));
