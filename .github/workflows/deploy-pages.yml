@@ -36,6 +36,17 @@ jobs:
         run: |
           node scripts/prepare-sites-build.mjs
           node apps/variable-category-admin/scripts/sync-pages-demo.mjs
+      - name: Build standalone shootkit lab
+        working-directory: nuxt-shootkit-lab
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.33.0 --activate
+          pnpm install --frozen-lockfile
+          pnpm build
+      - name: Add standalone shootkit lab to Pages artifact
+        run: |
+          mkdir -p dist/client/nuxt-shootkit-lab
+          cp -R nuxt-shootkit-lab/.output/public/. dist/client/nuxt-shootkit-lab/
       - name: Prepare project-site paths
         run: find dist/client -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' \) -exec sed -i 's|/assets/|/bobaedream/assets/|g' {} +
       - name: Fix lazy-load preload paths
