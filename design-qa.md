@@ -31,6 +31,39 @@ final result: passed
 
 ---
 
+## 2026-11-01 모바일 전체 게시판 · 바이두 채널 관리 패리티
+
+- Scope: `public/community/naver-cafe-list.html`의 모바일 `전체 게시판` 채널 관리 오버레이.
+- Source truth: USB 연결 Android의 Baidu `全部频道` 일반/편집 상태.
+- Browser choice: Codex in-app browser.
+- Target viewport: 360px mobile width. 구현 캡처는 360×844 CSS px, 원본은 1080×2400px·density 3(360×800 CSS-equivalent, Android 상태/내비게이션 바 포함).
+- Source evidence: `C:\Temp\bobaedream-community-baidu-crosscheck-20261101\01-baidu-original.png`, `02-baidu-edit.png`.
+- Implementation evidence: `artifacts/community-board-order-1015/mobile-360-baidu-initial.png`, `mobile-384-channel-edit.png`.
+- Combined comparison: `artifacts/community-board-order-1015/baidu-source-vs-implementation.png`.
+
+### Required fidelity surfaces
+
+- Typography: passed — 제목, 기본 홈, 내 게시판, 편집/완료, 칩, 분류 탭의 위계를 원본 실측에 맞춤.
+- Spacing/layout: passed — 상단 둥근 시트, 14px 좌우 여백, 4열, 35px 칩, 9px 간격, 고정 3+편집 가능 31=34개 기본 구성을 맞춤.
+- Colors/tokens: passed — 고정 채널 회색, 선택 채널·편집 버튼 블루, 활성 분류 검정 텍스트+블루 표시선, 추가 칩 흰색+회색 테두리.
+- Copy/content: passed — 중국 채널명은 보배드림 게시판명으로 치환하되 정보 구조와 상태 의미는 보존함.
+- Behavior/accessibility: passed — 편집/완료, 삭제, 5초 복구, 재추가, 즉시 저장, 5개 탭→세로 섹션 이동, 마우스·터치·키보드 재정렬, 포커스 트랩, 닫기 후 포커스 복귀를 검증함.
+- Responsive/runtime: passed — 360/384/412/592/1280px, 런타임 오류 0, 페이지 가로 넘침 0.
+
+### Comparison history
+
+- Pass 1 [P1, structure]: 37개 전체 노출, 2개 탭, 잠금 아이콘, 채운 추가 칩이 원본과 달랐음.
+- Fix: 기본 34개, 5개 분류 탭과 세로 섹션, 잠금 제거, 외곽선 추가 칩으로 변경함.
+- Pass 2 [P1, interaction]: 탭은 필터만 바꾸고 터치 드래그 진입이 350ms라 원본보다 느렸음.
+- Fix: 탭 클릭 시 대응 섹션으로 스크롤하고 180ms 또는 6px 이동 시 드래그를 시작하도록 수정함.
+- Pass 3 [P2, visual]: 고정 채널·활성 탭·추천 개수·타이포 위계를 원본과 나란히 재교정함.
+- Verification: `npm run community:verify:board-order` passed. Android 상태/내비게이션 바는 호스트 OS 영역이므로 웹 구현 대상에서 제외함.
+
+final result: passed
+
+
+---
+
 ## 2026-10-24 커뮤니티 게시판 무채색 바탕 제거
 
 - Source visual truth: `https://game.naver.com/esports/Valorant/board`.

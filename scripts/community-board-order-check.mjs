@@ -7,6 +7,7 @@ const outputDir=path.resolve('artifacts','community-board-order-1015');
 const failures=[];
 const check=(condition,message)=>{if(!condition)failures.push(message)};
 let catalogBoardCount=0;
+let defaultMovableCount=0;
 const storageKey='bbm.community.boardChannels.v2';
 const legacyStorageKey='bbm.community.boardOrder.v1';
 const defaultHomeStorageKey='bbm.community.defaultBoard.v1';
@@ -28,8 +29,11 @@ for(const width of [360,384,412,592,1280]){
 
   const nav=page.locator('.boardChannelTab');
   const movableCount=await page.evaluate(()=>window.BBMCommunityBoardNavigation.catalog.filter(board=>!board.fixed).length);
+  const activeCount=await page.evaluate(()=>window.BBMCommunityBoardNavigation.ordered().length-1);
   catalogBoardCount=Math.max(catalogBoardCount,movableCount);
-  check(await nav.count()===movableCount+3,`${width}px 상단 채널 수가 카탈로그 ${movableCount}개와 고정 3개 합계가 아닙니다`);
+  defaultMovableCount=Math.max(defaultMovableCount,activeCount);
+  check(await nav.count()===activeCount+3,`${width}px 상단 채널 수가 기본 ${activeCount}개와 고정 3개 합계가 아닙니다`);
+  check(activeCount===31,`${width}px 바이두형 기본 내 게시판 수가 31개가 아닙니다: ${activeCount}`);
   check((await nav.nth(0).textContent())?.trim()==='홈',`${width}px 첫 채널이 홈이 아닙니다`);
   check((await nav.nth(1).textContent())?.trim()==='전체',`${width}px 둘째 채널이 전체가 아닙니다`);
   check((await nav.nth(2).textContent())?.trim()==='베스트',`${width}px 셋째 채널이 베스트가 아닙니다`);
@@ -65,6 +69,16 @@ for(const width of [360,384,412,592,1280]){
   check(await page.locator('.boardOrderViewEntry').count()===0,'전체 게시판 화면에 보기 방식이 남아 있습니다');
   check(await page.locator('.boardOrderDefaultEntry').isVisible(),'바이두형 기본 홈 설정 행이 없습니다');
   check((await page.locator('.boardOrderDefaultValue').textContent())?.trim()==='전체 게시글','기본 홈 설정값이 다릅니다');
+  if(width===360)await page.screenshot({path:path.join(outputDir,'mobile-360-baidu-initial.png'),fullPage:false});
+  if(width===360){
+    await page.locator('.boardOrderSectionTabs [data-section="스포츠"]').click();
+    await page.waitForTimeout(350);
+    check(await page.locator('.boardOrderSectionTabs [data-section="스포츠"]').getAttribute('aria-selected')==='true','분류 탭 클릭 뒤 스포츠 탭이 선택되지 않았습니다');
+    check(await page.locator('.boardOrderAvailableSection[data-section="스포츠"] .boardOrderAdd').count()>=1,'스포츠 분류 섹션에 추가 가능한 게시판이 없습니다');
+    await page.locator('.boardOrderSectionTabs [data-section="추천"]').click();
+    await page.waitForTimeout(350);
+    await page.locator('.boardOrderBody').evaluate(element=>{element.scrollTop=0});
+  }
   await page.locator('.boardOrderClose').click();
   await page.locator('.appbar .hamburger').click();
   check(await page.locator('.communityMenuPanel').isVisible(),'상단 햄버거에서 전체 메뉴가 열리지 않았습니다');
@@ -82,7 +96,10 @@ for(const width of [360,384,412,592,1280]){
   await page.keyboard.press('Shift+Tab');
   check(await page.locator('.boardOrderPanel').evaluate(panel=>panel.contains(document.activeElement)),'모달에서 Shift+Tab 포커스가 밖으로 빠졌습니다');
   check(await page.locator('.boardOrderFixed').count()===3,'고정 채널이 3개가 아닙니다');
-  check(await page.locator('.boardOrderItem[data-movable="true"]').count()===movableCount,`이동 채널이 카탈로그 ${movableCount}개와 다릅니다`);
+  check(await page.locator('.boardOrderItem[data-movable="true"]').count()===activeCount,`이동 채널이 기본 ${activeCount}개와 다릅니다`);
+  check(await page.locator('.boardOrderSectionTabs [role="tab"]').count()===5,'바이두형 게시판 분류 탭이 5개가 아닙니다');
+  const availableIds=await page.locator('.boardOrderAdd').evaluateAll(elements=>[...new Set(elements.map(element=>element.dataset.boardId))]);
+  check(availableIds.length===movableCount-activeCount,`추가 가능 게시판 고유 수가 ${movableCount-activeCount}개와 다릅니다`);
   check(await page.locator('.boardOrderAvatar').count()===0,'전체 게시판 칩에 프로필 이미지가 남아 있습니다');
   check(await page.locator('.boardOrderRemove').count()===0,'일반 상태에 제외 버튼이 노출되었습니다');
   check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','일반 상태 버튼이 편집이 아닙니다');
@@ -92,6 +109,7 @@ for(const width of [360,384,412,592,1280]){
   check(itemHeight===(width>=768?40:35),`${width}px 채널 높이가 ${itemHeight}px입니다`);
   const clipped=await page.locator('.boardOrderName').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clipped.length===0,`${width}px 잘린 축약명이 있습니다: ${clipped.join(', ')}`);
+  if(width===360)await page.screenshot({path:path.join(outputDir,'mobile-360-baidu-normal.png'),fullPage:false});
   if(width===384)await page.screenshot({path:path.join(outputDir,'mobile-384-channel-normal.png'),fullPage:false});
   if(width===592)await page.screenshot({path:path.join(outputDir,'mobile-592-channel-normal.png'),fullPage:false});
   if(width===1280)await page.screenshot({path:path.join(outputDir,'pc-1280-channel-normal.png'),fullPage:false});
@@ -105,10 +123,10 @@ for(const width of [360,384,412,592,1280]){
     await page.locator('#boardOrderMenu').click();
     await page.locator('.boardOrderEdit').click();
     check((await page.locator('.boardOrderEdit').textContent())?.trim()==='완료','편집 상태 버튼이 완료가 아닙니다');
-    check(await page.locator('.boardOrderRemove').count()===movableCount,'편집 상태 일반 채널 제외 버튼 수가 다릅니다');
+    check(await page.locator('.boardOrderRemove').count()===activeCount,'편집 상태 일반 채널 제외 버튼 수가 다릅니다');
     check(await page.locator('.boardOrderFixed .boardOrderRemove').count()===0,'고정 채널에 제외 버튼이 생겼습니다');
     check(await page.locator('.boardOrderFixed[draggable="true"]').count()===0,'고정 채널이 드래그 가능 상태입니다');
-    check(await page.locator('.boardOrderFixedIcon').count()===3,'고정 게시판 잠금 표시가 3개가 아닙니다');
+    check(await page.locator('.boardOrderFixedIcon').count()===0,'바이두 원본에 없는 고정 게시판 잠금 표시가 남아 있습니다');
     check(await page.locator('.boardOrderFixed[tabindex]').count()===0,'편집 중 고정 게시판이 키보드 포커스를 받습니다');
     check(await page.locator('.boardOrderFixed[aria-disabled="true"]').count()===3,'편집 중 고정 게시판 비활성 상태가 명시되지 않았습니다');
     const touchAction=await page.locator('.boardOrderItem[data-board-id="free"]').evaluate(element=>getComputedStyle(element).touchAction);
@@ -128,7 +146,7 @@ for(const width of [360,384,412,592,1280]){
     await page.screenshot({path:path.join(outputDir,'mobile-384-channel-edit.png'),fullPage:false});
 
     await page.locator('.boardOrderItem[data-board-id="car-news"] .boardOrderRemove').click();
-    check(await page.locator('.boardOrderAdd[data-board-id="car-news"]').count()===1,'제외 게시판이 게시판 분류에 나타나지 않았습니다');
+    check(await page.locator('.boardOrderAdd[data-board-id="car-news"]').count()>=1,'제외 게시판이 게시판 분류에 나타나지 않았습니다');
     check(await page.locator('.boardChannelTab[data-board-id="car-news"]').count()===0,'제외 게시판이 즉시 저장되지 않았습니다');
     check(await page.locator('.boardOrderUndo').isVisible(),'제외 후 5초 되돌리기가 노출되지 않았습니다');
     await page.locator('.boardOrderUndo').click();
@@ -137,7 +155,7 @@ for(const width of [360,384,412,592,1280]){
     await page.locator('.boardOrderEdit').click();
     check((await page.locator('.boardOrderEdit').textContent())?.trim()==='편집','완료 뒤 일반 상태로 돌아오지 않았습니다');
     check(await page.locator('.boardChannelTab[data-board-id="car-news"]').count()===0,'제외 게시판이 상단 채널에 남았습니다');
-    await page.locator('.boardOrderAdd[data-board-id="car-news"]').click();
+    await page.locator('.boardOrderAdd[data-board-id="car-news"]').first().click();
     check(await page.locator('.boardChannelTab[data-board-id="car-news"]').count()===1,'게시판 재추가가 상단 채널에 반영되지 않았습니다');
 
     await page.locator('.boardOrderEdit').click();
@@ -184,7 +202,7 @@ if(touchSource&&touchTarget){
   const end={x:touchTarget.x+8,y:touchTarget.y+touchTarget.height/2};
   await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{id:1,x:start.x,y:start.y,radiusX:1,radiusY:1,force:1}]});
   await touchPage.waitForTimeout(420);
-  check(await touchPage.locator('.boardOrderItem[data-board-id="car-news"].dragging').count()===1,'350ms 길게 누른 뒤 터치 드래그가 시작되지 않았습니다');
+  check(await touchPage.locator('.boardOrderItem[data-board-id="car-news"].dragging').count()===1,'180ms 누른 뒤 터치 드래그가 시작되지 않았습니다');
   await cdp.send('Input.dispatchTouchEvent',{type:'touchMove',touchPoints:[{id:1,x:end.x,y:end.y,radiusX:1,radiusY:1,force:1}]});
   await touchPage.waitForTimeout(80);
   await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
@@ -209,7 +227,7 @@ await migration.evaluate(({storageKey,legacyStorageKey})=>{
 await migration.reload({waitUntil:'domcontentloaded'});
 const migrated=await migration.locator('.boardChannelTab').evaluateAll(elements=>elements.map(element=>element.dataset.boardId));
 check(migrated[0]==='home'&&migrated[1]==='all'&&migrated[2]==='best'&&migrated[3]==='politics'&&migrated[4]==='free','v1 순서 이전 결과가 다릅니다');
-check(new Set(migrated).size===catalogBoardCount+3,'v1 이전 뒤 중복 또는 누락 채널이 있습니다');
+check(new Set(migrated).size===defaultMovableCount+3,'v1 이전 뒤 기본 채널 중복 또는 누락이 있습니다');
 const saved=await migration.evaluate(storageKey=>JSON.parse(localStorage.getItem(storageKey)),storageKey);
 check(saved?.version===2&&JSON.stringify(saved.fixedIds)===JSON.stringify(['home','all','best']),'v2 저장 구조가 다릅니다');
 await migration.close();
@@ -244,4 +262,4 @@ for(const columns of [3,4]){
 await browser.close();
 
 if(failures.length){console.error(JSON.stringify({ok:false,failures},null,2));process.exit(1)}
-console.log(JSON.stringify({ok:true,channels:catalogBoardCount+3,fixed:['홈','전체','베스트'],movable:catalogBoardCount,widths:[360,384,412,592,1280],defaultColumns:4,previewColumns:[3,4],chipHeight:35,removeTarget:44,undoSeconds:5,migration:'v1-to-v2',outputDir},null,2));
+console.log(JSON.stringify({ok:true,catalogChannels:catalogBoardCount+3,defaultChannels:defaultMovableCount+3,fixed:['홈','전체','베스트'],movable:catalogBoardCount,widths:[360,384,412,592,1280],defaultColumns:4,previewColumns:[3,4],chipHeight:35,removeTarget:44,undoSeconds:5,migration:'v1-to-v2',outputDir},null,2));
