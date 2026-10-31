@@ -1,5 +1,12 @@
 # Quick Filter Spec
 
+## Filter interaction color system (2026-11-01)
+
+- Scope: car-site Guazi PC filters, modal/bottom-sheet counterparts and mobile full filters. `filter-color-system.css` is imported through the existing shared stylesheet, including Nuxt consumers. Do not change independent `/bike/` and `/truck/` branding or frozen comparison modes.
+- Primary selected/action/focus/slider color is `#306BD9` through the existing footer token. Selected rows and outlined presets use `#EDF3FF` with `#2456B3` text; hover uses `#2456B3`, secondary lines `#C2D3F5`.
+- Apply to slider fill/handles/value bubble, checked/mixed checkboxes, active tabs/underlines, range/choice presets, on switches, selected manufacturer/model/category/region indicators, input focus and keyboard focus. Keep unselected tracks, ordinary text, dividers, off switches, disabled/reset/cancel/close states neutral. Keep error red, white checkmarks, actual color swatches and brand artwork unchanged. Do not recolor GNB or quick-filter applied pills outside dialogs.
+- CSS-only palette correction: no dimensions, event handling, filter range units, API contracts or data changes. Accessibility checks cover token contrast and real keyboard behavior, not a claim of full WCAG compliance.
+
 ## Registration-month range correction (2026-11-01)
 
 - PC/mobile/Nuxt use the shared TypeScript `bbm-year-range.ts` contract. Relative year presets resolve the current Asia/Seoul year/month at selection time, not a fixed September 2026 date. Year choices run from the current Korean year to 1980.
