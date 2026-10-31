@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 촬영 쇼츠 키트 등록 화면(리액트 ShootRegister.tsx 2899~3527줄을 그대로 옮김).
-// 58同城 二手车发布(중고차 등록) 사진·영상 촬영 흐름 재현(2026-10-24 폰 실측). 실제 등록·업로드 요청은 보내지 않는다(「등록하기」는 안내만).
+// 58同城 二手车发布(중고차 등록) 사진·영상 촬영 흐름 재현(2026-10-24 폰 실측). 키트는 서버 주소가 있으면 「등록하기」가 실제로 올린다(lib/upload.ts, 2026-10-31). 58 재현은 안내만.
 import { computed, onBeforeUnmount, onMounted, ref, shallowRef, watch } from "vue";
 import Mask from "./Mask.vue";
 import Toast from "./Toast.vue";
@@ -17,6 +17,8 @@ import RulesPage from "./RulesPage.vue";
 import DraftSheet from "./DraftSheet.vue";
 import ProgressSheet from "./ProgressSheet.vue";
 import ShortsMaker from "./ShortsMaker.vue";
+import UploadSheet from "./UploadSheet.vue";
+import { UploadError, uploadOn, uploadShoot, type UpItem, type UpProgress, type UpResult, type UpState } from "../../lib/upload";
 import { useDragSwap } from "../../composables/useDragSwap";
 import { swapPhotos } from "../../lib/photo-sort";
 import { savePrefs } from "../../lib/stage-prefs";
@@ -611,11 +613,78 @@ const publish = () => {
     }
     return;
   }
+  // 2026-10-31: 서버 주소가 있으면 실제로 올린다(임시 무료 서버). 없으면 예전처럼 시안 안내.
+  if (PLUS && uploadOn()) return void startUpload();
   if (canAutoShorts.value) {
     doneAsk.value = true;
     return;
   }
   notify("시안 화면이라 실제로 등록하지 않아요");
+};
+
+// 실제 업로드(2026-10-31 「실제 동작 가능하게」): 사진은 등록 화면 순서, 영상은 찍은 부위 순서로 번호를 붙인다.
+const upPhase = ref<"up" | "fail" | "done" | null>(null);
+const upProgress = ref<UpProgress>({ done: 0, total: 0, pct: 0, label: "" });
+const upError = ref("");
+const upResult = shallowRef<UpResult | null>(null);
+let upState: UpState = { id: null, done: {}, failed: [] };
+// 올린 뒤 사진·영상·소재지를 바꾸면 새 촬영으로 다시 올린다
+watch([photos, video, region], () => {
+  if (upPhase.value !== "up") upState = { id: null, done: {}, failed: [] };
+});
+const upItems = (): UpItem[] => {
+  const list: UpItem[] = photos.value
+    .filter((p) => !p.uploading)
+    .map((p, i) => ({ n: i + 1, kind: "photo" as const, key: `p${i + 1}`, src: p.src, label: p.slot === OTHER ? "기타" : itemLabel(p.slot) }));
+  const v = video.value;
+  if (v && !v.uploading) {
+    let n = 0;
+    v.segs.forEach((src, i) => {
+      if (!src) return;
+      n += 1;
+      const st = v.stages?.[i];
+      list.push({ n, kind: "video", key: `v${n}`, src, label: v.imported ? "불러온 영상" : st ? def(st).label : `영상 ${n}` });
+    });
+  }
+  return list;
+};
+const startUpload = async () => {
+  const items = upItems();
+  if (!items.length || !region.value) return;
+  upError.value = "";
+  upPhase.value = "up";
+  upProgress.value = { done: 0, total: items.length, pct: 0, label: "준비" };
+  try {
+    const r = await uploadShoot(
+      { role: role.value === "crew" ? "crew" : "dealer", region: { sido: region.value.sido, gugun: region.value.gu || null } },
+      items,
+      upState,
+      (pr) => (upProgress.value = pr),
+    );
+    upResult.value = r;
+    upPhase.value = "done";
+    await dropAuto();
+  } catch (e) {
+    upError.value = e instanceof UploadError ? (e.code === "partial" && upState.failed.length ? `${e.message} (${upState.failed.slice(0, 3).join(" · ")}${upState.failed.length > 3 ? " 등" : ""})` : e.message) : "알 수 없는 문제로 멈췄어요.";
+    upPhase.value = "fail";
+  }
+};
+const upClose = () => (upPhase.value = null);
+const upShorts = () => {
+  upPhase.value = null;
+  startAutoShorts();
+};
+const upFresh = () => {
+  upPhase.value = null;
+  upState = { id: null, done: {}, failed: [] };
+  photos.value = [];
+  releaseVideo(video.value);
+  video.value = null;
+  region.value = null;
+  docs.value = EMPTY_DOCS;
+  tried.value = false;
+  setScreen({ name: "main" });
+  window.scrollTo(0, 0);
 };
 const verifyLabel = computed(() => (verify.value === "reg" ? "자동차등록증" : verify.value === "orig" ? "등록원부" : "차대번호 명판"));
 const VERIFY_OPTS = [
@@ -980,6 +1049,18 @@ const leaveSave = async () => {
         ok-text="쇼츠 바로 만들기"
         @cancel="doneAsk = false"
         @ok="startAutoShorts"
+      />
+      <UploadSheet
+        v-if="upPhase"
+        :phase="upPhase"
+        :progress="upProgress"
+        :error="upError"
+        :result="upResult"
+        :can-shorts="canAutoShorts"
+        @retry="startUpload"
+        @close="upClose"
+        @shorts="upShorts"
+        @fresh="upFresh"
       />
       <Confirm v-if="confirm" :text="confirm.kind === 'photo' ? '사진을 삭제할까요?' : '영상을 삭제할까요?'" @cancel="confirm = null" @ok="confirmOk" />
       <Confirm v-if="askDiscard" text="찍은 영상을 버리고 나갈까요? 등록 화면에는 남지 않아요." cancel-text="계속 보기" ok-text="버리기" has-dim @dim="askDiscard = null" @cancel="askDiscard = null" @ok="discardOk" />

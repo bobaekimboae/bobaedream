@@ -5301,3 +5301,167 @@ body:has(.shoot-layer) .shoot-install {
 .shoot-shorts__warn.is-guard {
   color: #c2410c;
 }
+
+/* 등록하기 → 실제 업로드 시트(2026-10-31) */
+.shoot-upload {
+  padding: 24px 20px calc(16px + env(safe-area-inset-bottom));
+  gap: 0;
+}
+.shoot-upload h2 {
+  margin: 0 0 6px;
+  text-align: left;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+.shoot-upload__sub {
+  margin: 0 0 14px;
+  font-size: 15px;
+  line-height: 22px;
+  color: #222;
+  word-break: keep-all;
+}
+.shoot-upload__bar {
+  height: 8px;
+  border-radius: 4px;
+  background: #eee;
+  overflow: hidden;
+}
+.shoot-upload__bar i {
+  display: block;
+  height: 100%;
+  background: #ff7a1a;
+  transition: width 0.2s linear;
+}
+.shoot-upload__note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: #707070;
+  word-break: keep-all;
+}
+.shoot-upload__link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.shoot-upload__row {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+.shoot-upload__row button {
+  flex: 1;
+  height: 52px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  color: #222;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 600;
+}
+.shoot-upload__row button.is-main {
+  border-color: #222;
+  background: #222;
+  color: #fff;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shoot-upload__bar i {
+    transition: none;
+  }
+}
+
+/* 올린 내용 보기(?shoot=) */
+.shoot-seen {
+  min-height: 100dvh;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  background: #fff;
+  color: #222;
+}
+.shoot-seen__head {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  padding: 12px 0;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+.shoot-seen__back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  color: #595959;
+}
+.shoot-seen h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+.shoot-seen h2 {
+  margin: 24px 0 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.shoot-seen__meta,
+.shoot-seen__note,
+.shoot-seen__msg {
+  margin: 14px 0 0;
+  font-size: 14px;
+  line-height: 20px;
+  color: #595959;
+  word-break: keep-all;
+}
+.shoot-seen__msg button {
+  margin-top: 10px;
+  height: 44px;
+  padding: 0 16px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  font: inherit;
+}
+.shoot-seen__grid,
+.shoot-seen__videos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.shoot-seen__videos {
+  grid-template-columns: 1fr;
+}
+.shoot-seen__grid img,
+.shoot-seen video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f2f2f2;
+}
+.shoot-seen video {
+  aspect-ratio: 16 / 9;
+  background: #000;
+}
+.shoot-seen li span {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #595959;
+}
+.shoot-upload__sub + .shoot-upload__note {
+  margin-top: 0;
+}
