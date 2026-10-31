@@ -397,3 +397,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-10-31,PR #1088,shootkit-photo-qc,,병합,넉스트 촬영키트,촬영 후 품질 검사(흔들림·어두움·빛 번짐),nuxt-shootkit lib/quality.ts,,실제 폰 기준 재조정,58 재현 그대로
 2026-10-31,PR #1090,shootkit-qc-crosscheck,,병합,넉스트 촬영키트,품질 검사 크로스체크 보정(흰 배경 오탐·손떨림·미리보기·360),nuxt-shootkit lib/quality.ts,,실제 폰 기준 재조정,58 재현 그대로
 2026-10-31,PR #1091,shootkit-audit-50x,29316361,푸시(병합 대기),넉스트 촬영키트,50배 크로스체크(임시저장 실패·미리보기 딱지·저장한 글·권한 화면·셔터·작은 화면 겹침·영상 저장·쇼츠),nuxt-shootkit 9개 파일·lib/drafts.ts,,메모리 정리 남음,58 재현 그대로
+2026-10-31,PR #1093,shootkit-p1-polish,,병합·배포,넉스트 촬영키트,상용화 컨설팅 P1(딜러/촬영팀 첫 화면·딜러 빠른 코스·서류 칸 촬영팀만·안내 줄이기·카운터 하나로·사진 순서 버튼),ShootRegister·PhotoCounter·VideoCapture·kit json·css,,품질 3단계·차종 윤곽·Nuxt4 남음,58 재현 그대로

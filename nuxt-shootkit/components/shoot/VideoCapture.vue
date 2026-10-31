@@ -496,6 +496,27 @@ const timelineText = computed(() => {
         : "권장 시간을 넘었어요 · 다 찍었으면 멈춰 주세요";
 });
 /** 번호판이 보이는 바깥 단계(외관 · 흠집 표시 · 타이어 · 휠) */
+// 2026-10-31 상용화 컨설팅(P1): 번호판 안내는 이 폰에서 처음 녹화할 때까지만 보인다(매번 보이면 경고 피로).
+// 영상 저장 시트 · 미리보기의 같은 안내는 그대로 둔다.
+const PLATE_SEEN_KEY = "bbm-shoot-vplate-seen";
+const plateSeen = ref((() => {
+  try {
+    return window.localStorage.getItem(PLATE_SEEN_KEY) === "1";
+  } catch {
+    return false;
+  }
+})());
+watch(
+  () => phase.value,
+  (p) => {
+    if (p !== "recording" || plateSeen.value || !plateStage.value) return;
+    try {
+      window.localStorage.setItem(PLATE_SEEN_KEY, "1");
+    } catch {
+      /* 사생활 보호 창: 이번 화면에서만 */
+    }
+  },
+);
 const plateStage = computed(() => ["exterior", "damage", "tyre", "wheel", "light-front", "light-rear", "mirror"].includes(cur.value.key));
 const vhint = computed(() =>
   isDamage.value
@@ -546,7 +567,7 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
           <div v-if="PLUS" class="shoot-vnotes">
             <p class="shoot-vhint">{{ vhint }}</p>
             <!-- 2026-10-29 컨설팅: 사진과 달리 영상 속 번호판은 가려지지 않는다는 것을 찍기 전에 알린다(바깥을 찍는 단계만) -->
-            <p v-if="phase !== 'recording' && plateStage" class="shoot-vplate">영상 속 번호판은 자동으로 가려지지 않아요</p>
+            <p v-if="phase !== 'recording' && plateStage && !plateSeen" class="shoot-vplate">영상 속 번호판은 자동으로 가려지지 않아요</p>
           </div>
           <p v-else class="shoot-vhint">{{ vhint }}</p>
           <span v-if="PLUS && phase === 'recording' && !isDamage && hl.some((x) => x.k === cur.key)" class="shoot-hl-badge" :aria-label="`쇼츠 장면 ${hlCount}곳 표시`">{{ "★ " + hlCount }}</span>
