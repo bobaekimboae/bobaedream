@@ -97,12 +97,12 @@ const headTitle = computed(() => (order.value ? `${carTitle(order.value.car)}${o
 </script>
 <template>
   <div class="sf-wrap">
-    <a class="sf-back" href="?" @click.prevent="emit('go', 'dashboard')"><Icon :src="rd('back-outline-24')" />대시보드</a>
-    <div v-if="!order && state.loaded" class="card sf-empty">
+    <div v-if="!order && state.loaded" class="sf-notfound">
       <p>주문을 찾지 못했어요.</p>
-      <a href="?" @click.prevent="emit('go', 'dashboard')">대시보드로</a>
+      <a href="?" @click.prevent="emit('go', 'dashboard')"><span aria-hidden="true">←</span> 대시보드</a>
     </div>
     <template v-else-if="order">
+      <a class="sf-back" href="?" @click.prevent="emit('go', 'dashboard')"><Icon :src="rd('back-outline-24')" />대시보드</a>
       <div class="sf-head">
         <div>
           <h1>{{ headTitle }}</h1>

@@ -25,7 +25,7 @@ const title = (o: Order) => `${carTitle(o.car)}${o.car.year.trim() ? ` (${o.car.
         <h1>대시보드</h1>
         <p>{{ auth.email }}</p>
       </div>
-      <button v-if="state.loaded && state.credits > 0" class="btn is-main" type="button" @click="emit('go', 'new')"><Icon :src="rd('add-outline-24')" />새 영상</button>
+      <button v-if="state.loaded && state.credits > 0" class="btn is-main" type="button" @click="emit('go', 'new')">새 영상<Icon :src="rd('forward-outline')" /></button>
     </div>
     <div v-if="paid" class="sf-banner" role="status"><Icon :src="rd('checkmark-fill')" /><span><b>결제가 끝났어요</b> — 크레딧을 넣었어요.</span></div>
     <div class="sf-stats">
@@ -50,7 +50,7 @@ const title = (o: Order) => `${carTitle(o.car)}${o.car.year.trim() ? ` (${o.car.
     <div v-else-if="!state.orders.length" class="card sf-empty">
       <span class="ico-wrap"><Icon :src="ct('chotot-common-video-play')" /></span>
       <p>아직 주문이 없어요.</p>
-      <a v-if="state.credits > 0" href="?v=new" @click.prevent="emit('go', 'new')">첫 주문 만들기</a>
+      <a v-if="state.credits > 0" href="?v=new" @click.prevent="emit('go', 'new')">첫 주문 만들기 <span aria-hidden="true">→</span></a>
     </div>
     <div v-else class="sf-orders">
       <a v-for="o in state.orders" :key="o.id" class="card sf-order" :href="`?v=order&id=${o.id}`" @click.prevent="emit('go', 'order', o.id)">

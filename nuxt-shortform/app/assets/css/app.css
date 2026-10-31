@@ -213,6 +213,9 @@ a { color: inherit; }
 .sf-steps li.is-on { color: var(--text); }
 .sf-steps li.is-on i { background: var(--blue); border-color: var(--blue); color: #fff; }
 .sf-link { color: var(--blue-h); font-size: 14px; word-break: break-all; }
+.sf-notfound { padding: 40px 0; text-align: center; color: var(--muted); font-size: 15px; }
+.sf-notfound p { margin: 0 0 6px; }
+.sf-notfound a { color: var(--blue-h); font-size: 13px; font-weight: 700; text-decoration: none; }
 .sf-note { margin: 0; font-size: 14px; color: var(--muted); white-space: pre-wrap; }
 
 .sf-auth { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 100dvh; }
@@ -275,3 +278,4 @@ a { color: inherit; }
   .sf-side, .sf-bar i { transition: none; }
   .sf-order.is-skel { animation: none; }
 }
+.sf-head .btn .ico { width: 16px; height: 16px; }
