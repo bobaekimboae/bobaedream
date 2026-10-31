@@ -1,0 +1,8 @@
+node_modules
+.nuxt
+.output
+.data
+.DS_Store
+coverage
+reports/shots
+
