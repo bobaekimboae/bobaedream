@@ -2,12 +2,12 @@
 // 새 영상: autohaus-video 「Neues Video」와 같은 2단계(① 차량 정보 → ② 사진 올리기 · 요청사항 → 주문 1크레딧).
 // 같은 동작: 크레딧 0이면 구매 안내, 제조사·모델 없으면 다음 버튼 막힘, 사진 4장 전에는 주문 버튼 막힘, 주문하면 주문 화면으로.
 // 보배드림이 더한 것: 틀 · 음악 · 길이 고르기, 판매자 정보 · 로고(끝 장면), 접수하면 바로 이 폰에서 만든다(24시간 기다림 없음).
-import { computed, reactive, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from "vue";
 import Icon from "./Icon.vue";
 import { state, submit } from "../lib/jobs";
 import { MUSIC } from "../lib/music";
 import { MAX_PHOTOS, MIN_PHOTOS } from "../lib/make";
-import { newId, readProfile, writeProfile, type Car, type Style } from "../lib/store";
+import { clearDraft, newId, readDraft, readProfile, writeDraft, writeProfile, type Car, type Style } from "../lib/store";
 import { ct, rd } from "../lib/site";
 import { guard, guardText } from "@kit/text-guard";
 
@@ -23,6 +23,9 @@ const busy = ref(false);
 const tried = ref(false);
 const fileEl = ref<HTMLInputElement | null>(null);
 const logoEl = ref<HTMLInputElement | null>(null);
+const draftRestored = ref(false);
+const draftSavedAt = ref(0);
+let draftTimer = 0;
 
 const need1 = computed(() => !car.maker.trim() || !car.model.trim());
 const issues = computed(() => guard([["요청사항", note.value], ["색상", car.color], ["판매자 이름", profile.name], ["상사", profile.company], ["전화", profile.phone]]));
@@ -54,7 +57,10 @@ async function shrink(file: File): Promise<Blob | null> {
 
 async function add(files: FileList | File[] | null) {
   if (!files) return;
-  const list = Array.from(files).filter((f) => f.type.startsWith("image/") || /\.(heic|heif)$/i.test(f.name));
+  const source = Array.from(files);
+  const list = source.filter((f) => (f.type.startsWith("image/") || /\.(heic|heif)$/i.test(f.name)) && f.size <= 30 * 1024 * 1024);
+  const rejected = source.length - list.length;
+  if (rejected) emit("toast", `${rejected}장은 지원하지 않거나 30MB를 넘어서 제외했어요`);
   const room = MAX_PHOTOS - photos.value.length;
   if (list.length > room) emit("toast", `사진은 최대 ${MAX_PHOTOS}장이에요 · ${Math.max(0, room)}장만 넣었어요`);
   let bad = 0;
@@ -81,6 +87,58 @@ const toFront = (i: number) => {
   const [p] = photos.value.splice(i, 1);
   photos.value.unshift(p!);
 };
+const move = (i: number, delta: -1 | 1) => {
+  const target = i + delta;
+  if (target < 0 || target >= photos.value.length) return;
+  const [p] = photos.value.splice(i, 1);
+  photos.value.splice(target, 0, p!);
+};
+
+function draftPayload() {
+  return {
+    car: { ...car },
+    note: note.value,
+    style: { ...style },
+    profile: { ...profile },
+    savedAt: Date.now(),
+  };
+}
+function scheduleDraftSave() {
+  window.clearTimeout(draftTimer);
+  draftTimer = window.setTimeout(() => {
+    const draft = draftPayload();
+    writeDraft(state.owner, draft);
+    draftSavedAt.value = draft.savedAt;
+  }, 350);
+}
+function resetDraft() {
+  if (!window.confirm("작성 중인 차량 정보와 설정을 초기화할까요? 올린 사진도 모두 빠집니다.")) return;
+  Object.assign(car, { maker: "", model: "", year: "", price: "", mileage: "", color: "", url: "" });
+  note.value = "";
+  Object.assign(style, { template: "reels", music: "drive", seconds: 20 });
+  photos.value.forEach((p) => URL.revokeObjectURL(p.url));
+  photos.value = [];
+  clearDraft(state.owner);
+  draftSavedAt.value = 0;
+  draftRestored.value = false;
+  step.value = 1;
+}
+
+onMounted(() => {
+  const draft = readDraft(state.owner);
+  if (!draft) return;
+  Object.assign(car, draft.car);
+  note.value = draft.note;
+  Object.assign(style, draft.style);
+  Object.assign(profile, draft.profile);
+  draftSavedAt.value = draft.savedAt;
+  draftRestored.value = true;
+});
+watch(() => ({ car: { ...car }, note: note.value, style: { ...style }, profile: { ...profile } }), scheduleDraftSave, { deep: true });
+onBeforeUnmount(() => {
+  window.clearTimeout(draftTimer);
+  photos.value.forEach((p) => URL.revokeObjectURL(p.url));
+});
 
 async function onLogo(e: Event) {
   const f = (e.target as HTMLInputElement).files?.[0];
@@ -105,11 +163,22 @@ async function send() {
   if (need1.value) return emit("toast", "제조사와 모델은 꼭 적어 주세요");
   if (issues.value.length) return emit("toast", guardText(issues.value[0]!));
   if (state.credits < 1) return emit("go", "pricing");
+  const bytes = photos.value.reduce((sum, p) => sum + p.blob.size, 0);
+  try {
+    const estimate = await navigator.storage?.estimate?.();
+    if (estimate?.quota && estimate.usage != null && estimate.usage + bytes * 5 > estimate.quota * 0.95) {
+      return emit("toast", "저장 공간이 부족해요. 오래된 영상을 지운 뒤 다시 시도해 주세요");
+    }
+    await navigator.storage?.persist?.();
+  } catch {
+    /* 일부 브라우저는 저장 공간 API를 제공하지 않는다. 실제 저장 시 다시 검증한다. */
+  }
   busy.value = true;
   writeProfile({ ...profile });
   const id = newId();
   try {
     await submit({ id, createdAt: Date.now(), car: { ...car }, note: note.value.trim(), photos: photos.value.map((p) => p.blob), style: { ...style }, status: "queued", progress: 0, outputs: [] });
+    clearDraft(state.owner);
     emit("go", "order", id);
   } catch (e) {
     emit("toast", e instanceof Error ? e.message : "주문을 보내지 못했어요");
@@ -148,6 +217,10 @@ const TEMPLATES: { id: Style["template"]; label: string; desc: string }[] = [
         <div class="sf-field"><label for="f-color">색상</label><input id="f-color" v-model="car.color" placeholder="예: 블랙 펄" /></div>
         <div class="sf-field is-wide"><label for="f-url">매물 주소(선택)</label><input id="f-url" v-model="car.url" type="url" inputmode="url" placeholder="https://www.bobaedream.co.kr/..." /></div>
       </div>
+      <div class="sf-draft-row">
+        <span>{{ draftRestored ? "이전에 작성하던 내용을 불러왔어요" : draftSavedAt ? "작성 내용 자동 저장됨" : "입력 내용은 이 기기에 자동 저장됩니다" }}</span>
+        <button class="btn is-sm" type="button" @click="resetDraft">초기화</button>
+      </div>
       <p v-if="tried && need1" class="sf-hint" role="alert" :style="{ color: 'var(--bad)' }">제조사와 모델은 꼭 적어 주세요</p>
       <div class="sf-actions">
         <span class="grow" />
@@ -175,7 +248,7 @@ const TEMPLATES: { id: Style["template"]; label: string; desc: string }[] = [
       >
         <Icon :src="rd('image-post-outline')" />
         <b>사진을 끌어다 놓거나 눌러서 고르세요</b>
-        <span>JPG · PNG · HEIC · 최대 {{ MAX_PHOTOS }}장</span>
+        <span>JPG · PNG · WebP · HEIC(기기 지원 시) · 장당 30MB · 최대 {{ MAX_PHOTOS }}장</span>
       </div>
       <p class="sf-count">{{ photos.length }} / {{ MAX_PHOTOS }}장</p>
       <input ref="fileEl" type="file" accept="image/*" multiple hidden @change="onPick" />
@@ -183,6 +256,10 @@ const TEMPLATES: { id: Style["template"]; label: string; desc: string }[] = [
         <div v-for="(p, i) in photos" :key="p.url" class="sf-thumb">
           <img :src="p.url" :alt="`${i + 1}번째 사진`" />
           <span :class="`n ${i === 0 ? 'is-cover' : ''}`">{{ i === 0 ? "대표" : i + 1 }}</span>
+          <span class="ord">
+            <button type="button" :disabled="i === 0" :aria-label="`${i + 1}번째 사진을 앞으로`" @click="move(i, -1)">←</button>
+            <button type="button" :disabled="i === photos.length - 1" :aria-label="`${i + 1}번째 사진을 뒤로`" @click="move(i, 1)">→</button>
+          </span>
           <button v-if="i > 0" class="mv" type="button" :aria-label="`${i + 1}번째 사진을 대표로`" @click="toFront(i)">대표로</button>
           <button class="x" type="button" :aria-label="`${i + 1}번째 사진 빼기`" @click="remove(i)"><Icon :src="rd('close-outline')" /></button>
         </div>

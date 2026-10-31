@@ -25,6 +25,14 @@ export type Order = {
   outputs: Output[];
 };
 
+export type ShortformDraft = {
+  car: Car;
+  note: string;
+  style: Style;
+  profile: Profile;
+  savedAt: number;
+};
+
 const DB = "bbm-shortform";
 const STORE = "orders";
 let dbp: Promise<IDBDatabase> | null = null;
@@ -59,6 +67,7 @@ export const newId = () => `sf${Date.now().toString(36)}${Math.random().toString
 // 크레딧 · 판매자 정보: 이 브라우저 localStorage
 const CREDIT_KEY = "bbm-sf-credits";
 const PROFILE_KEY = "bbm-sf-profile";
+const DRAFT_KEY = "bbm-sf-draft";
 /** 시험용 무료 크레딧(autohaus-video의 「첫 영상 무료」를 따라 3개로 시작) */
 export const FREE_CREDITS = 3;
 const creditKey = (owner: string) => `${CREDIT_KEY}:${owner}`;
@@ -82,4 +91,20 @@ export function readProfile(): Profile {
 }
 export function writeProfile(p: Profile) {
   try { localStorage.setItem(PROFILE_KEY, JSON.stringify(p)); } catch { /* 로고가 너무 크면 저장 실패 — 화면은 계속 */ }
+}
+
+const draftKey = (owner: string) => `${DRAFT_KEY}:${owner || "guest"}`;
+export function readDraft(owner: string): ShortformDraft | null {
+  try {
+    const raw = localStorage.getItem(draftKey(owner));
+    return raw ? (JSON.parse(raw) as ShortformDraft) : null;
+  } catch {
+    return null;
+  }
+}
+export function writeDraft(owner: string, draft: ShortformDraft) {
+  try { localStorage.setItem(draftKey(owner), JSON.stringify(draft)); } catch { /* 주문 단계에서 저장 공간을 다시 검증 */ }
+}
+export function clearDraft(owner: string) {
+  try { localStorage.removeItem(draftKey(owner)); } catch { /* 지우지 못해도 제작은 계속 */ }
 }

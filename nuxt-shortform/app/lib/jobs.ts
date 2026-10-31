@@ -49,7 +49,14 @@ export async function submit(o: Order) {
   state.orders.unshift(o);
   state.credits -= 1;
   writeCredits(state.owner, state.credits);
-  await putOrder(o).catch(() => undefined);
+  try {
+    await putOrder(o);
+  } catch {
+    state.orders = state.orders.filter((x) => x.id !== o.id);
+    state.credits += 1;
+    writeCredits(state.owner, state.credits);
+    throw new Error("브라우저 저장 공간이 부족해요. 오래된 영상을 지우거나 저장 공간을 확보한 뒤 다시 시도해 주세요.");
+  }
   queue.push({ id: o.id, format: "A", aspect: "9:16" }, { id: o.id, format: "B", aspect: "9:16" });
   void pump();
 }
