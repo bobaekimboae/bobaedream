@@ -4,7 +4,7 @@
 import { ASPECT_SIZE, END_CARD, exportMp4, loadImage, makeQr, mp4VideoCodec, planDuration, type Cut, type ShortformAspect, type ShortformPlan } from "@kit/render";
 import { formatPrice } from "@kit/text-guard";
 import { bpmOf, makeMusic } from "./music";
-import type { Car, Order, Profile } from "./store";
+import type { Car, Format, Order, Profile } from "./store";
 
 export const MIN_PHOTOS = 4;
 export const MAX_PHOTOS = 20;
@@ -31,25 +31,32 @@ export function captionLines(car: Car, note: string, n: number) {
   return lines;
 }
 
-/** 한 컷 = 음악 4박(박자에 맞춰 넘어간다) */
-export const cutSeconds = (o: Order) => (4 * 60) / bpmOf(o.style.music);
-export function cutCount(o: Order) {
+/** 한 컷 = 음악 4박(박자에 맞춰 넘어간다). 형식 B는 사진을 오래 보여 주려고 6박 */
+export const cutSeconds = (o: Order, format: Format = "A") => ((format === "B" ? 6 : 4) * 60) / bpmOf(o.style.music);
+/** 형식 A = 고른 길이만큼(짧은 소개) · 형식 B = 사진 전부(최대 12장, 자세히 보기) */
+export const B_MAX_CUTS = 12;
+export function cutCount(o: Order, format: Format = "A") {
+  if (format === "B") return Math.max(1, Math.min(o.photos.length, B_MAX_CUTS));
   return Math.max(1, Math.min(o.photos.length, Math.round((o.style.seconds - END_CARD) / cutSeconds(o))));
 }
+export const FORMATS: { id: Format; label: string; desc: string }[] = [
+  { id: "A", label: "형식 A", desc: "짧은 소개 · 고른 틀" },
+  { id: "B", label: "형식 B", desc: "사진 전부 · 자세히 보기" },
+];
 
-export async function buildPlan(o: Order, profile: Profile, aspect: ShortformAspect): Promise<ShortformPlan> {
+export async function buildPlan(o: Order, profile: Profile, format: Format, aspect: ShortformAspect): Promise<ShortformPlan> {
   const [width, height] = ASPECT_SIZE[aspect];
-  const n = cutCount(o);
+  const n = cutCount(o, format);
   const urls = o.photos.slice(0, n).map((b) => URL.createObjectURL(b));
   try {
     const images = await Promise.all(urls.map((u) => loadImage(u)));
     const lines = captionLines(o.car, o.note, n);
     const cuts: Cut[] = [];
-    images.forEach((image, i) => image && cuts.push({ source: { kind: "image", image }, duration: cutSeconds(o), line: lines[i] ?? "" }));
+    images.forEach((image, i) => image && cuts.push({ source: { kind: "image", image }, duration: cutSeconds(o, format), line: lines[i] ?? "" }));
     const logo = profile.logo ? await loadImage(profile.logo) : null;
     const title = carTitle(o.car);
     const plan: ShortformPlan = {
-      template: aspect === "9:16" ? o.style.template : "card",
+      template: format === "B" || aspect !== "9:16" ? "card" : o.style.template,
       width,
       height,
       fps: 30,
@@ -73,8 +80,8 @@ export async function buildPlan(o: Order, profile: Profile, aspect: ShortformAsp
   }
 }
 
-export async function render(o: Order, profile: Profile, aspect: ShortformAspect, onProgress: (r: number) => void) {
-  const plan = await buildPlan(o, profile, aspect);
+export async function render(o: Order, profile: Profile, format: Format, aspect: ShortformAspect, onProgress: (r: number) => void) {
+  const plan = await buildPlan(o, profile, format, aspect);
   if (plan.cuts.length < MIN_PHOTOS) throw new Error("사진을 읽지 못했어요. JPG · PNG 사진으로 다시 올려 주세요.");
   const codec = (await mp4VideoCodec()) ?? "";
   const video = await exportMp4(plan, onProgress);

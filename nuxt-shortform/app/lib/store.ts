@@ -6,9 +6,13 @@ export type Profile = { name: string; company: string; phone: string; logo: stri
 export type Status = "queued" | "making" | "done" | "failed";
 export type Style = { template: "reels" | "card" | "band"; music: MusicId; seconds: 15 | 20 | 30 };
 export type MusicId = "drive" | "calm" | "punch" | "none";
-export type Output = { aspect: "9:16" | "1:1" | "16:9"; video: Blob; seconds: number; codec: string };
+/** 형식 A = 짧은 소개 영상, 형식 B = 사진 전부 · 자세히 보기 영상(autohaus-video 「Format A + B」, 크레딧 1개에 둘 다) */
+export type Format = "A" | "B";
+export type Output = { format?: Format; aspect: "9:16" | "1:1" | "16:9"; video: Blob; seconds: number; codec: string };
 export type Order = {
   id: string;
+  /** 주문한 계정(이메일). 다른 계정으로 로그인하면 보이지 않는다 */
+  owner?: string;
   createdAt: number;
   car: Car;
   note: string;
@@ -57,16 +61,17 @@ const CREDIT_KEY = "bbm-sf-credits";
 const PROFILE_KEY = "bbm-sf-profile";
 /** 시험용 무료 크레딧(autohaus-video의 「첫 영상 무료」를 따라 3개로 시작) */
 export const FREE_CREDITS = 3;
-export function readCredits(): number {
+const creditKey = (owner: string) => `${CREDIT_KEY}:${owner}`;
+export function readCredits(owner: string): number {
   try {
-    const v = localStorage.getItem(CREDIT_KEY);
+    const v = localStorage.getItem(creditKey(owner));
     return v == null ? FREE_CREDITS : Math.max(0, Number(v) || 0);
   } catch {
     return FREE_CREDITS;
   }
 }
-export function writeCredits(n: number) {
-  try { localStorage.setItem(CREDIT_KEY, String(n)); } catch { /* 저장 못 해도 화면은 계속 */ }
+export function writeCredits(owner: string, n: number) {
+  try { localStorage.setItem(creditKey(owner), String(n)); } catch { /* 저장 못 해도 화면은 계속 */ }
 }
 export function readProfile(): Profile {
   try {
