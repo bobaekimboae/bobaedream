@@ -13,10 +13,11 @@ import { useLayerEsc } from "../../composables/useLayerEsc";
 import SnsPublish from "./SnsPublish.vue";
 import { SHOOT } from "../../lib/items";
 import { saveFilesToDevice, saveToDevice, mp4Name } from "../../lib/save-mp4";
-import { analyzeClip, buildSound, isPhotoClip, maxShortsLength, planCuts, planPhotoCuts, type ClipInfo, type Highlight, type PlannedCut } from "../../lib/shorts";
+import { PHOTO_CUT_MAX, analyzeClip, buildSound, isPhotoClip, maxShortsLength, planCuts, planPhotoCuts, type ClipInfo, type Highlight, type PlannedCut } from "../../lib/shorts";
 import type { MadeShortform, ShortsInput } from "../../lib/shortform-types";
 import { rd, sitePath } from "../../lib/site";
 import { collectText, loadGlyphs } from "../../lib/fonts";
+import { carTags, cleanLabel, formatPrice, guard, guardText } from "../../lib/text-guard";
 
 const CFG = SHOOT.video.shorts;
 const INFO_KEY = "bbm-shoot-shorts-info";
@@ -53,7 +54,7 @@ const length = ref<number | null>(null);
 /** 표시한 장면(★). 잘못 표시했으면 여기서 뺀다. */
 const hlList = shallowRef<Highlight[]>(props.input.hl.slice());
 // 컷 자막 초안(2026-10-29 후속 ②): 공개로 켠 컷 메모 글이 있으면 부위 이름 대신 그 글(20자까지)
-const noteLine = (c: PlannedCut) => (props.input.notes?.[c.clip.key]?.trim() ? props.input.notes[c.clip.key]!.trim().slice(0, 20) : c.line);
+const noteLine = (c: PlannedCut) => (props.input.notes?.[c.clip.key]?.trim() ? props.input.notes[c.clip.key]!.trim().slice(0, 20) : cleanLabel(c.line));
 const codec = ref<string | null>(null);
 const template = ref<ShortformTemplate>("reels");
 const info = ref<Info>(loadInfo());
@@ -185,7 +186,9 @@ const clips = computed(() => (loaded.value ?? []).map((l) => l.clip));
 const maxLen = computed(() => maxShortsLength(clips.value, END_CARD));
 const origLen = computed(() => Math.min(60, maxShortsLength(clips.value, END_CARD, 60)));
 // 15 · 30 · 60초는 컷당 최대 6초로 짜되, 분량이 모자라면 컷을 길게 써서 원본 길이까지는 만든다.
-const fits = (s: number) => isPhoto.value || s <= origLen.value + 1;
+// 사진은 컷당 최대 4초라 사진 수로 만들 수 있는 길이가 정해진다. 가장 짧은 길이는 늘 고를 수 있다(짧게 만든다)
+const photoCap = computed(() => Math.min(PHOTO_CUT_MAX, photosLoaded.value?.length ?? 0) * 4 + END_CARD);
+const fits = (s: number) => (isPhoto.value ? s === CFG.lengths[0] || s <= photoCap.value + 1 : s <= origLen.value + 1);
 const autoLen = computed(() => [...CFG.lengths].reverse().find((s) => s <= 30 && s <= maxLen.value + 1) ?? 0);
 const len = computed(() => (isPhoto.value ? length.value || 15 : (length.value ?? autoLen.value)));
 const photoLabels = computed(() => (photosLoaded.value ?? []).map((p) => p.label));
@@ -225,7 +228,7 @@ const plan = computed<ShortformPlan | null>(() => {
     hook: hook.value.trim(),
     title,
     trim: "",
-    price: i.price.trim(),
+    price: formatPrice(i.price),
     specs: [],
     place: "",
     showPrice: Boolean(i.price.trim()),
@@ -316,6 +319,10 @@ watch(
 const make = async () => {
   const p = plan.value;
   if (!p) return;
+  if (issues.value.length) {
+    say(guardText(issues.value[0]));
+    return;
+  }
   playing.value = false;
   cancelled = false;
   making.value = 0;
@@ -341,7 +348,7 @@ let autoDone = !props.auto;
 watch([ready, plan, can, soundBusy, logoDone], ([r, p, c, sb, ld]) => {
   if (autoDone || !r || !p || c === null || sb || !ld) return;
   autoDone = true;
-  if (c) void make();
+  if (c && !issues.value.length) void make();
 }, { immediate: true });
 const saveMade = async () => {
   const m = made.value;
@@ -352,6 +359,19 @@ const saveMade = async () => {
 };
 
 const total = computed(() => (plan.value ? planDuration(plan.value) : 0));
+// 글자 안전장치(2026-10-31 컨설팅 전체 대조): 판단 표현 · 휴대폰 번호가 있으면 만들기를 막고 고칠 칸을 알려 준다
+const issues = computed(() => {
+  const i = info.value;
+  return guard([
+    ["첫 화면 문구", hook.value],
+    ["차량 이름", i.title],
+    ["가격", i.price],
+    ["딜러 이름", i.name],
+    ["상사", i.company],
+    ["연락처", i.phone],
+    ...cuts.value.map((c, n): [string, string] => [`${n + 1}번 컷 자막`, lines.value[cutKey(c)] ?? noteLine(c)]),
+  ]);
+});
 const stopMaking = () => {
   cancelled = true;
 };
@@ -364,7 +384,7 @@ const layerRef = ref<HTMLElement | null>(null);
 useLayerEsc(layerRef, closeOrCancel);
 const caption = computed(() => {
   const i = info.value;
-  return [i.title.trim(), i.price.trim(), damageLine(props.input.damage), [i.name.trim() && `${i.name.trim()} 딜러`, i.company.trim(), i.phone.trim()].filter(Boolean).join(" · "), "#보배드림 #중고차 #실매물 #Shorts"].filter(Boolean).join("\n");
+  return [i.title.trim(), formatPrice(i.price), damageLine(props.input.damage), [i.name.trim() && `${i.name.trim()} 딜러`, i.company.trim(), i.phone.trim()].filter(Boolean).join(" · "), ["#보배드림 #중고차", ...carTags(i.title), "#실매물 #Shorts"].join(" ")].filter(Boolean).join("\n");
 });
 const madeInfo = computed<MadeShortform | null>(() =>
   made.value ? { id: "shoot-shorts", url: made.value.url, poster: "", carId: 0, title: info.value.title.trim() || "보배드림 실매물", template: template.value, seconds: made.value.seconds, aspect: "9:16" } : null,
@@ -460,12 +480,12 @@ const setLine = (c: PlannedCut, e: Event) => {
             <h3>차량 · 판매자 <small>선택 · 지난번에 적은 값을 기억해요</small></h3>
             <div class="shoot-shorts__form">
               <input :value="info.title" :maxlength="30" placeholder="차량 이름 (선택 · 예: 벤츠 S580 4MATIC)" aria-label="차량 이름" @input="setInfo('title', $event)" />
-              <input :value="info.price" :maxlength="16" placeholder="가격 (예: 1억 2,500만원 · 비우면 안 보임)" aria-label="가격" @input="setInfo('price', $event)" />
+              <input :value="info.price" :maxlength="16" placeholder="가격 (예: 1억 2,500만원 · 비우면 안 보임)" aria-label="가격" @input="setInfo('price', $event)" @blur="info = { ...info, price: formatPrice(info.price) }" />
               <div class="shoot-shorts__row2">
                 <input :value="info.name" :maxlength="10" placeholder="딜러 이름 (선택)" aria-label="딜러 이름" @input="setInfo('name', $event)" />
                 <input :value="info.company" :maxlength="16" placeholder="상사 (선택)" aria-label="상사" @input="setInfo('company', $event)" />
               </div>
-              <input :value="info.phone" :maxlength="16" inputmode="tel" placeholder="연락처 (선택 · 끝 장면에 보여요)" aria-label="연락처" @input="setInfo('phone', $event)" />
+              <input :value="info.phone" :maxlength="16" inputmode="tel" placeholder="050 안심번호 (선택 · 끝 장면에 보여요)" aria-label="연락처" @input="setInfo('phone', $event)" />
             </div>
             <h3>첫 화면 문구</h3>
             <input class="shoot-shorts__input" :value="hook" :maxlength="24" placeholder="비워 두면 첫 화면 문구 없이 만들어요" aria-label="첫 화면 문구" @input="hook = ($event.target as HTMLInputElement).value" />
@@ -476,14 +496,15 @@ const setLine = (c: PlannedCut, e: Event) => {
                 <input :value="lines[cutKey(c)] ?? noteLine(c)" :maxlength="20" :aria-label="`${c.clip.label} 자막`" @input="setLine(c, $event)" />
               </li>
             </ol>
-            <p class="shoot-shorts__note">자막은 직접 적은 내용만 들어가요. 사고·정비 이력은 확인한 것만 적어 주세요.</p>
+            <p class="shoot-shorts__note">자막은 직접 적은 내용만 들어가요. 사고·정비 이력은 확인한 것만 적어 주세요. 「무사고」 · 「신차급」 같은 판단 표현과 휴대폰 번호는 쓸 수 없어요.</p>
           </details>
         </section>
       </template>
     </div>
     <footer v-if="ready && cuts.length && !made" class="shoot-shorts__foot">
+      <p v-if="issues.length" class="shoot-shorts__warn is-guard" role="alert">{{ guardText(issues[0]) }}{{ issues.length > 1 ? ` 외 ${issues.length - 1}곳` : "" }} · 「자막 · 정보 고치기」에서 고쳐 주세요</p>
       <p v-if="codec && codec !== 'avc'" class="shoot-shorts__warn is-short" title="이 브라우저는 H.264로 만들지 못해요">{{ codec.toUpperCase() }} 방식으로 만들어져요 · 인스타그램·아이폰용은 사파리나 최신 크롬에서 만들어 주세요</p>
-      <button type="button" class="shoot-shorts__primary" :disabled="!plan || can === false || making != null" @click="make()">{{ can === false ? "이 브라우저에서는 mp4를 만들 수 없어요" : `쇼츠 mp4 만들기 · ${mmss(total)}` }}</button>
+      <button type="button" class="shoot-shorts__primary" :disabled="!plan || can === false || making != null || issues.length > 0" @click="make()">{{ can === false ? "이 브라우저에서는 mp4를 만들 수 없어요" : `쇼츠 mp4 만들기 · ${mmss(total)}` }}</button>
       <!-- 틱톡 사진 묶음(2026-10-29 후속 ③): 영상이 아니라 장면 사진 N장을 그대로 틱톡 사진 모드·인스타 여러 장 게시물에 -->
       <button v-if="isPhoto" type="button" class="shoot-shorts__ghost is-frames" :disabled="!plan || framing" @click="saveFrames">{{ framing ? "사진을 만드는 중…" : `틱톡 사진 묶음으로 저장 · ${cuts.length + 1}장` }}</button>
     </footer>

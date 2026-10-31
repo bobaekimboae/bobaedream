@@ -107,6 +107,8 @@ export const ENFORCE = !PLUS || ENFORCE_REQUIRED;
 export const ENF_TEXT = SHOOT.enforcedText;
 /** 카메라가 안 켜졌을 때 시험용 대체 그림으로 찍기를 허락할지(2026-10-27 실기 대비: 키트는 ?debug · ?fakecam 일 때만) */
 export const ALLOW_FAKE = !PLUS || (typeof window !== "undefined" && /[?&](debug|fakecam)=/.test(window.location.search));
+/** ?fakecam(키트): 실제 카메라를 켜지 않고 시험용 그림으로만 찍는다(2026-10-31 컨설팅 전체 대조) */
+export const FAKE_ONLY = PLUS && typeof window !== "undefined" && /[?&]fakecam=/.test(window.location.search);
 /** 필수 등급 이름: 강제하면 「필수」, 아니면 JSON levelLabels.required(「우선」) */
 export const reqLabel = () => (ENFORCE ? ENF_TEXT.levelLabel : levelLabel("required"));
 export const MAX_EXTRA = 6;

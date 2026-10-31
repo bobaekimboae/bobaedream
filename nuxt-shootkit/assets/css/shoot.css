@@ -5220,3 +5220,84 @@ body:has(.shoot-layer) .shoot-install {
   color: #fff;
   box-shadow: none;
 }
+
+/* 2026-10-31 컨설팅 전체 대조 P1 */
+/* 사진 지우기: 보이는 원은 22 그대로, 누르는 곳 44 */
+.shoot-root.is-kit .shoot-tile__del::after {
+  width: 44px;
+  height: 44px;
+}
+/* 지운 사진 되돌리기 줄(5초) */
+.shoot-undo {
+  position: absolute;
+  z-index: 61;
+  left: 16px;
+  right: 16px;
+  bottom: calc(76px + env(safe-area-inset-bottom));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 4px 0 16px;
+  border-radius: 10px;
+  background: rgba(34, 34, 34, 0.94);
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+}
+.shoot-undo span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.shoot-undo button {
+  flex: none;
+  min-width: 44px;
+  height: 44px;
+  padding: 0 12px;
+  color: #ffb27a !important;
+  font-size: 14px;
+  font-weight: 700;
+}
+/* 녹화 중 「버리고 다시」 · 녹화 전 마이크 상태 */
+.shoot-recwrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.shoot-redo {
+  height: 32px;
+  padding: 0 10px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  color: #fff !important;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.shoot-mic {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  white-space: nowrap;
+}
+.shoot-mic small {
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 15px;
+  color: rgba(255, 255, 255, 0.7);
+}
+.shoot-mic.is-off {
+  color: #ffb27a;
+}
+/* 쇼츠 글자 안전장치 알림 */
+.shoot-shorts__warn.is-guard {
+  color: #c2410c;
+}

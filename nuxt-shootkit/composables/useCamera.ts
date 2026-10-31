@@ -1,5 +1,6 @@
 // 후면 카메라 스트림(리액트 useCamera와 같은 동작). active가 false가 되면 바로 끈다.
 import { onBeforeUnmount, ref, shallowRef, watch, type Ref } from "vue";
+import { FAKE_ONLY } from "../lib/core";
 
 export type CameraError = "" | "denied" | "unavailable";
 export type CameraState = {
@@ -23,7 +24,7 @@ export function useCamera(active: () => boolean, withAudio: () => boolean, size?
   const start = () => {
     stop?.();
     stop = null;
-    if (!active()) return;
+    if (!active() || FAKE_ONLY) return;
     let cancelled = false;
     const md = navigator.mediaDevices;
     if (!md?.getUserMedia) {
