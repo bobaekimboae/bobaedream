@@ -51,10 +51,10 @@ export const setAutoSortConsent = (on: boolean) => {
 };
 
 /** 인식기 불러오기. onProgress(0~1)는 처음 내려받을 때만 의미 있다. */
-export function loadSorter(onProgress?: (p: number) => void): Promise<Sorter> {
+export function loadSorter(onProgress?: (p: number) => void, workerBase?: string): Promise<Sorter> {
   if (loading) return loading;
   loading = (async () => {
-    const base = new URL(SITE_BASE, document.baseURI);
+    const base = new URL(workerBase ?? SITE_BASE, workerBase ?? document.baseURI);
     const data: Data = await (await fetch(new URL(["data", "shoot-autosort-v1.json"].join("/"), base))).json();
     const T = data.classes.map((c) => dec(data.text[c]));
     const P = data.classes.map((c) => (data.protos[c] ?? []).map(dec));
@@ -64,8 +64,8 @@ export function loadSorter(onProgress?: (p: number) => void): Promise<Sorter> {
     // 자동 시험용: 인식 모델 · 실행 파일을 다른 주소에서 받도록 바꿀 수 있다(평소에는 Hugging Face · jsDelivr)
     // 사이트가 교차 출처 격리가 아니면 여러 스레드를 못 써서 멈출 수 있다 → 한 스레드로
     const onnxEnv = tf.env.backends.onnx as { wasm?: { numThreads?: number; wasmPaths?: string } };
-    if (onnxEnv.wasm && !window.crossOriginIsolated) onnxEnv.wasm.numThreads = 1;
-    const testHost = (window as Window & { __BBM_MODEL_HOST?: string }).__BBM_MODEL_HOST;
+    if (onnxEnv.wasm && !globalThis.crossOriginIsolated) onnxEnv.wasm.numThreads = 1;
+    const testHost = (globalThis as typeof globalThis & { __BBM_MODEL_HOST?: string }).__BBM_MODEL_HOST;
     if (testHost) {
       tf.env.remoteHost = testHost;
       if (onnxEnv.wasm) onnxEnv.wasm.wasmPaths = `${testHost}ort/`;

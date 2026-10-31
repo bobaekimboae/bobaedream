@@ -1,0 +1,18 @@
+{
+  "environment": "Linux Chromium 134 / Playwright 1.51.1, local model relay",
+  "tests": [
+    {
+      "scenario": "YOLOS then CLIP in one worker",
+      "result": "failed",
+      "error": "page.evaluate: Target page, context or browser has been closed"
+    },
+    {
+      "scenario": "CLIP alone in fresh worker",
+      "result": "failed",
+      "error": "page.evaluate: Target page, context or browser has been closed"
+    }
+  ],
+  "cause": "Test harness DevTools relay exceeded 104857600 byte pending-read limit while base64-transferring the 89117001 byte model. Browser log: Too large read data is pending; Connection closed, not enough capacity.",
+  "mitigation": "Model files are streamed by a local HTTP mirror rather than sent in a DevTools route.fulfill body. CLIP-only retry succeeded twice; see benchmark-slot.json. The client also retains one-model-per-worker isolation.",
+  "resolved": true
+}

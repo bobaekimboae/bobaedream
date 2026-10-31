@@ -1,0 +1,81 @@
+{
+  "mode": "slot",
+  "before": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "note": "unavailable in this environment"
+  },
+  "loaded": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "note": "unavailable in this environment",
+    "workerHeap": {
+      "available": true,
+      "usedSize": 5919668,
+      "totalSize": 10158080,
+      "embedderHeapUsedSize": 6952888,
+      "backingStorageSize": 13059067
+    }
+  },
+  "stopped": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "note": "unavailable in this environment"
+  },
+  "longTasks": [],
+  "rows": [],
+  "slotResults": [
+    {
+      "id": 2,
+      "result": {
+        "cls": "front",
+        "score": 0.8450089914402881,
+        "scores": {
+          "front34": 0.8248564053228054,
+          "rear34": 0.7927109232465696,
+          "front": 0.8450089914402881,
+          "rear": 0.7847467907587833,
+          "side": 0.6848619354383823,
+          "cluster": 0.6106590617145974,
+          "dashboard": 0.6678607379744488,
+          "center": 0.6797560104839366,
+          "frontseat": 0.7000762770514668,
+          "rearseat": 0.6628264642485984,
+          "engine": 0.6502734745873823,
+          "trunk": 0.6662007232160787,
+          "wheel": 0.6924665460336761,
+          "gear": 0.6357884070289653,
+          "door": 0.6333179720498068,
+          "other": 0.6172442189906683
+        }
+      },
+      "ms": 2866.8000000002794
+    },
+    {
+      "id": 3,
+      "result": {
+        "cls": "front",
+        "score": 0.8450089914402881,
+        "scores": {
+          "front34": 0.8248564053228054,
+          "rear34": 0.7927109232465696,
+          "front": 0.8450089914402881,
+          "rear": 0.7847467907587833,
+          "side": 0.6848619354383823,
+          "cluster": 0.6106590617145974,
+          "dashboard": 0.6678607379744488,
+          "center": 0.6797560104839366,
+          "frontseat": 0.7000762770514668,
+          "rearseat": 0.6628264642485984,
+          "engine": 0.6502734745873823,
+          "trunk": 0.6662007232160787,
+          "wheel": 0.6924665460336761,
+          "gear": 0.6357884070289653,
+          "door": 0.6333179720498068,
+          "other": 0.6172442189906683
+        }
+      },
+      "ms": 195.70000000018626
+    }
+  ]
+}

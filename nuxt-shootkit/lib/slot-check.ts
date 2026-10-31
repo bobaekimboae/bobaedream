@@ -3,7 +3,8 @@
 // 처음 받는 약 90MB를 사진 찍을 때 몰래 내려받지 않는다. 사진은 밖으로 보내지 않고 고치지 않는다(알림만).
 // 좌우 방향(좌측면 · 우측면)은 인식기가 구분하지 못하므로 「외관 · 실내 · 엔진룸 · 트렁크」 큰 묶음이 다를 때만 알린다.
 import { ITEMS, OTHER_ID, groupOf } from "./items";
-import { autoSortConsented, loadSorter, type SortResult } from "./autosort";
+import type { SortResult } from "./autosort";
+import { classifyShot } from "./capture-ai";
 
 /** 인식 부류 → 그 부류를 받는 첫 칸 id */
 const CLASS_ITEM = new Map<string, string>();
@@ -24,11 +25,11 @@ export function slotMismatch(r: SortResult, slot: string, margin = SLOT_MARGIN):
 }
 
 /** 인식기가 준비된 폰에서만 잰다. 못 재면 null(알리지 않음) */
-export async function checkSlot(src: string, slot: string): Promise<string | null> {
-  if (typeof window === "undefined" || slot === OTHER_ID || !autoSortConsented()) return null;
+export async function checkSlot(src: string, slot: string, allowed: () => boolean): Promise<string | null> {
+  if (typeof window === "undefined" || slot === OTHER_ID || !allowed()) return null;
   try {
-    const sorter = await loadSorter();
-    return slotMismatch(await sorter.classify(src), slot);
+    const result = await classifyShot(src);
+    return allowed() ? slotMismatch(result, slot) : null;
   } catch {
     return null;
   }

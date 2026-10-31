@@ -33,8 +33,8 @@ import { rd } from "../../lib/site";
 import { GUIDE_ON, askTilt, type CamSession } from "../../lib/photo-capture";
 import { QC_TAG, QC_TEXT, QC_TIP, checkPhoto, firstIssue, type QcIssue } from "../../lib/quality";
 import { checkSlot } from "../../lib/slot-check";
-import { autoSortConsented, loadSorter, setAutoSortConsent } from "../../lib/autosort";
-import { CUE_KINDS, CUE_TEXT, cueOf, loadDetector, type CueKind } from "../../lib/frame-cue";
+import { aiBusy, captureAiConsented, setCaptureAiConsent, detectFrame, stopCaptureAi } from "../../lib/capture-ai";
+import { CUE_KINDS, CUE_TEXT, cueOf, cueStabilizer, type CueKind } from "../../lib/frame-cue";
 import { slotShown } from "../../lib/body";
 
 const props = defineProps<{ existing: Photo[]; startMode: "cam" | "album" }>();
@@ -42,11 +42,12 @@ const emit = defineEmits<{ close: []; done: [added: Photo[]]; notify: [t: string
 const notify = (t: string) => emit("notify", t);
 
 const mode = ref<"cam" | "album">(props.startMode);
+const visible = ref(!document.hidden);
 // 2026-10-29 자가 체크(7라운드 지적): 사진 카메라는 4:3으로 요청해 가로 틀 저장 크기를 키운다(세로 폰 1200×900). 58 재현은 예전 16:9
 const { stream, error, torchSupported, retry, setTorch } = useCamera(
-  () => mode.value === "cam",
+  () => mode.value === "cam" && (!PLUS || visible.value),
   () => false,
-  PLUS ? { width: { ideal: 1600 }, height: { ideal: 1200 } } : undefined,
+  PLUS ? { width: { ideal: 1600 }, height: { ideal: 1200 }, frameRate: { ideal: 24, max: 30 } } : undefined,
 );
 // 실기 대비(2026-10-27): 5초가 지나도 카메라 화면이 안 뜨면 안내 화면으로(영상 화면과 같게)
 const camSlow = ref(false);
@@ -186,8 +187,9 @@ const runQc = (shot: Photo) => {
     if (issue && session.value.picked.includes(shot.id)) qcCard.value = { id: shot.id, issue };
   });
   // 칸 검사: 「AI 도움」을 켠 폰에서만. 밝기 · 흔들림 알림이 먼저 떠 있으면 그것을 덮지 않는다
-  if (aiOn.value) void checkSlot(shot.src, shot.slot).then((guess) => {
-    if (!alive || !guess) return;
+  const version = aiVersion;
+  if (aiOn.value) void checkSlot(shot.src, shot.slot, () => alive && aiOn.value && version === aiVersion && !document.hidden).then((guess) => {
+    if (!alive || !aiOn.value || version !== aiVersion || !guess) return;
     setGuess(shot.id, guess);
     if (session.value.picked.includes(shot.id) && !(qcCard.value?.id === shot.id && qcCard.value.issue)) qcCard.value = { id: shot.id, guess, slot: shot.slot };
   });
@@ -198,23 +200,25 @@ const retakeQc = () => {
   qcCard.value = null;
 };
 
-// 사진 AI 도움(2026-10-31): 칸 검사 + 찍기 전 위치 안내. 인식 기능을 처음 한 번 받아야 해서(약 100MB) 켤 때 묻는다.
-// 앨범 「부위 나누기」와 같은 동의를 쓴다(이미 받은 폰은 처음부터 켜짐). 사진 · 화면은 폰 밖으로 나가지 않는다.
-const aiOn = ref(PLUS && autoSortConsented());
+// 위치 안내와 앨범 부위 나누기는 별도 동의. AI 끄기는 다음 진입에도 유지한다.
+const aiOn = ref(PLUS && captureAiConsented());
 const askAi = ref(false);
+let aiVersion = 0;
 const toggleAi = () => {
-  if (aiOn.value) return void (aiOn.value = false);
-  if (autoSortConsented()) return void (aiOn.value = true);
+  if (aiOn.value) {
+    setCaptureAiConsent(false);
+    aiOn.value = false;
+    return;
+  }
   askAi.value = true;
 };
 const acceptAi = () => {
   askAi.value = false;
-  setAutoSortConsent(true);
+  setCaptureAiConsent(true);
   aiOn.value = true;
-  notify("AI 도움을 켰어요 · 처음 한 번 인식 기능을 받는 동안 조금 걸려요");
-  // 미리 받아 둔다(실패해도 촬영은 그대로)
-  void loadSorter().catch(() => undefined);
+  notify("AI를 준비하는 중에도 바로 촬영할 수 있어요");
 };
+watch(aiOn, () => { aiVersion++; if (!aiOn.value) stopCaptureAi(); });
 const shoot = () => {
   qcCard.value = null;
   const prev = slotShots.value[sel.value];
@@ -346,53 +350,70 @@ const curSlot = computed(() => rail.value[sel.value] ?? OTHER);
 const heroLock = computed(() => plateLocked(curSlot.value));
 const curOrient = computed<Orientation>(() => (PLUS ? (orientOverride.value[curSlot.value] ?? orientationOf(curSlot.value)) : "any"));
 const isLandscape = computed(() => curOrient.value === "landscape");
-/** 위치 안내(2026-10-31): 외관 칸에서 카메라 화면을 작게 떠서 차 위치를 본다. 한 번 보고 0.6초 쉬고 다시 본다 */
+/** 위치 안내: worker 1개에서 직렬 실행. 숨김/팝업/사진 검사는 위치 추론보다 우선한다. */
 const cue = ref<CueKind | null>(null);
-const cueOn = computed(() => PLUS && aiOn.value && mode.value === "cam" && Boolean(stream.value) && CUE_KINDS.has(itemOf(curSlot.value).guide.kind));
+const cueState = ref<"loading" | "ready" | "unavailable">("loading");
+const visibility = () => { visible.value = !document.hidden; if (document.hidden) { aiVersion++; stopCaptureAi(); } };
+document.addEventListener("visibilitychange", visibility);
+onBeforeUnmount(() => { document.removeEventListener("visibilitychange", visibility); stopCaptureAi(); });
+const cueOn = computed(() => PLUS && aiOn.value && visible.value && mode.value === "cam" && Boolean(stream.value) && !askClose.value && !qcCard.value && CUE_KINDS.has(itemOf(curSlot.value).guide.kind));
 watch(
   [cueOn, curSlot, isLandscape],
   (_v, _o, onCleanup) => {
     cue.value = null;
+    cueState.value = "loading";
     if (!cueOn.value) return;
     let stop = false;
     let timer = 0;
+    let stale = 0;
+    let warmed = false;
+    const stabilize = cueStabilizer();
+    const canvas = document.createElement("canvas");
     const kind = itemOf(curSlot.value).guide.kind;
     const tick = async () => {
       if (stop) return;
+      let cost = 0;
       try {
-        const detect = await loadDetector();
         const video = videoRef.value?.querySelector("video");
         const view = videoRef.value;
-        if (!stop && video && view && !document.hidden) {
+        if (video && view && video.readyState >= 2 && !aiBusy()) {
           const vr = view.getBoundingClientRect();
           const fr = isLandscape.value ? frameRef.value?.getBoundingClientRect() : null;
           const rect = fr ? { x: fr.left - vr.left, y: fr.top - vr.top, w: fr.width, h: fr.height } : { x: 0, y: 0, w: vr.width, h: vr.height };
-          const small = grabView(video, vr.width, vr.height, rect, 320, 0.7);
-          if (small) {
-            const size = await new Promise<{ w: number; h: number }>((res) => {
-              const im = new Image();
-              im.onload = () => res({ w: im.naturalWidth, h: im.naturalHeight });
-              im.onerror = () => res({ w: 0, h: 0 });
-              im.src = small;
-            });
-            const dets = await detect(small);
-            if (!stop) cue.value = cueOf(dets, size.w, size.h, kind);
+          const vw = video.videoWidth, vh = video.videoHeight;
+          if (vw && vh && vr.width && vr.height && rect.w > 0 && rect.h > 0) {
+            const scale = Math.max(vr.width / vw, vr.height / vh);
+            const sx = Math.max(0, (rect.x - (vr.width - vw * scale) / 2) / scale);
+            const sy = Math.max(0, (rect.y - (vr.height - vh * scale) / 2) / scale);
+            const sw = Math.min(vw - sx, rect.w / scale), sh = Math.min(vh - sy, rect.h / scale);
+            const ratio = Math.min(1, 448 / Math.max(sw, sh));
+            canvas.width = Math.max(1, Math.round(sw * ratio));
+            canvas.height = Math.max(1, Math.round(sh * ratio));
+            const ctx = canvas.getContext("2d", { willReadFrequently: true })!;
+            ctx.drawImage(video, sx, sy, sw, sh, 0, 0, canvas.width, canvas.height);
+            const start = performance.now();
+            const dets = await detectFrame(ctx.getImageData(0, 0, canvas.width, canvas.height).data, canvas.width, canvas.height);
+            cost = performance.now() - start;
+            if (!stop) {
+              cueState.value = "ready";
+              cue.value = stabilize(dets ? cueOf(dets, canvas.width, canvas.height, kind) : null);
+              window.clearTimeout(stale);
+              stale = window.setTimeout(() => (cue.value = null), 3500);
+            }
           }
         }
       } catch {
-        // 인식기를 못 받으면(오프라인 등) 안내 없이 찍는다
-        stop = true;
-        return;
+        if (!stop) { cue.value = null; cueState.value = "unavailable"; }
+        return; // 오프라인·실패를 무한 재시도하지 않는다. 끄고 다시 켜면 재시도한다.
       }
-      if (!stop) timer = window.setTimeout(() => void tick(), 600);
+      // 최대 1fps, 느린 장치에서는 추론 시간 3배를 쉬어 열/전력 부담을 줄인다.
+      if (!stop) timer = window.setTimeout(() => void tick(), Math.max(1000, Math.min(10000, warmed ? cost * 3 : 1000)));
+      if (cost) warmed = true;
     };
     void tick();
-    onCleanup(() => {
-      stop = true;
-      window.clearTimeout(timer);
-    });
+    onCleanup(() => { stop = true; window.clearTimeout(timer); window.clearTimeout(stale); canvas.width = canvas.height = 0; });
   },
-  { immediate: true },
+  { immediate: true, flush: "post" },
 );
 
 const flipOrient = () => {
@@ -435,6 +456,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
         <LevelMeter v-if="PLUS && !['dash', 'cluster'].includes(itemOf(curSlot).guide.kind)" />
         <span class="shoot-pill">{{ `${itemLabel(curSlot)}${curSlot === OTHER ? " 사진" : ""} 촬영` }}</span>
         <!-- 찍기 전 위치 안내(2026-10-31): 외관 칸 · AI 도움 켰을 때만 -->
+        <span v-if="cueOn && !cue" class="shoot-cue" role="status">{{ cueState === "loading" ? "AI 준비 중 · 바로 촬영할 수 있어요" : cueState === "unavailable" ? "AI 안내를 사용할 수 없어요 · 촬영은 가능해요" : "차 전체가 틀 안에 보이도록 맞춰 주세요" }}</span>
         <span v-if="cueOn && cue && !qcCard" :class="`shoot-cue ${cue === 'ok' ? 'is-ok' : ''}`" role="status" aria-live="polite">{{ CUE_TEXT[cue] }}</span>
         <!-- 첫 칸(대표 사진): 왼쪽 위 「대표」 딱지(JSON note). -->
         <div ref="railEl" class="shoot-rail">
@@ -547,7 +569,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
     />
     <Confirm
       v-if="askAi"
-      text="AI 도움을 켤까요? 찍은 사진이 칸에 맞는지 확인하고, 찍기 전에 차 위치를 알려 줘요. 처음 한 번 인식 기능(약 100MB)을 받아요 · 와이파이를 권해요. 사진과 화면은 폰 밖으로 나가지 않아요."
+      text="AI 도움을 켤까요? 찍은 사진이 칸에 맞는지 확인하고, 찍기 전에 차 위치를 알려 줘요. 위치 안내 모델은 약 10MB, 촬영 후 칸 확인 모델은 약 90MB이며 실행 파일을 추가로 받아요. 와이파이를 권해요. 준비 중에도 바로 촬영할 수 있고, AI를 끄면 처리를 중지해요. AI 분석을 위해 사진과 화면을 전송하지 않아요."
       cancel-text="다음에"
       ok-text="켜기"
       @cancel="askAi = false"

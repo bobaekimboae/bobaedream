@@ -1,0 +1,93 @@
+{
+  "mode": "default512",
+  "before": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "rawProbeReturnedZero": true,
+    "note": "Unavailable: environment did not expose valid process readings; zero is not a memory measurement."
+  },
+  "loaded": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "rawProbeReturnedZero": true,
+    "note": "Unavailable: environment did not expose valid process readings; zero is not a memory measurement."
+  },
+  "stopped": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "rawProbeReturnedZero": true,
+    "note": "Unavailable: environment did not expose valid process readings; zero is not a memory measurement."
+  },
+  "longTasks": [],
+  "rows": [
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "original",
+      "ms": 16519.5,
+      "elapsed": 16520.299999999814,
+      "dets": [
+        {
+          "score": 0.5875626802444458,
+          "label": "car",
+          "box": {
+            "xmin": 48,
+            "ymin": 66,
+            "xmax": 274,
+            "ymax": 203
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "original",
+      "ms": 15550.100000000093,
+      "elapsed": 15550.69999999972,
+      "dets": [
+        {
+          "score": 0.6756016612052917,
+          "label": "car",
+          "box": {
+            "xmin": 48,
+            "ymin": 63,
+            "xmax": 273,
+            "ymax": 202
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "far",
+      "ms": 14851.600000000093,
+      "elapsed": 14852.80000000028,
+      "dets": [
+        {
+          "score": 0.8744231462478638,
+          "label": "car",
+          "box": {
+            "xmin": 113,
+            "ymin": 97,
+            "xmax": 214,
+            "ymax": 155
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "far",
+      "ms": 15119.5,
+      "elapsed": 15120.19999999972,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    }
+  ]
+}
