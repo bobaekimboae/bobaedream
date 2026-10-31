@@ -12,6 +12,7 @@
 .boardOrderBackdrop,.communityMenuBackdrop{position:fixed;inset:0;z-index:130;background:rgba(0,0,0,.86);display:flex;justify-content:center;align-items:flex-end}
 .boardOrderBackdrop[hidden]{display:none}
 .boardOrderPanel,.communityMenuPanel{width:100%;max-width:720px;height:calc(100dvh - 12px);border-radius:17px 17px 0 0;background:#fff;display:flex;flex-direction:column;color:#202226;overflow:hidden}
+.boardOrderPanel:focus{outline:none}
 .boardOrderHeader,.communityMenuHeader{height:44px;flex:0 0 44px;display:grid;grid-template-columns:1fr 44px;align-items:center;padding:0 7px 0 14px;background:#fff;border-bottom:0}
 .boardOrderHeader h2,.communityMenuHeader h2{margin:0;text-align:left;font-size:18px;line-height:24px;font-weight:800;letter-spacing:-.045em}
 .boardOrderClose,.communityMenuClose{width:44px;height:44px;display:grid;place-items:center;border-radius:50%;cursor:pointer}
