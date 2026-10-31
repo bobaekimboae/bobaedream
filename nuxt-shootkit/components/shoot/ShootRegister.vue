@@ -19,6 +19,7 @@ import ProgressSheet from "./ProgressSheet.vue";
 import ShortsMaker from "./ShortsMaker.vue";
 import { useDragSwap } from "../../composables/useDragSwap";
 import { swapPhotos } from "../../lib/photo-sort";
+import { savePrefs } from "../../lib/stage-prefs";
 import { bakeSticker, normalizeFile } from "../../lib/image-ops";
 import { QC_TAG, QC_TEXT, checkPhoto, firstIssue } from "../../lib/quality";
 import { primeSound } from "../../lib/sound";
@@ -26,7 +27,7 @@ import { dialogStack } from "../../lib/dialog-stack";
 import { AUTO_ID, addDraft, deleteDraft, fromRecord, getDraft, isEmptyDraft, isQuota, listDrafts, putDraft, toRecord, EMPTY_DOCS, type DocFile, type Docs, type Draft, type DraftMeta, type DraftRec } from "../../lib/drafts";
 import { icon, rd } from "../../lib/site";
 import type { VideoStage } from "../../lib/stages";
-import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, noteCount, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, sortBySlot, stageGroup, uid, type Notes, type Photo, type Take, type Video } from "../../lib/core";
+import { BASE_STAGES, ENFORCE, ENF_TEXT, MAX_PHOTOS, OTHER, PLATE_KINDS, PLUS, def, mmss, noteCount, PREFS, platePlace, plateLocked, releaseVideo, reqLabel, roleNow, setPrefs, sortBySlot, stageGroup, uid, type Notes, type Photo, type Take, type Video } from "../../lib/core";
 import { ITEMS, PHOTO_MIN, PUBLISH_MIN, RECOMMENDED_IDS, REQUIRED_IDS, SHOOT, VIDEO_GROUPS, isRequiredItem, itemLabel, itemLevel, itemOf } from "../../lib/items";
 
 type Screen =
@@ -364,6 +365,34 @@ useDragSwap(tilesRef, (a, b) => {
   notify("두 사진의 칸을 바꿨어요");
 });
 
+// 2026-10-31 상용화 컨설팅(P1): 딜러 / 촬영팀을 첫 화면에서 고른다(전에는 영상 코스 창 안에만 있었다).
+// 같은 자리(PREFS.mode · 탭 역할)에 쓰므로 코스 창과 값이 같다. 딜러 = 빠른 영상 코스 · 서류 칸 숨김.
+const role = ref(PLUS ? roleNow() : "58");
+const pickRole = (r: "dealer" | "crew") => {
+  if (!PLUS || role.value === r) return;
+  const next = { ...PREFS, mode: r === "crew" ? ("pro" as const) : ("easy" as const) };
+  setPrefs(next);
+  savePrefs(next);
+  role.value = r;
+};
+// 2026-10-31 상용화 컨설팅(P1): 길게 눌러 끌기만으로는 한 손 · 보조기기 사용이 어렵다 → 「순서 바꾸기」에서 앞 · 뒤 버튼
+// 영상 코스 창에서 역할을 바꾸고 돌아오면 첫 화면 표시도 맞춘다
+watch(screen, (s) => {
+  if (PLUS && s.name === "main") role.value = roleNow();
+});
+const reorder = ref(false);
+const movePhoto = (idx: number, d: -1 | 1) => {
+  const list = photos.value;
+  const j = idx + d;
+  if (j < 0 || j >= list.length || list[idx].uploading || list[j].uploading) return;
+  if (list[idx].slot === list[j].slot) {
+    // 같은 칸(기타)끼리는 칸을 바꿔도 순서가 그대로라 자리만 바꾼다
+    const next = list.slice();
+    [next[idx], next[j]] = [next[j], next[idx]];
+    photos.value = next;
+  } else photos.value = sortBySlot(swapPhotos(list, list[idx].id, list[j].id));
+};
+
 const anyUploading = computed(() => photos.value.some((p) => p.uploading));
 const status = computed(() => (!photos.value.length ? "empty" : anyUploading.value ? "uploading" : "done"));
 // 키트: 실제로 인식하지 않으므로 「인식 중 · 인식 완료」 대신 사실대로 쓴다(58 재현은 원문 유지).
@@ -641,13 +670,13 @@ const leaveSave = async () => {
 </script>
 
 <template>
-  <div :class="`shoot-root ${PLUS ? 'is-kit' : ''}`" :data-role="PLUS ? roleNow() : undefined" @pointerdown.capture="primeSound">
+  <div :class="`shoot-root ${PLUS ? 'is-kit' : ''}`" :data-role="PLUS ? role : undefined" @pointerdown.capture="primeSound">
     <div class="shoot-phone">
       <section class="shoot-main" aria-label="중고차 등록" :inert="PLUS && screen.name !== 'main' ? true : undefined">
         <header class="shoot-main__top">
           <button type="button" class="shoot-icon-btn is-dark" aria-label="뒤로" @click="onBack"><Mask :src="rd('back-outline-24')" cls="is-back" /></button>
           <div class="shoot-main__title">
-            <h1>중고차 등록<em v-if="PLUS && roleNow() === 'crew'" class="shoot-role-tag">촬영팀</em></h1>
+            <h1>중고차 등록</h1>
             <button v-if="PLUS" type="button" class="shoot-progress-why" :aria-label="`완성도 ${progress}%, 계산 방법 보기`" @click="progressWhy">완성도 {{ progress }}% <i aria-hidden="true">ⓘ</i></button>
             <span v-else>완성도 {{ progress }}%</span>
           </div>
@@ -658,6 +687,9 @@ const leaveSave = async () => {
         </header>
 
         <div class="shoot-main__body">
+          <div v-if="PLUS" class="shoot-rolepick" role="radiogroup" aria-label="누가 찍나요">
+            <button v-for="[r, label] in ([['dealer', '딜러'], ['crew', '촬영팀']] as const)" :key="r" type="button" role="radio" :aria-checked="role === r" :class="role === r ? 'is-on' : ''" @click="pickRole(r)">{{ label }}</button>
+          </div>
           <section class="shoot-field">
             <h3>차량 소재지 <em>(필수)</em></h3>
             <button v-if="PLUS" type="button" :class="`shoot-region-btn ${region ? 'is-on' : tried && !region ? 'is-warn' : ''}`" aria-haspopup="dialog" @click="regionOpen = true">
@@ -665,7 +697,6 @@ const leaveSave = async () => {
               <Mask :src="rd('back-outline-24')" cls="is-fwd" />
             </button>
             <p v-else class="shoot-field__value">서울</p>
-            <p v-if="PLUS && !region" class="shoot-region-tip">고르면 완성도가 20% 올라요</p>
           </section>
 
           <section ref="mediaRef" class="shoot-field">
@@ -726,7 +757,11 @@ const leaveSave = async () => {
                   <!-- 촬영 후 품질 검사(2026-10-31): 흔들림 · 어두움 · 빛 번짐 딱지(사진은 그대로) -->
                   <span v-if="PLUS && firstIssue(p.qc)" class="shoot-tile__qc" :title="QC_TEXT[firstIssue(p.qc)!]">{{ QC_TAG[firstIssue(p.qc)!] }}</span>
                 </button>
-                <button v-if="!p.uploading" type="button" class="shoot-tile__del" data-nodrag="" :aria-label="`${p.slot === OTHER ? '기타' : itemLabel(p.slot)} 사진 삭제`" @click="confirm = { kind: 'photo', id: p.id }"><Mask :src="rd('delete-outline')" /></button>
+                <span v-if="PLUS && reorder && !p.uploading" class="shoot-tile__move" data-nodrag="">
+                  <button type="button" :disabled="idx === 0 || photos[idx - 1]?.uploading" :aria-label="`${itemLabel(p.slot)} 사진 앞으로`" @click="movePhoto(idx, -1)">‹</button>
+                  <button type="button" :disabled="idx === photos.length - 1 || photos[idx + 1]?.uploading" :aria-label="`${itemLabel(p.slot)} 사진 뒤로`" @click="movePhoto(idx, 1)">›</button>
+                </span>
+                <button v-if="!p.uploading && !(PLUS && reorder)" type="button" class="shoot-tile__del" data-nodrag="" :aria-label="`${p.slot === OTHER ? '기타' : itemLabel(p.slot)} 사진 삭제`" @click="confirm = { kind: 'photo', id: p.id }"><Mask :src="rd('delete-outline')" /></button>
                 <figcaption>{{ p.uploading ? "업로드 중" : itemLabel(p.slot) }}</figcaption>
               </figure>
               <figure v-if="video" class="shoot-tile shoot-tile--video">
@@ -754,7 +789,7 @@ const leaveSave = async () => {
               <Mask :src="rd('powerup-outline')" />쇼츠 만들기<b>{{ video && !video.uploading ? (readyPhotos ? `영상 · 사진 ${readyPhotos}장` : "영상") : `사진 ${readyPhotos}장` }}</b>
             </button>
             <div v-if="PLUS && (photos.length > 1 || photos.some((p) => p.fromAlbum)) && !anyUploading" class="shoot-sortlink">
-              <span v-if="photos.length > 1">길게 눌러 끌면 두 사진의 칸이 바뀌어요</span>
+              <button v-if="photos.length > 1" type="button" :class="`shoot-reorder ${reorder ? 'is-on' : ''}`" :aria-pressed="reorder" @click="reorder = !reorder">{{ reorder ? "순서 바꾸기 끝" : "순서 바꾸기" }}</button>
               <span v-else />
               <!-- 2026-10-27 컨설팅: 부위 나누기는 앨범에서 올린 사진이 있을 때만(카메라로 찍은 사진은 이미 칸이 정해져 있다) -->
               <button v-if="photos.some((p) => p.fromAlbum)" type="button" @click="setScreen({ name: 'sort', fresh: photos.filter((p) => p.slot === OTHER).map((p) => p.id) })">부위 나누기</button>
@@ -762,7 +797,7 @@ const leaveSave = async () => {
           </section>
 
           <!-- 서류(2026-10-29 후속 ④ 결정): 성능·상태점검기록부는 법정 서류라 사진 줄에 섞지 않고 선택 칸으로 둔다. 쇼츠·부위 나누기 대상이 아니다 -->
-          <section v-if="PLUS" class="shoot-field shoot-docs">
+          <section v-if="PLUS && (role === 'crew' || docs.inspection)" class="shoot-field shoot-docs">
             <h3>서류 <em>(선택)</em></h3>
             <p class="shoot-docs__desc">성능·상태점검기록부를 올리면 매물 상세의 「성능점검」에 보여요. 사진 줄에는 들어가지 않아요.</p>
             <div v-if="docs.inspection" class="shoot-docs__row">

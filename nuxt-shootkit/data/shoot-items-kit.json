@@ -12,7 +12,7 @@
   "photo": {
     "min": 4,
     "max": 30,
-    "hint": "사진 1장만 있어도 등록할 수 있어요 · 먼저 4장을 찍어 보세요",
+    "hint": "우선 4장부터 찍어 주세요",
     "otherItemId": "other",
     "hintDone": "나머지 각도와 엔진룸·트렁크도 찍으면 더 잘 보여요",
     "autoSortNote": "앨범 사진 부위 자동 선별(2026-10-25): 항목 auto = 인식 부류. 같은 부류가 여러 칸이면 레일 순서대로 채운다(좌우 방향은 구분하지 않음).",
@@ -624,7 +624,7 @@
     "dealer": {
       "label": "딜러",
       "orientationToggle": false,
-      "course": "basic",
+      "course": "quick",
       "maxExtra": 3
     },
     "crew": {
