@@ -10,7 +10,7 @@ return [
 
     // 한 촬영에 올릴 수 있는 수와 크기
     'limits' => [
-        'photo' => ['count' => 30, 'bytes' => 15 * 1024 * 1024,
+        'photo' => ['count' => 60, 'bytes' => 15 * 1024 * 1024,
             'types' => ['image/jpeg', 'image/png', 'image/webp']],
         'video' => ['count' => 12, 'bytes' => 300 * 1024 * 1024,
             'types' => ['video/mp4', 'video/webm', 'video/quicktime']],

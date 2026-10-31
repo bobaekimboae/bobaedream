@@ -141,7 +141,8 @@ export type ShootView = {
   photos: { pathname: string; url: string; size: number }[];
   videos: { pathname: string; url: string; size: number }[];
 };
-export const fetchShoot = (id: string) => api<ShootView>(`/api/shoots/${encodeURIComponent(id)}`);
+export const fetchShoot = (id: string) =>
+  uploadOn() ? api<ShootView>(`/api/shoots/${encodeURIComponent(id)}`) : Promise.reject(new UploadError("업로드 서버가 아직 연결되지 않았어요.", "off"));
 
 /** 파일 이름 번호(01-…)로 이름표 찾기 */
 export function labelOf(v: ShootView, kind: "photo" | "video", pathname: string): string {

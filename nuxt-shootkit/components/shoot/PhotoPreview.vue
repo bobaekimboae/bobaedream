@@ -14,9 +14,11 @@ import { computed, ref, watch } from "vue";
 import Mask from "./Mask.vue";
 import StickerBox from "./StickerBox.vue";
 import EditorScreen from "./EditorScreen.vue";
+import ShowroomSheet from "./ShowroomSheet.vue";
 import { rd } from "../../lib/site";
 import { OTHER, PLUS, plateLocked, type Photo } from "../../lib/core";
-import { itemLabel } from "../../lib/items";
+import { groupOf, itemLabel } from "../../lib/items";
+import { SHOWROOM_GROUP } from "../../lib/showroom";
 import { QC_TEXT, QC_TIP, firstIssue } from "../../lib/quality";
 import { bakeSticker, defaultSticker, normalizeFile, type Sticker } from "../../lib/image-ops";
 import { useBox } from "../../composables/useBox";
@@ -96,7 +98,7 @@ const replace = async (files: FileList | null) => {
   const f = files?.[0];
   if (!f) return;
   try {
-    patch({ src: await normalizeFile(f), removed: false, sticker: undefined, qc: undefined });
+    patch({ src: await normalizeFile(f), removed: false, sticker: undefined, qc: undefined, showroom: undefined });
   } catch {
     // 못 여는 사진(HEIC 등)은 바꾸지 않는다
   }
@@ -106,7 +108,7 @@ const onEditorSave = (src: string) => {
   // 모양이 바뀌는 편집(회전·자르기) 뒤에는 스티커를 가운데로 되돌린다.
   const ph = photo.value!;
   // 사진이 바뀌었으니 품질 검사는 다시 잰다(qc를 비우면 등록 화면이 다시 잰다)
-  patch({ src, qc: undefined, sticker: tool.value === "mosaic" ? ph.sticker : ph.sticker ? { ...defaultSticker(), visible: ph.sticker.visible } : undefined });
+  patch({ src, qc: undefined, showroom: undefined, sticker: tool.value === "mosaic" ? ph.sticker : ph.sticker ? { ...defaultSticker(), visible: ph.sticker.visible } : undefined });
   tool.value = null;
 };
 const onAddMoreClick = () => (PLUS ? void commit((out) => emit("addMore", out)) : emit("addMore"));
@@ -117,7 +119,15 @@ const redoAt = (i: number) => {
 const removeAt = (i: number) => {
   draft.value = draft.value.map((x, k) => (k === i ? { ...x, removed: true } : x));
 };
-const onSticker = (s: Sticker) => patch({ sticker: s });
+// 번호판 가림을 옮기면 쇼룸 사진은 다시 만들어야 한다
+const onSticker = (s: Sticker) => patch({ sticker: s, showroom: undefined });
+// 쇼룸 배경(2026-10-31): 외관 칸만. 번호판 가림을 구운 사진으로 만든다
+const canShowroom = computed(() => PLUS && photo.value && photo.value.slot !== OTHER && groupOf(photo.value.slot).id === SHOWROOM_GROUP);
+const showroomSrc = ref<string | null>(null);
+const openShowroom = async () => {
+  const ph = photo.value!;
+  showroomSrc.value = ph.sticker?.visible ? await bakeSticker(ph.src, ph.sticker, true) : ph.src;
+};
 const onReplaceChange = (e: Event) => void replace((e.target as HTMLInputElement).files);
 </script>
 <template>
@@ -153,8 +163,17 @@ const onReplaceChange = (e: Event) => void replace((e.target as HTMLInputElement
         <button type="button" @click="tool = 'mosaic'"><Mask :src="rd('view-grid-outline')" cls="is-ring" />모자이크</button>
         <button type="button" @click="tool = 'rotate'"><Mask :src="rd('rotate-image-outline')" />회전</button>
         <button type="button" @click="tool = 'crop'"><Mask :src="rd('crop-outline')" />자르기</button>
+        <button v-if="canShowroom" type="button" :class="photo.showroom ? 'is-on' : ''" @click="openShowroom"><Mask :src="rd('image-post-outline')" />쇼룸</button>
         <button type="button" class="shoot-done" :disabled="busy" @click="void commit()">완료</button>
       </footer>
+      <ShowroomSheet
+        v-if="showroomSrc"
+        :src="showroomSrc"
+        :current="photo.showroom"
+        @close="showroomSrc = null"
+        @remove="(patch({ showroom: undefined }), (showroomSrc = null))"
+        @apply="(v) => (patch({ showroom: v }), (showroomSrc = null))"
+      />
     </div>
   </template>
 </template>

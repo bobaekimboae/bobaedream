@@ -633,9 +633,12 @@ watch([photos, video, region], () => {
   if (upPhase.value !== "up") upState = { id: null, done: {}, failed: [] };
 });
 const upItems = (): UpItem[] => {
-  const list: UpItem[] = photos.value
-    .filter((p) => !p.uploading)
-    .map((p, i) => ({ n: i + 1, kind: "photo" as const, key: `p${i + 1}`, src: p.src, label: p.slot === OTHER ? "기타" : itemLabel(p.slot) }));
+  const ready = photos.value.filter((p) => !p.uploading);
+  const list: UpItem[] = ready.map((p, i) => ({ n: i + 1, kind: "photo" as const, key: `p${i + 1}`, src: p.src, label: p.slot === OTHER ? "기타" : itemLabel(p.slot) }));
+  // 쇼룸 배경 사진(2026-10-31): 원본과 따로 한 장 더(번호 51~)
+  ready.forEach((p, i) => {
+    if (p.showroom) list.push({ n: 51 + i, kind: "photo", key: `p${i + 1}s`, src: p.showroom.src, label: `${p.slot === OTHER ? "기타" : itemLabel(p.slot)} · 쇼룸 배경` });
+  });
   const v = video.value;
   if (v && !v.uploading) {
     let n = 0;
@@ -852,6 +855,7 @@ const leaveSave = async () => {
                   <!-- 2026-10-29 컨설팅: 번호판 가림이 붙은 사진은 알림이 사라져도 칸에 표시를 남긴다(누르면 위치 맞추기 화면) -->
                   <span v-if="PLUS && p.plateOn && p.sticker?.visible" class="shoot-tile__plate">번호판 가림</span>
                   <!-- 촬영 후 품질 검사(2026-10-31): 흔들림 · 어두움 · 빛 번짐 딱지(사진은 그대로) -->
+                  <span v-if="PLUS && p.showroom" class="shoot-tile__showroom">+쇼룸</span>
                   <span v-if="PLUS && firstIssue(p.qc)" class="shoot-tile__qc" :title="QC_TEXT[firstIssue(p.qc)!]">{{ QC_TAG[firstIssue(p.qc)!] }}</span>
                 </button>
                 <span v-if="PLUS && reorder && !p.uploading" class="shoot-tile__move" data-nodrag="">
