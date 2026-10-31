@@ -5,6 +5,7 @@
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
   ssr: false,
+  srcDir: ".",
   devtools: { enabled: false },
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || "/bobaedream/nuxt-shootkit/",
@@ -46,6 +47,7 @@ export default defineNuxtConfig({
     },
   },
   vite: {
+    worker: { format: "es" },
     optimizeDeps: { exclude: ["@huggingface/transformers"] },
   },
 });

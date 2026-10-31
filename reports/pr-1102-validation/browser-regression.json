@@ -1,0 +1,155 @@
+{
+  "environment": "Linux Chromium 134, synthetic canvas camera; not Android/iPhone",
+  "results": [
+    {
+      "width": 384,
+      "name": "승용 촬영 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "2인승 촬영 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "트럭·화물 촬영 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "2인승 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "백그라운드 카메라 중지/복귀 및 최대30fps 요청",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "앨범 동의만으로 촬영 AI/다운로드 시작하지 않음",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "AI 동의 취소",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "AI 준비 중 촬영 및 끄기",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "촬영 사진 출처와 등록화면 복귀",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "미리보기 촬영시각",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "AI 꺼짐 재진입 유지",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "앨범 사진 저장/출처 구분",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "임시저장 실행",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "58 재현 AI/차 종류 없음",
+      "status": "pass"
+    },
+    {
+      "width": 384,
+      "name": "브라우저 JS 오류 0",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "승용 촬영 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "2인승 촬영 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "트럭·화물 촬영 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "2인승 규칙",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "백그라운드 카메라 중지/복귀 및 최대30fps 요청",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "앨범 동의만으로 촬영 AI/다운로드 시작하지 않음",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "AI 동의 취소",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "AI 준비 중 촬영 및 끄기",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "촬영 사진 출처와 등록화면 복귀",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "미리보기 촬영시각",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "AI 꺼짐 재진입 유지",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "앨범 사진 저장/출처 구분",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "임시저장 실행",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "58 재현 AI/차 종류 없음",
+      "status": "pass"
+    },
+    {
+      "width": 1440,
+      "name": "브라우저 JS 오류 0",
+      "status": "pass"
+    }
+  ]
+}

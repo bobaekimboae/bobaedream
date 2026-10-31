@@ -155,7 +155,10 @@ export const courseLabel = (list: VideoStage[]) => {
 export type Mark = { t: number; x: number; y: number };
 
 /** raw = 번호판 가림을 굽기 전 원본(키트: 가림을 다시 옮길 수 있게), fromAlbum = 앨범에서 고른 사진(부위 나누기 대상) */
-export type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean; raw?: string; fromAlbum?: boolean; orient?: "landscape" | "portrait"; qc?: QcIssue[]; showroom?: { src: string; style: import("./showroom").ShowroomStyle } };
+export type Photo = { id: string; src: string; slot: string; sticker?: Sticker; plateOn?: boolean; uploading?: boolean; raw?: string; fromAlbum?: boolean; orient?: "landscape" | "portrait"; qc?: QcIssue[]; showroom?: { src: string; style: import("./showroom").ShowroomStyle }; at?: number; guess?: string };
+/** at = 현장 촬영 시각(카메라로 찍은 사진만, 2026-10-31 촬영 출처). 앨범 사진(fromAlbum)에는 없다 */
+/** guess = 칸 검사(2026-10-31): 부위 인식이 칸과 다른 부위로 본 사진의 「그럴 것 같은 칸 id」. 없음 = 맞거나 아직 안 잼 */
+export const photoOrigin = (p: Photo): "live" | "album" | "unknown" => (p.fromAlbum ? "album" : p.at ? "live" : "unknown");
 /** showroom = 쇼룸 배경 사진(2026-10-31). 원본(src)은 그대로, 따로 한 장 더 올린다 */
 /** qc = 촬영 후 품질 검사 결과(2026-10-31, lib/quality.ts). 빈 배열 = 문제 없음, 없음 = 아직 안 잼 */
 /** raw = 번호판 가림을 굽기 전 원본, orient = 찍을 때 쓴 방향(2026-10-29: 가로 4:3 틀로 찍은 사진은 landscape) */

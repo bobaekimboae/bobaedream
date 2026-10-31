@@ -15,9 +15,9 @@ export type DocFile = { name: string; src: string; isPdf: boolean; thumb: string
 export type Docs = { inspection: DocFile | null };
 export const EMPTY_DOCS: Docs = { inspection: null };
 type VideoRec = Omit<Video, "segs" | "uploading"> & { segs: (Blob | null)[] };
-export type DraftRec = { id: string; savedAt: number; region: Region; photos: Photo[]; video: VideoRec | null; docs?: Docs };
+export type DraftRec = { id: string; savedAt: number; region: Region; photos: Photo[]; video: VideoRec | null; docs?: Docs; body?: string };
 export type DraftMeta = { id: string; savedAt: number; region: Region; photoCount: number; hasVideo: boolean; thumb: string };
-export type Draft = { region: Region; photos: Photo[]; video: Video | null; docs?: Docs };
+export type Draft = { region: Region; photos: Photo[]; video: Video | null; docs?: Docs; body?: string };
 
 let dbp: Promise<IDBDatabase> | null = null;
 function db(): Promise<IDBDatabase> {
@@ -81,7 +81,7 @@ export async function toRecord(id: string, d: Draft): Promise<DraftRec> {
       : undefined;
     video = { ...rest, notes, cover: (await keepStr(rest.cover)) ?? "", segs: await Promise.all(segs.map(segBlob)) };
   }
-  return { id, savedAt: Date.now(), region: d.region, photos, video, docs: d.docs ?? EMPTY_DOCS };
+  return { id, savedAt: Date.now(), region: d.region, photos, video, docs: d.docs ?? EMPTY_DOCS, ...(d.body ? { body: d.body } : {}) };
 }
 
 export function fromRecord(r: DraftRec): Draft {
@@ -90,7 +90,7 @@ export function fromRecord(r: DraftRec): Draft {
     ? { ...v, uploading: false, segs: v.segs.map((b) => (b ? URL.createObjectURL(b) : null)) }
     : null;
   video?.segs.forEach((u, i) => u && v!.segs[i] && blobCache.set(u, v!.segs[i]!));
-  return { region: r.region, photos: r.photos.map((p) => ({ ...p, uploading: false })), video, docs: r.docs ?? EMPTY_DOCS };
+  return { region: r.region, photos: r.photos.map((p) => ({ ...p, uploading: false })), video, docs: r.docs ?? EMPTY_DOCS, body: r.body };
 }
 
 const meta = (r: DraftRec): DraftMeta => ({

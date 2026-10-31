@@ -13,7 +13,7 @@ export type CameraState = {
   setTorch: (on: boolean) => void;
 };
 
-export function useCamera(active: () => boolean, withAudio: () => boolean, size?: { width: { ideal: number }; height: { ideal: number } }): CameraState {
+export function useCamera(active: () => boolean, withAudio: () => boolean, size?: { width: { ideal: number }; height: { ideal: number }; frameRate?: { ideal: number; max: number } }): CameraState {
   const stream = shallowRef<MediaStream | null>(null);
   const error = ref<CameraError>("");
   const torchSupported = ref(false);

@@ -1,0 +1,2586 @@
+{
+  "mode": "limited224",
+  "before": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "rawProbeReturnedZero": true,
+    "note": "Unavailable: environment did not expose valid process readings; zero is not a memory measurement."
+  },
+  "loaded": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "rawProbeReturnedZero": true,
+    "note": "Unavailable: environment did not expose valid process readings; zero is not a memory measurement."
+  },
+  "stopped": {
+    "processRssMiB": null,
+    "cpuSeconds": null,
+    "rawProbeReturnedZero": true,
+    "note": "Unavailable: environment did not expose valid process readings; zero is not a memory measurement."
+  },
+  "longTasks": [],
+  "rows": [
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "original",
+      "ms": 1582.5,
+      "elapsed": 1583.7999999998137,
+      "dets": [
+        {
+          "score": 0.9969468712806702,
+          "label": "car",
+          "box": {
+            "xmin": 52,
+            "ymin": 68,
+            "xmax": 264,
+            "ymax": 205
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "original",
+      "ms": 295.5,
+      "elapsed": 295.89999999990687,
+      "dets": [
+        {
+          "score": 0.9722583293914795,
+          "label": "car",
+          "box": {
+            "xmin": 51,
+            "ymin": 61,
+            "xmax": 267,
+            "ymax": 199
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0002.webp",
+      "transform": "original",
+      "ms": 292.90000000037253,
+      "elapsed": 293.5,
+      "dets": [
+        {
+          "score": 0.9913965463638306,
+          "label": "car",
+          "box": {
+            "xmin": 74,
+            "ymin": 64,
+            "xmax": 244,
+            "ymax": 192
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0003.webp",
+      "transform": "original",
+      "ms": 241.20000000018626,
+      "elapsed": 241.70000000018626,
+      "dets": [
+        {
+          "score": 0.9853294491767883,
+          "label": "car",
+          "box": {
+            "xmin": 53,
+            "ymin": 67,
+            "xmax": 265,
+            "ymax": 204
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0004.webp",
+      "transform": "original",
+      "ms": 268,
+      "elapsed": 268.90000000037253,
+      "dets": [
+        {
+          "score": 0.9431919455528259,
+          "label": "car",
+          "box": {
+            "xmin": 62,
+            "ymin": 73,
+            "xmax": 253,
+            "ymax": 195
+          }
+        },
+        {
+          "score": 0.967332661151886,
+          "label": "car",
+          "box": {
+            "xmin": 67,
+            "ymin": 72,
+            "xmax": 250,
+            "ymax": 195
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0005.webp",
+      "transform": "original",
+      "ms": 285.5,
+      "elapsed": 286,
+      "dets": [
+        {
+          "score": 0.9877484440803528,
+          "label": "car",
+          "box": {
+            "xmin": 53,
+            "ymin": 54,
+            "xmax": 264,
+            "ymax": 203
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0006.webp",
+      "transform": "original",
+      "ms": 245.79999999981374,
+      "elapsed": 247.60000000009313,
+      "dets": [
+        {
+          "score": 0.9910209774971008,
+          "label": "car",
+          "box": {
+            "xmin": 55,
+            "ymin": 50,
+            "xmax": 266,
+            "ymax": 206
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0007.webp",
+      "transform": "original",
+      "ms": 253.20000000018626,
+      "elapsed": 253.89999999990687,
+      "dets": [
+        {
+          "score": 0.9517646431922913,
+          "label": "car",
+          "box": {
+            "xmin": 66,
+            "ymin": 71,
+            "xmax": 251,
+            "ymax": 197
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0008.webp",
+      "transform": "original",
+      "ms": 225,
+      "elapsed": 225.5,
+      "dets": [
+        {
+          "score": 0.9823601245880127,
+          "label": "car",
+          "box": {
+            "xmin": 58,
+            "ymin": 69,
+            "xmax": 265,
+            "ymax": 204
+          }
+        },
+        {
+          "score": 0.7020313739776611,
+          "label": "car",
+          "box": {
+            "xmin": 60,
+            "ymin": 68,
+            "xmax": 262,
+            "ymax": 202
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0009.webp",
+      "transform": "original",
+      "ms": 222.89999999990687,
+      "elapsed": 223.39999999990687,
+      "dets": [
+        {
+          "score": 0.9224570393562317,
+          "label": "car",
+          "box": {
+            "xmin": 63,
+            "ymin": 69,
+            "xmax": 262,
+            "ymax": 203
+          }
+        },
+        {
+          "score": 0.7217720150947571,
+          "label": "car",
+          "box": {
+            "xmin": 64,
+            "ymin": 70,
+            "xmax": 260,
+            "ymax": 199
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0010.webp",
+      "transform": "original",
+      "ms": 271.60000000009313,
+      "elapsed": 272.10000000009313,
+      "dets": [
+        {
+          "score": 0.9963672757148743,
+          "label": "car",
+          "box": {
+            "xmin": 56,
+            "ymin": 65,
+            "xmax": 263,
+            "ymax": 203
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0011.webp",
+      "transform": "original",
+      "ms": 221.39999999990687,
+      "elapsed": 221.8000000002794,
+      "dets": [
+        {
+          "score": 0.9945645332336426,
+          "label": "car",
+          "box": {
+            "xmin": 57,
+            "ymin": 73,
+            "xmax": 258,
+            "ymax": 200
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0012.webp",
+      "transform": "original",
+      "ms": 217.39999999990687,
+      "elapsed": 217.70000000018626,
+      "dets": [
+        {
+          "score": 0.817628026008606,
+          "label": "cell phone",
+          "box": {
+            "xmin": 45,
+            "ymin": 70,
+            "xmax": 272,
+            "ymax": 204
+          }
+        },
+        {
+          "score": 0.5765190124511719,
+          "label": "mouse",
+          "box": {
+            "xmin": 107,
+            "ymin": 68,
+            "xmax": 211,
+            "ymax": 107
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0013.webp",
+      "transform": "original",
+      "ms": 209,
+      "elapsed": 209.39999999990687,
+      "dets": [
+        {
+          "score": 0.9864495992660522,
+          "label": "car",
+          "box": {
+            "xmin": 54,
+            "ymin": 55,
+            "xmax": 264,
+            "ymax": 204
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0014.webp",
+      "transform": "original",
+      "ms": 211.1999999997206,
+      "elapsed": 211.5,
+      "dets": [
+        {
+          "score": 0.9931250810623169,
+          "label": "car",
+          "box": {
+            "xmin": 59,
+            "ymin": 71,
+            "xmax": 257,
+            "ymax": 198
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0015.webp",
+      "transform": "original",
+      "ms": 203.60000000009313,
+      "elapsed": 204,
+      "dets": [
+        {
+          "score": 0.9832035899162292,
+          "label": "car",
+          "box": {
+            "xmin": 59,
+            "ymin": 55,
+            "xmax": 266,
+            "ymax": 202
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0016.webp",
+      "transform": "original",
+      "ms": 208.10000000009313,
+      "elapsed": 208.5,
+      "dets": [
+        {
+          "score": 0.9710319638252258,
+          "label": "car",
+          "box": {
+            "xmin": 57,
+            "ymin": 71,
+            "xmax": 260,
+            "ymax": 200
+          }
+        }
+      ],
+      "cue": "ok",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "far",
+      "ms": 206.6999999997206,
+      "elapsed": 207.3000000002794,
+      "dets": [
+        {
+          "score": 0.5128868818283081,
+          "label": "book",
+          "box": {
+            "xmin": 90,
+            "ymin": 66,
+            "xmax": 229,
+            "ymax": 169
+          }
+        },
+        {
+          "score": 0.8757917284965515,
+          "label": "car",
+          "box": {
+            "xmin": 119,
+            "ymin": 98,
+            "xmax": 206,
+            "ymax": 154
+          }
+        },
+        {
+          "score": 0.9201619625091553,
+          "label": "car",
+          "box": {
+            "xmin": 115,
+            "ymin": 82,
+            "xmax": 209,
+            "ymax": 153
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "far",
+      "ms": 206.60000000009313,
+      "elapsed": 207.20000000018626,
+      "dets": [
+        {
+          "score": 0.6271221041679382,
+          "label": "microwave",
+          "box": {
+            "xmin": 95,
+            "ymin": 65,
+            "xmax": 225,
+            "ymax": 169
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0002.webp",
+      "transform": "far",
+      "ms": 208.39999999990687,
+      "elapsed": 208.79999999981374,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0003.webp",
+      "transform": "far",
+      "ms": 207.6999999997206,
+      "elapsed": 208.10000000009313,
+      "dets": [
+        {
+          "score": 0.8183644413948059,
+          "label": "book",
+          "box": {
+            "xmin": 95,
+            "ymin": 67,
+            "xmax": 225,
+            "ymax": 168
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0004.webp",
+      "transform": "far",
+      "ms": 207.20000000018626,
+      "elapsed": 207.70000000018626,
+      "dets": [
+        {
+          "score": 0.9081016182899475,
+          "label": "car",
+          "box": {
+            "xmin": 123,
+            "ymin": 99,
+            "xmax": 197,
+            "ymax": 152
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0005.webp",
+      "transform": "far",
+      "ms": 207.70000000018626,
+      "elapsed": 208.09999999962747,
+      "dets": [
+        {
+          "score": 0.7915836572647095,
+          "label": "book",
+          "box": {
+            "xmin": 96,
+            "ymin": 67,
+            "xmax": 225,
+            "ymax": 168
+          }
+        },
+        {
+          "score": 0.6602874398231506,
+          "label": "backpack",
+          "box": {
+            "xmin": 117,
+            "ymin": 92,
+            "xmax": 203,
+            "ymax": 155
+          }
+        },
+        {
+          "score": 0.5105057954788208,
+          "label": "backpack",
+          "box": {
+            "xmin": 119,
+            "ymin": 93,
+            "xmax": 204,
+            "ymax": 156
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0006.webp",
+      "transform": "far",
+      "ms": 228.6999999997206,
+      "elapsed": 229.1999999997206,
+      "dets": [
+        {
+          "score": 0.5182369947433472,
+          "label": "car",
+          "box": {
+            "xmin": 117,
+            "ymin": 85,
+            "xmax": 210,
+            "ymax": 157
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0007.webp",
+      "transform": "far",
+      "ms": 228,
+      "elapsed": 228.60000000009313,
+      "dets": [
+        {
+          "score": 0.9096195697784424,
+          "label": "car",
+          "box": {
+            "xmin": 122,
+            "ymin": 96,
+            "xmax": 203,
+            "ymax": 152
+          }
+        },
+        {
+          "score": 0.7988720536231995,
+          "label": "car",
+          "box": {
+            "xmin": 109,
+            "ymin": 70,
+            "xmax": 215,
+            "ymax": 154
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0008.webp",
+      "transform": "far",
+      "ms": 219.29999999981374,
+      "elapsed": 219.8000000002794,
+      "dets": [
+        {
+          "score": 0.6634726524353027,
+          "label": "car",
+          "box": {
+            "xmin": 119,
+            "ymin": 95,
+            "xmax": 204,
+            "ymax": 154
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0009.webp",
+      "transform": "far",
+      "ms": 232.1999999997206,
+      "elapsed": 232.5,
+      "dets": [
+        {
+          "score": 0.5662835240364075,
+          "label": "car",
+          "box": {
+            "xmin": 119,
+            "ymin": 99,
+            "xmax": 203,
+            "ymax": 154
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0010.webp",
+      "transform": "far",
+      "ms": 208.79999999981374,
+      "elapsed": 209.20000000018626,
+      "dets": [
+        {
+          "score": 0.8620424270629883,
+          "label": "car",
+          "box": {
+            "xmin": 120,
+            "ymin": 95,
+            "xmax": 203,
+            "ymax": 156
+          }
+        },
+        {
+          "score": 0.8373040556907654,
+          "label": "car",
+          "box": {
+            "xmin": 123,
+            "ymin": 101,
+            "xmax": 205,
+            "ymax": 156
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0011.webp",
+      "transform": "far",
+      "ms": 211.09999999962747,
+      "elapsed": 211.60000000009313,
+      "dets": [
+        {
+          "score": 0.7695741653442383,
+          "label": "car",
+          "box": {
+            "xmin": 120,
+            "ymin": 101,
+            "xmax": 201,
+            "ymax": 153
+          }
+        },
+        {
+          "score": 0.9592339992523193,
+          "label": "car",
+          "box": {
+            "xmin": 118,
+            "ymin": 91,
+            "xmax": 205,
+            "ymax": 154
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0012.webp",
+      "transform": "far",
+      "ms": 225.6999999997206,
+      "elapsed": 226.39999999990687,
+      "dets": [
+        {
+          "score": 0.5479685068130493,
+          "label": "book",
+          "box": {
+            "xmin": 97,
+            "ymin": 67,
+            "xmax": 226,
+            "ymax": 167
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0013.webp",
+      "transform": "far",
+      "ms": 225.90000000037253,
+      "elapsed": 226.5,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0014.webp",
+      "transform": "far",
+      "ms": 222.29999999981374,
+      "elapsed": 222.70000000018626,
+      "dets": [
+        {
+          "score": 0.9851650595664978,
+          "label": "car",
+          "box": {
+            "xmin": 121,
+            "ymin": 96,
+            "xmax": 202,
+            "ymax": 152
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0015.webp",
+      "transform": "far",
+      "ms": 220.60000000009313,
+      "elapsed": 221.5,
+      "dets": [
+        {
+          "score": 0.9843868613243103,
+          "label": "car",
+          "box": {
+            "xmin": 119,
+            "ymin": 92,
+            "xmax": 206,
+            "ymax": 154
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0016.webp",
+      "transform": "far",
+      "ms": 218.3000000002794,
+      "elapsed": 218.79999999981374,
+      "dets": [
+        {
+          "score": 0.886802613735199,
+          "label": "car",
+          "box": {
+            "xmin": 120,
+            "ymin": 96,
+            "xmax": 205,
+            "ymax": 153
+          }
+        }
+      ],
+      "cue": "closer",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "near",
+      "ms": 209.20000000018626,
+      "elapsed": 209.59999999962747,
+      "dets": [
+        {
+          "score": 0.9755715727806091,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 11,
+            "xmax": 321,
+            "ymax": 239
+          }
+        },
+        {
+          "score": 0.626228392124176,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 1,
+            "xmax": 321,
+            "ymax": 240
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "near",
+      "ms": 216.20000000018626,
+      "elapsed": 216.70000000018626,
+      "dets": [
+        {
+          "score": 0.5298658013343811,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 1,
+            "xmax": 321,
+            "ymax": 239
+          }
+        },
+        {
+          "score": 0.7954535484313965,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 0,
+            "xmax": 321,
+            "ymax": 240
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0002.webp",
+      "transform": "near",
+      "ms": 214.29999999981374,
+      "elapsed": 214.8000000002794,
+      "dets": [
+        {
+          "score": 0.7943956851959229,
+          "label": "truck",
+          "box": {
+            "xmin": 1,
+            "ymin": 11,
+            "xmax": 321,
+            "ymax": 238
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0003.webp",
+      "transform": "near",
+      "ms": 212.1999999997206,
+      "elapsed": 212.79999999981374,
+      "dets": [
+        {
+          "score": 0.8109290599822998,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 10,
+            "xmax": 321,
+            "ymax": 240
+          }
+        },
+        {
+          "score": 0.8336340188980103,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 9,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0004.webp",
+      "transform": "near",
+      "ms": 213.60000000009313,
+      "elapsed": 214.10000000009313,
+      "dets": [
+        {
+          "score": 0.9962246417999268,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 23,
+            "xmax": 320,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0005.webp",
+      "transform": "near",
+      "ms": 214.20000000018626,
+      "elapsed": 214.70000000018626,
+      "dets": [
+        {
+          "score": 0.7860528230667114,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 0,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0006.webp",
+      "transform": "near",
+      "ms": 216.10000000009313,
+      "elapsed": 216.6999999997206,
+      "dets": [
+        {
+          "score": 0.7353049516677856,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 0,
+            "xmax": 321,
+            "ymax": 239
+          }
+        },
+        {
+          "score": 0.9561049938201904,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 0,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0007.webp",
+      "transform": "near",
+      "ms": 214.39999999990687,
+      "elapsed": 215,
+      "dets": [
+        {
+          "score": 0.9909812211990356,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 17,
+            "xmax": 321,
+            "ymax": 239
+          }
+        },
+        {
+          "score": 0.7359558939933777,
+          "label": "truck",
+          "box": {
+            "xmin": 1,
+            "ymin": 16,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0008.webp",
+      "transform": "near",
+      "ms": 213.59999999962747,
+      "elapsed": 214.20000000018626,
+      "dets": [
+        {
+          "score": 0.8316505551338196,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 9,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0009.webp",
+      "transform": "near",
+      "ms": 238.5,
+      "elapsed": 239.10000000009313,
+      "dets": [
+        {
+          "score": 0.932693362236023,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 10,
+            "xmax": 321,
+            "ymax": 239
+          }
+        },
+        {
+          "score": 0.6504182815551758,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 11,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0010.webp",
+      "transform": "near",
+      "ms": 224.70000000018626,
+      "elapsed": 225.1999999997206,
+      "dets": [
+        {
+          "score": 0.9836902618408203,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 3,
+            "xmax": 321,
+            "ymax": 240
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0011.webp",
+      "transform": "near",
+      "ms": 253.79999999981374,
+      "elapsed": 254.10000000009313,
+      "dets": [
+        {
+          "score": 0.9785476922988892,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 19,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0012.webp",
+      "transform": "near",
+      "ms": 255.39999999990687,
+      "elapsed": 255.8000000002794,
+      "dets": [
+        {
+          "score": 0.9008510708808899,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 14,
+            "xmax": 321,
+            "ymax": 240
+          }
+        },
+        {
+          "score": 0.533495306968689,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 10,
+            "xmax": 321,
+            "ymax": 238
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0013.webp",
+      "transform": "near",
+      "ms": 235.90000000037253,
+      "elapsed": 236.29999999981374,
+      "dets": [
+        {
+          "score": 0.9460673928260803,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 0,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0014.webp",
+      "transform": "near",
+      "ms": 232.39999999990687,
+      "elapsed": 232.89999999990687,
+      "dets": [
+        {
+          "score": 0.9667468070983887,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 16,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0015.webp",
+      "transform": "near",
+      "ms": 218.70000000018626,
+      "elapsed": 219.29999999981374,
+      "dets": [
+        {
+          "score": 0.7836625576019287,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 0,
+            "xmax": 321,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0016.webp",
+      "transform": "near",
+      "ms": 226.10000000009313,
+      "elapsed": 226.60000000009313,
+      "dets": [
+        {
+          "score": 0.753300666809082,
+          "label": "car",
+          "box": {
+            "xmin": 34,
+            "ymin": 18,
+            "xmax": 319,
+            "ymax": 239
+          }
+        },
+        {
+          "score": 0.9741795659065247,
+          "label": "car",
+          "box": {
+            "xmin": 1,
+            "ymin": 17,
+            "xmax": 321,
+            "ymax": 239
+          }
+        },
+        {
+          "score": 0.6733796000480652,
+          "label": "truck",
+          "box": {
+            "xmin": 1,
+            "ymin": 12,
+            "xmax": 321,
+            "ymax": 238
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "back"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "left",
+      "ms": 226.1999999997206,
+      "elapsed": 226.8000000002794,
+      "dets": [
+        {
+          "score": 0.983097493648529,
+          "label": "car",
+          "box": {
+            "xmin": 21,
+            "ymin": 83,
+            "xmax": 169,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "left",
+      "ms": 265.09999999962747,
+      "elapsed": 270.8000000002794,
+      "dets": [
+        {
+          "score": 0.5216033458709717,
+          "label": "suitcase",
+          "box": {
+            "xmin": 5,
+            "ymin": 77,
+            "xmax": 176,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0002.webp",
+      "transform": "left",
+      "ms": 216.29999999981374,
+      "elapsed": 216.70000000018626,
+      "dets": [
+        {
+          "score": 0.9936325550079346,
+          "label": "car",
+          "box": {
+            "xmin": 37,
+            "ymin": 80,
+            "xmax": 155,
+            "ymax": 171
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0003.webp",
+      "transform": "left",
+      "ms": 215,
+      "elapsed": 215.29999999981374,
+      "dets": [
+        {
+          "score": 0.9936039447784424,
+          "label": "car",
+          "box": {
+            "xmin": 21,
+            "ymin": 83,
+            "xmax": 167,
+            "ymax": 180
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0004.webp",
+      "transform": "left",
+      "ms": 215.20000000018626,
+      "elapsed": 215.60000000009313,
+      "dets": [
+        {
+          "score": 0.9980120658874512,
+          "label": "car",
+          "box": {
+            "xmin": 27,
+            "ymin": 87,
+            "xmax": 160,
+            "ymax": 173
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0005.webp",
+      "transform": "left",
+      "ms": 220.6999999997206,
+      "elapsed": 221.8000000002794,
+      "dets": [
+        {
+          "score": 0.977817952632904,
+          "label": "car",
+          "box": {
+            "xmin": 18,
+            "ymin": 73,
+            "xmax": 170,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0006.webp",
+      "transform": "left",
+      "ms": 218.89999999990687,
+      "elapsed": 219.20000000018626,
+      "dets": [
+        {
+          "score": 0.9569866061210632,
+          "label": "car",
+          "box": {
+            "xmin": 19,
+            "ymin": 70,
+            "xmax": 170,
+            "ymax": 181
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0007.webp",
+      "transform": "left",
+      "ms": 215.09999999962747,
+      "elapsed": 215.5,
+      "dets": [
+        {
+          "score": 0.9686345458030701,
+          "label": "car",
+          "box": {
+            "xmin": 31,
+            "ymin": 84,
+            "xmax": 167,
+            "ymax": 176
+          }
+        },
+        {
+          "score": 0.7188642024993896,
+          "label": "truck",
+          "box": {
+            "xmin": 27,
+            "ymin": 84,
+            "xmax": 164,
+            "ymax": 177
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0008.webp",
+      "transform": "left",
+      "ms": 214.79999999981374,
+      "elapsed": 215.3000000002794,
+      "dets": [
+        {
+          "score": 0.9753783345222473,
+          "label": "car",
+          "box": {
+            "xmin": 24,
+            "ymin": 84,
+            "xmax": 167,
+            "ymax": 180
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0009.webp",
+      "transform": "left",
+      "ms": 217.10000000009313,
+      "elapsed": 217.60000000009313,
+      "dets": [
+        {
+          "score": 0.7844518423080444,
+          "label": "car",
+          "box": {
+            "xmin": 22,
+            "ymin": 82,
+            "xmax": 167,
+            "ymax": 179
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0010.webp",
+      "transform": "left",
+      "ms": 214.60000000009313,
+      "elapsed": 215.10000000009313,
+      "dets": [
+        {
+          "score": 0.9982885122299194,
+          "label": "car",
+          "box": {
+            "xmin": 19,
+            "ymin": 82,
+            "xmax": 168,
+            "ymax": 180
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0011.webp",
+      "transform": "left",
+      "ms": 220.90000000037253,
+      "elapsed": 221.5,
+      "dets": [
+        {
+          "score": 0.9982383847236633,
+          "label": "car",
+          "box": {
+            "xmin": 21,
+            "ymin": 84,
+            "xmax": 165,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0012.webp",
+      "transform": "left",
+      "ms": 219.89999999990687,
+      "elapsed": 220.29999999981374,
+      "dets": [
+        {
+          "score": 0.9978075623512268,
+          "label": "car",
+          "box": {
+            "xmin": 14,
+            "ymin": 84,
+            "xmax": 176,
+            "ymax": 180
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0013.webp",
+      "transform": "left",
+      "ms": 229.09999999962747,
+      "elapsed": 229.5,
+      "dets": [
+        {
+          "score": 0.9846591353416443,
+          "label": "car",
+          "box": {
+            "xmin": 21,
+            "ymin": 75,
+            "xmax": 170,
+            "ymax": 181
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0014.webp",
+      "transform": "left",
+      "ms": 218.79999999981374,
+      "elapsed": 219.1999999997206,
+      "dets": [
+        {
+          "score": 0.8053570985794067,
+          "label": "car",
+          "box": {
+            "xmin": 23,
+            "ymin": 85,
+            "xmax": 164,
+            "ymax": 177
+          }
+        },
+        {
+          "score": 0.9265190958976746,
+          "label": "car",
+          "box": {
+            "xmin": 23,
+            "ymin": 84,
+            "xmax": 165,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0015.webp",
+      "transform": "left",
+      "ms": 219,
+      "elapsed": 219.60000000009313,
+      "dets": [
+        {
+          "score": 0.9919488430023193,
+          "label": "car",
+          "box": {
+            "xmin": 23,
+            "ymin": 74,
+            "xmax": 168,
+            "ymax": 176
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0016.webp",
+      "transform": "left",
+      "ms": 218.5,
+      "elapsed": 218.79999999981374,
+      "dets": [
+        {
+          "score": 0.9722960591316223,
+          "label": "car",
+          "box": {
+            "xmin": 22,
+            "ymin": 85,
+            "xmax": 167,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "left",
+      "oldCue": "left"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "right",
+      "ms": 244.09999999962747,
+      "elapsed": 244.5,
+      "dets": [
+        {
+          "score": 0.9741837382316589,
+          "label": "car",
+          "box": {
+            "xmin": 151,
+            "ymin": 84,
+            "xmax": 304,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "right",
+      "ms": 226.70000000018626,
+      "elapsed": 227.10000000009313,
+      "dets": [
+        {
+          "score": 0.5795827507972717,
+          "label": "suitcase",
+          "box": {
+            "xmin": 146,
+            "ymin": 77,
+            "xmax": 303,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0002.webp",
+      "transform": "right",
+      "ms": 226.79999999981374,
+      "elapsed": 227.20000000018626,
+      "dets": [
+        {
+          "score": 0.9958891868591309,
+          "label": "car",
+          "box": {
+            "xmin": 167,
+            "ymin": 81,
+            "xmax": 285,
+            "ymax": 172
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0003.webp",
+      "transform": "right",
+      "ms": 223.1999999997206,
+      "elapsed": 223.8000000002794,
+      "dets": [
+        {
+          "score": 0.9910629987716675,
+          "label": "car",
+          "box": {
+            "xmin": 152,
+            "ymin": 85,
+            "xmax": 298,
+            "ymax": 181
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0004.webp",
+      "transform": "right",
+      "ms": 226.60000000009313,
+      "elapsed": 227.10000000009313,
+      "dets": [
+        {
+          "score": 0.9873355627059937,
+          "label": "car",
+          "box": {
+            "xmin": 159,
+            "ymin": 88,
+            "xmax": 291,
+            "ymax": 173
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0005.webp",
+      "transform": "right",
+      "ms": 221.8000000002794,
+      "elapsed": 222.39999999990687,
+      "dets": [
+        {
+          "score": 0.9610006213188171,
+          "label": "car",
+          "box": {
+            "xmin": 154,
+            "ymin": 75,
+            "xmax": 300,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0006.webp",
+      "transform": "right",
+      "ms": 221.3000000002794,
+      "elapsed": 221.89999999990687,
+      "dets": [
+        {
+          "score": 0.9684634208679199,
+          "label": "car",
+          "box": {
+            "xmin": 152,
+            "ymin": 68,
+            "xmax": 302,
+            "ymax": 182
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0007.webp",
+      "transform": "right",
+      "ms": 223.5,
+      "elapsed": 224.10000000009313,
+      "dets": [
+        {
+          "score": 0.9343641996383667,
+          "label": "car",
+          "box": {
+            "xmin": 159,
+            "ymin": 84,
+            "xmax": 295,
+            "ymax": 175
+          }
+        },
+        {
+          "score": 0.5545117855072021,
+          "label": "truck",
+          "box": {
+            "xmin": 155,
+            "ymin": 86,
+            "xmax": 297,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0008.webp",
+      "transform": "right",
+      "ms": 227.3000000002794,
+      "elapsed": 227.89999999990687,
+      "dets": [
+        {
+          "score": 0.9414204955101013,
+          "label": "car",
+          "box": {
+            "xmin": 156,
+            "ymin": 84,
+            "xmax": 296,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0009.webp",
+      "transform": "right",
+      "ms": 234.79999999981374,
+      "elapsed": 235.40000000037253,
+      "dets": [
+        {
+          "score": 0.9165179133415222,
+          "label": "car",
+          "box": {
+            "xmin": 155,
+            "ymin": 83,
+            "xmax": 295,
+            "ymax": 177
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0010.webp",
+      "transform": "right",
+      "ms": 217.10000000009313,
+      "elapsed": 217.40000000037253,
+      "dets": [
+        {
+          "score": 0.9936697483062744,
+          "label": "car",
+          "box": {
+            "xmin": 151,
+            "ymin": 82,
+            "xmax": 300,
+            "ymax": 179
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0011.webp",
+      "transform": "right",
+      "ms": 220.29999999981374,
+      "elapsed": 220.8000000002794,
+      "dets": [
+        {
+          "score": 0.9761331081390381,
+          "label": "car",
+          "box": {
+            "xmin": 155,
+            "ymin": 84,
+            "xmax": 297,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0012.webp",
+      "transform": "right",
+      "ms": 209.5,
+      "elapsed": 210.09999999962747,
+      "dets": [
+        {
+          "score": 0.9900010824203491,
+          "label": "car",
+          "box": {
+            "xmin": 147,
+            "ymin": 84,
+            "xmax": 306,
+            "ymax": 180
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0013.webp",
+      "transform": "right",
+      "ms": 224.60000000009313,
+      "elapsed": 225.10000000009313,
+      "dets": [
+        {
+          "score": 0.9756402373313904,
+          "label": "car",
+          "box": {
+            "xmin": 154,
+            "ymin": 75,
+            "xmax": 301,
+            "ymax": 182
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0014.webp",
+      "transform": "right",
+      "ms": 223.70000000018626,
+      "elapsed": 224.1999999997206,
+      "dets": [
+        {
+          "score": 0.9931640625,
+          "label": "car",
+          "box": {
+            "xmin": 157,
+            "ymin": 85,
+            "xmax": 294,
+            "ymax": 177
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0015.webp",
+      "transform": "right",
+      "ms": 230.39999999990687,
+      "elapsed": 230.89999999990687,
+      "dets": [
+        {
+          "score": 0.986403226852417,
+          "label": "car",
+          "box": {
+            "xmin": 152,
+            "ymin": 73,
+            "xmax": 301,
+            "ymax": 178
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0016.webp",
+      "transform": "right",
+      "ms": 230.79999999981374,
+      "elapsed": 231.39999999990687,
+      "dets": [
+        {
+          "score": 0.9736682176589966,
+          "label": "car",
+          "box": {
+            "xmin": 156,
+            "ymin": 85,
+            "xmax": 298,
+            "ymax": 177
+          }
+        }
+      ],
+      "cue": "right",
+      "oldCue": "right"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "top",
+      "ms": 229.59999999962747,
+      "elapsed": 230.5,
+      "dets": [
+        {
+          "score": 0.997142493724823,
+          "label": "car",
+          "box": {
+            "xmin": 53,
+            "ymin": 0,
+            "xmax": 272,
+            "ymax": 94
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "top",
+      "ms": 226.90000000037253,
+      "elapsed": 227.39999999990687,
+      "dets": [
+        {
+          "score": 0.9254862070083618,
+          "label": "car",
+          "box": {
+            "xmin": 53,
+            "ymin": 0,
+            "xmax": 268,
+            "ymax": 90
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0002.webp",
+      "transform": "top",
+      "ms": 228,
+      "elapsed": 228.39999999990687,
+      "dets": [
+        {
+          "score": 0.9858810901641846,
+          "label": "car",
+          "box": {
+            "xmin": 78,
+            "ymin": 0,
+            "xmax": 246,
+            "ymax": 82
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0003.webp",
+      "transform": "top",
+      "ms": 235.59999999962747,
+      "elapsed": 236.10000000009313,
+      "dets": [
+        {
+          "score": 0.9981066584587097,
+          "label": "car",
+          "box": {
+            "xmin": 55,
+            "ymin": 0,
+            "xmax": 263,
+            "ymax": 94
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0004.webp",
+      "transform": "top",
+      "ms": 227.60000000009313,
+      "elapsed": 227.89999999990687,
+      "dets": [
+        {
+          "score": 0.9970241785049438,
+          "label": "car",
+          "box": {
+            "xmin": 65,
+            "ymin": 1,
+            "xmax": 248,
+            "ymax": 84
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0005.webp",
+      "transform": "top",
+      "ms": 223.10000000009313,
+      "elapsed": 223.5,
+      "dets": [
+        {
+          "score": 0.5106852650642395,
+          "label": "suitcase",
+          "box": {
+            "xmin": 50,
+            "ymin": 0,
+            "xmax": 264,
+            "ymax": 91
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0006.webp",
+      "transform": "top",
+      "ms": 215.39999999990687,
+      "elapsed": 215.70000000018626,
+      "dets": [
+        {
+          "score": 0.9537888765335083,
+          "label": "car",
+          "box": {
+            "xmin": 52,
+            "ymin": 0,
+            "xmax": 282,
+            "ymax": 97
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0007.webp",
+      "transform": "top",
+      "ms": 216.60000000009313,
+      "elapsed": 217.10000000009313,
+      "dets": [
+        {
+          "score": 0.9916867613792419,
+          "label": "car",
+          "box": {
+            "xmin": 64,
+            "ymin": 0,
+            "xmax": 256,
+            "ymax": 90
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0008.webp",
+      "transform": "top",
+      "ms": 241.3000000002794,
+      "elapsed": 241.6999999997206,
+      "dets": [
+        {
+          "score": 0.8351569175720215,
+          "label": "car",
+          "box": {
+            "xmin": 57,
+            "ymin": 0,
+            "xmax": 280,
+            "ymax": 97
+          }
+        },
+        {
+          "score": 0.9357427954673767,
+          "label": "car",
+          "box": {
+            "xmin": 60,
+            "ymin": 0,
+            "xmax": 267,
+            "ymax": 92
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0009.webp",
+      "transform": "top",
+      "ms": 213.89999999990687,
+      "elapsed": 214.5,
+      "dets": [
+        {
+          "score": 0.9950739741325378,
+          "label": "car",
+          "box": {
+            "xmin": 60,
+            "ymin": 0,
+            "xmax": 268,
+            "ymax": 92
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0010.webp",
+      "transform": "top",
+      "ms": 222.3000000002794,
+      "elapsed": 222.6999999997206,
+      "dets": [
+        {
+          "score": 0.9369154572486877,
+          "label": "car",
+          "box": {
+            "xmin": 57,
+            "ymin": 1,
+            "xmax": 265,
+            "ymax": 94
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0011.webp",
+      "transform": "top",
+      "ms": 268.6999999997206,
+      "elapsed": 269.10000000009313,
+      "dets": [
+        {
+          "score": 0.9842591285705566,
+          "label": "car",
+          "box": {
+            "xmin": 56,
+            "ymin": 0,
+            "xmax": 266,
+            "ymax": 92
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0012.webp",
+      "transform": "top",
+      "ms": 237.5,
+      "elapsed": 237.89999999990687,
+      "dets": [
+        {
+          "score": 0.7502040863037109,
+          "label": "cell phone",
+          "box": {
+            "xmin": 44,
+            "ymin": 0,
+            "xmax": 272,
+            "ymax": 94
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0013.webp",
+      "transform": "top",
+      "ms": 231.10000000009313,
+      "elapsed": 231.5,
+      "dets": [
+        {
+          "score": 0.9949171543121338,
+          "label": "car",
+          "box": {
+            "xmin": 57,
+            "ymin": 0,
+            "xmax": 267,
+            "ymax": 95
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0014.webp",
+      "transform": "top",
+      "ms": 223.39999999990687,
+      "elapsed": 223.89999999990687,
+      "dets": [
+        {
+          "score": 0.9974848031997681,
+          "label": "car",
+          "box": {
+            "xmin": 59,
+            "ymin": 0,
+            "xmax": 272,
+            "ymax": 88
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0015.webp",
+      "transform": "top",
+      "ms": 230.60000000009313,
+      "elapsed": 232.29999999981374,
+      "dets": [
+        {
+          "score": 0.9642492532730103,
+          "label": "car",
+          "box": {
+            "xmin": 54,
+            "ymin": 0,
+            "xmax": 268,
+            "ymax": 91
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0016.webp",
+      "transform": "top",
+      "ms": 214.5,
+      "elapsed": 214.89999999990687,
+      "dets": [
+        {
+          "score": 0.9985334277153015,
+          "label": "car",
+          "box": {
+            "xmin": 55,
+            "ymin": 1,
+            "xmax": 268,
+            "ymax": 91
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0000.webp",
+      "transform": "bottom",
+      "ms": 220.3000000002794,
+      "elapsed": 220.79999999981374,
+      "dets": [
+        {
+          "score": 0.8577932715415955,
+          "label": "bed",
+          "box": {
+            "xmin": 57,
+            "ymin": 178,
+            "xmax": 273,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0001.webp",
+      "transform": "bottom",
+      "ms": 222.89999999990687,
+      "elapsed": 223.40000000037253,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0002.webp",
+      "transform": "bottom",
+      "ms": 217.39999999990687,
+      "elapsed": 218,
+      "dets": [
+        {
+          "score": 0.9698617458343506,
+          "label": "car",
+          "box": {
+            "xmin": 80,
+            "ymin": 174,
+            "xmax": 246,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "closer"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0003.webp",
+      "transform": "bottom",
+      "ms": 232.89999999990687,
+      "elapsed": 233.39999999990687,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0004.webp",
+      "transform": "bottom",
+      "ms": 238.09999999962747,
+      "elapsed": 238.79999999981374,
+      "dets": [
+        {
+          "score": 0.6686837077140808,
+          "label": "airplane",
+          "box": {
+            "xmin": 76,
+            "ymin": 184,
+            "xmax": 251,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0005.webp",
+      "transform": "bottom",
+      "ms": 228.39999999990687,
+      "elapsed": 228.8000000002794,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0006.webp",
+      "transform": "bottom",
+      "ms": 217.89999999990687,
+      "elapsed": 218.20000000018626,
+      "dets": [
+        {
+          "score": 0.905683159828186,
+          "label": "car",
+          "box": {
+            "xmin": 60,
+            "ymin": 163,
+            "xmax": 266,
+            "ymax": 238
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0007.webp",
+      "transform": "bottom",
+      "ms": 218.6999999997206,
+      "elapsed": 219.39999999990687,
+      "dets": [
+        {
+          "score": 0.6042145490646362,
+          "label": "chair",
+          "box": {
+            "xmin": 185,
+            "ymin": 180,
+            "xmax": 243,
+            "ymax": 218
+          }
+        },
+        {
+          "score": 0.6585162878036499,
+          "label": "chair",
+          "box": {
+            "xmin": 124,
+            "ymin": 181,
+            "xmax": 206,
+            "ymax": 211
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0008.webp",
+      "transform": "bottom",
+      "ms": 220,
+      "elapsed": 220.5,
+      "dets": [
+        {
+          "score": 0.7718997597694397,
+          "label": "bed",
+          "box": {
+            "xmin": 64,
+            "ymin": 176,
+            "xmax": 262,
+            "ymax": 238
+          }
+        },
+        {
+          "score": 0.7972849607467651,
+          "label": "chair",
+          "box": {
+            "xmin": 125,
+            "ymin": 179,
+            "xmax": 227,
+            "ymax": 210
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0009.webp",
+      "transform": "bottom",
+      "ms": 231,
+      "elapsed": 231.6999999997206,
+      "dets": [
+        {
+          "score": 0.618317186832428,
+          "label": "bed",
+          "box": {
+            "xmin": 65,
+            "ymin": 178,
+            "xmax": 258,
+            "ymax": 238
+          }
+        },
+        {
+          "score": 0.8302263021469116,
+          "label": "chair",
+          "box": {
+            "xmin": 125,
+            "ymin": 174,
+            "xmax": 219,
+            "ymax": 209
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0010.webp",
+      "transform": "bottom",
+      "ms": 220,
+      "elapsed": 220.59999999962747,
+      "dets": [
+        {
+          "score": 0.7126489877700806,
+          "label": "car",
+          "box": {
+            "xmin": 59,
+            "ymin": 175,
+            "xmax": 266,
+            "ymax": 238
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0011.webp",
+      "transform": "bottom",
+      "ms": 219.10000000009313,
+      "elapsed": 219.5,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0012.webp",
+      "transform": "bottom",
+      "ms": 215.10000000009313,
+      "elapsed": 215.40000000037253,
+      "dets": [
+        {
+          "score": 0.7641787528991699,
+          "label": "car",
+          "box": {
+            "xmin": 51,
+            "ymin": 178,
+            "xmax": 272,
+            "ymax": 238
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0013.webp",
+      "transform": "bottom",
+      "ms": 232.70000000018626,
+      "elapsed": 233.10000000009313,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0014.webp",
+      "transform": "bottom",
+      "ms": 213,
+      "elapsed": 213.39999999990687,
+      "dets": [],
+      "cue": null,
+      "oldCue": null
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0015.webp",
+      "transform": "bottom",
+      "ms": 240.10000000009313,
+      "elapsed": 240.59999999962747,
+      "dets": [
+        {
+          "score": 0.5848203301429749,
+          "label": "car",
+          "box": {
+            "xmin": 67,
+            "ymin": 167,
+            "xmax": 264,
+            "ymax": 239
+          }
+        }
+      ],
+      "cue": "back",
+      "oldCue": "ok"
+    },
+    {
+      "file": "/bobaedream/assets/cars/deutsch-autoworld-v01/p/0016.webp",
+      "transform": "bottom",
+      "ms": 241.59999999962747,
+      "elapsed": 242.10000000009313,
+      "dets": [
+        {
+          "score": 0.5288119912147522,
+          "label": "chair",
+          "box": {
+            "xmin": 121,
+            "ymin": 181,
+            "xmax": 214,
+            "ymax": 213
+          }
+        }
+      ],
+      "cue": null,
+      "oldCue": null
+    }
+  ]
+}
