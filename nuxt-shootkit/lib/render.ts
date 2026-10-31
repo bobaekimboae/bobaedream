@@ -36,6 +36,8 @@ export type ShortformPlan = {
   voice?: AudioBuffer | null;
   /** 판매자가 흠집 표시 단계에서 표시한 흠집 수(2026-10-30 K1). 1곳 이상이면 끝 장면에 「판매자 표시 흠집 N곳 · 상세에서 확인」 */
   damage?: number;
+  /** 판매자 로고(2026-10-31 숏폼 자동 제작 키트). 릴스형 컷 왼쪽 위에 작게 얹는다. 없으면 그리지 않는다 */
+  logo?: HTMLImageElement | null;
 };
 
 const FONT = '"Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
@@ -432,6 +434,22 @@ function drawReels(ctx: CanvasRenderingContext2D, plan: ShortformPlan, index: nu
     ctx.fillText(plan.price, W / 2, y + 31);
   }
   drawProgress(ctx, plan, index, p);
+  drawLogo(ctx, plan);
+}
+
+// 판매자 로고: 흰 판(반투명) 위에 원본 비율 그대로, 최대 150×52
+function drawLogo(ctx: CanvasRenderingContext2D, plan: ShortformPlan) {
+  const img = plan.logo;
+  if (!img || !img.naturalWidth) return;
+  const s = Math.min(150 / img.naturalWidth, 52 / img.naturalHeight);
+  const w = img.naturalWidth * s;
+  const h = img.naturalHeight * s;
+  ctx.save();
+  ctx.fillStyle = "rgba(255,255,255,.9)";
+  roundRect(ctx, 24, 48, w + 20, h + 16, 12);
+  ctx.fill();
+  ctx.drawImage(img, 34, 56, w, h);
+  ctx.restore();
 }
 
 /* ───────── 매물 카드형 ───────── */
