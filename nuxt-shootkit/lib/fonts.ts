@@ -9,7 +9,9 @@ export function attachFont() {
   const link = document.createElement("link");
   link.id = "bbm-pretendard";
   link.rel = "stylesheet";
-  link.href = new URL(["..", "assets", "fonts", "pretendard", "pretendard-guazi.css"].join("/"), document.baseURI).href;
+  // 나누는 글자를 실행할 때 만든다: Nuxt 4 빌드가 배열 join을 「../assets/…」 한 덩어리 글자로 미리 합쳐 배포 바꾸기에 걸린 일(2026-10-31 숏폼 키트)
+  const sep = window.location.pathname.charAt(0) || "/"; // 주소 맨 앞 「/」(빌드가 미리 합칠 수 없는 값)
+  link.href = new URL(["..", "assets", "fonts", "pretendard", "pretendard-guazi.css"].join(sep), document.baseURI).href;
   document.head.appendChild(link);
 }
 
