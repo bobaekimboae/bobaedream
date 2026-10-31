@@ -190,6 +190,31 @@ export const isStandalone = () =>
 export const permHelp = () =>
   isStandalone() ? "휴대폰 설정 → 보배드림 촬영 → 카메라를 켜 주세요." : "주소창 옆 자물쇠(설정) 아이콘 → 카메라 → 허용을 눌러 주세요.";
 
+/**
+ * 카메라 권한을 직접 푸는 순서(2026-10-31 「카메라 권한 허용 버튼 자체가 안먹어」).
+ * 한 번 「차단」을 누르면 브라우저는 다시 묻지 않고 바로 거절한다 → 버튼으로는 못 풀고 설정에서 풀어야 한다.
+ */
+export type PermGuide = { where: string; steps: string[]; openOther?: boolean };
+export function permGuide(): PermGuide {
+  const ua = typeof navigator === "undefined" ? "" : navigator.userAgent;
+  const ios = /iPhone|iPad|iPod/.test(ua);
+  if (/KAKAOTALK|NAVER\(inapp|Instagram|FBAN|FBAV|Line\/|DaumApps|everytimeApp|; wv\)/i.test(ua))
+    return {
+      where: "앱 안 브라우저",
+      openOther: true,
+      steps: ["카카오톡 · 네이버 같은 앱 안에서는 카메라를 못 쓸 수 있어요.", ios ? "오른쪽 아래 공유(또는 ⋯) → 「Safari로 열기」를 눌러 주세요." : "오른쪽 위(또는 아래) ⋮ → 「다른 브라우저로 열기」를 눌러 주세요.", "열린 크롬 · 사파리에서 카메라를 허용해 주세요."],
+    };
+  if (isStandalone())
+    return ios
+      ? { where: "아이폰 홈 화면 앱", steps: ["아이폰 「설정」 앱 → 앱 → Safari → 카메라 → 「허용」", "이 앱으로 돌아오면 저절로 다시 열려요."] }
+      : { where: "홈 화면 앱", steps: ["홈 화면의 「보배드림 촬영」 아이콘을 길게 누름 → 앱 정보(ⓘ)", "권한 → 카메라 → 「앱 사용 중에만 허용」", "이 앱으로 돌아오면 저절로 다시 열려요."] };
+  if (ios)
+    return { where: "아이폰 사파리", steps: ["주소창 왼쪽 「가가」(또는 aA) → 웹사이트 설정", "카메라 → 「허용」", "그래도 안 되면 「설정」 앱 → 앱 → Safari → 카메라 → 「허용」"] };
+  if (/SamsungBrowser/.test(ua))
+    return { where: "삼성 인터넷", steps: ["주소창 왼쪽 자물쇠 아이콘 → 권한(또는 사이트 설정)", "카메라 → 「허용」", "그래도 안 되면 휴대폰 설정 → 애플리케이션 → 삼성 인터넷 → 권한 → 카메라 → 「허용」"] };
+  return { where: "크롬", steps: ["주소창 왼쪽 설정 아이콘(⚙ 또는 자물쇠) → 권한", "카메라 → 「허용」(차단됨이면 눌러서 바꿔 주세요)", "그래도 안 되면 휴대폰 설정 → 애플리케이션 → Chrome → 권한 → 카메라 → 「앱 사용 중에만 허용」"] };
+}
+
 export function readDuration(url: string) {
   return new Promise<number>((resolve) => {
     const v = document.createElement("video");

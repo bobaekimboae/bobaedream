@@ -10,6 +10,10 @@ export type CameraState = {
   torchSupported: Ref<boolean>;
   /** 권한을 다시 물어본다 */
   retry: () => void;
+  /** 다시 묻는 중(눌렀는데 아무 일 없는 것처럼 보이지 않게) */
+  checking: Ref<boolean>;
+  /** 「카메라 권한 허용」을 눌렀는데도 막힌 횟수 — 1 이상이면 브라우저 설정에서 직접 풀어야 한다 */
+  blockedTries: Ref<number>;
   setTorch: (on: boolean) => void;
 };
 
@@ -18,6 +22,10 @@ export function useCamera(active: () => boolean, withAudio: () => boolean, size?
   const error = ref<CameraError>("");
   const torchSupported = ref(false);
   const nonce = ref(0);
+  const checking = ref(false);
+  const blockedTries = ref(0);
+  let manual = false;
+  let perm: PermissionStatus | null = null;
   let current: MediaStream | null = null;
   let stop: (() => void) | null = null;
 
@@ -43,6 +51,8 @@ export function useCamera(active: () => boolean, withAudio: () => boolean, size?
         current = s;
         stream.value = s;
         error.value = "";
+        checking.value = false;
+        blockedTries.value = 0;
         const track = s.getVideoTracks()[0];
         const caps = (track?.getCapabilities?.() ?? {}) as { torch?: boolean };
         torchSupported.value = Boolean(caps.torch);
@@ -50,7 +60,13 @@ export function useCamera(active: () => boolean, withAudio: () => boolean, size?
       .catch((e: unknown) => {
         if (cancelled) return;
         const name = (e as { name?: string })?.name;
-        error.value = name === "NotAllowedError" ? "denied" : "unavailable";
+        // 브라우저마다 이름이 다르다(옛 크롬 PermissionDeniedError, 일부 SecurityError). 권한 상태가 「거부」면 이름과 상관없이 막힘으로 본다
+        error.value = name === "NotAllowedError" || name === "PermissionDeniedError" || name === "SecurityError" || perm?.state === "denied" ? "denied" : "unavailable";
+        // 한 번 「차단」하면 브라우저는 다시 묻지 않고 바로 거절한다 → 사람이 누른 다시 묻기였으면 횟수를 센다
+        if (manual && error.value === "denied") blockedTries.value += 1;
+        manual = false;
+        // 바로 거절돼도 「확인 중」이 잠깐은 보이게(눌렀는데 아무 일 없는 것처럼 보이지 않게)
+        window.setTimeout(() => (checking.value = false), 500);
       });
     stop = () => {
       cancelled = true;
@@ -61,9 +77,27 @@ export function useCamera(active: () => boolean, withAudio: () => boolean, size?
   };
 
   watch([active, withAudio, nonce], start, { immediate: true });
+
+  // 설정에서 권한을 바꾸고 돌아오면 저절로 다시 연다(권한 상태 바뀜 · 화면으로 돌아옴)
+  const again = () => {
+    if (active() && error.value && !stream.value) nonce.value += 1;
+  };
+  const onVisible = () => document.visibilityState === "visible" && again();
+  if (typeof navigator !== "undefined" && navigator.permissions?.query) {
+    void navigator.permissions
+      .query({ name: "camera" as PermissionName })
+      .then((st) => {
+        perm = st;
+        st.onchange = () => st.state !== "denied" && again();
+      })
+      .catch(() => undefined);
+  }
+  if (typeof document !== "undefined") document.addEventListener("visibilitychange", onVisible);
   onBeforeUnmount(() => {
     stop?.();
     stop = null;
+    if (perm) perm.onchange = null;
+    document.removeEventListener("visibilitychange", onVisible);
   });
 
   const setTorch = (on: boolean) => {
@@ -72,5 +106,10 @@ export function useCamera(active: () => boolean, withAudio: () => boolean, size?
     void track.applyConstraints({ advanced: [{ torch: on } as MediaTrackConstraintSet] }).catch(() => undefined);
   };
 
-  return { stream, error, torchSupported, setTorch, retry: () => (nonce.value += 1) };
+  const retry = () => {
+    manual = true;
+    checking.value = true;
+    nonce.value += 1;
+  };
+  return { stream, error, torchSupported, setTorch, retry, checking, blockedTries };
 }

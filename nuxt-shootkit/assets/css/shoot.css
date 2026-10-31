@@ -5621,3 +5621,28 @@ body:has(.shoot-layer) .shoot-install {
   margin: 0;
   padding: 12px 20px calc(16px + env(safe-area-inset-bottom));
 }
+
+/* 카메라 권한 막힘 안내(2026-10-31) */
+.shoot-perm.is-steps {
+  justify-content: flex-start;
+  padding-top: 72px;
+  overflow-y: auto;
+}
+.shoot-perm__steps {
+  width: min(100%, 320px);
+  margin: 0 0 8px;
+  padding: 14px 16px 14px 34px;
+  border-radius: 12px;
+  background: #222;
+  text-align: left;
+  font-size: 14px;
+  line-height: 21px;
+  color: #eee;
+  word-break: keep-all;
+}
+.shoot-perm__steps li + li {
+  margin-top: 8px;
+}
+.shoot-perm button:disabled {
+  opacity: 0.7;
+}
