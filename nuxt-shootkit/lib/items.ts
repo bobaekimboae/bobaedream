@@ -18,6 +18,8 @@ export type ShootItem = {
   auto?: string[];
   guide: { kind: GuideKind; flip?: boolean; hint: string };
 };
+/** 차 종류(2026-10-31): hide = 이 차 종류에 없는 사진 칸 id */
+export type BodyDef = { id: string; label: string; hide: string[] };
 /** 사진 방향(2026-10-29 3차 컨설팅): landscape = 가로 4:3 틀, portrait = 세로 허용, any = 틀 없음 */
 export type Orientation = "landscape" | "portrait" | "any";
 /** 역할 프리셋(2026-10-29 후속 ④): dealer · crew · 58(원본 재현, ?vstage=58). 화면 분기의 단일 축 */
@@ -43,7 +45,7 @@ type ShootData = {
   levelLabels: Record<ShootLevel, string>;
   vehicleType: string;
   vehicleNote: string;
-  photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string; enforceRequired?: boolean; publishMin?: number; keyTitle?: string; plateDefault?: boolean; plateHeroLock?: boolean };
+  photo: { min: number; max: number; hint: string; hintDone: string; otherItemId: string; enforceRequired?: boolean; publishMin?: number; keyTitle?: string; plateDefault?: boolean; plateHeroLock?: boolean; bodies?: BodyDef[] };
   video: {
     optional: boolean;
     perStageSec: { min: number; max: number };

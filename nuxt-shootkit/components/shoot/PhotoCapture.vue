@@ -32,6 +32,10 @@ import { REQUIRED_IDS, isRequiredItem, itemLabel, itemOf, orientationOf, type Or
 import { rd } from "../../lib/site";
 import { GUIDE_ON, askTilt, type CamSession } from "../../lib/photo-capture";
 import { QC_TAG, QC_TEXT, QC_TIP, checkPhoto, firstIssue, type QcIssue } from "../../lib/quality";
+import { checkSlot } from "../../lib/slot-check";
+import { autoSortConsented, loadSorter, setAutoSortConsent } from "../../lib/autosort";
+import { CUE_KINDS, CUE_TEXT, cueOf, loadDetector, type CueKind } from "../../lib/frame-cue";
+import { slotShown } from "../../lib/body";
 
 const props = defineProps<{ existing: Photo[]; startMode: "cam" | "album" }>();
 const emit = defineEmits<{ close: []; done: [added: Photo[]]; notify: [t: string] }>();
@@ -89,7 +93,7 @@ const initialRail = (() => {
         continue;
       }
       names.push(s);
-    } else if (!filledByMain.has(s)) names.push(s);
+    } else if (!filledByMain.has(s) && (!PLUS || slotShown(s))) names.push(s);
   }
   return names;
 })();
@@ -158,7 +162,7 @@ const atCap = computed(() => PLUS && total.value >= MAX_PHOTOS && !shotPicked(sl
 
 // 촬영 후 품질 검사(2026-10-31): 찍은 직후 폰 안에서 밝기 · 흔들림을 재고, 문제가 있으면 알림 카드와 칸 딱지를 띄운다.
 // 사진은 고치지 않고 다시 찍을지는 사용자가 정한다. 키트만(58 재현은 원본대로 없음).
-const qcCard = ref<{ id: string; issue: QcIssue } | null>(null);
+const qcCard = ref<{ id: string; issue?: QcIssue; guess?: string; slot?: string } | null>(null);
 /** 사진 하나에 검사 결과를 붙인다(찍은 사진 · 칸 · 불러온 사진 모두) */
 const setQc = (id: string, qc: QcIssue[]) => {
   const put = (p: Photo | null) => (p && p.id === id ? { ...p, qc } : p);
@@ -166,7 +170,14 @@ const setQc = (id: string, qc: QcIssue[]) => {
   session.value = { ...s, shots: s.shots.map((p) => put(p)!), imported: s.imported.map((p) => put(p)!) };
   slotShots.value = slotShots.value.map(put);
 };
-const runQc = (shot: Photo) =>
+/** 칸 검사 결과를 붙인다(2026-10-31). guess = 그럴 것 같은 칸 id */
+const setGuess = (id: string, guess: string) => {
+  const put = (p: Photo | null) => (p && p.id === id ? { ...p, guess } : p);
+  const s = session.value;
+  session.value = { ...s, shots: s.shots.map((p) => put(p)!) };
+  slotShots.value = slotShots.value.map(put);
+};
+const runQc = (shot: Photo) => {
   void checkPhoto(shot.src).then((qc) => {
     if (!alive) return;
     setQc(shot.id, qc);
@@ -174,12 +185,36 @@ const runQc = (shot: Photo) =>
     // 이미 다른 칸으로 다시 찍었으면(그 사진이 선택에서 빠졌으면) 알리지 않는다
     if (issue && session.value.picked.includes(shot.id)) qcCard.value = { id: shot.id, issue };
   });
+  // 칸 검사: 「AI 도움」을 켠 폰에서만. 밝기 · 흔들림 알림이 먼저 떠 있으면 그것을 덮지 않는다
+  if (aiOn.value) void checkSlot(shot.src, shot.slot).then((guess) => {
+    if (!alive || !guess) return;
+    setGuess(shot.id, guess);
+    if (session.value.picked.includes(shot.id) && !(qcCard.value?.id === shot.id && qcCard.value.issue)) qcCard.value = { id: shot.id, guess, slot: shot.slot };
+  });
+};
 const qcSlotIndex = computed(() => (qcCard.value ? slotShots.value.findIndex((p) => p?.id === qcCard.value!.id) : -1));
 const retakeQc = () => {
   if (qcSlotIndex.value >= 0) sel.value = qcSlotIndex.value;
   qcCard.value = null;
 };
 
+// 사진 AI 도움(2026-10-31): 칸 검사 + 찍기 전 위치 안내. 인식 기능을 처음 한 번 받아야 해서(약 100MB) 켤 때 묻는다.
+// 앨범 「부위 나누기」와 같은 동의를 쓴다(이미 받은 폰은 처음부터 켜짐). 사진 · 화면은 폰 밖으로 나가지 않는다.
+const aiOn = ref(PLUS && autoSortConsented());
+const askAi = ref(false);
+const toggleAi = () => {
+  if (aiOn.value) return void (aiOn.value = false);
+  if (autoSortConsented()) return void (aiOn.value = true);
+  askAi.value = true;
+};
+const acceptAi = () => {
+  askAi.value = false;
+  setAutoSortConsent(true);
+  aiOn.value = true;
+  notify("AI 도움을 켰어요 · 처음 한 번 인식 기능을 받는 동안 조금 걸려요");
+  // 미리 받아 둔다(실패해도 촬영은 그대로)
+  void loadSorter().catch(() => undefined);
+};
 const shoot = () => {
   qcCard.value = null;
   const prev = slotShots.value[sel.value];
@@ -208,7 +243,8 @@ const shoot = () => {
   }
   const src = real || placeholderShot(itemLabel(label), session.value.shots.length + props.existing.length);
   playShutter();
-  const shot: Photo = { id: uid(), src, slot: label, plateOn: plate.value && !plateLocked(label), ...(PLUS && curOrient.value !== "any" ? { orient: curOrient.value } : {}) };
+  // 촬영 출처(2026-10-31): 카메라로 찍은 사진에 찍은 시각을 남긴다(시험용 대체 그림은 빼고)
+  const shot: Photo = { id: uid(), src, slot: label, plateOn: plate.value && !plateLocked(label), ...(PLUS && curOrient.value !== "any" ? { orient: curOrient.value } : {}), ...(PLUS && real ? { at: Date.now() } : {}) };
   const cur = sel.value;
   const next = [...slotShots.value];
   const replaced = cur < next.length ? next[cur] : null;
@@ -310,6 +346,55 @@ const curSlot = computed(() => rail.value[sel.value] ?? OTHER);
 const heroLock = computed(() => plateLocked(curSlot.value));
 const curOrient = computed<Orientation>(() => (PLUS ? (orientOverride.value[curSlot.value] ?? orientationOf(curSlot.value)) : "any"));
 const isLandscape = computed(() => curOrient.value === "landscape");
+/** 위치 안내(2026-10-31): 외관 칸에서 카메라 화면을 작게 떠서 차 위치를 본다. 한 번 보고 0.6초 쉬고 다시 본다 */
+const cue = ref<CueKind | null>(null);
+const cueOn = computed(() => PLUS && aiOn.value && mode.value === "cam" && Boolean(stream.value) && CUE_KINDS.has(itemOf(curSlot.value).guide.kind));
+watch(
+  [cueOn, curSlot, isLandscape],
+  (_v, _o, onCleanup) => {
+    cue.value = null;
+    if (!cueOn.value) return;
+    let stop = false;
+    let timer = 0;
+    const kind = itemOf(curSlot.value).guide.kind;
+    const tick = async () => {
+      if (stop) return;
+      try {
+        const detect = await loadDetector();
+        const video = videoRef.value?.querySelector("video");
+        const view = videoRef.value;
+        if (!stop && video && view && !document.hidden) {
+          const vr = view.getBoundingClientRect();
+          const fr = isLandscape.value ? frameRef.value?.getBoundingClientRect() : null;
+          const rect = fr ? { x: fr.left - vr.left, y: fr.top - vr.top, w: fr.width, h: fr.height } : { x: 0, y: 0, w: vr.width, h: vr.height };
+          const small = grabView(video, vr.width, vr.height, rect, 320, 0.7);
+          if (small) {
+            const size = await new Promise<{ w: number; h: number }>((res) => {
+              const im = new Image();
+              im.onload = () => res({ w: im.naturalWidth, h: im.naturalHeight });
+              im.onerror = () => res({ w: 0, h: 0 });
+              im.src = small;
+            });
+            const dets = await detect(small);
+            if (!stop) cue.value = cueOf(dets, size.w, size.h, kind);
+          }
+        }
+      } catch {
+        // 인식기를 못 받으면(오프라인 등) 안내 없이 찍는다
+        stop = true;
+        return;
+      }
+      if (!stop) timer = window.setTimeout(() => void tick(), 600);
+    };
+    void tick();
+    onCleanup(() => {
+      stop = true;
+      window.clearTimeout(timer);
+    });
+  },
+  { immediate: true },
+);
+
 const flipOrient = () => {
   const k = curSlot.value;
   orientOverride.value = { ...orientOverride.value, [k]: isLandscape.value ? "portrait" : "landscape" };
@@ -332,6 +417,8 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
         <!-- 촬영팀만: 지금 칸의 가로·세로 전환(딜러는 칸마다 정해진 방향) -->
         <button v-if="canFlipOrient && curOrient !== 'any'" type="button" class="shoot-guide-toggle shoot-orient-toggle" :aria-label="`사진 방향 바꾸기 · 지금 ${isLandscape ? '가로' : '세로'}`" @click="flipOrient">{{ isLandscape ? "가로" : "세로" }}</button>
         <button v-if="GUIDE_ON" type="button" :class="`shoot-guide-toggle ${guide ? 'is-on' : ''}`" :aria-pressed="guide" @click="guide = !guide">윤곽선</button>
+        <!-- 사진 AI 도움(2026-10-31): 칸 검사 + 위치 안내 -->
+        <button v-if="PLUS" type="button" :class="`shoot-guide-toggle ${aiOn ? 'is-on' : ''}`" :aria-pressed="aiOn" aria-label="AI 도움 · 칸 검사와 위치 안내" @click="toggleAi">AI</button>
         <FlashToggle :on="flash" @toggle="flash = !flash" />
       </span>
       <span v-else class="shoot-icon-btn" />
@@ -347,6 +434,8 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
         <!-- 수평계: 윤곽선과 따로(계기판·대시보드처럼 안을 찍는 칸은 숨김) -->
         <LevelMeter v-if="PLUS && !['dash', 'cluster'].includes(itemOf(curSlot).guide.kind)" />
         <span class="shoot-pill">{{ `${itemLabel(curSlot)}${curSlot === OTHER ? " 사진" : ""} 촬영` }}</span>
+        <!-- 찍기 전 위치 안내(2026-10-31): 외관 칸 · AI 도움 켰을 때만 -->
+        <span v-if="cueOn && cue && !qcCard" :class="`shoot-cue ${cue === 'ok' ? 'is-ok' : ''}`" role="status" aria-live="polite">{{ CUE_TEXT[cue] }}</span>
         <!-- 첫 칸(대표 사진): 왼쪽 위 「대표」 딱지(JSON note). -->
         <div ref="railEl" class="shoot-rail">
           <div
@@ -366,6 +455,7 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
             </button>
             <em v-if="itemOf(rail[i]).note && i === 0" class="shoot-slot__tag">{{ itemOf(rail[i]).note }}</em>
             <em v-if="PLUS && firstIssue(slotShot(i)?.qc)" class="shoot-qc-tag">{{ QC_TAG[firstIssue(slotShot(i)?.qc)!] }}</em>
+            <em v-else-if="PLUS && slotShot(i)?.guess" class="shoot-qc-tag">칸 확인</em>
             <i v-if="isRequiredItem(itemOf(rail[i]).id) && !slotShot(i) && ENFORCE" class="shoot-slot__req" aria-hidden="true" />
             <button v-if="slotShot(i)" type="button" class="shoot-slot__x" :aria-label="`${itemOf(rail[i]).label} 사진 지우기`" @click="removeSlotShot(i)">
               <Mask :src="rd('close-outline')" />
@@ -381,7 +471,8 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
         >+{{ hiddenReq.length }}</button>
         <!-- 촬영 후 품질 검사 알림(2026-10-31): 칸 줄 바로 위. 다시 찍기 = 그 칸으로 돌아가기 -->
         <div v-if="PLUS && qcCard" class="shoot-qc-card" role="status">
-          <p><b>{{ QC_TEXT[qcCard.issue] }}</b><span>{{ QC_TIP[qcCard.issue] }}</span></p>
+          <p v-if="qcCard.issue"><b>{{ QC_TEXT[qcCard.issue] }}</b><span>{{ QC_TIP[qcCard.issue] }}</span></p>
+          <p v-else-if="qcCard.guess && qcCard.slot"><b>{{ itemLabel(qcCard.slot) }} 칸인데 {{ itemLabel(qcCard.guess) }} 사진 같아요</b><span>찍을 칸이 맞는지 확인하고 다시 찍어 주세요</span></p>
           <button type="button" class="shoot-qc-card__keep" @click="qcCard = null">그대로 둘게요</button>
           <button type="button" class="shoot-qc-card__retake" @click="retakeQc">다시 찍기</button>
         </div>
@@ -453,6 +544,14 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       ok-text="버리고 나가기"
       @cancel="askClose = false"
       @ok="emit('close')"
+    />
+    <Confirm
+      v-if="askAi"
+      text="AI 도움을 켤까요? 찍은 사진이 칸에 맞는지 확인하고, 찍기 전에 차 위치를 알려 줘요. 처음 한 번 인식 기능(약 100MB)을 받아요 · 와이파이를 권해요. 사진과 화면은 폰 밖으로 나가지 않아요."
+      cancel-text="다음에"
+      ok-text="켜기"
+      @cancel="askAi = false"
+      @ok="acceptAi"
     />
     <CamPermission
       v-if="PLUS && !FAKE_ONLY && mode === 'cam' && !askClose && !stream && (error || camSlow)"
