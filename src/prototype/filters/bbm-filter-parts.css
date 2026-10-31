@@ -680,3 +680,38 @@
 /* 바탕색 칩: 하위 알약이 없는 줄은 선택하면 이름이 검정 칩으로 바뀐다(초톳 선택 알약과 같은 색) */
 .bbm-category-row.is-selected:not(.is-expandable) .bbm-category-row__name > span:last-child { display: inline-flex; align-items: center; height: 32px; padding: 0 12px; border-radius: 9999px; background: #222; color: #fff; font-size: 14px; font-weight: 500; line-height: 20px; }
 .bbm-category-row.is-selected:not(.is-expandable) .bbm-category-row__name { font-weight: 500; }
+
+/* Bobaedream filter footer actions share the Viec Lam Tot button blue.
+   Dialogs are portalled to body, so scope through the active Guazi listing
+   instead of requiring a marketplace ancestor. Frozen comparison modes,
+   reset/cancel actions, selected options and disabled buttons stay unchanged.
+   Important declarations override the legacy price/region footer rules. */
+body:has(.marketplace.is-qf-guazi) {
+  --bbmf-footer-action-blue: #306bd9;
+}
+body:has(.marketplace.is-qf-guazi) :is(
+  .bbmf-confirm,
+  .bbmf-seller-confirm,
+  .bbmf-category-confirm,
+  .mf-confirm,
+  .maker-hierarchy-confirm,
+  .vehicle-picker-apply,
+  .price-filter-confirm,
+  .region-confirm
+):not(:disabled) {
+  background: var(--bbmf-footer-action-blue) !important;
+  border-color: var(--bbmf-footer-action-blue) !important;
+  color: #fff;
+}
+body:has(.marketplace.is-qf-guazi) :is(
+  .bbmf-confirm,
+  .bbmf-seller-confirm,
+  .bbmf-category-confirm,
+  .mf-confirm,
+  .maker-hierarchy-confirm,
+  .vehicle-picker-apply,
+  .price-filter-confirm,
+  .region-confirm
+):not(:disabled):focus-visible {
+  outline-color: var(--bbmf-footer-action-blue);
+}

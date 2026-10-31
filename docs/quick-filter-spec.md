@@ -1,5 +1,11 @@
 # Quick Filter Spec
 
+## Filter Footer Action Color (2026-11-01)
+
+- Bobaedream Guazi filter bottom sheets and their shared PC modal counterparts use `#306BD9` (`rgb(48, 107, 217)`) with white text for enabled primary footer actions (`확인`, `적용`, `선택완료`, `N대 보기`). This supersedes the older navy/black footer-color notes below, without changing layout or filter behavior.
+- One `--bbmf-footer-action-blue` token in `bbm-filter-parts.css` covers common/full filters, seller/body type/category, price, mileage, manufacturer/model and legacy vehicle/region/price picker footers. Scope through `body:has(.marketplace.is-qf-guazi)` because the dialogs are portalled to `body`.
+- Disabled actions retain their existing disabled appearance. Reset, cancel, close, option checkboxes/pills, and frozen ChoTot/Dongchedi comparison modes are unchanged.
+
 ## Shared Rules
 
 - 판매자페이지 내차견적 딜러명(2026-10-23): 내차견적 제목과 프로필의 무료 견적 안내는 현재 페이지의 `dealer.name`을 사용한다. 예: 강환범 페이지는 `강환범 딜러에게 시세 문의`, 이병훈 페이지는 `이병훈 딜러에게 시세 문의`. 특정 딜러 이름을 고정하지 않는다.
