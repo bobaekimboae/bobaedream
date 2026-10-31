@@ -704,6 +704,8 @@ const isWait = computed(() => PLUS && phase.value === "recording" && elapsed.val
       v-if="PLUS && !FAKE_ONLY && mode === 'cam' && !pickOpen && !askLeave && !camStream && (camError || camSlow)"
       :kind="camError === 'denied' ? 'denied' : 'unavailable'"
       show-course
+      :checking="cam.checking.value"
+      :blocked="cam.blockedTries.value"
       @retry="onRetry"
       @album="mode = 'album'"
       @course="pickOpen = true"

@@ -39,7 +39,7 @@ const notify = (t: string) => emit("notify", t);
 
 const mode = ref<"cam" | "album">(props.startMode);
 // 2026-10-29 자가 체크(7라운드 지적): 사진 카메라는 4:3으로 요청해 가로 틀 저장 크기를 키운다(세로 폰 1200×900). 58 재현은 예전 16:9
-const { stream, error, torchSupported, retry, setTorch } = useCamera(
+const { stream, error, torchSupported, retry, setTorch, checking, blockedTries } = useCamera(
   () => mode.value === "cam",
   () => false,
   PLUS ? { width: { ideal: 1600 }, height: { ideal: 1200 } } : undefined,
@@ -458,6 +458,8 @@ const slotShot = (i: number) => (shotPicked(slotShots.value[i]) ? slotShots.valu
       v-if="PLUS && !FAKE_ONLY && mode === 'cam' && !askClose && !stream && (error || camSlow)"
       :kind="error === 'denied' ? 'denied' : 'unavailable'"
       what="photo"
+      :checking="checking"
+      :blocked="blockedTries"
       @retry="retry"
       @album="mode = 'album'"
       @close="onClickClose"
