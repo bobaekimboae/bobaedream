@@ -6,7 +6,7 @@ import { chromium } from "playwright";
 
 const ROOT = resolve("public");
 const PORT = 4579;
-const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg" };
+const MIME = { ".html": "text/html; charset=utf-8", ".js": "text/javascript", ".css": "text/css", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".mp4": "video/mp4" };
 const results = [];
 const check = (name, ok, detail = "") => {
   results.push({ name, ok: Boolean(ok), detail });
@@ -44,6 +44,9 @@ try {
   page.on("pageerror", (error) => errors.push(error.message));
   page.on("console", (message) => message.type() === "error" && errors.push(message.text()));
   const base = `http://127.0.0.1:${PORT}/bobaedream/nuxt-shortform/`;
+  await page.goto(`${base}?v=samples`);
+  check("비로그인 샘플 페이지 공개", await page.getByRole("heading", { name: "사진이 실제 매물 숏폼이 되는 방식" }).isVisible());
+  check("샘플 영상 3종 제공", (await page.locator(".sf-sample-card").count()) === 3 && (await page.locator(".sf-sample-player video").getAttribute("src"))?.endsWith(".mp4"));
   await page.goto(base);
   await page.getByRole("button", { name: "Google로 로그인" }).click();
   await page.getByRole("button", { name: /새 영상/ }).first().click();

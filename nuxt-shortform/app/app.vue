@@ -1,11 +1,12 @@
 <script setup lang="ts">
-// 화면 고르기: ?v=dashboard(기본) · new · order&id= · pricing. 페이지 라우터 없이 주소 검색어로 바꾼다(정적 배포).
+// 화면 고르기: ?v=dashboard(기본) · samples · new · order&id= · pricing. 페이지 라우터 없이 주소 검색어로 바꾼다(정적 배포).
 // autohaus-video와 같이 로그인하지 않으면 모든 화면이 로그인 화면이 된다. 결제 뒤에는 ?payment=success로 대시보드에 알림을 띄운다.
 import { onMounted, ref } from "vue";
 import Brand from "./components/Brand.vue";
 import Icon from "./components/Icon.vue";
 import Login from "./components/Login.vue";
 import Dashboard from "./components/Dashboard.vue";
+import Samples from "./components/Samples.vue";
 import NewVideo from "./components/NewVideo.vue";
 import OrderView from "./components/OrderView.vue";
 import Pricing from "./components/Pricing.vue";
@@ -71,6 +72,7 @@ onMounted(() => {
 });
 const NAV = [
   { v: "dashboard", label: "대시보드", icon: rd("view-grid-outline") },
+  { v: "samples", label: "샘플 영상", icon: rd("video-camera-outline") },
   { v: "new", label: "새 영상", icon: rd("video-camera-outline") },
   { v: "pricing", label: "크레딧 · 가격", icon: ct("chotot-common-bag") },
 ];
@@ -78,7 +80,14 @@ const credits = () => (state.loaded ? state.credits : "–");
 </script>
 <template>
   <template v-if="ready">
-    <Login v-if="!auth.email" @done="onLogin" />
+    <div v-if="!auth.email && view === 'samples'" class="sf-public">
+      <header class="sf-public-head">
+        <Brand @home="go('dashboard')" />
+        <button class="btn is-sm" type="button" @click="go('dashboard')">로그인</button>
+      </header>
+      <main class="sf-public-main"><Samples @go="go" /></main>
+    </div>
+    <Login v-else-if="!auth.email" @done="onLogin" />
     <div v-else class="sf">
       <header class="sf-top">
         <button type="button" :aria-label="open ? '메뉴 닫기' : '메뉴 열기'" :aria-expanded="open" @click="open = !open"><Icon :src="ct('chotot-common-menu')" /></button>
@@ -108,6 +117,7 @@ const credits = () => (state.loaded ? state.credits : "–");
       </aside>
       <main class="sf-main">
         <Dashboard v-if="view === 'dashboard'" :paid="paid" @go="go" />
+        <Samples v-else-if="view === 'samples'" @go="go" />
         <NewVideo v-else-if="view === 'new'" :key="`new-${newKey}`" @go="go" @toast="say" />
         <OrderView v-else-if="view === 'order'" :id="id" @go="go" @toast="say" />
         <Pricing v-else-if="view === 'pricing'" @go="go" @toast="say" />
