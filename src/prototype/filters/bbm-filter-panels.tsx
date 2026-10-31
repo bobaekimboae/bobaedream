@@ -5,6 +5,7 @@ import { BbmCheckGrid, BbmCheckRow, BbmChoiceGrid, BbmColorChips, BbmKeywordInpu
 import { bbmAdPeriods, bbmCheckOptions, bbmOptionGroups, bbmRangePresets, type BbmFilterItem } from "./bbm-filter-options";
 import { bbmOriginalCounts } from "./bbm-original-counts";
 import { MileageFinalPanel } from "./bbm-mileage";
+import { bbmYearOptions } from "./bbm-year-range";
 import { bbmMileagePresetRange, bbmPricePresetRange, bbmRangeBounds, bbmYearPresetRange, setBbmAdPeriod, setBbmChecks, setBbmKeyword, setBbmRange, toggleBbmCheck, type BbmCheckKey, type BbmFilterValues, type BbmPriceTab, type BbmRangeKey } from "./bbm-filter-state";
 
 // QF-076: 사이드바 펼침형 6개 · 모달형 20개의 안쪽 화면. 선택지·순서·문구·단위는 원본 수집(docs/bbm-filter-spec.json) 그대로.
@@ -229,8 +230,7 @@ export function BbmSellerTypeSheet({
 }
 // 슬라이더 눈금 끝(원본 가격 슬라이더: 0 ~ 1억)
 const sliderMax: Partial<Record<BbmRangeKey, number>> = { price: 10000, mileage: 300000, power: 600, efficiency: 20, displacement: 5000, weight: 3000, evRange: 600, length: 6000, width: 2200, height: 2200 };
-const thisYear = 2026;
-const years = Array.from({ length: thisYear - 1979 }, (_, index) => `${thisYear - index}년`);
+const years = bbmYearOptions();
 const months = Array.from({ length: 12 }, (_, index) => `${index + 1}월`);
 
 // 외부색상·시트색상 동그라미 색(원본 칩 모양을 따라 새로 정한 색. 투톤은 반반)

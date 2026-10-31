@@ -1,6 +1,7 @@
 // QF-089: 적용 칩(진한 채움 + ×) 문구와 해제. 원본 실측: 체크는 선택지 이름("SUV", "디젤"),
 // 가격은 "3,000만원부터 3,999만원까지", 한쪽만 있으면 "…부터" / "…까지".
 import { bbmRangePresets, bbmSidebarItems } from "./bbm-filter-options";
+import { bbmSingleYearLabel } from "./bbm-year-range";
 import { bbmAppliedIds, bbmRangeBounds, clearBbmKey, rangeIsSet, toggleBbmCheck, type BbmCheckKey, type BbmFilterValues, type BbmRangeKey } from "./bbm-filter-state";
 
 export type BbmAppliedChip = { id: string; label: string; clear: (value: BbmFilterValues) => BbmFilterValues };
@@ -11,7 +12,7 @@ export function bbmRangeLabel(key: BbmRangeKey, value: BbmFilterValues) {
   const range = value.ranges[key];
   if (!rangeIsSet(range) || !range) return "";
   // QF-106 연식 알약: 한 해("2023년") · "이전"(~2018년)
-  if (key === "year" && range.min && range.min === range.max) return `${range.min}년`;
+  if (key === "year" && range.min && range.min === range.max) return bbmSingleYearLabel(range.min);
   if (key === "year" && range.preset === "이전" && !range.min && range.max) return `~${range.max}년`;
   if (key === "year") return range.min || range.max ? `${range.min ? `${range.min} ` : ""}~${range.max ? ` ${range.max}` : ""}` : range.preset ?? "";
   if (key === "mileage") {
