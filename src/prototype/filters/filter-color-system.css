@@ -24,6 +24,7 @@ html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-q
   .price-presets button.is-selected:not(:disabled),
   .bottom-sheet .chotot-choice-chips button.is-selected:not(:disabled),
   .bottom-sheet .chotot-category-child-chips button.is-selected:not(:disabled),
+  .bbmf-overlay .car-list-toolbar-pop-modal__options .ui-btn.is-selected:not(:disabled):not(.is-loading),
   .category-filter-children button.is-selected:not(:disabled)
 ) {
   border-color: var(--bbmf-accent);
@@ -75,6 +76,7 @@ html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-q
   .truck-type-picker-row.is-selected .truck-type-picker-check,
   .truck-type-picker-row.is-partial .truck-type-picker-check,
   .bbmf-bike-genre-row.is-checked:not(.is-disabled) .bbmf-bike-genre-check,
+  .bbmf-overlay .bbm-maker-row.is-model.is-selected:not(:disabled) .bbm-model-check,
   .bbmf-overlay .bbm-grade-row.is-checked .bbm-checkbox
 ) {
   border-color: var(--bbmf-accent);
@@ -104,6 +106,7 @@ html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-q
   .bbmf-overlay .bbm-catalog-row.is-selected,
   .bbmf-full-value,
   .bbmf-overlay .bbm-grade-row.is-checked,
+  .bbmf-overlay .bbm-maker-row.is-selected:not(:disabled) .bbm-maker-name,
   .bbmf-overlay .bbm-category-row.is-selected.is-expandable .bbm-category-row__name,
   .bbmf-overlay .bbm-category-menu__button.is-selected .bbm-category-menu__label
 ) { color: var(--bbmf-accent-ink); }

@@ -40,6 +40,7 @@ test('selection inventory includes presets, checks, mixed truck rows, switches, 
     '.truck-type-picker-row.is-partial', '.bbmf-keep-switch.is-on', '.bbmf-daangn-switch.is-on',
     '.maker-hierarchy-row.is-selected', '.vehicle-picker-grid button.is-selected', '.stable-region-cell.is-selected',
     '.region-menu button[aria-selected="true"]', '.bbm-category-child-pills button.is-selected', '.bbmf-bike-genre-row.is-checked',
+    '.bbm-model-check', '.bbm-maker-name', '.car-list-toolbar-pop-modal__options .ui-btn.is-selected',
   ]) assert.ok(css.includes(selector), selector);
 });
 
