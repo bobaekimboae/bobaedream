@@ -12,7 +12,7 @@
     "build": "nuxt build",
     "generate": "nuxt generate",
     "typecheck": "nuxt prepare && vue-tsc -p .nuxt/tsconfig.json --noEmit",
-    "test": "vitest run"
+    "test": "nuxt prepare && vitest run"
   },
   "dependencies": {
     "@tiptap/core": "3.27.3",
