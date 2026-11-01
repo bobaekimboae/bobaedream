@@ -33,7 +33,7 @@ for(const width of [360,384,412,592,1280]){
   catalogBoardCount=Math.max(catalogBoardCount,movableCount);
   defaultMovableCount=Math.max(defaultMovableCount,activeCount);
   check(await nav.count()===activeCount+3,`${width}px 상단 채널 수가 기본 ${activeCount}개와 고정 3개 합계가 아닙니다`);
-  check(activeCount===31,`${width}px 바이두형 기본 내 게시판 수가 31개가 아닙니다: ${activeCount}`);
+  check(activeCount===34,`${width}px 바이두형 기본 내 게시판 수가 34개가 아닙니다: ${activeCount}`);
   check((await nav.nth(0).textContent())?.trim()==='홈',`${width}px 첫 채널이 홈이 아닙니다`);
   check((await nav.nth(1).textContent())?.trim()==='전체',`${width}px 둘째 채널이 전체가 아닙니다`);
   check((await nav.nth(2).textContent())?.trim()==='베스트',`${width}px 셋째 채널이 베스트가 아닙니다`);
@@ -102,10 +102,16 @@ for(const width of [360,384,412,592,1280]){
   check(JSON.stringify(sectionLabels)===JSON.stringify(['일반','자동차','차량','제보','결함']),'게시판 분류 순서가 일반·자동차·차량·제보·결함과 다릅니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="domestic-car"]').count()===1,'국산차가 자동차 분류에 표시되지 않았습니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="import-car"]').count()===1,'수입차가 자동차 분류에 표시되지 않았습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="tesla"]').count()===1,'테슬라가 자동차 분류에 표시되지 않았습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="bmw"]').count()===1,'BMW가 자동차 분류에 표시되지 않았습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="mercedes-benz"]').count()===1,'벤츠가 자동차 분류에 표시되지 않았습니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="차량"] .boardOrderCategoryItem[data-board-id="bike-cycle"]').count()===1,'바이크가 차량 분류에 표시되지 않았습니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="차량"] .boardOrderCategoryItem[data-board-id="truck-bus-heavy"]').count()===1,'트럭·버스·중기가 차량 분류에 표시되지 않았습니다');
   check((await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-board-id="domestic-car"] span').textContent())?.trim()==='국산차게시판','국산차 실제 게시판명이 표시되지 않았습니다');
   check((await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-board-id="import-car"] span').textContent())?.trim()==='수입차게시판','수입차 실제 게시판명이 표시되지 않았습니다');
+  check((await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-board-id="tesla"] span').textContent())?.trim()==='테슬라','테슬라 게시판명이 표시되지 않았습니다');
+  check((await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-board-id="bmw"] span').textContent())?.trim()==='BMW','BMW 게시판명이 표시되지 않았습니다');
+  check((await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-board-id="mercedes-benz"] span').textContent())?.trim()==='벤츠','벤츠 게시판명이 표시되지 않았습니다');
   check((await page.locator('.boardOrderAvailableSection[data-section="차량"] [data-board-id="bike-cycle"] span').textContent())?.trim()==='오토바이/자전거','바이크 실제 게시판명이 표시되지 않았습니다');
   const clippedCategoryLabels=await page.locator('.boardOrderCategoryItem span,.boardOrderAdd span').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clippedCategoryLabels.length===0,`${width}px 분류 게시판명이 잘렸습니다: ${clippedCategoryLabels.join(', ')}`);
@@ -256,6 +262,17 @@ await defaultHome.locator('.boardOrderClose').click();
 await defaultHome.goto(baseUrl,{waitUntil:'domcontentloaded'});
 check(await defaultHome.locator('.boardChannelTab[data-board-id="free"]').getAttribute('aria-current')==='page','저장한 기본 홈이 다시 열 때 적용되지 않았습니다');
 await defaultHome.close();
+
+const brandBoards=await browser.newPage({viewport:{width:384,height:844}});
+await brandBoards.goto(baseUrl,{waitUntil:'domcontentloaded'});
+for(const [id,label,keyword] of [['tesla','테슬라','테슬라'],['bmw','BMW','G30'],['mercedes-benz','벤츠','E클래스']]){
+  await brandBoards.locator(`.boardChannelTab[data-board-id="${id}"]`).click();
+  check((await brandBoards.locator('.boardSelectName').textContent())?.trim()===label,`${label} 게시판 선택명이 반영되지 않았습니다`);
+  check(new URL(brandBoards.url()).searchParams.get('board')===id,`${label} 게시판 안정 ID가 URL에 반영되지 않았습니다`);
+  check(await brandBoards.locator('#list .item').count()>0,`${label} 게시판에 표시할 글이 없습니다`);
+  check((await brandBoards.locator('#list .itemTitle').first().textContent())?.includes(keyword),`${label} 게시판이 해당 브랜드 글로 필터링되지 않았습니다`);
+}
+await brandBoards.close();
 
 for(const columns of [3,4]){
   const preview=await browser.newPage({viewport:{width:384,height:844}});

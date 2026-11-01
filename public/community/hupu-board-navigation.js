@@ -28,6 +28,9 @@
     {id:'accident-blackbox',displayName:'교통사고/블박',shortName:'교통블박',section:'자료실',topicKey:'블박',avatarLabel:'블박',avatarColor:'#b4332b',avatarAccent:'#ff766e'},
     {id:'domestic-car',displayName:'국산차게시판',shortName:'국산차',section:'자료실',topicKey:'전체',avatarLabel:'국산',avatarColor:'#176549',avatarAccent:'#5bc699'},
     {id:'import-car',displayName:'수입차게시판',shortName:'수입차',section:'자료실',topicKey:'전체',avatarLabel:'수입',avatarColor:'#252932',avatarAccent:'#808b9e'},
+    {id:'tesla',displayName:'테슬라',shortName:'테슬라',section:'자료실',topicKey:'테슬라',avatarLabel:'T',avatarColor:'#b11f2f',avatarAccent:'#ed5965'},
+    {id:'bmw',displayName:'BMW',shortName:'BMW',section:'자료실',topicKey:'BMW',avatarLabel:'BMW',avatarColor:'#1769aa',avatarAccent:'#73b9e6'},
+    {id:'mercedes-benz',displayName:'벤츠',shortName:'벤츠',section:'자료실',topicKey:'벤츠',avatarLabel:'BENZ',avatarColor:'#25282d',avatarAccent:'#8f969f'},
     {id:'my-car-photo',displayName:'내차사진',shortName:'내차사진',section:'자료실',topicKey:'전체',avatarLabel:'MY',avatarColor:'#11748d',avatarAccent:'#5bc3dc'},
     {id:'scoop',displayName:'직찍/특종발견',shortName:'직찍특종',section:'자료실',topicKey:'전체',avatarLabel:'특종',avatarColor:'#5c3b8f',avatarAccent:'#a982e4'},
     {id:'car-media',displayName:'자동차사진/동영상',shortName:'자동차영상',section:'자료실',topicKey:'전체',avatarLabel:'영상',avatarColor:'#3348a1',avatarAccent:'#7488eb'},
@@ -48,7 +51,7 @@
   var movableBoards=boards.filter(function(board){return !board.fixed});
   var defaultExcludedIds=['adult','installation','free-media','caution','racing-model','military'];
   var boardGroupById={
-    'car-news':'자동차','foreign-car-news':'자동차','brand-car-info':'자동차','vehicle-review':'자동차','tuhu-review':'자동차','fuel-economy':'자동차','test-drive':'자동차','celebrity-car':'자동차','domestic-car':'자동차','import-car':'자동차','my-car-photo':'자동차','car-media':'자동차','installation':'자동차','oldcar-memory':'자동차',
+    'car-news':'자동차','foreign-car-news':'자동차','brand-car-info':'자동차','vehicle-review':'자동차','tuhu-review':'자동차','fuel-economy':'자동차','test-drive':'자동차','celebrity-car':'자동차','domestic-car':'자동차','import-car':'자동차','tesla':'자동차','bmw':'자동차','mercedes-benz':'자동차','my-car-photo':'자동차','car-media':'자동차','installation':'자동차','oldcar-memory':'자동차',
     'truck-bus-heavy':'차량','bike-cycle':'차량',
     'accident-blackbox':'제보','scoop':'제보',
     'autohome-complaint':'결함','chezhiwang-complaint':'결함'

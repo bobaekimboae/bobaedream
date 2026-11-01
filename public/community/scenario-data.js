@@ -1,4 +1,4 @@
-window.BOBAE_TOPICS=['전체','테슬라','일론머스크','TSLA주식','스페이스X','전기차','정비','튜닝','중고차','보험','블박'];
+window.BOBAE_TOPICS=['전체','테슬라','BMW','벤츠','일론머스크','TSLA주식','스페이스X','전기차','정비','튜닝','중고차','보험','블박'];
 
 const titles=[
 '[시승기] 제네시스 GV80 장거리 시승 후기',
@@ -196,3 +196,16 @@ window.BOBAE_POSTS=titles.map((title,i)=>{
   if(p.id===1) p.thumbnail=featuredDetails[1].detailImage;
   return p;
 });
+
+window.BOBAE_POSTS.push(
+  {
+    id:61,title:'[BMW] G30 520d 중고 입문 전에 확인할 정비 항목',user:'비엠입문자',category:'BMW',rank:'r4',level:'3',time:'3분 전',date:'2026.11.01.',view:732,reply:18,likes:27,fresh:true,
+    thumbnail:img('photo-1556189250-72ba954cfc2b',220),photos:6,video:false,authorAvatar:avatar('비엠입문자'),
+    body:['G30 520d 중고차를 보면서 엔진 마운트와 냉각수 라인, DPF 상태를 먼저 확인했습니다.','시운전 때 저속 변속 충격과 냉간 진동을 함께 확인하는 것이 좋았습니다.'],comments:[]
+  },
+  {
+    id:62,title:'[벤츠] E클래스 인증중고와 일반 매물 차이가 큰가요?',user:'삼각별입문',category:'벤츠',rank:'r5',level:'2',time:'7분 전',date:'2026.11.01.',view:641,reply:14,likes:22,fresh:true,
+    thumbnail:img('photo-1563720223185-11003d516935',220),photos:4,video:false,authorAvatar:avatar('삼각별입문'),
+    body:['E클래스 인증중고와 일반 중고 매물의 보증 범위와 상품화 비용을 비교하고 있습니다.','첫 수입차라면 가격 차이뿐 아니라 정비 이력과 보증 문서를 함께 확인하는 것이 중요해 보입니다.'],comments:[]
+  }
+);
