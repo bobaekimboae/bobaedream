@@ -8,6 +8,10 @@ const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
 
 function setSort(value: CommunitySort) { sort.value = value }
 function setView(value: CommunityView) { view.value = value }
+function handleBack() {
+  if (import.meta.client && window.history.length > 1) window.history.back()
+  else navigateTo('/')
+}
 function selectBoard(value: string) {
   boardId.value = value
   headword.value = ''
@@ -27,24 +31,32 @@ useHead({ title: '보배드림 커뮤니티' })
 <template>
   <main class="community-shell">
     <header class="community-header">
-      <button class="header-menu" type="button" aria-label="게시판 메뉴" @click="boardMenuOpen = true"><span /><span /><span /></button>
-      <NuxtLink class="brand" to="/"><span class="brand-mark">B</span><strong>보배드림</strong></NuxtLink>
-      <div class="header-actions"><button type="button" aria-label="검색" class="search-icon" /><button type="button" aria-label="알림" class="bell-icon" /></div>
+      <button class="header-back" type="button" aria-label="뒤로" @click="handleBack"><img :src="`${iconRoot}/chzzk/back.svg`" alt="" /></button>
+      <strong class="community-title">보배드림</strong>
+      <div class="header-actions">
+        <button type="button" aria-label="검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /></button>
+        <button type="button" aria-label="게시판 메뉴" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
+      </div>
     </header>
 
     <nav class="community-primary-nav" aria-label="커뮤니티 대메뉴">
-      <button :class="{ 'is-active': activeBoard.sectionId === 'general' }" type="button" @click="selectBoard('free')">홈</button>
-      <button type="button" @click="boardMenuOpen = true">게시판</button>
-      <button :class="{ 'is-active': activeBoard.sectionId === 'reports' }" type="button" @click="selectBoard('blackbox')">제보</button>
-      <button :class="{ 'is-active': activeBoard.sectionId === 'defects' }" type="button" @click="selectBoard('defect')">결함</button>
+      <button type="button" @click="navigateTo('/')">홈</button>
+      <button class="is-active" type="button" @click="boardMenuOpen = true">게시판</button>
+      <button type="button" @click="selectBoard('blackbox')">제보</button>
+      <button type="button" @click="selectBoard('defect')">결함</button>
     </nav>
 
-    <section class="board-context">
+    <div v-if="view === 'compact'" class="chzzk-list-toolbar">
+      <button type="button" @click="boardMenuOpen = true">{{ activeBoard.name }} <img :src="`${iconRoot}/write/chevron-down.svg`" alt="" /></button>
+      <button type="button" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" />{{ sort === 'latest' ? '최신순' : sort === 'latest-comment' ? '최신 댓글순' : '인기순' }}</button>
+    </div>
+
+    <section v-else class="board-context">
       <div><strong>{{ activeBoard.name }}</strong><span>차를 좋아하는 사람들의 이야기</span></div>
       <button type="button" @click="boardMenuOpen = true">게시판 변경</button>
     </section>
 
-    <div class="post-toolbar">
+    <div v-if="view !== 'compact'" class="post-toolbar">
       <button class="filter-button" type="button" aria-label="게시글 옵션" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" /></button>
       <div class="headword-strip" aria-label="말머리 필터">
         <button :class="{ 'is-active': !headword }" type="button" @click="headword = ''">전체</button>
@@ -53,10 +65,16 @@ useHead({ title: '보배드림 커뮤니티' })
       <button class="sort-summary" type="button" @click="optionsOpen = true">{{ sort === 'latest' ? '최신순' : sort === 'latest-comment' ? '최신 댓글순' : '인기순' }}</button>
     </div>
 
+    <div v-if="view === 'compact'" class="community-cleanbot">
+      <span class="cleanbot-mark"><img :src="`${iconRoot}/chzzk/cleanbot-source.png`" alt="" /></span>
+      <span><strong>클린봇</strong>이 악성게시글을 감지합니다.</span>
+      <button class="cleanbot-settings" type="button" aria-label="클린봇 설정"><img :src="`${iconRoot}/chzzk/settings.svg`" alt="" /></button>
+    </div>
+
     <section class="post-list" :class="`post-list--${view}`" aria-live="polite">
       <NuxtLink v-for="post in filteredPosts" :key="post.id" class="post-card" :to="`/posts/${post.id}`">
         <template v-if="view === 'compact'">
-          <div class="post-copy"><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" /><h2>{{ post.title }}</h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span class="compact-up">⇧ {{ post.likes }}</span><span>◉ {{ post.views }}</span></p></div>
+          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" />{{ post.title }} <span v-if="post.comments" class="compact-replies">({{ post.comments }})</span></h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
           <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="post-thumbnail" />
         </template>
 
@@ -80,7 +98,7 @@ useHead({ title: '보배드림 커뮤니티' })
       </div>
     </section>
 
-    <NuxtLink class="floating-write" to="/write" aria-label="글쓰기"><img :src="`${iconRoot}/write.svg`" alt="" /></NuxtLink>
+    <NuxtLink class="floating-write" to="/write" aria-label="글쓰기"><img :src="`${iconRoot}/chzzk/write.svg`" alt="" /></NuxtLink>
 
     <PostOptionsSheet :open="optionsOpen" :sort="sort" :view="view" :headword="headword" :headwords="activeBoard.headwords" @close="optionsOpen = false" @update:sort="setSort" @update:view="setView" @update:headword="headword = $event" />
 

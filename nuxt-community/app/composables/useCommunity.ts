@@ -49,14 +49,17 @@ const sections: CommunitySection[] = [
 ]
 
 const seedPosts: CommunityPost[] = [
-  { id: 'p-free-1', boardId: 'free', headword: '일상', title: '주말 드라이브 코스 어디가 좋을까요?', excerpt: '서울에서 두 시간 안쪽으로 다녀올 만한 코스를 추천해주세요.', author: '바람따라', createdAt: '2026-11-01T04:20:00Z', updatedAt: '2026-11-01T04:35:00Z', comments: 18, likes: 22, dislikes: 1, views: 735, isPopular: true },
+  { id: 'p-free-1', boardId: 'free', headword: '일상', title: '주말 드라이브 코스 어디가 좋을까요?', excerpt: '서울에서 두 시간 안쪽으로 다녀올 만한 코스를 추천해주세요.', author: '바람따라', createdAt: '2026-11-01T04:20:00Z', updatedAt: '2026-11-01T04:35:00Z', thumbnail: 'images/community/board-header-genesis-yeosu.webp', comments: 18, likes: 22, dislikes: 1, views: 735, isPopular: true },
   { id: 'p-free-2', boardId: 'free', headword: '질문', title: '첫 중고차 점검 항목 조언 부탁드립니다', excerpt: '계약 전에 꼭 확인해야 할 항목을 경험자분들께 여쭙습니다.', author: '첫차준비중', createdAt: '2026-11-01T03:10:00Z', updatedAt: '2026-11-01T03:50:00Z', comments: 27, likes: 14, dislikes: 0, views: 612 },
-  { id: 'p-free-3', boardId: 'free', headword: '유머', title: '세차하고 나오자마자 비가 옵니다', excerpt: '이번에도 일기예보보다 제 세차 일정이 정확했습니다.', author: '맑은날세차', createdAt: '2026-11-01T01:45:00Z', updatedAt: '2026-11-01T01:45:00Z', comments: 11, likes: 31, dislikes: 0, views: 980 },
-  { id: 'p1', boardId: 'domestic', headword: '기아', title: '마그마 주조휠 단조휠 차이 꽤 납니다', excerpt: '실사용에서 느낀 승차감과 무게 차이를 정리했습니다.', author: '스탄IGV60Mag', createdAt: '2026-11-01T03:30:00Z', updatedAt: '2026-11-01T03:30:00Z', thumbnail: '../community/assets/board-header-genesis-yeosu.webp', comments: 32, likes: 18, dislikes: 1, views: 4661, isPopular: true },
+  { id: 'p-free-3', boardId: 'free', headword: '유머', title: '세차하고 나오자마자 비가 옵니다', excerpt: '이번에도 일기예보보다 제 세차 일정이 정확했습니다.', author: '맑은날세차', createdAt: '2026-11-01T01:45:00Z', updatedAt: '2026-11-01T01:45:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', comments: 11, likes: 31, dislikes: 0, views: 980 },
+  { id: 'p-free-4', boardId: 'free', headword: '정보', title: '장거리 운전 전에 확인한 차량 점검 목록입니다', excerpt: '타이어와 오일류를 중심으로 출발 전 확인한 항목입니다.', author: '안전운전중', createdAt: '2026-11-01T00:50:00Z', updatedAt: '2026-11-01T00:50:00Z', comments: 9, likes: 28, dislikes: 0, views: 844 },
+  { id: 'p-free-5', boardId: 'free', headword: '질문', title: '보험 갱신할 때 특약 어떤 걸 넣으셨나요?', excerpt: '주행거리 특약과 안전장치 할인 조건을 비교 중입니다.', author: '보험비교중', createdAt: '2026-10-31T23:35:00Z', updatedAt: '2026-10-31T23:35:00Z', thumbnail: 'images/community/board-header-aston-martin-db12.webp', comments: 24, likes: 17, dislikes: 1, views: 620 },
+  { id: 'p-free-6', boardId: 'free', headword: '일상', title: '오늘 출근길 연비가 평소보다 잘 나왔습니다', excerpt: '막히지 않는 시간대에 달리니 차이가 꽤 크네요.', author: '연비기록러', createdAt: '2026-10-31T22:10:00Z', updatedAt: '2026-10-31T22:10:00Z', comments: 7, likes: 13, dislikes: 0, views: 311 },
+  { id: 'p1', boardId: 'domestic', headword: '기아', title: '마그마 주조휠 단조휠 차이 꽤 납니다', excerpt: '실사용에서 느낀 승차감과 무게 차이를 정리했습니다.', author: '스탄IGV60Mag', createdAt: '2026-11-01T03:30:00Z', updatedAt: '2026-11-01T03:30:00Z', thumbnail: 'images/community/board-header-genesis-yeosu.webp', comments: 32, likes: 18, dislikes: 1, views: 4661, isPopular: true },
   { id: 'p2', boardId: 'ev', headword: '충전', title: '[질문] 충전 몇 프로 채우세요?', excerpt: '완속 충전 시 80%와 90% 중 어떤 설정을 쓰시나요?', author: '두부lev3', createdAt: '2026-11-01T02:45:00Z', updatedAt: '2026-11-01T03:42:00Z', comments: 12, likes: 5, dislikes: 0, views: 224 },
-  { id: 'p3', boardId: 'imported', headword: '벤츠', title: 'GLC EV 실내 공간은 이 정도입니다', excerpt: '2열 무릎 공간과 트렁크 실측 사진을 함께 올립니다.', author: '노이예ix3', createdAt: '2026-10-31T23:30:00Z', updatedAt: '2026-11-01T01:20:00Z', thumbnail: '../community/assets/board-header-mercedes-glb-family.webp', comments: 36, likes: 29, dislikes: 2, views: 2939, isPopular: true },
+  { id: 'p3', boardId: 'imported', headword: '벤츠', title: 'GLC EV 실내 공간은 이 정도입니다', excerpt: '2열 무릎 공간과 트렁크 실측 사진을 함께 올립니다.', author: '노이예ix3', createdAt: '2026-10-31T23:30:00Z', updatedAt: '2026-11-01T01:20:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', comments: 36, likes: 29, dislikes: 2, views: 2939, isPopular: true },
   { id: 'p4', boardId: 'ev', headword: '충전', title: '충전이 다됐다고 함부로 충전기 뽑지 말아주세요', excerpt: '공용 충전기 이용 예절에 대해 서로 의견을 나눠봅시다.', author: '후니이니', createdAt: '2026-10-31T16:20:00Z', updatedAt: '2026-10-31T17:10:00Z', comments: 24, likes: 41, dislikes: 4, views: 1504 },
-  { id: 'p5', boardId: 'imported', headword: '아우디', title: '후면 배지의 차이가 궁금해요', excerpt: '같은 연식인데 배지 위치가 다른 이유를 아시는 분 계실까요?', author: '솔루션EV4', createdAt: '2026-10-31T09:10:00Z', updatedAt: '2026-10-31T09:10:00Z', thumbnail: '../community/assets/board-header-aston-martin-db12.webp', comments: 5, likes: 3, dislikes: 0, views: 230 },
+  { id: 'p5', boardId: 'imported', headword: '아우디', title: '후면 배지의 차이가 궁금해요', excerpt: '같은 연식인데 배지 위치가 다른 이유를 아시는 분 계실까요?', author: '솔루션EV4', createdAt: '2026-10-31T09:10:00Z', updatedAt: '2026-10-31T09:10:00Z', thumbnail: 'images/community/board-header-aston-martin-db12.webp', comments: 5, likes: 3, dislikes: 0, views: 230 },
 ]
 
 export function filterAndSortPosts(
@@ -76,7 +79,7 @@ export function filterAndSortPosts(
 export function useCommunity() {
   const posts = useState<CommunityPost[]>('community-posts', () => seedPosts)
   const sort = useState<CommunitySort>('community-sort', () => 'latest')
-  const view = useState<CommunityView>('community-view', () => 'feed')
+  const view = useState<CommunityView>('community-view-v2', () => 'compact')
   const boardId = useState<string>('community-board', () => 'free')
   const headword = useState<string>('community-headword', () => '')
 
