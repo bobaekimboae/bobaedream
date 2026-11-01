@@ -48,12 +48,33 @@
   var movableBoards=boards.filter(function(board){return !board.fixed});
   var defaultExcludedIds=['adult','installation','free-media','caution','racing-model','military'];
   var boardGroupById={
-    'car-news':'자동차','foreign-car-news':'자동차','brand-car-info':'자동차','vehicle-review':'자동차','tuhu-review':'자동차','fuel-economy':'자동차','test-drive':'자동차','celebrity-car':'자동차','domestic-car':'자동차','import-car':'자동차','my-car-photo':'자동차','installation':'자동차','truck-bus-heavy':'자동차','bike-cycle':'자동차','oldcar-memory':'자동차',
-    'accident-blackbox':'제보','scoop':'제보','suggestion':'제보','car-media':'제보','free-media':'제보','caution':'제보',
+    'car-news':'자동차','foreign-car-news':'자동차','brand-car-info':'자동차','vehicle-review':'자동차','tuhu-review':'자동차','fuel-economy':'자동차','test-drive':'자동차','celebrity-car':'자동차','domestic-car':'자동차','import-car':'자동차','my-car-photo':'자동차','car-media':'자동차','installation':'자동차','oldcar-memory':'자동차',
+    'truck-bus-heavy':'차량','bike-cycle':'차량',
+    'accident-blackbox':'제보','scoop':'제보',
     'autohome-complaint':'결함','chezhiwang-complaint':'결함'
   };
-  var menuSections=['일반','자동차','제보','결함'];
-  movableBoards.forEach(function(board){board.menuSection=boardGroupById[board.id]||'일반'});
+  var boardSubgroupById={
+    'free':'자유·소통','politics':'자유·소통','adult':'자유·소통','boba-story':'자유·소통','suggestion':'자유·소통','event':'자유·소통',
+    'new-humor':'유머·이슈','humor':'유머·이슈','free-media':'유머·이슈','caution':'유머·이슈',
+    'kbo':'스포츠','mlb':'스포츠','overseas-football':'스포츠','domestic-football':'스포츠','racing-model':'스포츠',
+    'military':'취미·생활','aviation-rail':'취미·생활',
+    'car-news':'뉴스·정보','foreign-car-news':'뉴스·정보','brand-car-info':'뉴스·정보','fuel-economy':'뉴스·정보',
+    'vehicle-review':'리뷰·시승','tuhu-review':'리뷰·시승','test-drive':'리뷰·시승','celebrity-car':'리뷰·시승',
+    'domestic-car':'차종','import-car':'차종','oldcar-memory':'차종',
+    'my-car-photo':'사진·튜닝','car-media':'사진·튜닝','installation':'사진·튜닝',
+    'truck-bus-heavy':'상용·중장비','bike-cycle':'바이크·자전거',
+    'accident-blackbox':'사고·블랙박스','scoop':'특종·제보',
+    'autohome-complaint':'결함·불만','chezhiwang-complaint':'결함·불만'
+  };
+  var menuSections=['일반','자동차','차량','제보','결함'];
+  var menuSubgroups={
+    '일반':['자유·소통','유머·이슈','스포츠','취미·생활'],
+    '자동차':['뉴스·정보','리뷰·시승','차종','사진·튜닝'],
+    '차량':['상용·중장비','바이크·자전거'],
+    '제보':['사고·블랙박스','특종·제보'],
+    '결함':['결함·불만']
+  };
+  movableBoards.forEach(function(board){board.menuSection=boardGroupById[board.id]||'일반';board.menuSubgroup=boardSubgroupById[board.id]||'자유·소통'});
   var defaultActiveOrder=movableBoards.filter(function(board){return defaultExcludedIds.indexOf(board.id)<0}).map(function(board){return board.id});
   var boardById={};
   boards.forEach(function(board,index){board.defaultOrder=index+1;boardById[board.id]=board});
@@ -98,7 +119,7 @@
     return{version:2,menuProfileVersion:1,fixedIds:fixedIds.slice(),activeOrder:defaultActiveOrder.slice(),updatedAt:null};
   }
   function orderedBoards(){return[boardById.best].concat(loadState().activeOrder.map(function(id){return boardById[id]}).filter(Boolean))}
-  function sections(){return menuSections.map(function(title){return{title:title,boards:movableBoards.filter(function(board){return board.menuSection===title})}})}
+  function sections(){return menuSections.map(function(title){return{title:title,boards:movableBoards.filter(function(board){return board.menuSection===title}),groups:menuSubgroups[title].map(function(groupTitle){return{title:groupTitle,boards:movableBoards.filter(function(board){return board.menuSection===title&&board.menuSubgroup===groupTitle})}})}})}
   function loadDefaultHome(){
     var id='home';
     try{id=localStorage.getItem(defaultHomeStorageKey)||'home'}catch(error){}
@@ -372,9 +393,12 @@
       order.forEach(function(id){active[id]=true});
       var available=movableBoards.filter(function(board){return !active[board.id]});
       availableSections.innerHTML=menuSections.map(function(section,index){
-        var list=movableBoards.filter(function(board){return board.menuSection===section});
         var title=index===0?'':'<h3 class="boardOrderAvailableTitle">'+escapeHtml(section)+'</h3>';
-        return '<section class="boardOrderAvailableSection" data-section="'+escapeHtml(section)+'">'+title+'<div class="boardOrderAvailableGrid">'+list.map(function(board){return active[board.id]?activeCategoryTile(board):addTile(board)}).join('')+'</div></section>';
+        var groups=menuSubgroups[section].map(function(groupTitle){
+          var list=movableBoards.filter(function(board){return board.menuSection===section&&board.menuSubgroup===groupTitle});
+          return '<div class="boardOrderSubgroup" data-subgroup="'+escapeHtml(groupTitle)+'"><h4 class="boardOrderSubgroupTitle">'+escapeHtml(groupTitle)+'</h4><div class="boardOrderAvailableGrid">'+list.map(function(board){return active[board.id]?activeCategoryTile(board):addTile(board)}).join('')+'</div></div>';
+        }).join('');
+        return '<section class="boardOrderAvailableSection" data-section="'+escapeHtml(section)+'">'+title+groups+'</section>';
       }).join('');
       var empty=backdrop.querySelector('.boardOrderEmpty');
       empty.hidden=available.length>0;

@@ -74,7 +74,7 @@ for(const width of [360,384,412,592,1280]){
     await page.locator('.boardOrderSectionTabs [data-section="제보"]').click();
     await page.waitForTimeout(350);
     check(await page.locator('.boardOrderSectionTabs [data-section="제보"]').getAttribute('aria-selected')==='true','분류 탭 클릭 뒤 제보 탭이 선택되지 않았습니다');
-    check(await page.locator('.boardOrderAvailableSection[data-section="제보"] .boardOrderAdd').count()>=1,'제보 분류 섹션에 추가 가능한 게시판이 없습니다');
+    check(await page.locator('.boardOrderAvailableSection[data-section="제보"] [data-subgroup="사고·블랙박스"]').count()===1,'제보 트리의 사고·블랙박스 소분류가 없습니다');
     await page.locator('.boardOrderSectionTabs [data-section="일반"]').click();
     await page.waitForTimeout(350);
     await page.locator('.boardOrderBody').evaluate(element=>{element.scrollTop=0});
@@ -97,11 +97,16 @@ for(const width of [360,384,412,592,1280]){
   check(await page.locator('.boardOrderPanel').evaluate(panel=>panel.contains(document.activeElement)),'모달에서 Shift+Tab 포커스가 밖으로 빠졌습니다');
   check(await page.locator('.boardOrderFixed').count()===3,'고정 채널이 3개가 아닙니다');
   check(await page.locator('.boardOrderItem[data-movable="true"]').count()===activeCount,`이동 채널이 기본 ${activeCount}개와 다릅니다`);
-  check(await page.locator('.boardOrderSectionTabs [role="tab"]').count()===4,'게시판 분류 탭이 4개가 아닙니다');
+  check(await page.locator('.boardOrderSectionTabs [role="tab"]').count()===5,'게시판 분류 탭이 5개가 아닙니다');
   const sectionLabels=await page.locator('.boardOrderSectionTabs [role="tab"]').allTextContents();
-  check(JSON.stringify(sectionLabels)===JSON.stringify(['일반','자동차','제보','결함']),'게시판 분류 순서가 일반·자동차·제보·결함과 다릅니다');
+  check(JSON.stringify(sectionLabels)===JSON.stringify(['일반','자동차','차량','제보','결함']),'게시판 분류 순서가 일반·자동차·차량·제보·결함과 다릅니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="domestic-car"]').count()===1,'국산차가 자동차 분류에 표시되지 않았습니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="import-car"]').count()===1,'수입차가 자동차 분류에 표시되지 않았습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="차량"] .boardOrderCategoryItem[data-board-id="bike-cycle"]').count()===1,'바이크가 차량 분류에 표시되지 않았습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="차량"] .boardOrderCategoryItem[data-board-id="truck-bus-heavy"]').count()===1,'트럭·버스·중기가 차량 분류에 표시되지 않았습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-subgroup="차종"] [data-board-id="domestic-car"]').count()===1,'국산차가 자동차 > 차종 트리에 없습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="차량"] [data-subgroup="바이크·자전거"] [data-board-id="bike-cycle"]').count()===1,'바이크가 차량 > 바이크·자전거 트리에 없습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="결함"] [data-subgroup="결함·불만"] [data-board-id="autohome-complaint"]').count()===1,'차량 결함·불만이 결함 트리에 없습니다');
   const clippedCategoryLabels=await page.locator('.boardOrderCategoryItem span').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clippedCategoryLabels.length===0,`${width}px 분류 게시판명이 잘렸습니다: ${clippedCategoryLabels.join(', ')}`);
   const availableIds=await page.locator('.boardOrderAdd').evaluateAll(elements=>[...new Set(elements.map(element=>element.dataset.boardId))]);

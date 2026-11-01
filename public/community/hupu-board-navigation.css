@@ -64,6 +64,8 @@
 .boardOrderAvailableSection{scroll-margin-top:12px}
 .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:18px}
 .boardOrderAvailableTitle{margin:0 0 10px;color:#777b82;font-size:15px;line-height:20px;font-weight:500;letter-spacing:-.035em}
+.boardOrderSubgroup+.boardOrderSubgroup{margin-top:12px}
+.boardOrderSubgroupTitle{margin:0 0 7px;color:#96999f;font-size:12px;line-height:17px;font-weight:650;letter-spacing:-.035em}
 .boardOrderAdd{background:#fff;border-color:#dfe1e5;border-radius:8px;color:#34363a}
 .boardOrderAdd span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px 0 0;font-size:14px;font-weight:500;letter-spacing:-.045em}
 .boardOrderCategoryItem{border-radius:8px;color:#62656a;cursor:default}
