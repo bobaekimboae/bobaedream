@@ -18,13 +18,22 @@ await page.goto(url, { waitUntil:'domcontentloaded' });
 await page.locator('#upBtn').waitFor({ state:'visible' });
 
 check((await page.locator('body').innerText()).includes('추천'), '추천 문구가 없다');
-check((await page.locator('body').innerText()).includes('비추'), '비추 문구가 없다');
+check(await page.locator('#downBtn').getAttribute('aria-label') === '비추천', '비추천 접근성 문구가 없다');
 check(!(await page.locator('body').innerText()).includes('버프'), '버프 문구가 남아 있다');
 check(!(await page.locator('body').innerText()).includes('너프'), '너프 문구가 남아 있다');
 check(await page.locator('.commentShareButton').count() === 5, '댓글·답글 공유 버튼 수가 5개가 아니다');
 check(await page.locator('.moreCommentButton').count() === 5, '댓글·답글 더보기 버튼 수가 5개가 아니다');
 check(await page.locator('.replyButton').count() === 5, '댓글·답글 답글 버튼 수가 5개가 아니다');
-check(await page.locator('.miniVotes').count() === 0, '댓글 추천·비추천 버튼이 남아 있다');
+check(await page.locator('.commentVoteGroup').count() === 5, '댓글·답글 추천·비추천 묶음 수가 5개가 아니다');
+check(await page.locator('.commentVoteButton').count() === 10, '댓글·답글 추천·비추천 버튼 수가 10개가 아니다');
+
+const firstReplyUpvote = page.locator('.nestedTools .commentVoteButton[data-comment-vote="up"]').first();
+const firstReplyVoteBefore = Number((await firstReplyUpvote.locator('span').textContent())?.trim());
+await firstReplyUpvote.click();
+check(await firstReplyUpvote.getAttribute('aria-pressed') === 'true', '답글 추천이 선택되지 않는다');
+check(Number((await firstReplyUpvote.locator('span').textContent())?.trim()) === firstReplyVoteBefore + 1, '답글 추천 수가 증가하지 않는다');
+await page.locator('.nestedTools .commentVoteButton[data-comment-vote="down"]').first().click();
+check(await page.locator('.nestedTools .commentVoteButton[data-comment-vote="up"]').first().getAttribute('aria-pressed') === 'false', '답글 추천과 비추천이 동시에 선택된다');
 
 const baseScore = Number((await page.locator('#score').textContent())?.trim());
 await page.locator('#upBtn').click();
@@ -92,5 +101,5 @@ if (failures.length) {
 console.log('PASS: Chzzk detail Reddit-style actions');
 console.log('PASS: recommendation labels and exclusive states');
 console.log('PASS: comment add/reply/edit/delete/share actions');
-console.log('PASS: no comment recommendation controls');
+console.log('PASS: comment and reply recommendation controls');
 console.log(`PASS: mobile width ${dimensions.scrollWidth}/${dimensions.viewport}`);

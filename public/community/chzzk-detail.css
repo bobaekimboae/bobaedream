@@ -145,8 +145,12 @@ img { display: block; }
 .commentIconButton img { width: 19px; height: 19px; }
 .commentTextButton { gap: 4px; padding: 0 7px; font-size: 12px; font-weight: 650; white-space: nowrap; }
 .commentTextButton img { width: 17px; height: 17px; }
-.commentTools .moreCommentButton, .nestedTools .moreCommentButton { margin-left: auto; }
-.commentIconButton:hover, .commentTextButton:hover, .commentIconButton:focus-visible, .commentTextButton:focus-visible { background: #f2f2f3; }
+.commentVoteGroup { display: flex; min-width: 92px; align-items: center; justify-content: flex-end; gap: 4px; margin-left: auto; }
+.commentVoteButton { display: flex; min-width: 42px; height: 34px; align-items: center; justify-content: center; gap: 4px; border-radius: 17px; color: #777d83; font-size: 12px; font-variant-numeric: tabular-nums; }
+.commentVoteButton img { width: 18px; height: 18px; opacity: .8; }
+.commentVoteButton.isActive { color: var(--brand); font-weight: 700; }
+.commentVoteButton.isActive img { filter: invert(37%) sepia(81%) saturate(1470%) hue-rotate(194deg) brightness(91%) contrast(91%); opacity: 1; }
+.commentIconButton:hover, .commentTextButton:hover, .commentVoteButton:hover, .commentIconButton:focus-visible, .commentTextButton:focus-visible, .commentVoteButton:focus-visible { background: #f2f2f3; }
 .replyCount { white-space: nowrap; }
 .nestedReply { display: grid; grid-template-columns: 38px minmax(0, 1fr); gap: 10px; margin-top: 18px; padding-top: 2px; }
 .replyAvatar { width: 38px; height: 38px; }
@@ -280,6 +284,9 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .commentIconButton img { width: 17px; height: 17px; }
   .commentTextButton { height: 32px; gap: 3px; padding: 0 5px; font-size: 11px; }
   .commentTextButton img { width: 16px; height: 16px; }
+  .commentVoteGroup { min-width: 88px; gap: 2px; }
+  .commentVoteButton { min-width: 41px; height: 32px; gap: 3px; padding: 0 3px; font-size: 11px; }
+  .commentVoteButton img { width: 18px; height: 18px; }
   .replyCount { display: none; }
   .nestedReply { grid-template-columns: 30px minmax(0, 1fr); gap: 10px; margin-top: 16px; }
   .replyAvatar { width: 30px; height: 30px; }
@@ -287,8 +294,9 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
   .replyText { margin-top: 6px; font-size: 14px; line-height: 20px; }
   .nestedReply a { margin-top: 6px; font-size: 15px; }
   .replySticker { width: 96px; margin-top: 8px; }
-  .nestedTools .commentShareButton span { display: none; }
-  .nestedTools .commentTextButton { width: 32px; padding: 0; }
+  .nestedTools .commentShareButton { display: none; }
+  .nestedTools .replyButton { width: auto; padding: 0 5px; }
+  .nestedTools .moreCommentButton { display: none; }
   .toTop { height: 64px; gap: 8px; font-size: 14px; }
   .toTop span { width: 34px; height: 34px; }
   .toTop img { width: 20px; height: 20px; }

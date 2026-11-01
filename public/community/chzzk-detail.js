@@ -154,11 +154,39 @@ function latestCommentCount(item) {
 function commentActionsHtml(item, label = '댓글', parentId = '') {
   const itemId = escapeHtml(item.id || label);
   const user = escapeHtml(item.user || '회원');
+  const likeCount = Math.max(0, Number(item.like) || 0);
+  const dislikeCount = Math.max(0, Number(item.dislike) || 0);
+  const viewerVote = item.viewerVote || '';
   return `<div class="${label === '답글' ? 'nestedTools' : 'commentTools'}" aria-label="${label} 작업">
     <button class="commentTextButton replyButton" data-reply-user="${user}" data-reply-id="${itemId}" data-parent-id="${escapeHtml(parentId)}"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
     <button class="commentTextButton commentShareButton" data-comment-share="${itemId}" aria-label="${label} 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
+    <span class="commentVoteGroup" aria-label="${label} 추천 및 비추천">
+      <button class="commentVoteButton${viewerVote === 'up' ? ' isActive' : ''}" type="button" data-comment-vote="up" data-comment-id="${itemId}" data-parent-id="${escapeHtml(parentId)}" aria-label="${label} 추천 ${likeCount}" aria-pressed="${viewerVote === 'up'}"><img src="assets/reactions/recommend.svg" alt=""><span>${likeCount}</span></button>
+      <button class="commentVoteButton${viewerVote === 'down' ? ' isActive' : ''}" type="button" data-comment-vote="down" data-comment-id="${itemId}" data-parent-id="${escapeHtml(parentId)}" aria-label="${label} 비추천 ${dislikeCount}" aria-pressed="${viewerVote === 'down'}"><img src="assets/reactions/dislike.svg" alt=""><span>${dislikeCount}</span></button>
+    </span>
     <button class="commentIconButton moreCommentButton" data-comment-id="${itemId}" data-parent-id="${escapeHtml(parentId)}" data-owned="${item.own === true}" aria-label="${label} 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
   </div>`;
+}
+
+function toggleCommentVote(item, direction) {
+  const nextVote = direction === 'down' ? 'down' : 'up';
+  const previousVote = item.viewerVote || '';
+  const nextField = nextVote === 'up' ? 'like' : 'dislike';
+  const previousField = previousVote === 'up' ? 'like' : 'dislike';
+
+  item.like = Math.max(0, Number(item.like) || 0);
+  item.dislike = Math.max(0, Number(item.dislike) || 0);
+
+  if (previousVote === nextVote) {
+    item[nextField] = Math.max(0, item[nextField] - 1);
+    item.viewerVote = '';
+    return false;
+  }
+
+  if (previousVote) item[previousField] = Math.max(0, item[previousField] - 1);
+  item[nextField] += 1;
+  item.viewerVote = nextVote;
+  return true;
 }
 
 function replyHtml(reply, parentId) {
@@ -548,6 +576,16 @@ $('#gearBtn').addEventListener('click', () => showToast('클린봇이 켜져 있
 $('#commentList').addEventListener('click', async (event) => {
   const button = event.target.closest('button');
   if (!button) return;
+  if (button.dataset.commentVote) {
+    const found = findComment(button.dataset.commentId || '', button.dataset.parentId || '');
+    if (!found) return;
+    const direction = button.dataset.commentVote === 'down' ? 'down' : 'up';
+    const selected = toggleCommentVote(found.item, direction);
+    persistComments();
+    renderCommentItems();
+    showToast(selected ? (direction === 'up' ? '추천했습니다' : '비추천했습니다') : (direction === 'up' ? '추천을 취소했습니다' : '비추천을 취소했습니다'));
+    return;
+  }
   if (button.classList.contains('replyButton')) {
     replyTarget = {
       id: button.dataset.replyId || '',
