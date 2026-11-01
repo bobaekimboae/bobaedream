@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var storageKey='bobae-chezhiwang-complaints-v1',commentKey='bobae-chezhiwang-complaint-comments-v1';
-  var icons={back:'assets/reddit-ui/back.svg',share:'assets/chzzk-detail/icons/share-reddit.svg',chat:'assets/chzzk-detail/icons/comment-reddit.svg',like:'assets/reddit-ui/recommend-thumb-up.svg',save:'assets/chzzk-detail/icons/bookmark.svg',write:'assets/reddit-ui/write.svg',photo:'assets/chzzk-detail/icons/camera.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg'};
+  var icons={back:'assets/reddit-ui/back.svg',share:'assets/chzzk-detail/icons/share-reddit.svg',chat:'assets/reactions/comment.svg',like:'assets/reactions/recommend.svg',save:'assets/chzzk-detail/icons/bookmark.svg',write:'assets/reddit-ui/write.svg',photo:'assets/chzzk-detail/icons/camera.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg'};
   var groups={
     quality:['엔진·모터','변속기','클러치','조향 장치','제동 장치','타이어','차축·서스펜션','차체 부속·전장'],
     service:['서비스 태도','정비 기술','서비스 요금','약속 불이행','판매 문제','부품 분쟁','서비스 절차 미흡'],

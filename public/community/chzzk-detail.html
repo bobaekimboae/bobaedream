@@ -40,11 +40,11 @@
       <div class="tagRow" aria-label="태그"><button>#출첵</button><button>#출석체크</button></div>
       <div class="reactionRow" id="postActions" aria-label="게시글 반응">
         <div class="votePill" aria-label="좋아요와 싫어요">
-          <button class="voteButton" id="upBtn" aria-label="좋아요" aria-pressed="false"><img class="voteThumb" src="../icons/chotot/chotot-list-detail-listing-like.svg?v=20261016detailthumb1" alt=""></button>
+          <button class="voteButton" id="upBtn" aria-label="추천" aria-pressed="false"><img class="voteThumb" src="assets/reactions/recommend.svg" alt=""></button>
           <strong id="score" aria-live="polite">16</strong>
-          <button class="voteButton down" id="downBtn" aria-label="싫어요" aria-pressed="false"><img class="voteThumb voteThumbDown" src="../icons/chotot/chotot-list-detail-listing-like.svg?v=20261016detailthumb1" alt=""></button>
+          <button class="voteButton down" id="downBtn" aria-label="비추천" aria-pressed="false"><img class="voteThumb" src="assets/reactions/dislike.svg" alt=""></button>
         </div>
-        <button class="roundAction commentAction" id="commentJump" aria-label="댓글로 이동"><img src="assets/chzzk-detail/icons/comment-reddit.svg" alt=""><span id="actionCommentCount">2</span></button>
+        <button class="roundAction commentAction" id="commentJump" aria-label="댓글로 이동"><img src="assets/reactions/comment.svg" alt=""><span id="actionCommentCount">2</span></button>
         <button class="roundAction repostAction" id="repostBtn" aria-label="재게시" aria-pressed="false"><img src="assets/reddit-ui/repost.svg" alt=""></button>
         <button class="roundAction shareAction" id="shareBtn" aria-label="게시글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""></button>
       </div>
@@ -57,7 +57,7 @@
       </div>
       <p class="noticeUpdate">(2026. 09. 23 11:20 업데이트)</p>
       <div class="tagRow"><button>#그님티</button><button>#내전</button></div>
-      <div class="reactionRow noticeReaction"><div class="votePill" aria-label="좋아요와 싫어요"><button class="voteButton" aria-label="좋아요"><img class="voteThumb" src="../icons/chotot/chotot-list-detail-listing-like.svg?v=20261016detailthumb1" alt=""></button><strong>12</strong><button class="voteButton down" aria-label="싫어요"><img class="voteThumb voteThumbDown" src="../icons/chotot/chotot-list-detail-listing-like.svg?v=20261016detailthumb1" alt=""></button></div></div>
+      <div class="reactionRow noticeReaction"><div class="votePill" aria-label="추천과 비추천"><button class="voteButton" aria-label="추천"><img class="voteThumb" src="assets/reactions/recommend.svg" alt=""></button><strong>12</strong><button class="voteButton down" aria-label="비추천"><img class="voteThumb" src="assets/reactions/dislike.svg" alt=""></button></div></div>
     </article>
 
     <section class="latestCard" id="latest">
@@ -114,6 +114,6 @@
   <script src="./community-embed.js?v=20261017fav3"></script>
   <script src="./board-tables.js?v=20261017pollrow1"></script>
   <script src="./community-poll.js?v=20261017naverpoll1"></script>
-<script src="./chzzk-detail.js?v=20261017one1"></script>
+<script src="./chzzk-detail.js?v=20261101reactionset1"></script>
 </body>
 </html>

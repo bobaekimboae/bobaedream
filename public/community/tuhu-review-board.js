@@ -19,7 +19,7 @@
   function rows(){return local().concat(table().rows||[])}
   function find(id){return rows().find(function(r){return String(r.tuhuReviewId||r.id)===String(id)})||rows()[0]}
   function route(view){var u=new URL(location.href);u.searchParams.set('board','tuhu-review');if(view)u.searchParams.set('tuhu',view);else u.searchParams.delete('tuhu');u.searchParams.delete('v');return u.pathname+'?'+u.searchParams.toString()}
-  function image(name){return'<img src="'+asset+name+'" alt="" aria-hidden="true">'}
+  function image(name){var reactions={'chzzk-detail/icons/comment-reddit.svg':'reactions/comment.svg','reddit-ui/recommend-thumb-up.svg':'reactions/recommend.svg','detail-parity/reddit-dislike.svg':'reactions/dislike.svg'};return'<img src="'+asset+(reactions[name]||name)+'" alt="" aria-hidden="true">'}
   function stars(score){var out='<span class="trb-stars">';for(var i=1;i<=5;i++)out+='<img class="'+(i>score?'off':'')+'" src="'+star+'" alt="">';return out+'</span>'}
   function activate(list,kind){var phone=document.querySelector('.phone');if(!phone||!list)return;phone.className='phone tuhuReviewMode '+kind;list.className='list tuhuReviewList';window.scrollTo(0,0)}
   function top(title,right){return'<header class="trb-top"><button class="trb-icon trb-back" type="button" aria-label="뒤로">'+image('reddit-ui/back.svg')+'</button><h1>'+esc(title)+'</h1>'+(right||'<span></span>')+'</header>'}

@@ -517,8 +517,8 @@ $('#bookmarkBtn').addEventListener('click', (event) => {
   showToast(next ? '게시글을 저장했습니다' : '저장을 취소했습니다');
 });
 $('#menuBtn').addEventListener('click', () => showToast('게시글 메뉴입니다'));
-$('#upBtn').addEventListener('click', () => { up = !up; if (up) down = false; updateVote(); showToast(up ? '좋아요를 눌렀습니다' : '좋아요를 취소했습니다'); });
-$('#downBtn').addEventListener('click', () => { down = !down; if (down) up = false; updateVote(); showToast(down ? '싫어요를 눌렀습니다' : '싫어요를 취소했습니다'); });
+$('#upBtn').addEventListener('click', () => { up = !up; if (up) down = false; updateVote(); showToast(up ? '추천했습니다' : '추천을 취소했습니다'); });
+$('#downBtn').addEventListener('click', () => { down = !down; if (down) up = false; updateVote(); showToast(down ? '비추천했습니다' : '비추천을 취소했습니다'); });
 $('#commentJump').addEventListener('click', () => { $('#comments').scrollIntoView({ behavior: 'smooth' }); setTimeout(() => $('#commentInput').focus(), 350); });
 $('#repostBtn').addEventListener('click', (event) => {
   const button = event.currentTarget;

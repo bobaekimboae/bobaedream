@@ -73,6 +73,10 @@
     return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261015chototfeed1';
   }
 
+  function reactionIcon(name){
+    return 'assets/reactions/'+name+'.svg';
+  }
+
   function chototIcon(name){
     return '../icons/chotot/'+name+'.svg?v=20261015chototfeed1';
   }
@@ -124,7 +128,7 @@
         '<div class="chototFeedBodyWrap"><p class="chototFeedBody">'+esc(post.body||bodyCopy[index%bodyCopy.length])+'</p><button class="chototFeedMoreText" type="button" aria-expanded="false">더보기</button></div>',
         '<div class="chototFeedActions" aria-label="게시물 반응">',
           '<div class="chototActionPill"><button class="chototVoteButton" type="button" data-vote="up" aria-label="추천" aria-pressed="false"><img src="'+redditIcon('vote-up')+'" alt=""><span>'+score+'</span></button><span class="chototVoteDivider" aria-hidden="true"></span><button class="chototVoteButton" type="button" data-vote="down" aria-label="비추천" aria-pressed="false"><img src="'+redditIcon('vote-down')+'" alt=""></button></div>',
-          '<button class="chototActionButton" type="button" data-comment="'+esc(post.id)+'" aria-label="댓글 '+esc(post.reply||0)+'개"><img src="'+redditIcon('comment-reddit')+'" alt=""><span>'+esc(post.reply||0)+'</span></button>',
+          '<button class="chototActionButton" type="button" data-comment="'+esc(post.id)+'" aria-label="댓글 '+esc(post.reply||0)+'개"><img src="'+reactionIcon('comment')+'" alt=""><span>'+esc(post.reply||0)+'</span></button>',
           '<button class="chototActionButton" type="button" data-share="'+esc(post.id)+'" aria-label="공유"><img src="'+redditIcon('share-reddit')+'" alt=""></button>',
           '<button class="chototActionButton" type="button" data-save="'+esc(post.id)+'" aria-label="저장" aria-pressed="false"><img src="'+redditIcon('bookmark')+'" alt=""></button>',
         '</div>',
@@ -145,7 +149,7 @@
         mediaMarkup(post,index),
         '<div class="chototDealerActions" aria-label="딜러 게시물 반응과 연락">',
           '<button class="chototDealerAction" type="button" data-dealer-like aria-label="추천" aria-pressed="false"><img src="'+chototIcon('chotot-common-like')+'" alt=""><span>0</span></button>',
-          '<button class="chototDealerAction" type="button" data-comment="'+esc(post.id)+'" aria-label="댓글 '+esc(post.reply||0)+'개"><img src="'+redditIcon('comment-reddit')+'" alt=""><span>'+esc(post.reply||0)+'</span></button>',
+          '<button class="chototDealerAction" type="button" data-comment="'+esc(post.id)+'" aria-label="댓글 '+esc(post.reply||0)+'개"><img src="'+reactionIcon('comment')+'" alt=""><span>'+esc(post.reply||0)+'</span></button>',
           '<a class="chototDealerAction" href="tel:02-2059-5211" aria-label="딜러에게 전화"><img class="autoScoutPhone" src="'+redditUiIcon('phone-autoscout24')+'" alt=""><span>전화</span></a>',
           '<button class="chototDealerAction" type="button" data-dealer-chat aria-label="딜러와 채팅"><img src="'+redditUiIcon('chat')+'" alt=""><span>채팅</span></button>',
           '<button class="chototDealerAction" type="button" data-save="'+esc(post.id)+'" data-dealer-save aria-label="저장" aria-pressed="false"><img src="'+redditIcon('bookmark')+'" alt=""><span>저장</span></button>',

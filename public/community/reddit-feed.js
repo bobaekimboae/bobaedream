@@ -24,6 +24,10 @@
     return 'assets/reddit-ui/'+name+'.svg?v=20261016redditicons1';
   }
 
+  function reactionIcon(name){
+    return 'assets/reactions/'+name+'.svg';
+  }
+
   function mediaFor(post,index){
     if(index===0||!post.detailImage) return '';
     return '<a class="redditFeedMedia" href="./chzzk-detail.html?id='+post.id+'&v=20261015redditfeed1" aria-label="'+esc(cleanTitle(post.title))+' 상세 보기"><img src="'+esc(post.detailImage)+'" alt="'+esc(cleanTitle(post.title))+'" loading="lazy"></a>';
@@ -46,11 +50,11 @@
         mediaFor(post,index),
         '<div class="redditFeedActions" aria-label="게시물 반응">',
           '<div class="redditActionPill">',
-            '<button class="redditVoteButton" type="button" data-vote="up" aria-label="추천" aria-pressed="false"><img src="'+icon('vote-up')+'" alt=""><span class="redditScore">0</span></button>',
+            '<button class="redditVoteButton" type="button" data-vote="up" aria-label="추천" aria-pressed="false"><img src="'+reactionIcon('recommend')+'" alt=""><span class="redditScore">0</span></button>',
             '<span class="redditVoteDivider" aria-hidden="true"></span>',
-            '<button class="redditVoteButton" type="button" data-vote="down" aria-label="비추천" aria-pressed="false"><img src="'+icon('vote-down')+'" alt=""></button>',
+            '<button class="redditVoteButton" type="button" data-vote="down" aria-label="비추천" aria-pressed="false"><img src="'+reactionIcon('dislike')+'" alt=""></button>',
           '</div>',
-          '<button class="redditActionButton" type="button" data-comment="'+post.id+'" aria-label="댓글 '+post.reply+'개"><img src="'+icon('comment-reddit')+'" alt=""><span>'+post.reply+'</span></button>',
+          '<button class="redditActionButton" type="button" data-comment="'+post.id+'" aria-label="댓글 '+post.reply+'개"><img src="'+reactionIcon('comment')+'" alt=""><span>'+post.reply+'</span></button>',
           '<button class="redditActionButton reshare" type="button" data-reshare="'+post.id+'" aria-label="재공유"><img src="'+uiIcon('repost')+'" alt=""></button>',
           '<button class="redditActionButton" type="button" data-share="'+post.id+'" aria-label="공유"><img src="'+icon('share-reddit')+'" alt=""></button>',
         '</div>',

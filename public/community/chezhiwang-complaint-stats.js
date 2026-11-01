@@ -6,7 +6,7 @@
   var previous=window.renderChezhiwangComplaintBoardTable;
   if(typeof previous!=='function')return;
   var TODAY=new Date('2026-10-19T23:59:00+09:00');
-  var ICON={search:'assets/reddit-ui/search.svg',right:'assets/reddit-ui/chevron-right.svg',del:'assets/reddit-ui/delete.svg',chat:'assets/chzzk-detail/icons/comment-reddit.svg',like:'assets/reddit-ui/recommend-thumb-up.svg',back:'assets/reddit-ui/back.svg',share:'assets/chzzk-detail/icons/share-reddit.svg',filter:'assets/chzzk-detail/icons/filter.svg',chevron:'assets/reddit-ui/chevron-down.svg'};
+  var ICON={search:'assets/reddit-ui/search.svg',right:'assets/reddit-ui/chevron-right.svg',del:'assets/reddit-ui/delete.svg',chat:'assets/reactions/comment.svg',like:'assets/reactions/recommend.svg',back:'assets/reddit-ui/back.svg',share:'assets/chzzk-detail/icons/share-reddit.svg',filter:'assets/chzzk-detail/icons/filter.svg',chevron:'assets/reddit-ui/chevron-down.svg'};
   var KEYS=['f_from','f_to','f_pmin','f_pmax','f_brand','f_model','f_trim','f_body','f_fuel','f_price','f_origin','f_country','f_age','f_quality','f_service','f_other','f_sales'];
   function esc(v){return String(v==null?'':v).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
   function img(src,alt,cls){return'<img'+(cls?' class="'+cls+'"':'')+' src="'+esc(src)+'" alt="'+esc(alt||'')+'" loading="lazy">'}
