@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="./community-poll.css?v=20261017naverpoll1">
 <link rel="stylesheet" href="./chotot-feed.css?v=20261016saveicon1">
 <link rel="stylesheet" href="./hupu-board-navigation.css?v=20261101naver1">
-<link rel="stylesheet" href="./reddit-board-profile.css?v=20261101noboardavatar1">
+<link rel="stylesheet" href="./reddit-board-profile.css?v=20261101follow1">
 <link rel="stylesheet" href="./board-header-variants.css?v=20261101banner1">
 <link rel="stylesheet" href="./chzzk-list-parity.css?v=20261017listparity4">
 <link rel="stylesheet" href="./vehicle-review-board.css?v=20261017modely1">
@@ -118,7 +118,7 @@
 </main>
 <div id="toast" class="toast"></div><div id="overlay" class="overlay"></div><section id="sheet" class="sheet" aria-label="보기 방식" role="dialog"></section>
 <script src="./hupu-board-navigation.js?v=20261101brands1"></script>
-<script src="./reddit-board-profile.js?v=20261017eu3"></script>
+<script src="./reddit-board-profile.js?v=20261101follow1"></script>
 <script src="./board-header-variants.js?v=20261016genesiskr2"></script>
 <script>
 (function(){
@@ -127,7 +127,7 @@ var topics=defaultTopics.slice();
 var headwordsExpanded=false;
 var boardDescriptionExpanded=false;
 var boardDescriptions={'전체 게시글':'보배드림의 모든 게시판 새 글과 인기글을 한곳에서 확인하세요.','베스트글':'보배드림 전체 게시판에서 선정된 인기글만 모아 확인하세요.','자유게시판':'자동차 이야기부터 일상까지 자유롭게 나누는 보배드림 커뮤니티입니다.','국산차 오너톡':'국산차 오너들이 차량 정보와 실제 운행 경험을 나누는 게시판입니다.','수입차 라운지':'수입차 정보와 오너 경험을 함께 나누는 게시판입니다.','전기차':'전기차 구매·충전·운행 정보를 나누는 게시판입니다.','정비 · DIY':'정비 경험과 직접 작업한 방법을 공유하는 게시판입니다.','튜닝':'자동차 튜닝 정보와 작업 후기를 나누는 게시판입니다.','중고차':'중고차 구매와 판매 정보를 나누는 게시판입니다.','보험 · 사고':'자동차 보험과 사고 처리 경험을 나누는 게시판입니다.','블랙박스 제보':'블랙박스 영상과 교통 제보를 공유하는 게시판입니다.','바이크':'바이크 정보와 라이딩 경험을 나누는 게시판입니다.','자동차뉴스':'국내외 자동차 기사와 영상·SNS 소식을 3줄 요약으로 빠르게 보고, 댓글과 투표로 의견을 나누는 게시판입니다.','해외 자동차뉴스':'한국을 제외한 해외 자동차 매체의 최신 기사를 출처 링크와 함께 자동 수집합니다.','브랜드 자동차 정보':'자동차 브랜드별 국적·공식 명칭·주요 모델과 국내 시판 정보를 모아 확인하는 독립 정보 게시판입니다.','차량리뷰':'실제 오너와 시승자가 남긴 차량별 평가를 확인하고 경험을 공유하세요.','연비·전비':'차종과 실제 주행 조건별 연비·전비, 완충 주행거리를 기록하고 비교하세요.','차량 결함·불만':'실차주의 결함 증상과 서비스 처리 경험을 기록하고 해결 방법을 함께 찾는 게시판입니다.'};
-var boardStatsText={'전체 게시글':'구독 38.4만명 · 게시물 1,000개','자동차뉴스':'구독 12.8만명 · 게시물 45개','베스트글':'실시간 베스트 · 게시물 6개','자유게시판':'구독 38.4만명 · 게시물 1,000개','해외 자동차뉴스':'해외 107개 매체 · 5분 간격 갱신','브랜드 자동차 정보':'브랜드별 정보 · 독립 게시판','차량리뷰':'구독 2.8만명 · 리뷰 50개','연비·전비':'구독 1.9만명 · 기록 20개','차량 결함·불만':'구독 2.4만명 · 피드백 24개'};
+var boardStatsText={'전체 게시글':'팔로워 38.4만명 · 게시물 1,000개','자동차뉴스':'팔로워 12.8만명 · 게시물 45개','베스트글':'실시간 베스트 · 게시물 6개','자유게시판':'팔로워 38.4만명 · 게시물 1,000개','해외 자동차뉴스':'해외 107개 매체 · 5분 간격 갱신','브랜드 자동차 정보':'브랜드별 정보 · 독립 게시판','차량리뷰':'팔로워 2.8만명 · 리뷰 50개','연비·전비':'팔로워 1.9만명 · 기록 20개','차량 결함·불만':'팔로워 2.4만명 · 피드백 24개'};
 boardDescriptions['테슬라']='테슬라 차주와 관심 회원이 모델별 정보와 실제 운행 경험을 나누는 게시판입니다.';
 boardDescriptions['BMW']='BMW 차주와 관심 회원이 모델별 정보와 실제 운행 경험을 나누는 게시판입니다.';
 boardDescriptions['벤츠']='벤츠 차주와 관심 회원이 모델별 정보와 실제 운행 경험을 나누는 게시판입니다.';

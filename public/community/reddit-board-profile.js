@@ -41,21 +41,21 @@
   };
 
   var stats={
-    '전체 게시글':'구독 92.6만명 · 게시물 8,420개',
-    '베스트글':'구독 64.2만명 · 게시물 3,180개',
-    '자유게시판':'구독 38.4만명 · 게시물 1,000개',
-    '자동차뉴스/토론':'구독 12.8만명 · 게시물 786개',
-    '자동차뉴스':'구독 12.8만명 · 게시물 45개',
+    '전체 게시글':'팔로워 92.6만명 · 게시물 8,420개',
+    '베스트글':'팔로워 64.2만명 · 게시물 3,180개',
+    '자유게시판':'팔로워 38.4만명 · 게시물 1,000개',
+    '자동차뉴스/토론':'팔로워 12.8만명 · 게시물 786개',
+    '자동차뉴스':'팔로워 12.8만명 · 게시물 45개',
     '해외 자동차뉴스':'해외 107개 매체 · 5분 간격 갱신',
     '브랜드 자동차 정보':'브랜드별 정보 · 독립 게시판',
-    '정치/시사게시판':'구독 21.5만명 · 게시물 946개',
-    '시승기/배틀/목격담':'구독 9.7만명 · 게시물 628개',
-    '교통사고/블박':'구독 31.2만명 · 게시물 1,284개',
-    '국산차게시판':'구독 18.6만명 · 게시물 895개',
-    '수입차게시판':'구독 14.9만명 · 게시물 742개',
-    '오토바이/자전거':'구독 8.1만명 · 게시물 516개',
-    '올드카/추억거리':'구독 5.7만명 · 게시물 384개',
-    '차량리뷰':'구독 2.8만명 · 리뷰 50개'
+    '정치/시사게시판':'팔로워 21.5만명 · 게시물 946개',
+    '시승기/배틀/목격담':'팔로워 9.7만명 · 게시물 628개',
+    '교통사고/블박':'팔로워 31.2만명 · 게시물 1,284개',
+    '국산차게시판':'팔로워 18.6만명 · 게시물 895개',
+    '수입차게시판':'팔로워 14.9만명 · 게시물 742개',
+    '오토바이/자전거':'팔로워 8.1만명 · 게시물 516개',
+    '올드카/추억거리':'팔로워 5.7만명 · 게시물 384개',
+    '차량리뷰':'팔로워 2.8만명 · 리뷰 50개'
   };
 
   function fallbackStats(label){
@@ -63,7 +63,7 @@
     for(var index=0;index<label.length;index+=1)value+=label.charCodeAt(index);
     var subscribers=(4.2+(value%94)/10).toFixed(1);
     var posts=320+(value%681);
-    return '구독 '+subscribers+'만명 · 게시물 '+posts.toLocaleString('ko-KR')+'개';
+    return '팔로워 '+subscribers+'만명 · 게시물 '+posts.toLocaleString('ko-KR')+'개';
   }
 
   function subscriptionKey(label){return 'bbm-community-subscription:'+label}
@@ -75,8 +75,8 @@
   function syncSubscribeButton(button,label){
     var subscribed=isSubscribed(label);
     button.setAttribute('aria-pressed',String(subscribed));
-    button.textContent=subscribed?'구독중':'구독';
-    button.setAttribute('aria-label',label+' '+(subscribed?'구독 취소':'구독'));
+    button.textContent=subscribed?'팔로잉':'팔로우';
+    button.setAttribute('aria-label',label+' '+(subscribed?'팔로우 취소':'팔로우'));
   }
 
   function syncBoardCopy(name,description,boardStats,subscribeButton){
