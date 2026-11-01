@@ -38,7 +38,8 @@ input, textarea { font: inherit; color: inherit; }
 .reg-head h1 { margin: 0; text-align: center; font-size: 16px; line-height: 20.6px; font-weight: 700; }
 .reg-head__save { height: 48px; padding-right: 15px; text-align: right; font-size: 14px; line-height: 18px; font-weight: 600; }
 
-.reg-body { padding: 8px 8px 16px; display: grid; gap: 16px; }
+.reg-body { padding: 8px 8px 16px; display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; }
+.card { min-width: 0; }
 .card { background: var(--card); border-radius: 12px; padding: 0 16px; }
 .card--main { padding-top: 11px; padding-bottom: 0; }
 
