@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
             </template>
             <span v-else class="of__ph">상세 주소</span>
           </button>
-          <button type="button" class="of__clear" aria-label="상세 주소 지우기" @click="d.detail = ''"><Ico :src="IC.clear" /></button>
+          <button v-if="d.detail" type="button" class="of__clear" aria-label="상세 주소 지우기" @click="d.detail = ''"><Ico :src="IC.clear" /></button>
         </div>
       </div>
       <div v-if="line" class="addr__card">

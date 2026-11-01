@@ -67,6 +67,7 @@ export function useForm() {
   const setValue = (key: string, val: string) => {
     const fd = cat.value.fields.find((x) => x.key === key);
     const next = { ...form.value.values, [key]: val };
+    if (!val) delete next[key];
     for (const r of fd?.resets ?? []) delete next[r];
     form.value = { ...form.value, values: next };
   };

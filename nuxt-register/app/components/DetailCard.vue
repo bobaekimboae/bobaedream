@@ -31,11 +31,14 @@ const onNum = (f: Field, e: Event) => {
       <div v-if="f.kind === 'pills'" class="row row--pills" :data-key="f.key" style="display: block">
         <PillRow :label="f.label" :options="f.options as string[]" :model-value="values[f.key] ?? ''" :required="f.required" :error="err(f.key)" @update:model-value="(v: string) => emit('set', f.key, v)" />
       </div>
-      <button v-else-if="f.kind === 'pick'" type="button" class="row" :data-key="f.key" :class="{ 'is-err': err(f.key) }" aria-haspopup="dialog" @click="emit('open', f)">
-        <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
-        <span class="row__value" :class="{ 'is-err': err(f.key) }">{{ values[f.key] || (err(f.key) ? err(f.key) : "선택") }}</span>
-        <Ico class="row__chev" :src="IC.chevron" />
-      </button>
+      <div v-else-if="f.kind === 'pick'" class="row-pick" :class="{ 'has-val': values[f.key] }" :data-key="f.key">
+        <button type="button" class="row" :class="{ 'is-err': err(f.key) }" aria-haspopup="dialog" @click="emit('open', f)">
+          <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
+          <span class="row__value" :class="{ 'is-err': err(f.key), 'is-set': values[f.key] }">{{ values[f.key] || (err(f.key) ? err(f.key) : "선택") }}</span>
+          <Ico class="row__chev" :src="IC.chevron" />
+        </button>
+        <button v-if="values[f.key]" type="button" class="row__clear" :aria-label="`${f.label} 선택 지우기`" @click="emit('set', f.key, '')"><Ico :src="IC.clear" /></button>
+      </div>
       <div v-else class="row-wrap" :data-key="f.key" :class="{ 'is-err': err(f.key) }">
         <label class="row row--input">
           <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
@@ -48,7 +51,8 @@ const onNum = (f: Field, e: Event) => {
             @input="(e) => onNum(f, e)"
           />
           <span v-if="f.unit" class="row__unit">{{ f.unit }}</span>
-          <Ico class="row__edit" :src="IC.edit" />
+          <button v-if="values[f.key]" type="button" class="row__clear row__clear--in" :aria-label="`${f.label} 지우기`" @click.prevent="emit('set', f.key, '')"><Ico :src="IC.clear" /></button>
+          <Ico v-else class="row__edit" :src="IC.edit" />
         </label>
         <p v-if="err(f.key)" class="row-err" role="alert">{{ err(f.key) }}</p>
       </div>
