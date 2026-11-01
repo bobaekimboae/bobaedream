@@ -140,7 +140,7 @@ useHead({ title: '보배드림 커뮤니티' })
                 <p v-if="!recentBoards.length" class="drawer-empty">방문한 게시판이 여기에 표시됩니다.</p>
                 <div v-for="board in recentBoards" :key="`recent-${board!.id}`" class="drawer-board-row" :class="{ 'is-active': board!.id === boardId }">
                   <button type="button" @click="selectBoard(board!.id)">{{ board!.name }}</button>
-                  <button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board!.id) }" type="button" :aria-label="`${board!.name} 즐겨찾기 ${favoriteBoardIds.includes(board!.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board!.id)" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star.svg`" alt="" /></button>
+                  <button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board!.id) }" type="button" :aria-label="`${board!.name} 즐겨찾기 ${favoriteBoardIds.includes(board!.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board!.id)" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/${favoriteBoardIds.includes(board!.id) ? 'star-selected.svg' : 'star.svg'}`" alt="" /></button>
                 </div>
               </div>
             </details>
@@ -150,7 +150,7 @@ useHead({ title: '보배드림 커뮤니티' })
                 <p v-if="!favoriteBoards.length" class="drawer-empty">게시판 옆 별표를 눌러 추가하세요.</p>
                 <div v-for="board in favoriteBoards" :key="`favorite-${board!.id}`" class="drawer-board-row" :class="{ 'is-active': board!.id === boardId }">
                   <button type="button" @click="selectBoard(board!.id)">{{ board!.name }}</button>
-                  <button class="drawer-favorite-button is-favorite" type="button" :aria-label="`${board!.name} 즐겨찾기 해제`" aria-pressed="true" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star.svg`" alt="" /></button>
+                  <button class="drawer-favorite-button is-favorite" type="button" :aria-label="`${board!.name} 즐겨찾기 해제`" aria-pressed="true" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star-selected.svg`" alt="" /></button>
                 </div>
               </div>
             </details>
@@ -158,7 +158,7 @@ useHead({ title: '보배드림 커뮤니티' })
             <p class="drawer-label">전체 게시판</p>
             <details v-for="section in sections" :key="section.id" class="drawer-group" :open="section.boards.some(board => board.id === boardId)">
               <summary><span>{{ section.name }}</span><span aria-hidden="true">⌄</span></summary>
-              <div><div v-for="board in section.boards" :key="board.id" class="drawer-board-row" :class="{ 'is-active': board.id === boardId }"><button type="button" @click="selectBoard(board.id)">{{ board.name }}</button><button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board.id) }" type="button" :aria-label="`${board.name} 즐겨찾기 ${favoriteBoardIds.includes(board.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board.id)" @click="toggleFavorite(board.id)"><img :src="`${iconRoot}/reddit/star.svg`" alt="" /></button></div></div>
+              <div><div v-for="board in section.boards" :key="board.id" class="drawer-board-row" :class="{ 'is-active': board.id === boardId }"><button type="button" @click="selectBoard(board.id)">{{ board.name }}</button><button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board.id) }" type="button" :aria-label="`${board.name} 즐겨찾기 ${favoriteBoardIds.includes(board.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board.id)" @click="toggleFavorite(board.id)"><img :src="`${iconRoot}/reddit/${favoriteBoardIds.includes(board.id) ? 'star-selected.svg' : 'star.svg'}`" alt="" /></button></div></div>
             </details>
           </aside>
         </div>

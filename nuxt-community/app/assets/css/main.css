@@ -192,8 +192,7 @@ a { color: inherit; text-decoration: none; }
 .drawer-board-row > button:first-child { width: 100%; height: 44px; padding: 0 4px 0 12px; border-radius: 10px; color: #303236; text-align: left; font-size: 14px; }
 .drawer-favorite-button { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; }
 .drawer-favorite-button img { width: 19px; height: 19px; opacity: .7; }
-.drawer-favorite-button.is-favorite { background: #fff8e6; }
-.drawer-favorite-button.is-favorite img { opacity: 1; filter: invert(69%) sepia(99%) saturate(1772%) hue-rotate(359deg) brightness(99%) contrast(104%); }
+.drawer-favorite-button.is-favorite img { opacity: 1; }
 .drawer-empty { margin: 0; padding: 7px 10px 13px; color: #8a8e94; font-size: 12px; line-height: 18px; }
 
 /* Chzzk-inspired mobile writer, adapted to Bobaedream boards */
