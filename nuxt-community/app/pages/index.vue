@@ -1,10 +1,42 @@
 <script setup lang="ts">
 import type { CommunityPopularPeriod, CommunitySort, CommunityView } from '~/types/community'
 
-const { sections, sort, popularPeriod, view, boardId, headword, activeBoard, filteredPosts } = useCommunity()
+const { sections, boards, sort, popularPeriod, view, boardId, headword, activeBoard, filteredPosts } = useCommunity()
 const optionsOpen = ref(false)
 const boardMenuOpen = ref(false)
 const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
+const favoriteBoardIds = ref<string[]>([])
+const recentBoardIds = ref<string[]>([])
+const favoriteStorageKey = 'bbm.community.nuxt.favoriteBoards.v1'
+const recentStorageKey = 'bbm.community.nuxt.recentBoards.v1'
+
+function loadBoardIds(key: string, limit: number) {
+  try {
+    const stored = JSON.parse(localStorage.getItem(key) || '[]')
+    if (!Array.isArray(stored)) return []
+    return stored.filter((id: unknown, index: number) => typeof id === 'string' && boards.value.some(board => board.id === id) && stored.indexOf(id) === index).slice(0, limit)
+  } catch { return [] }
+}
+function saveBoardIds(key: string, ids: string[], limit: number) {
+  const normalized = ids.filter((id, index) => boards.value.some(board => board.id === id) && ids.indexOf(id) === index).slice(0, limit)
+  localStorage.setItem(key, JSON.stringify(normalized))
+  return normalized
+}
+function recordRecentBoard(id: string) {
+  recentBoardIds.value = saveBoardIds(recentStorageKey, [id, ...recentBoardIds.value.filter(boardId => boardId !== id)], 6)
+}
+function toggleFavorite(id: string) {
+  const exists = favoriteBoardIds.value.includes(id)
+  favoriteBoardIds.value = saveBoardIds(favoriteStorageKey, exists ? favoriteBoardIds.value.filter(boardId => boardId !== id) : [id, ...favoriteBoardIds.value], boards.value.length)
+}
+const favoriteBoards = computed(() => favoriteBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
+const recentBoards = computed(() => recentBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
+
+onMounted(() => {
+  favoriteBoardIds.value = loadBoardIds(favoriteStorageKey, boards.value.length)
+  recentBoardIds.value = loadBoardIds(recentStorageKey, 6)
+  recordRecentBoard(boardId.value)
+})
 
 function setSort(value: CommunitySort) { sort.value = value }
 function setPopularPeriod(value: CommunityPopularPeriod) { popularPeriod.value = value }
@@ -13,6 +45,7 @@ const popularPeriodLabels: Record<CommunityPopularPeriod, string> = { hour: '1�
 const sortLabel = computed(() => sort.value === 'latest' ? '최신순' : sort.value === 'latest-comment' ? '최신 댓글순' : `인기 · ${popularPeriodLabels[popularPeriod.value]}`)
 function selectBoard(value: string) {
   boardId.value = value
+  recordRecentBoard(value)
   headword.value = ''
   boardMenuOpen.value = false
 }
@@ -101,10 +134,31 @@ useHead({ title: '보배드림 커뮤니티' })
               <NuxtLink to="/write" @click="boardMenuOpen = false"><img :src="`${iconRoot}/write.svg`" alt="" /><span>글쓰기</span></NuxtLink>
             </nav>
             <div class="drawer-divider" />
-            <p class="drawer-label">게시판</p>
+            <details class="drawer-group drawer-smart-group" open>
+              <summary><span>최근 방문</span><span aria-hidden="true">⌄</span></summary>
+              <div>
+                <p v-if="!recentBoards.length" class="drawer-empty">방문한 게시판이 여기에 표시됩니다.</p>
+                <div v-for="board in recentBoards" :key="`recent-${board!.id}`" class="drawer-board-row" :class="{ 'is-active': board!.id === boardId }">
+                  <button type="button" @click="selectBoard(board!.id)">{{ board!.name }}</button>
+                  <button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board!.id) }" type="button" :aria-label="`${board!.name} 즐겨찾기 ${favoriteBoardIds.includes(board!.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board!.id)" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star.svg`" alt="" /></button>
+                </div>
+              </div>
+            </details>
+            <details class="drawer-group drawer-smart-group" open>
+              <summary><span>즐겨찾기</span><span aria-hidden="true">⌄</span></summary>
+              <div>
+                <p v-if="!favoriteBoards.length" class="drawer-empty">게시판 옆 별표를 눌러 추가하세요.</p>
+                <div v-for="board in favoriteBoards" :key="`favorite-${board!.id}`" class="drawer-board-row" :class="{ 'is-active': board!.id === boardId }">
+                  <button type="button" @click="selectBoard(board!.id)">{{ board!.name }}</button>
+                  <button class="drawer-favorite-button is-favorite" type="button" :aria-label="`${board!.name} 즐겨찾기 해제`" aria-pressed="true" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star.svg`" alt="" /></button>
+                </div>
+              </div>
+            </details>
+            <div class="drawer-divider" />
+            <p class="drawer-label">전체 게시판</p>
             <details v-for="section in sections" :key="section.id" class="drawer-group" :open="section.boards.some(board => board.id === boardId)">
               <summary><span>{{ section.name }}</span><span aria-hidden="true">⌄</span></summary>
-              <div><button v-for="board in section.boards" :key="board.id" type="button" :class="{ 'is-active': board.id === boardId }" @click="selectBoard(board.id)">{{ board.name }}</button></div>
+              <div><div v-for="board in section.boards" :key="board.id" class="drawer-board-row" :class="{ 'is-active': board.id === boardId }"><button type="button" @click="selectBoard(board.id)">{{ board.name }}</button><button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board.id) }" type="button" :aria-label="`${board.name} 즐겨찾기 ${favoriteBoardIds.includes(board.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board.id)" @click="toggleFavorite(board.id)"><img :src="`${iconRoot}/reddit/star.svg`" alt="" /></button></div></div>
             </details>
           </aside>
         </div>
