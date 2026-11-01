@@ -18,6 +18,20 @@
 
 final result: passed
 
+---
+
+## 2026-11-01 커뮤니티 게시글 옵션 시트 세로 리듬
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/08a618ca-8e31-4801-b642-863eadcbc08d/1-1000019351.jpg`.
+- Browser-rendered implementation: Codex in-app browser, 393×844 CSS px / DPR 1, `?v=spacing-balance&board=aviation-rail&header=community-profile`.
+- Reddit·Band 기준으로 헤더 68px, 정렬/보기 각 약 215px, 행 52px, 말머리 칩 36px로 조정했다.
+- 최신 댓글순·간결형·테슬라 선택과 목록형 우측 썸네일을 검증했고 콘솔 오류는 0건이다.
+- Full report: `reports/design-qa/community-post-options-spacing-2026-11-01.md`.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
 
 ---
 
