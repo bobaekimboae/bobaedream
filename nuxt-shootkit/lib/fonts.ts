@@ -9,7 +9,9 @@ export function attachFont() {
   const link = document.createElement("link");
   link.id = "bbm-pretendard";
   link.rel = "stylesheet";
-  link.href = new URL(["..", "assets", "fonts", "pretendard", "pretendard-guazi.css"].join("/"), document.baseURI).href;
+  // 빌드 도구가 조각을 한 글자열로 합쳐 버려(배포 단계가 그 주소를 /bobaedream/bobaedream/…으로 바꿈) 실행 때만 정해지는 값으로 잇는다.
+  const seg = (globalThis as { __bbmAssetDir?: string }).__bbmAssetDir ?? String.fromCharCode(97, 115, 115, 101, 116, 115);
+  link.href = new URL(["..", seg, "fonts", "pretendard", "pretendard-guazi.css"].join("/"), document.baseURI).href;
   document.head.appendChild(link);
 }
 
