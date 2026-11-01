@@ -324,7 +324,9 @@ function commitPostOptions(){
   postFilterApplied=sortOrder!=='latest'||active!==0||mode!==postOptionsDefaultMode;
   if(mode==='text-only'){display.thumbnail=false;display.commentBadge=false}else if(mode==='compact'){display.thumbnail=true;display.commentBadge=false}else if(mode==='list'){display.thumbnail=true;display.commentBadge=true;thumbPosition='right'}else{display.thumbnail=true;display.commentBadge=false}
   updatePostFilterState();
-  if(mode.indexOf('naver-discussion')===0&&window.BBM_SET_DISCUSSION_HEADWORD){window.BBM_SET_DISCUSSION_HEADWORD(topics[active]||'전체')}else{renderTabs();renderList()}
+  renderTabs();
+  renderList();
+  if(mode.indexOf('naver-discussion')===0&&window.BBM_SET_DISCUSSION_HEADWORD)window.BBM_SET_DISCUSSION_HEADWORD(topics[active]||'전체');
 }
 function openPopularPeriodSheet(){
   var sh=document.getElementById('sheet'),ov=document.getElementById('overlay');
