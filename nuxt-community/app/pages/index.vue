@@ -8,10 +8,6 @@ const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
 
 function setSort(value: CommunitySort) { sort.value = value }
 function setView(value: CommunityView) { view.value = value }
-function handleBack() {
-  if (import.meta.client && window.history.length > 1) window.history.back()
-  else navigateTo('/')
-}
 function selectBoard(value: string) {
   boardId.value = value
   headword.value = ''
@@ -31,20 +27,10 @@ useHead({ title: '보배드림 커뮤니티' })
 <template>
   <main class="community-shell">
     <header class="community-header">
-      <button class="header-back" type="button" aria-label="뒤로" @click="handleBack"><img :src="`${iconRoot}/chzzk/back.svg`" alt="" /></button>
-      <strong class="community-title">보배드림</strong>
-      <div class="header-actions">
-        <button type="button" aria-label="검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /></button>
-        <button type="button" aria-label="게시판 메뉴" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
-      </div>
+      <button class="header-menu-button" type="button" aria-label="게시판 메뉴" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
+      <button class="community-header-search" type="button" aria-label="커뮤니티 게시글 검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /><span>게시글 검색</span></button>
+      <button class="community-header-profile" type="button" aria-label="내 프로필"><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span></button>
     </header>
-
-    <nav class="community-primary-nav" aria-label="커뮤니티 대메뉴">
-      <button type="button" @click="navigateTo('/')">홈</button>
-      <button class="is-active" type="button" @click="boardMenuOpen = true">게시판</button>
-      <button type="button" @click="selectBoard('blackbox')">제보</button>
-      <button type="button" @click="selectBoard('defect')">결함</button>
-    </nav>
 
     <div v-if="view === 'compact'" class="chzzk-list-toolbar">
       <button type="button" @click="boardMenuOpen = true">{{ activeBoard.name }} <img :src="`${iconRoot}/write/chevron-down.svg`" alt="" /></button>

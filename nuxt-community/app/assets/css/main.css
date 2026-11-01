@@ -22,7 +22,15 @@ button { padding: 0; border: 0; background: none; cursor: pointer; }
 a { color: inherit; text-decoration: none; }
 
 .community-shell, .write-page, .detail-page { width: min(100%, 720px); min-height: 100dvh; margin: 0 auto; background: var(--surface); }
-.community-header { position: sticky; z-index: 10; top: 0; height: 58px; display: grid; grid-template-columns: 46px 1fr 88px; align-items: center; padding: env(safe-area-inset-top) 14px 0; background: #fff; }
+.community-header { position: sticky; z-index: 10; top: 0; height: 60px; display: grid; grid-template-columns: 28px minmax(0, 1fr) 32px; align-items: center; gap: 12px; padding: env(safe-area-inset-top) 18px 0; border-bottom: 1px solid #f0f1f2; background: #fff; }
+.header-menu-button { width: 28px; height: 28px; display: grid; place-items: center; }
+.header-menu-button img { width: 26px; height: 26px; }
+.community-header-search { min-width: 0; width: 100%; height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 13px; border-radius: 20px; background: #f3f4f5; color: #8a8e93; text-align: left; }
+.community-header-search img { width: 20px; height: 20px; flex: 0 0 20px; opacity: .82; }
+.community-header-search span { min-width: 0; overflow: hidden; font-size: 14px; line-height: 20px; font-weight: 500; letter-spacing: -.035em; text-overflow: ellipsis; white-space: nowrap; }
+.community-header-profile { width: 32px; height: 32px; display: grid; place-items: center; overflow: hidden; border: 1px solid #e4e6e8; border-radius: 50%; background: #f5f6f7; }
+.community-header-profile span { width: 100%; height: 100%; display: grid; place-items: center; }
+.community-header-profile svg { width: 22px; height: 22px; fill: none; stroke: #686d72; stroke-width: 1.7; stroke-linecap: round; }
 .header-back { width: 38px; height: 38px; display: grid; place-items: center; }
 .header-back img { width: 25px; height: 25px; }
 .community-title { overflow: hidden; font-size: 21px; line-height: 1; font-weight: 850; letter-spacing: -.7px; text-overflow: ellipsis; white-space: nowrap; }
