@@ -7,8 +7,8 @@ import { IC } from "../lib/icons";
 
 export type Section = { title?: string; items: string[] };
 // 주소 고르기(시·도 · 시·군·구 · 읍·면·동)는 초톳 「Chọn Tỉnh/Thành phố」처럼 테두리 검색칸(52)이 늘 보이고, 나머지는 회색 알약 검색(40)을 8개 넘을 때만 보인다.
-const props = defineProps<{ title: string; sections: Section[]; value?: string; loading?: boolean; back?: boolean; searchBox?: boolean; searchPh?: string }>();
-const emit = defineEmits<{ pick: [string]; close: []; back: [] }>();
+const props = defineProps<{ title: string; sections: Section[]; value?: string; loading?: boolean; back?: boolean; searchBox?: boolean; searchPh?: string; clearable?: boolean }>();
+const emit = defineEmits<{ pick: [string]; close: []; back: []; clear: [] }>();
 const q = ref("");
 const closeBtn = ref<HTMLButtonElement | null>(null);
 const norm = (s: string) => s.replace(/\s|-/g, "").toLowerCase();
@@ -59,6 +59,9 @@ onBeforeUnmount(() => {
       <p v-if="!loading && !shown.some((s) => s.items.length)" class="sheet__empty">{{ q ? "검색 결과가 없어요" : "고를 항목이 없어요" }}</p>
       <slot />
     </div>
+    <footer v-if="clearable && value && !loading" class="sheet__foot sheet__foot--clear">
+      <button type="button" class="btn btn--line btn--block" @click="emit('clear')">선택 지우기</button>
+    </footer>
   </section>
   </div>
 </template>

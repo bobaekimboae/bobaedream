@@ -20,7 +20,7 @@ const props = defineProps<{
   display?: string;
   placeholder?: string;
 }>();
-const emit = defineEmits<{ "update:modelValue": [string]; open: []; blur: [] }>();
+const emit = defineEmits<{ "update:modelValue": [string]; open: []; blur: []; clear: [] }>();
 const focused = ref(false);
 const filled = computed(() => Boolean(props.select ? props.display : props.modelValue));
 const floated = computed(() => props.multiline || filled.value || focused.value);
@@ -72,6 +72,7 @@ const onInput = (e: Event) => {
       <span v-if="suffix" class="of__suffix">{{ suffix }}</span>
       <button v-if="clearable && modelValue && !select" type="button" class="of__clear" :aria-label="`${label} 지우기`" @click.prevent="emit('update:modelValue', '')"><Ico :src="IC.clear" style="color: #8c8c8c" /></button>
     </component>
+    <button v-if="select && clearable && display" type="button" class="of__clear of__clear--select" :aria-label="`${label} 선택 지우기`" @click="emit('clear')"><Ico :src="IC.clear" style="color: #8c8c8c" /></button>
     <p v-if="error" class="of__err" role="alert">{{ error }}</p>
     <slot />
   </div>

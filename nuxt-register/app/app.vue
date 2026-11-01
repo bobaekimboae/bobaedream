@@ -348,7 +348,7 @@ onMounted(async () => {
           <OField id="f-title" v-model="form.title" label="매물 제목" required clearable :maxlength="TITLE_MAX" :placeholder="cat.titleHint" :error="shown('title')" />
           <div class="pc-pair">
             <OField id="f-price" v-model="form.price" label="판매 가격" required numeric :suffix="cat.priceUnit" :error="shown('price')" />
-            <OField id="f-region" :model-value="regionText" label="거래 지역" required select :display="regionText" :error="shown('region')" @open="openRegion" />
+            <OField id="f-region" :model-value="regionText" label="거래 지역" required select clearable :display="regionText" :error="shown('region')" @open="openRegion" @clear="form = { ...form, region: null }" />
           </div>
           <PillRow v-model="form.seller" label="판매자" required :options="['개인', '딜러']" />
         </section>
@@ -378,7 +378,7 @@ onMounted(async () => {
       <RuleSheet v-if="ruleOpen" @close="ruleOpen = false" />
     </Transition>
     <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
-      <PickerSheet v-if="picker" :title="picker.title" :sections="picker.sections" :value="picker.value" :loading="picker.loading" :back="picker.back" @pick="onPick" @close="picker = null" />
+      <PickerSheet v-if="picker" :title="picker.title" :sections="picker.sections" :value="picker.value" :loading="picker.loading" :back="picker.back" :clearable="picker.key !== '@category'" @pick="onPick" @close="picker = null" @clear="setValue(picker.key, ''); picker = null" />
     </Transition>
     <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
       <PostTypeSheet v-if="postOpen" :value="form.postType" @close="postOpen = false" @apply="applyPost" />
