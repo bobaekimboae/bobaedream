@@ -1,0 +1,67 @@
+{
+  "name": "bobaedream-nuxt-community",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=24.22.1",
+    "pnpm": "10.33.0"
+  },
+  "scripts": {
+    "dev": "nuxt dev --port 5203",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "typecheck": "nuxt prepare && vue-tsc -p .nuxt/tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tiptap/core": "3.27.3",
+    "@tiptap/extension-link": "3.27.3",
+    "@tiptap/extension-placeholder": "3.27.3",
+    "@tiptap/pm": "3.27.3",
+    "@tiptap/starter-kit": "3.27.3",
+    "@tiptap/vue-3": "3.27.3",
+    "nuxt": "4.6.2",
+    "typescript": "6.0.3",
+    "vue": "3.5.33"
+  },
+  "devDependencies": {
+    "@vue/test-utils": "2.5.1",
+    "happy-dom": "20.14.6",
+    "vitest": "4.1.12",
+    "vue-tsc": "3.3.14"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ],
+    "overrides": {
+      "vue": "3.5.33",
+      "@tiptap/core": "3.27.3",
+      "@tiptap/pm": "3.27.3",
+      "@tiptap/extensions": "3.27.3",
+      "@tiptap/extension-blockquote": "3.27.3",
+      "@tiptap/extension-bold": "3.27.3",
+      "@tiptap/extension-bubble-menu": "3.27.3",
+      "@tiptap/extension-bullet-list": "3.27.3",
+      "@tiptap/extension-code": "3.27.3",
+      "@tiptap/extension-code-block": "3.27.3",
+      "@tiptap/extension-document": "3.27.3",
+      "@tiptap/extension-dropcursor": "3.27.3",
+      "@tiptap/extension-floating-menu": "3.27.3",
+      "@tiptap/extension-gapcursor": "3.27.3",
+      "@tiptap/extension-hard-break": "3.27.3",
+      "@tiptap/extension-heading": "3.27.3",
+      "@tiptap/extension-horizontal-rule": "3.27.3",
+      "@tiptap/extension-italic": "3.27.3",
+      "@tiptap/extension-list": "3.27.3",
+      "@tiptap/extension-list-item": "3.27.3",
+      "@tiptap/extension-list-keymap": "3.27.3",
+      "@tiptap/extension-ordered-list": "3.27.3",
+      "@tiptap/extension-paragraph": "3.27.3",
+      "@tiptap/extension-strike": "3.27.3",
+      "@tiptap/extension-text": "3.27.3",
+      "@tiptap/extension-underline": "3.27.3"
+    }
+  }
+}

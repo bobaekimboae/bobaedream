@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "name": "네이버 커뮤니티 아이콘",
+      "notion": "https://app.notion.com/p/40bee9c4b6068091bc28c788e08e878f?v=500ee9c4b60682149eed88f9db3cbca5",
+      "files": ["view-list.svg", "view-feed.svg", "reaction-like.svg", "reaction-dislike.svg", "reaction-comment.svg"]
+    },
+    {
+      "name": "네이버 치지직 아이콘",
+      "notion": "https://app.notion.com/p/3c0ee9c4b60680538971d48bc9ed0968?v=ffcee9c4b6068260b13408a259bd274e",
+      "files": ["write/photo.svg", "write/video.svg", "write/text.svg", "write/sticker.svg", "write/quote.svg", "write/link.svg", "write/table.svg", "write/community.svg", "write/chevron-down.svg"]
+    },
+    {
+      "name": "Reddit 아이콘",
+      "notion": "https://app.notion.com/p/1e3ee9c4b6068060ab04e62cc9445b8b?v=1e3ee9c4b60681228e26000c3bd8d1f6",
+      "files": ["filter.svg"]
+    }
+  ]
+}
