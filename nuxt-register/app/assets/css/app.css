@@ -127,7 +127,7 @@ button.of__box { width: 100%; text-align: left; }
 .row-pick { position: relative; }
 .row-pick.has-val .row__value { margin-right: 28px; }
 .row__clear { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; display: grid; place-items: center; color: #8c8c8c; border-radius: 50%; }
-.row__clear .ico { width: 18px; height: 18px; }
+.row__clear .ico { width: 20px; height: 30px; }
 .row__clear--in { position: static; transform: none; margin: 0 -10px 0 -10px; flex: none; }
 .sheet__foot--clear { padding-top: 12px; }
 .row--input.is-err { border-bottom: 1px solid var(--err); }
