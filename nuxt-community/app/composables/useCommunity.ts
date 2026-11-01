@@ -1,6 +1,6 @@
 import type { CommunityPopularPeriod, CommunityPost, CommunitySection, CommunitySort, CommunityView } from '../types/community'
 
-const sections: CommunitySection[] = [
+export const sections: CommunitySection[] = [
   {
     id: 'general',
     name: '일반',
@@ -60,6 +60,18 @@ const seedPosts: CommunityPost[] = [
   { id: 'p3', boardId: 'imported', headword: '벤츠', title: 'GLC EV 실내 공간은 이 정도입니다', excerpt: '2열 무릎 공간과 트렁크 실측 사진을 함께 올립니다.', author: '노이예ix3', createdAt: '2026-10-31T23:30:00Z', updatedAt: '2026-11-01T01:20:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', comments: 36, likes: 29, dislikes: 2, views: 2939, isPopular: true },
   { id: 'p4', boardId: 'ev', headword: '충전', title: '충전이 다됐다고 함부로 충전기 뽑지 말아주세요', excerpt: '공용 충전기 이용 예절에 대해 서로 의견을 나눠봅시다.', author: '후니이니', createdAt: '2026-10-31T16:20:00Z', updatedAt: '2026-10-31T17:10:00Z', comments: 24, likes: 41, dislikes: 4, views: 1504 },
   { id: 'p5', boardId: 'imported', headword: '아우디', title: '후면 배지의 차이가 궁금해요', excerpt: '같은 연식인데 배지 위치가 다른 이유를 아시는 분 계실까요?', author: '솔루션EV4', createdAt: '2026-10-31T09:10:00Z', updatedAt: '2026-10-31T09:10:00Z', thumbnail: 'images/community/board-header-aston-martin-db12.webp', comments: 5, likes: 3, dislikes: 0, views: 230 },
+  { id: 'p6', boardId: 'domestic', headword: '현대', title: '그랜저 IG 겨울철 시동 지연 해결 후기', excerpt: '아침마다 시동이 늦게 걸려서 배터리와 점화 플러그를 차례로 점검했습니다.', author: '아침출근러', createdAt: '2026-11-01T06:10:00Z', updatedAt: '2026-11-01T07:00:00Z', comments: 41, likes: 63, dislikes: 2, views: 5120, isPopular: true },
+  { id: 'p7', boardId: 'domestic', headword: '제네시스', title: 'GV80 타이어 교체 주기 어떻게 잡으세요?', excerpt: '4만km 탔는데 앞바퀴 마모가 빠른 편이라 위치 교환을 고민 중입니다.', author: '타이어고민', createdAt: '2026-10-31T12:20:00Z', updatedAt: '2026-10-31T13:00:00Z', comments: 19, likes: 12, dislikes: 0, views: 1830 },
+  { id: 'p8', boardId: 'maintenance', headword: '정비', title: '엔진오일 교환 주기 5천 vs 1만km 정리', excerpt: '제조사 권장 주기와 가혹 조건 기준을 차종별로 비교했습니다.', author: '정비하는아빠', createdAt: '2026-10-30T09:00:00Z', updatedAt: '2026-10-30T11:30:00Z', comments: 57, likes: 88, dislikes: 5, views: 9340, isPopular: true },
+  { id: 'p9', boardId: 'maintenance', headword: 'DIY', title: '배터리 셀프 교체 도전기 (사진 많음)', excerpt: '단자 분리 순서와 메모리 백업 방법까지 직접 해보고 정리했습니다.', author: '공구덕후', createdAt: '2026-11-01T05:30:00Z', updatedAt: '2026-11-01T05:30:00Z', thumbnail: 'images/community/board-header-genesis-yeosu.webp', comments: 14, likes: 26, dislikes: 0, views: 1270 },
+  { id: 'p10', boardId: 'ev', headword: '배터리', title: '아이오닉5 겨울철 주행거리 실측입니다', excerpt: '영하 5도에서 히터를 켜고 출퇴근한 일주일 기록을 공유합니다.', author: '전기로출근', createdAt: '2026-11-01T07:40:00Z', updatedAt: '2026-11-01T08:10:00Z', comments: 33, likes: 47, dislikes: 1, views: 3605, isPopular: true },
+  { id: 'p11', boardId: 'imported', headword: 'BMW', title: '5시리즈 G60 하체 소음 원인 찾았습니다', excerpt: '방지턱 넘을 때 나던 소리가 스태빌라이저 링크 문제였네요.', author: '비머오너', createdAt: '2026-10-29T14:00:00Z', updatedAt: '2026-10-29T16:20:00Z', comments: 22, likes: 35, dislikes: 1, views: 4012 },
+  { id: 'p12', boardId: 'imported', headword: '테슬라', title: '모델Y 주니퍼 2주 타본 장단점', excerpt: '승차감과 소음은 확실히 좋아졌고 아쉬운 점도 정리했습니다.', author: '주니퍼입문', createdAt: '2026-11-01T08:30:00Z', updatedAt: '2026-11-01T08:30:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', comments: 28, likes: 39, dislikes: 6, views: 2877 },
+  { id: 'p13', boardId: 'blackbox', headword: '블랙박스', title: '고속도로 낙하물 블랙박스 영상입니다', excerpt: '앞차에서 떨어진 판자를 겨우 피했습니다. 다들 차간 거리 꼭 지키세요.', author: '안전거리지킴', createdAt: '2026-11-01T09:00:00Z', updatedAt: '2026-11-01T09:40:00Z', comments: 71, likes: 120, dislikes: 3, views: 15420, isPopular: true },
+  { id: 'p14', boardId: 'blackbox', headword: '사고', title: '교차로 비보호 좌회전 사고 과실 비율 질문', excerpt: '신호 없는 교차로에서 직진 차량과 부딪혔습니다. 과실이 어떻게 될까요?', author: '사고처리중', createdAt: '2026-10-31T10:10:00Z', updatedAt: '2026-10-31T12:00:00Z', comments: 46, likes: 18, dislikes: 2, views: 6210 },
+  { id: 'p15', boardId: 'defect', headword: '변속기', title: '스포티지 변속 충격 무상수리 받았습니다', excerpt: '2단에서 3단 넘어갈 때 덜컹거림이 있어 서비스센터에 접수한 과정입니다.', author: '스포티지오너', createdAt: '2026-10-30T15:00:00Z', updatedAt: '2026-10-31T09:00:00Z', comments: 38, likes: 52, dislikes: 1, views: 7480 },
+  { id: 'p16', boardId: 'bike', headword: '투어', title: '혼다 PCX 첫 장거리 투어 후기', excerpt: '서울에서 강릉까지 국도로 다녀왔습니다. 시트와 연비 위주로 적었어요.', author: '두바퀴여행', createdAt: '2026-10-31T06:00:00Z', updatedAt: '2026-10-31T06:00:00Z', comments: 9, likes: 21, dislikes: 0, views: 940 },
+  { id: 'p17', boardId: 'truck', headword: '트럭', title: '포터2 전기 겨울 화물 운송 해보니', excerpt: '적재량이 많을 때 겨울 주행거리가 얼마나 줄어드는지 기록했습니다.', author: '화물기사김씨', createdAt: '2026-10-31T21:00:00Z', updatedAt: '2026-10-31T21:30:00Z', comments: 15, likes: 24, dislikes: 1, views: 1650 },
 ]
 
 export function filterAndSortPosts(

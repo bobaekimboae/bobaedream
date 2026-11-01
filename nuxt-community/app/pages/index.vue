@@ -65,7 +65,7 @@ useHead({ title: '보배드림 커뮤니티' })
   <main class="community-shell">
     <header class="community-header">
       <button class="header-menu-button" type="button" aria-label="게시판 바로가기" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
-      <button class="community-header-search" type="button" aria-label="커뮤니티 게시글 검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /><span>게시글 검색</span></button>
+      <NuxtLink class="community-header-search" :to="{ path: '/search', query: { board: boardId } }" aria-label="커뮤니티 검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /><span>{{ activeBoard.name }}에서 검색</span></NuxtLink>
       <button class="community-header-profile" type="button" aria-label="내 프로필"><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span></button>
     </header>
 
