@@ -7,7 +7,26 @@ import { IC } from "../lib/icons";
 import type { Media } from "../lib/form";
 
 const props = defineProps<{ media: Media[]; error?: string; max: number }>();
-const emit = defineEmits<{ add: []; remove: [string]; move: [number, number]; info: []; view: [number] }>();
+const emit = defineEmits<{ add: []; remove: [string]; move: [number, number]; info: []; view: [number]; files: [File[]] }>();
+
+// PC: 바탕화면에서 사진 · 영상 파일을 끌어다 놓기(앱에는 없는 기능, 1024 이상에서만 안내가 보인다)
+const fileOver = ref(false);
+const hasFiles = (e: DragEvent) => Array.from(e.dataTransfer?.types ?? []).includes("Files");
+const onDragOver = (e: DragEvent) => {
+  if (!hasFiles(e)) return;
+  e.preventDefault();
+  fileOver.value = true;
+};
+const onDragLeave = (e: DragEvent) => {
+  if (!(e.currentTarget as HTMLElement).contains(e.relatedTarget as Node | null)) fileOver.value = false;
+};
+const onDropFiles = (e: DragEvent) => {
+  if (!hasFiles(e)) return;
+  e.preventDefault();
+  fileOver.value = false;
+  const list = Array.from(e.dataTransfer?.files ?? []).filter((f) => f.type.startsWith("image/") || f.type.startsWith("video/"));
+  if (list.length) emit("files", list);
+};
 
 // 길게 눌러 끌기(손가락) · 끌어다 놓기(마우스)
 const dragId = ref<string | null>(null);
@@ -52,12 +71,17 @@ const drop = (target: string) => {
 onBeforeUnmount(() => window.clearTimeout(timer));
 </script>
 <template>
-  <div>
+  <div class="media" :class="{ 'is-file-over': fileOver }" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDropFiles">
     <div class="media-head">
-      <h2>사진/영상<span class="req"> *</span></h2>
+      <h2>사진/영상<span class="req"> *</span><span class="media-head__count pc-only">{{ media.length }}/{{ max }}</span></h2>
       <button type="button" class="media-head__info" aria-label="사진 규칙 보기" @click="emit('info')"><Ico :src="IC.info" /></button>
     </div>
-    <div class="media-row" aria-label="올린 사진과 영상" @pointermove="move" @pointerup="up" @pointercancel="up">
+    <button v-if="!media.length" type="button" class="media-drop pc-only" :class="{ 'is-err': error }" @click="emit('add')">
+      <Ico :src="IC.media" />
+      <b>사진 · 영상을 여기로 끌어 오세요</b>
+      <span>또는 눌러서 고르기 · 최대 {{ max }}개 · 사진 1장당 10MB까지</span>
+    </button>
+    <div class="media-row" :class="{ 'is-empty': !media.length }" aria-label="올린 사진과 영상" @pointermove="move" @pointerup="up" @pointercancel="up">
       <button v-if="media.length < max" type="button" class="media-add" :class="{ 'is-err': error }" aria-label="사진 · 영상 추가" @click="emit('add')"><Ico :src="IC.media" /></button>
       <div
         v-for="(m, i) in media"
@@ -81,7 +105,7 @@ onBeforeUnmount(() => window.clearTimeout(timer));
         <span v-if="i === 0" class="thumb__cover">대표 사진</span>
       </div>
     </div>
-    <p class="media-help">길게 눌러 사진 순서를 바꿀 수 있어요</p>
+    <p class="media-help"><span class="mo-only">길게 눌러 사진 순서를 바꿀 수 있어요</span><span class="pc-only">사진을 끌어서 순서를 바꿀 수 있어요 · 첫 사진이 대표 사진이 돼요</span></p>
     <p v-if="error" class="media-err" role="alert">{{ error }}</p>
   </div>
 </template>

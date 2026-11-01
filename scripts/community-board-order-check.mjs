@@ -74,7 +74,7 @@ for(const width of [360,384,412,592,1280]){
     await page.locator('.boardOrderSectionTabs [data-section="제보"]').click();
     await page.waitForTimeout(350);
     check(await page.locator('.boardOrderSectionTabs [data-section="제보"]').getAttribute('aria-selected')==='true','분류 탭 클릭 뒤 제보 탭이 선택되지 않았습니다');
-    check(await page.locator('.boardOrderAvailableSection[data-section="제보"] [data-subgroup="사고·블랙박스"]').count()===1,'제보 트리의 사고·블랙박스 소분류가 없습니다');
+    check(await page.locator('.boardOrderAvailableSection[data-section="제보"] [data-board-id="accident-blackbox"]').count()===1,'교통사고/블박이 제보 분류에 없습니다');
     await page.locator('.boardOrderSectionTabs [data-section="일반"]').click();
     await page.waitForTimeout(350);
     await page.locator('.boardOrderBody').evaluate(element=>{element.scrollTop=0});
@@ -104,10 +104,10 @@ for(const width of [360,384,412,592,1280]){
   check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="import-car"]').count()===1,'수입차가 자동차 분류에 표시되지 않았습니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="차량"] .boardOrderCategoryItem[data-board-id="bike-cycle"]').count()===1,'바이크가 차량 분류에 표시되지 않았습니다');
   check(await page.locator('.boardOrderAvailableSection[data-section="차량"] .boardOrderCategoryItem[data-board-id="truck-bus-heavy"]').count()===1,'트럭·버스·중기가 차량 분류에 표시되지 않았습니다');
-  check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-subgroup="차종"] [data-board-id="domestic-car"]').count()===1,'국산차가 자동차 > 차종 트리에 없습니다');
-  check(await page.locator('.boardOrderAvailableSection[data-section="차량"] [data-subgroup="바이크·자전거"] [data-board-id="bike-cycle"]').count()===1,'바이크가 차량 > 바이크·자전거 트리에 없습니다');
-  check(await page.locator('.boardOrderAvailableSection[data-section="결함"] [data-subgroup="결함·불만"] [data-board-id="autohome-complaint"]').count()===1,'차량 결함·불만이 결함 트리에 없습니다');
-  const clippedCategoryLabels=await page.locator('.boardOrderCategoryItem span').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
+  check((await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-board-id="domestic-car"] span').textContent())?.trim()==='국산차게시판','국산차 실제 게시판명이 표시되지 않았습니다');
+  check((await page.locator('.boardOrderAvailableSection[data-section="자동차"] [data-board-id="import-car"] span').textContent())?.trim()==='수입차게시판','수입차 실제 게시판명이 표시되지 않았습니다');
+  check((await page.locator('.boardOrderAvailableSection[data-section="차량"] [data-board-id="bike-cycle"] span').textContent())?.trim()==='오토바이/자전거','바이크 실제 게시판명이 표시되지 않았습니다');
+  const clippedCategoryLabels=await page.locator('.boardOrderCategoryItem span,.boardOrderAdd span').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
   check(clippedCategoryLabels.length===0,`${width}px 분류 게시판명이 잘렸습니다: ${clippedCategoryLabels.join(', ')}`);
   const availableIds=await page.locator('.boardOrderAdd').evaluateAll(elements=>[...new Set(elements.map(element=>element.dataset.boardId))]);
   check(availableIds.length===movableCount-activeCount,`추가 가능 게시판 고유 수가 ${movableCount-activeCount}개와 다릅니다`);
