@@ -63,20 +63,19 @@ useHead({ title: '보배드림 커뮤니티' })
     <section class="post-list" :class="`post-list--${view}`" aria-live="polite">
       <NuxtLink v-for="post in filteredPosts" :key="post.id" class="post-card" :to="`/posts/${post.id}`">
         <template v-if="view === 'compact'">
-          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" />{{ post.title }} <span v-if="post.comments" class="compact-replies">({{ post.comments }})</span></h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
+          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" /><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }} <span v-if="post.comments" class="compact-replies">({{ post.comments }})</span></h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
           <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="post-thumbnail" />
         </template>
 
         <template v-else-if="view === 'list'">
-          <div class="post-copy"><h2>{{ post.title }}</h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span>조회 {{ post.views.toLocaleString() }}</span></p></div>
+          <div class="post-copy"><h2><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }}</h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span>조회 {{ post.views.toLocaleString() }}</span></p></div>
           <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="post-thumbnail" />
           <div class="comment-count"><strong>{{ post.comments }}</strong><span>댓글</span></div>
         </template>
 
         <template v-else>
           <header class="feed-meta"><span class="feed-avatar">{{ post.author.slice(0, 1) }}</span><div><strong>{{ post.author }}</strong><small>{{ timeLabel(post.createdAt) }} · 조회 {{ post.views.toLocaleString() }}</small></div><button type="button" aria-label="게시글 더보기">•••</button></header>
-          <span v-if="post.headword" class="post-headword">{{ post.headword }}</span>
-          <h2>{{ post.title }}</h2><p class="feed-excerpt">{{ post.excerpt }}</p>
+          <h2><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }}</h2><p class="feed-excerpt">{{ post.excerpt }}</p>
           <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="feed-image" />
           <footer class="reaction-line"><button type="button"><img :src="`${iconRoot}/reaction-like.svg`" alt="추천" />{{ post.likes }}</button><button type="button"><img :src="`${iconRoot}/reaction-dislike.svg`" alt="비추천" />{{ post.dislikes }}</button><button type="button"><img :src="`${iconRoot}/reaction-comment.svg`" alt="댓글" />{{ post.comments }}</button><span>조회 {{ post.views.toLocaleString() }}</span></footer>
         </template>
@@ -94,9 +93,19 @@ useHead({ title: '보배드림 커뮤니티' })
     <Teleport to="body">
       <Transition name="drawer-slide">
         <div v-if="boardMenuOpen" class="drawer-backdrop" @click.self="boardMenuOpen = false">
-          <aside class="board-drawer" aria-label="게시판 메뉴">
-            <header><strong>게시판</strong><button type="button" aria-label="닫기" @click="boardMenuOpen = false">×</button></header>
-            <section v-for="section in sections" :key="section.id"><h2>{{ section.name }}</h2><div><button v-for="board in section.boards" :key="board.id" type="button" :class="{ 'is-active': board.id === boardId }" @click="selectBoard(board.id)">{{ board.name }}</button></div></section>
+          <aside class="board-drawer" aria-label="커뮤니티 메뉴">
+            <header><strong>커뮤니티</strong><button type="button" aria-label="닫기" @click="boardMenuOpen = false">×</button></header>
+            <nav class="drawer-primary" aria-label="커뮤니티 주요 메뉴">
+              <button type="button" @click="selectBoard('free')"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /><span>커뮤니티 홈</span></button>
+              <button type="button" @click="optionsOpen = true; boardMenuOpen = false"><img :src="`${iconRoot}/filter.svg`" alt="" /><span>보기 방식</span></button>
+              <NuxtLink to="/write" @click="boardMenuOpen = false"><img :src="`${iconRoot}/write.svg`" alt="" /><span>글쓰기</span></NuxtLink>
+            </nav>
+            <div class="drawer-divider" />
+            <p class="drawer-label">게시판</p>
+            <details v-for="section in sections" :key="section.id" class="drawer-group" :open="section.boards.some(board => board.id === boardId)">
+              <summary><span>{{ section.name }}</span><span aria-hidden="true">⌄</span></summary>
+              <div><button v-for="board in section.boards" :key="board.id" type="button" :class="{ 'is-active': board.id === boardId }" @click="selectBoard(board.id)">{{ board.name }}</button></div>
+            </details>
           </aside>
         </div>
       </Transition>

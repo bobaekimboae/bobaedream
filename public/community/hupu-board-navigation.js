@@ -182,7 +182,11 @@
     var serviceBackdrop=document.createElement('div');
     serviceBackdrop.className='communityMenuBackdrop';
     serviceBackdrop.hidden=true;
-    serviceBackdrop.innerHTML='<section class="communityMenuPanel" role="dialog" aria-modal="true" aria-labelledby="communityMenuTitle"><header class="communityMenuHeader"><h2 id="communityMenuTitle">전체 메뉴</h2><button class="communityMenuClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="communityMenuBody"><button class="communityMenuEntry communityMenuViewEntry" type="button"><span class="boardOrderViewIcon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span><strong>보기 방식</strong><small>목록·피드·앨범 표시를 설정합니다</small></span><span class="communityMenuEntryArrow" aria-hidden="true">›</span></button><button class="communityMenuEntry communityMenuBoardEntry" type="button"><span class="boardOrderViewIcon" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span><strong>전체 게시판</strong><small>내 게시판 순서와 구성을 편집합니다</small></span><span class="communityMenuEntryArrow" aria-hidden="true">›</span></button></div></section>';
+    var serviceSectionHtml=sections().map(function(section){
+      var selectedInSection=section.boards.some(function(board){return board.id===selectedId});
+      return '<details class="communityMenuGroup" '+(selectedInSection?'open':'')+'><summary><span>'+escapeHtml(section.title)+'</span><img src="assets/reddit-rail/section-toggle.svg" alt="" aria-hidden="true"></summary><div>'+section.boards.map(function(board){return '<button class="communityMenuBoard '+(board.id===selectedId?'selected':'')+'" type="button" data-service-board="'+escapeHtml(board.id)+'"><img src="'+boardAvatarSrc(board)+'" alt="" aria-hidden="true"><span>'+escapeHtml(board.displayName)+'</span></button>'}).join('')+'</div></details>';
+    }).join('');
+    serviceBackdrop.innerHTML='<section class="communityMenuPanel" role="dialog" aria-modal="true" aria-labelledby="communityMenuTitle"><header class="communityMenuHeader"><h2 id="communityMenuTitle">커뮤니티</h2><button class="communityMenuClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="communityMenuBody"><nav class="communityMenuPrimary" aria-label="커뮤니티 주요 메뉴"><button type="button" data-service-board="home"><img src="assets/reddit-rail/home.svg" alt=""><span>커뮤니티 홈</span></button><button type="button" data-service-board="all"><img src="assets/reddit-rail/explore.svg" alt=""><span>전체 게시글</span></button><button type="button" data-service-board="best"><img src="assets/reddit-rail/popular.svg" alt=""><span>베스트글</span></button><a href="./chzzk-write.html"><img src="assets/reddit-ui/write.svg" alt=""><span>글쓰기</span></a></nav><div class="communityMenuDivider"></div><div class="communityMenuSectionTitle">게시판</div><div class="communityMenuGroups">'+serviceSectionHtml+'</div><div class="communityMenuDivider"></div><button class="communityMenuUtility communityMenuViewEntry" type="button"><img src="assets/reddit-ui/view-list.svg" alt=""><span>보기 방식</span><img class="communityMenuUtilityArrow" src="assets/reddit-ui/chevron-right.svg" alt=""></button><button class="communityMenuUtility communityMenuBoardEntry" type="button"><img src="assets/reddit-rail/favorite.svg" alt=""><span>게시판 관리</span><img class="communityMenuUtilityArrow" src="assets/reddit-ui/chevron-right.svg" alt=""></button></div></section>';
     document.body.appendChild(serviceBackdrop);
     var panel=backdrop.querySelector('.boardOrderPanel');
     if(panelColumns)panel.dataset.gridColumns=String(panelColumns);
@@ -446,6 +450,9 @@
 
     function openServiceMenu(){
       serviceOpener=document.activeElement;
+      Array.prototype.forEach.call(serviceBackdrop.querySelectorAll('[data-service-board]'),function(button){button.classList.toggle('selected',button.dataset.serviceBoard===selectedId)});
+      var selectedButton=serviceBackdrop.querySelector('.communityMenuBoard[data-service-board="'+selectedId+'"]');
+      if(selectedButton&&selectedButton.closest('details'))selectedButton.closest('details').open=true;
       serviceBackdrop.hidden=false;
       document.body.classList.add('communityMenuOpen');
       serviceBackdrop.querySelector('.communityMenuClose').focus();
@@ -469,6 +476,7 @@
     serviceBackdrop.querySelector('.communityMenuClose').onclick=closeServiceMenu;
     serviceBackdrop.querySelector('.communityMenuViewEntry').onclick=function(){closeServiceMenu();if(api&&api.onOpenView)api.onOpenView()};
     serviceBackdrop.querySelector('.communityMenuBoardEntry').onclick=function(){closeServiceMenu();openPanel({opener:headerMenuButton})};
+    Array.prototype.forEach.call(serviceBackdrop.querySelectorAll('[data-service-board]'),function(button){button.onclick=function(){choose(button.dataset.serviceBoard);closeServiceMenu()}});
     serviceBackdrop.onclick=function(event){if(event.target===serviceBackdrop)closeServiceMenu()};
     document.addEventListener('keydown',function(event){
       if(!serviceBackdrop.hidden){

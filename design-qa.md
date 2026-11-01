@@ -18,6 +18,19 @@
 
 final result: passed
 
+---
+
+## 2026-11-01 커뮤니티 레딧형 왼쪽 메뉴 · 말머리 일관성
+
+- Source visual truth: Reddit 모바일 왼쪽 내비게이션 계층과 상호작용.
+- Implementation: `reports/design-qa/community-reddit-drawer-2026-11-01.md`.
+- Layout: 86vw/최대 340px의 왼쪽 드로어, 58px 헤더, 48px 주요 메뉴 행, 46px 분류·게시판 행.
+- Behavior: 분류 접기/펼치기, 게시판 이동 후 자동 닫힘, 기존 보기 방식·게시판 관리 연결을 확인함.
+- Content: 간결형·목록형·피드형 모두 말머리를 제목보다 먼저 노출함.
+- Regression: 기존 게시판 목록 본문과 게시글 옵션 시트는 구조 변경 없음.
+
+final result: passed
+
 
 ---
 

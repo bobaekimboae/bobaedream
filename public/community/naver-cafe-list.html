@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="./naver-discussion-feed.css?v=20261017rlink1">
 <link rel="stylesheet" href="./community-poll.css?v=20261017naverpoll1">
 <link rel="stylesheet" href="./chotot-feed.css?v=20261016saveicon1">
-<link rel="stylesheet" href="./hupu-board-navigation.css?v=20261101naver1">
+<link rel="stylesheet" href="./hupu-board-navigation.css?v=20261101redditdrawer1">
 <link rel="stylesheet" href="./reddit-board-profile.css?v=20261101follow1">
 <link rel="stylesheet" href="./board-header-variants.css?v=20261101banner1">
 <link rel="stylesheet" href="./chzzk-list-parity.css?v=20261017listparity4">
@@ -89,6 +89,7 @@
 /* Only the post list follows Chzzk's compact board density. */
 .phone.compactMode .list{padding:0 15px;background:#fff}.phone.compactMode .item,.phone.compactMode .item.noThumb{min-height:70px;padding:9px 0;gap:12px;border-bottom:1px solid #dedfe1}.phone.compactMode .itemTitle{font-size:16px;line-height:23px;max-height:23px;font-weight:500;letter-spacing:-.035em;color:#292b2e}.phone.compactMode .meta{margin-top:3px;gap:7px;color:#7b7d80;font-size:12.5px;line-height:17px;letter-spacing:-.025em}.phone.compactMode .metaMetric{height:17px}.phone.compactMode .metaAsset{color:#8b8d90;opacity:.86}.phone.compactMode .metaRecommend .metaAsset{width:13px;height:13px;margin-right:2px}.phone.compactMode .metaView .metaAsset{width:14px;height:14px;margin:-1px 1px -1px 0}.phone.compactMode .thumbWrap,.phone.compactMode .thumb{width:52px;height:52px;border-radius:7px}.phone.compactMode .compactReply{color:#238fe3;font-size:13px}
 @media(max-width:370px){.phone.compactMode .list{padding:0 14px}.phone.compactMode .itemTitle{font-size:15.5px}}
+.listHeadword{display:inline;margin-right:5px;color:#686b70;font:inherit;font-weight:650;white-space:nowrap}
 </style>
 <style id="reddit-icon-balance">
 .viewIconBtn img{width:18px;height:18px;display:block}.typeSelect .chev{width:16px;height:16px;display:block;opacity:.68}.boardSelect .boardChevron{width:18px;height:18px;display:block;opacity:.72;content:normal}.sheetClose img{width:20px;height:20px;display:block}.fab img{width:25px;height:25px;display:block;filter:brightness(0) invert(1)}.play{width:30px!important;height:30px!important;border:0!important;border-radius:50%;padding:6px;background:rgba(255,255,255,.94) url("assets/view-icons/video.svg") center/18px 18px no-repeat!important;filter:drop-shadow(0 1px 3px rgba(0,0,0,.28))!important;transform:translate(-50%,-50%)!important}.phone.compactMode .play{width:26px!important;height:26px!important;padding:5px;background-size:16px 16px!important}.communitySearch img{width:20px!important;height:20px!important;object-fit:contain}.boardOrderMenu img,.appbar .headerAction img{width:22px!important;height:22px!important;object-fit:contain}.appbar .headerMenu{width:24px!important;height:24px!important}
@@ -118,7 +119,7 @@
 <button class="fab" aria-label="글쓰기"><img src="assets/reddit-ui/write.svg" alt=""></button>
 </main>
 <div id="toast" class="toast"></div><div id="overlay" class="overlay"></div><section id="sheet" class="sheet" aria-label="보기 방식" role="dialog"></section>
-<script src="./hupu-board-navigation.js?v=20261101brands1"></script>
+<script src="./hupu-board-navigation.js?v=20261101redditdrawer1"></script>
 <script src="./reddit-board-profile.js?v=20261101follow1"></script>
 <script src="./board-header-variants.js?v=20261016genesiskr2"></script>
 <script>
@@ -170,6 +171,23 @@ function setBoardDescriptionExpanded(expanded){boardDescriptionExpanded=!!expand
 function setHeadwordsExpanded(expanded){headwordsExpanded=!!expanded;var section=document.getElementById('headwordSection'),toggle=document.getElementById('categoryToggle');section.classList.toggle('expanded',headwordsExpanded);toggle.setAttribute('aria-expanded',String(headwordsExpanded));toggle.setAttribute('aria-label',headwordsExpanded?'말머리 접기':'말머리 전체 열기')}
 function renderTabs(){var el=document.getElementById('category');el.innerHTML=topics.map(function(t,i){return '<button class="cat '+(i===active?'on':'')+'" data-i="'+i+'" aria-pressed="'+(i===active?'true':'false')+'">'+esc(t)+'</button>'}).join('');[].forEach.call(el.querySelectorAll('.cat'),function(b){b.onclick=function(){active=+b.dataset.i;renderTabs();renderList()}});if(!headwordsExpanded){var selected=el.querySelector('.cat[data-i="'+active+'"]');if(selected)selected.scrollIntoView({inline:'center',block:'nearest'})}}
 function renderList(){var textMode=!display.thumbnail,noBadge=!display.commentBadge;var data=filtered();document.getElementById('typeLabel').textContent=typeLabel();var el=document.getElementById('list');el.innerHTML=data.map(function(p){var c=count(p.reply),cf=countFull(p.reply),showThumb=!textMode&&p.thumb;var mediaBadge=p.mediaLink?'<span class="mediaLinkBadge"><img src="assets/write-parity/link.svg" alt="링크"></span>':p.photos>1?'<span class="photoBadge">'+p.photos+'</span>':'';var thumb=showThumb?'<div class="thumbWrap"><img class="thumb" src="'+esc(p.thumb)+'" alt="'+esc(p.title.replace(/^\[[^\]]+\]\s*/,''))+' 썸네일" loading="lazy">'+mediaBadge+(p.video?'<span class="play" aria-label="동영상"></span><span class="redditVideoBadge" aria-label="동영상"><img src="assets/reddit-ui/video.svg" alt="" aria-hidden="true"></span>':'')+'</div>':'';var rawTitle=display.categoryLabel?esc(p.title):esc(p.title).replace(/^\[[^\]]+\]\s*/,'');var title=rawTitle+(noBadge?'<span class="titleComment">('+esc(cf)+')</span>':'');var cls=(showThumb?'':'noThumb')+' '+(showThumb&&thumbPosition==='left'?'thumbLeft':'')+' '+(p.fresh?'fresh':'')+' '+(noBadge?'noCommentBadge':'');return '<button class="item '+cls+'" data-id="'+p.id+'" data-local-post="'+(p.local?'true':'false')+'" aria-label="'+esc(p.title.replace(/^\[[^\]]+\]\s*/,''))+' 상세 보기"><div class="body"><span class="dot"></span><div class="itemTitle">'+title+'</div><div class="meta">'+(display.rankBadge?rank(p.rank):'')+'<span>'+esc(p.user)+'</span><span>'+esc(p.time)+'</span><span>조회 '+view(p.view)+'</span></div></div>'+thumb+(display.commentBadge?'<span class="commentBox" data-wide="'+(c.length>=4)+'"><b>'+esc(c)+'</b><span>댓글</span></span>':'')+'</button>'}).join('')||'<div style="padding:30px 0;color:#999;font-size:14px">해당 보기 조건의 게시물이 없습니다.</div>';[].forEach.call(el.querySelectorAll('.item'),function(it){it.onclick=function(){location.href='./chzzk-detail.html?id='+it.dataset.id+(it.dataset.localPost==='true'?'&local=1':'')+'&v=20261015chzzk'}})}
+var renderListBase=renderList;
+renderList=function(){
+  renderListBase();
+  var data=filtered();
+  [].forEach.call(document.querySelectorAll('#list .item'),function(item,index){
+    var post=data[index],title=item.querySelector('.itemTitle');
+    if(!post||!title||!post.category)return;
+    var existing=title.querySelector('.listHeadword');
+    if(existing)existing.remove();
+    if(!display.categoryLabel)return;
+    [].forEach.call(title.childNodes,function(node){if(node.nodeType===3)node.nodeValue=node.nodeValue.replace(/^\[[^\]]+\]\s*/,'')});
+    var headword=document.createElement('span');
+    headword.className='listHeadword';
+    headword.textContent='['+post.category+']';
+    title.insertBefore(headword,title.firstChild);
+  });
+}
 function toast(t){var el=document.getElementById('toast');el.textContent=t;el.classList.add('show');setTimeout(function(){el.classList.remove('show')},1000)}
 document.querySelector('.communitySearch').onclick=function(){toast('커뮤니티 검색 준비중')};
 document.querySelector('.communityTitleSearch').onclick=function(){toast('커뮤니티 검색 준비중')};
@@ -271,6 +289,7 @@ renderList=function(){
     if(rank){if(rankPosition==='after')user.insertAdjacentElement('afterend',rank);else meta.insertBefore(rank,user)}
   });
   if(compact){[].forEach.call(document.querySelectorAll('.item'),function(item){var post=posts.find(function(candidate){return String(candidate.id)===item.dataset.id}),index=posts.indexOf(post),title=item.querySelector('.itemTitle'),meta=item.querySelector('.meta'),thumb=item.querySelector('.thumb');if(!post||!title||!meta)return;item.classList.remove('thumbLeft');var day=String(Math.max(1,15-Math.floor(Math.max(0,index)/2))).padStart(2,'0');title.innerHTML='<span class="compactTitleText">'+esc(post.title.replace(/^\[[^\]]+\]\s*/,''))+'</span><span class="compactReply">('+esc(countFull(post.reply))+')</span>';meta.innerHTML='<span>'+esc(post.user)+'</span><span>'+(post.local?'방금 전':'10.'+day)+'</span><span class="metaMetric metaRecommend">'+metaIcon('thumb')+esc(post.local?0:(index*7)%4)+'</span><span class="metaMetric metaView">'+metaIcon('eye')+esc(view(post.view))+'</span>';if(thumb)thumb.onerror=function(){var wrap=thumb.closest('.thumbWrap');if(wrap)wrap.remove();item.classList.add('noThumb')}})}
+  if(compact){[].forEach.call(document.querySelectorAll('.item'),function(item){var post=posts.find(function(candidate){return String(candidate.id)===item.dataset.id}),title=item.querySelector('.itemTitle');if(!post||!title||!display.categoryLabel)return;var headword=document.createElement('span');headword.className='listHeadword';headword.textContent='['+post.category+']';title.insertBefore(headword,title.firstChild)})}
   [].forEach.call(document.querySelectorAll('.commentBox span'),function(label){label.innerHTML=display.commentIcon?metaIcon('comment'):'댓글'});
 };
 openSheet=function(){
