@@ -31,10 +31,15 @@ const scopeId = computed(() => {
   return boards.value.some(board => board.id === id) ? id : ''
 })
 const scopeBoard = computed(() => boards.value.find(board => board.id === scopeId.value))
+// 들어온 게시판(from). 기본은 전체에서 찾고, 이 게시판으로 좁히는 알약을 함께 준다.
+const fromBoard = computed(() => {
+  const id = typeof route.query.from === 'string' ? route.query.from : ''
+  return boards.value.find(board => board.id === id) ?? scopeBoard.value
+})
 
 function setQuery(patch: Record<string, string | undefined>, replace = true) {
   const next: Record<string, string> = {}
-  const merged = { q: q.value, type: type.value, sort: sort.value, t: period.value, board: scopeId.value, ...patch }
+  const merged = { q: q.value, type: type.value, sort: sort.value, t: period.value, board: scopeId.value, from: fromBoard.value?.id, ...patch }
   for (const [key, value] of Object.entries(merged)) {
     if (!value) continue
     if ((key === 'type' && value === 'posts') || (key === 'sort' && value === 'relevance') || (key === 't' && value === 'all')) continue
@@ -185,9 +190,9 @@ useHead(() => ({ title: q.value ? `${q.value} - 보배드림 커뮤니티 검색
       </form>
     </header>
 
-    <div v-if="scopeBoard" class="search-scope">
-      <span>범위</span>
-      <button type="button" class="search-scope-chip" :aria-label="`${scopeBoard.name} 범위 풀고 전체에서 찾기`" @click="setQuery({ board: undefined })">{{ scopeBoard.name }} <img :src="`${iconRoot}/write/close.svg`" alt="" /></button>
+    <div v-if="fromBoard" class="search-scope" role="radiogroup" aria-label="찾는 범위">
+      <button type="button" class="search-scope-chip" role="radio" :aria-checked="!scopeBoard" @click="setQuery({ board: undefined })">커뮤니티 전체</button>
+      <button type="button" class="search-scope-chip" role="radio" :aria-checked="Boolean(scopeBoard)" @click="setQuery({ board: fromBoard.id })">{{ fromBoard.name }}에서만</button>
     </div>
 
     <!-- 입력 중 추천 -->
@@ -287,7 +292,7 @@ useHead(() => ({ title: q.value ? `${q.value} - 보배드림 커뮤니티 검색
         </template>
 
         <template v-else-if="type === 'comments'">
-          <NuxtLink v-for="item in commentResult" :key="item.comment.id" :to="`/posts/${item.post.id}`" class="result-comment">
+          <NuxtLink v-for="item in commentResult" :key="item.comment.id" :to="{ path: `/posts/${item.post.id}`, query: { comment: item.comment.id } }" class="result-comment">
             <p class="result-meta"><span>{{ boardName(item.post.boardId) }}</span><span class="result-comment-post">{{ item.post.title }}</span></p>
             <p class="result-comment-text"><template v-for="(part, i) in highlight(item.comment.text, q)" :key="i"><b v-if="part.hit">{{ part.text }}</b><template v-else>{{ part.text }}</template></template></p>
             <p class="result-stats"><span class="result-author">{{ item.comment.author }}</span><span>{{ timeLabel(item.comment.createdAt) }}</span><span>추천 {{ item.comment.likes }}</span></p>

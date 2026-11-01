@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { previewStorageKey } from '~/services/communityApi'
+import { searchCommentSeed } from '~/data/searchComments'
 import type { CommunityPost, PublishPostPayload } from '~/types/community'
 
 type CommentVote = 'up' | 'down' | null
@@ -22,6 +23,13 @@ const liked = ref(false)
 const disliked = ref(false)
 const post = ref<(CommunityPost & Partial<PublishPostPayload>) | null>(null)
 const commentDraft = ref('')
+const focusedCommentId = ref('')
+function relativeTime(iso: string) {
+  const diff = Date.now() - Date.parse(iso)
+  if (diff < 3_600_000) return `${Math.max(1, Math.floor(diff / 60_000))}분 전`
+  if (diff < 86_400_000) return `${Math.floor(diff / 3_600_000)}시간 전`
+  return `${Math.floor(diff / 86_400_000)}일 전`
+}
 const comments = ref<DetailComment[]>([
   {
     id: 'comment-1',
@@ -50,6 +58,16 @@ onMounted(() => {
   const existing = posts.value.find(item => item.id === id)
   if (existing) {
     post.value = existing
+    // 검색 예시 댓글을 이 글의 댓글로 보이고, 검색 결과에서 고른 댓글로 바로 이동한다.
+    const seeded = searchCommentSeed.filter(item => item.postId === id)
+    if (seeded.length) {
+      comments.value = seeded.map(item => ({ id: item.id, author: item.author, text: item.text, createdAt: relativeTime(item.createdAt), likes: item.likes, dislikes: 0, viewerVote: null }))
+    }
+    const target = typeof route.query.comment === 'string' ? route.query.comment : ''
+    if (target) {
+      focusedCommentId.value = target
+      nextTick(() => document.getElementById(`comment-${target}`)?.scrollIntoView({ block: 'center' }))
+    }
     return
   }
   try {
@@ -124,7 +142,7 @@ useHead({ title: computed(() => post.value ? `${post.value.title} | 보배드림
     <section v-if="post" class="comment-section">
       <header><h2>댓글 {{ commentCount }}</h2><button type="button">최신순</button></header>
       <ol class="detail-comments">
-        <li v-for="comment in comments" :key="comment.id" class="detail-comment">
+        <li v-for="comment in comments" :id="`comment-${comment.id}`" :key="comment.id" class="detail-comment" :class="{ 'is-focused': focusedCommentId === comment.id }">
           <span class="detail-comment-avatar">{{ comment.author.slice(0, 1) }}</span>
           <div class="detail-comment-content">
             <div class="detail-comment-author"><strong>{{ comment.author }}</strong><span>{{ comment.createdAt }}</span></div>

@@ -13,9 +13,9 @@
 .search-clear { width: 32px; height: 32px; display: grid; place-items: center; flex: 0 0 32px; border-radius: 50%; }
 .search-clear img { width: 16px; height: 16px; opacity: .6; }
 
-.search-scope { display: flex; align-items: center; gap: 8px; padding: 10px 16px 0; color: #767676; font-size: 13px; line-height: 18px; }
-.search-scope-chip { height: 32px; display: inline-flex; align-items: center; gap: 4px; padding: 0 8px 0 12px; border: 1px solid #e4e7ec; border-radius: 16px; color: #222; font-size: 14px; font-weight: 600; }
-.search-scope-chip img { width: 14px; height: 14px; opacity: .6; }
+.search-scope { display: flex; align-items: center; gap: 8px; overflow-x: auto; padding: 10px 16px 0; scrollbar-width: none; }
+.search-scope-chip { height: 32px; display: inline-flex; align-items: center; flex: 0 0 auto; padding: 0 12px; border: 1px solid #e4e7ec; border-radius: 16px; background: #fff; color: #222; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.search-scope-chip[aria-checked="true"] { border-color: #222; background: #222; color: #fff; }
 
 .search-suggest { padding: 4px 0 24px; }
 .suggest-block { padding: 14px 16px 4px; }
@@ -100,3 +100,6 @@
 @media (min-width: 720px) {
   .trending-list { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* 검색 결과에서 고른 댓글 */
+.detail-comment.is-focused { background: #f4f6fa; box-shadow: inset 3px 0 0 #222; }
