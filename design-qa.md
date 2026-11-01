@@ -31,6 +31,23 @@ final result: passed
 
 ---
 
+## 2026-11-01 모바일 커뮤니티 타이틀 헤더 비교 시안
+
+- Scope: 기존 헤더를 보존하고 `header=community` 쿼리에서만 `커뮤니티` 타이틀과 우측 검색·햄버거 구성을 노출한다.
+- Source visual truth: USB 연결 갤럭시 `SM-S938N`의 던전앤파이터 게시판 캡처 `C:/Temp/bobaedream-phone-current.png`.
+- Browser-rendered implementation: Codex in-app browser tab 8, `http://127.0.0.1:5212/community/naver-cafe-list.html?v=community-title&board=aviation-rail&header=community`.
+- Viewport/state: 319 × 668 CSS px, 커뮤니티 타이틀 헤더·항공/해운/철도 게시판 상태.
+- Layout: 좌측 서비스 타이틀, 우측 26px 검색과 메뉴 아이콘, 60px 헤더, 20px 좌측 여백으로 구성했다. 게시판명은 기존 게시판 프로필 영역에만 남긴다.
+- Regression: 쿼리가 없는 기존 헤더는 뒤로가기·검색 필드·프로필·메뉴 구성을 그대로 유지한다.
+- Runtime checks: 가로 오버플로 0px, 콘솔 오류 0건, 타이틀·검색·메뉴 접근성 이름 확인.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
 ## 2026-11-01 커뮤니티 게시글 옵션 시트 · Reddit/Band 모바일 참고
 
 - Scope: `public/community/naver-cafe-list.html`의 말머리 왼쪽 필터 버튼과 `게시글 옵션` 바텀시트만 수정했다. 게시판 헤더·말머리 바·게시물 카드 구성은 변경하지 않았다.
