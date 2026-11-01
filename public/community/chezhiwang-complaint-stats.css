@@ -181,8 +181,8 @@
 .czw-card.is-video-card .czw-thumb{display:none}
 .czs-vthumb{position:relative;margin:10px 16px 0;border-radius:8px;overflow:hidden;background:#1b1f24;aspect-ratio:16/9}
 .czs-vthumb img{width:100%;height:100%;object-fit:cover;opacity:.85}
-.czs-play{position:absolute;left:50%;top:50%;width:48px;height:48px;margin:-24px 0 0 -24px;border-radius:50%;background:rgba(0,0,0,.55)}
-.czs-play:after{content:"";position:absolute;left:19px;top:14px;border-left:15px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.czs-play{position:absolute;left:50%;top:50%;margin:-24px 0 0 -24px;width:48px;height:48px;border:0;border-radius:50%;background:rgba(0,0,0,.56);box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),0 1px 4px rgba(0,0,0,.24);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.czs-play:after{content:"";position:absolute;left:50%;top:50%;width:20px;height:20px;border:0;transform:translate(-44%,-50%);background:#fff;-webkit-mask:url("assets/reddit-video/play-fill.svg") center/contain no-repeat;mask:url("assets/reddit-video/play-fill.svg") center/contain no-repeat}
 .czs-vthumb em{position:absolute;right:8px;bottom:8px;padding:2px 6px;border-radius:4px;background:rgba(0,0,0,.6);color:#fff;font-style:normal;font-size:12px}
 .czs-picker{z-index:80}.czs-index{z-index:5;top:110px}.czs-picklist{position:relative}
 /* 2026-10-19 목록·순위 보강: 건수·정렬 줄, 더 보기, 브랜드 로고·결함 부위 점 */

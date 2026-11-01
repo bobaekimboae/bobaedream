@@ -104,7 +104,7 @@
       if(ratio==='video'){
         var video=videoAssets[index%videoAssets.length];
         var poster=itemSource(post,index,itemIndex);
-        return '<button class="chototMediaItem video" type="button" data-media-index="'+itemIndex+'" data-kind="video" data-src="'+esc(video)+'" data-ratio="portrait" aria-label="영상 크게 보기"><video muted playsinline preload="metadata" poster="'+esc(poster)+'"><source src="'+esc(video)+'" type="video/mp4"></video><img class="chototVideoPlay" src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>';
+        return '<button class="chototMediaItem video" type="button" data-media-index="'+itemIndex+'" data-kind="video" data-src="'+esc(video)+'" data-ratio="portrait" aria-label="영상 크게 보기"><video muted playsinline preload="metadata" poster="'+esc(poster)+'"><source src="'+esc(video)+'" type="video/mp4"></video><span class="chototVideoPlay" aria-hidden="true"></span></button>';
       }
       var source=itemSource(post,index,itemIndex);
       var priority=index===0&&itemIndex===0;
