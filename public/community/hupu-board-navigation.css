@@ -64,8 +64,7 @@
 .boardOrderAvailableSection{scroll-margin-top:12px}
 .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:18px}
 .boardOrderAvailableTitle{margin:0 0 10px;color:#777b82;font-size:15px;line-height:20px;font-weight:500;letter-spacing:-.035em}
-.boardOrderSubgroup+.boardOrderSubgroup{margin-top:12px}
-.boardOrderSubgroupTitle{margin:0 0 7px;color:#96999f;font-size:12px;line-height:17px;font-weight:650;letter-spacing:-.035em}
+.boardOrderPanel[data-grid-columns] .boardOrderAvailableGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .boardOrderAdd{background:#fff;border-color:#dfe1e5;border-radius:8px;color:#34363a}
 .boardOrderAdd span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:0 8px 0 0;font-size:14px;font-weight:500;letter-spacing:-.045em}
 .boardOrderCategoryItem{border-radius:8px;color:#62656a;cursor:default}
@@ -92,6 +91,6 @@ body.boardOrderDragging{touch-action:none}
 .communityMenuEntry .boardOrderViewIcon{width:34px;height:34px;flex-basis:34px;border-radius:8px}
 .communityMenuEntryArrow{margin-left:auto;color:#92959a;font-size:22px;line-height:1}
 body.communityMenuOpen{overflow:hidden}
-@media(min-width:768px){.boardOrderBackdrop,.communityMenuBackdrop{align-items:center;background:rgba(0,0,0,.45)}.boardOrderPanel,.communityMenuPanel{height:min(780px,92dvh);border-radius:22px;overflow:hidden}.boardOrderMyGrid,.boardOrderAvailableGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.boardOrderPanel[data-grid-columns="3"] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns="3"] .boardOrderAvailableGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.boardOrderItem,.boardOrderAdd,.boardOrderCategoryItem{height:40px;border-radius:6px}.boardChannelTrack{padding-left:22px;gap:28px}.boardOrderBody,.communityMenuBody{padding-left:22px;padding-right:22px}}
+@media(min-width:768px){.boardOrderBackdrop,.communityMenuBackdrop{align-items:center;background:rgba(0,0,0,.45)}.boardOrderPanel,.communityMenuPanel{height:min(780px,92dvh);border-radius:22px;overflow:hidden}.boardOrderMyGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.boardOrderPanel[data-grid-columns="3"] .boardOrderMyGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.boardOrderPanel[data-grid-columns] .boardOrderAvailableGrid{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.boardOrderItem,.boardOrderAdd,.boardOrderCategoryItem{height:40px;border-radius:6px}.boardChannelTrack{padding-left:22px;gap:28px}.boardOrderBody,.communityMenuBody{padding-left:22px;padding-right:22px}}
 @media(max-width:370px){.boardChannelTrack{gap:20px;padding-left:15px}.boardChannelTab{font-size:16px}.boardOrderBody{padding-left:14px;padding-right:14px}.boardOrderMyGrid,.boardOrderAvailableGrid{gap:9px 7px}.boardOrderName,.boardOrderAdd span,.boardOrderPanel[data-grid-columns="4"] .boardOrderName,.boardOrderPanel[data-grid-columns="4"] .boardOrderAdd span{font-size:13px}.boardOrderHeading span{font-size:11.5px}}
 @media(prefers-reduced-motion:reduce){.boardOrderItem,.boardChannelScroller{transition:none;scroll-behavior:auto}}
