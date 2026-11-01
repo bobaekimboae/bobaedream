@@ -48,6 +48,18 @@ final result: passed
 
 ---
 
+## 2026-11-01 네이버 카페 기준 모바일 GNB 크기 재조정
+
+- Scope: 모바일 게시판 GNB 글자 크기만 조정하고 44px 터치 영역, 간격, 활성 밑줄 및 동작은 유지했다.
+- Reference: 네이버 카페 최신 Android 앱의 공개 화면과 Android compact UI 기준을 교차 확인했다.
+- Applied: 직전 텐센트 뉴스 기준 17px을 네이버 카페형 밀도에 맞춘 15px으로 축소했다. 비활성 500, 활성 700은 유지한다.
+- Responsive parity: 370px 이하에서도 15px을 유지하며, 캐시 키를 `20261101naver1`로 갱신했다.
+
+final result: passed
+
+
+---
+
 ## 2026-11-01 텐센트 뉴스 기준 모바일 GNB 타이포 교정
 
 - Source visual truth: USB 연결 폰의 텐센트 뉴스 `com.tencent.news` GNB 캡처 `C:/Temp/tencent-news-gnb.png`.
