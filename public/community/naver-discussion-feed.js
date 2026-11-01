@@ -19,6 +19,14 @@
   }
   var activeHeadword='전체';
   function selectedHeadword(){return activeHeadword;}
+  function postAgeMinutes(value){
+    var text=String(value||'');
+    if(text==='방금 전')return 0;
+    var match=text.match(/(\d+)\s*(분|시간|일|주|개월|년)\s*전/);
+    if(!match)return Infinity;
+    var unit={분:1,시간:60,일:1440,주:10080,개월:43200,년:525600}[match[2]]||Infinity;
+    return Number(match[1])*unit;
+  }
   function posts(){
     var data=(window.BOBAE_POSTS||[]).slice();
     var localPost=window.BOBAE_LOCAL_POST;
@@ -29,7 +37,12 @@
     if(localPost&&activeBoard!=='best'&&localPostMatches&&!alreadyIncluded)data.unshift(localPost);
     var sortOrder=window.BBM_GET_SORT_ORDER?window.BBM_GET_SORT_ORDER():'latest';
     if(sortOrder==='latest-comment')data.sort(function(a,b){return Number(b.reply||0)-Number(a.reply||0)});
-    if(sortOrder==='popular')data.sort(function(a,b){return Number(b.view||0)+Number(b.reply||0)*20-(Number(a.view||0)+Number(a.reply||0)*20)});
+    if(sortOrder==='popular'){
+      var popularPeriod=window.BBM_GET_POPULAR_PERIOD?window.BBM_GET_POPULAR_PERIOD():'all';
+      var limit={hour:60,day:1440,week:10080,month:43200,year:525600,all:Infinity}[popularPeriod]||Infinity;
+      data=data.filter(function(post){return postAgeMinutes(post.time)<=limit;});
+      data.sort(function(a,b){return Number(b.view||0)+Number(b.reply||0)*20-(Number(a.view||0)+Number(a.reply||0)*20)});
+    }
     var headword=selectedHeadword();
     if(headword==='전체')return data;
     return data.filter(function(post){return categoryFor(post)===headword;});

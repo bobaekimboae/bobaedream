@@ -18,6 +18,22 @@
 
 final result: passed
 
+
+---
+
+## 2026-11-01 커뮤니티 레딧형 인기 기간 선택
+
+- Source visual truth: 사용자 제공 Reddit `피드 옵션`, `인기` 기간 화면 3장.
+- Browser-rendered implementation: CUA mobile capture, 393×844 CSS px.
+- 메인 `인기` 행을 기간 선택 진입형으로 변경하고 1시간·24시간·1주·1개월·1년·전체 기간을 실제 목록 시간 범위에 연결함.
+- `지난 24시간` 선택 유지, 뒤로가기, 닫기, 메인 보조문구 갱신과 전체 62건 → 29건 축소를 확인함.
+- Nuxt 4 정본의 타입·상태·필터 계약도 동일하게 반영하고 테스트를 추가함.
+- 상세 증거: `reports/design-qa/community-popular-period-2026-11-01.md`.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
 ---
 
 ## 2026-11-01 커뮤니티 게시글 옵션 시트 세로 리듬

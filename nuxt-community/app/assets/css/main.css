@@ -133,6 +133,8 @@ a { color: inherit; text-decoration: none; }
 .sheet-handle-header { position: relative; height: 56px; display: grid; place-items: center; border-bottom: 1px solid var(--line); }
 .sheet-handle { position: absolute; top: 8px; width: 38px; height: 4px; border-radius: 4px; background: #d8dadd; }
 .sheet-handle-header h2 { margin: 6px 0 0; font-size: 19px; font-weight: 800; }
+.sheet-handle-header .sheet-back { position: absolute; left: 14px; bottom: 7px; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; }
+.sheet-handle-header .sheet-back img { width: 20px; height: 20px; }
 .sheet-close { position: absolute; right: 16px; top: 11px; width: 34px; height: 34px; color: #444; font-size: 28px; line-height: 1; font-weight: 300; }
 .option-group { padding: 14px 18px 15px; border-bottom: 1px solid #f0f1f3; }
 .option-group h3 { margin: 0 0 8px; font-size: 15px; font-weight: 750; }
@@ -140,6 +142,21 @@ a { color: inherit; text-decoration: none; }
 .choice-grid--three { grid-template-columns: repeat(3, 1fr); }
 .choice-grid button { min-height: 40px; border: 1px solid #e0e2e6; border-radius: 10px; font-size: 13px; font-weight: 650; }
 .choice-grid button.is-selected { border-color: #222; background: #222; color: #fff; }
+.sort-choice-list { display: flex; flex-direction: column; }
+.sort-choice-list button { min-height: 54px; display: grid; grid-template-columns: minmax(0, 1fr) 22px; align-items: center; gap: 12px; padding: 6px 2px; text-align: left; }
+.sort-choice-list button > span { display: flex; flex-direction: column; gap: 1px; font-size: 16px; line-height: 22px; font-weight: 600; }
+.sort-choice-list button strong { font: inherit; }
+.sort-choice-list button small { color: #8a8f94; font-size: 12px; line-height: 16px; font-weight: 430; }
+.sort-choice-list button > b { justify-self: end; opacity: 0; font-size: 19px; }
+.sort-choice-list button.is-selected > b { opacity: 1; }
+.sort-choice-list button > .sort-chevron { opacity: .78; font-size: 28px; line-height: 1; font-weight: 400; }
+.popular-period-list { padding: 18px 20px calc(30px + env(safe-area-inset-bottom)); }
+.popular-period-list button { width: 100%; min-height: 72px; display: grid; grid-template-columns: 24px minmax(0, 1fr) 22px; align-items: center; gap: 16px; padding: 5px 2px; color: #202326; text-align: left; }
+.popular-period-list button i { width: 24px; height: 24px; border: 2px solid currentColor; border-radius: 50%; box-sizing: border-box; }
+.popular-period-list button.is-selected i { border-width: 7px; }
+.popular-period-list button span { font-size: 17px; line-height: 24px; font-weight: 560; }
+.popular-period-list button b { justify-self: end; opacity: 0; font-size: 19px; }
+.popular-period-list button.is-selected b { opacity: 1; }
 .view-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .view-choice-grid button { min-width: 0; height: 68px; display: grid; grid-template-rows: 28px auto; place-items: center; padding: 7px 4px; border: 1px solid #e0e2e6; border-radius: 11px; }
 .view-choice-grid button.is-selected { border: 2px solid #222; background: #f8f8f9; }

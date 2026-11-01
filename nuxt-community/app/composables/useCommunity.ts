@@ -1,4 +1,4 @@
-import type { CommunityPost, CommunitySection, CommunitySort, CommunityView } from '../types/community'
+import type { CommunityPopularPeriod, CommunityPost, CommunitySection, CommunitySort, CommunityView } from '../types/community'
 
 const sections: CommunitySection[] = [
   {
@@ -67,8 +67,22 @@ export function filterAndSortPosts(
   selectedBoardId: string,
   selectedHeadword: string,
   selectedSort: CommunitySort,
+  selectedPopularPeriod: CommunityPopularPeriod = 'all',
+  now = Date.now(),
 ) {
-  const source = posts.filter(post => post.boardId === selectedBoardId && (!selectedHeadword || post.headword === selectedHeadword))
+  const periodMilliseconds: Record<CommunityPopularPeriod, number> = {
+    hour: 3_600_000,
+    day: 86_400_000,
+    week: 604_800_000,
+    month: 2_592_000_000,
+    year: 31_536_000_000,
+    all: Number.POSITIVE_INFINITY,
+  }
+  const source = posts.filter((post) => {
+    if (post.boardId !== selectedBoardId || (selectedHeadword && post.headword !== selectedHeadword)) return false
+    if (selectedSort !== 'popular') return true
+    return now - Date.parse(post.createdAt) <= periodMilliseconds[selectedPopularPeriod]
+  })
   return [...source].sort((a, b) => {
     if (selectedSort === 'popular') return (b.likes + b.comments * 2) - (a.likes + a.comments * 2)
     if (selectedSort === 'latest-comment') return Date.parse(b.updatedAt) - Date.parse(a.updatedAt)
@@ -79,13 +93,14 @@ export function filterAndSortPosts(
 export function useCommunity() {
   const posts = useState<CommunityPost[]>('community-posts', () => seedPosts)
   const sort = useState<CommunitySort>('community-sort', () => 'latest')
+  const popularPeriod = useState<CommunityPopularPeriod>('community-popular-period', () => 'all')
   const view = useState<CommunityView>('community-view-v2', () => 'compact')
   const boardId = useState<string>('community-board', () => 'free')
   const headword = useState<string>('community-headword', () => '')
 
   const boards = computed(() => sections.flatMap(section => section.boards))
   const activeBoard = computed(() => boards.value.find(board => board.id === boardId.value) || boards.value[0]!)
-  const filteredPosts = computed(() => filterAndSortPosts(posts.value, boardId.value, headword.value, sort.value))
+  const filteredPosts = computed(() => filterAndSortPosts(posts.value, boardId.value, headword.value, sort.value, popularPeriod.value))
 
-  return { sections, boards, posts, sort, view, boardId, headword, activeBoard, filteredPosts }
+  return { sections, boards, posts, sort, popularPeriod, view, boardId, headword, activeBoard, filteredPosts }
 }

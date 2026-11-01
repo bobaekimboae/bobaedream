@@ -21,4 +21,10 @@ describe('filterAndSortPosts', () => {
     expect(filterAndSortPosts(posts, 'free', '', 'latest-comment').map(post => post.id)).toEqual(['a', 'b'])
     expect(filterAndSortPosts(posts, 'free', '', 'popular').map(post => post.id)).toEqual(['b', 'a'])
   })
+
+  it('인기 정렬 기간을 실제 게시물 생성 시각에 적용한다', () => {
+    const now = Date.parse('2026-11-01T03:30:00Z')
+    expect(filterAndSortPosts(posts, 'free', '', 'popular', 'hour', now).map(post => post.id)).toEqual(['b'])
+    expect(filterAndSortPosts(posts, 'free', '', 'popular', 'day', now).map(post => post.id)).toEqual(['b', 'a'])
+  })
 })

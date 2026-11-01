@@ -1,13 +1,16 @@
 <script setup lang="ts">
-import type { CommunitySort, CommunityView } from '~/types/community'
+import type { CommunityPopularPeriod, CommunitySort, CommunityView } from '~/types/community'
 
-const { sections, sort, view, boardId, headword, activeBoard, filteredPosts } = useCommunity()
+const { sections, sort, popularPeriod, view, boardId, headword, activeBoard, filteredPosts } = useCommunity()
 const optionsOpen = ref(false)
 const boardMenuOpen = ref(false)
 const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
 
 function setSort(value: CommunitySort) { sort.value = value }
+function setPopularPeriod(value: CommunityPopularPeriod) { popularPeriod.value = value }
 function setView(value: CommunityView) { view.value = value }
+const popularPeriodLabels: Record<CommunityPopularPeriod, string> = { hour: '1시간', day: '24시간', week: '1주', month: '1개월', year: '1년', all: '전체 기간' }
+const sortLabel = computed(() => sort.value === 'latest' ? '최신순' : sort.value === 'latest-comment' ? '최신 댓글순' : `인기 · ${popularPeriodLabels[popularPeriod.value]}`)
 function selectBoard(value: string) {
   boardId.value = value
   headword.value = ''
@@ -34,7 +37,7 @@ useHead({ title: '보배드림 커뮤니티' })
 
     <div v-if="view === 'compact'" class="chzzk-list-toolbar">
       <button type="button" @click="boardMenuOpen = true">{{ activeBoard.name }} <img :src="`${iconRoot}/write/chevron-down.svg`" alt="" /></button>
-      <button type="button" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" />{{ sort === 'latest' ? '최신순' : sort === 'latest-comment' ? '최신 댓글순' : '인기순' }}</button>
+      <button type="button" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" />{{ sortLabel }}</button>
     </div>
 
     <section v-else class="board-context">
@@ -48,7 +51,7 @@ useHead({ title: '보배드림 커뮤니티' })
         <button :class="{ 'is-active': !headword }" type="button" @click="headword = ''">전체</button>
         <button v-for="item in activeBoard.headwords" :key="item" :class="{ 'is-active': headword === item }" type="button" @click="headword = item">{{ item }}</button>
       </div>
-      <button class="sort-summary" type="button" @click="optionsOpen = true">{{ sort === 'latest' ? '최신순' : sort === 'latest-comment' ? '최신 댓글순' : '인기순' }}</button>
+      <button class="sort-summary" type="button" @click="optionsOpen = true">{{ sortLabel }}</button>
     </div>
 
     <div v-if="view === 'compact'" class="community-cleanbot">
@@ -86,7 +89,7 @@ useHead({ title: '보배드림 커뮤니티' })
 
     <NuxtLink class="floating-write" to="/write" aria-label="글쓰기"><img :src="`${iconRoot}/chzzk/write.svg`" alt="" /></NuxtLink>
 
-    <PostOptionsSheet :open="optionsOpen" :sort="sort" :view="view" :headword="headword" :headwords="activeBoard.headwords" @close="optionsOpen = false" @update:sort="setSort" @update:view="setView" @update:headword="headword = $event" />
+    <PostOptionsSheet :open="optionsOpen" :sort="sort" :popular-period="popularPeriod" :view="view" :headword="headword" :headwords="activeBoard.headwords" @close="optionsOpen = false" @update:sort="setSort" @update:popular-period="setPopularPeriod" @update:view="setView" @update:headword="headword = $event" />
 
     <Teleport to="body">
       <Transition name="drawer-slide">
