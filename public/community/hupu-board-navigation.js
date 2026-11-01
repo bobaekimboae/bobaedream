@@ -236,6 +236,9 @@
     function addTile(board){
       return '<button class="boardOrderAdd" data-board-id="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 내 게시판에 추가"><span>'+escapeHtml(board.shortName)+'</span><img class="boardOrderPlusIcon" src="assets/chzzk-detail/icons/close.svg" alt=""></button>';
     }
+    function activeCategoryTile(board){
+      return '<button class="boardOrderCategoryItem isActive" data-board-id="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 내 게시판에 추가됨" aria-pressed="true" tabindex="-1"><span>'+escapeHtml(board.shortName)+'</span></button>';
+    }
     function currentOrder(){return editing?draftOrder.slice():loadState().activeOrder.slice()}
     function readGridOrder(){return Array.prototype.map.call(myGrid.querySelectorAll('.boardOrderItem[data-movable="true"]'),function(item){return item.dataset.boardId})}
     function updateDraftFromGrid(){draftOrder=normalizeActiveOrder(readGridOrder(),false)}
@@ -369,9 +372,9 @@
       order.forEach(function(id){active[id]=true});
       var available=movableBoards.filter(function(board){return !active[board.id]});
       availableSections.innerHTML=menuSections.map(function(section,index){
-        var list=available.filter(function(board){return board.menuSection===section});
+        var list=movableBoards.filter(function(board){return board.menuSection===section});
         var title=index===0?'':'<h3 class="boardOrderAvailableTitle">'+escapeHtml(section)+'</h3>';
-        return '<section class="boardOrderAvailableSection" data-section="'+escapeHtml(section)+'">'+title+'<div class="boardOrderAvailableGrid">'+list.map(addTile).join('')+'</div></section>';
+        return '<section class="boardOrderAvailableSection" data-section="'+escapeHtml(section)+'">'+title+'<div class="boardOrderAvailableGrid">'+list.map(function(board){return active[board.id]?activeCategoryTile(board):addTile(board)}).join('')+'</div></section>';
       }).join('');
       var empty=backdrop.querySelector('.boardOrderEmpty');
       empty.hidden=available.length>0;

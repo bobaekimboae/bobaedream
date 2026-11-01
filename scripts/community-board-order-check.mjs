@@ -100,6 +100,10 @@ for(const width of [360,384,412,592,1280]){
   check(await page.locator('.boardOrderSectionTabs [role="tab"]').count()===4,'게시판 분류 탭이 4개가 아닙니다');
   const sectionLabels=await page.locator('.boardOrderSectionTabs [role="tab"]').allTextContents();
   check(JSON.stringify(sectionLabels)===JSON.stringify(['일반','자동차','제보','결함']),'게시판 분류 순서가 일반·자동차·제보·결함과 다릅니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="domestic-car"]').count()===1,'국산차가 자동차 분류에 표시되지 않았습니다');
+  check(await page.locator('.boardOrderAvailableSection[data-section="자동차"] .boardOrderCategoryItem[data-board-id="import-car"]').count()===1,'수입차가 자동차 분류에 표시되지 않았습니다');
+  const clippedCategoryLabels=await page.locator('.boardOrderCategoryItem span').evaluateAll(elements=>elements.filter(element=>element.scrollWidth>element.clientWidth+1).map(element=>element.textContent));
+  check(clippedCategoryLabels.length===0,`${width}px 분류 게시판명이 잘렸습니다: ${clippedCategoryLabels.join(', ')}`);
   const availableIds=await page.locator('.boardOrderAdd').evaluateAll(elements=>[...new Set(elements.map(element=>element.dataset.boardId))]);
   check(availableIds.length===movableCount-activeCount,`추가 가능 게시판 고유 수가 ${movableCount-activeCount}개와 다릅니다`);
   check(await page.locator('.boardOrderAvatar').count()===0,'전체 게시판 칩에 프로필 이미지가 남아 있습니다');
