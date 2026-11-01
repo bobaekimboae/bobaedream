@@ -71,11 +71,11 @@ for(const width of [360,384,412,592,1280]){
   check((await page.locator('.boardOrderDefaultValue').textContent())?.trim()==='전체 게시글','기본 홈 설정값이 다릅니다');
   if(width===360)await page.screenshot({path:path.join(outputDir,'mobile-360-baidu-initial.png'),fullPage:false});
   if(width===360){
-    await page.locator('.boardOrderSectionTabs [data-section="스포츠"]').click();
+    await page.locator('.boardOrderSectionTabs [data-section="제보"]').click();
     await page.waitForTimeout(350);
-    check(await page.locator('.boardOrderSectionTabs [data-section="스포츠"]').getAttribute('aria-selected')==='true','분류 탭 클릭 뒤 스포츠 탭이 선택되지 않았습니다');
-    check(await page.locator('.boardOrderAvailableSection[data-section="스포츠"] .boardOrderAdd').count()>=1,'스포츠 분류 섹션에 추가 가능한 게시판이 없습니다');
-    await page.locator('.boardOrderSectionTabs [data-section="추천"]').click();
+    check(await page.locator('.boardOrderSectionTabs [data-section="제보"]').getAttribute('aria-selected')==='true','분류 탭 클릭 뒤 제보 탭이 선택되지 않았습니다');
+    check(await page.locator('.boardOrderAvailableSection[data-section="제보"] .boardOrderAdd').count()>=1,'제보 분류 섹션에 추가 가능한 게시판이 없습니다');
+    await page.locator('.boardOrderSectionTabs [data-section="일반"]').click();
     await page.waitForTimeout(350);
     await page.locator('.boardOrderBody').evaluate(element=>{element.scrollTop=0});
   }
@@ -97,7 +97,9 @@ for(const width of [360,384,412,592,1280]){
   check(await page.locator('.boardOrderPanel').evaluate(panel=>panel.contains(document.activeElement)),'모달에서 Shift+Tab 포커스가 밖으로 빠졌습니다');
   check(await page.locator('.boardOrderFixed').count()===3,'고정 채널이 3개가 아닙니다');
   check(await page.locator('.boardOrderItem[data-movable="true"]').count()===activeCount,`이동 채널이 기본 ${activeCount}개와 다릅니다`);
-  check(await page.locator('.boardOrderSectionTabs [role="tab"]').count()===5,'바이두형 게시판 분류 탭이 5개가 아닙니다');
+  check(await page.locator('.boardOrderSectionTabs [role="tab"]').count()===4,'게시판 분류 탭이 4개가 아닙니다');
+  const sectionLabels=await page.locator('.boardOrderSectionTabs [role="tab"]').allTextContents();
+  check(JSON.stringify(sectionLabels)===JSON.stringify(['일반','자동차','제보','결함']),'게시판 분류 순서가 일반·자동차·제보·결함과 다릅니다');
   const availableIds=await page.locator('.boardOrderAdd').evaluateAll(elements=>[...new Set(elements.map(element=>element.dataset.boardId))]);
   check(availableIds.length===movableCount-activeCount,`추가 가능 게시판 고유 수가 ${movableCount-activeCount}개와 다릅니다`);
   check(await page.locator('.boardOrderAvatar').count()===0,'전체 게시판 칩에 프로필 이미지가 남아 있습니다');

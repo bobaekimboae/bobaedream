@@ -48,13 +48,12 @@
   var movableBoards=boards.filter(function(board){return !board.fixed});
   var defaultExcludedIds=['adult','installation','free-media','caution','racing-model','military'];
   var boardGroupById={
-    'car-news':'자동차','foreign-car-news':'자동차','brand-car-info':'자동차','vehicle-review':'자동차','tuhu-review':'자동차','fuel-economy':'자동차','autohome-complaint':'자동차','chezhiwang-complaint':'자동차','test-drive':'자동차','celebrity-car':'자동차','accident-blackbox':'자동차','domestic-car':'자동차','import-car':'자동차','installation':'자동차','truck-bus-heavy':'자동차','bike-cycle':'자동차','oldcar-memory':'자동차',
-    'kbo':'스포츠','mlb':'스포츠','overseas-football':'스포츠','domestic-football':'스포츠','racing-model':'스포츠',
-    'free':'생활·이슈','politics':'생활·이슈','adult':'생활·이슈','boba-story':'생활·이슈','suggestion':'생활·이슈','event':'생활·이슈','new-humor':'생활·이슈','humor':'생활·이슈','free-media':'생활·이슈','caution':'생활·이슈',
-    'my-car-photo':'자료·취미','scoop':'자료·취미','car-media':'자료·취미','military':'자료·취미','aviation-rail':'자료·취미'
+    'car-news':'자동차','foreign-car-news':'자동차','brand-car-info':'자동차','vehicle-review':'자동차','tuhu-review':'자동차','fuel-economy':'자동차','test-drive':'자동차','celebrity-car':'자동차','domestic-car':'자동차','import-car':'자동차','my-car-photo':'자동차','installation':'자동차','truck-bus-heavy':'자동차','bike-cycle':'자동차','oldcar-memory':'자동차',
+    'accident-blackbox':'제보','scoop':'제보','suggestion':'제보','car-media':'제보','free-media':'제보','caution':'제보',
+    'autohome-complaint':'결함','chezhiwang-complaint':'결함'
   };
-  var menuSections=['추천','자동차','생활·이슈','스포츠','자료·취미'];
-  movableBoards.forEach(function(board){board.menuSection=boardGroupById[board.id]||'자료·취미'});
+  var menuSections=['일반','자동차','제보','결함'];
+  movableBoards.forEach(function(board){board.menuSection=boardGroupById[board.id]||'일반'});
   var defaultActiveOrder=movableBoards.filter(function(board){return defaultExcludedIds.indexOf(board.id)<0}).map(function(board){return board.id});
   var boardById={};
   boards.forEach(function(board,index){board.defaultOrder=index+1;boardById[board.id]=board});
@@ -99,7 +98,7 @@
     return{version:2,menuProfileVersion:1,fixedIds:fixedIds.slice(),activeOrder:defaultActiveOrder.slice(),updatedAt:null};
   }
   function orderedBoards(){return[boardById.best].concat(loadState().activeOrder.map(function(id){return boardById[id]}).filter(Boolean))}
-  function sections(){return menuSections.map(function(title){return{title:title,boards:movableBoards.filter(function(board){return title==='추천'||board.menuSection===title})}})}
+  function sections(){return menuSections.map(function(title){return{title:title,boards:movableBoards.filter(function(board){return board.menuSection===title})}})}
   function loadDefaultHome(){
     var id='home';
     try{id=localStorage.getItem(defaultHomeStorageKey)||'home'}catch(error){}
@@ -119,7 +118,7 @@
     var selectedId=queryId==='home'||queryId==='all'||boardById[queryId]?queryId:loadDefaultHome();
     var editing=false;
     var draftOrder=[];
-    var activeSection='추천';
+    var activeSection='일반';
     var dragging=null;
     var dragStartOrder=[];
     var dragPointerId=null;
@@ -369,9 +368,8 @@
       var active={};
       order.forEach(function(id){active[id]=true});
       var available=movableBoards.filter(function(board){return !active[board.id]});
-      var recommendation=available.slice(0,Math.min(3,available.length));
       availableSections.innerHTML=menuSections.map(function(section,index){
-        var list=section==='추천'?recommendation:available.filter(function(board){return board.menuSection===section});
+        var list=available.filter(function(board){return board.menuSection===section});
         var title=index===0?'':'<h3 class="boardOrderAvailableTitle">'+escapeHtml(section)+'</h3>';
         return '<section class="boardOrderAvailableSection" data-section="'+escapeHtml(section)+'">'+title+'<div class="boardOrderAvailableGrid">'+list.map(addTile).join('')+'</div></section>';
       }).join('');
@@ -386,7 +384,7 @@
       }});
     }
     function selectAvailableSection(section,shouldScroll){
-      activeSection=menuSections.indexOf(section)>=0?section:'추천';
+      activeSection=menuSections.indexOf(section)>=0?section:'일반';
       Array.prototype.forEach.call(backdrop.querySelectorAll('.boardOrderSectionTabs [role="tab"]'),function(tab){
         var on=tab.dataset.section===activeSection;
         tab.classList.toggle('on',on);
@@ -419,7 +417,7 @@
       panelOpener=options.opener||document.activeElement;
       editing=false;
       draftOrder=loadState().activeOrder.slice();
-      activeSection='추천';
+      activeSection='일반';
       updateDefaultHomeEntry();
       renderPanel();
       backdrop.hidden=false;

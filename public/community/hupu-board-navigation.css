@@ -55,7 +55,7 @@
 .boardOrderRemove{position:absolute;right:-4px;top:-4px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:transparent;cursor:pointer;touch-action:manipulation;z-index:2}
 .boardOrderRemove img{position:absolute;right:4px;top:4px;width:12px;height:12px;display:block;opacity:.88}
 .boardOrderAvailable{margin-top:16px}
-.boardOrderSectionTabs{height:31px;display:flex;align-items:stretch;justify-content:flex-start;gap:30px;border-bottom:1px solid #ececef;margin-bottom:13px;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth}
+.boardOrderSectionTabs{height:31px;display:flex;align-items:stretch;justify-content:space-between;gap:20px;border-bottom:1px solid #ececef;margin-bottom:13px;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth}
 .boardOrderSectionTabs::-webkit-scrollbar{display:none}
 .boardOrderSectionTabs button{height:31px;min-width:max-content;position:relative;color:#62656a;font-size:15px;font-weight:500;letter-spacing:-.04em;cursor:pointer}
 .boardOrderSectionTabs button.on{color:#202226;font-weight:800}
