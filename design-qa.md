@@ -48,6 +48,18 @@ final result: passed
 
 ---
 
+## 2026-11-01 텐센트 뉴스 기준 모바일 GNB 타이포 교정
+
+- Source visual truth: USB 연결 폰의 텐센트 뉴스 `com.tencent.news` GNB 캡처 `C:/Temp/tencent-news-gnb.png`.
+- Measured reference: 약 18sp, 비활성 400, 활성 700이며 연결 폰의 시스템 글꼴 배율은 110%였다.
+- Applied compromise: 긴 한글 게시판명을 고려해 17px, 비활성 500, 활성 700으로 적용하고 기존 44px 높이·간격·활성 밑줄은 유지했다.
+- Responsive parity: 370px 이하에서도 17px을 유지한다.
+
+final result: passed
+
+
+---
+
 ## 2026-11-01 커뮤니티 게시글 옵션 시트 · Reddit/Band 모바일 참고
 
 - Scope: `public/community/naver-cafe-list.html`의 말머리 왼쪽 필터 버튼과 `게시글 옵션` 바텀시트만 수정했다. 게시판 헤더·말머리 바·게시물 카드 구성은 변경하지 않았다.
