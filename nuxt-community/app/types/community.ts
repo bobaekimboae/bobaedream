@@ -1,7 +1,7 @@
 export type CommunitySectionId = 'general' | 'cars' | 'vehicles' | 'reports' | 'defects'
 export type CommunitySort = 'latest' | 'latest-comment' | 'popular'
 export type CommunityPopularPeriod = 'hour' | 'day' | 'week' | 'month' | 'year' | 'all'
-export type CommunityView = 'compact' | 'list' | 'feed'
+export type CommunityView = 'text' | 'compact' | 'list' | 'feed'
 
 export interface CommunityBoard {
   id: string
@@ -36,6 +36,7 @@ export interface CommunityPost {
   createdAt: string
   updatedAt: string
   thumbnail?: string
+  mediaKind?: 'image' | 'video'
   comments: number
   likes: number
   dislikes: number

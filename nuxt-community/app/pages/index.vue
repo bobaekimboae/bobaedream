@@ -43,6 +43,7 @@ function setPopularPeriod(value: CommunityPopularPeriod) { popularPeriod.value =
 function setView(value: CommunityView) { view.value = value }
 const popularPeriodLabels: Record<CommunityPopularPeriod, string> = { hour: '1시간', day: '24시간', week: '1주', month: '1개월', year: '1년', all: '전체 기간' }
 const sortLabel = computed(() => sort.value === 'latest' ? '최신순' : sort.value === 'latest-comment' ? '최신 댓글순' : `인기 · ${popularPeriodLabels[popularPeriod.value]}`)
+const isCompactList = computed(() => view.value === 'compact' || view.value === 'text')
 function selectBoard(value: string) {
   boardId.value = value
   recordRecentBoard(value)
@@ -68,7 +69,7 @@ useHead({ title: '보배드림 커뮤니티' })
       <button class="community-header-profile" type="button" aria-label="내 프로필"><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span></button>
     </header>
 
-    <div v-if="view === 'compact'" class="chzzk-list-toolbar">
+    <div v-if="isCompactList" class="chzzk-list-toolbar">
       <button type="button" @click="boardMenuOpen = true">{{ activeBoard.name }} <img :src="`${iconRoot}/write/chevron-down.svg`" alt="" /></button>
       <button type="button" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" />{{ sortLabel }}</button>
     </div>
@@ -78,7 +79,7 @@ useHead({ title: '보배드림 커뮤니티' })
       <button type="button" @click="boardMenuOpen = true">게시판 변경</button>
     </section>
 
-    <div v-if="view !== 'compact'" class="post-toolbar">
+    <div v-if="!isCompactList" class="post-toolbar">
       <button class="filter-button" type="button" aria-label="게시글 옵션" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" /></button>
       <div class="headword-strip" aria-label="말머리 필터">
         <button :class="{ 'is-active': !headword }" type="button" @click="headword = ''">전체</button>
@@ -87,7 +88,7 @@ useHead({ title: '보배드림 커뮤니티' })
       <button class="sort-summary" type="button" @click="optionsOpen = true">{{ sortLabel }}</button>
     </div>
 
-    <div v-if="view === 'compact'" class="community-cleanbot">
+    <div v-if="isCompactList" class="community-cleanbot">
       <span class="cleanbot-mark"><img :src="`${iconRoot}/chzzk/cleanbot-source.png`" alt="" /></span>
       <span><strong>클린봇</strong>이 악성게시글을 감지합니다.</span>
       <button class="cleanbot-settings" type="button" aria-label="클린봇 설정"><img :src="`${iconRoot}/chzzk/settings.svg`" alt="" /></button>
@@ -95,9 +96,9 @@ useHead({ title: '보배드림 커뮤니티' })
 
     <section class="post-list" :class="`post-list--${view}`" aria-live="polite">
       <NuxtLink v-for="post in filteredPosts" :key="post.id" class="post-card" :to="`/posts/${post.id}`">
-        <template v-if="view === 'compact'">
-          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" /><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }} <span v-if="post.comments" class="compact-replies">({{ post.comments }})</span></h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
-          <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="post-thumbnail" />
+        <template v-if="isCompactList">
+          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" /><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }} <span class="compact-replies">({{ post.comments }})</span><span v-if="view === 'text' && (post.mediaKind || post.thumbnail)" class="text-media-indicator"><img :src="`${iconRoot}/chzzk-community/${post.mediaKind === 'video' ? 'media-video' : 'media-image'}.svg`" :alt="post.mediaKind === 'video' ? '영상 첨부' : '이미지 첨부'" /></span></h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
+          <img v-if="view === 'compact' && post.thumbnail" :src="post.thumbnail" alt="" class="post-thumbnail" />
         </template>
 
         <template v-else-if="view === 'list'">

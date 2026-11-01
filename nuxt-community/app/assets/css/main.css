@@ -85,24 +85,26 @@ a { color: inherit; text-decoration: none; }
 .post-list-empty { min-height: 260px; display: grid; place-content: center; justify-items: center; gap: 8px; padding: 30px; text-align: center; }
 .post-list-empty strong { font-size: 16px; }
 .post-list-empty span { color: #8d9198; font-size: 13px; }
-.post-list--compact .post-card, .post-list--list .post-card { min-height: 92px; display: flex; align-items: center; gap: 10px; padding: 13px 15px; border-bottom: 1px solid var(--line); }
-.post-list--compact .post-card { min-height: 70px; gap: 12px; padding: 9px 15px; }
+.post-list--compact .post-card, .post-list--text .post-card, .post-list--list .post-card { min-height: 92px; display: flex; align-items: center; gap: 10px; padding: 13px 15px; border-bottom: 1px solid var(--line); }
+.post-list--compact .post-card, .post-list--text .post-card { min-height: 70px; gap: 12px; padding: 9px 15px; }
 .post-copy { min-width: 0; flex: 1; }
 .post-copy h2 { display: -webkit-box; overflow: hidden; margin: 0 0 7px; font-size: 16px; line-height: 22px; font-weight: 650; letter-spacing: -.25px; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .list-headword { display: inline; margin-right: 5px; color: #686b70; font: inherit; font-weight: 650; white-space: nowrap; }
 .post-copy p { display: flex; align-items: center; gap: 7px; overflow: hidden; margin: 0; color: #85888e; font-size: 12px; line-height: 17px; white-space: nowrap; }
 .post-copy p b { max-width: 92px; overflow: hidden; color: #6f7379; font-weight: 500; text-overflow: ellipsis; }
-.post-list--compact .post-copy h2 { display: block; overflow: hidden; margin-bottom: 7px; font-size: 16px; line-height: 21px; font-weight: 500; letter-spacing: -.35px; text-overflow: ellipsis; white-space: nowrap; }
+.post-list--compact .post-copy h2, .post-list--text .post-copy h2 { display: block; overflow: hidden; margin-bottom: 7px; font-size: 16px; line-height: 21px; font-weight: 500; letter-spacing: -.35px; text-overflow: ellipsis; white-space: nowrap; }
 .compact-replies { color: #238fe3; }
-.post-list--compact .post-copy p { gap: 5px; color: #74777c; font-size: 12px; line-height: 16px; }
-.post-list--compact .post-copy p > span:not(.compact-stat)::before { content: "·"; margin-right: 5px; color: #b4b6ba; }
-.post-list--compact .post-copy p b { max-width: 92px; color: #6a6d72; font-weight: 450; }
+.text-media-indicator { display: inline-flex; align-items: center; margin-left: 5px; vertical-align: -2px; }
+.text-media-indicator img { width: 14px; height: 14px; opacity: .58; }
+.post-list--compact .post-copy p, .post-list--text .post-copy p { gap: 5px; color: #74777c; font-size: 12px; line-height: 16px; }
+.post-list--compact .post-copy p > span:not(.compact-stat)::before, .post-list--text .post-copy p > span:not(.compact-stat)::before { content: "·"; margin-right: 5px; color: #b4b6ba; }
+.post-list--compact .post-copy p b, .post-list--text .post-copy p b { max-width: 92px; color: #6a6d72; font-weight: 450; }
 .compact-stat { display: inline-flex; align-items: center; gap: 2px; }
 .compact-stat::before { content: "·"; margin-right: 3px; color: #b4b6ba; }
 .compact-stat img { width: 15px; height: 15px; opacity: .8; }
 .post-thumbnail { flex: 0 0 68px; width: 68px; height: 68px; border-radius: 9px; object-fit: cover; background: #f1f2f4; }
 .post-list--compact .post-thumbnail { flex-basis: 52px; width: 52px; height: 52px; border-radius: 7px; }
-.post-list--compact .post-card { border-bottom-color: #dedfe1; }
+.post-list--compact .post-card, .post-list--text .post-card { border-bottom-color: #dedfe1; }
 .post-list--list .post-card { padding-right: 12px; }
 .comment-count { flex: 0 0 58px; width: 58px; height: 68px; display: grid; place-content: center; gap: 2px; border-radius: 14px; background: #f2f3f5; text-align: center; }
 .comment-count strong { font-size: 16px; }
@@ -157,7 +159,7 @@ a { color: inherit; text-decoration: none; }
 .popular-period-list button span { font-size: 17px; line-height: 24px; font-weight: 560; }
 .popular-period-list button b { justify-self: end; opacity: 0; font-size: 19px; }
 .popular-period-list button.is-selected b { opacity: 1; }
-.view-choice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.view-choice-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .view-choice-grid button { min-width: 0; height: 68px; display: grid; grid-template-rows: 28px auto; place-items: center; padding: 7px 4px; border: 1px solid #e0e2e6; border-radius: 11px; }
 .view-choice-grid button.is-selected { border: 2px solid #222; background: #f8f8f9; }
 .view-choice-grid img { width: 26px; height: 26px; }

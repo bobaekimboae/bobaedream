@@ -79,6 +79,10 @@ function chooseHeadword(value: string) {
           <div class="option-group">
             <h3>보기</h3>
             <div class="view-choice-grid">
+              <button :class="{ 'is-selected': props.view === 'text' }" type="button" @click="chooseView('text')">
+                <img :src="`${iconRoot}/write/text.svg`" alt="" />
+                <span>텍스트만</span>
+              </button>
               <button :class="{ 'is-selected': props.view === 'compact' }" type="button" @click="chooseView('compact')">
                 <span class="compact-view-icon" aria-hidden="true"><i /><i /><i /></span>
                 <span>간결형</span>
