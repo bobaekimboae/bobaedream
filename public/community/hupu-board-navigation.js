@@ -494,6 +494,7 @@
     if(queryParams.get('menu')==='all')requestAnimationFrame(function(){openPanel()});
     return{
       setSelectedByLabel:function(label){var board=boards.find(function(item){return item.displayName===label});if(board){selectedId=board.id;renderNav();updateCurrentBoardAvatar(board);updateQuery(board.id);scrollSelected()}else if(label==='전체 게시글'||label==='전체'){selectedId='home';renderNav();updateCurrentBoardAvatar(boardForId('home'));updateQuery('home');scrollSelected()}},
+      selectById:function(id){choose(id)},
       getSelectedId:function(){return selectedId},
       openEditor:openPanel,
       avatarSrc:boardAvatarSrc
