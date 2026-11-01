@@ -73,13 +73,12 @@ onBeforeUnmount(() => window.clearTimeout(timer));
 <template>
   <div class="media" :class="{ 'is-file-over': fileOver }" @dragover="onDragOver" @dragleave="onDragLeave" @drop="onDropFiles">
     <div class="media-head">
-      <h2>사진/영상<span class="req"> *</span><span class="media-head__count pc-only">{{ media.length }}/{{ max }}</span></h2>
+      <h2>사진/영상<span class="media-head__count pc-only">(최대 {{ max }}개)</span><span class="req"> *</span></h2>
       <button type="button" class="media-head__info" aria-label="사진 규칙 보기" @click="emit('info')"><Ico :src="IC.info" /></button>
     </div>
     <button v-if="!media.length" type="button" class="media-drop pc-only" :class="{ 'is-err': error }" @click="emit('add')">
       <Ico :src="IC.media" />
-      <b>사진 · 영상을 여기로 끌어 오세요</b>
-      <span>또는 눌러서 고르기 · 최대 {{ max }}개 · 사진 1장당 10MB까지</span>
+      <b>사진 · 영상 추가</b>
     </button>
     <div class="media-row" :class="{ 'is-empty': !media.length }" aria-label="올린 사진과 영상" @pointermove="move" @pointerup="up" @pointercancel="up">
       <button v-if="media.length < max" type="button" class="media-add" :class="{ 'is-err': error }" aria-label="사진 · 영상 추가" @click="emit('add')"><Ico :src="IC.media" /></button>
@@ -105,7 +104,7 @@ onBeforeUnmount(() => window.clearTimeout(timer));
         <span v-if="i === 0" class="thumb__cover">대표 사진</span>
       </div>
     </div>
-    <p class="media-help"><span class="mo-only">길게 눌러 사진 순서를 바꿀 수 있어요</span><span class="pc-only">사진을 끌어서 순서를 바꿀 수 있어요 · 첫 사진이 대표 사진이 돼요</span></p>
+    <p class="media-help"><span class="mo-only">길게 눌러 사진 순서를 바꿀 수 있어요</span><span class="pc-only">끌어서 사진 순서를 바꿀 수 있어요</span></p>
     <p v-if="error" class="media-err" role="alert">{{ error }}</p>
   </div>
 </template>

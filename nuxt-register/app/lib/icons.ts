@@ -34,4 +34,13 @@ export const IC = {
   pin: ct("chotot-list-detail-address-location.svg"),
   clock: ct("chotot-common-clock.svg"),
   user: ct("chotot-common-user.svg"),
+  /** PC 머리(초톳 PC 「Đăng tin」 머리와 같은 원본 — 경로 대조 2026-11-01) */
+  menu: ct("chotot-common-menu.svg"),
+  heart: ct("chotot-common-favorite.svg"),
+  /** 머리 지역 알약의 핀(초톳 PC 머리와 같은 경로) */
+  pinHead: ct("chotot-list-detail-svgexport-25_2.svg"),
+  bell: ct("chotot-common-notification.svg"),
+  chat: ct("chotot-list-detail-chat.svg"),
+  /** 셰브론 아래 원본(돌리지 않음) */
+  dropdown: ct("chotot-listing-register-dropdown.svg"),
 };

@@ -127,7 +127,7 @@ button.of__box { width: 100%; text-align: left; }
 .row-pick { position: relative; }
 .row-pick.has-val .row__value { margin-right: 28px; }
 .row__clear { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; display: grid; place-items: center; color: #8c8c8c; border-radius: 50%; }
-.row__clear .ico { width: 18px; height: 18px; }
+.row__clear .ico { width: 20px; height: 30px; }
 .row__clear--in { position: static; transform: none; margin: 0 -10px 0 -10px; flex: none; }
 .sheet__foot--clear { padding-top: 12px; }
 .row--input.is-err { border-bottom: 1px solid var(--err); }
@@ -299,135 +299,225 @@ button.of__box { width: 100%; text-align: left; }
   .pc-left, .pc-right, .pc-pair { display: contents; }
   .card--media { border-radius: 12px 12px 0 0; padding-bottom: 0; }
   .card--form { border-radius: 0 0 12px 12px; margin-top: -16px; padding-top: 0; }
-  .card--form > .pc-sec + .of { margin-top: 14px; }
+  .card--form > .of:first-child { margin-top: 14px; }
 }
 
-/* ── PC(1024 이상, 2026-11-01 「피씨버전도 만들어라」): 초톳 PC 등록 화면은 로그인해야 열려 실측하지 못했다.
-   글자 · 색 · 칸 모양은 앱 실측값을 그대로 쓰고, 배치만 PC에 맞게 새로 짰다.
-   머리 64 → 24 → [왼쪽 380: 사진 카드 · 등록 준비(따라옴)] 24 [오른쪽: 기본 정보 · 상세 정보(2열) · 아래에 붙는 등록 줄] ── */
+/* ── PC(1024 이상) = 초톳 PC 「Đăng tin」(chotot.com/dang-tin?ia_version=3, 2026-11-01 로그인 화면 1536 폭 직접 실측) ──
+   머리 66(흰 · 선 없음 · 스크롤하면 올라감) → 16 → 가운데 592 한 칸(카드 안쪽 12 · 16 · 20, 카드 사이 16)
+   + 왼쪽 300 안내 카드(가운데 칸 왼쪽 21, 화면에 붙어 따라옴) + 아래 고정 버튼 줄 84(버튼 40 · 가운데 560 · 사이 16).
+   입력칸 48(테두리 1.6 #DADADA · 모서리 12) · 이름이 칸 안에 뜨는 방식, 상세 정보는 272 + 16 + 272 2열.
+   초톳 노랑(#FFD400 · #FFF8D6)만 보배드림 파랑(#306BD9 · #EAF0FB)으로 바꾸고 크기 · 간격 · 글자 · 회색은 원본 값 그대로. */
 .pc-top { display: none; }
 @media (min-width: 1024px) {
   .pc-only { display: revert !important; }
-  .mo-only { display: none !important; }
-  body { background: #f4f4f4; }
-  .reg { padding-bottom: 0; }
+  .mo-only, .pc-hide { display: none !important; }
+  body { background: var(--bg); }
+  .reg { padding-bottom: 100px; }
   .reg-head { display: none; }
 
-  .pc-top { position: sticky; top: 0; z-index: 25; display: flex; align-items: center; gap: 12px; height: 64px; padding: 0 max(24px, calc(50% - 600px)); background: #fff; border-bottom: 1px solid var(--line); }
-  .pc-top__logo { display: flex; align-items: center; }
-  .pc-top__logo img { height: 30px; width: auto; }
-  .pc-top__title { padding-left: 12px; border-left: 1px solid var(--line); font-size: 16px; line-height: 20.6px; font-weight: 700; }
-  .pc-top__cat { height: 24px; padding: 0 8px; border-radius: 12px; background: var(--pill); font-size: 13px; line-height: 24px; font-weight: 600; color: var(--sub); }
-  .pc-top__save { margin-left: auto; height: 40px; padding: 0 16px; border: 1px solid var(--btn-line); border-radius: 8px; font-size: 14px; font-weight: 600; background: #fff; }
-  .pc-top__exit { height: 40px; padding: 0 12px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--sub); }
-  .pc-top__save:hover, .pc-top__exit:hover { background: var(--pill); }
+  /* 머리 66: 메뉴 40 · 로고 104×28 · 지역 알약 180 · 검색 알약(남는 폭) · 찜 · 알림 40 · 테두리 알약 40 · 매물 등록 · 내 정보 */
+  .pc-top { position: relative; z-index: 25; display: flex; align-items: center; gap: 8px; height: 66px; padding: 0 24px; background: #fff; }
+  .pc-top__menu, .pc-top__ic { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 50%; background: #fff; }
+  .pc-top__menu .ico { width: 20px; height: 20px; }
+  .pc-top__ic .ico { width: 24px; height: 24px; }
+  .pc-top__menu:hover, .pc-top__ic:hover { background: var(--pill); }
+  .pc-top__logo { flex: none; display: flex; align-items: center; height: 28px; margin: 0 -5px 0 3px; }
+  .pc-top__logo img { height: 28px; width: auto; }
+  .pc-top__region { flex: none; display: flex; align-items: center; gap: 6px; width: 180px; height: 40px; padding: 0 10px 0 13px; border: .8px solid var(--pill); border-radius: 9999px; background: var(--pill); font-size: 16px; line-height: 24px; font-weight: 600; color: #000; }
+  .pc-top__region span { flex: 1; text-align: left; white-space: nowrap; }
+  .pc-top__region .ico { width: 24px; height: 24px; }
+  .pc-top__region .pc-top__pin { width: 20px; height: 20px; color: var(--pri); }
+  .pc-top__search { flex: 1 1 auto; min-width: 120px; max-width: 612px; display: flex; align-items: center; gap: 0; height: 40px; padding: 0 4px 0 12px; border-radius: 9999px; background: var(--pill); }
+  .pc-top__search > .ico { width: 20px; height: 20px; color: var(--mute); }
+  .pc-top__search input { flex: 1; min-width: 0; height: 40px; border: 0; outline: 0; padding: 0 8px; background: transparent; font-size: 14px; }
+  .pc-top__search input::placeholder { color: var(--mute); }
+  .pc-top__go { flex: none; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: var(--pri); color: #fff; }
+  .pc-top__go .ico { width: 16px; height: 16px; }
+  .pc-top__search + .pc-top__ic { margin-left: 24px; }
+  .pc-top__pill { flex: none; display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border: .8px solid var(--line); border-radius: 9999px; background: #fff; font-size: 14px; line-height: 20px; font-weight: 600; white-space: nowrap; }
+  .pc-top__pill .ico { width: 20px; height: 20px; }
+  .pc-top__pill:hover { background: var(--bg); }
+  .pc-top__pill--pri { border-color: var(--pri); background: var(--pri); color: #fff; }
+  .pc-top__me { flex: none; display: flex; align-items: center; gap: 8px; height: 40px; padding: 0 9px 0 5px; border: .8px solid var(--line); border-radius: 9999px; background: #fff; }
+  .pc-top__ava { width: 32px; height: 32px; border-radius: 50%; background: var(--pri-tint); color: var(--pri); display: grid; place-items: center; }
+  .pc-top__ava .ico { width: 20px; height: 20px; }
+  .pc-top__me > .ico { width: 24px; height: 24px; }
 
-  .reg-body { width: min(1200px, calc(100% - 48px)); margin: 24px auto 0; padding: 0 0 48px; display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 24px; align-items: start; }
-  .pc-left { position: sticky; top: 88px; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 16px; max-height: calc(100dvh - 112px); }
-  .pc-right { display: grid; gap: 16px; }
-  .card { padding: 0 24px; }
-  .card--main, .card--detail { padding: 20px 24px 24px; }
+  /* 본문: 가운데 592 한 칸(초톳 PC는 사진 · 설명 · 제목 · 가격 · 지역 · 판매자를 한 카드에 이어 쓴다) */
+  .reg-body { display: block; width: 592px; margin: 16px auto 0; padding: 0; }
+  .pc-left, .pc-right { display: contents; }
+  .card { padding: 0 16px; }
+  .card--media { border-radius: 12px 12px 0 0; padding: 12px 16px 0; }
+  .card--form { display: flow-root; border-radius: 0 0 12px 12px; padding: 0 16px 20px; }
+  .card--detail, .card--extra { margin-top: 16px; padding: 12px 16px 20px; }
 
-  /* 사진 · 영상 */
-  .media-head { height: 22px; }
-  .media-head h2 { font-size: 16px; line-height: 22px; font-weight: 700; display: flex; align-items: baseline; gap: 2px; }
-  .media-head__count { margin-left: 6px; font-size: 13px; font-weight: 500; color: var(--mute); }
-  .media-head__info { right: -12px; top: -11px; }
-  .media-drop { display: grid !important; justify-items: center; align-content: center; gap: 6px; width: 100%; height: 260px; margin-top: 14px; border: 2px dashed #bcd0f2; border-radius: 12px; background: var(--pri-tint); color: var(--pri); text-align: center; transition: background .15s, border-color .15s; }
-  .media-drop .ico { width: 52px; height: 52px; margin-bottom: 6px; }
-  .media-drop b { font-size: 16px; line-height: 22px; font-weight: 700; color: var(--text); }
-  .media-drop span { font-size: 13px; line-height: 18px; color: var(--sub); }
-  .media-drop:hover { background: #e0e9fa; border-color: var(--pri); }
+  /* 왼쪽 안내 카드(초톳 「Đừng quên đăng video!」 300×113, 가운데 칸 왼쪽 21 · 위 82에 붙어 있음) */
+  .pc-promo { position: fixed; top: 82px; left: calc(50% - 296px - 21px - 300px); width: 300px; min-height: 113px; padding: 16px; border-radius: 12px; background: linear-gradient(105deg, var(--pri-tint), #fff 70%); }
+  .pc-promo b { display: block; font-size: 20px; line-height: 28px; font-weight: 700; }
+  .pc-promo ul { margin: 8px 0 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+  .pc-promo li { display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: var(--sub); }
+  .pc-promo li .ico { width: 16px; height: 16px; color: var(--pri); }
+  .pc-promo strong { font-weight: 700; color: var(--text); }
+
+  /* 사진 · 영상: 이름 14/20 · 안내 아이콘 20 → 8 → 빈 칸 560×140(연한 바탕 · 모서리 12 · 아이콘 48 · 「추가」 14/20 600) */
+  .media-head { height: 20px; }
+  .media-head h2 { font-size: 14px; line-height: 20px; font-weight: 400; }
+  .media-head__count { margin-left: 4px; font-size: 14px; color: var(--text); }
+  .media-head__info { right: -10px; top: -10px; width: 40px; height: 40px; border-radius: 50%; }
+  .media-head__info .ico { width: 20px; height: 20px; }
+  .media-head__info:hover { background: var(--pill); }
+  .media-drop { display: grid !important; justify-items: center; align-content: center; gap: 4px; width: 100%; height: 140px; margin-top: 8px; border: 1.6px solid transparent; border-radius: 12px; background: var(--pri-tint); color: var(--pri); text-align: center; }
+  .media-drop .ico { width: 48px; height: 48px; }
+  .media-drop b { font-size: 14px; line-height: 20px; font-weight: 600; color: var(--text); }
+  .media-drop:hover { border-color: var(--pri); }
   .media-drop.is-err { border-color: var(--err); }
-  .media.is-file-over .media-drop, .media.is-file-over .media-row { outline: 2px solid var(--pri); outline-offset: 4px; border-radius: 12px; }
-  .media-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding-top: 14px; overflow: visible; }
+  .media.is-file-over .media-drop, .media.is-file-over .media-row { outline: 2px solid var(--pri); outline-offset: 2px; border-radius: 12px; }
+  /* 사진이 있으면 86 칸 줄(사이 8, 6칸씩 줄바꿈): 추가 칸이 맨 앞(모서리 8), 사진 모서리 12, 대표 띠 22, 지우기 24는 늘 보인다 */
+  .media-row { flex-wrap: wrap; gap: 8px; padding-top: 8px; overflow: visible; }
   .media-row.is-empty { display: none; }
-  .media-add, .thumb { width: auto; height: auto; aspect-ratio: 1; border-radius: 10px; }
-  .media-add { order: 99; border: 1.5px dashed #bcd0f2; }
-  .media-add:hover { background: #e0e9fa; }
-  .media-add .ico { width: 32px; height: 32px; }
-  .thumb:first-of-type { grid-column: span 2; grid-row: span 2; }
-  .thumb:first-of-type .thumb__cover { height: 26px; font-size: 13px; line-height: 26px; }
-  .thumb { cursor: grab; }
-  .thumb__x { top: -6px; right: -6px; width: 36px; height: 36px; opacity: 0; transition: opacity .12s; }
-  .thumb:hover .thumb__x, .thumb__x:focus-visible { opacity: 1; }
-  .thumb__cover { height: 22px; font-size: 12px; line-height: 22px; }
-  .media-help, .media-err { margin: 10px 0 0; font-size: 12px; line-height: 17px; }
+  .media-add, .thumb { width: 86px; height: 86px; }
+  .media-add { border-radius: 8px; border: 1.6px solid transparent; }
+  .media-add .ico { width: 48px; height: 48px; }
+  .media-add:hover { border-color: var(--pri); }
+  .thumb { border-radius: 12px; cursor: grab; background: #f8f9fa; }
+  .thumb__x { top: 0; right: 0; width: 32px; height: 32px; }
+  .thumb__x img { width: 24px; height: 24px; }
+  .thumb__cover { height: 22px; font-size: 12px; line-height: 22px; font-weight: 700; }
+  .media-help, .media-err { margin: 14px 0 0 12px; font-size: 10px; line-height: 16px; }
+  .media-err { margin-top: 4px; }
+  .media-row.is-empty + .media-help { display: none; }
 
-  /* 등록 준비 */
-  .check { padding: 20px 24px 12px !important; display: flex !important; flex-direction: column; min-height: 0; }
-  .check__head { display: flex; align-items: baseline; justify-content: space-between; }
-  .check__head h2 { margin: 0; font-size: 16px; line-height: 22px; font-weight: 700; }
-  .check__n { font-size: 13px; color: var(--mute); }
-  .check__n b { font-size: 16px; color: var(--pri); }
-  .check__bar { height: 6px; margin-top: 10px; border-radius: 3px; background: var(--pill); overflow: hidden; }
-  .check__bar i { display: block; height: 100%; border-radius: 3px; background: var(--pri); transition: width .25s; }
-  .check__list { flex: 1; min-height: 0; margin: 8px -8px 0; padding: 0 8px; list-style: none; overflow-y: auto; scrollbar-width: thin; }
-  .check__item { display: flex; align-items: center; gap: 10px; width: 100%; height: 36px; padding: 0 8px; margin: 0 -8px; width: calc(100% + 16px); border-radius: 8px; text-align: left; font-size: 14px; line-height: 18px; }
-  .check__item:hover { background: var(--bg); }
-  .check__dot { flex: none; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid #cfcfcf; display: grid; place-items: center; color: #fff; }
-  .check__item.is-done .check__dot { border: 0; background: var(--pri); }
-  .check__label { flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-  .check__item.is-done .check__label { color: var(--sub); }
-  .check__state { font-size: 12px; font-weight: 600; color: var(--pri); }
-  .check__item.is-done .check__state { color: var(--mute); font-weight: 400; }
-  .check__item.is-miss .check__dot { border-color: var(--err); }
-  .check__item.is-miss .check__state { color: var(--err); }
-  .of__err, .row-err { font-size: 12px; line-height: 16px; }
-  .of__count { font-size: 12px; line-height: 16px; }
-
-  /* 기본 정보 */
-  .pc-sec { margin: 0 0 4px; font-size: 18px; line-height: 24px; font-weight: 700; }
-  .card--form > .pc-sec + .of { margin-top: 14px; }
-  .of textarea.of__input { height: 168px; min-height: 168px; }
-  .pc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .card--form .pills { justify-content: flex-start; gap: 24px; margin-top: 8px; }
-  .of__box:hover { border-color: #cfcfcf; }
+  /* 입력칸 48: 테두리 1.6 #DADADA · 모서리 12, 빈 칸은 이름 14/20 회색 가운데, 값이 있으면 이름 12/18 굵게 위 + 값 14/20 */
+  .of { margin-top: 16px; }
+  .of__box { min-height: 48px; padding: 5px 13px 0; border-width: 1.6px; border-color: #dadada; }
+  .of__box:hover { border-color: #b8b8b8; }
   .of.is-err .of__box:hover { border-color: var(--err); }
+  .of__label { font-size: 12px; line-height: 18px; }
+  .of__ph { left: 13px; font-size: 14px; line-height: 20px; }
+  .of.is-err .of__ph { color: var(--err); }
+  .of__input { font-size: 14px; line-height: 20px; margin-top: 0; }
+  .of__select { font-size: 14px; line-height: 20px; margin-top: 0; }
+  .of__suffix { right: 13px; margin-top: 0; font-size: 14px; color: var(--mute); }
+  .of__clear { right: 2px; width: 40px; height: 40px; }
+  .of__clear .ico { width: 20px; height: 30px; }
+  .of__clear--select { top: 24px; right: 34px; }
+  .of__count, .of__err, .row-err { margin: 4px 0 0 12px; font-size: 10px; line-height: 15px; }
+  .of__err, .row-err { line-height: 16px; }
+  /* 설명칸 276(이름 위 · 글 14/20 · 안쪽 아래에 AI 알약 32) */
+  .card--form .of:has(textarea) .of__box { padding: 5px 13px 48px; }
+  .of textarea.of__input { height: 198px; min-height: 198px; line-height: 20px; margin-top: 2px; }
+  .card--form .of:has(textarea) .of__label { font-size: 14px; line-height: 20px; font-weight: 400; }
+  .card--form .of:has(textarea):focus-within .of__label, .card--form .of:has(textarea:not(:placeholder-shown)) .of__label { font-size: 12px; line-height: 18px; font-weight: 700; }
+  .of__aipc { position: absolute; left: 8px; top: 236px; display: inline-flex !important; align-items: center; gap: 4px; height: 32px; padding: 0 12px; border: .8px solid var(--pill); border-radius: 9999px; background: var(--pill); font-size: 14px; line-height: 20px; font-weight: 700; }
+  .of__aipc .ico { width: 20px; height: 20px; color: var(--pri); }
+  .of__aipc:hover { background: #ebebeb; }
+  .desc-tip { margin-top: 8px; font-size: 14px; line-height: 20px; }
+  .desc-tip b { font-weight: 700; }
+  .desc-tip ul { margin: 2px 0 0; padding-left: 24px; color: var(--sub); }
+  /* 거래 지역 56: 이름 14/20 회색 + 「지역 선택」 14/20 + 아래 셰브론 16 */
+  .of--sel-ph .of__box { min-height: 56px; padding-top: 7px; }
+  .of--sel-ph .of__ph { position: static; transform: none; display: block; color: var(--sub); }
+  .of__select--ph { color: var(--mute); }
+  .of__chev { position: absolute; right: 14px; top: 50%; width: 16px; height: 16px; transform: translateY(-50%); }
+  .of:has(.of__chev) .of__clear--select { top: 28px; right: 32px; }
 
-  /* 상세 정보: 2열 */
-  .card--detail { display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; align-content: start; }
-  .card--detail .detail-title { grid-column: 1 / -1; height: auto; padding-bottom: 12px; margin-bottom: 4px; font-size: 18px; line-height: 24px; }
-  .card--detail .row--cat { grid-column: 1 / -1; border-bottom: 1px solid var(--div); }
-  .card--detail .row, .card--detail .row:last-child { border-bottom: 1px solid var(--div); }
-  .card--detail .row-wrap .row:last-child { border-bottom: 1px solid var(--div); }
-  .row__clear:hover { background: var(--pill); }
-  .card--detail button.row:hover { background: linear-gradient(90deg, transparent, var(--bg) 20%, var(--bg) 80%, transparent); }
-  .card--detail .row:hover .row__value { color: var(--text); }
+  /* 판매자(초톳 PC 「Bạn là」): 이름 14/21 회색 왼쪽 · 알약 오른쪽 */
+  .card--form .pills { justify-content: space-between; min-height: 0; margin-top: 16px; }
+  .pills__label { font-size: 14px; line-height: 21px; font-weight: 400; }
+  .pill { border: .8px solid var(--pill); line-height: 30.4px; }
+  .pill.is-on { border-color: #222; }
+  .pill:hover:not(.is-on) { background: #ebebeb; }
 
-  /* 누르면 그 칸으로 가며 잠깐 표시 */
-  .is-flash { animation: flash 1.2s ease-out; }
-  @keyframes flash { 0%, 30% { box-shadow: 0 0 0 4px rgba(48, 107, 217, .28); border-radius: 12px; } 100% { box-shadow: 0 0 0 4px rgba(48, 107, 217, 0); } }
+  /* 상세 정보(초톳 「Thông tin chi tiết」): 제목 16/24 → 16 → 칸 272 + 16 + 272, 줄 사이 16 */
+  .card--detail { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-content: start; }
+  .detail-title { grid-column: 1 / -1; height: 24px; border-bottom: 0; font-size: 16px; line-height: 24px; }
+  .detail-title .ico { display: none; }
+  .card--detail > .row, .card--detail .row-pick > .row, .card--detail .row-wrap > .row { position: relative; display: flex; flex-direction: column; align-items: stretch; justify-content: center; gap: 0; min-height: 48px; padding: 5px 44px 5px 13px; border: 1.6px solid #dadada !important; border-radius: 12px; background: #fff; }
+  .card--detail .row:hover { border-color: #b8b8b8 !important; }
+  .card--detail .row.is-err, .card--detail .row-wrap.is-err > .row { border-color: var(--err) !important; }
+  .card--detail .row__label { font-size: 14px; line-height: 20px; font-weight: 400; color: var(--sub); }
+  .card--detail .row__value, .card--detail .row__input { flex: none; text-align: left; font-size: 14px; line-height: 20px; color: var(--text); }
+  .card--detail .row__value.is-err { display: none; }
+  .card--detail .row-pick:not(.has-val) .row__value { display: none; }
+  .card--detail .row-pick.has-val .row__value { margin-right: 0; }
+  .card--detail .has-val .row__label, .card--detail .row--cat .row__label, .card--detail .row-wrap:focus-within .row__label { font-size: 12px; line-height: 16px; font-weight: 700; color: var(--text); }
+  .card--detail .has-val > .row, .card--detail .row.has-val, .card--detail .row--cat, .card--detail .row-wrap:focus-within > .row { padding-top: 4px; padding-bottom: 4px; }
+  .card--detail .row__chev, .card--detail .row__edit { display: none; }
+  .card--detail .row__caret { position: absolute; right: 13px; top: 50%; width: 24px; height: 24px; transform: translateY(-50%); }
+  .card--detail .row--cat { grid-column: 1 / -1; }
+  .card--detail .row--cat .row__value { color: var(--text); }
+  .card--detail .row__clear { right: 4px; width: 40px; height: 40px; }
+  .card--detail .row__clear .ico, .card--detail .row__clear--in .ico { width: 20px !important; height: 30px !important; }
+  .card--detail .row__clear--in { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); margin: 0; }
+  .card--detail .row-wrap:not(.has-val):not(:focus-within) .row__input { position: absolute; inset: 0; padding: 0 13px; opacity: 0; }
+  .card--detail .row__unit { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--mute); }
+  .card--detail .row-wrap.has-val .row__unit { right: 44px; }
+  .card--detail .row--input.is-err { border-bottom: 1.6px solid var(--err); }
+  .card--detail .row--locked { background: var(--pill); }
+  .card--detail .row--locked .row__label { color: var(--mute); }
+  .card--detail .row--locked .row__value { color: var(--sub); }
+  .card--detail .row-hint { margin: 4px 0 0 12px; padding: 0; border: 0; font-size: 10px; line-height: 16px; color: var(--sub); }
+  .card--detail .row-pick:has(.row-hint) > .row__clear { top: 24px; }
+  .card--detail .row-err { margin: 4px 0 0 12px; }
+  /* 차량번호 줄은 2칸을 다 쓴다: 칸 + 「조회」 32 + 아래 체크 */
+  .card--detail .row-wrap--plate { grid-column: 1 / -1; }
+  .card--detail .row-wrap--plate > .row { padding-right: 96px; }
+  .card--detail .row-wrap--plate .row__btn { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); }
+  .card--detail .row-wrap--plate .row-check { padding: 8px 0 0 2px; border: 0; }
+  /* 알약 줄(초톳 「Tình trạng」 · 「Số đời chủ」): 이름 14/21 회색 위 · 2 · 알약 32 */
+  .card--detail .row--pills { min-height: 0; padding: 0; border: 0 !important; }
+  .card--detail .row--pills .pills { flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 2px; min-height: 0; }
+  .card--detail .pills__row { justify-content: flex-start; }
 
-  /* 등록 줄: 오른쪽 칸 아래에 붙어 있다가 화면 아래에 닿으면 따라온다 */
-  .bar { position: sticky; bottom: 0; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 16px; padding: 14px 24px; border-radius: 12px 12px 0 0; box-shadow: 0 -4px 16px rgba(0, 0, 0, .06); }
-  .bar__post { width: auto; height: 40px; white-space: nowrap; padding: 0 12px 0 8px; margin-left: -8px; border-radius: 8px; }
-  .bar__post:hover { background: var(--bg); }
-  .bar__post .bar__caret { margin-left: 4px; }
-  .bar__left { margin: 0; text-align: right; font-size: 13px; line-height: 18px; color: var(--sub); }
-  .bar__btns { grid-template-columns: 140px 200px; margin-top: 0; }
-  .btn { height: 48px; }
-  .btn--line:hover { background: var(--bg); }
+  /* 점검기록부 · 동의 카드 */
+  .card--extra .row { min-height: 48px; }
+  .card--extra .row:hover .row__value { color: var(--text); }
+
+  /* 아래 고정 버튼 줄 84(흰 · 위 그림자): 가운데 560 안에 「미리보기 · 임시저장 · 등록하기」 같은 폭, 사이 16, 높이 40 · 모서리 8 · 16/24 굵게 */
+  .bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 28px calc(50% - 280px) 16px; box-shadow: rgba(0, 0, 0, .05) 0 -2px 4px; }
+  .bar__post { display: none; }
+  .bar__btns { display: flex; gap: 16px; margin: 0; }
+  .bar__btns .btn { flex: 1 1 0; }
+  .btn { height: 40px; border-radius: 8px; font-size: 16px; line-height: 24px; }
+  .bar .btn--line { border: .8px solid var(--pill); background: var(--pill); }
+  .bar .btn--line:hover { background: #ebebeb; }
+  .bar .btn--pri { border: .8px solid var(--pri); }
   .btn--pri:hover { background: var(--pri-press); }
 
-  /* 시트 → 가운데 창 */
-  .sheet { left: 50%; right: auto; top: 50% !important; bottom: auto; width: 480px; max-height: min(720px, calc(100dvh - 96px)); transform: translate(-50%, -50%); border-radius: 16px; }
-  .sheet--full { height: min(720px, calc(100dvh - 96px)); }
+  /* 시트 → 가운데 창(초톳 PC 「Quy định hình ảnh」 · 「Chọn địa chỉ」 · 「Chọn tỉnh/thành phố」):
+     폭 480 · 모서리 20 · 그림자 0 0 8 30% · 바탕 #222 30%, 머리 48 + 0.8 선 #E8E8E8 · X 버튼 40(왼쪽 위 4) 아이콘 24 · 제목 16/24 600,
+     아래 줄 0.8 선 · 안쪽 16/20 · 버튼 40. 목록 창은 위 44 · 아래 40까지 찬다. */
+  .dim { background: rgba(34, 34, 34, .3); }
+  .sheet { left: 50%; right: auto; top: 50% !important; bottom: auto; width: 480px; max-height: calc(100dvh - 26px); transform: translate(-50%, -50%); border-radius: 20px; overflow: hidden; box-shadow: rgba(0, 0, 0, .3) 0 0 8px; }
+  .sheet--full { height: calc(100dvh - 88px); }
   .sheet-enter-active .sheet, .sheet-leave-active .sheet { transition: opacity .2s, transform .2s; }
-  .sheet-enter-from .sheet, .sheet-leave-to .sheet { opacity: 0; transform: translate(-50%, -46%); }
-  .opt:hover { background: var(--bg); }
-  .toast { bottom: 100px; }
-  .dbg { bottom: 100px; }
+  .sheet-enter-from .sheet, .sheet-leave-to .sheet { opacity: 0; transform: translate(-50%, -48%); }
+  .sheet__head { height: 48.8px; border-bottom: .8px solid var(--line); }
+  .sheet__head h2 { font-size: 16px; line-height: 24px; font-weight: 600; }
+  .sheet__x, .sheet__back { left: 4px; top: 4px; width: 40px; height: 40px; filter: none; }
+  .sheet__x .ico { width: 24px; height: 24px; }
+  .sheet__back .ico { width: 20px; height: 20px; }
+  .sheet__x:hover, .sheet__back:hover { background: var(--pill); }
+  .sheet__search { margin: 16px 16px 4px; height: 48px; border: 1.6px solid #dadada; border-radius: 12px; background: #fff; padding: 0 13px; }
+  .sheet__search .ico { width: 20px; height: 20px; color: var(--text); }
+  .sheet__search input { font-size: 14px; line-height: 20px; font-weight: 400; }
+  .sheet__search input::placeholder { color: var(--mute); }
+  .sheet__search.is-box { height: 48px; margin: 16px 16px 4px; border-width: 1.6px; border-color: #dadada; }
+  .sheet__list { padding: 0 4px 8px; }
+  .sheet__sec { padding: 14px 16px 6px; }
+  .opt { height: 48px; padding: 0 16px; border-radius: 4px; font-size: 16px; line-height: 24px; }
+  .opt:hover { background: var(--pill); }
+  .radio, .sheet--addr .radio { width: 20px; height: 20px; margin-right: 0; border: 1.6px solid #dadada; }
+  .radio .ico { width: 14px; height: 14px; }
+  .sheet__foot, .addr__foot, .exit__foot { padding: 16px 20px; border-top: .8px solid var(--line); }
+  .addr__body { padding: 0 16px 16px; }
+  .toast { bottom: 108px; }
+  .dbg { bottom: 108px; }
 }
-/* 1024~1279: 왼쪽 칸을 줄이고 상세 정보는 1열, 등록 줄 안내 글은 숨긴다 */
+/* 1024~1279: 왼쪽 안내 카드가 들어갈 자리가 없어 숨기고, 머리의 지역 알약 · 채팅 알약을 뺀다 */
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .reg-body { grid-template-columns: 320px minmax(0, 1fr); }
-  .card--detail { grid-template-columns: 1fr; }
-  .bar { grid-template-columns: auto 1fr; }
-  .bar__left { display: none !important; }
-  .bar__btns { grid-template-columns: 120px 1fr; }
+  .pc-promo, .pc-top__region, .pc-top__chat { display: none !important; }
 }
-@media (min-width: 1024px) and (prefers-reduced-motion: reduce) { .is-flash { animation: none; } .check__bar i { transition: none; } }
 
 /* ── 테스트 서버 양식(중고차 · 전기차) — 모양은 초톳 카드 · 줄 · 알약을 그대로 쓴다 ── */
 .dev-sec { margin: 0; font-size: 16px; line-height: 20.6px; font-weight: 700; }
@@ -476,3 +566,14 @@ button.of__box { width: 100%; text-align: left; }
 .policy p { margin: 6px 0; }
 .inspect { padding: 4px 16px 16px; }
 .inspect__warn { margin: 12px 0 0; padding: 0; list-style: none; font-size: 12px; line-height: 17px; color: var(--err); }
+
+/* PC: 테스트 서버 양식의 묶음 제목(판매 정보 · 상세설명)은 초톳 PC 카드 제목(16/24 굵게)과 같게, 구분선 없이 16 띄운다 */
+@media (min-width: 1024px) {
+  .card--form > .dev-sec:first-child { margin-top: 16px; padding-top: 0; border-top: 0; }
+  .dev-sec { font-size: 16px; line-height: 24px; }
+  .desc-head { margin-top: 20px; padding-top: 0; border-top: 0; }
+  .card--form .pills { margin-top: 16px; }
+  .card--form > .dev-sec + .pills { margin-top: 8px; }
+  .contact { margin-top: 8px; }
+  .card--extra { padding: 4px 16px 12px; }
+}
