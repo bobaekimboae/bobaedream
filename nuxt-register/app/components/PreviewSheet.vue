@@ -15,7 +15,11 @@ const meta = computed(() => {
   const v = props.form.values;
   return [v.year, v.mileage ? `${v.mileage}km` : v.hours ? `${v.hours}시간` : "", v.fuel ?? v.genre ?? v.type ?? v.kind ?? ""].filter(Boolean).join(" · ");
 });
-const facts = computed(() => props.fields.filter((f) => props.form.values[f.key]).map((f) => [f.label, `${props.form.values[f.key]}${f.unit && f.kind === "number" ? ` ${f.unit}` : ""}`]));
+const facts = computed(() =>
+  props.fields
+    .filter((f) => props.form.values[f.key] && f.key !== "plate")
+    .map((f) => [f.label, f.kind === "multi" ? props.form.values[f.key].split("|").join(", ") : `${props.form.values[f.key]}${f.unit && f.kind === "number" ? ` ${f.unit}` : ""}`]),
+);
 </script>
 <template>
   <Sheet title="미리보기" full @close="emit('close')">
@@ -40,7 +44,11 @@ const facts = computed(() => props.fields.filter((f) => props.form.values[f.key]
         <dl class="pv__facts">
           <dt>카테고리</dt><dd>{{ cat.name }}</dd>
           <template v-for="[k, v] in facts" :key="k"><dt>{{ k }}</dt><dd>{{ v }}</dd></template>
-          <dt>판매자</dt><dd>{{ form.seller }}</dd>
+          <template v-if="cat.devForm">
+            <dt>판매구분</dt><dd>{{ form.saleKind }}</dd>
+            <dt>매매유형</dt><dd>{{ form.values.dealType || "-" }}</dd>
+          </template>
+          <template v-else><dt>판매자</dt><dd>{{ form.seller }}</dd></template>
         </dl>
       </section>
     </div>

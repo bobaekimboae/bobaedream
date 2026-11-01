@@ -63,3 +63,53 @@ export async function dongsOf(sido: string, gu: string): Promise<string[]> {
   dongP.catch(() => (dongP = null));
   return (await dongP)[`${sido}|${gu}`] ?? [];
 }
+
+// ── 세부모델 · 연료 · 등급(테스트 서버 등록폼 순서): 제조사별 파일 cars/{makeId}.json을 고를 때만 받는다 ──
+type Gen = { id: string; groupId: string; name: string; releaseYm?: string | null; endYm?: string | null; sortOrder?: number };
+type FuelRow = { id: string; generationId: string; name: string; sortOrder?: number };
+type GradeRow = { generationId: string; fuelName: string; name: string; sortOrder?: number };
+type MakeFile = { modelGroups: Group[]; generations: Gen[]; fuelDrive: FuelRow[]; grades: GradeRow[] };
+const makeCache = new Map<string, Promise<MakeFile>>();
+async function makeFile(makerName: string): Promise<MakeFile | null> {
+  const idx = await load("car");
+  const m = idx.manufacturers.find((x) => x.name === makerName);
+  if (!m) return null;
+  let p = makeCache.get(m.id);
+  if (!p) {
+    p = fetch(sitePath("data", "vehicle-catalog", "cars", `${m.id}.json`)).then((r) => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json() as Promise<MakeFile>;
+    });
+    p.catch(() => makeCache.delete(m.id));
+    makeCache.set(m.id, p);
+  }
+  return p;
+}
+const yy = (ym?: string | null) => (ym ? ym.slice(2, 4) : "");
+/** 「3시리즈 (F30) · 12~18년」 — 테스트 서버 세부모델 표기(이름 + 판매 기간) */
+export const genLabel = (g: Pick<Gen, "name" | "releaseYm" | "endYm">) => `${g.name} · ${yy(g.releaseYm)}~${g.endYm ? `${yy(g.endYm)}년` : "현재"}`;
+async function gensOf(maker: string, model: string): Promise<Gen[]> {
+  const f = await makeFile(maker);
+  const grp = f?.modelGroups.find((g) => g.name === model);
+  if (!f || !grp) return [];
+  return f.generations.filter((g) => g.groupId === grp.id).sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+}
+export async function generationsOf(maker: string, model: string): Promise<string[]> {
+  return (await gensOf(maker, model)).map(genLabel);
+}
+async function genOf(maker: string, model: string, label: string) {
+  return (await gensOf(maker, model)).find((g) => genLabel(g) === label) ?? null;
+}
+export async function fuelsOf(maker: string, model: string, gen: string): Promise<string[]> {
+  const f = await makeFile(maker);
+  const g = await genOf(maker, model, gen);
+  if (!f || !g) return [];
+  return [...new Set(f.fuelDrive.filter((x) => x.generationId === g.id).sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0)).map((x) => x.name))];
+}
+export async function gradesOf(maker: string, model: string, gen: string, fuel: string): Promise<string[]> {
+  const f = await makeFile(maker);
+  const g = await genOf(maker, model, gen);
+  if (!f || !g) return [];
+  const rows = f.grades.filter((x) => x.generationId === g.id && (!fuel || x.fuelName === fuel)).sort((a, b) => (a.sortOrder ?? 0) - (b.sortOrder ?? 0));
+  return [...new Set(rows.map((x) => x.name))];
+}
