@@ -36,7 +36,7 @@ const onInput = (e: Event) => {
 </script>
 <template>
   <div class="of" :class="{ 'is-err': error }">
-    <component :is="select ? 'button' : 'label'" class="of__box" :type="select ? 'button' : undefined" :for="select ? undefined : id" :aria-haspopup="select ? 'dialog' : undefined" @click="select && emit('open')">
+    <component :is="select ? 'button' : 'label'" :id="select ? id : undefined" class="of__box" :type="select ? 'button' : undefined" :for="select ? undefined : id" :aria-haspopup="select ? 'dialog' : undefined" @click="select && emit('open')">
       <span v-if="floated" class="of__label">{{ label }}<span v-if="required" class="req"> *</span></span>
       <span v-else class="of__ph">{{ label }}<span v-if="required" class="req"> *</span></span>
       <template v-if="select">

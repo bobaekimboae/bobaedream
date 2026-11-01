@@ -7,19 +7,22 @@ import { IC } from "../lib/icons";
 defineProps<{ title: string; full?: boolean; left?: boolean }>();
 const emit = defineEmits<{ close: [] }>();
 const x = ref<HTMLButtonElement | null>(null);
+let prevOverflow = "";
 const onKey = (e: KeyboardEvent) => e.key === "Escape" && emit("close");
 onMounted(async () => {
   document.addEventListener("keydown", onKey);
+  prevOverflow = document.body.style.overflow;
   document.body.style.overflow = "hidden";
   await nextTick();
   x.value?.focus({ preventScroll: true });
 });
 onBeforeUnmount(() => {
   document.removeEventListener("keydown", onKey);
-  document.body.style.overflow = "";
+  document.body.style.overflow = prevOverflow;
 });
 </script>
 <template>
+  <div class="layer">
   <div class="dim" @click="emit('close')" />
   <section class="sheet" :class="{ 'sheet--full': full, 'post-sheet': left }" role="dialog" aria-modal="true" :aria-label="title">
     <header class="sheet__head">
@@ -29,4 +32,5 @@ onBeforeUnmount(() => {
     <div class="sheet__list"><slot /></div>
     <footer v-if="$slots.foot" class="sheet__foot"><slot name="foot" /></footer>
   </section>
+  </div>
 </template>

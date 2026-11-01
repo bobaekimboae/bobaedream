@@ -4,7 +4,7 @@ import { computed, ref } from "vue";
 import Sheet from "./Sheet.vue";
 import Ico from "./Ico.vue";
 import { IC } from "../lib/icons";
-import { priceText, type FormState } from "../lib/form";
+import { priceText, type FormState, regionLine } from "../lib/form";
 import type { Category, Field } from "../lib/categories";
 
 const props = defineProps<{ form: FormState; cat: Category; fields: Field[] }>();
@@ -32,7 +32,7 @@ const facts = computed(() => props.fields.filter((f) => props.form.values[f.key]
         <h3 class="pv__title">{{ form.title || "매물 제목" }}</h3>
         <p v-if="meta" class="pv__meta">{{ meta }}</p>
         <p class="pv__price">{{ priceText(form.price) || "가격 미입력" }}<small v-if="form.price"> {{ cat.priceUnit }}</small></p>
-        <p class="pv__loc"><Ico :src="IC.location" />{{ form.region ? `${form.region.sido} ${form.region.gu}` : "거래 지역 미입력" }}</p>
+        <p class="pv__loc"><Ico :src="IC.location" />{{ form.region ? regionLine(form.region) : "거래 지역 미입력" }}</p>
       </div>
       <section class="pv__sec"><h3>매물 설명</h3><p class="pv__desc">{{ form.desc || "설명이 없어요" }}</p></section>
       <section class="pv__sec">

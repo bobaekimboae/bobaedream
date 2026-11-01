@@ -5,7 +5,9 @@ import { computed } from "vue";
 import { categoryOf, visibleFields, type CategoryId } from "./categories";
 
 export type Media = { id: string; kind: "photo" | "video"; src: string; poster?: string; from: "album" | "shoot"; slot?: string; seconds?: number };
-export type Region = { sido: string; gu: string } | null;
+/** 초톳 「Địa chỉ」 4칸: 시·도 / 시·군·구 / 읍·면·동 / 상세 주소(선택) */
+export type Region = { sido: string; gu: string; dong?: string; detail?: string } | null;
+export const regionLine = (r: Region) => (r ? [r.sido, r.gu, r.dong, r.detail?.trim()].filter(Boolean).join(" ") : "");
 export type PostType = "free" | "premium";
 export type FormState = {
   category: CategoryId;
@@ -53,7 +55,7 @@ export function useForm() {
     const price = Number(f.price.replace(/[^0-9]/g, ""));
     if (!f.price) e.price = "입력해 주세요";
     else if (!price) e.price = "0보다 큰 금액을 입력해 주세요";
-    if (!f.region) e.region = "선택해 주세요";
+    if (!f.region || !f.region.gu || !f.region.dong) e.region = "선택해 주세요";
     for (const fd of fields.value) {
       if (!fd.required) continue;
       if (!f.values[fd.key]) e[fd.key] = fd.kind === "number" || fd.kind === "text" ? "입력해 주세요" : "선택해 주세요";

@@ -5,7 +5,8 @@ const ct = (n: string) => icon("chotot", n);
 const rd = (n: string) => icon("reddit-shoot", `${n}.svg`);
 
 export const IC = {
-  back: rd("back-outline-24"),
+  /** 초톳 머리 뒤로 화살표(굵은 화살표 · 잉크 11.7) 대신 레딧 원본 back-fill */
+  back: rd("back-fill"),
   close: ct("chotot-listing-register-close-window.svg"),
   info: ct("chotot-listing-register-info.svg"),
   /** 초톳 사진·영상 추가 원본(노랑 PNG) — 투명 부분이 그대로라 mask로 파랑만 입힌다 */
@@ -17,9 +18,11 @@ export const IC = {
   chevron: ct("chotot-listing-register-dropdown.svg"),
   detail: ct("chotot-listing-register-detail-info.svg"),
   search: ct("chotot-listing-register-search-gray.svg"),
+  searchDark: ct("chotot-listing-register-search.svg"),
   check: ct("chotot-listing-register-check-mark.svg"),
   ai: ct("chotot-listing-register-ai.svg"),
-  edit: rd("edit-outline"),
+  /** 초톳 숫자 칸 「연필 + 밑줄」 원본 */
+  edit: ct("chotot-common-seller-review-write.svg"),
   camera: rd("camera-outline-24"),
   video: rd("video-camera-outline"),
   album: rd("image-post-outline"),
@@ -27,6 +30,8 @@ export const IC = {
   coupon: ct("chotot-my-benefit-promotion-chotot-offer-01.svg"),
   premium: ct("chotot-my-paid-service-pro-plan-02.svg"),
   location: ct("chotot-common-location-pin.svg"),
+  /** 초톳 「Địa chỉ mới…」 안내 상자의 채운 핀 */
+  pin: ct("chotot-list-detail-address-location.svg"),
   clock: ct("chotot-common-clock.svg"),
   user: ct("chotot-common-user.svg"),
 };

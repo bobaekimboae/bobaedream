@@ -7,22 +7,26 @@ import { IC } from "../lib/icons";
 import type { Media } from "../lib/form";
 
 const props = defineProps<{ media: Media[]; error?: string; max: number }>();
-const emit = defineEmits<{ add: []; remove: [string]; move: [number, number]; info: [] }>();
+const emit = defineEmits<{ add: []; remove: [string]; move: [number, number]; info: []; view: [number] }>();
 
 // 길게 눌러 끌기(손가락) · 끌어다 놓기(마우스)
 const dragId = ref<string | null>(null);
 const overId = ref<string | null>(null);
 let timer = 0;
+/** 길게 눌러 끌기를 시작했으면 손을 뗀 뒤의 누름은 크게 보기로 넘기지 않는다 */
+let dragged = false;
 let startX = 0;
 let startY = 0;
 const idAt = (x: number, y: number) => (document.elementFromPoint(x, y) as HTMLElement | null)?.closest<HTMLElement>("[data-mid]")?.dataset.mid ?? null;
 const down = (id: string, e: PointerEvent) => {
   if (e.pointerType === "mouse") return;
+  dragged = false;
   startX = e.clientX;
   startY = e.clientY;
   window.clearTimeout(timer);
   timer = window.setTimeout(() => {
     dragId.value = id;
+    dragged = true;
     navigator.vibrate?.(15);
   }, 380);
 };
@@ -68,11 +72,12 @@ onBeforeUnmount(() => window.clearTimeout(timer));
         @drop.prevent="drop(m.id); dragId = null; overId = null"
         @dragend="dragId = null; overId = null"
         @contextmenu.prevent
+        @click="!dragged && emit('view', i)"
       >
         <img :src="m.kind === 'video' ? m.poster || '' : m.src" :alt="`${i + 1}번째 ${m.kind === 'video' ? '영상' : '사진'}`" draggable="false" />
         <span v-if="m.kind === 'video'" class="thumb__vid"><Ico :src="IC.play" />{{ m.seconds ? `0:${String(m.seconds).padStart(2, "0")}` : "영상" }}</span>
         <span v-else-if="m.from === 'shoot' && i > 0" class="thumb__src">촬영 키트</span>
-        <button type="button" class="thumb__x" :aria-label="`${i + 1}번째 지우기`" @click="emit('remove', m.id)"><img :src="IC.remove" alt="" /></button>
+        <button type="button" class="thumb__x" :aria-label="`${i + 1}번째 지우기`" @click.stop="emit('remove', m.id)"><img :src="IC.remove" alt="" /></button>
         <span v-if="i === 0" class="thumb__cover">대표 사진</span>
       </div>
     </div>
