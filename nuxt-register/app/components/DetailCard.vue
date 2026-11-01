@@ -31,10 +31,11 @@ const onNum = (f: Field, e: Event) => {
     <button type="button" class="row row--cat" data-key="@category" aria-haspopup="dialog" @click="emit('category')">
       <span class="row__label">카테고리<span class="req"> *</span></span>
       <span class="row__value">차량 / {{ cat.name }}</span>
-      <Ico class="row__chev" :src="IC.chevron" />
+      <Ico class="row__chev mo-only" :src="IC.chevron" />
+      <Ico class="row__caret pc-only" :src="IC.caret" />
     </button>
     <template v-for="f in fields" :key="f.key">
-      <div v-if="f.kind === 'plate'" class="row-wrap row-wrap--plate" :data-key="f.key" :class="{ 'is-err': err(f.key) }">
+      <div v-if="f.kind === 'plate'" class="row-wrap row-wrap--plate" :data-key="f.key" :class="{ 'is-err': err(f.key), 'has-val': values[f.key] }">
         <label class="row row--input">
           <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
           <input
@@ -58,7 +59,7 @@ const onNum = (f: Field, e: Event) => {
           <span>임시번호/직수입 차량등록</span>
         </label>
       </div>
-      <div v-else-if="isLocked(f.key)" class="row row--locked" :data-key="f.key">
+      <div v-else-if="isLocked(f.key)" class="row row--locked has-val" :data-key="f.key">
         <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
         <span class="row__value is-set">{{ values[f.key] }}{{ f.unit ? ` ${f.unit}` : "" }}</span>
       </div>
@@ -82,7 +83,7 @@ const onNum = (f: Field, e: Event) => {
         <button v-if="values[f.key]" type="button" class="row__clear" :aria-label="`${f.label} 선택 지우기`" @click="emit('set', f.key, '')"><Ico :src="IC.clear" /></button>
         <p v-if="f.hint" class="row-hint">{{ f.hint }}</p>
       </div>
-      <div v-else class="row-wrap" :data-key="f.key" :class="{ 'is-err': err(f.key) }">
+      <div v-else class="row-wrap" :data-key="f.key" :class="{ 'is-err': err(f.key), 'has-val': values[f.key] }">
         <label class="row row--input">
           <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
           <input

@@ -16,7 +16,6 @@ import DoneSheet from "./components/DoneSheet.vue";
 import AddressSheet from "./components/AddressSheet.vue";
 import ExitSheet from "./components/ExitSheet.vue";
 import PhotoViewer from "./components/PhotoViewer.vue";
-import PcChecklist, { type CheckItem } from "./components/PcChecklist.vue";
 import MultiSheet from "./components/MultiSheet.vue";
 import PolicySheet from "./components/PolicySheet.vue";
 import InspectSheet from "./components/InspectSheet.vue";
@@ -253,43 +252,18 @@ const onPick = (v: string) => {
 };
 const regionText = computed(() => regionLine(form.value.region));
 
-// ── PC 「등록 준비」 목록: 꼭 채울 칸과 그 칸으로 이동 ──
-const checkItems = computed<CheckItem[]>(() => {
-  const e = errors.value;
-  const base = dev.value
-    ? [
-        { key: "media", label: "사진 · 영상" },
-        { key: "price", label: "판매 가격" },
-        { key: "region", label: "거래 지역" },
-      ]
-    : [
-        { key: "media", label: "사진 · 영상" },
-        { key: "desc", label: "매물 설명(10자 이상)" },
-        { key: "title", label: "매물 제목" },
-        { key: "price", label: "판매 가격" },
-        { key: "region", label: "거래 지역" },
-      ];
-  const lease = dev.value && form.value.saleKind !== "일반" ? [{ key: "leaseCompany", label: `${leaseWord.value}사` }, { key: "leaseMonthly", label: `월 ${leaseWord.value}료` }] : [];
-  const detail = fields.value.filter((f) => f.required).map((f) => ({ key: f.key, label: f.label }));
-  const tail = dev.value ? [{ key: "agree", label: "허위매물 운영정책 동의" }] : [];
-  return [...base, ...lease, ...detail, ...tail].map((i) => ({ ...i, done: !e[i.key] }));
-});
-const goTo = (key: string) => {
-  const el =
-    key === "media"
-      ? document.querySelector<HTMLElement>(".card--media")
-      : ["desc", "title", "price", "region", "leaseCompany", "leaseMonthly"].includes(key)
-        ? document.getElementById(`f-${key}`)?.closest<HTMLElement>(".of") ?? null
-        : key === "agree"
-          ? document.getElementById("f-agree")?.closest<HTMLElement>(".agree") ?? null
-        : document.querySelector<HTMLElement>(`[data-key="${key}"]`);
-  if (!el) return;
-  el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
-  el.classList.remove("is-flash");
-  void el.offsetWidth;
-  el.classList.add("is-flash");
-  const target = key === "media" ? null : key === "region" ? document.getElementById("f-region") : el.matches("button") ? el : el.querySelector<HTMLElement>("input, textarea, button");
-  window.setTimeout(() => target?.focus({ preventScroll: true }), 350);
+// ── PC 아래 버튼 줄(초톳 PC): 아무것도 없으면 「등록하기」만, 쓴 내용이 생기면 「미리보기」, 사진이 있으면 「임시저장」까지 ──
+const hasContent = computed(() => Boolean(form.value.media.length || form.value.desc.trim() || form.value.title.trim()));
+// PC 「AI로 설명 쓰기」(초톳 PC 「AI Viết giúp」): 서버 없이 지금 고른 상세 정보로 초안을 만든다. 이미 쓴 글은 지우지 않고 아래에 붙인다
+const aiDesc = () => {
+  const v = form.value.values;
+  const name = [v.maker, v.model, v.gen, v.grade].filter((x) => x && !x.startsWith("기타")).join(" ");
+  if (!name) return toast("제조사 · 모델을 먼저 고르면 설명 초안을 만들어 드려요");
+  const facts = [v.year && `${v.year}년식`, v.mileage && `주행 ${v.mileage}${cat.value.fields.find((f) => f.key === "mileage")?.unit ?? "km"}`, v.fuel, v.gear, v.color].filter(Boolean).join(" · ");
+  const draft = `${name}${facts ? ` (${facts})` : ""} 판매합니다.\n사고 · 정비 이력과 교환한 소모품을 적어 주세요.\n차량 확인 가능한 시간과 장소를 적어 주세요.`;
+  const cur = form.value.desc.trim();
+  form.value = { ...form.value, desc: (cur ? `${cur}\n\n${draft}` : draft).slice(0, cat.value.descMax ?? DESC_MAX) };
+  toast("AI 초안을 넣었어요. 사실과 다른 부분은 고쳐 주세요");
 };
 
 // ── 등록 방식 · 미리보기 · 등록하기 ──
@@ -419,12 +393,22 @@ onMounted(async () => {
 
 <template>
   <div class="reg">
+    <!-- PC 머리(초톳 PC 「Đăng tin」 머리 66 그대로: 메뉴 · 로고 · 지역 알약 · 검색 · 찜 · 알림 · 채팅 · 내 매물 관리 · 매물 등록 · 내 정보). 등록 화면에서는 로고만 이동하고 나머지는 안내만 띄운다 -->
     <header class="pc-top">
+      <button type="button" class="pc-top__menu" aria-label="전체 메뉴" @click="toast('시안 화면에서는 메뉴가 열리지 않아요')"><Ico :src="IC.menu" /></button>
       <a class="pc-top__logo" :href="sitePath('')"><img :src="sitePath('assets', 'bbm', 'header-logo.svg')" alt="보배드림" /></a>
-      <span class="pc-top__title">차량 매물 등록</span>
-      <span class="pc-top__cat">{{ cat.name }}</span>
-      <button type="button" class="pc-top__save" @click="onSave">임시저장</button>
-      <button type="button" class="pc-top__exit" @click="goBack">나가기</button>
+      <button type="button" class="pc-top__region" @click="toast('지역은 아래 「거래 지역」에서 골라 주세요')"><Ico class="pc-top__pin" :src="IC.pinHead" /><span>지역 선택</span><Ico :src="IC.caret" /></button>
+      <label class="pc-top__search">
+        <Ico :src="IC.search" />
+        <input type="search" placeholder="매물 검색" aria-label="매물 검색" @keydown.enter="toast('시안 화면에서는 검색이 되지 않아요')" />
+        <button type="button" class="pc-top__go" aria-label="검색" @click="toast('시안 화면에서는 검색이 되지 않아요')"><Ico :src="IC.searchDark" /></button>
+      </label>
+      <button type="button" class="pc-top__ic" aria-label="찜한 매물" @click="toast('시안 화면에서는 동작하지 않아요')"><Ico :src="IC.heart" /></button>
+      <button type="button" class="pc-top__ic" aria-label="알림" @click="toast('시안 화면에서는 동작하지 않아요')"><Ico :src="IC.bell" /></button>
+      <button type="button" class="pc-top__pill pc-top__chat" @click="toast('시안 화면에서는 동작하지 않아요')"><Ico :src="IC.chat" />채팅</button>
+      <button type="button" class="pc-top__pill" @click="toast('시안 화면에서는 동작하지 않아요')">내 매물 관리</button>
+      <span class="pc-top__pill pc-top__pill--pri" aria-current="page">매물 등록</span>
+      <button type="button" class="pc-top__me" aria-label="내 정보" @click="toast('시안 화면에서는 동작하지 않아요')"><span class="pc-top__ava"><Ico :src="IC.user" /></span><Ico :src="IC.dropdown" /></button>
     </header>
     <header class="reg-head">
       <button type="button" class="reg-head__back" aria-label="뒤로" @click="goBack"><Ico :src="IC.back" /></button>
@@ -433,22 +417,30 @@ onMounted(async () => {
     </header>
 
     <main class="reg-body">
+      <!-- 초톳 PC 왼쪽 「Đừng quên đăng video!」 안내 카드(300 · 따라옴) -->
+      <aside class="pc-promo pc-only" aria-label="영상 안내">
+        <b>영상도 같이 올려 보세요!</b>
+        <ul>
+          <li><Ico :src="IC.check" /><span>조회수 최대 <strong>2배</strong></span></li>
+          <li><Ico :src="IC.check" /><span><strong>보배드림 숏폼</strong>에 무료로 노출</span></li>
+        </ul>
+      </aside>
       <div class="pc-left">
         <section class="card card--main card--media" aria-label="사진 · 영상">
           <MediaSection :media="form.media" :max="mediaMax" :error="shown('media')" @add="cat.shootKit ? (srcOpen = true) : fileIn?.click()" @remove="removeMedia" @move="moveMedia" @info="ruleOpen = true" @view="(i: number) => (viewAt = i)" @files="addFiles" />
         </section>
-        <PcChecklist :items="checkItems" :tried="tried" @go="goTo" />
       </div>
       <div class="pc-right">
         <section v-if="!dev" class="card card--main card--form" aria-label="매물 기본 정보">
-          <h2 class="pc-sec pc-only">기본 정보</h2>
           <OField id="f-desc" v-model="form.desc" label="매물 설명" required multiline :maxlength="DESC_MAX" :placeholder="cat.descHint" :error="shown('desc')">
+            <button type="button" class="of__aipc pc-only" @click="aiDesc"><Ico :src="IC.ai" />AI로 설명 쓰기</button>
             <p class="of__count">{{ form.desc.length.toLocaleString("ko-KR") }}/{{ DESC_MAX.toLocaleString("ko-KR") }}자</p>
+            <div v-if="!form.desc.trim()" class="desc-tip pc-only"><b>이렇게 쓰면 좋아요:</b><ul><li>제조사, 모델과 연식</li><li>주행거리, 상태와 판매 가격</li></ul></div>
           </OField>
           <OField id="f-title" v-model="form.title" label="매물 제목" required clearable :maxlength="TITLE_MAX" :placeholder="cat.titleHint" :error="shown('title')" />
           <div class="pc-pair">
             <OField id="f-price" v-model="form.price" label="판매 가격" required numeric :suffix="cat.priceUnit" :error="shown('price')" />
-            <OField id="f-region" :model-value="regionText" label="거래 지역" required select clearable :display="regionText" :error="shown('region')" @open="openRegion" @clear="form = { ...form, region: null }" />
+            <OField id="f-region" :model-value="regionText" label="거래 지역" required select clearable select-ph="지역 선택" :display="regionText" :error="shown('region')" @open="openRegion" @clear="form = { ...form, region: null }" />
           </div>
           <PillRow v-model="form.seller" label="판매자" required :options="['개인', '딜러']" />
         </section>
@@ -469,7 +461,7 @@ onMounted(async () => {
           </template>
           <div class="pc-pair">
             <OField id="f-price" v-model="form.price" label="판매가격" required numeric :suffix="cat.priceUnit" :error="shown('price')" />
-            <OField id="f-region" :model-value="regionText" label="거래지역" required select clearable :display="regionText" :error="shown('region')" @open="openRegion" @clear="form = { ...form, region: null }" />
+            <OField id="f-region" :model-value="regionText" label="거래지역" required select clearable select-ph="지역 선택" :display="regionText" :error="shown('region')" @open="openRegion" @clear="form = { ...form, region: null }" />
           </div>
           <div class="contact">
             <label class="row-check row-check--lg">
@@ -489,7 +481,9 @@ onMounted(async () => {
           <OField id="f-title" v-model="form.title" label="제목" clearable :maxlength="cat.titleMax ?? TITLE_MAX" :placeholder="cat.titleHint" :error="shown('title')" />
           <PillRow :model-value="form.descType" label="유형선택" :options="['직접입력', '기본양식']" required @update:model-value="setDescType" />
           <OField id="f-desc" v-model="form.desc" label="상세설명" multiline :maxlength="cat.descMax ?? DESC_MAX" :placeholder="cat.descHint" :error="shown('desc')">
+            <button type="button" class="of__aipc pc-only" @click="aiDesc"><Ico :src="IC.ai" />AI로 설명 쓰기</button>
             <p class="of__count">{{ form.desc.length.toLocaleString("ko-KR") }}/{{ (cat.descMax ?? DESC_MAX).toLocaleString("ko-KR") }}자</p>
+            <div v-if="!form.desc.trim()" class="desc-tip pc-only"><b>이렇게 쓰면 좋아요:</b><ul><li>제조사, 모델과 연식</li><li>주행거리, 상태와 판매 가격</li></ul></div>
           </OField>
           <OField id="f-videoUrl" v-model="form.videoUrl" label="외부영상 주소" clearable placeholder="유튜브 등 영상 주소" :error="shown('videoUrl')" />
         </section>
@@ -522,9 +516,9 @@ onMounted(async () => {
             <span>선택됨 <b>{{ postName }}</b></span>
             <Ico class="bar__caret" :src="IC.caret" />
           </button>
-          <p class="bar__left pc-only" aria-live="polite">{{ checkItems.every((i) => i.done) ? "모두 채웠어요. 등록할 수 있어요" : `꼭 채울 칸 ${checkItems.filter((i) => !i.done).length}개 남았어요` }}</p>
-          <div class="bar__btns">
-            <button type="button" class="btn btn--line" @click="previewOpen = true; timer.mark('미리보기')">미리보기</button>
+          <div class="bar__btns" :class="{ 'is-pc-one': !hasContent, 'is-pc-three': form.media.length > 0 }">
+            <button type="button" class="btn btn--line" :class="{ 'pc-hide': !hasContent }" @click="previewOpen = true; timer.mark('미리보기')">미리보기</button>
+            <button v-if="form.media.length" type="button" class="btn btn--line pc-only" @click="onSave">임시저장</button>
             <button type="button" class="btn btn--pri" @click="submit">등록하기</button>
           </div>
         </div>

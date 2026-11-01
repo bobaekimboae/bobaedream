@@ -19,6 +19,8 @@ const props = defineProps<{
   select?: boolean;
   display?: string;
   placeholder?: string;
+  /** PC 고르기 칸이 비었을 때 이름 아래에 보이는 안내(초톳 PC 「Địa chỉ / Chọn địa chỉ」) */
+  selectPh?: string;
 }>();
 const emit = defineEmits<{ "update:modelValue": [string]; open: []; blur: []; clear: [] }>();
 const focused = ref(false);
@@ -35,13 +37,15 @@ const onInput = (e: Event) => {
 };
 </script>
 <template>
-  <div class="of" :class="{ 'is-err': error }">
+  <div class="of" :class="{ 'is-err': error, 'of--sel-ph': select && selectPh && !filled }">
     <component :is="select ? 'button' : 'label'" :id="select ? id : undefined" class="of__box" :type="select ? 'button' : undefined" :for="select ? undefined : id" :aria-haspopup="select ? 'dialog' : undefined" @click="select && emit('open')">
       <span v-if="floated" class="of__label">{{ label }}<span v-if="required" class="req"> *</span></span>
       <span v-else class="of__ph">{{ label }}<span v-if="required" class="req"> *</span></span>
       <template v-if="select">
         <span v-if="filled" class="of__select">{{ display }}</span>
-        <Ico class="of__caret" :src="IC.caret" />
+        <span v-else-if="selectPh" class="of__select of__select--ph pc-only">{{ selectPh }}</span>
+        <Ico class="of__caret" :class="{ 'mo-only': selectPh }" :src="IC.caret" />
+        <Ico v-if="selectPh" class="of__chev pc-only" :src="IC.dropdown" />
       </template>
       <textarea
         v-else-if="multiline"
