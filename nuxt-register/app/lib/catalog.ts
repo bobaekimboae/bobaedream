@@ -47,4 +47,19 @@ export async function modelsOf(kind: "car" | "bike", makerName: string): Promise
 
 const R = regions as unknown as { sido: string[]; districts: Record<string, string[]> };
 export const SIDO: string[] = R.sido;
-export const districtsOf = (sido: string): string[] => R.districts[sido] ?? [];
+/** 세종은 시·군·구가 없어 「세종시」 한 칸으로 둔다(초톳 3칸 구조 유지) */
+export const districtsOf = (sido: string): string[] => (sido === "세종" ? ["세종시"] : R.districts[sido] ?? []);
+
+// 읍·면·동: 법정동 코드(행정표준코드관리시스템)를 시·군·구별로 묶은 사이트 공용 파일. 처음 열 때 한 번만 받는다.
+// 구가 있는 시(수원시 등)는 「권선구 세류동」처럼 구 이름을 앞에 붙여 한 목록으로 둔다.
+let dongP: Promise<Record<string, string[]>> | null = null;
+export async function dongsOf(sido: string, gu: string): Promise<string[]> {
+  dongP ??= fetch(sitePath("data", "regions-kr-dong-v1.json"))
+    .then((r) => {
+      if (!r.ok) throw new Error(String(r.status));
+      return r.json() as Promise<{ dong: Record<string, string[]> }>;
+    })
+    .then((j) => j.dong);
+  dongP.catch(() => (dongP = null));
+  return (await dongP)[`${sido}|${gu}`] ?? [];
+}

@@ -13,10 +13,13 @@ import RuleSheet from "./components/RuleSheet.vue";
 import PostTypeSheet from "./components/PostTypeSheet.vue";
 import PreviewSheet from "./components/PreviewSheet.vue";
 import DoneSheet from "./components/DoneSheet.vue";
+import AddressSheet from "./components/AddressSheet.vue";
+import ExitSheet from "./components/ExitSheet.vue";
+import PhotoViewer from "./components/PhotoViewer.vue";
 import { IC } from "./lib/icons";
 import { CATEGORIES, YEARS, truckFormats, truckSubtypes, type CategoryId, type Field } from "./lib/categories";
-import { districtsOf, makerSections, modelsOf, SIDO } from "./lib/catalog";
-import { blank, DESC_MAX, dropDraft, fmtSec, loadDraft, MAX_MEDIA, saveDraft, TITLE_MAX, useForm, useTimer, type Media, type PostType, type Run } from "./lib/form";
+import { makerSections, modelsOf } from "./lib/catalog";
+import { blank, DESC_MAX, dropDraft, fmtSec, loadDraft, MAX_MEDIA, regionLine, saveDraft, TITLE_MAX, useForm, useTimer, type Media, type PostType, type Region, type Run } from "./lib/form";
 import { shootKitUrl, takeHandoff } from "./lib/shoot-handoff";
 import { sitePath } from "@kit/site";
 
@@ -138,10 +141,12 @@ const openField = async (f: Field) => {
   }
 };
 const openCategory = () => (picker.value = { title: "카테고리 고르기", key: "@category", sections: [{ items: CATEGORIES.map((c) => c.name) }], value: cat.value.name });
-const regionStep = ref<string | null>(null);
-const openRegion = () => {
-  regionStep.value = null;
-  picker.value = { title: "시 · 도 고르기", key: "@sido", sections: [{ items: SIDO }], value: form.value.region?.sido };
+// 거래 지역: 초톳 「Địa chỉ」 시트(시·도 → 시·군·구 → 읍·면·동 + 상세 주소)
+const addrOpen = ref(false);
+const openRegion = () => (addrOpen.value = true);
+const applyRegion = (r: NonNullable<Region>) => {
+  form.value = { ...form.value, region: r };
+  addrOpen.value = false;
 };
 const onPick = (v: string) => {
   const p = picker.value;
@@ -155,26 +160,10 @@ const onPick = (v: string) => {
     picker.value = null;
     return;
   }
-  if (p.key === "@sido") {
-    const gus = districtsOf(v);
-    if (!gus.length) {
-      form.value = { ...form.value, region: { sido: v, gu: "" } };
-      picker.value = null;
-      return;
-    }
-    regionStep.value = v;
-    picker.value = { title: `${v} · 시 · 군 · 구`, key: "@gu", sections: [{ items: gus }], value: form.value.region?.sido === v ? form.value.region.gu : undefined, back: true };
-    return;
-  }
-  if (p.key === "@gu") {
-    form.value = { ...form.value, region: { sido: regionStep.value!, gu: v } };
-    picker.value = null;
-    return;
-  }
   setValue(p.key, v);
   picker.value = null;
 };
-const regionText = computed(() => (form.value.region ? `${form.value.region.sido} ${form.value.region.gu}`.trim() : ""));
+const regionText = computed(() => regionLine(form.value.region));
 
 // ── 등록 방식 · 미리보기 · 등록하기 ──
 const postOpen = ref(false);
@@ -192,7 +181,6 @@ const submit = async () => {
   timer.mark("등록하기 누름");
   const n = Object.keys(errors.value).length;
   if (n) {
-    toast(`빠진 항목 ${n}개를 채워 주세요`);
     await new Promise((r) => requestAnimationFrame(r));
     firstErrorEl()?.scrollIntoView({ behavior: "smooth", block: "center" });
     return;
@@ -217,7 +205,42 @@ const onSave = async () => {
     toast("저장 공간이 부족해 임시저장하지 못했어요");
   }
 };
-const goBack = () => (history.length > 1 ? history.back() : (location.href = sitePath("")));
+// 뒤로(머리 화살표 · 휴대폰 뒤로가기): 쓴 내용이 있으면 초톳처럼 「임시저장할까요?」를 먼저 묻는다
+const exitOpen = ref(false);
+const viewAt = ref<number | null>(null);
+const dirty = () => Boolean(form.value.media.length || form.value.desc || form.value.title || form.value.price || form.value.region || Object.keys(form.value.values).length);
+const leavePage = () => {
+  leaving = true;
+  if (history.length > 2) history.go(-2);
+  else location.href = sitePath("");
+};
+let leaving = false;
+const goBack = () => (dirty() ? (exitOpen.value = true) : leavePage());
+const exitSave = async () => {
+  exitOpen.value = false;
+  try {
+    await saveDraft(form.value);
+  } catch {
+    /* 저장 공간이 없어도 나간다 */
+  }
+  leavePage();
+};
+const exitLeave = () => {
+  exitOpen.value = false;
+  void dropDraft();
+  leavePage();
+};
+// 휴대폰 뒤로가기: 열린 시트가 있으면 시트만 닫고, 없으면 「임시저장할까요?」
+const onPop = () => {
+  if (leaving) return;
+  history.pushState({ reg: 1 }, "");
+  if (viewAt.value !== null) viewAt.value = null;
+  else if (picker.value) picker.value = null;
+  else if (addrOpen.value) addrOpen.value = false;
+  else if (srcOpen.value || ruleOpen.value || postOpen.value || previewOpen.value) srcOpen.value = ruleOpen.value = postOpen.value = previewOpen.value = false;
+  else if (exitOpen.value) exitOpen.value = false;
+  else goBack();
+};
 
 // 걸린 시간 기록 지점
 watch(() => form.value.media.length > 0, (v) => v && timer.mark("첫 사진"));
@@ -254,6 +277,8 @@ onMounted(async () => {
     q.delete("shoot");
     history.replaceState(null, "", `${location.pathname}${q.toString() ? `?${q}` : ""}`);
   }
+  if (!history.state?.reg) history.pushState({ reg: 1 }, "");
+  window.addEventListener("popstate", onPop);
   if (!timer.start.value) timer.begin();
   window.setInterval(() => (elapsed.value = Math.round((Date.now() - timer.start.value) / 1000)), 1000);
 });
@@ -275,7 +300,7 @@ onMounted(async () => {
     <main class="reg-body">
       <div class="pc-left">
         <section class="card card--main card--media" aria-label="사진 · 영상">
-          <MediaSection :media="form.media" :max="MAX_MEDIA" :error="shown('media')" @add="cat.shootKit ? (srcOpen = true) : fileIn?.click()" @remove="removeMedia" @move="moveMedia" @info="ruleOpen = true" />
+          <MediaSection :media="form.media" :max="MAX_MEDIA" :error="shown('media')" @add="cat.shootKit ? (srcOpen = true) : fileIn?.click()" @remove="removeMedia" @move="moveMedia" @info="ruleOpen = true" @view="(i: number) => (viewAt = i)" />
         </section>
       </div>
       <div class="pc-right">
@@ -306,11 +331,28 @@ onMounted(async () => {
     <input ref="fileIn" type="file" accept="image/*,video/*" multiple hidden @change="onFiles" />
     <input ref="camIn" type="file" accept="image/*" capture="environment" hidden @change="onFiles" />
 
-    <MediaSourceSheet v-if="srcOpen" :kit="cat.shootKit" :cat-name="cat.name" @close="srcOpen = false" @kit="goKit" @album="fileIn?.click()" @camera="camIn?.click()" />
-    <RuleSheet v-if="ruleOpen" @close="ruleOpen = false" />
-    <PickerSheet v-if="picker" :title="picker.title" :sections="picker.sections" :value="picker.value" :loading="picker.loading" :back="picker.back" @pick="onPick" @close="picker = null" @back="openRegion" />
-    <PostTypeSheet v-if="postOpen" :value="form.postType" @close="postOpen = false" @apply="applyPost" />
-    <PreviewSheet v-if="previewOpen" :form="form" :cat="cat" :fields="fields" @close="previewOpen = false" />
+    <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
+      <MediaSourceSheet v-if="srcOpen" :kit="cat.shootKit" :cat-name="cat.name" @close="srcOpen = false" @kit="goKit" @album="fileIn?.click()" @camera="camIn?.click()" />
+    </Transition>
+    <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
+      <RuleSheet v-if="ruleOpen" @close="ruleOpen = false" />
+    </Transition>
+    <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
+      <PickerSheet v-if="picker" :title="picker.title" :sections="picker.sections" :value="picker.value" :loading="picker.loading" :back="picker.back" @pick="onPick" @close="picker = null" />
+    </Transition>
+    <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
+      <PostTypeSheet v-if="postOpen" :value="form.postType" @close="postOpen = false" @apply="applyPost" />
+    </Transition>
+    <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
+      <PreviewSheet v-if="previewOpen" :form="form" :cat="cat" :fields="fields" @close="previewOpen = false" />
+    </Transition>
+    <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
+      <AddressSheet v-if="addrOpen" :value="form.region" @close="addrOpen = false" @apply="applyRegion" />
+    </Transition>
+    <Transition name="sheet" :duration="{ enter: 250, leave: 150 }">
+      <ExitSheet v-if="exitOpen" @close="exitOpen = false" @leave="exitLeave" @save="exitSave" />
+    </Transition>
+    <PhotoViewer v-if="viewAt !== null" :media="form.media" :start="viewAt" @close="viewAt = null" />
     <DoneSheet v-if="done" :run="done" :premium="form.postType === 'premium'" @close="done = null" @again="again" />
 
     <div v-if="toastMsg" class="toast" role="status">{{ toastMsg }}</div>

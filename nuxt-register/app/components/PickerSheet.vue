@@ -6,7 +6,8 @@ import Ico from "./Ico.vue";
 import { IC } from "../lib/icons";
 
 export type Section = { title?: string; items: string[] };
-const props = defineProps<{ title: string; sections: Section[]; value?: string; loading?: boolean; back?: boolean }>();
+// 주소 고르기(시·도 · 시·군·구 · 읍·면·동)는 초톳 「Chọn Tỉnh/Thành phố」처럼 테두리 검색칸(52)이 늘 보이고, 나머지는 회색 알약 검색(40)을 8개 넘을 때만 보인다.
+const props = defineProps<{ title: string; sections: Section[]; value?: string; loading?: boolean; back?: boolean; searchBox?: boolean; searchPh?: string }>();
 const emit = defineEmits<{ pick: [string]; close: []; back: [] }>();
 const q = ref("");
 const closeBtn = ref<HTMLButtonElement | null>(null);
@@ -16,32 +17,35 @@ const shown = computed(() => {
   if (!k) return props.sections;
   return [{ items: props.sections.flatMap((s) => s.items).filter((i) => norm(i).includes(k)) }];
 });
-const showSearch = computed(() => props.loading || props.sections.reduce((n, s) => n + s.items.length, 0) > 8);
+const showSearch = computed(() => props.searchBox || props.loading || props.sections.reduce((n, s) => n + s.items.length, 0) > 8);
+let prevOverflow = "";
 const onKey = (e: KeyboardEvent) => {
   if (e.key === "Escape") emit("close");
 };
 onMounted(async () => {
   document.addEventListener("keydown", onKey);
+  prevOverflow = document.body.style.overflow;
   document.body.style.overflow = "hidden";
   await nextTick();
   closeBtn.value?.focus({ preventScroll: true });
 });
 onBeforeUnmount(() => {
   document.removeEventListener("keydown", onKey);
-  document.body.style.overflow = "";
+  document.body.style.overflow = prevOverflow;
 });
 </script>
 <template>
-  <div class="dim" @click="emit('close')" />
-  <section class="sheet sheet--full" role="dialog" aria-modal="true" :aria-label="title">
+  <div class="layer">
+  <div class="dim dim--picker" @click="emit('close')" />
+  <section class="sheet sheet--full sheet--picker" :class="{ 'sheet--addr': searchBox }" role="dialog" aria-modal="true" :aria-label="title">
     <header class="sheet__head">
       <button v-if="back" ref="closeBtn" type="button" class="sheet__back" aria-label="이전" @click="emit('back')"><Ico :src="IC.back" /></button>
       <button v-else ref="closeBtn" type="button" class="sheet__x" aria-label="닫기" @click="emit('close')"><Ico :src="IC.close" /></button>
       <h2>{{ title }}</h2>
     </header>
-    <label v-if="showSearch" class="sheet__search">
-      <Ico :src="IC.search" />
-      <input v-model="q" type="search" placeholder="검색" :aria-label="`${title} 검색`" />
+    <label v-if="showSearch" class="sheet__search" :class="{ 'is-box': searchBox }">
+      <Ico :src="searchBox ? IC.searchDark : IC.search" />
+      <input v-model="q" type="search" :placeholder="searchPh || '검색'" :aria-label="`${title} 검색`" />
     </label>
     <div class="sheet__list" role="radiogroup" :aria-label="title">
       <p v-if="loading" class="sheet__empty">불러오는 중…</p>
@@ -56,4 +60,5 @@ onBeforeUnmount(() => {
       <slot />
     </div>
   </section>
+  </div>
 </template>
