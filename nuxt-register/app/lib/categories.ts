@@ -4,8 +4,8 @@
 // 값이 없는 칸은 0 · 「없음」으로 바꾸지 않는다(빈 값 = 미입력).
 import truckCatalog from "./truck";
 
-export type FieldKind = "pick" | "pills" | "number" | "text";
-export type OptionSource = string[] | "maker" | "model" | "year" | "truckFormat" | "truckSubtype";
+export type FieldKind = "pick" | "pills" | "number" | "text" | "plate" | "multi";
+export type OptionSource = string[] | "maker" | "model" | "year" | "truckFormat" | "truckSubtype" | "generation" | "fuelCat" | "grade" | "carOptions";
 export type Field = {
   key: string;
   label: string;
@@ -18,6 +18,8 @@ export type Field = {
   when?: (v: Record<string, string>) => boolean;
   /** 이 칸을 바꾸면 비울 하위 칸 */
   resets?: string[];
+  /** 줄 아래 작은 안내(테스트 서버 「매매유형」 안내 문구 등) */
+  hint?: string;
 };
 export type CategoryId = "car" | "ev" | "bike" | "truck" | "heavy" | "camping" | "parts";
 export type Category = {
@@ -34,13 +36,48 @@ export type Category = {
   priceUnit: string;
   /** 촬영 키트 사용 여부(부품은 일반 사진만) */
   shootKit: boolean;
+  /** 보배드림 테스트 서버(dev.bbmuseum.co.kr/car/register/form) 양식을 쓰는 카테고리.
+   *  판매구분 · 연락처 · 상세설명 유형 · 성능점검기록부 · 부가서비스 · 허위매물 정책 동의가 붙고, 판매자(개인/딜러) 알약은 「매매유형」이 대신한다. */
+  devForm?: boolean;
+  titleMax?: number;
+  descMax?: number;
+  mediaMax?: number;
+  /** 처음 값(테스트 서버 기본값: 압류 0 · 저당 0) */
+  defaults?: Record<string, string>;
 };
 
 const COLORS = ["검정", "흰색", "은색", "회색", "쥐색", "진주색", "파랑", "남색", "빨강", "갈색", "베이지", "초록", "노랑", "주황", "기타"];
 const CONDITION = ["중고", "신차"];
-const FUEL = ["가솔린", "디젤", "LPG", "하이브리드", "플러그인 하이브리드", "전기", "수소"];
-const GEAR = ["오토", "수동", "CVT", "DCT"];
-const BODY = ["경차", "세단", "해치백", "SUV", "RV", "쿠페", "컨버터블", "왜건", "밴(승합)", "픽업트럭"];
+export const FUEL = ["가솔린", "디젤", "LPG", "하이브리드", "플러그인 하이브리드", "전기", "수소"];
+
+// ── 테스트 서버 「매물 정보」 칸(2026-11-01 dev.bbmuseum.co.kr/car/register/form 직접 확인 · 순서 그대로) ──
+const COUNT = Array.from({ length: 11 }, (_, i) => String(i));
+const MONTHS = Array.from({ length: 12 }, (_, i) => `${String(i + 1).padStart(2, "0")}월`);
+export const EXTERIOR = ["흰색", "검정색", "쥐색", "청색", "은색", "은회색", "빨간색", "진주색", "노란색", "갈색", "하늘색", "녹색", "담녹색", "연금색", "명은색", "주황색", "연두색", "자주색", "은하색", "갈대색", "청옥색", "분홍색", "검정투톤", "보라색", "흰색투톤", "은색투톤", "금색", "진주투톤", "갈색투톤", "금색투톤", "기타"];
+export const SEAT = ["검정색 계열", "갈색 계열", "베이지 계열", "회색 계열", "노란색 계열", "녹색 계열", "빨간색 계열", "주황색 계열", "청색 계열", "흰색 계열", "기타"];
+export const DEAL_TYPES = ["직접매도(실차주)", "매매알선(소속 상사 매물)", "매매알선(타 상사 매물)", "위탁판매(개인/법인)"];
+const DEV_FIELDS: Field[] = [
+  { key: "plate", label: "차량번호", kind: "plate", required: true, placeholder: "띄어쓰기 없이 입력" },
+  { key: "maker", label: "제조사", kind: "pick", required: true, options: "maker", resets: ["model", "gen", "fuel", "grade"] },
+  { key: "model", label: "모델", kind: "pick", required: true, options: "model", resets: ["gen", "fuel", "grade"] },
+  { key: "year", label: "연식", kind: "pick", required: true, options: "year" },
+  { key: "month", label: "월", kind: "pick", required: true, options: MONTHS },
+  { key: "formYear", label: "형식연도", kind: "pick", required: true, options: "year" },
+  { key: "gen", label: "세부모델", kind: "pick", required: true, options: "generation", resets: ["fuel", "grade"] },
+  { key: "fuel", label: "연료", kind: "pick", required: true, options: "fuelCat", resets: ["grade"] },
+  { key: "grade", label: "등급", kind: "pick", required: true, options: "grade" },
+  { key: "cc", label: "배기량", kind: "number", required: true, unit: "cc" },
+  { key: "seizure", label: "압류", kind: "pick", required: true, options: COUNT },
+  { key: "mortgage", label: "저당", kind: "pick", required: true, options: COUNT },
+  { key: "color", label: "색상", kind: "pick", required: true, options: EXTERIOR },
+  { key: "seat", label: "시트색상", kind: "pick", required: true, options: SEAT },
+  { key: "mileage", label: "주행거리", kind: "number", required: true, unit: "km" },
+  { key: "gear", label: "변속기", kind: "pills", required: true, options: ["자동", "수동"] },
+  { key: "warranty", label: "제조사 보증", kind: "pills", required: true, options: ["보증가능", "보증만료"] },
+  { key: "importType", label: "수입구분", kind: "pills", required: true, options: ["정식수입", "병행수입"] },
+  { key: "dealType", label: "매매유형", kind: "pick", required: true, options: DEAL_TYPES, hint: "제시번호와 성능기록부가 없다면 「위탁판매」를 골라 주세요." },
+  { key: "options", label: "옵션", kind: "multi", options: "carOptions" },
+];
 
 const maker: Field = { key: "maker", label: "제조사", kind: "pick", required: true, options: "maker", resets: ["model"] };
 const model: Field = { key: "model", label: "모델", kind: "pick", required: true, options: "model" };
@@ -55,22 +92,14 @@ export const CATEGORIES: Category[] = [
     catalog: "car",
     priceUnit: "만원",
     shootKit: true,
+    devForm: true,
+    titleMax: 40,
+    descMax: 2000,
+    mediaMax: 20,
+    defaults: { seizure: "0", mortgage: "0" },
     titleHint: "예) 현대 그랜저 IG 2.5 프리미엄 2020",
     descHint: "옵션, 사고 · 정비 이력, 소모품 교환 등 차량 상태를 적어 주세요.",
-    fields: [
-      { key: "condition", label: "상태", kind: "pills", required: true, options: CONDITION },
-      maker,
-      model,
-      year,
-      { key: "fuel", label: "연료", kind: "pick", required: true, options: FUEL },
-      { key: "gear", label: "변속기", kind: "pick", required: true, options: GEAR },
-      mileage,
-      { key: "body", label: "차종", kind: "pick", options: BODY },
-      { key: "seats", label: "승차정원", kind: "pick", options: ["2인승", "4인승", "5인승", "7인승", "9인승", "11인승 이상"] },
-      color,
-      { key: "accident", label: "사고 이력", kind: "pick", options: ["무사고", "단순 교환", "사고 있음", "확인 안 됨"] },
-      { key: "inspection", label: "성능점검기록부", kind: "pills", options: ["있음", "없음"] },
-    ],
+    fields: DEV_FIELDS,
   },
   {
     id: "ev",
@@ -80,18 +109,18 @@ export const CATEGORIES: Category[] = [
     shootKit: true,
     titleHint: "예) 기아 EV6 롱레인지 2023",
     descHint: "배터리 점검 결과(측정일 · 기관), 충전 케이블 · 어댑터 포함 여부를 적어 주세요.",
+    devForm: true,
+    titleMax: 40,
+    descMax: 2000,
+    mediaMax: 20,
+    defaults: { seizure: "0", mortgage: "0" },
     fields: [
-      { key: "condition", label: "상태", kind: "pills", required: true, options: CONDITION },
-      maker,
-      model,
-      year,
-      mileage,
+      ...DEV_FIELDS.filter((f) => f.key !== "options"),
       { key: "battery", label: "배터리 용량", kind: "number", unit: "kWh" },
       { key: "soh", label: "배터리 상태(SOH)", kind: "number", unit: "%", placeholder: "점검서가 있을 때만" },
       { key: "range", label: "1회 충전 주행거리", kind: "number", unit: "km", placeholder: "인증 기준" },
       { key: "charge", label: "급속 충전 방식", kind: "pick", options: ["DC콤보", "차데모", "NACS", "기타"] },
-      { key: "body", label: "차종", kind: "pick", options: BODY },
-      color,
+      DEV_FIELDS.find((f) => f.key === "options")!,
     ],
   },
   {

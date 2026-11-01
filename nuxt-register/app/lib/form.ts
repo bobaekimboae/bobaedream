@@ -3,6 +3,7 @@
 import { useState } from "#app";
 import { computed } from "vue";
 import { categoryOf, visibleFields, type CategoryId } from "./categories";
+import type { SaleKind } from "./devform";
 
 export type Media = { id: string; kind: "photo" | "video"; src: string; poster?: string; from: "album" | "shoot"; slot?: string; seconds?: number };
 /** 초톳 「Địa chỉ」 4칸: 시·도 / 시·군·구 / 읍·면·동 / 상세 주소(선택) */
@@ -20,6 +21,24 @@ export type FormState = {
   values: Record<string, string>;
   postType: PostType;
   sns: string[];
+  // ── 테스트 서버 양식(중고차 · 전기차) ──
+  /** 판매구분: 일반 · 리스승계 · 렌트 */
+  saleKind: SaleKind;
+  /** 리스 · 렌트 승계 조건(회사 · 월 납입료 · 보증금 · 정산금 · 남은 개월) */
+  lease: { company: string; monthly: string; deposit: string; settle: string; months: string };
+  /** 연락처 공개(050 안심번호). 끄면 채팅으로만 상담 */
+  contact: boolean;
+  descType: "직접입력" | "기본양식";
+  /** 외부영상(유튜브 등) 주소 */
+  videoUrl: string;
+  /** 차량번호 조회로 채워져 잠긴 칸 */
+  locked: string[];
+  /** 임시번호 · 직수입 차량(조회 없이 직접 입력) */
+  imported: boolean;
+  /** 성능 · 상태 점검기록부 제시번호 */
+  inspectNo: string;
+  /** 허위매물 운영정책 동의 */
+  agree: boolean;
 };
 
 export const MAX_MEDIA = 30;
@@ -28,13 +47,22 @@ export const TITLE_MAX = 50;
 
 export const blank = (category: CategoryId = "car"): FormState => ({
   category,
+  saleKind: "일반",
+  lease: { company: "", monthly: "", deposit: "", settle: "", months: "" },
+  contact: true,
+  descType: "직접입력",
+  videoUrl: "",
+  locked: [],
+  imported: false,
+  inspectNo: "",
+  agree: false,
   media: [],
   desc: "",
   title: "",
   price: "",
   region: null,
   seller: "개인",
-  values: {},
+  values: { ...(categoryOf(category).defaults ?? {}) },
   postType: "free",
   sns: [],
 });
@@ -49,16 +77,26 @@ export function useForm() {
   const errors = computed<Record<string, string>>(() => {
     const f = form.value;
     const e: Record<string, string> = {};
+    const dev = cat.value.devForm;
     if (!f.media.length) e.media = "사진을 1장 이상 올려 주세요";
-    if (f.desc.trim().length < 10) e.desc = f.desc.trim() ? "10자 이상 입력해 주세요" : "입력해 주세요";
-    if (!f.title.trim()) e.title = "입력해 주세요";
+    // 테스트 서버 양식은 제목 · 상세설명이 필수가 아니다(별표 없음)
+    if (!dev && f.desc.trim().length < 10) e.desc = f.desc.trim() ? "10자 이상 입력해 주세요" : "입력해 주세요";
+    if (!dev && !f.title.trim()) e.title = "입력해 주세요";
+    if (dev) {
+      if (f.saleKind !== "일반") {
+        if (!f.lease.company) e.leaseCompany = "선택해 주세요";
+        if (!f.lease.monthly) e.leaseMonthly = "입력해 주세요";
+      }
+      if (f.videoUrl.trim() && !/^https?:\/\/\S+\.\S+/.test(f.videoUrl.trim())) e.videoUrl = "http로 시작하는 주소를 넣어 주세요";
+      if (!f.agree) e.agree = "허위매물 운영정책에 동의해 주세요";
+    }
     const price = Number(f.price.replace(/[^0-9]/g, ""));
     if (!f.price) e.price = "입력해 주세요";
     else if (!price) e.price = "0보다 큰 금액을 입력해 주세요";
     if (!f.region || !f.region.gu || !f.region.dong) e.region = "선택해 주세요";
     for (const fd of fields.value) {
       if (!fd.required) continue;
-      if (!f.values[fd.key]) e[fd.key] = fd.kind === "number" || fd.kind === "text" ? "입력해 주세요" : "선택해 주세요";
+      if (!f.values[fd.key]) e[fd.key] = fd.kind === "number" || fd.kind === "text" || fd.kind === "plate" ? "입력해 주세요" : "선택해 주세요";
     }
     return e;
   });
@@ -68,12 +106,14 @@ export function useForm() {
     const fd = cat.value.fields.find((x) => x.key === key);
     const next = { ...form.value.values, [key]: val };
     if (!val) delete next[key];
-    for (const r of fd?.resets ?? []) delete next[r];
-    form.value = { ...form.value, values: next };
+    for (const r of fd?.resets ?? []) if (!form.value.locked.includes(r)) delete next[r];
+    // 차량번호를 지우면 조회로 잠근 칸을 모두 푼다(값은 남겨 고칠 수 있게)
+    const locked = key === "plate" && !val ? [] : form.value.locked;
+    form.value = { ...form.value, values: next, locked };
   };
   const setCategory = (id: CategoryId) => {
     if (id === form.value.category) return;
-    form.value = { ...form.value, category: id, values: {} };
+    form.value = { ...form.value, category: id, values: { ...(categoryOf(id).defaults ?? {}) }, locked: [] };
   };
   return { form, tried, cat, fields, errors, shown, setValue, setCategory };
 }
