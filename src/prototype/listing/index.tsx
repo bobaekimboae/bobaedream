@@ -1352,19 +1352,25 @@ function MarketplaceScreen() {
     + (isGuaziQuickStyle || trimApplied ? selectedVariants.length + selectedGradeLevels.length + selectedGradeGroups.length : 0)
     + filters.colors.length;
 
-  const baseListCars = useMemo(() => {
+  // The hierarchy action and the listing must use the identical predicate, not
+  // catalog metadata totals. A new hierarchy choice also clears old trim choices.
+  const carsForVehicleSelection = (selection?: { maker: string | null; model: string | null; generation: string | null }) => {
+    const selectionFilters = selection ? { ...filters, maker: selection.maker, model: selection.model } : filters;
+    const generation = selection ? selection.generation : selectedGeneration;
+    const generationOption = selection ? generationsByMakerModelMap[selection.maker ?? ""]?.[selection.model ?? ""]?.find((item) => item.name === generation) : selectedGenerationOption;
+    const catalogMaker = selection ? Boolean(!isBikeCategory && !isTruckCategory && isGuaziQuickStyle && selection.maker && catalogMakerNames.has(selection.maker)) : isCatalogMaker;
     const normalized = query.trim().toLowerCase();
     return listingCars.filter((car) => {
       const searchText = `${car.title} ${car.trim} ${car.maker} ${car.modelGroup ?? ""}`;
       const searchKey = normalizeModelSearchText(searchText);
       // QF-097: 카탈로그 세부 모델은 코드(없으면 N세대)가 매물 이름·트림에 들어 있으면 해당
-      const generationMatch = !selectedGeneration || (selectedGenerationOption?.matchKeys
-        ? !selectedGenerationOption.matchKeys.length || selectedGenerationOption.matchKeys.some((key) => searchKey.includes(normalizeModelSearchText(key)))
-        : searchKey.includes(normalizeModelSearchText(generationDisplayLabel(selectedGenerationOption ?? { name: selectedGeneration, years: "", variants: [] }))) || searchKey.includes(normalizeModelSearchText(selectedGeneration)));
-      const activeTrimVariants = isGuaziQuickStyle ? effectiveSelectedVariants : trimApplied ? selectedVariants : [];
+      const generationMatch = !generation || (generationOption?.matchKeys
+        ? !generationOption.matchKeys.length || generationOption.matchKeys.some((key) => searchKey.includes(normalizeModelSearchText(key)))
+        : searchKey.includes(normalizeModelSearchText(generationDisplayLabel(generationOption ?? { name: generation, years: "", variants: [] }))) || searchKey.includes(normalizeModelSearchText(generation)));
+      const activeTrimVariants = selection ? [] : isGuaziQuickStyle ? effectiveSelectedVariants : trimApplied ? selectedVariants : [];
       const trimMatch = activeTrimVariants.length === 0 || activeTrimVariants.some((variant) => normalizeModelSearchText(searchText).includes(normalizeModelSearchText(variant.split(" › ").at(-1) ?? variant)));
       // QF-097 보완: 과쯔 카탈로그 제조사는 매물이 연결된 모델 하나로만 거른다(이름 일부 겹침 방지)
-      const catalogModelMatch = !isCatalogMaker || !filters.model || catalogModelOfCar(car) === filters.model;
+      const catalogModelMatch = !catalogMaker || !selectionFilters.model || catalogModelOfCar(car) === selectionFilters.model;
       const categoryChildMatch = !isCampingCategory || !bbmCategoryChild || car.virtualCategory?.categoryDetail === bbmCategoryChild;
       const heavyMatch = !isHeavyCategory || (
         (!heavySelection.equipmentTypeCode || car.heavy?.equipmentTypeCode === heavySelection.equipmentTypeCode)
@@ -1376,9 +1382,10 @@ function MarketplaceScreen() {
       const oldcarDecadeMatch = category !== "올드카" || selectedOldcarDecade === null || Math.floor((car.filter?.year ?? 0) / 10) * 10 === selectedOldcarDecade;
       const ferrariDealerMatch = maker !== "페라리" || !selectedFerrariDealer || car.dealer === selectedFerrariDealer;
       const bikeShopMatch = !isBikeCategory || !selectedBikeShop || car.dealer === selectedBikeShop;
-      return categoryChildMatch && heavyMatch && oldcarDecadeMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, filters) && catalogModelMatch && generationMatch && trimMatch && ferrariDealerMatch && bikeShopMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!region.neighborhood || car.place.includes(region.neighborhood)) && (!normalized || searchText.toLowerCase().includes(normalized));
+      return categoryChildMatch && heavyMatch && oldcarDecadeMatch && matchesTruckSelection(car) && matchesChoTotFilters(car, selectionFilters) && catalogModelMatch && generationMatch && trimMatch && ferrariDealerMatch && bikeShopMatch && (!regionKeyword || car.place.includes(regionKeyword)) && (!region.district || car.place.includes(region.district)) && (!region.neighborhood || car.place.includes(region.neighborhood)) && (!normalized || searchText.toLowerCase().includes(normalized));
     });
-  }, [bbmCategoryChild, category, effectiveSelectedVariants, filters, heavySelection, isBikeCategory, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, maker, query, region.district, region.neighborhood, regionKeyword, selectedBikeShop, selectedFerrariDealer, selectedGeneration, selectedGenerationOption, selectedOldcarDecade, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
+  };
+  const baseListCars = useMemo(() => carsForVehicleSelection(), [bbmCategoryChild, category, effectiveSelectedVariants, filters, heavySelection, isBikeCategory, isCampingCategory, isCatalogMaker, isGuaziQuickStyle, isHeavyCategory, isTruckCategory, listingCars, maker, query, region.district, region.neighborhood, regionKeyword, selectedBikeShop, selectedFerrariDealer, selectedGeneration, selectedGenerationOption, selectedOldcarDecade, selectedTruckFormat, selectedTruckSpec, selectedTruckSubtype, selectedVariants, trimApplied]);
   // QF-090: 우리 데이터가 있는 개발 시안형 항목(바디타입·연식·주행거리·가격·연료·변속기·인승·외부색상·판매자 구분·지역)으로 거른다
   const filteredWithoutPrice = useMemo(() => isGuaziQuickStyle ? baseListCars.filter((car) => matchesBbmFilters(car, filters.bbm)) : baseListCars, [baseListCars, filters.bbm, isGuaziQuickStyle]);
   // QF-097 보완(매물 수 기준 하나로): 과쯔 카탈로그 제조사의 모델·세부 모델·트림 수 = 화면 샘플 매물 수(모델·세부 모델·트림만 뺀 지금 조건).
@@ -3113,6 +3120,7 @@ function MarketplaceScreen() {
       ));
       return <MakerHierarchyModal
         mode={onDesktop ? "modal" : "sheet"}
+        countOfSelection={(nextMaker, nextModel, nextGeneration) => carsForVehicleSelection({ maker: nextMaker, model: nextModel, generation: nextGeneration }).filter((car) => matchesBbmFilters(car, bbmValue)).length}
         onClose={close}
         onApply={(nextMaker, nextModel, nextGeneration) => { applyVehicleSummarySelection(nextMaker, nextModel, nextGeneration); close(); }}
         initialMaker={maker}

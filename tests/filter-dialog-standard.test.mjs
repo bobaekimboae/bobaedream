@@ -79,3 +79,9 @@ test('region selection stays in a draft and gets the same explicit action bar', 
   assert.match(source, /count=\{countOf\(draft\)\}/);
   assert.match(source, /onConfirm=\{\(\) => \{ onChange\(draft\); onClose\(\); \}\}/);
 });
+test('manufacturer action count reuses the actual listing predicate, not metadata totals', () => {
+  const source = read('src/prototype/listing/index.tsx');
+  assert.match(source, /const baseListCars = useMemo\(\(\) => carsForVehicleSelection\(\)/);
+  assert.match(source, /countOfSelection=\{\(nextMaker, nextModel, nextGeneration\) => carsForVehicleSelection/);
+  assert.match(read('src/prototype/listing/maker-hierarchy-modal.tsx'), /const resultCount = countOfSelection\(draftMaker, draftModel, draftGeneration\)/);
+});

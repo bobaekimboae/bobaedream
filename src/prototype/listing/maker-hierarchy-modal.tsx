@@ -27,6 +27,7 @@ type Props = {
   generationsByMakerModel: Record<string, Record<string, QuickGenerationOption[]>>;
   formatModel: (name: string) => string;
   onPreviewMaker?: (maker: string) => void;
+  countOfSelection: (maker: string | null, model: string | null, generation: string | null) => number;
 };
 
 const numberFromCount = (value?: string) => value ? Number(value.replace(/[^0-9]/g, "")) || 0 : 0;
@@ -55,6 +56,7 @@ export function MakerHierarchyModal({
   generationsByMakerModel,
   formatModel,
   onPreviewMaker,
+  countOfSelection,
 }: Props) {
   const [step, setStep] = useState<Step>(() => inferStep(initialMaker, initialModel, startStep));
   const [query, setQuery] = useState("");
@@ -83,8 +85,7 @@ export function MakerHierarchyModal({
     sum + numberFromCount(modelVisualsByMaker[maker]?.[name]?.count)
   ), 0);
   const selectedGeneration = draftModel && draftGeneration ? (generationsByModel[draftModel] ?? []).find((item) => item.name === draftGeneration) : undefined;
-  const modelCount = draftModel ? numberFromCount(modelVisuals[draftModel]?.count) : modelNames.reduce((sum, name) => sum + numberFromCount(modelVisuals[name]?.count), 0);
-  const resultCount = draftMaker ? selectedGeneration?.count ?? modelCount : makers.reduce((sum, maker) => sum + makerCount(maker.name), 0);
+  const resultCount = countOfSelection(draftMaker, draftModel, draftGeneration);
 
   const goMaker = () => { setStep("maker"); setQuery(""); };
   const goModel = () => { setStep("model"); setQuery(""); setDraftModel(null); setDraftGeneration(null); };
