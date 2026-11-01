@@ -297,3 +297,7 @@ a { color: inherit; text-decoration: none; }
   .write-toolbar img { width: 24px; height: 24px; }
   .view-choice-grid button { height: 84px; }
 }
+
+/* 게시판 메뉴 → 전체 분류(categories) 이동 */
+.board-drawer > header .drawer-all-link { margin-left: auto; margin-right: 8px; height: 32px; padding: 0 12px; border: 1px solid #e4e7ec; border-radius: 999px; font-size: 13px; line-height: 30px; font-weight: 600; color: #222; }
+.board-drawer > header .drawer-all-link + button { margin-left: 0; }
