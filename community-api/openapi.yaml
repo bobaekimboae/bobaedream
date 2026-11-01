@@ -1,0 +1,244 @@
+openapi: 3.1.0
+info:
+  title: 보배드림 커뮤니티 리뷰 · 연비 API
+  version: 1.0.0
+  description: |
+    Laravel 12 · PHP 8.4 · PostgreSQL 15. 화면 nuxt-review/app/lib/api/client.ts 의 httpApi 와 1:1.
+    인증은 Sanctum 토큰(Authorization: Bearer). 오류는 모두 { ok:false, error, code, fields? }.
+servers:
+  - url: http://localhost:8000/api/community
+security: []
+components:
+  securitySchemes:
+    bearer: { type: http, scheme: bearer }
+  parameters:
+    board: { name: board, in: path, required: true, schema: { type: string, enum: [review, fuel] } }
+    post: { name: post, in: path, required: true, schema: { type: string } }
+  responses:
+    Error:
+      description: 오류(401 unauthenticated · 403 forbidden · 404 not_found · 422 invalid · 429 too_many)
+      content: { application/json: { schema: { $ref: '#/components/schemas/Error' } } }
+    NoContent: { description: 처리됨(본문 없음) }
+  schemas:
+    Error:
+      type: object
+      required: [ok, error, code]
+      properties:
+        ok: { const: false }
+        error: { type: string, description: 화면에 그대로 보여 줄 한국어 한 줄 }
+        code: { type: string, enum: [invalid, unauthenticated, forbidden, not_found, too_many] }
+        fields: { type: array, items: { type: string }, description: '틀린 칸 이름(예: ratings.fuel, purchase.month)' }
+    Can:
+      type: object
+      required: [update, delete, report]
+      properties: { update: { type: boolean }, delete: { type: boolean }, report: { type: boolean } }
+    Me:
+      type: object
+      properties:
+        id: { type: [integer, 'null'] }
+        nickname: { type: string }
+        avatar: { type: string }
+        can: { type: object, properties: { post: { type: boolean }, comment: { type: boolean }, react: { type: boolean } } }
+    Comment:
+      type: object
+      properties:
+        id: { type: string }
+        author: { type: string }
+        avatar: { type: string }
+        body: { type: string }
+        likes: { type: integer }
+        region: { type: string }
+        daysAgo: { type: integer }
+        replies: { type: integer }
+        can: { type: object, properties: { delete: { type: boolean } } }
+    PostBase:
+      type: object
+      properties:
+        id: { type: string }
+        modelId: { type: string }
+        brand: { type: string }
+        model: { type: string }
+        trim: { type: string }
+        brandLogo: { type: string }
+        title: { type: string }
+        body: { type: string }
+        author: { type: string }
+        avatar: { type: string }
+        publishedAt: { type: string, format: date-time }
+        images: { type: array, items: { type: string } }
+        views: { type: integer }
+        comments: { type: integer }
+        likes: { type: integer }
+        commentList: { type: array, maxItems: 3, items: { $ref: '#/components/schemas/Comment' } }
+        mine: { type: boolean }
+        can: { $ref: '#/components/schemas/Can' }
+    Review:
+      allOf:
+        - $ref: '#/components/schemas/PostBase'
+        - type: object
+          properties:
+            year: { type: integer }
+            powertrain: { type: string, enum: [ev, phev, erev, hybrid, ice] }
+            rating: { type: number, description: 항목 평균(소수 둘째 자리) }
+            ratings: { type: array, items: { type: object, properties: { label: { type: string }, score: { type: number } } } }
+            owner: { type: boolean }
+            ownership: { type: string, examples: ['보유 3개월', '시승 리뷰'] }
+            location: { type: string }
+            benchmark: { type: string, examples: ['SUV 평균 4.36'] }
+            purchase:
+              type: [object, 'null']
+              properties: { month: { type: string }, price: { type: integer, description: 만원 }, city: { type: string }, metric: { type: string, examples: ['9.4km/L', '410km'] } }
+    FuelPost:
+      allOf:
+        - $ref: '#/components/schemas/PostBase'
+        - type: object
+          properties:
+            powertrain: { type: string, enum: [ev, phev, hybrid, ice], description: erev 는 phev 로 내려감 }
+            photo: { type: string }
+            city: { type: string }
+            odometer: { type: integer }
+            fuel: { type: [number, 'null'], description: km/L }
+            energy: { type: [number, 'null'], description: 'kWh/100km(화면 호환용, 저장 값은 km/kWh)' }
+            energyKmPerKwh: { type: [number, 'null'] }
+            range: { type: [integer, 'null'], description: 완충 실주행거리 km }
+            temperature: { type: [integer, 'null'], description: 측정 온도 ℃ }
+            ownerYears: { type: integer }
+    ReviewInput:
+      type: object
+      required: [model_id, owner, ratings, body]
+      properties:
+        model_id: { type: string }
+        owner: { type: boolean }
+        purchase:
+          type: [object, 'null']
+          description: owner=true 이면 필수
+          required: [month, city, price, metric]
+          properties:
+            month: { type: string, pattern: '^\d{4}\.(0[1-9]|1[0-2])$' }
+            city: { type: string, description: 17개 시 · 도 }
+            price: { type: integer, minimum: 1, description: 만원 }
+            paid: { type: [integer, 'null'] }
+            metric: { type: number, exclusiveMinimum: 0, description: '전기 계열 km, 내연 계열 km/L' }
+        ratings:
+          type: object
+          description: '동력 방식별 필수 항목 모두 + 선택 항목. 0.5 단위 0.5~5.0. 전기 계열 = exterior·interior·space·features·driving·range(+adas·cockpit), 내연 계열 = exterior·interior·space·features·power·fuel'
+          additionalProperties: { type: number, multipleOf: 0.5, minimum: 0.5, maximum: 5 }
+        body: { type: string, minLength: 30, maxLength: 5000 }
+        cover_upload_id: { type: [string, 'null'] }
+    FuelInput:
+      type: object
+      required: [model_id, body, city]
+      properties:
+        model_id: { type: string }
+        title: { type: [string, 'null'], maxLength: 30 }
+        body: { type: string, minLength: 1, maxLength: 2000 }
+        city: { type: string }
+        odometer_km: { type: [integer, 'null'], minimum: 0 }
+        fuel_km_per_l: { type: [number, 'null'], description: '내연 · 하이브리드 · 플러그인 · 연장형만' }
+        energy_km_per_kwh: { type: [number, 'null'], description: '전기 · 플러그인 · 연장형만' }
+        full_charge_km: { type: [integer, 'null'], description: 전기만 }
+        temperature_c: { type: [integer, 'null'], minimum: -40, maximum: 60, description: '전기만(화면 기본 15)' }
+        upload_ids: { type: array, maxItems: 9, items: { type: string } }
+    Draft:
+      type: object
+      properties:
+        board: { type: string, enum: [review, fuel] }
+        model_id: { type: string }
+        model_name: { type: string }
+        payload: { type: object, description: 화면 상태 그대로(최대 64KB) }
+        updated_at: { type: string, format: date-time }
+paths:
+  /me:
+    get:
+      summary: 나와 내 권한(로그인 안 했으면 id null · 권한 false)
+      security: [{}, { bearer: [] }]
+      responses: { '200': { description: OK, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/Me' } } } } } } }
+  /{board}/posts:
+    parameters: [{ $ref: '#/components/parameters/board' }]
+    get:
+      summary: 글 목록(로그인 없이 됨). 로그인했으면 can · mine 을 그 사람 기준으로
+      security: [{}, { bearer: [] }]
+      parameters:
+        - { name: model_id, in: query, schema: { type: string } }
+        - { name: sort, in: query, schema: { type: string, enum: [latest, likes, comments], default: latest } }
+        - { name: owner, in: query, description: '리뷰만: 1 이면 오너 리뷰만', schema: { type: integer, enum: [0, 1] } }
+        - { name: cursor, in: query, schema: { type: string } }
+      responses:
+        '200':
+          description: 20건씩
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: array, items: { oneOf: [{ $ref: '#/components/schemas/Review' }, { $ref: '#/components/schemas/FuelPost' }] } }
+                  meta: { type: object, properties: { next_cursor: { type: [string, 'null'] }, total: { type: integer } } }
+  /review/posts:
+    post:
+      summary: 리뷰 등록(1분에 3건). 등록하면 리뷰 임시저장을 지움
+      security: [{ bearer: [] }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ReviewInput' } } } }
+      responses:
+        '201': { description: 등록됨, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/Review' } } } } } }
+        default: { $ref: '#/components/responses/Error' }
+  /fuel/posts:
+    post:
+      summary: 연비 · 전비 기록 등록(1분에 3건). 등록하면 연비 임시저장을 지움
+      security: [{ bearer: [] }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/FuelInput' } } } }
+      responses:
+        '201': { description: 등록됨, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/FuelPost' } } } } } }
+        default: { $ref: '#/components/responses/Error' }
+  /{board}/posts/{post}:
+    parameters: [{ $ref: '#/components/parameters/board' }, { $ref: '#/components/parameters/post' }]
+    delete:
+      summary: 글 삭제(작성자 · 운영자). 복구용으로 남김
+      security: [{ bearer: [] }]
+      responses: { '204': { $ref: '#/components/responses/NoContent' }, default: { $ref: '#/components/responses/Error' } }
+  /{board}/posts/{post}/comments:
+    parameters: [{ $ref: '#/components/parameters/board' }, { $ref: '#/components/parameters/post' }]
+    post:
+      summary: 댓글 · 답글(1분에 10건)
+      security: [{ bearer: [] }]
+      requestBody:
+        required: true
+        content: { application/json: { schema: { type: object, required: [body], properties: { body: { type: string, minLength: 1, maxLength: 500 }, parent_id: { type: [integer, 'null'] } } } } }
+      responses:
+        '201': { description: 등록됨, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/Comment' } } } } } }
+        default: { $ref: '#/components/responses/Error' }
+  /{board}/posts/{post}/comments/{comment}:
+    parameters: [{ $ref: '#/components/parameters/board' }, { $ref: '#/components/parameters/post' }, { name: comment, in: path, required: true, schema: { type: string } }]
+    delete:
+      summary: 댓글 삭제(작성자 · 운영자)
+      security: [{ bearer: [] }]
+      responses: { '204': { $ref: '#/components/responses/NoContent' }, default: { $ref: '#/components/responses/Error' } }
+  /{board}/posts/{post}/reactions/{kind}:
+    parameters:
+      - { $ref: '#/components/parameters/board' }
+      - { $ref: '#/components/parameters/post' }
+      - { name: kind, in: path, required: true, description: 'dislike 는 review 만', schema: { type: string, enum: [like, dislike, bookmark] } }
+    put:
+      summary: 반응 켜기(공감 ↔ 비공감은 한쪽만, 여러 번 보내도 같음)
+      security: [{ bearer: [] }]
+      responses: { '204': { $ref: '#/components/responses/NoContent' }, default: { $ref: '#/components/responses/Error' } }
+    delete:
+      summary: 반응 끄기
+      security: [{ bearer: [] }]
+      responses: { '204': { $ref: '#/components/responses/NoContent' }, default: { $ref: '#/components/responses/Error' } }
+  /{board}/draft:
+    parameters: [{ $ref: '#/components/parameters/board' }]
+    get:
+      summary: 내 임시저장(없으면 data null)
+      security: [{ bearer: [] }]
+      responses: { '200': { description: OK, content: { application/json: { schema: { type: object, properties: { data: { oneOf: [{ $ref: '#/components/schemas/Draft' }, { type: 'null' }] } } } } } } }
+    put:
+      summary: 임시저장 덮어쓰기(게시판마다 1건, 1분에 60건)
+      security: [{ bearer: [] }]
+      requestBody:
+        required: true
+        content: { application/json: { schema: { type: object, required: [model_id, model_name, payload], properties: { model_id: { type: string }, model_name: { type: string, maxLength: 60 }, payload: { type: object } } } } }
+      responses: { '200': { description: 저장됨, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/Draft' } } } } } }, default: { $ref: '#/components/responses/Error' } }
+    delete:
+      summary: 임시저장 지우기(「저장 안 함」)
+      security: [{ bearer: [] }]
+      responses: { '204': { $ref: '#/components/responses/NoContent' } }
