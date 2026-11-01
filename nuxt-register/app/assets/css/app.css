@@ -299,6 +299,7 @@ button.of__box { width: 100%; text-align: left; }
   .pc-left, .pc-right, .pc-pair { display: contents; }
   .card--media { border-radius: 12px 12px 0 0; padding-bottom: 0; }
   .card--form { border-radius: 0 0 12px 12px; margin-top: -16px; padding-top: 0; }
+  .card--form > .of:first-child { margin-top: 14px; }
 }
 
 /* ── PC(1024 이상) = 초톳 PC 「Đăng tin」(chotot.com/dang-tin?ia_version=3, 2026-11-01 로그인 화면 1536 폭 직접 실측) ──
@@ -398,7 +399,7 @@ button.of__box { width: 100%; text-align: left; }
   .of__select { font-size: 14px; line-height: 20px; margin-top: 0; }
   .of__suffix { right: 13px; margin-top: 0; font-size: 14px; color: var(--mute); }
   .of__clear { right: 2px; width: 40px; height: 40px; }
-  .of__clear .ico { width: 20px; height: 20px; }
+  .of__clear .ico { width: 20px; height: 30px; }
   .of__clear--select { top: 24px; right: 34px; }
   .of__count, .of__err, .row-err { margin: 4px 0 0 12px; font-size: 10px; line-height: 15px; }
   .of__err, .row-err { line-height: 16px; }
@@ -446,7 +447,7 @@ button.of__box { width: 100%; text-align: left; }
   .card--detail .row--cat { grid-column: 1 / -1; }
   .card--detail .row--cat .row__value { color: var(--text); }
   .card--detail .row__clear { right: 4px; width: 40px; height: 40px; }
-  .card--detail .row__clear .ico, .card--detail .row__clear--in .ico { width: 20px !important; height: 20px !important; }
+  .card--detail .row__clear .ico, .card--detail .row__clear--in .ico { width: 20px !important; height: 30px !important; }
   .card--detail .row__clear--in { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); margin: 0; }
   .card--detail .row-wrap:not(.has-val):not(:focus-within) .row__input { position: absolute; inset: 0; padding: 0 13px; opacity: 0; }
   .card--detail .row__unit { position: absolute; right: 13px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--mute); }
