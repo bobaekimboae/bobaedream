@@ -4,6 +4,7 @@ import type { CommunityPopularPeriod, CommunitySort, CommunityView } from '~/typ
 const { sections, boards, sort, popularPeriod, view, boardId, headword, activeBoard, filteredPosts } = useCommunity()
 const optionsOpen = ref(false)
 const boardMenuOpen = ref(false)
+const recentExpanded = ref(false)
 const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
 const favoriteBoardIds = ref<string[]>([])
 const recentBoardIds = ref<string[]>([])
@@ -31,6 +32,7 @@ function toggleFavorite(id: string) {
 }
 const favoriteBoards = computed(() => favoriteBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
 const recentBoards = computed(() => recentBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
+const visibleRecentBoards = computed(() => recentExpanded.value ? recentBoards.value : recentBoards.value.slice(0, 3))
 
 onMounted(() => {
   favoriteBoardIds.value = loadBoardIds(favoriteStorageKey, boards.value.length)
@@ -128,30 +130,29 @@ useHead({ title: '보배드림 커뮤니티' })
       <Transition name="drawer-slide">
         <div v-if="boardMenuOpen" class="drawer-backdrop" @click.self="boardMenuOpen = false">
           <aside class="board-drawer" aria-label="커뮤니티 메뉴">
-            <header><strong>커뮤니티</strong><button type="button" aria-label="닫기" @click="boardMenuOpen = false">×</button></header>
             <nav class="drawer-primary" aria-label="커뮤니티 주요 메뉴">
-              <button type="button" @click="selectBoard('free')"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /><span>커뮤니티 홈</span></button>
-              <button type="button" @click="optionsOpen = true; boardMenuOpen = false"><img :src="`${iconRoot}/filter.svg`" alt="" /><span>보기 방식</span></button>
-              <NuxtLink to="/write" @click="boardMenuOpen = false"><img :src="`${iconRoot}/write.svg`" alt="" /><span>글쓰기</span></NuxtLink>
+              <button type="button" @click="setSort('latest'); boardMenuOpen = false"><img :src="`${iconRoot}/reddit/latest.svg`" alt="" /><span>최신</span></button>
             </nav>
             <div class="drawer-divider" />
-            <details class="drawer-group drawer-smart-group" open>
-              <summary><span>최근 방문</span><span aria-hidden="true">⌄</span></summary>
+            <NuxtLink class="drawer-utility" to="/write" @click="boardMenuOpen = false"><img :src="`${iconRoot}/reddit/create-community.svg`" alt="" /><span>커뮤니티 만들기</span></NuxtLink>
+            <div class="drawer-divider" />
+            <section class="drawer-recent-section">
+              <header><strong>최근에 방문함</strong><button v-if="recentBoards.length > 3" type="button" @click="recentExpanded = !recentExpanded">{{ recentExpanded ? '접기' : '모두 보기' }}</button></header>
               <div>
                 <p v-if="!recentBoards.length" class="drawer-empty">방문한 게시판이 여기에 표시됩니다.</p>
-                <div v-for="board in recentBoards" :key="`recent-${board!.id}`" class="drawer-board-row" :class="{ 'is-active': board!.id === boardId }">
-                  <button type="button" @click="selectBoard(board!.id)">{{ board!.name }}</button>
-                  <button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board!.id) }" type="button" :aria-label="`${board!.name} 즐겨찾기 ${favoriteBoardIds.includes(board!.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board!.id)" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/${favoriteBoardIds.includes(board!.id) ? 'star-selected.svg?v=20261102redditfavorites3' : 'star.svg'}`" alt="" /></button>
+                <div v-for="board in visibleRecentBoards" :key="`recent-${board!.id}`" class="drawer-board-row drawer-board-row--recent" :class="{ 'is-active': board!.id === boardId }">
+                  <button type="button" @click="selectBoard(board!.id)"><span class="drawer-board-avatar" aria-hidden="true">{{ board!.name.slice(0, 1) }}</span><span>{{ board!.name }}</span></button>
                 </div>
               </div>
-            </details>
+            </section>
+            <div class="drawer-divider" />
             <details class="drawer-group drawer-smart-group" open>
               <summary><span>즐겨찾기</span><span aria-hidden="true">⌄</span></summary>
               <div>
                 <p v-if="!favoriteBoards.length" class="drawer-empty">게시판 옆 별표를 눌러 추가하세요.</p>
                 <div v-for="board in favoriteBoards" :key="`favorite-${board!.id}`" class="drawer-board-row" :class="{ 'is-active': board!.id === boardId }">
-                  <button type="button" @click="selectBoard(board!.id)">{{ board!.name }}</button>
-                  <button class="drawer-favorite-button is-favorite" type="button" :aria-label="`${board!.name} 즐겨찾기 해제`" aria-pressed="true" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star-selected.svg?v=20261102redditfavorites3`" alt="" /></button>
+                  <button type="button" @click="selectBoard(board!.id)"><span class="drawer-board-avatar" aria-hidden="true">{{ board!.name.slice(0, 1) }}</span><span>{{ board!.name }}</span></button>
+                  <button class="drawer-favorite-button is-favorite" type="button" :aria-label="`${board!.name} 즐겨찾기 해제`" aria-pressed="true" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star-selected.svg?v=20261102redditdrawer4`" alt="" /></button>
                 </div>
               </div>
             </details>
@@ -159,8 +160,10 @@ useHead({ title: '보배드림 커뮤니티' })
             <p class="drawer-label">전체 게시판</p>
             <details v-for="section in sections" :key="section.id" class="drawer-group" :open="section.boards.some(board => board.id === boardId)">
               <summary><span>{{ section.name }}</span><span aria-hidden="true">⌄</span></summary>
-              <div><div v-for="board in section.boards" :key="board.id" class="drawer-board-row" :class="{ 'is-active': board.id === boardId }"><button type="button" @click="selectBoard(board.id)">{{ board.name }}</button><button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board.id) }" type="button" :aria-label="`${board.name} 즐겨찾기 ${favoriteBoardIds.includes(board.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board.id)" @click="toggleFavorite(board.id)"><img :src="`${iconRoot}/reddit/${favoriteBoardIds.includes(board.id) ? 'star-selected.svg?v=20261102redditfavorites3' : 'star.svg'}`" alt="" /></button></div></div>
+              <div><div v-for="board in section.boards" :key="board.id" class="drawer-board-row" :class="{ 'is-active': board.id === boardId }"><button type="button" @click="selectBoard(board.id)"><span class="drawer-board-avatar" aria-hidden="true">{{ board.name.slice(0, 1) }}</span><span>{{ board.name }}</span></button><button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board.id) }" type="button" :aria-label="`${board.name} 즐겨찾기 ${favoriteBoardIds.includes(board.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board.id)" @click="toggleFavorite(board.id)"><img :src="`${iconRoot}/reddit/${favoriteBoardIds.includes(board.id) ? 'star-selected.svg?v=20261102redditdrawer4' : 'star.svg'}`" alt="" /></button></div></div>
             </details>
+            <div class="drawer-divider" />
+            <button class="drawer-utility" type="button" @click="optionsOpen = true; boardMenuOpen = false"><img :src="`${iconRoot}/filter.svg`" alt="" /><span>보기 방식</span></button>
           </aside>
         </div>
       </Transition>

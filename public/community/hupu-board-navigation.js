@@ -197,7 +197,7 @@
     var serviceBackdrop=document.createElement('div');
     serviceBackdrop.className='communityMenuBackdrop';
     serviceBackdrop.hidden=true;
-    serviceBackdrop.innerHTML='<section class="communityMenuPanel" role="dialog" aria-modal="true" aria-labelledby="communityMenuTitle"><header class="communityMenuHeader"><h2 id="communityMenuTitle">커뮤니티</h2><button class="communityMenuClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="communityMenuBody"><nav class="communityMenuPrimary" aria-label="커뮤니티 주요 메뉴"><button type="button" data-service-board="home"><img src="assets/reddit-rail/home.svg" alt=""><span>커뮤니티 홈</span></button><button type="button" data-service-board="all"><img src="assets/reddit-rail/explore.svg" alt=""><span>전체 게시글</span></button><button type="button" data-service-board="best"><img src="assets/reddit-rail/popular.svg" alt=""><span>베스트글</span></button><a href="./chzzk-write.html"><img src="assets/reddit-ui/write.svg" alt=""><span>글쓰기</span></a></nav><div class="communityMenuDivider"></div><div class="communityMenuSmartGroups"><details class="communityMenuGroup communityMenuRecentGroup" open><summary><span>최근 방문</span><img src="assets/reddit-rail/section-toggle.svg" alt="" aria-hidden="true"></summary><div class="communityMenuRecent"></div></details><details class="communityMenuGroup communityMenuFavoriteGroup" open><summary><span>즐겨찾기</span><img src="assets/reddit-rail/section-toggle.svg" alt="" aria-hidden="true"></summary><div class="communityMenuFavorites"></div></details></div><div class="communityMenuDivider"></div><div class="communityMenuSectionTitle">전체 게시판</div><div class="communityMenuGroups"></div><div class="communityMenuDivider"></div><button class="communityMenuUtility communityMenuViewEntry" type="button"><img src="assets/reddit-ui/view-list.svg" alt=""><span>보기 방식</span><img class="communityMenuUtilityArrow" src="assets/reddit-ui/chevron-right.svg" alt=""></button><button class="communityMenuUtility communityMenuBoardEntry" type="button"><img src="assets/reddit-rail/favorite.svg" alt=""><span>게시판 관리</span><img class="communityMenuUtilityArrow" src="assets/reddit-ui/chevron-right.svg" alt=""></button></div></section>';
+    serviceBackdrop.innerHTML='<section class="communityMenuPanel" role="dialog" aria-modal="true" aria-label="커뮤니티 메뉴"><div class="communityMenuBody"><nav class="communityMenuPrimary" aria-label="커뮤니티 주요 메뉴"><button type="button" data-service-board="all"><img src="assets/reddit-rail/latest.svg" alt=""><span>최신</span></button></nav><div class="communityMenuDivider"></div><button class="communityMenuUtility communityMenuCreateEntry" type="button"><img src="assets/reddit-rail/create-community.svg" alt=""><span>커뮤니티 만들기</span></button><div class="communityMenuDivider"></div><section class="communityMenuRecentSection"><header class="communityMenuRecentHeader"><strong>최근에 방문함</strong><button class="communityMenuRecentMore" type="button">모두 보기</button></header><div class="communityMenuRecent"></div></section><div class="communityMenuDivider"></div><details class="communityMenuGroup communityMenuFavoriteGroup" open><summary><span>즐겨찾기</span><img src="assets/reddit-rail/section-toggle.svg" alt="" aria-hidden="true"></summary><div class="communityMenuFavorites"></div></details><div class="communityMenuDivider"></div><div class="communityMenuSectionTitle">전체 게시판</div><div class="communityMenuGroups"></div><div class="communityMenuDivider"></div><button class="communityMenuUtility communityMenuViewEntry" type="button"><img src="assets/reddit-ui/view-list.svg" alt=""><span>보기 방식</span><img class="communityMenuUtilityArrow" src="assets/reddit-ui/chevron-right.svg" alt=""></button><button class="communityMenuUtility communityMenuBoardEntry" type="button"><img src="assets/reddit-rail/favorite.svg" alt=""><span>게시판 관리</span><img class="communityMenuUtilityArrow" src="assets/reddit-ui/chevron-right.svg" alt=""></button></div></section>';
     document.body.appendChild(serviceBackdrop);
     var panel=backdrop.querySelector('.boardOrderPanel');
     if(panelColumns)panel.dataset.gridColumns=String(panelColumns);
@@ -207,6 +207,7 @@
     var toastText=backdrop.querySelector('.boardOrderToastText');
     var toastUndo=backdrop.querySelector('.boardOrderUndo');
     var serviceOpener=null;
+    var serviceRecentExpanded=false;
 
     function updateDefaultHomeEntry(){
       var value=backdrop.querySelector('.boardOrderDefaultValue');
@@ -459,15 +460,20 @@
     function focusablePanelItems(){return Array.prototype.filter.call(panel.querySelectorAll('button,[href],[tabindex]:not([tabindex="-1"])'),function(item){return !item.disabled&&!item.hidden&&item.getAttribute('aria-disabled')!=='true'&&item.getClientRects().length>0})}
     function focusableServiceItems(){return Array.prototype.filter.call(serviceBackdrop.querySelectorAll('button,[href],[tabindex]:not([tabindex="-1"])'),function(item){return !item.disabled&&!item.hidden&&item.getClientRects().length>0})}
 
-    function serviceBoardRow(board,favoriteIds){
+    function serviceBoardRow(board,favoriteIds,options){
+      options=options||{};
       var favorite=favoriteIds.indexOf(board.id)>=0;
-      return '<div class="communityMenuBoardRow '+(board.id===selectedId?'selected':'')+'"><button class="communityMenuBoard" type="button" data-service-board="'+escapeHtml(board.id)+'"><img src="'+boardAvatarSrc(board)+'" alt="" aria-hidden="true"><span>'+escapeHtml(board.displayName)+'</span></button><button class="communityMenuFavoriteToggle '+(favorite?'isFavorite':'')+'" type="button" data-favorite-board="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 즐겨찾기 '+(favorite?'해제':'추가')+'" aria-pressed="'+String(favorite)+'"><img src="assets/reddit-rail/'+(favorite?'favorite-selected.svg?v=20261102redditfavorites3':'favorite.svg')+'" alt="" aria-hidden="true"></button></div>';
+      return '<div class="communityMenuBoardRow '+(options.hideFavorite?'withoutFavorite ':'')+(board.id===selectedId?'selected':'')+'"><button class="communityMenuBoard" type="button" data-service-board="'+escapeHtml(board.id)+'"><img src="'+boardAvatarSrc(board)+'" alt="" aria-hidden="true"><span>'+escapeHtml(board.displayName)+'</span></button>'+(options.hideFavorite?'':'<button class="communityMenuFavoriteToggle '+(favorite?'isFavorite':'')+'" type="button" data-favorite-board="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 즐겨찾기 '+(favorite?'해제':'추가')+'" aria-pressed="'+String(favorite)+'"><img src="assets/reddit-rail/'+(favorite?'favorite-selected.svg?v=20261102redditdrawer4':'favorite.svg')+'" alt="" aria-hidden="true"></button>')+'</div>';
     }
     function renderServiceMenu(){
       var favoriteIds=loadBoardIds(favoriteStorageKey,movableBoards.length);
       var recentBoards=loadBoardIds(recentStorageKey,6).map(function(id){return boardById[id]}).filter(Boolean);
       var favoriteBoards=favoriteIds.map(function(id){return boardById[id]}).filter(Boolean);
-      serviceBackdrop.querySelector('.communityMenuRecent').innerHTML=recentBoards.length?recentBoards.map(function(board){return serviceBoardRow(board,favoriteIds)}).join(''):'<p class="communityMenuEmpty">방문한 게시판이 여기에 표시됩니다.</p>';
+      var visibleRecent=serviceRecentExpanded?recentBoards:recentBoards.slice(0,3);
+      serviceBackdrop.querySelector('.communityMenuRecent').innerHTML=visibleRecent.length?visibleRecent.map(function(board){return serviceBoardRow(board,favoriteIds,{hideFavorite:true})}).join(''):'<p class="communityMenuEmpty">방문한 게시판이 여기에 표시됩니다.</p>';
+      var recentMore=serviceBackdrop.querySelector('.communityMenuRecentMore');
+      recentMore.hidden=recentBoards.length<=3;
+      recentMore.textContent=serviceRecentExpanded?'접기':'모두 보기';
       serviceBackdrop.querySelector('.communityMenuFavorites').innerHTML=favoriteBoards.length?favoriteBoards.map(function(board){return serviceBoardRow(board,favoriteIds)}).join(''):'<p class="communityMenuEmpty">게시판 옆 별표를 눌러 추가하세요.</p>';
       serviceBackdrop.querySelector('.communityMenuGroups').innerHTML=sections().map(function(section){
         var selectedInSection=section.boards.some(function(board){return board.id===selectedId});
@@ -493,7 +499,8 @@
       if(selectedButton&&selectedButton.closest('details'))selectedButton.closest('details').open=true;
       serviceBackdrop.hidden=false;
       document.body.classList.add('communityMenuOpen');
-      serviceBackdrop.querySelector('.communityMenuClose').focus();
+      var firstItem=focusableServiceItems()[0];
+      if(firstItem)firstItem.focus();
     }
     function closeServiceMenu(){
       serviceBackdrop.hidden=true;
@@ -511,7 +518,8 @@
     };
     backdrop.querySelector('.boardOrderReset').onclick=function(){draftOrder=defaultActiveOrder.slice();commitDraft('기본 순서로 저장');renderPanel();showToast('기본 순서로 되돌렸습니다')};
     backdrop.onclick=function(event){if(event.target===backdrop)closePanel()};
-    serviceBackdrop.querySelector('.communityMenuClose').onclick=closeServiceMenu;
+    serviceBackdrop.querySelector('.communityMenuCreateEntry').onclick=function(){closeServiceMenu();openPanel({opener:headerMenuButton})};
+    serviceBackdrop.querySelector('.communityMenuRecentMore').onclick=function(){serviceRecentExpanded=!serviceRecentExpanded;renderServiceMenu()};
     serviceBackdrop.querySelector('.communityMenuViewEntry').onclick=function(){closeServiceMenu();if(api&&api.onOpenView)api.onOpenView()};
     serviceBackdrop.querySelector('.communityMenuBoardEntry').onclick=function(){closeServiceMenu();openPanel({opener:headerMenuButton})};
     serviceBackdrop.onclick=function(event){
