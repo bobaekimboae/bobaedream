@@ -15,7 +15,6 @@
 <link rel="stylesheet" href="./reddit-board-profile.css?v=20261016redditsubscribe2">
 <link rel="stylesheet" href="./board-header-variants.css?v=20261016genesiskr2">
 <link rel="stylesheet" href="./chzzk-list-parity.css?v=20261017listparity4">
-<link rel="stylesheet" href="./community-avatar-cleanup.css?v=20261101noavatar1">
 <link rel="stylesheet" href="./vehicle-review-board.css?v=20261017modely1">
 <link rel="stylesheet" href="./fuel-economy-board.css?v=20261017energy50">
 <link rel="stylesheet" href="./fuel-economy-fixes.css?v=20261017energy50">
@@ -264,7 +263,7 @@ openSheet=function(){
   toggles('리스트 표시',[['thumbnail','썸네일'],['commentBadge','댓글 배지'],['rankBadge','계급 배지'],['recommendCount','추천수'],['categoryLabel','말머리'],['tag','태그']],display,'data-display-key');
   choices('썸네일 위치',[['right','오른쪽','기본','thumbRight'],['left','왼쪽','','thumbLeft']],thumbPosition,'data-thumb-position',function(value){thumbPosition=value});
   choices('계급 배지 위치',[['before','닉네임 앞','기본','list'],['after','닉네임 뒤','','list']],rankPosition,'data-rank-position',function(value){rankPosition=value});
-  var metaGroup=toggles('메타정보 아이콘',[['timeIcon','등록시간 아이콘'],['viewIcon','조회수 아이콘'],['recommendIcon','추천수 아이콘'],['commentIcon','댓글 아이콘']],display,'data-meta-key');
+  var metaGroup=toggles('메타정보 아이콘',[['profileAvatar','닉네임 프사'],['timeIcon','등록시간 아이콘'],['viewIcon','조회수 아이콘'],['recommendIcon','추천수 아이콘'],['commentIcon','댓글 아이콘']],display,'data-meta-key');
   metaGroup.dataset.adminOnly='true';
   choices('제목 줄 수',[['2','두 줄','기본','list'],['1','한 줄','','text']],String(titleLines),'data-title-lines',function(value){titleLines=Number(value)});
   document.getElementById('sheetClose').onclick=closeSheet;
