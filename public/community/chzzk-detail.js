@@ -402,7 +402,7 @@ function setRegularContent() {
     $('#commentCount').textContent = '댓글 0';
     $('#actionCommentCount').textContent = '0';
   }
-  document.title = `${$('#postTitle').textContent} | 치지직`;
+  document.title = `${$('#postTitle').textContent} | 보배드림 커뮤니티`;
 }
 
 /* 글쓰기에서 첨부한 사진·영상: 브라우저 저장소(IndexedDB)에서 꺼내 본문 위에 보여 준다 */
@@ -522,7 +522,7 @@ function setNoticeMode() {
   input.disabled = true;
   $('#submitBtn').disabled = true;
   $('#commentForm').classList.add('isDisabled');
-  document.title = '공지사항 | 치지직';
+  document.title = '공지사항 | 보배드림 커뮤니티';
 }
 
 function updateVote() {
@@ -536,7 +536,16 @@ function updateVote() {
   $('#downBtn').setAttribute('aria-pressed', String(down));
 }
 
-$('#closeBtn').addEventListener('click', () => { location.href = listUrl(); });
+$('#closeBtn').addEventListener('click', () => {
+  try {
+    const referrer = document.referrer ? new URL(document.referrer) : null;
+    if (referrer?.origin === location.origin && referrer.pathname.includes('/community/')) {
+      history.back();
+      return;
+    }
+  } catch (_) {}
+  location.href = listUrl();
+});
 $('#boardBtn').addEventListener('click', () => { location.href = listUrl(); });
 $('#bookmarkBtn').addEventListener('click', (event) => {
   const button = event.currentTarget;

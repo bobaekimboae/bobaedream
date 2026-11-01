@@ -16,7 +16,7 @@ type DetailComment = {
 
 const route = useRoute()
 const router = useRouter()
-const { posts, boards } = useCommunity()
+const { posts } = useCommunity()
 const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
 const liked = ref(false)
 const disliked = ref(false)
@@ -61,7 +61,6 @@ onMounted(() => {
   } catch { /* preview storage is optional */ }
 })
 
-const boardName = computed(() => boards.value.find(board => board.id === post.value?.boardId)?.name || '커뮤니티')
 const likeCount = computed(() => (post.value?.likes || 0) + (liked.value ? 1 : 0))
 const dislikeCount = computed(() => (post.value?.dislikes || 0) + (disliked.value ? 1 : 0))
 const commentCount = computed(() => comments.value.reduce((total, item) => total + 1 + (item.replies?.length || 0), 0))
@@ -111,7 +110,7 @@ useHead({ title: computed(() => post.value ? `${post.value.title} | 보배드림
 
 <template>
   <main class="detail-page">
-    <header class="detail-header"><button type="button" aria-label="뒤로" @click="router.back()">‹</button><strong>{{ boardName }}</strong><div><button type="button" aria-label="검색" class="search-icon" /><button type="button" aria-label="더보기">•••</button></div></header>
+    <header class="detail-header"><button type="button" aria-label="뒤로" @click="router.back()"><img :src="`${iconRoot}/chzzk/back.svg`" alt="" /></button><strong>커뮤니티</strong><div><button type="button" aria-label="검색" class="search-icon" /><button type="button" aria-label="더보기">•••</button></div></header>
     <article v-if="post" class="detail-article">
       <span v-if="post.headword" class="post-headword">{{ post.headword }}</span>
       <h1>{{ post.title }}</h1>

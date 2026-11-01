@@ -41,7 +41,7 @@ img { display: block; }
   top: 0;
   z-index: 50;
   display: grid;
-  grid-template-columns: 64px 1fr 112px;
+  grid-template-columns: 112px minmax(0, 1fr) 112px;
   align-items: center;
   height: 64px;
   border-bottom: 1px solid var(--divider);
@@ -51,7 +51,7 @@ img { display: block; }
 .brand { font-size: 25px; font-weight: 800; text-align: center; letter-spacing: -.04em; }
 .iconButton { display: grid; width: 52px; height: 52px; border-radius: 50%; place-items: center; }
 .iconButton img { width: 24px; height: 24px; }
-.closeButton { margin-left: 4px; }
+.closeButton { justify-self: start; margin-left: 4px; }
 .headerActions { display: flex; justify-content: flex-end; padding-right: 4px; }
 .bookmarkButton[aria-pressed="true"] { border-radius: 50%; background: var(--brand-soft); }
 .bookmarkButton[aria-pressed="true"] img { filter: invert(29%) sepia(96%) saturate(2600%) hue-rotate(333deg) brightness(101%) contrast(102%); }
@@ -214,7 +214,7 @@ body.isUserInquiry .latestItem[hidden] { display: none; }
 @media (max-width: 600px) {
   html, body { background: #fff; }
   .pageShell { max-width: none; padding-bottom: 60px; box-shadow: none; }
-  .topBar { height: 48px; grid-template-columns: 48px 1fr 88px; }
+  .topBar { height: 48px; grid-template-columns: 88px minmax(0, 1fr) 88px; }
   .brand { font-size: 18px; letter-spacing: -.03em; }
   .iconButton { width: 44px; height: 48px; }
   .iconButton img { width: 24px; height: 24px; }
