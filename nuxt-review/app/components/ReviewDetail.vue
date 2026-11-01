@@ -8,7 +8,7 @@ import Stars from "./Stars.vue";
 import Comments from "./Comments.vue";
 import DetailBar from "./DetailBar.vue";
 import { IC } from "../lib/icons";
-import { asset, site } from "../lib/site";
+import { asset, site, avatarUrl } from "../lib/site";
 import { fmtScore, scoreWord, ymd } from "../lib/data";
 import { R, toggle } from "../lib/react";
 import { back, go, replace } from "../lib/route";
@@ -41,7 +41,7 @@ const del = async () => {
   <main v-if="r" class="rdet">
     <header class="rdet__head" :class="{ solid }">
       <button type="button" class="hicon" aria-label="뒤로" @click="back"><Ico :src="IC.back" /></button>
-      <span v-if="solid" class="rdet__mini"><img :src="site(r.avatar)" alt="" />{{ r.author }}</span>
+      <span v-if="solid" class="rdet__mini"><img :src="avatarUrl(r.avatar)" alt="" />{{ r.author }}</span>
       <span class="sp" />
       <button type="button" class="hicon" aria-label="게시판 검색" @click="go({ board: 'review', view: 'list' })"><Ico :src="IC.search" /></button>
       <button type="button" class="hicon" aria-label="공유" @click="share"><Ico :src="IC.share" /></button>
@@ -49,7 +49,7 @@ const del = async () => {
 
     <section class="rdet__dark">
       <div class="rdet__who">
-        <img :src="site(r.avatar)" alt="" />
+        <img :src="avatarUrl(r.avatar)" alt="" />
         <div><b>{{ r.author }}</b><span>{{ r.model }} {{ r.owner ? "오너" : "시승" }}<template v-if="r.location"> · {{ r.location }}</template></span></div>
         <button v-if="r.can?.delete ?? r.mine" type="button" class="rdet__del" @click="del">삭제</button>
         <button v-else type="button" class="follow follow--dark" :class="{ on: R.follow[r.author] }" @click="toggle('follow', r.author)">{{ R.follow[r.author] ? "팔로잉" : "+ 팔로우" }}</button>

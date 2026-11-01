@@ -4,7 +4,7 @@
 import { computed, nextTick, reactive, ref } from "vue";
 import Ico from "./Ico.vue";
 import { IC } from "../lib/icons";
-import { site } from "../lib/site";
+import { site, avatarUrl } from "../lib/site";
 import { daysAgo, type Comment } from "../lib/data";
 import { R, toggle } from "../lib/react";
 import { doComment, doUncomment } from "../lib/actions";
@@ -40,7 +40,7 @@ const send = async () => {
   <section class="cmts" aria-label="댓글">
     <h2 class="cmts__h">전체 댓글 · {{ count }}</h2>
     <button type="button" class="cmts__input" @click="compose">
-      <img :src="site('community/assets/profile-avatars/avatar-01.svg')" alt="" />
+      <img :src="avatarUrl('avatar-01.svg')" alt="" />
       <span>좋은 댓글이 위에 먼저 보여요</span>
       <Ico :src="IC.image" /><Ico :src="IC.sticker" />
     </button>
@@ -51,7 +51,7 @@ const send = async () => {
     </div>
     <ul v-else class="cmts__list">
       <li v-for="c in all" :key="c.id" class="cmt">
-        <img :src="site(c.avatar)" alt="" class="cmt__av" />
+        <img :src="avatarUrl(c.avatar)" alt="" class="cmt__av" />
         <div class="cmt__main">
           <b class="cmt__name">{{ c.author }}</b>
           <p class="cmt__body">{{ c.body }}</p>

@@ -68,7 +68,7 @@ const post = async () => {
   const p: FuelPost = {
     id: `u${Date.now()}`, modelId: c.id, brand: c.brand, model: c.model, trim: c.trim, powertrain: c.powertrain === "erev" ? "phev" : (c.powertrain as FuelPost["powertrain"]),
     brandLogo: c.brandLogo, photo: c.photo, title: input.title || `${c.model} 연비·전비 공유`, body: input.body, author: "나",
-    avatar: "community/assets/profile-avatars/avatar-01.svg", publishedAt: new Date().toISOString(), images: photos.value, comments: 0, likes: 0, views: 0,
+    avatar: "avatar-01.svg", publishedAt: new Date().toISOString(), images: photos.value, comments: 0, likes: 0, views: 0,
     city: v.city, odometer: input.odometer_km ?? 0, fuel: input.fuel_km_per_l ?? null,
     energy: input.energy_km_per_kwh ? Number((100 / input.energy_km_per_kwh).toFixed(1)) : null, range: input.full_charge_km ?? null,
     temperature: input.temperature_c ?? null, ownerYears: 1, commentList: [], mine: true,

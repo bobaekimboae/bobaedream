@@ -7,7 +7,7 @@ import Stars from "./Stars.vue";
 import ListHead from "./ListHead.vue";
 import Sheet from "./Sheet.vue";
 import { IC } from "../lib/icons";
-import { asset, site } from "../lib/site";
+import { asset, site, avatarUrl } from "../lib/site";
 import { avg, fmtScore, scoreWord, ymd, type Review } from "../lib/data";
 import { R, likeCount, toggle } from "../lib/react";
 import { doVote, useReviews } from "../lib/actions";
@@ -102,7 +102,7 @@ const open = (r: Review) => go({ board: "review", view: "detail", id: r.id });
       <template v-for="(r, i) in list" :key="r.id">
         <article class="rcard" @click="open(r)">
           <header class="rcard__who">
-            <img :src="site(r.avatar)" alt="" class="rcard__av" />
+            <img :src="avatarUrl(r.avatar)" alt="" class="rcard__av" />
             <div><b>{{ r.author }}</b><span><img v-if="r.brandLogo" :src="asset(r.brandLogo)" alt="" />{{ r.model }} {{ r.owner ? "오너 · 인증" : "시승" }}</span></div>
             <button type="button" class="follow" :class="{ on: R.follow[r.author] }" @click.stop="toggle('follow', r.author)">{{ R.follow[r.author] ? "팔로잉" : "팔로우" }}</button>
           </header>
@@ -110,7 +110,7 @@ const open = (r: Review) => go({ board: "review", view: "detail", id: r.id });
           <p class="rcard__body">{{ r.body }}</p>
           <div v-if="r.images.length" class="rcard__imgs"><img v-for="(src, j) in r.images.slice(0, 3)" :key="j" :src="src.startsWith('data:') ? src : asset(src)" alt="" loading="lazy" /></div>
           <time class="rcard__date">{{ ymd(r.publishedAt) }}</time>
-          <div v-if="hot(r)" class="rcard__hot"><span><img :src="site(hot(r)!.avatar)" alt="" />{{ hot(r)!.author }}</span><p>{{ hot(r)!.body }}</p><Ico :src="IC.like" /></div>
+          <div v-if="hot(r)" class="rcard__hot"><span><img :src="avatarUrl(hot(r)!.avatar)" alt="" />{{ hot(r)!.author }}</span><p>{{ hot(r)!.body }}</p><Ico :src="IC.like" /></div>
           <footer class="rcard__act" @click.stop>
             <button type="button" @click="share(r)"><Ico :src="IC.share" />공유</button>
             <button type="button" @click="open(r)"><Ico :src="IC.comment" />{{ r.comments || "댓글" }}</button>

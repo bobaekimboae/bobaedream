@@ -15,7 +15,7 @@ export const vote = (id: string, v: 1 | -1) => { if (R.like[id] === v) delete R.
 export const likeCount = (id: string, base: number) => base + (R.like[id] === 1 ? 1 : 0);
 export const toggle = (bag: "save" | "follow" | "cLike", id: string) => { if (R[bag][id]) delete R[bag][id]; else R[bag][id] = true; };
 export const addComment = (postId: string, body: string) => {
-  const c: Comment = { id: `m${Date.now()}`, author: "나", avatar: "community/assets/profile-avatars/avatar-01.svg", body, likes: 0, region: "", daysAgo: 0, replies: 0 };
+  const c: Comment = { id: `m${Date.now()}`, author: "나", avatar: "avatar-01.svg", body, likes: 0, region: "", daysAgo: 0, replies: 0 };
   R.mine[postId] = [c, ...(R.mine[postId] ?? [])];
   return c;
 };

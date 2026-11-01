@@ -7,7 +7,7 @@ import EnergyCard from "./EnergyCard.vue";
 import Comments from "./Comments.vue";
 import DetailBar from "./DetailBar.vue";
 import { IC } from "../lib/icons";
-import { asset, site } from "../lib/site";
+import { asset, site, avatarUrl } from "../lib/site";
 import { fuelPosts, fuelText, ymdKo } from "../lib/data";
 import { R, toggle } from "../lib/react";
 import { back, go, replace } from "../lib/route";
@@ -40,7 +40,7 @@ const del = async () => {
   <main v-if="post" class="fdet">
     <header class="fdet__head">
       <button type="button" class="hicon" aria-label="뒤로" @click="back"><Ico :src="IC.back" /></button>
-      <img :src="site(post.avatar)" alt="" class="fdet__av" />
+      <img :src="avatarUrl(post.avatar)" alt="" class="fdet__av" />
       <div class="fdet__who"><b>{{ post.author }}<button v-if="!(post.can?.delete ?? post.mine)" type="button" class="follow follow--text" :class="{ on: R.follow[post.author] }" @click="toggle('follow', post.author)">{{ R.follow[post.author] ? "팔로잉" : "팔로우" }}</button></b><span><img v-if="post.brandLogo" :src="asset(post.brandLogo)" alt="" />{{ post.model }} 오너 · 보유 {{ post.ownerYears }}년</span></div>
       <button type="button" class="hicon" aria-label="게시판 검색" @click="go({ board: 'fuel', view: 'list' })"><Ico :src="IC.search" /></button>
       <button type="button" class="hicon" aria-label="공유" @click="share"><Ico :src="IC.share" /></button>

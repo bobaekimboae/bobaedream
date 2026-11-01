@@ -7,7 +7,7 @@ import ListHead from "./ListHead.vue";
 import EnergyCard from "./EnergyCard.vue";
 import Sheet from "./Sheet.vue";
 import { IC } from "../lib/icons";
-import { asset, site } from "../lib/site";
+import { asset, site, avatarUrl } from "../lib/site";
 import { avg, ymdKo, type FuelPost } from "../lib/data";
 import { R, likeCount } from "../lib/react";
 import { doVote, useFuel } from "../lib/actions";
@@ -80,7 +80,7 @@ const share = async (p: FuelPost) => {
     <div class="feed feed--fuel">
       <article v-for="p in list" :key="p.id" class="fpost" @click="open(p)">
         <header class="rcard__who">
-          <img :src="site(p.avatar)" alt="" class="rcard__av" />
+          <img :src="avatarUrl(p.avatar)" alt="" class="rcard__av" />
           <div><b>{{ p.author }}</b><span><img v-if="p.brandLogo" :src="asset(p.brandLogo)" alt="" />{{ p.model }} 오너 · 보유 {{ p.ownerYears }}년</span></div>
         </header>
         <h3 class="fpost__t">{{ p.title }}</h3>
