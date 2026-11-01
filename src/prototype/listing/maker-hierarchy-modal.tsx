@@ -84,7 +84,7 @@ export function MakerHierarchyModal({
   ), 0);
   const selectedGeneration = draftModel && draftGeneration ? (generationsByModel[draftModel] ?? []).find((item) => item.name === draftGeneration) : undefined;
   const modelCount = draftModel ? numberFromCount(modelVisuals[draftModel]?.count) : modelNames.reduce((sum, name) => sum + numberFromCount(modelVisuals[name]?.count), 0);
-  const resultCount = selectedGeneration?.count ?? modelCount;
+  const resultCount = draftMaker ? selectedGeneration?.count ?? modelCount : makers.reduce((sum, maker) => sum + makerCount(maker.name), 0);
 
   const goMaker = () => { setStep("maker"); setQuery(""); };
   const goModel = () => { setStep("model"); setQuery(""); setDraftModel(null); setDraftGeneration(null); };
@@ -102,9 +102,9 @@ export function MakerHierarchyModal({
   const placeholder = step === "maker" ? "제조사 검색" : step === "model" ? "모델 검색" : "세부모델 검색";
   const footer = (
     <div className="maker-hierarchy-actions">
-      <button type="button" className="maker-hierarchy-reset" onClick={reset}>초기화</button>
-      <button type="button" className="maker-hierarchy-confirm" disabled={!draftMaker} onClick={() => onApply(draftMaker, draftModel, draftGeneration)}>
-        {draftMaker ? `${formatCount(resultCount)}대 보기` : "제조사를 선택해 주세요"}
+      <button type="button" className="maker-hierarchy-reset" disabled={!draftMaker && !draftModel && !draftGeneration} onClick={reset}>초기화</button>
+      <button type="button" className="maker-hierarchy-confirm" onClick={() => onApply(draftMaker, draftModel, draftGeneration)}>
+        {formatCount(resultCount)}대 보기
       </button>
     </div>
   );

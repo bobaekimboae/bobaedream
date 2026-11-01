@@ -4,6 +4,7 @@ import { BBM_MAKER_ITEM, bbmSidebarItems, daangnFilterLabel, splitDaangnFilterOr
 import { BbmExpandPanel, BbmModalPanel, clearBbmItem } from "../filters/bbm-filter-panels";
 import { PriceFinalSheet } from "../filters/bbm-price";
 import type { BbmCheckKey, BbmFilterValues } from "../filters/bbm-filter-state";
+import { bbmDialogRangeError, bbmFilterSignature } from "../filters/bbm-filter-state";
 import { CategoryBrandLogo } from "./bbm-brand-logos";
 import { bbmItemValue } from "../filters/bbm-applied";
 import { asset, displayListPlace, displaySpecs, sellerAvatar, sellerLabel, type Car } from "../data";
@@ -973,12 +974,11 @@ function BbFilterSidebar({ leadingFilters, selection, appliedCount, historyCount
           title={modalItem.modalTitle ?? modalItem.displayLabel ?? modalItem.label}
           wide={modalItem.label === "옵션"}
           onClose={() => setModalItem(null)}
-          footer={modalItem.label === "광고기간" ? undefined : modalItem.label === "옵션"
-            ? <BbmActionBar count={0} resetLabel="취소" confirmLabel="선택완료" onReset={() => setModalItem(null)} onConfirm={() => { onBbmChange(draft); setModalItem(null); }} />
-            : <BbmActionBar count={countWithBbm(draft)} onReset={() => setDraft(clearBbmItem(modalItem, draft))} onConfirm={() => { onBbmChange(draft); setModalItem(null); }} />}
+          footer={<BbmActionBar count={countWithBbm(draft)} resetDisabled={bbmFilterSignature(draft) === bbmFilterSignature(clearBbmItem(modalItem, draft))} confirmDisabled={Boolean(bbmDialogRangeError(draft))} onReset={() => setDraft(clearBbmItem(modalItem, draft))} onConfirm={() => { if (bbmDialogRangeError(draft)) return; onBbmChange(draft); setModalItem(null); }} />}
         >
-          {/* 광고기간은 원본처럼 아래 버튼 없이 고르면 바로 반영하고 닫는다 */}
-          <BbmModalPanel item={modalItem} value={draft} countOf={countOf} onChange={modalItem.label === "광고기간" ? (next) => { onBbmChange(next); setModalItem(null); } : setDraft} />
+          {/* All field dialogs keep their draft until the counted action is pressed. */}
+          {bbmDialogRangeError(draft) ? <p className="bbmf-dialog-error" role="alert">{bbmDialogRangeError(draft)}</p> : null}
+          <BbmModalPanel item={modalItem} value={draft} countOf={countOf} onChange={setDraft} />
         </BbmModal>
       ) : null}
       {priceOpen ? <PriceFinalSheet variant="modal" value={bbm} countOf={countWithBbm} onApply={onBbmChange} onClose={() => setPriceOpen(false)} presets={pricePresets} hideTabs={Boolean(pricePresets)} /> : null}

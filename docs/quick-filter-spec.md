@@ -1,5 +1,15 @@
 # Quick Filter Spec
 
+## Approved filter dialog standard (2026-11-01)
+
+- Supersedes legacy centered titles, outlined reset buttons and mixed `확인 N대`/`선택완료` action labels for the current car-site Guazi filter dialogs. Does not reskin frozen comparison modes or independent bike/truck sites.
+- PC header 64px, gutter 24px, title 20px/700; mobile header 56px, gutter 16px, title 18px/700. Left-aligned title, right close (20px artwork inside 44×44 target). Hierarchy back is a separate 44px control, not a title-sized button. Supporting subtitle moves below the header into the scrolling body.
+- Body inset 24px vertically, matching horizontal gutter. Flush hierarchy/list bodies retain their layout, with the hierarchy search inset matching the title. Header and footer do not shrink; only the body scrolls.
+- Footer: 16px vertical padding + device bottom safe area, 1px `#E8E8E8` top divider, no shadow. PC action height 48px/gap 16px; mobile 52px/gap 12px. Reset is background/border/icon-free text, 16px/600 `#222`, minimum width 72px and full button height. Apply fills the remaining width, 12px radius, 16px/700 white on `#306BD9`, and uses `N대 보기`. Non-filter confirmation dialogs retain explicit confirmation labels.
+- Disabled reset text `#767676`; disabled apply `#E0E0E0`/`#767676`. Invalid ranges show a message and disable apply; zero matches are a valid `0대 보기` action, not an input error. Keep physical paint/logo colors and errors distinct from brand selection blue.
+- Individual fields reset only their values; region reset also removes dependent district/neighborhood, price reset also restores the normal price mode. Reset changes only the current draft and keeps the window open. X, outside click and Escape discard a dialog's uncommitted draft; apply commits it. Nested full-filter item dialogs commit to the full-filter draft, not directly to the listing. Whole filter drafts commit only from the outer action.
+- Existing inline PC sidebar controls and navigation-only category switches remain immediate. Full-filter reset concerns its shared filter-value draft and availability setting; external category/navigation and manufacturer hierarchy state are separate existing controls, not silently cleared by closing a draft. Full-filter footer is explicitly `전체 초기화`. This is scoped maintenance of the deployed prototype plus framework-independent shared CSS/TypeScript, not a Nuxt migration or backend API rollout.
+
 ## Filter interaction color system (2026-11-01)
 
 - Scope: car-site Guazi PC filters, modal/bottom-sheet counterparts and mobile full filters. `filter-color-system.css` is imported through the existing shared stylesheet, including Nuxt consumers. Do not change independent `/bike/` and `/truck/` branding or frozen comparison modes.

@@ -1,0 +1,71 @@
+/* User-approved dialog contract. Only the car-site Guazi filters; portals included.
+   Sidebar inline controls, frozen reference layouts and independent sites stay intact. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) {
+  --bbmf-dialog-gutter: 16px;
+  --bbmf-dialog-header: 56px;
+  --bbmf-dialog-title: 18px;
+  --bbmf-dialog-action: 52px;
+  --bbmf-dialog-gap: 12px;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi.is-bbm) {
+  --bbmf-dialog-gutter: 24px;
+  --bbmf-dialog-header: 64px;
+  --bbmf-dialog-title: 20px;
+  --bbmf-dialog-action: 48px;
+  --bbmf-dialog-gap: 16px;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-modal-header, .bbmf-sheet-header, .bbmf-full-header, .mf-header, .bbm-drawer-header) {
+  position: relative; display: flex; flex: 0 0 var(--bbmf-dialog-header);
+  align-items: center; justify-content: flex-start; gap: 8px;
+  height: var(--bbmf-dialog-header); min-height: var(--bbmf-dialog-header);
+  padding: 0 var(--bbmf-dialog-gutter); box-sizing: border-box;
+  border-bottom: 1px solid #e8e8e8; background: #fff;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-modal-header, .bbmf-sheet-header, .bbmf-full-header, .mf-header, .bbm-drawer-header) :is(h2, h3) {
+  display: flex; align-items: center; justify-content: flex-start; flex: 1; min-width: 0;
+  gap: 8px; margin: 0; padding: 0 52px 0 0; color: #222;
+  font-size: var(--bbmf-dialog-title); font-weight: 700; line-height: 1.4; text-align: left;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-sheet-heading {
+  display: block; flex: 1; min-width: 0; text-align: left;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-close, .bbmf-full-close, .mf-close, .bbm-drawer-close) {
+  position: absolute; display: grid; place-items: center; top: 50%; right: var(--bbmf-dialog-gutter);
+  transform: translateY(-50%); flex: none; width: 44px; height: 44px;
+  margin: 0; padding: 0; border: 0; border-radius: 8px; background: transparent; color: #222;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-close, .bbmf-full-close, .mf-close, .bbm-drawer-close) :is(img, svg) { display: block; width: 20px; height: 20px; }
+/* Retire the seller sheet's separately drawn oversized close mark. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-close::before,
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-close::after { content: none; }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-modal-back, .bbmf-sheet-back) {
+  position: static; display: grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px;
+  margin: 0; padding: 0; border: 0; background: transparent; color: #222; font: inherit; font-size: 24px;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-modal-body, .bbmf-sheet-body, .mf-body) {
+  flex: 1; min-height: 0; overflow-y: auto; padding: 24px var(--bbmf-dialog-gutter); box-sizing: border-box; overscroll-behavior: contain;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-modal-body.is-flush, .bbmf-sheet-body.is-flush) { padding: 0; }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .maker-hierarchy { padding: 24px var(--bbmf-dialog-gutter); }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-sheet-subtitle { margin: 0 0 24px; color: #767676; font-size: 14px; line-height: 20px; white-space: normal; }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-actions, .bbmf-seller-actions, .bbmf-category-actions, .mf-actions, .maker-hierarchy-actions, .vehicle-picker-actions, .price-filter-actions, .region-actions) {
+  display: flex; flex: none; align-items: center; gap: var(--bbmf-dialog-gap); height: auto;
+  padding: 16px var(--bbmf-dialog-gutter); padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  box-sizing: border-box; border-top: 1px solid #e8e8e8; background: #fff; box-shadow: none;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-reset, .bbmf-seller-reset, .bbmf-category-reset, .mf-reset, .maker-hierarchy-reset, .vehicle-picker-reset, .price-filter-reset, .region-reset) {
+  display: inline-flex; align-items: center; justify-content: flex-start;
+  flex: 0 0 auto; min-width: 72px; width: auto; height: var(--bbmf-dialog-action); min-height: 44px;
+  margin: 0; padding: 0; border: 0 !important; border-radius: 0; background: transparent !important;
+  color: #222; font: inherit; font-size: 16px; font-weight: 600; line-height: 24px; text-decoration: none; cursor: pointer;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-confirm, .bbmf-seller-confirm, .bbmf-category-confirm, .mf-confirm, .maker-hierarchy-confirm, .vehicle-picker-apply, .price-filter-confirm, .region-confirm) {
+  flex: 1 1 0; min-width: 0; width: auto; height: var(--bbmf-dialog-action); margin: 0; padding: 0 16px;
+  border: 0 !important; border-radius: 12px; box-sizing: border-box; font: inherit; font-size: 16px;
+  font-weight: 700; line-height: 24px; text-decoration: none; white-space: nowrap; cursor: pointer;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-reset, .bbmf-seller-reset, .bbmf-category-reset, .mf-reset, .maker-hierarchy-reset, .vehicle-picker-reset, .price-filter-reset, .region-reset):disabled { color: #767676; cursor: default; }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-confirm, .bbmf-seller-confirm, .bbmf-category-confirm, .mf-confirm, .maker-hierarchy-confirm, .vehicle-picker-apply, .price-filter-confirm, .region-confirm):disabled { background: #e0e0e0; color: #767676; cursor: default; }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-close, .bbmf-full-close, .bbmf-modal-back, .bbmf-sheet-back, .bbmf-reset, .mf-reset, .maker-hierarchy-reset):focus-visible { outline: 2px solid #306bd9; outline-offset: 2px; }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-dialog-error { margin: 0 0 16px; color: #c62828; font-size: 14px; line-height: 20px; }
