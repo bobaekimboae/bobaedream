@@ -22,7 +22,7 @@ const sections: CommunitySection[] = [
   },
   {
     id: 'vehicles',
-    name: '차량',
+    name: '교통/운송',
     boards: [
       { id: 'bike', sectionId: 'vehicles', name: '바이크게시판', headwords: ['바이크', '스쿠터', '투어'], canWrite: true },
       { id: 'truck', sectionId: 'vehicles', name: '트럭 · 특장', headwords: ['트럭', '특장', '운송'], canWrite: true },

@@ -106,7 +106,7 @@ useHead({ title: '보배드림 커뮤니티' })
       <Transition name="drawer-slide">
         <div v-if="boardMenuOpen" class="drawer-backdrop" @click.self="boardMenuOpen = false">
           <aside class="board-drawer" aria-label="게시판 메뉴">
-            <header><strong>게시판</strong><button type="button" aria-label="닫기" @click="boardMenuOpen = false">×</button></header>
+            <header><strong>게시판</strong><NuxtLink class="drawer-all-link" to="/categories" @click="boardMenuOpen = false">전체 분류</NuxtLink><button type="button" aria-label="닫기" @click="boardMenuOpen = false">×</button></header>
             <section v-for="section in sections" :key="section.id"><h2>{{ section.name }}</h2><div><button v-for="board in section.boards" :key="board.id" type="button" :class="{ 'is-active': board.id === boardId }" @click="selectBoard(board.id)">{{ board.name }}</button></div></section>
           </aside>
         </div>

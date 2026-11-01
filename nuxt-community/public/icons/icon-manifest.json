@@ -4,17 +4,49 @@
     {
       "name": "네이버 커뮤니티 아이콘",
       "notion": "https://app.notion.com/p/40bee9c4b6068091bc28c788e08e878f?v=500ee9c4b60682149eed88f9db3cbca5",
-      "files": ["view-list.svg", "view-feed.svg", "reaction-like.svg", "reaction-dislike.svg", "reaction-comment.svg"]
+      "files": [
+        "view-list.svg",
+        "view-feed.svg",
+        "reaction-like.svg",
+        "reaction-dislike.svg",
+        "reaction-comment.svg"
+      ]
     },
     {
       "name": "네이버 치지직 아이콘",
       "notion": "https://app.notion.com/p/3c0ee9c4b60680538971d48bc9ed0968?v=ffcee9c4b6068260b13408a259bd274e",
-      "files": ["write/photo.svg", "write/video.svg", "write/text.svg", "write/sticker.svg", "write/quote.svg", "write/link.svg", "write/table.svg", "write/community.svg", "write/chevron-down.svg"]
+      "files": [
+        "write/photo.svg",
+        "write/video.svg",
+        "write/text.svg",
+        "write/sticker.svg",
+        "write/quote.svg",
+        "write/link.svg",
+        "write/table.svg",
+        "write/community.svg",
+        "write/chevron-down.svg"
+      ]
     },
     {
       "name": "Reddit 아이콘",
       "notion": "https://app.notion.com/p/1e3ee9c4b6068060ab04e62cc9445b8b?v=1e3ee9c4b60681228e26000c3bd8d1f6",
-      "files": ["filter.svg"]
+      "files": [
+        "filter.svg"
+      ]
+    },
+    {
+      "name": "커뮤니티 분류 아이콘(저장소 원본 복사, 수정 없음)",
+      "notion": "레딧 · 오토스카우트24 · 초톳 노션 아이콘 DB",
+      "files": [
+        "category/fixed.svg (레딧 pin)",
+        "category/general.svg (AS24 speech bubble)",
+        "category/sports.svg (AS24 트로피)",
+        "category/cars.svg (AS24 used car)",
+        "category/transport.svg (AS24 truck special)",
+        "category/reports.svg (레딧 video-camera-outline)",
+        "category/defects.svg (초톳 report)",
+        "category/search.svg (초톳 search)"
+      ]
     }
   ]
 }
