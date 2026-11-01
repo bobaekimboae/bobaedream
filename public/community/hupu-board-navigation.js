@@ -461,7 +461,7 @@
 
     function serviceBoardRow(board,favoriteIds){
       var favorite=favoriteIds.indexOf(board.id)>=0;
-      return '<div class="communityMenuBoardRow '+(board.id===selectedId?'selected':'')+'"><button class="communityMenuBoard" type="button" data-service-board="'+escapeHtml(board.id)+'"><img src="'+boardAvatarSrc(board)+'" alt="" aria-hidden="true"><span>'+escapeHtml(board.displayName)+'</span></button><button class="communityMenuFavoriteToggle '+(favorite?'isFavorite':'')+'" type="button" data-favorite-board="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 즐겨찾기 '+(favorite?'해제':'추가')+'" aria-pressed="'+String(favorite)+'"><img src="assets/reddit-rail/favorite.svg" alt="" aria-hidden="true"></button></div>';
+      return '<div class="communityMenuBoardRow '+(board.id===selectedId?'selected':'')+'"><button class="communityMenuBoard" type="button" data-service-board="'+escapeHtml(board.id)+'"><img src="'+boardAvatarSrc(board)+'" alt="" aria-hidden="true"><span>'+escapeHtml(board.displayName)+'</span></button><button class="communityMenuFavoriteToggle '+(favorite?'isFavorite':'')+'" type="button" data-favorite-board="'+escapeHtml(board.id)+'" aria-label="'+escapeHtml(board.displayName)+' 즐겨찾기 '+(favorite?'해제':'추가')+'" aria-pressed="'+String(favorite)+'"><img src="assets/reddit-rail/'+(favorite?'favorite-selected.svg':'favorite.svg')+'" alt="" aria-hidden="true"></button></div>';
     }
     function renderServiceMenu(){
       var favoriteIds=loadBoardIds(favoriteStorageKey,movableBoards.length);
