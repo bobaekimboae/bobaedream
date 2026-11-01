@@ -173,7 +173,7 @@ a { color: inherit; text-decoration: none; }
 .sheet-action-footer button { width: 100%; height: 48px; border-radius: 12px; background: #222; color: #fff; font-size: 15px; font-weight: 750; }
 
 .drawer-backdrop { align-items: stretch; justify-content: flex-start; }
-.board-drawer { width: min(86vw, 340px); overflow-y: auto; background: #fff; padding-bottom: 32px; box-shadow: 8px 0 28px #00000029; }
+.board-drawer { width: min(80vw, 360px); overflow-y: auto; background: #fff; padding-bottom: 32px; box-shadow: 8px 0 28px #00000029; }
 .board-drawer > header { position: sticky; z-index: 1; top: 0; height: 58px; display: flex; align-items: center; padding: 0 18px; border-bottom: 1px solid var(--line); background: #fff; }
 .board-drawer > header strong { font-size: 20px; }
 .board-drawer > header button { margin-left: auto; font-size: 28px; }

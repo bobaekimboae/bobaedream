@@ -18,6 +18,34 @@
 
 final result: passed
 
+---
+
+## 2026-11-02 커뮤니티 즐겨찾기 서랍 · Reddit 기준
+
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/205ff212-c1ee-45f7-9485-3b43c731d05b/1-1000019385.jpg` (592×1280px).
+- Browser-rendered implementation screenshot: Codex browser capture of `http://127.0.0.1:8766/community/naver-cafe-list.html?v=redditfavorites3&board=aviation-rail&view=naver-discussion` (390×843px JPEG, browser-rendered inline capture).
+- Viewport/state: 390×844 CSS px, 왼쪽 커뮤니티 서랍 열림, `항공/해운/철도` 즐겨찾기 선택 상태.
+- Density normalization: 서로 다른 기기 밀도 때문에 절대 픽셀 대신 화면 폭 대비 서랍 비율을 비교했다. 원본 약 79.7%(472/592), 구현 80.1%(312.3/390).
+- Full-view evidence: 왼쪽 서랍, 어두운 배경 오버레이, 게시판 프로필, 우측 별표, 접기/펼치기 그룹을 같은 계층으로 유지했다.
+- Focused region evidence: 최근 방문에서 별표를 누르면 즉시 회색 채움으로 전환되고 즐겨찾기 그룹에 동일 게시판이 생성되며, 다시 누르면 해제되는 것을 확인했다.
+
+### Required fidelity surfaces
+
+- Typography: passed — Pretendard, 14px 그룹·행 텍스트와 기존 계층 유지.
+- Spacing/layout: passed — Reddit 기준 80% 서랍 폭, 46px 게시판 행, 42px 별표 열 정렬.
+- Colors/tokens: passed — 선택 별표를 노란색에서 Reddit 중성 회색 `#6e7379`로 교정.
+- Image quality: passed — 기존 원형 게시판 프로필과 Reddit 별표 벡터 자산 사용, 대체 CSS 도형 없음.
+- Copy/content: passed — `최근 방문`, `즐겨찾기`, `전체 게시판` 의미를 분리하고 빈 상태 안내 유지.
+- Behavior/accessibility: passed — `aria-pressed`, 추가·해제 레이블, 로컬 저장, 즉시 목록 이동 확인.
+
+### Comparison history
+
+- Pass 1 [P2, layout]: 구현 서랍이 86%로 원본보다 넓었다. 모바일 폭을 80%로 조정했다.
+- Pass 1 [P2, color]: 선택 별표가 노란색이어서 Reddit의 회색 즐겨찾기 상태와 달랐다. `#6e7379` 회색 채움 자산으로 교체했다.
+- Pass 2: 390×844에서 서랍 폭 312.3px(80.1%), 즐겨찾기 추가 후 목록 1개·선택 별표 상태·즉시 해제 동작을 재검증했다. 추가 P0/P1/P2 차이는 없다.
+
+final result: passed
+
 
 ---
 
