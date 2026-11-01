@@ -16,6 +16,7 @@ import DoneSheet from "./components/DoneSheet.vue";
 import AddressSheet from "./components/AddressSheet.vue";
 import ExitSheet from "./components/ExitSheet.vue";
 import PhotoViewer from "./components/PhotoViewer.vue";
+import PcChecklist, { type CheckItem } from "./components/PcChecklist.vue";
 import { IC } from "./lib/icons";
 import { CATEGORIES, YEARS, truckFormats, truckSubtypes, type CategoryId, type Field } from "./lib/categories";
 import { makerSections, modelsOf } from "./lib/catalog";
@@ -73,6 +74,9 @@ const onFiles = async (e: Event) => {
   const input = e.target as HTMLInputElement;
   const files = Array.from(input.files ?? []);
   input.value = "";
+  await addFiles(files);
+};
+const addFiles = async (files: File[]) => {
   srcOpen.value = false;
   const room = MAX_MEDIA - form.value.media.length;
   if (files.length > room) toast(`사진 · 영상은 ${MAX_MEDIA}개까지예요. ${room}개만 넣었어요`);
@@ -164,6 +168,35 @@ const onPick = (v: string) => {
   picker.value = null;
 };
 const regionText = computed(() => regionLine(form.value.region));
+
+// ── PC 「등록 준비」 목록: 꼭 채울 칸과 그 칸으로 이동 ──
+const checkItems = computed<CheckItem[]>(() => {
+  const e = errors.value;
+  const base = [
+    { key: "media", label: "사진 · 영상" },
+    { key: "desc", label: "매물 설명(10자 이상)" },
+    { key: "title", label: "매물 제목" },
+    { key: "price", label: "판매 가격" },
+    { key: "region", label: "거래 지역" },
+  ];
+  const detail = fields.value.filter((f) => f.required).map((f) => ({ key: f.key, label: f.label }));
+  return [...base, ...detail].map((i) => ({ ...i, done: !e[i.key] }));
+});
+const goTo = (key: string) => {
+  const el =
+    key === "media"
+      ? document.querySelector<HTMLElement>(".card--media")
+      : ["desc", "title", "price", "region"].includes(key)
+        ? document.getElementById(`f-${key}`)?.closest<HTMLElement>(".of") ?? null
+        : document.querySelector<HTMLElement>(`[data-key="${key}"]`);
+  if (!el) return;
+  el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
+  el.classList.remove("is-flash");
+  void el.offsetWidth;
+  el.classList.add("is-flash");
+  const target = key === "media" ? null : key === "region" ? document.getElementById("f-region") : el.matches("button") ? el : el.querySelector<HTMLElement>("input, textarea, button");
+  window.setTimeout(() => target?.focus({ preventScroll: true }), 350);
+};
 
 // ── 등록 방식 · 미리보기 · 등록하기 ──
 const postOpen = ref(false);
@@ -289,7 +322,9 @@ onMounted(async () => {
     <header class="pc-top">
       <a class="pc-top__logo" :href="sitePath('')"><img :src="sitePath('assets', 'bbm', 'header-logo.svg')" alt="보배드림" /></a>
       <span class="pc-top__title">차량 매물 등록</span>
+      <span class="pc-top__cat">{{ cat.name }}</span>
       <button type="button" class="pc-top__save" @click="onSave">임시저장</button>
+      <button type="button" class="pc-top__exit" @click="goBack">나가기</button>
     </header>
     <header class="reg-head">
       <button type="button" class="reg-head__back" aria-label="뒤로" @click="goBack"><Ico :src="IC.back" /></button>
@@ -300,17 +335,21 @@ onMounted(async () => {
     <main class="reg-body">
       <div class="pc-left">
         <section class="card card--main card--media" aria-label="사진 · 영상">
-          <MediaSection :media="form.media" :max="MAX_MEDIA" :error="shown('media')" @add="cat.shootKit ? (srcOpen = true) : fileIn?.click()" @remove="removeMedia" @move="moveMedia" @info="ruleOpen = true" @view="(i: number) => (viewAt = i)" />
+          <MediaSection :media="form.media" :max="MAX_MEDIA" :error="shown('media')" @add="cat.shootKit ? (srcOpen = true) : fileIn?.click()" @remove="removeMedia" @move="moveMedia" @info="ruleOpen = true" @view="(i: number) => (viewAt = i)" @files="addFiles" />
         </section>
+        <PcChecklist :items="checkItems" :tried="tried" @go="goTo" />
       </div>
       <div class="pc-right">
         <section class="card card--main card--form" aria-label="매물 기본 정보">
+          <h2 class="pc-sec pc-only">기본 정보</h2>
           <OField id="f-desc" v-model="form.desc" label="매물 설명" required multiline :maxlength="DESC_MAX" :placeholder="cat.descHint" :error="shown('desc')">
             <p class="of__count">{{ form.desc.length.toLocaleString("ko-KR") }}/{{ DESC_MAX.toLocaleString("ko-KR") }}자</p>
           </OField>
           <OField id="f-title" v-model="form.title" label="매물 제목" required clearable :maxlength="TITLE_MAX" :placeholder="cat.titleHint" :error="shown('title')" />
-          <OField id="f-price" v-model="form.price" label="판매 가격" required numeric :suffix="cat.priceUnit" :error="shown('price')" />
-          <OField id="f-region" :model-value="regionText" label="거래 지역" required select :display="regionText" :error="shown('region')" @open="openRegion" />
+          <div class="pc-pair">
+            <OField id="f-price" v-model="form.price" label="판매 가격" required numeric :suffix="cat.priceUnit" :error="shown('price')" />
+            <OField id="f-region" :model-value="regionText" label="거래 지역" required select :display="regionText" :error="shown('region')" @open="openRegion" />
+          </div>
           <PillRow v-model="form.seller" label="판매자" required :options="['개인', '딜러']" />
         </section>
         <DetailCard :cat="cat" :fields="fields" :values="form.values" :err="shown" @open="openField" @set="setValue" @category="openCategory" />
@@ -320,6 +359,7 @@ onMounted(async () => {
             <span>선택됨 <b>{{ postName }}</b></span>
             <Ico class="bar__caret" :src="IC.caret" />
           </button>
+          <p class="bar__left pc-only" aria-live="polite">{{ checkItems.every((i) => i.done) ? "모두 채웠어요. 등록할 수 있어요" : `꼭 채울 칸 ${checkItems.filter((i) => !i.done).length}개 남았어요` }}</p>
           <div class="bar__btns">
             <button type="button" class="btn btn--line" @click="previewOpen = true; timer.mark('미리보기')">미리보기</button>
             <button type="button" class="btn btn--pri" @click="submit">등록하기</button>
