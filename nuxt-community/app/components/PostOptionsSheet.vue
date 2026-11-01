@@ -52,15 +52,15 @@ function chooseView(value: CommunityView) {
             <div class="view-choice-grid">
               <button :class="{ 'is-selected': props.view === 'compact' }" type="button" @click="chooseView('compact')">
                 <span class="compact-view-icon" aria-hidden="true"><i /><i /><i /></span>
-                <span>간결형</span><small>치지직</small>
+                <span>간결형</span>
               </button>
               <button :class="{ 'is-selected': props.view === 'list' }" type="button" @click="chooseView('list')">
                 <img :src="`${iconRoot}/view-list.svg`" alt="" />
-                <span>목록형</span><small>네이버 카페</small>
+                <span>목록형</span>
               </button>
               <button :class="{ 'is-selected': props.view === 'feed' }" type="button" @click="chooseView('feed')">
                 <img :src="`${iconRoot}/view-feed.svg`" alt="" />
-                <span>피드형</span><small>증권 토론</small>
+                <span>피드형</span>
               </button>
             </div>
           </div>
