@@ -10,7 +10,7 @@ const writeDrafts = (v: Record<string, Draft<unknown>>) => { try { localStorage.
 
 export const mockApi: CommunityApi = {
   async me(): Promise<Me> {
-    return { id: 1, nickname: "나", avatar: "community/assets/profile-avatars/avatar-01.svg", can: { post: true, comment: true, react: true } };
+    return { id: 1, nickname: "나", avatar: "avatar-01.svg", can: { post: true, comment: true, react: true } };
   },
   async listReviews() { return reviews(); },
   async listFuel() { return fuelPosts(); },

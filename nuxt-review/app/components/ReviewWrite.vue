@@ -95,7 +95,7 @@ const post = async () => {
   };
   const r: Review = {
     id: `u${Date.now()}`, modelId: c.id, brand: c.brand, model: c.model, trim: c.trim, year: Number((c.trim.match(/^(\d{4})/) || [0, new Date().getFullYear()])[1]),
-    powertrain: c.powertrain, brandLogo: c.brandLogo, title: `${c.brand} ${c.model} 리뷰`, body: input.body, author: "나", avatar: "community/assets/profile-avatars/avatar-01.svg",
+    powertrain: c.powertrain, brandLogo: c.brandLogo, title: `${c.brand} ${c.model} 리뷰`, body: input.body, author: "나", avatar: "avatar-01.svg",
     publishedAt: new Date().toISOString(), images: photo.value ? [photo.value] : [], views: 0, comments: 0, likes: 0, rating: Number(average.value.toFixed(2)),
     ratings: ratingKeys.map((k) => ({ label: ratingCategories[k].label, score: scores[k]! })),
     owner: owner.value, ownership: owner.value ? "보유 1개월 미만" : "시승 리뷰", location: buy.city || "", benchmark: "",

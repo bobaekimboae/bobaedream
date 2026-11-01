@@ -24,7 +24,7 @@ const comments = [
   "옵션은 어떤 걸로 하셨어요?", "고속에서 소음은 어떤가요?", "보험료는 얼마 나왔나요?", "겨울 주행거리 궁금해요.",
 ];
 const regions = ["서울", "경기", "인천", "부산", "대구", "대전", "광주", "울산", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주"];
-const avatar = (n) => `community/assets/profile-avatars/avatar-${String((n % 48) + 1).padStart(2, "0")}.svg`;
+const avatar = (n) => `avatar-${String((n % 48) + 1).padStart(2, "0")}.svg`;
 
 const mkComments = (seed, count) =>
   Array.from({ length: Math.min(count, 6) }, (_, i) => ({
