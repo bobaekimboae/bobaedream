@@ -22,21 +22,21 @@ const onNum = (f: Field, e: Event) => {
 <template>
   <section class="card card--detail" aria-labelledby="detail-title">
     <h2 id="detail-title" class="detail-title"><Ico :src="IC.detail" />상세 정보</h2>
-    <button type="button" class="row row--cat" aria-haspopup="dialog" @click="emit('category')">
+    <button type="button" class="row row--cat" data-key="@category" aria-haspopup="dialog" @click="emit('category')">
       <span class="row__label">카테고리<span class="req"> *</span></span>
       <span class="row__value">차량 / {{ cat.name }}</span>
       <Ico class="row__chev" :src="IC.chevron" />
     </button>
     <template v-for="f in fields" :key="f.key">
-      <div v-if="f.kind === 'pills'" class="row row--pills" style="display: block">
+      <div v-if="f.kind === 'pills'" class="row row--pills" :data-key="f.key" style="display: block">
         <PillRow :label="f.label" :options="f.options as string[]" :model-value="values[f.key] ?? ''" :required="f.required" :error="err(f.key)" @update:model-value="(v: string) => emit('set', f.key, v)" />
       </div>
-      <button v-else-if="f.kind === 'pick'" type="button" class="row" :class="{ 'is-err': err(f.key) }" aria-haspopup="dialog" @click="emit('open', f)">
+      <button v-else-if="f.kind === 'pick'" type="button" class="row" :data-key="f.key" :class="{ 'is-err': err(f.key) }" aria-haspopup="dialog" @click="emit('open', f)">
         <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
         <span class="row__value" :class="{ 'is-err': err(f.key) }">{{ values[f.key] || (err(f.key) ? err(f.key) : "선택") }}</span>
         <Ico class="row__chev" :src="IC.chevron" />
       </button>
-      <div v-else class="row-wrap" :class="{ 'is-err': err(f.key) }">
+      <div v-else class="row-wrap" :data-key="f.key" :class="{ 'is-err': err(f.key) }">
         <label class="row row--input">
           <span class="row__label">{{ f.label }}<span v-if="f.required" class="req"> *</span></span>
           <input
