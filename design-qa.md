@@ -21,6 +21,22 @@ final result: passed
 
 ---
 
+## 2026-11-01 커뮤니티 게시글 옵션 즉시 적용
+
+- Source visual truth: 사용자 제공 Reddit·네이버 밴드 모바일 게시글 옵션 화면.
+- Browser-rendered implementation: `http://127.0.0.1:5212/community/naver-cafe-list.html?v=instant-apply-qa&board=aviation-rail`.
+- Viewport/state: 393×844 CSS px; 정렬·보기·말머리·인기 기간을 각각 선택한 직후.
+- Full-view evidence: `인기 → 지난 24시간` 선택 후 시트가 닫히고 실제 게시물이 62건에서 29건으로 갱신됨. 목록형·테슬라·최신순도 각각 선택 즉시 닫히며 재진입 시 선택 상태가 유지됨.
+- Required fidelity surfaces: 기존 Pretendard 타이포그래피·간격·색상·아이콘을 유지했고 공개 시안과 Nuxt 4 정본 모두 동일한 즉시 적용 규칙을 사용함. 콘솔 오류 0.
+- Detailed QA: `reports/design-qa/community-options-instant-apply-2026-11-01.md`.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
+
+---
+
 ## 2026-11-01 커뮤니티 레딧형 인기 기간 선택
 
 - Source visual truth: 사용자 제공 Reddit `피드 옵션`, `인기` 기간 화면 3장.

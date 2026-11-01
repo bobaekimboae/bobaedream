@@ -34,16 +34,23 @@ watch(() => props.open, (open) => { if (open) panel.value = 'main' })
 
 function chooseSort(value: CommunitySort) {
   emit('update:sort', value)
+  emit('close')
 }
 
 function choosePopularPeriod(value: CommunityPopularPeriod) {
   emit('update:popularPeriod', value)
   emit('update:sort', 'popular')
-  panel.value = 'main'
+  emit('close')
 }
 
 function chooseView(value: CommunityView) {
   emit('update:view', value)
+  emit('close')
+}
+
+function chooseHeadword(value: string) {
+  emit('update:headword', value)
+  emit('close')
 }
 </script>
 
@@ -90,14 +97,10 @@ function chooseView(value: CommunityView) {
           <div class="option-group option-group--last">
             <h3>말머리</h3>
             <div class="headword-choice-list">
-              <button :class="{ 'is-selected': !props.headword }" type="button" @click="emit('update:headword', '')">전체</button>
-              <button v-for="item in props.headwords" :key="item" :class="{ 'is-selected': props.headword === item }" type="button" @click="emit('update:headword', item)">{{ item }}</button>
+              <button :class="{ 'is-selected': !props.headword }" type="button" @click="chooseHeadword('')">전체</button>
+              <button v-for="item in props.headwords" :key="item" :class="{ 'is-selected': props.headword === item }" type="button" @click="chooseHeadword(item)">{{ item }}</button>
             </div>
           </div>
-
-          <footer class="sheet-action-footer">
-            <button type="button" @click="emit('close')">적용</button>
-          </footer>
           </template>
 
           <div v-else class="popular-period-list" role="radiogroup" aria-label="인기 기간">
