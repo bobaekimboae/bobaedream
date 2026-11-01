@@ -7,7 +7,7 @@
   var commentStorageKey='bobae-community-review-comments-v1';
   var starFilled='../icons/chotot/chotot-common-review-star-selected.svg';
   var starEmpty='../icons/chotot/chotot-common-review-star-button.svg';
-  var icons={back:'assets/reddit-ui/back.svg',share:'../%61ssets/detail/autoscout24-share.svg',chat:'assets/reactions/comment.svg',like:'assets/reactions/recommend.svg',dislike:'assets/reactions/dislike.svg',bookmark:'../icons/chotot/chotot-common-bookmark.svg',write:'assets/reddit-ui/write.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg'};
+  var icons={back:'assets/reddit-ui/back.svg',share:'../%61ssets/detail/autoscout24-share.svg',chat:'assets/reactions/comment-outline.svg',like:'assets/reactions/recommend.svg',dislike:'assets/reactions/dislike.svg',bookmark:'../icons/chotot/chotot-common-bookmark.svg',write:'assets/reddit-ui/write.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg'};
   var modelMeta={
     'ev-a06':{brand:'현대',model:'아이오닉 6',trim:'2026 롱레인지 2WD',powertrain:'ev',brandLogo:'../%61ssets/brand/kr/hyundai.png'},
     'phev-xc60':{brand:'볼보',model:'XC60',trim:'2026 T8 AWD 플러그인 하이브리드',powertrain:'phev',brandLogo:'../%61ssets/brand/kr/volvo.png'},

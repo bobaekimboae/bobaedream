@@ -66,7 +66,7 @@
   function avatarFor(post,index){return post.authorAvatar||'assets/profile-avatars/avatar-'+String(index%48+1).padStart(2,'0')+'.svg';}
   function detailUrl(post,photoIndex){return './chzzk-detail.html?id='+encodeURIComponent(post.id)+(post.local?'&local=1':'')+'&from=discussion'+(photoIndex>0?'&photo='+(photoIndex+1):'')+'&v=20261016naverdiscussion3';}
   function icon(name){return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261016naverdiscussion2';}
-  function reactionIcon(name){return 'assets/reactions/'+name+'.svg';}
+  function reactionIcon(name){return 'assets/reactions/'+(name==='comment'?'comment-outline':name)+'.svg';}
   function chototIcon(name){return '../icons/chotot/'+name+'.svg?v=20261016navermedia1';}
   /* 사각칩 브랜드: 제목·요약에서 자동차 브랜드를 찾아 분류 칩 옆에 최대 2개 */
   var BRAND_RULES=[['시트로엥',/시트로엥|2CV/],['푸조',/푸조/],['르노',/르노(?!코리아)/],['스코다',/스코다/],['미쓰비시',/미쓰비시/],['혼다',/혼다/],['닛산',/닛산/],['마쓰다',/마쓰다/],['스바루',/스바루/],['스즈키',/스즈키/],['폭스바겐',/폭스바겐/],['아우디',/아우디/],['포르쉐',/포르쉐/],['포드',/포드/],['현대',/현대차|현대 |현대자동차|투싼|베이온|아이오닉/],['기아',/기아|쏘렌토|셀토스|K4|EV9/],['제네시스',/제네시스|GV80|GV90|G90/],['BMW',/BMW|M350|M5 |iX4|7시리즈/],['벤츠',/벤츠|메르세데스|AMG|C-클래스|E-클래스/],['렉서스',/렉서스|LFA/],['토요타',/토요타|도요타|카롤라/],['테슬라',/테슬라/],['BYD',/BYD|아토8/],['덴자',/덴자/],['쉐보레',/쉐보레|실버라도/],['GMC',/GMC|시에라/],['볼보',/볼보/],['KG모빌리티',/KG모빌리티/],['르노코리아',/르노코리아/]];

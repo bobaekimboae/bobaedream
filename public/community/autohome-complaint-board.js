@@ -1,7 +1,7 @@
 (function(){
   'use strict';
   var params=new URLSearchParams(location.search),storageKey='bobae-autohome-complaints-v1',commentKey='bobae-autohome-complaint-comments-v1';
-  var icons={back:'assets/reddit-ui/back.svg',share:'../%61ssets/detail/autoscout24-share.svg',chat:'assets/reactions/comment.svg',like:'assets/reactions/recommend.svg',bookmark:'../icons/chotot/chotot-common-bookmark.svg',write:'assets/reddit-ui/write.svg',photo:'assets/chzzk-detail/icons/camera.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg'};
+  var icons={back:'assets/reddit-ui/back.svg',share:'../%61ssets/detail/autoscout24-share.svg',chat:'assets/reactions/comment-outline.svg',like:'assets/reactions/recommend.svg',bookmark:'../icons/chotot/chotot-common-bookmark.svg',write:'assets/reddit-ui/write.svg',photo:'assets/chzzk-detail/icons/camera.svg',check:'../%61ssets/register/chotot-v01/check-mark.svg'};
   function esc(value){return String(value==null?'':value).replace(/[&<>\"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]})}
   function icon(name,alt){return'<img src="'+icons[name]+'" alt="'+esc(alt||'')+'">'}
   function table(){return(window.BBM_BOARD_TABLES||{})['autohome-complaint']||{rows:[]}}

@@ -74,7 +74,7 @@
   }
 
   function reactionIcon(name){
-    return 'assets/reactions/'+name+'.svg';
+    return 'assets/reactions/'+(name==='comment'?'comment-outline':name)+'.svg';
   }
 
   function chototIcon(name){
