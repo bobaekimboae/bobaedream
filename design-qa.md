@@ -1,5 +1,17 @@
 # 모델별 차량리뷰 목록·상세·댓글 QA · 2026-10-17
 
+## 2026-11-01 모바일 커뮤니티 작성자 프사 제거
+
+- Scope: 게시판을 식별하는 HOME/게시판 아이콘은 유지하고, 게시글 작성자 프로필 사진만 모든 목록·피드 보기에서 제거했다.
+- Applied: 네이버 토론형, 네이버 카페형, Reddit형, Chợ Tốt형 및 선택형 메타 프사를 공통 후순위 CSS에서 숨겼다.
+- Layout: 작성자·등록시간 텍스트는 유지하고 프사가 빠진 행의 높이와 간격을 재조정했다.
+- Control: 보기방식 편집의 `닉네임 프사` 항목도 제거해 다시 노출되는 경로를 막았다.
+
+final result: passed
+
+
+---
+
 - source visual truth paths: `artifacts/dongchedi-model-review-1017/source/12-model-list-card.png`, `01-detail-top.png`, `04-detail-comments.png` (Android 원본 1080 × 2400px).
 - browser-rendered implementation paths: `artifacts/dongchedi-model-review-1017/implementation/01-list-390x844.png`, `02-detail-top-390x844.png`, `03-comments-390x844.png`.
 - combined comparison evidence: `artifacts/dongchedi-model-review-1017/comparisons/list-side-by-side.png`, `detail-side-by-side.png`, `comments-side-by-side.png`.

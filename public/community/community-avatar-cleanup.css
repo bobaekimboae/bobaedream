@@ -1,0 +1,32 @@
+/* Keep community feeds text-led: board identity stays, author profile photos do not. */
+.naverDiscussionAvatar,
+.naverDiscussionHotCardMeta > img,
+.redditFeedAvatar,
+.chototFeedAvatar,
+.cafeFeedAvatar,
+.metaAvatar {
+  display: none !important;
+}
+
+.naverDiscussionIdentity {
+  height: auto;
+  min-height: 20px;
+}
+
+.naverDiscussionCard.is-thumb .naverDiscussionIdentity {
+  height: auto;
+  min-height: 20px;
+}
+
+.redditFeedIdentity {
+  gap: 0;
+}
+
+.chototFeedIdentity {
+  gap: 0;
+  min-height: 34px;
+}
+
+.cafeFeedProfile {
+  gap: 0;
+}
