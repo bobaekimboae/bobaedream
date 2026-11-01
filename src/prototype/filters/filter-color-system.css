@@ -1,0 +1,147 @@
+/* Bobaedream filter interaction colors. Keep geometry and search semantics unchanged.
+   Portal-safe scope: current car-site Guazi PC/mobile only. Frozen comparison
+   layouts and the independently branded /bike/ and /truck/ sites are excluded. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) {
+  --bbmf-accent: var(--bbmf-footer-action-blue, #306bd9);
+  --bbmf-accent-ink: #2456b3;
+  --bbmf-accent-soft: #edf3ff;
+  --bbmf-accent-hover: #2456b3;
+  --bbmf-accent-line: #c2d3f5;
+}
+
+/* Price panels previously took a different navy from the page branding token. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.pf-panel, .pf-sheet) {
+  --pf-accent: var(--bbmf-accent);
+}
+
+/* Filled selection controls: white labels/checks remain white. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(
+  .mf-chip.is-selected:not(:disabled),
+  .bbmf-choices button.is-selected:not(:disabled),
+  .bbmf-tabs.is-side button.is-selected:not(:disabled),
+  .stable-region-cell.is-selected:not(:disabled),
+  .bbmf-overlay .bbm-category-child-pills button.is-selected:not(:disabled),
+  .price-presets button.is-selected:not(:disabled),
+  .bottom-sheet .chotot-choice-chips button.is-selected:not(:disabled),
+  .bottom-sheet .chotot-category-child-chips button.is-selected:not(:disabled),
+  .bbmf-overlay .car-list-toolbar-pop-modal__options .ui-btn.is-selected:not(:disabled):not(.is-loading),
+  .category-filter-children button.is-selected:not(:disabled)
+) {
+  border-color: var(--bbmf-accent);
+  background: var(--bbmf-accent);
+  color: #fff;
+  box-shadow: none;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-overlay .bbm-category-row.is-selected:not(.is-expandable) .bbm-category-row__name > span:last-child {
+  background: var(--bbmf-accent);
+  color: #fff;
+}
+
+/* Outline selections, including seat/body color choices. Never tint .bbmf-swatch. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(
+  .bbmf-presets button.is-selected:not(:disabled),
+  .bbmf-color-chips button.is-selected:not(:disabled),
+  .vehicle-picker-grid button.is-selected:not(:disabled),
+  .maker-hierarchy-path button,
+  .region-quick-chips button.is-selected:not(:disabled),
+  .region-menu button[aria-selected="true"]:not(:disabled),
+  .sheet-options button.is-selected:not(:disabled),
+  .bbmf-overlay .bbm-truck-spec-chips button.is-selected:not(:disabled)
+) {
+  border-color: var(--bbmf-accent);
+  background: var(--bbmf-accent-soft);
+  color: var(--bbmf-accent-ink);
+  box-shadow: inset 0 0 0 1px var(--bbmf-accent);
+}
+
+/* Slider rail has neutral unselected track, blue selected interval and handles. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.mf-fill, .mf-handle-dot, .mf-bubble, .bbmf-slider i) {
+  background: var(--bbmf-accent);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-slider b {
+  border-color: var(--bbmf-accent);
+  background: #fff;
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .price-range-line {
+  background: linear-gradient(to right, #e0e0e0 0 var(--price-start), var(--bbmf-accent) var(--price-start) var(--price-end), #e0e0e0 var(--price-end) 100%);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .price-range input[type="range"]::-webkit-slider-thumb { background: var(--bbmf-accent); }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .price-range input[type="range"]::-moz-range-thumb { background: var(--bbmf-accent); }
+
+/* Checked and mixed states: common lists, body types, sellers and truck drilldown. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(
+  .bbmf-check.is-checked:not(.is-disabled) .bbmf-check-box,
+  .bbmf-seller-row.is-checked:not(.is-disabled) .bbmf-seller-check,
+  .bbmf-body-type-row.is-checked .bbmf-seller-check,
+  .truck-type-picker-row.is-selected .truck-type-picker-check,
+  .truck-type-picker-row.is-partial .truck-type-picker-check,
+  .bbmf-bike-genre-row.is-checked:not(.is-disabled) .bbmf-bike-genre-check,
+  .bbmf-overlay .bbm-maker-row.is-model.is-selected:not(:disabled) .bbm-model-check,
+  .bbmf-overlay .bbm-grade-row.is-checked .bbm-checkbox
+) {
+  border-color: var(--bbmf-accent);
+  background-color: var(--bbmf-accent);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-overlay .bbm-maker-grade.is-reference .bbm-grade-row.is-checked .bbm-checkbox {
+  background-color: transparent;
+  color: var(--bbmf-accent);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.maker-option input, .bottom-sheet .chotot-check-list input) { accent-color: var(--bbmf-accent); }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bottom-sheet .chotot-radio-list i.is-selected { border-color: var(--bbmf-accent); }
+
+/* Horizontal tabs use a blue label/underline; side tabs retain a filled pill. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-tabs:not(.is-side) button.is-selected, .price-mode-tabs button.is-selected) { color: var(--bbmf-accent); }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-tabs:not(.is-side) button.is-selected, .price-mode-tabs button.is-selected)::after { background: var(--bbmf-accent); }
+
+/* On is blue; off, disabled and the white switch knob remain neutral. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(.bbmf-keep-switch.is-on, .bbmf-daangn-switch.is-on, .bottom-sheet .chotot-toggle-row.is-on i) { background: var(--bbmf-accent); }
+
+/* Manufacturer/model cards and category selection: blue marker, original logos. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .maker-hierarchy-row.is-selected {
+  background: var(--bbmf-accent-soft);
+  box-shadow: inset 3px 0 var(--bbmf-accent);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(
+  .maker-hierarchy-row.is-selected > svg,
+  .bbmf-overlay .bbm-catalog-row.is-selected,
+  .bbmf-full-value,
+  .bbmf-overlay .bbm-grade-row.is-checked,
+  .bbmf-overlay .bbm-maker-row.is-selected:not(:disabled) .bbm-maker-name,
+  .bbmf-overlay .bbm-category-row.is-selected.is-expandable .bbm-category-row__name,
+  .bbmf-overlay .bbm-category-menu__button.is-selected .bbm-category-menu__label
+) { color: var(--bbmf-accent-ink); }
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-overlay .bbm-category-menu__button.is-selected .bbm-category-menu__icon-box.is-category-icon {
+  border-color: var(--bbmf-accent);
+  box-shadow: inset 0 0 0 1px var(--bbmf-accent);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-bike-genre-row.is-checked:not(.is-disabled) {
+  background: var(--bbmf-accent-soft);
+  box-shadow: inset 0 0 0 2px var(--bbmf-accent);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) .bbmf-full-group-title {
+  border-color: var(--bbmf-accent-line);
+  background: var(--bbmf-accent-soft);
+  color: var(--bbmf-accent-ink);
+}
+
+/* Focus rules are restricted to filter controls, not the whole application. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(
+  .mf-field:focus-within, .pf-field:focus-within, .bbmf-unit-field:focus-within,
+  .bbmf-select:focus-within, .bbmf-keyword:focus-within, .maker-hierarchy-search:focus-within
+) {
+  border-color: var(--bbmf-accent);
+  box-shadow: 0 0 0 1px var(--bbmf-accent);
+}
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(
+  .bbmf-modal, .bbmf-sheet, .bbmf-full, .mf-sheet,
+  .bottom-sheet:has(:is(.region-sheet, .vehicle-picker-sheet, .price-filter-sheet, .maker-sheet, .category-filter-sheet, .chotot-filter-sheet))
+) :is(button, input[type="checkbox"], input[type="range"]):focus-visible:not(:disabled) {
+  outline: 2px solid var(--bbmf-accent) !important;
+  outline-offset: 2px;
+}
+
+/* Reuse the existing primary footer token; preserve disabled/reset/cancel styles. */
+html:not([data-site="bike"]):not([data-site="truck"]) body:has(.marketplace.is-qf-guazi) :is(
+  .bbmf-confirm, .bbmf-seller-confirm, .bbmf-category-confirm, .mf-confirm,
+  .maker-hierarchy-confirm, .vehicle-picker-apply, .price-filter-confirm, .region-confirm
+):not(:disabled):hover { background: var(--bbmf-accent-hover) !important; }

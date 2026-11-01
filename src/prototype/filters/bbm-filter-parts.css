@@ -1,3 +1,5 @@
+@import "./filter-color-system.css";
+
 /* QF-076 개발 시안형 필터 공통 부품. 수치는 원본 실측(docs/bbm-filter-spec.md): PC 1440×900, 모바일 393×852.
    색: 글자 #1A1A1A · 보조 #767676 · 수 #9E9E9E · 비활성 #E0E0E0 · 확인(모달·시트) #010F21 · 확인(전체 화면) #1B4C8C */
 
