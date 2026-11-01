@@ -231,3 +231,10 @@ npm run verify
 - 이미 촬영한 항목은 순서 변경·삭제를 막고, 촬영한 영상과 시간을 항목 ID 기준으로 유지한다.
 - 쇼츠 화면은 코스의 부위명·순서·촬영 시간을 타임라인으로 이어받는다. 매물형·감성형·빠른 쇼츠형, 자동 자막, 가격·연식, 배경 음악을 선택할 수 있다.
 - `자동 쇼츠 만들기`의 분석·자막 생성은 현재 프런트 진행 시안이다. 촬영 영상을 합쳐 기기에 저장하는 mp4 기능은 기존 브라우저 저장 기능을 사용한다.
+
+## 11. 커뮤니티 리뷰 · 연비 게시판(2026-11-01, 넉스트 판)
+
+- 화면 `nuxt-review/`(Nuxt 4.6.2 · Vue 3.5.33 · TS 6.0.3 · pnpm), 배포 `public/nuxt-review/`(`pnpm export`). 데이터는 `scripts/build-data.mjs`로 기존 커뮤니티 표에서 만든다.
+- 서버 `community-api/`(Laravel 12 · PHP 8.4 · PostgreSQL 15 · Sanctum). 계약 `docs/community-review-api.md`, 시험 `bash community-api/tests/smoke.sh`(36개).
+- 화면 ↔ 서버 이름은 `nuxt-review/app/lib/api/contract.ts` · `client.ts` ↔ `community-api/routes/api.php` · `Http/Requests` · `Http/Resources`를 함께 바꾼다.
+- 남은 것: 회원 로그인(토큰 발급) 연동 · 글 수정 · 신고 · 사진 업로드 · 검색(Meilisearch).
