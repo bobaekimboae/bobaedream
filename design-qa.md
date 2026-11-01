@@ -37,7 +37,7 @@ final result: passed
 - Source visual truth: USB 연결 갤럭시 `SM-S938N`의 던전앤파이터 게시판 캡처 `C:/Temp/bobaedream-phone-current.png`.
 - Browser-rendered implementation: Codex in-app browser tab 8, `http://127.0.0.1:5212/community/naver-cafe-list.html?v=community-title&board=aviation-rail&header=community`.
 - Viewport/state: 319 × 668 CSS px, 커뮤니티 타이틀 헤더·항공/해운/철도 게시판 상태.
-- Layout: 좌측 서비스 타이틀, 우측 26px 검색과 메뉴 아이콘, 60px 헤더, 20px 좌측 여백으로 구성했다. 게시판명은 기존 게시판 프로필 영역에만 남긴다.
+- Layout: 좌측 서비스 타이틀은 연결된 치지직 앱 실측에 맞춘 20px/700/26px이며, 우측 26px 검색과 메뉴 아이콘, 60px 헤더, 20px 좌측 여백으로 구성했다. 게시판명은 기존 게시판 프로필 영역에만 남긴다.
 - Regression: 쿼리가 없는 기존 헤더는 뒤로가기·검색 필드·프로필·메뉴 구성을 그대로 유지한다.
 - Runtime checks: 가로 오버플로 0px, 콘솔 오류 0건, 타이틀·검색·메뉴 접근성 이름 확인.
 
