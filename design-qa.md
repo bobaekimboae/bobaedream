@@ -18,6 +18,30 @@
 
 final result: passed
 
+
+---
+
+## 2026-11-01 커뮤니티 전 보기 말머리·공통 셸 통일
+
+- Source visual truth: 사용자 제공 `1-1000019375.jpg` 모바일 `제안/건의` 화면.
+- Browser-rendered implementation: 로컬 `community/naver-cafe-list.html?board=suggestion&view=compact` 및 6개 일반 보기 방식.
+- Viewport/state: 모바일, `제안/건의`, 간결형·목록형·피드형·카페 좌측 썸네일형·카페 인기글형.
+- Full-view evidence: 햄버거·검색·프로필, 게시판 탭, 배너, 제목·팔로우, 클린봇, 게시물 목록 순서를 유지함.
+- Focused evidence: 모든 보기에서 게시물 수 32개와 `[말머리]` 32개가 일치함.
+
+### Required fidelity surfaces
+
+- Typography: passed — Pretendard와 기존 게시판 타이포 유지.
+- Spacing/layout: passed — 간결형 70px 행과 우측 52px 썸네일 유지.
+- Colors/tokens: passed — 중립 말머리와 제품 블루 댓글 수 유지.
+- Image quality: passed — 배너 및 게시물 썸네일 크롭 변경 없음.
+- Copy/content: passed — 데이터 의미와 게시판 문구 유지.
+- Behavior/accessibility: passed — 정렬·보기·말머리 즉시 반영과 레딧형 왼쪽 메뉴 유지.
+
+상세 검증: `reports/design-qa/community-all-view-headwords-2026-11-01.md`.
+
+final result: passed
+
 ---
 
 ## 2026-11-01 커뮤니티 레딧형 왼쪽 메뉴 · 말머리 일관성
