@@ -1,6 +1,7 @@
 // QF-076·QF-089·QF-090: 개발 시안형 필터 공유 상태(사이드바·상단 칩·모달·바텀시트·전체 필터 화면·퀵필터가 같은 값).
 // 목록 화면의 filters(ChoTotFilterState).bbm 에 들어가며, 제조사·모델·세대·등급은 기존 퀵필터 상태를 그대로 쓴다.
-// 원본처럼 고르는 즉시 조건이 걸린다. 우리 데이터(Car.filter 등)에 값이 있는 항목만 목록을 거르고(BBM_DATA_*), 나머지는 선택 모양만 남는다.
+// Inline controls apply immediately; modal/sheet callers stage values until apply.
+// Only fields backed by Car.filter data affect listing matches (BBM_DATA_*).
 
 import { bbmCurrentYearPreset, bbmYearBounds, matchesBbmYear } from "./bbm-year-range";
 
@@ -76,6 +77,28 @@ export const clearBbmKey = (value: BbmFilterValues, key: BbmCheckKey | BbmRangeK
 };
 // 전체 해제(사이드바 초기화). 최근검색기록 숫자는 남긴다
 export const resetBbmFilters = (value: BbmFilterValues): BbmFilterValues => ({ ...emptyBbmFilters, history: value.history ?? 0 });
+
+// Dialog transactions compare search meaning, not history/order or empty containers.
+export function bbmFilterSignature(value: BbmFilterValues): string {
+  return JSON.stringify({
+    checks: Object.entries(value.checks).filter(([, list]) => list?.length).sort(([a], [b]) => a.localeCompare(b)).map(([key, list]) => [key, [...(list ?? [])].sort()]),
+    ranges: Object.entries(value.ranges).filter(([, range]) => rangeIsSet(range) && range?.preset !== "전체").sort(([a], [b]) => a.localeCompare(b)).map(([key, range]) => [key, range?.min ?? "", range?.max ?? "", range?.preset ?? ""]),
+    priceTab: value.priceTab, adPeriod: value.adPeriod, keyword: value.keyword.trim(),
+  });
+}
+export const hasBbmFilterConditions = (value: BbmFilterValues) => bbmFilterSignature(value) !== bbmFilterSignature(emptyBbmFilters);
+export function bbmDialogRangeError(value: BbmFilterValues): string | null {
+  for (const [key, range] of Object.entries(value.ranges)) {
+    if (!rangeIsSet(range)) continue;
+    if (key === "year") {
+      if (!bbmYearBounds(range).valid) return "연식의 시작과 종료 범위를 확인해 주세요.";
+      continue;
+    }
+    const { min, max } = bbmRangeBounds(key as BbmRangeKey, range);
+    if ((min !== null && min < 0) || (max !== null && max < 0) || (min !== null && max !== null && min > max)) return "최소값은 최대값보다 클 수 없습니다.";
+  }
+  return null;
+}
 
 // ── 선택 개수: 적용 칩 하나당 1
 export const countBbmSelections = (value: BbmFilterValues) => bbmAppliedIds(value).length;

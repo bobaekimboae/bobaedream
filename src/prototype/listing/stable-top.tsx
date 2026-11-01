@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { rangeIsSet, setBbmChecks, setBbmRange, type BbmFilterValues } from "../filters/bbm-filter-state";
 import { bbmIcon } from "./bbm-list";
-import { BbmSheet } from "../filters/bbm-filter-parts";
+import { BbmActionBar, BbmSheet } from "../filters/bbm-filter-parts";
 import regionsKr from "../data/regions-kr.json";
 import "./stable-top.css";
 import "./qf-align.css";
@@ -78,30 +78,32 @@ export function stableRegionLabel(value: BbmFilterValues) {
   const { sido, districtName } = stableRegionState(value);
   return sido ? [sido, districtName].filter(Boolean).join(" ") : "전국";
 }
-export function StableRegionSheet({ value, onChange, onClose, onNearby }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; onClose: () => void; onNearby: () => void }) {
-  const current = stableRegionState(value);
+export function StableRegionSheet({ value, onChange, onClose, onNearby, countOf }: { value: BbmFilterValues; onChange: (next: BbmFilterValues) => void; onClose: () => void; onNearby: () => void; countOf: (next: BbmFilterValues) => number }) {
+  const [draft, setDraft] = useState(value);
+  const current = stableRegionState(draft);
   const [step, setStep] = useState<string | null>(current.sido && current.districts.length ? current.sido : null);
   const pickSido = (name: string) => {
-    const next = setBbmChecks(setBbmChecks(value, "district", []), "region", [name]);
-    onChange(next);
-    if (districtsOf(name).length) setStep(name); else onClose();
+    const next = setBbmChecks(setBbmChecks(setBbmChecks(draft, "neighborhood", []), "district", []), "region", [name]);
+    setDraft(next);
+    if (districtsOf(name).length) setStep(name);
   };
+  const footer = <BbmActionBar variant="sheet" count={countOf(draft)} resetDisabled={!draft.checks.region?.length && !draft.checks.district?.length && !draft.checks.neighborhood?.length} onReset={() => { setDraft(setBbmChecks(setBbmChecks(setBbmChecks(draft, "region", []), "district", []), "neighborhood", [])); setStep(null); }} onConfirm={() => { onChange(draft); onClose(); }} />;
   if (step) {
-    const districtName = value.checks.region?.[0] === step ? stableRegionState(value).districtName : null;
+    const districtName = draft.checks.region?.[0] === step ? stableRegionState(draft).districtName : null;
     return (
-      <BbmSheet title={step} onBack={() => setStep(null)} onClose={onClose}>
+      <BbmSheet title={step} onBack={() => setStep(null)} onClose={onClose} footer={footer}>
         <div className="stable-region-grid">
-          <button type="button" className={`stable-region-cell is-all${districtName ? "" : " is-selected"}`} aria-pressed={!districtName} onClick={() => { onChange(setBbmChecks(setBbmChecks(value, "region", [step]), "district", [])); onClose(); }}>{step} 전체</button>
+          <button type="button" className={`stable-region-cell is-all${districtName ? "" : " is-selected"}`} aria-pressed={!districtName} onClick={() => setDraft(setBbmChecks(setBbmChecks(setBbmChecks(draft, "region", [step]), "district", []), "neighborhood", []))}>{step} 전체</button>
           {districtsOf(step).map((name) => {
             const on = districtName === name;
-            return <button key={name} type="button" className={`stable-region-cell${on ? " is-selected" : ""}`} aria-pressed={on} onClick={() => { onChange(setBbmChecks(setBbmChecks(value, "region", [step]), "district", [`${step} ${name}`])); onClose(); }}>{name}</button>;
+            return <button key={name} type="button" className={`stable-region-cell${on ? " is-selected" : ""}`} aria-pressed={on} onClick={() => setDraft(setBbmChecks(setBbmChecks(setBbmChecks(draft, "region", [step]), "district", [`${step} ${name}`]), "neighborhood", []))}>{name}</button>;
           })}
         </div>
       </BbmSheet>
     );
   }
   return (
-    <BbmSheet title="지역" onClose={onClose}>
+    <BbmSheet title="지역" onClose={onClose} footer={footer}>
       <div className="stable-region-grid">
         {STABLE_REGION_OPTIONS.map((name) => {
           const on = current.sido === name;

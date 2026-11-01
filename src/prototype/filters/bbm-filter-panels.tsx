@@ -415,6 +415,8 @@ export function BbmModalPanel({ item, value, onChange, countOf }: PanelProps & {
 
 // 모달 [초기화]: 이 항목의 값만 지운다
 export function clearBbmItem(item: BbmFilterItem, value: BbmFilterValues): BbmFilterValues {
+  if (item.label === "지역") return setBbmChecks(setBbmChecks(setBbmChecks(value, "region", []), "district", []), "neighborhood", []);
+  if (item.rangeKey === "price") return setBbmRange({ ...value, priceTab: "일반" }, "price", { min: "", max: "" });
   if (item.label === "바이크 지역") return setBbmChecks(setBbmChecks(setBbmChecks(value, "region", []), "district", []), "neighborhood", []);
   if (item.label === "시트색상") return setBbmChecks(setBbmChecks(value, "seatColor", []), "seatFinish", []);
   if (item.label === "크기") return (["length", "width", "height"] as BbmRangeKey[]).reduce((next, key) => setBbmRange(next, key, { min: "", max: "" }), value);

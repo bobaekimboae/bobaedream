@@ -141,13 +141,13 @@ export function BbmTabs<T extends string>({ tabs, value, onChange, label, varian
   );
 }
 
-// ── 아래 버튼 줄: [초기화] + [확인 N대 | N대 보기]. variant 별 색: modal·sheet 진한 남색(#010F21), full 파랑
-// 옵션 모달만 [취소] + [선택완료](resetLabel·confirmLabel 로 바꾼다)
-export function BbmActionBar({ onReset, onConfirm, count, confirmStyle = "확인", variant = "modal", resetLabel = "초기화", confirmLabel }: { onReset: () => void; onConfirm: () => void; count: number; confirmStyle?: "확인" | "보기"; variant?: "modal" | "sheet" | "full"; resetLabel?: string; confirmLabel?: string }) {
+// Shared filter action contract: text reset + counted blue apply. Explicit labels
+// are reserved for non-filter confirmations; zero results do not disable apply.
+export function BbmActionBar({ onReset, onConfirm, count, variant = "modal", resetLabel = "초기화", confirmLabel, resetDisabled = false, confirmDisabled = false }: { onReset: () => void; onConfirm: () => void; count: number; confirmStyle?: "확인" | "보기"; variant?: "modal" | "sheet" | "full"; resetLabel?: string; confirmLabel?: string; resetDisabled?: boolean; confirmDisabled?: boolean }) {
   return (
     <div className={`bbmf-actions is-${variant}`}>
-      <button type="button" className="bbmf-reset" onClick={onReset}>{resetLabel}</button>
-      <button type="button" className="bbmf-confirm" onClick={onConfirm}>{confirmLabel ?? (confirmStyle === "확인" ? `확인 ${formatCount(count)}대` : `${formatCount(count)}대 보기`)}</button>
+      <button type="button" className="bbmf-reset" disabled={resetDisabled} onClick={onReset}>{resetLabel}</button>
+      <button type="button" className="bbmf-confirm" disabled={confirmDisabled} onClick={onConfirm}>{confirmLabel ?? `${formatCount(count)}대 보기`}</button>
     </div>
   );
 }
@@ -236,7 +236,7 @@ function CloseButton({ onClose, buttonRef }: { onClose: () => void; buttonRef?: 
   return <button ref={buttonRef} type="button" className="bbmf-close" aria-label="닫기" onClick={onClose}><img src={asset("bbm/modal-close.svg")} alt="" draggable={false} /></button>;
 }
 
-// ── PC 가운데 모달: 폭 412, 라운드 14, 딤 rgba(0,0,0,.5), 제목 16/22.4 600 가운데 + 오른쪽 닫기 24×32
+// PC shell geometry is standardized through filter-dialog-standard.css.
 export function BbmModal({ title, titleIcon, onClose, onBack, footer, children, wide = false, flush = false, variant = "default" }: { title: string; titleIcon?: ReactNode; onClose: () => void; onBack?: () => void; footer?: ReactNode; children: ReactNode; wide?: boolean; flush?: boolean; variant?: "default" | "vehicle-hierarchy" }) {
   const dialogRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
@@ -253,7 +253,7 @@ export function BbmModal({ title, titleIcon, onClose, onBack, footer, children, 
   );
 }
 
-// ── 모바일 바텀시트: 제목 가운데 + 닫기, 아래 [초기화] + [N대 보기]
+// Mobile sheet: left title, independent back/close, text reset + counted apply.
 // modalBody: 모바일 전체 필터 안 항목 시트(원본은 PC 모달과 같은 본문 — 여백 8/20, 매물 수는 이름 옆)
 export function BbmSheet({ title, subtitle, onClose, footer, children, flush = false, modalBody = false, onBack, variant = "default" }: { onBack?: () => void; title: string; subtitle?: string; onClose: () => void; footer?: ReactNode; children: ReactNode; flush?: boolean; modalBody?: boolean; variant?: "default" | "seller" | "body-type" | "category" }) {
   const titleId = useId();
@@ -270,8 +270,8 @@ export function BbmSheet({ title, subtitle, onClose, footer, children, flush = f
     <div className={`bbmf-overlay is-sheet${refined ? " is-seller-overlay" : ""}`} onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}>
       <section ref={dialogRef} className={`bbmf-sheet${modalBody ? " is-modal-body" : ""}${seller ? " is-seller" : ""}${bodyType ? " is-body-type" : ""}${category ? " is-category" : ""}`} role="dialog" aria-modal="true" aria-labelledby={titleId} onKeyDown={(event) => handleDialogKeyDown(event, onClose)}>
         {/* QF-111: onBack 이 있으면 제목 앞 "←"(누르면 이전 단계) */}
-        <header className="bbmf-sheet-header"><div className="bbmf-sheet-heading">{onBack ? <h3 id={titleId}><button type="button" className="bbmf-sheet-back" aria-label={`${title} 뒤로`} onClick={onBack}>← {title}</button></h3> : <h3 id={titleId}>{title}</h3>}{subtitle ? <p>{subtitle}</p> : null}</div><CloseButton buttonRef={closeRef} onClose={onClose} /></header>
-        <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{children}</div>
+        <header className="bbmf-sheet-header">{onBack ? <button type="button" className="bbmf-sheet-back" aria-label="이전 단계" onClick={onBack}>←</button> : null}<div className="bbmf-sheet-heading"><h3 id={titleId}>{title}</h3></div><CloseButton buttonRef={closeRef} onClose={onClose} /></header>
+        <div className={`bbmf-sheet-body${flush ? " is-flush" : ""}`}>{subtitle ? <p className="bbmf-sheet-subtitle">{subtitle}</p> : null}{children}</div>
         {footer}
       </section>
     </div>,
