@@ -28,6 +28,38 @@
 
 final result: passed
 
+
+---
+
+## 2026-11-01 커뮤니티 게시글 옵션 시트 · Reddit/Band 모바일 참고
+
+- Scope: `public/community/naver-cafe-list.html`의 말머리 왼쪽 필터 버튼과 `게시글 옵션` 바텀시트만 수정했다. 게시판 헤더·말머리 바·게시물 카드 구성은 변경하지 않았다.
+- Source visual truth: `C:/Users/bobae/OneDrive/문서/ChatGPT/퀵필터 제작/.codex-remote-attachments/01a0f512-065a-7300-9ce1-d86601ce6384/56441b75-c796-4bbc-a2d8-8494c650afaf/1-1000019249.jpg`, `2-1000019251.jpg`, `3-1000019253.jpg`.
+- Browser-rendered implementation: Codex in-app browser tab 6, `http://127.0.0.1:5212/community/naver-cafe-list.html?v=sheet-final&board=aviation-rail`의 CUA inline capture.
+- Viewport/state: 319 × 668 CSS px, DPR 1.25; 기본 상태와 `인기순 + BMW` 적용 상태를 각각 검증했다.
+- Full-view comparison: 흰 바탕, 25px 상단 곡률, 드래그 핸들, 좌측 제목, 회색 원형 닫기, 아이콘·텍스트·우측 체크 행, 섹션 사이 1px 구분선, 외곽선 말머리 칩 구조를 참고 화면과 같은 정보 위계로 구성했다.
+- Focused comparison: `정렬`은 최신순·최신 댓글순·인기순, `보기`는 간결형·목록형·피드형, `말머리`는 전체와 게시판별 토픽으로 구성하며 선택 즉시 결과에 반영한다.
+
+### Comparison history
+
+- Pass 1 [P2, visual]: 기존 시트의 회색 그룹 카드와 하단 초기화·적용 버튼이 Reddit/Band 참고 화면보다 무겁고 단계가 많았다. 흰 배경의 독립 행, 얇은 구분선, 우측 체크, 즉시 반영 방식으로 교체했다.
+- Pass 1 [P2, responsive]: 좁은 모바일 폭에서 스크롤바가 노출되고 말머리 칩의 좌우 여백이 답답했다. 스크롤바를 숨기고 370px 이하에서 시트 패딩·행 간격·칩 높이를 별도 조정했다.
+- Pass 1 [P1, behavior]: 피드형 렌더러가 자체 말머리 상태를 가지고 있어 옵션 시트에서 선택해도 게시물이 갱신되지 않았다. 공용 정렬 getter와 피드 말머리 getter/setter를 연결해 상태를 단일 동작으로 동기화했다.
+- Pass 2: `인기순 + BMW`에서 필터 버튼 활성, BMW 말머리 선택, 결과 카드 1건을 확인했다. `최신순 + 전체` 복귀 시 필터 활성 해제와 62건 복원을 확인했다.
+- Browser console: error 0건.
+
+### Required fidelity surfaces
+
+- Typography: passed — Pretendard 기반 23px 제목, 17px 행 제목, 12.5px 보조 설명, 15px 섹션 제목으로 모바일 참고 화면의 위계를 재현했다.
+- Spacing/layout: passed — 319px에서도 좌우 잘림 없이 상단·중단·말머리 영역이 자연스럽게 스크롤된다.
+- Colors/tokens: passed — 흰 시트, 중립 회색 구분선·닫기 버튼, 검정 본문, 선택 칩의 연한 회청색만 사용했다.
+- Icon fidelity: passed — 기존 프로젝트의 Reddit·치지직 SVG 자산을 사용하고 모든 장식 아이콘은 보조기기에서 숨겼다.
+- Behavior/accessibility: passed — 행과 칩은 라디오 역할·선택 상태를 제공하고, 닫기·필터 버튼의 접근성 이름과 포커스 표시를 유지한다.
+
+No actionable P0/P1/P2 differences remain.
+
+final result: passed
+
 ## 2026-11-01 커뮤니티 게시판 5분류 체계
 
 - 정보 구조: 게시판을 `일반 · 자동차 · 차량 · 제보 · 결함` 다섯 분류로 재편하고, 내 게시판 포함 전체 게시판을 각 분류에 항상 표시한다.

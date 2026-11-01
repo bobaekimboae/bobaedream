@@ -27,6 +27,9 @@
     var localPostMatches=!activeTable||Boolean(localPost&&localPost.board&&localPost.board===activeTable.displayName);
     var alreadyIncluded=localPost&&data.some(function(post){return String(post.id)===String(localPost.id);});
     if(localPost&&activeBoard!=='best'&&localPostMatches&&!alreadyIncluded)data.unshift(localPost);
+    var sortOrder=window.BBM_GET_SORT_ORDER?window.BBM_GET_SORT_ORDER():'latest';
+    if(sortOrder==='latest-comment')data.sort(function(a,b){return Number(b.reply||0)-Number(a.reply||0)});
+    if(sortOrder==='popular')data.sort(function(a,b){return Number(b.view||0)+Number(b.reply||0)*20-(Number(a.view||0)+Number(a.reply||0)*20)});
     var headword=selectedHeadword();
     if(headword==='전체')return data;
     return data.filter(function(post){return categoryFor(post)===headword;});
@@ -43,6 +46,12 @@
     var selected=container.querySelector('.cat.on');
     if(selected)selected.scrollIntoView({inline:'center',block:'nearest'});
   }
+  window.BBM_GET_DISCUSSION_HEADWORD=function(){return activeHeadword;};
+  window.BBM_SET_DISCUSSION_HEADWORD=function(value){
+    var items=Array.isArray(window.BOBAE_TOPICS)&&window.BOBAE_TOPICS.length?window.BOBAE_TOPICS:['전체'];
+    activeHeadword=items.indexOf(value)>=0?value:'전체';
+    render();
+  };
   /* 3줄 요약이 있으면 본문 첫 줄 대신 세 문장을 이은 한 단락(문장 연결형)으로 보여 준다 */
   /* 스레드형 카드: 3줄 요약이 있으면 세 문장을 이어 붙인 문장 연결형 단락으로, 없으면 기존 요약 */
   function summaryText(post,index){
