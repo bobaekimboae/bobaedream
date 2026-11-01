@@ -2,7 +2,7 @@
 // hidden = 기본 미노출(분류 화면에서 「숨긴 게시판 보기」를 켜야 보임).
 // boardId = 지금 목록 화면(useCommunity)에 있는 게시판과 연결되는 경우만 적는다.
 
-export type DirectoryGroupId = 'fixed' | 'general' | 'cars' | 'transport' | 'reports' | 'defects'
+export type DirectoryGroupId = 'fixed' | 'general' | 'sports' | 'cars' | 'transport' | 'reports' | 'defects'
 
 export interface DirectoryBoard {
   id: string
@@ -35,10 +35,6 @@ export const boardDirectory: DirectoryGroup[] = [
       { id: 'adult', name: '성인게시판', hidden: true },
       { id: 'bobae-story', name: '보배드림 이야기' },
       { id: 'suggestion', name: '제안/건의' },
-      { id: 'kbo', name: '국내야구' },
-      { id: 'mlb', name: '해외야구' },
-      { id: 'world-football', name: '해외축구' },
-      { id: 'k-football', name: '국내축구' },
       { id: 'event', name: '이벤트' },
       { id: 'issue', name: '신유머/감동/이슈' },
       { id: 'humor', name: '유머게시판', boardId: 'humor' },
@@ -47,6 +43,15 @@ export const boardDirectory: DirectoryGroup[] = [
       { id: 'racing-model', name: '레이싱모델', hidden: true },
       { id: 'military', name: '군사/무기', hidden: true },
       { id: 'air-sea-rail', name: '항공/해운/철도' },
+    ],
+  },
+  {
+    id: 'sports', name: '스포츠', icon: 'sports',
+    boards: [
+      { id: 'kbo', name: '국내야구' },
+      { id: 'mlb', name: '해외야구' },
+      { id: 'k-football', name: '국내축구' },
+      { id: 'world-football', name: '해외축구' },
     ],
   },
   {

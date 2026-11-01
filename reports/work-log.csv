@@ -416,3 +416,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-11-01,PR #1116,register-pc-chotot,d97ee6bd,푸시(병합 대기),매물 등록 모바일 상세 줄 X,18×18→20×30 칸(보이는 원 10→16 · 입력칸 X와 같음),nuxt-register app.css,없음,없음,96개 통과 · 기본 모바일 화소 차이 0
 2026-11-01,PR #1116,register-pc-chotot,e4287c8,병합·배포 v=e4287c8,매물 등록 PC 초톳형 · 지우기 아이콘,배포 run 41297767221 성공,nuxt-register,없음,없음,배포본 X 20×30 · 오류 0
 2026-11-01,PR #1117,community-category,f849b1f5,푸시(병합 대기),커뮤니티 게시판 분류,바이두 티에바식 분류 화면 #/categories · 차량→교통/운송 · 미노출 6개 스위치 · 이름 검색,nuxt-community categories.vue · board-directory.ts · useCommunity · index · main.css,파랑→검정 · 링크 12→14,투후 오너 리뷰 이름 확인,typecheck · test 3 · generate · 넘침 0 · 오류 0
+2026-11-01,PR #1117,community-category,(아래 커밋),푸시(병합 대기),커뮤니티 분류 스포츠 추가,야구·축구 4개를 일반에서 스포츠 묶음으로 · AS24 트로피 아이콘,board-directory.ts · icons/category/sports.svg,없음,없음,typecheck · test 3 · generate · 넘침 0 · 오류 0
