@@ -142,3 +142,20 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderPanel[data-grid-columns] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns] .boardOrderAvailableGrid{column-gap:10px;row-gap:11px}
 .boardOrderPanel .boardOrderBody{padding-left:17px;padding-right:17px}
 @media(max-width:359px){.boardOrderPanel[data-grid-columns] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns] .boardOrderAvailableGrid{column-gap:8px}.boardOrderPanel[data-grid-columns] .boardOrderName,.boardOrderPanel[data-grid-columns] .boardOrderAdd span{font-size:13px;letter-spacing:-.06em}.boardOrderPanel .boardOrderBody{padding-left:14px;padding-right:14px}.boardOrderPanel[data-grid-columns] .boardOrderItem,.boardOrderPanel[data-grid-columns] .boardOrderAdd{padding-left:3px;padding-right:3px}}
+/* 바이두 2차 대조(2026-11-02, 같은 해상도로 줄여 잉크 크기 비교): 제목 중심 27 · 기본 홈 줄 39 · 「내 게시판」 14 · 안내 10 · 칸 높이 37 · 세로 피치 46.4 · 가로 간격 9 · × 칸 안쪽 6/7 */
+.boardOrderPanel .boardOrderHeader{height:52px;flex-basis:52px;padding-top:2px}
+.boardOrderPanel .boardOrderHeader h2{font-size:16.5px;line-height:22px}
+.boardOrderPanel .boardOrderBody{padding-top:0}
+.boardOrderPanel .boardOrderDefaultEntry{height:39px}
+.boardOrderPanel .boardOrderDefaultEntry strong,.boardOrderPanel .boardOrderDefaultValue{font-size:13px}
+.boardOrderPanel .boardOrderHeading{margin:18px 0 3px}
+.boardOrderPanel .boardOrderHeading strong{font-size:14px;line-height:20px}
+.boardOrderPanel .boardOrderHeading .boardOrderGuide{font-size:10px;line-height:14px}
+.boardOrderPanel .boardOrderEdit{min-width:0;padding:0;font-size:14px;text-align:right}
+.boardOrderPanel[data-grid-columns] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns] .boardOrderAvailableGrid{column-gap:9px;row-gap:9.4px}
+.boardOrderPanel .boardOrderItem,.boardOrderPanel .boardOrderAdd{height:37px}
+.boardOrderPanel .boardOrderRemove img{right:6px;top:7px;width:8px;height:8px}
+.boardOrderPanel .boardOrderPlusIcon{right:6px;top:7px;width:7px;height:7px}
+.boardOrderPanel .boardOrderDefaultEntry{height:40px}
+.boardOrderPanel .boardOrderDefaultEntry strong,.boardOrderPanel .boardOrderDefaultValue{font-size:13.5px}
+.boardOrderPanel .boardOrderHeading{margin-bottom:2px}
