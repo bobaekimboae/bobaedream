@@ -226,3 +226,5 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFixed.selected{color:#b5b8bc}
 /* 탑메뉴 활성 밑줄 텐센트 스포츠식(2026-11-03 「텐센트 스포츠처럼 활성화 밑줄 간격 밸런스」): 글자 폭의 약 62% · 가운데 · 글자 아래 4px · 두께 2px · 양 끝 둥금 · 색은 검정 유지. 바이두식(줄 바닥 · 글자 폭+12px)은 ?tabline=baidu 로 비교 */
 .phone:not(.tablineBaidu) .boardChannelTab.on:after{left:19%;right:19%;top:33px;bottom:auto;height:2px;border-radius:1px}
+/* 탑메뉴 위 구분선 제거(2026-11-03 「위에 있는 구분선도 없애라」, 텐센트 스포츠처럼 검색 줄과 탑메뉴 사이 선 없음). 높이가 바뀌지 않게 선만 투명으로 */
+.phone.phone .appbar:has(+ .boardChannelNav){border-bottom-color:transparent}
