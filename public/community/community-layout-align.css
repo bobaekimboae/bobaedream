@@ -19,3 +19,33 @@
 .phone.communityTitleHeader.communityProfileHeader > .appbar .communityHeaderSearchBar{margin-left:-5px;width:calc(100% + 5px)}
 .phone.communityTitleHeader.communityProfileHeader > .appbar .headerProfile{padding:0!important;overflow:hidden;border-radius:50%}
 .phone.communityTitleHeader.communityProfileHeader > .appbar .headerProfile img{width:100%!important;height:100%!important;border-radius:50%;object-fit:cover}
+/* 전체 게시판 패널 텐센트 비디오식(2026-11-03 「수정해서 배포해라」): 칩 한 가지(회색 알약·테두리 없음),
+   고정 칸은 편집 중에만 흐리게, 편집·기본값 복원은 회색 글자+아이콘, 추가할 게시판은 탭 없이 구역 제목으로 나열. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderDefaultEntry{height:44px;padding:0 2px;border-radius:0;background:transparent;border-bottom:1px solid #eef0f2}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderDefaultEntry:active{background:transparent;opacity:.6}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderHeading{margin:16px 0 12px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderGuide{display:none}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderHeadActions{display:flex;align-items:center;gap:14px;flex:0 0 auto}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRestore,body .boardOrderBackdrop .boardOrderPanel .boardOrderEdit{min-width:0;height:32px;padding:0;display:inline-flex;align-items:center;gap:4px;color:#595959;font-size:14px;line-height:20px;font-weight:500;letter-spacing:-.03em;background:none;border:0;cursor:pointer}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRestore img,body .boardOrderBackdrop .boardOrderPanel .boardOrderEdit img{width:16px;height:16px;display:block;opacity:.7}
+body .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderEdit{color:#222;font-weight:700}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderReset{display:none!important}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderSectionTabs{display:none}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailable{margin-top:28px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:24px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableTitle{margin:0 0 12px;color:#222;font-size:16px;line-height:22px;font-weight:700}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderMyGrid,body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 8px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{height:36px;padding:0 6px;border:0;border-radius:999px;background:#f2f3f5;color:#222}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd span{padding:0;font-size:14px;font-weight:500;color:#222}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem.selected{color:#222;font-weight:700}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem.selected .boardOrderName{font-weight:700}
+body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.boardOrderFixed,body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.boardOrderFixed.selected{color:#222}
+body .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFixed,body .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFixed.selected{color:#b0b3b8}
+/* 편집 표시: 칩 오른쪽 위 회색 원(16) 안의 흰 원본 아이콘(close.svg, 추가는 45° 돌림). 누르는 영역 44는 그대로. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{overflow:visible}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove:before,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd:after{content:"";position:absolute;width:16px;height:16px;border-radius:50%;background:#b5b8bd;pointer-events:none}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove:before{right:2px;top:2px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd:after{right:-3px;top:-3px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove img{right:6px;top:6px;width:8px;height:8px;opacity:1;filter:brightness(0) invert(1);z-index:1}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderPlusIcon{right:1px;top:1px;width:8px;height:8px;opacity:1;filter:brightness(0) invert(1);transform:rotate(45deg);z-index:1}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderHeading .boardOrderEditLabel{color:inherit;font-size:inherit;font-weight:inherit;overflow:visible}
