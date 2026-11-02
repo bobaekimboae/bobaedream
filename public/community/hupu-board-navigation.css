@@ -206,3 +206,17 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderPanel[data-grid-columns] .boardOrderName,.boardOrderPanel[data-grid-columns] .boardOrderAdd span,.boardOrderPanel .boardOrderItem.selected{font-weight:400}
 .boardOrderPanel .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:18.6px}
 .boardOrderPanel[data-grid-columns] .boardOrderAdd{padding-left:3px;padding-right:9px}
+/* 바이두 7차(2026-11-02 17:40, 글자 크기~밑줄 완전 동일): 글자 잉크 높이를 바이두와 같게 — 제목 17.3 · 기본 홈 줄 12.7 · 「내 게시판」 13.2 · 편집 12.4 · 칸 이름 12.5 · 분류 탭 15 · + 위 5.8 · 밑줄 19.4×3 */
+.boardOrderPanel .boardOrderHeader h2{font-size:17.3px;line-height:22px}
+.boardOrderPanel .boardOrderDefaultEntry strong,.boardOrderPanel .boardOrderDefaultValue{font-size:12.7px}
+.boardOrderPanel .boardOrderHeading strong{font-size:13.2px}
+.boardOrderPanel .boardOrderHeading .boardOrderGuide{position:relative;top:-1.6px}
+.boardOrderPanel .boardOrderEdit{font-size:12.4px}
+.boardOrderPanel[data-grid-columns] .boardOrderName,.boardOrderPanel[data-grid-columns] .boardOrderAdd span{font-size:12.5px}
+.boardOrderPanel .boardOrderSectionTabs button{font-size:15px}
+.boardOrderPanel .boardOrderPlusIcon{top:5.8px}
+.boardOrderPanel .boardOrderSectionTabs button.on:after{width:19.4px;height:3px;bottom:-0.4px}
+.boardOrderPanel .boardOrderHeader h2{position:relative;top:1.5px}
+.boardOrderPanel .boardOrderDefaultEntry strong,.boardOrderPanel .boardOrderDefaultValue{position:relative;top:1.5px}
+.boardOrderPanel[data-grid-columns] .boardOrderName,.boardOrderPanel[data-grid-columns] .boardOrderAdd span{position:relative;top:1.8px}
+.boardOrderPanel .boardOrderSectionTabs button.on:after{bottom:-1.2px}
