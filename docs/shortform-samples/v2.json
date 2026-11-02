@@ -1,0 +1,77 @@
+{
+  "series": "used-car-photo-shortform-morning-20261102",
+  "version": "V2",
+  "previous_version": "V1",
+  "recorded_date_kst": "2026-11-02",
+  "status": "sample_deployed_not_final_creative_approval",
+  "url": "https://bobaekimboae.github.io/bobaedream/samples/morning-shortform-v2-20261102.mp4?v=856bcf5",
+  "repository_path": "public/samples/morning-shortform-v2-20261102.mp4",
+  "deployment": {
+    "commit": "856bcf5ead8a8c12eebd485e2f639704a28c7dba",
+    "run_id": "41371775872",
+    "result": "success",
+    "http_status": 200,
+    "content_type": "video/mp4"
+  },
+  "media": {
+    "bytes": 22527807,
+    "sha256": "BF2932070B126C42825A463692B30F90A596E13B69C00D55975A968281143B9E",
+    "duration_seconds": 31,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "faststart": true
+  },
+  "source": {
+    "listing_url": "https://charancha.com/cars/01a1570c-df73-700d-a3be-38c580900138",
+    "retrieved_at": "2026-11-02T00:19:13.364Z",
+    "vehicle": "기아 더 뉴 모닝 (JA) 프레스티지",
+    "unique_photos_used": 7,
+    "equipment_basis": "seller listing, not independently inspected",
+    "commercial_redistribution_rights_verified": false
+  },
+  "timeline": [
+    {"id":"hero","start":0,"end":4},
+    {"id":"rear","start":4,"end":6.2},
+    {"id":"cockpit","start":6.2,"end":8.4},
+    {"id":"facts","start":8.4,"end":13.8},
+    {"id":"seats","start":13.8,"end":17.4},
+    {"id":"heat","start":17.4,"end":20.8},
+    {"id":"vent","start":20.8,"end":23.5},
+    {"id":"price","start":23.5,"end":27},
+    {"id":"contact","start":27,"end":31}
+  ],
+  "style": {
+    "font": "Pretendard Variable",
+    "background": "#101A2A",
+    "accent": "#2F65D9",
+    "highlight": "#86ACFF",
+    "photo_band_height_px": 640,
+    "callout_coordinates": "manually checked, not automatic detection or tracking",
+    "narration": "V1 audio reused: ko-KR-InJoonNeural",
+    "background_music": false,
+    "renderer": "HyperFrames 0.8.221 + FFmpeg",
+    "render_capture": "drawelement, hardware GPU, one worker"
+  },
+  "qc": {
+    "verdict": "PROMOTE",
+    "integrated_lufs": -14.3,
+    "true_peak_dbtp": -1.9,
+    "black_segments": 0,
+    "freeze_segments_over_3_seconds": 0,
+    "lint_errors": 0,
+    "lint_warnings": 0,
+    "browser_check_errors": 0,
+    "craft_reading_time_warnings": 2,
+    "warning_reason": "same attribution copy persists at the same position across scenes",
+    "frames_visually_reviewed": true,
+    "narration_listening_approved": false,
+    "user_final_creative_approval": false
+  },
+  "sns_published": false,
+  "preservation_rule": "V1 unchanged. Do not overwrite V2; add a new file and record for future versions."
+}
