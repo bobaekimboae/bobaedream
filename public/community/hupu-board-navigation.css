@@ -176,3 +176,22 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderPanel .boardOrderAvailableSection{scroll-margin-top:45px}
 .boardOrderPanel .boardOrderAvailableSection:last-child{min-height:calc(92dvh - 140px)}
 .boardOrderPanel .boardOrderAvailableSection{scroll-margin-top:51px}
+/* 바이두 5차 대조(2026-11-02 16:40, 폰 화면 가장자리를 다시 재서 384로 환산): 좌우 여백 14.5 · 칸 간격 9.6 · 줄 피치 47 · 기본 홈 줄 위 54.4 · 높이 38 · × 13.2 정사각 · 고정 칸 바탕 한 단계 옅게 */
+.boardOrderPanel .boardOrderBody{padding-left:14.5px;padding-right:14.5px}
+.boardOrderPanel .boardOrderSectionTabs{margin-left:-14.5px;margin-right:-14.5px;padding-left:14.5px;padding-right:14.5px}
+.boardOrderPanel[data-grid-columns] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns] .boardOrderAvailableGrid{column-gap:9.6px;row-gap:10px}
+.boardOrderPanel .boardOrderDefaultEntry{height:38px;margin-top:3.1px;padding:0 13px 0 14.5px}
+.boardOrderPanel .boardOrderDefaultValue{color:#8b8e93}
+.boardOrderPanel .boardOrderClose{transform:translate(4.6px,-4.3px)}
+.boardOrderPanel .boardOrderClose img{width:23.7px;height:23.7px}
+.boardOrderPanel .boardOrderHeader h2{color:#111}
+.boardOrderPanel .boardOrderItem,.boardOrderPanel .boardOrderCategoryItem{background:#f2f3f4;color:#333}
+.boardOrderPanel .boardOrderItem.boardOrderFixed{background:#fafafa;color:#b5b8bc}
+.boardOrderPanel .boardOrderItem.boardOrderFixed.selected,.boardOrderPanel .boardOrderItem.selected{color:#4e6ef2}
+.boardOrderPanel .boardOrderHeading .boardOrderGuide{color:#aeb1b5}
+.boardOrderPanel .boardOrderSectionTabs button.on:after{width:19.5px}
+@media(max-width:359px){.boardOrderPanel .boardOrderBody{padding-left:12px;padding-right:12px}.boardOrderPanel .boardOrderSectionTabs{margin-left:-12px;margin-right:-12px;padding-left:12px;padding-right:12px}.boardOrderPanel[data-grid-columns] .boardOrderMyGrid,.boardOrderPanel[data-grid-columns] .boardOrderAvailableGrid{column-gap:8px}}
+.boardOrderPanel .boardOrderItem.dragging{background:#fff}
+.boardOrderPanel .boardOrderHeading{margin-bottom:1.2px}
+.boardOrderPanel .boardOrderClose{transform:translate(5.4px,-3.5px)}
+.boardOrderPanel .boardOrderSectionTabs button.on:after{bottom:0;height:2.5px}
