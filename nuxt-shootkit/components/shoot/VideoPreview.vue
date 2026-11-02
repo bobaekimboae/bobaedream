@@ -24,6 +24,7 @@ import Confirm from "./Confirm.vue";
 import FocusBox from "./FocusBox.vue";
 import CutMemo from "./CutMemo.vue";
 import TourChapters from "./TourChapters.vue";
+import TourPlayer, { type TourChapter } from "./TourPlayer.vue";
 import { TOUR, isTourList } from "../../lib/items";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import { BASE_STAGES, PLUS, def, mmss, type Note, type Notes, type Take } from "../../lib/core";
@@ -81,6 +82,18 @@ const isTour = computed(() => PLUS && !props.take.imported && isTourList(stageKe
 const tourSeek = (i: number) => {
   const n = parts.value.findIndex((x) => x.i === i);
   if (n >= 0) go(n, true);
+};
+// 보는 화면으로 보기(2026-11-02): 부위마다 따로 찍은 파일을 부위 하나로 이어 사는 사람 화면처럼 튼다
+const viewOpen = ref(false);
+const tourChapters = computed<TourChapter[]>(() =>
+  stageKeys.value
+    .map((key, n) => ({ key, src: props.take.segs[n], from: 0, to: props.take.durations[n] || 0 }))
+    .filter((c): c is TourChapter => Boolean(c.src) && c.to > 0),
+);
+const openView = () => {
+  vid.value?.pause();
+  playing.value = false;
+  viewOpen.value = true;
 };
 const tourProgress = computed(() => {
   const d = cur.value ? props.take.durations[cur.value.i] : 0;
@@ -241,6 +254,8 @@ const confirmOk = () => {
         >{{ i + 1 }} · {{ mmss(m.t) }}</button>
       </div>
     </div>
+    <button v-if="isTour && total" type="button" class="shoot-tour-view" @click="openView">사는 사람 화면으로 보기</button>
+    <TourPlayer v-if="viewOpen" class="is-overlay" :chapters="tourChapters" closable @close="viewOpen = false" />
     <TourChapters v-if="isTour && total" :keys="stageKeys" :durations="take.durations" :now="cur?.i ?? -1" :progress="tourProgress" @seek="tourSeek" />
     <!-- 컷별 음성·글 메모(2026-10-29 후속 ②): 기본 내부 메모, 「매물 상세에 공개」를 켜면 상세·쇼츠 자막 초안에 쓰인다 -->
     <CutMemo v-if="PLUS && curKey" :label="def(curKey).label" :stage-key="curKey" :note="notes[curKey]" @change="setNote" @notify="(t) => emit('notify', t)" />

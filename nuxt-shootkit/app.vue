@@ -3,10 +3,14 @@
 // ?shoot=<촬영 번호> = 올린 내용 보기(2026-10-31 실제 업로드)
 import ShootRegister from "~/components/shoot/ShootRegister.vue";
 import ShootView from "~/components/shoot/ShootView.vue";
+import TourDemo from "~/components/shoot/TourDemo.vue";
 
+// ?tour=demo = 비디오 투어 보는 화면 시안(2026-11-02, 카스24형)
+const tourDemo = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("tour") === "demo";
 const shootId = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("shoot") : null;
 </script>
 <template>
-  <ShootView v-if="shootId" :id="shootId" />
+  <TourDemo v-if="tourDemo" />
+  <ShootView v-else-if="shootId" :id="shootId" />
   <ShootRegister v-else />
 </template>

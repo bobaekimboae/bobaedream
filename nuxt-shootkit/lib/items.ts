@@ -27,6 +27,8 @@ export type RoleDef = { label: string; orientationToggle: boolean; course: strin
 export type CutDef = { key: VideoStage; label: string; item: string; min: number; max: number; hint: string; crewOnly?: boolean };
 /** 비디오 투어 부위: guide = 예시 그림을 빌려 쓸 기존 단계, icon = 사이트 루트 기준 경로 조각(원본 아이콘) */
 export type TourStageDef = { key: VideoStage; label: string; short: string; guide: VideoStage; icon: string[]; min: number; max: number; hint: string };
+/** 보는 화면 시안용 예시 영상(한 파일을 부위 시각으로 나눔) */
+export type TourDemo = { title: string; meta: string; price: string; dealer: string; dealerLink: string; src: string[]; note: string; chapters: { key: VideoStage; from: number; to: number }[] };
 export type CourseDef = { key: string; label: string; sub: string; stages: VideoStage[] };
 export type ShootGroup = {
   id: string;
@@ -56,7 +58,7 @@ type ShootData = {
     cuts: CutDef[];
     courses: Record<ShootRole, CourseDef[]>;
     /** 비디오 투어(카스24형, 2026-11-02): 정해진 8부위를 같은 순서로 찍어 보는 화면에서 부위 아이콘으로 바로 이동 */
-    tour: { name: string; note: string; stages: TourStageDef[] };
+    tour: { name: string; note: string; stages: TourStageDef[]; demo: TourDemo };
     shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; cutMin: number; cutMax: number; highlightCut: number };
   };
   roles: Record<ShootRole, RoleDef>;
