@@ -31,10 +31,11 @@ Google Sheets `SNS 레퍼런스`의 `선우혁_8289.superfast 릴스` 탭 상위
 
 ### 공개 디자인 샘플
 
-- 파일: `nuxt-shortform/public/samples/egypt-3d-callout-v1.mp4`
-- 입력: `public/3d-options/media/demo.mp4`의 앞 15초
+- 파일: `nuxt-shortform/public/samples/egypt-3d-callout-v2.mp4`
+- 입력: `public/3d-options/media/demo.mp4`에서 부위별로 선별한 5개 원본 구간
 - 출력: 1080×1920, 30fps, H.264 High@4.1, AAC 48kHz, 15초
-- 내용: 전면·휠·적재공간·운전석·도어트림 5개 부위의 3D 패널, 포인터 펄스, 진행 표시, 번호판 비공개 처리
+- 내용: 전면·휠·적재공간·센터콘솔·도어트림 5개 부위의 3D 패널, 포인터 펄스, 진행 표시, 번호판 비공개 처리
+- 동기화: 각 부위가 실제로 보이는 원본 구간을 선별하고 컷·말풍선을 3초 비트 단위로 정규화
 - 사실 범위: 화면에서 확인되는 부위 이름만 사용. 매물 DB로 확인되지 않은 옵션·성능 수치는 사용하지 않음
 - 한계: 장면별 기준 좌표 합성 디자인 검증본이다. 실제 서비스의 검출·추적 워커 완료를 뜻하지 않는다.
 - 재현: `python scripts/shortform/egypt_3d_callout_sample.py`

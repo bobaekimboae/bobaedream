@@ -1,0 +1,40 @@
+{
+  "id": "egypt-3d-callout-v2",
+  "source": "public/3d-options/media/demo.mp4",
+  "output": "nuxt-shortform/public/samples/egypt-3d-callout-v2.mp4",
+  "duration_seconds": 15.0,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "callout_count": 5,
+  "source_segments": [
+    {
+      "source_start": 0.2,
+      "source_end": 3.2,
+      "label": "front"
+    },
+    {
+      "source_start": 3.3,
+      "source_end": 4.9,
+      "label": "wheel"
+    },
+    {
+      "source_start": 7.5,
+      "source_end": 10.5,
+      "label": "cargo"
+    },
+    {
+      "source_start": 11.0,
+      "source_end": 14.0,
+      "label": "console"
+    },
+    {
+      "source_start": 15.7,
+      "source_end": 17.7,
+      "label": "door"
+    }
+  ],
+  "timeline_policy": "five selected source beats; each normalized to exactly 3 seconds",
+  "fact_policy": "visible_part_only; no inferred option claims",
+  "privacy": "plate areas masked in exterior scenes",
+  "sha256": "F1D68304A40AC55CB7D74B424919B12738279DECD11E02FFAEE21F50A8A05086"
+}

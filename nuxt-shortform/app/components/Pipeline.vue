@@ -5,7 +5,7 @@ import { sitePath } from "../lib/site";
 defineEmits<{ go: [view: string] }>();
 
 const calloutPoster = sitePath("3d-options", "media", "poster.jpg");
-const egyptSample = sitePath("nuxt-shortform", "samples", "egypt-3d-callout-v1.mp4");
+const egyptSample = sitePath("nuxt-shortform", "samples", "egypt-3d-callout-v2.mp4");
 </script>
 
 <template>
@@ -48,13 +48,13 @@ const egyptSample = sitePath("nuxt-shortform", "samples", "egypt-3d-callout-v1.m
     </section>
 
     <section class="card sf-pipeline-section">
-      <div class="sf-pipeline-title"><div><span>03</span><h2>이집트 숏폼식 3D 옵션 말풍선</h2></div><small>그림 위에 고정하는 장식이 아니라 실제 차량 부위를 프레임마다 추적합니다.</small></div>
+      <div class="sf-pipeline-title"><div><span>03</span><h2>이집트 숏폼식 3D 옵션 말풍선</h2></div><small>V2는 원본 부위 컷과 말풍선 타이밍을 3초 비트 단위로 동기화했습니다.</small></div>
       <div class="sf-egypt-sample">
         <video :src="egyptSample" :poster="calloutPoster" controls playsinline preload="metadata" aria-label="이집트식 3D 차량 부위 말풍선 15초 샘플" />
         <div>
-          <span>RENDERED SAMPLE · 15 SEC</span>
+          <span>RENDERED SAMPLE V2 · 15 SEC</span>
           <h3>실차 5개 부위에 3D 말풍선 적용</h3>
-          <p>전면·휠·적재공간·운전석·도어트림을 장면별로 짚습니다. 번호판은 비공개 처리하고, 확인되지 않은 옵션·성능 수치는 넣지 않았습니다.</p>
+          <p>전면·휠·적재공간·센터콘솔·도어트림의 실제 원본 구간만 다시 선별했습니다. 번호판은 비공개 처리하고, 확인되지 않은 옵션·성능 수치는 넣지 않았습니다.</p>
           <ul>
             <li>1080×1920 · 30fps · H.264/AAC</li>
             <li>패널 슬라이드·깊이 그림자·포인터 펄스</li>
@@ -81,7 +81,7 @@ const egyptSample = sitePath("nuxt-shortform", "samples", "egypt-3d-callout-v1.m
           </div>
         </dl>
       </div>
-      <p class="sf-callout-note">공개 샘플은 장면별 기준 좌표로 합성한 디자인 검증본입니다. 실제 자동화에서는 차량 부위가 가려지거나 추적 신뢰도가 0.72 아래로 4프레임 이어지면 말풍선을 지우고 중립 하단 정보바로 전환합니다. 사진만 보고 추정한 옵션은 표시하지 않습니다.</p>
+      <p class="sf-callout-note">공개 V2 샘플은 컷별 시작·종료 시각과 이동 기준 좌표를 맞춘 디자인 검증본입니다. 실제 자동화에서는 차량 부위가 가려지거나 추적 신뢰도가 0.72 아래로 4프레임 이어지면 말풍선을 지우고 중립 하단 정보바로 전환합니다. 사진만 보고 추정한 옵션은 표시하지 않습니다.</p>
     </section>
 
     <section class="card sf-pipeline-section">
