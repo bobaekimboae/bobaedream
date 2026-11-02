@@ -154,3 +154,168 @@
     transform: none;
   }
 }
+
+/* F1 게시판 전용 머리(2026-11-03, 텐센트 스포츠 F1 채널 구성 참고). 빨강은 F1 게시판 안에서만 쓴다. */
+.phone.isF1Board .boardHero::after {
+  background: linear-gradient(90deg, rgba(10, 11, 14, .78) 0%, rgba(10, 11, 14, .32) 46%, rgba(10, 11, 14, 0) 74%);
+}
+.phone.isF1Board .boardHero::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: #e10600;
+}
+.phone.isF1Board .boardHeroTitle {
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 850;
+  letter-spacing: -.02em;
+}
+.f1Hub {
+  margin: 14px 14px 0;
+  font-family: inherit;
+}
+.f1Hub[hidden] { display: none; }
+.f1HubHead {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 26px;
+}
+.f1HubTitle {
+  position: relative;
+  isolation: isolate;
+  margin: 0;
+  color: #191a1c;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: -.03em;
+}
+.f1HubTitle::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: -2px;
+  right: 28%;
+  bottom: 1px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(225, 6, 0, .22);
+}
+.f1Next {
+  color: #6b6f76;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+.f1Next b { color: #e10600; font-weight: 800; }
+.f1Races {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+.f1Race {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #ececee;
+  border-radius: 8px;
+  background: #fff;
+}
+.f1RaceHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  height: 30px;
+  padding: 0 8px 0 10px;
+  background: linear-gradient(90deg, #e10600, #b80500);
+  color: #fff;
+}
+.f1RaceRound {
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.f1RacePill {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 2px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 4px;
+  background: #fff;
+  color: #c40500;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 14px;
+  white-space: nowrap;
+}
+.f1RacePill .f1Icon { width: 11px; height: 11px; }
+.f1RaceTitle {
+  flex: 1;
+  margin: 0;
+  padding: 9px 10px 0;
+  color: #222;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: -.02em;
+  word-break: keep-all;
+}
+.f1RaceAlert {
+  align-self: flex-start;
+  height: 28px;
+  margin: 8px 10px 10px;
+  padding: 0 10px;
+  border: 1px solid #e4e7ec;
+  border-radius: 14px;
+  background: #fff;
+  color: #222;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+.f1RaceAlert.on { border-color: #e10600; color: #c40500; }
+.f1Shortcuts {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin-top: 12px;
+  padding: 4px 0;
+}
+.f1Shortcut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-height: 56px;
+  padding: 6px 0;
+  border: 0;
+  background: none;
+  color: #222;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  white-space: nowrap;
+}
+.f1Shortcut:active, .f1RaceAlert:active { opacity: .6; }
+.f1Shortcut .f1Icon { width: 24px; height: 24px; background: #e10600; }
+.f1Icon {
+  display: inline-block;
+  flex: none;
+  background: currentColor;
+  -webkit-mask: var(--f1-icon) center / contain no-repeat;
+  mask: var(--f1-icon) center / contain no-repeat;
+}
+.f1Shortcut:focus-visible, .f1RaceAlert:focus-visible { outline: 2px solid #e10600; outline-offset: 2px; border-radius: 8px; }

@@ -46,8 +46,48 @@
     'truck-bus-heavy':['트럭, 버스, 중장비 이야기','현대 엑시언트 트럭'],
     'aviation-rail':['항공, 해운, 철도 이야기','철길과 비행기'],
     'bike-cycle':['오토바이와 자전거 이야기','파란 스즈키 스포츠 바이크'],
-    'oldcar-memory':['올드카와 추억','산길의 BMW E30']
+    'oldcar-memory':['올드카와 추억','산길의 BMW E30'],
+    'f1':['그랑프리 일정과 팬 이야기','서킷 선과 체크 깃발']
   };
+
+  // F1 게시판 전용 머리(2026-11-03 「텐센트 스포츠 F1처럼 헤더를 특색있게」).
+  // 텐센트 스포츠 F1 채널의 「주요 경기 카드 + 바로가기 아이콘 줄」 구성을 따른다.
+  // 경기 이름·시각은 2026-11-03 텐센트 스포츠 화면에 보인 값(베이징 시각 +1시간 = 한국 시각)이며 선수 사진·F1 로고는 쓰지 않는다.
+  var f1Races=[
+    {round:'멕시코시티 GP',title:'멕시코시티 그랑프리 결승',state:'replay'},
+    {round:'상파울루 GP',title:'상파울루 그랑프리 연습 주행 1',state:'upcoming',start:'2026-11-07T00:30:00+09:00',label:'11.07(토) 00:30'}
+  ];
+  var f1Shortcuts=[['calendar','경기 일정'],['list-numbered','순위'],['star','내 팀'],['play','다시보기'],['statistics','기록']];
+  var f1AlertKey='bbm.community.f1.alerts.v1';
+  function readAlerts(){try{return JSON.parse(localStorage.getItem(f1AlertKey)||'{}')||{}}catch(error){return {}}}
+  function writeAlerts(value){try{localStorage.setItem(f1AlertKey,JSON.stringify(value))}catch(error){}}
+  function say(text){if(typeof window.toast==='function')window.toast(text)}
+  function dday(iso){var start=new Date(iso),now=new Date();var a=Date.UTC(start.getFullYear(),start.getMonth(),start.getDate()),b=Date.UTC(now.getFullYear(),now.getMonth(),now.getDate());var n=Math.round((a-b)/86400000);return n>0?'D-'+n:n===0?'오늘':''}
+  function buildF1Hub(){
+    var hub=document.createElement('section');
+    hub.id='f1Hub';hub.className='f1Hub';hub.hidden=true;hub.setAttribute('aria-label','F1 경기와 바로가기');
+    var next=f1Races.filter(function(race){return race.state==='upcoming'})[0];
+    var alerts=readAlerts();
+    var cards=f1Races.map(function(race,index){
+      var pill=race.state==='replay'
+        ?'<span class="f1RacePill"><i class="f1Icon" style="--f1-icon:url(assets/f1/play-outline.svg)"></i>다시보기</span>'
+        :'<span class="f1RacePill">'+race.label+'</span>';
+      var action=race.state==='upcoming'
+        ?'<button type="button" class="f1RaceAlert'+(alerts[race.start]?' on':'')+'" data-f1-alert="'+race.start+'" aria-pressed="'+(alerts[race.start]?'true':'false')+'">'+(alerts[race.start]?'알림 설정됨':'알림 받기')+'</button>'
+        :'<button type="button" class="f1RaceAlert" data-f1-replay="'+index+'">다시보기</button>';
+      return '<article class="f1Race"><header class="f1RaceHead"><span class="f1RaceRound">'+race.round+'</span>'+pill+'</header><p class="f1RaceTitle">'+race.title+'</p>'+action+'</article>';
+    }).join('');
+    var icons=f1Shortcuts.map(function(item){return '<button type="button" class="f1Shortcut" data-f1-shortcut="'+item[1]+'"><i class="f1Icon" style="--f1-icon:url(assets/f1/'+item[0]+'-outline.svg)"></i><span>'+item[1]+'</span></button>'}).join('');
+    hub.innerHTML='<div class="f1HubHead"><h2 class="f1HubTitle">주요 경기</h2>'+(next?'<span class="f1Next">다음 경기 <b>'+dday(next.start)+'</b></span>':'')+'</div><div class="f1Races">'+cards+'</div><nav class="f1Shortcuts" aria-label="F1 바로가기">'+icons+'</nav>';
+    hub.addEventListener('click',function(event){
+      var alert=event.target.closest('[data-f1-alert]');
+      if(alert){var key=alert.dataset.f1Alert,state=readAlerts(),on=!state[key];if(on)state[key]=true;else delete state[key];writeAlerts(state);alert.classList.toggle('on',on);alert.setAttribute('aria-pressed',on?'true':'false');alert.textContent=on?'알림 설정됨':'알림 받기';say(on?'경기 시작 전에 알려 드릴게요':'경기 알림을 껐어요');return}
+      if(event.target.closest('[data-f1-replay]')){say('다시보기 화면은 준비 중이에요');return}
+      var shortcut=event.target.closest('[data-f1-shortcut]');
+      if(shortcut)say(shortcut.dataset.f1Shortcut+' 화면은 준비 중이에요');
+    });
+    return hub;
+  }
 
   function initialize(){
     var phone=document.querySelector('.phone');
@@ -59,6 +99,8 @@
     hero.hidden=false;
     hero.dataset.variant='youtube';
     image.onerror=function(){if(image.dataset.fallback!=='1'){image.dataset.fallback='1';image.src='assets/board-header-genesis-yeosu.webp'}};
+    var f1Hub=buildF1Hub();
+    hero.insertAdjacentElement('afterend',f1Hub);
 
     var boardName=document.querySelector('.boardSelectName');
     var heroTitle=hero.querySelector('.boardHeroTitle');
@@ -71,6 +113,8 @@
       if(heroTitle)heroTitle.textContent=title;
       if(heroTagline)heroTagline.textContent=info[0];
       hero.dataset.board=id;
+      f1Hub.hidden=id!=='f1';
+      phone.classList.toggle('isF1Board',id==='f1');
       var src='assets/board-banners/'+id+'.webp';
       if(image.getAttribute('src')!==src){image.dataset.fallback='';image.src=src}
       image.alt=title+' 배너: '+info[1];
