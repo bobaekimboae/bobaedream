@@ -689,7 +689,7 @@
         busy=true;
         // 지금 화면을 그대로 복사해 두고(밀려 나가는 쪽), 진짜 화면은 다음 게시판으로 바꿔 옆에 붙여 들어오게 한다.
         if(getComputedStyle(main).position==='static')main.style.position='relative';
-        var top=stage[0].getBoundingClientRect().top-main.getBoundingClientRect().top,ghost=document.createElement('div');
+        var top=stage[0].getBoundingClientRect().top-(parseFloat(getComputedStyle(stage[0]).marginTop)||0)-main.getBoundingClientRect().top,ghost=document.createElement('div');
         ghost.className='boardSwipeGhost';ghost.setAttribute('aria-hidden','true');
         ghost.style.cssText='position:absolute;left:0;right:0;top:'+top+'px;z-index:1;pointer-events:none;background:inherit;transform:translate3d('+dx+'px,0,0)';
         stage.forEach(function(el){var c=el.cloneNode(true);c.removeAttribute('id');Array.prototype.forEach.call(c.querySelectorAll('[id]'),function(n){n.removeAttribute('id')});c.style.transform='';c.style.transition='';ghost.appendChild(c)});
