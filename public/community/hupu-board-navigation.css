@@ -225,6 +225,9 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderPanel .boardOrderItem.boardOrderFixed{background:#fafafa}
 .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFixed.selected{color:#b5b8bc}
 /* 탑메뉴 활성 밑줄 텐센트 스포츠식(2026-11-03 「텐센트 스포츠처럼 활성화 밑줄 간격 밸런스」): 글자 폭의 약 62% · 가운데 · 글자 아래 4px · 두께 2px · 양 끝 둥금 · 색은 검정 유지. 바이두식(줄 바닥 · 글자 폭+12px)은 ?tabline=baidu 로 비교 */
-.phone:not(.tablineBaidu) .boardChannelTab.on:after{left:19%;right:19%;top:36px;bottom:auto;height:2px;border-radius:1px}
+.phone:not(.tablineBaidu) .boardChannelTab.on:after{left:19%;right:19%;top:32px;bottom:auto;height:2px;border-radius:1px}
 /* 탑메뉴 위 구분선 제거(2026-11-03 「위에 있는 구분선도 없애라」, 텐센트 스포츠처럼 검색 줄과 탑메뉴 사이 선 없음). 높이가 바뀌지 않게 선만 투명으로 */
 .phone.phone .appbar:has(+ .boardChannelNav){border-bottom-color:transparent}
+/* 머리 간격 정리(2026-11-03 「그럼 수정판 배포해라」, 바이두 실측 12.4·7.8·8.5 참고한 우리 기준 16·7·10): 탑메뉴 줄을 44 → 36으로 줄이고 검색 줄 아래로 8 올려 검색바 아래 → 탭 글자 16, 글자 → 밑줄 7, 밑줄 → 배너 10 */
+.boardChannelNav{height:36px;margin-top:-8px}
+.boardChannelTab,.boardOrderMenu{height:36px}
