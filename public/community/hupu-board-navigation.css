@@ -231,3 +231,5 @@ body.communityMenuOpen{overflow:hidden}
 /* 머리 간격 정리(2026-11-03 「그럼 수정판 배포해라」, 바이두 실측 12.4·7.8·8.5 참고한 우리 기준 16·7·10): 탑메뉴 줄을 44 → 36으로 줄이고 검색 줄 아래로 8 올려 검색바 아래 → 탭 글자 16, 글자 → 밑줄 7, 밑줄 → 배너 10 */
 .boardChannelNav{height:36px;margin-top:-8px}
 .boardChannelTab,.boardOrderMenu{height:36px}
+/* 탑메뉴 ☰ 바이두 크기(2026-11-03 「진행해라」): 원본 아이콘을 22 → 17.6px(80%)로만 줄임(보이는 선 약 13.7×12.1 · 두께 1.6, 바이두 약 12.5×12 · 1.6). 누르는 칸 44×36 그대로 */
+.phone.phone .boardChannelNav .boardOrderMenu img{width:17.6px!important;height:17.6px!important}
