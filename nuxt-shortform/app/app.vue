@@ -7,6 +7,7 @@ import Icon from "./components/Icon.vue";
 import Login from "./components/Login.vue";
 import Dashboard from "./components/Dashboard.vue";
 import Samples from "./components/Samples.vue";
+import Pipeline from "./components/Pipeline.vue";
 import NewVideo from "./components/NewVideo.vue";
 import OrderView from "./components/OrderView.vue";
 import Pricing from "./components/Pricing.vue";
@@ -73,6 +74,7 @@ onMounted(() => {
 const NAV = [
   { v: "dashboard", label: "대시보드", icon: rd("view-grid-outline") },
   { v: "samples", label: "샘플 영상", icon: rd("video-camera-outline") },
+  { v: "pipeline", label: "자동 편집 파이프라인", icon: rd("options-outline") },
   { v: "new", label: "새 영상", icon: rd("video-camera-outline") },
   { v: "pricing", label: "크레딧 · 가격", icon: ct("chotot-common-bag") },
 ];
@@ -80,12 +82,15 @@ const credits = () => (state.loaded ? state.credits : "–");
 </script>
 <template>
   <template v-if="ready">
-    <div v-if="!auth.email && view === 'samples'" class="sf-public">
+    <div v-if="!auth.email && (view === 'samples' || view === 'pipeline')" class="sf-public">
       <header class="sf-public-head">
         <Brand @home="go('dashboard')" />
         <button class="btn is-sm" type="button" @click="go('dashboard')">로그인</button>
       </header>
-      <main class="sf-public-main"><Samples @go="go" /></main>
+      <main class="sf-public-main">
+        <Samples v-if="view === 'samples'" @go="go" />
+        <Pipeline v-else @go="go" />
+      </main>
     </div>
     <Login v-else-if="!auth.email" @done="onLogin" />
     <div v-else class="sf">
@@ -118,6 +123,7 @@ const credits = () => (state.loaded ? state.credits : "–");
       <main class="sf-main">
         <Dashboard v-if="view === 'dashboard'" :paid="paid" @go="go" />
         <Samples v-else-if="view === 'samples'" @go="go" />
+        <Pipeline v-else-if="view === 'pipeline'" @go="go" />
         <NewVideo v-else-if="view === 'new'" :key="`new-${newKey}`" @go="go" @toast="say" />
         <OrderView v-else-if="view === 'order'" :id="id" @go="go" @toast="say" />
         <Pricing v-else-if="view === 'pricing'" @go="go" @toast="say" />

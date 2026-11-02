@@ -211,6 +211,41 @@ a { color: inherit; }
 .sf-public-head .sf-brand { padding: 0; }
 .sf-public-main { padding: 42px 24px 80px; }
 
+/* 선우혁 딜러 릴스 3개 분석 기반 자동 편집 파이프라인 */
+.sf-pipeline-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+.sf-pipeline-head h1 { margin: 6px 0 8px; font-size: 30px; line-height: 1.25; letter-spacing: -0.6px; }
+.sf-pipeline-head p { max-width: 700px; margin: 0; color: var(--muted); }
+.sf-pipeline-meta { display: grid; grid-template-columns: 0.8fr 1.3fr 1fr; gap: 12px; }
+.sf-pipeline-meta .card { padding: 17px 18px; display: grid; gap: 6px; }
+.sf-pipeline-meta span { color: var(--muted); font-size: 11px; font-weight: 800; }
+.sf-pipeline-meta b { font-size: 13px; line-height: 1.55; }
+.sf-pipeline-section { margin-top: 18px; padding: 22px; }
+.sf-pipeline-title { display: flex; align-items: flex-start; justify-content: space-between; gap: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.sf-pipeline-title > div { display: flex; align-items: center; gap: 10px; }
+.sf-pipeline-title span { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: #fff; font-size: 11px; font-weight: 800; }
+.sf-pipeline-title h2 { margin: 0; font-size: 19px; }
+.sf-pipeline-title small { color: var(--muted); font-size: 12px; line-height: 1.5; text-align: right; }
+.sf-timeline { list-style: none; margin: 0; padding: 22px 0 0; display: grid; }
+.sf-timeline li { display: grid; grid-template-columns: 88px 14px 1fr; gap: 12px; min-height: 92px; }
+.sf-timeline time { padding-top: 1px; color: var(--blue-h); font-size: 12px; font-weight: 800; }
+.sf-timeline i { position: relative; width: 10px; height: 10px; margin-top: 3px; border: 2px solid var(--blue); border-radius: 50%; }
+.sf-timeline i::after { content: ""; position: absolute; left: 3px; top: 10px; bottom: -77px; width: 2px; background: var(--line); }
+.sf-timeline li:last-child i::after { display: none; }
+.sf-timeline div { display: grid; align-content: start; gap: 4px; padding-bottom: 18px; }
+.sf-timeline b { font-size: 15px; }
+.sf-timeline span { color: var(--muted); font-size: 13px; }
+.sf-timeline small { color: var(--faint); font-size: 12px; }
+.sf-stage-grid { list-style: none; margin: 0; padding: 20px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.sf-stage-grid li { min-width: 0; display: grid; grid-template-columns: 30px 1fr; gap: 10px; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-2); }
+.sf-stage-grid li > span { color: var(--blue-h); font-size: 11px; font-weight: 800; }
+.sf-stage-grid b { font-size: 14px; }
+.sf-stage-grid em { margin-left: 7px; color: var(--muted); font-size: 10px; font-style: normal; font-weight: 700; }
+.sf-stage-grid p { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.sf-pipeline-rules { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.sf-pipeline-rules .card { padding: 18px; }
+.sf-pipeline-rules b { font-size: 14px; }
+.sf-pipeline-rules p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
 .toast { position: fixed; left: 50%; bottom: 24px; transform: translateX(-50%); background: #fff; color: #222; padding: 12px 18px; border-radius: 12px; font-weight: 600; font-size: 14px; box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35); z-index: 50; max-width: calc(100vw - 32px); }
 
 .dialog-back { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); display: grid; place-items: center; z-index: 40; padding: 16px; }
@@ -320,6 +355,15 @@ a { color: inherit; }
   .sf-sample-cta { align-items: stretch; flex-direction: column; }
   .sf-public-head { height: 58px; padding: 0 16px; }
   .sf-public-main { padding: 24px 16px 72px; }
+  .sf-pipeline-head { align-items: stretch; flex-direction: column; }
+  .sf-pipeline-head h1 { font-size: 25px; }
+  .sf-pipeline-head .btn { width: 100%; }
+  .sf-pipeline-meta { grid-template-columns: 1fr; }
+  .sf-pipeline-section { padding: 18px 16px; }
+  .sf-pipeline-title { align-items: stretch; flex-direction: column; }
+  .sf-pipeline-title small { text-align: left; }
+  .sf-timeline li { grid-template-columns: 76px 14px 1fr; gap: 8px; }
+  .sf-stage-grid, .sf-pipeline-rules { grid-template-columns: 1fr; }
 }
 @media (prefers-reduced-motion: reduce) {
   .sf-side, .sf-bar i { transition: none; }
