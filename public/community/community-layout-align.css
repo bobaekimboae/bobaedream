@@ -30,8 +30,7 @@ body .boardOrderBackdrop .boardOrderPanel .boardOrderRestore,body .boardOrderBac
 body .boardOrderBackdrop .boardOrderPanel .boardOrderRestore img,body .boardOrderBackdrop .boardOrderPanel .boardOrderEdit img{width:16px;height:16px;display:block;opacity:.7}
 body .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderEdit{color:#222;font-weight:700}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderReset{display:none!important}
-body .boardOrderBackdrop .boardOrderPanel .boardOrderSectionTabs{display:none}
-body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailable{margin-top:28px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailable{margin-top:24px}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:24px}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableTitle{margin:0 0 12px;color:#222;font-size:16px;line-height:22px;font-weight:700}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderMyGrid,body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableGrid{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px 8px}
@@ -49,3 +48,20 @@ body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd:after{right:-3px;top:-3
 body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove img{right:6px;top:6px;width:8px;height:8px;opacity:1;filter:brightness(0) invert(1);z-index:1}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderPlusIcon{right:1px;top:1px;width:8px;height:8px;opacity:1;filter:brightness(0) invert(1);transform:rotate(45deg);z-index:1}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderHeading .boardOrderEditLabel{color:inherit;font-size:inherit;font-weight:inherit;overflow:visible}
+/* 분류 탭은 바이두처럼 위에 붙는(sticky) 탭으로 유지(2026-11-03 「대분류 스티치 기능은 유지」). 선택 밑줄은 파랑 대신 검정. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderSectionTabs button{color:#595959;font-size:15px;font-weight:500}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderSectionTabs button.on{color:#222;font-weight:700}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderSectionTabs button.on:after{background:#222}
+/* 칩 글자 가독성(2026-11-03 「글자가 잘 안보이지 않나 칩 안에」): 14px·자간 −0.045em·500이 좁고 흐려 보여 15px·자간 −0.02em·500 #111로. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderName,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd span{font-size:15px!important;line-height:20px;letter-spacing:-.02em!important;font-weight:500;color:#111}
+body .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFixed .boardOrderName{color:#b0b3b8}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem.selected .boardOrderName{color:#111;font-weight:700}
+/* 텐센트 비디오 全部频道 글자 크기·굵기(2026-11-03, 폰 캡처 495px → 384 환산 잉크 실측):
+   제목 20/28 700 · 「내 게시판」·분류 제목 16/22 700 · 기본값 복원·편집 13/18 400 #333 · 칩 13/18 500 #222. */
+body .boardOrderBackdrop .boardOrderPanel #boardOrderTitle{font-size:20px!important;line-height:28px!important;font-weight:700!important;color:#222}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderHeading strong,body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableTitle{font-size:16px!important;line-height:22px!important;font-weight:700!important;color:#222}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRestore,body .boardOrderBackdrop .boardOrderPanel .boardOrderEdit{font-size:13px!important;line-height:18px!important;font-weight:400!important;color:#333}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderName,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd span{font-size:13px!important;line-height:18px!important;letter-spacing:0!important;font-weight:500!important;color:#222}
+/* 선택된 게시판: 알리바바 UC처럼 검정 바탕 + 흰 글자(편집 중에는 일반 모양). */
+body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected{background:#222!important}
+body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected .boardOrderName{color:#fff!important;font-weight:600!important}
