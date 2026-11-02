@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="./naver-discussion-feed.css?v=20261102redditplay1">
 <link rel="stylesheet" href="./community-poll.css?v=20261017naverpoll1">
 <link rel="stylesheet" href="./chotot-feed.css?v=20261102redditplay1">
-<link rel="stylesheet" href="./hupu-board-navigation.css?v=20261103vp1">
+<link rel="stylesheet" href="./hupu-board-navigation.css?v=20261103tl1">
 <link rel="stylesheet" href="./reddit-board-profile.css?v=20261101follow1">
 <link rel="stylesheet" href="./board-header-variants.css?v=20261103f1">
 <link rel="stylesheet" href="./chzzk-list-parity.css?v=20261017listparity4">
@@ -109,7 +109,7 @@
 </head>
 <body>
 <main class="phone">
-<script>{const h=new URLSearchParams(location.search).get('header');if(h!=='legacy')document.currentScript.parentElement.classList.add('communityTitleHeader');if(h!=='legacy'&&h!=='community')document.currentScript.parentElement.classList.add('communityProfileHeader')}</script>
+<script>{const q=new URLSearchParams(location.search);if(q.get('tabline')==='baidu')document.currentScript.parentElement.classList.add('tablineBaidu');const h=q.get('header');if(h!=='legacy')document.currentScript.parentElement.classList.add('communityTitleHeader');if(h!=='legacy'&&h!=='community')document.currentScript.parentElement.classList.add('communityProfileHeader')}</script>
 <header class="appbar"><button class="back" aria-label="보배드림 메인으로" onclick="location.href='../'"><img src="../%61ssets/bbm/m-header-back.svg" alt=""></button><button class="communitySearch" type="button" aria-label="커뮤니티 검색"><img src="assets/chotot-search-gray.svg" alt=""><span>커뮤니티</span></button><button class="headerProfile" type="button" aria-label="내 프로필"><img src="assets/chotot-default-avatar.svg" alt=""></button><nav class="communitySectionNav" aria-label="커뮤니티 영역"><button class="communitySectionTab on" type="button" data-community-section="home" aria-current="page">홈</button><button class="communitySectionTab" type="button" data-community-section="board">게시판</button><button class="communitySectionTab" type="button" data-community-section="report">제보</button><button class="communitySectionTab" type="button" data-community-section="defect">결함</button></nav><button class="communityHeaderSearchBar" type="button" aria-label="커뮤니티 게시글 검색"><img src="assets/community-title-search.svg" alt=""><span>게시글 검색</span></button><button class="communityTitleSearch" type="button" aria-label="커뮤니티 검색"><img src="assets/community-title-search.svg" alt=""></button><button class="headerAction hamburger" aria-label="전체 메뉴"><img class="headerAsset headerMenu" src="assets/chotot-hamburger.svg" alt=""><img class="headerAsset variantHeaderMenu" src="assets/community-title-menu.svg" alt=""></button></header>
 <nav id="boardChannelNav" class="boardChannelNav" aria-label="게시판 빠른 이동"><div id="boardChannelScroller" class="boardChannelScroller"><div id="boardChannelTrack" class="boardChannelTrack"></div></div><button id="boardOrderMenu" class="boardOrderMenu" aria-label="게시판 바로가기"><img src="assets/reddit-ui/menu.svg" alt=""></button></nav>
 <figure id="boardHero" class="boardHero" hidden><img id="boardHeroImage" class="boardHeroImage" src="" alt="" loading="eager" decoding="async"><figcaption class="boardHeroCopy"><strong class="boardHeroTitle">전체 게시글</strong><span class="boardHeroTagline">자동차를 넘어, 사람 사는 이야기</span></figcaption></figure>
