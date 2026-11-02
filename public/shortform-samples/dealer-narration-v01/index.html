@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>딜러 내레이션형 숏폼 샘플</title>
+<meta name="description" content="매물 사진과 매물 정보만으로 자동 편집한 딜러 설명형 숏폼 샘플 (레인지로버 SV 오토바이오그래피)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; --accent: #306bd9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 24px; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: start; }
+  h1 { grid-column: 1 / -1; margin: 0; font-size: 22px; line-height: 30px; }
+  h1 small { display: block; color: var(--sub); font-size: 14px; font-weight: 400; }
+  .player { position: sticky; top: 16px; background: #000; border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16; }
+  video { width: 100%; height: 100%; display: block; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; }
+  h2 { margin: 0 0 12px; font-size: 18px; line-height: 24px; }
+  ol { margin: 0; padding: 0; list-style: none; }
+  li { display: grid; grid-template-columns: 48px 88px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+  li:last-child { border-bottom: 0; }
+  li:hover, li:focus-visible { background: #f7f8fa; outline: none; }
+  li.is-now { background: #edf3ff; }
+  .t { color: var(--sub); font-variant-numeric: tabular-nums; }
+  .part { font-weight: 600; }
+  ul { margin: 0; padding-left: 18px; color: var(--sub); }
+  @media (max-width: 720px) { main { grid-template-columns: 1fr; } .player { position: static; max-width: 360px; width: 100%; margin: 0 auto; } li { grid-template-columns: 44px 72px minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <h1>딜러 내레이션형 숏폼 샘플 v01<small>서울오토갤러리 매물 사진 17장 + 매물 정보 → 대본 · AI 음성 · 어절 자막 · 컷 맞춤 자동 편집 (사람 편집 없음)</small></h1>
+  <div class="player"><video id="v" src="rangerover-v01.mp4" controls playsinline preload="metadata"></video></div>
+  <div style="display:grid;gap:16px">
+    <section>
+      <h2>매장 설명 순서 (문장 = 컷)</h2>
+      <ol id="script"></ol>
+    </section>
+    <section>
+      <h2>만드는 순서</h2>
+      <ul>
+        <li>매물 정보와 사진에 보이는 것만으로 대본 작성 (사고 이력·가격은 정보가 없어 말하지 않음)</li>
+        <li>남성 AI 음성, 낱말마다 나오는 시각으로 자막을 한 낱말씩 표시 (숫자·핵심어는 노랑)</li>
+        <li>문장 하나에 부위 사진 하나: 앞 → 옆 → 휠 → 뒤 → 엔진룸 → 운전석 → 시트 → 핸들 → 계기판 → HUD → 센터 → 카메라 → 기어 → 트렁크</li>
+        <li>위쪽 부위 이름, 사양 알약, 타이틀(RANGE ROVER), 끝 딜러 명함</li>
+        <li>배경음악·표지는 다음 버전에서 추가</li>
+      </ul>
+    </section>
+  </div>
+</main>
+<script>
+  const rows = [
+    [0.3, '매장 입구', '안녕하세요, 투제이모터웍스 김태규입니다.'],
+    [3.8, '앞모습', '오늘 보여드릴 차는 4세대 레인지로버 최상위 트림, SV 오토바이오그래피 롱휠베이스입니다.'],
+    [10.2, '옆모습', '옆에서 보시면 차가 길죠. 롱바디라 뒷좌석이 훨씬 넓습니다.'],
+    [15.5, '휠', '휠 상태 보시고요,'],
+    [17.0, '뒷모습', '뒤로 돌아갑니다.'],
+    [18.9, '엔진룸', '보닛 열어보면 5.0 V8 슈퍼차저 가솔린 엔진입니다.'],
+    [23.2, '운전석', '운전석 문 열어볼게요.'],
+    [25.4, '시트', '시트는 브라운 다이아몬드 퀼팅 가죽, 상태 직접 보시죠.'],
+    [29.7, '핸들', '핸들은 우드 스티어링 휠이고요,'],
+    [32.0, '계기판', '디지털 계기판, 주행거리는 5만 1천 6백 킬로미터입니다.'],
+    [36.8, 'HUD', '앞 유리에 헤드업 디스플레이도 나오고요,'],
+    [39.5, '센터페시아', '가운데 터치스크린이 위아래 두 개,'],
+    [42.1, '카메라', '어라운드 뷰 카메라도 들어가 있습니다.'],
+    [44.7, '기어', '다이얼 기어 옆에 오토바이오그래피 각인 보이시죠.'],
+    [48.0, '트렁크', '트렁크도 매트까지 깔끔합니다.'],
+    [50.5, '정리', '2019년식 레인지로버 SV 오토바이오그래피, 자세한 정보는 하단 본문 참고해 주시고, 서울오토갤러리 매장에서 직접 보실 수 있습니다. 감사합니다.'],
+  ];
+  const v = document.getElementById('v'), ol = document.getElementById('script');
+  const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  rows.forEach(([t, part, text]) => {
+    const li = document.createElement('li');
+    li.tabIndex = 0;
+    li.innerHTML = `<span class="t">${fmt(t)}</span><span class="part"></span><span></span>`;
+    li.children[1].textContent = part; li.children[2].textContent = text;
+    const go = () => { v.currentTime = t; v.play(); };
+    li.addEventListener('click', go);
+    li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    ol.appendChild(li);
+  });
+  v.addEventListener('timeupdate', () => {
+    let k = 0; rows.forEach(([t], i) => { if (v.currentTime >= t) k = i; });
+    [...ol.children].forEach((li, i) => li.classList.toggle('is-now', i === k));
+  });
+</script>
+</body>
+</html>
