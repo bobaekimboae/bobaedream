@@ -70,6 +70,7 @@ GRAPHIC = {
     "racing-model": ("checker", "#5e1428", "#f06e8e"),
     "military": ("contour", "#2f3a1c", "#95a967"),
     "aviation-rail": ("rail", "#173450", "#6f9bc6"),
+    "f1": ("circuit", "#14161b", "#e10600"),
 }
 
 
@@ -236,6 +237,25 @@ def graphic_banner(kind, dark, accent):
         d.arc([w * 0.5, -h * 0.9, w * 1.2, h * 0.6], 200, 320, fill=acc(150), width=int(1.2 * u))  # 비행 궤적
         px, py = w * 0.93, h * 0.2
         d.polygon([(px - 10 * u, py + 3 * u), (px + 10 * u, py - 3 * u), (px - 4 * u, py + 6 * u)], fill=white(200))
+    elif kind == "circuit":
+        # 서킷 선 + 연석 + 체크 깃발 띠 (F1 로고·선수 사진은 쓰지 않는다)
+        pts = []
+        for t in range(0, 361, 3):
+            a = math.radians(t)
+            rr = 1 + 0.18 * math.sin(2 * a + 0.6) + 0.1 * math.cos(3 * a)
+            pts.append((rx + 34 * u * rr * math.cos(a) * 1.9, h * 0.52 + 30 * u * rr * math.sin(a)))
+        d.line(pts + [pts[0]], fill=white(150), width=int(3.4 * u), joint="curve")
+        d.line(pts[30:62], fill=acc(255), width=int(3.4 * u), joint="curve")
+        for i in range(30, 62, 4):  # 연석 흰 줄
+            d.line([pts[i], pts[i + 1]], fill=white(230), width=int(3.4 * u))
+        sx, s = w * 0.955, 6 * u
+        for j in range(int(h / s) + 1):
+            for i in range(3):
+                if (i + j) % 2 == 0:
+                    d.rectangle([sx + i * s, j * s, sx + (i + 1) * s, (j + 1) * s], fill=white(200))
+        for k in range(4):  # 속도선
+            y = h * (0.2 + k * 0.08)
+            d.line([(w * 0.34 + k * 9 * u, y), (w * 0.46 + k * 9 * u, y)], fill=acc(170 - k * 30), width=int(1.2 * u))
     base = Image.alpha_composite(base, layer)
     return base.resize((W, H), Image.LANCZOS)
 

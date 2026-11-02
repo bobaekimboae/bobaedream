@@ -22,6 +22,7 @@
     {id:'mlb',displayName:'해외야구',shortName:'해외야구',section:'게시판',topicKey:'전체',avatarLabel:'MLB',avatarColor:'#174b8d',avatarAccent:'#5d9eea'},
     {id:'overseas-football',displayName:'해외축구',shortName:'해외축구',section:'게시판',topicKey:'전체',avatarLabel:'해축',avatarColor:'#236b4b',avatarAccent:'#62c894'},
     {id:'domestic-football',displayName:'국내축구',shortName:'국내축구',section:'게시판',topicKey:'전체',avatarLabel:'국축',avatarColor:'#16736d',avatarAccent:'#58c7bc'},
+    {id:'f1',displayName:'F1',shortName:'F1',section:'게시판',topicKey:'전체',avatarLabel:'F1',avatarColor:'#b80500',avatarAccent:'#ff4b3e'},
     {id:'event',displayName:'이벤트',shortName:'이벤트',section:'게시판',topicKey:'전체',avatarLabel:'EVENT',avatarColor:'#b23d28',avatarAccent:'#ff856b'},
     {id:'new-humor',displayName:'신유머/감동/이슈',shortName:'유머이슈',section:'자료실',topicKey:'전체',avatarLabel:'이슈',avatarColor:'#7f4c16',avatarAccent:'#e2a34d'},
     {id:'humor',displayName:'유머게시판',shortName:'유머',section:'자료실',topicKey:'전체',avatarLabel:'유머',avatarColor:'#745400',avatarAccent:'#f2c94c'},
