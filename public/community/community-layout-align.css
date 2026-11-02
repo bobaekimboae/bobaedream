@@ -1,0 +1,13 @@
+/* 커뮤니티 화면 정렬 정리(2026-11-03 「바이두처럼 안정된 디자인 구성」 → 「정리 진행해라」).
+   기준: 좌우 시작선 16 하나, 세로 간격은 4의 배수, 배너는 그림자 없이 평평하게.
+   여러 참고 앱 규칙이 쌓인 기존 CSS 뒤에 마지막으로 불러와 덮는다. */
+.phone.communityTitleHeader.communityProfileHeader > .appbar{padding-left:12.5px;padding-right:16px}
+.phone .boardChannelTrack{padding-left:16px}
+.phone.headerYouTube .boardHero{margin:8px 16px 0;box-shadow:none}
+.phone.headerYouTube .boardHeroCopy{padding:0 16px}
+.phone.headerYouTube .boardHeroTagline{font-size:12px;line-height:17px}
+.phone.headerYouTube .boardTop.redditProfileReady,.phone.headerYouTube .boardTop{margin-top:8px;height:60px;min-height:60px}
+.phone .headwordSection{grid-template-columns:56px minmax(0,1fr) 42px}
+.phone .headwordSection .postFilterBtn{margin:8px 0 8px 16px}
+.phone .headwordSection:not(.expanded) .category{height:52px;align-items:flex-start;padding:8px 0 0}
+.phone .headwordSection.expanded .category{padding-left:0}
