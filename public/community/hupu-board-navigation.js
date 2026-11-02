@@ -636,6 +636,7 @@
       if(!main||!('ontouchstart' in window||navigator.maxTouchPoints>0))return;
       var EASE='cubic-bezier(.22,1,.36,1)';
       var start=null,locked=null,moving=false,busy=false,stage=[],samples=[],preview=null;
+      var moveFrame=0,pendingPoint=null;
       function stageEls(){var out=[],el=nav.nextElementSibling;while(el){if(!el.classList.contains('fab')&&!el.classList.contains('boardSwipeGhost')&&el.offsetParent!==null)out.push(el);el=el.nextElementSibling}return out}
       function channelIds(){return Array.prototype.map.call(track.querySelectorAll('[data-board-id]'),function(b){return b.dataset.boardId})}
       function neighbor(dir){var ids=channelIds(),i=ids.indexOf(selectedId);return i<0?null:ids[i+dir]||null}
@@ -660,7 +661,7 @@
         if(e.touches.length!==1){start=null;return}
         var t=e.touches[0];
         if(t.clientX<20||t.clientX>innerWidth-20||blocked(e.target)){start=null;return}
-        start={x:t.clientX,y:t.clientY};locked=null;moving=false;stage=[];samples=[{x:t.clientX,t:performance.now()}];preview=null;
+        start={x:t.clientX,y:t.clientY};locked=null;moving=false;stage=[];samples=[{x:t.clientX,t:performance.now()}];preview=null;pendingPoint=null;
         // 터치 이벤트는 처음 닿은 요소로 계속 간다. 옆 게시판을 그리며 그 요소가 문서에서 빠져도 받을 수 있게 직접 붙인다.
         detach();touchTarget=e.target;touchTarget.addEventListener('touchmove',onMove,{passive:false});touchTarget.addEventListener('touchend',end,{passive:true});touchTarget.addEventListener('touchcancel',onCancel,{passive:true});
       },{passive:true});
@@ -677,7 +678,14 @@
         cur.forEach(function(el){var c=el.cloneNode(true);c.removeAttribute('id');Array.prototype.forEach.call(c.querySelectorAll('[id]'),function(n){n.removeAttribute('id')});c.style.transform='';c.style.transition='';g.appendChild(c)});
         main.appendChild(g);return g;
       }
-      function render(id){choose(id,{skipQuery:true,silent:true,preview:true});window.scrollTo(0,savedY);stage=stageEls();stage.forEach(function(el){el.style.willChange='transform'})}
+      // 미리보기 중에는 renderNav/URL/최근 게시판 저장을 반복하지 않는다.
+      // 실제 게시판 본문만 교체하고 탑 메뉴 표시는 setPreview에서 한 번씩 갱신한다.
+      function render(id){
+        var board=boardForId(id);if(!board)return;
+        selectedId=id;updateCurrentBoardAvatar(board);
+        if(api&&api.onSelect)api.onSelect(board,{silent:true,fromNavigation:true});
+        window.scrollTo(0,savedY);stage=stageEls();stage.forEach(function(el){el.style.willChange='transform'})
+      }
       function showTarget(id){
         if(id===target)return;target=id;
         if(id){if(!ghost)ghost=snapshot();render(id)}
@@ -689,16 +697,11 @@
         setX(stage,dir*(w+GAP)+dx,ms);
         if(ghost){ghost.style.transition=ms?'transform '+ms+'ms '+EASE:'none';ghost.style.transform='translate3d('+dx+'px,0,0)'}
       }
-      function navOn(id){Array.prototype.forEach.call(track.querySelectorAll('[data-board-id]'),function(b){b.classList.toggle('on',b.dataset.boardId===id)})}
+      function navOn(id){setPreview(id)}
       // 옆 게시판을 그리면 손가락이 닿은 요소가 사라져 touchmove/touchend가 main까지 오지 않으므로 window에서 받는다.
-      function onMove(e){
-        if(!start||e.__bbmSwipe)return;e.__bbmSwipe=true;
-        var t=e.touches[0],dx=t.clientX-start.x,dy=t.clientY-start.y;
-        samples.push({x:t.clientX,t:performance.now()});
-        if(locked===null){if(Math.abs(dx)<8&&Math.abs(dy)<8)return;locked=Math.abs(dx)>Math.abs(dy)?'x':'y';if(locked==='x')start.x=t.clientX-(dx>0?8:-8)}
-        if(locked!=='x')return;
-        e.preventDefault();
-        dx=t.clientX-start.x;
+      function applyMove(){
+        moveFrame=0;if(!start||locked!=='x'||!pendingPoint)return;
+        var dx=pendingPoint.x-start.x;
         if(!moving){moving=true;origId=selectedId;target=null;ghost=null;savedY=window.scrollY;stage=stageEls()}
         var dir=dx<0?1:-1,w=main.clientWidth||innerWidth;
         var ids=channelIds(),i=ids.indexOf(origId),id=dx===0||i<0?null:ids[i+dir]||null;
@@ -706,12 +709,22 @@
         place(id?dx:0,0);
         navOn(id&&Math.abs(dx)>w/2?id:origId);
       }
+      function onMove(e){
+        if(!start||e.__bbmSwipe)return;e.__bbmSwipe=true;
+        var t=e.touches[0],dx=t.clientX-start.x,dy=t.clientY-start.y,now=performance.now();
+        samples.push({x:t.clientX,t:now});if(samples.length>8)samples.shift();
+        if(locked===null){if(Math.abs(dx)<8&&Math.abs(dy)<8)return;locked=Math.abs(dx)>Math.abs(dy)?'x':'y';if(locked==='x'){start.x=t.clientX-(dx>0?8:-8);window.__bbmBoardSwipeActive=true}}
+        if(locked!=='x')return;
+        e.preventDefault();pendingPoint={x:t.clientX,y:t.clientY,t:now};
+        if(!moveFrame)moveFrame=requestAnimationFrame(applyMove);
+      }
       window.addEventListener('touchmove',onMove,{passive:false});
-      function finish(ms,done){setTimeout(function(){if(ghost){ghost.remove();ghost=null}clear(stage);busy=false;done&&done()},ms+40)}
+      function finish(ms,done){setTimeout(function(){if(ghost){ghost.remove();ghost=null}clear(stage);busy=false;window.__bbmBoardSwipeActive=false;done&&done()},ms+40)}
       function end(e){
         if(!start||e.__bbmSwipe)return;e.__bbmSwipe=true;detach();
-        var s=start;start=null;
-        if(!moving)return;
+        if(moveFrame){cancelAnimationFrame(moveFrame);moveFrame=0;applyMove()}
+        var s=start;start=null;pendingPoint=null;
+        if(!moving){window.__bbmBoardSwipeActive=false;return}
         moving=false;
         var t=(e.changedTouches&&e.changedTouches[0])||{clientX:s.x},dx=t.clientX-s.x,v=velocity(),w=main.clientWidth||innerWidth;
         var id=target;
@@ -736,7 +749,7 @@
         }
       }
       window.addEventListener('touchend',end,{passive:true});
-      function onCancel(e){if(e.__bbmSwipe)return;e.__bbmSwipe=true;detach();if(start&&moving){var keep=origId;render(keep);if(ghost){ghost.remove();ghost=null}clear(stage);target=null}start=null;moving=false}
+      function onCancel(e){if(e.__bbmSwipe)return;e.__bbmSwipe=true;detach();if(moveFrame){cancelAnimationFrame(moveFrame);moveFrame=0}pendingPoint=null;if(start&&moving){var keep=origId;render(keep);if(ghost){ghost.remove();ghost=null}clear(stage);target=null}start=null;moving=false;window.__bbmBoardSwipeActive=false}
       window.addEventListener('touchcancel',onCancel,{passive:true});
     })();
 
