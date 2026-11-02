@@ -501,7 +501,7 @@
             "assets",
             "bbm",
             "detail-icons",
-            "body.svg"
+            "trunk-as24.svg"
           ],
           "min": 9,
           "max": 11,
@@ -516,7 +516,7 @@
             "assets",
             "bbm",
             "detail-icons",
-            "mileage.svg"
+            "tyre-as24.svg"
           ],
           "min": 7,
           "max": 11,
@@ -537,7 +537,52 @@
           "max": 10,
           "hint": "보닛을 끝까지 열고 위에서 아래로 천천히 내려 엔진룸 전체를 보여 줘요."
         }
-      ]
+      ],
+      "demo": {
+        "title": "2019 레인지로버 SV 오토바이오그래피 LWB",
+        "meta": "5.1만km · 가솔린 · 서울오토갤러리",
+        "price": "가격 상담",
+        "dealer": "김태규 딜러 · 투제이모터웍스",
+        "dealerLink": "?qf=guazi&profile=dealer&shop=450554&emp=1",
+        "src": [
+          "shortform-samples",
+          "dealer-narration-v01",
+          "rangerover-v01.mp4"
+        ],
+        "note": "딜러가 직접 찍은 매장 설명 영상(63초)을 부위 시각으로 나눈 시안이에요. 이 영상에는 타이어 · 대시보드 장면이 따로 없어요.",
+        "chapters": [
+          {
+            "key": "tour-walk",
+            "from": 0,
+            "to": 18.9
+          },
+          {
+            "key": "tour-engine",
+            "from": 18.9,
+            "to": 23.2
+          },
+          {
+            "key": "tour-seat",
+            "from": 23.2,
+            "to": 29.7
+          },
+          {
+            "key": "tour-pov",
+            "from": 29.7,
+            "to": 39.5
+          },
+          {
+            "key": "tour-feature",
+            "from": 39.5,
+            "to": 48.0
+          },
+          {
+            "key": "tour-boot",
+            "from": 48.0,
+            "to": 63.5
+          }
+        ]
+      }
     }
   },
   "groups": [
