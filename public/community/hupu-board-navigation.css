@@ -199,3 +199,10 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderPanel .boardOrderHeading{margin-bottom:1.2px}
 .boardOrderPanel .boardOrderClose{transform:translate(5.4px,-3.5px)}
 .boardOrderPanel .boardOrderSectionTabs button.on:after{bottom:0;height:2.5px}
+/* 바이두 6차 대조(2026-11-02 16:55, 배포본 afa36b7 기준): 추가 칸 테두리를 옅게 · 글자 굵기 보통 · 탭 밑줄 → 첫 추가 칸 16.3 · 추가 칸 → 다음 분류 제목 글자 22.5 */
+.boardOrderPanel .boardOrderSectionTabs{margin-bottom:16.3px}
+.boardOrderPanel .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:21px}
+.boardOrderPanel .boardOrderAdd{border-color:#ebedf0;color:#333}
+.boardOrderPanel[data-grid-columns] .boardOrderName,.boardOrderPanel[data-grid-columns] .boardOrderAdd span,.boardOrderPanel .boardOrderItem.selected{font-weight:400}
+.boardOrderPanel .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:18.6px}
+.boardOrderPanel[data-grid-columns] .boardOrderAdd{padding-left:3px;padding-right:9px}
