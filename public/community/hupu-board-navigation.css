@@ -220,3 +220,7 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderPanel .boardOrderDefaultEntry strong,.boardOrderPanel .boardOrderDefaultValue{position:relative;top:1.5px}
 .boardOrderPanel[data-grid-columns] .boardOrderName,.boardOrderPanel[data-grid-columns] .boardOrderAdd span{position:relative;top:1.8px}
 .boardOrderPanel .boardOrderSectionTabs button.on:after{bottom:-1.2px}
+/* 2026-11-03 바이두 폰 10배 대조: 칸·기본 홈 줄 바탕은 회색 #F5F5F5(푸른기 없음), 편집 중에는 현재 고정 칸도 파랑 없이 회색 */
+.boardOrderPanel .boardOrderItem,.boardOrderPanel .boardOrderCategoryItem,.boardOrderPanel .boardOrderDefaultEntry{background:#f5f5f5}
+.boardOrderPanel .boardOrderItem.boardOrderFixed{background:#fafafa}
+.boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFixed.selected{color:#b5b8bc}
