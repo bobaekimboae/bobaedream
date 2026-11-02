@@ -623,60 +623,90 @@
     });
 
     // 바이두 피드처럼 본문을 좌우로 밀면 탑메뉴의 이전·다음 게시판으로 이동한다.
+    // 2026-11-03 바이두 폰 직접 대조: 안드로이드 ViewPager 규칙과 같다.
+    // - 본문이 손가락을 1:1로 따라온다(처음 8px은 방향 판정). 맨 처음·끝 게시판은 끌리지 않는다.
+    // - 놓을 때 빠르게 휙(초당 400px 이상, 25px 이상)이면 그 방향으로, 아니면 화면 절반을 넘겨야 넘어간다.
+    // - 넘어갈 때 지금 화면이 밀려 나가고 다음 게시판이 붙어서 들어온다(끝까지 남은 거리로 시간 계산, 최대 0.6초, 감속 곡선).
+    // - 절반을 넘기면 탑메뉴 선택도 미리 다음 게시판으로 바뀐다.
     (function setupBoardSwipe(){
       var nav=document.getElementById('boardChannelNav');
       var main=nav&&nav.parentElement;
       if(!main||!('ontouchstart' in window||navigator.maxTouchPoints>0))return;
-      var start=null,locked=null,moving=false,busy=false,stage=[];
-      function stageEls(){var out=[],el=nav.nextElementSibling;while(el){if(!el.classList.contains('fab')&&el.offsetParent!==null)out.push(el);el=el.nextElementSibling}return out}
+      var EASE='cubic-bezier(.22,1,.36,1)';
+      var start=null,locked=null,moving=false,busy=false,stage=[],samples=[],preview=null;
+      function stageEls(){var out=[],el=nav.nextElementSibling;while(el){if(!el.classList.contains('fab')&&!el.classList.contains('boardSwipeGhost')&&el.offsetParent!==null)out.push(el);el=el.nextElementSibling}return out}
       function channelIds(){return Array.prototype.map.call(track.querySelectorAll('[data-board-id]'),function(b){return b.dataset.boardId})}
       function neighbor(dir){var ids=channelIds(),i=ids.indexOf(selectedId);return i<0?null:ids[i+dir]||null}
-      function setX(x,ms){stage.forEach(function(el){el.style.transition=ms?'transform '+ms+'ms cubic-bezier(.2,0,0,1)':'none';el.style.transform=x?'translate3d('+x+'px,0,0)':''})}
-      function clear(){stage.forEach(function(el){el.style.transition='';el.style.transform='';el.style.willChange=''})}
+      function setX(els,x,ms){els.forEach(function(el){el.style.transition=ms?'transform '+ms+'ms '+EASE:'none';el.style.transform=x?'translate3d('+x+'px,0,0)':''})}
+      function clear(els){els.forEach(function(el){el.style.transition='';el.style.transform='';el.style.willChange=''})}
+      function setPreview(id){
+        if(preview===id)return;preview=id;
+        Array.prototype.forEach.call(track.querySelectorAll('[data-board-id]'),function(b){b.classList.toggle('on',b.dataset.boardId===(id||selectedId))});
+      }
       function blocked(target){
         if(busy||backdrop.classList.contains('open')||document.body.classList.contains('sheetOpen'))return true;
         if(!target.closest||target.closest('#boardChannelNav,.sheet.open,.boardOrderBackdrop,input,textarea,[contenteditable="true"]'))return true;
         for(var el=target;el&&el!==main;el=el.parentElement){if(el.scrollWidth>el.clientWidth+2){var ox=getComputedStyle(el).overflowX;if(ox==='auto'||ox==='scroll')return true}}
         return false;
       }
+      function velocity(){
+        var now=performance.now();samples=samples.filter(function(p){return now-p.t<=100});
+        if(samples.length<2)return 0;var a=samples[0],b=samples[samples.length-1];
+        return (b.x-a.x)/Math.max(1,b.t-a.t)*1000; // px/s
+      }
       main.addEventListener('touchstart',function(e){
         if(e.touches.length!==1){start=null;return}
         var t=e.touches[0];
         if(t.clientX<20||t.clientX>innerWidth-20||blocked(e.target)){start=null;return}
-        if(stage.length)clear();
-        start={x:t.clientX,y:t.clientY,time:Date.now()};locked=null;moving=false;stage=[];
+        start={x:t.clientX,y:t.clientY};locked=null;moving=false;stage=[];samples=[{x:t.clientX,t:performance.now()}];preview=null;
       },{passive:true});
       main.addEventListener('touchmove',function(e){
         if(!start)return;
         var t=e.touches[0],dx=t.clientX-start.x,dy=t.clientY-start.y;
-        if(locked===null){if(Math.abs(dx)<10&&Math.abs(dy)<10)return;locked=Math.abs(dx)>Math.abs(dy)*1.3?'x':'y'}
+        samples.push({x:t.clientX,t:performance.now()});
+        if(locked===null){if(Math.abs(dx)<8&&Math.abs(dy)<8)return;locked=Math.abs(dx)>Math.abs(dy)?'x':'y';if(locked==='x')start.x=t.clientX-(dx>0?8:-8)}
         if(locked!=='x')return;
         e.preventDefault();
+        dx=t.clientX-start.x;
         if(!moving){moving=true;stage=stageEls();stage.forEach(function(el){el.style.willChange='transform'})}
-        var dir=dx<0?1:-1,x=neighbor(dir)?dx:dx*0.25;
-        setX(x,0);
+        var dir=dx<0?1:-1,id=neighbor(dir),w=main.clientWidth||innerWidth;
+        if(!id){setX(stage,0,0);setPreview(null);return}
+        setX(stage,dx,0);
+        setPreview(Math.abs(dx)>w/2?id:null);
       },{passive:false});
       function end(e){
         if(!start)return;
         var s=start;start=null;
         if(!moving)return;
-        var t=(e.changedTouches&&e.changedTouches[0])||{clientX:s.x},dx=t.clientX-s.x,speed=Math.abs(dx)/Math.max(1,Date.now()-s.time);
-        var dir=dx<0?1:-1,id=neighbor(dir),w=main.clientWidth||innerWidth;
-        if(!id||!(Math.abs(dx)>w*0.25||(Math.abs(dx)>40&&speed>0.45))){setX(0,reduceMotion?0:220);setTimeout(clear,240);return}
+        var t=(e.changedTouches&&e.changedTouches[0])||{clientX:s.x},dx=t.clientX-s.x,v=velocity(),w=main.clientWidth||innerWidth;
+        var dir=dx<0?1:-1,id=neighbor(dir);
+        var fling=Math.abs(v)>=400&&Math.abs(dx)>=25&&(v<0)===(dx<0);
+        var go=!!id&&(fling||Math.abs(dx)>w/2);
+        var remain=go?w-Math.abs(dx):Math.abs(dx);
+        var ms=reduceMotion?0:Math.min(600,Math.abs(v)>=400?4*Math.round(1000*remain/Math.abs(v)):Math.round((remain/w+1)*100));
+        if(!go){setPreview(null);var back=stage;setX(back,0,ms);setTimeout(function(){if(!start)clear(back)},ms+30);return}
         busy=true;
-        var outMs=reduceMotion?0:160,inMs=reduceMotion?0:220;
-        setX(-dir*w,outMs);
-        setTimeout(function(){
-          choose(id);
-          busy=false;
-          stage=stageEls();
-          setX(dir*w*0.35,0);
-          var settle=stage;
-          requestAnimationFrame(function(){requestAnimationFrame(function(){if(stage!==settle)return;setX(0,inMs);setTimeout(function(){if(stage===settle&&!start)clear()},inMs+30)})});
-        },outMs);
+        // 지금 화면을 그대로 복사해 두고(밀려 나가는 쪽), 진짜 화면은 다음 게시판으로 바꿔 옆에 붙여 들어오게 한다.
+        if(getComputedStyle(main).position==='static')main.style.position='relative';
+        var top=stage[0].getBoundingClientRect().top-main.getBoundingClientRect().top,ghost=document.createElement('div');
+        ghost.className='boardSwipeGhost';ghost.setAttribute('aria-hidden','true');
+        ghost.style.cssText='position:absolute;left:0;right:0;top:'+top+'px;z-index:1;pointer-events:none;background:inherit;transform:translate3d('+dx+'px,0,0)';
+        stage.forEach(function(el){var c=el.cloneNode(true);c.removeAttribute('id');Array.prototype.forEach.call(c.querySelectorAll('[id]'),function(n){n.removeAttribute('id')});c.style.transform='';c.style.transition='';ghost.appendChild(c)});
+        main.appendChild(ghost);
+        clear(stage);
+        choose(id);
+        preview=null;
+        var incoming=stageEls();
+        setX(incoming,dir*w+dx,0);
+        incoming[0]&&incoming[0].getBoundingClientRect();
+        requestAnimationFrame(function(){
+          setX(incoming,0,ms);
+          ghost.style.transition=ms?'transform '+ms+'ms '+EASE:'none';ghost.style.transform='translate3d('+(-dir*w)+'px,0,0)';
+          setTimeout(function(){ghost.remove();clear(incoming);busy=false},ms+40);
+        });
       }
       main.addEventListener('touchend',end,{passive:true});
-      main.addEventListener('touchcancel',function(){if(start&&moving){setX(0,0);clear()}start=null},{passive:true});
+      main.addEventListener('touchcancel',function(){if(start&&moving){setPreview(null);setX(stage,0,0);clear(stage)}start=null},{passive:true});
     })();
 
     renderNav();
