@@ -339,6 +339,21 @@
             "engine",
             "trunk"
           ]
+        },
+        {
+          "key": "tour",
+          "label": "비디오 투어 8단계",
+          "sub": "외관 한 바퀴 → 옵션 작동 → 대시보드·천장 → 시트 → 운전석 시점 → 트렁크 → 타이어 → 엔진룸 · 카스24형 보기 화면",
+          "stages": [
+            "tour-walk",
+            "tour-feature",
+            "tour-dash",
+            "tour-seat",
+            "tour-pov",
+            "tour-boot",
+            "tour-tyre",
+            "tour-engine"
+          ]
         }
       ],
       "crew": [
@@ -379,11 +394,151 @@
             "engine",
             "trunk"
           ]
+        },
+        {
+          "key": "tour",
+          "label": "비디오 투어 8단계",
+          "sub": "외관 한 바퀴 → 옵션 작동 → 대시보드·천장 → 시트 → 운전석 시점 → 트렁크 → 타이어 → 엔진룸 · 카스24형 보기 화면",
+          "stages": [
+            "tour-walk",
+            "tour-feature",
+            "tour-dash",
+            "tour-seat",
+            "tour-pov",
+            "tour-boot",
+            "tour-tyre",
+            "tour-engine"
+          ]
         }
       ],
       "58": []
     },
-    "coursesNote": "역할별 코스(2026-10-29): 딜러는 빠른·표준 2개만(결정을 줄임), 촬영팀은 표준·상세 + 직접 고르기. 58 재현은 그룹 4단계 그대로"
+    "coursesNote": "역할별 코스(2026-10-29): 딜러는 빠른·표준 2개만(결정을 줄임), 촬영팀은 표준·상세 + 직접 고르기. 58 재현은 그룹 4단계 그대로",
+    "tour": {
+      "name": "비디오 투어(카스24형)",
+      "note": "호주 CARS24 비디오 투어 10대를 재서 정한 순서·길이예요. 8개 부위를 같은 순서로 찍으면 보는 화면에서 부위 아이콘을 눌러 그 장면으로 바로 갈 수 있어요.",
+      "stages": [
+        {
+          "key": "tour-walk",
+          "label": "외관 한 바퀴",
+          "short": "외관",
+          "guide": "exterior",
+          "icon": [
+            "assets",
+            "bbm",
+            "detail-icons",
+            "maker.svg"
+          ],
+          "min": 20,
+          "max": 24,
+          "hint": "허리 높이에서 운전석 앞쪽부터 시작해 끊지 않고 차 주위를 한 바퀴 돌아요. 바퀴 쪽으로 조금 붙어 천천히 걸어요."
+        },
+        {
+          "key": "tour-feature",
+          "label": "옵션 작동",
+          "short": "옵션",
+          "guide": "feature",
+          "icon": [
+            "icons",
+            "reddit-shoot",
+            "tap-outline.svg"
+          ],
+          "min": 18,
+          "max": 24,
+          "hint": "운전석에서 손으로 화면 · 핸들 버튼 · 선루프 · 후방카메라 · 통풍시트를 하나씩 눌러 작동하는 모습을 보여 줘요."
+        },
+        {
+          "key": "tour-dash",
+          "label": "대시보드·천장",
+          "short": "대시보드",
+          "guide": "in-dash",
+          "icon": [
+            "assets",
+            "bbm",
+            "detail-icons",
+            "interior.svg"
+          ],
+          "min": 8,
+          "max": 11,
+          "hint": "뒷좌석 가운데에서 앞을 보고 대시보드 전체를 좌우가 같게 담은 뒤 천장(선루프)으로 천천히 올려요."
+        },
+        {
+          "key": "tour-seat",
+          "label": "시트",
+          "short": "시트",
+          "guide": "in-seat",
+          "icon": [
+            "assets",
+            "bbm",
+            "detail-icons",
+            "seats.svg"
+          ],
+          "min": 11,
+          "max": 15,
+          "hint": "문을 열고 바깥에서 앞좌석 → 뒷좌석 순서로 시트 상태를 보여 줘요."
+        },
+        {
+          "key": "tour-pov",
+          "label": "운전석 시점",
+          "short": "운전석",
+          "guide": "in-cluster",
+          "icon": [
+            "assets",
+            "bbm",
+            "detail-icons",
+            "power.svg"
+          ],
+          "min": 7,
+          "max": 12,
+          "hint": "운전석에 앉은 눈높이로 앞 유리 → 계기판 → 핸들을 보여 줘요. 시동을 켜서 주행거리가 보이게 해요."
+        },
+        {
+          "key": "tour-boot",
+          "label": "트렁크",
+          "short": "트렁크",
+          "guide": "trunk",
+          "icon": [
+            "assets",
+            "bbm",
+            "detail-icons",
+            "body.svg"
+          ],
+          "min": 9,
+          "max": 11,
+          "hint": "뒤 배지에서 시작해 트렁크가 열리는 모습을 담고 안쪽 바닥까지 보여 줘요."
+        },
+        {
+          "key": "tour-tyre",
+          "label": "타이어",
+          "short": "타이어",
+          "guide": "tyre",
+          "icon": [
+            "assets",
+            "bbm",
+            "detail-icons",
+            "mileage.svg"
+          ],
+          "min": 7,
+          "max": 11,
+          "hint": "앞바퀴 휠에서 타이어 홈(트레드)으로 가까이 다가가 닳은 정도가 보이게 찍어요."
+        },
+        {
+          "key": "tour-engine",
+          "label": "엔진룸",
+          "short": "엔진룸",
+          "guide": "engine",
+          "icon": [
+            "assets",
+            "bbm",
+            "detail-icons",
+            "engine.svg"
+          ],
+          "min": 6,
+          "max": 10,
+          "hint": "보닛을 끝까지 열고 위에서 아래로 천천히 내려 엔진룸 전체를 보여 줘요."
+        }
+      ]
+    }
   },
   "groups": [
     {

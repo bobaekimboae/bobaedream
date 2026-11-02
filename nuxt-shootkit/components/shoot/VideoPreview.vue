@@ -23,6 +23,8 @@ import Toast from "./Toast.vue";
 import Confirm from "./Confirm.vue";
 import FocusBox from "./FocusBox.vue";
 import CutMemo from "./CutMemo.vue";
+import TourChapters from "./TourChapters.vue";
+import { TOUR, isTourList } from "../../lib/items";
 import { useLayerEsc } from "../../composables/useLayerEsc";
 import { BASE_STAGES, PLUS, def, mmss, type Note, type Notes, type Take } from "../../lib/core";
 import { makeMp4, mp4Codec, mp4Name, saveToDevice } from "../../lib/save-mp4";
@@ -74,6 +76,16 @@ const go = (n: number, play: boolean, at = 0) => {
   playing.value = play;
 };
 const stageKeys = computed(() => props.take.stages ?? BASE_STAGES);
+// 비디오 투어(카스24형, 2026-11-02): 투어 부위로만 찍은 영상은 칩 대신 부위 아이콘 줄로 보여 주고, 누르면 그 장면으로 간다
+const isTour = computed(() => PLUS && !props.take.imported && isTourList(stageKeys.value));
+const tourSeek = (i: number) => {
+  const n = parts.value.findIndex((x) => x.i === i);
+  if (n >= 0) go(n, true);
+};
+const tourProgress = computed(() => {
+  const d = cur.value ? props.take.durations[cur.value.i] : 0;
+  return d ? Math.min(1, t.value / d) : 0;
+});
 const damageIdx = computed(() => stageKeys.value.indexOf("damage"));
 const marks = computed(() => (damageIdx.value >= 0 && props.take.durations[damageIdx.value] ? (props.take.marks ?? []) : []));
 watch(
@@ -177,7 +189,7 @@ const confirmOk = () => {
   <div ref="layerRef" :class="`shoot-layer shoot-vpreview ${edit ? 'is-edit' : ''}`">
     <header class="shoot-top">
       <button type="button" class="shoot-icon-btn" aria-label="닫기" @click="emit('close')"><Mask :src="rd('close-outline')" /></button>
-      <h2>{{ edit ? "차량 영상" : "영상 미리보기" }}</h2>
+      <h2>{{ isTour ? TOUR.name : edit ? "차량 영상" : "영상 미리보기" }}</h2>
       <!-- 2026-10-29 컨설팅: 아래 큰 「내 폰에 저장」과 겹쳐서, 미리보기에서는 부위가 여럿일 때만 「부위별」 저장으로 둔다 -->
       <button v-if="parts.length && (edit || !PLUS || parts.length > 1)" type="button" class="shoot-guide-toggle shoot-save-btn" @click="saveOpen = true">{{ PLUS && !edit ? "부위별" : "저장" }}</button>
       <span v-else class="shoot-icon-btn" />
@@ -196,7 +208,7 @@ const confirmOk = () => {
         @click="onVideoClick"
       />
       <button v-if="!playing" type="button" class="shoot-play" aria-label="재생" @click="playing = true"><Mask :src="rd('play-fill')" /></button>
-      <div v-if="total && !take.imported" :class="`shoot-stages is-done-row ${stageKeys.length > 4 ? 'is-plus' : ''} ${PLUS ? 'is-kit' : ''}`">
+      <div v-if="total && !take.imported && !isTour" :class="`shoot-stages is-done-row ${stageKeys.length > 4 ? 'is-plus' : ''} ${PLUS ? 'is-kit' : ''}`">
         <button
           v-for="(key, i) in stageKeys"
           :key="def(key).key"
@@ -229,6 +241,7 @@ const confirmOk = () => {
         >{{ i + 1 }} · {{ mmss(m.t) }}</button>
       </div>
     </div>
+    <TourChapters v-if="isTour && total" :keys="stageKeys" :durations="take.durations" :now="cur?.i ?? -1" :progress="tourProgress" @seek="tourSeek" />
     <!-- 컷별 음성·글 메모(2026-10-29 후속 ②): 기본 내부 메모, 「매물 상세에 공개」를 켜면 상세·쇼츠 자막 초안에 쓰인다 -->
     <CutMemo v-if="PLUS && curKey" :label="def(curKey).label" :stage-key="curKey" :note="notes[curKey]" @change="setNote" @notify="(t) => emit('notify', t)" />
     <div v-if="PLUS && !edit && parts.length" class="shoot-vsave">

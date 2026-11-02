@@ -1,11 +1,11 @@
 // 촬영 쇼츠 키트 공통 값 · 형식 · 도움 함수(리액트 ShootRegister.tsx 47~147줄 · 277~280줄 · 2642~2684줄을 그대로 옮김).
 import type { QcIssue } from "./quality";
 import { defaultSticker, type Sticker } from "./image-ops";
-import { setCustomGuide, stageGuide, type VideoStage } from "./stages";
+import { setCustomGuide, setTourGuide, stageGuide, type VideoStage } from "./stages";
 import { loadPrefs, type StagePrefs } from "./stage-prefs";
 import type { Highlight } from "./shorts";
 import { query } from "./site";
-import { CUTS, ENFORCE_REQUIRED, ITEMS, OTHER_ID, PHOTO_MAX, PLATE_DEFAULT, PLATE_HERO_LOCK, ROLES, SHOOT, VIDEO_GROUPS, coursesOf, cutOf, groupOf, isRequiredItem, levelLabel, stageSec, type RoleDef, type ShootRole } from "./items";
+import { CUTS, ENFORCE_REQUIRED, ITEMS, OTHER_ID, PHOTO_MAX, PLATE_DEFAULT, PLATE_HERO_LOCK, ROLES, SHOOT, VIDEO_GROUPS, TOUR, coursesOf, cutOf, groupOf, isRequiredItem, levelLabel, stageSec, type RoleDef, type ShootRole } from "./items";
 
 export const OTHER = OTHER_ID;
 export const MAX_PHOTOS = PHOTO_MAX;
@@ -58,12 +58,14 @@ export function baseStagesOf(r: ShootRole): VideoStage[] {
   return (list.find((c) => c.key === key) ?? list[0])?.stages ?? VIDEO_GROUPS.map((g) => g.videoKey!);
 }
 
-export type StageDef = { key: VideoStage; label: string; min: number; max: number; extra?: boolean; custom?: boolean; hint?: string; cut?: boolean; item?: string };
+export type StageDef = { key: VideoStage; label: string; min: number; max: number; extra?: boolean; custom?: boolean; hint?: string; cut?: boolean; item?: string; tour?: boolean };
+TOUR.stages.forEach((x) => setTourGuide(x.key, x.guide, x.hint));
 /** 기본 단계 = videoStage 그룹(이름 = 그룹 이름, 길이 = videoSec), 추가 단계 = video.extraStages, 실내 독립 컷 = video.cuts(2026-10-29). 바꾸지 않는 기본값 */
 export const DEFAULT_DEFS = Object.fromEntries([
   ...VIDEO_GROUPS.map((g) => [g.videoKey!, { key: g.videoKey!, label: g.label, ...stageSec(g) }]),
   ...SHOOT.video.extraStages.map((x) => [x.key, { key: x.key, label: x.label, min: x.min, max: x.max, hint: x.hint, extra: true }]),
   ...CUTS.map((c) => [c.key, { key: c.key, label: c.label, min: c.min, max: c.max, hint: c.hint, extra: true, cut: true, item: c.item }]),
+  ...TOUR.stages.map((x) => [x.key, { key: x.key, label: x.label, min: x.min, max: x.max, hint: x.hint, extra: true, tour: true }]),
 ]) as Record<string, StageDef>;
 /** 단계가 속한 사진 그룹 id(부위 컷 마스터: 컷은 item의 그룹, 기본 단계는 그룹 videoKey). 없으면 null */
 export function stageGroup(k: VideoStage): string | null {
@@ -123,7 +125,7 @@ export const STAGE_DO: Partial<Record<string, string>> = {
 };
 export const stageDo = (k: VideoStage) => STAGE_DO[k] ?? stageGuide(k).how.split(/(?<=[.요])\s/)[0].replace(/\.$/, "");
 /** 촬영 코스(2026-10-24 「촬영 부위 순서를 정하자」 · 2026-10-29 3차 컨설팅: 역할별 코스는 JSON video.courses). 차 주위를 걷는 순서대로 정한다. */
-export type CourseKey = "basic" | "full" | "quick" | "custom" | "mine";
+export type CourseKey = "basic" | "full" | "quick" | "tour" | "custom" | "mine";
 export type Course = { key: Exclude<CourseKey, "custom">; label: string; sub: string; stages: VideoStage[] };
 /** 58 재현(&vstage=58)의 코스: 그룹 4단계 그대로 */
 const COURSES_58: Course[] = [
@@ -137,7 +139,8 @@ export const COURSES: Course[] = coursesFor(roleNow());
 export function withDamage(list: VideoStage[], on: boolean): VideoStage[] {
   const base = list.filter((k) => k !== "damage");
   if (!on) return base;
-  const at = base.includes("tyre") ? base.indexOf("tyre") + 1 : base.indexOf("exterior") + 1;
+  // 비디오 투어는 외관 한 바퀴 바로 뒤(2026-11-02)
+  const at = base.includes("tour-walk") ? base.indexOf("tour-walk") + 1 : base.includes("tyre") ? base.indexOf("tyre") + 1 : base.indexOf("exterior") + 1;
   return [...base.slice(0, at), "damage", ...base.slice(at)];
 }
 export function courseOf(list: VideoStage[], r: ShootRole = roleNow()): CourseKey {

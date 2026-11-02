@@ -25,6 +25,8 @@ export type ShootRole = "dealer" | "crew" | "58";
 export type RoleDef = { label: string; orientationToggle: boolean; course: string; maxExtra: number };
 /** 실내 독립 컷(부위 컷 마스터): item = 같은 부위의 사진 칸 id */
 export type CutDef = { key: VideoStage; label: string; item: string; min: number; max: number; hint: string; crewOnly?: boolean };
+/** 비디오 투어 부위: guide = 예시 그림을 빌려 쓸 기존 단계, icon = 사이트 루트 기준 경로 조각(원본 아이콘) */
+export type TourStageDef = { key: VideoStage; label: string; short: string; guide: VideoStage; icon: string[]; min: number; max: number; hint: string };
 export type CourseDef = { key: string; label: string; sub: string; stages: VideoStage[] };
 export type ShootGroup = {
   id: string;
@@ -53,6 +55,8 @@ type ShootData = {
     recommend: { id: string; label: string; stages: VideoStage[]; replace?: Partial<Record<VideoStage, VideoStage>>; hide?: VideoStage[] }[];
     cuts: CutDef[];
     courses: Record<ShootRole, CourseDef[]>;
+    /** 비디오 투어(카스24형, 2026-11-02): 정해진 8부위를 같은 순서로 찍어 보는 화면에서 부위 아이콘으로 바로 이동 */
+    tour: { name: string; note: string; stages: TourStageDef[] };
     shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; cutMin: number; cutMax: number; highlightCut: number };
   };
   roles: Record<ShootRole, RoleDef>;
@@ -92,6 +96,14 @@ export const orientationOf = (id: string): Orientation => groupOf(id).orientatio
 export const CUTS = SHOOT.video.cuts;
 export const cutOf = (key: string) => CUTS.find((c) => c.key === key);
 export const ROLES = SHOOT.roles;
+export const TOUR = SHOOT.video.tour;
+export const TOUR_KEYS: VideoStage[] = TOUR.stages.map((x) => x.key);
+export const tourOf = (key: string) => TOUR.stages.find((x) => x.key === key);
+/** 단계 목록이 비디오 투어 코스(투어 부위만, 2개 이상)인지 */
+export const isTourList = (list: readonly string[]) => {
+  const l = list.filter((k) => k !== "damage");
+  return l.length > 1 && l.every((k) => k.startsWith("tour-"));
+};
 export const coursesOf = (role: ShootRole): CourseDef[] => SHOOT.video.courses[role] ?? [];
 /** 번호판 가리기 기본값(키트) · 대표 사진 노출 잠금(2026-10-29 후속 ④) */
 export const PLATE_DEFAULT = SHOOT.photo.plateDefault ?? false;

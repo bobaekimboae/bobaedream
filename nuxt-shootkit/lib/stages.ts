@@ -6,6 +6,8 @@ export type VideoStage =
   // 2026-10-29 3차 컨설팅: 세부 컷(라이트·그릴 등)과 실내 독립 컷
   | "light-front" | "light-rear" | "mirror" | "key"
   | "in-door" | "in-seat" | "in-wheel" | "in-cluster" | "in-dash" | "in-center" | "in-console" | "in-pass" | "in-rear" | "in-roof" | "in-third"
+  // 2026-11-02 비디오 투어(카스24형) 8부위
+  | `tour-${string}`
   | `my-${string}`;
 
 export const ORANGE = "#FF7A1A";
@@ -62,7 +64,14 @@ const customHow = new Map<string, string>();
 export function setCustomGuide(key: string, how: string) {
   customHow.set(key, how);
 }
+/** 비디오 투어 부위 → 예시 그림·안내를 빌려 올 기존 단계와 투어 안내 문장(items.ts가 채운다. 순환 import를 피하려고 여기서 받는다) */
+const tourGuide = new Map<string, { base: string; how: string }>();
+export function setTourGuide(key: string, base: string, how: string) {
+  tourGuide.set(key, { base, how });
+}
 export function stageGuide(stage: VideoStage): StageGuide {
+  const tg = tourGuide.get(stage);
+  if (tg) return { ...(STAGE_GUIDE_BASE[tg.base] ?? STAGE_GUIDE_BASE.exterior), how: tg.how };
   return STAGE_GUIDE_BASE[stage] ?? { frames: ["opt-feature-1"], arrow: "M18 108 Q80 92 142 108", how: customHow.get(stage) || "찍을 부분이 틀 안에 들어오게 천천히 비춰 주세요.", pan: "sweep" };
 }
 export const stageThumb = (stage: VideoStage) => tpl(stageGuide(stage).frames[0]);
