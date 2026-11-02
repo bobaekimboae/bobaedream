@@ -187,27 +187,19 @@ function drawBackground(g: CanvasRenderingContext2D, W: number, H: number, horiz
   }
 }
 
-/**
- * 쇼룸 사진 만들기. 차 위치 · 크기는 원본 그대로 두고 배경만 바꾼다.
- * 반환: JPEG data URL(긴 변 최대 1600)
- */
-export async function makeShowroom(src: string, style: ShowroomStyle, onProgress?: (p: number) => void): Promise<string> {
+/** 차만 오려 낸 사진(배경 투명, 원본과 같은 크기 · 위치). 보배드림 AI 스튜디오(nuxt-carstudio)도 쓴다 */
+export async function cutCar(src: string, onProgress?: (p: number) => void) {
   const img = await loadImg(src);
   const mask = await carMask(img, onProgress);
   const { canvas: mc, box, area } = maskCanvas(mask);
   if (area < 0.03 || box.x1 < 0) throw new ShowroomError("사진에서 차를 찾지 못했어요. 차 전체가 보이는 외관 사진으로 해 주세요.");
   if (area > 0.85) throw new ShowroomError("차가 화면을 거의 다 채워서 배경을 바꿀 수 없어요. 조금 물러서서 찍어 주세요.");
-
   const k = Math.min(1, MAX_SIDE / Math.max(img.naturalWidth, img.naturalHeight));
   const W = Math.round(img.naturalWidth * k);
   const H = Math.round(img.naturalHeight * k);
   const sx = W / S;
   const sy = H / S;
   const b = { x0: box.x0 * sx, x1: (box.x1 + 1) * sx, y0: box.y0 * sy, y1: (box.y1 + 1) * sy };
-  const carH = b.y1 - b.y0;
-  const carW = b.x1 - b.x0;
-
-  // 오려 낸 차
   const cut = document.createElement("canvas");
   cut.width = W;
   cut.height = H;
@@ -219,6 +211,17 @@ export async function makeShowroom(src: string, style: ShowroomStyle, onProgress
   cg.drawImage(mc, 0, 0, W, H);
   cg.filter = "none";
   cg.globalCompositeOperation = "source-over";
+  return { cut, box: b, W, H };
+}
+
+/**
+ * 쇼룸 사진 만들기. 차 위치 · 크기는 원본 그대로 두고 배경만 바꾼다.
+ * 반환: JPEG data URL(긴 변 최대 1600)
+ */
+export async function makeShowroom(src: string, style: ShowroomStyle, onProgress?: (p: number) => void): Promise<string> {
+  const { cut, box: b, W, H } = await cutCar(src, onProgress);
+  const carH = b.y1 - b.y0;
+  const carW = b.x1 - b.x0;
 
   const out = document.createElement("canvas");
   out.width = W;

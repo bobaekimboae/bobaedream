@@ -1,0 +1,24 @@
+{
+  "name": "bobaedream-nuxt-carstudio",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.33.0",
+  "scripts": {
+    "dev": "nuxt dev --port 5195",
+    "build": "nuxt generate",
+    "typecheck": "nuxt typecheck",
+    "export": "nuxt generate && node scripts/copy-to-site.mjs"
+  },
+  "dependencies": {
+    "mediabunny": "1.61.3",
+    "nuxt": "4.6.2",
+    "onnxruntime-web": "1.22.0-dev.20250409-89f8206ba4",
+    "qrcode-generator": "2.0.4",
+    "vue": "3.5.33"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "6.0.3",
+    "vue-tsc": "^3.3.11"
+  }
+}
