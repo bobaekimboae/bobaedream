@@ -54,11 +54,11 @@
   var defaultExcludedIds=['adult','installation','free-media','caution','racing-model','military'];
   var boardGroupById={
     'car-news':'자동차','foreign-car-news':'자동차','brand-car-info':'자동차','vehicle-review':'자동차','tuhu-review':'자동차','fuel-economy':'자동차','test-drive':'자동차','celebrity-car':'자동차','domestic-car':'자동차','import-car':'자동차','tesla':'자동차','bmw':'자동차','mercedes-benz':'자동차','my-car-photo':'자동차','car-media':'자동차','installation':'자동차','oldcar-memory':'자동차',
-    'truck-bus-heavy':'차량','bike-cycle':'차량',
-    'accident-blackbox':'제보','scoop':'제보',
-    'autohome-complaint':'결함','chezhiwang-complaint':'결함'
+    'truck-bus-heavy':'차량/운송','bike-cycle':'차량/운송','aviation-rail':'차량/운송',
+    'accident-blackbox':'사건제보','scoop':'사건제보',
+    'autohome-complaint':'결함/불만','chezhiwang-complaint':'결함/불만'
   };
-  var menuSections=['일반','자동차','차량','제보','결함'];
+  var menuSections=['일반','자동차','차량/운송','사건제보','결함/불만'];
   movableBoards.forEach(function(board){board.menuSection=boardGroupById[board.id]||'일반'});
   var defaultActiveOrder=movableBoards.filter(function(board){return defaultExcludedIds.indexOf(board.id)<0}).map(function(board){return board.id});
   var boardById={};

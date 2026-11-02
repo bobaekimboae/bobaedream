@@ -174,8 +174,12 @@ body.communityMenuOpen{overflow:hidden}
 /* 바이두: 분류 탭은 굴리면 제목 아래에 붙고, 탭을 누르면 그 분류 제목이 탭 바로 아래로 온다. 마지막 분류도 위까지 올라오게 아래 여백 */
 .boardOrderPanel .boardOrderSectionTabs{position:sticky;top:0;z-index:3;background:#fff;margin-left:-17px;margin-right:-17px;padding-left:17px;padding-right:17px}
 .boardOrderPanel .boardOrderAvailableSection{scroll-margin-top:45px}
-.boardOrderPanel .boardOrderAvailableSection:last-child{min-height:calc(92dvh - 140px)}
-.boardOrderPanel .boardOrderAvailableSection{scroll-margin-top:51px}
+.boardOrderPanel{--board-panel-height:calc(100dvh - 12px);--board-section-scroll-offset:51px}
+/* Keep enough scroll runway for the final heading below the sticky tabs,
+   including when a category has no remaining boards to add. */
+.boardOrderPanel .boardOrderAvailableSection:last-child{min-height:calc(var(--board-panel-height) - 52px - var(--board-section-scroll-offset) - 24px - env(safe-area-inset-bottom))}
+@media(min-width:768px){.boardOrderPanel{--board-panel-height:min(780px,92dvh)}}
+.boardOrderPanel .boardOrderAvailableSection{scroll-margin-top:var(--board-section-scroll-offset)}
 /* 바이두 5차 대조(2026-11-02 16:40, 폰 화면 가장자리를 다시 재서 384로 환산): 좌우 여백 14.5 · 칸 간격 9.6 · 줄 피치 47 · 기본 홈 줄 위 54.4 · 높이 38 · × 13.2 정사각 · 고정 칸 바탕 한 단계 옅게 */
 .boardOrderPanel .boardOrderBody{padding-left:14.5px;padding-right:14.5px}
 .boardOrderPanel .boardOrderSectionTabs{margin-left:-14.5px;margin-right:-14.5px;padding-left:14.5px;padding-right:14.5px}
