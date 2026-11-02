@@ -193,7 +193,7 @@
     var backdrop=document.createElement('div');
     backdrop.className='boardOrderBackdrop';
     backdrop.hidden=true;
-    backdrop.innerHTML='<section class="boardOrderPanel" role="dialog" aria-modal="true" aria-labelledby="boardOrderTitle" tabindex="-1"><header class="boardOrderHeader"><h2 id="boardOrderTitle">전체 게시판</h2><button class="boardOrderClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="boardOrderBody"><button class="boardOrderDefaultEntry" type="button" aria-label="현재 게시판을 기본 홈으로 설정"><strong>기본 홈 설정</strong><span class="boardOrderDefaultValue">전체 게시글</span><span class="boardOrderDefaultArrow" aria-hidden="true">›</span></button><div class="boardOrderHeading"><div><strong>내 게시판</strong><span class="boardOrderGuide">눌러서 게시판 이동</span></div><button class="boardOrderEdit" aria-pressed="false">편집</button></div><div class="boardOrderMyGrid"></div><div class="boardOrderAvailable"><div class="boardOrderSectionTabs" role="tablist" aria-label="게시판 분류">'+menuSections.map(function(section){return'<button role="tab" data-section="'+escapeHtml(section)+'">'+escapeHtml(section)+'</button>'}).join('')+'</div><div class="boardOrderAvailableSections"></div><p class="boardOrderEmpty" hidden></p></div><button class="boardOrderReset" hidden>기본 순서로 초기화</button><p class="boardOrderHint">변경 내용은 바로 저장되며, 제외한 게시판은 아래에서 다시 추가할 수 있습니다.</p></div><div class="boardOrderToast" role="status" aria-live="polite" hidden><span class="boardOrderToastText"></span><button class="boardOrderUndo" type="button" hidden>되돌리기</button></div><div class="boardOrderLive" aria-live="polite" aria-atomic="true"></div></section>';
+    backdrop.innerHTML='<section class="boardOrderPanel" role="dialog" aria-modal="true" aria-labelledby="boardOrderTitle" tabindex="-1"><header class="boardOrderHeader"><h2 id="boardOrderTitle">전체 게시판</h2><button class="boardOrderClose" aria-label="닫기"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button></header><div class="boardOrderBody"><button class="boardOrderDefaultEntry" type="button" aria-label="현재 게시판을 기본 홈으로 설정"><strong>기본 홈 설정</strong><span class="boardOrderDefaultValue">전체 게시글</span><span class="boardOrderDefaultArrow" aria-hidden="true">›</span></button><div class="boardOrderHeading"><div><strong>내 게시판</strong><span class="boardOrderGuide">눌러서 게시판 이동</span></div><div class="boardOrderHeadActions"><button class="boardOrderRestore" type="button"><img src="assets/chzzk-detail/icons/refresh.svg" alt="">기본값 복원</button><button class="boardOrderEdit" aria-pressed="false"><img src="assets/reddit-ui/edit.svg" alt=""><span class="boardOrderEditLabel">편집</span></button></div></div><div class="boardOrderMyGrid"></div><div class="boardOrderAvailable"><div class="boardOrderSectionTabs" role="tablist" aria-label="게시판 분류">'+menuSections.map(function(section){return'<button role="tab" data-section="'+escapeHtml(section)+'">'+escapeHtml(section)+'</button>'}).join('')+'</div><div class="boardOrderAvailableSections"></div><p class="boardOrderEmpty" hidden></p></div><button class="boardOrderReset" hidden>기본 순서로 초기화</button><p class="boardOrderHint">변경 내용은 바로 저장되며, 제외한 게시판은 아래에서 다시 추가할 수 있습니다.</p></div><div class="boardOrderToast" role="status" aria-live="polite" hidden><span class="boardOrderToastText"></span><button class="boardOrderUndo" type="button" hidden>되돌리기</button></div><div class="boardOrderLive" aria-live="polite" aria-atomic="true"></div></section>';
     document.body.appendChild(backdrop);
     var serviceBackdrop=document.createElement('div');
     serviceBackdrop.className='communityMenuBackdrop';
@@ -466,7 +466,7 @@
       var available=movableBoards.filter(function(board){return !active[board.id]});
       availableSections.innerHTML=menuSections.map(function(section,index){
         var list=movableBoards.filter(function(board){return board.menuSection===section});
-        var title=index===0?'':'<h3 class="boardOrderAvailableTitle">'+escapeHtml(section)+'</h3>';
+        var title='<h3 class="boardOrderAvailableTitle">'+escapeHtml(section)+'</h3>';
         var rest=list.filter(function(board){return !active[board.id]});
         return '<section class="boardOrderAvailableSection" data-section="'+escapeHtml(section)+'">'+title+(rest.length?'<div class="boardOrderAvailableGrid">'+rest.map(addTile).join('')+'</div>':'<p class="boardOrderSectionEmpty">모두 ‘내 게시판’에 추가했어요</p>')+'</section>';
       }).join('');
@@ -501,7 +501,7 @@
       var guide=backdrop.querySelector('.boardOrderGuide');
       var editButton=backdrop.querySelector('.boardOrderEdit');
       guide.textContent=editing?'끌어서 순서 바꾸기':'눌러서 게시판 이동';
-      editButton.textContent=editing?'완료':'편집';
+      editButton.querySelector('.boardOrderEditLabel').textContent=editing?'완료':'편집';
       editButton.setAttribute('aria-pressed',String(editing));
       backdrop.classList.toggle('isEditing',editing);
       myGrid.innerHTML=fixedTile('home','홈','커뮤니티 홈')+fixedTile('all','전체','전체 게시글')+fixedTile('best','베스트','베스트글')+order.map(function(id){return movableTile(boardById[id])}).join('');
@@ -591,6 +591,7 @@
     backdrop.querySelector('.boardOrderClose').onclick=closePanel;
     backdrop.querySelector('.boardOrderDefaultEntry').onclick=function(){saveDefaultHome(selectedId)};
     backdrop.querySelector('.boardOrderEdit').onclick=function(){setEditing(!editing)};
+    backdrop.querySelector('.boardOrderRestore').onclick=function(){draftOrder=defaultActiveOrder.slice();commitDraft('기본 순서로 저장');renderPanel();showToast('기본 순서로 되돌렸습니다')};
     backdrop.querySelector('.boardOrderReset').onclick=function(){draftOrder=defaultActiveOrder.slice();commitDraft('기본 순서로 저장');renderPanel();showToast('기본 순서로 되돌렸습니다')};
     backdrop.onclick=function(event){if(event.target===backdrop)closePanel()};
     serviceBackdrop.querySelector('.communityMenuCreateEntry').onclick=function(){closeServiceMenu();openPanel({opener:headerMenuButton})};
