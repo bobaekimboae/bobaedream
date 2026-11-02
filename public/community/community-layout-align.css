@@ -65,3 +65,7 @@ body .boardOrderBackdrop .boardOrderPanel .boardOrderName,body .boardOrderBackdr
 /* 선택된 게시판: 알리바바 UC처럼 검정 바탕 + 흰 글자(편집 중에는 일반 모양). */
 body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected{background:#222!important}
 body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected .boardOrderName{color:#fff!important;font-weight:600!important}
+/* 칩은 우리 알약칩 규칙(초톳 실측): 바탕 #F4F4F4 · 14/20 500 #222 · 선택 #222 바탕 흰 글자 500. 텐센트에서는 배치만 가져온다. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{background:#f4f4f4}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderName,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd span{font-size:14px!important;line-height:20px!important;font-weight:500!important}
+body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected .boardOrderName{font-weight:500!important}
