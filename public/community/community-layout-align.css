@@ -14,3 +14,8 @@
 /* 탑메뉴 왼쪽 탭이 반쯤 잘려 보이던 것(2026-11-03 「좌측 메뉴 걸쳐 있는것도 불안정해」): 오른쪽 ☰ 쪽처럼
    왼쪽 끝도 흐리게 사라지게 한다. 맨 처음(스크롤 0)에는 흐림 없이 그대로. */
 .phone .boardChannelScroller.hasLeft{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 28px);mask-image:linear-gradient(90deg,transparent 0,#000 28px)}
+/* 헤더 균형(2026-11-03 「헤더 햄버거와 검색바 프사도 밸런스 맞추고」): ☰ 보이는 선 → 검색바 17px, 검색바 → 프사 12px로 달랐다.
+   ☰ 상자 안 오른쪽 여백(약 5px)만큼 검색바를 당겨 양쪽 12px로 맞춘다. 프사는 네이버증권 토론 기본 프로필(원형 32, 1px 테두리 안 30). */
+.phone.communityTitleHeader.communityProfileHeader > .appbar .communityHeaderSearchBar{margin-left:-5px;width:calc(100% + 5px)}
+.phone.communityTitleHeader.communityProfileHeader > .appbar .headerProfile{padding:0!important;overflow:hidden;border-radius:50%}
+.phone.communityTitleHeader.communityProfileHeader > .appbar .headerProfile img{width:100%!important;height:100%!important;border-radius:50%;object-fit:cover}
