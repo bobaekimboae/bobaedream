@@ -173,9 +173,9 @@
       renderNav();
       updateCurrentBoardAvatar(board);
       if(!options.skipQuery)updateQuery(id);
-      if(boardById[id])saveBoardIds(recentStorageKey,[id].concat(loadBoardIds(recentStorageKey,6).filter(function(boardId){return boardId!==id})),6);
+      if(boardById[id]&&!options.preview)saveBoardIds(recentStorageKey,[id].concat(loadBoardIds(recentStorageKey,6).filter(function(boardId){return boardId!==id})),6);
       if(api&&api.onSelect)api.onSelect(board,{silent:!!options.silent,fromNavigation:true});
-      scrollSelected();
+      if(!options.preview)scrollSelected();
       if(options.closePanel)closePanel();
     }
     function navButton(id,label,fullName,isHome){
@@ -660,56 +660,90 @@
         var t=e.touches[0];
         if(t.clientX<20||t.clientX>innerWidth-20||blocked(e.target)){start=null;return}
         start={x:t.clientX,y:t.clientY};locked=null;moving=false;stage=[];samples=[{x:t.clientX,t:performance.now()}];preview=null;
+        // 터치 이벤트는 처음 닿은 요소로 계속 간다. 옆 게시판을 그리며 그 요소가 문서에서 빠져도 받을 수 있게 직접 붙인다.
+        detach();touchTarget=e.target;touchTarget.addEventListener('touchmove',onMove,{passive:false});touchTarget.addEventListener('touchend',end,{passive:true});touchTarget.addEventListener('touchcancel',onCancel,{passive:true});
       },{passive:true});
-      main.addEventListener('touchmove',function(e){
-        if(!start)return;
+      // 2026-11-03 후푸 폰 직접 대조: 끄는 동안 옆 게시판이 화면 옆에 붙어 함께 따라오고(사이 8px 틈), 놓으면 넘어가거나 돌아온다.
+      // 끄기 시작할 때 지금 화면을 복사본(ghost)으로 떼어 손가락을 따라가게 하고, 진짜 화면에는 옆 게시판을 미리 그려 옆에 붙인다.
+      var touchTarget=null;function detach(){if(touchTarget){touchTarget.removeEventListener('touchmove',onMove);touchTarget.removeEventListener('touchend',end);touchTarget.removeEventListener('touchcancel',onCancel);touchTarget=null}}
+      var GAP=8,origId=null,target=null,ghost=null,savedY=0;
+      function snapshot(){
+        if(getComputedStyle(main).position==='static')main.style.position='relative';
+        var cur=stageEls();if(!cur.length)return null;
+        var top=cur[0].getBoundingClientRect().top-(parseFloat(getComputedStyle(cur[0]).marginTop)||0)-main.getBoundingClientRect().top,g=document.createElement('div');
+        g.className='boardSwipeGhost';g.setAttribute('aria-hidden','true');
+        g.style.cssText='position:absolute;left:0;right:0;top:'+top+'px;z-index:1;pointer-events:none;background:inherit;will-change:transform';
+        cur.forEach(function(el){var c=el.cloneNode(true);c.removeAttribute('id');Array.prototype.forEach.call(c.querySelectorAll('[id]'),function(n){n.removeAttribute('id')});c.style.transform='';c.style.transition='';g.appendChild(c)});
+        main.appendChild(g);return g;
+      }
+      function render(id){choose(id,{skipQuery:true,silent:true,preview:true});window.scrollTo(0,savedY);stage=stageEls();stage.forEach(function(el){el.style.willChange='transform'})}
+      function showTarget(id){
+        if(id===target)return;target=id;
+        if(id){if(!ghost)ghost=snapshot();render(id)}
+        else{render(origId);if(ghost){ghost.remove();ghost=null}}
+      }
+      function place(dx,ms){
+        var w=main.clientWidth||innerWidth,dir=dx<0?1:-1;
+        if(!target){setX(stage,0,ms);return}
+        setX(stage,dir*(w+GAP)+dx,ms);
+        if(ghost){ghost.style.transition=ms?'transform '+ms+'ms '+EASE:'none';ghost.style.transform='translate3d('+dx+'px,0,0)'}
+      }
+      function navOn(id){Array.prototype.forEach.call(track.querySelectorAll('[data-board-id]'),function(b){b.classList.toggle('on',b.dataset.boardId===id)})}
+      // 옆 게시판을 그리면 손가락이 닿은 요소가 사라져 touchmove/touchend가 main까지 오지 않으므로 window에서 받는다.
+      function onMove(e){
+        if(!start||e.__bbmSwipe)return;e.__bbmSwipe=true;
         var t=e.touches[0],dx=t.clientX-start.x,dy=t.clientY-start.y;
         samples.push({x:t.clientX,t:performance.now()});
         if(locked===null){if(Math.abs(dx)<8&&Math.abs(dy)<8)return;locked=Math.abs(dx)>Math.abs(dy)?'x':'y';if(locked==='x')start.x=t.clientX-(dx>0?8:-8)}
         if(locked!=='x')return;
         e.preventDefault();
         dx=t.clientX-start.x;
-        if(!moving){moving=true;stage=stageEls();stage.forEach(function(el){el.style.willChange='transform'})}
-        var dir=dx<0?1:-1,id=neighbor(dir),w=main.clientWidth||innerWidth;
-        if(!id){setX(stage,0,0);setPreview(null);return}
-        setX(stage,dx,0);
-        setPreview(Math.abs(dx)>w/2?id:null);
-      },{passive:false});
+        if(!moving){moving=true;origId=selectedId;target=null;ghost=null;savedY=window.scrollY;stage=stageEls()}
+        var dir=dx<0?1:-1,w=main.clientWidth||innerWidth;
+        var ids=channelIds(),i=ids.indexOf(origId),id=dx===0||i<0?null:ids[i+dir]||null;
+        showTarget(id);
+        place(id?dx:0,0);
+        navOn(id&&Math.abs(dx)>w/2?id:origId);
+      }
+      window.addEventListener('touchmove',onMove,{passive:false});
+      function finish(ms,done){setTimeout(function(){if(ghost){ghost.remove();ghost=null}clear(stage);busy=false;done&&done()},ms+40)}
       function end(e){
-        if(!start)return;
+        if(!start||e.__bbmSwipe)return;e.__bbmSwipe=true;detach();
         var s=start;start=null;
         if(!moving)return;
+        moving=false;
         var t=(e.changedTouches&&e.changedTouches[0])||{clientX:s.x},dx=t.clientX-s.x,v=velocity(),w=main.clientWidth||innerWidth;
-        var dir=dx<0?1:-1,id=neighbor(dir);
+        var id=target;
         var fling=Math.abs(v)>=400&&Math.abs(dx)>=25&&(v<0)===(dx<0);
         var go=!!id&&(fling||Math.abs(dx)>w/2);
-        var remain=go?w-Math.abs(dx):Math.abs(dx);
+        var remain=go?w+GAP-Math.abs(dx):Math.abs(dx);
         var ms=reduceMotion?0:Math.min(600,Math.abs(v)>=400?4*Math.round(1000*remain/Math.abs(v)):Math.round((remain/w+1)*100));
-        if(!go){setPreview(null);var back=stage;setX(back,0,ms);setTimeout(function(){if(!start)clear(back)},ms+30);return}
         busy=true;
-        // 지금 화면을 그대로 복사해 두고(밀려 나가는 쪽), 진짜 화면은 다음 게시판으로 바꿔 옆에 붙여 들어오게 한다.
-        if(getComputedStyle(main).position==='static')main.style.position='relative';
-        var top=stage[0].getBoundingClientRect().top-(parseFloat(getComputedStyle(stage[0]).marginTop)||0)-main.getBoundingClientRect().top,ghost=document.createElement('div');
-        ghost.className='boardSwipeGhost';ghost.setAttribute('aria-hidden','true');
-        ghost.style.cssText='position:absolute;left:0;right:0;top:'+top+'px;z-index:1;pointer-events:none;background:inherit;transform:translate3d('+dx+'px,0,0)';
-        stage.forEach(function(el){var c=el.cloneNode(true);c.removeAttribute('id');Array.prototype.forEach.call(c.querySelectorAll('[id]'),function(n){n.removeAttribute('id')});c.style.transform='';c.style.transition='';ghost.appendChild(c)});
-        main.appendChild(ghost);
-        clear(stage);
-        choose(id);
-        preview=null;
-        var incoming=stageEls();
-        setX(incoming,dir*w+dx,0);
-        incoming[0]&&incoming[0].getBoundingClientRect();
-        requestAnimationFrame(function(){
-          setX(incoming,0,ms);
-          ghost.style.transition=ms?'transform '+ms+'ms '+EASE:'none';ghost.style.transform='translate3d('+(-dir*w)+'px,0,0)';
-          setTimeout(function(){ghost.remove();clear(incoming);busy=false},ms+40);
-        });
+        if(!id){setX(stage,0,ms);finish(ms);return}
+        var dir=dx<0?1:-1;
+        if(go){
+          navOn(id);
+          setX(stage,0,ms);
+          if(ghost){ghost.style.transition=ms?'transform '+ms+'ms '+EASE:'none';ghost.style.transform='translate3d('+(-dir*(w+GAP))+'px,0,0)'}
+          finish(ms,function(){updateQuery(id);if(boardById[id])saveBoardIds(recentStorageKey,[id].concat(loadBoardIds(recentStorageKey,6).filter(function(boardId){return boardId!==id})),6);scrollSelected();if(typeof window.toast==='function'&&boardById[id])window.toast(boardById[id].displayName+' 선택')});
+        }else{
+          navOn(origId);
+          setX(stage,dir*(w+GAP),ms);
+          if(ghost){ghost.style.transition=ms?'transform '+ms+'ms '+EASE:'none';ghost.style.transform='translate3d(0,0,0)'}
+          var keep=origId;
+          finish(ms,function(){render(keep);clear(stage);target=null});
+        }
       }
-      main.addEventListener('touchend',end,{passive:true});
-      main.addEventListener('touchcancel',function(){if(start&&moving){setPreview(null);setX(stage,0,0);clear(stage)}start=null},{passive:true});
+      window.addEventListener('touchend',end,{passive:true});
+      function onCancel(e){if(e.__bbmSwipe)return;e.__bbmSwipe=true;detach();if(start&&moving){var keep=origId;render(keep);if(ghost){ghost.remove();ghost=null}clear(stage);target=null}start=null;moving=false}
+      window.addEventListener('touchcancel',onCancel,{passive:true});
     })();
 
+    (function setupChannelFade(){
+      var sc=track&&track.parentElement;if(!sc)return;
+      function upd(){sc.classList.toggle('hasLeft',sc.scrollLeft>2)}
+      sc.addEventListener('scroll',upd,{passive:true});window.addEventListener('resize',upd);setTimeout(upd,0);setTimeout(upd,600);
+    })();
     renderNav();
     choose(selectedId,{skipQuery:true,silent:true});
     if(queryParams.get('menu')==='all')requestAnimationFrame(function(){openPanel()});
