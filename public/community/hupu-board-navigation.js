@@ -278,6 +278,7 @@
       dragPointerId=pointerId==null?null:pointerId;
       longPressActive=true;
       item.classList.add('dragging');
+      if(dragPointerId!=null)item.classList.add('isFloating');
       if(dragPointerStart){var r=item.getBoundingClientRect();dragGrab={x:dragPointerStart.x-r.left,y:dragPointerStart.y-r.top}}else dragGrab=null;
       item.setAttribute('aria-grabbed','true');
       document.body.classList.add('boardOrderDragging');
@@ -287,7 +288,7 @@
       clearTimeout(longPressTimer);
       var activeItem=dragging;
       if(activeItem){
-        activeItem.classList.remove('dragging');
+        activeItem.classList.remove('dragging','isFloating');
         if(activeItem.style.transform){var settle=activeItem.style.transform;activeItem.style.transform='';if(!reduceMotion)activeItem.animate([{transform:settle},{transform:'none'}],{duration:200,easing:'cubic-bezier(.2,0,0,1)'})}
         dragGrab=null;
         suppressClick=true;setTimeout(function(){suppressClick=false},350);
@@ -429,7 +430,7 @@
     var dragGrab=null;
     function dragMove(event){
       var item=dragging;
-      if(!longPressActive||!item||(dragPointerId!=null&&event.pointerId!==dragPointerId))return;
+      if(!longPressActive||!item||dragPointerId==null||event.pointerId!==dragPointerId)return;
       event.preventDefault();
       var target=document.elementFromPoint(event.clientX,event.clientY);
       moveItem(item,target&&target.closest('.boardOrderItem[data-movable="true"]'),event);
@@ -440,8 +441,8 @@
       if(event.clientY>bodyRect.bottom-64)body.scrollTop+=12;
     }
     document.addEventListener('pointermove',dragMove,{passive:false});
-    document.addEventListener('pointerup',function(event){if(dragging&&longPressActive&&(dragPointerId==null||event.pointerId===dragPointerId)){updateDraftFromGrid();finishDrag(true)}});
-    document.addEventListener('pointercancel',function(event){if(dragging&&longPressActive&&(dragPointerId==null||event.pointerId===dragPointerId)){updateDraftFromGrid();finishDrag(true)}});
+    document.addEventListener('pointerup',function(event){if(dragging&&longPressActive&&dragPointerId!=null&&event.pointerId===dragPointerId){updateDraftFromGrid();finishDrag(true)}});
+    document.addEventListener('pointercancel',function(event){if(dragging&&longPressActive&&dragPointerId!=null&&event.pointerId===dragPointerId){updateDraftFromGrid();finishDrag(true)}});
     function followFinger(item,event){
       if(!dragGrab)return;
       var grid=myGrid.getBoundingClientRect();
