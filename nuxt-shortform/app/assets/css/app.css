@@ -247,6 +247,14 @@ a { color: inherit; }
 .sf-spec-row b { font-size: 13px; }
 .sf-spec-row span { color: var(--text); font-size: 12px; font-weight: 700; line-height: 1.55; }
 .sf-spec-row small { color: var(--muted); font-size: 12px; line-height: 1.55; }
+.sf-egypt-sample { display: grid; grid-template-columns: minmax(250px, 320px) 1fr; gap: 22px; align-items: center; margin-top: 20px; padding: 18px; border: 1px solid var(--line); border-radius: 14px; background: linear-gradient(145deg, #111824, var(--panel-2)); }
+.sf-egypt-sample video { width: 100%; aspect-ratio: 9 / 16; display: block; border-radius: 12px; background: #05070a; object-fit: cover; box-shadow: 0 20px 45px rgba(0, 0, 0, 0.36); }
+.sf-egypt-sample > div > span { color: var(--blue-h); font-size: 10px; font-weight: 900; letter-spacing: 0.7px; }
+.sf-egypt-sample h3 { margin: 8px 0 10px; font-size: 22px; line-height: 1.35; }
+.sf-egypt-sample p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+.sf-egypt-sample ul { margin: 16px 0 0; padding: 0; display: grid; gap: 8px; list-style: none; }
+.sf-egypt-sample li { position: relative; padding-left: 16px; color: #c9d2df; font-size: 12px; }
+.sf-egypt-sample li::before { content: ""; position: absolute; left: 0; top: 7px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-h); }
 .sf-callout-layout { display: grid; grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.1fr); gap: 20px; margin-top: 20px; align-items: start; }
 .sf-callout-stage { position: relative; min-height: 420px; margin: 0; overflow: hidden; border: 1px solid #383e47; border-radius: 14px; background: #090b0e; isolation: isolate; }
 .sf-callout-stage::after { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(4, 8, 14, 0.05), rgba(4, 8, 14, 0.72)); pointer-events: none; }
@@ -392,6 +400,8 @@ a { color: inherit; }
   .sf-spec-row { grid-template-columns: 1fr; gap: 5px; padding: 14px; }
   .sf-spec-row small { padding-top: 7px; border-top: 1px dashed #3b4048; }
   .sf-callout-layout { grid-template-columns: 1fr; }
+  .sf-egypt-sample { grid-template-columns: 1fr; padding: 14px; }
+  .sf-egypt-sample video { width: min(100%, 320px); margin: 0 auto; }
   .sf-callout-stage { min-height: 360px; }
   .sf-callout-stage > img { height: 360px; }
   .sf-callout-panel { left: 55%; top: 24%; width: 42%; min-width: 140px; padding: 13px 14px; }

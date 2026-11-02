@@ -1,0 +1,12 @@
+{
+  "id": "egypt-3d-callout-v1",
+  "source": "public/3d-options/media/demo.mp4",
+  "output": "nuxt-shortform/public/samples/egypt-3d-callout-v1.mp4",
+  "duration_seconds": 15.0,
+  "resolution": "1080x1920",
+  "fps": 30,
+  "callout_count": 5,
+  "fact_policy": "visible_part_only; no inferred option claims",
+  "privacy": "plate areas masked in exterior scenes",
+  "sha256": "05F491DD6C67C1E75791E74633EDE8E80CCFAB9CD45168A80ACBE55D465589B9"
+}
