@@ -1,0 +1,67 @@
+{
+  "series": "used-car-photo-shortform-morning-20261102",
+  "version": "V1",
+  "recorded_date_kst": "2026-11-02",
+  "status": "sample_deployed_not_final_creative_approval",
+  "url": "https://bobaekimboae.github.io/bobaedream/samples/morning-shortform-20261102.mp4?v=e50f990-play",
+  "repository_path": "public/samples/morning-shortform-20261102.mp4",
+  "deployment": {
+    "commit": "e50f990c4881b7c0215db9c1cfc1cf124d97b7e4",
+    "run_id": "41368635008",
+    "result": "success",
+    "http_status": 200,
+    "byte_range_status": 206
+  },
+  "media": {
+    "bytes": 11932445,
+    "sha256": "F512AD65E2B7D03730274AB36000C01F65C0AC2F75F067FDE15503CBAB2A1D44",
+    "duration_seconds": 31,
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "video_codec": "h264",
+    "pixel_format": "yuv420p",
+    "audio_codec": "aac",
+    "audio_sample_rate": 48000,
+    "faststart": true
+  },
+  "source": {
+    "listing_url": "https://charancha.com/cars/01a1570c-df73-700d-a3be-38c580900138",
+    "retrieved_at": "2026-11-02T00:19:13.364Z",
+    "vehicle": "기아 더 뉴 모닝 (JA) 프레스티지",
+    "model_year": 2026,
+    "first_registration_month": "2025-09",
+    "mileage_km": 8035,
+    "asking_price_krw": 14500000,
+    "unique_photos_used": 4,
+    "equipment_basis": "seller listing, not independently inspected",
+    "commercial_redistribution_rights_verified": false
+  },
+  "style": {
+    "font": "Pretendard Variable",
+    "accent": "#2F65D9",
+    "background": "#F5F6F8",
+    "text": "#15191F",
+    "photo_zoom": [1, 1.035],
+    "narration_voice": "ko-KR-InJoonNeural",
+    "voice_cloning": false,
+    "background_music": false,
+    "generative_vehicle_changes": false,
+    "renderer": "HyperFrames 0.8.221 + FFmpeg"
+  },
+  "qc": {
+    "integrated_lufs": -14.2,
+    "true_peak_dbtp": -1.9,
+    "black_segments": 0,
+    "freeze_segments_over_3_seconds": 0,
+    "lint_errors": 0,
+    "lint_warnings": 0,
+    "browser_check_errors": 0,
+    "frames_visually_reviewed": true,
+    "narration_listening_approved": false,
+    "user_final_creative_approval": false
+  },
+  "sns_published": false,
+  "next_version_produced": false,
+  "preservation_rule": "Do not overwrite this media; add a separate file and record for each next version."
+}
