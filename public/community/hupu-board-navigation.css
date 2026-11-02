@@ -159,3 +159,20 @@ body.communityMenuOpen{overflow:hidden}
 .boardOrderPanel .boardOrderDefaultEntry{height:40px}
 .boardOrderPanel .boardOrderDefaultEntry strong,.boardOrderPanel .boardOrderDefaultValue{font-size:13.5px}
 .boardOrderPanel .boardOrderHeading{margin-bottom:2px}
+/* 바이두 실폰 재대조(2026-11-02 16:20): 분류 탭 왼쪽 정렬 · 글자 사이 26 · 밑줄 18.6×2.3 가운데 · 탭 아래 선 없음, 분류 제목 12.5 */
+.boardOrderPanel .boardOrderAvailable{margin-top:19px}
+.boardOrderPanel .boardOrderSectionTabs{height:33px;justify-content:flex-start;gap:26px;border-bottom:0;margin-bottom:14px;padding-bottom:2px}
+.boardOrderPanel .boardOrderSectionTabs button{height:31px;font-size:14px;font-weight:400;color:#62656a}
+.boardOrderPanel .boardOrderSectionTabs button.on{font-weight:700;color:#202226}
+.boardOrderPanel .boardOrderSectionTabs button.on:after{left:50%;right:auto;width:18.6px;height:2.3px;bottom:-2px;border-radius:2px;transform:translateX(-50%)}
+.boardOrderPanel .boardOrderAvailableSection+.boardOrderAvailableSection{margin-top:24px}
+.boardOrderPanel .boardOrderAvailableTitle{font-size:12.5px;line-height:17px;margin-bottom:10px}
+.boardOrderPanel .boardOrderPlusIcon{right:5px;top:8px}
+.boardOrderPanel .boardOrderAvailableSection:has(.boardOrderSectionEmpty) .boardOrderAvailableTitle{margin-bottom:2px}
+.boardOrderPanel .boardOrderSectionEmpty{margin-bottom:6px}
+.boardOrderPanel .boardOrderSectionEmpty{margin-bottom:0;padding-bottom:7.6px}
+/* 바이두: 분류 탭은 굴리면 제목 아래에 붙고, 탭을 누르면 그 분류 제목이 탭 바로 아래로 온다. 마지막 분류도 위까지 올라오게 아래 여백 */
+.boardOrderPanel .boardOrderSectionTabs{position:sticky;top:0;z-index:3;background:#fff;margin-left:-17px;margin-right:-17px;padding-left:17px;padding-right:17px}
+.boardOrderPanel .boardOrderAvailableSection{scroll-margin-top:45px}
+.boardOrderPanel .boardOrderAvailableSection:last-child{min-height:calc(92dvh - 140px)}
+.boardOrderPanel .boardOrderAvailableSection{scroll-margin-top:51px}
