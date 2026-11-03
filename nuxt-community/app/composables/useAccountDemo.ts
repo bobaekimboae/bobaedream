@@ -9,7 +9,11 @@ export function useAccountDemo() {
   function mutate(fn: (value: DemoState) => void, success = '저장했습니다.') {
     error.value = ''; notice.value = ''
     try {
-      const next = structuredClone(toRaw(state.value)); fn(next)
+      // Another open account iframe may have saved a profile/ledger since this one mounted.
+      const next = readDemo(localStorage)
+      const activity = readActivity(localStorage)
+      if (activity) { next.favorites = activity.favorites; next.recent = activity.recent }
+      fn(next)
       saveDemo(localStorage, next); state.value = next; notice.value = success
       return true
     } catch (e) { error.value = e instanceof Error ? e.message : '저장할 수 없습니다. 브라우저 저장 공간을 확인해 주세요.'; return false }
@@ -27,11 +31,15 @@ export function useAccountDemo() {
     if (event.data.type === 'context' && typeof event.data.url === 'string' && typeof event.data.title === 'string') context.value = { title: event.data.title.slice(0, 150), url: event.data.url }
     if (event.data.type === 'activity') syncActivity()
   }
+  function storage(event: StorageEvent) {
+    if (event.key === accountDemoKey) state.value = readDemo(localStorage)
+    if (event.key === listingActivityKey || event.key === accountDemoKey) syncActivity()
+  }
   onMounted(() => {
     if (!ready.value) { state.value = readDemo(localStorage); ready.value = true }
-    syncActivity(); window.addEventListener('storage', syncActivity); window.addEventListener('message', message)
+    syncActivity(); window.addEventListener('storage', storage); window.addEventListener('message', message)
   })
-  onBeforeUnmount(() => { window.removeEventListener('storage', syncActivity); window.removeEventListener('message', message) })
+  onBeforeUnmount(() => { window.removeEventListener('storage', storage); window.removeEventListener('message', message) })
   function signIn(name: string, role: 'buyer' | 'dealer') {
     return mutate(s => { if (!name.trim() || name.trim().length > 30) throw new Error('닉네임을 1~30자로 입력해 주세요.'); s.signedIn = true; s.profile.name = name.trim(); s.profile.role = role }, '샘플 계정으로 로그인했습니다.')
   }

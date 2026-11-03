@@ -40,7 +40,8 @@ function saveReview() { if (d.saveReview(reviewKind.value, reviewId.value, subje
 function claim(id: string) { d.mutate(s => { if (!s.signedIn) throw new Error('샘플 계정으로 로그인해 주세요.'); const c = s.coupons.find(c => c.id === id); if (!c || c.claimed) throw new Error('이미 받은 혜택입니다.'); c.claimed = true }, '쿠폰을 받았습니다.') }
 function apply() { if (d.premium(listingId.value, planId.value, couponId.value, operation.value)) { operation.value = crypto.randomUUID(); emit('choose', 'payments') } }
 function saveProfile() { d.mutate(s => { if (!name.value.trim() || name.value.trim().length > 30 || shop.value.length > 60 || bio.value.length > 300) throw new Error('닉네임 1~30자, 상사명 60자, 소개 300자 이내로 입력해 주세요.'); s.profile.name = name.value.trim(); s.profile.shop = shop.value.trim(); s.profile.bio = bio.value.trim() }, '프로필을 저장했습니다.') }
-watch(() => props.section, () => { tab.value = 'listing'; confirmDelete.value = ''; notice.value = ''; error.value = ''; reviewId.value = ''; subject.value = ''; text.value = '' })
+watch(() => props.section, () => { tab.value = 'listing'; confirmDelete.value = ''; notice.value = ''; error.value = ''; reviewId.value = ''; subject.value = ''; text.value = ''; name.value = state.value.profile.name; shop.value = state.value.profile.shop; bio.value = state.value.profile.bio })
+onMounted(() => { notice.value = ''; error.value = '' })
 </script>
 
 <template>
