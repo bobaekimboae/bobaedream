@@ -21,6 +21,7 @@ class CommunityServiceProvider extends ServiceProvider
         // 글 · 댓글 쓰기: 한 사람 1분에 글 3건 · 댓글 10건(도배 막기). 임시저장은 자동 저장이라 넉넉히.
         RateLimiter::for('community-post', fn (Request $r) => Limit::perMinute(3)->by($r->user()?->id ?: $r->ip()));
         RateLimiter::for('community-comment', fn (Request $r) => Limit::perMinute(10)->by($r->user()?->id ?: $r->ip()));
+        RateLimiter::for('community-upload', fn (Request $r) => Limit::perMinute(60)->by($r->user()?->id ?: $r->ip()));
         RateLimiter::for('community-draft', fn (Request $r) => Limit::perMinute(60)->by($r->user()?->id ?: $r->ip()));
     }
 }

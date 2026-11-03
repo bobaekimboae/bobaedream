@@ -21,7 +21,7 @@ $fail = fn (string $error, string $code, int $status, array $fields = []) => res
 );
 
 return Application::configure(basePath: dirname(__DIR__))
-    ->withRouting(api: __DIR__ . '/../routes/api.php', apiPrefix: 'api')
+    ->withRouting(api: __DIR__ . '/../routes/api.php', commands: __DIR__ . '/../routes/console.php', apiPrefix: 'api')
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->prepend(Cors::class);
         $middleware->append(\App\Http\Middleware\JsonUnicode::class);
