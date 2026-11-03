@@ -440,3 +440,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-11-03,,shootkit-shorts-cars24,6614a31b,push,PR #1141,카스24형 숏폼 보기 화면 · 호주 카스24 부위 아이콘,ShortsFeed.vue · TourChapters.vue · shoot.css · cars24-au 아이콘,찜·공유·소리 아이콘은 노션 카스24 DB에 없어 초톳·레딧 원본,실제 폰 넘기기 감,typecheck · Playwright 384/1280 콘솔 오류 0
 2026-11-03,,main,630d5a9,deploy,PR #1141,카스24형 숏폼 보기 화면 병합·배포,v=630d5a9 · 번들 main-D4Vm_sei.js,,실제 폰 넘기기 감,Pages 배포 성공
 2026-11-03,,shorts-commercial,16b97e80,push,PR #1143,숏폼 보기 상용 판(Nuxt 4.6.2 · Laravel 12 · 실매물),nuxt-shorts · shorts-api · docs/shorts-api.md,GitHub Pages는 CORS로 실매물 사본,shorts-api 서버 배포 · 실기기 시험,typecheck · smoke 30 · Playwright 384/1280 콘솔 오류 0
+2026-11-03,,carstudio-clone,,push,,보배 카스튜디오(Car Studio AI 사진→영상 동일 구현),nuxt-carstudio 화면 8개 · Classic 영상 7장면 실측 · 콘솔 오류 0
