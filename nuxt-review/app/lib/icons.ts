@@ -1,5 +1,5 @@
 // 아이콘은 노션 아이콘 DB 원본(초톳 · 레딧)을 사이트 공용 폴더에서 그대로 쓴다. 파일은 고치지 않고 색만 mask로 입힌다.
-import { asset, icon } from "./site";
+import { asset, icon, site } from "./site";
 
 const ct = (n: string) => icon("chotot", n);
 const rd = (n: string) => icon("reddit-shoot", `${n}.svg`);
@@ -32,6 +32,16 @@ export const IC = {
   more: ct("chotot-common-more.svg"),
   verified: ct("chotot-list-detail-verified-check-circle.svg"),
   odometer: ct("chotot-common-clock.svg"),
+  emoji: site("community/assets/chzzk-detail/icons/sticker.svg"),
+  vote: rd("view-grid-outline"),
+  settings: ct("chotot-common-settings.svg"),
+  camera: rd("camera-outline-24"),
+  video: rd("video-camera-outline"),
+  imagePost: rd("image-post-outline"),
+  play: rd("play-fill"),
+  eye: ct("chotot-list-detail-view-album.svg"),
+  powerup: rd("powerup-outline"),
+  delete: rd("delete-outline"),
   /** 차량 연결: 보배드림 내비 아이콘(중고차) */
   car: asset("bbm/nav-icons/used-car.svg"),
 };

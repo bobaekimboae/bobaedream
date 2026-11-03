@@ -13,9 +13,9 @@ import { ratingCategories, ratingComment, ratingProfiles, SIDO, avg, benchmarkOf
 import { api } from "../lib/api/client";
 import type { ReviewInput } from "../lib/api/contract";
 import { ask, toast } from "../lib/ui";
-import { back, replace, setLeaveGuard, type Board } from "../lib/route";
+import { back, replace, setLeaveGuard, type Kind } from "../lib/route";
 
-const emit = defineEmits<{ switch: [Board] }>();
+const emit = defineEmits<{ switch: [Kind] }>();
 const MIN = 30;
 const GOOD = 300;
 

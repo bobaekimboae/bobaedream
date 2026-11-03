@@ -323,8 +323,9 @@ img { display: block; }
 .whead { position: sticky; top: 0; z-index: 30; display: flex; align-items: center; height: 44px; padding: 0 8px 0 4px; background: var(--bg); }
 .whead__x { width: 40px; height: 44px; display: grid; place-items: center; flex: none; }
 .whead__x .ico { width: 24px; height: 24px; }
-.whead__tabs { display: flex; align-items: center; gap: 20px; height: 44px; padding-left: 6px; }
-.whead__tabs button { position: relative; height: 44px; font-size: 16px; color: var(--sub); }
+.whead__tabs { display: flex; align-items: center; gap: 20px; height: 44px; padding: 0 12px 0 6px; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; }
+.whead__tabs::-webkit-scrollbar { display: none; }
+.whead__tabs button { position: relative; height: 44px; font-size: 16px; color: var(--sub); flex: none; white-space: nowrap; }
 .whead__tabs button.on { font-size: 20px; font-weight: 800; color: var(--text); }
 .whead__tabs button.on::after { content: ""; position: absolute; left: 50%; bottom: 6px; width: 22px; height: 3px; margin-left: -11px; border-radius: 2px; background: var(--text); }
 .whead__title { margin: 0 0 0 4px; font-size: 20px; line-height: 24px; font-weight: 800; position: relative; }
@@ -333,6 +334,9 @@ img { display: block; }
 .whead__switch .ico { width: 20px; height: 20px; transform: rotate(90deg); }
 .whead__post { margin-left: auto; height: 34px; min-width: 68px; padding: 0 14px; border-radius: 8px; background: var(--text); color: #fff; font-size: 14px; font-weight: 700; }
 .whead__post.is-off { background: #e0e0e0; color: #767676; }
+.whead__post.has-sub { margin-left: 8px; }
+.whead__sub { margin-left: auto; height: 34px; padding: 0 12px; border-radius: 8px; background: #eceef2; font-size: 14px; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; }
+.whead__sub .ico { width: 18px; height: 18px; }
 
 /* 노출 안내 띠: 원본 y 87~146(높이 59), 말풍선 24 · 막대 6 · 아래 글자 11.5 */
 .exposure { padding: 2px 14px 10px; }
