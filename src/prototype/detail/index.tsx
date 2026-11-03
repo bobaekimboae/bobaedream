@@ -1290,7 +1290,8 @@ function DesktopVehicleDetail({ onBack }: { onBack: () => void }) {
     const scroll = content.current?.closest(".detail-screen");
     if (target && scroll) scroll.scrollTo({ top: target.getBoundingClientRect().top - scroll.getBoundingClientRect().top + scroll.scrollTop - 16, behavior: "smooth" });
   };
-  if (sourceCar?.deutschSource) return <div className="pc-detail" ref={content}>
+  // A selected listing must never inherit the comparison-only Bentley copy below.
+  if (sourceCar) return <div className="pc-detail" ref={content}>
     <DesktopHeader onBack={onBack} />
     <main className="pc-detail-container" aria-label="중고차 PC 상세">
       <div className="pc-detail-columns"><div className="pc-detail-left"><DesktopGallery onBack={onBack} /><VehicleInfoCard /></div><aside className="pc-sidebar"><VehicleSummary /></aside></div>

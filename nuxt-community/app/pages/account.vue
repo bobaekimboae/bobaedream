@@ -29,6 +29,7 @@ function close() {
   else window.location.assign(`${siteBase}?qf=guazi&lang=ko&category=국산차`)
 }
 function choose(item: AccountItem) {
+  if (item.id === 'favorites') { if (embedded.value) send('navigate', 'bookmarks'); else router.push('/saved'); return }
   activeItem.value = item
 }
 function navigate(action: string) {
@@ -42,7 +43,7 @@ function exitPreview() {
   demo.logout()
   if (embedded.value) send('session')
 }
-function chooseId(id: string) { const item = accountGroups.flatMap(g => g.items).find(i => i.id === id); if(item) activeItem.value = item; else if(id === 'followers' || id === 'following') activeItem.value = {id,label:id === 'followers'?'팔로워':'팔로잉',icon:'account-settings-01',description:''} }
+function chooseId(id: string) { const item = accountGroups.flatMap(g => g.items).find(i => i.id === id); if(item) choose(item); else if(id === 'followers' || id === 'following') activeItem.value = {id,label:id === 'followers'?'팔로워':'팔로잉',icon:'account-settings-01',description:''} }
 function signIn() { if(demo.signIn(loginName.value, loginRole.value)) { authView.value = null; send('session') } }
 function keydown(event: KeyboardEvent) {
   if (event.key === 'Escape') { event.preventDefault(); close(); return }
@@ -55,7 +56,7 @@ function keydown(event: KeyboardEvent) {
 onMounted(() => {
   document.addEventListener('keydown', keydown)
   send('ready')
-  if (route.query.initial === 'dealer') chooseId('dealer')
+  if (typeof route.query.initial === 'string' && route.query.initial !== 'login') chooseId(route.query.initial)
   if (embedded.value) document.querySelector<HTMLElement>('button')?.focus({ preventScroll: true })
 })
 onBeforeUnmount(() => document.removeEventListener('keydown', keydown))

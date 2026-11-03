@@ -1,3 +1,20 @@
+# Saved listings PC/mobile QA — 2026-11-03
+
+final result: passed for visual listing UI and browser-persisted sample interactions only. Production parity remains pending.
+
+- Reference: authenticated Chotot saved page, 1280×900 PC and 390×844 mobile web. Ad/video/post tabs, live unlike/re-save restored, empty video, unavailable ad, chat entry inspected; no source message sent.
+- New user UI: Nuxt 4.6.2 / Vue 3.5.33 / TypeScript 6.0.3. Existing runtime preserved; existing desktop detail data-selection condition corrected in place.
+- Evidence: local Codex visualization directory `saved-list-chotot-20261103/`. `comparison-pc-final.png`, `comparison-mobile-final.png`, `comparison-mobile-empty-final.png` opened together with source/implementation at matching viewport. No resizing source media or customer data copying.
+- Pass 1 P1: inherited 22px global body padding shifted page. Removed on saved document. P2: stale avatar 404s replaced with source generic avatar; live avatar only if verified loaded. P2: footer placeholder badges replaced with original source badge assets and Boba app URLs.
+- Pass 2 P1: Vue proxy structuredClone made favorite toggle fail. Unwrapped persisted payloads and re-tested 6→5→6 counts/reload. Storage write failure keeps UI state; latest activity read before write avoids cross-tab overwrites. P1: selected Carnival detail showed Bentley comparison copy. Existing sourceCar branch corrected; actual Carnival title/price/seller verified.
+- Pass 3 P2: mobile empty block 12px too high; corrected outer padding, natural wrapping, transparent spacer. P2: mobile header chat icon and optical logo centering corrected. Final mobile heart y=306.375 matches source; no horizontal overflow or broken images. PC content1140/photo168; mobile photo128.
+- Functional checks: save/unlike/re-save; persisted refresh; separate URL tabs and back navigation; disabled sold listing; independent inquiry draft and restoration; real prototype card detail. Responsive URL normalization removes PC override on mobile. Nuxt24 tests/typecheck/generate; root full verify passed (runtime28/admin29/Sites4).
+- Intentional brand adaptations: Boba wordmark and blue brand actions, Korean Pretendard and KRW, Boba app/customer links. Footer business content belongs to Boba. These are not literal source-copy acceptance items.
+- Not accepted as complete: real Laravel auth/saved-content persistence, video/post saving producers, actual seller messaging, notifications/cross-device synchronization. Native mobile app parity not tested.
+- Detailed consulting and launch gates: `docs/saved-list-chotot-review-20261103.md`.
+
+---
+
 # Account functional sample v2 QA — 2026-11-03
 
 final result: passed for browser-persisted sample scope. Production API/auth/payment acceptance is not claimed.
