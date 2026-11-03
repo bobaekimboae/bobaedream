@@ -45,6 +45,8 @@
     trigger = button;
     const mobile = !!button.closest('.bbm-bottom-gnb') || (innerWidth < 768 && !new URLSearchParams(location.search).has('pc'));
     const url = new URL('nuxt-community/', base);
+    // Hash routes do not invalidate the cached HTML document after a Pages release.
+    url.searchParams.set('v', new URL(script.src).searchParams.get('v') || 'account-v2');
     const params = new URLSearchParams({ embed: '1', surface: mobile ? 'page' : 'popover' });
     if (new URLSearchParams(location.search).get('pcauth') === 'member') params.set('member', 'preview');
     if (initial) params.set('initial', initial);
