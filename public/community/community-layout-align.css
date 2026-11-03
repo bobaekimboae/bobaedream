@@ -95,3 +95,6 @@ body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd .boardOrderPlusIcon{wid
 /* 기본 홈 설정 줄 제거(2026-11-03 「빼는게 좋지 않을까」): 제목 아래 바로 「내 게시판」. */
 body .boardOrderBackdrop .boardOrderPanel .boardOrderHeading:first-child{margin-top:8px}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove img{right:-1px;top:-1px;width:16px;height:16px;opacity:.38}
+/* 추가 플러스를 초톳 원본 굵은 플러스로(2026-11-03 「플러스 추가 버튼 약하다」): 18px · 글자색과 같은 진한 회색. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{gap:1px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd .boardOrderPlusIcon{width:18px;height:18px;margin-left:-3px;opacity:.85;transform:none}
