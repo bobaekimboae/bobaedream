@@ -1,0 +1,51 @@
+{
+  "policy": {
+    "generatedImages": false,
+    "transformation": "crop-resize-webp-only",
+    "notice": "공식 브랜드 소셜 계정의 캠페인 비주얼을 참고하되, 만료되는 Instagram CDN 대신 공식 미디어센터 원본을 사용한다. 현재 GitHub Pages 시안은 편집·검토 목적이며 상용 운영 전 각 브랜드 이용 조건과 별도 사용 승인을 다시 확인한다."
+  },
+  "sources": {
+    "genesis-gv60": {
+      "brand": "Genesis",
+      "officialSocialReference": "https://www.instagram.com/genesis_worldwide/",
+      "sourcePage": "https://www.genesis.com/kr/ko/genesis/roadtrip/roadtrip-overview.html",
+      "sourceFile": "https://www.genesis.com/content/dam/genesis-p2/kr/assets/genesis/roadtrip/roadtrip-overview/genesis-kr-roadtrip-overview-key-visual-yeosu-gv60-2560x900.jpg",
+      "boards": ["home", "domestic-car"]
+    },
+    "volkswagen-golf": {
+      "brand": "Volkswagen",
+      "officialSocialReference": "https://www.instagram.com/volkswagen/",
+      "sourcePage": "https://www.volkswagen-newsroom.com/en/images",
+      "sourceFile": "https://uploads.vw-mms.de/system/production/images/vwn/088/949/images/50d24a2cfdbf18c343243ddc055562fe63329932/DB2026AU01051_web_1600.jpg?1793366300=",
+      "boards": ["all", "car-news", "brand-car-info", "fuel-economy"]
+    },
+    "bmw-area-m": {
+      "brand": "BMW",
+      "officialSocialReference": "https://www.instagram.com/bmw/",
+      "sourcePage": "https://www.press.bmwgroup.com/global/photo/detail/P90629284/bmw-m-driving-experience-becomes-area-m-02/2026",
+      "sourceFile": "https://mediapool.bmwgroup.com/download/edown/pressclub/publicq?actEvent=scaleBig&attachment=1&dokNo=P90629284&quality=90&square=0",
+      "boards": ["tuhu-review", "test-drive", "bmw", "installation"]
+    },
+    "porsche-911-gt3": {
+      "brand": "Porsche",
+      "officialSocialReference": "https://www.instagram.com/porsche/",
+      "sourcePage": "https://newsroom.porsche.com/en/press-kits.html",
+      "sourceFile": "https://porschepictures.flowcenter.de/pmdb/thumbnail.cgi?crop=1&cs=7b18b3fc1f0b2c0f&h=609&id=298388&public=1&w=1080",
+      "boards": ["best", "vehicle-review", "import-car", "my-car-photo", "car-media"]
+    },
+    "aston-martin-db12": {
+      "brand": "Aston Martin",
+      "officialSocialReference": "https://www.instagram.com/astonmartin/",
+      "sourcePage": "https://media.astonmartin.com/aston-martin-db12-satin-aluminite-silver-south-of-france-photography/?lang=eng",
+      "sourceFile": "https://media.astonmartin.com/wp-content/uploads/2024/10/fb82ab0c2df5b62e4b45317fadc3f8a0-l.jpg",
+      "boards": ["foreign-car-news", "celebrity-car", "scoop", "free-media", "oldcar-memory"]
+    },
+    "mercedes-glb-family": {
+      "brand": "Mercedes-Benz",
+      "officialSocialReference": "https://www.instagram.com/mercedesbenz/",
+      "sourcePage": "https://media.mercedes-benz.com/en/article/dfd1e322-3ab8-473b-a087-f32dc5301f93",
+      "sourceFile": "https://img.youtube.com/vi/IasPbYdD0DY/maxresdefault.jpg",
+      "boards": ["free", "mercedes-benz"]
+    }
+  }
+}

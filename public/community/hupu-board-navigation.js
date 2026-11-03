@@ -13,7 +13,7 @@
     {id:'autohome-complaint',displayName:'차량 결함·불만',shortName:'결함불만',section:'게시판',topicKey:'전체',avatarLabel:'불만',avatarColor:'#17191e',avatarAccent:'#59616d'},
     {id:'chezhiwang-complaint',displayName:'처즈왕 결함·불만',shortName:'처즈왕불만',section:'게시판',topicKey:'전체',avatarLabel:'CZ',avatarColor:'#17191e',avatarAccent:'#59616d'},
     {id:'politics',displayName:'정치/시사게시판',shortName:'정치시사',section:'게시판',topicKey:'전체',avatarLabel:'시사',avatarColor:'#5031a9',avatarAccent:'#9678e8'},
-    {id:'test-drive',displayName:'시승기/배틀/목격담',shortName:'시승배틀',section:'게시판',topicKey:'전체',avatarLabel:'시승',avatarColor:'#c65316',avatarAccent:'#ff9c57'},
+    {id:'test-drive',displayName:'리뷰시승',shortName:'리뷰시승',section:'게시판',topicKey:'전체',avatarLabel:'시승',avatarColor:'#c65316',avatarAccent:'#ff9c57'},
     {id:'celebrity-car',displayName:'유명인의 차',shortName:'유명인차',section:'게시판',topicKey:'전체',avatarLabel:'STAR',avatarColor:'#9e3f77',avatarAccent:'#f08bc2'},
     {id:'adult',displayName:'성인게시판',shortName:'성인',section:'게시판',topicKey:'전체',avatarLabel:'19',avatarColor:'#74253d',avatarAccent:'#d36386'},
     {id:'boba-story',displayName:'보배드림 이야기',shortName:'보배이야기',section:'게시판',topicKey:'전체',avatarLabel:'보배',avatarColor:'#a51f34',avatarAccent:'#ef6679'},

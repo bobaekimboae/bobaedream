@@ -4,21 +4,21 @@
   // 게시판마다 어울리는 배너 그림과 한 줄 소개(2026-11-02 「각각의 배너 이미지 어울리게」).
   // 그림은 scripts/community-board-banners.py 로 만든다(차 사진은 자르고 크기만 바꿈, 스포츠·시사 등은 게시판 색 무늬).
   var banners={
-    'home':['자동차를 넘어, 사람 사는 이야기','제네시스 GV60와 여수 바다 노을'],
-    'all':['모든 게시판의 새 글을 한곳에서','비 내린 서킷 옆 스포츠카 세 대'],
-    'best':['지금 가장 많이 본 글','도시 야경 앞 고급 세단 세 대'],
-    'free':['자동차부터 일상까지 자유롭게','놀이공원 앞 벤츠 GLB와 가족'],
-    'car-news':['국내 자동차 소식을 빠르게','GMC 허머 EV'],
-    'foreign-car-news':['해외 자동차 소식과 신차','바닷가의 애스턴마틴 DB12'],
-    'brand-car-info':['브랜드별 자동차 정보 모음','마이바흐 GLS'],
-    'vehicle-review':['오너가 직접 쓴 차량 리뷰','벤츠 S-클래스'],
-    'tuhu-review':['오너 리뷰를 점수로 한눈에','BMW 7시리즈'],
-    'fuel-economy':['실제 연비·전비 기록','테슬라 모델 X'],
+    'home':['차와 사람의 경험이 모이는 곳','여수 바닷가의 제네시스 GV60','BOBAEDREAM'],
+    'all':['새 글부터 깊이 있는 이야기까지','해안도로를 달리는 폭스바겐 골프','COMMUNITY'],
+    'best':['오늘 회원들이 선택한 이야기','산악 도로를 달리는 포르쉐 911 GT3','TRENDING'],
+    'free':['자동차와 일상을 편하게 나누세요','놀이공원 앞 메르세데스-벤츠 GLB','LIFE'],
+    'car-news':['신차와 산업 변화를 정확하고 빠르게','해안도로를 달리는 폭스바겐 골프','NEWS'],
+    'foreign-car-news':['세계 자동차 시장의 오늘을 읽다','모나코 해안의 애스턴마틴 DB12','GLOBAL'],
+    'brand-car-info':['브랜드와 모델 정보를 한눈에','해안도로를 달리는 폭스바겐 골프','BRANDS'],
+    'vehicle-review':['실제 오너의 장기 보유 경험','산악 도로를 달리는 포르쉐 911 GT3','OWNERS'],
+    'tuhu-review':['평점과 근거가 함께 있는 오너 리뷰','트랙을 달리는 BMW M2','RATINGS'],
+    'fuel-economy':['주행 조건까지 기록하는 실연비·전비','해안도로를 달리는 폭스바겐 골프','EFFICIENCY'],
     'autohome-complaint':['차량 결함과 불만을 함께 기록','주의 표시'],
     'chezhiwang-complaint':['결함·불만 사례 모아 보기','주의 표시'],
     'politics':['시사 이슈를 함께 이야기','말풍선'],
-    'test-drive':['시승기, 배틀, 목격담','아우디 R8 스파이더'],
-    'celebrity-car':['유명인이 타는 차 이야기','롤스로이스 컬리넌'],
+    'test-drive':['차를 직접 타보고 구체적으로 말하다','트랙을 달리는 BMW M2','ROAD TEST'],
+    'celebrity-car':['스타와 자동차가 만나는 장면','모나코 해안의 애스턴마틴 DB12','CULTURE'],
     'adult':['성인 회원 전용 게시판','줄무늬'],
     'boba-story':['보배드림 회원들의 이야기','보배드림 동그라미'],
     'suggestion':['보배드림에 바라는 점','말풍선'],
@@ -30,25 +30,26 @@
     'new-humor':['웃기고 뭉클한 이슈','웃는 얼굴'],
     'humor':['오늘도 한 번 웃고 가세요','웃는 얼굴'],
     'accident-blackbox':['교통사고와 블랙박스 영상','블랙박스 화면과 도로'],
-    'domestic-car':['국산차 이야기','제네시스 GV60'],
-    'import-car':['수입차 이야기','BMW M5 투어링'],
+    'domestic-car':['국산차 오너의 정보와 실제 경험','여수 바닷가의 제네시스 GV60','K-MOBILITY'],
+    'import-car':['수입차의 선택과 유지 경험','산악 도로를 달리는 포르쉐 911 GT3','IMPORT'],
     'tesla':['테슬라 오너 모임','테슬라 사이버트럭'],
-    'bmw':['BMW 오너 모임','BMW M8 그란쿠페'],
-    'mercedes-benz':['벤츠 오너 모임','벤츠 G-클래스'],
-    'my-car-photo':['내 차 사진 자랑','포르쉐 911'],
-    'scoop':['직접 찍은 특종과 발견','맥라렌 GT'],
-    'car-media':['자동차 사진과 영상','페라리 푸로산게'],
-    'installation':['장착·시공 사진','람보르기니 우루스'],
-    'free-media':['자유롭게 올리는 사진과 영상','페라리 캘리포니아'],
+    'bmw':['운전의 즐거움을 나누는 BMW 오너 공간','트랙을 달리는 BMW M2','BMW OWNERS'],
+    'mercedes-benz':['메르세데스-벤츠 오너의 실제 이야기','놀이공원 앞 메르세데스-벤츠 GLB','MB OWNERS'],
+    'my-car-photo':['직접 찍은 내 차의 가장 좋은 순간','산악 도로를 달리는 포르쉐 911 GT3','MY GARAGE'],
+    'scoop':['거리에서 발견한 자동차의 결정적 장면','모나코 해안의 애스턴마틴 DB12','SPOTTED'],
+    'car-media':['자동차 사진과 영상을 작품처럼','산악 도로를 달리는 포르쉐 911 GT3','VISUAL'],
+    'installation':['장착부터 완성까지 과정을 기록하다','트랙을 달리는 BMW M2','WORKSHOP'],
+    'free-media':['직접 찍은 장면을 자유롭게 공유하세요','모나코 해안의 애스턴마틴 DB12','VISUAL'],
     'caution':['후방주의 게시판','줄무늬'],
     'racing-model':['레이싱모델 사진','체크무늬 깃발'],
     'military':['군사와 무기 이야기','등고선'],
     'truck-bus-heavy':['트럭, 버스, 중장비 이야기','현대 엑시언트 트럭'],
     'aviation-rail':['항공, 해운, 철도 이야기','철길과 비행기'],
     'bike-cycle':['오토바이와 자전거 이야기','파란 스즈키 스포츠 바이크'],
-    'oldcar-memory':['올드카와 추억','산길의 BMW E30'],
+    'oldcar-memory':['시간이 지날수록 선명해지는 자동차 이야기','모나코 해안의 애스턴마틴 DB12','HERITAGE'],
     'f1':['그랑프리 일정과 팬 이야기','서킷 선과 체크 깃발']
   };
+  var rightAligned={'foreign-car-news':1,'test-drive':1,'celebrity-car':1,'bmw':1,'scoop':1,'free-media':1,'oldcar-memory':1,'tuhu-review':1,'installation':1};
 
   // F1 게시판 전용 머리(2026-11-03 「텐센트 스포츠 F1처럼 헤더를 특색있게」).
   // 텐센트 스포츠 F1 채널의 「주요 경기 카드 + 바로가기 아이콘 줄」 구성을 따른다.
@@ -103,6 +104,7 @@
     hero.insertAdjacentElement('afterend',f1Hub);
 
     var boardName=document.querySelector('.boardSelectName');
+    var heroKicker=hero.querySelector('.boardHeroKicker');
     var heroTitle=hero.querySelector('.boardHeroTitle');
     var heroTagline=hero.querySelector('.boardHeroTagline');
     var sync=function(){
@@ -112,7 +114,9 @@
       var title=boardName?((boardName.textContent||'전체 게시글').trim()||'전체 게시글'):'전체 게시글';
       if(heroTitle)heroTitle.textContent=title;
       if(heroTagline)heroTagline.textContent=info[0];
+      if(heroKicker)heroKicker.textContent=info[2]||'BOBAEDREAM';
       hero.dataset.board=id;
+      hero.dataset.copyAlign=rightAligned[id]?'right':'left';
       f1Hub.hidden=id!=='f1';
       phone.classList.toggle('isF1Board',id==='f1');
       var src='assets/board-banners/'+id+'.webp';
