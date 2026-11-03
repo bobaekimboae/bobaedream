@@ -556,3 +556,49 @@ body.has-board-shortcut-manager { overflow: hidden; }
   .write-toolbar img { width: 24px; height: 24px; }
   .view-choice-grid button { height: 72px; }
 }
+
+/* 전체 게시판 창 텐센트 비디오식(2026-11-03, 정적 판 community-layout-align.css를 넉스트 판으로 옮김).
+   칩 한 가지(회색 알약·테두리 없음), 고정 칸(홈·전체·베스트)은 편집 중에만 흐리게, 편집·기본값 복원은 회색 글자+원본 아이콘,
+   추가할 게시판은 분류 탭(위에 붙음) + 구역 제목으로 이어서 나열. 아이콘: 닫기·제외·복원 = 초톳, 편집 펜·추가 = 오토스카우트24 원본. */
+.board-manager-header { padding-left: 16px; }
+.board-manager-header h2 { font-size: 20px; line-height: 28px; font-weight: 700; letter-spacing: -.03em; color: #222; }
+.board-manager-close { font-size: 0; }
+.board-manager-close img { width: 24px; height: 24px; display: block; }
+.board-manager-scroll { padding-left: 16px; padding-right: 16px; }
+.board-manager-heading { min-height: 0; margin: 8px 0 12px; justify-content: space-between; }
+.board-manager-heading strong { font-size: 16px; line-height: 22px; font-weight: 700; letter-spacing: -.03em; color: #222; }
+.board-manager-heading > .board-manager-actions { display: flex; align-items: center; gap: 14px; }
+.board-manager-actions button { min-width: 0; height: 32px; margin: 0; padding: 0; display: inline-flex; align-items: center; gap: 4px; color: #333; font-size: 13px; line-height: 18px; font-weight: 400; letter-spacing: -.02em; }
+.board-manager-actions button img { width: 16px; height: 16px; display: block; opacity: .75; filter: brightness(0); }
+.board-manager-backdrop.is-editing .board-manager-edit { color: #222; font-weight: 700; }
+.my-board-grid, .available-board-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.my-board-chip { height: 36px; border-radius: 999px; background: #f1f1f2; transition: background-color .14s ease, transform .1s ease, box-shadow .13s ease; }
+.my-board-chip:active { background: #e6e6e8; transform: scale(.97); }
+.my-board-select { padding: 0 6px; color: #4f5156; font-size: 14px; line-height: 36px; font-weight: 600; letter-spacing: -.025em; }
+.my-board-chip.is-current .my-board-select { color: #4f5156; font-weight: 600; }
+.board-manager-backdrop:not(.is-editing) .my-board-chip.is-current { background: #161823; }
+.board-manager-backdrop:not(.is-editing) .my-board-chip.is-current .my-board-select { color: #fff; font-weight: 700; }
+.board-manager-backdrop.is-editing .my-board-chip.is-fixed .my-board-select { color: #b0b3b8; }
+.board-manager-backdrop.is-editing .my-board-chip.is-fixed:active { background: #f1f1f2; transform: none; }
+.my-board-remove { top: -1px; right: -1px; width: 16px; height: 16px; border: 0; background: none; box-shadow: none; pointer-events: none; }
+.my-board-remove img { width: 16px; height: 16px; display: block; opacity: .38; }
+.board-library { margin-top: 24px; }
+.board-section-tabs { position: sticky; z-index: 2; top: 0; height: 40px; margin: 0 -16px 16px; padding: 0 16px; gap: 20px; justify-content: flex-start; background: #fff; scroll-snap-type: none; border-bottom: 0; }
+.board-section-tabs button { flex: 0 0 auto; color: #595959; font-size: 15px; font-weight: 500; letter-spacing: -.03em; }
+.board-section-tabs button.is-active { color: #222; font-weight: 700; }
+.board-section-tabs button.is-active::after { right: 0; left: 0; background: #222; }
+.available-board-section + .available-board-section { margin-top: 24px; }
+/* 마지막 분류도 탭을 눌렀을 때 탭 바로 아래까지 올라오게 아래 여백을 둔다. */
+.available-board-section:last-child { min-height: calc(100dvh - 200px); }
+.available-board-section h3 { margin: 0 0 12px; color: #222; font-size: 16px; line-height: 22px; font-weight: 700; letter-spacing: -.03em; }
+.available-board-grid { padding-top: 0; }
+.available-board-grid button { height: 36px; gap: 3px; padding: 0 6px; border: 0; border-radius: 999px; background: #f1f1f2; color: #4f5156; font-size: 14px; line-height: 20px; font-weight: 600; letter-spacing: -.025em; transition: background-color .14s ease, transform .1s ease; }
+.available-board-grid button:active { background: #e6e6e8; transform: scale(.97); }
+.available-board-grid button img { flex: 0 0 auto; width: 14px; height: 14px; opacity: .55; }
+.available-board-grid p { margin: 0; color: #8c8c8c; font-size: 12px; line-height: 18px; text-align: left; }
+.my-board-select:focus-visible, .available-board-grid button:focus-visible, .board-manager-actions button:focus-visible, .board-section-tabs button:focus-visible { outline: 2px solid #222; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .my-board-chip, .available-board-grid button { transition: none; } }
+
+/* 게시판 좌우 넘기기(후푸식, 정적 판 setupBoardSwipe를 옮김): 끄는 동안 지금 화면 복사본과 옆 게시판이 8px 틈을 두고 손가락을 따라온다. */
+.board-swipe-stage { position: relative; }
+.board-swipe-ghost { position: absolute; z-index: 1; right: 0; left: 0; pointer-events: none; background: #fff; will-change: transform; }
