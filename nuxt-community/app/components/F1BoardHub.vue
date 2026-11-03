@@ -57,7 +57,7 @@ function timeLabel(iso: string) {
     </nav>
 
     <section class="f1-banner">
-      <img :src="`${base}community/assets/board-banners/f1.webp`" alt="F1 서킷 배너" />
+      <img :src="`${base}community/media/board-banners/f1.webp`" alt="F1 서킷 배너" />
       <div><small>BOBAEDREAM</small><strong>F1</strong><p>그랑프리 일정과 팬 이야기</p></div>
     </section>
 
@@ -77,7 +77,7 @@ function timeLabel(iso: string) {
       </div>
       <nav class="f1-shortcuts" aria-label="F1 바로가기">
         <button v-for="shortcut in shortcuts" :key="shortcut[1]" type="button">
-          <img :src="`${base}community/assets/f1/${shortcut[0]}`" alt="" /><span>{{ shortcut[1] }}</span>
+          <img :src="`${base}community/media/f1/${shortcut[0]}`" alt="" /><span>{{ shortcut[1] }}</span>
         </button>
       </nav>
     </section>

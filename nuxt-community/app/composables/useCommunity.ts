@@ -18,7 +18,7 @@ const sections: CommunitySection[] = [
         kicker: 'LIFE',
         followerLabel: '팔로워 38.4만명',
         postCountLabel: '게시물 1,000개',
-        banner: 'community/assets/board-banners/free.webp',
+        banner: 'community/media/board-banners/free.webp',
         headwords: ['테슬라', 'BMW', '벤츠', '일론', 'TSLA', '스페이스', '전기차', '정비', '튜닝', '중고차', '보험', '블박'],
         canWrite: true,
       },
@@ -54,7 +54,7 @@ const sections: CommunitySection[] = [
     id: 'sports',
     name: '스포츠',
     boards: [
-      { id: 'f1', sectionId: 'sports', name: 'F1', shortName: 'F1', tagline: '가장 빠른 모터스포츠 이야기', banner: 'community/assets/board-banners/f1.webp', headwords: ['경기', '다시보기', '규정', '기술', '직관'], canWrite: true },
+      { id: 'f1', sectionId: 'sports', name: 'F1', shortName: 'F1', tagline: '가장 빠른 모터스포츠 이야기', banner: 'community/media/board-banners/f1.webp', headwords: ['경기', '다시보기', '규정', '기술', '직관'], canWrite: true },
     ],
   },
   {
@@ -76,12 +76,12 @@ const sections: CommunitySection[] = [
 ]
 
 const seedPosts: CommunityPost[] = [
-  { id: 'p-free-1', boardId: 'free', headword: '전기차', title: '제네시스 GV80 장거리 시승 후기', excerpt: '제네시스 GV80으로 서울에서 강릉까지 왕복한 느낌을 정리해 봤습니다.', author: '전기차궁금', authorAvatar: 'community/assets/profile-avatars/avatar-43.svg', timeLabel: '1분 전', createdAt: '2026-11-03T07:59:00+09:00', updatedAt: '2026-11-03T07:59:00+09:00', thumbnail: 'community/assets/feed/post-01.webp', photoCount: 1, comments: 5, likes: 50, dislikes: 1, views: 1025, isPopular: true },
-  { id: 'p-free-2', boardId: 'free', headword: '테슬라', title: '이번 업데이트 이후 달라진 점 정리', excerpt: '어젯밤 업데이트 후 출근길에 확인한 변화만 적어봅니다.', author: '하이랜드초보', authorAvatar: 'community/assets/profile-avatars/avatar-22.svg', timeLabel: '2분 전', createdAt: '2026-11-03T07:58:00+09:00', updatedAt: '2026-11-03T07:58:00+09:00', comments: 6, likes: 36, dislikes: 1, views: 694 },
-  { id: 'p-free-3', boardId: 'free', headword: '테슬라', title: '모델Y 트렁크 매트 추천 부탁드립니다', excerpt: '모델Y 5인승 트렁크 매트를 고르는 중인데 실제 사용 후기가 궁금합니다.', author: '트렁크테트리스', authorAvatar: 'community/assets/profile-avatars/avatar-07.svg', timeLabel: '3분 전', createdAt: '2026-11-03T07:57:00+09:00', updatedAt: '2026-11-03T07:57:00+09:00', thumbnail: 'community/assets/feed/post-03.webp', photoCount: 2, comments: 5, likes: 21, dislikes: 1, views: 363 },
-  { id: 'p-free-4', boardId: 'free', headword: '정비', title: '모델3 하이랜드 도어라이트 DIY 비용 공유', excerpt: '모델3 하이랜드 도어라이트를 직접 교체했습니다.', author: '송파T불빠따', authorAvatar: 'community/assets/profile-avatars/avatar-45.svg', timeLabel: '4분 전', createdAt: '2026-11-03T07:56:00+09:00', updatedAt: '2026-11-03T07:56:00+09:00', thumbnail: 'community/assets/feed/post-04.webp', photoCount: 5, comments: 4, likes: 5, dislikes: 1, views: 32 },
-  { id: 'p-free-5', boardId: 'free', headword: '튜닝', title: '프렁크 소프트 클로징 장착 후기입니다', excerpt: '프렁크를 세게 닫아야 하는 게 불편해서 소프트 클로징 모듈을 장착했습니다.', author: '디젤끝물', authorAvatar: 'community/assets/profile-avatars/avatar-29.svg', timeLabel: '5분 전', createdAt: '2026-11-03T07:55:00+09:00', updatedAt: '2026-11-03T07:55:00+09:00', thumbnail: 'community/assets/feed/post-05.webp', photoCount: 5, comments: 5, likes: 10, dislikes: 1, views: 118 },
-  { id: 'p-free-6', boardId: 'free', headword: '뻘글', title: '하하하 도박 중독보다 위험하네요...', excerpt: '요즘 자동차보다 유지비가 더 무서운 취미가 생겼습니다.', author: '연비왕김대표', authorAvatar: 'community/assets/profile-avatars/avatar-04.svg', timeLabel: '6분 전', createdAt: '2026-11-03T07:54:00+09:00', updatedAt: '2026-11-03T07:54:00+09:00', comments: 1284, likes: 1200, dislikes: 183, views: 144 },
+  { id: 'p-free-1', boardId: 'free', headword: '전기차', title: '제네시스 GV80 장거리 시승 후기', excerpt: '제네시스 GV80으로 서울에서 강릉까지 왕복한 느낌을 정리해 봤습니다.', author: '전기차궁금', authorAvatar: 'community/media/profile-avatars/avatar-43.svg', timeLabel: '1분 전', createdAt: '2026-11-03T07:59:00+09:00', updatedAt: '2026-11-03T07:59:00+09:00', thumbnail: 'community/media/feed/post-01.webp', photoCount: 1, comments: 5, likes: 50, dislikes: 1, views: 1025, isPopular: true },
+  { id: 'p-free-2', boardId: 'free', headword: '테슬라', title: '이번 업데이트 이후 달라진 점 정리', excerpt: '어젯밤 업데이트 후 출근길에 확인한 변화만 적어봅니다.', author: '하이랜드초보', authorAvatar: 'community/media/profile-avatars/avatar-22.svg', timeLabel: '2분 전', createdAt: '2026-11-03T07:58:00+09:00', updatedAt: '2026-11-03T07:58:00+09:00', comments: 6, likes: 36, dislikes: 1, views: 694 },
+  { id: 'p-free-3', boardId: 'free', headword: '테슬라', title: '모델Y 트렁크 매트 추천 부탁드립니다', excerpt: '모델Y 5인승 트렁크 매트를 고르는 중인데 실제 사용 후기가 궁금합니다.', author: '트렁크테트리스', authorAvatar: 'community/media/profile-avatars/avatar-07.svg', timeLabel: '3분 전', createdAt: '2026-11-03T07:57:00+09:00', updatedAt: '2026-11-03T07:57:00+09:00', thumbnail: 'community/media/feed/post-03.webp', photoCount: 2, comments: 5, likes: 21, dislikes: 1, views: 363 },
+  { id: 'p-free-4', boardId: 'free', headword: '정비', title: '모델3 하이랜드 도어라이트 DIY 비용 공유', excerpt: '모델3 하이랜드 도어라이트를 직접 교체했습니다.', author: '송파T불빠따', authorAvatar: 'community/media/profile-avatars/avatar-45.svg', timeLabel: '4분 전', createdAt: '2026-11-03T07:56:00+09:00', updatedAt: '2026-11-03T07:56:00+09:00', thumbnail: 'community/media/feed/post-04.webp', photoCount: 5, comments: 4, likes: 5, dislikes: 1, views: 32 },
+  { id: 'p-free-5', boardId: 'free', headword: '튜닝', title: '프렁크 소프트 클로징 장착 후기입니다', excerpt: '프렁크를 세게 닫아야 하는 게 불편해서 소프트 클로징 모듈을 장착했습니다.', author: '디젤끝물', authorAvatar: 'community/media/profile-avatars/avatar-29.svg', timeLabel: '5분 전', createdAt: '2026-11-03T07:55:00+09:00', updatedAt: '2026-11-03T07:55:00+09:00', thumbnail: 'community/media/feed/post-05.webp', photoCount: 5, comments: 5, likes: 10, dislikes: 1, views: 118 },
+  { id: 'p-free-6', boardId: 'free', headword: '뻘글', title: '하하하 도박 중독보다 위험하네요...', excerpt: '요즘 자동차보다 유지비가 더 무서운 취미가 생겼습니다.', author: '연비왕김대표', authorAvatar: 'community/media/profile-avatars/avatar-04.svg', timeLabel: '6분 전', createdAt: '2026-11-03T07:54:00+09:00', updatedAt: '2026-11-03T07:54:00+09:00', comments: 1284, likes: 1200, dislikes: 183, views: 144 },
   { id: 'p1', boardId: 'domestic', headword: '기아', title: '마그마 주조휠 단조휠 차이 꽤 납니다', excerpt: '실사용에서 느낀 승차감과 무게 차이를 정리했습니다.', author: '스탄IGV60Mag', createdAt: '2026-11-01T03:30:00Z', updatedAt: '2026-11-01T03:30:00Z', thumbnail: 'images/community/board-header-genesis-yeosu.webp', comments: 32, likes: 18, dislikes: 1, views: 4661, isPopular: true },
   { id: 'p2', boardId: 'ev', headword: '충전', title: '[질문] 충전 몇 프로 채우세요?', excerpt: '완속 충전 시 80%와 90% 중 어떤 설정을 쓰시나요?', author: '두부lev3', createdAt: '2026-11-01T02:45:00Z', updatedAt: '2026-11-01T03:42:00Z', comments: 12, likes: 5, dislikes: 0, views: 224 },
   { id: 'p3', boardId: 'imported', headword: '벤츠', title: 'GLC EV 실내 공간은 이 정도입니다', excerpt: '2열 무릎 공간과 트렁크 실측 사진을 함께 올립니다.', author: '노이예ix3', createdAt: '2026-10-31T23:30:00Z', updatedAt: '2026-11-01T01:20:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', comments: 36, likes: 29, dislikes: 2, views: 2939, isPopular: true },
