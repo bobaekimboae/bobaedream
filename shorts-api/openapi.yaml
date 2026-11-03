@@ -1,0 +1,115 @@
+openapi: 3.1.0
+info:
+  title: 보배드림 숏폼 보기 API
+  version: 1.0.0
+  description: 사람이 읽는 계약은 docs/shorts-api.md
+servers:
+  - url: http://127.0.0.1:8789/api
+paths:
+  /health:
+    get:
+      responses: { "200": { description: 상태, content: { application/json: { schema: { type: object, properties: { ok: { type: boolean }, upstream: { type: string } } } } } } }
+  /shorts:
+    get:
+      parameters:
+        - { name: category, in: query, schema: { type: string, enum: [cars, trucks, bikes, campers, machinery, parts], default: cars } }
+        - { name: after, in: query, schema: { type: string, pattern: "^[A-Za-z0-9]{4,32}$" } }
+        - { name: limit, in: query, schema: { type: integer, minimum: 1, maximum: 20, default: 8 } }
+      responses:
+        "200": { description: 피드, content: { application/json: { schema: { $ref: "#/components/schemas/Page" } } } }
+        "422": { $ref: "#/components/responses/Error" }
+        "502": { $ref: "#/components/responses/Error" }
+  /shorts/{id}:
+    parameters: [{ $ref: "#/components/parameters/Id" }]
+    get:
+      responses:
+        "200": { description: 한 매물, content: { application/json: { schema: { type: object, properties: { ok: { type: boolean }, data: { $ref: "#/components/schemas/ShortItem" }, next: { type: [string, "null"] }, previous: { type: [string, "null"] } } } } } }
+        "404": { $ref: "#/components/responses/Error" }
+  /shorts/{id}/like:
+    parameters: [{ $ref: "#/components/parameters/Id" }]
+    put:
+      security: [{ bearer: [] }]
+      responses: { "200": { $ref: "#/components/responses/Like" }, "401": { $ref: "#/components/responses/Error" } }
+    delete:
+      security: [{ bearer: [] }]
+      responses: { "200": { $ref: "#/components/responses/Like" }, "401": { $ref: "#/components/responses/Error" } }
+  /shorts/{id}/views:
+    parameters: [{ $ref: "#/components/parameters/Id" }]
+    post:
+      requestBody: { required: true, content: { application/json: { schema: { type: object, required: [watched], properties: { watched: { type: number, minimum: 0, maximum: 3600 } } } } } }
+      responses:
+        "200": { description: 기록, content: { application/json: { schema: { type: object, properties: { ok: { type: boolean }, counted: { type: boolean } } } } } }
+        "429": { $ref: "#/components/responses/Error" }
+  /shorts/{id}/chapters:
+    parameters: [{ $ref: "#/components/parameters/Id" }]
+    put:
+      parameters: [{ name: X-Shorts-Admin, in: header, required: true, schema: { type: string } }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object, required: [video_url, chapters], properties: { video_url: { type: string, format: uri }, chapters: { type: array, maxItems: 12, items: { $ref: "#/components/schemas/Chapter" } } } }
+      responses: { "200": { description: 저장 }, "403": { $ref: "#/components/responses/Error" }, "422": { $ref: "#/components/responses/Error" } }
+components:
+  securitySchemes:
+    bearer: { type: http, scheme: bearer, description: 보배드림 로그인 토큰(원본 백엔드로 그대로 넘김) }
+  parameters:
+    Id: { name: id, in: path, required: true, schema: { type: string, pattern: "^[A-Za-z0-9]{4,32}$" } }
+  responses:
+    Error:
+      description: 실패
+      content: { application/json: { schema: { type: object, properties: { ok: { const: false }, error: { type: string }, code: { type: string }, fields: { type: array, items: { type: string } } } } } }
+    Like:
+      description: 찜 결과
+      content: { application/json: { schema: { type: object, properties: { ok: { type: boolean }, liked: { type: boolean }, likes: { type: [integer, "null"] } } } } }
+  schemas:
+    Chapter:
+      type: object
+      required: [key, from, to]
+      properties:
+        key: { type: string, enum: [tour-walk, tour-feature, tour-dash, tour-seat, tour-pov, tour-boot, tour-tyre, tour-engine] }
+        from: { type: number, minimum: 0 }
+        to: { type: number }
+    Page:
+      type: object
+      properties: { ok: { type: boolean }, data: { type: array, items: { $ref: "#/components/schemas/ShortItem" } }, next: { type: [string, "null"] } }
+    ShortItem:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        maker: { type: [string, "null"] }
+        model: { type: [string, "null"] }
+        year: { type: [integer, "null"] }
+        registered: { type: [string, "null"], examples: ["2021.02"] }
+        mileage: { type: [string, "null"] }
+        fuel: { type: [string, "null"] }
+        transmission: { type: [string, "null"] }
+        price: { type: [string, "null"] }
+        region: { type: [string, "null"] }
+        complex: { type: [string, "null"] }
+        hashtags: { type: array, items: { type: string } }
+        status: { type: [string, "null"] }
+        video:
+          oneOf:
+            - { type: object, properties: { kind: { enum: [file, hls] }, url: { type: string } } }
+            - { type: object, properties: { kind: { const: youtube }, id: { type: string }, url: { type: string } } }
+        poster: { type: [string, "null"] }
+        images: { type: array, items: { type: object, properties: { url: { type: string }, type: { type: [string, "null"] } } } }
+        likes: { type: integer }
+        liked: { type: boolean }
+        views: { type: integer }
+        seller:
+          type: object
+          properties:
+            id: { type: [string, "null"] }
+            name: { type: [string, "null"] }
+            company: { type: [string, "null"] }
+            type: { enum: [dealer, private] }
+            avatar: { type: [string, "null"] }
+            selling: { type: integer }
+            sold: { type: integer }
+            phone: { type: [string, "null"], description: 안심번호 숫자 }
+            can_inquire: { type: boolean }
+        updated_at: { type: [string, "null"] }
+        chapters: { type: array, items: { $ref: "#/components/schemas/Chapter" } }
