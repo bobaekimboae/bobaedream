@@ -94,7 +94,7 @@ const post = () => {
       <input v-model="title" class="ptext__title ptext__title--req" maxlength="40" placeholder="제목을 쓰면 더 많이 추천돼요(필수)" aria-label="제목(필수)" @focus="started = true" />
       <div ref="box" class="plong__blocks">
         <template v-for="(b, i) in blocks" :key="i">
-          <textarea v-if="b.t === 'text'" v-model="b.v" :data-bi="i" class="ptext__body" :rows="i === 0 && blocks.length === 1 ? 8 : 1" :placeholder="i === 0 ? '눌러서 본문을 쓰세요. 차를 사고 타면서 겪은 일, 차와 함께하는 생활을 나눠 주세요' : ''" :aria-label="`본문 ${i + 1}`" @focus="focusAt = i; started = true" @input="grow" />
+          <textarea v-if="b.t === 'text'" v-model="b.v" :data-bi="i" class="ptext__body" :rows="i === 0 && blocks.length === 1 ? 10 : 1" :placeholder="i === 0 ? '눌러서 본문을 쓰세요. 차를 사고 타면서 겪은 일, 차와 함께하는 생활을 나눠 주세요' : ''" :aria-label="`본문 ${i + 1}`" @focus="focusAt = i; started = true" @input="grow" />
           <figure v-else-if="b.t === 'image'" class="plong__img"><img :src="b.src" alt="" @click="editImage(i)" /><button type="button" class="plong__x" aria-label="사진 빼기" @click="rmBlock(i)"><Ico :src="IC.remove" /></button><span class="pmedia__edit"><Ico :src="IC.edit" />편집</span></figure>
           <div v-else class="plong__card"><AttachCards v-if="b.t === 'price'" :price="b.d" @rm-price="rmBlock(i)" /><AttachCards v-else :parts="[b.d]" @rm-part="rmBlock(i)" /></div>
         </template>

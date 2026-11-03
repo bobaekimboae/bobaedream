@@ -9,10 +9,11 @@ onMounted(async () => { document.addEventListener("keydown", onKey); await nextT
 onBeforeUnmount(() => document.removeEventListener("keydown", onKey));
 </script>
 <template>
-  <div class="ask" role="alertdialog" aria-modal="true" :aria-label="askState.v?.title">
+  <div class="ask" :class="{ 'ask--card': askState.v?.card }" role="alertdialog" aria-modal="true" :aria-label="askState.v?.title">
     <div class="ask__dim" @click="done(true)" />
     <div class="ask__box">
       <p>{{ askState.v?.title }}</p>
+      <small v-if="askState.v?.sub">{{ askState.v.sub }}</small>
       <div class="ask__btns">
         <button type="button" class="ask__no" @click="done(false)">{{ askState.v?.cancel }}</button>
         <button ref="okBtn" type="button" class="ask__ok" @click="done(true)">{{ askState.v?.ok }}</button>

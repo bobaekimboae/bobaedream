@@ -4,7 +4,7 @@ import { nextTick, onBeforeUnmount, onMounted, ref } from "vue";
 import Ico from "./Ico.vue";
 import { IC } from "../lib/icons";
 
-defineProps<{ title: string; full?: boolean; left?: boolean }>();
+defineProps<{ title: string; full?: boolean; left?: boolean; xr?: boolean }>();
 const emit = defineEmits<{ close: [] }>();
 const x = ref<HTMLButtonElement | null>(null);
 let prevOverflow = "";
@@ -24,10 +24,11 @@ onBeforeUnmount(() => {
 <template>
   <div class="layer">
   <div class="dim" @click="emit('close')" />
-  <section class="sheet" :class="{ 'sheet--full': full, 'post-sheet': left }" role="dialog" aria-modal="true" :aria-label="title">
+  <section class="sheet" :class="{ 'sheet--full': full, 'post-sheet': left, 'sheet--xr': xr }" role="dialog" aria-modal="true" :aria-label="title">
     <header class="sheet__head">
       <button ref="x" type="button" class="sheet__x" aria-label="닫기" @click="emit('close')"><Ico :src="IC.close" /></button>
       <h2>{{ title }}</h2>
+      <div v-if="$slots.lead" class="sheet__lead"><slot name="lead" /></div>
     </header>
     <div class="sheet__list"><slot /></div>
     <footer v-if="$slots.foot" class="sheet__foot"><slot name="foot" /></footer>

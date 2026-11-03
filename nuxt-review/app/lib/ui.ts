@@ -10,9 +10,9 @@ export const toast = (text: string) => {
   t = setTimeout(() => (toastState.text = ""), 1800);
 };
 
-export type Ask = { title: string; cancel: string; ok: string; resolve: (ok: boolean) => void } | null;
+export type Ask = { title: string; cancel: string; ok: string; sub?: string; card?: boolean; resolve: (ok: boolean) => void } | null;
 export const askState = reactive<{ v: Ask }>({ v: null });
 /** 두 버튼 확인창: ok = 오른쪽(강조) 버튼 */
-export const ask = (title: string, cancel: string, ok: string) => new Promise<boolean>((resolve) => { askState.v = { title, cancel, ok, resolve }; });
+export const ask = (title: string, cancel: string, ok: string, o: { sub?: string; card?: boolean } = {}) => new Promise<boolean>((resolve) => { askState.v = { title, cancel, ok, ...o, resolve }; });
 /** 별 반·온 고르기 상자는 한 번에 하나만(원본과 같음) */
 export const starPop = reactive<{ key: string }>({ key: "" });

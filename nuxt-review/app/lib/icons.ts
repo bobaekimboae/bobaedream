@@ -33,6 +33,7 @@ export const IC = {
   more: ct("chotot-common-more.svg"),
   verified: ct("chotot-list-detail-verified-check-circle.svg"),
   odometer: ct("chotot-common-clock.svg"),
+  clock: ct("chotot-common-clock.svg"),
   // 글쓰기 도구 줄: 획 1.5px로 맞춘 레딧 · 에어비앤비 원본
   emoji: rd("emoji-outline"),
   vote: rd("poll-post-outline"),

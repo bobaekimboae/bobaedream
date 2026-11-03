@@ -47,7 +47,7 @@ const toggle = (i: number) => { const a = sel.value.indexOf(i); if (a >= 0) sel.
 </script>
 
 <template>
-  <Sheet title="AI 그림" full @close="emit('close')">
+  <Sheet xr title="AI 그림" full @close="emit('close')">
     <div class="aiimg">
       <textarea v-model="prompt" maxlength="60" rows="3" placeholder="예: 바닷가 도로를 달리는 하얀 SUV" aria-label="그림 설명" />
       <p class="aiimg__label">분위기</p>

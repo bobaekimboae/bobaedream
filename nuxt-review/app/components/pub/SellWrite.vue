@@ -120,23 +120,23 @@ const post = () => {
     <PhotoPicker v-if="layer === 'pick'" :max="MAX - media.length" title="좋은 차량 사진" @done="addImages" @close="layer = ''" />
     <PhotoEditor v-if="layer === 'edit'" :images="media.map((m) => m.src)" :start="editAt" @done="onEdited" @close="layer = ''" />
     <CarPicker v-if="layer === 'car'" title="내 차 차종" @close="layer = ''" @pick="car = $event; layer = ''" />
-    <Sheet v-if="layer === 'date'" title="등록 연월" @close="layer = ''">
+    <Sheet xr v-if="layer === 'date'" title="등록 연월" @close="layer = ''">
       <Wheel :cols="[{ label: '연도', options: YEARS, value: draft.year, suffix: '년' }, { label: '월', options: MONTHS, value: draft.month, suffix: '월' }]" @change="(c, x) => (c ? (draft.month = x) : (draft.year = x))" />
       <template #foot><button type="button" class="btn-pri" @click="ok(['year', 'month'])">확인</button></template>
     </Sheet>
-    <Sheet v-if="layer === 'km'" title="현재 주행거리" @close="layer = ''">
+    <Sheet xr v-if="layer === 'km'" title="현재 주행거리" @close="layer = ''">
       <Wheel :cols="[{ label: '만 km', options: MAN, value: draft.man, suffix: '만' }, { label: '천 km', options: CHUN, value: draft.chun, suffix: '천' }, { label: '단위', options: ['km'], value: 'km' }]" @change="(c, x) => (c === 0 ? (draft.man = x) : c === 1 ? (draft.chun = x) : null)" />
       <template #foot><button type="button" class="btn-pri" @click="ok(['man', 'chun'])">확인</button></template>
     </Sheet>
-    <Sheet v-if="layer === 'color'" title="차량 색상" @close="layer = ''">
+    <Sheet xr v-if="layer === 'color'" title="차량 색상" @close="layer = ''">
       <div class="opt-grid"><button v-for="c in CAR_COLORS" :key="c" type="button" :class="{ on: draft.color === c }" @click="draft.color = c">{{ c }}</button></div>
       <template #foot><button type="button" class="btn-pri" :class="{ 'is-off': !draft.color }" @click="draft.color && ok(['color'])">확인</button></template>
     </Sheet>
-    <Sheet v-if="layer === 'owners'" title="소유자 변경 횟수" @close="layer = ''">
+    <Sheet xr v-if="layer === 'owners'" title="소유자 변경 횟수" @close="layer = ''">
       <Wheel :cols="[{ label: '횟수', options: OWNERS, value: draft.owners, suffix: '회' }]" @change="(_, x) => (draft.owners = x)" />
       <template #foot><button type="button" class="btn-pri" @click="ok(['owners'])">확인</button></template>
     </Sheet>
-    <Sheet v-if="layer === 'price'" title="내 차 가격 정하기" @close="layer = ''">
+    <Sheet xr v-if="layer === 'price'" title="내 차 가격 정하기" @close="layer = ''">
       <div class="pkey">
         <p class="pkey__val" :class="{ ph: !draft.price }">{{ draft.price || "희망 판매가를 쓰세요" }}<b>만원</b></p>
         <p v-if="estimate" class="pkey__est">예상 시세 <em>{{ estimate[0]!.toLocaleString() }}~{{ estimate[1]!.toLocaleString() }}만원</em>이면 더 잘 팔려요</p>
@@ -147,7 +147,7 @@ const post = () => {
         </div>
       </div>
     </Sheet>
-    <Sheet v-if="layer === 'city'" title="지역" @close="layer = ''">
+    <Sheet xr v-if="layer === 'city'" title="지역" @close="layer = ''">
       <div class="opt-grid"><button v-for="c in SIDO" :key="c" type="button" :class="{ on: city === c }" @click="city = c; layer = ''">{{ c }}</button></div>
     </Sheet>
   </main>

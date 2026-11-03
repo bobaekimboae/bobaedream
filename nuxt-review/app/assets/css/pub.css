@@ -115,17 +115,23 @@
 .pmeta__search { display: flex; align-items: center; gap: 6px; margin: 8px 16px; height: 38px; padding: 0 12px; border-radius: 19px; background: var(--fill); }
 .pmeta__search .ico { width: 18px; height: 18px; color: var(--mute); }
 .pmeta__search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 15px; }
-.pmeta__item { display: flex; align-items: center; gap: 10px; width: 100%; height: 52px; padding: 0 16px; text-align: left; font-size: 15px; }
-.pmeta__item > b:not(.pmeta__ring) { width: 28px; height: 28px; border-radius: 50%; background: var(--fill); text-align: center; line-height: 28px; }
+.pmeta__item { display: flex; align-items: center; gap: 5px; width: 100%; height: 38px; padding: 0 16px; text-align: left; font-size: 15px; } /* 원본 화제 줄 38 · # 16 */
+.pmeta__item > b:not(.pmeta__ring) { width: 16px; text-align: center; font-size: 16px; color: var(--pri); }
+.pmeta__tip { margin: 0 0 8px; padding: 6px 16px; background: #F2F6FD; font-size: 13px; line-height: 18px; color: #4B5A75; }
+.pmeta__sec { margin: 12px 16px 4px; font-size: 13px; color: var(--mute); }
+.sheet--xr .pmeta__item { height: 38px; }
 .pmeta__item span { flex: 1; min-width: 0; }
 .pmeta__item em { margin-left: 6px; padding: 0 5px; border-radius: 3px; background: #fff0f3; color: var(--err); font-style: normal; font-size: 11px; }
 .pmeta__item small { font-size: 12px; color: var(--mute); }
 .pmeta__item.on span { font-weight: 700; }
 .pmeta__hint { margin: 8px 16px; font-size: 13px; color: var(--mute); }
-.pmeta__claims { display: flex; flex-direction: column; padding: 4px 0; }
-.pmeta__claims button { height: 50px; font-size: 16px; border-bottom: 1px solid var(--line); }
-.pmeta__claims button.on { font-weight: 700; color: var(--pri); }
-.pmeta__claims button.gap { border-top: 8px solid var(--fill); }
+/* 원본 「添加自主声明」: 회색 바탕 위 흰 카드(좌우 8 · 줄 53), 글자 왼쪽 굵게, 마지막 「无需标注」만 떨어진 카드 */
+.pmeta__claims { display: flex; flex-direction: column; padding: 0 8px 12px; background: var(--fill); }
+.pmeta__claims button { height: 53px; padding: 0 12px; text-align: left; font-size: 16px; font-weight: 600; background: #fff; border-bottom: 1px solid var(--line); }
+.pmeta__claims button:first-child { border-radius: 8px 8px 0 0; margin-top: 8px; }
+.pmeta__claims button:nth-last-child(2) { border-radius: 0 0 8px 8px; border-bottom: 0; }
+.pmeta__claims button.on { color: var(--pri); }
+.pmeta__claims button.gap { margin-top: 8px; border-radius: 8px; border-bottom: 0; }
 /* 질문 · 긴 글: 원본처럼 「차량 모임」 줄을 아래 도구 줄 바로 위에 붙인다 */
 .pask-circle { position: fixed; left: 0; right: 0; bottom: calc(49px + env(safe-area-inset-bottom)); z-index: 39; max-width: 480px; margin: 0 auto; background: #fff; border-top: 1px solid var(--line); }
 .pask-circle .pmeta { margin: 0; padding: 0 12px; border-radius: 0; }
@@ -154,14 +160,16 @@
 .pvote__opt input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font-size: 15px; }
 .pvote__opt button { width: 36px; height: 36px; display: grid; place-items: center; }
 .pvote__opt .ico { width: 18px; height: 18px; color: var(--mute); }
-.pvote__add { align-self: flex-start; height: 34px; font-size: 14px; color: var(--pri); font-weight: 600; }
+.pvote__add { display: flex; align-items: center; justify-content: center; gap: 4px; height: 44px; border: 1px dashed #D9DBDF; border-radius: 6px; font-size: 15px; color: #595959; } /* 원본 「＋ 添加选项」 가운데 점선 */
+.pvote__add .ico { width: 16px; height: 16px; }
 .pvote__until, .prows__row, .psell__rows button { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; width: 100%; min-height: 48px; text-align: left; font-size: 15px; }
 .pvote__until em, .prows__row em, .psell__rows em { font-style: normal; text-align: right; }
 .pvote__until i, .prows__row i, .psell__rows i, .psell__car i, .fields__row i { color: var(--err); font-style: normal; margin-left: 2px; }
 .pvote__until .ico, .prows__row > .ico, .psell__rows .ico { width: 16px; height: 16px; transform: rotate(-90deg); color: var(--mute); }
 .pprice__city { display: flex; align-items: center; gap: 4px; margin: 0; font-size: 13px; color: var(--sub); }
 .pprice__city .ico { width: 16px; height: 16px; }
-.pprice__car { display: flex; align-items: center; gap: 10px; min-height: 60px; padding: 8px 12px; border-radius: 8px; background: var(--fill); text-align: left; }
+.pprice__car { display: flex; align-items: center; gap: 10px; min-height: 90px; padding: 8px 12px; border-radius: 8px; border: 1px dashed #D9DBDF; background: #fff; text-align: left; }
+.pprice__none { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 13px; color: var(--mute); } /* 원본 「＋ 选择车型」 세로 가운데 */
 .pprice__car img { width: 72px; height: 44px; object-fit: contain; }
 .pprice__car b { font-size: 15px; }
 .pprice__car span { font-size: 13px; color: var(--sub); }
@@ -207,7 +215,7 @@
 
 /* 돌림 칸 */
 .wheel { position: relative; display: flex; height: 200px; margin: 8px 16px; overflow: hidden; }
-.wheel__band { position: absolute; left: 0; right: 0; top: 80px; height: 40px; border-radius: 8px; background: var(--fill); pointer-events: none; }
+.wheel__band { position: absolute; left: 0; right: 0; top: 80px; height: 40px; border-top: 1px solid #EBEBEB; border-bottom: 1px solid #EBEBEB; pointer-events: none; } /* 원본: 고른 줄에 바탕 없음, 굵은 글자만 */
 .wheel__col { position: relative; flex: 1; overflow-y: auto; scroll-snap-type: y mandatory; scrollbar-width: none; -webkit-mask: linear-gradient(transparent, #000 35%, #000 65%, transparent); mask: linear-gradient(transparent, #000 35%, #000 65%, transparent); }
 .wheel__col::-webkit-scrollbar { display: none; }
 .wheel__pad { height: 80px; }
@@ -215,18 +223,18 @@
 .wheel__opt.on { color: var(--text); font-weight: 700; }
 
 /* 가격 키패드 */
-.pkey { padding: 8px 16px 12px; }
+.pkey { padding: 8px 0 0; }
 .pkey__val { margin: 4px 0; font-size: 28px; font-weight: 800; text-align: center; }
-.pkey__val.ph { font-size: 18px; font-weight: 400; }
+.pkey__val.ph { font-size: 20px; font-weight: 400; }
 .pkey__val b { margin-left: 4px; font-size: 16px; font-weight: 600; color: var(--sub); }
 .pkey__est { margin: 0 0 10px; text-align: center; font-size: 13px; color: var(--sub); }
 .pkey__est em { font-style: normal; color: var(--pri); font-weight: 700; }
-.pkey__pad { display: grid; grid-template-columns: repeat(3, 1fr) 1.2fr; grid-template-rows: repeat(4, 48px); gap: 6px; }
-.pkey__pad button { border-radius: 8px; background: var(--fill); font-size: 20px; font-weight: 600; }
+/* 원본 숫자판: 4칸 같은 폭 · 줄 58 · 1px 선 · 바탕 흰색, ⌫는 1~2줄, 확인은 3~4줄 */
+.pkey__pad { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(4, 58px); gap: 1px; background: #EBEBEB; border-top: 1px solid #EBEBEB; }
+.pkey__pad button { border-radius: 0; background: #fff; font-size: 22px; font-weight: 500; }
 .pkey__pad button:nth-child(12) { font-size: 14px; }
-.pkey__pad button:nth-child(-n+3) { grid-row: 1; }
-.pkey__del { grid-column: 4; grid-row: 1; }
-.pkey__ok { grid-column: 4; grid-row: 2 / span 3; background: var(--text) !important; color: #fff; font-size: 17px !important; }
+.pkey__del { grid-column: 4; grid-row: 1 / span 2; }
+.pkey__ok { grid-column: 4; grid-row: 3 / span 2; background: var(--text) !important; color: #fff; font-size: 17px !important; }
 .pkey__ok.is-off { background: #e0e0e0 !important; color: #767676; }
 
 /* 구매가 */
@@ -450,3 +458,21 @@
 .ppick__edit, .ppick__done { flex: 1; height: 48px; padding: 0; border-radius: 6px; font-size: 16px; font-weight: 700; }
 .ppick__edit { background: #3b3b3f; color: #fff; }
 .ppick__done { background: #fff; color: var(--text); }
+
+/* 투표 시트(동처띠 「投票」 실측): 회색 바탕 위 흰 카드 3개(제목 · 선택지 · 마감 시간), 좌우 8 */
+.sheet--xr .pvote { gap: 8px; padding: 8px; background: var(--fill); }
+.sheet--xr .pvote__title { height: 48px; padding: 0 12px; border: 0; border-radius: 8px; background: #fff; }
+.sheet--xr .pvote__box { padding: 12px; border-radius: 8px; background: #fff; }
+.sheet--xr .pvote__until { min-height: 44px; padding: 0 12px; border-radius: 8px; background: #fff; }
+.pvote__ut { display: flex; align-items: center; }
+.pvote__ut .ico { width: 16px; height: 16px; margin-right: 4px; transform: none !important; color: var(--text) !important; }
+/* 임시저장함 새 화면(동처띠 草稿箱: 머리 48 · 왼쪽 ← · 가운데 제목) */
+.pdpage { position: fixed; inset: 0; z-index: 60; max-width: 480px; margin: 0 auto; background: #fff; overflow-y: auto; animation: fade .15s; }
+.pdpage__head { position: sticky; top: 0; height: 48px; display: grid; place-items: center; background: #fff; }
+.pdpage__head h2 { margin: 0; font-size: 17px; font-weight: 600; }
+.pdpage__back { position: absolute; left: 4px; top: 2px; width: 44px; height: 44px; display: grid; place-items: center; }
+.pdpage__back .ico { width: 22px; height: 22px; }
+.sheet__list:has(> .pkey) { padding-bottom: 0; }
+/* 부품 종류(동처띠 「选择配件类型」: 칸 76×32 · 사이 16 · 글자 14) */
+.sheet--xr .opt-grid--4 { gap: 16px; padding: 16px 16px 20px; }
+.sheet--xr .opt-grid--4 button { height: 32px; font-size: 14px; }

@@ -456,6 +456,10 @@ img { display: block; }
 .sheet__head h2 { margin: 0; font-size: 17px; }
 .sheet__x { position: absolute; left: 4px; top: 4px; width: 44px; height: 44px; display: grid; place-items: center; }
 .sheet__x .ico { width: 22px; height: 22px; }
+/* 동처띠 발행 시트: 닫기는 오른쪽, 머리 아래 선 없음 */
+.sheet--xr .sheet__x { left: auto; right: 4px; }
+.sheet--xr .sheet__head { border-bottom: 0; }
+.sheet__lead { position: absolute; left: 16px; top: 0; bottom: 0; display: flex; align-items: center; }
 .sheet__list { overflow-y: auto; overscroll-behavior: contain; padding: 4px 0 12px; }
 .opt { display: flex; align-items: center; gap: 10px; width: 100%; min-height: 48px; padding: 0 20px; text-align: left; font-size: 16px; }
 .opt span { margin-left: auto; color: var(--mute); font-size: 14px; }
@@ -477,6 +481,14 @@ img { display: block; }
 .ask__no { background: #fff; box-shadow: inset 0 0 0 1px #e6e6e6; }
 .ask__ok:focus:not(:focus-visible), .ask__no:focus:not(:focus-visible) { outline: none; }
 .ask__ok { background: var(--text); color: #fff; }
+/* 아래 카드형(동처띠 「开启位置权限」: 좌우 8 · 모서리 16 · 알약 버튼 47) */
+.ask--card { place-items: end center; padding: 0 8px 8px; }
+.ask--card .ask__box { width: min(464px, 100%); padding: 24px 20px 24px; border-radius: 16px; }
+.ask--card .ask__box p { margin: 0; font-size: 18px; line-height: 24px; }
+.ask--card .ask__box small { display: block; margin: 10px 0 30px; font-size: 15px; line-height: 21px; color: #333; }
+.ask--card .ask__btns { gap: 12px; }
+.ask--card .ask__btns button { height: 47px; border-radius: 24px; font-size: 16px; }
+.ask--card .ask__no { background: #F2F3F5; box-shadow: none; }
 .toast { position: fixed; left: 50%; top: 46%; transform: translate(-50%, -50%); z-index: 100; max-width: calc(100vw - 64px); padding: 10px 18px; border-radius: 6px; background: rgba(34, 34, 34, .88); color: #fff; font-size: 15px; line-height: 21px; text-align: center; animation: fade .15s; pointer-events: none; }
 @keyframes fade { from { opacity: 0; } }
 @keyframes up { from { transform: translateY(100%); } }

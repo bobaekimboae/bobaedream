@@ -88,8 +88,8 @@ const post = () => {
     <div class="pfoot-space" />
 
     <CarPicker v-if="layer === 'car'" title="구매한 차종" @close="layer = ''" @pick="car = $event; layer = ''" />
-    <Sheet v-if="layer === 'month'" title="구매 시기" @close="layer = ''"><div class="opt-grid"><button v-for="m in MONTHS" :key="m" type="button" :class="{ on: v.month === m }" @click="v.month = m; layer = ''">{{ m }}</button></div></Sheet>
-    <Sheet v-if="layer === 'city'" title="구매 지역" @close="layer = ''"><div class="opt-grid"><button v-for="c in SIDO" :key="c" type="button" :class="{ on: v.city === c }" @click="v.city = c; layer = ''">{{ c }}</button></div></Sheet>
-    <Sheet v-if="layer === 'reward'" title="보상 안내" @close="layer = ''"><div class="doc"><p>올린 구매가는 심사 뒤 그 차종의 구매가 목록에 공개돼요. 이름 · 연락처 · 영수증 사진은 공개하지 않아요.</p><p>영수증의 금액과 입력한 금액이 맞아야 포인트를 받아요. 같은 차를 두 번 올리면 처음 것만 인정돼요.</p></div></Sheet>
+    <Sheet xr v-if="layer === 'month'" title="구매 시기" @close="layer = ''"><div class="opt-grid"><button v-for="m in MONTHS" :key="m" type="button" :class="{ on: v.month === m }" @click="v.month = m; layer = ''">{{ m }}</button></div></Sheet>
+    <Sheet xr v-if="layer === 'city'" title="구매 지역" @close="layer = ''"><div class="opt-grid"><button v-for="c in SIDO" :key="c" type="button" :class="{ on: v.city === c }" @click="v.city = c; layer = ''">{{ c }}</button></div></Sheet>
+    <Sheet xr v-if="layer === 'reward'" title="보상 안내" @close="layer = ''"><div class="doc"><p>올린 구매가는 심사 뒤 그 차종의 구매가 목록에 공개돼요. 이름 · 연락처 · 영수증 사진은 공개하지 않아요.</p><p>영수증의 금액과 입력한 금액이 맞아야 포인트를 받아요. 같은 차를 두 번 올리면 처음 것만 인정돼요.</p></div></Sheet>
   </main>
 </template>

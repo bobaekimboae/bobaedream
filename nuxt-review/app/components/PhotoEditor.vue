@@ -707,7 +707,9 @@ const cropStyle = computed(() => ({
 }));
 let cdrag: { hd: string; sx: number; sy: number; x: number; y: number; w: number; h: number } | null = null;
 const HDIR: Record<string, [number, number]> = { tl: [-1, -1], tr: [1, -1], bl: [-1, 1], br: [1, 1], t: [0, -1], b: [0, 1], l: [-1, 0], r: [1, 0], m: [0, 0] };
+const cropping = ref(false); // 원본: 틀을 움직이는 동안만 3등분 선
 function cropDown(e: PointerEvent, hd: string) {
+  cropping.value = true;
   e.stopPropagation();
   (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   cdrag = { hd, sx: e.clientX, sy: e.clientY, x: crop.x, y: crop.y, w: crop.w, h: crop.h };
@@ -738,7 +740,7 @@ function cropMove(e: PointerEvent) {
   crop.x = sx > 0 ? ax : sx < 0 ? ax - w : c.x;
   crop.y = sy > 0 ? ay : sy < 0 ? ay - h : c.y;
 }
-function cropUp() { cdrag = null; }
+function cropUp() { cdrag = null; cropping.value = false; }
 function cropCanvas(c: HTMLCanvasElement) {
   const x = Math.round(crop.x * c.width), y = Math.round(crop.y * c.height);
   const w = Math.round(crop.w * c.width), h = Math.round(crop.h * c.height);
@@ -1095,7 +1097,7 @@ onBeforeUnmount(() => {
   <div class="pe" :class="{ 'is-tool': tool, 'is-ai': ai.running }" role="dialog" aria-modal="true" aria-label="사진 편집">
     <header v-if="!tool" class="pe-top">
       <button type="button" class="pe-top__back" aria-label="뒤로" @click="back"><Ico :src="EIC.back" /></button>
-      <span class="pe-top__count" aria-live="polite">{{ pages.length ? cur + 1 : 0 }}/{{ pages.length }}</span>
+      <span class="pe-top__count" :style="{ visibility: pages.length > 1 ? 'visible' : 'hidden' }" aria-live="polite">{{ pages.length ? cur + 1 : 0 }}/{{ pages.length }}</span>
       <button type="button" class="pe-top__done" :disabled="busy || ai.running || !ready" @click="finish">{{ busy ? "저장 중" : "완료" }}</button>
     </header>
 
@@ -1121,7 +1123,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
       <div v-if="tool === 'crop'" class="pe-crop" :style="cropStyle" @pointerdown="cropDown($event, 'm')" @pointermove="cropMove" @pointerup="cropUp" @pointercancel="cropUp">
-        <i class="pe-crop__grid" />
+        <i v-show="cropping" class="pe-crop__grid" />
         <span v-for="hd in ['tl', 'tr', 'bl', 'br']" :key="hd" class="pe-crop__c" :class="`is-${hd}`" @pointerdown="cropDown($event, hd)" @pointermove="cropMove" @pointerup="cropUp" />
         <template v-if="ratio === 'free'">
           <span v-for="hd in ['t', 'b', 'l', 'r']" :key="hd" class="pe-crop__e" :class="`is-${hd}`" @pointerdown="cropDown($event, hd)" @pointermove="cropMove" @pointerup="cropUp" />
@@ -1171,7 +1173,7 @@ onBeforeUnmount(() => {
 
     <!-- 도구 판 -->
     <section v-else class="pe-panel" :aria-label="toolTitle">
-      <div v-if="tool === 'pen' || tool === 'mosaic'" class="pe-p-brush">
+      <div v-if="tool === 'pen' || tool === 'mosaic'" class="pe-p-brush" :class="{ 'is-mosaic': tool === 'mosaic' }">
         <label class="pe-size">
           <span>크기</span>
           <input v-if="tool === 'pen'" v-model.number="penSize" type="range" min="0" max="100" aria-label="펜 크기" />
@@ -1181,7 +1183,6 @@ onBeforeUnmount(() => {
         <div v-if="tool === 'pen'" class="pe-colors" role="radiogroup" aria-label="펜 색">
           <button v-for="c in PEN_COLORS" :key="c" type="button" role="radio" class="pe-dot" :class="{ on: penColor === c }" :style="{ '--c': c }" :aria-checked="penColor === c" :aria-label="`색 ${c}`" @click="penColor = c" />
         </div>
-        <p v-else class="pe-tip">가릴 부분을 손가락으로 문질러 주세요</p>
       </div>
 
       <div v-else-if="tool === 'crop'" class="pe-p-crop">

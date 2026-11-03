@@ -51,7 +51,7 @@ const donePart = () => { if (!part.brand.trim()) return toast("브랜드 · 모�
 
 /* 위치: 원본은 위치 권한부터 묻는다(「开启位置权限」 暂不开启 / 一键开启) */
 const askMap = async () => {
-  const ok = await ask("위치 권한을 켤까요? 보배드림이 지금 위치로 지역을 채워요", "지금은 안 함", "켜기");
+  const ok = await ask("위치 권한 켜기", "지금은 안 함", "켜기", { sub: "보배드림이 지금 위치로 지역을 채워요", card: true });
   if (!ok) return;
   if (!navigator.geolocation) { sheet.value = "city"; return; }
   navigator.geolocation.getCurrentPosition(() => { sheet.value = "city"; toast("가까운 지역을 골라 주세요"); }, () => { sheet.value = "city"; toast("위치를 알 수 없어요. 지역을 직접 골라 주세요"); }, { timeout: 5000 });
@@ -89,41 +89,41 @@ defineExpose({ closePanel: () => (panel.value = false) });
     </div>
   </div>
 
-  <Sheet v-if="sheet === 'vote'" title="투표" @close="sheet = ''">
+  <Sheet xr v-if="sheet === 'vote'" title="투표" @close="sheet = ''">
     <div class="pvote">
       <input v-model="vote.title" class="pvote__title" maxlength="40" placeholder="투표 제목을 써 주세요(필수)" aria-label="투표 제목" />
       <div class="pvote__box">
         <div class="seg"><button type="button" :class="{ on: !vote.multi }" @click="vote.multi = false">하나만</button><button type="button" :class="{ on: vote.multi }" @click="vote.multi = true">여러 개</button></div>
         <div v-for="(o, i) in vote.options" :key="i" class="pvote__opt"><input v-model="vote.options[i]" maxlength="20" :placeholder="`선택지 ${i + 1}`" :aria-label="`선택지 ${i + 1}`" /><button v-if="vote.options.length > 2" type="button" :aria-label="`선택지 ${i + 1} 빼기`" @click="vote.options.splice(i, 1)"><Ico :src="IC.clear" /></button></div>
-        <button v-if="vote.options.length < 10" type="button" class="pvote__add" @click="vote.options.push('')">+ 선택지 추가</button>
+        <button v-if="vote.options.length < 10" type="button" class="pvote__add" @click="vote.options.push('')"><Ico :src="IC.add" />선택지 추가</button>
       </div>
-      <button type="button" class="pvote__until" @click="sheet = 'voteUntil'"><span><i>*</i>마감 시간</span><em :class="{ ph: !vote.until }">{{ vote.until || "선택" }}</em><Ico :src="IC.chevron" /></button>
+      <button type="button" class="pvote__until" @click="sheet = 'voteUntil'"><span class="pvote__ut"><Ico :src="IC.clock" /><i>*</i>마감 시간</span><em :class="{ ph: !vote.until }">{{ vote.until || "선택" }}</em><Ico :src="IC.chevron" /></button>
     </div>
     <template #foot><button type="button" class="btn-pri" :class="{ 'is-off': !voteOk }" @click="doneVote">완료</button></template>
   </Sheet>
-  <Sheet v-if="sheet === 'voteUntil'" title="마감 시간" @close="sheet = 'vote'">
+  <Sheet xr v-if="sheet === 'voteUntil'" title="마감 시간" @close="sheet = 'vote'">
     <div class="opt-grid"><button v-for="u in UNTIL" :key="u" type="button" :class="{ on: vote.until === u }" @click="vote.until = u; sheet = 'vote'">{{ u }}</button></div>
   </Sheet>
 
-  <Sheet v-if="sheet === 'price'" title="실제 구매가" @close="sheet = ''">
+  <Sheet xr v-if="sheet === 'price'" title="실제 구매가" @close="sheet = ''">
+    <template #lead><span class="pprice__city"><Ico :src="IC.location" />{{ price.city || city || "지역 미정" }}</span></template>
     <div class="pprice">
-      <p class="pprice__city"><Ico :src="IC.location" />{{ price.city || city || "지역 미정" }}</p>
-      <button type="button" class="pprice__car" @click="picker = true"><template v-if="price.car"><img v-if="price.car.photo" :src="asset(price.car.photo)" alt="" /><b>{{ price.car.brand }} {{ price.car.model }}</b><span>{{ price.car.trim }}</span></template><template v-else><Ico :src="IC.add" /><span>차종 고르기</span></template></button>
+            <button type="button" class="pprice__car" @click="picker = true"><template v-if="price.car"><img v-if="price.car.photo" :src="asset(price.car.photo)" alt="" /><b>{{ price.car.brand }} {{ price.car.model }}</b><span>{{ price.car.trim }}</span></template><template v-else><span class="pprice__none"><Ico :src="IC.add" /><span>차종 고르기</span></span></template></button>
       <button type="button" class="fields__row" @click="sheet = 'priceMonth'"><span>구매 월<i>*</i></span><em :class="{ ph: !price.month }">{{ price.month || "선택" }}</em><Ico :src="IC.chevron" class="fields__arr" /></button>
       <label class="fields__row"><span>차량가<i>*</i></span><input :value="price.nake" inputmode="decimal" placeholder="소수 둘째 자리까지" aria-label="차량가(만원)" @input="price.nake = num2(($event.target as HTMLInputElement).value)" /><u>만원</u></label>
       <label class="fields__row"><span>실구매가<i>*</i></span><input :value="price.total" inputmode="decimal" placeholder="소수 둘째 자리까지" aria-label="실구매가(만원)" @input="price.total = num2(($event.target as HTMLInputElement).value)" /><u>만원</u></label>
     </div>
     <template #foot><button type="button" class="btn-pri" :class="{ 'is-off': !priceOk }" :aria-disabled="!priceOk" @click="donePrice">구매가 넣기</button></template>
   </Sheet>
-  <Sheet v-if="sheet === 'priceMonth'" title="구매 월" @close="sheet = 'price'">
+  <Sheet xr v-if="sheet === 'priceMonth'" title="구매 월" @close="sheet = 'price'">
     <div class="opt-grid"><button v-for="m in MONTHS" :key="m" type="button" :class="{ on: price.month === m }" @click="price.month = m; sheet = 'price'">{{ m }}</button></div>
   </Sheet>
   <CarPicker v-if="picker" title="차종 고르기" @close="picker = false" @pick="price.car = $event; picker = false" />
 
-  <Sheet v-if="sheet === 'part'" title="부품 종류 고르기" @close="sheet = ''">
+  <Sheet xr v-if="sheet === 'part'" title="부품 종류 고르기" @close="sheet = ''">
     <div class="opt-grid opt-grid--4"><button v-for="t in PART_TYPES" :key="t" type="button" @click="openPart(t)">{{ t }}</button></div>
   </Sheet>
-  <Sheet v-if="sheet === 'partEdit'" title="부품 정보" @close="sheet = ''">
+  <Sheet xr v-if="sheet === 'partEdit'" title="부품 정보" @close="sheet = ''">
     <div class="opt-grid opt-grid--4"><button v-for="t in PART_TYPES" :key="t" type="button" :class="{ on: part.type === t }" @click="part.type = t">{{ t }}</button></div>
     <div class="pprice">
       <label class="fields__row"><span>브랜드 · 모델<i>*</i></span><input v-model="part.brand" maxlength="30" placeholder="예: BBS LM" aria-label="브랜드 · 모델" /></label>
@@ -132,7 +132,7 @@ defineExpose({ closePanel: () => (panel.value = false) });
     </div>
     <template #foot><button type="button" class="btn-pri" @click="donePart">부품 저장</button></template>
   </Sheet>
-  <Sheet v-if="sheet === 'city'" title="지역" @close="sheet = ''">
+  <Sheet xr v-if="sheet === 'city'" title="지역" @close="sheet = ''">
     <div class="opt-grid"><button v-for="c in SIDO" :key="c" type="button" :class="{ on: city === c }" @click="emit('city', c); sheet = ''">{{ c }}</button></div>
   </Sheet>
 </template>

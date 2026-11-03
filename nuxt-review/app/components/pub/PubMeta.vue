@@ -37,18 +37,20 @@ const pickCircle = (n: string) => { emit("update:circle", p.circle === n ? "" : 
   </section>
   <button v-if="showClaim" type="button" class="pmeta__claim" @click="sheet = 'claim'">{{ claim || "내용 성격 표시" }}<i class="tri tri--r pmeta__caret" /></button>
 
-  <Sheet v-if="sheet === 'topic'" title="화제 추가" full @close="sheet = ''">
-    <label class="pmeta__search"><Ico :src="IC.search" /><input v-model="q" placeholder="화제 검색" aria-label="화제 검색" /></label>
+  <Sheet xr v-if="sheet === 'topic'" title="화제 추가" full @close="sheet = ''">
+    <p class="pmeta__tip">알맞은 화제를 달면 더 많은 사람이 글을 봐요</p>
+    <label class="pmeta__search"><Ico :src="IC.search" /><input v-model="q" placeholder="검색어로 화제를 빨리 찾아요" aria-label="화제 검색" /></label>
+    <p v-if="!q.trim()" class="pmeta__sec">인기 화제</p>
     <button v-for="t in found" :key="t.id" type="button" class="pmeta__item" :class="{ on: topic === t.name }" @click="pickTopic(t.name)">
       <b>#</b><span>{{ t.name }}<em v-if="t.hot">인기</em></span><small>글 {{ fmt(t.posts) }}</small>
     </button>
     <button v-if="q.trim() && !found.length" type="button" class="pmeta__item" @click="pickTopic(q.trim())"><b>#</b><span>「{{ q.trim() }}」 새 화제로 쓰기</span></button>
   </Sheet>
-  <Sheet v-if="sheet === 'circle'" title="차량 모임" full @close="sheet = ''">
+  <Sheet xr v-if="sheet === 'circle'" title="차량 모임" full @close="sheet = ''">
     <p class="pmeta__hint">글이 모임 게시판에도 함께 올라가요</p>
     <button v-for="c in CIRCLES" :key="c" type="button" class="pmeta__item" :class="{ on: circle === c }" @click="pickCircle(c)"><b class="pmeta__ring" /><span>{{ c }} 모임</span><small v-if="circle === c">선택됨</small></button>
   </Sheet>
-  <Sheet v-if="sheet === 'claim'" title="내용 성격 표시" @close="sheet = ''">
+  <Sheet xr v-if="sheet === 'claim'" title="내용 성격 표시" @close="sheet = ''">
     <div class="pmeta__claims">
       <button v-for="(c, i) in CLAIMS" :key="c" type="button" :class="{ on: claim === c, gap: i === CLAIMS.length - 1 }" @click="emit('update:claim', claim === c ? '' : c); sheet = ''">{{ c }}</button>
     </div>
