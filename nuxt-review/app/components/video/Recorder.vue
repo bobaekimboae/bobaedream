@@ -5,8 +5,14 @@ import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 import Ico from "../Ico.vue";
 import { VI } from "../../lib/video-icons";
 import { FILTERS, pickMime } from "./render";
+import { KINDS, type Kind } from "../../lib/route";
+import { KIND_LABEL } from "../../lib/publish";
+import { IC } from "../../lib/icons";
 
-const emit = defineEmits<{ recorded: [blob: Blob, rate: number, filter: string]; album: []; close: [] }>();
+// kind: 글쓰기 키트의 「영상」 탭에서 열 때만 넘긴다. 원본처럼 머리에 「영상 ⇄」(처음엔 글 종류 탭 줄)을 보여 준다.
+const props = defineProps<{ kind?: Kind }>();
+const emit = defineEmits<{ recorded: [blob: Blob, rate: number, filter: string]; album: []; close: []; kind: [Kind] }>();
+const kinds = ref(Boolean(props.kind));
 
 const MAX = 60;
 const live = ref<HTMLVideoElement | null>(null);
@@ -124,11 +130,15 @@ defineExpose({
     <div class="vf-rec__bar" aria-hidden="true"><i :style="{ width: `${(elapsed / MAX) * 100}%` }" /></div>
     <header class="vf-rec__top">
       <button class="vf-ibtn" type="button" aria-label="닫기" @click="emit('close')"><Ico :src="VI.close" /></button>
-      <strong>동영상</strong>
+      <nav v-if="kind && kinds && !recording" class="vf-rec__kinds" aria-label="글 종류">
+        <button v-for="k in KINDS" :key="k" type="button" :class="{ on: k === kind }" :aria-current="k === kind ? 'page' : undefined" @click="k === kind ? (kinds = false) : emit('kind', k)">{{ KIND_LABEL[k] }}</button>
+      </nav>
+      <template v-else-if="kind"><strong class="vf-rec__title">{{ KIND_LABEL[kind] }}</strong><button v-show="!recording" class="vf-rec__sw" type="button" aria-label="글 종류 바꾸기" @click="kinds = true"><Ico :src="IC.switch" /></button></template>
+      <strong v-else>동영상</strong>
       <span v-if="recording" class="vf-rec__time" role="status">{{ elapsed.toFixed(1) }}초</span>
     </header>
 
-    <nav v-show="!recording" class="vf-rec__side" aria-label="촬영 설정">
+    <nav v-show="!recording && !(kind && kinds)" class="vf-rec__side" aria-label="촬영 설정">
       <button type="button" aria-label="카메라 전환" @click="flip"><Ico :src="VI.flip" /><span>전환</span></button>
       <button type="button" :aria-pressed="panel === 'speed'" @click="panel = panel === 'speed' ? '' : 'speed'"><Ico :src="VI.speed" /><span>속도</span></button>
       <button type="button" :aria-pressed="panel === 'filter'" @click="panel = panel === 'filter' ? '' : 'filter'"><Ico :src="VI.filter" /><span>필터</span></button>

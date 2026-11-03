@@ -315,3 +315,138 @@
 .pdraft__go small { font-size: 12px; color: var(--mute); }
 .pdraft__rm { height: 30px; padding: 0 10px; border-radius: 6px; font-size: 13px; color: var(--err); }
 .pdraft__empty { padding: 32px; text-align: center; color: var(--mute); }
+
+/* ── 동처띠 2차 대조(2026-11-03 폰 adb 1080×2400 → 384 CSS, 상태줄 39.1 제외) ──
+   머리 47.6 · X 잉크 15.6 · 탭 17px #1F2129 · 탭 사이 15.6 · 카드 좌우 8(긴 글 12) · 카드 사이 8 ·
+   사진 칸 89.6 정사각 · 점선 테두리 · 사이 4.4 · 화제 줄 44 · 칩 26 높이 반경 4 · 도구 줄 44(아이콘 24, 첫 x16) */
+.write--pub { --dcd-ph: #c9cbd6; --dcd-sub: #979aa8; --dcd-ink: #1f2129; --dcd-chip: #f2f4fa; --dcd-chipt: #4b5a75; }
+.whead { height: 48px; }
+.whead__x .ico { width: 32px; height: 32px; }
+.whead__tabs { gap: 15.6px; height: 48px; padding: 4px 12px 0 5px; }
+.whead__tabs button { height: 44px; font-size: 17px; color: #1f2129; }
+.whead__tabs button.on { font-size: 20px; }
+.whead__tabs button.on::after { bottom: 2px; width: 26px; margin-left: -13px; height: 3px; }
+
+.write--pub .pcard { margin: 4px 8px 0; padding: 12px; border-radius: 8px; }
+.write--pub .pcard + .pcard, .write--pub .pcard + .pmeta, .write--pub .pmeta { margin-top: 8px; }
+.write--pub .pcard--media { padding: 8px; }
+.pcard--media .pmedia { grid-template-columns: repeat(auto-fill, 89.6px); gap: 4.4px; }
+.pcard--media .pmedia__add, .pcard--media .pmedia__ai { gap: 4px; border-radius: 6px; background: #fff; border: 1px dashed #d3dbeb; color: var(--dcd-sub); font-size: 13px; line-height: 18px; }
+.pcard--media .pmedia__add .ico { width: 24px; height: 24px; color: var(--dcd-sub); }
+.pcard--media .pmedia__ai { border-color: #c4cffc; background: linear-gradient(135deg, #f6f7ff, #faf4ff); color: #4b5cee; font-size: 14px; }
+.pcard--media .pmedia__ai .ico { width: 28px; height: 28px; color: #4b5cee; }
+.write--ask .pcard--media .pmedia__add .ico { width: 28px; height: 28px; }
+
+/* 글 칸 */
+.write--pub .ptext { gap: 0; }
+.write--pub .ptext__title { height: 45px; font-size: 18px; border-bottom-color: #e6e8f2; }
+.write--pub .ptext__title::placeholder, .write--pub .ptext__body::placeholder { color: var(--dcd-ph); }
+.write--pub .ptext__body { min-height: 154px; padding-top: 12px; font-size: 16px; line-height: 24px; }
+.write--ask .ptext { padding: 12px 16px 0; }
+.write--ask .ptext__body { min-height: 110px; height: 110px; padding-top: 0; }
+.write--ask .ptext__count--out { align-self: flex-start; margin-left: 0; height: 34px; line-height: 34px; font-size: 12px; color: var(--dcd-sub); }
+.write--long .pcard { margin: 4px 12px 0; padding: 0 16px; }
+.write--long .ptext__title { height: 52.7px; font-size: 22px; font-weight: 700; }
+.write--long .ptext__title::placeholder { font-weight: 700; }
+.write--long .ptext__body { min-height: 110px; }
+.write--long .pmeta { margin: 8px 12px 0; }
+.write--pub .ptext__tips { height: 32px; margin: 0; font-size: 13px; color: var(--dcd-sub); }
+.write--pub .ptext__tips a { color: #1e3bb2; }
+/* 일상: 「써 줘」는 배경 없는 글자 단추 */
+.write--dynamic .aiw__btn { height: 32px; padding: 0; background: none; color: #2f5fec; font-size: 15px; font-weight: 500; }
+.write--dynamic .aiw__btn .ico { width: 16px; height: 16px; }
+.write--dynamic .ptext { padding-bottom: 12px; }
+
+/* 화제 · 차량 모임 */
+.write--pub .pmeta { margin-left: 8px; margin-right: 8px; padding: 0 12px; border-radius: 8px; }
+.write--pub .pmeta:has(.pmeta__row + .pmeta__row) { padding: 4px 12px; }
+.write--pub .pmeta__row { gap: 12px; min-height: 44px; }
+.write--pub .pmeta__row + .pmeta__row { border-top: 0; }
+.write--pub .pmeta__lead { gap: 8px; font-size: 15px; font-weight: 600; color: var(--dcd-ink); }
+.pmeta__ic { width: 16px; height: 16px; }
+.pmeta__caret { margin-left: -4px; color: var(--dcd-ink); }
+.write--pub .pmeta__chips { gap: 8px; }
+.write--pub .pmeta__chips button { height: 26px; padding: 0 8px; border-radius: 4px; background: var(--dcd-chip); font-size: 13px; color: var(--dcd-chipt); }
+.write--pub .pmeta__chips button.on { background: var(--text); color: #fff; }
+.write--pub .pmeta__claim { margin: 0 8px; height: 40px; padding: 0 13.6px; width: calc(100% - 16px); background: none; font-size: 14px; color: #6e7c99; gap: 2px; }
+.write--pub .pmeta__claim .pmeta__caret { margin-left: 2px; color: inherit; }
+.write--pub .pask-circle { bottom: calc(44px + env(safe-area-inset-bottom)); border-top: 0; box-shadow: 0 -8px 12px -4px rgba(20, 40, 90, .06); }
+.write--pub .pask-circle .pmeta { padding: 0 16px; }
+
+/* 도구 줄 */
+.write--pub .ptool { border-top: 0; box-shadow: 0 -8px 12px -4px rgba(20, 40, 90, .06); }
+.write--pub:has(.pask-circle) .ptool { box-shadow: none; }
+.write--pub .ptool__bar { gap: 0; height: 44px; padding: 0 6px; }
+
+/* 내 차 팔기(卖车帖) 2차 대조: 안내는 바탕 위 회색 글자 16/22 · 차종 줄 44 · 항목은 회색 상자(#F7F8FC) 안 35.9 줄 · 글 칸 아래 칩 24 */
+.write--sell .psell__hint { margin: 0; padding: 13px 12.8px 14px; border-radius: 0; background: none; color: var(--dcd-sub); font-size: 16px; line-height: 21.4px; }
+.write--sell .pcard--media { margin-top: 0; }
+.write--sell .psell { padding: 0 12px 8px; }
+.write--sell .psell__car { min-height: 44px; border-bottom: 0; gap: 8px; }
+.write--sell .psell__car > .ico:first-child { width: 16px; height: 16px; }
+.write--sell .psell__car b { font-size: 16px; font-weight: 700; color: var(--dcd-ink); }
+.write--sell .psell__car span { font-size: 15px; color: #606370; }
+.write--sell .psell__car .ph { color: var(--dcd-sub); }
+.write--sell .psell__sw { width: 16px !important; height: 16px !important; }
+.write--sell .psell__rows { padding: 4px 8px 4px 9px; border-radius: 4px; background: #f7f8fc; }
+.write--sell .psell__rows button { min-height: 35.9px; gap: 4px; font-size: 15px; color: var(--dcd-ink); }
+.write--sell .psell__rows button + button { border-top: 0; }
+.write--sell .psell__rows .ico { width: 14px; height: 14px; color: #606370; }
+.write--sell .psell__rows .ph { color: var(--dcd-sub); }
+.write--sell .ptext { padding: 0 12px 16px; }
+.write--sell .ptext__body { min-height: 154px; }
+.write--sell .psell__tools { gap: 8px; }
+.write--sell .psell__tools .aiw__btn { height: 24px; padding: 0 8px; border-radius: 4px; background: linear-gradient(90deg, #faf4ff, #eef4ff); color: #0358ff; font-size: 14px; }
+.write--sell .psell__chip { height: 24px; padding: 0 8px; border-radius: 4px; background: var(--dcd-chip); font-size: 13px; color: var(--dcd-chipt); }
+.write--sell .psell__chip.is-off { color: var(--dcd-ph); }
+.write--sell .psell__tools .ptext__count { margin-left: 4px; color: var(--dcd-ph); }
+
+/* 구매가(车主价) 2차 대조: 보상 카드 52–351(머리 띠 · 안내 2줄 · 영수증 올리기 큰 칸 약 352×195) · 항목 줄 43.9 구분선 없음 ·
+   메모 제목 17 · 글은 회색 상자 없이 16/22.8 · 기타 정보 41.6 */
+.write--price .prew { padding: 0 8px 6px; overflow: hidden; }
+.write--price .prew__title { width: calc(100% + 16px); margin: 0 -8px; height: 42px; padding: 0 12.6px; background: linear-gradient(180deg, #f1f2f5, #fff); font-size: 17px; font-weight: 800; }
+.write--price .prew p { margin: 6px 0 0 8.7px; font-size: 14px; color: var(--dcd-ink); }
+.write--price .prew p i { width: 12px; height: 12px; background: var(--text); box-shadow: inset 0 0 0 3.5px #fff, inset 0 0 0 6px var(--text); }
+.write--price .prew__inv { flex-direction: column; justify-content: center; gap: 10px; height: 188px; margin: 12px 0 0; border: 1px dashed #d3dbeb; background: #fcfcfd; }
+.write--price .prew__inv img { position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 0; }
+.write--price .prew__sample { opacity: .18; }
+.write--price .prew__plus { position: relative; left: auto; top: auto; width: 36px; height: 36px; }
+.write--price .prew__plus .ico { width: 22px; height: 22px; }
+.write--price .prew__inv b { position: relative; font-size: 16px; font-weight: 500; color: #606370; }
+.write--price .prew__inv.has b { margin-top: auto; margin-bottom: 10px; padding: 4px 10px; border-radius: 12px; background: rgba(0, 0, 0, .55); color: #fff; font-size: 13px; }
+.write--price .prows { padding: 0 12px; }
+.write--price .prows__row { min-height: 43.9px; font-size: 16px; color: var(--dcd-ink); }
+.write--price .prows .prows__row + .prows__row { border-top: 0; }
+.write--price .prows__row em, .write--price .prows__row input { font-size: 15px; }
+.write--price .prows__row .ph, .write--price .prows__row input::placeholder { color: var(--dcd-sub); }
+.write--price .pnote { padding: 14px 12px 12px; }
+.write--price .pnote h2 { margin: 0 0 10px; font-size: 17px; }
+.write--price .pnote textarea { padding: 0; background: none; font-size: 16px; line-height: 22.8px; min-height: 68px; }
+.write--price .pnote textarea::placeholder { color: var(--dcd-ph); }
+.write--price .pmore { padding: 0 12px; }
+.write--price .pmore__head { height: 41.6px; font-size: 17px; }
+.write--price .pmore__head small { font-size: 15px; color: var(--dcd-ink); margin-left: auto; }
+.write--price .pmore__head .tri { margin-left: 8px; }
+.write--price .prew p { display: block; font-size: 13px; line-height: 20px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.write--price .prew p i { display: inline-block; vertical-align: -1px; margin-right: 6px; }
+.write--price .prew__badge { display: inline-block; line-height: 18px; }
+.write--price .pnote textarea { height: 46px; }
+.write--dynamic .ptext, .write--sell .ptext { padding-top: 0; }
+
+/* 사진 고르기(最近照片) 2차 대조: 머리(글 종류 · 등록)는 그대로 두고 그 아래부터 흰 판이 올라온다 · 어둡게 하지 않음 ·
+   손잡이 + 「최근 사진 ⌄」 20/700 가운데(판 위에서 38) · 4칸 격자 사이 2 · 첫 칸 사진 찍기(점선) */
+.layer:has(> .ppick) .dim { background: transparent; }
+.ppick { top: 48px; height: auto; border-radius: 12px 12px 0 0; box-shadow: 0 -6px 16px rgba(20, 40, 90, .08); }
+.ppick__head { height: 59.4px; padding-top: 6px; font-size: 20px; }
+.ppick__head b { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; }
+.ppick__head b::after { content: ""; width: 8px; height: 8px; margin-top: -5px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); }
+.ppick__grab { top: 8px; }
+.ppick__grid { grid-template-columns: repeat(4, 1fr); gap: 2px; }
+.ppick__cam, .ppick__album { background: #fff; border: 1px dashed #d3dbeb; color: var(--dcd-sub, #979aa8); font-size: 14px; }
+.ppick__cam .ico, .ppick__album .ico { width: 28px; height: 28px; color: #b7bac6; }
+.ppick__num { width: 20px; height: 20px; line-height: 17px; background: rgba(0, 0, 0, .1); }
+/* 고른 뒤 아래 줄: 검은 띠(#15161A) 위 편집(#3B3B3F) · 완료 반반, 높이 48 · 사이 8 · 좌우 16 */
+.ppick__foot { gap: 8px; padding: 16px 16px calc(12px + env(safe-area-inset-bottom)); border-top: 0; background: #15161a; }
+.ppick__edit, .ppick__done { flex: 1; height: 48px; padding: 0; border-radius: 6px; font-size: 16px; font-weight: 700; }
+.ppick__edit { background: #3b3b3f; color: #fff; }
+.ppick__done { background: #fff; color: var(--text); }

@@ -21,21 +21,21 @@ const pickCircle = (n: string) => { emit("update:circle", p.circle === n ? "" : 
 <template>
   <section class="pmeta">
     <div v-if="showTopic !== false" class="pmeta__row">
-      <button type="button" class="pmeta__lead" @click="sheet = 'topic'"><b class="pmeta__hash">#</b><span>{{ topic ? "화제" : "화제 추가" }}</span><i class="tri tri--r" /></button>
+      <button type="button" class="pmeta__lead" @click="sheet = 'topic'"><Ico class="pmeta__ic" :src="IC.hashtag" /><span>{{ topic ? "화제" : "화제 추가" }}</span><i class="tri tri--r pmeta__caret" /></button>
       <div class="pmeta__chips">
         <button v-if="topic && !hot.some((t) => t.name === topic)" type="button" class="on" @click="emit('update:topic', '')">{{ topic }} ✕</button>
         <button v-for="t in hot" :key="t.id" type="button" :class="{ on: topic === t.name }" @click="pickTopic(t.name)">{{ t.hot ? "" : "# " }}{{ t.name }}<em v-if="t.hot">상</em></button>
       </div>
     </div>
     <div v-if="showCircle !== false" class="pmeta__row">
-      <button type="button" class="pmeta__lead" @click="sheet = 'circle'"><b class="pmeta__ring" /><span>차량 모임</span><i class="tri tri--r" /></button>
+      <button type="button" class="pmeta__lead" @click="sheet = 'circle'"><Ico class="pmeta__ic" :src="IC.circleDot" /><span>차량 모임</span><i class="tri tri--r pmeta__caret" /></button>
       <div class="pmeta__chips">
         <button v-for="c in CIRCLES.slice(0, 4)" :key="c" type="button" :class="{ on: circle === c }" @click="pickCircle(c)">{{ c }}</button>
         <button v-if="circle && !CIRCLES.slice(0, 4).includes(circle)" type="button" class="on" @click="emit('update:circle', '')">{{ circle }} ✕</button>
       </div>
     </div>
   </section>
-  <button v-if="showClaim" type="button" class="pmeta__claim" @click="sheet = 'claim'">{{ claim || "내용 성격 표시" }}<i class="tri tri--r" /></button>
+  <button v-if="showClaim" type="button" class="pmeta__claim" @click="sheet = 'claim'">{{ claim || "내용 성격 표시" }}<i class="tri tri--r pmeta__caret" /></button>
 
   <Sheet v-if="sheet === 'topic'" title="화제 추가" full @close="sheet = ''">
     <label class="pmeta__search"><Ico :src="IC.search" /><input v-model="q" placeholder="화제 검색" aria-label="화제 검색" /></label>

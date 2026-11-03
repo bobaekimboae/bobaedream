@@ -70,11 +70,10 @@ const preview = computed(() => ({ kind: "dynamic" as const, title: title.value, 
 </script>
 
 <template>
-  <main class="write write--pub">
-    <WriteHead kind="dynamic" :picked="has" :can-post="can" :preview="has" drafts @close="close" @post="post" @switch="emit('switch', $event)" @preview="layer = 'preview'" @drafts="layer = 'drafts'" />
-    <section class="pcard">
+  <main class="write write--pub write--dynamic">
+    <WriteHead kind="dynamic" :picked="has || layer === 'pick'" :can-post="can" :preview="has" drafts @close="close" @post="post" @switch="emit('switch', $event)" @preview="layer = 'preview'" @drafts="layer = 'drafts'" />
+    <section class="pcard pcard--media">
       <PubMedia :media="media" :max="MAX" mode="dynamic" @pick="layer = 'pick'" @ai="layer = 'ai'" @edit="onEdit" @remove="media.splice($event, 1)" @move="moveMedia" />
-      <p v-if="!media.length" class="pcard__tip">좋은 사진을 올리면 <b>더 많이 노출</b>돼요 ✦</p>
     </section>
     <section class="pcard ptext">
       <input v-model="title" class="ptext__title" maxlength="30" placeholder="제목을 쓰면 더 많이 추천돼요(선택)" aria-label="제목" />

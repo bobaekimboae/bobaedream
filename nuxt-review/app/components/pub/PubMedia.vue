@@ -32,7 +32,7 @@ const up = (i: number) => {
 
 <template>
   <div class="pmedia" :class="`pmedia--${mode}`">
-    <button v-if="mode === 'dynamic' && !media.length" type="button" class="pmedia__ai" @click="emit('ai')"><Ico :src="IC.powerup" /><span>AI 그림</span></button>
+    <button v-if="mode === 'dynamic' && !media.length" type="button" class="pmedia__ai" @click="emit('ai')"><Ico :src="IC.imagePost" /><span>AI 그림</span></button>
     <div v-for="(m, i) in media" :key="m.src.slice(-24) + i" class="pmedia__cell" :data-mi="i" :class="{ 'is-drag': drag === i, 'is-over': over === i && drag !== i }"
       @pointerdown="down(i, $event)" @pointermove="move" @pointerup="up(i)" @pointercancel="drag = -1">
       <img :src="m.kind === 'video' ? m.cover || '' : m.src" alt="" draggable="false" />
@@ -42,8 +42,8 @@ const up = (i: number) => {
       <span class="pmedia__edit"><Ico :src="IC.edit" />편집</span>
     </div>
     <template v-if="media.length < max && !(mode === 'video' && media.length)">
-      <button v-if="mode !== 'video'" type="button" class="pmedia__add" @click="emit('pick')"><Ico :src="IC.add" /><span>{{ media.length ? "계속 추가" : mode === "sell" ? "차량 사진" : mode === "ask" ? "사진 추가" : "사진 올리기" }}</span></button>
-      <button v-if="(mode === 'ask' && !media.some((m) => m.kind === 'video')) || mode === 'video'" type="button" class="pmedia__add" @click="emit('video')"><Ico :src="IC.video" /><span>영상 추가</span></button>
+      <button v-if="mode !== 'video'" type="button" class="pmedia__add" @click="emit('pick')"><Ico :src="mode === 'ask' && !media.length ? IC.imagePost : IC.add" /><span>{{ media.length ? "계속 추가" : mode === "sell" ? "차량 사진" : mode === "ask" ? "사진 추가" : "사진 올리기" }}</span></button>
+      <button v-if="(mode === 'ask' && !media.some((m) => m.kind === 'video')) || mode === 'video'" type="button" class="pmedia__add" @click="emit('video')"><Ico :src="IC.videoPost" /><span>영상 추가</span></button>
     </template>
   </div>
 </template>

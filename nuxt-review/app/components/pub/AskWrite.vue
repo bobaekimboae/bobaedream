@@ -7,12 +7,11 @@ import PubMedia from "./PubMedia.vue";
 import PubMeta from "./PubMeta.vue";
 import PubToolbar from "./PubToolbar.vue";
 import AttachCards from "./AttachCards.vue";
-import AiWrite from "./AiWrite.vue";
 import PhotoPicker from "./PhotoPicker.vue";
 import PhotoEditor from "../PhotoEditor.vue";
 import VideoFlow from "../VideoFlow.vue";
 import PostPreview from "./PostPreview.vue";
-import { aiDraft, type Media, type Vote } from "../../lib/publish";
+import { type Media, type Vote } from "../../lib/publish";
 import { usePub } from "../../lib/usePub";
 import { toast } from "../../lib/ui";
 import type { Kind } from "../../lib/route";
@@ -56,10 +55,9 @@ const post = () => {
 <template>
   <main class="write write--pub write--ask">
     <WriteHead kind="ask" :picked="has" :can-post="can" :preview="has" @close="close" @post="post" @switch="emit('switch', $event)" @preview="layer = 'preview'" />
-    <section class="pcard"><PubMedia :media="media" :max="MAX" mode="ask" @pick="layer = 'pick'" @video="layer = 'video'" @edit="onEdit" @remove="media.splice($event, 1)" @move="(a, b) => { const [m] = media.splice(a, 1); media.splice(b, 0, m!); }" /></section>
+    <section class="pcard pcard--media"><PubMedia :media="media" :max="MAX" mode="ask" @pick="layer = 'pick'" @video="layer = 'video'" @edit="onEdit" @remove="media.splice($event, 1)" @move="(a, b) => { const [m] = media.splice(a, 1); media.splice(b, 0, m!); }" /></section>
     <section class="pcard ptext">
       <textarea ref="bodyEl" v-model="body" class="ptext__body ptext__body--ask" rows="5" :maxlength="BODY_MAX" aria-label="질문" placeholder="물으면 답해요. 궁금한 걸 빠르게 해결하세요!" />
-      <AiWrite :make="() => aiDraft('ask', {})" label="질문 틀 넣기" @apply="body = $event" />
       <AttachCards :vote="vote" @rm-vote="vote = null" />
       <span class="ptext__count ptext__count--out">{{ [...body].length }}/{{ BODY_MAX }}</span>
     </section>

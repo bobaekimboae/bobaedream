@@ -91,7 +91,7 @@ const post = () => {
   <main class="write write--pub write--sell">
     <WriteHead kind="sell" :picked="true" :can-post="can" @close="close" @post="post" @switch="emit('switch', $event)" />
     <p class="psell__hint">실제 차량 사진을 1장 이상 올려야 등록돼요. 외관 · 실내를 여러 각도로 올리면 더 많이 노출돼요!</p>
-    <section class="pcard"><PubMedia :media="media" :max="MAX" mode="sell" @pick="layer = 'pick'" @edit="editAt = $event; layer = 'edit'" @remove="media.splice($event, 1)" @move="(a, b) => { const [m] = media.splice(a, 1); media.splice(b, 0, m!); }" /></section>
+    <section class="pcard pcard--media"><PubMedia :media="media" :max="MAX" mode="sell" @pick="layer = 'pick'" @edit="editAt = $event; layer = 'edit'" @remove="media.splice($event, 1)" @move="(a, b) => { const [m] = media.splice(a, 1); media.splice(b, 0, m!); }" /></section>
 
     <section class="pcard psell">
       <button type="button" class="psell__car" @click="layer = 'car'">

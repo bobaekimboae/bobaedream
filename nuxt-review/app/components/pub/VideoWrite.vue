@@ -50,7 +50,7 @@ const dur = (d = 0) => `${Math.floor(d / 60)}:${String(Math.round(d % 60)).padSt
     </section>
     <section v-else class="pcard pvid__empty"><button type="button" class="pmedia__add" @click="flow = true"><Ico :src="IC.video" /><span>영상 고르기</span></button></section>
     <PubMeta v-model:topic="s.topic" v-model:circle="s.circle" v-model:claim="s.claim" show-claim />
-    <VideoFlow v-if="flow" start="camera" @done="onDone" @close="onFlowClose" />
+    <VideoFlow v-if="flow" start="camera" kind="video" @kind="emit('switch', $event)" @done="onDone" @close="onFlowClose" />
     <PostPreview v-if="preview && video" :post="{ kind: 'video', title, body, media: [video], topic: s.topic, circle: s.circle }" @close="preview = false" />
   </main>
 </template>

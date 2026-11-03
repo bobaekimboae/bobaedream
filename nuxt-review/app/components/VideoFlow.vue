@@ -9,8 +9,10 @@ import TrimEditor from "./video/TrimEditor.vue";
 import EffectsEditor from "./video/EffectsEditor.vue";
 import { Seq, exportVideo, makeClip, makePlan, type Clip, type EditState, type ExportResult } from "./video/render";
 
-const props = withDefaults(defineProps<{ start?: "album" | "camera" }>(), { start: "album" });
-const emit = defineEmits<{ done: [ExportResult]; close: [] }>();
+import type { Kind } from "../lib/route";
+
+const props = withDefaults(defineProps<{ start?: "album" | "camera"; kind?: Kind }>(), { start: "album", kind: undefined });
+const emit = defineEmits<{ done: [ExportResult]; close: []; kind: [Kind] }>();
 
 const MAX_CLIPS = 9;
 type Step = "pick" | "record" | "trim" | "fx";
@@ -151,7 +153,7 @@ onBeforeUnmount(() => {
       @record="step = 'record'"
       @close="emit('close')"
     />
-    <Recorder v-else-if="step === 'record'" ref="child" @recorded="onRecorded" @album="step = 'pick'" @close="emit('close')" />
+    <Recorder v-else-if="step === 'record'" ref="child" :kind="kind" @kind="emit('kind', $event)" @recorded="onRecorded" @album="step = 'pick'" @close="emit('close')" />
     <TrimEditor
       v-else-if="step === 'trim' && seq"
       ref="child"

@@ -205,3 +205,18 @@
 @media (prefers-reduced-motion: reduce) {
   .vf *, .vf *::before, .vf *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* 2차 대조(2026-11-03, 동처띠 视频 촬영 화면): 머리 = X + 「영상 ⇄」(처음엔 글 종류 탭 줄, 17px 흰 글자) ·
+   오른쪽 세로 줄 아이콘 26 · 줄 간격 66(첫 아이콘 위 38) */
+.vf-rec__kinds { display: flex; align-items: center; gap: 15.6px; height: 44px; overflow-x: auto; scrollbar-width: none; flex: 1; min-width: 0; padding-right: 12px; }
+.vf-rec__kinds::-webkit-scrollbar { display: none; }
+.vf-rec__kinds button { position: relative; flex: none; height: 44px; font-size: 17px; color: #fff; text-shadow: 0 0 3px rgba(0, 0, 0, .5); white-space: nowrap; }
+.vf-rec__kinds button.on { font-size: 20px; font-weight: 800; }
+.vf-rec__kinds button.on::after, .vf-rec__title::after { content: ""; position: absolute; left: 50%; bottom: 5px; width: 26px; height: 3px; margin-left: -13px; border-radius: 2px; background: #fff; }
+.vf-rec__title { position: relative; height: 44px; line-height: 44px; font-size: 20px !important; }
+.vf-rec__sw { width: 28px; height: 44px; display: grid; place-items: center; }
+.vf-rec__sw .ico { width: 20px; height: 20px; transform: rotate(90deg); filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5)); }
+.vf-rec__top:has(.vf-rec__kinds) { gap: 4px; }
+.vf-rec__side { top: calc(38px + env(safe-area-inset-top)); gap: 24px; }
+.vf-rec__side .ico { width: 26px; height: 26px; }
+.vf-rec__top:has(.vf-rec__kinds), .vf-rec__top:has(.vf-rec__sw) { height: 48px; padding: 4px 0 0 4px; }

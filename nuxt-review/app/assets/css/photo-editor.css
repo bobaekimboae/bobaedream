@@ -1,6 +1,6 @@
 /* 사진 편집기: 동처띠 편집 화면(1080×2400 ÷ 2.8125, 384 기준) 실측 */
 .pe { position: fixed; inset: 0; z-index: 90; max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; background: #000; color: #fff; overflow: hidden; touch-action: none; user-select: none; -webkit-user-select: none; font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif; }
-.pe button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+:where(.pe) button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
 .pe button:disabled { cursor: default; }
 .pe button:focus-visible, .pe-ov:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
 .pe .ico { width: 24px; height: 24px; }
@@ -62,7 +62,7 @@
 .pe-ai__ico.is-box { width: 22px; height: 22px; border: 1px solid #fff; border-radius: 4px; }
 .pe-ai__ico.is-box .ico { width: 14px; height: 14px; }
 .pe-ai__label { flex: 1; min-width: 0; font-size: 13px; line-height: 18px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pe-ai__btn { flex: none; height: 24px; min-width: 44px; padding: 0 9px; border-radius: 5px; background: #2E3068; font-size: 12px; font-weight: 500; }
+.pe-ai__btn { flex: none; height: 24px; min-width: 44px; padding: 0 9px; border-radius: 5px; background: rgba(255, 255, 255, .14); font-size: 12px; font-weight: 500; }
 .pe-ai__btn:disabled { opacity: .5; }
 .pe-ai__pair { display: flex; gap: 4px; }
 .pe-ai__pair img { width: 22px; height: 22px; border-radius: 3px; object-fit: cover; border: 1px solid transparent; }
