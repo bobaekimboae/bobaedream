@@ -12,6 +12,7 @@ const emit = defineEmits<{ go: [v: string, extra?: Record<string, string>]; pay:
 // 원본 기본 탭은 「사진」. 영상을 만들고 돌아오면(?tab=videos) 「내 영상」
 const tab = ref<"photos" | "videos">(new URLSearchParams(window.location.search).get("tab") === "videos" ? "videos" : "photos");
 const q = ref("");
+const live = ref("");
 const shoot = sitePath("nuxt-shootkit", "");
 const sample = (n: string) => sitePath("assets", "cars", "seoul-autogallery-v01", "rr", n);
 const list = computed(() => state.videos.filter((v) => !q.value.trim() || `${v.title} ${v.id}`.toLowerCase().includes(q.value.trim().toLowerCase())));
@@ -48,7 +49,7 @@ async function share(v: VideoItem) {
 
 <template>
   <header v-if="!isPc" class="home-top">
-    <div class="wordmark">보배 카스튜디오<small>BOBAEDREAM CAR STUDIO</small></div>
+    <div class="wordmark">보배 카스튜디오</div>
     <button class="credit" type="button" :aria-label="`남은 크레딧 ${state.credits}개 · 크레딧 사기`" @click="emit('pay')">{{ state.credits }} <i>+</i></button>
   </header>
   <main class="home-main">
@@ -56,11 +57,11 @@ async function share(v: VideoItem) {
     <div class="feat">
       <a class="feat-card" :href="shoot" style="text-decoration: none; color: inherit">
         <b>사진 촬영</b><span>스튜디오 품질로 찍기</span>
-        <span class="art"><img :src="sample('rr-05.jpg')" alt="" style="width: 100%" /></span>
+        <span class="art"><img :src="sample('rr-02.jpg')" alt="" /></span>
       </a>
       <button class="feat-card" type="button" @click="emit('go', 'start')">
         <b>영상 만들기</b><span>사진을 영상으로</span>
-        <span class="art"><img :src="sample('rr-02.jpg')" alt="" style="width: 34px" /><span class="arrow">→</span><img :src="sample('rr-01.jpg')" alt="" style="flex: 1; min-width: 0" /></span>
+        <span class="art" style="background: transparent"><span class="art-stack"><img :src="sample('rr-03.jpg')" alt="" /><img :src="sample('rr-01.jpg')" alt="" /></span><span class="arrow">→</span><span class="art-thumb"><img :src="sample('rr-02.jpg')" alt="" /><i class="lg">LOGO</i><i class="pl"><Icon :src="rd('play-fill')" /></i><i class="tt">2019 레인지로버</i><i class="pr">8,900만원</i></span></span>
       </button>
     </div>
     <div class="divider" />
@@ -75,11 +76,11 @@ async function share(v: VideoItem) {
     <template v-if="tab === 'photos'">
       <p v-if="!photoSets.length" class="empty">아직 올린 사진이 없어요.<br />「영상 만들기」에서 차량 사진을 올려 보세요.</p>
       <section v-for="v in photoSets" :key="v.id" class="upl">
-        <div class="upl-h"><span>{{ v.id }} · {{ date(v.createdAt) }}</span><button type="button" @click="v.status === 'making' ? emit('go', 'making', { id: v.id }) : emit('go', 'result', { id: v.id })">자세히 <Icon :src="rd('back-outline-24')" style="transform: rotate(180deg)" /></button></div>
+        <div class="upl-h"><span>{{ v.id }} • {{ date(v.createdAt) }}</span><button type="button" @click="v.status === 'making' ? emit('go', 'making', { id: v.id }) : emit('go', 'result', { id: v.id })">자세히 <Icon :src="ct('chotot-pc-detail-chevron-right-white-bg')" /></button></div>
         <div class="ph-main">
           <img :src="urlOf(v.photos[idx[v.id] ?? 0]!)" :alt="`${v.title} 사진 ${(idx[v.id] ?? 0) + 1}`" />
-          <button class="ph-nav l" type="button" aria-label="이전 사진" @click="step(v, -1)"><Icon :src="rd('back-outline-24')" /></button>
-          <button class="ph-nav r" type="button" aria-label="다음 사진" @click="step(v, 1)"><Icon :src="rd('back-outline-24')" style="transform: rotate(180deg)" /></button>
+          <button class="ph-nav l" type="button" aria-label="이전 사진" @click="step(v, -1)"><Icon :src="ct('chotot-pc-detail-chevron-left-white-bg')" /></button>
+          <button class="ph-nav r" type="button" aria-label="다음 사진" @click="step(v, 1)"><Icon :src="ct('chotot-pc-detail-chevron-right-white-bg')" /></button>
         </div>
         <div class="photo-strip"><img v-for="(b, i) in v.photos" :key="i" :src="urlOf(b)" alt="" :style="{ outline: i === (idx[v.id] ?? 0) ? '2px solid var(--or)' : 'none' }" @click="idx[v.id] = i" /></div>
       </section>
@@ -87,11 +88,11 @@ async function share(v: VideoItem) {
     <template v-else>
       <p v-if="!list.length" class="empty">아직 만든 영상이 없어요.</p>
       <section v-for="v in list" :key="v.id" class="upl">
-        <div class="upl-h"><span>{{ v.title || "차량" }}</span><button type="button" @click="v.status === 'making' ? emit('go', 'making', { id: v.id }) : emit('go', 'result', { id: v.id })">자세히 <Icon :src="rd('back-outline-24')" style="transform: rotate(180deg)" /></button></div>
+        <div class="upl-h"><span>{{ v.title || "차량" }}</span><button type="button" @click="v.status === 'making' ? emit('go', 'making', { id: v.id }) : emit('go', 'result', { id: v.id })">자세히 <Icon :src="ct('chotot-pc-detail-chevron-right-white-bg')" /></button></div>
         <div v-if="v.status === 'making'" class="making-card"><span class="spin" /> 영상을 만드는 중… {{ Math.round(v.progress * 100) }}%</div>
         <div v-else-if="v.status === 'failed'" class="making-card" style="color: #C0392B">{{ v.error || "영상을 만들지 못했어요." }} <button class="btn line" type="button" style="margin-left: auto; height: 34px; padding: 0 10px" @click="removeVideo(v.id)">지우기</button></div>
         <template v-else>
-          <div class="upl-vid" :style="{ aspectRatio: v.options.aspect.replace(':', ' / ') }"><video :src="vurl(v)" :poster="v.poster" controls playsinline preload="metadata" /></div>
+          <div class="upl-vid"><video v-if="live === v.id" :src="vurl(v)" controls autoplay playsinline /><template v-else><img :src="v.poster" :alt="`${v.title} 영상 표지`" /><button class="pbtn" type="button" :aria-label="`${v.title} 영상 재생`" @click="live = v.id"><Icon :src="rd('play-fill')" /></button></template></div>
           <div class="upl-tags"><span class="tag">{{ v.options.aspect }}</span><span class="tag">{{ { classic: "클래식", modern: "모던", showcase: "쇼케이스" }[v.options.template] }}</span></div>
           <div class="row2">
             <button class="btn line" type="button" @click="share(v)"><Icon :src="ct('chotot-common-share')" /> 공유</button>
