@@ -4,9 +4,13 @@ import type { AccountItem } from '~/types/account'
 
 const route = useRoute()
 const router = useRouter()
+const demo = useAccountDemo()
+const { state, balance } = demo
+const loginName = ref('보배 딜러')
+const loginRole = ref<'buyer' | 'dealer'>('dealer')
 const embedded = computed(() => route.query.embed === '1')
 const popover = computed(() => route.query.surface === 'popover')
-const memberPreview = computed(() => route.query.member === 'preview')
+const memberPreview = computed(() => state.value.signedIn)
 const activeItem = ref<AccountItem | null>(null)
 const authView = ref<'login' | 'signup' | null>(route.query.initial === 'login' ? 'login' : null)
 const iconRoot = `${useRuntimeConfig().app.baseURL}icons/`
@@ -25,7 +29,6 @@ function close() {
   else window.location.assign(`${siteBase}?qf=guazi&lang=ko&category=국산차`)
 }
 function choose(item: AccountItem) {
-  if (item.action === 'favorites' && embedded.value) { send('navigate', 'favorites'); return }
   activeItem.value = item
 }
 function navigate(action: string) {
@@ -36,13 +39,15 @@ function navigate(action: string) {
   }
 }
 function exitPreview() {
-  if (embedded.value) send('navigate', 'logout-preview')
-  else router.replace({ path: '/account', query: { ...route.query, member: undefined } })
+  demo.logout()
+  if (embedded.value) send('session')
 }
+function chooseId(id: string) { const item = accountGroups.flatMap(g => g.items).find(i => i.id === id); if(item) activeItem.value = item; else if(id === 'followers' || id === 'following') activeItem.value = {id,label:id === 'followers'?'팔로워':'팔로잉',icon:'account-settings-01',description:''} }
+function signIn() { if(demo.signIn(loginName.value, loginRole.value)) { authView.value = null; send('session') } }
 function keydown(event: KeyboardEvent) {
   if (event.key === 'Escape') { event.preventDefault(); close(); return }
   if (event.key !== 'Tab' || !embedded.value) return
-  const elements = [...document.querySelectorAll<HTMLElement>('button:not(:disabled),a[href]')].filter(el => el.getClientRects().length)
+  const elements = [...document.querySelectorAll<HTMLElement>('button:not(:disabled),a[href],input:not(:disabled),select:not(:disabled),textarea:not(:disabled)')].filter(el => el.getClientRects().length)
   const first = elements[0]; const last = elements.at(-1)
   if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
@@ -50,10 +55,12 @@ function keydown(event: KeyboardEvent) {
 onMounted(() => {
   document.addEventListener('keydown', keydown)
   send('ready')
+  if (route.query.initial === 'dealer') chooseId('dealer')
   if (embedded.value) document.querySelector<HTMLElement>('button')?.focus({ preventScroll: true })
 })
 onBeforeUnmount(() => document.removeEventListener('keydown', keydown))
 watch([activeItem, authView], async () => {
+  if (embedded.value) send(activeItem.value || authView.value ? 'expand' : 'compact')
   await nextTick()
   document.querySelector<HTMLElement>('.account-body h1')?.focus({ preventScroll: true })
   window.scrollTo(0, 0)
@@ -69,9 +76,9 @@ watch([activeItem, authView], async () => {
     </header>
 
     <template v-if="!activeItem && !authView">
-      <section class="account-identity" aria-label="계정">
+      <section class="account-identity" :class="{'is-member':memberPreview}" aria-label="계정">
         <div class="account-welcome">
-          <div><strong>{{ memberPreview ? '보배드림 회원' : '좋은 차를 만나는 시작' }}</strong><p>{{ memberPreview ? '회원 화면 미리보기입니다.' : '로그인하고 보배드림을 더 편하게 이용하세요.' }}</p></div>
+          <div><strong>{{ memberPreview ? state.profile.name : '좋은 차를 만나는 시작' }}</strong><p>{{ memberPreview ? '샘플 계정 · 이 브라우저에 저장됩니다.' : '로그인하고 보배드림을 더 편하게 이용하세요.' }}</p></div>
           <img class="account-brand" :src="`${siteBase}assets/bbm/favicon.svg`" alt="보배드림" />
         </div>
         <div class="account-auth-actions" v-if="!memberPreview">
@@ -79,6 +86,7 @@ watch([activeItem, authView], async () => {
           <button type="button" class="account-primary" @click="authView = 'login'">로그인</button>
         </div>
         <button v-else type="button" class="account-profile-link" @click="activeItem = accountGroups[3]!.items[0]!">내 프로필 관리<img class="account-chevron" :src="`${siteBase}assets/icons/bb/chevron-left.svg`" alt="" /></button>
+        <template v-if="memberPreview"><div class="account-member-tools"><button @click="chooseId('followers')">팔로워 0</button><button @click="chooseId('following')">팔로잉 {{ state.following?.length || 0 }}</button></div><div class="account-member-wallet"><span>체험 포인트<strong>{{ balance.toLocaleString() }} P</strong></span><button class="account-primary" @click="chooseId('points')">포인트 내역·체험</button></div></template>
       </section>
 
       <section v-for="group in accountGroups" :key="group.id" class="account-group" :aria-labelledby="`account-${group.id}`">
@@ -87,43 +95,28 @@ watch([activeItem, authView], async () => {
           <button v-for="item in group.items" :key="item.id" type="button" class="account-row" :data-account-item="item.id" @click="choose(item)">
             <img class="account-row-icon" :src="icon(item.icon)" alt="" />
             <span>{{ item.label }}</span>
+            <span v-if="item.id === 'favorites' && state.favorites.length" class="account-count">{{ state.favorites.length }}</span>
+            <span v-if="item.id === 'searches' && state.searches.length" class="account-count">{{ state.searches.length }}</span>
             <span v-if="item.badge" class="account-badge">{{ item.badge }}</span>
             <img class="account-chevron" :src="`${siteBase}assets/icons/bb/chevron-left.svg`" alt="" />
           </button>
         </div>
       </section>
-      <div v-if="memberPreview" class="account-signout"><button type="button" class="account-row" @click="exitPreview"><img class="account-row-icon" :src="icon('logout')" alt="" /><span>미리보기 로그아웃</span></button></div>
+      <div v-if="memberPreview" class="account-signout"><button type="button" class="account-row" @click="exitPreview"><img class="account-row-icon" :src="icon('logout')" alt="" /><span>샘플 로그아웃</span></button></div>
       <footer class="account-footer">보배드림</footer>
     </template>
 
-    <section v-else-if="authView" class="account-detail">
+    <form v-else-if="authView" class="af-card af-form" @submit.prevent="signIn">
       <img class="account-detail-icon" :src="icon('account-settings-01')" alt="" />
-      <h2>{{ authView === 'login' ? '로그인 연결 안내' : '회원가입 연결 안내' }}</h2>
-      <p>현재는 메뉴 시안입니다.<br />실제 계정 연결 후 이용할 수 있습니다.</p>
-      <p class="account-disclosure">이 화면에서는 아이디나 비밀번호를 수집하지 않습니다.</p>
-      <button type="button" class="account-primary" @click="authView = null">마이 메뉴로 돌아가기</button>
-    </section>
+      <h2>{{ authView === 'login' ? '샘플 계정 로그인' : '샘플 회원 만들기' }}</h2>
+      <p class="af-sample">기능 체험용 계정입니다. 실제 비밀번호·인증번호를 입력하지 않습니다.</p>
+      <label>샘플 닉네임<input v-model="loginName" autocomplete="off" maxlength="30" required /></label>
+      <label>회원 유형<select v-model="loginRole"><option value="dealer">딜러</option><option value="buyer">구매자</option></select></label>
+      <p v-if="demo.error.value" role="alert" class="af-error">{{ demo.error.value }}</p>
+      <button type="submit" class="account-primary">샘플 계정으로 시작</button>
+    </form>
 
-    <section v-else-if="activeItem" class="account-detail">
-      <img class="account-detail-icon" :src="icon(activeItem.icon)" alt="" />
-      <h2>{{ activeItem.label }}</h2>
-      <p>{{ activeItem.description }}</p>
-      <template v-if="activeItem.action === 'support'">
-        <a class="account-contact" href="tel:027842329">02-784-2329</a>
-        <p>평일 09:00–18:00<br />점심시간 11:30–12:30</p>
-      </template>
-      <template v-else-if="activeItem.action === 'register'">
-        <button type="button" class="account-primary" @click="navigate('register')">매물 등록 화면 보기</button>
-        <p class="account-disclosure">프리미엄 상품과 결제는 서비스 연결 후 이용할 수 있습니다.</p>
-      </template>
-      <template v-else-if="activeItem.action === 'feedback'">
-        <button type="button" class="account-primary" @click="navigate('feedback')">제안·건의 게시판 가기</button>
-      </template>
-      <template v-else>
-        <p class="account-disclosure">계정 서비스 연결 후 내 정보를 확인할 수 있습니다.</p>
-        <button type="button" class="account-primary" @click="authView = 'login'">로그인 안내</button>
-      </template>
-    </section>
+    <AccountFeatures v-else-if="activeItem" :section="activeItem.id" :site-base="siteBase" @login="authView = 'login'" @choose="chooseId" @navigate="navigate" />
   </main>
 </template>
 
@@ -152,6 +145,11 @@ watch([activeItem, authView], async () => {
 .account-secondary:hover { background: #f7f7f7; }
 .account-profile-link { display: flex; justify-content: space-between; width: 100%; margin-top: 12px; font-size: 14px; }
 .account-profile-link img { width: 20px; height: 20px; }
+.account-member-tools { display:flex;justify-content:center;gap:24px;margin:12px 0;font-size:13px;color:#666; }
+.account-identity.is-member .account-welcome { flex-direction:column-reverse;text-align:center;gap:8px; }.account-identity.is-member .account-brand { width:80px;height:80px; }.account-identity.is-member .account-profile-link { justify-content:center;gap:6px; }
+.account-member-wallet { display:grid;gap:10px;padding:16px;background:#f7f9fc;border-radius:8px;margin-top:16px; }
+.account-member-wallet>span { display:flex;justify-content:space-between;gap:12px;font-size:13px;color:#777; }.account-member-wallet strong { color:#222;font-size:17px; }.account-count {color:#2f6fe4;font-size:13px}
+.account-page.is-detail { max-width:960px!important;margin:auto; }.account-page.is-detail .account-header {margin-bottom:16px}
 .account-group { margin-top: 12px; }
 .account-group h2 { color: #888; font-size: 14px; line-height: 20px; font-weight: 500; margin: 0 0 6px; padding: 0 12px; }
 .account-group-card { border-radius: 12px; background: #fff; overflow: hidden; }
