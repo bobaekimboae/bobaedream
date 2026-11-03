@@ -67,9 +67,7 @@ onMounted(async () => {
   const blobs = await Promise.all(project.photos.map(async (u) => { try { const r = await fetch(u); return r.ok ? await r.blob() : null; } catch { return null; } }));
   addBlobs(blobs.filter(Boolean) as Blob[]);
   loading.value = false;
-  reviewing.value = true;
-  await new Promise((r) => setTimeout(r, 2400));
-  reviewing.value = false;
+  // 원본 「내 프로젝트에서 가져오기」: 사진과 정보가 이미 준비되어 있어 바로 채운다(확인 띠 없음)
   for (const [k, val] of Object.entries(project.details)) if (val && !(d as Record<string, unknown>)[k]) (d as Record<string, unknown>)[k] = val;
 });
 onBeforeUnmount(() => { photos.value.forEach((p) => URL.revokeObjectURL(p.url)); stopMusic(); });

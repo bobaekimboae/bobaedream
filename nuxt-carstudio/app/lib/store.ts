@@ -45,10 +45,11 @@ export async function loadAll() {
   state.loaded = true;
 }
 export async function saveVideo(v: VideoItem) {
+  // 기기에 먼저 저장하고 화면을 바꾼다(완성 직후 앱을 닫아도 「완성」으로 남게)
+  try { await req("readwrite", (s) => s.put(plain(v))); } catch { /* 저장 공간 부족: 화면에는 남김 */ }
   const i = state.videos.findIndex((x) => x.id === v.id);
   if (i >= 0) state.videos[i] = v;
   else state.videos.unshift(v);
-  try { await req("readwrite", (s) => s.put(plain(v))); } catch { /* 저장 공간 부족: 화면에는 남김 */ }
 }
 export async function removeVideo(id: string) {
   state.videos = state.videos.filter((v) => v.id !== id);

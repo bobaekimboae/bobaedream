@@ -1,12 +1,13 @@
 <script setup lang="ts">
 // 원본 홈: 로고 · 크레딧 / Welcome / Photo Shooting · Create Video / Previous Uploads(Photos | My Videos · 검색 · 카드) / 아래 Home · 카메라 · Profile
-import { computed, onBeforeUnmount, ref, watch } from "vue";
+import { computed, onBeforeUnmount, ref } from "vue";
 import Icon from "./Icon.vue";
 import { state, removeVideo } from "../lib/store";
 import { fileName } from "../lib/jobs";
 import { as, ct, rd, sitePath } from "../lib/site";
 import type { VideoItem } from "../lib/types";
 import { isPc } from "../lib/layout";
+import { PROJECTS } from "../lib/projects";
 
 const emit = defineEmits<{ go: [v: string, extra?: Record<string, string>]; pay: []; toast: [t: string] }>();
 // 원본 기본 탭은 「사진」. 영상을 만들고 돌아오면(?tab=videos) 「내 영상」
@@ -17,6 +18,16 @@ const shoot = sitePath("nuxt-shootkit", "");
 const sample = (n: string) => sitePath("assets", "cars", "seoul-autogallery-v01", "rr", n);
 const list = computed(() => state.videos.filter((v) => !q.value.trim() || `${v.title} ${v.id}`.toLowerCase().includes(q.value.trim().toLowerCase())));
 const photoSets = computed(() => list.value.filter((v) => v.photos.length));
+// 원본 사진 탭 = 올린 사진 묶음(프로젝트). 「내 프로젝트」에 있는 매물도 같은 목록에 나온다
+type Upload = { key: string; code: string; date: string; photos: string[]; go: () => void };
+const fmt = (s: string) => { const [y, m, d] = s.split("."); return `${d}/${m}/${y}`; };
+const uploads = computed<Upload[]>(() => {
+  const qq = q.value.trim().toLowerCase();
+  const fromProjects = PROJECTS.filter((p) => !qq || `${p.title} ${p.id}`.toLowerCase().includes(qq)).map((p) => ({ key: p.id, code: p.id.replace(/-/g, "").toUpperCase().padEnd(8, "0"), date: fmt(p.date), photos: p.photos, go: () => emit("go", "details", { project: p.id }) }));
+  const fromVideos = photoSets.value.map((v) => ({ key: v.id, code: v.id, date: date(v.createdAt), photos: v.photos.map(urlOf), go: () => (v.status === "making" ? emit("go", "making", { id: v.id }) : emit("go", "result", { id: v.id })) }));
+  return [...fromVideos, ...fromProjects];
+});
+const stepU = (u: Upload, d: number) => { const n = u.photos.length; idx.value[u.key] = ((idx.value[u.key] ?? 0) + d + n) % n; };
 const date = (t: number) => new Date(t).toLocaleDateString("en-GB").replace(/\//g, "/");
 
 // 사진 탭: 카드마다 큰 사진 + ‹ › + 작은 사진 줄
@@ -27,8 +38,6 @@ onBeforeUnmount(() => urls.forEach((u) => URL.revokeObjectURL(u)));
 const vurls = new Map<string, string>();
 const vurl = (v: VideoItem) => { if (!v.video) return ""; let u = vurls.get(v.id); if (!u) { u = URL.createObjectURL(v.video); vurls.set(v.id, u); } return u; };
 onBeforeUnmount(() => vurls.forEach((u) => URL.revokeObjectURL(u)));
-const step = (v: VideoItem, d: number) => { const n = v.photos.length; idx.value[v.id] = ((idx.value[v.id] ?? 0) + d + n) % n; };
-watch(() => state.videos.length, () => { if (state.videos.some((v) => v.status !== "failed") && tab.value === "photos" && !photoSets.value.length) tab.value = "videos"; });
 
 function download(v: VideoItem) {
   if (!v.video) return;
@@ -74,15 +83,16 @@ async function share(v: VideoItem) {
 
     <div class="upl-list" :class="tab">
     <template v-if="tab === 'photos'">
-      <p v-if="!photoSets.length" class="empty">아직 올린 사진이 없어요.<br />「영상 만들기」에서 차량 사진을 올려 보세요.</p>
-      <section v-for="v in photoSets" :key="v.id" class="upl">
-        <div class="upl-h"><span>{{ v.id }} • {{ date(v.createdAt) }}</span><button type="button" @click="v.status === 'making' ? emit('go', 'making', { id: v.id }) : emit('go', 'result', { id: v.id })">자세히 <Icon :src="ct('chotot-pc-detail-chevron-right-white-bg')" /></button></div>
+      <p v-if="!uploads.length" class="empty">아직 올린 사진이 없어요.<br />「영상 만들기」에서 차량 사진을 올려 보세요.</p>
+      <section v-for="u in uploads" :key="u.key" class="upl">
+        <div class="upl-h"><span>{{ u.code }} • {{ u.date }}</span><button type="button" @click="u.go()">자세히 <Icon :src="ct('chotot-pc-detail-chevron-right-white-bg')" /></button></div>
         <div class="ph-main">
-          <img :src="urlOf(v.photos[idx[v.id] ?? 0]!)" :alt="`${v.title} 사진 ${(idx[v.id] ?? 0) + 1}`" />
-          <button class="ph-nav l" type="button" aria-label="이전 사진" @click="step(v, -1)"><Icon :src="ct('chotot-pc-detail-chevron-left-white-bg')" /></button>
-          <button class="ph-nav r" type="button" aria-label="다음 사진" @click="step(v, 1)"><Icon :src="ct('chotot-pc-detail-chevron-right-white-bg')" /></button>
+          <img class="ph-fill" :src="u.photos[idx[u.key] ?? 0]" alt="" aria-hidden="true" />
+          <img class="ph-img" :src="u.photos[idx[u.key] ?? 0]" :alt="`사진 ${(idx[u.key] ?? 0) + 1}`" />
+          <button v-if="u.photos.length > 1" class="ph-nav l" type="button" aria-label="이전 사진" @click="stepU(u, -1)"><Icon :src="ct('chotot-pc-detail-chevron-left-white-bg')" /></button>
+          <button v-if="u.photos.length > 1" class="ph-nav r" type="button" aria-label="다음 사진" @click="stepU(u, 1)"><Icon :src="ct('chotot-pc-detail-chevron-right-white-bg')" /></button>
         </div>
-        <div class="photo-strip"><img v-for="(b, i) in v.photos" :key="i" :src="urlOf(b)" alt="" :style="{ outline: i === (idx[v.id] ?? 0) ? '2px solid var(--or)' : 'none' }" @click="idx[v.id] = i" /></div>
+        <div class="photo-strip"><button v-for="(src, i) in u.photos" :key="i" type="button" :aria-label="`사진 ${i + 1} 보기`" :aria-pressed="i === (idx[u.key] ?? 0)" @click="idx[u.key] = i"><img :src="src" alt="" loading="lazy" /></button></div>
       </section>
     </template>
     <template v-else>
