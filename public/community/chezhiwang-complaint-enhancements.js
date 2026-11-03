@@ -4,8 +4,8 @@
   var originalRender = window.renderChezhiwangComplaintBoardTable;
   if (typeof originalRender !== 'function') return;
 
-  var userIcon = '../icons/chotot/chotot-common-user.svg';
-  var cameraIcon = 'assets/chzzk-detail/icons/camera.svg';
+  var userIcon = 'assets/reddit-ui/icon-user-outline.svg';
+  var cameraIcon = 'assets/reddit-ui/icon-camera-outline.svg';
   var videoIcon = 'assets/reddit-ui/video.svg';
   var documentIcon = 'assets/reddit-ui/write.svg';
 
@@ -21,8 +21,8 @@
     var sections = form.querySelectorAll('.czw-section');
     var icons = [
       [userIcon, '작성자'],
-      ['../icons/chotot/chotot-common-location-icon.svg', '차량'],
-      ['../icons/dealer-profile/dealership.svg', '업체'],
+      ['assets/reddit-ui/icon-location-outline.svg', '차량'],
+      ['assets/reddit-ui/icon-marketplace-outline.svg', '업체'],
       [cameraIcon, '첨부'],
       [documentIcon, '불만 내용']
     ];

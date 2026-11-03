@@ -631,7 +631,7 @@ function showCommentContext(label) {
   if (!contextElement) {
     contextElement = document.createElement('div');
     contextElement.className = 'commentContext';
-    contextElement.innerHTML = '<strong></strong><button type="button" aria-label="작성 취소"><img src="assets/chzzk-detail/icons/close.svg" alt=""></button>';
+    contextElement.innerHTML = '<strong></strong><button type="button" aria-label="작성 취소"><img src="assets/reddit-ui/icon-close-outline.svg" alt=""></button>';
     $('#commentForm').appendChild(contextElement);
     contextElement.querySelector('button').addEventListener('click', resetCommentComposer);
   }
@@ -659,7 +659,7 @@ function ensureCommentMenu() {
     <span class="commentMenuHandle" aria-hidden="true"></span>
     <button type="button" data-comment-menu="edit"><img src="assets/reddit-ui/edit.svg" alt=""><span>수정하기</span></button>
     <button class="danger" type="button" data-comment-menu="delete"><img src="assets/reddit-ui/delete.svg" alt=""><span>삭제하기</span></button>
-    <button type="button" data-comment-menu="cancel"><img src="assets/write-parity/close.svg" alt=""><span>취소</span></button>
+    <button type="button" data-comment-menu="cancel"><img src="assets/reddit-ui/icon-close-outline.svg" alt=""><span>취소</span></button>
   </section>`;
   document.body.appendChild(overlay);
   overlay.addEventListener('click', (event) => {
