@@ -3,6 +3,7 @@ import { icon } from "./site";
 
 const rd = (n: string) => icon("reddit-shoot", `${n}.svg`);
 const ct = (n: string) => icon("chotot", n);
+const ab = (n: string) => icon("airbnb", `${n}.svg`);
 
 export const VI = {
   back: rd("back-outline-24"),
@@ -14,16 +15,16 @@ export const VI = {
   play: rd("play-fill"),
   check: rd("checkmark-fill"),
   speed: rd("powerup-outline"),
-  filter: rd("sticker-outline"),
-  effect: rd("spoiler-outline"),
+  filter: ab("art-easel"),
+  effect: ab("sparkle"),
   plate: rd("mask-outline"),
-  volume: rd("tap-outline"),
-  caption: rd("edit-outline"),
+  volume: ab("sound-system"),
+  caption: rd("closed-captioning-outline"),
   cover: rd("image-post-outline"),
   prop: rd("view-grid-outline"),
   upload: rd("image-post-outline"),
   undo: rd("undo-outline"),
   del: rd("delete-outline"),
   add: rd("add-outline-24"),
-  timer: ct("chotot-common-clock.svg"),
+  timer: rd("history-outline"),
 };

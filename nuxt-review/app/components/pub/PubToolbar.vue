@@ -68,7 +68,7 @@ const tap = (t: Tool) => {
   else if (t === "image") fileEl.value?.click();
 };
 const LABEL: Record<Tool, string> = { emoji: "표정", vote: "투표", price: "구매가", map: "위치", image: "사진", refit: "튜닝 부품" };
-const ICON: Record<Tool, string> = { emoji: IC.emoji, vote: IC.vote, price: "", map: IC.location, image: IC.image, refit: IC.settings };
+const ICON: Record<Tool, string> = { emoji: IC.emoji, vote: IC.vote, price: IC.priceTag, map: IC.pin, image: IC.imagePost, refit: IC.tools };
 defineExpose({ closePanel: () => (panel.value = false) });
 </script>
 
@@ -76,7 +76,7 @@ defineExpose({ closePanel: () => (panel.value = false) });
   <div class="ptool" :class="{ 'is-open': panel }">
     <div class="ptool__bar">
       <button v-for="t in tools" :key="t" type="button" class="ptool__btn" :class="{ on: t === 'emoji' && panel }" :aria-label="LABEL[t]" :aria-pressed="t === 'emoji' ? panel : undefined" @click="tap(t)">
-        <span v-if="t === 'price'" class="ptool__won" aria-hidden="true">₩</span><Ico v-else :src="ICON[t]" />
+        <Ico :src="ICON[t]" />
       </button>
       <input ref="fileEl" type="file" accept="image/*" multiple hidden @change="onFiles" />
     </div>

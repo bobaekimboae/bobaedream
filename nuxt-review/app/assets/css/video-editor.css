@@ -1,3 +1,4 @@
+/* 아이콘 상자는 모두 24px: 레딧 · 에어비앤비 원본 획이 1.5px로 같게 보인다(2026-11-03 실측) */
 /* 동영상 올리기(동처띠 视频发布 재현) — 1080×2400 캡처 ÷ 2.8125 = 384 CSS px 실측.
    원본 노랑 버튼(#FFCC32)은 보배드림 파랑 #306BD9 + 흰 글자로, 선택 번호 배지도 파랑. 바탕은 원본처럼 검정. */
 .vf { --vf-pri: #306bd9; --vf-bg: #000; --vf-pane: #16171c; --vf-line: rgba(255, 255, 255, .12); --vf-sub: rgba(255, 255, 255, .6);
@@ -14,12 +15,12 @@
 .vf-head { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 12px 0 6px; padding-top: env(safe-area-inset-top); flex: none; }
 .vf-head h2 { position: absolute; left: 50%; transform: translateX(-50%); margin: 0; font-size: 18px; line-height: 26px; font-weight: 700; }
 .vf-ibtn { width: 44px; height: 44px; display: inline-grid; place-items: center; border-radius: 10px; }
-.vf-ibtn .ico { width: 26px; height: 26px; }
+.vf-ibtn .ico { width: 24px; height: 24px; }
 .vf-next { min-width: 72px; height: 36px; padding: 0 16px; border-radius: 18px; background: var(--vf-pri); color: #fff !important; font-size: 15px; font-weight: 700; }
 .vf-next:active { opacity: .85; }
 .vf-cancel { height: 44px; padding: 0 10px; font-size: 16px; }
 .vf-x { position: absolute; top: calc(10px + env(safe-area-inset-top)); left: 8px; z-index: 2; width: 44px; height: 44px; display: grid; place-items: center; }
-.vf-x .ico { width: 28px; height: 28px; filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5)); }
+.vf-x .ico { width: 24px; height: 24px; filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5)); }
 .vf-toast { position: absolute; left: 50%; bottom: 140px; z-index: 30; transform: translateX(-50%); max-width: calc(100% - 48px); margin: 0; padding: 10px 16px; border-radius: 20px; background: rgba(0, 0, 0, .78); font-size: 14px; line-height: 20px; text-align: center; word-break: keep-all; }
 .vf-toast.is-err { background: rgba(240, 50, 94, .92); }
 
@@ -30,7 +31,7 @@
 .vf-pick__nocam { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--vf-sub); font-size: 13px; }
 .vf-pick__nocam .ico { width: 32px; height: 32px; }
 .vf-pick__shot { position: absolute; left: 50%; top: 50%; width: 58px; height: 58px; margin: -29px 0 0 -29px; border-radius: 50%; display: grid; place-items: center; background: rgba(0, 0, 0, .45); }
-.vf-pick__shot .ico { width: 30px; height: 30px; }
+.vf-pick__shot .ico { width: 24px; height: 24px; }
 .vf-sheet { position: relative; flex: 1; margin-top: -12px; border-radius: 14px 14px 0 0; background: var(--vf-pane); display: flex; flex-direction: column; min-height: 0; }
 .vf-sheet__grip { display: block; width: 34px; height: 4px; margin: 8px auto 0; border-radius: 2px; background: rgba(255, 255, 255, .25); }
 .vf-sheet__head { position: relative; height: 50px; display: flex; align-items: center; justify-content: center; flex: none; }
@@ -43,7 +44,7 @@
 .vf-tile.is-on img { opacity: .7; }
 .vf-tile.is-full { opacity: .4; }
 .vf-tile--add { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: #22232a; font-size: 12px; line-height: 16px; color: rgba(255, 255, 255, .8); }
-.vf-tile--add .ico { width: 26px; height: 26px; }
+.vf-tile--add .ico { width: 24px; height: 24px; }
 .vf-tile--load { display: grid; place-items: center; }
 .vf-tile__dur { position: absolute; left: 4px; bottom: 4px; padding: 0 4px; border-radius: 3px; background: rgba(0, 0, 0, .55); font-size: 12px; line-height: 18px; font-weight: 600; }
 .vf-check { position: absolute; top: 5px; right: 5px; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .9); background: rgba(0, 0, 0, .2); display: grid; place-items: center; font-size: 13px; font-weight: 700; line-height: 1; }
@@ -64,7 +65,7 @@
 .vf-rec__time { margin-left: auto; margin-right: 8px; padding: 2px 10px; border-radius: 12px; background: #f0325e; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .vf-rec__side { position: absolute; right: 10px; top: calc(76px + env(safe-area-inset-top)); z-index: 2; display: flex; flex-direction: column; gap: 14px; }
 .vf-rec__side button, .vf-fx__side button { width: 52px; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 12px; line-height: 16px; text-shadow: 0 0 3px rgba(0, 0, 0, .6); }
-.vf-rec__side .ico, .vf-fx__side .ico { width: 28px; height: 28px; filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5)); }
+.vf-rec__side .ico, .vf-fx__side .ico { width: 24px; height: 24px; filter: drop-shadow(0 0 2px rgba(0, 0, 0, .5)); }
 .vf-rec__side [aria-pressed="true"] span { color: #8fb4ff; }
 .vf-rec__side .is-off { opacity: .6; }
 .vf-rec__panel { position: absolute; left: 50%; bottom: calc(184px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 3; }
@@ -75,7 +76,7 @@
 .vf-rec__count { position: absolute; inset: 0; display: grid; place-items: center; z-index: 4; font-size: 96px; font-weight: 800; text-shadow: 0 2px 12px rgba(0, 0, 0, .5); pointer-events: none; }
 .vf-rec__dock { position: absolute; left: 0; right: 0; bottom: calc(64px + env(safe-area-inset-bottom)); z-index: 2; display: flex; align-items: center; justify-content: space-around; padding: 0 30px; }
 .vf-rec__aux { width: 60px; display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 13px; text-shadow: 0 0 3px rgba(0, 0, 0, .6); }
-.vf-rec__aux .ico { width: 30px; height: 30px; }
+.vf-rec__aux .ico { width: 24px; height: 24px; }
 .vf-recbtn { width: 80px; height: 80px; border-radius: 50%; border: 6px solid #fff; display: grid; place-items: center; touch-action: none; }
 .vf-recbtn i { width: 62px; height: 62px; border-radius: 50%; background: var(--vf-pri); transition: transform .2s, border-radius .2s; }
 .vf-recbtn.is-rec { border-color: rgba(255, 255, 255, .6); }
@@ -104,7 +105,7 @@
 .vf-trim__row p { margin: 0; font-size: 16px; color: var(--vf-sub); }
 .vf-trim__row b { color: #8fb4ff; font-size: 17px; font-weight: 700; font-variant-numeric: tabular-nums; }
 .vf-speedbtn { position: relative; width: 44px; height: 44px; display: grid; place-items: center; margin-right: 66px; }
-.vf-speedbtn .ico { width: 26px; height: 26px; }
+.vf-speedbtn .ico { width: 24px; height: 24px; }
 .vf-speedbtn em { position: absolute; bottom: 4px; left: 0; right: 0; font-style: normal; font-size: 9px; font-weight: 800; text-align: center; line-height: 10px; }
 .vf-speedbtn[aria-pressed="true"] { color: #8fb4ff; }
 .vf-strip { position: relative; height: 34px; margin: 0 14px; }
@@ -125,7 +126,7 @@
 .vf-fx__side button { width: 56px; }
 .vf-tools { flex: none; display: flex; justify-content: space-between; padding: 6px 10px calc(10px + env(safe-area-inset-bottom)); }
 .vf-tools button { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 13px; line-height: 18px; padding: 6px 0; }
-.vf-tools .ico { width: 30px; height: 30px; }
+.vf-tools .ico { width: 24px; height: 24px; }
 .vf-tools .is-on, .vf-tools [aria-pressed="true"] { color: #8fb4ff; }
 .vf-plate { position: absolute; border: 1.5px dashed #fff; border-radius: 3px; background: rgba(48, 107, 217, .12); cursor: move; touch-action: none; }
 .vf-plate__size { position: absolute; right: -9px; bottom: -9px; width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 3px solid var(--vf-pri); cursor: nwse-resize; touch-action: none; }

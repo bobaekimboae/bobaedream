@@ -15,8 +15,8 @@ export const KIND_ORIGIN: Record<Kind, string> = {
 
 /** 화제(话题) — 원본은 주간 인기 화제 2개를 칩으로 보여 주고 「添加话题 ▸」로 전체 목록을 연다 */
 export const TOPICS = [
-  { id: "t1", name: "BMW iX3, 6천만 원대 시작 값어치 있나?", hot: true, posts: 18420 },
-  { id: "t2", name: "F1 새 챔피언 탄생? 멕시코 GP 결승 직관", hot: false, posts: 9310 },
+  { id: "t1", name: "신형 BMW iX3 어때요?", hot: true, posts: 18420 },
+  { id: "t2", name: "F1 경기 직관 후기", hot: false, posts: 9310 },
   { id: "t3", name: "내 차 연비 자랑", hot: false, posts: 22190 },
   { id: "t4", name: "첫 차 고르기 고민", hot: false, posts: 15870 },
   { id: "t5", name: "출고 인증", hot: false, posts: 30544 },

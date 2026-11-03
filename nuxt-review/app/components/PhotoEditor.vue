@@ -1159,11 +1159,11 @@ onBeforeUnmount(() => {
         <button v-for="t in TOOLS" :key="t.id" type="button" class="pe-tool" :disabled="ai.running || !ready" :aria-label="t.label" @click="openTool(t.id)">
           <Ico v-if="t.id === 'pen'" :src="EIC.pen" />
           <Ico v-else-if="t.id === 'crop'" :src="EIC.crop" />
-          <svg v-else-if="t.id === 'text'" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h11M8.5 5v15M12 11h9M16.5 11v9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" /></svg>
-          <svg v-else-if="t.id === 'tpl'" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.9" /><path d="M12 7.5l1.3 3.2 3.2 1.3-3.2 1.3L12 16.5l-1.3-3.2L7.5 12l3.2-1.3z" fill="currentColor" /></svg>
+          <Ico v-else-if="t.id === 'text'" :src="EIC.text" />
+          <Ico v-else-if="t.id === 'tpl'" :src="EIC.tpl" />
           <Ico v-else-if="t.id === 'sticker'" :src="EIC.sticker" />
-          <svg v-else-if="t.id === 'mosaic'" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.9" /><path d="M7 7h4v4H7zM13 13h4v4h-4zM7 13h2v2H7zM15 7h2v2h-2z" fill="currentColor" /></svg>
-          <svg v-else viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 1 0 0 17c1.2 0 1.8-.8 1.8-1.7 0-1.2-1-1.6-1-2.6 0-.9.8-1.6 1.8-1.6h2.2a3.7 3.7 0 0 0 3.7-3.7C20.5 6.8 16.7 3.5 12 3.5z" fill="none" stroke="currentColor" stroke-width="1.9" /><circle cx="7.6" cy="11" r="1.3" fill="currentColor" /><circle cx="10.4" cy="7.4" r="1.3" fill="currentColor" /><circle cx="15" cy="7.6" r="1.3" fill="currentColor" /></svg>
+          <Ico v-else-if="t.id === 'mosaic'" :src="EIC.mosaic" />
+          <Ico v-else :src="EIC.filter" />
           <span>{{ t.label }}</span>
         </button>
       </nav>
@@ -1187,7 +1187,7 @@ onBeforeUnmount(() => {
       <div v-else-if="tool === 'crop'" class="pe-p-crop">
         <button type="button" class="pe-cbtn" aria-label="90도 회전" @click="rotate90"><Ico :src="EIC.rotate" /><span>회전</span></button>
         <button type="button" class="pe-cbtn" aria-label="좌우 반전" @click="flipH">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M9 7l-5 5 5 5M15 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" /></svg><span>좌우 반전</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M9 7l-5 5 5 5M15 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" /></svg><span>좌우 반전</span>
         </button>
         <i class="pe-csep" aria-hidden="true" />
         <div class="pe-ratios" role="radiogroup" aria-label="비율">
@@ -1215,7 +1215,7 @@ onBeforeUnmount(() => {
         <div class="pe-hlist" role="radiogroup" aria-label="템플릿">
           <button v-for="t in TPLS" :key="t.id" type="button" role="radio" class="pe-card is-tpl" :class="{ on: page?.tpl === t.id }" :aria-checked="page?.tpl === t.id" @click="pickTpl(t.id)">
             <span class="pe-card__img">
-              <svg v-if="t.id === 'none'" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8" /><path d="M6.5 17.5l11-11" stroke="currentColor" stroke-width="1.8" /></svg>
+              <svg v-if="t.id === 'none'" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="M6.5 17.5l11-11" stroke="currentColor" stroke-width="1.5" /></svg>
               <img v-else :src="tplThumbs[t.id]" alt="" />
             </span>
             <span class="pe-card__name">{{ t.name }}</span>

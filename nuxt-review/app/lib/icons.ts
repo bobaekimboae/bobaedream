@@ -3,6 +3,7 @@ import { asset, icon, site } from "./site";
 
 const ct = (n: string) => icon("chotot", n);
 const rd = (n: string) => icon("reddit-shoot", `${n}.svg`);
+const ab = (n: string) => icon("airbnb", `${n}.svg`);
 
 export const IC = {
   back: rd("back-fill"),
@@ -32,8 +33,12 @@ export const IC = {
   more: ct("chotot-common-more.svg"),
   verified: ct("chotot-list-detail-verified-check-circle.svg"),
   odometer: ct("chotot-common-clock.svg"),
-  emoji: site("community/assets/chzzk-detail/icons/sticker.svg"),
-  vote: rd("view-grid-outline"),
+  // 글쓰기 도구 줄: 획 1.5px로 맞춘 레딧 · 에어비앤비 원본
+  emoji: rd("emoji-outline"),
+  vote: rd("poll-post-outline"),
+  priceTag: ab("price-tag"),
+  pin: rd("location-outline"),
+  tools: rd("tools-outline"),
   settings: ct("chotot-common-settings.svg"),
   camera: rd("camera-outline-24"),
   video: rd("video-camera-outline"),
