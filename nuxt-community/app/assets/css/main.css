@@ -205,57 +205,6 @@ a { color: inherit; text-decoration: none; }
 .drawer-favorite-button.is-favorite img { opacity: 1; }
 .drawer-empty { margin: 0; padding: 7px 10px 13px; color: #8a8e94; font-size: 12px; line-height: 18px; }
 
-/* Baidu-style mobile board shortcut manager, adapted to Bobaedream */
-body.has-board-shortcut-manager { overflow: hidden; }
-.board-manager-backdrop { position: fixed; z-index: 90; inset: 0; display: flex; align-items: flex-end; justify-content: center; background: rgba(0, 0, 0, .58); }
-.board-shortcut-manager { position: relative; width: min(100%, 430px); max-height: calc(100dvh - 12px); display: flex; flex-direction: column; overflow: hidden; border-radius: 24px 24px 0 0; background: #fff; box-shadow: 0 -12px 40px rgba(0, 0, 0, .18); transform: translate3d(0, var(--sheet-drag-y, 0), 0); transition: transform .22s cubic-bezier(.2, .75, .25, 1); will-change: transform; }
-.board-shortcut-manager.is-sheet-dragging { transition: none; }
-.board-manager-header { position: relative; flex: 0 0 54px; display: flex; align-items: center; padding: 5px 14px 0; touch-action: none; user-select: none; }
-.board-manager-header::before { content: ''; position: absolute; top: 6px; left: 50%; width: 34px; height: 4px; border-radius: 2px; background: #d9dce1; transform: translateX(-50%); }
-.board-manager-header h2 { margin: 0; font-size: 20px; line-height: 26px; font-weight: 850; letter-spacing: -.055em; }
-.board-manager-close { width: 44px; height: 44px; display: grid; margin-left: auto; place-items: center; border-radius: 50%; color: #15171a; font-size: 31px; line-height: 1; font-weight: 250; }
-.board-manager-close:active { background: #f1f2f4; }
-.board-manager-scroll { overflow-y: auto; overscroll-behavior-y: contain; padding: 0 14px calc(28px + env(safe-area-inset-bottom)); scrollbar-width: none; touch-action: pan-y; }
-.board-manager-scroll::-webkit-scrollbar { display: none; }
-.board-default-entry { width: 100%; height: 38px; display: grid; grid-template-columns: minmax(0, 1fr) auto 15px; align-items: center; padding: 0 12px; border-radius: 6px; background: #f6f6f7; text-align: left; }
-.board-default-entry strong { font-size: 13px; font-weight: 750; letter-spacing: -.035em; }
-.board-default-entry span { overflow: hidden; max-width: 155px; color: #7e838a; font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
-.board-default-entry b { color: #92979e; font-size: 21px; font-weight: 300; text-align: right; }
-.board-manager-heading { min-height: 50px; display: flex; align-items: center; }
-.board-manager-heading > div { min-width: 0; display: flex; align-items: baseline; gap: 6px; }
-.board-manager-heading strong { flex: 0 0 auto; font-size: 16px; font-weight: 850; letter-spacing: -.045em; }
-.board-manager-heading span { overflow: hidden; color: #a0a4aa; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
-.board-manager-heading button { min-width: 44px; height: 44px; margin-left: auto; color: #3969f6; font-size: 13px; font-weight: 750; }
-.my-board-grid, .available-board-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 7px 8px; }
-.my-board-chip { position: relative; min-width: 0; height: 36px; border-radius: 7px; background: #f5f5f6; touch-action: pan-y; transition: transform .13s ease, box-shadow .13s ease; }
-.my-board-chip.is-current .my-board-select { color: #3468f5; font-weight: 750; }
-.my-board-chip.is-dragging { z-index: 2; transform: scale(.97); box-shadow: 0 5px 15px rgba(35, 45, 66, .16); }
-.my-board-select { width: 100%; height: 100%; overflow: hidden; padding: 0 5px; color: #292c31; font-size: 12px; line-height: 36px; font-weight: 600; letter-spacing: -.04em; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
-.my-board-select:disabled { color: inherit; opacity: 1; cursor: grab; }
-.my-board-grid.is-editing .my-board-chip { touch-action: none; }
-.my-board-remove { position: absolute; z-index: 2; top: -8px; right: -7px; width: 22px; height: 22px; display: grid; place-items: center; border: 1px solid #eceef1; border-radius: 50%; background: #fff; box-shadow: 0 2px 7px rgba(30, 37, 51, .12); color: #535860; font-size: 16px; line-height: 1; }
-.board-library { margin-top: 20px; touch-action: pan-y; }
-.board-library .available-board-grid { transform: translate3d(var(--section-drag-x, 0), 0, 0); transition: transform .17s ease-out; will-change: transform; }
-.board-library.is-section-dragging .available-board-grid { transition: none; }
-.board-section-tabs { height: 40px; display: flex; gap: 0; overflow-x: auto; overscroll-behavior-x: contain; border-bottom: 1px solid #e8e9ec; scrollbar-width: none; scroll-snap-type: x proximity; touch-action: pan-x; }
-.board-section-tabs::-webkit-scrollbar { display: none; }
-.board-section-tabs button { position: relative; flex: 1 0 62px; height: 40px; color: #717780; font-size: 13px; font-weight: 600; white-space: nowrap; scroll-snap-align: center; }
-.board-section-tabs button.is-active { color: #1f2328; font-weight: 800; }
-.board-section-tabs button.is-active::after { content: ''; position: absolute; right: 7px; bottom: 0; left: 7px; height: 2px; border-radius: 2px; background: #2f62f4; }
-.available-board-grid { padding-top: 13px; }
-.available-board-grid button { position: relative; height: 36px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0 14px 0 7px; border: 1px solid #dedfe3; border-radius: 7px; background: #fff; color: #33373d; font-size: 12px; font-weight: 580; letter-spacing: -.035em; }
-.available-board-grid button span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.available-board-grid button b { position: absolute; top: 1px; right: 4px; color: #454a51; font-size: 13px; font-weight: 400; }
-.available-board-grid p { grid-column: 1 / -1; margin: 24px 0 12px; color: #a1a5ab; font-size: 12px; text-align: center; }
-.board-order-reset { height: 42px; margin-top: 16px; color: #30343a; font-size: 12px; font-weight: 650; text-decoration: underline; text-underline-offset: 3px; }
-.board-manager-hint { margin: 16px 0 0; color: #a1a5ab; font-size: 11px; line-height: 17px; }
-.board-manager-toast { position: absolute; z-index: 3; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom)); left: 20px; margin: 0; padding: 11px 15px; border-radius: 22px; background: rgba(28, 30, 35, .94); color: #fff; font-size: 12px; font-weight: 650; text-align: center; }
-.visually-hidden { position: absolute!important; width: 1px!important; height: 1px!important; overflow: hidden!important; clip: rect(0 0 0 0)!important; white-space: nowrap!important; clip-path: inset(50%)!important; }
-.board-manager-slide-enter-active, .board-manager-slide-leave-active { transition: opacity .2s ease; }
-.board-manager-slide-enter-active .board-shortcut-manager, .board-manager-slide-leave-active .board-shortcut-manager { transition: transform .25s cubic-bezier(.2, .75, .25, 1); }
-.board-manager-slide-enter-from, .board-manager-slide-leave-to { opacity: 0; }
-.board-manager-slide-enter-from .board-shortcut-manager, .board-manager-slide-leave-to .board-shortcut-manager { transform: translateY(100%); }
-
 /* Chzzk-inspired mobile writer, adapted to Bobaedream boards */
 .write-page { display: flex; min-height: 100dvh; flex-direction: column; }
 .write-header { height: 64px; display: grid; grid-template-columns: 54px 1fr auto; align-items: center; padding: env(safe-area-inset-top) 14px 0 13px; border-bottom: 1px solid #e8e9ec; }

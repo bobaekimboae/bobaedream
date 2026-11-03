@@ -2,7 +2,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-11-01',
   ssr: false,
   devtools: { enabled: false },
-  css: ['~/assets/css/main.css'],
+  css: [
+    '~/assets/css/main.css',
+    '~/../../public/community/hupu-board-navigation.css',
+    '~/../../public/community/community-layout-align.css',
+  ],
   app: {
     baseURL: process.env.NUXT_APP_BASE_URL || '/bobaedream/nuxt-community/',
     head: {

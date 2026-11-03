@@ -39,7 +39,7 @@ function toggleFavorite(id: string) {
 const favoriteBoards = computed(() => favoriteBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
 const recentBoards = computed(() => recentBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
 const visibleRecentBoards = computed(() => recentExpanded.value ? recentBoards.value : recentBoards.value.slice(0, 3))
-const quickBoardIds = ['home', 'all', 'best', 'free', 'car-news', 'foreign-news', 'brand-info', 'vehicle-review', 'domestic', 'imported', 'bike']
+const quickBoardIds = ['home', 'all', 'best', 'free', 'car-news', 'foreign-car-news', 'brand-car-info', 'vehicle-review', 'domestic-car', 'import-car', 'bike-cycle']
 const quickBoards = computed(() => quickBoardIds.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
 const activeBanner = computed(() => activeBoard.value.banner ? `${baseURL}${activeBoard.value.banner}` : `${baseURL}images/community/board-header-genesis-yeosu.webp`)
 const activeTagline = computed(() => activeBoard.value.tagline || `${activeBoard.value.name}의 새로운 이야기를 만나보세요`)
