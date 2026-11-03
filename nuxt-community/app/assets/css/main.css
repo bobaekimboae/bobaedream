@@ -409,6 +409,85 @@ a { color: inherit; text-decoration: none; }
 .toast-enter-active, .toast-leave-active { transition: opacity .2s, transform .2s; }
 .toast-enter-from, .toast-leave-to { opacity: 0; transform: translate(-50%, 8px); }
 
+/* v9758e99 community source migrated to the Nuxt 4 shell. */
+.community-shell { max-width: 393px; overflow-x: hidden; }
+.community-header {
+  position: relative;
+  height: 56px;
+  grid-template-columns: 24px minmax(0, 1fr) 28px;
+  gap: 10px;
+  padding: 6px 16px 8px 12px;
+  border-bottom: 0;
+}
+.header-menu-button { width: 24px; height: 24px; }
+.header-menu-button img { width: 24px; height: 24px; }
+.community-header-search { height: 42px; padding: 0 14px; border-radius: 999px; background: #f3f4f5; }
+.community-header-search span { font-size: 15px; line-height: 21px; font-weight: 600; }
+.community-header-profile { width: 28px; height: 28px; border: 0; }
+.community-header-profile img { width: 28px; height: 28px; display: block; border-radius: 50%; object-fit: cover; }
+
+.board-channel-nav { position: relative; height: 36px; display: grid; grid-template-columns: minmax(0, 1fr) 44px; background: #fff; }
+.board-channel-track { display: flex; align-items: stretch; gap: 24px; overflow-x: auto; padding: 0 18px; scrollbar-width: none; }
+.board-channel-track::-webkit-scrollbar { display: none; }
+.board-channel-track button { position: relative; flex: 0 0 auto; height: 36px; color: #5c5f64; font-size: 15.5px; line-height: 36px; font-weight: 520; letter-spacing: -.045em; white-space: nowrap; }
+.board-channel-track button.is-active { color: #111214; font-weight: 750; }
+.board-channel-track button.is-active::after { content: ""; position: absolute; left: 19%; right: 19%; top: 32px; height: 2px; border-radius: 2px; background: #222; }
+.board-channel-menu { width: 44px; height: 36px; display: grid; place-items: center; background: #fff; box-shadow: -10px 0 12px #fff; }
+.board-channel-menu img { width: 18px; height: 18px; }
+
+.community-board-hero { position: relative; height: 120px; margin: 10px 16px 0; overflow: hidden; border-radius: 10px; background: #20252a; }
+.community-board-hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.08) 68%, transparent); }
+.community-board-hero > img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.community-board-hero figcaption { position: absolute; z-index: 1; left: 20px; top: 50%; display: grid; gap: 2px; color: #fff; transform: translateY(-50%); }
+.community-board-hero figcaption > span { font-size: 10px; line-height: 14px; font-weight: 800; letter-spacing: .09em; opacity: .85; }
+.community-board-hero figcaption > strong { font-size: 23px; line-height: 30px; font-weight: 850; letter-spacing: -.065em; }
+.community-board-hero figcaption > small { font-size: 12px; line-height: 17px; font-weight: 500; letter-spacing: -.035em; opacity: .92; }
+
+.community-board-profile { min-height: 74px; display: flex; align-items: center; padding: 8px 16px; background: #fff; }
+.community-board-identity { min-width: 0; flex: 1; text-align: left; }
+.community-board-identity > span { display: flex; align-items: center; gap: 4px; }
+.community-board-identity strong { overflow: hidden; font-size: 20px; line-height: 27px; font-weight: 820; letter-spacing: -.055em; text-overflow: ellipsis; white-space: nowrap; }
+.community-board-identity img { width: 17px; height: 17px; opacity: .7; }
+.community-board-identity small { display: block; margin-top: 2px; color: #73767b; font-size: 12px; line-height: 17px; font-weight: 450; letter-spacing: -.025em; }
+.community-follow-button { width: 60px; height: 32px; margin-left: 8px; border: 1px solid #d7d9dd; border-radius: 999px; color: #44484e; font-size: 13px; font-weight: 720; }
+.community-follow-button.is-following { border-color: #dce8ff; background: #eef4ff; color: #2563d9; }
+
+.post-toolbar { min-height: 49px; grid-template-columns: 40px minmax(0, 1fr) 0; gap: 0; padding: 0; border-top: 0; border-bottom: 1px solid #f0f1f2; }
+.post-toolbar .filter-button { width: 32px; height: 32px; margin: 8px 4px 8px 8px; border: 0; background: #f1f1f2; }
+.post-toolbar .filter-button img { width: 18px; height: 18px; }
+.post-toolbar .headword-strip { gap: 8px; padding: 0 8px; }
+.post-toolbar .headword-strip button { height: 32px; padding: 0 14px; border-radius: 999px; background: #f1f1f2; color: #50535a; font-size: 14px; line-height: 32px; font-weight: 600; letter-spacing: -.025em; }
+.post-toolbar .headword-strip button.is-active { background: #161823; color: #fff; font-weight: 700; }
+.post-toolbar .sort-summary { width: 0; overflow: hidden; opacity: 0; }
+
+.post-list--feed { display: block; padding: 0; background: #fff; }
+.post-list--feed .post-card { display: block; padding: 15px 16px 13px; border-bottom: 8px solid #f4f5f7; border-radius: 0; background: #fff; }
+.feed-headword { display: inline-flex; min-height: 24px; align-items: center; margin-bottom: 10px; padding: 0 8px; border-radius: 5px; background: #f3f4f5; color: #5c6169; font-size: 12px; line-height: 18px; font-weight: 650; }
+.feed-meta { margin-bottom: 11px; }
+.feed-avatar { width: 32px; height: 32px; overflow: hidden; border-radius: 50%; background: #edf0f4; }
+.feed-avatar img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.feed-avatar > span { width: 100%; height: 100%; display: grid; place-items: center; color: #707780; font-size: 11px; font-weight: 800; }
+.feed-meta strong { font-size: 13.5px; line-height: 19px; font-weight: 700; }
+.feed-meta small { font-size: 11.5px; line-height: 16px; }
+.post-list--feed h2 { margin: 0 0 6px; font-size: 19px; line-height: 27px; font-weight: 760; letter-spacing: -.05em; }
+.feed-excerpt { display: -webkit-box; overflow: hidden; margin: 0; color: #555961; font-size: 15px; line-height: 23px; letter-spacing: -.035em; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
+.feed-media { position: relative; overflow: hidden; margin-top: 13px; border-radius: 10px; background: #eef0f2; }
+.feed-image { width: 100%; aspect-ratio: 3 / 2; max-height: none; display: block; margin: 0; border-radius: 0; object-fit: cover; }
+.feed-media-count { position: absolute; right: 8px; bottom: 8px; min-width: 25px; height: 21px; display: grid; place-items: center; padding: 0 7px; border-radius: 999px; background: rgba(32,35,39,.72); color: #fff; font-size: 11px; font-weight: 750; }
+.feed-video-mark { position: absolute; left: 50%; top: 50%; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: rgba(0,0,0,.55); color: #fff; font-size: 17px; transform: translate(-50%,-50%); backdrop-filter: blur(3px); }
+.reaction-line { min-height: 34px; gap: 18px; margin-top: 10px; padding-top: 9px; }
+.reaction-line button { font-size: 12px; }
+.reaction-line img { width: 18px; height: 18px; }
+.floating-write { right: max(18px, calc((100vw - 393px) / 2 + 18px)); bottom: calc(18px + env(safe-area-inset-bottom)); width: 54px; height: 54px; }
+.floating-write img { width: 25px; height: 25px; }
+
+@media (max-width: 370px) {
+  .board-channel-track { gap: 20px; padding-left: 15px; }
+  .community-board-hero { height: 112px; margin-right: 14px; margin-left: 14px; }
+  .community-board-profile { padding-right: 14px; padding-left: 14px; }
+  .community-board-identity strong { font-size: 19px; }
+}
+
 @media (min-width: 768px) {
   body { padding: 22px; }
   .community-shell, .write-page, .detail-page { border-radius: 16px; box-shadow: 0 10px 34px #15223812; }

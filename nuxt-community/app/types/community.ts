@@ -7,6 +7,13 @@ export interface CommunityBoard {
   id: string
   sectionId: CommunitySectionId
   name: string
+  shortName?: string
+  description?: string
+  tagline?: string
+  kicker?: string
+  followerLabel?: string
+  postCountLabel?: string
+  banner?: string
   headwords: string[]
   canWrite: boolean
 }
@@ -33,9 +40,12 @@ export interface CommunityPost {
   title: string
   excerpt: string
   author: string
+  authorAvatar?: string
+  timeLabel?: string
   createdAt: string
   updatedAt: string
   thumbnail?: string
+  photoCount?: number
   mediaKind?: 'image' | 'video'
   comments: number
   likes: number

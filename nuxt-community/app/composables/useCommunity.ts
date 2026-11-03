@@ -5,18 +5,38 @@ const sections: CommunitySection[] = [
     id: 'general',
     name: '일반',
     boards: [
-      { id: 'free', sectionId: 'general', name: '자유게시판', headwords: ['일상', '유머', '질문', '정보'], canWrite: true },
+      { id: 'home', sectionId: 'general', name: '커뮤니티 홈', shortName: '홈', tagline: '보배드림 커뮤니티의 모든 이야기', headwords: ['인기', '신규'], canWrite: false },
+      { id: 'all', sectionId: 'general', name: '전체 게시글', shortName: '전체', tagline: '모든 게시판의 최신 이야기', headwords: ['자동차', '일상', '제보'], canWrite: true },
+      { id: 'best', sectionId: 'general', name: '베스트글', shortName: '베스트', tagline: '지금 가장 주목받는 이야기', headwords: ['오늘', '주간', '월간'], canWrite: false },
+      {
+        id: 'free',
+        sectionId: 'general',
+        name: '자유게시판',
+        shortName: '자유',
+        description: '자동차와 일상을 편하게 나누는 보배드림 대표 커뮤니티입니다.',
+        tagline: '자동차와 일상을 편하게 나누세요',
+        kicker: 'LIFE',
+        followerLabel: '팔로워 38.4만명',
+        postCountLabel: '게시물 1,000개',
+        banner: 'community/assets/board-banners/free.webp',
+        headwords: ['테슬라', 'BMW', '벤츠', '일론', 'TSLA', '스페이스', '전기차', '정비', '튜닝', '중고차', '보험', '블박'],
+        canWrite: true,
+      },
       { id: 'politics', sectionId: 'general', name: '정치게시판', headwords: ['정치', '시사'], canWrite: true },
       { id: 'humor', sectionId: 'general', name: '유머게시판', headwords: ['유머', '영상'], canWrite: true },
+      { id: 'car-news', sectionId: 'general', name: '자동차뉴스', shortName: '자동차뉴스', tagline: '국내 자동차 업계의 최신 뉴스', headwords: ['신차', '산업', '정책'], canWrite: false },
+      { id: 'foreign-news', sectionId: 'general', name: '해외 자동차뉴스', shortName: '해외뉴스', tagline: '세계 자동차 시장의 최신 뉴스', headwords: ['글로벌', '모터쇼', '전동화'], canWrite: false },
+      { id: 'brand-info', sectionId: 'general', name: '브랜드 자동차 정보', shortName: '브랜드정보', tagline: '브랜드별 신차와 기술 정보', headwords: ['국산', '수입', '전기차'], canWrite: false },
+      { id: 'vehicle-review', sectionId: 'general', name: '차량리뷰', shortName: '차량리뷰', tagline: '실제 오너와 전문가의 차량 리뷰', headwords: ['시승기', '오너리뷰', '비교'], canWrite: true },
     ],
   },
   {
     id: 'cars',
     name: '자동차',
     boards: [
-      { id: 'domestic', sectionId: 'cars', name: '국산차게시판', headwords: ['현대', '기아', '제네시스', '르노', 'KGM'], canWrite: true },
-      { id: 'imported', sectionId: 'cars', name: '수입차게시판', headwords: ['BMW', '벤츠', '아우디', '포르쉐', '테슬라'], canWrite: true },
-      { id: 'ev', sectionId: 'cars', name: '전기차게시판', headwords: ['전기차', '충전', '배터리'], canWrite: true },
+      { id: 'domestic', sectionId: 'cars', name: '국산차게시판', shortName: '국산차', tagline: '대한민국 자동차의 모든 이야기', headwords: ['현대', '기아', '제네시스', '르노', 'KGM'], canWrite: true },
+      { id: 'imported', sectionId: 'cars', name: '수입차게시판', shortName: '수입차', tagline: '수입차 오너의 경험과 정보', headwords: ['BMW', '벤츠', '아우디', '포르쉐', '테슬라'], canWrite: true },
+      { id: 'ev', sectionId: 'cars', name: '전기차게시판', shortName: '전기차', tagline: '충전부터 배터리까지 전기차 정보', headwords: ['전기차', '충전', '배터리'], canWrite: true },
       { id: 'maintenance', sectionId: 'cars', name: '정비 · DIY', headwords: ['정비', '부품', 'DIY'], canWrite: true },
     ],
   },
@@ -24,7 +44,7 @@ const sections: CommunitySection[] = [
     id: 'vehicles',
     name: '차량',
     boards: [
-      { id: 'bike', sectionId: 'vehicles', name: '바이크게시판', headwords: ['바이크', '스쿠터', '투어'], canWrite: true },
+      { id: 'bike', sectionId: 'vehicles', name: '바이크게시판', shortName: '바이크', tagline: '두 바퀴로 달리는 사람들의 이야기', headwords: ['바이크', '스쿠터', '투어'], canWrite: true },
       { id: 'truck', sectionId: 'vehicles', name: '트럭 · 특장', headwords: ['트럭', '특장', '운송'], canWrite: true },
       { id: 'heavy', sectionId: 'vehicles', name: '중기게시판', headwords: ['굴착기', '지게차', '건설기계'], canWrite: true },
       { id: 'camping', sectionId: 'vehicles', name: '캠핑카게시판', headwords: ['캠핑카', '카라반'], canWrite: true },
@@ -34,14 +54,14 @@ const sections: CommunitySection[] = [
     id: 'sports',
     name: '스포츠',
     boards: [
-      { id: 'f1', sectionId: 'sports', name: 'F1', headwords: ['경기', '다시보기', '규정', '기술', '직관'], canWrite: true },
+      { id: 'f1', sectionId: 'sports', name: 'F1', shortName: 'F1', tagline: '가장 빠른 모터스포츠 이야기', banner: 'community/assets/board-banners/f1.webp', headwords: ['경기', '다시보기', '규정', '기술', '직관'], canWrite: true },
     ],
   },
   {
     id: 'reports',
     name: '제보',
     boards: [
-      { id: 'blackbox', sectionId: 'reports', name: '교통사고 · 블랙박스', headwords: ['사고', '블랙박스', '교통법규'], canWrite: true },
+      { id: 'blackbox', sectionId: 'reports', name: '교통사고 · 블랙박스', shortName: '블랙박스', tagline: '교통사고와 블랙박스 제보', headwords: ['사고', '블랙박스', '교통법규'], canWrite: true },
       { id: 'news-tip', sectionId: 'reports', name: '사건 · 제보', headwords: ['사건', '제보', '뉴스'], canWrite: true },
     ],
   },
@@ -49,19 +69,19 @@ const sections: CommunitySection[] = [
     id: 'defects',
     name: '결함',
     boards: [
-      { id: 'defect', sectionId: 'defects', name: '차량 결함 신고', headwords: ['엔진', '변속기', '전장', '안전'], canWrite: true },
+      { id: 'defect', sectionId: 'defects', name: '차량 결함 신고', shortName: '결함/불만', tagline: '차량 결함과 소비자 경험 공유', headwords: ['엔진', '변속기', '전장', '안전'], canWrite: true },
       { id: 'recall', sectionId: 'defects', name: '리콜 · 소비자 대응', headwords: ['리콜', '보증', '분쟁'], canWrite: true },
     ],
   },
 ]
 
 const seedPosts: CommunityPost[] = [
-  { id: 'p-free-1', boardId: 'free', headword: '일상', title: '주말 드라이브 코스 어디가 좋을까요?', excerpt: '서울에서 두 시간 안쪽으로 다녀올 만한 코스를 추천해주세요.', author: '바람따라', createdAt: '2026-11-01T04:20:00Z', updatedAt: '2026-11-01T04:35:00Z', thumbnail: 'images/community/board-header-genesis-yeosu.webp', comments: 18, likes: 22, dislikes: 1, views: 735, isPopular: true },
-  { id: 'p-free-2', boardId: 'free', headword: '질문', title: '첫 중고차 점검 항목 조언 부탁드립니다', excerpt: '계약 전에 꼭 확인해야 할 항목을 경험자분들께 여쭙습니다.', author: '첫차준비중', createdAt: '2026-11-01T03:10:00Z', updatedAt: '2026-11-01T03:50:00Z', comments: 27, likes: 14, dislikes: 0, views: 612 },
-  { id: 'p-free-3', boardId: 'free', headword: '유머', title: '세차하고 나오자마자 비가 옵니다', excerpt: '이번에도 일기예보보다 제 세차 일정이 정확했습니다.', author: '맑은날세차', createdAt: '2026-11-01T01:45:00Z', updatedAt: '2026-11-01T01:45:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', mediaKind: 'video', comments: 11, likes: 31, dislikes: 0, views: 980 },
-  { id: 'p-free-4', boardId: 'free', headword: '정보', title: '장거리 운전 전에 확인한 차량 점검 목록입니다', excerpt: '타이어와 오일류를 중심으로 출발 전 확인한 항목입니다.', author: '안전운전중', createdAt: '2026-11-01T00:50:00Z', updatedAt: '2026-11-01T00:50:00Z', comments: 9, likes: 28, dislikes: 0, views: 844 },
-  { id: 'p-free-5', boardId: 'free', headword: '질문', title: '보험 갱신할 때 특약 어떤 걸 넣으셨나요?', excerpt: '주행거리 특약과 안전장치 할인 조건을 비교 중입니다.', author: '보험비교중', createdAt: '2026-10-31T23:35:00Z', updatedAt: '2026-10-31T23:35:00Z', thumbnail: 'images/community/board-header-aston-martin-db12.webp', comments: 24, likes: 17, dislikes: 1, views: 620 },
-  { id: 'p-free-6', boardId: 'free', headword: '일상', title: '오늘 출근길 연비가 평소보다 잘 나왔습니다', excerpt: '막히지 않는 시간대에 달리니 차이가 꽤 크네요.', author: '연비기록러', createdAt: '2026-10-31T22:10:00Z', updatedAt: '2026-10-31T22:10:00Z', comments: 7, likes: 13, dislikes: 0, views: 311 },
+  { id: 'p-free-1', boardId: 'free', headword: '전기차', title: '제네시스 GV80 장거리 시승 후기', excerpt: '제네시스 GV80으로 서울에서 강릉까지 왕복한 느낌을 정리해 봤습니다.', author: '전기차궁금', authorAvatar: 'community/assets/profile-avatars/avatar-43.svg', timeLabel: '1분 전', createdAt: '2026-11-03T07:59:00+09:00', updatedAt: '2026-11-03T07:59:00+09:00', thumbnail: 'community/assets/feed/post-01.webp', photoCount: 1, comments: 5, likes: 50, dislikes: 1, views: 1025, isPopular: true },
+  { id: 'p-free-2', boardId: 'free', headword: '테슬라', title: '이번 업데이트 이후 달라진 점 정리', excerpt: '어젯밤 업데이트 후 출근길에 확인한 변화만 적어봅니다.', author: '하이랜드초보', authorAvatar: 'community/assets/profile-avatars/avatar-22.svg', timeLabel: '2분 전', createdAt: '2026-11-03T07:58:00+09:00', updatedAt: '2026-11-03T07:58:00+09:00', comments: 6, likes: 36, dislikes: 1, views: 694 },
+  { id: 'p-free-3', boardId: 'free', headword: '테슬라', title: '모델Y 트렁크 매트 추천 부탁드립니다', excerpt: '모델Y 5인승 트렁크 매트를 고르는 중인데 실제 사용 후기가 궁금합니다.', author: '트렁크테트리스', authorAvatar: 'community/assets/profile-avatars/avatar-07.svg', timeLabel: '3분 전', createdAt: '2026-11-03T07:57:00+09:00', updatedAt: '2026-11-03T07:57:00+09:00', thumbnail: 'community/assets/feed/post-03.webp', photoCount: 2, comments: 5, likes: 21, dislikes: 1, views: 363 },
+  { id: 'p-free-4', boardId: 'free', headword: '정비', title: '모델3 하이랜드 도어라이트 DIY 비용 공유', excerpt: '모델3 하이랜드 도어라이트를 직접 교체했습니다.', author: '송파T불빠따', authorAvatar: 'community/assets/profile-avatars/avatar-45.svg', timeLabel: '4분 전', createdAt: '2026-11-03T07:56:00+09:00', updatedAt: '2026-11-03T07:56:00+09:00', thumbnail: 'community/assets/feed/post-04.webp', photoCount: 5, comments: 4, likes: 5, dislikes: 1, views: 32 },
+  { id: 'p-free-5', boardId: 'free', headword: '튜닝', title: '프렁크 소프트 클로징 장착 후기입니다', excerpt: '프렁크를 세게 닫아야 하는 게 불편해서 소프트 클로징 모듈을 장착했습니다.', author: '디젤끝물', authorAvatar: 'community/assets/profile-avatars/avatar-29.svg', timeLabel: '5분 전', createdAt: '2026-11-03T07:55:00+09:00', updatedAt: '2026-11-03T07:55:00+09:00', thumbnail: 'community/assets/feed/post-05.webp', photoCount: 5, comments: 5, likes: 10, dislikes: 1, views: 118 },
+  { id: 'p-free-6', boardId: 'free', headword: '뻘글', title: '하하하 도박 중독보다 위험하네요...', excerpt: '요즘 자동차보다 유지비가 더 무서운 취미가 생겼습니다.', author: '연비왕김대표', authorAvatar: 'community/assets/profile-avatars/avatar-04.svg', timeLabel: '6분 전', createdAt: '2026-11-03T07:54:00+09:00', updatedAt: '2026-11-03T07:54:00+09:00', comments: 1284, likes: 1200, dislikes: 183, views: 144 },
   { id: 'p1', boardId: 'domestic', headword: '기아', title: '마그마 주조휠 단조휠 차이 꽤 납니다', excerpt: '실사용에서 느낀 승차감과 무게 차이를 정리했습니다.', author: '스탄IGV60Mag', createdAt: '2026-11-01T03:30:00Z', updatedAt: '2026-11-01T03:30:00Z', thumbnail: 'images/community/board-header-genesis-yeosu.webp', comments: 32, likes: 18, dislikes: 1, views: 4661, isPopular: true },
   { id: 'p2', boardId: 'ev', headword: '충전', title: '[질문] 충전 몇 프로 채우세요?', excerpt: '완속 충전 시 80%와 90% 중 어떤 설정을 쓰시나요?', author: '두부lev3', createdAt: '2026-11-01T02:45:00Z', updatedAt: '2026-11-01T03:42:00Z', comments: 12, likes: 5, dislikes: 0, views: 224 },
   { id: 'p3', boardId: 'imported', headword: '벤츠', title: 'GLC EV 실내 공간은 이 정도입니다', excerpt: '2열 무릎 공간과 트렁크 실측 사진을 함께 올립니다.', author: '노이예ix3', createdAt: '2026-10-31T23:30:00Z', updatedAt: '2026-11-01T01:20:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', comments: 36, likes: 29, dislikes: 2, views: 2939, isPopular: true },
@@ -90,7 +110,12 @@ export function filterAndSortPosts(
     all: Number.POSITIVE_INFINITY,
   }
   const source = posts.filter((post) => {
-    if (post.boardId !== selectedBoardId || (selectedHeadword && post.headword !== selectedHeadword)) return false
+    const matchesBoard = selectedBoardId === 'home' || selectedBoardId === 'all'
+      ? true
+      : selectedBoardId === 'best'
+        ? Boolean(post.isPopular)
+        : post.boardId === selectedBoardId
+    if (!matchesBoard || (selectedHeadword && post.headword !== selectedHeadword)) return false
     if (selectedSort !== 'popular') return true
     return now - Date.parse(post.createdAt) <= periodMilliseconds[selectedPopularPeriod]
   })
@@ -105,7 +130,7 @@ export function useCommunity() {
   const posts = useState<CommunityPost[]>('community-posts', () => seedPosts)
   const sort = useState<CommunitySort>('community-sort', () => 'latest')
   const popularPeriod = useState<CommunityPopularPeriod>('community-popular-period', () => 'all')
-  const view = useState<CommunityView>('community-view-v2', () => 'compact')
+  const view = useState<CommunityView>('community-view-v9758', () => 'feed')
   const boardId = useState<string>('community-board', () => 'free')
   const headword = useState<string>('community-headword', () => '')
 

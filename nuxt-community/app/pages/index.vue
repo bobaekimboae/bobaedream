@@ -5,9 +5,12 @@ const { sections, boards, sort, popularPeriod, view, boardId, headword, activeBo
 const optionsOpen = ref(false)
 const boardMenuOpen = ref(false)
 const recentExpanded = ref(false)
+const following = ref(false)
 const route = useRoute()
 const router = useRouter()
-const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
+const baseURL = useRuntimeConfig().app.baseURL
+const iconRoot = `${baseURL}icons`
+const communityAssetRoot = `${baseURL}community/assets`
 const favoriteBoardIds = ref<string[]>([])
 const recentBoardIds = ref<string[]>([])
 const favoriteStorageKey = 'bbm.community.nuxt.favoriteBoards.v1'
@@ -35,6 +38,16 @@ function toggleFavorite(id: string) {
 const favoriteBoards = computed(() => favoriteBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
 const recentBoards = computed(() => recentBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
 const visibleRecentBoards = computed(() => recentExpanded.value ? recentBoards.value : recentBoards.value.slice(0, 3))
+const quickBoardIds = ['home', 'all', 'best', 'free', 'car-news', 'foreign-news', 'brand-info', 'vehicle-review', 'domestic', 'imported', 'bike']
+const quickBoards = computed(() => quickBoardIds.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
+const activeBanner = computed(() => activeBoard.value.banner ? `${baseURL}${activeBoard.value.banner}` : `${baseURL}images/community/board-header-genesis-yeosu.webp`)
+const activeTagline = computed(() => activeBoard.value.tagline || `${activeBoard.value.name}의 새로운 이야기를 만나보세요`)
+
+function publicAsset(path?: string) {
+  if (!path) return ''
+  if (/^https?:\/\//.test(path)) return path
+  return `${baseURL}${path.replace(/^\//, '')}`
+}
 
 onMounted(() => {
   favoriteBoardIds.value = loadBoardIds(favoriteStorageKey, boards.value.length)
@@ -77,23 +90,33 @@ useHead({ title: '보배드림 커뮤니티' })
     <header class="community-header" :class="{ 'community-header--f1': boardId === 'f1' }">
       <button class="header-menu-button" type="button" aria-label="게시판 바로가기" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
       <button class="community-header-search" type="button" aria-label="커뮤니티 게시글 검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /><span>게시글 검색</span></button>
-      <button class="community-header-profile" type="button" aria-label="내 프로필"><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span></button>
+      <button class="community-header-profile" type="button" aria-label="내 프로필"><img :src="`${communityAssetRoot}/profile-avatars/naver-stock-default.png`" alt="" /></button>
     </header>
+
+    <nav class="board-channel-nav" aria-label="게시판 빠른 이동">
+      <div class="board-channel-track">
+        <button v-for="board in quickBoards" :key="board!.id" type="button" :class="{ 'is-active': board!.id === boardId }" @click="selectBoard(board!.id)">{{ board!.shortName || board!.name }}</button>
+      </div>
+      <button class="board-channel-menu" type="button" aria-label="게시판 바로가기" @click="boardMenuOpen = true"><img :src="`${communityAssetRoot}/ui/menu.svg`" alt="" /></button>
+    </nav>
 
     <F1BoardHub v-if="boardId === 'f1'" :posts="filteredPosts" :headword="headword" @update:headword="headword = $event" @open-options="optionsOpen = true" />
 
     <template v-if="boardId !== 'f1'">
-    <div v-if="isCompactList" class="chzzk-list-toolbar">
-      <button type="button" @click="boardMenuOpen = true">{{ activeBoard.name }} <img :src="`${iconRoot}/write/chevron-down.svg`" alt="" /></button>
-      <button type="button" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" />{{ sortLabel }}</button>
-    </div>
+    <figure class="community-board-hero">
+      <img :src="activeBanner" :alt="`${activeBoard.name} 대표 이미지`" />
+      <figcaption><span>{{ activeBoard.kicker || 'BOBAEDREAM' }}</span><strong>{{ activeBoard.name }}</strong><small>{{ activeTagline }}</small></figcaption>
+    </figure>
 
-    <section v-else class="board-context">
-      <div><strong>{{ activeBoard.name }}</strong><span>차를 좋아하는 사람들의 이야기</span></div>
-      <button type="button" @click="boardMenuOpen = true">게시판 변경</button>
+    <section class="community-board-profile">
+      <button class="community-board-identity" type="button" @click="boardMenuOpen = true">
+        <span><strong>{{ activeBoard.name }}</strong><img :src="`${communityAssetRoot}/ui/chevron-right.svg`" alt="" /></span>
+        <small>{{ activeBoard.followerLabel || '팔로워 7.1만명' }} · {{ activeBoard.postCountLabel || '게시물 470개' }}</small>
+      </button>
+      <button class="community-follow-button" :class="{ 'is-following': following }" type="button" :aria-pressed="following" @click="following = !following">{{ following ? '팔로잉' : '팔로우' }}</button>
     </section>
 
-    <div v-if="!isCompactList" class="post-toolbar">
+    <div class="post-toolbar">
       <button class="filter-button" type="button" aria-label="게시글 옵션" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" /></button>
       <div class="headword-strip" aria-label="말머리 필터">
         <button :class="{ 'is-active': !headword }" type="button" @click="headword = ''">전체</button>
@@ -102,29 +125,24 @@ useHead({ title: '보배드림 커뮤니티' })
       <button class="sort-summary" type="button" @click="optionsOpen = true">{{ sortLabel }}</button>
     </div>
 
-    <div v-if="isCompactList" class="community-cleanbot">
-      <span class="cleanbot-mark"><img :src="`${iconRoot}/chzzk/cleanbot-source.png`" alt="" /></span>
-      <span><strong>클린봇</strong>이 악성게시글을 감지합니다.</span>
-      <button class="cleanbot-settings" type="button" aria-label="클린봇 설정"><img :src="`${iconRoot}/chzzk/settings.svg`" alt="" /></button>
-    </div>
-
     <section class="post-list" :class="`post-list--${view}`" aria-live="polite">
       <NuxtLink v-for="post in filteredPosts" :key="post.id" class="post-card" :to="`/posts/${post.id}`">
         <template v-if="isCompactList">
-          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" /><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }} <span class="compact-replies">({{ post.comments }})</span><span v-if="view === 'text' && (post.mediaKind || post.thumbnail)" class="text-media-indicator"><img :src="`${iconRoot}/chzzk-community/${post.mediaKind === 'video' ? 'media-video' : 'media-image'}.svg`" :alt="post.mediaKind === 'video' ? '영상 첨부' : '이미지 첨부'" /></span></h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
-          <img v-if="view === 'compact' && post.thumbnail" :src="post.thumbnail" alt="" class="post-thumbnail" />
+          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" /><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }} <span class="compact-replies">({{ post.comments }})</span><span v-if="view === 'text' && (post.mediaKind || post.thumbnail)" class="text-media-indicator"><img :src="`${iconRoot}/chzzk-community/${post.mediaKind === 'video' ? 'media-video' : 'media-image'}.svg`" :alt="post.mediaKind === 'video' ? '영상 첨부' : '이미지 첨부'" /></span></h2><p><b>{{ post.author }}</b><span>{{ post.timeLabel || timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
+          <img v-if="view === 'compact' && post.thumbnail" :src="publicAsset(post.thumbnail)" alt="" class="post-thumbnail" />
         </template>
 
         <template v-else-if="view === 'list'">
-          <div class="post-copy"><h2><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }}</h2><p><b>{{ post.author }}</b><span>{{ timeLabel(post.updatedAt) }}</span><span>조회 {{ post.views.toLocaleString() }}</span></p></div>
-          <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="post-thumbnail" />
+          <div class="post-copy"><h2><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }}</h2><p><b>{{ post.author }}</b><span>{{ post.timeLabel || timeLabel(post.updatedAt) }}</span><span>조회 {{ post.views.toLocaleString() }}</span></p></div>
+          <img v-if="post.thumbnail" :src="publicAsset(post.thumbnail)" alt="" class="post-thumbnail" />
           <div class="comment-count"><strong>{{ post.comments }}</strong><span>댓글</span></div>
         </template>
 
         <template v-else>
-          <header class="feed-meta"><span class="feed-avatar">{{ post.author.slice(0, 1) }}</span><div><strong>{{ post.author }}</strong><small>{{ timeLabel(post.createdAt) }} · 조회 {{ post.views.toLocaleString() }}</small></div><button type="button" aria-label="게시글 더보기">•••</button></header>
-          <h2><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }}</h2><p class="feed-excerpt">{{ post.excerpt }}</p>
-          <img v-if="post.thumbnail" :src="post.thumbnail" alt="" class="feed-image" />
+          <span v-if="post.headword" class="feed-headword">{{ post.headword }}</span>
+          <header class="feed-meta"><span class="feed-avatar"><img v-if="post.authorAvatar" :src="publicAsset(post.authorAvatar)" alt="" /><span v-else>{{ post.author.slice(0, 1) }}</span></span><div><strong>{{ post.author }}</strong><small>{{ post.timeLabel || timeLabel(post.createdAt) }}</small></div><button type="button" aria-label="게시글 더보기">•••</button></header>
+          <h2>{{ post.title }}</h2><p class="feed-excerpt">{{ post.excerpt }}</p>
+          <div v-if="post.thumbnail" class="feed-media"><img :src="publicAsset(post.thumbnail)" alt="" class="feed-image" /><span v-if="post.photoCount && post.photoCount > 1" class="feed-media-count">1/{{ post.photoCount }}</span><span v-if="post.mediaKind === 'video'" class="feed-video-mark" aria-label="영상">▶</span></div>
           <footer class="reaction-line"><button type="button"><img :src="`${iconRoot}/reaction-like.svg`" alt="추천" />{{ post.likes }}</button><button type="button"><img :src="`${iconRoot}/reaction-dislike.svg`" alt="비추천" />{{ post.dislikes }}</button><button type="button"><img :src="`${iconRoot}/reaction-comment.svg`" alt="댓글" />{{ post.comments }}</button><span>조회 {{ post.views.toLocaleString() }}</span></footer>
         </template>
       </NuxtLink>
