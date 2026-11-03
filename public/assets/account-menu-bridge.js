@@ -169,7 +169,14 @@
     if(!pendingListing)return;
     const saved=readActivity().favorites.find(v=>v.id===pendingListing)||readActivity().recent.find(v=>v.id===pendingListing);
     if(!saved)return;
-    const card=[...document.querySelectorAll('.bbm-result-card[role=link]')].find(el=>snapshot(el)?.id===pendingListing || (!pendingListing.startsWith('observed-')&&el.querySelector('.bbm-card-title')?.textContent.trim().startsWith(saved.title)));
+    const card=[...document.querySelectorAll('.bbm-result-card[role=link]')].find(el=>{
+      const candidate=snapshot(el);if(!candidate)return false;
+      if(candidate.id===pendingListing)return true;
+      if(!pendingListing.startsWith('sample-'))return false;
+      // Older sample names omit generation words. Require all name tokens AND the saved price.
+      const words=saved.title.trim().split(/\s+/);const price=saved.price.replace(/[^0-9]/g,'');
+      return words.every(word=>candidate.title.includes(word))&&price!==''&&candidate.price.replace(/[^0-9]/g,'')===price;
+    });
     if(!card)return;
     pendingListing=null;const u=new URL(location.href);u.searchParams.delete('accountListing');history.replaceState(history.state,'',u.href);card.click();
   }
