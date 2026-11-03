@@ -1,7 +1,7 @@
 // Explicit browser-only SAMPLE adapter. This is not an authentication or payment API.
 export const accountDemoKey = 'bbm.account.demo.v2'
 export const listingActivityKey = 'bbm.account.listing-activity.v1'
-export interface DemoVehicle { id: string; title: string; image: string; price: string; specs: string; url: string; status?: 'active' | 'sold'; premium?: boolean }
+export interface DemoVehicle { id: string; title: string; image: string; price: string; specs: string; url: string; status?: 'active' | 'sold'; premium?: boolean; location?: string; seller?: string; sellerAvatar?: string; avatarReady?: boolean; posted?: string; unavailable?: boolean }
 export interface DemoSearch { id: string; title: string; url: string; notify: boolean }
 export interface DemoReview { id: string; kind: 'vehicle' | 'complex'; subject: string; rating: number; text: string; createdAt: string }
 export interface DemoCoupon { id: string; title: string; discount: number; claimed: boolean; used: boolean }
@@ -72,4 +72,12 @@ export function validateReview(subject: string, rating: number, text: string) {
 }
 export function readActivity(storage: StoragePort): { favorites: DemoVehicle[]; recent: DemoVehicle[] } | null {
   try { const a = JSON.parse(storage.getItem(listingActivityKey) || 'null'); return a && Array.isArray(a.favorites) && Array.isArray(a.recent) && [...a.favorites, ...a.recent].every(safeVehicle) ? { favorites: a.favorites.slice(0, 100), recent: a.recent.slice(0, 100) } : null } catch { return null }
+}
+export interface ListingActivity { favorites: DemoVehicle[]; recent: DemoVehicle[] }
+export function updateActivity(storage: StoragePort, fallback: ListingActivity, change: (value: ListingActivity) => void): ListingActivity {
+  const next = structuredClone(readActivity(storage) || fallback)
+  change(next)
+  // One authoritative write: a quota error must not update the rendered heart or count.
+  storage.setItem(listingActivityKey, JSON.stringify(next))
+  return next
 }

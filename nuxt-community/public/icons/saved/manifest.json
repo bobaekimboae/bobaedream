@@ -1,0 +1,40 @@
+{
+  "capturedAt": "2026-11-03",
+  "files": [
+    {
+      "file": "appstore-dowload.webp",
+      "sha256": "a7cd4f638a304d61a232c59569543e3086c540033dd262fa2f77d90bf78cf31f",
+      "source": "https://static.chotot.com/storage/APP_WRAPPER/icons/appstore-dowload.webp"
+    },
+    {
+      "file": "chat.svg",
+      "sha256": "0d7279ababdf747844dd41b830a536c54352d5b7fb2926c7055cf4e579f63a1f",
+      "source": "https://www.chotot.com/bookmark/tin-dang-da-luu?site=referrer"
+    },
+    {
+      "file": "default-user.png",
+      "sha256": "2b1baaea9928092c568bbc4635546f6a0ab4ec12a9a0ae2d530b4254d1eb0538",
+      "source": "https://static.chotot.com/storage/marketplace/common/png/default_user.png"
+    },
+    {
+      "file": "googleplay-dowload.webp",
+      "sha256": "0fb8c58abe87bb522638c4dd19c89ae912481f83d4f7a9e3176ee5f130143ba3",
+      "source": "https://static.chotot.com/storage/APP_WRAPPER/icons/googleplay-dowload.webp"
+    },
+    {
+      "file": "heartOff.svg",
+      "sha256": "52d5d8d304b11af3e46e542e5040bfe9215e4b6c504c209901033c176d950225",
+      "source": "https://www.chotot.com/bookmark/tin-dang-da-luu?site=referrer"
+    },
+    {
+      "file": "heartOn.svg",
+      "sha256": "1500e472c72da375aaa33b29664fb7155ba3dc066f80b936391840652367f066",
+      "source": "https://www.chotot.com/bookmark/tin-dang-da-luu?site=referrer"
+    },
+    {
+      "file": "location.svg",
+      "sha256": "593cc3591eb09ea2e9fc5a589195d6c37739810ac521756d655d1cd0814b5411",
+      "source": "https://www.chotot.com/bookmark/tin-dang-da-luu?site=referrer"
+    }
+  ]
+}

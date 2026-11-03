@@ -4,6 +4,9 @@
   if (!script || window.__bbmAccountBridge) return;
   window.__bbmAccountBridge = true;
   const base = new URL('../', script.src);
+  const bookmarksUrl = new URL('nuxt-community/', base);
+  bookmarksUrl.searchParams.set('v', new URL(script.src).searchParams.get('v') || 'saved-v1');
+  bookmarksUrl.hash = '/saved';
   let panel, frame, trigger, previousOverflow, wasRootInert, pending = false, afterHistoryClose;
   const css = document.createElement('style');
   css.textContent = `
@@ -32,7 +35,7 @@
     panel.remove(); panel = frame = null;
     trigger?.setAttribute('aria-expanded', 'false');
     trigger?.removeAttribute('aria-controls');
-    const root = document.getElementById('root');
+    const root = document.getElementById('root') || document.getElementById('__nuxt');
     if (root) root.inert = wasRootInert;
     document.documentElement.style.overflow = previousOverflow;
     if (trigger?.isConnected) trigger.focus({ preventScroll: true });
@@ -59,13 +62,15 @@
     const dismiss = document.createElement('button'); dismiss.type = 'button'; dismiss.textContent = '닫기'; dismiss.onclick = () => close();
     loading.append(label, dismiss); panel.append(frame, loading); document.body.append(panel);
     button.setAttribute('aria-haspopup', 'dialog'); button.setAttribute('aria-expanded', 'true'); button.setAttribute('aria-controls', panel.id);
-    const root = document.getElementById('root'); wasRootInert = root?.inert || false; if (root) root.inert = true;
+    const root = document.getElementById('root') || document.getElementById('__nuxt'); wasRootInert = root?.inert || false; if (root) root.inert = true;
     previousOverflow = document.documentElement.style.overflow; document.documentElement.style.overflow = 'hidden';
     history.pushState({ ...history.state, bbmAccount: true }, '', location.href);
     position(); dismiss.focus({ preventScroll: true });
     setTimeout(() => { if (loading.isConnected) label.textContent = '메뉴 연결이 지연되고 있습니다. 잠시 후 다시 열어 주세요.'; }, 12000);
   }
   document.addEventListener('click', event => {
+    const saved = event.target.closest?.('.bbm-header-auth button[aria-label="관심 매물"],button[aria-label="저장한 매물 열기"]');
+    if (saved && !panel) { event.preventDefault(); event.stopImmediatePropagation(); location.assign(bookmarksUrl.href); return; }
     const button = event.target.closest?.('.bbm-account-button,.bbm-auth-pill.is-login,.bbm-bottom-gnb__item');
     const isMy = button?.classList.contains('bbm-bottom-gnb__item') && button.textContent.trim() === '마이';
     if (button && (isMy || !button.classList.contains('bbm-bottom-gnb__item'))) {
@@ -94,7 +99,8 @@
     if (event.data.type === 'close') close();
     if (event.data.type !== 'navigate') return;
     const action = event.data.action;
-    if (!['favorites', 'register', 'feedback', 'logout-preview', 'listing'].includes(action)) return;
+    if (!['favorites', 'bookmarks', 'register', 'feedback', 'logout-preview', 'listing'].includes(action)) return;
+    if (action === 'bookmarks') { close({after:()=>location.assign(bookmarksUrl.href)}); return; }
     if (action === 'favorites') {
       const favorite = document.querySelector('.bbm-header-auth [aria-label="관심 매물"],button[aria-label="저장한 매물 열기"]');
       close({ after: () => favorite?.click() });
@@ -121,7 +127,13 @@
     // The PC-only power/seller suffix must not create a different identity on mobile.
     const commonSpecs=specs.split('·').slice(0,3).map(x=>x.trim()).join('|');
     const text=title+'|'+image+'|'+commonSpecs;let hash=2166136261;for(let i=0;i<text.length;i++)hash=Math.imul(hash^text.charCodeAt(i),16777619);
-    return {id:'observed-'+(hash>>>0).toString(16),title,image,price,specs,url:location.href};
+    const url=new URL(location.href);url.searchParams.delete('accountListing');
+    return {id:'observed-'+(hash>>>0).toString(16),title,image,price,specs,url:url.href,
+      location:card.querySelector('.bbm-card-location-text > span')?.textContent.trim()||'',
+      seller:card.querySelector('.bbm-card-seller-text')?.textContent.trim()||'',
+      sellerAvatar:card.querySelector('.bbm-card-seller-logo')?.src||'',
+      avatarReady:!!card.querySelector('.bbm-card-seller-logo')?.naturalWidth,
+      posted:card.querySelector('.bbm-card-time')?.textContent.trim()||''};
   }
   document.addEventListener('click', e=>{
     if(restoring)return;
@@ -142,7 +154,16 @@
   function readDemoSession(){try{return JSON.parse(localStorage.getItem(demoKey)||'null')?.signedIn===true;}catch{return false;}}
   function updateSessionUi(){const button=document.querySelector('.bbm-auth-pill.is-login');if(button){const label=readDemoSession()?'내 매물 관리':'로그인/회원가입';if(button.textContent!==label)button.textContent=label;}}
   let queued=false;
-  new MutationObserver(()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;restoreLikes();updateSessionUi();});}).observe(document.getElementById('root')||document.body,{childList:true,subtree:true});
+  let pendingListing=new URL(location.href).searchParams.get('accountListing');
+  function openPendingListing(){
+    if(!pendingListing)return;
+    const saved=readActivity().favorites.find(v=>v.id===pendingListing)||readActivity().recent.find(v=>v.id===pendingListing);
+    if(!saved)return;
+    const card=[...document.querySelectorAll('.bbm-result-card[role=link]')].find(el=>snapshot(el)?.id===pendingListing || (!pendingListing.startsWith('observed-')&&el.querySelector('.bbm-card-title')?.textContent.trim().startsWith(saved.title)));
+    if(!card)return;
+    pendingListing=null;const u=new URL(location.href);u.searchParams.delete('accountListing');history.replaceState(history.state,'',u.href);card.click();
+  }
+  new MutationObserver(()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;restoreLikes();updateSessionUi();openPendingListing();});}).observe(document.getElementById('root')||document.body,{childList:true,subtree:true});
   window.addEventListener('storage',e=>{if(e.key===activityKey)restoreLikes(true);if(e.key===demoKey)updateSessionUi();});
-  restoreLikes();updateSessionUi();
+  restoreLikes();updateSessionUi();openPendingListing();
 })();
