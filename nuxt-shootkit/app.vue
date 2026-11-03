@@ -4,13 +4,17 @@
 import ShootRegister from "~/components/shoot/ShootRegister.vue";
 import ShootView from "~/components/shoot/ShootView.vue";
 import TourDemo from "~/components/shoot/TourDemo.vue";
+import ShortsFeed from "~/components/shoot/ShortsFeed.vue";
 
 // ?tour=demo = 비디오 투어 보는 화면 시안(2026-11-02, 카스24형)
 const tourDemo = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("tour") === "demo";
+// ?shorts=demo = 숏폼 보기 화면 시안(2026-11-03, 카스24 비디오 투어 보기 방식)
+const shortsDemo = typeof window !== "undefined" && new URLSearchParams(window.location.search).get("shorts") === "demo";
 const shootId = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("shoot") : null;
 </script>
 <template>
-  <TourDemo v-if="tourDemo" />
+  <ShortsFeed v-if="shortsDemo" />
+  <TourDemo v-else-if="tourDemo" />
   <ShootView v-else-if="shootId" :id="shootId" />
   <ShootRegister v-else />
 </template>

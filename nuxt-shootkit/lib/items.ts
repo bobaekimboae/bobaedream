@@ -58,7 +58,7 @@ type ShootData = {
     cuts: CutDef[];
     courses: Record<ShootRole, CourseDef[]>;
     /** 비디오 투어(카스24형, 2026-11-02): 정해진 8부위를 같은 순서로 찍어 보는 화면에서 부위 아이콘으로 바로 이동 */
-    tour: { name: string; note: string; stages: TourStageDef[]; demo: TourDemo };
+    tour: { name: string; note: string; stages: TourStageDef[]; demo: TourDemo; iconNote?: string; damageIcon?: string[] };
     shorts: { lengths: number[]; skip: VideoStage[]; keepSound: VideoStage[]; cutMin: number; cutMax: number; highlightCut: number };
   };
   roles: Record<ShootRole, RoleDef>;

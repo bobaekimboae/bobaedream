@@ -5623,7 +5623,8 @@ body:has(.shoot-layer) .shoot-install {
 }
 
 /* ── 비디오 투어(카스24형, 2026-11-02) ── */
-/* CARS24 비디오 투어 보는 화면: 영상 아래 원형 부위 아이콘 + 이름, 누르면 그 장면으로. 지금 부위는 보배드림 파랑(#306BD9) 테두리 */
+/* CARS24 비디오 투어 보는 화면: 영상 아래 원형 부위 아이콘 + 이름, 누르면 그 장면으로.
+   2026-11-03: 아이콘을 노션 「호주_카스 24」 원본(남색+주황 두 색, 그림 그대로)으로, 지금 부위는 CARS24와 같은 주황 고리 */
 .shoot-tour {
   flex: none;
   background: #111;
@@ -5690,12 +5691,25 @@ body:has(.shoot-layer) .shoot-install {
   box-shadow: 0 0 0 2px transparent;
   transition: box-shadow 0.15s;
 }
-.shoot-tour__ring .shoot-mask {
-  width: 26px;
-  height: 26px;
+.shoot-tour__icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  pointer-events: none;
 }
 .shoot-tour__chip.is-now .shoot-tour__ring {
-  box-shadow: 0 0 0 2px #111, 0 0 0 4px #306bd9;
+  box-shadow: 0 0 0 2px #111, 0 0 0 4px #ef6e0b;
+}
+/* 숏폼 보기(영상 위에 겹침): 바탕 없이, 고리 안쪽 틈은 투명 대신 검정 반투명 */
+.shoot-tour.is-overlay {
+  background: none;
+  padding: 0;
+}
+.shoot-tour.is-overlay .shoot-tour__name {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.shoot-tour.is-overlay .shoot-tour__chip.is-now .shoot-tour__ring {
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.45), 0 0 0 4px #ef6e0b;
 }
 .shoot-tour__name {
   font-size: 12px;
@@ -5708,7 +5722,7 @@ body:has(.shoot-layer) .shoot-install {
   font-weight: 700;
 }
 .shoot-tour__chip:focus-visible {
-  outline: 2px solid #306bd9;
+  outline: 2px solid #ef6e0b;
   outline-offset: 2px;
   border-radius: 8px;
 }
@@ -5910,4 +5924,276 @@ body:has(.shoot-layer) .shoot-install {
     flex: none;
     height: min(64vh, 700px);
   }
+}
+
+/* 숏폼 보기 화면(카스24 비디오 투어 보기 방식, 2026-11-03, ?shorts=demo)
+   전체 화면 세로 영상을 위아래로 한 장씩 넘긴다. PC는 가운데 9:16 칸(최대 480). */
+.shorts {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  color: #fff;
+  font-family: "Pretendard Variable", Pretendard, -apple-system, sans-serif;
+}
+.shorts__top {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 480px);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 8px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  pointer-events: none;
+}
+.shorts__top > * {
+  pointer-events: auto;
+}
+.shorts__top h1 {
+  flex: 1;
+  margin: 0;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.shorts__icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: none;
+  color: #fff;
+  border-radius: 10px;
+}
+.shorts__icon .shoot-mask {
+  width: 24px;
+  height: 24px;
+}
+.shorts__count {
+  padding: 0 10px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 12px;
+  font-weight: 600;
+}
+.shorts__feed {
+  height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.shorts__feed::-webkit-scrollbar {
+  display: none;
+}
+.shorts__slide {
+  position: relative;
+  height: 100%;
+  width: min(100%, 480px);
+  margin: 0 auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  background: #111;
+}
+.shorts__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.shorts__play,
+.shorts__burst {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.shorts__play {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  display: grid;
+  place-items: center;
+}
+.shorts__play .shoot-mask {
+  width: 28px;
+  height: 28px;
+}
+.shorts__burst img {
+  width: 96px;
+  height: 96px;
+  animation: shorts-burst 0.7s ease-out forwards;
+}
+@keyframes shorts-burst {
+  0% { transform: scale(0.4); opacity: 0; }
+  30% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); opacity: 0; }
+}
+.shorts__rail {
+  position: absolute;
+  right: 8px;
+  bottom: calc(100% - 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.shorts__act {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 56px;
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.shorts__act-ic {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  display: grid;
+  place-items: center;
+}
+.shorts__act-ic img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+.shorts__act[aria-pressed="true"] .shorts__act-ic img[src*="selected"] {
+  filter: none;
+}
+.shorts__act-ic .shoot-mask {
+  width: 22px;
+  height: 22px;
+}
+.shorts__bottom {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 48px 12px calc(12px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.72) 40%);
+}
+.shorts__tag {
+  display: inline-flex;
+  height: 24px;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: rgba(239, 110, 11, 0.95);
+  font-size: 12px;
+  font-weight: 700;
+}
+.shorts__bottom .shoot-tour.is-overlay {
+  margin: 0 -12px 10px;
+}
+.shorts__bar {
+  height: 3px;
+  margin: 0 4px 12px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+.shorts__bar b {
+  display: block;
+  height: 100%;
+  background: #fff;
+}
+.shorts__car {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #fff;
+  color: #222;
+}
+.shorts__car strong {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.shorts__meta,
+.shorts__dealer {
+  font-size: 13px;
+  line-height: 18px;
+  color: #595959;
+}
+.shorts__price {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+}
+.shorts__cta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+.shorts__btn {
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.shorts__btn.is-line {
+  border: 1px solid #dedee3;
+  color: #222;
+}
+.shorts__btn.is-main {
+  background: #306bd9;
+  color: #fff;
+}
+.shorts__row {
+  display: flex;
+  align-items: center;
+  min-height: 24px;
+  margin: 0 4px 6px;
+}
+.shorts__time {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.shorts__toast {
+  position: fixed;
+  z-index: 5;
+  left: 50%;
+  top: 64px;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.75);
+  font-size: 13px;
+  font-weight: 600;
+}
+.shorts button:focus-visible,
+.shorts a:focus-visible {
+  outline: 2px solid #ef6e0b;
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .shorts__burst img { animation: none; }
 }

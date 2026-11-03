@@ -425,9 +425,9 @@
           "guide": "exterior",
           "icon": [
             "assets",
-            "bbm",
-            "detail-icons",
-            "maker.svg"
+            "cars24-au",
+            "tour-icons",
+            "exterior.svg"
           ],
           "min": 20,
           "max": 24,
@@ -439,9 +439,10 @@
           "short": "옵션",
           "guide": "feature",
           "icon": [
-            "icons",
-            "reddit-shoot",
-            "tap-outline.svg"
+            "assets",
+            "cars24-au",
+            "tour-icons",
+            "electrical.svg"
           ],
           "min": 18,
           "max": 24,
@@ -454,8 +455,8 @@
           "guide": "in-dash",
           "icon": [
             "assets",
-            "bbm",
-            "detail-icons",
+            "cars24-au",
+            "tour-icons",
             "interior.svg"
           ],
           "min": 8,
@@ -469,8 +470,8 @@
           "guide": "in-seat",
           "icon": [
             "assets",
-            "bbm",
-            "detail-icons",
+            "cars24-au",
+            "tour-icons",
             "seats.svg"
           ],
           "min": 11,
@@ -484,9 +485,9 @@
           "guide": "in-cluster",
           "icon": [
             "assets",
-            "bbm",
-            "detail-icons",
-            "power.svg"
+            "cars24-au",
+            "tour-icons",
+            "steering.svg"
           ],
           "min": 7,
           "max": 12,
@@ -499,9 +500,9 @@
           "guide": "trunk",
           "icon": [
             "assets",
-            "bbm",
-            "detail-icons",
-            "trunk-as24.svg"
+            "cars24-au",
+            "tour-icons",
+            "boot.svg"
           ],
           "min": 9,
           "max": 11,
@@ -514,9 +515,9 @@
           "guide": "tyre",
           "icon": [
             "assets",
-            "bbm",
-            "detail-icons",
-            "tyre-as24.svg"
+            "cars24-au",
+            "tour-icons",
+            "tyre.svg"
           ],
           "min": 7,
           "max": 11,
@@ -529,8 +530,8 @@
           "guide": "engine",
           "icon": [
             "assets",
-            "bbm",
-            "detail-icons",
+            "cars24-au",
+            "tour-icons",
             "engine.svg"
           ],
           "min": 6,
@@ -582,7 +583,14 @@
             "to": 63.5
           }
         ]
-      }
+      },
+      "iconNote": "부위 아이콘 = 노션 「베스트 › 호주_카스 24 (1)」 CARS24 원본(검사보고서 · 기본정보 아이콘, 파일 수정 없음, 2026-11-03 「노션에 동일한 호주 카스 24 아이콘 사용」)",
+      "damageIcon": [
+        "assets",
+        "cars24-au",
+        "tour-icons",
+        "imperfections.svg"
+      ]
     }
   },
   "groups": [
