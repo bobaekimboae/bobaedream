@@ -118,7 +118,13 @@
   const demoKey = 'bbm.account.demo.v2';
   let restoring = false; const restored = new WeakSet();
   function readActivity() { try { const a=JSON.parse(localStorage.getItem(activityKey)||'null');return a&&Array.isArray(a.favorites)&&Array.isArray(a.recent)?a:{favorites:[],recent:[]}; }catch{return {favorites:[],recent:[]};} }
-  function writeActivity(a) {try{localStorage.setItem(activityKey,JSON.stringify(a));frame?.contentWindow?.postMessage({channel:'bbm-account-v1',type:'activity'},location.origin);}catch{ /* current list remains usable in memory */ }}
+  function activityError(message) {
+    document.getElementById('bbm-activity-error')?.remove();
+    const el=document.createElement('div');el.id='bbm-activity-error';el.setAttribute('role','alert');el.textContent=message;
+    Object.assign(el.style,{position:'fixed',bottom:'80px',left:'50%',transform:'translateX(-50%)',maxWidth:'calc(100% - 32px)',padding:'12px 16px',background:'#222',color:'#fff',borderRadius:'8px',zIndex:'99999',fontSize:'14px',lineHeight:'20px'});
+    document.body.appendChild(el);setTimeout(()=>el.remove(),5000);
+  }
+  function writeActivity(a) {try{localStorage.setItem(activityKey,JSON.stringify(a));frame?.contentWindow?.postMessage({channel:'bbm-account-v1',type:'activity'},location.origin);return true;}catch{activityError('브라우저 저장 공간을 확인해 주세요. 목록을 변경하지 못했습니다.');return false;}}
   function safeUrl(value) {try{const u=new URL(value,base);return u.origin===location.origin&&/^https?:$/.test(u.protocol)?u:null;}catch{return null;}}
   function snapshot(card) {
     const title=card.querySelector('.bbm-card-title')?.textContent.trim();if(!title)return null;
@@ -140,9 +146,13 @@
     const card=e.target.closest?.('.bbm-result-card[role=link]');if(!card)return;
     const v=snapshot(card);if(!v)return;
     const like=e.target.closest('button[aria-pressed][aria-label*="찜"]');const a=readActivity();
-    if(like){const enabled=like.getAttribute('aria-pressed')!=='true';a.favorites=enabled?[v,...a.favorites.filter(x=>x.id!==v.id)].slice(0,100):a.favorites.filter(x=>x.id!==v.id);}
+    if(like){
+      const enabled=like.getAttribute('aria-pressed')!=='true';
+      if(enabled&&a.favorites.length>=100&&!a.favorites.some(x=>x.id===v.id)){e.preventDefault();e.stopImmediatePropagation();activityError('관심 매물은 최대 100개까지 저장할 수 있습니다.');return;}
+      a.favorites=enabled?[v,...a.favorites.filter(x=>x.id!==v.id)]:a.favorites.filter(x=>x.id!==v.id);
+    }
     else if(!e.target.closest('button'))a.recent=[v,...a.recent.filter(x=>x.id!==v.id)].slice(0,100);
-    writeActivity(a);
+    if(!writeActivity(a)&&like){e.preventDefault();e.stopImmediatePropagation();}
   },true);
   function restoreLikes(force=false) {
     if(restoring)return;const a=readActivity();restoring=true;
