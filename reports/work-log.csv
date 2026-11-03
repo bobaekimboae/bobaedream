@@ -442,3 +442,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-11-03,,shorts-commercial,16b97e80,push,PR #1143,숏폼 보기 상용 판(Nuxt 4.6.2 · Laravel 12 · 실매물),nuxt-shorts · shorts-api · docs/shorts-api.md,GitHub Pages는 CORS로 실매물 사본,shorts-api 서버 배포 · 실기기 시험,typecheck · smoke 30 · Playwright 384/1280 콘솔 오류 0
 2026-11-03,,carstudio-clone,,push,,보배 카스튜디오(Car Studio AI 사진→영상 동일 구현),nuxt-carstudio 화면 8개 · Classic 영상 7장면 실측 · 콘솔 오류 0
 2026-11-03,,carstudio-parity,a2d88c28,push,PR #1148,보배 카스튜디오 원본 수치 대조(모바일 전 화면 크기·간격·색·동작),nuxt-carstudio 컴포넌트 9개 · app.css,결제는 안내만 · 한국어 줄 수 차이,배포 뒤 실기기 확인,typecheck · build · 동작 42개 통과 · 콘솔 오류 0
+2026-11-03,,carstudio-30x,,push,,보배 카스튜디오 원본 대조 1차(홈 사진 탭 · 가져오기 · 만드는 중 · 결과 공유 · 저장 순서 · PC 넘침),nuxt-carstudio Home · Details · Result · store · app.css,원본 앱 삭제로 캡처 25장 기준,휴대폰 원본 연결 뒤 2차 대조,typecheck · build · 동작 26개 통과 · 콘솔 오류 0

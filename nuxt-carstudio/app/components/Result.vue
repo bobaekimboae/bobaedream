@@ -76,12 +76,6 @@ function download() {
   a.click();
   saved.value = true;
 }
-async function share() {
-  if (!v.value?.video) return;
-  const f = new File([v.value.video], fileName(v.value), { type: "video/mp4" });
-  if (navigator.canShare?.({ files: [f] })) { try { await navigator.share({ files: [f], title: v.value.title }); } catch { /* 닫음 */ } }
-  else download();
-}
 async function again() {
   const old = v.value;
   if (!old) return;
@@ -113,7 +107,6 @@ async function again() {
       </div>
       <button class="btn or dl" type="button" @click="download"><Icon :src="rd('forward-outline')" style="transform: rotate(90deg)" /> 내려받기</button>
       <p v-if="v.options.voiceover" class="voice-note">{{ canSpeak() ? "AI 음성은 이 화면에서 재생할 때 함께 들려요. 내려받은 mp4에는 음악만 들어 있어요(음성 서버 연결 전)." : "이 브라우저는 AI 음성을 읽지 못해요." }}</p>
-      <button class="btn line share" type="button" @click="share"><Icon :src="ct('chotot-common-share')" /> 공유</button>
       </div>
     </div>
     <template v-else-if="v.status === 'failed'">
