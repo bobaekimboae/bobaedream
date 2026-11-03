@@ -86,3 +86,12 @@ body .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFi
 body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{display:flex;align-items:center;justify-content:center;gap:3px}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd:after{display:none}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd .boardOrderPlusIcon{position:static;order:-1;flex:0 0 auto;width:10px;height:10px;opacity:.75;filter:none;transform:rotate(45deg)}
+/* 아이콘 교체(2026-11-03 「초톳 또는 오토스카우트로」): 닫기·제외·복원 = 초톳 원본, 편집 펜·추가 플러스 = 오토스카우트24 원본(파일 수정 없음, 색만 CSS). */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderClose img{width:24px;height:24px;opacity:1}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRestore img,body .boardOrderBackdrop .boardOrderPanel .boardOrderEdit img{width:16px;height:16px;opacity:.75;filter:brightness(0)}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove:before{display:none}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove img{right:2px;top:2px;width:18px;height:18px;opacity:1;filter:none}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd .boardOrderPlusIcon{width:14px;height:14px;opacity:.55;transform:none}
+/* 기본 홈 설정 줄 제거(2026-11-03 「빼는게 좋지 않을까」): 제목 아래 바로 「내 게시판」. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderHeading:first-child{margin-top:8px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderRemove img{right:-1px;top:-1px;width:16px;height:16px;opacity:.38}
