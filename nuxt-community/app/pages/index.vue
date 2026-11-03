@@ -4,6 +4,7 @@ import type { CommunityPopularPeriod, CommunitySort, CommunityView } from '~/typ
 const { sections, boards, sort, popularPeriod, view, boardId, headword, activeBoard, filteredPosts } = useCommunity()
 const optionsOpen = ref(false)
 const boardMenuOpen = ref(false)
+const boardShortcutOpen = ref(false)
 const recentExpanded = ref(false)
 const following = ref(false)
 const route = useRoute()
@@ -73,6 +74,7 @@ function selectBoard(value: string) {
   recordRecentBoard(value)
   headword.value = ''
   boardMenuOpen.value = false
+  boardShortcutOpen.value = false
 }
 
 function timeLabel(iso: string) {
@@ -88,7 +90,7 @@ useHead({ title: '보배드림 커뮤니티' })
 <template>
   <main class="community-shell">
     <header class="community-header" :class="{ 'community-header--f1': boardId === 'f1' }">
-      <button class="header-menu-button" type="button" aria-label="게시판 바로가기" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
+      <button class="header-menu-button" type="button" aria-label="커뮤니티 메뉴" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
       <button class="community-header-search" type="button" aria-label="커뮤니티 게시글 검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /><span>게시글 검색</span></button>
       <button class="community-header-profile" type="button" aria-label="내 프로필"><img :src="`${communityAssetRoot}/profile-avatars/naver-stock-default.png`" alt="" /></button>
     </header>
@@ -97,7 +99,7 @@ useHead({ title: '보배드림 커뮤니티' })
       <div class="board-channel-track">
         <button v-for="board in quickBoards" :key="board!.id" type="button" :class="{ 'is-active': board!.id === boardId }" @click="selectBoard(board!.id)">{{ board!.shortName || board!.name }}</button>
       </div>
-      <button class="board-channel-menu" type="button" aria-label="게시판 바로가기" @click="boardMenuOpen = true"><img :src="`${communityAssetRoot}/ui/menu.svg`" alt="" /></button>
+      <button class="board-channel-menu" type="button" aria-label="게시판 바로가기" @click="boardShortcutOpen = true"><img :src="`${communityAssetRoot}/ui/menu.svg`" alt="" /></button>
     </nav>
 
     <F1BoardHub v-if="boardId === 'f1'" :posts="filteredPosts" :headword="headword" @update:headword="headword = $event" @open-options="optionsOpen = true" />
@@ -156,6 +158,8 @@ useHead({ title: '보배드림 커뮤니티' })
     <NuxtLink class="floating-write" to="/write" aria-label="글쓰기"><img :src="`${iconRoot}/chzzk/write.svg`" alt="" /></NuxtLink>
 
     <PostOptionsSheet :open="optionsOpen" :sort="sort" :popular-period="popularPeriod" :view="view" :headword="headword" :headwords="activeBoard.headwords" @close="optionsOpen = false" @update:sort="setSort" @update:popular-period="setPopularPeriod" @update:view="setView" @update:headword="headword = $event" />
+
+    <BoardShortcutManager :open="boardShortcutOpen" :sections="sections" :boards="boards" :selected-board-id="boardId" @close="boardShortcutOpen = false" @select="selectBoard" />
 
     <Teleport to="body">
       <Transition name="drawer-slide">
