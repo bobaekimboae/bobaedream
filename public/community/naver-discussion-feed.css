@@ -294,3 +294,5 @@
 .naverDiscussionLinkDomain{display:block;margin-top:4px;overflow:hidden;color:#5c6c74;font-size:12px;line-height:16px;white-space:nowrap;text-overflow:ellipsis}
 .naverDiscussionThumb.is-link .naverDiscussionThumbLink{position:absolute;right:0;bottom:0;left:0;display:flex;align-items:center;justify-content:flex-end;height:22px;padding-right:5px;background:linear-gradient(rgba(0,0,0,0),rgba(0,0,0,.55))}
 .naverDiscussionThumbLink svg{width:14px;height:14px}
+/* 레딧 원본 재생 아이콘(2026-11-03): 커뮤니티 공통 규칙 = 반투명 검정 원 48 + 흰 아이콘 20 */
+.naverDiscussionVideoToggle>img{width:48px;height:48px;padding:14px;border-radius:50%;background:rgba(255,255,255,.56);filter:invert(1);box-sizing:border-box}

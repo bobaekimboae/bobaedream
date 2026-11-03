@@ -87,7 +87,7 @@
   }
   function avatarFor(post,index){return post.authorAvatar||'assets/profile-avatars/avatar-'+String(index%48+1).padStart(2,'0')+'.svg';}
   function detailUrl(post,photoIndex){return './chzzk-detail.html?id='+encodeURIComponent(post.id)+(post.local?'&local=1':'')+'&from=discussion'+(photoIndex>0?'&photo='+(photoIndex+1):'')+'&v=20261016naverdiscussion3';}
-  function icon(name){return 'assets/chzzk-detail/icons/'+name+'.svg?v=20261016naverdiscussion2';}
+  function icon(name){return name==='close'?'assets/reddit-ui/icon-close-outline.svg':'assets/chzzk-detail/icons/'+name+'.svg?v=20261016naverdiscussion2';}
   function reactionIcon(name){return 'assets/reactions/'+(name==='comment'?'comment-outline':name)+'.svg';}
   function chototIcon(name){return '../icons/chotot/'+name+'.svg?v=20261016navermedia1';}
   /* 사각칩 브랜드: 제목·요약에서 자동차 브랜드를 찾아 분류 칩 옆에 최대 2개 */
@@ -145,7 +145,7 @@
       var localMedia=item.id?' data-local-media-id="'+esc(item.id)+'"':'';
       var needsRatio=item.ratio?'':' data-measure-ratio';
       var videoSource=item.kind==='video'?source:postVideo;
-      var media=isVideo?'<video muted playsinline preload="metadata"'+localMedia+(item.kind==='video'?'':' poster="'+esc(source)+'"')+(videoSource?' src="'+esc(videoSource)+'"':'')+'></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+chototIcon('chotot-common-video-play-white-bg')+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post,itemIndex)+'" draggable="false" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'"'+localMedia+needsRatio+' alt="" draggable="false" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
+      var media=isVideo?'<video muted playsinline preload="metadata"'+localMedia+(item.kind==='video'?'':' poster="'+esc(source)+'"')+(videoSource?' src="'+esc(videoSource)+'"':'')+'></video><button class="naverDiscussionVideoToggle" type="button" data-discussion-video aria-label="영상 재생"><img src="'+'assets/reddit-video/play-fill.svg'+'" alt=""></button>':'<a class="naverDiscussionMediaLink" href="'+detailUrl(post,itemIndex)+'" draggable="false" aria-label="'+esc(title)+' 사진 '+(itemIndex+1)+' / '+sources.length+' 상세 보기"><img src="'+esc(source)+'"'+localMedia+needsRatio+' alt="" draggable="false" loading="'+(index===0&&itemIndex===0?'eager':'lazy')+'"'+(index===0&&itemIndex===0?' fetchpriority="high"':'')+'></a>';
       return '<div class="naverDiscussionMediaItem'+(contain?' is-contain':'')+'" style="--media-ratio:'+ratio.toFixed(4)+'" data-discussion-media-index="'+itemIndex+'" data-media-post-id="'+esc(post.id)+'" data-kind="'+(isVideo?'video':'image')+'">'+media+'</div>';
     }).join('');
     var count=multiple?'<span class="naverDiscussionMediaCount" aria-hidden="true"><b data-media-current>1</b>/'+sources.length+'</span>':'';
@@ -172,7 +172,7 @@
     var overseas=item.lang&&!/^ko/i.test(item.lang);
     var logo=item.logo||(window.BBM_EMBED&&window.BBM_EMBED.faviconFor?window.BBM_EMBED.faviconFor(item.url):'');
     var hydrate=!item.image&&!item.metaReady&&!item.noHydrate?' data-news-hydrated data-embed-hydrate data-embed-title="'+esc(cleanTitle(post.title))+'"':' data-news-hydrated';
-    var media=item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'<span class="news-card-placeholder" aria-hidden="true"><img src="assets/write-parity/link.svg" alt=""></span>';
+    var media=item.image?'<span class="news-card-image"><img src="'+esc(item.image)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.remove()"></span>':'<span class="news-card-placeholder" aria-hidden="true"><img src="assets/reddit-ui/icon-link-outline.svg" alt=""></span>';
     return '<a class="news-card"'+hydrate+' href="'+esc(item.url)+'" target="_blank" rel="noopener noreferrer">'+media+'<span class="news-card-copy"><span class="news-card-site">'+(logo?'<img src="'+esc(logo)+'" alt="" referrerpolicy="no-referrer"'+(/google\.com\/s2\/favicons/.test(logo)?' onload="if(this.naturalWidth<=16)this.remove()"':'')+' onerror="this.remove()">':'')+'<span>'+esc(item.site||item.provider||host)+'</span>'+(overseas?'<em>해외</em>':'')+'</span><strong class="news-card-title">'+esc(item.title||cleanTitle(post.title)||host)+'</strong>'+(item.description?'<span class="news-card-desc">'+esc(item.description)+'</span>':'')+'<small class="news-card-url">'+esc(host)+'</small></span></a>';
   }
   /* 첫 임베드가 인스타그램·유튜브 같은 재생형이면 피드 카드 안에서 바로 보여 준다 */

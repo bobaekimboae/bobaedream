@@ -70,7 +70,7 @@
   }
   function closeSheet() { sheetOverlay.hidden = true; sheetOverlay.classList.remove('is-poll'); document.body.style.overflow = ''; state.sheet = ''; state.pollImageRow = null; sheetPrimary.onclick = null; sheetPrimary.disabled = false; sheetBody.oninput = null; sheetBody.onchange = null; sheetBody.ondragstart = null; sheetBody.ondragover = null; sheetBody.ondrop = null; sheetBody.ondragend = null; }
   function renderBoardSheet() {
-    sheetBody.innerHTML = boards.map((group) => `<h3 class="sheet-section-title">${group.section}</h3>${group.items.map((name) => `<button class="board-option${state.board === name ? ' is-selected' : ''}" type="button" data-board="${escapeHtml(name)}"><img src="assets/write-parity/community.svg" alt=""><span>${escapeHtml(name)}</span></button>`).join('')}`).join('');
+    sheetBody.innerHTML = boards.map((group) => `<h3 class="sheet-section-title">${group.section}</h3>${group.items.map((name) => `<button class="board-option${state.board === name ? ' is-selected' : ''}" type="button" data-board="${escapeHtml(name)}"><img src="assets/reddit-ui/icon-communities-outline.svg" alt=""><span>${escapeHtml(name)}</span></button>`).join('')}`).join('');
   }
   function renderTagsSheet() {
     sheetBody.innerHTML = `<div class="sheet-form"><input id="tagInput" maxlength="120" placeholder="#으로 구분, 최대 10개" value="${state.tags.map((tag) => `#${escapeHtml(tag)}`).join(' ')}"><p class="sheet-note">예: #자동차 #드라이브 #정비</p></div>`;
@@ -145,7 +145,7 @@
       image: figure.dataset.metaImage || '', site: figure.dataset.metaSite || '', logo: figure.dataset.metaLogo || '', lang: figure.dataset.metaLang || '',
     })).filter((item) => item.url);
   }
-  const pollImageIcon = 'assets/write-parity/photo.svg';
+  const pollImageIcon = 'assets/reddit-ui/icon-image-post-outline.svg';
   function pollRows(values = [{ text:'', image:'' }, { text:'', image:'' }, { text:'', image:'' }]) {
     return values.map((item,index) => {
       const value = typeof item === 'string' ? item : item.text || '';

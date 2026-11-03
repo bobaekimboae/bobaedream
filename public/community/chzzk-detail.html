@@ -17,7 +17,7 @@
       <button class="iconButton closeButton" id="closeBtn" aria-label="뒤로"><img src="assets/reddit-ui/back.svg" alt=""></button>
       <strong class="brand">커뮤니티</strong>
       <div class="headerActions">
-        <button class="iconButton bookmarkButton" id="bookmarkBtn" aria-label="북마크" aria-pressed="false"><img src="assets/chzzk-detail/icons/bookmark.svg" alt=""></button>
+        <button class="iconButton bookmarkButton" id="bookmarkBtn" aria-label="북마크" aria-pressed="false"><img src="assets/reddit-ui/icon-save-outline.svg" alt=""></button>
         <button class="iconButton" id="menuBtn" aria-label="더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
       </div>
     </header>
@@ -69,10 +69,10 @@
 
     <section class="comments" id="comments">
       <div class="commentHead">
-        <div class="commentTitle"><strong id="commentCount">댓글 2</strong><button id="refreshBtn" aria-label="새로고침"><img src="assets/chzzk-detail/icons/refresh.svg" alt=""></button></div>
-        <button class="filterButton" id="filterBtn" aria-label="댓글 정렬"><img src="assets/chzzk-detail/icons/filter.svg" alt=""></button>
+        <div class="commentTitle"><strong id="commentCount">댓글 2</strong><button id="refreshBtn" aria-label="새로고침"><img src="assets/reddit-ui/icon-refresh-outline.svg" alt=""></button></div>
+        <button class="filterButton" id="filterBtn" aria-label="댓글 정렬"><img src="assets/reddit-ui/icon-sort-outline.svg" alt=""></button>
       </div>
-      <div class="cleanBot"><span class="botIcon"><img src="assets/detail-parity/face.svg" alt=""></span><strong>클린봇</strong>이 악성댓글을 감지합니다.<button id="gearBtn" aria-label="클린봇 설정"><img src="assets/chzzk-detail/icons/settings.svg" alt=""></button></div>
+      <div class="cleanBot"><span class="botIcon"><img src="assets/reddit-ui/icon-bot-outline.svg" alt=""></span><strong>클린봇</strong>이 악성댓글을 감지합니다.<button id="gearBtn" aria-label="클린봇 설정"><img src="assets/reddit-ui/icon-settings-outline.svg" alt=""></button></div>
       <ol class="commentList" id="commentList">
         <li class="commentItem">
           <img class="commentAvatar" src="assets/chzzk-detail/comment-avatar.gif" alt="댓글 작성자">
@@ -94,14 +94,14 @@
       </ol>
     </section>
 
-    <button class="toTop" id="toTop"><span><img src="assets/chzzk-detail/icons/top.svg" alt=""></span>맨 위로</button>
+    <button class="toTop" id="toTop"><span><img src="assets/reddit-ui/icon-up-arrow-outline.svg" alt=""></span>맨 위로</button>
 
     <form class="composer" id="commentForm">
-      <button type="button" aria-label="이미지 첨부"><img src="assets/chzzk-detail/icons/camera.svg" alt=""></button>
+      <button type="button" aria-label="이미지 첨부"><img src="assets/reddit-ui/icon-camera-outline.svg" alt=""></button>
       <input id="commentInput" maxlength="500" placeholder="댓글을 입력하세요." aria-label="댓글 입력">
-      <button type="button" aria-label="스티커"><img src="assets/chzzk-detail/icons/sticker.svg" alt=""></button>
-      <button type="button" aria-label="잠금"><img src="assets/chzzk-detail/icons/lock.svg" alt=""></button>
-      <button class="sendButton" id="submitBtn" type="submit" aria-label="댓글 등록" disabled><img src="assets/chzzk-detail/icons/send.svg" alt=""></button>
+      <button type="button" aria-label="스티커"><img src="assets/reddit-ui/icon-sticker-outline.svg" alt=""></button>
+      <button type="button" aria-label="잠금"><img src="assets/reddit-ui/icon-lock-outline.svg" alt=""></button>
+      <button class="sendButton" id="submitBtn" type="submit" aria-label="댓글 등록" disabled><img src="assets/reddit-ui/icon-send-outline.svg" alt=""></button>
     </form>
   </main>
   <div class="toast" id="toast" role="status"></div>
@@ -115,6 +115,6 @@
   <script src="./community-embed.js?v=20261017fav3"></script>
   <script src="./board-tables.js?v=20261017pollrow1"></script>
   <script src="./community-poll.js?v=20261017naverpoll1"></script>
-<script src="./chzzk-detail.js?v=20261102balancedheader1"></script>
+<script src="./chzzk-detail.js?v=20261103redditicons"></script>
 </body>
 </html>

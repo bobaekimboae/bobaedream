@@ -123,3 +123,7 @@ body.chototGalleryOpen{position:fixed;left:0;right:0;width:100%;overflow:hidden}
   .chototDealerAction span{font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){.chototMediaRail{scroll-behavior:auto}}
+
+/* 레딧 원본 화살표(2026-11-03): 원 바탕은 버튼이 그리고 아이콘은 20px */
+.chototRailArrow img{width:20px;height:20px}
+.chototGalleryNav img{width:24px;height:24px;filter:brightness(0) invert(1)}

@@ -22,9 +22,9 @@
       </header>
 
       <button class="board-button" id="boardButton" type="button" data-action="board" aria-expanded="false">
-        <img src="assets/write-parity/community.svg" alt="" />
+        <img src="assets/reddit-ui/icon-communities-outline.svg" alt="" />
         <span id="selectedBoard">게시판을 선택하세요</span>
-        <img class="chevron" src="assets/write-parity/chevron-down.svg" alt="" />
+        <img class="chevron" src="assets/reddit-ui/icon-caret-down-outline.svg" alt="" />
       </button>
 
       <label class="sr-only" for="postTitle">제목</label>
@@ -32,14 +32,14 @@
 
       <section class="editor" aria-label="본문 편집기">
         <div class="main-tools" role="toolbar" aria-label="콘텐츠 도구">
-          <button type="button" data-action="photo" aria-label="사진"><img src="assets/write-parity/photo.svg" alt="" /></button>
-          <button type="button" data-action="video" aria-label="동영상"><img src="assets/write-parity/video.svg" alt="" /></button>
-          <button type="button" data-action="text-tools" aria-label="텍스트 도구막대" aria-expanded="false"><img src="assets/write-parity/text.svg" alt="" /></button>
-          <button type="button" data-action="sticker" aria-label="스티커"><img src="assets/write-parity/sticker.svg" alt="" /></button>
-          <button type="button" data-action="quote" aria-label="인용구"><img src="assets/write-parity/quote.svg" alt="" /></button>
+          <button type="button" data-action="photo" aria-label="사진"><img src="assets/reddit-ui/icon-image-post-outline.svg" alt="" /></button>
+          <button type="button" data-action="video" aria-label="동영상"><img src="assets/reddit-ui/icon-video-post-outline.svg" alt="" /></button>
+          <button type="button" data-action="text-tools" aria-label="텍스트 도구막대" aria-expanded="false"><img src="assets/reddit-ui/icon-text-size-outline.svg" alt="" /></button>
+          <button type="button" data-action="sticker" aria-label="스티커"><img src="assets/reddit-ui/icon-sticker-outline.svg" alt="" /></button>
+          <button type="button" data-action="quote" aria-label="인용구"><img src="assets/reddit-ui/icon-quote-outline.svg" alt="" /></button>
           <button type="button" data-action="divider" aria-label="구분선"><span class="line-icon">−</span></button>
-          <button type="button" data-action="link" aria-label="링크"><img src="assets/write-parity/link.svg" alt="" /></button>
-          <button class="poll-tool" type="button" data-action="poll" aria-label="투표"><img src="assets/write-parity/table.svg" alt="" /><i>NEW</i></button>
+          <button type="button" data-action="link" aria-label="링크"><img src="assets/reddit-ui/icon-link-outline.svg" alt="" /></button>
+          <button class="poll-tool" type="button" data-action="poll" aria-label="투표"><img src="assets/reddit-ui/icon-poll-post-outline.svg" alt="" /><i>NEW</i></button>
         </div>
 
         <div class="text-tools" id="textTools" role="toolbar" aria-label="텍스트 서식" hidden>
@@ -57,7 +57,7 @@
       </section>
 
       <button class="tag-button" type="button" data-action="tags"><b>#</b><span id="tagSummary">#태그 입력 (#으로 구분, 최대 10개)</span></button>
-      <label class="hide-row"><img src="assets/write-parity/community.svg" alt="" /><span>본문 숨기기</span><input id="hideBody" type="checkbox" /><i aria-hidden="true"></i></label>
+      <label class="hide-row"><img src="assets/reddit-ui/icon-communities-outline.svg" alt="" /><span>본문 숨기기</span><input id="hideBody" type="checkbox" /><i aria-hidden="true"></i></label>
 
       <footer class="write-foot">
         <button type="button" data-action="exit">취소</button>
@@ -87,6 +87,6 @@
     <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
     <script src="./community-embed.js?v=20261017fav3"></script>
     <script src="./community-poll.js?v=20261017naverpoll1"></script>
-<script src="./chzzk-write.js?v=20261017naverpoll1"></script>
+<script src="./chzzk-write.js?v=20261103redditicons"></script>
   </body>
 </html>
