@@ -438,3 +438,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 2026-11-03,community-panel-tabs,커뮤니티 전체 게시판 패널 텐센트 글자 크기·치지직 편집 아이콘·선택 칩 검정 바탕,push
 2026-11-03,community-panel-balance,게시판 패널 칩 말머리 칩과 통일·초톳/오토스카우트 아이콘·기본 홈 설정 제거,push
 2026-11-03,,shootkit-shorts-cars24,6614a31b,push,PR #1141,카스24형 숏폼 보기 화면 · 호주 카스24 부위 아이콘,ShortsFeed.vue · TourChapters.vue · shoot.css · cars24-au 아이콘,찜·공유·소리 아이콘은 노션 카스24 DB에 없어 초톳·레딧 원본,실제 폰 넘기기 감,typecheck · Playwright 384/1280 콘솔 오류 0
+2026-11-03,,main,630d5a9,deploy,PR #1141,카스24형 숏폼 보기 화면 병합·배포,v=630d5a9 · 번들 main-D4Vm_sei.js,,실제 폰 넘기기 감,Pages 배포 성공
