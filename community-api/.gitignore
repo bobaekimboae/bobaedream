@@ -9,3 +9,6 @@
 !/storage/framework/sessions/.gitkeep
 /storage/framework/views/*
 !/storage/framework/views/.gitkeep
+/public/storage
+/storage/app/*
+!/storage/app/.gitkeep
