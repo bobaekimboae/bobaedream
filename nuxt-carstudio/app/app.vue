@@ -14,6 +14,7 @@ import { query } from "./lib/site";
 import PcHeader from "./components/PcHeader.vue";
 import { isPc, keepLayoutParams, watchLayout } from "./lib/layout";
 
+const VIEWS = ["home", "start", "projects", "details", "making", "result", "profile"];
 const view = ref("home");
 const id = ref("");
 const project = ref("");
@@ -22,7 +23,9 @@ const toast = ref("");
 let tt = 0;
 const read = () => {
   const q = query();
-  view.value = q.get("v") || "home";
+  // 배포 확인 주소의 &v=<커밋>도 같은 이름을 쓰므로, 아는 화면 이름이 아니면 홈으로 연다
+  const v = q.get("v") || "home";
+  view.value = VIEWS.includes(v) ? v : "home";
   id.value = q.get("id") || "";
   project.value = q.get("project") || "";
 };
