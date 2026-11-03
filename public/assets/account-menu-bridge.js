@@ -16,6 +16,9 @@
   document.head.append(css);
   function position() {
     if (!panel || panel.classList.contains('is-mobile')) return;
+    if (panel.classList.contains('is-expanded')) {
+      const width = Math.min(900, innerWidth - 32); panel.style.width = width + 'px'; panel.style.left = (innerWidth - width) / 2 + 'px'; panel.style.top = '24px'; panel.style.height = Math.min(760, innerHeight - 48) + 'px'; return;
+    }
     const r = trigger?.getBoundingClientRect();
     const width = Math.min(400, window.innerWidth - 24);
     const top = Math.min((r?.bottom || 80) + 12, window.innerHeight - 160);
@@ -64,26 +67,80 @@
     const button = event.target.closest?.('.bbm-account-button,.bbm-auth-pill.is-login,.bbm-bottom-gnb__item');
     const isMy = button?.classList.contains('bbm-bottom-gnb__item') && button.textContent.trim() === '마이';
     if (button && (isMy || !button.classList.contains('bbm-bottom-gnb__item'))) {
-      event.preventDefault(); event.stopImmediatePropagation(); open(button, button.classList.contains('is-login') ? 'login' : ''); return;
+      event.preventDefault(); event.stopImmediatePropagation(); open(button, button.classList.contains('is-login') ? (readDemoSession() ? 'dealer' : 'login') : ''); return;
     }
     if (panel && !panel.contains(event.target) && !trigger?.contains(event.target)) { event.preventDefault(); event.stopImmediatePropagation(); close(); }
   }, true);
   document.addEventListener('keydown', event => { if (panel && event.key === 'Escape') { event.preventDefault(); close(); } });
   window.addEventListener('message', event => {
     if (event.origin !== location.origin || event.source !== frame?.contentWindow || event.data?.channel !== 'bbm-account-v1') return;
-    if (event.data.type === 'ready') { panel?.querySelector('.bbm-account-loading')?.remove(); frame?.focus(); }
+    if (event.data.type === 'ready') {
+      panel?.querySelector('.bbm-account-loading')?.remove(); frame?.focus();
+      const u = new URL(location.href); u.searchParams.delete('v');
+      const title = ['category','maker','model','generation','priceMin','priceMax'].map(k=>u.searchParams.get(k)).filter(Boolean).join(' · ') || '전체 차량';
+      frame?.contentWindow?.postMessage({channel:'bbm-account-v1',type:'context',title,url:u.href},location.origin);
+    }
+    if (event.data.type === 'expand' || event.data.type === 'compact') { panel?.classList.toggle('is-expanded', event.data.type === 'expand'); position(); }
+    if (event.data.type === 'session') updateSessionUi();
+    if (event.data.type === 'activity') restoreLikes(true);
+    if (event.data.type === 'search' && typeof event.data.url === 'string') { const u = safeUrl(event.data.url); if(u) close({after:()=>location.assign(u.href)}); }
+    if (event.data.type === 'vehicle' && event.data.vehicle && typeof event.data.vehicle.title === 'string') {
+      const v=event.data.vehicle; const cards=[...document.querySelectorAll('.bbm-result-card[role=link]')];
+      const card=cards.find(el=>snapshot(el)?.id===v.id) || (!v.id?.startsWith('observed-') ? cards.find(el=>el.querySelector('.bbm-card-title')?.textContent.trim()===v.title) : null);
+      if(card) close({after:()=>card.click()}); else {const u=safeUrl(v.url);if(u)close({after:()=>location.assign(u.href)});}
+    }
     if (event.data.type === 'close') close();
     if (event.data.type !== 'navigate') return;
     const action = event.data.action;
-    if (!['favorites', 'register', 'feedback', 'logout-preview'].includes(action)) return;
+    if (!['favorites', 'register', 'feedback', 'logout-preview', 'listing'].includes(action)) return;
     if (action === 'favorites') {
       const favorite = document.querySelector('.bbm-header-auth [aria-label="관심 매물"],button[aria-label="저장한 매물 열기"]');
       close({ after: () => favorite?.click() });
     } else if (action === 'register') close({ after: () => location.assign(new URL('?register=1', base).href) });
     else if (action === 'feedback') close({ after: () => location.assign(new URL('community/naver-cafe-list.html?board=suggestion', base).href) });
+    else if (action === 'listing') close();
     else { const target = new URL(location.href); target.searchParams.delete('pcauth'); close({ after: () => location.replace(target.href) }); }
   });
   window.addEventListener('popstate', () => { if (pending) { pending = false; const after = afterHistoryClose; afterHistoryClose = null; after?.(); return; } close({ fromPop: true }); });
   window.addEventListener('resize', position);
   window.addEventListener('scroll', position, true);
+
+  // Serialize only public listing UI snapshots; no app stores, cookies or auth credentials.
+  const activityKey = 'bbm.account.listing-activity.v1';
+  const demoKey = 'bbm.account.demo.v2';
+  let restoring = false; const restored = new WeakSet();
+  function readActivity() { try { const a=JSON.parse(localStorage.getItem(activityKey)||'null');return a&&Array.isArray(a.favorites)&&Array.isArray(a.recent)?a:{favorites:[],recent:[]}; }catch{return {favorites:[],recent:[]};} }
+  function writeActivity(a) {try{localStorage.setItem(activityKey,JSON.stringify(a));frame?.contentWindow?.postMessage({channel:'bbm-account-v1',type:'activity'},location.origin);}catch{ /* current list remains usable in memory */ }}
+  function safeUrl(value) {try{const u=new URL(value,base);return u.origin===location.origin&&/^https?:$/.test(u.protocol)?u:null;}catch{return null;}}
+  function snapshot(card) {
+    const title=card.querySelector('.bbm-card-title')?.textContent.trim();if(!title)return null;
+    const photo=card.querySelector('.bbm-card-photo img');const image=photo?.currentSrc||photo?.src||new URL('assets/bbm/favicon.svg',base).href;
+    const specs=card.querySelector('.bbm-card-spec')?.textContent.trim()||'';const price=card.querySelector('.bbm-card-price')?.textContent.trim()||'';
+    // The PC-only power/seller suffix must not create a different identity on mobile.
+    const commonSpecs=specs.split('·').slice(0,3).map(x=>x.trim()).join('|');
+    const text=title+'|'+image+'|'+commonSpecs;let hash=2166136261;for(let i=0;i<text.length;i++)hash=Math.imul(hash^text.charCodeAt(i),16777619);
+    return {id:'observed-'+(hash>>>0).toString(16),title,image,price,specs,url:location.href};
+  }
+  document.addEventListener('click', e=>{
+    if(restoring)return;
+    const card=e.target.closest?.('.bbm-result-card[role=link]');if(!card)return;
+    const v=snapshot(card);if(!v)return;
+    const like=e.target.closest('button[aria-pressed][aria-label*="찜"]');const a=readActivity();
+    if(like){const enabled=like.getAttribute('aria-pressed')!=='true';a.favorites=enabled?[v,...a.favorites.filter(x=>x.id!==v.id)].slice(0,100):a.favorites.filter(x=>x.id!==v.id);}
+    else if(!e.target.closest('button'))a.recent=[v,...a.recent.filter(x=>x.id!==v.id)].slice(0,100);
+    writeActivity(a);
+  },true);
+  function restoreLikes(force=false) {
+    if(restoring)return;const a=readActivity();restoring=true;
+    try{document.querySelectorAll('.bbm-result-card .bbm-card-wish[aria-pressed]').forEach(button=>{
+      if(!force&&restored.has(button))return;restored.add(button);const v=snapshot(button.closest('.bbm-result-card'));if(!v)return;
+      const wanted=a.favorites.some(x=>x.id===v.id);if(wanted!==(button.getAttribute('aria-pressed')==='true'))button.click();
+    });}finally{restoring=false;}
+  }
+  function readDemoSession(){try{return JSON.parse(localStorage.getItem(demoKey)||'null')?.signedIn===true;}catch{return false;}}
+  function updateSessionUi(){const button=document.querySelector('.bbm-auth-pill.is-login');if(button){const label=readDemoSession()?'내 매물 관리':'로그인/회원가입';if(button.textContent!==label)button.textContent=label;}}
+  let queued=false;
+  new MutationObserver(()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;restoreLikes();updateSessionUi();});}).observe(document.getElementById('root')||document.body,{childList:true,subtree:true});
+  window.addEventListener('storage',e=>{if(e.key===activityKey)restoreLikes(true);if(e.key===demoKey)updateSessionUi();});
+  restoreLikes();updateSessionUi();
 })();
