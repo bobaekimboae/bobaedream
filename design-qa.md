@@ -1,3 +1,41 @@
+# Account menu QA — 2026-11-03
+
+final result: passed
+
+Scope: Chotot guest PC profile menu adapted to Bobaedream and shared mobile navigation. UI/navigation acceptance only; Laravel account/payment integration and native-app parity are separate work.
+
+Evidence root: `C:/Users/bobae/.codex/visualizations/2026/10/16/01a1426a-a2b7-7de3-b5ee-6f7a570adc5b/profile-menu-audit-20261103/`.
+
+- Source: `source-pc-final.png`, https://xe.chotot.com/mua-ban-xe-may, guest PC menu open.
+- Implementation: `implemented-pc-final.png`, local integrated listing, same guest/open state.
+- Combined full-view comparison opened: `comparison-full.png`.
+- Combined focused menu comparison opened: `comparison-menu.png` (aligned menu-top crops).
+- PC CSS viewport 1280×720, screenshot 1280×720, density 1; source exporter omitted the 10px outer scrollbar. Focused crops normalize by menu position without scaling.
+- Mobile: `implemented-mobile-final.png`, actual responsive 390×660 iframe viewport; previous actual full-window 390×844 capture also inspected. No simulated phone chrome. clientWidth=scrollWidth=390; broken menu images=0.
+
+Comparison history:
+
+1. P0: plain Nuxt account URL opened community home because the existing app uses hash routing. Fixed to `#/account?embed=1&surface=...`; PC/mobile entry re-tested.
+2. P2: native scrollbar reduced row width to 345px. Hid account-document scrollbar while keeping scrolling; revised measurement 360×48px.
+3. P2: utilities/services started lower than source. Reduced auth padding/gap and section margins. Revised combined screenshots show aligned row/card rhythm.
+4. P2: small full wordmark was unreadable. Used existing 48px favicon emblem. Revised PC/mobile captures inspected.
+
+Fidelity surfaces:
+
+- Typography: Pretendard, 16px/24px entries, 14px section labels; localized Korean text fits.
+- Spacing: 400px PC host, 360px entry width, 48px row height, 12px card radius, 16px inset; mobile sticky header and vertical scrolling.
+- Colors: white cards, #f7f7f7 surface, primary computed rgb(47,111,228)=#2f6fe4.
+- Assets: 16 unmodified Notion SVGs with SHA-256 manifest and per-file source URL. All menu images render. Existing missing page avatar outside account scope is unrelated.
+- Copy: shared four-group order and 15 entries; no fabricated account balances, coupons, payments or successful sign-in.
+
+Functional checks: guest PC/mobile entry, detail/back, Esc, focus restoration, history close, original saved-listings navigation, support tel link, scroll. Same-origin and current iframe source checked for bridge messages; navigation actions allowlisted. Menu console errors/warnings: none. Root runtime integrity: 28 files passed.
+
+Validation: root npm run verify passed (29 admin/catalog tests + 4 Sites tests + build), Nuxt 7 tests passed, typecheck and generate passed. CSS-only refinements recaptured and re-compared. P3 follow-up: minor localized font metric differences; no actionable P0/P1/P2 remains within this scope.
+
+---
+
+# Historical QA — prior work below
+
 # 모델별 차량리뷰 목록·상세·댓글 QA · 2026-10-17
 
 ## 2026-11-01 모바일 커뮤니티 상단 4분류
