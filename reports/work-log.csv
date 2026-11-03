@@ -436,3 +436,4 @@ PR #1012·#1013,feat/shoot-interior-steps,cb47d46,58 영상 실내 세부 순서
 "2026-11-03 08:25","미지정","community-header-balance","-","병합·배포","완료","헤더 ☰·검색바·프사 간격 12·12로 균형, 프사를 네이버증권 토론 기본 프로필로 교체","public/community/{community-layout-align.css,naver-cafe-list.html,assets/profile-avatars/naver-stock-default.png}, docs/quick-filter-spec.md","-","-","384 측정 ☰→검색 12, 검색→프사 12, 콘솔 오류 0"
 "2026-11-03 08:45","미지정","community-panel-tencent","-","병합·배포","완료","전체 게시판 패널 텐센트식: 칩 회색 알약 통일·−/+ 회색 원 표시, 고정 칸 편집 중만 흐림, 기본값 복원·편집 회색 글자+아이콘, 분류 탭 대신 구역 제목, 기본 홈 설정 한 줄","public/community/{hupu-board-navigation.js,community-layout-align.css,naver-cafe-list.html}, docs/quick-filter-spec.md","-","-","384 일반·편집 화면 확인, 추가·기본값 복원 동작, 좌우 넘기기 정상, 콘솔 오류 0"
 2026-11-03,community-panel-tabs,커뮤니티 전체 게시판 패널 텐센트 글자 크기·치지직 편집 아이콘·선택 칩 검정 바탕,push
+2026-11-03,community-panel-balance,게시판 패널 칩 말머리 칩과 통일·초톳/오토스카우트 아이콘·기본 홈 설정 제거,push
