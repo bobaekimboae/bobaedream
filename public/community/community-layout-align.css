@@ -69,3 +69,20 @@ body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.select
 body .boardOrderBackdrop .boardOrderPanel .boardOrderItem,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{background:#f4f4f4}
 body .boardOrderBackdrop .boardOrderPanel .boardOrderName,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd span{font-size:14px!important;line-height:20px!important;font-weight:500!important}
 body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected .boardOrderName{font-weight:500!important}
+/* 전수조사 밸런스(2026-11-03 「알약칩이 우리 칩 디자인과 어설퍼 보여」): 패널 칩을 같은 화면 말머리 칩(.cat)과 같은 모양으로.
+   .cat = 바탕 #F1F1F2 · 14/600 #4F5156 · 자간 -.025em · 선택 #161823 흰 글자 700 · 누르면 #E6E6E8 축소. */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderBody{padding-left:16px;padding-right:16px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderHeader{padding-left:16px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderSectionTabs{margin-left:-16px;margin-right:-16px;padding-left:16px;padding-right:16px;margin-bottom:16px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderHeader h2,body .boardOrderBackdrop .boardOrderPanel .boardOrderDefaultEntry strong,body .boardOrderBackdrop .boardOrderPanel .boardOrderDefaultValue{top:0}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderMyGrid,body .boardOrderBackdrop .boardOrderPanel .boardOrderAvailableGrid{gap:8px!important}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{height:36px;padding:0 6px!important;border:0!important;border-radius:999px;background:#f1f1f2!important;transition:background-color .14s ease,transform .1s ease}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderItem:active,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd:active{background:#e6e6e8!important;transform:scale(.97)}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderName,body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd span{top:0!important;font-size:14px!important;line-height:20px!important;font-weight:600!important;letter-spacing:-.025em!important;color:#4f5156!important}
+body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected,body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected:active{background:#161823!important}
+body .boardOrderBackdrop:not(.isEditing) .boardOrderPanel .boardOrderItem.selected .boardOrderName{color:#fff!important;font-weight:700!important}
+body .boardOrderBackdrop.isEditing .boardOrderPanel .boardOrderItem.boardOrderFixed .boardOrderName{color:#b0b3b8!important}
+/* 추가할 게시판: 모서리 밖 회색 원 대신 글자 앞 + 아이콘(칩 안에서 가운데 정렬). */
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd{display:flex;align-items:center;justify-content:center;gap:3px}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd:after{display:none}
+body .boardOrderBackdrop .boardOrderPanel .boardOrderAdd .boardOrderPlusIcon{position:static;order:-1;flex:0 0 auto;width:10px;height:10px;opacity:.75;filter:none;transform:rotate(45deg)}
