@@ -67,6 +67,12 @@ function download() {
   a.click();
   saved.value = true;
 }
+async function share() {
+  if (!v.value?.video) return;
+  const f = new File([v.value.video], fileName(v.value), { type: "video/mp4" });
+  if (navigator.canShare?.({ files: [f] })) { try { await navigator.share({ files: [f], title: v.value.title }); } catch { /* 닫음 */ } }
+  else download();
+}
 async function again() {
   const old = v.value;
   if (!old) return;
@@ -78,22 +84,29 @@ async function again() {
 <template>
   <TopBack @back="emit('back')" />
   <main v-if="v" class="res">
-    <template v-if="v.status === 'done'">
+    <div v-if="v.status === 'done'" class="res-grid">
+      <div class="res-r">
       <span class="ready">게시 준비 완료</span>
       <h2 v-if="!editing">{{ v.title }} <button type="button" aria-label="이름 바꾸기" @click="startEdit"><Icon :src="rd('edit-outline')" /></button></h2>
       <h2 v-else><input ref="input" v-model="title" class="inp" style="font-size: 18px; text-align: center" @keydown.enter="saveTitle" @blur="saveTitle" /></h2>
       <p class="meta">{{ when }} · 사진 {{ v.photos.length }}장</p>
+      </div>
+      <div class="res-l">
       <div class="player" :style="{ aspectRatio: v.options.aspect.replace(':', ' / ') }">
         <video ref="el" :src="url" :poster="v.poster" playsinline controls preload="metadata" @play="playingNow = true" @pause="playingNow = false; hush()" @ended="playingNow = false; said.clear()" @timeupdate="onTime" @seeking="onSeek" />
         <button v-if="!playingNow" class="big" type="button" aria-label="재생" @click="play"><span><Icon :src="rd('play-fill')" /></span></button>
       </div>
+      </div>
+      <div class="res-r2">
       <div class="happy">영상이 마음에 드세요?
         <button type="button" aria-label="좋아요" :aria-pressed="v.rating === 'up'" @click="rate('up')"><Icon :src="ct('chotot-common-like')" /></button>
         <button type="button" aria-label="별로예요" :aria-pressed="v.rating === 'down'" @click="rate('down')"><Icon :src="ct('chotot-common-dislike')" /></button>
       </div>
       <button class="btn or dl" type="button" @click="download"><Icon :src="rd('forward-outline')" style="transform: rotate(90deg)" /> 내려받기</button>
       <p v-if="v.options.voiceover" class="voice-note">{{ canSpeak() ? "AI 음성은 이 화면에서 재생할 때 함께 들려요. 내려받은 mp4에는 음악만 들어 있어요(음성 서버 연결 전)." : "이 브라우저는 AI 음성을 읽지 못해요." }}</p>
-    </template>
+      <button class="btn line share" type="button" @click="share"><Icon :src="ct('chotot-common-share')" /> 공유</button>
+      </div>
+    </div>
     <template v-else-if="v.status === 'failed'">
       <h2>영상을 만들지 못했어요</h2>
       <p class="meta">{{ v.error }}</p>

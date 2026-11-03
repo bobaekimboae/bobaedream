@@ -11,6 +11,8 @@ import Paywall from "./components/Paywall.vue";
 import Profile from "./components/Profile.vue";
 import { loadAll } from "./lib/store";
 import { query } from "./lib/site";
+import PcHeader from "./components/PcHeader.vue";
+import { isPc, keepLayoutParams, watchLayout } from "./lib/layout";
 
 const view = ref("home");
 const id = ref("");
@@ -29,6 +31,7 @@ function go(v: string, extra: Record<string, string> = {}, replace = false) {
   u.search = "";
   if (v !== "home") u.searchParams.set("v", v);
   for (const [k, val] of Object.entries(extra)) u.searchParams.set(k, val);
+  keepLayoutParams(u);
   if (replace) history.replaceState(history.state, "", u);
   else history.pushState({ inApp: true }, "", u);
   read();
@@ -44,6 +47,7 @@ function say(t: string) {
   tt = window.setTimeout(() => (toast.value = ""), 2600);
 }
 onMounted(async () => {
+  watchLayout();
   read();
   window.addEventListener("popstate", read);
   await loadAll();
@@ -51,7 +55,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="app">
+  <div class="app" :class="{ 'is-pc': isPc }">
+    <PcHeader v-if="isPc" :view="view" @go="go" @pay="pay = true" />
     <Home v-if="view === 'home'" @go="go" @pay="pay = true" @toast="say" />
     <Start v-else-if="view === 'start'" @back="back" @go="go" />
     <Projects v-else-if="view === 'projects'" @back="back" @go="go" />

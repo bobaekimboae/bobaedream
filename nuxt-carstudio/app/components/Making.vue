@@ -13,6 +13,6 @@ watch(() => v.value?.status, (s) => { if (s === "done" || s === "failed") emit("
   <TopBack @back="emit('go', 'home', {}, true)" />
   <main class="mk">
     <div class="orb" role="status" aria-live="polite"><b>{{ STEPS[step] }}<small v-if="step === 3">{{ Math.round((v?.progress ?? 0) * 100) }}%</small></b></div>
-    <button class="btn" type="button" @click="emit('go', 'home', {}, true)">내 영상으로 돌아가기</button>
+    <button class="btn" type="button" @click="emit('go', 'home', { tab: 'videos' }, true)">내 영상으로 돌아가기</button>
   </main>
 </template>

@@ -6,9 +6,11 @@ import { state, removeVideo } from "../lib/store";
 import { fileName } from "../lib/jobs";
 import { as, ct, rd, sitePath } from "../lib/site";
 import type { VideoItem } from "../lib/types";
+import { isPc } from "../lib/layout";
 
 const emit = defineEmits<{ go: [v: string, extra?: Record<string, string>]; pay: []; toast: [t: string] }>();
-const tab = ref<"photos" | "videos">(state.videos.some((v) => v.status === "done") ? "videos" : "photos");
+// 원본 기본 탭은 「사진」. 영상을 만들고 돌아오면(?tab=videos) 「내 영상」
+const tab = ref<"photos" | "videos">(new URLSearchParams(window.location.search).get("tab") === "videos" ? "videos" : "photos");
 const q = ref("");
 const shoot = sitePath("nuxt-shootkit", "");
 const sample = (n: string) => sitePath("assets", "cars", "seoul-autogallery-v01", "rr", n);
@@ -45,11 +47,11 @@ async function share(v: VideoItem) {
 </script>
 
 <template>
-  <header class="home-top">
+  <header v-if="!isPc" class="home-top">
     <div class="wordmark">보배 카스튜디오<small>BOBAEDREAM CAR STUDIO</small></div>
     <button class="credit" type="button" :aria-label="`남은 크레딧 ${state.credits}개 · 크레딧 사기`" @click="emit('pay')">{{ state.credits }} <i>+</i></button>
   </header>
-  <main style="padding-bottom: 110px">
+  <main class="home-main">
     <h1 class="welcome">환영합니다 <b>{{ state.profile.name || "딜러님" }}</b></h1>
     <div class="feat">
       <a class="feat-card" :href="shoot" style="text-decoration: none; color: inherit">
@@ -69,6 +71,7 @@ async function share(v: VideoItem) {
     </div>
     <label class="search"><Icon :src="ct('chotot-common-search')" /><span class="sr">이전 작업 검색</span><input v-model="q" placeholder="이전 작업 검색" /></label>
 
+    <div class="upl-list" :class="tab">
     <template v-if="tab === 'photos'">
       <p v-if="!photoSets.length" class="empty">아직 올린 사진이 없어요.<br />「영상 만들기」에서 차량 사진을 올려 보세요.</p>
       <section v-for="v in photoSets" :key="v.id" class="upl">
@@ -97,8 +100,9 @@ async function share(v: VideoItem) {
         </template>
       </section>
     </template>
+    </div>
   </main>
-  <nav class="nav" aria-label="아래 메뉴">
+  <nav v-if="!isPc" class="nav" aria-label="아래 메뉴">
     <button type="button" aria-current="page"><Icon :src="as('complex-home-as24')" />홈</button>
     <a class="fab" :href="shoot" aria-label="사진 촬영" style="display: flex; align-items: center"><Icon :src="rd('camera-outline-24')" /></a>
     <button type="button" @click="emit('go', 'profile')"><Icon :src="ct('chotot-common-user')" />프로필</button>

@@ -11,6 +11,7 @@ const emit = defineEmits<{ back: []; go: [v: string, extra?: Record<string, stri
     <h1 class="h1">새 차량 영상</h1>
     <p class="lead">시작 방법을 고르세요: 내 프로젝트에서 가져오거나 사진을 새로 올립니다.</p>
     <div class="ribbon"><b>영상 AI: 출시 기념 한시 무료!</b></div>
+    <div class="start-grid">
     <section class="rec">
       <span class="rec-badge">✦ 추천 · 가장 빠름</span>
       <span class="rec-ico"><Icon :src="rd('image-post-outline')" /></span>
@@ -24,5 +25,6 @@ const emit = defineEmits<{ back: []; go: [v: string, extra?: Record<string, stri
       <h3>사진 새로 올리기</h3>
       <p>차량 사진을 고르세요. 제조사부터 모델까지 AI가 채워 드려요.</p>
     </button>
+    </div>
   </main>
 </template>

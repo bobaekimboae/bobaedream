@@ -49,6 +49,7 @@ async function run(item: VideoItem) {
 export const videoById = (id: string) => state.videos.find((v) => v.id === id);
 /** 파일 이름은 영문(원본처럼 「Land-Rover-Range-Rover.mp4」, 한글이면 bobae-carstudio-<번호>) */
 export function fileName(v: VideoItem) {
-  const ascii = v.title.normalize("NFKD").replace(/[^A-Za-z0-9 ]/g, "").trim().replace(/\s+/g, "-");
+  if (/[^\x00-\x7F]/.test(v.title)) return `bobae-carstudio-${v.id}.mp4`;
+  const ascii = v.title.replace(/[^A-Za-z0-9 ]/g, "").trim().replace(/\s+/g, "-");
   return `${ascii.length >= 2 ? ascii : `bobae-carstudio-${v.id}`}.mp4`;
 }

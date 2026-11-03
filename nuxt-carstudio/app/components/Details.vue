@@ -11,6 +11,7 @@ import { PROJECTS } from "../lib/projects";
 import { startVideo } from "../lib/jobs";
 import { state, uid } from "../lib/store";
 import { ct, rd } from "../lib/site";
+import { isPc } from "../lib/layout";
 import { defaultOptions, emptyDetails, type Details, type Options, type Photo, type TemplateId } from "../lib/types";
 
 const props = defineProps<{ projectId?: string }>();
@@ -115,7 +116,8 @@ const previewDetails = computed(() => (d.make && d.model ? { ...d } : { ...PROJE
 
 <template>
   <TopBack @back="emit('back')" />
-  <main class="page">
+  <main class="page dt">
+    <div class="dt-form">
     <h1 class="h1">차량 정보 확인</h1>
     <p class="lead">AI가 사진을 보고 정보를 채워요. 확인하고 고친 뒤 정하세요.</p>
 
@@ -138,14 +140,17 @@ const previewDetails = computed(() => (d.make && d.model ? { ...d } : { ...PROJE
     <p v-if="aiNote" class="hint" style="margin-top: 10px; color: var(--or)">{{ aiNote }}</p>
 
     <div class="sec">기본 정보</div>
+    <div class="fld-grid">
     <div class="fld"><div class="fld-l">제조사<em>필수</em></div><input v-model="d.make" class="inp" /></div>
     <div class="fld"><div class="fld-l">모델<em>필수</em></div><input v-model="d.model" class="inp" /></div>
     <div class="fld"><div class="fld-l">연식</div><input v-model="d.year" class="inp" inputmode="numeric" maxlength="4" /></div>
     <div class="fld"><div class="fld-l">가격</div><input v-model="d.price" class="inp" inputmode="numeric" placeholder="예: 1,950" /></div>
     <div class="fld"><div class="fld-l">통화</div><button class="sel" type="button" @click="openSheet('currency', '통화', CURRENCY)">{{ shown('currency', CURRENCY) }}<Icon :src="rd('caret-down-fill')" /></button></div>
+    </div>
 
     <div class="sec">기술 정보</div>
     <div class="unit"><button type="button" :aria-pressed="d.unit === 'km'" @click="d.unit = 'km'">KM</button><button type="button" :aria-pressed="d.unit === 'mi'" @click="d.unit = 'mi'">MI</button></div>
+    <div class="fld-grid">
     <div class="fld"><div class="fld-l">주행거리 ({{ d.unit }})</div><input v-model="d.mileage" class="inp" inputmode="numeric" placeholder="예: 62,000" /></div>
     <div class="fld"><div class="fld-l">출력</div><input v-model="d.power" class="inp" inputmode="numeric" placeholder="예: 110 hp" /></div>
     <div class="fld"><div class="fld-l">배기량</div><input v-model="d.engine" class="inp" inputmode="numeric" placeholder="예: 999 cc" /></div>
@@ -153,26 +158,33 @@ const previewDetails = computed(() => (d.make && d.model ? { ...d } : { ...PROJE
       <div class="fld-l">{{ f[1] }}</div>
       <button class="sel" type="button" @click="openSheet(f[0], f[1], f[2])"><span v-if="shown(f[0], f[2])">{{ shown(f[0], f[2]) }}</span><span v-else class="ph">{{ f[1] }}</span><Icon :src="rd('caret-down-fill')" /></button>
     </div>
+    </div>
 
     <div class="sec">구매자가 먼저 묻는 것</div>
     <p class="hint">중고차 구매자가 가장 많이 묻는 6가지예요. 모두 선택 항목이고, 고른 것은 영상과 마지막 장면에 나와요.</p>
+    <div class="ask-grid">
     <div class="ask"><b>사고 이력</b><div class="opts c2"><button type="button" :aria-pressed="d.damage === 'no'" @click="set('damage', 'no')">없음</button><button type="button" :aria-pressed="d.damage === 'yes'" @click="set('damage', 'yes')">있음</button></div></div>
     <div class="ask"><b>도색 부위</b><div class="opts c2"><button type="button" :aria-pressed="d.repainted === 'no'" @click="set('repainted', 'no')">없음</button><button type="button" :aria-pressed="d.repainted === 'yes'" @click="set('repainted', 'yes')">있음</button></div></div>
     <div class="ask"><b>교환 부위</b><div class="opts c2"><button type="button" :aria-pressed="d.replaced === 'no'" @click="set('replaced', 'no')">없음</button><button type="button" :aria-pressed="d.replaced === 'yes'" @click="set('replaced', 'yes')">있음</button></div></div>
     <div class="ask"><b>소유자 수</b><div class="opts c3"><button type="button" :aria-pressed="d.owners === '1'" @click="set('owners', '1')">1인 소유</button><button type="button" :aria-pressed="d.owners === '2'" @click="set('owners', '2')">2인</button><button type="button" :aria-pressed="d.owners === '3+'" @click="set('owners', '3+')">3인 이상</button></div></div>
     <div class="ask"><b>보증</b><div class="opts c2"><button type="button" :aria-pressed="d.warranty === 'active'" @click="set('warranty', 'active')">유효</button><button type="button" :aria-pressed="d.warranty === 'expired'" @click="set('warranty', 'expired')">만료</button></div></div>
     <div class="ask"><b>대차(보상판매)</b><div class="opts c2"><button type="button" :aria-pressed="d.tradeIn === 'accepted'" @click="set('tradeIn', 'accepted')">가능</button><button type="button" :aria-pressed="d.tradeIn === 'not'" @click="set('tradeIn', 'not')">불가</button></div></div>
+    </div>
 
     <div class="sec">마지막 장면 정보</div>
     <p class="hint">영상 마지막 장면에 나와요. 모두 선택 항목이에요.</p>
+    <div class="fld-grid">
     <div class="fld"><div class="fld-l">딜러 · 상사 이름</div><input v-model="d.dealer" class="inp" /></div>
     <div class="fld"><div class="fld-l">전화</div><input v-model="d.phone" class="inp" inputmode="tel" /></div>
     <div class="fld"><div class="fld-l">주소</div><input v-model="d.address" class="inp" /></div>
+    </div>
 
     <div class="sec">템플릿</div>
+    <div class="tpl-list">
     <div v-for="t in ([['classic', '차분한 전환과 깔끔한 글자. 첫 장면 · 사양 · 마지막 연락처가 늘 같은 순서로 나와요. 모든 브랜드 · 차종에 어울려요.', 'rd:image-post-outline'], ['modern', '빠른 컷과 힘 있는 전환. 움직이는 글자, 빠른 편집. SNS에서 눈에 띄게 만들었어요.', 'rd:powerup-outline'], ['showcase', '모든 사양을 화면에. 가격 · 주행거리 · 엔진 · 옵션을 하나씩 보여 줘요. 정보를 먼저 보고 싶은 분께.', 'rd:view-grid-outline']] as const)" :key="t[0]" class="tpl" role="button" tabindex="0" :aria-pressed="o.template === t[0]" @click="o.template = t[0]" @keydown.enter="o.template = t[0]">
       <div class="tpl-h"><Icon class="ti" :src="rd(t[2].slice(3))" /><b>{{ tplName[t[0]] }}</b><button class="play" type="button" :aria-label="`${tplName[t[0]]} 미리보기`" @click.stop="preview = t[0]"><Icon :src="rd('play-fill')" /></button></div>
       <p>{{ t[1] }}</p>
+    </div>
     </div>
 
     <div class="sec">출력 비율</div>
@@ -185,7 +197,7 @@ const previewDetails = computed(() => (d.make && d.model ? { ...d } : { ...PROJE
     <div class="sec">음악</div>
     <div class="mus">
       <div v-for="m in MUSIC" :key="m.id" role="button" tabindex="0" :aria-pressed="o.music === m.id" @click="o.music = m.id" @keydown.enter="o.music = m.id">
-        <button v-if="m.id !== 'none'" class="play" type="button" :aria-label="`${m.label} 들어 보기`" @click.stop="playMusic(m.id)"><Icon :src="playing === m.id ? rd('close-outline') : rd('play-fill')" /></button>
+        <button v-if="m.id !== 'none'" class="play" type="button" :aria-label="`${m.label} 들어 보기`" @click.stop="o.music = m.id; playMusic(m.id)"><Icon :src="playing === m.id ? rd('close-outline') : rd('play-fill')" /></button>
         <span>{{ m.label }}</span>
       </div>
     </div>
@@ -204,6 +216,9 @@ const previewDetails = computed(() => (d.make && d.model ? { ...d } : { ...PROJE
     <div class="sec">영상 언어</div>
     <div class="langs"><button v-for="l in LANGS" :key="l.v" type="button" :aria-pressed="o.lang === l.v" @click="o.lang = l.v">{{ l.label }}</button></div>
 
+    </div>
+    <aside class="dt-side">
+    <div v-if="isPc && selected.length" class="dt-cover"><img :src="selected[0]!.url" alt="대표 사진" /><span>대표 사진 · {{ selected.length }}장</span></div>
     <section class="sum">
       <h4>요약</h4>
       <dl>
@@ -219,6 +234,7 @@ const previewDetails = computed(() => (d.make && d.model ? { ...d } : { ...PROJE
       <p v-if="why" class="why">{{ why }}</p>
       <button class="back2" type="button" @click="emit('back')">← 뒤로</button>
     </section>
+    </aside>
   </main>
 
   <Picker v-if="sheet" :title="sheet.title" :list="sheet.list" :value="String(d[sheet.key])" @pick="pick" @close="sheet = null" />

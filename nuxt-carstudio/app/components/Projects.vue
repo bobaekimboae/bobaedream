@@ -13,13 +13,13 @@ const list = PROJECTS.filter((p) => p.photos.length >= 8);
     <h1 class="h1">내 프로젝트</h1>
     <p class="lead" style="margin-bottom: 12px">차량을 고르세요. 사진과 정보가 바로 채워져요.</p>
     <p class="note">처리된 사진이 8장 이상인 프로젝트만 보여요.</p>
-    <template v-if="list.length">
+    <div v-if="list.length" class="proj-list">
       <button v-for="p in list" :key="p.id" class="proj" type="button" @click="emit('go', 'details', { project: p.id })">
         <img :src="p.photos[0]" alt="" />
         <span><b>{{ p.title }}</b><span>{{ p.details.year }}년식 · 사진 {{ p.photos.length }}장 · {{ p.company }}</span></span>
         <Icon :src="rd('back-outline-24')" style="transform: rotate(180deg); color: #999" />
       </button>
-    </template>
+    </div>
     <div v-else class="empty">
       <b style="display: block; font-size: 17px; color: var(--ink); margin-bottom: 6px">아직 프로젝트가 없어요</b>
       영상을 만들려면 사진을 새로 올려 주세요.
