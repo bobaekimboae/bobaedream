@@ -11,29 +11,30 @@ const props = defineProps<{
 const emit = defineEmits<{
   close: []
   select: [boardId: string]
+  choose: [boardId: string]
 }>()
 
+const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
 const panel = ref<HTMLElement | null>(null)
 const editing = ref(false)
 const activeSectionId = ref<CommunitySectionId>('general')
 const myBoardIds = ref<string[]>([])
-const defaultBoardId = ref('free')
 const toastMessage = ref('')
+const scrollBox = ref<HTMLElement | null>(null)
+// 홈 · 전체 · 베스트는 고정 칸이라 빼거나 옮기지 않는다(정적 판 fixedIds와 같음).
+const fixedIds = ['home', 'all', 'best']
+let longPressTimer: ReturnType<typeof setTimeout> | undefined
+let suppressChipClick = false
 const lastFocusedElement = shallowRef<HTMLElement | null>(null)
 const dragBoardId = ref<string | null>(null)
 const sheetDragOffset = ref(0)
 const sheetDragging = ref(false)
-const sectionDragOffset = ref(0)
-const sectionDragging = ref(false)
 let toastTimer: ReturnType<typeof setTimeout> | undefined
 let reorderFrame: number | undefined
 let sheetFrame: number | undefined
-let sectionFrame: number | undefined
 let reorderPoint: { x: number, y: number } | null = null
 let sheetNextOffset = 0
-let sectionNextOffset = 0
 let orderChangedDuringPointerDrag = false
-let suppressSectionClick = false
 let bodyScrollY = 0
 let bodyInlineStyle: Pick<CSSStyleDeclaration, 'position' | 'top' | 'width' | 'overflow'> | null = null
 
@@ -57,23 +58,12 @@ let sheetPointer: {
   axis: PointerAxis
 } | null = null
 
-let sectionPointer: {
-  pointerId: number
-  startX: number
-  startY: number
-  lastX: number
-  lastTime: number
-  velocityX: number
-  axis: PointerAxis
-} | null = null
-
 const boardOrderStorageKey = 'bbm.community.boardShortcutOrder.v2'
-const defaultBoardStorageKey = 'bbm.community.defaultBoard.v1'
 const defaultOrder = computed(() => props.boards.map(board => board.id))
 const myBoards = computed(() => myBoardIds.value.map(id => props.boards.find(board => board.id === id)).filter((board): board is CommunityBoard => Boolean(board)))
-const activeSection = computed(() => props.sections.find(section => section.id === activeSectionId.value) || props.sections[0]!)
-const availableBoards = computed(() => activeSection.value.boards.filter(board => !myBoardIds.value.includes(board.id)))
-const defaultBoard = computed(() => props.boards.find(board => board.id === defaultBoardId.value) || props.boards[0]!)
+// 텐센트 비디오 全部频道처럼 추가할 게시판은 분류 탭을 누를 때마다 바꾸지 않고, 모든 분류를 구역 제목으로 이어서 보여 준다.
+const availableSections = computed(() => props.sections.map(section => ({ section, boards: section.boards.filter(board => !myBoardIds.value.includes(board.id)) })))
+const isFixed = (id: string) => fixedIds.includes(id)
 
 function normalizedOrder(value: unknown) {
   if (!Array.isArray(value)) return defaultOrder.value
@@ -88,8 +78,6 @@ function loadState() {
   } catch {
     myBoardIds.value = defaultOrder.value
   }
-  const savedDefault = localStorage.getItem(defaultBoardStorageKey)
-  defaultBoardId.value = savedDefault && props.boards.some(board => board.id === savedDefault) ? savedDefault : props.selectedBoardId
 }
 
 function saveOrder() {
@@ -107,46 +95,86 @@ function close() {
   emit('close')
 }
 
-function selectBoard(id: string) {
-  if (editing.value) return
-  emit('select', id)
+// 평소: 누르면 그 게시판으로 이동하고 창을 닫는다. 편집 중: 칸 어디를 눌러도 내 게시판에서 빠진다(바이두와 같음).
+function onChipClick(board: CommunityBoard) {
+  if (suppressChipClick) return
+  if (editing.value) { removeBoard(board); return }
+  emit('select', board.id)
   close()
 }
 
+// + 칸: 편집 중이 아니면 내 게시판 맨 끝에 넣고 바로 지금 게시판으로 바꾼다(창은 열린 채). 편집 중에는 넣기만 한다.
 function addBoard(board: CommunityBoard) {
   if (myBoardIds.value.includes(board.id)) return
   myBoardIds.value = [...myBoardIds.value, board.id]
   saveOrder()
+  if (!editing.value) emit('choose', board.id)
   announce(`${board.name}을 내 게시판에 추가했습니다`)
 }
 
 function removeBoard(board: CommunityBoard) {
-  if (myBoardIds.value.length <= 1) {
-    announce('내 게시판은 한 개 이상 필요합니다')
-    return
-  }
+  if (isFixed(board.id)) return
   myBoardIds.value = myBoardIds.value.filter(id => id !== board.id)
-  if (defaultBoardId.value === board.id) {
-    defaultBoardId.value = myBoardIds.value[0]!
-    localStorage.setItem(defaultBoardStorageKey, defaultBoardId.value)
-  }
   saveOrder()
+  if (board.id === props.selectedBoardId) emit('choose', 'home')
   announce(`${board.name}을 내 게시판에서 제외했습니다`)
 }
 
-function setCurrentAsDefault() {
-  defaultBoardId.value = props.selectedBoardId
-  localStorage.setItem(defaultBoardStorageKey, defaultBoardId.value)
-  announce(`${props.boards.find(board => board.id === defaultBoardId.value)?.name || '현재 게시판'}을 기본 홈으로 설정했습니다`)
-}
-
-function resetOrder() {
+function restoreDefault() {
   myBoardIds.value = defaultOrder.value
   saveOrder()
-  announce('기본 게시판 순서로 초기화했습니다')
+  announce('기본 게시판 순서로 되돌렸습니다')
+}
+
+// 평소 상태에서 칸을 0.45초 길게 누르면 편집 모드로 바뀐다(진동 12ms, 지원 기기만).
+function onChipLongPressStart(event: PointerEvent) {
+  if (editing.value) return
+  const start = { x: event.clientX, y: event.clientY }
+  clearTimeout(longPressTimer)
+  const target = event.currentTarget as HTMLElement
+  const cancel = (move?: PointerEvent) => {
+    if (move && Math.abs(move.clientX - start.x) + Math.abs(move.clientY - start.y) <= 8) return
+    clearTimeout(longPressTimer)
+    target.removeEventListener('pointermove', cancel)
+  }
+  target.addEventListener('pointermove', cancel)
+  target.addEventListener('pointerup', () => cancel(), { once: true })
+  target.addEventListener('pointercancel', () => cancel(), { once: true })
+  longPressTimer = setTimeout(() => {
+    suppressChipClick = true
+    setTimeout(() => { suppressChipClick = false }, 450)
+    try { navigator.vibrate?.(12) } catch {}
+    editing.value = true
+  }, 450)
+}
+
+// 분류 탭: 누르면 그 구역 제목으로 스크롤, 굴리면 보이는 구역으로 탭이 따라 바뀐다.
+let spyPausedUntil = 0
+function scrollToSection(id: CommunitySectionId) {
+  activeSectionId.value = id
+  spyPausedUntil = Date.now() + 700
+  const box = scrollBox.value
+  const target = box?.querySelector<HTMLElement>(`[data-section-id="${id}"]`)
+  const tabs = box?.querySelector<HTMLElement>('.board-section-tabs')
+  if (!box || !target) return
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  box.scrollTo({ top: target.offsetTop - (tabs?.offsetHeight || 0) - 16, behavior: reduce ? 'auto' : 'smooth' })
+}
+
+function onScrollSpy() {
+  const box = scrollBox.value
+  if (!box || Date.now() < spyPausedUntil) return
+  const tabs = box.querySelector<HTMLElement>('.board-section-tabs')
+  const line = box.scrollTop + (tabs?.offsetHeight || 0) + 24
+  let current = props.sections[0]!.id
+  for (const el of box.querySelectorAll<HTMLElement>('[data-section-id]')) {
+    if (el.offsetTop <= line) current = el.dataset.sectionId as CommunitySectionId
+  }
+  activeSectionId.value = current
 }
 
 function moveBoard(sourceId: string, targetId: string, persist = true) {
+  if (isFixed(sourceId) || isFixed(targetId)) return false
   const sourceIndex = myBoardIds.value.indexOf(sourceId)
   const targetIndex = myBoardIds.value.indexOf(targetId)
   if (sourceIndex < 0 || targetIndex < 0 || sourceIndex === targetIndex) return false
@@ -159,7 +187,7 @@ function moveBoard(sourceId: string, targetId: string, persist = true) {
 }
 
 function onDragStart(event: DragEvent, id: string) {
-  if (!editing.value) return event.preventDefault()
+  if (!editing.value || isFixed(id)) return event.preventDefault()
   dragBoardId.value = id
   event.dataTransfer?.setData('text/plain', id)
   if (event.dataTransfer) event.dataTransfer.effectAllowed = 'move'
@@ -177,7 +205,8 @@ function onDragEnd() {
 }
 
 function onPointerDown(event: PointerEvent, id: string) {
-  if (!editing.value || event.pointerType === 'mouse' || (event.target as HTMLElement).closest('.my-board-remove')) return
+  if (!editing.value) { onChipLongPressStart(event); return }
+  if (event.pointerType === 'mouse' || isFixed(id) || (event.target as HTMLElement).closest('.my-board-remove')) return
   dragBoardId.value = id
   orderChangedDuringPointerDrag = false
   reorderPointer = {
@@ -226,6 +255,7 @@ function onPointerEnd(event: PointerEvent) {
   if (orderChangedDuringPointerDrag) saveOrder()
   reorderPoint = null
   reorderPointer = null
+  if (orderChangedDuringPointerDrag) { suppressChipClick = true; setTimeout(() => { suppressChipClick = false }, 0) }
   orderChangedDuringPointerDrag = false
   dragBoardId.value = null
 }
@@ -289,82 +319,6 @@ function onSheetPointerEnd(event: PointerEvent) {
   sheetDragOffset.value = 0
 }
 
-function setSectionOffset(offset: number) {
-  sectionNextOffset = offset
-  if (sectionFrame !== undefined) return
-  sectionFrame = requestAnimationFrame(() => {
-    sectionFrame = undefined
-    sectionDragOffset.value = sectionNextOffset
-  })
-}
-
-function onSectionPointerDown(event: PointerEvent) {
-  if (event.pointerType === 'mouse' || (event.target as HTMLElement).closest('.board-section-tabs')) return
-  sectionPointer = {
-    pointerId: event.pointerId,
-    startX: event.clientX,
-    startY: event.clientY,
-    lastX: event.clientX,
-    lastTime: event.timeStamp,
-    velocityX: 0,
-    axis: 'pending',
-  }
-  ;(event.currentTarget as HTMLElement).setPointerCapture(event.pointerId)
-}
-
-function onSectionPointerMove(event: PointerEvent) {
-  if (!sectionPointer || sectionPointer.pointerId !== event.pointerId) return
-  const deltaX = event.clientX - sectionPointer.startX
-  const deltaY = event.clientY - sectionPointer.startY
-  if (sectionPointer.axis === 'pending' && Math.hypot(deltaX, deltaY) >= 10) {
-    sectionPointer.axis = Math.abs(deltaX) > Math.abs(deltaY) * 1.15 ? 'horizontal' : 'vertical'
-    sectionDragging.value = sectionPointer.axis === 'horizontal'
-  }
-  if (sectionPointer.axis !== 'horizontal') return
-
-  event.preventDefault()
-  const elapsed = Math.max(1, event.timeStamp - sectionPointer.lastTime)
-  sectionPointer.velocityX = (event.clientX - sectionPointer.lastX) / elapsed
-  sectionPointer.lastX = event.clientX
-  sectionPointer.lastTime = event.timeStamp
-
-  const currentIndex = props.sections.findIndex(section => section.id === activeSectionId.value)
-  const atStart = currentIndex <= 0 && deltaX > 0
-  const atEnd = currentIndex >= props.sections.length - 1 && deltaX < 0
-  setSectionOffset((atStart || atEnd) ? deltaX * .24 : deltaX)
-}
-
-function onSectionPointerEnd(event: PointerEvent) {
-  const library = event.currentTarget as HTMLElement
-  if (library.hasPointerCapture(event.pointerId)) library.releasePointerCapture(event.pointerId)
-  if (!sectionPointer || sectionPointer.pointerId !== event.pointerId) return
-  const currentIndex = props.sections.findIndex(section => section.id === activeSectionId.value)
-  const distance = sectionNextOffset
-  const velocity = sectionPointer.velocityX
-  suppressSectionClick = sectionPointer.axis === 'horizontal' && Math.abs(distance) >= 10
-  const direction = distance < -52 || velocity < -.45 ? 1 : distance > 52 || velocity > .45 ? -1 : 0
-  const nextIndex = Math.min(props.sections.length - 1, Math.max(0, currentIndex + direction))
-  if (direction !== 0 && nextIndex !== currentIndex) activeSectionId.value = props.sections[nextIndex]!.id
-  sectionPointer = null
-  sectionDragging.value = false
-  if (sectionFrame !== undefined) cancelAnimationFrame(sectionFrame)
-  sectionFrame = undefined
-  sectionNextOffset = 0
-  sectionDragOffset.value = 0
-  if (suppressSectionClick) setTimeout(() => { suppressSectionClick = false }, 0)
-}
-
-function onSectionClickCapture(event: MouseEvent) {
-  if (!suppressSectionClick) return
-  event.preventDefault()
-  event.stopPropagation()
-}
-
-function selectSection(id: CommunitySectionId, event: MouseEvent) {
-  activeSectionId.value = id
-  ;(event.currentTarget as HTMLElement).scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' })
-}
-
 function lockBodyScroll() {
   bodyScrollY = window.scrollY
   bodyInlineStyle = {
@@ -418,6 +372,7 @@ watch(() => props.open, async (open) => {
     sheetNextOffset = 0
     sheetDragOffset.value = 0
     loadState()
+    activeSectionId.value = props.sections[0]!.id
     lastFocusedElement.value = document.activeElement as HTMLElement | null
     shell?.setAttribute('inert', '')
     lockBodyScroll()
@@ -438,16 +393,16 @@ onBeforeUnmount(() => {
   document.body.classList.remove('has-board-shortcut-manager')
   unlockBodyScroll()
   if (toastTimer) clearTimeout(toastTimer)
+  clearTimeout(longPressTimer)
   if (reorderFrame !== undefined) cancelAnimationFrame(reorderFrame)
   if (sheetFrame !== undefined) cancelAnimationFrame(sheetFrame)
-  if (sectionFrame !== undefined) cancelAnimationFrame(sectionFrame)
 })
 </script>
 
 <template>
   <Teleport to="body">
     <Transition name="board-manager-slide">
-      <div v-if="open" class="board-manager-backdrop" @click.self="close">
+      <div v-if="open" class="board-manager-backdrop" :class="{ 'is-editing': editing }" @click.self="close">
         <section
           ref="panel"
           class="board-shortcut-manager"
@@ -466,19 +421,16 @@ onBeforeUnmount(() => {
             @pointercancel="onSheetPointerEnd"
           >
             <h2 id="board-manager-title">전체 게시판</h2>
-            <button class="board-manager-close" type="button" aria-label="전체 게시판 닫기" @click="close">×</button>
+            <button class="board-manager-close" type="button" aria-label="전체 게시판 닫기" @click="close"><img :src="`${iconRoot}/panel/chotot-close.svg`" alt="" /></button>
           </header>
 
-          <div class="board-manager-scroll">
-            <button class="board-default-entry" type="button" @click="setCurrentAsDefault">
-              <strong>기본 홈 설정</strong>
-              <span>{{ defaultBoard.name }}</span>
-              <b aria-hidden="true">›</b>
-            </button>
-
+          <div ref="scrollBox" class="board-manager-scroll" @scroll.passive="onScrollSpy">
             <div class="board-manager-heading">
-              <div><strong>내 게시판</strong><span>{{ editing ? '길게 눌러 순서를 변경하세요' : '누르면 해당 게시판으로 이동합니다' }}</span></div>
-              <button type="button" :aria-pressed="editing" @click="editing = !editing">{{ editing ? '완료' : '편집' }}</button>
+              <strong>내 게시판</strong>
+              <div class="board-manager-actions">
+                <button class="board-manager-restore" type="button" @click="restoreDefault"><img :src="`${iconRoot}/panel/chotot-refresh.svg`" alt="" />기본값 복원</button>
+                <button class="board-manager-edit" type="button" :aria-pressed="editing" @click="editing = !editing"><img v-if="!editing" :src="`${iconRoot}/panel/as24-pen.svg`" alt="" />{{ editing ? '완료' : '편집' }}</button>
+              </div>
             </div>
 
             <div class="my-board-grid" :class="{ 'is-editing': editing }" aria-label="내 게시판">
@@ -486,9 +438,9 @@ onBeforeUnmount(() => {
                 v-for="board in myBoards"
                 :key="board.id"
                 class="my-board-chip"
-                :class="{ 'is-current': board.id === selectedBoardId, 'is-dragging': dragBoardId === board.id }"
+                :class="{ 'is-current': board.id === selectedBoardId, 'is-fixed': isFixed(board.id), 'is-dragging': dragBoardId === board.id }"
                 :data-my-board-id="board.id"
-                :draggable="editing"
+                :draggable="editing && !isFixed(board.id)"
                 @dragstart="onDragStart($event, board.id)"
                 @dragover.prevent
                 @drop="onDrop($event, board.id)"
@@ -501,25 +453,15 @@ onBeforeUnmount(() => {
                 <button
                   class="my-board-select"
                   type="button"
-                  :aria-disabled="editing"
-                  :tabindex="editing ? -1 : 0"
-                  @click="selectBoard(board.id)"
-                >{{ board.name }}</button>
-                <button v-if="editing" class="my-board-remove" type="button" :aria-label="`${board.name} 내 게시판에서 제외`" @click="removeBoard(board)">×</button>
+                  :aria-label="editing && !isFixed(board.id) ? `${board.name} 내 게시판에서 제외` : undefined"
+                  :aria-disabled="editing && isFixed(board.id)"
+                  @click="onChipClick(board)"
+                >{{ board.shortName || board.name }}</button>
+                <span v-if="editing && !isFixed(board.id)" class="my-board-remove" aria-hidden="true"><img :src="`${iconRoot}/panel/chotot-delete.svg`" alt="" /></span>
               </div>
             </div>
 
-            <section
-              class="board-library"
-              :class="{ 'is-section-dragging': sectionDragging }"
-              :style="{ '--section-drag-x': `${sectionDragOffset}px` }"
-              aria-labelledby="board-library-title"
-              @pointerdown="onSectionPointerDown"
-              @pointermove="onSectionPointerMove"
-              @pointerup="onSectionPointerEnd"
-              @pointercancel="onSectionPointerEnd"
-              @click.capture="onSectionClickCapture"
-            >
+            <section class="board-library" aria-label="추가할 게시판">
               <div class="board-section-tabs" role="tablist" aria-label="게시판 분류">
                 <button
                   v-for="section in sections"
@@ -528,24 +470,22 @@ onBeforeUnmount(() => {
                   role="tab"
                   :aria-selected="activeSectionId === section.id"
                   :class="{ 'is-active': activeSectionId === section.id }"
-                  @click="selectSection(section.id, $event)"
+                  @click="scrollToSection(section.id)"
                 >{{ section.name }}</button>
               </div>
-              <h3 id="board-library-title" class="visually-hidden">{{ activeSection.name }} 게시판</h3>
-              <div class="available-board-grid">
-                <button v-for="board in availableBoards" :key="board.id" type="button" @click="addBoard(board)"><span>{{ board.name }}</span><b aria-hidden="true">＋</b></button>
-                <p v-if="!availableBoards.length">이 분류의 모든 게시판이 내 게시판에 추가되어 있습니다.</p>
+              <div v-for="(item, index) in availableSections" :key="item.section.id" class="available-board-section" :data-section-id="item.section.id">
+                <h3 :class="{ 'visually-hidden': index === 0 }">{{ item.section.name }}</h3>
+                <div class="available-board-grid">
+                  <button v-for="board in item.boards" :key="board.id" type="button" :aria-label="`${board.name} 내 게시판에 추가`" @click="addBoard(board)"><img :src="`${iconRoot}/panel/as24-plus-in-circle.svg`" alt="" /><span>{{ board.shortName || board.name }}</span></button>
+                  <p v-if="!item.boards.length">모두 ‘내 게시판’에 추가했어요</p>
+                </div>
               </div>
             </section>
-
-            <button v-if="editing" class="board-order-reset" type="button" @click="resetOrder">기본 순서로 초기화</button>
-            <p class="board-manager-hint">변경 내용은 바로 저장되며, 제외한 게시판은 아래에서 다시 추가할 수 있습니다.</p>
           </div>
 
-          <p v-if="toastMessage" class="board-manager-toast" role="status" aria-live="polite">{{ toastMessage }}</p>
+          <p class="visually-hidden" role="status" aria-live="polite">{{ toastMessage }}</p>
         </section>
       </div>
     </Transition>
   </Teleport>
 </template>
-

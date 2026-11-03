@@ -50,7 +50,260 @@ function publicAsset(path?: string) {
   return `${baseURL}${path.replace(/^\//, '')}`
 }
 
+// 게시판 좌우 넘기기(2026-11-03 정적 판 setupBoardSwipe를 옮김, 후푸 폰 직접 대조 + 바이두 ViewPager 규칙).
+// 탑메뉴 아래 본문을 왼쪽으로 밀면 탑메뉴의 다음 게시판, 오른쪽이면 이전 게시판. 끄는 동안 지금 화면 복사본과
+// 옆 게시판이 8px 틈을 두고 손가락을 따라오고, 놓을 때 초당 400px 이상·25px 이상 휙 밀었거나 절반을 넘겼으면 넘어간다.
+const stage = ref<HTMLElement | null>(null)
+const navPreviewId = ref<string | null>(null)
+const swipePreviewing = ref(false)
+const navTrack = ref<HTMLElement | null>(null)
+let teardownSwipe: (() => void) | undefined
+
+function scrollActiveTab() {
+  requestAnimationFrame(() => navTrack.value?.querySelector<HTMLElement>('.is-active')?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }))
+}
+
+function setupBoardSwipe() {
+  const found = stage.value
+  if (!found || !('ontouchstart' in window || navigator.maxTouchPoints > 0)) return
+  const el: HTMLElement = found
+  const EASE = 'cubic-bezier(.22,1,.36,1)'
+  const GAP = 8
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  let start: { x: number, y: number } | null = null
+  let locked: 'x' | 'y' | null = null
+  let moving = false
+  let busy = false
+  let samples: { x: number, t: number }[] = []
+  let origId = ''
+  let origHeadword = ''
+  let target: string | null = null
+  let ghost: HTMLElement | null = null
+  let savedY = 0
+  let frame = 0
+  let pending: { x: number } | null = null
+  let touchTarget: EventTarget | null = null
+  const ids = () => quickBoards.value.map(board => board!.id)
+  const width = () => el.parentElement?.clientWidth || window.innerWidth
+
+  function blocked(node: HTMLElement) {
+    if (busy || optionsOpen.value || boardMenuOpen.value || boardShortcutOpen.value) return true
+    if (node.closest('input, textarea, [contenteditable="true"]')) return true
+    for (let n: HTMLElement | null = node; n && n !== el; n = n.parentElement) {
+      if (n.scrollWidth > n.clientWidth + 2) {
+        const overflowX = getComputedStyle(n).overflowX
+        if (overflowX === 'auto' || overflowX === 'scroll') return true
+      }
+    }
+    return false
+  }
+  function velocity() {
+    const now = performance.now()
+    samples = samples.filter(point => now - point.t <= 100)
+    if (samples.length < 2) return 0
+    const a = samples[0]!
+    const b = samples.at(-1)!
+    return (b.x - a.x) / Math.max(1, b.t - a.t) * 1000
+  }
+  function moveTo(node: HTMLElement | null, x: number, ms: number) {
+    if (!node) return
+    node.style.transition = ms ? `transform ${ms}ms ${EASE}` : 'none'
+    node.style.transform = x ? `translate3d(${x}px,0,0)` : ''
+  }
+  function snapshot() {
+    const shell = el.parentElement!
+    if (getComputedStyle(shell).position === 'static') shell.style.position = 'relative'
+    const copy = el.cloneNode(true) as HTMLElement
+    copy.className = 'board-swipe-ghost'
+    copy.setAttribute('aria-hidden', 'true')
+    copy.removeAttribute('style')
+    copy.querySelectorAll('[id]').forEach(node => node.removeAttribute('id'))
+    copy.style.top = `${el.offsetTop}px`
+    shell.appendChild(copy)
+    return copy
+  }
+  function render(id: string, headwordValue = '') {
+    boardId.value = id
+    headword.value = headwordValue
+    nextTick(() => window.scrollTo(0, savedY))
+  }
+  function showTarget(id: string | null) {
+    if (id === target) return
+    target = id
+    if (id) {
+      if (!ghost) ghost = snapshot()
+      render(id)
+    } else {
+      render(origId, origHeadword)
+      ghost?.remove()
+      ghost = null
+    }
+  }
+  function applyMove() {
+    frame = 0
+    if (!start || locked !== 'x' || !pending) return
+    const dx = pending.x - start.x
+    if (!moving) {
+      moving = true
+      origId = boardId.value
+      origHeadword = headword.value
+      target = null
+      ghost = null
+      savedY = window.scrollY
+      swipePreviewing.value = true
+      el.style.willChange = 'transform'
+    }
+    const list = ids()
+    const index = list.indexOf(origId)
+    const dir = dx < 0 ? 1 : -1
+    const id = dx === 0 || index < 0 ? null : list[index + dir] || null
+    showTarget(id)
+    if (id) {
+      moveTo(el, dir * (width() + GAP) + dx, 0)
+      moveTo(ghost, dx, 0)
+    } else {
+      moveTo(el, 0, 0)
+    }
+    navPreviewId.value = id && Math.abs(dx) > width() / 2 ? id : origId
+  }
+  function detach() {
+    if (!touchTarget) return
+    touchTarget.removeEventListener('touchmove', onMove as EventListener)
+    touchTarget.removeEventListener('touchend', onEnd as EventListener)
+    touchTarget.removeEventListener('touchcancel', onCancel as EventListener)
+    touchTarget = null
+  }
+  function onStart(event: TouchEvent) {
+    if (event.touches.length !== 1) { start = null; return }
+    const touch = event.touches[0]!
+    if (touch.clientX < 20 || touch.clientX > window.innerWidth - 20 || blocked(event.target as HTMLElement)) { start = null; return }
+    start = { x: touch.clientX, y: touch.clientY }
+    locked = null
+    moving = false
+    pending = null
+    samples = [{ x: touch.clientX, t: performance.now() }]
+    // 옆 게시판을 그리면 손가락이 닿은 요소가 문서에서 빠져 이벤트가 window까지 오지 않으므로 그 요소에도 직접 붙인다.
+    detach()
+    touchTarget = event.target
+    touchTarget?.addEventListener('touchmove', onMove as EventListener, { passive: false })
+    touchTarget?.addEventListener('touchend', onEnd as EventListener, { passive: true })
+    touchTarget?.addEventListener('touchcancel', onCancel as EventListener, { passive: true })
+  }
+  const handled = new WeakSet<Event>()
+  function onMove(event: TouchEvent) {
+    if (!start || handled.has(event)) return
+    handled.add(event)
+    const touch = event.touches[0]!
+    const dx = touch.clientX - start.x
+    const dy = touch.clientY - start.y
+    const now = performance.now()
+    samples.push({ x: touch.clientX, t: now })
+    if (samples.length > 8) samples.shift()
+    if (locked === null) {
+      if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return
+      locked = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y'
+      if (locked === 'x') start.x = touch.clientX - (dx > 0 ? 8 : -8)
+    }
+    if (locked !== 'x') return
+    event.preventDefault()
+    pending = { x: touch.clientX }
+    if (!frame) frame = requestAnimationFrame(applyMove)
+  }
+  function finish(ms: number, done?: () => void) {
+    setTimeout(() => {
+      ghost?.remove()
+      ghost = null
+      moveTo(el, 0, 0)
+      el.style.transition = ''
+      el.style.willChange = ''
+      busy = false
+      done?.()
+    }, ms + 40)
+  }
+  function onEnd(event: TouchEvent) {
+    if (!start || handled.has(event)) return
+    handled.add(event)
+    detach()
+    if (frame) { cancelAnimationFrame(frame); frame = 0; applyMove() }
+    const began = start
+    start = null
+    pending = null
+    if (!moving) return
+    moving = false
+    const touch = event.changedTouches[0]
+    const dx = (touch ? touch.clientX : began.x) - began.x
+    const v = velocity()
+    const w = width()
+    const id = target
+    const fling = Math.abs(v) >= 400 && Math.abs(dx) >= 25 && (v < 0) === (dx < 0)
+    const go = !!id && (fling || Math.abs(dx) > w / 2)
+    const remain = go ? w + GAP - Math.abs(dx) : Math.abs(dx)
+    const ms = reduceMotion ? 0 : Math.min(600, Math.abs(v) >= 400 ? 4 * Math.round(1000 * remain / Math.abs(v)) : Math.round((remain / w + 1) * 100))
+    busy = true
+    if (!id) {
+      moveTo(el, 0, ms)
+      finish(ms, () => { swipePreviewing.value = false; navPreviewId.value = null })
+      return
+    }
+    const dir = dx < 0 ? 1 : -1
+    if (go) {
+      navPreviewId.value = id
+      moveTo(el, 0, ms)
+      moveTo(ghost, -dir * (w + GAP), ms)
+      finish(ms, () => {
+        swipePreviewing.value = false
+        navPreviewId.value = null
+        target = null
+        recordRecentBoard(id)
+        router.replace({ query: { ...route.query, board: id } })
+        scrollActiveTab()
+      })
+    } else {
+      navPreviewId.value = origId
+      moveTo(el, dir * (w + GAP), ms)
+      moveTo(ghost, 0, ms)
+      finish(ms, () => {
+        render(origId, origHeadword)
+        swipePreviewing.value = false
+        navPreviewId.value = null
+        target = null
+      })
+    }
+  }
+  function onCancel(event: TouchEvent) {
+    if (handled.has(event)) return
+    handled.add(event)
+    detach()
+    if (frame) { cancelAnimationFrame(frame); frame = 0 }
+    pending = null
+    if (start && moving) {
+      render(origId, origHeadword)
+      ghost?.remove()
+      ghost = null
+      moveTo(el, 0, 0)
+      target = null
+      swipePreviewing.value = false
+      navPreviewId.value = null
+    }
+    start = null
+    moving = false
+  }
+  el.addEventListener('touchstart', onStart, { passive: true })
+  window.addEventListener('touchmove', onMove, { passive: false })
+  window.addEventListener('touchend', onEnd, { passive: true })
+  window.addEventListener('touchcancel', onCancel, { passive: true })
+  teardownSwipe = () => {
+    detach()
+    el.removeEventListener('touchstart', onStart)
+    window.removeEventListener('touchmove', onMove)
+    window.removeEventListener('touchend', onEnd)
+    window.removeEventListener('touchcancel', onCancel)
+  }
+}
+onBeforeUnmount(() => teardownSwipe?.())
+
 onMounted(() => {
+  setupBoardSwipe()
   favoriteBoardIds.value = loadBoardIds(favoriteStorageKey, boards.value.length)
   recentBoardIds.value = loadBoardIds(recentStorageKey, 6)
   const browserBoard = new URLSearchParams(window.location.search).get('board') || ''
@@ -60,6 +313,7 @@ onMounted(() => {
 })
 
 watch(boardId, (value) => {
+  if (swipePreviewing.value) return
   if (route.query.board !== value) router.replace({ query: { ...route.query, board: value } })
 })
 
@@ -69,6 +323,12 @@ function setView(value: CommunityView) { view.value = value }
 const popularPeriodLabels: Record<CommunityPopularPeriod, string> = { hour: '1시간', day: '24시간', week: '1주', month: '1개월', year: '1년', all: '전체 기간' }
 const sortLabel = computed(() => sort.value === 'latest' ? '최신순' : sort.value === 'latest-comment' ? '최신 댓글순' : `인기 · ${popularPeriodLabels[popularPeriod.value]}`)
 const isCompactList = computed(() => view.value === 'compact' || view.value === 'text')
+// 전체 게시판 창의 + 칸: 창은 열어 둔 채 지금 게시판만 바꾼다.
+function chooseBoard(value: string) {
+  boardId.value = value
+  recordRecentBoard(value)
+  headword.value = ''
+}
 function selectBoard(value: string) {
   boardId.value = value
   recordRecentBoard(value)
@@ -96,12 +356,13 @@ useHead({ title: '보배드림 커뮤니티' })
     </header>
 
     <nav class="board-channel-nav" aria-label="게시판 빠른 이동">
-      <div class="board-channel-track">
-        <button v-for="board in quickBoards" :key="board!.id" type="button" :class="{ 'is-active': board!.id === boardId }" @click="selectBoard(board!.id)">{{ board!.shortName || board!.name }}</button>
+      <div ref="navTrack" class="board-channel-track">
+        <button v-for="board in quickBoards" :key="board!.id" type="button" :class="{ 'is-active': board!.id === (navPreviewId ?? boardId) }" @click="selectBoard(board!.id)">{{ board!.shortName || board!.name }}</button>
       </div>
       <button class="board-channel-menu" type="button" aria-label="게시판 바로가기" @click="boardShortcutOpen = true"><img :src="`${communityAssetRoot}/ui/menu.svg`" alt="" /></button>
     </nav>
 
+    <div ref="stage" class="board-swipe-stage">
     <F1BoardHub v-if="boardId === 'f1'" :posts="filteredPosts" :headword="headword" @update:headword="headword = $event" @open-options="optionsOpen = true" />
 
     <template v-if="boardId !== 'f1'">
@@ -154,12 +415,13 @@ useHead({ title: '보배드림 커뮤니티' })
       </div>
     </section>
     </template>
+    </div>
 
     <NuxtLink class="floating-write" to="/write" aria-label="글쓰기"><img :src="`${iconRoot}/chzzk/write.svg`" alt="" /></NuxtLink>
 
     <PostOptionsSheet :open="optionsOpen" :sort="sort" :popular-period="popularPeriod" :view="view" :headword="headword" :headwords="activeBoard.headwords" @close="optionsOpen = false" @update:sort="setSort" @update:popular-period="setPopularPeriod" @update:view="setView" @update:headword="headword = $event" />
 
-    <BoardShortcutManager :open="boardShortcutOpen" :sections="sections" :boards="boards" :selected-board-id="boardId" @close="boardShortcutOpen = false" @select="selectBoard" />
+    <BoardShortcutManager :open="boardShortcutOpen" :sections="sections" :boards="boards" :selected-board-id="boardId" @close="boardShortcutOpen = false" @select="selectBoard" @choose="chooseBoard" />
 
     <Teleport to="body">
       <Transition name="drawer-slide">
