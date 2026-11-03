@@ -83,7 +83,8 @@ const post = () => {
   const miss = [!v.year && "등록 연월", v.man === "" && "현재 주행거리", !v.color && "차량 색상", v.owners === "" && "소유자 변경 횟수", !v.price && "희망 판매가"].filter(Boolean);
   if (miss.length) return toast(`${miss[0]}을(를) 골라 주세요`);
   publish({ title: title.value.trim() || `${car.value.brand} ${car.value.model} 팝니다`, body: body.value.trim(), media: media.value, car: car.value, city: city.value,
-    sell: { "등록 연월": dateText.value, "주행거리": kmText.value, "차량 색상": v.color, "소유자 변경": `${v.owners}회`, "희망 판매가": priceText.value } });
+    sell: { "등록 연월": dateText.value, "주행거리": kmText.value, "차량 색상": v.color, "소유자 변경": `${v.owners}회`, "희망 판매가": priceText.value },
+    raw: { reg_month: `${v.year}.${String(v.month || 1).padStart(2, "0")}`, odometer_km: Number(v.man || 0) * 10000 + Number(v.chun || 0) * 1000, color: v.color, owner_changes: Number(v.owners), price_manwon: Number(v.price) } });
 };
 </script>
 

@@ -50,6 +50,8 @@ export type Post = {
   id: string; kind: Kind; createdAt: string; title: string; body: string; media: Media[];
   car?: CarModel | null; topic?: string; circle?: string; claim?: string; city?: string; vote?: Vote | null;
   ownerPrice?: OwnerPrice | null; parts?: PartCard[]; sell?: Record<string, string>; extra?: Record<string, string>;
+  /** 서버로 보낼 숫자 값(내 차 팔기 · 구매가). 화면 표시는 sell · extra 를 쓴다 */
+  raw?: Record<string, unknown>;
 };
 const KEY = "bbm-dcd-posts-v1";
 const read = (): Post[] => { try { return JSON.parse(localStorage.getItem(KEY) || "[]") as Post[]; } catch { return []; } };

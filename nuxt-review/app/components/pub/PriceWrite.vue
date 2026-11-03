@@ -49,7 +49,8 @@ const post = () => {
   const c = car.value!;
   publish({ title: `${c.brand} ${c.model} 실제 구매가`, body: v.note.trim(), media: [], city: v.city,
     ownerPrice: { car: c, month: v.month, nake: v.nake, total: v.total, city: v.city, pay: v.pay || undefined, dealer: v.dealer, note: v.note },
-    extra: { "결제 방식": v.pay === "full" ? "일시불" : v.pay === "loan" ? "할부" : "", "구매 대리점": v.dealer, "추가 혜택": v.gift, "영수증": invoice.value ? "제출함(심사용, 공개 안 됨)" : "" } });
+    extra: { "결제 방식": v.pay === "full" ? "일시불" : v.pay === "loan" ? "할부" : "", "구매 대리점": v.dealer, "추가 혜택": v.gift, "영수증": invoice.value ? "제출함(심사용, 공개 안 됨)" : "" },
+    raw: { gift: v.gift, receipt: invoice.value } });
 };
 </script>
 

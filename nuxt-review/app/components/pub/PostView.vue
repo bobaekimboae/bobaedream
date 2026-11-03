@@ -8,9 +8,11 @@ import { asset, avatarUrl } from "../../lib/site";
 import { KIND_LABEL, type Post } from "../../lib/publish";
 import { ymdKo } from "../../lib/data";
 
-type View = Partial<Post> & Pick<Post, "kind">;
+/** 서버 글이면 글쓴이(author · avatar)가 함께 온다. 이 브라우저 글 · 미리보기는 「나」 */
+type View = Partial<Post> & Pick<Post, "kind"> & { author?: string; avatar?: string };
 const p = defineProps<{ post: View }>();
 const at = ref(0);
+const who = computed(() => ({ name: p.post.author || "나", avatar: avatarUrl((p.post.avatar || "avatar-01.svg").split("/").pop() || "avatar-01.svg") }));
 const imgs = computed(() => p.post.media ?? []);
 const rows = computed(() => Object.entries({ ...(p.post.sell ?? {}), ...(p.post.extra ?? {}) }).filter(([, v]) => v));
 const onScroll = (e: Event) => { const el = e.target as HTMLElement; at.value = Math.round(el.scrollLeft / el.clientWidth); };
@@ -19,7 +21,7 @@ const onScroll = (e: Event) => { const el = e.target as HTMLElement; at.value = 
 <template>
   <article class="pview">
     <header class="pview__who">
-      <img :src="avatarUrl('avatar-01.svg')" alt="" /><div><b>나</b><small>{{ post.createdAt ? ymdKo(post.createdAt) : "방금" }} · {{ KIND_LABEL[post.kind] }}</small></div>
+      <img :src="who.avatar" alt="" /><div><b>{{ who.name }}</b><small>{{ post.createdAt ? ymdKo(post.createdAt) : "방금" }} · {{ KIND_LABEL[post.kind] }}</small></div>
     </header>
     <div v-if="imgs.length" class="pview__media">
       <div class="pview__track" @scroll.passive="onScroll">
