@@ -11,8 +11,15 @@ import { ct, rd } from "../lib/site";
 const props = defineProps<{ id: string }>();
 const emit = defineEmits<{ back: []; go: [v: string, extra?: Record<string, string>, replace?: boolean]; toast: [t: string] }>();
 const v = computed(() => videoById(props.id));
-const url = computed(() => (v.value?.video ? URL.createObjectURL(v.value.video) : ""));
-onBeforeUnmount(() => { if (url.value) URL.revokeObjectURL(url.value); hush(); });
+// 같은 영상 파일이면 주소를 다시 만들지 않는다(이름 · 의견을 바꿔도 재생이 처음으로 돌아가지 않게)
+let lastBlob: Blob | undefined;
+let lastUrl = "";
+const url = computed(() => {
+  const b = v.value?.video;
+  if (b !== lastBlob) { if (lastUrl) URL.revokeObjectURL(lastUrl); lastBlob = b; lastUrl = b ? URL.createObjectURL(b) : ""; }
+  return lastUrl;
+});
+onBeforeUnmount(() => { if (lastUrl) URL.revokeObjectURL(lastUrl); hush(); });
 const el = ref<HTMLVideoElement | null>(null);
 const playingNow = ref(false);
 const saved = ref(false);
@@ -41,7 +48,9 @@ function onSeek() {
   const t = el.value?.currentTime ?? 0;
   said = new Set((v.value?.lines ?? []).map((l, i) => (l.at < t - 0.2 ? i : -1)).filter((i) => i >= 0));
 }
+// 원본: 기본 컨트롤 없이 영상을 누르면 재생 · 멈춤, 멈추면 가운데 큰 ▶
 function play() { void el.value?.play(); }
+function toggle() { const e = el.value; if (!e) return; if (e.paused) void e.play(); else e.pause(); }
 
 async function rate(r: "up" | "down") {
   if (!v.value) return;
@@ -87,13 +96,13 @@ async function again() {
     <div v-if="v.status === 'done'" class="res-grid">
       <div class="res-r">
       <span class="ready">게시 준비 완료</span>
-      <h2 v-if="!editing">{{ v.title }} <button type="button" aria-label="이름 바꾸기" @click="startEdit"><Icon :src="rd('edit-outline')" /></button></h2>
+      <h2 v-if="!editing"><span>{{ v.title }}</span><button type="button" aria-label="이름 바꾸기" @click="startEdit"><Icon :src="rd('edit-outline')" /></button></h2>
       <h2 v-else><input ref="input" v-model="title" class="inp" style="font-size: 18px; text-align: center" @keydown.enter="saveTitle" @blur="saveTitle" /></h2>
       <p class="meta">{{ when }} · 사진 {{ v.photos.length }}장</p>
       </div>
       <div class="res-l">
       <div class="player" :style="{ aspectRatio: v.options.aspect.replace(':', ' / ') }">
-        <video ref="el" :src="url" :poster="v.poster" playsinline controls preload="metadata" @play="playingNow = true" @pause="playingNow = false; hush()" @ended="playingNow = false; said.clear()" @timeupdate="onTime" @seeking="onSeek" />
+        <video ref="el" :src="url" :poster="v.poster" playsinline preload="metadata" @click="toggle" @play="playingNow = true" @pause="playingNow = false; hush()" @ended="playingNow = false; said.clear()" @timeupdate="onTime" @seeking="onSeek" />
         <button v-if="!playingNow" class="big" type="button" aria-label="재생" @click="play"><span><Icon :src="rd('play-fill')" /></span></button>
       </div>
       </div>
@@ -120,6 +129,10 @@ async function again() {
   <main v-else class="res"><p class="meta" style="margin-top: 40px">이 영상을 찾을 수 없어요.</p></main>
 
   <div v-if="saved" class="dim" @click.self="saved = false">
-    <div class="sheet toast-sheet" role="dialog" aria-label="저장 완료">영상을 기기에 저장했어요.<button class="btn ghost" type="button" @click="saved = false">닫기</button></div>
+    <div class="sheet saved-sheet" role="dialog" aria-label="저장 완료">
+      <span class="ok" aria-hidden="true"><Icon :src="rd('checkmark-fill')" /></span>
+      <p>영상을 휴대폰 갤러리에<br />저장했어요.</p>
+      <button class="btn or" type="button" @click="saved = false">닫기</button>
+    </div>
   </div>
 </template>

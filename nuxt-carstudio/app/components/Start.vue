@@ -7,7 +7,7 @@ const emit = defineEmits<{ back: []; go: [v: string, extra?: Record<string, stri
 </script>
 <template>
   <TopBack @back="emit('back')" />
-  <main class="page">
+  <main class="page start">
     <h1 class="h1">새 차량 영상</h1>
     <p class="lead">시작 방법을 고르세요: 내 프로젝트에서 가져오거나 사진을 새로 올립니다.</p>
     <div class="ribbon"><b>영상 AI: 출시 기념 한시 무료!</b></div>
