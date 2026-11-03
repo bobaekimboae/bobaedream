@@ -1,4 +1,4 @@
-export type CommunitySectionId = 'general' | 'cars' | 'vehicles' | 'reports' | 'defects'
+export type CommunitySectionId = 'general' | 'cars' | 'vehicles' | 'sports' | 'reports' | 'defects'
 export type CommunitySort = 'latest' | 'latest-comment' | 'popular'
 export type CommunityPopularPeriod = 'hour' | 'day' | 'week' | 'month' | 'year' | 'all'
 export type CommunityView = 'text' | 'compact' | 'list' | 'feed'

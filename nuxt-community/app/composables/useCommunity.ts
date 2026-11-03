@@ -31,6 +31,13 @@ const sections: CommunitySection[] = [
     ],
   },
   {
+    id: 'sports',
+    name: '스포츠',
+    boards: [
+      { id: 'f1', sectionId: 'sports', name: 'F1', headwords: ['경기', '다시보기', '규정', '기술', '직관'], canWrite: true },
+    ],
+  },
+  {
     id: 'reports',
     name: '제보',
     boards: [
@@ -60,6 +67,10 @@ const seedPosts: CommunityPost[] = [
   { id: 'p3', boardId: 'imported', headword: '벤츠', title: 'GLC EV 실내 공간은 이 정도입니다', excerpt: '2열 무릎 공간과 트렁크 실측 사진을 함께 올립니다.', author: '노이예ix3', createdAt: '2026-10-31T23:30:00Z', updatedAt: '2026-11-01T01:20:00Z', thumbnail: 'images/community/board-header-mercedes-glb-family.webp', comments: 36, likes: 29, dislikes: 2, views: 2939, isPopular: true },
   { id: 'p4', boardId: 'ev', headword: '충전', title: '충전이 다됐다고 함부로 충전기 뽑지 말아주세요', excerpt: '공용 충전기 이용 예절에 대해 서로 의견을 나눠봅시다.', author: '후니이니', createdAt: '2026-10-31T16:20:00Z', updatedAt: '2026-10-31T17:10:00Z', comments: 24, likes: 41, dislikes: 4, views: 1504 },
   { id: 'p5', boardId: 'imported', headword: '아우디', title: '후면 배지의 차이가 궁금해요', excerpt: '같은 연식인데 배지 위치가 다른 이유를 아시는 분 계실까요?', author: '솔루션EV4', createdAt: '2026-10-31T09:10:00Z', updatedAt: '2026-10-31T09:10:00Z', thumbnail: 'images/community/board-header-aston-martin-db12.webp', comments: 5, likes: 3, dislikes: 0, views: 230 },
+  { id: 'f1-1', boardId: 'f1', headword: '경기', title: '상파울루 그랑프리 연습 주행 같이 보실 분', excerpt: '이번 주말은 상파울루 그랑프리입니다. 연습 주행 1이 한국 시간 11월 7일 00시 30분에 시작합니다.', author: '피트월', createdAt: '2026-11-03T04:20:00Z', updatedAt: '2026-11-03T05:08:00Z', thumbnail: 'https://media.formula1.com/image/upload/c_lfill,w_1200/q_auto/v1740000001/trackside-images/2026/F1_Grand_Prix_of_Mexico/2303025381.webp', mediaKind: 'video', comments: 31, likes: 45, dislikes: 0, views: 2480, isPopular: true },
+  { id: 'f1-2', boardId: 'f1', headword: '다시보기', title: '멕시코시티 GP 마지막 재시작 장면', excerpt: '베르스타펜과 해밀턴의 마지막 여덟 랩을 다시 보면서 추월 가능 지점을 정리했습니다.', author: '턴원브레이킹', createdAt: '2026-11-03T03:05:00Z', updatedAt: '2026-11-03T03:35:00Z', thumbnail: 'https://media.formula1.com/image/upload/t_16by9Centre/c_lfill,w_1200/q_auto/v1740000001/fom-website/2026/Mexico/GettyImages-2303040776.webp', comments: 42, likes: 96, dislikes: 2, views: 5210 },
+  { id: 'f1-3', boardId: 'f1', headword: '기술', title: '2026 머신 에너지 회수 구간 비교', excerpt: '멕시코 섹터 2에서 팀별 배터리 전개와 회수 타이밍을 온보드로 비교했습니다.', author: '에어로맵', createdAt: '2026-11-02T23:20:00Z', updatedAt: '2026-11-03T01:04:00Z', comments: 27, likes: 72, dislikes: 1, views: 4196 },
+  { id: 'f1-4', boardId: 'f1', headword: '규정', title: '세이프티카 재시작 규정 정리', excerpt: '최근 경기에서 자주 언급된 재시작 절차와 추월 허용 시점을 정리했습니다.', author: '레이스컨트롤', createdAt: '2026-11-02T21:10:00Z', updatedAt: '2026-11-02T22:30:00Z', comments: 55, likes: 83, dislikes: 4, views: 5704 },
 ]
 
 export function filterAndSortPosts(

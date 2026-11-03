@@ -5,6 +5,8 @@ const { sections, boards, sort, popularPeriod, view, boardId, headword, activeBo
 const optionsOpen = ref(false)
 const boardMenuOpen = ref(false)
 const recentExpanded = ref(false)
+const route = useRoute()
+const router = useRouter()
 const iconRoot = `${useRuntimeConfig().app.baseURL}icons`
 const favoriteBoardIds = ref<string[]>([])
 const recentBoardIds = ref<string[]>([])
@@ -37,7 +39,14 @@ const visibleRecentBoards = computed(() => recentExpanded.value ? recentBoards.v
 onMounted(() => {
   favoriteBoardIds.value = loadBoardIds(favoriteStorageKey, boards.value.length)
   recentBoardIds.value = loadBoardIds(recentStorageKey, 6)
+  const browserBoard = new URLSearchParams(window.location.search).get('board') || ''
+  const requestedBoard = typeof route.query.board === 'string' ? route.query.board : browserBoard
+  if (requestedBoard && boards.value.some(board => board.id === requestedBoard)) boardId.value = requestedBoard
   recordRecentBoard(boardId.value)
+})
+
+watch(boardId, (value) => {
+  if (route.query.board !== value) router.replace({ query: { ...route.query, board: value } })
 })
 
 function setSort(value: CommunitySort) { sort.value = value }
@@ -65,12 +74,15 @@ useHead({ title: '보배드림 커뮤니티' })
 
 <template>
   <main class="community-shell">
-    <header class="community-header">
+    <header class="community-header" :class="{ 'community-header--f1': boardId === 'f1' }">
       <button class="header-menu-button" type="button" aria-label="게시판 바로가기" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
       <button class="community-header-search" type="button" aria-label="커뮤니티 게시글 검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /><span>게시글 검색</span></button>
       <button class="community-header-profile" type="button" aria-label="내 프로필"><span aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg></span></button>
     </header>
 
+    <F1BoardHub v-if="boardId === 'f1'" :posts="filteredPosts" :headword="headword" @update:headword="headword = $event" @open-options="optionsOpen = true" />
+
+    <template v-if="boardId !== 'f1'">
     <div v-if="isCompactList" class="chzzk-list-toolbar">
       <button type="button" @click="boardMenuOpen = true">{{ activeBoard.name }} <img :src="`${iconRoot}/write/chevron-down.svg`" alt="" /></button>
       <button type="button" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" />{{ sortLabel }}</button>
@@ -121,6 +133,7 @@ useHead({ title: '보배드림 커뮤니티' })
         <span>첫 글을 작성해 새로운 이야기를 시작해보세요.</span>
       </div>
     </section>
+    </template>
 
     <NuxtLink class="floating-write" to="/write" aria-label="글쓰기"><img :src="`${iconRoot}/chzzk/write.svg`" alt="" /></NuxtLink>
 
