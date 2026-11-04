@@ -1,12 +1,39 @@
 {
   "version": 1,
-  "managedDirectories": ["public/videos/bmw-x5-photo-sample"],
+  "managedDirectories": [
+    "public/videos/bmw-x5-photo-sample",
+    "public/videos/charancha-x5-motion"
+  ],
   "entries": [
-    {"target":"public/videos/bmw-x5-photo-sample/bmw-x5-60s-v1.mp4","reference":"tests/fixtures/shortform-audio/bmw-x5-narration.flac","expectedDelayMs":250,"durationSeconds":60},
-    {"target":"public/videos/bmw-x5-photo-sample/bmw-x5-60s-v2.mp4","reference":"tests/fixtures/shortform-audio/bmw-x5-narration.flac","expectedDelayMs":250,"durationSeconds":60},
-    {"target":"public/videos/bmw-x5-photo-sample/bmw-x5-60s-v3.mp4","reference":"tests/fixtures/shortform-audio/bmw-x5-narration.flac","expectedDelayMs":250,"durationSeconds":60}
+    {
+      "target": "public/videos/bmw-x5-photo-sample/bmw-x5-60s-v1.mp4",
+      "reference": "tests/fixtures/shortform-audio/bmw-x5-narration.flac",
+      "expectedDelayMs": 250,
+      "durationSeconds": 60
+    },
+    {
+      "target": "public/videos/bmw-x5-photo-sample/bmw-x5-60s-v2.mp4",
+      "reference": "tests/fixtures/shortform-audio/bmw-x5-narration.flac",
+      "expectedDelayMs": 250,
+      "durationSeconds": 60
+    },
+    {
+      "target": "public/videos/bmw-x5-photo-sample/bmw-x5-60s-v3.mp4",
+      "reference": "tests/fixtures/shortform-audio/bmw-x5-narration.flac",
+      "expectedDelayMs": 250,
+      "durationSeconds": 60
+    },
+    {
+      "target": "public/videos/charancha-x5-motion/bmw-x5-charancha-60s-v2.mp4",
+      "reference": "tests/fixtures/shortform-audio/bmw-x5-narration.flac",
+      "expectedDelayMs": 250,
+      "durationSeconds": 60
+    }
   ],
   "exemptions": [
-    {"target":"public/videos/bmw-x5-photo-sample/sample-v2.mp4","reason":"Separate earlier 16-second voice and timeline; not the repaired one-minute asset."}
+    {
+      "target": "public/videos/bmw-x5-photo-sample/sample-v2.mp4",
+      "reason": "Separate earlier 16-second voice and timeline; not the repaired one-minute asset."
+    }
   ]
 }
