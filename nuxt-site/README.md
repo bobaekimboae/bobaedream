@@ -1,6 +1,6 @@
-# 보배드림 시안 — 넉스트(Nuxt 3) 판
+# 보배드림 시안 — 넉스트(Nuxt 4) 판
 
-리액트 시안(`src/`)의 중고차 목록 · 매물 상세 · 판매자페이지를 보배드림 프런트엔드와 같은 **Nuxt 3 + Vue 3**로 옮긴 것이다. 화면 · 글자 · 동작은 리액트 판과 같다.
+리액트 시안(`src/`)의 중고차 목록 · 매물 상세 · 판매자페이지를 보배드림 프런트엔드와 같은 **Nuxt 4 + Vue 3**(2026-11-04 Nuxt 4.6.2 · Vue 3.5.33 · TS 6.0.3 · pnpm 10.33.0 으로 올림, 폴더 배치는 그대로)로 옮긴 것이다. 화면 · 글자 · 동작은 리액트 판과 같다.
 
 - 확인 주소: https://bobaekimboae.github.io/bobaedream/nuxt/?qf=guazi (주소 뒤 검색어는 리액트 판과 같음: `&pc=1`, `&category=…`, `&view=feed`, `&profile=dealer&shop=…&emp=…` 등)
 - 리액트 판(비교용): https://bobaekimboae.github.io/bobaedream/?qf=guazi
@@ -18,9 +18,9 @@
 ## 실행
 ```
 cd nuxt-site
-npm install
-npm run build        # nuxt generate → .output/public
-npm run preview      # http://localhost:5193/bobaedream/nuxt/
-npm run export       # build + 저장소 public/nuxt/ 로 복사(기존 GitHub Pages 배포가 같이 올림)
+pnpm install
+pnpm build        # nuxt generate → .output/public
+pnpm preview      # http://localhost:5193/bobaedream/nuxt/
+pnpm export       # build + 저장소 public/nuxt/ 로 복사(기존 GitHub Pages 배포가 같이 올림)
 sh scripts/typecheck-own.sh   # 넉스트 파일 형식 검사(공유하는 ../src 오류는 뺌)
 ```

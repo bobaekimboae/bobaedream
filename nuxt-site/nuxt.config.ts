@@ -1,4 +1,4 @@
-// 보배드림 시안 — 넉스트(Nuxt 3) 판.
+// 보배드림 시안 — 넉스트(Nuxt 4) 판.
 // 리액트 시안(src/)의 데이터·계산 로직과 CSS는 복사하지 않고 그대로 불러온다(@proto 별칭). 화면 부품만 Vue로 새로 쓴다.
 // 그래서 리액트 판에서 데이터·CSS를 고치면 넉스트 판에도 자동으로 반영된다.
 // 배포 주소: https://bobaekimboae.github.io/bobaedream/nuxt/
@@ -12,6 +12,9 @@ const shim = (f: string) => fileURLToPath(new URL(`./shims/${f}`, import.meta.ur
 
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
+  // 2026-11-04 Nuxt 4 이전: 폴더(components · composables · lib …)는 옮기지 않고 앱 뿌리에 그대로 둔다
+  srcDir: ".",
+  dir: { app: "app" },
   ssr: false,
   devtools: { enabled: false },
   app: {
@@ -37,7 +40,8 @@ export default defineNuxtConfig({
   },
   components: false,
   imports: { autoImport: false },
-  typescript: { strict: true },
+  // Nuxt 4 기본값으로 켜지는 배열 칸 검사(noUncheckedIndexedAccess)는 Nuxt 3 때와 같이 끈다(2026-11-04)
+  typescript: { strict: true, tsConfig: { compilerOptions: { noUncheckedIndexedAccess: false } } },
   alias: { "@proto": `${src}/prototype`, "@src": src },
   vite: {
     resolve: {

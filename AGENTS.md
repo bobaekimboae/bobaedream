@@ -14,7 +14,7 @@
 - 관리자 프런트엔드: TypeScript 5.9.3 · Nuxt 4.5.2 · Vue 3.5.43 · Vuetify 3.10.8 · SCSS/Sass · Pinia · Tiptap 2.27.1 · pnpm 10.33.0
 - 백엔드: PHP 8.4.27(PHP-FPM) · Laravel 12 · PostgreSQL 15.15 · Redis 7.0.15 · 검색 Meilisearch 1.54.3 · Composer
 - 화면이 쓰는 데이터는 Laravel API가 줄 모양(JSON)으로 두고, 검색·필터 대수는 Meilisearch 패싯(항목별 개수)으로 계산될 수 있게 설계한다.
-- 지금 `nuxt-site/`·`nuxt-shootkit/`은 Nuxt 3.21 · TypeScript 5.9 · npm이다. 새로 손댈 때 위 버전(Nuxt 4.6.2 · TS 6.0.3 · pnpm)으로 올리는 작업을 먼저 하거나 함께 한다.
+- 2026-11-04 `nuxt-site/`·`nuxt-shootkit/`도 Nuxt 4.6.2 · Vue 3.5.33 · TS 6.0.3 · pnpm 10.33.0으로 올렸다(폴더 배치는 Nuxt 3 그대로 `srcDir: "."`). 모든 넉스트 앱은 pnpm overrides로 vue·@vue/* 를 3.5.33 하나로 고정하고 engines node >=24.22.1을 둔다.
 
 ## Editing Boundary
 

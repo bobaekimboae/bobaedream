@@ -61,7 +61,13 @@
       "@tiptap/extension-paragraph": "3.27.3",
       "@tiptap/extension-strike": "3.27.3",
       "@tiptap/extension-text": "3.27.3",
-      "@tiptap/extension-underline": "3.27.3"
+      "@tiptap/extension-underline": "3.27.3",
+      "@vue/compiler-core": "3.5.33",
+      "@vue/compiler-dom": "3.5.33",
+      "@vue/compiler-sfc": "3.5.33",
+      "@vue/compiler-ssr": "3.5.33",
+      "@vue/shared": "3.5.33",
+      "@vue/server-renderer": "3.5.33"
     }
   }
 }
