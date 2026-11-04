@@ -1,0 +1,8 @@
+/* 전용 화면 게시판(차량리뷰 · 연비·전비 · 차량 결함·불만 · 처즈왕 · 투후) 넉스트 이식용 되돌림 (2026-11-04)
+   공용 app/assets/css/main.css 의 a · input · textarea 초기화(color·text-decoration·font inherit)가 정적 판에는 없다.
+   (button 초기화는 정적 판 목록 <style> 에도 같은 것이 있어 그대로 둔다.)
+   전용 게시판 안에서만 브라우저 기본값으로 되돌린다. 선택자 무게는 main.css 의 요소 선택자와 같아(0,0,1)
+   나중에 붙는 이 파일이 이기고, 게시판 CSS(.czw-main 등 class 선택자)에는 진다. */
+a:where(.vehicleReviewBoardList *, .vehicleReviewDetailList *, .fuelEconomyBoardList *, .fuelEconomyDetailList *, .ahc *, .czw *, .tuhuReviewList *) { color: revert; text-decoration: revert; }
+input:where(.vehicleReviewBoardList *, .vehicleReviewDetailList *, .fuelEconomyBoardList *, .fuelEconomyDetailList *, .ahc *, .czw *, .tuhuReviewList *),
+textarea:where(.vehicleReviewBoardList *, .vehicleReviewDetailList *, .fuelEconomyBoardList *, .fuelEconomyDetailList *, .ahc *, .czw *, .tuhuReviewList *) { font: revert; color: revert; }

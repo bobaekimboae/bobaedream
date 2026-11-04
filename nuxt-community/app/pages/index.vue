@@ -111,6 +111,8 @@ onMounted(async () => {
   // 정적 판 choose(selectedId,{skipQuery:true,silent:true}) 처럼 처음 연 게시판도 최근 게시판에 남긴다
   if (boardById[initial.id]) recordRecentBoard(initial.id)
   page.boot({ displayName: initial.displayName, topicKey: initial.topicKey })
+  // 정적 판 맨 끝 인라인 스크립트(목록 HTML 417줄): 다른 피드가 자동으로 그린 뒤 전용 게시판을 한 번 더 그린다
+  if (['tuhu-review', 'fuel-economy', 'autohome-complaint', 'chezhiwang-complaint'].includes(page.activeBoardTable.value)) page.render.value = { kind: 'special', board: page.activeBoardTable.value }
   page.communitySection.value = ['home', 'all', 'best'].includes(initial.id) ? 'home' : ['accident-blackbox', 'scoop'].includes(initial.id) ? 'report' : ['autohome-complaint', 'chezhiwang-complaint'].includes(initial.id) ? 'defect' : 'board'
   ready.value = true
   if (query.menu === 'all') requestAnimationFrame(() => panel.value?.openPanel())
