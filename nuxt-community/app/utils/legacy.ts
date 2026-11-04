@@ -52,5 +52,8 @@ export async function legacyGlobal<T>(path: string, name: string): Promise<T | u
 
 /** public/community 의 .json 데이터 */
 export async function legacyJson<T>(path: string): Promise<T> {
-  return await $fetch<T>(communityAsset(path))
+  // $fetch 는 앱 baseURL(/bobaedream/nuxt-community/)을 앞에 붙이므로 브라우저 fetch 로 사이트 공용 주소를 그대로 읽는다
+  const res = await fetch(communityAsset(path))
+  if (!res.ok) throw new Error(`데이터 파일을 불러오지 못했어요: ${path} (${res.status})`)
+  return (await res.json()) as T
 }
