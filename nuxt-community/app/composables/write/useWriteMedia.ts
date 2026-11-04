@@ -39,16 +39,17 @@ export function useWriteMedia(showToast: (message: string) => void) {
   const photos = ref<WriteMediaItem[]>([])
   const videos = ref<WriteMediaItem[]>([])
 
-  function addFiles(files: FileList | File[] | null, kind: 'photo' | 'video') {
-    if (!files) return
+  function addFiles(files: FileList | File[] | null, kind: 'photo' | 'video'): WriteMediaItem[] {
+    if (!files) return []
     const target = kind === 'photo' ? photos : videos
     const room = (kind === 'photo' ? 20 : 5) - target.value.length
-    if (room <= 0) { showToast(kind === 'photo' ? '사진은 최대 20장입니다.' : '동영상은 최대 5개입니다.'); return }
+    if (room <= 0) { showToast(kind === 'photo' ? '사진은 최대 20장입니다.' : '동영상은 최대 5개입니다.'); return [] }
     const added = [...files].slice(0, room).map((file) => {
       const id = uid(kind)
       return { id, kind, name: file.name, url: URL.createObjectURL(file), saved: storeMedia(id, file).then(() => true).catch(() => false) }
     })
     target.value = [...target.value, ...added]
+    return added
   }
 
   function removeMedia(id: string) {
