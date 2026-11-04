@@ -1,9 +1,12 @@
-// 보배드림 촬영 쇼츠 키트 — 넉스트(Nuxt 3) 판.
+// 보배드림 촬영 쇼츠 키트 — 넉스트(Nuxt 4) 판.
 // 리액트 시안(?register=shootkit)과 같은 화면 · 같은 동작을 Vue 컴포넌트로 옮겼다. 실제 등록 · 업로드 요청은 보내지 않는다.
 // 카메라 · 녹화 · 캔버스를 쓰는 화면이라 서버 렌더링 없이(ssr: false) 브라우저에서만 그린다.
 // 배포 주소: https://bobaekimboae.github.io/bobaedream/nuxt-shootkit/ (아이콘 · 예시 사진은 기존 시안 사이트 /bobaedream/ 의 파일을 그대로 쓴다)
 export default defineNuxtConfig({
   compatibilityDate: "2026-08-01",
+  // 2026-11-04 Nuxt 4 이전: 폴더(components · composables · lib …)는 옮기지 않고 앱 뿌리에 그대로 둔다(@kit 공유 경로 유지)
+  srcDir: ".",
+  dir: { app: "app" },
   ssr: false,
   devtools: { enabled: false },
   app: {
@@ -38,7 +41,8 @@ export default defineNuxtConfig({
   experimental: { emitRouteChunkError: false },
   components: false,
   imports: { autoImport: false },
-  typescript: { strict: true },
+  // Nuxt 4 기본값으로 켜지는 배열 칸 검사(noUncheckedIndexedAccess)는 Nuxt 3 때와 같이 끈다(코드 동작은 같고 검사 규칙만 다름, 2026-11-04)
+  typescript: { strict: true, tsConfig: { compilerOptions: { noUncheckedIndexedAccess: false } } },
   hooks: {
     // 2026-10-29 컨설팅: 쓸 때만 받는 무거운 조각(mp4 · 인식기 · 쇼츠)을 첫 화면에서 미리 받지 않는다(약 1.5MB)
     "build:manifest": (manifest) => {

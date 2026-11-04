@@ -1,6 +1,6 @@
 # 리액트 → 넉스트(Vue) 옮기기 규칙
 
-원본: `src/prototype/register/shoot-kit/` (리액트, `?register=shootkit`). 대상: `nuxt-shootkit/` (Nuxt 3.21 · Vue 3.5, `ssr: false`).
+원본: `src/prototype/register/shoot-kit/` (리액트, `?register=shootkit`). 대상: `nuxt-shootkit/` (Nuxt 4.6.2 · Vue 3.5.33, `ssr: false`).
 
 ## 가장 중요한 것: 화면이 한 글자도 달라지면 안 된다
 - 기존 자동 시험(Playwright)이 **클래스 이름 · aria 속성 · 버튼 글자 · role**로 화면을 찾는다. 원본 JSX가 그리는 DOM과 **같은 태그 · 같은 class · 같은 aria-* · 같은 role · 같은 글자 · 같은 순서**를 그대로 그린다.
