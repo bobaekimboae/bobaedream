@@ -60,6 +60,6 @@ onBeforeUnmount(() => document.removeEventListener("keydown", onKey));
         <button type="button" class="ppick__done" @click="done">완료 ({{ picked.length }})</button>
       </footer>
     </section>
-    <PhotoEditor v-if="editing" :images="chosen" @done="onEdited" @close="editing = false" />
+    <PhotoEditor v-if="editing" :images="chosen" :max="max" @done="onEdited" @close="editing = false" />
   </div>
 </template>

@@ -60,7 +60,8 @@ const addImages = (srcs: string[]) => {
   if (first && !body.value.trim()) void nextTick(() => ai.value?.start(true));
 };
 const onEdit = (i: number) => { editAt.value = i; layer.value = "edit"; };
-const onEdited = (imgs: string[]) => { imgs.forEach((src, i) => { if (media.value[i]) media.value[i] = { kind: "image", src }; }); layer.value = ""; };
+// 편집기에서 「+」로 더한 사진도 글에 들어간다(동처띠와 같음, 최대 9장)
+const onEdited = (imgs: string[]) => { media.value = imgs.slice(0, 9).map((src) => ({ kind: "image" as const, src })); layer.value = ""; };
 const moveMedia = (a: number, b: number) => { const [m] = media.value.splice(a, 1); media.value.splice(b, 0, m!); };
 const post = () => {
   if (!can.value) return toast("사진이나 글을 넣어 주세요");

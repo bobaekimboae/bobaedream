@@ -45,7 +45,14 @@ const backspace = () => { const ch = [...body.value]; ch.pop(); body.value = ch.
 const addImages = (srcs: string[]) => { media.value.push(...srcs.slice(0, MAX - media.value.length).map((src) => ({ kind: "image" as const, src }))); layer.value = ""; };
 const onVideo = (v: { url: string; cover: string; duration: number }) => { media.value.unshift({ kind: "video", src: v.url, cover: v.cover, duration: v.duration }); layer.value = ""; };
 const onEdit = (i: number) => { if (media.value[i]?.kind === "video") return toast("영상은 빼고 다시 넣어 편집해 주세요"); editAt.value = media.value.slice(0, i).filter((m) => m.kind === "image").length; layer.value = "edit"; };
-const onEdited = (imgs: string[]) => { let k = 0; media.value = media.value.map((m) => (m.kind === "image" ? { kind: "image", src: imgs[k++] ?? m.src } : m)); layer.value = ""; };
+const onEdited = (imgs: string[]) => {
+  let k = 0;
+  const next = media.value.map((m) => (m.kind === "image" ? { kind: "image" as const, src: imgs[k++] ?? m.src } : m));
+  // 편집기에서 「+」로 더한 사진은 뒤에 붙인다
+  while (k < imgs.length && next.length < MAX) next.push({ kind: "image", src: imgs[k++]! });
+  media.value = next;
+  layer.value = "";
+};
 const post = () => {
   if (!can.value) return toast(len.value ? `${MIN - len.value}자 더 써 주세요` : "궁금한 점을 써 주세요");
   publish({ title: "", body: body.value.trim(), media: media.value, topic: s.topic, circle: s.circle, vote: vote.value });

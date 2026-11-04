@@ -13,6 +13,8 @@ export const VI = {
   mic: rd("microphone-outline"),
   flip: rd("refresh-outline"),
   play: rd("play-fill"),
+  pause: rd("pause-fill"),
+  edit: rd("edit-outline"),
   check: rd("checkmark-fill"),
   speed: rd("powerup-outline"),
   filter: ab("art-easel"),

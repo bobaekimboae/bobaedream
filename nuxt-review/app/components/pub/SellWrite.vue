@@ -119,7 +119,7 @@ const post = () => {
     </section>
 
     <PhotoPicker v-if="layer === 'pick'" :max="MAX - media.length" title="좋은 차량 사진" @done="addImages" @close="layer = ''" />
-    <PhotoEditor v-if="layer === 'edit'" :images="media.map((m) => m.src)" :start="editAt" @done="onEdited" @close="layer = ''" />
+    <PhotoEditor v-if="layer === 'edit'" :images="media.map((m) => m.src)" :start="editAt" :max="20" @done="onEdited" @close="layer = ''" />
     <CarPicker v-if="layer === 'car'" title="내 차 차종" @close="layer = ''" @pick="car = $event; layer = ''" />
     <Sheet xr v-if="layer === 'date'" title="등록 연월" @close="layer = ''">
       <Wheel :cols="[{ label: '연도', options: YEARS, value: draft.year, suffix: '년' }, { label: '월', options: MONTHS, value: draft.month, suffix: '월' }]" @change="(c, x) => (c ? (draft.month = x) : (draft.year = x))" />

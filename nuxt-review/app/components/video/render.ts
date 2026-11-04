@@ -1,3 +1,5 @@
+import { platesAt, quadFrame, type PlateTrack } from "./plate-detect";
+
 // 영상 올리기 엔진: 여러 클립을 한 줄로 잇는 Seq, 시간 계획(속도·시간 효과), 캔버스 그리기(필터·효과·번호판·자막), 내보내기.
 // 미리보기와 내보내기가 같은 Player · drawFrame을 써서 화면에서 본 그대로 영상이 만들어진다.
 
@@ -18,7 +20,8 @@ export interface Clip {
 export type FxKind = "smudge" | "window" | "shake" | "hallu" | "oldtv" | "soul";
 export interface FxRange { kind: FxKind; start: number; end: number }
 export type TimeFx = { kind: "none" | "reverse" | "repeat" | "slow"; at: number };
-export interface Plate { x: number; y: number; w: number; h: number; style: "blur" | "sticker" }
+/** 번호판 가리기: track이 있으면 자동으로 찾은 위치(차를 따라 움직임), 없으면 직접 옮기는 상자 하나(x · y · w · h) */
+export interface Plate { x: number; y: number; w: number; h: number; style: "blur" | "sticker"; track?: PlateTrack }
 export interface Caption { id: string; text: string; start: number; end: number; x: number; y: number }
 export interface EditState {
   filter: string;
@@ -152,7 +155,7 @@ export class Seq {
   constructor(public clips: Clip[]) {}
   async load() {
     this.els = await Promise.all(this.clips.map((c) => loadVideo(c.url)));
-    this.els.forEach((e) => { e.loop = false; });
+    this.els.forEach((e, i) => { e.loop = false; e.dataset.ci = String(i); });
     let t = 0;
     this.offs = this.clips.map((c) => { const o = t; t += c.dur / c.rate; return o; });
     this.total = t;
@@ -216,8 +219,9 @@ export function outSize(w: number, h: number, maxLong: number) {
 
 const canFilter = typeof document !== "undefined" && "filter" in (document.createElement("canvas").getContext("2d") || {});
 
-function contain(ctx: CanvasRenderingContext2D, v: CanvasImageSource & { videoWidth?: number; videoHeight?: number }, x: number, y: number, w: number, h: number) {
-  const vw = v.videoWidth || w, vh = v.videoHeight || h;
+type Src = CanvasImageSource & { videoWidth?: number; videoHeight?: number; width?: number; height?: number };
+function contain(ctx: CanvasRenderingContext2D, v: Src, x: number, y: number, w: number, h: number) {
+  const vw = v.videoWidth || (v.width as number) || w, vh = v.videoHeight || (v.height as number) || h;
   const r = Math.min(w / vw, h / vh);
   const dw = vw * r, dh = vh * r;
   ctx.drawImage(v, x + (w - dw) / 2, y + (h - dh) / 2, dw, dh);
@@ -225,11 +229,69 @@ function contain(ctx: CanvasRenderingContext2D, v: CanvasImageSource & { videoWi
 // 같은 시각이면 같은 값(효과 무늬가 깜빡이지 않게)
 const rnd = (n: number) => { const x = Math.sin(n * 12.9898) * 43758.5453; return x - Math.floor(x); };
 
-export function drawFrame(ctx: CanvasRenderingContext2D, v: HTMLVideoElement | null, u: number, look: Look, W: number, H: number) {
+/** 번호판 가림 한 장(돌려 그린 둥근 상자: 흐림 또는 보배드림 스티커) */
+function coverPlate(g: CanvasRenderingContext2D, src: Src, f: { x: number; y: number; ang: number; w: number; h: number }, style: Plate["style"], blurPx: number) {
+  const w = f.w * 1.18, h = f.h * 1.45;
+  g.save();
+  g.translate(f.x, f.y);
+  g.rotate(f.ang);
+  g.beginPath();
+  g.roundRect(-w / 2, -h / 2, w, h, Math.min(w, h) * 0.18);
+  if (style === "sticker") {
+    g.fillStyle = "#fff";
+    g.fill();
+    g.strokeStyle = "#306BD9";
+    g.lineWidth = Math.max(2, h * 0.08);
+    g.stroke();
+    g.fillStyle = "#306BD9";
+    g.font = `800 ${h * 0.5}px Pretendard, sans-serif`;
+    g.textAlign = "center";
+    g.textBaseline = "middle";
+    g.fillText("보배드림", 0, h * 0.02, w * 0.86);
+    g.restore();
+    return;
+  }
+  g.rotate(-f.ang);
+  g.translate(-f.x, -f.y);
+  g.clip();
+  if (canFilter) {
+    g.filter = `blur(${blurPx}px)`;
+    g.drawImage(src, 0, 0, g.canvas.width, g.canvas.height);
+    g.filter = "none";
+  }
+  // 흐림을 못 쓰는 브라우저 · 흐림 위에 한 번 더: 큰 칸 모자이크
+  const t = document.createElement("canvas");
+  t.width = Math.max(3, Math.round(w / Math.max(8, h / 3)));
+  t.height = Math.max(2, Math.round(t.width * (h / w)));
+  t.getContext("2d")!.drawImage(g.canvas, f.x - w / 2, f.y - h / 2, w, h, 0, 0, t.width, t.height);
+  g.imageSmoothingEnabled = !canFilter;
+  g.drawImage(t, f.x - w / 2, f.y - h / 2, w, h);
+  g.imageSmoothingEnabled = true;
+  g.restore();
+}
+let coverCv: HTMLCanvasElement | null = null;
+/** 자동으로 찾은 번호판을 원본 장면에 먼저 가린 그림(효과 · 흔들림 · 4분할에도 가림이 함께 따라간다) */
+function coveredSource(v: HTMLVideoElement, p: Plate): Src {
+  const track = p.track;
+  if (!track) return v;
+  const quads = platesAt(track, Number(v.dataset.ci ?? 0), v.currentTime);
+  if (!quads.length) return v;
+  const k = Math.min(1, 1280 / Math.max(v.videoWidth, v.videoHeight));
+  const W = Math.round(v.videoWidth * k), H = Math.round(v.videoHeight * k);
+  coverCv ??= document.createElement("canvas");
+  if (coverCv.width !== W || coverCv.height !== H) { coverCv.width = W; coverCv.height = H; }
+  const g = coverCv.getContext("2d")!;
+  g.drawImage(v, 0, 0, W, H);
+  for (const q of quads) coverPlate(g, v, quadFrame(q, W, H), p.style, Math.max(6, W * 0.02));
+  return coverCv;
+}
+
+export function drawFrame(ctx: CanvasRenderingContext2D, v0: HTMLVideoElement | null, u: number, look: Look, W: number, H: number) {
   ctx.save();
   ctx.fillStyle = "#000";
   ctx.fillRect(0, 0, W, H);
-  if (!v || v.readyState < 2) { ctx.restore(); return; }
+  if (!v0 || v0.readyState < 2) { ctx.restore(); return; }
+  const v = look.plate?.track ? coveredSource(v0, look.plate) : v0;
   const on = new Set(look.effects.filter((e) => u >= e.start && u < e.end).map((e) => e.kind));
   let f = filterCss(look.filter);
   if (on.has("oldtv")) f = `${f === "none" ? "" : f} grayscale(.7) sepia(.35) contrast(1.25)`.trim();
@@ -296,9 +358,9 @@ export function drawFrame(ctx: CanvasRenderingContext2D, v: HTMLVideoElement | n
     ctx.fillRect(0, 0, W, H);
   }
 
-  // 번호판 가리기(영상 전체)
+  // 번호판 가리기(직접 옮긴 상자 · 영상 전체 같은 자리)
   const p = look.plate;
-  if (p) {
+  if (p && !p.track) {
     const x = p.x * W, y = p.y * H, w = p.w * W, h = p.h * H;
     if (p.style === "sticker") {
       const r = Math.min(w, h) * 0.18;
@@ -603,3 +665,20 @@ export function coverImage(canvas: HTMLCanvasElement, title: string) {
 export const previewSize = (seq: Seq) => outSize(seq.w, seq.h, 960);
 
 export const reduceMotion = () => typeof window !== "undefined" && !!window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+/** 출력 시간표(plan)대로 n장 장면(자막 · 표지 줄에 까는 필름) */
+export async function planFrames(seq: Seq, plan: Seg[], n: number, w = 72, h = 128): Promise<string[]> {
+  const dur = planDur(plan);
+  const out: string[] = [];
+  const els = new Map<number, HTMLVideoElement>();
+  for (let k = 0; k < n; k++) {
+    const { s } = srcAt(plan, ((k + 0.5) / n) * dur);
+    const { i, real } = seq.locate(s);
+    let v = els.get(i);
+    if (!v) { v = await loadVideo(seq.clips[i]!.url); els.set(i, v); }
+    await seekEl(v, real);
+    out.push(snap(v, w, h, 0.6));
+  }
+  els.forEach((v) => { v.removeAttribute("src"); v.load(); });
+  return out;
+}

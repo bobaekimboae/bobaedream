@@ -5,8 +5,11 @@ import { computed, onBeforeUnmount, onMounted, reactive, ref, watch } from "vue"
 import Ico from "../Ico.vue";
 import { VI } from "../../lib/video-icons";
 import { drag, useFit } from "./fit";
+import { useRuntimeConfig } from "#app";
+import { scanPlates, setPlateBase, trackCount } from "./plate-detect";
+import FilmStrip from "./FilmStrip.vue";
 import {
-  EFFECTS, FILTERS, FILTER_TABS, TIME_FX, Player, fxColor, makePlan, mmss, previewSize, uid,
+  EFFECTS, FILTERS, FILTER_TABS, TIME_FX, Player, fxColor, makePlan, mmss, planFrames, previewSize, uid,
   type Caption, type EditState, type FxKind, type Look, type Seq, type TimeFx, type FxRange,
 } from "./render";
 
@@ -45,42 +48,72 @@ onMounted(async () => {
   await player.seek(0);
   play();
 });
-onBeforeUnmount(() => player?.destroy());
+onBeforeUnmount(() => { scanAbort?.abort(); player?.destroy(); });
 watch(plan, (p) => { player?.setPlan(p); if (!player?.playing) player?.seek(Math.min(u.value, dur.value)); });
 // 멈춘 상태에서 필터 · 자막 · 번호판을 바꾸면 화면을 다시 그린다
-watch(() => [st.filter, st.plate && { ...st.plate }, st.captions.map((c) => ({ ...c })), st.effects.length], () => { if (!player?.playing) player?.render(); }, { deep: true });
+watch(() => [st.filter, st.plate && { ...st.plate, track: !!st.plate.track }, st.captions.map((c) => ({ ...c })), st.effects.length], () => { if (!player?.playing) player?.render(); }, { deep: true });
 watch(() => st.volume, (v) => { if (player) player.volume = v; });
 
 const play = () => { player?.play(); playing.value = true; };
 const pause = () => { player?.pause(); playing.value = false; };
 const toggle = () => (playing.value ? pause() : play());
+// 원본: 필터 · 음량 판이 열려 있으면 아래 도구 줄이 숨고, 화면을 누르면 판이 닫힌다
+const tapStage = () => { if (panel.value === "filter" || panel.value === "volume") panel.value = ""; else toggle(); };
 const say = (m: string) => { toast.value = m; setTimeout(() => (toast.value = ""), 1600); };
 
 // 패널 열기: 효과 · 표지는 취소/저장이 있어 들어갈 때 상태를 기억한다
 function open(p: Panel) {
-  if (p === "effect" || p === "cover") {
-    snapshot = JSON.stringify({ effects: st.effects, timeFx: st.timeFx, cover: st.cover });
+  if (p === "effect" || p === "cover" || p === "caption") {
+    snapshot = JSON.stringify({ effects: st.effects, timeFx: st.timeFx, cover: st.cover, captions: st.captions });
     pause();
+    selCap.value = null;
     if (p === "cover") player?.seek(Math.min(st.cover.t, dur.value));
+    if (p !== "effect") ensureFrames();
   }
   panel.value = panel.value === p ? "" : p;
 }
 function cancelFull() {
   const s = JSON.parse(snapshot || "{}");
-  if (s.effects) { st.effects.splice(0, st.effects.length, ...s.effects); st.timeFx = s.timeFx; st.cover = s.cover; }
+  if (s.effects) { st.effects.splice(0, st.effects.length, ...s.effects); st.timeFx = s.timeFx; st.cover = s.cover; st.captions.splice(0, st.captions.length, ...s.captions); }
   panel.value = "";
+  selCap.value = null;
   play();
 }
 function saveFull() {
   if (panel.value === "cover") st.cover.t = u.value;
   panel.value = "";
+  selCap.value = null;
   play();
 }
 
-/* 번호판 가리기 */
-function togglePlate() {
-  if (st.plate) { st.plate = null; say("번호판 가리기를 껐어요"); }
-  else { st.plate = { x: 0.34, y: 0.62, w: 0.32, h: 0.075, style: "blur" }; say("상자를 번호판 위로 끌어 옮겨 주세요"); }
+/* 번호판 가리기: 누르면 구간을 훑어 번호판을 자동으로 찾고(동처띠 「识别成功」), 못 찾으면 직접 옮기는 상자를 띄운다 */
+setPlateBase(useRuntimeConfig().app.baseURL);
+const scan = reactive({ on: false, pct: 0 });
+let scanAbort: AbortController | null = null;
+async function togglePlate() {
+  if (scan.on) return;
+  if (st.plate) { st.plate = null; say("번호판 가리기를 껐어요"); return; }
+  pause();
+  scan.on = true;
+  scan.pct = 0;
+  scanAbort = new AbortController();
+  try {
+    const track = await scanPlates(props.seq, props.a, props.b, (p) => (scan.pct = Math.round(p * 100)), scanAbort.signal);
+    if (trackCount(track)) { st.plate = { x: 0, y: 0, w: 0, h: 0, style: "blur", track }; say("번호판을 찾아 가렸어요"); }
+    else { st.plate = { x: 0.34, y: 0.62, w: 0.32, h: 0.075, style: "blur" }; say("번호판을 찾지 못했어요 · 상자를 번호판 위로 옮겨 주세요"); }
+  } catch (e) {
+    if ((e as Error).name !== "AbortError") { st.plate = { x: 0.34, y: 0.62, w: 0.32, h: 0.075, style: "blur" }; say("자동으로 찾지 못했어요 · 상자를 번호판 위로 옮겨 주세요"); }
+  }
+  scan.on = false;
+  scanAbort = null;
+  player?.render();
+}
+const cancelScan = () => scanAbort?.abort();
+/** 자동으로 찾은 뒤에도 놓친 곳이 있으면 직접 상자로 바꿀 수 있다 */
+function manualPlate() {
+  if (!st.plate) return;
+  st.plate = { x: 0.34, y: 0.62, w: 0.32, h: 0.075, style: st.plate.style };
+  say("상자를 번호판 위로 끌어 옮겨 주세요");
 }
 function movePlate(e: PointerEvent) {
   const p = st.plate;
@@ -172,17 +205,43 @@ const setTimeFx = (kind: TimeFx["kind"]) => {
 };
 const tfxMark = computed(() => (st.timeFx.kind === "repeat" || st.timeFx.kind === "slow" ? ((st.timeFx.at - props.a) / props.speed / dur.value) * 100 : -1));
 
-/* 자막 */
-const capText = ref("");
+/* 자막(동처띠 字幕 화면): 필름 줄 위치에서 「직접 추가」 → 가운데 입력 창 → ✓, 고른 자막은 「자막 수정」 · 지우기 · 양 끝 손잡이로 길이 */
+const frames = ref<string[]>([]);
+let framesFor = "";
+async function ensureFrames() {
+  const key = JSON.stringify(plan.value);
+  if (frames.value.length && framesFor === key) return;
+  framesFor = key;
+  frames.value = [];
+  frames.value = await planFrames(props.seq, plan.value, Math.max(6, Math.min(90, Math.round(dur.value))));
+}
+const selCap = ref<string | null>(null);
+const capInput = reactive({ open: false, text: "", id: "" as string });
 const capBox = ref<HTMLInputElement | null>(null);
-function addCaption() {
-  const t = capText.value.trim();
+function openCapInput(id = "") {
+  pause();
+  capInput.id = id;
+  capInput.text = id ? st.captions.find((c) => c.id === id)?.text ?? "" : "";
+  capInput.open = true;
+  setTimeout(() => capBox.value?.focus(), 30);
+}
+function okCapInput() {
+  const t = capInput.text.trim();
   if (!t) { capBox.value?.focus(); return; }
-  st.captions.push({ id: uid(), text: t, start: Math.min(u.value, Math.max(0, dur.value - 0.5)), end: Math.min(dur.value, u.value + 2.5), x: 0.5, y: 0.8 });
-  capText.value = "";
+  if (capInput.id) { const c = st.captions.find((x) => x.id === capInput.id); if (c) c.text = t; }
+  else {
+    const start = Math.min(u.value, Math.max(0, dur.value - 0.5));
+    const c: Caption = { id: uid(), text: t, start, end: Math.min(dur.value, start + 2), x: 0.5, y: 0.7 };
+    st.captions.push(c);
+    selCap.value = c.id;
+  }
+  capInput.open = false;
   player?.render();
 }
-const delCaption = (id: string) => { const i = st.captions.findIndex((c) => c.id === id); if (i >= 0) st.captions.splice(i, 1); player?.render(); };
+const delCaption = (id: string) => { const i = st.captions.findIndex((c) => c.id === id); if (i >= 0) st.captions.splice(i, 1); selCap.value = null; player?.render(); };
+const autoCaption = () => say("자동 인식은 음성 인식 서버를 연결한 뒤에 쓸 수 있어요 · 지금은 직접 추가해 주세요");
+const onCapTime = (id: string, k: "start" | "end", v: number) => { const c = st.captions.find((x) => x.id === id); if (c) setCapTime(c, k, v); };
+const seekStrip = (t: number) => { pause(); player?.seek(t); };
 const visibleCaps = computed(() => st.captions.filter((c) => c.text && u.value >= c.start && u.value < c.end));
 function moveCap(c: Caption, e: PointerEvent) {
   pause();
@@ -205,13 +264,15 @@ const pct = (t: number) => `${(t / (dur.value || 1)) * 100}%`;
 
 defineExpose({
   esc: () => {
+    if (scan.on) { cancelScan(); return true; }
+    if (capInput.open) { capInput.open = false; return true; }
     if (holding.value) { holdEnd(); return true; }
-    if (panel.value === "effect" || panel.value === "cover") { cancelFull(); return true; }
+    if (full.value) { cancelFull(); return true; }
     if (panel.value) { panel.value = ""; return true; }
     return false;
   },
 });
-const full = computed(() => panel.value === "effect" || panel.value === "cover");
+const full = computed(() => panel.value === "effect" || panel.value === "cover" || panel.value === "caption");
 </script>
 
 <template>
@@ -222,20 +283,25 @@ const full = computed(() => panel.value === "effect" || panel.value === "cover")
         <h2 class="vf-hide-t">효과 편집</h2>
         <button class="vf-next" type="button" @click="pause(); emit('next')">다음</button>
       </template>
-      <template v-else>
+      <template v-else-if="panel === 'effect'">
         <button class="vf-cancel" type="button" @click="cancelFull">취소</button>
-        <h2>{{ panel === "effect" ? "효과" : "표지" }}</h2>
+        <h2 class="vf-hide-t">효과</h2>
         <button class="vf-next" type="button" @click="saveFull">저장</button>
+      </template>
+      <template v-else>
+        <button class="vf-ibtn" type="button" aria-label="뒤로" @click="cancelFull"><Ico :src="VI.back" /></button>
+        <h2 :class="{ 'vf-hide-t': panel === 'caption' }">{{ panel === "cover" ? "표지 선택" : "자막" }}</h2>
+        <button class="vf-next" type="button" @click="saveFull">완료</button>
       </template>
     </header>
 
-    <div ref="stage" class="vf-stage" @click.self="toggle">
-      <div class="vf-frame" :style="{ width: `${box.w}px`, height: `${box.h}px` }" @click.self="toggle">
-        <canvas ref="canvas" class="vf-canvas" @click="toggle" />
+    <div ref="stage" class="vf-stage" @click.self="tapStage">
+      <div class="vf-frame" :style="{ width: `${box.w}px`, height: `${box.h}px` }" @click.self="tapStage">
+        <canvas ref="canvas" class="vf-canvas" @click="tapStage" />
         <span v-if="!playing && panel !== 'cover'" class="vf-play" aria-hidden="true"><Ico :src="VI.play" /></span>
         <!-- 번호판 상자 -->
         <div
-          v-if="st.plate && !full"
+          v-if="st.plate && !st.plate.track && !full"
           class="vf-plate"
           tabindex="0"
           role="group"
@@ -257,7 +323,6 @@ const full = computed(() => panel.value === "effect" || panel.value === "cover")
             @pointerdown="moveCap(c, $event)"
           />
         </template>
-        <p v-if="panel === 'cover' && st.cover.title" class="vf-covertitle">{{ st.cover.title }}</p>
       </div>
       <nav v-if="!full" class="vf-fx__side" aria-label="자막과 표지">
         <button type="button" :aria-pressed="panel === 'caption'" @click="open('caption')"><Ico :src="VI.caption" /><span>자막</span></button>
@@ -269,6 +334,14 @@ const full = computed(() => panel.value === "effect" || panel.value === "cover")
     <div v-if="st.plate && !panel" class="vf-plate-tools" role="radiogroup" aria-label="가림 방식">
       <button type="button" role="radio" :aria-checked="st.plate.style === 'blur'" :class="{ 'is-on': st.plate.style === 'blur' }" @click="st.plate.style = 'blur'">흐림</button>
       <button type="button" role="radio" :aria-checked="st.plate.style === 'sticker'" :class="{ 'is-on': st.plate.style === 'sticker' }" @click="st.plate.style = 'sticker'">보배드림 스티커</button>
+      <button v-if="st.plate.track" type="button" class="vf-plate-tools__manual" @click="manualPlate">직접 옮기기</button>
+    </div>
+    <div v-if="scan.on" class="vf-busy" role="alertdialog" aria-label="번호판 찾는 중">
+      <div class="vf-busy__box">
+        <span class="vf-ring" :style="{ '--p': `${scan.pct}%` }" />
+        <p>번호판을 찾는 중 {{ scan.pct }}%</p>
+        <button type="button" class="vf-busy__cancel" @click="cancelScan">취소</button>
+      </div>
     </div>
 
     <!-- 필터 -->
@@ -294,35 +367,39 @@ const full = computed(() => panel.value === "effect" || panel.value === "cover")
 
     <!-- 음량 -->
     <section v-if="panel === 'volume'" class="vf-pane vf-vol" aria-label="음량">
+      <button type="button" class="vf-vol__ok" aria-label="음량 닫기" @click="panel = ''"><Ico :src="VI.check" /></button>
       <label>
         <span>원본 소리</span>
         <input v-model.number="st.volume" type="range" min="0" max="1" step="0.01" :style="{ '--p': `${st.volume * 100}%` }" />
-        <b>{{ Math.round(st.volume * 100) }}%</b>
       </label>
-    </section>
-
-    <!-- 자막 -->
-    <section v-if="panel === 'caption'" class="vf-pane vf-caps" aria-label="자막">
-      <div class="vf-caps__add">
-        <input ref="capBox" v-model="capText" type="text" maxlength="40" placeholder="자막을 입력하세요" @keydown.enter="addCaption" />
-        <button type="button" class="vf-next" @click="addCaption">추가</button>
-      </div>
-      <p class="vf-caps__hint">지금 위치({{ mmss(u) }})부터 2.5초 동안 나와요 · 화면의 자막을 끌어 옮길 수 있어요</p>
-      <ul>
-        <li v-for="c in st.captions" :key="c.id">
-          <input v-model="c.text" type="text" maxlength="40" aria-label="자막 문구" />
-          <div class="vf-caps__time">
-            <label>시작 <input type="range" min="0" :max="dur" step="0.1" :value="c.start" @input="setCapTime(c, 'start', +($event.target as HTMLInputElement).value)" /> {{ c.start.toFixed(1) }}s</label>
-            <label>끝 <input type="range" min="0" :max="dur" step="0.1" :value="c.end" @input="setCapTime(c, 'end', +($event.target as HTMLInputElement).value)" /> {{ c.end.toFixed(1) }}s</label>
-          </div>
-          <button type="button" class="vf-ibtn" aria-label="자막 지우기" @click="delCaption(c.id)"><Ico :src="VI.del" /></button>
-        </li>
-      </ul>
+      <!-- 원본(동처띠 配乐): 배경 음악을 고르지 않으면 막혀 있다 -->
+      <label class="is-off">
+        <span>배경 음악</span>
+        <input type="range" min="0" max="1" step="0.01" value="0" disabled aria-label="배경 음악(고른 음악이 없어요)" />
+      </label>
     </section>
 
     <!-- 효과 · 표지 아래 판 -->
     <section v-if="full" class="vf-fullpane">
-      <div class="vf-tl">
+      <div v-if="panel !== 'effect'" class="vf-filmwrap" :class="`is-${panel}`">
+        <p v-if="panel === 'cover'" class="vf-fxhint">좌우로 밀어 표지를 고르세요</p>
+        <div class="vf-filmrow">
+          <button v-if="panel === 'caption'" type="button" class="vf-filmplay" :aria-label="playing ? '멈추기' : '재생'" @click="toggle"><Ico :src="playing ? VI.pause : VI.play" /></button>
+          <FilmStrip :frames="frames" :dur="dur" :u="u" :pps="panel === 'cover' ? Math.max(24, (58 * Math.max(1, frames.length)) / (dur || 1)) : 40" :mode="panel === 'cover' ? 'cover' : 'caption'" :captions="st.captions" :sel="selCap" @seek="seekStrip" @select="selCap = $event" @time="onCapTime" />
+        </div>
+        <span v-if="panel === 'caption'" class="vf-filmdur">{{ mmss(dur) }}</span>
+        <div v-if="panel === 'caption'" class="vf-capbtns">
+          <template v-if="selCap">
+            <button type="button" class="vf-capbtn" @click="openCapInput(selCap)"><Ico :src="VI.edit" />자막 수정</button>
+            <button type="button" class="vf-capbtn is-round" aria-label="자막 지우기" @click="delCaption(selCap)"><Ico :src="VI.del" /></button>
+          </template>
+          <template v-else>
+            <button type="button" class="vf-capbtn" @click="autoCaption"><Ico :src="VI.caption" />자동 인식</button>
+            <button type="button" class="vf-capbtn is-pri" @click="openCapInput()">+ 직접 추가</button>
+          </template>
+        </div>
+      </div>
+      <div v-else class="vf-tl">
         <span>{{ mmss(u) }}</span>
         <div
           ref="track"
@@ -387,21 +464,22 @@ const full = computed(() => panel.value === "effect" || panel.value === "cover")
           <button type="button" :class="{ 'is-on': fxTab === 'time' }" :aria-pressed="fxTab === 'time'" @click="fxTab = 'time'">시간 효과</button>
         </nav>
       </template>
-      <template v-else>
-        <div class="vf-coverbody">
-          <p class="vf-fxhint">막대를 끌어 표지로 쓸 장면을 고르세요</p>
-          <input v-model="st.cover.title" class="vf-covertext" type="text" maxlength="24" placeholder="표지 제목 (선택)" aria-label="표지 제목" />
-        </div>
-      </template>
     </section>
 
     <!-- 아래 도구 줄 -->
-    <nav v-if="!full" class="vf-tools" aria-label="편집 도구">
-      <button type="button" :aria-pressed="panel === 'filter'" @click="open('filter')"><Ico :src="VI.filter" /><span>필터</span></button>
+    <nav v-if="!full && panel !== 'filter' && panel !== 'volume'" class="vf-tools" aria-label="편집 도구">
+      <button type="button" aria-pressed="false" @click="open('filter')"><Ico :src="VI.filter" /><span>필터</span></button>
       <button type="button" @click="open('effect')"><Ico :src="VI.effect" /><span>효과</span></button>
-      <button type="button" :aria-pressed="!!st.plate" :class="{ 'is-on': !!st.plate }" @click="togglePlate"><Ico :src="VI.plate" /><span>번호판 가리기</span></button>
-      <button type="button" :aria-pressed="panel === 'volume'" @click="open('volume')"><Ico :src="VI.volume" /><span>음량</span></button>
+      <button type="button" :aria-pressed="!!st.plate" :class="{ 'is-on': !!st.plate }" :disabled="scan.on" @click="togglePlate"><Ico :src="VI.plate" /><span>번호판 가리기</span></button>
+      <button type="button" aria-pressed="false" @click="open('volume')"><Ico :src="VI.volume" /><span>음량</span></button>
     </nav>
+    <div v-if="capInput.open" class="vf-capin" role="dialog" aria-modal="true" aria-label="자막 입력">
+      <input ref="capBox" v-model="capInput.text" type="text" maxlength="40" placeholder="자막을 입력하세요" @keydown.enter="okCapInput" />
+      <div class="vf-capin__btns">
+        <button type="button" class="vf-capin__x" aria-label="취소" @click="capInput.open = false"><Ico :src="VI.close" /></button>
+        <button type="button" class="vf-capin__ok" aria-label="확인" @click="okCapInput"><Ico :src="VI.check" /></button>
+      </div>
+    </div>
     <p v-if="toast" class="vf-toast" role="status">{{ toast }}</p>
   </div>
 </template>

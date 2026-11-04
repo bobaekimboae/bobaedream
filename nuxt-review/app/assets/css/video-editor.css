@@ -149,8 +149,12 @@
 .vf-fthumb .ico { position: absolute; inset: 0; margin: auto; width: 24px; height: 24px; color: #fff; filter: drop-shadow(0 0 2px rgba(0, 0, 0, .6)); }
 .vf-fthumbs .is-on .vf-fthumb { border-color: #fff; }
 .vf-fthumbs em { font-style: normal; font-size: 13px; }
-.vf-vol label { display: flex; align-items: center; gap: 12px; padding: 12px 20px 16px; font-size: 14px; }
-.vf-vol b { width: 44px; text-align: right; font-variant-numeric: tabular-nums; }
+/* 음량(동처띠 原声 · 配乐 두 줄 + 오른쪽 ✓) */
+.vf-vol { position: relative; padding: 18px 0 10px; }
+.vf-vol label { display: flex; align-items: center; gap: 16px; padding: 8px 64px 8px 24px; font-size: 14px; }
+.vf-vol label.is-off { opacity: .45; }
+.vf-vol__ok { position: absolute; right: 12px; top: -26px; width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: rgba(30, 32, 44, .92); }
+.vf-vol__ok .ico { width: 22px; height: 22px; color: #3ddc84; }
 .vf input[type="range"] { flex: 1; -webkit-appearance: none; appearance: none; height: 28px; background: transparent; }
 .vf input[type="range"]::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; background: linear-gradient(var(--vf-pri), var(--vf-pri)) 0 / var(--p, 0%) 100% no-repeat, rgba(255, 255, 255, .2); }
 .vf input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; margin-top: -8px; border-radius: 50%; background: #fff; }
@@ -192,8 +196,45 @@
 .vf-fxtabs { display: flex; align-items: center; height: 52px; background: #1d1f2e; }
 .vf-fxtabs button { flex: 1; height: 52px; }
 .vf-fxtabs i { width: 1px; height: 18px; background: var(--vf-line); }
-.vf-coverbody { padding: 16px; }
-.vf-covertext { width: 100%; display: block; }
+
+/* 자막 · 표지: 필름 줄(가운데 재생선) */
+.vf-filmwrap { position: relative; padding: 14px 0 18px; }
+.vf-filmwrap.is-cover { padding-top: 18px; }
+.vf-filmrow { display: flex; align-items: center; gap: 8px; padding-left: 8px; }
+.vf-filmwrap.is-cover .vf-filmrow { padding-left: 0; }
+.vf-filmplay { flex: none; width: 36px; height: 44px; display: grid; place-items: center; }
+.vf-filmplay .ico { width: 22px; height: 22px; }
+.vf-film { position: relative; flex: 1; min-width: 0; height: 56px; }
+.vf-film__scroll { height: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; touch-action: pan-x; }
+.vf-film__scroll::-webkit-scrollbar { display: none; }
+.vf-film__track { position: relative; display: flex; height: 100%; align-items: center; }
+.vf-film__track img { flex: none; height: 40px; object-fit: cover; pointer-events: none; }
+.vf-film.is-cover { height: 72px; }
+.vf-film.is-cover .vf-film__track img { height: 64px; }
+.vf-film__head { position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; border-radius: 1px; background: #fff; pointer-events: none; }
+.vf-film.is-cover .vf-film__head { width: 58px; margin-left: -29px; top: 2px; bottom: 2px; background: none; border: 2px solid #fff; border-radius: 4px; }
+.vf-film__cap { position: absolute; top: 8px; height: 40px; border-radius: 4px; background: rgba(255, 199, 0, .78); box-shadow: inset 0 0 0 2px rgba(255, 199, 0, .95); }
+.vf-film__cap.is-sel { box-shadow: inset 0 0 0 2px #fff; }
+.vf-film__h { position: absolute; top: 0; bottom: 0; width: 14px; background: #fff; touch-action: none; cursor: ew-resize; }
+.vf-film__h.is-l { left: -14px; border-radius: 4px 0 0 4px; }
+.vf-film__h.is-r { right: -14px; border-radius: 0 4px 4px 0; }
+.vf-filmdur { position: absolute; right: 12px; top: -6px; font-size: 12px; color: var(--vf-sub); font-variant-numeric: tabular-nums; }
+.vf-capbtns { display: flex; justify-content: center; gap: 14px; padding: 18px 16px 0; }
+.vf-capbtn { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 22px; border-radius: 20px; background: #26282f; font-size: 15px; font-weight: 600; }
+.vf-capbtn .ico { width: 18px; height: 18px; }
+.vf-capbtn.is-pri { background: var(--vf-pri); }
+.vf-capbtn.is-round { width: 40px; padding: 0; justify-content: center; }
+/* 자막 입력(가운데 큰 글자 + ✕ ✓) */
+.vf-capin { position: absolute; inset: 0; z-index: 45; display: flex; flex-direction: column; align-items: center; padding-top: 22%; gap: 120px; background: rgba(0, 0, 0, .55); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); }
+.vf-capin input { width: 86%; border: 0; background: none; text-align: center; color: #fff; font-size: 22px; font-weight: 700; -webkit-user-select: text; user-select: text; }
+.vf-capin input::placeholder { color: rgba(255, 255, 255, .5); }
+.vf-capin input:focus { outline: none; }
+.vf-capin__btns { display: flex; gap: 72px; }
+.vf-capin__btns button { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; }
+.vf-capin__x { background: #fff; }
+.vf-capin__x .ico { color: #111; width: 20px; height: 20px; }
+.vf-capin__ok { background: var(--vf-pri); }
+.vf-capin__ok .ico { color: #fff; width: 20px; height: 20px; }
 
 /* 만들기 진행 */
 .vf-busy { position: absolute; inset: 0; z-index: 40; display: grid; place-items: center; background: rgba(0, 0, 0, .72); }

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "nuxt": "4.6.2",
+    "onnxruntime-web": "1.30.0",
     "vue": "3.5.33"
   },
   "devDependencies": {

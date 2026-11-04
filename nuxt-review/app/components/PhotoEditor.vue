@@ -5,7 +5,7 @@ import Ico from "./Ico.vue";
 import { EIC } from "../lib/editor-icons";
 import "../assets/css/photo-editor.css";
 
-const props = defineProps<{ images: string[]; start?: number }>();
+const props = withDefaults(defineProps<{ images: string[]; start?: number; max?: number }>(), { start: 0, max: 9 });
 const emit = defineEmits<{ done: [images: string[]]; close: [] }>();
 
 type Tool = "pen" | "crop" | "text" | "tpl" | "sticker" | "mosaic" | "filter";
@@ -13,7 +13,8 @@ interface Ov { id: number; kind: "text" | "sticker"; x: number; y: number; s: nu
 interface Page { base: HTMLCanvasElement; pre: HTMLCanvasElement | null; ovs: Ov[]; tpl: string; filter: string; thumb: string; aiThumbs: [string, string] | null }
 
 const MAX = 2048;
-const MAX_PAGES = 9;
+// 글 종류마다 사진 수가 다르다(일상 9 · 내 차 팔기 20). 편집하면서 사진이 빠지지 않게 글의 최대 장수를 받는다
+const MAX_PAGES = props.max;
 const TXT_K = 0.07; // 글자 크기 = 사진 폭 × 7% × 배율
 const STK_K = 0.28; // 스티커 폭 = 사진 폭 × 28% × 배율
 const FONT = '"Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif';
@@ -572,7 +573,8 @@ function penSeg(p: Page, a: [number, number], b: [number, number]) {
   const ctx = c2d(p.base);
   ctx.save();
   ctx.strokeStyle = penColor.value;
-  ctx.lineWidth = (2 + (penSize.value / 100) * 28) * pxPerCss(p);
+  // 동처띠 실측(화면 기준 굵기): 가장 작게 1.4px · 가운데 5.3px · 가장 크게 27px
+  ctx.lineWidth = (1.42 + 25.6 * (penSize.value / 100) ** 2.71) * pxPerCss(p);
   ctx.lineCap = "round";
   ctx.lineJoin = "round";
   ctx.beginPath();
@@ -585,8 +587,9 @@ function mosaicAt(p: Page, pt: [number, number]) {
   const src = mosaicSrc;
   if (!src || !stroke) return;
   const W = p.base.width, H = p.base.height;
-  const cell = Math.max(6, Math.round(Math.max(W, H) / 56));
-  const rad = ((12 + (mosaicSize.value / 100) * 40) * pxPerCss(p)) / 2;
+  // 동처띠 실측: 칸은 크기와 상관없이 화면 12.8px, 붓 지름은 가장 작게 12 · 가운데 26 · 가장 크게 51px
+  const cell = Math.max(4, 12.8 * pxPerCss(p));
+  const rad = (mosaicDia() * pxPerCss(p)) / 2;
   const ctx = c2d(p.base);
   const c0 = Math.floor((pt[0] - rad) / cell), c1 = Math.floor((pt[0] + rad) / cell);
   const r0 = Math.floor((pt[1] - rad) / cell), r1 = Math.floor((pt[1] + rad) / cell);
@@ -599,7 +602,7 @@ function mosaicAt(p: Page, pt: [number, number]) {
       if (mx * mx + my * my > (rad + cell * 0.5) ** 2) continue;
       stroke.cells.add(key);
       // 원본 화소 평균으로 칸을 채움
-      const x0 = cx * cell, y0 = cy * cell, x1 = Math.min(W, x0 + cell), y1 = Math.min(H, y0 + cell);
+      const x0 = Math.round(cx * cell), y0 = Math.round(cy * cell), x1 = Math.min(W, Math.round((cx + 1) * cell)), y1 = Math.min(H, Math.round((cy + 1) * cell));
       let r = 0, g = 0, b = 0, n = 0;
       for (let y = y0; y < y1; y += 2) {
         for (let x = x0; x < x1; x += 2) {
@@ -612,9 +615,10 @@ function mosaicAt(p: Page, pt: [number, number]) {
     }
   }
 }
+const mosaicDia = () => 12 + 39 * (mosaicSize.value / 100) ** 1.4;
 function mosaicSeg(p: Page, a: [number, number], b: [number, number]) {
   const d = Math.hypot(b[0] - a[0], b[1] - a[1]);
-  const step = Math.max(2, ((12 + (mosaicSize.value / 100) * 40) * pxPerCss(p)) / 4);
+  const step = Math.max(2, (mosaicDia() * pxPerCss(p)) / 4);
   const n = Math.max(1, Math.ceil(d / step));
   for (let i = 1; i <= n; i++) mosaicAt(p, [a[0] + ((b[0] - a[0]) * i) / n, a[1] + ((b[1] - a[1]) * i) / n]);
 }
@@ -626,7 +630,6 @@ function onStageDown(e: PointerEvent) {
   if (!p || ai.running) return;
   if (tool.value === "pen" || tool.value === "mosaic") {
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-    pushUndo(p);
     const pt = imgPt(e.clientX, e.clientY, p);
     stroke = { last: pt, cells: new Set() };
     if (tool.value === "pen") penSeg(p, pt, pt);
@@ -1178,7 +1181,6 @@ onBeforeUnmount(() => {
           <span>크기</span>
           <input v-if="tool === 'pen'" v-model.number="penSize" type="range" min="0" max="100" aria-label="펜 크기" />
           <input v-else v-model.number="mosaicSize" type="range" min="0" max="100" aria-label="모자이크 크기" />
-          <button type="button" class="pe-undo" :disabled="!canUndo" aria-label="되돌리기" @click="undo"><Ico :src="EIC.undo" /></button>
         </label>
         <div v-if="tool === 'pen'" class="pe-colors" role="radiogroup" aria-label="펜 색">
           <button v-for="c in PEN_COLORS" :key="c" type="button" role="radio" class="pe-dot" :class="{ on: penColor === c }" :style="{ '--c': c }" :aria-checked="penColor === c" :aria-label="`색 ${c}`" @click="penColor = c" />

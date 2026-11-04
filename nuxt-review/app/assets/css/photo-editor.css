@@ -98,10 +98,9 @@
 /* 펜 · 모자이크 */
 .pe-p-brush { padding: 20px 0 13px; }
 .pe-p-brush.is-mosaic { padding-bottom: 26px; } /* 원본 슬라이더 중심 = 아래 줄 위 44 */
-.pe-size { display: flex; align-items: center; gap: 14px; padding: 0 12px 0 16px; font-size: 15px; color: #d9d9d9; }
+.pe-size { display: flex; align-items: center; gap: 16px; padding: 0 27px 0 16px; font-size: 15px; color: #d9d9d9; }
 .pe-size input { flex: 1; accent-color: #c9c9c9; height: 24px; }
-.pe-undo { width: 36px; height: 36px; display: grid; place-items: center; }
-.pe-undo:disabled { visibility: hidden; } /* 원본: 그린 것이 없으면 되돌리기 없음 */
+/* 원본(동처띠 9.2.9): 펜 · 모자이크에는 되돌리기 단추가 없다. 그만두려면 ✕(취소) */
 .pe-colors { display: flex; gap: 19px; padding: 27px 16px 10px; overflow-x: auto; scrollbar-width: none; }
 .pe-colors::-webkit-scrollbar { display: none; }
 .pe-dot { flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--c) !important; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12); position: relative; }

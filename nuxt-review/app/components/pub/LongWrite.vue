@@ -75,7 +75,13 @@ const rmBlock = (i: number) => {
   if (!blocks.value.length) blocks.value.push({ t: "text", v: "" });
 };
 const editImage = (i: number) => { const b = blocks.value[i]; if (b?.t !== "image") return; editIdx.value = i; editSrc.value = b.src; layer.value = "edit"; };
-const onEdited = (imgs: string[]) => { const b = blocks.value[editIdx.value]; if (b?.t === "image" && imgs[0]) b.src = imgs[0]; layer.value = ""; };
+const onEdited = (imgs: string[]) => {
+  const b = blocks.value[editIdx.value];
+  if (b?.t === "image" && imgs[0]) b.src = imgs[0];
+  // 편집기에서 「+」로 더한 사진은 고친 사진 바로 뒤에 넣는다
+  if (imgs.length > 1) blocks.value.splice(editIdx.value + 1, 0, ...imgs.slice(1).map((src) => ({ t: "image" as const, src })));
+  layer.value = "";
+};
 const post = () => {
   if (!title.value.trim()) return toast("제목을 써 주세요");
   if (!text.value && !images.value.length) return toast("본문을 써 주세요");
