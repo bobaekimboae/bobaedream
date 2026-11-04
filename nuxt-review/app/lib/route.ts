@@ -2,12 +2,16 @@
 import { reactive } from "vue";
 
 export type Board = "review" | "fuel";
+/** 글쓰기 종류(동처띠 발행 화면 탭 8개): 리뷰 · 연비 외 6개는 보배드림 동처띠 글쓰기 키트에서만 쓴다 */
+export type Kind = Board | "dynamic" | "ask" | "video" | "long" | "sell" | "price";
+export const KINDS: Kind[] = ["dynamic", "review", "ask", "video", "long", "sell", "price", "fuel"];
 export type View = "list" | "detail" | "write";
-export type Route = { board: Board; view: View; id: string };
+export type Route = { board: Kind; view: View; id: string };
 
 const parse = (): Route => {
   const q = new URLSearchParams(window.location.search);
-  const board: Board = q.get("board") === "fuel" ? "fuel" : "review";
+  const b = q.get("board") as Kind | null;
+  const board: Kind = b && KINDS.includes(b) ? b : "review";
   const v = q.get("view");
   const view: View = v === "detail" || v === "write" ? v : "list";
   return { board, view, id: q.get("id") ?? "" };

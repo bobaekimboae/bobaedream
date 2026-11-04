@@ -53,7 +53,7 @@ export const httpApi = (base: string, token = ""): CommunityApi => {
     if (res.status === 204) return undefined as T;
     const json = await res.json().catch(() => ({}));
     if (!res.ok) throw new ApiError(res.status, json.code ?? "error", json.error ?? "요청을 처리하지 못했어요", json.fields ?? []);
-    return (json.data ?? json) as T;
+    return (json && typeof json === "object" && "data" in json ? json.data : json) as T;
   };
   return {
     me: () => call("GET", "/me"),
@@ -76,6 +76,20 @@ const pickBase = () => {
   const v = new URLSearchParams(window.location.search).get("api") ?? "";
   try { const u = new URL(v); return u.protocol === "https:" || ["localhost", "127.0.0.1"].includes(u.hostname) ? u.origin : ""; } catch { return ""; }
 };
-const base = pickBase();
-export const api: CommunityApi = base ? httpApi(base) : mockApi;
-export const apiMode = base ? "server" : "mock";
+/**
+ * 로그인 토큰(Sanctum). 회원 로그인 연동 전 시험용: 주소 끝 `#token=…` 으로 한 번 넘기면 이 탭(sessionStorage)에만 두고 주소에서 바로 지운다.
+ * (# 뒤 값은 서버로 가지 않는다.) 정식 연동 때는 보배드림 로그인 쿠키 · 토큰으로 바꾼다.
+ */
+const pickToken = () => {
+  if (typeof window === "undefined") return "";
+  const KEY = "bbm-community-token";
+  const h = new URLSearchParams(window.location.hash.slice(1)).get("token");
+  try {
+    if (h) { sessionStorage.setItem(KEY, h); window.history.replaceState(window.history.state, "", window.location.pathname + window.location.search); }
+    return sessionStorage.getItem(KEY) ?? "";
+  } catch { return h ?? ""; }
+};
+export const apiBase = pickBase();
+export const apiToken = apiBase ? pickToken() : "";
+export const api: CommunityApi = apiBase ? httpApi(apiBase, apiToken) : mockApi;
+export const apiMode = apiBase ? "server" : "mock";

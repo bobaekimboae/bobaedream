@@ -1,9 +1,10 @@
 openapi: 3.1.0
 info:
-  title: 보배드림 커뮤니티 리뷰 · 연비 API
-  version: 1.0.0
+  title: 보배드림 커뮤니티 리뷰 · 연비 · 글쓰기 키트 API
+  version: 1.1.0
   description: |
-    Laravel 12 · PHP 8.4 · PostgreSQL 15. 화면 nuxt-review/app/lib/api/client.ts 의 httpApi 와 1:1.
+    Laravel 12 · PHP 8.4 · PostgreSQL 15. 화면 nuxt-review/app/lib/api/client.ts(리뷰 · 연비) · publish-client.ts(글쓰기 키트 6종)와 1:1.
+    글쓰기 키트 설명은 docs/community-publish-api.md.
     인증은 Sanctum 토큰(Authorization: Bearer). 오류는 모두 { ok:false, error, code, fields? }.
 servers:
   - url: http://localhost:8000/api/community
@@ -12,7 +13,7 @@ components:
   securitySchemes:
     bearer: { type: http, scheme: bearer }
   parameters:
-    board: { name: board, in: path, required: true, schema: { type: string, enum: [review, fuel] } }
+    board: { name: board, in: path, required: true, schema: { type: string, enum: [review, fuel, dynamic, ask, video, long, sell, price] } }
     post: { name: post, in: path, required: true, schema: { type: string } }
   responses:
     Error:
@@ -142,11 +143,67 @@ components:
     Draft:
       type: object
       properties:
-        board: { type: string, enum: [review, fuel] }
-        model_id: { type: string }
-        model_name: { type: string }
-        payload: { type: object, description: 화면 상태 그대로(최대 64KB) }
+        board: { type: string, enum: [review, fuel, dynamic, ask, video, long, sell, price] }
+        model_id: { type: [string, 'null'], description: '리뷰 · 연비만 필수' }
+        model_name: { type: [string, 'null'] }
+        payload: { type: object, description: '화면 상태 그대로(최대 256KB). 사진 · 영상은 먼저 올리고 주소만' }
         updated_at: { type: string, format: date-time }
+    Upload:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        upload_id: { type: string, format: uuid }
+        kind: { type: string, enum: [image, video] }
+        url: { type: [string, 'null'], description: '공개 주소. 파일 이름 = id. 영수증(purpose=receipt)은 null' }
+        cover_url: { type: string, description: 영상 표지 }
+        width: { type: integer }
+        height: { type: integer }
+        duration: { type: number, description: 영상 길이(초) }
+    PublishPost:
+      type: object
+      description: '화면 lib/publish.ts 의 Post. sell · extra 는 화면에 그대로 보일 한 줄(서버가 만듦)'
+      properties:
+        id: { type: string }
+        kind: { type: string, enum: [dynamic, ask, video, long, sell, price] }
+        createdAt: { type: string, format: date-time }
+        title: { type: string }
+        body: { type: string }
+        media: { type: array, items: { type: object, properties: { kind: { type: string, enum: [image, video] }, src: { type: string }, cover: { type: string }, duration: { type: number } } } }
+        car: { type: [object, 'null'] }
+        topic: { type: [string, 'null'] }
+        circle: { type: [string, 'null'] }
+        claim: { type: [string, 'null'] }
+        city: { type: [string, 'null'] }
+        vote:
+          type: [object, 'null']
+          properties: { title: { type: string }, multi: { type: boolean }, options: { type: array, items: { type: string } }, until: { type: string }, endsAt: { type: string }, closed: { type: boolean }, counts: { type: array, items: { type: integer } }, voters: { type: integer }, mine: { type: array, items: { type: integer } } }
+        ownerPrice: { type: [object, 'null'], description: '{ car, month, nake, total, city } — 금액은 만원 문자열' }
+        parts: { type: array, items: { type: object } }
+        sell: { type: [object, 'null'], additionalProperties: { type: string } }
+        extra: { type: [object, 'null'], additionalProperties: { type: string } }
+        author: { type: string }
+        avatar: { type: string }
+        views: { type: integer }
+        likes: { type: integer }
+        comments: { type: integer }
+        can: { $ref: '#/components/schemas/Can' }
+    PublishInput:
+      type: object
+      description: '종류별 필수: dynamic 사진 또는 본문 · ask 본문 5자 이상 · video 영상 1개 + 제목 · long 제목 + 본문/사진 · sell 사진 1~20 + model_id + sell · price model_id + price(실구매가 ≥ 차량가 50%)'
+      properties:
+        title: { type: [string, 'null'], maxLength: 40 }
+        body: { type: [string, 'null'] }
+        media: { type: array, items: { type: string, format: uuid }, description: '올린 파일 id, 화면 순서(첫 장 = 대표)' }
+        topic: { type: [string, 'null'], maxLength: 40 }
+        circle: { type: [string, 'null'], maxLength: 30 }
+        claim: { type: [string, 'null'], enum: ['AI로 만든 내용 포함', '꾸며 낸 연출 포함', '광고 · 홍보 내용 포함', '개인 의견, 참고만', '표시 필요 없음', null] }
+        city: { type: [string, 'null'], maxLength: 20 }
+        model_id: { type: [string, 'null'] }
+        vote: { type: object, description: 'dynamic · ask', properties: { title: { type: string, maxLength: 30 }, multi: { type: boolean }, options: { type: array, minItems: 2, maxItems: 10, items: { type: string, maxLength: 20 } }, ends_in_days: { type: integer, enum: [1, 3, 7, 30] } } }
+        owner_price: { type: object, description: 'dynamic · long 에 끼운 구매가 카드', properties: { model_id: { type: string }, month: { type: string, example: '2026.10' }, list_price: { type: number }, paid_price: { type: number }, city: { type: string } } }
+        parts: { type: array, maxItems: 10, description: long, items: { type: object, properties: { type: { type: string, enum: [휠, 타이어, 브레이크, 서스펜션, 배기, 랩핑, 직접 입력] }, brand: { type: string }, metric: { type: string }, price: { type: string } } } }
+        sell: { type: object, properties: { reg_month: { type: string, example: '2021.03' }, odometer_km: { type: integer }, color: { type: string }, owner_changes: { type: integer }, price_manwon: { type: integer } } }
+        price: { type: object, properties: { list_price: { type: number }, paid_price: { type: number }, purchase_month: { type: string }, city: { type: string }, pay: { type: [string, 'null'], enum: [full, loan, null] }, dealer: { type: [string, 'null'] }, gift: { type: [string, 'null'] }, receipt_upload_id: { type: [string, 'null'], format: uuid } } }
 paths:
   /me:
     get:
@@ -191,6 +248,10 @@ paths:
         default: { $ref: '#/components/responses/Error' }
   /{board}/posts/{post}:
     parameters: [{ $ref: '#/components/parameters/board' }, { $ref: '#/components/parameters/post' }]
+    get:
+      summary: 글 한 건(상세, 로그인 없이 됨). 볼 때마다 조회 수 +1
+      security: [{}, { bearer: [] }]
+      responses: { '200': { description: OK }, '404': { $ref: '#/components/responses/Error' } }
     delete:
       summary: 글 삭제(작성자 · 운영자). 복구용으로 남김
       security: [{ bearer: [] }]
@@ -236,9 +297,49 @@ paths:
       security: [{ bearer: [] }]
       requestBody:
         required: true
-        content: { application/json: { schema: { type: object, required: [model_id, model_name, payload], properties: { model_id: { type: string }, model_name: { type: string, maxLength: 60 }, payload: { type: object } } } } }
+        content: { application/json: { schema: { type: object, required: [payload], properties: { model_id: { type: [string, 'null'], description: '리뷰 · 연비만 필수' }, model_name: { type: [string, 'null'], maxLength: 60 }, payload: { type: object } } } } }
       responses: { '200': { description: 저장됨, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/Draft' } } } } } }, default: { $ref: '#/components/responses/Error' } }
     delete:
       summary: 임시저장 지우기(「저장 안 함」)
       security: [{ bearer: [] }]
       responses: { '204': { $ref: '#/components/responses/NoContent' } }
+  /uploads:
+    post:
+      summary: 사진 · 영상 올리기(1분에 60건, 하루 300건). 사진은 다시 저장해 촬영 정보(GPS) 제거 · 긴 변 2560
+      security: [{ bearer: [] }]
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [file]
+              properties:
+                file: { type: string, format: binary, description: '사진 jpeg · png · webp · heic 15MB, 영상 mp4 · mov · webm 300MB' }
+                purpose: { type: string, enum: [post, receipt], default: post }
+                cover: { type: string, format: binary, description: 영상 표지 }
+                duration: { type: number, description: '영상 길이(초, 600 이하)' }
+      responses:
+        '201': { description: 올라감, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/Upload' } } } } } }
+        default: { $ref: '#/components/responses/Error' }
+  /{kind}/posts:
+    parameters: [{ name: kind, in: path, required: true, schema: { type: string, enum: [dynamic, ask, video, long, sell, price] } }]
+    post:
+      summary: 글쓰기 키트 등록(1분에 3건). 등록하면 그 종류 임시저장을 지움
+      security: [{ bearer: [] }]
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/PublishInput' } } } }
+      responses:
+        '201': { description: 등록됨, content: { application/json: { schema: { type: object, properties: { data: { $ref: '#/components/schemas/PublishPost' } } } } } }
+        default: { $ref: '#/components/responses/Error' }
+  /{kind}/posts/{post}/vote:
+    parameters: [{ name: kind, in: path, required: true, schema: { type: string, enum: [dynamic, ask] } }, { $ref: '#/components/parameters/post' }]
+    put:
+      summary: 투표(한 사람 한 번, 다시 보내면 바꿈). 마감 뒤 409
+      security: [{ bearer: [] }]
+      requestBody: { required: true, content: { application/json: { schema: { type: object, required: [choices], properties: { choices: { type: array, items: { type: integer } } } } } } }
+      responses: { '200': { description: '투표 결과(PublishPost.vote)' }, default: { $ref: '#/components/responses/Error' } }
+  /drafts:
+    get:
+      summary: 내 임시저장 전부(글쓰기 키트 「임시저장함」)
+      security: [{ bearer: [] }]
+      responses: { '200': { description: OK, content: { application/json: { schema: { type: object, properties: { data: { type: array, items: { $ref: '#/components/schemas/Draft' } } } } } } } }

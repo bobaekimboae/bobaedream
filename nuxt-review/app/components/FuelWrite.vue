@@ -12,9 +12,9 @@ import { SIDO, type CarModel, type FuelPost } from "../lib/data";
 import { api } from "../lib/api/client";
 import type { FuelInput } from "../lib/api/contract";
 import { ask, toast } from "../lib/ui";
-import { back, replace, setLeaveGuard, type Board } from "../lib/route";
+import { back, replace, setLeaveGuard, type Kind } from "../lib/route";
 
-const emit = defineEmits<{ switch: [Board] }>();
+const emit = defineEmits<{ switch: [Kind] }>();
 const BODY_MAX = 2000;
 const EXAMPLES = ["register/guide/car_interior_cluster_on.jpg", "register/guide/car_interior_dashboard.jpg"];
 

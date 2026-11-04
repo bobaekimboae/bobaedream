@@ -11,6 +11,13 @@ use Illuminate\Http\Request;
 /** GET · PUT · DELETE /api/community/{board}/draft — 게시판마다 한 사람 1건. 없으면 data:null */
 class DraftController
 {
+    /** GET /api/community/drafts — 내 임시저장 전부(글쓰기 키트 「임시저장함」) */
+    public function index(Request $request): JsonResponse
+    {
+        $all = Draft::where('user_id', $request->user()->id)->orderByDesc('updated_at')->get();
+        return response()->json(['data' => $all->map(fn ($d) => $this->shape($d))->values()]);
+    }
+
     public function show(Request $request, Board $board): JsonResponse
     {
         $d = Draft::where('user_id', $request->user()->id)->where('board', $board->value)->first();

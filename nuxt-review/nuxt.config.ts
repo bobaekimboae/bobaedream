@@ -25,7 +25,7 @@ export default defineNuxtConfig({
     "@kit": fileURLToPath(new URL("../nuxt-shootkit/lib", import.meta.url)),
     "@proto": fileURLToPath(new URL("../src/prototype", import.meta.url)),
   },
-  css: ["~/assets/css/app.css"],
+  css: ["~/assets/css/app.css", "~/assets/css/pub.css"],
   components: false,
   imports: { autoImport: false },
   typescript: { strict: true, tsConfig: { compilerOptions: { noUncheckedIndexedAccess: false } } },
