@@ -3,12 +3,15 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'docs/**'
-      - 'admin-server/**'
-      - 'research/**'
-      - 'tests/**'
-      - '**/*.md'
+    paths:
+      - '**'
+      - '!docs/**'
+      - '!admin-server/**'
+      - '!research/**'
+      - '!tests/**'
+      - '!**/*.md'
+      - 'tests/shortform-audio-qc.test.mjs'
+      - 'tests/fixtures/shortform-audio/**'
   workflow_dispatch:
 
 permissions:
