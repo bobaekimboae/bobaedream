@@ -1,0 +1,372 @@
+
+:root{
+  --font-system:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+  --font-nav:var(--font-system);
+  --font-side-title:var(--font-system);
+  --bg:#f8f9fd;
+  --white:#fff;
+  --ink:#222;
+  --muted:#858894;
+  --soft:#697183;
+  --line:#f5f5f5;
+  --line-strong:#e7e7e7;
+  --accent-blue:#1264c4;
+  --dark:#222428;
+  --dark-2:#17191d;
+  --red:#e53935;
+}
+*{box-sizing:border-box}
+html,body{margin:0;min-width:1280px;background:var(--bg);color:#000;font-family:var(--font-system);font-size:12px;font-weight:400;line-height:normal;-webkit-font-smoothing:antialiased}
+html.qf-font-pretendard{--qf-font:var(--font-system)}
+html.qf-font-pretendard body{font-family:var(--font-system)!important}
+button,input,select{font:inherit}
+button,a{color:inherit}
+a{text-decoration:none}
+button{border:0;background:none;padding:0;cursor:pointer}
+ul,ol{list-style:none;margin:0;padding:0}
+.globalBar{height:60px;background:#fff}
+.globalInner{width:1280px;height:60px;margin:0 auto;display:flex;align-items:center}
+.brandGroup{display:flex;align-items:center;height:28px;font-family:var(--font-nav);font-size:17px;line-height:28px;font-weight:400}
+.brandNaver{color:#03c75a;font-weight:900;margin-right:7px}
+.brandGame{color:#202124;font-weight:900;margin-right:12px}
+.globalDivider{width:1px;height:14px;background:#d8dbe3;margin-right:12px}
+.globalLink{display:inline-block;padding:0 5px;color:#858894}
+.globalSearch{margin-left:auto;width:300px;height:38px;border-radius:20px;background:#f1f3f8;display:flex;align-items:center;padding:0 15px 0 18px;color:#9a9daa}
+.globalSearch input{width:100%;border:0;outline:0;background:transparent;color:#444;font-family:var(--font-system);font-size:14px;line-height:17px}
+.globalSearch input::placeholder{color:#a4a7b2}
+.globalSearchIcon{width:17px;height:17px;border:2px solid #8f94a1;border-radius:50%;position:relative;flex:0 0 17px}
+.globalSearchIcon:after{content:"";position:absolute;width:7px;height:2px;background:#8f94a1;right:-5px;bottom:-3px;transform:rotate(45deg);border-radius:2px}
+.ticketButton{width:40px;height:40px;margin-left:18px;display:grid;place-items:center}
+.ticketShape{width:27px;height:20px;border:2px solid #222;border-radius:4px;position:relative}
+.ticketShape:before,.ticketShape:after{content:"";position:absolute;top:7px;width:4px;height:4px;border-radius:50%;background:#fff;border:2px solid #222}
+.ticketShape:before{left:-5px}.ticketShape:after{right:-5px}
+.loginButton{width:60px;height:30px;margin-left:8px;border:1px solid rgba(0,0,0,.2);border-radius:6px;color:#444;font-size:12px;line-height:14px;font-weight:700;background:#fff}
+.loungeHero{height:72px;background:#fff}
+.loungeHeroInner{width:calc(100% - 80px);max-width:1200px;height:72px;margin:0 auto;display:grid;grid-template-columns:minmax(180px,1fr) 520px auto;align-items:center;gap:16px}
+.loungeTitleBlock{min-width:0;display:flex;align-items:center;color:#222}
+.loungeBrandHome{height:40px;display:inline-flex;align-items:center;gap:7px;flex:0 0 auto}
+.loungeBrandEmblem{display:block;width:30px;height:30px;overflow:hidden;border-radius:50%;flex:0 0 30px}
+.loungeBrandEmblem img{display:block;width:122px;height:30px;max-width:none}
+.loungeBrandWord{color:#306bd9;font-size:20px;line-height:24px;font-weight:800;letter-spacing:-.045em;white-space:nowrap}
+.loungeBrandDivider{display:none}
+.loungeMenuButton{display:none;width:40px;height:40px;border:0;border-radius:10px;background:transparent;align-items:center;justify-content:center;cursor:pointer;flex:0 0 40px}
+.loungeMenuButton:hover{background:#f5f6f7}
+.loungeMenuButton:focus-visible{outline:2px solid #222;outline-offset:2px}
+.loungeMenuButton img{display:block;width:24px;height:24px}
+.loungeTitleBlock h1{display:none}
+.loungeSearch{width:520px;height:40px;padding:0 4px;border-radius:999px;background:#f4f4f4;display:flex;align-items:center;gap:0;overflow:hidden}
+.loungeSearchCategory{height:32px;padding:0 6px 0 12px;display:inline-flex;align-items:center;gap:5px;flex:0 0 auto;color:#222;font-size:15px;line-height:20px;font-weight:400;white-space:nowrap}
+.loungeSearchCategory img{display:block;width:16px;height:16px}
+.loungeSearchDivider{width:1px;height:20px;margin:0 8px;background:#d9d9d9;flex:0 0 1px}
+.loungeSearchButton{width:32px;height:32px;border-radius:50%;background:#306bd9;display:flex;align-items:center;justify-content:center;flex:0 0 32px;color:#fff}
+.loungeSearchButton img{display:block;width:16px;height:16px;filter:brightness(0) invert(1)}
+.loungeSearchInput{min-width:0;height:40px;flex:1;border:0;outline:0;background:transparent;padding:0 8px 0 0;color:#222;font-size:15px;line-height:24px;font-weight:400}
+.loungeSearchInput::placeholder{color:#9da2ad}
+.loungeSearch:focus-within{background:#fff;box-shadow:0 0 0 1.5px #306bd9}
+.loungeActions{height:40px;display:flex;align-items:center;justify-content:flex-end;gap:6px;white-space:nowrap}
+.loungeActionIcon{width:36px;height:40px;display:flex;align-items:center;justify-content:center;border-radius:999px;background:#fff;flex:0 0 36px}
+.loungeActionIcon img{display:block;width:24px;height:24px}
+.loungeLogin,.loungeWrite,.loungeAccount{height:40px;border:1px solid #e7e7e7;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#222;font-size:14px;line-height:20px;font-weight:600}
+.loungeLogin{padding:0 11px}
+.loungeWrite{width:104px;padding:0 13px;border-color:#306bd9;background:#306bd9;color:#fff}
+.loungeAccount{width:75px;padding:0 9px 0 7px;gap:7px}
+.loungeAccountAvatar{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#f4f4f4}
+.loungeAccountAvatar img{display:block;width:20px;height:20px}
+.loungeAccountChevron{display:block;width:20px;height:20px}
+.loungeNav{height:52px;background:#fff;border-bottom:1px solid #e7e7e7}
+.loungeNavInner{width:calc(100% - 80px);max-width:1200px;height:52px;margin:0 auto;display:flex;align-items:center;gap:22px}
+.loungeTab{position:relative;height:52px;color:#595959;font-size:16px;line-height:22px;font-weight:500;padding:0 2px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;transition:color .18s ease}
+.loungeTab:hover{color:#222}
+.loungeTab:focus-visible{outline:2px solid #222;outline-offset:1px}
+.loungeTab.active{color:#222;font-weight:700}
+.loungeTab.active:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;border-radius:3px 3px 0 0;background:#222}
+.topicNav{height:56px;background:#fff;border-bottom:1px solid #e7e7e7}
+.topicNav.is-hidden{display:none}
+.topicNavInner{width:1280px;height:56px;margin:0 auto;display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none}
+.topicNavInner::-webkit-scrollbar{display:none}
+.topicTab{height:36px;padding:0 14px;border-radius:999px;color:#666;font-size:14px;line-height:18px;font-weight:600;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex:0 0 auto}
+.topicTab:hover{background:#f4f5f7;color:#222}
+.topicTab:focus-visible{outline:2px solid #222;outline-offset:1px}
+.topicTab.active{background:#e9ebee;color:#111;font-weight:700}
+.pageWrap{width:1280px;margin:24px auto 0}
+.topBanner{height:80px;border-radius:8px;overflow:hidden;background:
+  linear-gradient(90deg,#201518 0%,#3b151a 34%,#683033 64%,#121318 100%);position:relative;color:#fff;display:flex;align-items:center;justify-content:center}
+.topBanner:before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1542362567-b07e54358753?auto=format&fit=crop&w=1500&q=76") center 44%/cover;opacity:.32}
+.bannerCopy{position:relative;font-size:27px;line-height:32px;font-weight:700;color:#ffe8c2;text-shadow:0 2px 16px rgba(0,0,0,.55)}
+.adBadge{position:absolute;right:8px;top:7px;width:23px;height:16px;border-radius:3px;border:1px solid rgba(255,255,255,.65);font-size:11px;line-height:14px;text-align:center;color:#fff;background:rgba(0,0,0,.18)}
+.layoutGrid{display:grid;grid-template-columns:210px 742px 280px;column-gap:24px;margin-top:22px;align-items:start}
+.leftPanel{width:210px}
+.sideCard{border-radius:12px;background:#fff}
+.leftMenu{min-height:923px;padding:20px 24px}
+.writeButton{width:100%;height:43px;border-radius:8px;background:var(--dark);color:#fff;font-size:15px;line-height:19px;font-weight:700}
+.menuSection{padding-bottom:15px;border-bottom:1px solid #f5f5f5}
+.menuSection+.menuSection{padding-top:17px}
+.menuItem{height:20px;margin-top:10px;display:flex;align-items:center;color:#222;font-size:14px;line-height:17px;font-weight:500;white-space:nowrap}
+.menuItem.active{color:var(--accent-blue);font-weight:700}
+.menuItem:before{content:"";width:4px;height:4px;border-radius:50%;background:#d5d9e4;margin-right:8px}
+.menuItem.active:before{width:9px;height:9px;border-radius:3px;background:#e8f1ff;border:1px solid #9fc2ef}
+.menuTitle{display:block;margin:0 0 9px;color:#000;font-size:15px;line-height:18px;font-weight:700}
+.newDot{width:6px;height:6px;margin-left:4px;border-radius:50%;background:#ff2b4a}
+.imagePanel{margin-top:24px;padding:27px 24px 24px}
+.imagePanelHead{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}
+.imagePanelHead strong{font-family:var(--font-side-title);font-size:17px;line-height:20px;font-weight:400;color:#000}
+.imagePanelHead span{font-size:13px;line-height:16px;color:#858894}
+.imageGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.imageGrid img{width:100%;aspect-ratio:1;border-radius:7px;object-fit:cover;background:#f1f3f5}
+.guidePanel{margin-top:24px;padding:23px 24px}
+.guideItem{height:38px;display:flex;align-items:center;font-size:14px;line-height:17px;font-weight:700;color:#222}
+.guideIcon{width:23px;height:23px;margin-right:10px;border-radius:7px;background:#f1f2f6;display:grid;place-items:center;color:#1264c4;font-size:14px}
+.centerPanel{width:742px;margin-left:0}
+.boardTitleArea{height:72px;border-radius:12px;background:#fff;padding:26px 24px 25px}
+.boardTitleArea strong{font-size:18px;line-height:21px;font-weight:700;color:#222}
+.articleControl{height:69px;display:flex;align-items:center;padding:14px 0 15px;position:relative}
+.sortFilters{display:flex;align-items:center;gap:14px;height:20px}
+.sortButton{width:auto;height:20px;margin:0;display:inline-flex;align-items:center;flex:0 0 auto;color:#858894;font-size:15px;line-height:19px;font-weight:400;white-space:nowrap;vertical-align:top}
+.sortButton.active{color:#222;font-weight:800}
+.sortCheckIcon{display:none;width:11px;height:11px;margin-right:4px;flex:0 0 11px;color:currentColor}
+.sortButton.active .sortCheckIcon{display:block}
+.searchBox{margin-left:auto;display:flex;height:40px}
+.searchSelect{width:110px;height:40px;border:0;border-radius:5px;background:#edf0f6;color:#4f5561;padding:0 35px 0 15px;font-size:13px;font-weight:400;appearance:none;background-image:linear-gradient(45deg,transparent 50%,#a2a8b5 50%),linear-gradient(135deg,#a2a8b5 50%,transparent 50%);background-position:calc(100% - 15px) 17px,calc(100% - 10px) 17px;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.searchInputWrap{width:196px;height:40px;margin-left:6px;border-radius:5px;background:#edf0f6;display:flex;align-items:center;padding:0 13px}
+.searchInputWrap input{width:100%;border:0;background:transparent;outline:0;font-size:13px;color:#50545f}
+.searchInputWrap input::placeholder{color:#a6abb7}
+.smallSearchIcon{width:16px;height:16px;border:2px solid #a2a7b2;border-radius:50%;position:relative;flex:0 0 16px}
+.smallSearchIcon:after{content:"";position:absolute;width:6px;height:2px;right:-5px;bottom:-3px;border-radius:2px;background:#a2a7b2;transform:rotate(45deg)}
+.cleanBot{height:38px;border-radius:12px;background:#fff;border:1px solid #e8ebf1;display:flex;align-items:center;padding:0 18px;color:#525662;font-size:14px;line-height:17px;font-weight:400}
+.botIcon{width:18px;height:18px;margin-right:9px;border-radius:50%;background:#e8f1ff;position:relative}
+.botIcon:before{content:"";position:absolute;left:5px;top:5px;width:8px;height:6px;border-radius:5px;background:#1264c4}
+.botIcon:after{content:"";position:absolute;left:8px;top:2px;width:2px;height:5px;background:#1264c4}
+.cleanSetting{margin-left:auto;color:#858894;font-size:13px;line-height:16px}
+.boardTableCard{margin-top:16px;border-radius:12px;background:#fff;padding:14px 24px 26px}
+.boardTable{width:694px;border-collapse:collapse;table-layout:fixed}
+.boardTable caption{overflow:hidden;position:absolute;width:1px;height:1px;clip:rect(0 0 0 0)}
+.boardTable thead tr{height:40px;border-bottom:1px solid var(--line-strong)}
+.boardTable th{height:40px;color:#000;font-size:13px;line-height:16px;font-weight:600;text-align:center;vertical-align:middle}
+.boardTable th.titleHead{text-align:left;padding-left:10px}
+.boardTable th.authorHead{text-align:left;padding-left:10px}
+.boardTable tbody tr{height:44px;border-bottom:1px solid var(--line);background:#fff}
+.boardTable tbody tr:hover{background:#fafbfc}
+.boardTable td{height:44px;padding:0;color:#000;font-size:12px;font-weight:400;vertical-align:middle}
+.redditFeed{display:none}
+.redditFeedCard{display:block;border:1px solid #e1e4e8;border-radius:12px;background:#fff;padding:18px 20px 16px;color:#222;transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease}
+.redditFeedCard+.redditFeedCard{margin-top:10px}
+.redditFeedCard:hover{border-color:#c8cdd4;box-shadow:0 3px 14px rgba(30,38,48,.06)}
+.redditFeedMeta{display:flex;align-items:center;min-width:0;color:#727985;font-size:12px;line-height:18px}
+.redditFeedAvatar{width:26px;height:26px;margin-right:9px;border-radius:50%;background:#222;color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;flex:0 0 auto}
+.redditFeedAuthor{color:#30343b;font-weight:700}
+.redditFeedDot{width:3px;height:3px;margin:0 7px;border-radius:50%;background:#b7bdc6;flex:0 0 auto}
+.redditFeedCategory{margin-left:auto;padding:4px 8px;border-radius:999px;background:#f1f3f5;color:#4f5661;font-size:12px;line-height:16px;font-weight:700}
+.redditFeedTitle{display:block;margin-top:12px;color:#17191d;font-size:18px;line-height:26px;font-weight:700;letter-spacing:-.2px}
+.redditFeedTitle:hover{text-decoration:underline;text-underline-offset:3px}
+.redditFeedPreview{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin-top:7px;color:#555d68;font-size:14px;line-height:22px}
+.redditFeedMedia{position:relative;width:100%;margin-top:14px;border-radius:10px;overflow:hidden;background:#eef0f3}
+.redditFeedMedia.is-image,.redditFeedMedia.is-video{aspect-ratio:16/9}
+.redditFeedMedia>img{display:block;width:100%;height:100%;object-fit:cover}
+.redditFeedMedia>video{display:block;width:100%;height:100%;object-fit:cover;background:#101216}
+.redditFeedGallery{height:320px;display:grid;grid-template-columns:1.45fr 1fr;grid-template-rows:1fr 1fr;gap:3px;background:#fff}
+.redditFeedGallery img{display:block;width:100%;height:100%;object-fit:cover}
+.redditFeedGallery img:first-child{grid-row:1/3}
+.redditFeedMediaBadge{position:absolute;right:10px;top:10px;height:26px;padding:0 9px;border-radius:13px;background:rgba(10,12,16,.7);color:#fff;font-size:12px;line-height:26px;font-weight:700}
+.redditFeedStats{display:flex;align-items:center;gap:16px;margin-top:14px;color:#737b87;font-size:12px;line-height:18px;font-weight:600}
+.redditFeedStat{display:inline-flex;align-items:center;gap:5px}
+.redditFeedStat:before{content:"";width:5px;height:5px;border:1.5px solid #969da8;border-radius:50%}
+.boardTitleCell{display:flex;align-items:center;height:43px}
+.boardLabel{display:block;height:21px;margin-left:5px;padding:4px 5px 3px;border-radius:6px;background:#f5f6f9;color:#697183;font-size:12px;line-height:14px;font-weight:400;white-space:nowrap}
+.articleTitle{display:block;margin-left:7px;color:#222;font-size:14px;line-height:17px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.replyNum{display:inline;margin-left:4px;color:#1264c4;font-size:13px;line-height:15px;font-weight:400;vertical-align:1px}
+.locked{display:inline-flex;width:15px;height:15px;margin-left:4px;border-radius:50%;border:1px solid #c7ccd7;color:#98a0af;align-items:center;justify-content:center;font-size:10px;line-height:12px}
+.boardTable td.authorCell{padding-left:10px!important;color:#697183;font-size:13px;line-height:15px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.boardTable td.centerCell{text-align:center;color:#697183;font-size:13px;line-height:16px;font-weight:400}
+.boardNoticeIcon{display:block;width:13px;height:13px;margin:0 7px 0 5px;filter:brightness(0);opacity:.55;flex:0 0 13px}
+.boardTable tr.isNotice .articleTitle{margin-left:0;font-weight:700}
+.boardTable tr.isNotice .boardLabel{font-weight:700}
+.pagination{height:66px;margin-top:24px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;gap:17px}
+.pageNo{min-width:12px;height:25px;color:#697183;font-size:13px;line-height:25px;text-align:center}
+.pageNo.active{width:27px;border-radius:8px;background:#f0f1f5;color:#222;font-weight:700}
+.pageNext{width:27px;height:27px;border-radius:9px;background:#f1f2f7;color:#747987;font-size:18px}
+.rightPanel{width:280px}
+.popularCard{height:363px;border-radius:12px;background:#fff;padding:30px 24px 30px 21px}
+.rightCardTitle{display:block;color:#000;font-family:var(--font-side-title);font-size:17px;line-height:20px;font-weight:400}
+.rightList{margin-top:21px}
+.rightItem{height:19px;margin-top:8px}
+.rightItem:first-child{margin-top:0}
+.rightLink{height:19px;display:flex;align-items:center;min-width:0}
+.rightLink:before{content:"";width:3px;height:3px;border-radius:50%;background:#c8ccd7;margin:0 8px 0 3px;flex:0 0 auto}
+.rightText{display:block;color:#222;font-size:14px;line-height:19px;font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rightReply{display:inline;margin-left:4px;color:#1264c4;font-size:13px;line-height:15px;font-weight:400;white-space:nowrap}
+.hotBoards{margin-top:24px;border-radius:12px;background:#fff;padding:26px 24px 27px 21px}
+.boardShortcut{height:34px;margin-top:10px;display:flex;align-items:center;border-radius:8px;color:#222}
+.boardShortcut:first-of-type{margin-top:18px}
+.shortcutIcon{width:24px;height:24px;border-radius:8px;background:#f2f4f8;color:#1264c4;display:grid;place-items:center;margin-right:10px;font-size:12px;font-weight:700}
+.shortcutText{font-size:14px;line-height:17px;font-weight:700}
+.shortcutMeta{margin-left:auto;color:#858894;font-size:12px;line-height:15px}
+.rightAd{height:226px;margin-top:24px;border-radius:3px;background:url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=620&q=80") center/cover;position:relative;overflow:hidden}
+.rightAd:after{content:"시승·정비 후기 모음";position:absolute;left:18px;bottom:18px;color:#fff;font-size:20px;line-height:24px;font-weight:700;text-shadow:0 2px 9px rgba(0,0,0,.55)}
+.rightAd .adBadge{right:6px;top:6px}
+.footer{width:1280px;margin:78px auto 45px;color:#858894;font-size:12px;line-height:15px;text-align:center}
+.railPrimary{display:none}
+.mobileCommunityNav,.mobileMenuBackdrop,.mobileWriteButton{display:none}
+html.layout-reddit,html.layout-reddit body{min-width:1280px;background:#fff}
+.layout-reddit .loungeHero{position:sticky;top:0;z-index:30;border-bottom:0}
+.layout-reddit .loungeNav{position:sticky;top:72px;z-index:29;display:block}
+.layout-reddit .topicNav{display:none}
+.layout-reddit .pageWrap{width:1280px;margin:0 auto}
+.layout-reddit .topBanner{display:none}
+.layout-reddit .layoutGrid{grid-template-columns:240px 742px 250px;column-gap:24px;margin-top:20px;align-items:start}
+.layout-reddit .leftPanel{width:240px;height:auto;min-height:0;padding:0;border:0;background:transparent;position:sticky;top:144px;align-self:start;overflow:visible}
+.layout-reddit .leftPanel::-webkit-scrollbar{width:8px}
+.layout-reddit .leftPanel::-webkit-scrollbar-thumb{border:2px solid transparent;border-radius:8px;background:#d8dadd;background-clip:padding-box}
+.layout-reddit .sideCard.leftMenu{min-height:0;padding:20px 24px 24px;border:0;border-radius:0;background:transparent;box-shadow:none}
+.layout-reddit .railPrimary{display:none}
+.layout-reddit .railPrimaryItem{width:100%;height:40px;padding:0 12px;border-radius:8px;display:flex;align-items:center;color:#21272a;font-size:14px;line-height:20px;font-weight:500;text-align:left}
+.layout-reddit .railPrimaryItem:hover{background:#f2f4f5}
+.layout-reddit .railPrimaryItem.active{background:#e5ebee;color:#0f1a1c;font-weight:700}
+.layout-reddit .railPrimaryItem+.railPrimaryItem{margin-top:1px}
+.layout-reddit .railNavIcon{display:block;width:20px;height:20px;margin-right:12px;object-fit:contain;flex:0 0 20px}
+.layout-reddit .railPrimaryItem[data-community-create]{margin-top:2px}
+.layout-reddit .writeButton{width:100%;height:42px;margin:0 0 10px;border-radius:7px;display:flex;align-items:center;justify-content:center;gap:8px;background:#242424;color:#fff;font-size:15px;font-weight:700}
+.layout-reddit .writeButton:hover{background:#111}
+.layout-reddit .writeButtonMark{display:none}
+.layout-reddit .railAll{height:38px;padding:0 0 0 1px;border-radius:0;color:#3c4147;font-size:13px;font-weight:600}
+.layout-reddit .railAll:hover{background:transparent;color:#111}
+.layout-reddit .railAllIcon{width:14px;height:14px;margin-right:7px;opacity:.55}
+.layout-reddit .railGroup{padding:0 0 11px;border-bottom:1px solid #eceef0}
+.layout-reddit .railGroup:last-child{border-bottom:0}
+.layout-reddit .railGroupHeader{width:100%;height:auto;padding:14px 0 7px;display:flex;align-items:center;border-radius:0;color:#202428;font-size:14px;line-height:20px;font-weight:800;letter-spacing:-.2px;text-align:left}
+.layout-reddit .railGroupHeader:hover{background:transparent;color:#202428}
+.layout-reddit .railGroupIcon{width:15px;height:15px;margin-right:6px;object-fit:contain;opacity:.72}
+.layout-reddit .railGroupCaret{display:block;width:16px;height:16px;margin-left:auto;transition:transform .18s ease}
+.layout-reddit .railGroup.is-collapsed .railGroupCaret{transform:rotate(-90deg)}
+.layout-reddit .railGroup.is-collapsed .railGroupBody{display:none}
+.layout-reddit .menuItem,.layout-reddit .railResourceItem{height:31px;margin:0;padding:0 0 0 10px;border-radius:0;display:flex;align-items:center;color:#545a61;font-size:13px;line-height:18px;font-weight:500;white-space:nowrap}
+.layout-reddit .menuItem:hover{background:transparent;color:#111;text-decoration:underline;text-underline-offset:3px}
+.layout-reddit .menuItem:before{display:block;content:"";width:3px;height:3px;margin-right:7px;border-radius:50%;background:#c7cbd0;flex:0 0 3px}
+.layout-reddit .menuItem.active{background:transparent;color:#111;font-weight:800}
+.layout-reddit .railResourceItem:hover{background:#f2f4f5}
+.layout-reddit .railCommunityAvatar{width:24px;height:24px;margin-right:10px;border-radius:50%;display:grid;place-items:center;flex:0 0 24px;background:#edf1f4;color:#354148;font-size:10px;line-height:12px;font-weight:800}
+.layout-reddit .railCommunityAvatar.is-blue{background:#e7f0ff;color:#1264c4}
+.layout-reddit .railCommunityAvatar.is-red{background:#fff0f0;color:#d43b3b}
+.layout-reddit .railCommunityAvatar.is-green{background:#eaf8f0;color:#16814b}
+.layout-reddit .railCommunityAvatar.is-orange{background:#fff2e7;color:#c26013}
+.layout-reddit .railResourceItem .railNavIcon{margin-right:12px}
+.layout-reddit .menuItem.has-avatar{height:42px;padding:0 6px;gap:10px;border-radius:8px;color:#3c4147;font-size:14px;line-height:20px;font-weight:500}
+.layout-reddit .menuItem.has-avatar:before{display:none}
+.layout-reddit .menuItem.has-avatar:hover{background:transparent;color:#111;text-decoration:none}
+.layout-reddit .menuItem.has-avatar.active{background:transparent;color:#306bd9;font-weight:700}
+.layout-reddit .boardAvatar{width:30px;height:30px;border-radius:50%;display:block;flex:0 0 30px;overflow:hidden;background-color:#eef3f8;background-repeat:no-repeat;background-position:center;background-size:cover;box-shadow:0 0 0 1px rgba(28,39,54,.10)}
+.layout-reddit .boardAvatar.avatar-20,.layout-reddit .boardAvatar.avatar-10,.layout-reddit .boardAvatar.avatar-13{background-image:url("assets/subreddit-icons/cars.webp")}
+.layout-reddit .boardAvatar.avatar-01{background-image:url("assets/subreddit-icons/hyundai.webp")}
+.layout-reddit .boardAvatar.avatar-02,.layout-reddit .boardAvatar.avatar-12{background-image:url("assets/subreddit-icons/cartalkuk.webp")}
+.layout-reddit .boardAvatar.avatar-03{background-image:url("assets/subreddit-icons/electricvehicles.webp")}
+.layout-reddit .boardAvatar.avatar-04,.layout-reddit .boardAvatar.avatar-14{background-image:url("assets/subreddit-icons/autodetailing.webp")}
+.layout-reddit .boardAvatar.avatar-05,.layout-reddit .boardAvatar.avatar-16{background-image:url("assets/subreddit-icons/cartalk.webp")}
+.layout-reddit .boardAvatar.avatar-06,.layout-reddit .boardAvatar.avatar-09{background-image:url("assets/subreddit-icons/dashcam.webp")}
+.layout-reddit .boardAvatar.avatar-07{background-image:url("assets/subreddit-icons/idiotsincars.webp")}
+.layout-reddit .boardAvatar.avatar-08{background-image:url("assets/subreddit-icons/insurance.webp")}
+.layout-reddit .boardAvatar.avatar-11{background-image:url("assets/subreddit-icons/carmemes.webp")}
+.layout-reddit .boardAvatar.avatar-15{background-image:url("assets/subreddit-icons/hypermiling.webp")}
+.layout-reddit .boardAvatar.avatar-17,.layout-reddit .boardAvatar.avatar-18{background-image:url("assets/subreddit-icons/modhelp.webp")}
+.layout-reddit .boardAvatar.avatar-19{background-image:url("assets/subreddit-icons/help.webp")}
+.layout-reddit .imagePanel,.layout-reddit .guidePanel{display:none}
+.layout-reddit .centerPanel{margin-top:0}
+.layout-reddit .rightPanel{width:250px;margin-top:0}
+.layout-reddit .boardTitleArea,.layout-reddit .boardTableCard,.layout-reddit .pagination,.layout-reddit .popularCard,.layout-reddit .hotBoards{border:0;border-radius:0;background:transparent;box-shadow:none}
+.layout-reddit .boardTitleArea{border-bottom:1px solid #e7e9ec}
+.layout-reddit .articleControl{margin-top:0;border:0;border-bottom:1px solid #e7e9ec;border-radius:0;background:transparent}
+.layout-reddit .cleanBot{border:0;border-bottom:1px solid #eceef1;border-radius:0;background:transparent}
+.layout-reddit .boardTable tbody tr{background:transparent}
+.layout-reddit .boardTable tbody tr:hover{background:#fafbfc}
+.layout-reddit .boardTitleArea strong:after{content:""}
+.layout-reddit .cleanBot{display:flex}
+.layout-reddit .boardTableCard{display:block;margin-top:0}
+.layout-reddit .pagination{display:flex}
+.layout-reddit .redditFeed{display:none}
+.layout-reddit.view-feed .cleanBot,.layout-reddit.view-feed .boardTableCard,.layout-reddit.view-feed .pagination{display:none}
+.layout-reddit.view-feed .redditFeed{display:block;margin-top:12px}
+.layout-reddit.view-board .boardTableCard{padding:10px 24px 24px}
+.layout-reddit.view-board .boardLabel{height:auto;margin-left:5px;padding:0;background:transparent;color:#59616d;font-weight:400}
+.layout-reddit.view-board .boardLabel:before{content:"["}
+.layout-reddit.view-board .boardLabel:after{content:"]"}
+.layout-reddit .footer{margin-top:56px}
+@media(max-width:1320px){
+  html,body{min-width:1080px}
+  .globalInner,.loungeHeroInner,.loungeNavInner,.topicNavInner,.pageWrap,.footer{width:1080px}
+  .layoutGrid{grid-template-columns:210px 742px;column-gap:24px}
+  .rightPanel{display:none}
+  .leftMenu{padding-left:20px;padding-right:20px}
+  html.layout-reddit,html.layout-reddit body{min-width:1080px}
+  .layout-reddit .loungeHeroInner,.layout-reddit .pageWrap,.layout-reddit .footer{width:1080px}
+  .layout-reddit .loungeHeroInner,.layout-reddit .loungeNavInner{width:calc(100% - 80px);max-width:1200px}
+  .layout-reddit .layoutGrid{grid-template-columns:240px 742px;column-gap:24px}
+  .layout-reddit .rightPanel{display:none}
+}
+@media(min-width:1200px) and (max-width:1320px){
+  .layout-reddit .loungeHeroInner,.layout-reddit .loungeNavInner{width:1200px;max-width:none;margin-left:40px;margin-right:0}
+}
+@media(max-width:767px){
+  html,body,html.layout-reddit,html.layout-reddit body{width:100%;min-width:0;overflow-x:hidden;background:#f3f4f6}
+  body.mobile-menu-open{overflow:hidden}
+  .layout-reddit .loungeHero{height:56px;z-index:60;border-bottom:0;background:#fff}
+  .layout-reddit .loungeHeroInner{width:100%;max-width:none;height:56px;padding:0 12px;display:flex;align-items:center;gap:0}
+  .layout-reddit .loungeTitleBlock{min-width:0;flex:0 0 auto}
+  .layout-reddit .loungeMenuButton{width:40px;height:40px;margin-left:-8px;margin-right:2px;display:inline-flex;flex:0 0 40px}
+  .layout-reddit .loungeMenuButton img{width:22px;height:22px}
+  .layout-reddit .loungeBrandHome{height:36px;gap:5px}
+  .layout-reddit .loungeBrandEmblem{width:24px;height:24px;flex-basis:24px}
+  .layout-reddit .loungeBrandEmblem img{width:97.6px;height:24px}
+  .layout-reddit .loungeBrandWord{font-size:17px;line-height:21px}
+  .layout-reddit .loungeSearch{width:auto;height:36px;margin-left:8px;border-radius:18px;flex:1 1 auto}
+  .layout-reddit .loungeSearchCategory,.layout-reddit .loungeSearchDivider{display:none}
+  .layout-reddit .loungeSearchButton{width:28px;height:28px;flex-basis:28px}
+  .layout-reddit .loungeSearchButton img{width:15px;height:15px}
+  .layout-reddit .loungeSearchInput{height:36px;padding:0 8px 0 12px;font-size:13px;line-height:18px}
+  .layout-reddit .loungeActions{display:none}
+  .layout-reddit .loungeNav{display:none}
+  .mobileCommunityNav{position:sticky;top:56px;z-index:28;height:52px;padding:0 12px;display:flex;gap:0;overflow:hidden;scrollbar-width:none;border-bottom:1px solid #eceef1;background:rgba(255,255,255,.96);backdrop-filter:blur(12px)}
+  .mobileCommunityNav::-webkit-scrollbar{display:none}
+  .mobileCommunityNavItem{position:relative;height:52px;padding:0 12px;display:inline-flex;align-items:center;justify-content:center;flex:1 1 0;color:#555d68;font-size:14px;line-height:18px;font-weight:600;white-space:nowrap}
+  .mobileCommunityNavItem.active{color:#222;font-weight:700}
+  .mobileCommunityNavItem.active:after{content:"";position:absolute;left:calc(50% - 18px);bottom:-1px;width:36px;height:3px;border-radius:3px 3px 0 0;background:#222}
+  .mobileMenuBackdrop{position:fixed;inset:56px 0 0;z-index:49;width:100%;height:auto;background:rgba(15,18,24,.48);opacity:0;pointer-events:none;transition:opacity .2s ease}
+  .mobile-menu-open .mobileMenuBackdrop{display:block;opacity:1;pointer-events:auto}
+  .layout-reddit .pageWrap{width:100%;margin:0}
+  .layout-reddit .layoutGrid{display:block;margin:0}
+  .layout-reddit .leftPanel{display:block;position:fixed;left:0;top:56px;bottom:auto;z-index:50;width:min(304px,84vw);height:calc(100dvh - 56px);min-height:0;max-height:calc(100dvh - 56px);padding:0 0 calc(28px + env(safe-area-inset-bottom));overflow-y:auto;border-right:0;background:#fff;align-self:auto;transform:translateX(-104%);transition:transform .22s ease;box-shadow:10px 0 28px rgba(15,18,24,.12)}
+  html.layout-reddit body.mobile-menu-open .leftPanel{transform:translateX(0)}
+  .layout-reddit .sideCard.leftMenu{padding:16px 22px 24px;border-radius:0;background:#fff;box-shadow:none}
+  .layout-reddit .railPrimary{margin-bottom:12px;padding-bottom:12px}
+  .layout-reddit .railPrimaryItem{height:44px;font-size:15px}
+  .layout-reddit .writeButton:not(.mobileWriteButton){height:44px;margin-bottom:12px;border-radius:12px}
+  .layout-reddit .menuSection{padding:10px 6px 12px}
+  .layout-reddit .menuItem{height:40px;font-size:14px}
+  .layout-reddit .centerPanel{width:100%;margin:0}
+  .layout-reddit .boardTitleArea{height:58px;padding:18px 16px 14px;border:0;border-radius:0;background:#fff}
+  .layout-reddit .boardTitleArea strong{font-size:20px;line-height:26px}
+  .layout-reddit .articleControl{height:48px;margin:0;padding:0 16px;border:0;border-top:1px solid #f0f1f3;border-bottom:1px solid #eceef1;border-radius:0;background:#fff}
+  .layout-reddit .sortFilters{gap:14px;height:20px}
+  .layout-reddit .sortButton{width:auto;height:20px;flex-basis:auto;margin:0;font-size:15px;line-height:19px}
+  .layout-reddit .searchBox{display:none}
+  .layout-reddit.view-feed .redditFeed{margin-top:8px}
+  .layout-reddit.view-board .cleanBot{margin:8px 12px 0}
+  .layout-reddit.view-board .boardTableCard{margin-top:8px;padding:0 14px 10px;border:0;border-radius:0;overflow-x:auto}
+  .layout-reddit.view-board .boardTable{width:700px}
+  .layout-reddit.view-board .pagination{margin:8px 0 0;border:0;border-radius:0}
+  .redditFeedCard{padding:16px;border:0;border-top:1px solid #e8eaed;border-bottom:1px solid #e8eaed;border-radius:0;box-shadow:none}
+  .redditFeedCard+.redditFeedCard{margin-top:8px}
+  .redditFeedCard:hover{border-color:#e8eaed;box-shadow:none}
+  .redditFeedAvatar{width:28px;height:28px;margin-right:8px;font-size:12px}
+  .redditFeedMeta{font-size:12px;line-height:18px}
+  .redditFeedDot{margin:0 6px}
+  .redditFeedCategory{padding:3px 8px;font-size:11px;line-height:16px}
+  .redditFeedTitle{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;margin-top:11px;font-size:17px;line-height:24px;letter-spacing:-.25px}
+  .redditFeedPreview{-webkit-line-clamp:3;margin-top:6px;font-size:14px;line-height:21px}
+  .redditFeedMedia{margin-top:13px;border-radius:8px}
+  .redditFeedGallery{height:238px;gap:2px}
+  .redditFeedMediaBadge{right:8px;top:8px;height:24px;padding:0 8px;border-radius:12px;font-size:11px;line-height:24px}
+  .redditFeedStats{gap:14px;margin-top:12px;font-size:12px;line-height:18px}
+  .layout-reddit .footer{width:100%;margin:32px 0 88px;padding:0 24px;font-size:11px;line-height:18px}
+  .mobileWriteButton{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));z-index:24;width:94px;height:48px;border-radius:24px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 22px rgba(15,18,24,.24);font-size:15px}
+  .layout-reddit .writePanel{min-height:calc(100vh - 108px);padding:20px 16px 110px;border-radius:0}
+  .layout-reddit .writeHead strong{font-size:21px;line-height:28px}
+  .layout-reddit .writeBoardSelect{width:142px;margin-left:auto}
+}
