@@ -24,6 +24,9 @@ export function boardGroups(fromBoard: string) {
  */
 export function resolveReturnTo(requested: string): string {
   if (!requested) return '/'
+  // 넉스트 판 전체 주소(…/nuxt-community/#/?board=…)는 # 뒤 앱 안 주소만 쓴다
+  const hashed = requested.match(/^(?:https?:\/\/[^/]+)?\/[^#]*nuxt-community\/?#(\/.*)$/)
+  if (hashed) requested = hashed[1]!
   const legacy = requested.match(/\/community\/naver-cafe-list\.html(\?[^#]*)?(#.*)?$/) || requested.match(/^\.?\/?naver-cafe-list\.html(\?[^#]*)?(#.*)?$/)
   if (legacy) return `/${legacy[1] || ''}`
   if (requested.startsWith('/') && !requested.startsWith('//') && !/^\/(write|posts\/)/.test(requested)) return requested
