@@ -30,6 +30,14 @@ jobs:
           node-version: 24.22.1
           cache: npm
       - run: npm ci --no-audit --no-fund
+      - name: Verify shortform narration channel timing
+        run: |
+          if ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo apt-get update
+            sudo apt-get install -y ffmpeg
+          fi
+          node --test tests/shortform-audio-qc.test.mjs
+          node scripts/check-shortform-audio.mjs --manifest media-contracts/shortform-audio.json
       - name: Verify quick-filter app
         run: npm run verify:qf
       - name: Prepare Pages artifact

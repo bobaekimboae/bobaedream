@@ -41,6 +41,7 @@
 - Run `npm run check:runtime` before preview or handoff when prototype files changed.
 - Run `npm run verify:qf` for quick-filter and prototype-screen changes. It runs runtime check, TypeScript, and Vite build without Storybook or admin tests.
 - Run full `npm run verify` for main deployment or changes that touch deployment, admin, Storybook, shared package scripts, or workflows.
+- For narrated shortform media, use `scripts/lib/shortform-audio.mjs` for channel-safe mixing and run `node scripts/check-shortform-audio.mjs` on managed final MP4s before publishing. Register every new managed MP4 and its dry narration reference in `media-contracts/shortform-audio.json`. Never treat codec/duration/loudness checks alone as an audio-quality pass. Measure each narration channel's reference delay; keep stereo narration skew at or below 1ms, and explicitly report whether an independent listening review occurred. Use `adelay=...:all=1` with explicit mono-to-stereo routing; do not introduce voice reverb/delay/chorus as a workaround.
 - Run `npm run build` when verifying Pages output; confirm `dist/client` does not contain Storybook unless intentionally building Storybook elsewhere.
 
 ## Deploy And Merge
