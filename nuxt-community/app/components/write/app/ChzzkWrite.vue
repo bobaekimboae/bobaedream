@@ -150,7 +150,7 @@ function toTop() { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-redu
 
     <div class="aw-pick-row">
       <button class="aw-board" :class="{ 'has-value': w.board.value }" type="button" aria-haspopup="dialog" @click="w.tool.value = 'board'">
-        <img :src="icon('icon-text-post-outline')" alt=""><span>{{ w.board.value || '게시판을 선택하세요' }}</span><img class="aw-caret" :src="icon('icon-caret-down-fill')" alt="">
+        <img :src="icon('icon-communities-outline')" alt=""><span>{{ w.board.value || '게시판을 선택하세요' }}</span><img class="aw-caret" :src="icon('icon-caret-down-fill')" alt="">
       </button>
       <button class="aw-kind" type="button" aria-haspopup="dialog" :aria-label="`글 종류 ${w.postType.value.label}`" @click="w.tool.value = 'type'">{{ w.postType.value.label }}<img class="aw-caret" :src="icon('icon-caret-down-fill')" alt=""></button>
     </div>
@@ -168,12 +168,12 @@ function toTop() { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-redu
     <div v-else class="aw-tools" role="toolbar" aria-label="콘텐츠 도구" @mousedown="keep">
       <button type="button" aria-label="사진" @click="photoInput?.click()"><img :src="icon('icon-image-post-outline')" alt=""></button>
       <button type="button" aria-label="동영상" @click="videoInput?.click()"><img :src="icon('icon-video-post-outline')" alt=""></button>
-      <button type="button" aria-label="텍스트 서식" :aria-expanded="textTools" :class="{ 'is-on': textTools }" @click="textTools = !textTools"><img :src="icon('icon-text-outline')" alt=""></button>
-      <button type="button" aria-label="스티커" @click="w.tool.value = 'sticker'"><img :src="icon('icon-emoji-outline')" alt=""></button>
+      <button type="button" aria-label="텍스트 서식" :aria-expanded="textTools" :class="{ 'is-on': textTools }" @click="textTools = !textTools"><img :src="icon('icon-text-size-outline')" alt=""></button>
+      <button type="button" aria-label="스티커" @click="w.tool.value = 'sticker'"><img :src="icon('icon-sticker-outline')" alt=""></button>
       <button type="button" aria-label="인용구" @click="w.editor.insertQuote(1)"><img :src="icon('icon-quote-outline')" alt=""></button>
       <button type="button" aria-label="구분선" @click="w.editor.insertDivider()"><img :src="icon('icon-subtract-outline')" alt=""></button>
       <button type="button" aria-label="링크" @click="w.tool.value = 'link'"><img :src="icon('icon-link-outline')" alt=""></button>
-      <button type="button" aria-label="투표" @click="w.tool.value = 'poll'"><img :src="icon('icon-poll-post-outline')" alt=""></button>
+      <button type="button" aria-label="투표" @click="w.tool.value = 'poll'"><img :src="icon('icon-statistics-outline')" alt=""></button>
     </div>
     <WriteFormatBar v-if="!block && !caption && (textTools || inQuote)" :editor="w.editor" @link="w.tool.value = 'link'" />
 
@@ -195,7 +195,7 @@ function toTop() { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-redu
         <input v-model="w.tagDraft.value" maxlength="140" placeholder="#태그 입력 (#으로 구분, 최대 10개)" autocomplete="off" enterkeyhint="done" @focus="tagFocus = true" @blur="tagFocus = false; w.commitTags()" @keydown.enter.prevent="w.commitTags()">
       </label>
       <label v-if="!writing && !tagFocus" class="aw-hide-row">
-        <img :src="icon('icon-text-post-outline')" alt=""><span>본문 숨기기</span>
+        <img :src="icon('icon-hide-outline')" alt=""><span>본문 숨기기</span>
         <input v-model="w.hideBody.value" type="checkbox" role="switch"><i aria-hidden="true" />
       </label>
     </footer>

@@ -18,7 +18,7 @@ onBeforeUnmount(() => document.removeEventListener('keydown', onKey))
         <template v-for="group in groups" :key="group.section">
           <h3>{{ group.section }}</h3>
           <button v-for="name in group.items" :key="name" type="button" :class="{ 'is-selected': selected === name }" :aria-pressed="selected === name" :data-board="name" @click="emit('pick', name)">
-            <img :src="icon('icon-text-post-outline')" alt=""><span>{{ name }}</span>
+            <img :src="icon('icon-communities-outline')" alt=""><span>{{ name }}</span>
           </button>
         </template>
       </div>
