@@ -22,6 +22,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       communityApiBase: process.env.NUXT_PUBLIC_COMMUNITY_API_BASE || '',
+      bbmApi: process.env.NUXT_PUBLIC_BBM_API || '',
     },
   },
   nitro: { preset: 'static' },
