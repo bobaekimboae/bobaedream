@@ -142,11 +142,20 @@ function filled(field: PostField, value: unknown): boolean {
   return String(value ?? '').trim() !== ''
 }
 
+/** 받침에 맞는 목적격 조사(을/를). 한글이 아니면 「을(를)」 */
+export function objectParticle(word: string): string {
+  const text = word.trim()
+  const code = text.charCodeAt(text.length - 1) - 0xac00
+  if (Number.isNaN(code) || code < 0 || code > 11171) return '을(를)'
+  return code % 28 ? '을' : '를'
+}
+export function withObject(word: string): string { return `${word}${objectParticle(word)}` }
+
 /** 글 종류 조건 검사. 맞으면 '' , 틀리면 등록을 막는 안내 문구 */
 export function postTypeProblem(type: PostType, values: Record<string, unknown>, ctx: { bodyLength: number, photos: number }): string {
   for (const field of type.fields) {
     if (!field.required || !fieldVisible(field, values)) continue
-    if (!filled(field, values[field.key])) return `${field.label}을(를) 입력해 주세요.`
+    if (!filled(field, values[field.key])) return `${withObject(field.label)} 입력해 주세요.`
   }
   if (type.rule?.minBody && ctx.bodyLength < type.rule.minBody) return `본문을 ${type.rule.minBody}자 이상 적어 주세요. (지금 ${ctx.bodyLength}자)`
   if (type.rule?.minPhotos && ctx.photos < type.rule.minPhotos) return `사진을 ${type.rule.minPhotos}장 이상 넣어 주세요.`
