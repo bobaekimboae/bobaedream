@@ -3,7 +3,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted, ref } from 'vue'
 
-const props = defineProps<{ value?: string }>()
+const props = defineProps<{ value?: string, placeholder?: string }>()
 const emit = defineEmits<{ ok: [href: string], cancel: [] }>()
 const href = ref(props.value || '')
 const input = ref<HTMLInputElement | null>(null)
@@ -18,7 +18,7 @@ function ok() {
 <template>
   <div class="awu-dim" @click.self="emit('cancel')">
     <div class="awu" role="dialog" aria-modal="true" aria-label="링크 입력">
-      <input ref="input" v-model="href" class="awu-input" type="url" inputmode="url" placeholder="URL을 입력해 주세요." aria-label="링크 주소" @keydown.enter.prevent="ok" @keydown.esc="emit('cancel')">
+      <input ref="input" v-model="href" class="awu-input" type="url" inputmode="url" :placeholder="placeholder || 'URL을 입력해 주세요.'" aria-label="링크 주소" @keydown.enter.prevent="ok" @keydown.esc="emit('cancel')">
       <div class="awu-actions">
         <button type="button" class="is-cancel" @click="emit('cancel')">취소</button>
         <button type="button" class="is-ok" :disabled="!href.trim()" @click="ok">확인</button>

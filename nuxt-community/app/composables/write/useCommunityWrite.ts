@@ -14,7 +14,11 @@ import { BbmError, bbmBase, bbmToken, createArticle, fileOf, loadBoardGroups, sa
 export const APP_DRAFT_KEY = 'bbm.community.writeDraft.v2'
 
 export type WriteStyle = 'chzzk' | 'naver'
-export type ToolPage = '' | 'board' | 'sticker' | 'link' | 'poll' | 'type' | 'tags'
+export type ToolPage = '' | 'board' | 'sticker' | 'link' | 'poll' | 'type' | 'tags' | 'material' | 'place' | 'schedule' | 'settings'
+
+/** 네이버 카페 앱 「글쓰기 설정」(공지 · 공개 범위 · 댓글 · 스크랩 · 복사 · 사진 크기) */
+export interface WriteSettings { notice: boolean, visibility: 'member' | 'all', comments: boolean, scrap: boolean, copy: boolean, photoSize: 'large' | 'medium' | 'original' }
+export const DEFAULT_SETTINGS: WriteSettings = { notice: false, visibility: 'member', comments: true, scrap: true, copy: true, photoSize: 'large' }
 
 export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteStyle) {
   const route = useRoute()
@@ -46,6 +50,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
   const tagDraft = ref('')
   const hideBody = ref(false)
   const allowSearch = ref(true)
+  const settings = ref<WriteSettings>({ ...DEFAULT_SETTINGS })
   const postTypeId = ref(POST_TYPES.some(type => type.id === query('type')) ? query('type') : 'normal')
   const typeValues = ref<Record<string, unknown>>({})
   const postType = computed(() => postTypeById(postTypeId.value))
@@ -59,6 +64,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
     onEditPoll: () => { tool.value = 'poll' },
     onRemovePoll: () => toast('투표를 삭제했습니다.'),
     compactBlocks: style === 'chzzk',
+    quotePlaceholder: style === 'naver' ? '내용을 입력하세요.' : undefined,
     pollIcon: communityAsset('assets/reddit-write/icon-poll-post-outline.svg'),
   })
 
@@ -116,7 +122,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
 
   /* ---------- 임시저장 · 나가기 · 등록 ---------- */
   function snapshot() {
-    return { board: board.value, title: title.value, body: editor.html(), tags: tags.value, hideBody: hideBody.value, allowSearch: allowSearch.value, type: postTypeId.value, values: typeValues.value, savedAt: new Date().toISOString() }
+    return { board: board.value, title: title.value, body: editor.html(), tags: tags.value, hideBody: hideBody.value, allowSearch: allowSearch.value, type: postTypeId.value, values: typeValues.value, settings: settings.value, savedAt: new Date().toISOString() }
   }
   function saveDraft(silent = false) {
     if (!title.value.trim()) { if (!silent) alertText.value = '제목을 입력해주세요.'; return false }
@@ -131,6 +137,13 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
       return true
     }
     if (!silent) toast('임시저장되었습니다.')
+    return true
+  }
+  /** 네이버 카페 앱 「이 기기에 임시보관」: 서버로 보내지 않고 이 브라우저에만 둔다(제목이 없어도 보관) */
+  function saveLocal(): boolean {
+    if (!title.value.trim() && !editor.text().trim() && !photos.value.length && !videos.value.length) { toast('보관할 내용이 없어요.'); return false }
+    try { localStorage.setItem(APP_DRAFT_KEY, JSON.stringify(snapshot())) } catch { toast('이 기기에 보관하지 못했어요.'); return false }
+    toast('이 기기에 임시보관했습니다.')
     return true
   }
   function exit() { navigateTo(returnTo) }
@@ -181,7 +194,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
         title: title.value.trim(), body: bodyLines(html), html, embeds: editor.collectEmbeds(),
         media: list.filter((_item, index) => stored[index]).map(item => ({ id: item.id, kind: item.kind === 'photo' ? 'image' : 'video', name: item.name })),
         tags: tags.value.map(tag => `#${tag}`).join(' '), photos: photos.value.map(({ id, name }) => ({ id, name })), videos: videos.value.map(({ id, name }) => ({ id, name })),
-        hideBody: hideBody.value, allowSearch: allowSearch.value,
+        hideBody: hideBody.value, allowSearch: allowSearch.value, settings: settings.value,
         postType: postType.value.id, postTypeLabel: postType.value.label, postTypeValues: typeValues.value, postTypeSummary: postTypeSummary(postType.value, typeValues.value),
         submittedAt: new Date().toISOString(),
       }))
@@ -227,6 +240,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
           tagDraft.value = tags.value.map(tag => `#${tag}`).join(' ')
           hideBody.value = Boolean(draft.hideBody)
           allowSearch.value = draft.allowSearch !== false
+          settings.value = { ...DEFAULT_SETTINGS, ...((draft as { settings?: Partial<WriteSettings> }).settings || {}) }
           if (POST_TYPES.some(type => type.id === draft.type)) postTypeId.value = draft.type
           typeValues.value = draft.values || {}
           paintPlaceholder()
@@ -245,11 +259,11 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
   watch(tool, (value) => { document.body.style.overflow = value ? 'hidden' : '' })
 
   return {
-    style, returnTo, groups, backend, board, title, tags, tagDraft, hideBody, allowSearch,
+    style, returnTo, groups, backend, board, title, tags, tagDraft, hideBody, allowSearch, settings,
     postTypeId, postType, typeValues, typeProblem, triedSubmit, setType, bodyLength,
     photos, videos, editor, tool, canPress,
     toastText, toastShown, toast, alertText, confirmBox,
-    commitTags, addMedia, takeFiles, dropMedia, attachUrl, applyPoll, saveDraft, exit, submit, start,
+    commitTags, addMedia, takeFiles, dropMedia, attachUrl, applyPoll, saveDraft, saveLocal, exit, submit, start,
   }
 }
 

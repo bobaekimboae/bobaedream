@@ -1,4 +1,5 @@
-<!-- 커뮤니티 글쓰기 · 네이버 카페형(정본 모양: public/community/naver-write-parity.html · .css).
+<!-- 커뮤니티 글쓰기 · 네이버 카페 웹형(?style=naver-web, 비교용. 정본 모양: public/community/naver-write-parity.html · .css).
+     2026-11-06부터 ?style=naver 는 네이버 카페 앱형(components/write/naver/NaverWrite.vue)이다.
      기능은 치지직형과 같다(같은 useCommunityWrite · 편집기 · 도구 화면). 「말머리」 자리에 글 종류를 둔다. -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'

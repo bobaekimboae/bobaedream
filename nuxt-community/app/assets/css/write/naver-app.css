@@ -1,0 +1,248 @@
+/* 커뮤니티 글쓰기 · 네이버 카페 앱형(?style=naver, 2026-11-06)
+   네이버 카페 앱 글쓰기를 폰(1080×2340)에 연결해 384 CSS(÷2.8125, 상태줄 34px 뺌)로 재서 맞춘 값.
+   등록 연초록 #E0F8EB / 글자 #009F47 · 켜진 도구 #00C73C · 선 #EEEEEE · 도구 줄 위 선 #E5E5E5 · 서식 줄 · 더보기 판 #F9F9F9
+   아이콘은 레딧 원본(색은 CSS 필터로만). 예전 웹형은 ?style=naver-web 로 남긴다. */
+
+.aw-root.is-naver-app{--aw-purple:#00c73c;--aw-purple-soft:#e0f8eb;--nw-green:#00c73c;--nw-green-ink:#009f47;--nw-green-soft:#e0f8eb;--nw-line:#eee;--nw-ink:#222;--nw-sub:#676767;--nw-hint:#949494;--nw-panel:#f9f9f9;
+  font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;letter-spacing:-.01em}
+.is-naver-app .nw{display:flex;flex-direction:column;width:min(100%,720px);min-height:100dvh;margin:0 auto;padding-bottom:calc(var(--nw-dock,48px) + 24px);background:#fff;color:var(--nw-ink)}
+/* 아이콘(#222 원본)을 네이버 회색 #555 · 초록 #00C73C 로 */
+.is-naver-app .nw img{filter:invert(32%) sepia(0%) saturate(0%) brightness(96%)}
+.is-naver-app .nw .is-on>img{filter:invert(53%) sepia(84%) saturate(2700%) hue-rotate(108deg) brightness(97%) contrast(101%)}
+
+/* 머리줄 52: × 가운데 x 32 · 임시저장 오른쪽 끝 301 · 등록 45.5×30 */
+.is-naver-app .nw-head{position:sticky;z-index:6;top:0;display:flex;align-items:center;height:52px;padding:0 16px 0 10px;background:#fff}
+.is-naver-app .nw-close{display:grid;width:44px;height:44px;place-items:center;border-radius:50%}
+.is-naver-app .nw-close img{width:22px;height:22px;filter:none}
+.is-naver-app .nw-save{height:44px;margin-left:auto;padding:0 10px;font-size:16px;line-height:22px;color:#222}
+.is-naver-app .nw-submit{height:30px;min-width:45.5px;margin-left:11px;padding:0 10px;border-radius:15px;background:var(--nw-green-soft);color:var(--nw-green-ink)!important;font-size:15px;line-height:20px;font-weight:700}
+.is-naver-app .nw-submit[aria-disabled="true"]{opacity:.5;cursor:default}
+
+/* 게시판 줄 47(+선) · 글 종류 줄: 글자 16 검정, 오른쪽 얇은 꺾쇠, 선 #EEE 은 x 16~368 */
+.is-naver-app .nw-row{position:relative;display:flex;align-items:center;width:100%;height:48px;padding:0 16px;text-align:left;font-size:16px;line-height:22px;color:#222}
+.is-naver-app .nw-row::after{content:"";position:absolute;left:16px;right:16px;bottom:0;height:1px;background:var(--nw-line)}
+.is-naver-app .nw-row span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.is-naver-app .nw-row.is-empty span{color:var(--nw-hint)}
+.is-naver-app .nw-row img{width:18px;height:18px;margin-right:1px}
+.is-naver-app .nw-row.is-type{height:44px;font-size:15px}
+.is-naver-app .nw-row.is-type span{color:var(--nw-sub)}
+.is-naver-app .nw-row.is-type.is-empty span{color:var(--nw-hint)}
+
+/* 제목 66: 20 굵게, 안내 #949494 */
+.is-naver-app .nw-title{display:block;width:calc(100% - 32px);height:66px;margin:0 16px;padding:0;border:0;border-bottom:1px solid var(--nw-line);outline:0;background:#fff;color:#222;font:inherit;font-size:20px;line-height:28px;font-weight:700}
+.is-naver-app .nw-title::placeholder{color:var(--nw-hint);opacity:1}
+
+.is-naver-app .nw-editor{display:flex;flex-direction:column;flex:1}
+.is-naver-app .aw-editor-body.is-naver .app-editor-body{min-height:280px;padding:18px 16px 24px;font-size:16px;line-height:1.65}
+.is-naver-app .aw-editor-body.is-naver .app-editor-body p.is-editor-empty:first-child::before{color:#b5b5b5}
+
+/* 본문 아래 태그 글자 14 #676767 */
+.is-naver-app .nw-tags{display:flex;flex-wrap:wrap;gap:4px 8px;margin:0 16px 12px;padding:4px 0;text-align:left;font-size:14px;line-height:20px;color:var(--nw-sub)}
+.is-naver-app .nw-flags{display:flex;gap:6px;margin:0 16px 12px}
+.is-naver-app .nw-flags span{height:22px;padding:0 8px;border-radius:11px;background:#f2f2f2;color:#555;font-size:12px;line-height:22px;font-weight:600}
+
+/* ---------- 화면 아래 도구 묶음 ---------- */
+.is-naver-app .nw-dock{position:fixed;z-index:20;left:0;right:0;width:min(100%,720px);margin:0 auto;background:#fff}
+.is-naver-app .nw-format .aw-format{position:static;height:45px;padding:0 8px;border-top:1px solid #e5e5e5;border-bottom:0;background:var(--nw-panel);color:#555}
+.is-naver-app .nw-format .aw-format>button{color:#555}
+.is-naver-app .nw-format .aw-format>button.is-on,.is-naver-app .nw-format .aw-format-text.is-pick{color:var(--nw-green)!important}
+.is-naver-app .nw-format .aw-format>button.is-on img{filter:invert(53%) sepia(84%) saturate(2700%) hue-rotate(108deg) brightness(97%) contrast(101%);opacity:1}
+.is-naver-app .aw-format-bg i{display:grid;width:20px;height:20px;place-items:center;border:1px solid #c8c8c8;border-radius:3px;font-style:normal;font-size:13px;font-weight:700;color:#555}
+.is-naver-app .aw-swatch.is-pick{outline-color:var(--nw-green)}
+
+/* 도구 줄 47: 버튼 47.3 폭, 첫 칸 x 9, 설정은 오른쪽 끝(가운데 356) */
+.is-naver-app .nw-tools,.is-naver-app .nw-quote .aw-tools{position:static;display:flex;align-items:center;height:47px;padding:0 0 0 9px;border-top:1px solid #e5e5e5;border-bottom:0;background:#fff}
+.is-naver-app .nw-tools>button{display:grid;width:47.3px;height:46px;flex:0 0 47.3px;place-items:center}
+.is-naver-app .nw-tools>button img{width:21px;height:21px}
+.is-naver-app .nw-tools>.nw-gear{margin-left:auto;margin-right:4px;width:48px;flex-basis:48px}
+.is-naver-app .nw-quote .aw-tools>button{width:47.3px;flex:0 0 47.3px}
+.is-naver-app .nw-quote .aw-quote-pick{color:#555}
+.is-naver-app .nw-quote .aw-quote-pick.is-on{color:var(--nw-green)}
+
+/* 아래 판(키보드 자리 211) */
+.is-naver-app .nw-panel{height:211px;border-top:1px solid #e5e5e5;background:var(--nw-panel)}
+.is-naver-app .nw-panel.is-sticker{display:flex;flex-direction:column;background:#fff}
+.is-naver-app .nw-sticker-grid{display:grid;flex:1;min-height:0;grid-template-columns:repeat(4,1fr);grid-auto-rows:64px;overflow-y:auto;padding:4px 8px}
+.is-naver-app .nw-sticker-grid button{font-size:36px;line-height:1;border-radius:10px}
+.is-naver-app .nw-sticker-grid button:active{background:#f2f2f2}
+.is-naver-app .nw-sticker-tabs{display:flex;height:44px;flex:0 0 44px;overflow-x:auto;border-top:1px solid var(--nw-line);background:var(--nw-panel);scrollbar-width:none}
+.is-naver-app .nw-sticker-tabs button{width:52px;flex:0 0 52px;font-size:22px;opacity:.45}
+.is-naver-app .nw-sticker-tabs button.is-on{opacity:1;background:#fff}
+.is-naver-app .nw-panel.is-more{display:grid;grid-template-columns:repeat(4,86px);grid-auto-rows:90px;justify-content:center;align-content:start;padding-top:14px}
+.is-naver-app .nw-panel.is-more button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;font-size:13px;line-height:18px;color:#555}
+.is-naver-app .nw-panel.is-more button img{width:24px;height:24px}
+
+/* ---------- 본문 카드(일정 · 장소 · 글감 · 파일) ---------- */
+.app-editor-body .write-card{display:block;margin:12px 0;user-select:none}
+.app-editor-body .write-card-link{display:flex;align-items:center;gap:12px;min-height:72px;padding:12px 14px;border:1px solid #e5e5e5;border-radius:10px;background:#fff;color:#222!important;text-decoration:none!important}
+.app-editor-body .write-card.ProseMirror-selectednode .write-card-link{border-color:#00c73c;box-shadow:0 0 0 1px #00c73c}
+.app-editor-body .write-card-image{width:44px;height:44px;flex:0 0 44px;object-fit:contain;border-radius:8px;background:#f6f6f6}
+.app-editor-body .write-card-icon{display:grid;width:44px;height:44px;flex:0 0 44px;place-items:center;border-radius:8px;background:#e0f8eb}
+.app-editor-body .write-card-icon::before{content:"";width:22px;height:22px;background:#00a845;-webkit-mask:var(--card-ico) center/contain no-repeat;mask:var(--card-ico) center/contain no-repeat}
+.app-editor-body .write-card-text{display:flex;flex-direction:column;min-width:0;gap:1px}
+.app-editor-body .write-card-text strong{overflow:hidden;font-size:15px;line-height:21px;font-weight:700;text-overflow:ellipsis;white-space:nowrap}
+.app-editor-body .write-card-text span{font-size:13px;line-height:18px;color:#676767}
+.app-editor-body .write-card-text small{font-size:12px;line-height:17px;color:#949494}
+
+/* ---------- 대화상자(임시저장 · 나가기) ---------- */
+.nwd-dim{position:fixed;z-index:70;inset:0;display:grid;place-items:center;padding:0 24px;background:rgba(0,0,0,.45)}
+.nwd{position:relative;width:min(312px,100%);padding:26px 20px 18px;border-radius:12px;background:#fff;text-align:center}
+.nwd h2{margin:0 0 12px;font-size:17px;line-height:24px;font-weight:700;color:#222}
+.nwd p{margin:0;font-size:14px;line-height:21px;color:#222;word-break:keep-all}
+.nwd.is-stack p{text-align:left}
+.nwd.is-stack p+p{margin-top:8px}
+.nwd-close{position:absolute;top:4px;left:4px;display:grid;width:40px;height:40px;place-items:center}
+.nwd-close img{width:16px;height:16px}
+.nwd.is-stack h2{margin-top:6px}
+.nwd-actions{display:flex;gap:8px;margin-top:18px}
+.nwd.is-stack .nwd-actions{flex-direction:column}
+.nwd-actions button{flex:1;height:38px;border-radius:6px;font-size:14px;font-weight:600}
+.nwd.is-stack .nwd-actions button{flex:none;height:40px}
+.nwd-actions .is-green{background:#e0f8eb;color:#009f47!important}
+.nwd-actions .is-gray{background:#f2f2f2;color:#555!important}
+
+/* ---------- 게시판 시트 ---------- */
+.nwb-dim{position:fixed;z-index:60;inset:0;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.45)}
+.nwb{display:flex;flex-direction:column;width:min(100%,720px);max-height:78dvh;padding:20px 0 calc(8px + env(safe-area-inset-bottom));border-radius:16px 16px 0 0;background:#fff;animation:nwb-up .2s ease-out}
+.nwb h2{margin:0 20px 14px;font-size:18px;line-height:24px;font-weight:700}
+.nwb-search{display:flex;align-items:center;gap:8px;height:40px;margin:0 16px 8px;padding:0 14px;border-radius:20px;background:#f4f4f4}
+.nwb-search img{width:18px;height:18px;opacity:.5}
+.nwb-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:15px}
+.nwb-list{flex:1;min-height:0;overflow-y:auto}
+.nwb-list h3{margin:14px 20px 4px;font-size:13px;line-height:18px;font-weight:600;color:#949494}
+.nwb-list button{display:flex;align-items:center;width:100%;height:48px;padding:0 20px;text-align:left;font-size:16px}
+.nwb-list button span{flex:1}
+.nwb-list i{position:relative;width:20px;height:20px;border:1.5px solid #ccc;border-radius:50%}
+.nwb-list i.is-on{border-color:#00c73c}
+.nwb-list i.is-on::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:#00c73c}
+.nwb-empty{margin:24px 20px;color:#949494;font-size:14px;text-align:center}
+@keyframes nwb-up{from{transform:translateY(24px);opacity:.6}to{transform:none;opacity:1}}
+
+/* ---------- 도구 화면(태그 · 일정 · 설정 · 투표 · 링크): ← 왼쪽 제목 · 초록 글자 버튼 ---------- */
+.is-naver-app .awp.is-naver .awp-head{grid-template-columns:52px 1fr auto;height:52px;flex-basis:52px;border-bottom:1px solid var(--nw-line)}
+.is-naver-app .awp.is-naver .awp-head h2{text-align:left;font-size:18px;font-weight:700}
+.is-naver-app .awp.is-naver .awp-action{height:44px;margin-right:6px;padding:0 12px;background:transparent!important;color:#00c73c!important;font-size:16px;font-weight:700}
+.is-naver-app .awp.is-naver .awp-action:disabled{color:#ccc!important}
+.is-naver-app .awp .aw-switch-row,.is-naver-app .awp .aw-select-row{min-height:56px;padding:0 16px;border-bottom:1px solid var(--nw-line);font-size:16px}
+
+.nwt{padding:0 16px}
+.nwt-row{display:flex;align-items:center;gap:8px;height:56px;border-bottom:1px solid var(--nw-line)}
+.nwt-row input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:16px}
+.nwt-row input::placeholder{color:#b5b5b5}
+.nwt-add{height:32px;padding:0 12px;border-radius:16px;background:#e0f8eb;color:#009f47!important;font-size:14px;font-weight:700}
+.nwt-add:disabled{opacity:.45;cursor:default}
+.nwt-chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0;padding:0;list-style:none}
+.nwt-chips li{display:flex;align-items:center;height:28px;padding:0 4px 0 10px;border:1px solid #e5e5e5;border-radius:14px;background:#fafafa;font-size:13px;color:#333}
+.nwt-chips button{display:grid;width:22px;height:22px;margin-left:1px;place-items:center;color:#888;font-size:14px}
+.nwt-chips button img{width:10px;height:10px}
+
+.nws-title input,.nws-place input{flex:1;min-width:0;border:0;outline:0;font:inherit;font-size:16px}
+.nws-title{display:flex;height:60px;padding:0 16px;border-bottom:1px solid var(--nw-line)}
+.nws-title input{font-size:18px;font-weight:700}
+.nws-time{position:relative;display:flex;align-items:center;justify-content:space-between;height:56px;padding:0 16px;border-bottom:1px solid var(--nw-line);font-size:16px}
+.nws-time b{font-weight:500;color:#222}
+.nws-time input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.nws-time.is-error b{color:#e5383b}
+.nws-error{margin:6px 16px 0;color:#e5383b;font-size:13px}
+.nws-place{display:flex;align-items:center;gap:8px;height:56px;padding:0 16px;border-bottom:1px solid var(--nw-line)}
+.nws-place img{width:20px;height:20px;opacity:.6}
+.nws-note{margin:12px 16px;padding:12px 14px;border-radius:8px;background:#f7f7f7;color:#767676;font-size:13px;line-height:19px}
+
+/* 글쓰기 설정 */
+.nwo-group{border-bottom:8px solid #f4f4f4}
+.nwo-select{position:relative;display:flex;align-items:center;justify-content:space-between;min-height:56px;padding:0 16px;border-bottom:1px solid var(--nw-line);font-size:16px}
+.nwo-select b{font-weight:500;color:#676767}
+.nwo-select select{position:absolute;inset:0;opacity:0;cursor:pointer}
+.is-naver-app .awp .aw-switch-row.is-desc{align-items:flex-start;padding-top:16px;padding-bottom:16px}
+.aw-switch-row.is-desc small{display:block;margin-top:4px;font-size:13px;line-height:19px;color:#949494;word-break:keep-all}
+.nwo-help{display:inline;padding:0;color:#555;text-decoration:underline;font-size:13px}
+
+/* ---------- 전체 화면 고르기(글감 · 장소): 취소 · 가운데 제목 · 완료 ---------- */
+.nwx{position:fixed;z-index:50;inset:0;display:flex;flex-direction:column;width:min(100%,720px);margin:0 auto;background:#fff;color:#222}
+.nwx-head{display:grid;grid-template-columns:72px 1fr 72px;align-items:center;height:52px;flex:0 0 52px}
+.nwx-head button{height:44px;padding:0 16px;font-size:16px;text-align:left;color:#222}
+.nwx-head h2{margin:0;text-align:center;font-size:17px;font-weight:700}
+.nwx-head .is-done{text-align:right;color:#00c73c;font-weight:700}
+.nwx-head .is-done:disabled{color:#ccc;cursor:default}
+.nwx-search{display:flex;align-items:center;height:38px;margin:6px 10px;padding:0 10px;border:1px solid #dcdcdc;border-radius:4px;background:#fff}
+.nwx-search>img{width:20px;height:20px;opacity:.55}
+.nwx-scope{position:relative;display:flex;align-items:center;padding-right:10px;margin-right:10px;border-right:1px solid #ddd}
+.nwx-scope select{border:0;outline:0;background:transparent;font:inherit;font-size:15px;color:#222}
+.nwx-input{flex:1;min-width:0}
+.nwx-input input{width:100%;border:0;outline:0;background:transparent;font:inherit;font-size:15px}
+.nwx-body{flex:1;min-height:0;overflow-y:auto}
+.nwx-body.is-gray{background:#f4f4f4}
+.nwx-empty{display:flex;flex-direction:column;align-items:center;gap:6px;padding:120px 24px;text-align:center}
+.nwx-empty strong{font-size:16px;font-weight:600}
+.nwx-empty span{font-size:13px;color:#949494}
+.nwx-results{margin:0;padding:0;list-style:none;background:#fff}
+.nwx-results button{display:flex;align-items:center;gap:12px;width:100%;min-height:64px;padding:10px 16px;border-bottom:1px solid #eee;text-align:left}
+.nwx-pin{display:grid;width:36px;height:36px;place-items:center;border-radius:50%;background:#e0f8eb}
+.nwx-pin img{width:18px;height:18px}
+.nwx-text{display:flex;flex:1;min-width:0;flex-direction:column}
+.nwx-text strong{font-size:15px;font-weight:600}
+.nwx-text small{font-size:13px;color:#949494}
+.nwx-results i{position:relative;width:20px;height:20px;border:1.5px solid #ccc;border-radius:50%}
+.nwx-results i.is-on{border-color:#00c73c}
+.nwx-results i.is-on::after{content:"";position:absolute;inset:3.5px;border-radius:50%;background:#00c73c}
+
+.nwm-search{display:flex;align-items:center;gap:8px;height:44px;margin:10px 16px 8px;padding:0 16px;border-radius:22px;background:#f4f4f4}
+.nwm-search img{width:18px;height:18px;opacity:.55}
+.nwm-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:inherit;font-size:15px}
+.nwm-tabs{display:flex;gap:8px;padding:4px 16px 12px;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid #eee}
+.nwm-tabs button{display:flex;align-items:center;gap:4px;height:32px;padding:0 12px;flex:0 0 auto;border:1px solid #e1e1e1;border-radius:16px;font-size:14px;color:#555}
+.nwm-tabs button img{width:16px;height:16px}
+.nwm-tabs button.is-on{border-color:#222;color:#222;font-weight:600}
+.nwm-section-head{display:flex;align-items:center;justify-content:space-between;margin:18px 16px 8px}
+.nwm-section-head h3,.nwm-title{margin:0;font-size:16px;font-weight:700}
+.nwm-section-head div{display:flex;align-items:center;gap:8px}
+.nwm-section-head button{font-size:13px;color:#949494}
+.nwm-section-head i{width:1px;height:10px;background:#ddd}
+.nwm-title{margin:24px 16px 6px}
+.nwm-empty{margin:20px 16px;color:#949494;font-size:14px;text-align:center}
+.nwm-recent{display:flex;flex-wrap:wrap;gap:8px;margin:0 16px;padding:0;list-style:none}
+.nwm-recent button{height:30px;padding:0 12px;border-radius:15px;background:#f2f2f2;font-size:13px}
+.nwm-list{margin:0;padding:0;list-style:none}
+.nwm-list button{display:flex;align-items:center;gap:12px;width:100%;min-height:68px;padding:10px 16px;text-align:left}
+.nwm-art{display:grid;width:48px;height:48px;flex:0 0 48px;place-items:center;border-radius:8px;background:#f6f6f6}
+.nwm-art img{max-width:36px;max-height:36px;object-fit:contain}
+.nwm-text{display:flex;flex:1;min-width:0;flex-direction:column}
+.nwm-text strong{overflow:hidden;font-size:15px;font-weight:600;text-overflow:ellipsis;white-space:nowrap}
+.nwm-text small{font-size:13px;color:#767676}
+.nwm-text em{font-style:normal;font-size:12px;color:#00a845}
+.nwm-none{margin:40px 16px;color:#949494;font-size:14px;text-align:center}
+
+/* 링크 대화상자(네이버: 회색 두 버튼) · 투표 화면 초록 스위치 */
+.is-naver-app .awu{width:min(295px,100%);border-radius:4px}
+.is-naver-app .awu-input{height:56px;font-size:15px}
+.is-naver-app .awu-actions{height:48px;background:#f4f4f4}
+.is-naver-app .awu-actions button{font-weight:600;color:#222}
+.is-naver-app .awu-actions .is-ok{color:#00a845}
+.is-naver-app .awu-actions .is-ok:disabled{color:#b5b5b5}
+
+@media (prefers-reduced-motion:reduce){.nwb{animation:none}}
+.app-editor-body .write-card.is-schedule{--card-ico:url(assets/reddit-write/icon-calendar-outline.svg)}
+.app-editor-body .write-card.is-place{--card-ico:url(assets/reddit-write/icon-location-outline.svg)}
+.app-editor-body .write-card.is-file{--card-ico:url(assets/reddit-write/icon-attach-outline.svg)}
+.app-editor-body .write-card.is-material{--card-ico:url(assets/reddit-write/icon-topic-cars-outline.svg)}
+
+/* 글쓰기 설정: 선 없이 묶음 간격으로만 나눈다 · 「저장」은 검정 글자 */
+.is-naver-app .awp.is-naver .nwo .aw-switch-row,.is-naver-app .nwo-select{border-bottom:0;min-height:48px}
+.is-naver-app .nwo-group{border-bottom:0;padding:8px 0}
+.is-naver-app .nwo-group+.nwo-group{border-top:8px solid #f6f6f6}
+.is-naver-app .awp.is-naver:has(.nwo) .awp-action{color:#222!important}
+/* 투표(네이버): 회색 칸 없이 줄만 */
+.is-naver-app .awp.is-naver .aw-poll-field{margin:0 16px}
+.is-naver-app .awp.is-naver .aw-poll-field input{height:56px;padding:0;border-radius:0;border-bottom:1px solid #eee;background:transparent;font-size:16px}
+.is-naver-app .awp.is-naver .aw-poll-row{margin:0 16px;width:auto;height:52px;padding:0;border:0;border-bottom:1px solid #eee;border-radius:0;background:transparent}
+.is-naver-app .awp.is-naver .aw-poll-add{margin:4px 16px 0;background:transparent}
+.is-naver-app .awp.is-naver .aw-poll-settings{margin:12px 0 0}
+.is-naver-app .awp.is-naver .aw-poll-settings .aw-switch-row,.is-naver-app .awp.is-naver .aw-poll-settings .aw-select-row{border-bottom:0;min-height:48px}
+.is-naver-app .awp.is-naver .aw-select-row select{min-width:0;padding:0 14px 0 0;background-color:transparent;font-weight:400;color:#676767;text-align:right}
+/* 인용구 도구 줄: 고른 모양 초록 · 지우기 빨강 */
+.is-naver-app .nw .nw-quote .aw-quote-pick{color:#555}
+.is-naver-app .nw .nw-quote .aw-quote-pick.is-on{color:#00c73c}
+.is-naver-app .nw .nw-quote .aw-quote-pick.is-on .aw-quote-mini img{filter:invert(53%) sepia(84%) saturate(2700%) hue-rotate(108deg) brightness(97%) contrast(101%)}
+.is-naver-app .nw .nw-quote .aw-quote-delete{margin-left:auto;margin-right:7px}
+.is-naver-app .nw .nw-quote .aw-quote-delete img{filter:invert(32%) sepia(93%) saturate(3000%) hue-rotate(340deg) brightness(98%) contrast(92%)}
+.is-naver-app .app-editor-body .write-quote .is-empty::before,.is-naver-app .app-editor-body blockquote .is-empty::before{font-style:italic}
