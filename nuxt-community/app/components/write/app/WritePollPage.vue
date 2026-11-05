@@ -3,7 +3,7 @@
 <script setup lang="ts">
 import { computed, nextTick, ref } from 'vue'
 import type { PollData } from '~/composables/write/legacyLibs'
-import { dateOptions, deadlineDefaults, pollApplyDisabled } from '~/composables/write/writeUtils'
+import { dateOptions, deadlineDefaults } from '~/composables/write/writeUtils'
 import WriteAlert from './WriteAlert.vue'
 import WriteToolPage from './WriteToolPage.vue'
 
@@ -39,7 +39,9 @@ const list = ref<HTMLElement | null>(null)
 const imageInput = ref<HTMLInputElement | null>(null)
 let imageRow: Row | null = null
 
-const disabled = computed(() => pollApplyDisabled(pollTitle.value, rows.value))
+/* 치지직 앱(2026-11-05 폰 2차 확인): 제목 + 내용이 있는 항목 2개 이상이면 등록이 켜지고, 빈 항목은 등록할 때 빠진다 */
+const filled = computed(() => rows.value.filter(item => item.text.trim()))
+const disabled = computed(() => !pollTitle.value.trim() || filled.value.length < 2)
 
 function addRow() {
   if (rows.value.length >= 20) { emit('toast', '항목은 최대 20개까지 넣을 수 있어요.'); return }
@@ -95,7 +97,8 @@ function onHandleUp() { dragging.value = null }
 
 function apply() {
   if (disabled.value) return
-  const options = rows.value.map(item => item.text.trim())
+  const kept = filled.value
+  const options = kept.map(item => item.text.trim())
   if (new Set(options).size !== options.length) { emit('toast', '같은 항목은 한 번만 넣어 주세요.'); return }
   let endsAt = ''
   if (autoEnd.value) {
@@ -103,7 +106,7 @@ function apply() {
     if (end.getTime() <= Date.now()) { emit('toast', '지금보다 뒤의 종료 시각을 골라 주세요.'); return }
     endsAt = end.toISOString()
   }
-  emit('apply', { title: pollTitle.value.trim(), options, images: rows.value.map(item => item.image), multiple: multiple.value, anonymous: anonymous.value, visibility: visibility.value, endsAt })
+  emit('apply', { title: pollTitle.value.trim(), options, images: kept.map(item => item.image), multiple: multiple.value, anonymous: anonymous.value, visibility: visibility.value, endsAt })
 }
 </script>
 
@@ -116,11 +119,11 @@ function apply() {
           <b>{{ index + 1 }}</b>
           <input v-model="row.text" maxlength="40" :aria-label="`항목 ${index + 1}`" placeholder="항목을 입력하세요" @focus="focusedRow = row.key" @blur="focusedRow = null">
           <button class="aw-poll-image" :class="{ 'has-image': row.image }" type="button" :aria-label="`항목 ${index + 1} 사진`" @click="pickImage(row)"><img :src="row.image || icon('icon-image-post-outline')" alt=""></button>
-          <button class="aw-poll-handle" type="button" :aria-label="`항목 ${index + 1} 끌어서 순서 바꾸기`" @pointerdown="onHandleDown($event, row)" @pointermove="onHandleMove" @pointerup="onHandleUp" @pointercancel="onHandleUp"><img :src="icon('icon-drag-outline')" alt=""></button>
+          <button class="aw-poll-handle" type="button" :aria-label="`항목 ${index + 1} 끌어서 순서 바꾸기`" @pointerdown="onHandleDown($event, row)" @pointermove="onHandleMove" @pointerup="onHandleUp" @pointercancel="onHandleUp"><img :src="icon('icon-menu-outline')" alt=""></button>
           <button class="aw-poll-remove" type="button" :aria-label="`항목 ${index + 1} 지우기`" @mousedown.prevent @click="removeRow(row)"><img :src="icon('icon-close-outline')" alt=""></button>
         </div>
       </div>
-      <button class="aw-poll-add" type="button" :disabled="rows.length >= 20" @click="addRow"><img :src="icon('icon-add-outline')" alt="">항목 추가</button>
+      <button class="aw-poll-add" type="button" :disabled="rows.length >= 20" @click="addRow"><i class="aw-poll-add-mark" aria-hidden="true"><img :src="icon('icon-add-fill')" alt=""></i>항목 추가</button>
       <div class="aw-poll-settings">
         <label class="aw-switch-row"><span>복수 선택</span><input v-model="multiple" type="checkbox" role="switch"><i aria-hidden="true" /></label>
         <label class="aw-switch-row"><span>무기명 투표</span><input v-model="anonymous" type="checkbox" role="switch"><i aria-hidden="true" /></label>

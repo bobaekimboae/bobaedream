@@ -5,7 +5,8 @@ import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
 import type { Node as PMNode } from '@tiptap/pm/model'
 import { computed, ref, shallowRef, type Ref } from 'vue'
-import { AppQuote, QuoteSource, QuoteText, TextAlign, TextColor, WriteMedia, type Align } from './appExtensions'
+import { NodeSelection } from '@tiptap/pm/state'
+import { AppQuote, BLOCK_NODES, BlockAttrs, QuoteSource, QuoteText, TextAlign, TextColor, WriteMedia, WriteSticker, compactPollElement, type Align } from './appExtensions'
 import { EditorPoll, LegacyTextStyle, WriteEmbed, embedItemFromAttrs, type EmbedAttrs } from './editorExtensions'
 import type { EmbedItem, PollData } from './legacyLibs'
 import { embedLib, fixLegacyPaths } from './legacyLibs'
@@ -27,6 +28,9 @@ export interface AppEditorOptions {
   onRemoveMedia: (id: string) => void
   onEditPoll: () => void
   onRemovePoll: () => void
+  /** 치지직형: 투표 · 링크 · 사진을 누르면 「선택됨」 블록이 되고, 블록 안 수정 · 삭제 단추 대신 블록 도구 줄을 쓴다 */
+  compactBlocks?: boolean
+  pollIcon?: string
 }
 
 let embedSeq = 0
@@ -69,8 +73,29 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
         QuoteSource,
         AppQuote,
         WriteMedia.configure({ onRemove: options.onRemoveMedia }),
-        WriteEmbed.configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll }),
-        EditorPoll.configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll }),
+        WriteEmbed.extend({ selectable: Boolean(options.compactBlocks) }).configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll }),
+        options.compactBlocks
+          ? EditorPoll.extend({
+              selectable: true,
+              addNodeView() {
+                return ({ node }) => {
+                  const dom = compactPollElement(String(node.attrs.data || ''), options.pollIcon || '')
+                  return {
+                    dom,
+                    ignoreMutation: () => true,
+                    update: (updated) => {
+                      if (updated.type !== node.type) return false
+                      dom.replaceChildren(...compactPollElement(String(updated.attrs.data || ''), options.pollIcon || '').childNodes)
+                      dom.setAttribute('data-poll', String(updated.attrs.data || ''))
+                      return true
+                    },
+                  }
+                }
+              },
+            }).configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll })
+          : EditorPoll.configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll }),
+        WriteSticker,
+        BlockAttrs,
       ],
       onUpdate: () => { version.value += 1 },
       onSelectionUpdate: () => { version.value += 1 },
@@ -108,6 +133,88 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
       quote,
     }
   })
+
+  /* ---------- 선택된 블록(치지직: 구분선 · 사진 · 동영상 · 링크 · 투표 · 스티커) ---------- */
+  const block = computed(() => {
+    void version.value
+    const ed = editor.value
+    const sel = ed?.state.selection
+    if (!ed || !(sel instanceof NodeSelection)) return null
+    const node = sel.node
+    if (!(BLOCK_NODES as readonly string[]).includes(node.type.name)) return null
+    const $pos = ed.state.doc.resolve(sel.from)
+    const index = $pos.index(0)
+    return {
+      name: node.type.name,
+      pos: sel.from,
+      align: String(node.attrs.blockAlign || 'left') as Align,
+      divider: Number(node.attrs.dividerStyle || 1),
+      first: index === 0,
+      last: index >= ed.state.doc.childCount - 1,
+    }
+  })
+  function setBlockAttr(attrs: Record<string, unknown>) {
+    const ed = editor.value
+    const cur = block.value
+    if (!ed || !cur) return
+    const node = ed.state.doc.nodeAt(cur.pos)
+    if (!node) return
+    const tr = ed.state.tr.setNodeMarkup(cur.pos, undefined, { ...node.attrs, ...attrs })
+    tr.setSelection(NodeSelection.create(tr.doc, cur.pos))
+    ed.view.dispatch(tr)
+    ed.view.focus()
+  }
+  function setBlockAlign(align: Align) { setBlockAttr({ blockAlign: align }) }
+  /** 구분선 · 스티커 · 사진: 정렬 단추 하나를 누를 때마다 왼쪽 → 가운데 → 오른쪽 */
+  function cycleBlockAlign() {
+    const order: Align[] = ['left', 'center', 'right']
+    const cur = block.value
+    if (cur) setBlockAlign(order[(order.indexOf(cur.align) + 1) % 3]!)
+  }
+  function setDividerStyle(style: number) { setBlockAttr({ dividerStyle: style }) }
+  function deleteBlock() {
+    const ed = editor.value
+    const cur = block.value
+    if (!ed || !cur) return
+    const node = ed.state.doc.nodeAt(cur.pos)
+    if (!node) return
+    if (node.type.name === 'writeMedia') options.onRemoveMedia(String(node.attrs.mediaId))
+    if (node.type.name === 'editorPoll') options.onRemovePoll()
+    ed.chain().focus().deleteRange({ from: cur.pos, to: cur.pos + node.nodeSize }).run()
+  }
+  /** 위로 · 아래로: 바로 앞 · 뒤 블록과 자리를 바꾸고 계속 선택해 둔다 */
+  function moveBlock(dir: -1 | 1) {
+    const ed = editor.value
+    const cur = block.value
+    if (!ed || !cur) return
+    const doc = ed.state.doc
+    const index = doc.resolve(cur.pos).index(0)
+    const other = index + dir
+    if (other < 0 || other >= doc.childCount) return
+    const node = doc.child(index)
+    const sibling = doc.child(other)
+    let start = 0
+    for (let i = 0; i < Math.min(index, other); i += 1) start += doc.child(i).nodeSize
+    const first = dir < 0 ? node : sibling
+    const second = dir < 0 ? sibling : node
+    const tr = ed.state.tr.replaceWith(start, start + node.nodeSize + sibling.nodeSize, [first, second])
+    const at = dir < 0 ? start : start + sibling.nodeSize
+    tr.setSelection(NodeSelection.create(tr.doc, at))
+    ed.view.dispatch(tr.scrollIntoView())
+    ed.view.focus()
+  }
+  function selectBlockAt(pos: number) {
+    const ed = editor.value
+    if (!ed) return
+    ed.view.dispatch(ed.state.tr.setSelection(NodeSelection.create(ed.state.doc, pos)))
+  }
+  /** 선택된 블록의 화면 위치(위로 · 아래로 단추를 그 아래에 붙인다) */
+  function blockDom(): HTMLElement | null {
+    const ed = editor.value
+    const cur = block.value
+    if (!ed || !cur) return null
+    return (ed.view.nodeDOM(cur.pos) as HTMLElement | null) || null
+  }
 
   const text = () => editor.value?.getText().trim() || ''
   const html = () => editor.value?.getHTML() || ''
@@ -224,6 +331,8 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
   /* ---------- 블록 넣기 ---------- */
   function insertDivider() { chain()?.setHorizontalRule().run() }
   function insertText(value: string) { chain()?.insertContent({ type: 'text', text: value }).run() }
+  /** 치지직: 스티커는 커서 자리에 그림 블록으로 들어간다 */
+  function insertSticker(emoji: string) { chain()?.insertContent([{ type: 'writeSticker', attrs: { emoji } }, { type: 'paragraph' }]).run() }
   function insertMedia(item: { id: string, kind: 'photo' | 'video', url: string, name: string }) {
     chain()?.insertContent([{ type: 'writeMedia', attrs: { mediaId: item.id, kind: item.kind, src: item.url, name: item.name } }, { type: 'paragraph' }]).run()
   }
@@ -275,9 +384,10 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
   }
 
   return {
-    editor, version, focused, state, create, destroy, text, html, setHtml, countNodes,
+    editor, version, focused, state, block, create, destroy, text, html, setHtml, countNodes,
     toggle, setBlock, setFontFamily, setFontSize, setColor, cycleAlign, setLink, unsetLink,
-    insertQuote, setQuoteStyle, removeQuote, insertDivider, insertText, insertMedia, insertEmbed, collectEmbeds, currentPoll, applyPoll,
+    insertQuote, setQuoteStyle, removeQuote, insertDivider, insertText, insertSticker,
+    setBlockAlign, cycleBlockAlign, setDividerStyle, deleteBlock, moveBlock, selectBlockAt, blockDom, insertMedia, insertEmbed, collectEmbeds, currentPoll, applyPoll,
   }
 }
 

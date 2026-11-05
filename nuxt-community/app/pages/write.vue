@@ -50,7 +50,7 @@ const pollCurrent = computed(() => (w && w.tool.value === 'poll' ? w.editor.curr
 function setBody(el: HTMLElement | null) { if (el) bodyEl.value = el }
 
 function pickBoard(name: string) { if (!w) return; w.board.value = name; w.tool.value = '' }
-function pickEmoji(emoji: string) { if (!w) return; w.tool.value = ''; w.editor.insertText(emoji) }
+function pickEmoji(emoji: string) { if (!w) return; w.tool.value = ''; if (w.style === 'chzzk') w.editor.insertSticker(emoji); else w.editor.insertText(emoji) }
 function attach(href: string) {
   if (!w) return
   w.tool.value = ''

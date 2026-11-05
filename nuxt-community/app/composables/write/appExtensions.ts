@@ -4,6 +4,8 @@
 //  - AppQuote    : 인용구 블록. 6가지 모양(따옴표 · 세로줄 · 말풍선 · 밑줄 따옴표 · 메모지 · 꺾쇠) + 출처 줄
 //  - WriteImage  : 본문 안 사진 · 동영상(치지직처럼 커서 자리에 들어감, 오른쪽 위 × 로 빼기)
 import { Extension, Mark, Node, mergeAttributes } from '@tiptap/core'
+import { Plugin, PluginKey } from '@tiptap/pm/state'
+import { Decoration, DecorationSet } from '@tiptap/pm/view'
 
 export const ALIGNS = ['left', 'center', 'right'] as const
 export type Align = typeof ALIGNS[number]
@@ -157,3 +159,93 @@ export const WriteMedia = Node.create<{ onRemove: (id: string) => void }>({
     }
   },
 })
+
+/* ---------- 본문 블록(구성 요소) — 치지직 앱(2026-11-05 2차 폰 확인) ----------
+   구분선 · 사진 · 동영상 · 링크 · 투표 · 스티커는 누르면 「선택됨」(보라 2px 상자 + 오른쪽 아래 위로 · 아래로)이 되고
+   도구 줄이 그 블록 전용 줄로 바뀐다. 정렬(blockAlign)과 구분선 모양(dividerStyle 1~8)은 블록 속성으로 둔다. */
+export const BLOCK_NODES = ['horizontalRule', 'writeMedia', 'writeEmbed', 'editorPoll', 'writeSticker'] as const
+export const DIVIDER_STYLES = [1, 2, 3, 4, 5, 6, 7, 8] as const
+
+export const BlockAttrs = Extension.create({
+  name: 'appBlockAttrs',
+  addGlobalAttributes() {
+    return [
+      {
+        types: [...BLOCK_NODES],
+        attributes: {
+          blockAlign: {
+            default: 'left',
+            parseHTML: (el: HTMLElement) => el.getAttribute('data-align') || 'left',
+            renderHTML: (attrs: Record<string, unknown>) => (attrs.blockAlign && attrs.blockAlign !== 'left' ? { 'data-align': String(attrs.blockAlign) } : {}),
+          },
+        },
+      },
+      {
+        types: ['horizontalRule'],
+        attributes: {
+          dividerStyle: {
+            default: 1,
+            parseHTML: (el: HTMLElement) => Number(el.getAttribute('data-divider') || 1),
+            renderHTML: (attrs: Record<string, unknown>) => ({ 'data-divider': String(attrs.dividerStyle || 1) }),
+          },
+        },
+      },
+    ]
+  },
+  addProseMirrorPlugins() {
+    // 직접 그리는 블록(사진 · 링크 · 투표 · 스티커)에도 정렬 · 모양이 보이게 장식(class)을 붙인다
+    return [new Plugin({
+      key: new PluginKey('appBlockDeco'),
+      props: {
+        decorations(state) {
+          const list: Decoration[] = []
+          state.doc.forEach((node, pos) => {
+            if (!(BLOCK_NODES as readonly string[]).includes(node.type.name)) return
+            const cls = [`blk-align-${String(node.attrs.blockAlign || 'left')}`]
+            if (node.type.name === 'horizontalRule') cls.push(`div-style-${String(node.attrs.dividerStyle || 1)}`)
+            list.push(Decoration.node(pos, pos + node.nodeSize, { class: cls.join(' ') }))
+          })
+          return DecorationSet.create(state.doc, list)
+        },
+      },
+    })]
+  },
+})
+
+/** 스티커 — 치지직은 본문 안 그림 블록(140×121, 왼쪽). 우리는 공용 이모지를 큰 그림처럼 넣는다 */
+export const WriteSticker = Node.create({
+  name: 'writeSticker',
+  group: 'block',
+  atom: true,
+  selectable: true,
+  draggable: false,
+  addAttributes() {
+    return { emoji: { default: '', parseHTML: (el: HTMLElement) => el.getAttribute('data-emoji') || el.textContent || '', renderHTML: (a: Record<string, unknown>) => ({ 'data-emoji': String(a.emoji || '') }) } }
+  },
+  parseHTML() { return [{ tag: 'figure.write-sticker' }] },
+  renderHTML({ node, HTMLAttributes }) {
+    return ['figure', mergeAttributes(HTMLAttributes, { class: 'write-sticker', contenteditable: 'false' }), ['span', { class: 'write-sticker-art', 'aria-label': '스티커' }, String(node.attrs.emoji || '')]]
+  },
+})
+
+/** 치지직 앱 본문 안 투표 블록: 회색 카드(왼쪽 어두운 동그라미 아이콘 · 「투표」 · 제목). 고치기 · 지우기는 블록 도구 줄에서 */
+export function compactPollElement(data: string, iconUrl: string): HTMLElement {
+  const section = document.createElement('section')
+  section.className = 'editor-poll is-compact'
+  section.contentEditable = 'false'
+  section.setAttribute('data-poll', data)
+  let title = ''
+  try { title = String((JSON.parse(data) as { title?: string }).title || '') } catch { title = '' }
+  const mark = document.createElement('span')
+  mark.className = 'editor-poll-mark'
+  mark.style.setProperty('--icon', `url("${iconUrl}")`)
+  const label = document.createElement('span')
+  label.className = 'editor-poll-text'
+  const kind = document.createElement('b')
+  kind.textContent = '투표'
+  const name = document.createElement('span')
+  name.textContent = title
+  label.append(kind, name)
+  section.append(mark, label)
+  return section
+}

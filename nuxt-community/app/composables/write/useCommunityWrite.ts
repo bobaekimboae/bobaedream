@@ -53,6 +53,8 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
     onRemoveMedia: id => removeMedia(id),
     onEditPoll: () => { tool.value = 'poll' },
     onRemovePoll: () => toast('투표를 삭제했습니다.'),
+    compactBlocks: style === 'chzzk',
+    pollIcon: communityAsset('assets/reddit-write/icon-poll-post-outline.svg'),
   })
 
   const bodyLength = computed(() => { void editor.version.value; return editor.text().replace(/\s/g, '').length })
