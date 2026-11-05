@@ -1,120 +1,16 @@
 <!doctype html>
-<html lang="ko" class="qf-font-pretendard">
+<html lang="ko">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
-  <meta name="ui-version" content="community-detail-balanced-header-20261102">
-  <title>보배드림 커뮤니티 | 게시글</title>
-  <link rel="stylesheet" href="../%61ssets/fonts/pretendard/pretendard-guazi.css">
-  <link rel="stylesheet" href="./chzzk-detail.css?v=20261102balancedheader1">
-  <link rel="stylesheet" href="./community-poll.css?v=20261017naverpoll1">
-  <link rel="stylesheet" href="./news-card.css?v=20261102redditplay1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>보배드림 커뮤니티</title>
+<!-- 2026-11-04 커뮤니티는 넉스트 판(nuxt-community)으로 옮겼다. 옛 주소는 같은 화면으로 넘긴다. 옛 정적 판 원본: chzzk-detail.static.html -->
+<script>
+(function(){var q=location.search.replace(/^\?/,'');location.replace('../nuxt-community/'+(function(){var p=new URLSearchParams(q),id=p.get('id')||'';p.delete('id');var r=p.toString();return '#/posts/'+encodeURIComponent(id||'view')+(r?'?'+r:'')})());})();
+</script>
 </head>
 <body>
-  <main class="pageShell">
-    <header class="topBar">
-      <button class="iconButton closeButton" id="closeBtn" aria-label="뒤로"><img src="assets/reddit-ui/back.svg" alt=""></button>
-      <strong class="brand">커뮤니티</strong>
-      <div class="headerActions">
-        <button class="iconButton bookmarkButton" id="bookmarkBtn" aria-label="북마크" aria-pressed="false"><img src="assets/reddit-ui/icon-save-outline.svg" alt=""></button>
-        <button class="iconButton" id="menuBtn" aria-label="더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
-      </div>
-    </header>
-
-    <article class="post" id="regularPost">
-      <button class="boardLink" id="boardBtn">자유게시판 <img src="assets/reddit-ui/chevron-right.svg" alt=""></button>
-      <h1 class="postTitle" id="postTitle">출첵!</h1>
-      <div class="authorRow">
-        <img class="authorAvatar" id="authorAvatar" src="assets/chzzk-detail/author-avatar.png" alt="작성자 프로필">
-        <div class="authorText">
-          <div><strong id="authorName">쿠로토라</strong><span> · LV <span id="authorLevel">17</span></span><span class="operatorBadge" id="operatorBadge" hidden>네이버 게임 운영자</span></div>
-          <div class="authorMeta"><span id="authorDate">7시간 전</span><span>·</span><span class="viewCount"><span class="metaLabel">조회</span><span id="authorView">33</span></span><span>·</span><span class="recommendCount"><span class="metaLabel">추천</span><span id="authorLike">16</span></span></div>
-        </div>
-      </div>
-      <div class="postDivider"></div>
-      <div class="postBody" id="postBody">
-        <img class="heroSticker" src="assets/chzzk-detail/checkin-cat.png" alt="박스 뒤에서 인사하는 고양이">
-        <p>출첵!</p>
-      </div>
-      <div class="tagRow" aria-label="태그"><button>#출첵</button><button>#출석체크</button></div>
-      <div class="reactionRow" id="postActions" aria-label="게시글 반응">
-        <div class="votePill" aria-label="좋아요와 싫어요">
-          <button class="voteButton" id="upBtn" aria-label="추천" aria-pressed="false"><img class="voteThumb" src="assets/reactions/recommend.svg" alt=""></button>
-          <strong id="score" aria-live="polite">16</strong>
-          <button class="voteButton down" id="downBtn" aria-label="비추천" aria-pressed="false"><img class="voteThumb" src="assets/reactions/dislike.svg" alt=""></button>
-        </div>
-        <button class="roundAction commentAction" id="commentJump" aria-label="댓글로 이동"><img src="assets/reactions/comment-outline.svg" alt=""><span id="actionCommentCount">2</span></button>
-        <button class="roundAction repostAction" id="repostBtn" aria-label="재게시" aria-pressed="false"><img src="assets/reddit-ui/repost.svg" alt=""></button>
-        <button class="roundAction shareAction" id="shareBtn" aria-label="게시글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""></button>
-      </div>
-    </article>
-
-    <article class="noticePost" id="noticePost" hidden>
-      <div class="noticeCopy">
-        <p>당첨되신 분은 응모 시 기입하신 네이버 ID로 포인트 지급 관련 안내가<br>개별 발송될 예정이니, 해당 아이디의 네이버 메일함을 꼭 확인해 주세요!</p>
-        <p>※ 포인트는 발표 후 7일 이내 지급될 예정이며, 1인당 지급액이 5만원을 초과하여 제세공과금 관련 사항은 당첨자분께 개별 안내드립니다.</p>
-      </div>
-      <p class="noticeUpdate">(2026. 09. 23 11:20 업데이트)</p>
-      <div class="tagRow"><button>#그님티</button><button>#내전</button></div>
-      <div class="reactionRow noticeReaction"><div class="votePill" aria-label="추천과 비추천"><button class="voteButton" aria-label="추천"><img class="voteThumb" src="assets/reactions/recommend.svg" alt=""></button><strong>12</strong><button class="voteButton down" aria-label="비추천"><img class="voteThumb" src="assets/reactions/dislike.svg" alt=""></button></div></div>
-    </article>
-
-    <section class="latestCard" id="latest">
-      <div class="latestHead"><div><strong id="latestAuthor">쿠로토라</strong>님의 최신글</div><button id="latestMore">더보기</button></div>
-      <button class="latestItem" data-comments="5">출첵!</button>
-      <button class="latestItem" data-comments="12">출첵!</button>
-      <button class="latestItem" data-comments="8">출첵!</button>
-    </section>
-
-    <section class="comments" id="comments">
-      <div class="commentHead">
-        <div class="commentTitle"><strong id="commentCount">댓글 2</strong><button id="refreshBtn" aria-label="새로고침"><img src="assets/reddit-ui/icon-refresh-outline.svg" alt=""></button></div>
-        <button class="filterButton" id="filterBtn" aria-label="댓글 정렬"><img src="assets/reddit-ui/icon-sort-outline.svg" alt=""></button>
-      </div>
-      <div class="cleanBot"><span class="botIcon"><img src="assets/reddit-ui/icon-bot-outline.svg" alt=""></span><strong>클린봇</strong>이 악성댓글을 감지합니다.<button id="gearBtn" aria-label="클린봇 설정"><img src="assets/reddit-ui/icon-settings-outline.svg" alt=""></button></div>
-      <ol class="commentList" id="commentList">
-        <li class="commentItem">
-          <img class="commentAvatar" src="assets/chzzk-detail/comment-avatar.gif" alt="댓글 작성자">
-          <div class="commentContent">
-            <div class="commentAuthor"><strong>전국제패 모범생 4669</strong><span>7시간 전</span></div>
-            <p>ㅊㅊ</p>
-            <div class="commentTools" aria-label="댓글 작업">
-              <button class="commentIconButton moreCommentButton" aria-label="댓글 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button>
-              <button class="commentTextButton replyButton" data-reply-user="쿠로토라"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button>
-              <button class="commentTextButton commentShareButton" data-comment-share="comment-1" aria-label="댓글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button>
-              <strong class="replyCount">답글 1</strong>
-            </div>
-            <div class="nestedReply">
-              <img class="replyAvatar" src="assets/chzzk-detail/author-avatar.png" alt="답글 작성자">
-              <div><div class="replyAuthor"><strong>쿠로토라</strong><span class="authorBadge">작성자</span><span>6시간 전</span></div><a href="#">전국제패 모범생 4669</a><img class="replySticker" src="assets/chzzk-detail/reply-cat.png" alt="야호 고양이 스티커"><div class="nestedTools" aria-label="답글 작업"><button class="commentIconButton moreCommentButton" aria-label="답글 더보기"><img src="assets/chzzk-detail/icons/more-reddit.svg" alt=""></button><button class="commentTextButton replyButton" data-reply-user="쿠로토라"><img src="assets/chzzk-detail/icons/reply-reddit.svg" alt=""><span>답글</span></button><button class="commentTextButton commentShareButton" data-comment-share="reply-1" aria-label="답글 공유"><img src="assets/chzzk-detail/icons/share-reddit.svg" alt=""><span>공유</span></button></div></div>
-            </div>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <button class="toTop" id="toTop"><span><img src="assets/reddit-ui/icon-up-arrow-outline.svg" alt=""></span>맨 위로</button>
-
-    <form class="composer" id="commentForm">
-      <button type="button" aria-label="이미지 첨부"><img src="assets/reddit-ui/icon-camera-outline.svg" alt=""></button>
-      <input id="commentInput" maxlength="500" placeholder="댓글을 입력하세요." aria-label="댓글 입력">
-      <button type="button" aria-label="스티커"><img src="assets/reddit-ui/icon-sticker-outline.svg" alt=""></button>
-      <button type="button" aria-label="잠금"><img src="assets/reddit-ui/icon-lock-outline.svg" alt=""></button>
-      <button class="sendButton" id="submitBtn" type="submit" aria-label="댓글 등록" disabled><img src="assets/reddit-ui/icon-send-outline.svg" alt=""></button>
-    </form>
-  </main>
-  <div class="toast" id="toast" role="status"></div>
-  <script src="./scenario-data.js?v=20261016rankavatars1"></script>
-  <script src="./discussion-media.js?v=20261016media2"></script>
-  <script src="./data/board-best.js?v=20261016bestboard1"></script>
-  <script src="./data/board-car-news.js?v=20261017det1"></script>
-  <script src="./data/board-foreign-car-news.js?v=20261017foreignnews2"></script>
-  <script src="./data/board-brand-car-info.js?v=20261017brandinfo1"></script>
-  <script src="./data/board-f1.js?v=20261103f1"></script>
-  <script src="./community-embed.js?v=20261017fav3"></script>
-  <script src="./board-tables.js?v=20261017pollrow1"></script>
-  <script src="./community-poll.js?v=20261017naverpoll1"></script>
-<script src="./chzzk-detail.js?v=20261103redditicons"></script>
+<p><a href="../nuxt-community/">보배드림 커뮤니티로 이동</a></p>
 </body>
 </html>
