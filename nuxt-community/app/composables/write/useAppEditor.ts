@@ -6,7 +6,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import type { Node as PMNode } from '@tiptap/pm/model'
 import { computed, ref, shallowRef, type Ref } from 'vue'
 import { NodeSelection } from '@tiptap/pm/state'
-import { AppQuote, BLOCK_NODES, BlockAttrs, MediaRep, QuoteSource, QuoteText, TextAlign, TextColor, WriteMedia, WriteSticker, compactPollElement, type Align } from './appExtensions'
+import { AppQuote, BLOCK_NODES, BlockAttrs, MediaRep, QuoteSource, QuoteText, TextAlign, TextBg, TextColor, WriteCard, WriteMedia, WriteSticker, type CardAttrs, compactPollElement, type Align } from './appExtensions'
 import { EditorPoll, LegacyTextStyle, WriteEmbed, embedItemFromAttrs, type EmbedAttrs } from './editorExtensions'
 import type { EmbedItem, PollData } from './legacyLibs'
 import { embedLib, fixLegacyPaths } from './legacyLibs'
@@ -30,6 +30,8 @@ export interface AppEditorOptions {
   onRemovePoll: () => void
   /** 치지직형: 투표 · 링크 · 사진을 누르면 「선택됨」 블록이 되고, 블록 안 수정 · 삭제 단추 대신 블록 도구 줄을 쓴다 */
   compactBlocks?: boolean
+  /** 인용구 본문 안내 글자(네이버 카페 앱: 「내용을 입력하세요.」) */
+  quotePlaceholder?: string
   pollIcon?: string
 }
 
@@ -63,13 +65,14 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
           includeChildren: true,
           showOnlyCurrent: false,
           placeholder: ({ node, editor: ed }) => {
-            if (node.type.name === 'quoteText') return '내용을 입력해 주세요'
+            if (node.type.name === 'quoteText') return options.quotePlaceholder || '내용을 입력해 주세요'
             if (node.type.name === 'quoteSource') return '출처 입력'
             return ed.isEmpty ? options.placeholder() : ''
           },
         }),
         TextAlign,
         TextColor,
+        TextBg,
         LegacyTextStyle,
         QuoteText,
         QuoteSource,
@@ -98,6 +101,7 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
             }).configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll })
           : EditorPoll.configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll }),
         WriteSticker,
+        WriteCard,
         BlockAttrs,
       ],
       onUpdate: () => { version.value += 1 },
@@ -115,7 +119,7 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
   const state = computed(() => {
     void version.value
     const ed = editor.value
-    const empty = { bold: false, italic: false, underline: false, strike: false, bullet: false, link: false, block: 'p', fontFamily: '', fontSize: 15, align: 'left' as Align, color: '', quote: 0 }
+    const empty = { bold: false, italic: false, underline: false, strike: false, bullet: false, link: false, block: 'p', fontFamily: '', fontSize: 15, align: 'left' as Align, color: '', bg: '', quote: 0 }
     if (!ed) return empty
     const quote = ed.isActive('appQuote') ? Number(ed.getAttributes('appQuote').quoteStyle || 1) : 0
     const textStyle = ed.getAttributes('legacyTextStyle')
@@ -133,6 +137,7 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
       fontSize: sizePx,
       align,
       color: String(ed.getAttributes('appTextColor').color || ''),
+      bg: String(ed.getAttributes('appTextBg').color || ''),
       quote,
     }
   })
@@ -267,6 +272,21 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
     if (color) c.setMark('appTextColor', { color }).run()
     else c.unsetMark('appTextColor').run()
   }
+  function setBg(color: string) {
+    const c = chain()
+    if (!c) return
+    if (color) c.setMark('appTextBg', { color }).run()
+    else c.unsetMark('appTextBg').run()
+  }
+  /** 네이버 카페 앱: 일정 · 장소 · 파일 · 글감 카드를 커서 자리(블록이 골라져 있으면 그 뒤)에 넣는다 */
+  function insertCard(card: Partial<CardAttrs> & { kind: string, title: string }) {
+    const ed = editor.value
+    if (!ed) return
+    const content = [{ type: 'writeCard', attrs: { sub: '', meta: '', link: '', image: '', ...card } }, { type: 'paragraph' }]
+    const sel = ed.state.selection
+    if (sel instanceof NodeSelection) { ed.chain().focus().insertContentAt(sel.to, content).run(); return }
+    chain()?.insertContent(content).run()
+  }
   /** 치지직: 정렬 버튼을 누를 때마다 왼쪽 → 가운데 → 오른쪽 */
   function cycleAlign(): Align {
     const order: Align[] = ['left', 'center', 'right']
@@ -340,7 +360,13 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
   /** 치지직: 스티커는 커서 자리에 그림 블록으로 들어간다 */
   function insertSticker(emoji: string) { chain()?.insertContent([{ type: 'writeSticker', attrs: { emoji } }, { type: 'paragraph' }]).run() }
   function insertMedia(item: { id: string, kind: 'photo' | 'video', url: string, name: string }, extra: Record<string, unknown> = {}) {
-    chain()?.insertContent([{ type: 'writeMedia', attrs: { mediaId: item.id, kind: item.kind, src: item.url, name: item.name, ...extra } }, { type: 'paragraph' }]).run()
+    const content = [{ type: 'writeMedia', attrs: { mediaId: item.id, kind: item.kind, src: item.url, name: item.name, ...extra } }, { type: 'paragraph' }]
+    const sel = editor.value?.state.selection
+    // 사진 · 동영상 블록을 고른 채(설명 입력 중 포함) 넣으면 고른 블록을 덮지 말고 그 뒤에 넣는다
+    if (sel instanceof NodeSelection) { chain()?.insertContentAt(sel.to, content).run(); return }
+    const parent = sel?.$from.parent
+    if (sel && parent && parent.type.name !== 'paragraph' && sel.$from.depth === 0) { chain()?.insertContentAt(sel.to, content).run(); return }
+    chain()?.insertContent(content).run()
   }
   /** 선택한 사진 · 동영상 블록의 속성을 바꾼다(교체 · 링크 · 동영상 정보) */
   function setMediaAttrs(attrs: Record<string, unknown>, at?: number) {
@@ -432,7 +458,7 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
 
   return {
     editor, version, focused, state, block, create, destroy, text, html, setHtml, countNodes,
-    toggle, setBlock, setFontFamily, setFontSize, setColor, cycleAlign, setLink, unsetLink,
+    toggle, setBlock, setFontFamily, setFontSize, setColor, setBg, insertCard, cycleAlign, setLink, unsetLink,
     insertQuote, setQuoteStyle, removeQuote, insertDivider, insertText, insertSticker,
     setBlockAlign, cycleBlockAlign, setDividerStyle, deleteBlock, moveBlock, selectBlockAt, blockDom, insertMedia, setMediaAttrs, mediaAt, caption, captionPos, setCaptionAttrs, cycleCaptionAlign, insertEmbed, collectEmbeds, currentPoll, applyPoll,
   }

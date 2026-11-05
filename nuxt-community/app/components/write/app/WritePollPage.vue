@@ -1,7 +1,7 @@
 <!-- 투표(치지직 앱: 화면 전체 · X · 「투표」 · 등록. 제목, 항목 3개(번호 · 이미지 · 끌어서 순서), 항목 추가,
      복수 선택 · 무기명 투표(기본 켜짐) · 투표 현황 보기 · 자동 종료일(켜면 날짜 · 시간)). 닫으면 「그만두시겠어요?」 -->
 <script setup lang="ts">
-import { computed, nextTick, ref } from 'vue'
+import { computed, inject, nextTick, ref } from 'vue'
 import type { PollData } from '~/composables/write/legacyLibs'
 import { dateOptions, deadlineDefaults } from '~/composables/write/writeUtils'
 import WriteAlert from './WriteAlert.vue'
@@ -9,6 +9,7 @@ import WriteToolPage from './WriteToolPage.vue'
 
 const props = defineProps<{ current: PollData | null }>()
 const emit = defineEmits<{ apply: [poll: PollData], close: [], toast: [message: string] }>()
+const naver = inject<string>('writeStyle', 'chzzk') === 'naver'
 const icon = (name: string) => communityAsset(`assets/reddit-write/${name}.svg`)
 
 let seq = 0
@@ -20,6 +21,7 @@ const pollTitle = ref(cur?.title || '')
 const multiple = ref(Boolean(cur?.multiple))
 const anonymous = ref(cur?.anonymous !== false)
 const visibility = ref(cur?.visibility || 'after_vote')
+const sort = ref<'index' | 'votes'>(cur?.sort || 'index')
 const autoEnd = ref(Boolean(cur?.endsAt))
 const base = deadlineDefaults(cur?.endsAt || '')
 const endYear = ref(base.year)
@@ -106,18 +108,18 @@ function apply() {
     if (end.getTime() <= Date.now()) { emit('toast', '지금보다 뒤의 종료 시각을 골라 주세요.'); return }
     endsAt = end.toISOString()
   }
-  emit('apply', { title: pollTitle.value.trim(), options, images: kept.map(item => item.image), multiple: multiple.value, anonymous: anonymous.value, visibility: visibility.value, endsAt })
+  emit('apply', { title: pollTitle.value.trim(), options, images: kept.map(item => item.image), multiple: multiple.value, anonymous: anonymous.value, visibility: visibility.value, endsAt, ...(naver ? { sort: sort.value } : {}) })
 }
 </script>
 
 <template>
-  <WriteToolPage title="투표" action-label="등록" :action-disabled="disabled" @left="leaving = true" @action="apply">
+  <WriteToolPage title="투표" :action-label="naver ? '첨부' : '등록'" :action-disabled="disabled" @left="leaving = true" @action="apply">
     <div class="aw-poll">
-      <label class="aw-poll-field"><span class="sr-only">투표 제목</span><input v-model="pollTitle" maxlength="60" placeholder="제목을 입력해주세요"></label>
+      <label class="aw-poll-field"><span class="sr-only">투표 제목</span><input v-model="pollTitle" maxlength="60" :placeholder="naver ? '투표제목' : '제목을 입력해주세요'"></label>
       <div ref="list" class="aw-poll-list">
         <div v-for="(row, index) in rows" :key="row.key" class="aw-poll-row" :class="{ 'is-focus': focusedRow === row.key, 'is-dragging': dragging === row }">
           <b>{{ index + 1 }}</b>
-          <input v-model="row.text" maxlength="40" :aria-label="`항목 ${index + 1}`" placeholder="항목을 입력하세요" @focus="focusedRow = row.key" @blur="focusedRow = null">
+          <input v-model="row.text" maxlength="40" :aria-label="`항목 ${index + 1}`" :placeholder="naver ? '항목 입력' : '항목을 입력하세요'" @focus="focusedRow = row.key" @blur="focusedRow = null">
           <button class="aw-poll-image" :class="{ 'has-image': row.image }" type="button" :aria-label="`항목 ${index + 1} 사진`" @click="pickImage(row)"><img :src="row.image || icon('icon-image-post-outline')" alt=""></button>
           <button class="aw-poll-handle" type="button" :aria-label="`항목 ${index + 1} 끌어서 순서 바꾸기`" @pointerdown="onHandleDown($event, row)" @pointermove="onHandleMove" @pointerup="onHandleUp" @pointercancel="onHandleUp"><img :src="icon('icon-menu-outline')" alt=""></button>
           <button class="aw-poll-remove" type="button" :aria-label="`항목 ${index + 1} 지우기`" @mousedown.prevent @click="removeRow(row)"><img :src="icon('icon-close-outline')" alt=""></button>
@@ -128,7 +130,8 @@ function apply() {
         <label class="aw-switch-row"><span>복수 선택</span><input v-model="multiple" type="checkbox" role="switch"><i aria-hidden="true" /></label>
         <label class="aw-switch-row"><span>무기명 투표</span><input v-model="anonymous" type="checkbox" role="switch"><i aria-hidden="true" /></label>
         <label class="aw-select-row"><span>투표 현황 보기</span><select v-model="visibility" aria-label="투표 현황 보기"><option value="after_vote">투표 참여 후 보기</option><option value="after_close">투표 종료 후 보기</option><option value="hidden">비공개</option></select></label>
-        <label class="aw-switch-row"><span>자동 종료일</span><input v-model="autoEnd" type="checkbox" role="switch"><i aria-hidden="true" /></label>
+        <label v-if="naver" class="aw-select-row"><span>투표 항목 정렬</span><select v-model="sort" aria-label="투표 항목 정렬"><option value="index">항목 번호 순</option><option value="votes">투표 많은 순</option></select></label>
+        <label class="aw-switch-row"><span>{{ naver ? '투표 자동 종료' : '자동 종료일' }}</span><input v-model="autoEnd" type="checkbox" role="switch"><i aria-hidden="true" /></label>
         <div v-if="autoEnd" class="aw-poll-deadline">
           <div><span>날짜</span><select v-model.number="endYear" aria-label="종료 연도"><option v-for="item in years" :key="item.value" :value="item.value">{{ item.value }}년</option></select><select v-model.number="endMonth" aria-label="종료 월"><option v-for="item in months" :key="item.value" :value="item.value">{{ item.label }}</option></select><select v-model.number="endDay" aria-label="종료 일"><option v-for="item in days" :key="item.value" :value="item.value">{{ item.label }}</option></select></div>
           <div><span>시간</span><select v-model.number="endHour" aria-label="종료 시"><option v-for="item in hours" :key="item.value" :value="item.value">{{ item.label }}</option></select><select v-model.number="endMinute" aria-label="종료 분"><option v-for="item in minutes" :key="item.value" :value="item.value">{{ item.label }}</option></select></div>

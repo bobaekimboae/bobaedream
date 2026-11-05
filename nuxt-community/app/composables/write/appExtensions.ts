@@ -41,6 +41,18 @@ export const TextColor = Mark.create({
   },
 })
 
+/** 글자 배경색(네이버 카페 앱 서식 줄 「글자 배경색」). 글자색과 같은 14가지 */
+export const TextBg = Mark.create({
+  name: 'appTextBg',
+  addAttributes() {
+    return { color: { default: null, parseHTML: (el: HTMLElement) => el.style.backgroundColor || null, renderHTML: () => ({}) } }
+  },
+  parseHTML() { return [{ tag: 'span[data-text-bg]' }] },
+  renderHTML({ mark }) {
+    return ['span', mergeAttributes({ 'data-text-bg': '', style: mark.attrs.color ? `background-color: ${String(mark.attrs.color)}` : '' }), 0]
+  },
+})
+
 /* ---------- 인용구 ---------- */
 export const QUOTE_STYLES = [
   { id: 1, label: '따옴표' },
@@ -332,7 +344,7 @@ export const MediaRep = Extension.create({
 /* ---------- 본문 블록(구성 요소) — 치지직 앱(2026-11-05 2차 폰 확인) ----------
    구분선 · 사진 · 동영상 · 링크 · 투표 · 스티커는 누르면 「선택됨」(보라 2px 상자 + 오른쪽 아래 위로 · 아래로)이 되고
    도구 줄이 그 블록 전용 줄로 바뀐다. 정렬(blockAlign)과 구분선 모양(dividerStyle 1~8)은 블록 속성으로 둔다. */
-export const BLOCK_NODES = ['horizontalRule', 'writeMedia', 'writeEmbed', 'editorPoll', 'writeSticker'] as const
+export const BLOCK_NODES = ['horizontalRule', 'writeMedia', 'writeEmbed', 'editorPoll', 'writeSticker', 'writeCard'] as const
 export const DIVIDER_STYLES = [1, 2, 3, 4, 5, 6, 7, 8] as const
 
 export const BlockAttrs = Extension.create({
@@ -418,3 +430,26 @@ export function compactPollElement(data: string, iconUrl: string): HTMLElement {
   section.append(mark, label)
   return section
 }
+
+/** 본문 안 첨부 카드(네이버 카페 앱: 일정 · 장소 · 파일 · 글감). 글자만 있는 카드라 서버 본문(HTML)에도 그대로 남는다.
+ *  kind: schedule | place | file | material,  title · sub · meta 는 화면에 보일 글자,  link 는 누르면 열 주소(있을 때만) */
+export interface CardAttrs { kind: string, title: string, sub: string, meta: string, link: string, image: string }
+export const WriteCard = Node.create({
+  name: 'writeCard',
+  group: 'block',
+  atom: true,
+  selectable: true,
+  draggable: false,
+  addAttributes() {
+    const keep = (name: string) => ({ default: '', parseHTML: (el: HTMLElement) => el.getAttribute(`data-${name}`) || '', renderHTML: (a: Record<string, unknown>) => ({ [`data-${name}`]: String(a[name] || '') }) })
+    return { kind: keep('kind'), title: keep('title'), sub: keep('sub'), meta: keep('meta'), link: keep('link'), image: keep('image') }
+  },
+  parseHTML() { return [{ tag: 'figure.write-card' }] },
+  renderHTML({ node, HTMLAttributes }) {
+    const a = node.attrs as CardAttrs
+    const text: unknown[] = ['div', { class: 'write-card-text' }, ['strong', {}, a.title || ''], ...(a.sub ? [['span', {}, a.sub]] : []), ...(a.meta ? [['small', {}, a.meta]] : [])]
+    const art: unknown[] = a.image ? ['img', { class: 'write-card-image', src: a.image, alt: '' }] : ['span', { class: 'write-card-icon', 'aria-hidden': 'true' }]
+    const inner: unknown[] = a.link ? ['a', { href: a.link, target: '_blank', rel: 'noopener', class: 'write-card-link' }, art, text] : ['div', { class: 'write-card-link' }, art, text]
+    return ['figure', mergeAttributes(HTMLAttributes, { class: `write-card is-${a.kind || 'file'}`, contenteditable: 'false' }), inner] as never
+  },
+})

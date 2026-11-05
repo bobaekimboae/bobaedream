@@ -1,15 +1,16 @@
 <!-- 서식 줄(치지직 앱: 텍스트 도구 T 를 누르면 본문 위에 나오는 회색 줄).
      본문▾ · 기본서체 · 15 · 정렬 · B · I · U · 글자색 · 목록 · 링크 · 취소선. 글꼴 · 크기 · 색은 같은 줄이 그 목록으로 바뀌고 ‹ 로 돌아온다.
-     인용구 안에서는 인용구▾ · 19 · B · I · U · 글자색만 -->
+     인용구 안에서는 인용구▾ · 19 · B · I · U · 글자색만.
+     naver(네이버 카페 앱 2026-11-06 폰 확인): 본문▾ · 기본서체 · 15 · 정렬 · B · 인용구 · I · U · 글자색 · 글자 배경색 · 링크 · 취소선 -->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { TEXT_COLORS } from '~/composables/write/appExtensions'
 import { FONT_FAMILIES, FONT_SIZES, type AppEditor } from '~/composables/write/useAppEditor'
 
-const props = defineProps<{ editor: AppEditor }>()
+const props = defineProps<{ editor: AppEditor, naver?: boolean }>()
 const emit = defineEmits<{ link: [] }>()
 const icon = (name: string) => communityAsset(`assets/reddit-write/${name}.svg`)
-const mode = ref<'main' | 'font' | 'size' | 'color'>('main')
+const mode = ref<'main' | 'font' | 'size' | 'color' | 'bg'>('main')
 const blockMenu = ref(false)
 const s = computed(() => props.editor.state.value)
 const inQuote = computed(() => s.value.quote > 0)
@@ -32,11 +33,13 @@ function pickBlock(kind: 'p' | 'h3' | 'quote') { blockMenu.value = false; props.
       <button class="aw-format-text is-size" type="button" :aria-label="`글자 크기 ${s.fontSize}`" @click="mode = 'size'">{{ s.fontSize }}</button>
       <button v-if="!inQuote" type="button" :aria-label="alignLabel" @click="editor.cycleAlign()"><img :src="icon(alignIcon)" alt=""></button>
       <button type="button" aria-label="굵게" :aria-pressed="s.bold" :class="{ 'is-on': s.bold }" @click="editor.toggle('bold')"><img :src="icon('icon-bold-outline')" alt=""></button>
+      <button v-if="naver && !inQuote" type="button" aria-label="인용구" @click="editor.insertQuote(1)"><img :src="icon('icon-quote-outline')" alt=""></button>
       <button type="button" aria-label="기울이기" :aria-pressed="s.italic" :class="{ 'is-on': s.italic }" @click="editor.toggle('italic')"><img :src="icon('icon-italic-outline')" alt=""></button>
       <button class="aw-format-u" type="button" aria-label="밑줄" :aria-pressed="s.underline" :class="{ 'is-on': s.underline }" @click="editor.toggle('underline')">U</button>
       <button class="aw-format-color" type="button" aria-label="글자색" @click="mode = 'color'"><img :src="icon('icon-text-outline')" alt=""><i :style="{ background: s.color || '#000' }" /></button>
+      <button v-if="naver && !inQuote" class="aw-format-bg" type="button" aria-label="글자 배경색" @click="mode = 'bg'"><i :style="{ background: s.bg || '#fff' }">T</i></button>
       <template v-if="!inQuote">
-        <button type="button" aria-label="목록" :aria-pressed="s.bullet" :class="{ 'is-on': s.bullet }" @click="editor.toggle('bullet')"><img :src="icon('icon-list-bulleted-outline')" alt=""></button>
+        <button v-if="!naver" type="button" aria-label="목록" :aria-pressed="s.bullet" :class="{ 'is-on': s.bullet }" @click="editor.toggle('bullet')"><img :src="icon('icon-list-bulleted-outline')" alt=""></button>
         <button type="button" aria-label="링크" :class="{ 'is-on': s.link }" @click="s.link ? editor.unsetLink() : emit('link')"><img :src="icon('icon-link-outline')" alt=""></button>
         <button type="button" aria-label="취소선" :aria-pressed="s.strike" :class="{ 'is-on': s.strike }" @click="editor.toggle('strike')"><img :src="icon('icon-strikethrough-outline')" alt=""></button>
       </template>
@@ -48,6 +51,9 @@ function pickBlock(kind: 'p' | 'h3' | 'quote') { blockMenu.value = false; props.
       </template>
       <template v-else-if="mode === 'size'">
         <button v-for="size in FONT_SIZES" :key="size" class="aw-format-text is-size" type="button" :class="{ 'is-pick': s.fontSize === size }" @click="editor.setFontSize(size)">{{ size }}</button>
+      </template>
+      <template v-else-if="mode === 'bg'">
+        <button v-for="color in TEXT_COLORS" :key="color || 'none'" class="aw-swatch" type="button" :class="{ 'is-none': !color, 'is-white': color === '#ffffff', 'is-pick': s.bg === color }" :style="color ? { background: color } : undefined" :aria-label="color ? `글자 배경색 ${color}` : '글자 배경색 없음'" @click="editor.setBg(color)" />
       </template>
       <template v-else>
         <button v-for="color in TEXT_COLORS" :key="color || 'none'" class="aw-swatch" type="button" :class="{ 'is-none': !color, 'is-white': color === '#ffffff', 'is-pick': s.color === color }" :style="color ? { background: color } : undefined" :aria-label="color ? `글자색 ${color}` : '글자색 없음'" @click="editor.setColor(color)" />

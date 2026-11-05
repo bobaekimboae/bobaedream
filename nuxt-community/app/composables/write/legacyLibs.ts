@@ -40,6 +40,8 @@ export interface PollData {
   anonymous: boolean
   visibility: string
   endsAt: string
+  /** 네이버 카페형 「투표 항목 정렬」 */
+  sort?: 'index' | 'votes'
 }
 
 export interface BbmPollLib {
