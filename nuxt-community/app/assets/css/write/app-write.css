@@ -398,3 +398,75 @@
 .app-editor-body .editor-poll.is-compact.ProseMirror-selectednode{border-radius:2px}
 .aw-poll-image img,.aw-poll-handle img{opacity:.42}
 .aw-select-row select{font-weight:600}
+
+/* ---------- 치지직형 사진 · 동영상 블록(2026-11-05 폰 3차) ----------
+   폭 356(내용 폭) · 모서리 4 · 고르면 그림 가장자리에 보라 2px(설명 칸은 상자 밖 아래)
+   대표: 40×25 · 13/700 · 모서리 6, 대표는 보라 채움 · 다른 것은 고를 때만 반투명 검정 + 흰 1px
+   설명: 그림 아래 12 · 13px 가운데 · 안내 #a7a7a7 */
+.aw-chzzk .write-media{margin:8px 0;border-radius:0;overflow:visible;background:none}
+.aw-chzzk .write-media.ProseMirror-selectednode{outline:none}
+.aw-chzzk .write-media-frame{position:relative;overflow:hidden;border-radius:4px;background:#f2f3f5}
+.aw-chzzk .write-media.ProseMirror-selectednode .write-media-frame{outline:2px solid var(--aw-purple);outline-offset:-2px}
+.aw-chzzk .write-media img,.aw-chzzk .write-media video{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
+.aw-chzzk .write-media[data-kind=video] .write-media-frame{min-height:200px;background:#000}
+.aw-chzzk .write-media[data-kind=video] img:not([src]){display:none}
+.aw-chzzk .write-media+.write-media{margin-top:8px}
+.write-media-rep{display:none;position:absolute;z-index:2;top:8px;left:8px;width:40px;height:25px;border-radius:6px;color:#fff;font-size:13px;line-height:25px;font-weight:700;text-align:center}
+.aw-chzzk .write-media.is-rep .write-media-rep{display:block;background:var(--aw-purple);cursor:default}
+.aw-chzzk .write-media.ProseMirror-selectednode:not(.is-rep) .write-media-rep{display:block;background:rgba(0,0,0,.3);box-shadow:inset 0 0 0 1px #fff;cursor:pointer}
+.write-media-cap{display:none;width:100%;height:17px;margin:12px 0 0;padding:0;border:0;background:none;color:#222;font:inherit;font-size:13px;line-height:17px;text-align:center;outline:none}
+.write-media-cap::placeholder{color:#a7a7a7}
+.write-media-cap.is-link{color:var(--aw-purple);text-decoration:underline}
+.aw-chzzk .write-media:is(.ProseMirror-selectednode,.has-cap,.is-cap-focus) .write-media-cap{display:block}
+.write-media-play{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;pointer-events:none;color:#fff}
+.write-media-play i{display:block;width:40px;height:40px;background:#fff;-webkit-mask:var(--play) center/40px no-repeat;mask:var(--play) center/40px no-repeat;filter:drop-shadow(0 1px 3px rgba(0,0,0,.4))}
+.write-media-play b{font-size:13px;line-height:16px;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.5)}
+.aw-root{--play:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M12 7.5C12 6 13.6 5.1 14.9 5.9L33 18.3c1.2.8 1.2 2.6 0 3.4L14.9 34.1c-1.3.8-2.9-.1-2.9-1.6Z' fill='%23000'/%3E%3C/svg%3E")}
+
+/* 링크 입력 창(폰 3차: 상자 296 · 칸 64 · 아래 단추 51 연보라) */
+.awu-dim{position:fixed;z-index:60;inset:0;display:grid;place-items:center;padding:0 20px;background:rgba(0,0,0,.5)}
+.awu{width:min(296px,100%);overflow:hidden;border-radius:12px;background:#fff}
+.awu-input{display:block;width:100%;height:64px;padding:0 20px;border:0;font-size:16px;outline:none;text-align:left}
+.awu-input::placeholder{color:#a7a7a7}
+.awu-actions{display:grid;grid-template-columns:1fr 1fr;height:51px;background:#e4e2fa}
+.awu-actions button{font-size:16px;font-weight:700;color:var(--aw-purple)}
+.awu-actions .is-ok:disabled{color:#a7a3c8;cursor:default}
+
+/* 동영상 업로드 · 동영상 정보(폰 3차) */
+.awv-submit{background:#e4e2fa!important;color:var(--aw-purple)!important}
+.awv-progress{position:relative;display:flex;align-items:center;gap:4px;height:46px;flex:0 0 46px;padding:0 17px;background:#f5f6f8;font-size:13px;color:#222}
+.awv-progress span{flex:1}
+.awv-progress b{color:#00c73c;font-weight:600}
+.awv-progress em{font-style:normal;color:#8c8c8c}
+.awv-progress i{position:absolute;left:0;bottom:0;height:2px;background:#00c73c;transition:width .2s}
+.awv-body{padding:0 27px 40px}
+.awv-label{display:block;margin:29px 0 0;font-size:13px;line-height:16px;font-weight:700;color:#222}
+.awv-label.is-first{margin-top:18px}
+.awv-thumbs{display:flex;gap:3px;margin:18px -27px 0 0;overflow-x:auto;scrollbar-width:none}
+.awv-thumbs::-webkit-scrollbar{display:none}
+.awv-thumb{position:relative;display:grid;width:110px;height:63px;flex:0 0 110px;place-items:center;overflow:hidden;border-radius:6px;background:#f2f3f5;cursor:pointer}
+.awv-thumb img{width:100%;height:100%;object-fit:cover}
+.awv-thumb.is-add{border:1px dashed #cfd3da;background:#fff}
+.awv-thumb.is-add img{width:20px;height:20px;object-fit:contain;opacity:.5}
+.awv-thumb.is-on::after{content:"";position:absolute;inset:0;border-radius:6px;box-shadow:inset 0 0 0 3px var(--aw-purple);pointer-events:none}
+.awv-thumb.is-wait{background:#f2f3f5;cursor:default}
+.awv-zoom{position:absolute;right:0;bottom:0;display:grid;width:34px;height:34px;place-items:center}
+.awv-zoom img{width:16px;height:16px;object-fit:contain;filter:invert(1) drop-shadow(0 0 2px rgba(0,0,0,.6))}
+.awv-input{display:block;width:100%;height:38px;margin-top:3px;padding:0;border:0;border-bottom:1px solid #e5e5e5;font-size:15px;outline:none}
+.awv-input.is-title{font-size:18px;font-weight:600}
+.awv-input::placeholder{color:#c4c4c4;font-weight:500}
+.awv-tags{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:12px}
+.awv-tag{display:inline-flex;align-items:center;gap:4px;height:42px;padding:0 10px 0 14px;border:1px solid #ddd;border-radius:2px;font-size:13px}
+.awv-tag button{display:grid;width:18px;height:18px;place-items:center}
+.awv-tag img{width:12px;height:12px}
+.awv-tag-add{width:70px;height:42px;padding:0;border:1px solid #ddd;border-radius:2px;background:#fff;font-size:13px;color:#222;text-align:center;outline:none}
+.awv-tag-add.is-edit{border-color:#03c75a;text-align:left;padding:0 10px}
+.awv-tag-max{font-size:13px;color:#8c8c8c}
+.awv-notice{margin:38px 0 0;color:#a7a7a7;font-size:12px;line-height:18px}
+.awv-preview{position:absolute;z-index:2;inset:0;display:grid;place-items:center;background:rgba(0,0,0,.85)}
+.awv-preview img{max-width:100%;max-height:100%}
+.awv .awv-input{font-size:15px}
+.awv .awv-input.is-title{font-size:18px;font-weight:600}
+.awv .awv-tag-add{width:70px;height:38px;font-size:13px;line-height:16px}
+.awv .awv-tag{height:38px}
+.awv .awv-input.is-title::placeholder{font-weight:600}

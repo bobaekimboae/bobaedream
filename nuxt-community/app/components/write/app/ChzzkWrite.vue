@@ -5,6 +5,8 @@ import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import type { CommunityWrite } from '~/composables/write/useCommunityWrite'
 import PostTypeFields from './PostTypeFields.vue'
 import WriteBlockBar from './WriteBlockBar.vue'
+import WriteUrlDialog from './WriteUrlDialog.vue'
+import WriteVideoPage, { type VideoMeta } from './WriteVideoPage.vue'
 import WriteFormatBar from './WriteFormatBar.vue'
 import WriteQuoteBar from './WriteQuoteBar.vue'
 
@@ -16,6 +18,81 @@ const textTools = ref(false)
 const tagFocus = ref(false)
 const photoInput = ref<HTMLInputElement | null>(null)
 const videoInput = ref<HTMLInputElement | null>(null)
+const replaceInput = ref<HTMLInputElement | null>(null)
+
+/* ---------- 사진 · 동영상(치지직 앱 2026-11-05 폰 3차) ----------
+   사진: 한 번에 1장. 고르면 도구 줄 「교체 · 링크 · 삭제」.
+   동영상: 고르면 「동영상 업로드」 화면(대표 이미지 · 제목 · 정보 · 태그) → 「등록」으로 본문에 들어간다. */
+function pickPhoto(event: Event) {
+  const input = event.target as HTMLInputElement
+  w.addMedia(input.files, 'photo')
+  input.value = ''
+}
+type Pending = { id: string, url: string, name: string, file: File }
+const videoQueue = ref<Pending[]>([])
+const videoEdit = ref<{ pos: number, initial: Partial<VideoMeta> } | null>(null)
+function pickVideo(event: Event) {
+  const input = event.target as HTMLInputElement
+  const files = input.files ? [...input.files] : []
+  input.value = ''
+  const items = w.takeFiles(files, 'video')
+  videoQueue.value = [...videoQueue.value, ...items.map((item, i) => ({ id: item.id, url: item.url, name: item.name, file: files[i]! }))]
+}
+function videoDone(meta: VideoMeta) {
+  if (videoEdit.value) {
+    const { pos } = videoEdit.value
+    videoEdit.value = null
+    w.editor.setMediaAttrs({ title: meta.title, info: meta.info, tags: meta.tags }, pos)
+    return
+  }
+  const item = videoQueue.value[0]
+  if (!item) return
+  videoQueue.value = videoQueue.value.slice(1)
+  w.editor.insertMedia({ id: item.id, kind: 'video', url: item.url, name: item.name }, { ...meta })
+}
+function videoClose() {
+  if (videoEdit.value) { videoEdit.value = null; return }
+  const item = videoQueue.value[0]
+  if (item) w.dropMedia(item.id)
+  videoQueue.value = videoQueue.value.slice(1)
+}
+function editVideo() {
+  const pos = w.editor.block.value?.pos
+  const attrs = w.editor.mediaAt()
+  if (typeof pos !== 'number' || !attrs) return
+  videoEdit.value = { pos, initial: { title: String(attrs.title || ''), info: String(attrs.info || ''), tags: String(attrs.tags || ''), poster: String(attrs.poster || ''), duration: String(attrs.duration || '') } }
+}
+/* 사진 교체: 같은 자리 · 같은 설명을 두고 그림만 바꾼다 */
+const replacePos = ref<number | null>(null)
+function startReplace() { replacePos.value = w.editor.block.value?.pos ?? null; replaceInput.value?.click() }
+function pickReplace(event: Event) {
+  const input = event.target as HTMLInputElement
+  const at = replacePos.value
+  const [item] = w.takeFiles(input.files ? [...input.files].slice(0, 1) : [], 'photo')
+  input.value = ''
+  if (!item || at === null) return
+  const before = w.editor.setMediaAttrs({ mediaId: item.id, src: item.url, name: item.name }, at)
+  if (before?.mediaId) w.dropMedia(String(before.mediaId))
+}
+/* 링크: 사진 자체(도구 줄 링크) · 설명 글자(설명 도구 줄 링크) */
+const linkFor = ref<'media' | 'caption' | null>(null)
+const linkPos = ref<number | null>(null)
+function openLink(kind: 'media' | 'caption') {
+  linkPos.value = kind === 'media' ? (w.editor.block.value?.pos ?? null) : w.editor.captionPos.value
+  linkFor.value = kind
+}
+const linkValue = computed(() => {
+  const attrs = linkPos.value === null ? null : w.editor.mediaAt(linkPos.value)
+  return attrs ? String((linkFor.value === 'caption' ? attrs.captionHref : attrs.href) || '') : ''
+})
+function linkOk(href: string) {
+  const at = linkPos.value
+  const kind = linkFor.value
+  linkFor.value = null
+  if (at === null) return
+  w.editor.setMediaAttrs(kind === 'caption' ? { captionHref: href } : { href }, at)
+}
+const caption = computed(() => w.editor.caption.value)
 const s = computed(() => w.editor.state.value)
 const inQuote = computed(() => s.value.quote > 0)
 /* 치지직: 본문을 쓰는 동안(키보드가 올라온 동안)은 「본문 숨기기」 줄을 숨긴다 */
@@ -32,8 +109,10 @@ function placeMoveTab() {
   const dom = w.editor.blockDom()
   if (!box || !dom || !block.value) { movePos.value = null; return }
   const a = box.getBoundingClientRect()
-  const b = dom.getBoundingClientRect()
-  movePos.value = { top: b.bottom - a.top, right: a.right - b.right }
+  const b = (dom.querySelector('.write-media-frame') || dom).getBoundingClientRect()
+  // 상자 아래가 화면 밖이면(긴 동영상 · 사진) 상자 오른쪽 위 안쪽에 붙인다(폰 3차)
+  const below = b.bottom + 33 <= window.innerHeight
+  movePos.value = { top: (below ? b.bottom : Math.max(b.top, 45)) - a.top, right: a.right - b.right }
 }
 watch(() => [block.value?.pos, block.value?.name, block.value?.align, block.value?.divider, w.editor.version.value], () => nextTick(placeMoveTab))
 let resize: ResizeObserver | null = null
@@ -41,8 +120,9 @@ onMounted(() => {
   resize = new ResizeObserver(() => placeMoveTab())
   if (editorBox.value) resize.observe(editorBox.value)
   window.addEventListener('resize', placeMoveTab)
+  window.addEventListener('scroll', placeMoveTab, { passive: true })
 })
-onBeforeUnmount(() => { resize?.disconnect(); window.removeEventListener('resize', placeMoveTab) })
+onBeforeUnmount(() => { resize?.disconnect(); window.removeEventListener('resize', placeMoveTab); window.removeEventListener('scroll', placeMoveTab) })
 /* 치지직: 맨 끝이 블록이면 그 아래 빈 곳(61)을 눌러 새 문단을 연다(「본문 추가」) */
 const endsWithBlock = computed(() => {
   void w.editor.version.value
@@ -78,7 +158,12 @@ function toTop() { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-redu
     <label class="sr-only" for="awTitle">제목</label>
     <input id="awTitle" v-model="w.title.value" class="aw-title" maxlength="80" placeholder="제목을 입력해주세요" autocomplete="off">
 
-    <WriteBlockBar v-if="block" :editor="w.editor" @edit-poll="editPoll" />
+    <div v-if="caption" class="aw-tools is-caption" role="toolbar" aria-label="설명 도구" @mousedown.prevent>
+      <button type="button" :aria-label="`설명 정렬 ${caption.align === 'center' ? '가운데' : caption.align === 'left' ? '왼쪽' : '오른쪽'} · 눌러서 바꾸기`" @click="w.editor.cycleCaptionAlign()"><img :src="icon(`icon-align-${caption.align}-outline`)" alt=""></button>
+      <button type="button" aria-label="굵게" :aria-pressed="caption.bold" :class="{ 'is-on': caption.bold }" @click="w.editor.setCaptionAttrs({ captionBold: !caption.bold })"><img :src="icon('icon-bold-outline')" alt=""></button>
+      <button type="button" aria-label="설명에 링크 걸기" :class="{ 'is-on': caption.href }" @click="openLink('caption')"><img :src="icon('icon-link-outline')" alt=""></button>
+    </div>
+    <WriteBlockBar v-else-if="block" :editor="w.editor" @edit-poll="editPoll" @replace="startReplace" @link="openLink('media')" @edit-video="editVideo" />
     <div v-else-if="inQuote" class="aw-tool-wrap"><WriteQuoteBar :editor="w.editor" /></div>
     <div v-else class="aw-tools" role="toolbar" aria-label="콘텐츠 도구" @mousedown="keep">
       <button type="button" aria-label="사진" @click="photoInput?.click()"><img :src="icon('icon-image-post-outline')" alt=""></button>
@@ -90,7 +175,7 @@ function toTop() { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-redu
       <button type="button" aria-label="링크" @click="w.tool.value = 'link'"><img :src="icon('icon-link-outline')" alt=""></button>
       <button type="button" aria-label="투표" @click="w.tool.value = 'poll'"><img :src="icon('icon-poll-post-outline')" alt=""></button>
     </div>
-    <WriteFormatBar v-if="!block && (textTools || inQuote)" :editor="w.editor" @link="w.tool.value = 'link'" />
+    <WriteFormatBar v-if="!block && !caption && (textTools || inQuote)" :editor="w.editor" @link="w.tool.value = 'link'" />
 
     <PostTypeFields v-if="w.postType.value.id !== 'normal'" :type="w.postType.value" :values="w.typeValues.value" :problem="w.triedSubmit.value ? w.typeProblem.value : ''" @change="(key, value) => (w.typeValues.value = { ...w.typeValues.value, [key]: value })" @open="w.tool.value = 'type'" />
 
@@ -124,7 +209,11 @@ function toTop() { window.scrollTo({ top: 0, behavior: matchMedia('(prefers-redu
       <button class="aw-totop" type="button" @click="toTop"><i aria-hidden="true"><img :src="icon('icon-up-arrow-outline')" alt=""></i>맨 위로</button>
     </div>
 
-    <input ref="photoInput" class="sr-only" type="file" accept="image/*" multiple @change="w.addMedia(($event.target as HTMLInputElement).files, 'photo'); ($event.target as HTMLInputElement).value = ''">
-    <input ref="videoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime" multiple @change="w.addMedia(($event.target as HTMLInputElement).files, 'video'); ($event.target as HTMLInputElement).value = ''">
+    <input ref="photoInput" class="sr-only" type="file" accept="image/*" @change="pickPhoto">
+    <input ref="replaceInput" class="sr-only" type="file" accept="image/*" @change="pickReplace">
+    <input ref="videoInput" class="sr-only" type="file" accept="video/mp4,video/webm,video/quicktime" multiple @change="pickVideo">
+    <WriteVideoPage v-if="videoEdit" mode="edit" :initial="videoEdit.initial" @done="videoDone" @close="videoClose" />
+    <WriteVideoPage v-else-if="videoQueue[0]" :key="videoQueue[0].id" mode="upload" :file="videoQueue[0].file" :url="videoQueue[0].url" @done="videoDone" @close="videoClose" />
+    <WriteUrlDialog v-if="linkFor" :value="linkValue" @ok="linkOk" @cancel="linkFor = null" />
   </main>
 </template>

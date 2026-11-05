@@ -6,7 +6,7 @@ import Placeholder from '@tiptap/extension-placeholder'
 import type { Node as PMNode } from '@tiptap/pm/model'
 import { computed, ref, shallowRef, type Ref } from 'vue'
 import { NodeSelection } from '@tiptap/pm/state'
-import { AppQuote, BLOCK_NODES, BlockAttrs, QuoteSource, QuoteText, TextAlign, TextColor, WriteMedia, WriteSticker, compactPollElement, type Align } from './appExtensions'
+import { AppQuote, BLOCK_NODES, BlockAttrs, MediaRep, QuoteSource, QuoteText, TextAlign, TextColor, WriteMedia, WriteSticker, compactPollElement, type Align } from './appExtensions'
 import { EditorPoll, LegacyTextStyle, WriteEmbed, embedItemFromAttrs, type EmbedAttrs } from './editorExtensions'
 import type { EmbedItem, PollData } from './legacyLibs'
 import { embedLib, fixLegacyPaths } from './legacyLibs'
@@ -36,6 +36,8 @@ export interface AppEditorOptions {
 let embedSeq = 0
 
 export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditorOptions) {
+  /** 사진 · 동영상 설명 칸에 커서가 있으면 그 블록 위치(설명 전용 도구 줄을 띄운다) */
+  const captionPos = ref<number | null>(null)
   const editor = shallowRef<Editor | null>(null)
   const version = ref(0)
   const focused = ref(false)
@@ -72,7 +74,8 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
         QuoteText,
         QuoteSource,
         AppQuote,
-        WriteMedia.configure({ onRemove: options.onRemoveMedia }),
+        WriteMedia.configure({ onRemove: options.onRemoveMedia, chzzk: Boolean(options.compactBlocks), onCaptionFocus: (pos) => { captionPos.value = pos } }),
+        MediaRep,
         WriteEmbed.extend({ selectable: Boolean(options.compactBlocks) }).configure({ onRemoveEmbed: () => {}, onEditPoll: options.onEditPoll, onRemovePoll: options.onRemovePoll }),
         options.compactBlocks
           ? EditorPoll.extend({
@@ -149,6 +152,8 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
       pos: sel.from,
       align: String(node.attrs.blockAlign || 'left') as Align,
       divider: Number(node.attrs.dividerStyle || 1),
+      kind: String(node.attrs.kind || ''),
+      href: String(node.attrs.href || ''),
       first: index === 0,
       last: index >= ed.state.doc.childCount - 1,
     }
@@ -333,8 +338,49 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
   function insertText(value: string) { chain()?.insertContent({ type: 'text', text: value }).run() }
   /** 치지직: 스티커는 커서 자리에 그림 블록으로 들어간다 */
   function insertSticker(emoji: string) { chain()?.insertContent([{ type: 'writeSticker', attrs: { emoji } }, { type: 'paragraph' }]).run() }
-  function insertMedia(item: { id: string, kind: 'photo' | 'video', url: string, name: string }) {
-    chain()?.insertContent([{ type: 'writeMedia', attrs: { mediaId: item.id, kind: item.kind, src: item.url, name: item.name } }, { type: 'paragraph' }]).run()
+  function insertMedia(item: { id: string, kind: 'photo' | 'video', url: string, name: string }, extra: Record<string, unknown> = {}) {
+    chain()?.insertContent([{ type: 'writeMedia', attrs: { mediaId: item.id, kind: item.kind, src: item.url, name: item.name, ...extra } }, { type: 'paragraph' }]).run()
+  }
+  /** 선택한 사진 · 동영상 블록의 속성을 바꾼다(교체 · 링크 · 동영상 정보) */
+  function setMediaAttrs(attrs: Record<string, unknown>, at?: number) {
+    const ed = editor.value
+    const where = at ?? block.value?.pos
+    if (!ed || typeof where !== 'number') return null
+    const node = ed.state.doc.nodeAt(where)
+    if (!node || node.type.name !== 'writeMedia') return null
+    const before = { ...node.attrs }
+    const tr = ed.state.tr.setNodeMarkup(where, undefined, { ...node.attrs, ...attrs })
+    if (at === undefined) tr.setSelection(NodeSelection.create(tr.doc, where))
+    ed.view.dispatch(tr)
+    return before
+  }
+  function mediaAt(at?: number) {
+    void version.value
+    const ed = editor.value
+    const where = at ?? block.value?.pos
+    if (!ed || typeof where !== 'number') return null
+    const node = ed.state.doc.nodeAt(where)
+    return node && node.type.name === 'writeMedia' ? { ...node.attrs } as Record<string, unknown> : null
+  }
+  /** 설명 칸 도구 줄(정렬 · 굵게 · 링크) */
+  const caption = computed(() => {
+    const at = captionPos.value
+    if (at === null) return null
+    const attrs = mediaAt(at)
+    return attrs ? { pos: at, align: String(attrs.captionAlign || 'center') as Align, bold: Boolean(attrs.captionBold), href: String(attrs.captionHref || '') } : null
+  })
+  function setCaptionAttrs(attrs: Record<string, unknown>) {
+    const ed = editor.value
+    const at = captionPos.value
+    if (!ed || at === null) return
+    setMediaAttrs(attrs, at)
+    const input = (ed.view.nodeDOM(at) as HTMLElement | null)?.querySelector<HTMLInputElement>('.write-media-cap')
+    input?.focus()
+  }
+  function cycleCaptionAlign() {
+    const order: Align[] = ['center', 'right', 'left']
+    const cur = caption.value
+    if (cur) setCaptionAttrs({ captionAlign: order[(order.indexOf(cur.align) + 1) % 3] })
   }
   function insertEmbed(item: EmbedItem) {
     const lib = embedLib()
@@ -387,7 +433,7 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
     editor, version, focused, state, block, create, destroy, text, html, setHtml, countNodes,
     toggle, setBlock, setFontFamily, setFontSize, setColor, cycleAlign, setLink, unsetLink,
     insertQuote, setQuoteStyle, removeQuote, insertDivider, insertText, insertSticker,
-    setBlockAlign, cycleBlockAlign, setDividerStyle, deleteBlock, moveBlock, selectBlockAt, blockDom, insertMedia, insertEmbed, collectEmbeds, currentPoll, applyPoll,
+    setBlockAlign, cycleBlockAlign, setDividerStyle, deleteBlock, moveBlock, selectBlockAt, blockDom, insertMedia, setMediaAttrs, mediaAt, caption, captionPos, setCaptionAttrs, cycleCaptionAlign, insertEmbed, collectEmbeds, currentPoll, applyPoll,
   }
 }
 
