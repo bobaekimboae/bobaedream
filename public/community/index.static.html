@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>보배드림 커뮤니티</title>
+    <script>
+      (function () {
+        var isDesktop = window.matchMedia("(min-width: 768px)").matches;
+        var target = isDesktop ? "bobaedream-pc-board-list.html" : "naver-cafe-list.html";
+        window.location.replace("./" + target + window.location.search + window.location.hash);
+      })();
+    </script>
+  </head>
+  <body>
+    <p><a href="./naver-cafe-list.html">보배드림 커뮤니티로 이동</a></p>
+  </body>
+</html>

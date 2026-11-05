@@ -1,207 +1,163 @@
 <script setup lang="ts">
-import type { CommunityPopularPeriod, CommunitySort, CommunityView } from '~/types/community'
+// 커뮤니티 모바일 목록 화면. 정본: public/community/naver-cafe-list.html (2026-11-04 넉스트 이식)
+// 정적 판 CSS 는 다시 쓰지 않고 정적 판과 같은 순서 · 같은 주소(public/community)로 <link> 를 건다.
+// 파일 안 그림 주소(assets/…)가 그 CSS 파일 기준이라 번들에 넣으면 경로가 깨지기 때문이다.
+// 정적 판 <style> 3개(legacy/list.css)와 스크립트가 붙이던 <style>(legacy/list-dynamic.css)는 글자 그대로 두고,
+// 그림 주소만 정적 판과 같은 곳(community/assets/…)을 가리키도록 붙일 때 앞부분을 바꾼다.
+import listCss from '~/assets/css/legacy/list.css?raw'
+import listDynamicCss from '~/assets/css/legacy/list-dynamic.css?raw'
+import { boardById, boardForId, recordRecentBoard } from '~/composables/list/listBoards'
+import { loadListData } from '~/composables/list/listData'
+import { createListPage, listPageKey } from '~/composables/list/useListPage'
+import { createListNav, listNavKey } from '~/composables/list/useListNav'
+import { useBoardSwipe } from '~/composables/list/useBoardSwipe'
+import ListAppBar from '~/components/list/ListAppBar.vue'
+import BoardChannelNav from '~/components/list/BoardChannelNav.vue'
+import BoardOrderPanel from '~/components/list/BoardOrderPanel.vue'
+import CommunityServiceMenu from '~/components/list/CommunityServiceMenu.vue'
+import ListBoardHero from '~/components/list/ListBoardHero.vue'
+import ListBoardTop from '~/components/list/ListBoardTop.vue'
+import ListItems from '~/components/list/ListItems.vue'
+import ListDiscussionFeed from '~/components/list/ListDiscussionFeed.vue'
+import ListLoungeBest from '~/components/list/ListLoungeBest.vue'
+import ListNaverRanking from '~/components/list/ListNaverRanking.vue'
+import ListCafeViews from '~/components/list/ListCafeViews.vue'
+import ListRedditFeed from '~/components/list/ListRedditFeed.vue'
+import ListChototFeed from '~/components/list/ListChototFeed.vue'
+import ListSheet from '~/components/list/ListSheet.vue'
+import SpecialBoardSlot from '~/components/list/SpecialBoardSlot.vue'
 
-const { sections, boards, sort, popularPeriod, view, boardId, headword, activeBoard, filteredPosts } = useCommunity()
-const optionsOpen = ref(false)
-const boardMenuOpen = ref(false)
-const boardShortcutOpen = ref(false)
-const recentExpanded = ref(false)
-const following = ref(false)
 const route = useRoute()
 const router = useRouter()
-const baseURL = useRuntimeConfig().app.baseURL
-const iconRoot = `${baseURL}icons`
-const communityAssetRoot = `${baseURL}community/media`
-const favoriteBoardIds = ref<string[]>([])
-const recentBoardIds = ref<string[]>([])
-const favoriteStorageKey = 'bbm.community.nuxt.favoriteBoards.v1'
-const recentStorageKey = 'bbm.community.nuxt.recentBoards.v1'
+const query = Object.fromEntries(Object.entries(route.query).map(([k, v]) => [k, Array.isArray(v) ? String(v[0] ?? '') : v == null ? '' : String(v)])) as Record<string, string | undefined>
+const a = (p: string) => communityAsset(p)
+const page = createListPage(query)
+provide(listPageKey, page)
+const nav = createListNav(page, router, query)
+provide(listNavKey, nav)
 
-function loadBoardIds(key: string, limit: number) {
-  try {
-    const stored = JSON.parse(localStorage.getItem(key) || '[]')
-    if (!Array.isArray(stored)) return []
-    return stored.filter((id: unknown, index: number) => typeof id === 'string' && boards.value.some(board => board.id === id) && stored.indexOf(id) === index).slice(0, limit)
-  } catch { return [] }
-}
-function saveBoardIds(key: string, ids: string[], limit: number) {
-  const normalized = ids.filter((id, index) => boards.value.some(board => board.id === id) && ids.indexOf(id) === index).slice(0, limit)
-  localStorage.setItem(key, JSON.stringify(normalized))
-  return normalized
-}
-function recordRecentBoard(id: string) {
-  recentBoardIds.value = saveBoardIds(recentStorageKey, [id, ...recentBoardIds.value.filter(boardId => boardId !== id)], 6)
-}
-function toggleFavorite(id: string) {
-  const exists = favoriteBoardIds.value.includes(id)
-  favoriteBoardIds.value = saveBoardIds(favoriteStorageKey, exists ? favoriteBoardIds.value.filter(boardId => boardId !== id) : [id, ...favoriteBoardIds.value], boards.value.length)
-}
-const favoriteBoards = computed(() => favoriteBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
-const recentBoards = computed(() => recentBoardIds.value.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
-const visibleRecentBoards = computed(() => recentExpanded.value ? recentBoards.value : recentBoards.value.slice(0, 3))
-const quickBoardIds = ['home', 'all', 'best', 'free', 'car-news', 'foreign-car-news', 'brand-car-info', 'vehicle-review', 'domestic-car', 'import-car', 'bike-cycle']
-const quickBoards = computed(() => quickBoardIds.map(id => boards.value.find(board => board.id === id)).filter(Boolean))
-const activeBanner = computed(() => activeBoard.value.banner ? `${baseURL}${activeBoard.value.banner}` : `${baseURL}images/community/board-header-genesis-yeosu.webp`)
-const activeTagline = computed(() => activeBoard.value.tagline || `${activeBoard.value.name}의 새로운 이야기를 만나보세요`)
-
-function publicAsset(path?: string) {
-  if (!path) return ''
-  if (/^https?:\/\//.test(path)) return path
-  return `${baseURL}${path.replace(/^\//, '')}`
-}
-
-onMounted(() => {
-  favoriteBoardIds.value = loadBoardIds(favoriteStorageKey, boards.value.length)
-  recentBoardIds.value = loadBoardIds(recentStorageKey, 6)
-  const browserBoard = new URLSearchParams(window.location.search).get('board') || ''
-  const requestedBoard = typeof route.query.board === 'string' ? route.query.board : browserBoard
-  if (requestedBoard && boards.value.some(board => board.id === requestedBoard)) boardId.value = requestedBoard
-  recordRecentBoard(boardId.value)
+const rebase = (css: string) => css.replace(/url\("assets\//g, 'url("' + communityAsset('assets/'))
+const staticCss = ['reddit-feed.css', 'news-card.css', 'naver-discussion-feed.css', 'community-poll.css', 'chotot-feed.css', 'hupu-board-navigation.css', 'reddit-board-profile.css', 'board-header-variants.css', 'chzzk-list-parity.css', 'vehicle-review-board.css', 'fuel-economy-board.css', 'fuel-economy-fixes.css', 'autohome-complaint-board.css', 'chezhiwang-complaint-board.css', 'chezhiwang-complaint-fixes.css', 'chezhiwang-complaint-stats.css', 'tuhu-review-board.css']
+useHead({
+  title: '보배드림 커뮤니티',
+  htmlAttrs: { class: 'qf-font-pretendard' },
+  meta: [{ name: 'ui-version', content: 'community-list-unified-header-20261102' }],
+  link: [
+    { rel: 'stylesheet', href: siteAsset('assets/fonts/pretendard/pretendard-guazi.css'), tagPriority: 100 },
+    ...staticCss.map((f, i) => ({ rel: 'stylesheet' as const, href: communityAsset(f), tagPriority: 101 + i })),
+    { rel: 'stylesheet', href: communityAsset('community-layout-align.css'), tagPriority: 201 },
+    { rel: 'icon', href: communityAsset('assets/chzzk-detail/author-avatar.png') },
+  ],
+  style: [
+    { key: 'bbm-list-legacy', textContent: rebase(listCss), tagPriority: 200 },
+    { key: 'bbm-list-dynamic', textContent: rebase(listDynamicCss), tagPriority: 202 },
+    // 공용 main.css 의 :root{font-synthesis:none} 이 정적 판에는 없다. 없으면 일부 글자(굵게 그리는 대체 글꼴)가 정적 판과 달라져
+    // 이 화면에서만 브라우저 기본값으로 되돌린다(공용 파일 수정 필요 사항으로 보고).
+    { key: 'bbm-list-font-synthesis', textContent: ':root{font-synthesis:weight style small-caps}', tagPriority: 203 },
+  ],
 })
 
-watch(boardId, (value) => {
-  if (route.query.board !== value) router.replace({ query: { ...route.query, board: value } })
+const ready = ref(false)
+const phone = ref<HTMLElement | null>(null)
+const panel = ref<InstanceType<typeof BoardOrderPanel> | null>(null)
+const menu = ref<InstanceType<typeof CommunityServiceMenu> | null>(null)
+const sheet = ref<InstanceType<typeof ListSheet> | null>(null)
+const boardTop = ref<InstanceType<typeof ListBoardTop> | null>(null)
+const phoneClass = computed(() => ['phone', ...page.phoneClasses])
+const render = computed(() => page.render.value)
+
+function openSheet(kind: 'view' | 'type' | 'board') { sheet.value?.reopen(kind) }
+function openTypeSheet() { openSheet(page.activeBoardTable.value === 'best' ? 'view' : 'type') }
+function openPostOptions() { page.openPostOptions(); sheet.value?.reopen('postOptions') }
+function searchToast() { page.toast('커뮤니티 검색 준비중') }
+function onSection(section: string) {
+  nav.choose(section === 'report' ? 'accident-blackbox' : section === 'defect' ? 'autohome-complaint' : section === 'board' ? 'free' : 'home')
+}
+function writerBoard() {
+  return ({ '전체 게시글': '자유게시판', 테슬라: '전기차', '정비 / DIY': '정비 · DIY', '보험 · 사고': '보험 · 사고', 블랙박스: '블랙박스 제보' } as Record<string, string>)[page.boardLabel.value] || page.boardLabel.value
+}
+function reloadTo(q: Record<string, string>) {
+  location.href = router.resolve({ path: '/', query: q }).href
+  location.reload()
+}
+function onFab() {
+  const t = page.activeBoardTable.value
+  if (t === 'best') return page.toast('베스트글은 운영 선정 게시판입니다')
+  if (t === 'foreign-car-news') return page.toast('해외 자동차뉴스는 자동 수집 게시판입니다')
+  if (t === 'vehicle-review') { location.href = siteAsset('?community=reviews&review=write&from=community'); return }
+  if (t === 'tuhu-review') return reloadTo({ board: 'tuhu-review', tuhu: 'write' })
+  if (t === 'fuel-economy') { location.href = siteAsset('?community=fuel-economy&fuel=write&from=community'); return }
+  if (t === 'autohome-complaint') return reloadTo({ board: 'autohome-complaint', complaint: 'write' })
+  if (t === 'chezhiwang-complaint') return reloadTo({ board: 'chezhiwang-complaint', czw: 'write' })
+  const requested = query.view || ''
+  const reddit = requested === 'reddit' || requested === 'feed' || requested === 'reddit-feed'
+  const q = { source: reddit ? 'reddit-feed' : 'chzzk-compact', board: writerBoard(), returnTo: location.pathname + location.search + location.hash }
+  router.push({ path: reddit ? '/pc/write' : '/write', query: q })
+}
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape') {
+    if (page.boardDescriptionExpanded.value) page.setBoardDescriptionExpanded(false)
+    if (page.headwordsExpanded.value) page.setHeadwordsExpanded(false)
+  }
+}
+useBoardSwipe(phone, nav, () => false)
+
+onMounted(async () => {
+  document.addEventListener('keydown', onKeydown)
+  await loadListData()
+  const initial = boardForId(nav.selectedId.value) || boardForId('home')!
+  nav.renderNav()
+  page.avatarBoard.value = initial
+  // 정적 판 choose(selectedId,{skipQuery:true,silent:true}) 처럼 처음 연 게시판도 최근 게시판에 남긴다
+  if (boardById[initial.id]) recordRecentBoard(initial.id)
+  page.boot({ displayName: initial.displayName, topicKey: initial.topicKey })
+  // 정적 판 맨 끝 인라인 스크립트(목록 HTML 417줄): 다른 피드가 자동으로 그린 뒤 전용 게시판을 한 번 더 그린다
+  if (['tuhu-review', 'fuel-economy', 'autohome-complaint', 'chezhiwang-complaint'].includes(page.activeBoardTable.value)) page.render.value = { kind: 'special', board: page.activeBoardTable.value }
+  page.communitySection.value = ['home', 'all', 'best'].includes(initial.id) ? 'home' : ['accident-blackbox', 'scoop'].includes(initial.id) ? 'report' : ['autohome-complaint', 'chezhiwang-complaint'].includes(initial.id) ? 'defect' : 'board'
+  ready.value = true
+  if (query.menu === 'all') requestAnimationFrame(() => panel.value?.openPanel())
 })
-
-function setSort(value: CommunitySort) { sort.value = value }
-function setPopularPeriod(value: CommunityPopularPeriod) { popularPeriod.value = value }
-function setView(value: CommunityView) { view.value = value }
-const popularPeriodLabels: Record<CommunityPopularPeriod, string> = { hour: '1시간', day: '24시간', week: '1주', month: '1개월', year: '1년', all: '전체 기간' }
-const sortLabel = computed(() => sort.value === 'latest' ? '최신순' : sort.value === 'latest-comment' ? '최신 댓글순' : `인기 · ${popularPeriodLabels[popularPeriod.value]}`)
-const isCompactList = computed(() => view.value === 'compact' || view.value === 'text')
-function selectBoard(value: string) {
-  boardId.value = value
-  recordRecentBoard(value)
-  headword.value = ''
-  boardMenuOpen.value = false
-  boardShortcutOpen.value = false
-}
-
-function timeLabel(iso: string) {
-  const diff = Date.now() - Date.parse(iso)
-  if (diff < 3_600_000) return `${Math.max(1, Math.floor(diff / 60_000))}분 전`
-  if (diff < 86_400_000) return `${Math.floor(diff / 3_600_000)}시간 전`
-  return new Intl.DateTimeFormat('ko-KR', { month: '2-digit', day: '2-digit' }).format(new Date(iso)).replace(/\. /g, '.').replace('.', '')
-}
-
-useHead({ title: '보배드림 커뮤니티' })
+onBeforeUnmount(() => document.removeEventListener('keydown', onKeydown))
 </script>
 
 <template>
-  <main class="community-shell">
-    <header class="community-header" :class="{ 'community-header--f1': boardId === 'f1' }">
-      <button class="header-menu-button" type="button" aria-label="커뮤니티 메뉴" @click="boardMenuOpen = true"><img :src="`${iconRoot}/chzzk/menu.svg`" alt="" /></button>
-      <button class="community-header-search" type="button" aria-label="커뮤니티 게시글 검색"><img :src="`${iconRoot}/chzzk/search.svg`" alt="" /><span>게시글 검색</span></button>
-      <button class="community-header-profile" type="button" aria-label="내 프로필"><img :src="`${communityAssetRoot}/profile-avatars/naver-stock-default.png`" alt="" /></button>
-    </header>
-
-    <nav class="board-channel-nav" aria-label="게시판 빠른 이동">
-      <div class="board-channel-track">
-        <button v-for="board in quickBoards" :key="board!.id" type="button" :class="{ 'is-active': board!.id === boardId }" @click="selectBoard(board!.id)">{{ board!.shortName || board!.name }}</button>
-      </div>
-      <button class="board-channel-menu" type="button" aria-label="게시판 바로가기" @click="boardShortcutOpen = true"><img :src="`${communityAssetRoot}/ui/menu.svg`" alt="" /></button>
-    </nav>
-
-    <F1BoardHub v-if="boardId === 'f1'" :posts="filteredPosts" :headword="headword" @update:headword="headword = $event" @open-options="optionsOpen = true" />
-
-    <template v-if="boardId !== 'f1'">
-    <figure class="community-board-hero">
-      <img :src="activeBanner" :alt="`${activeBoard.name} 대표 이미지`" />
-      <figcaption><span>{{ activeBoard.kicker || 'BOBAEDREAM' }}</span><strong>{{ activeBoard.name }}</strong><small>{{ activeTagline }}</small></figcaption>
-    </figure>
-
-    <section class="community-board-profile">
-      <button class="community-board-identity" type="button" @click="boardMenuOpen = true">
-        <span><strong>{{ activeBoard.name }}</strong><img :src="`${communityAssetRoot}/ui/chevron-right.svg`" alt="" /></span>
-        <small>{{ activeBoard.followerLabel || '팔로워 7.1만명' }} · {{ activeBoard.postCountLabel || '게시물 470개' }}</small>
-      </button>
-      <button class="community-follow-button" :class="{ 'is-following': following }" type="button" :aria-pressed="following" @click="following = !following">{{ following ? '팔로잉' : '팔로우' }}</button>
-    </section>
-
-    <div class="post-toolbar">
-      <button class="filter-button" type="button" aria-label="게시글 옵션" @click="optionsOpen = true"><img :src="`${iconRoot}/filter.svg`" alt="" /></button>
-      <div class="headword-strip" aria-label="말머리 필터">
-        <button :class="{ 'is-active': !headword }" type="button" @click="headword = ''">전체</button>
-        <button v-for="item in activeBoard.headwords" :key="item" :class="{ 'is-active': headword === item }" type="button" @click="headword = item">{{ item }}</button>
-      </div>
-      <button class="sort-summary" type="button" @click="optionsOpen = true">{{ sortLabel }}</button>
-    </div>
-
-    <section class="post-list" :class="`post-list--${view}`" aria-live="polite">
-      <NuxtLink v-for="post in filteredPosts" :key="post.id" class="post-card" :to="`/posts/${post.id}`">
-        <template v-if="isCompactList">
-          <div class="post-copy"><h2><span v-if="post.isPopular" class="popular-dot" aria-label="인기글" /><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }} <span class="compact-replies">({{ post.comments }})</span><span v-if="view === 'text' && (post.mediaKind || post.thumbnail)" class="text-media-indicator"><img :src="`${iconRoot}/chzzk-community/${post.mediaKind === 'video' ? 'media-video' : 'media-image'}.svg`" :alt="post.mediaKind === 'video' ? '영상 첨부' : '이미지 첨부'" /></span></h2><p><b>{{ post.author }}</b><span>{{ post.timeLabel || timeLabel(post.updatedAt) }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/upvote.svg`" alt="추천" />{{ post.likes }}</span><span class="compact-stat"><img :src="`${iconRoot}/chzzk/view.svg`" alt="조회" />{{ post.views }}</span></p></div>
-          <img v-if="view === 'compact' && post.thumbnail" :src="publicAsset(post.thumbnail)" alt="" class="post-thumbnail" />
-        </template>
-
-        <template v-else-if="view === 'list'">
-          <div class="post-copy"><h2><span v-if="post.headword" class="list-headword">[{{ post.headword }}]</span>{{ post.title }}</h2><p><b>{{ post.author }}</b><span>{{ post.timeLabel || timeLabel(post.updatedAt) }}</span><span>조회 {{ post.views.toLocaleString() }}</span></p></div>
-          <img v-if="post.thumbnail" :src="publicAsset(post.thumbnail)" alt="" class="post-thumbnail" />
-          <div class="comment-count"><strong>{{ post.comments }}</strong><span>댓글</span></div>
-        </template>
-
-        <template v-else>
-          <span v-if="post.headword" class="feed-headword">{{ post.headword }}</span>
-          <header class="feed-meta"><span class="feed-avatar"><img v-if="post.authorAvatar" :src="publicAsset(post.authorAvatar)" alt="" /><span v-else>{{ post.author.slice(0, 1) }}</span></span><div><strong>{{ post.author }}</strong><small>{{ post.timeLabel || timeLabel(post.createdAt) }}</small></div><button type="button" aria-label="게시글 더보기">•••</button></header>
-          <h2>{{ post.title }}</h2><p class="feed-excerpt">{{ post.excerpt }}</p>
-          <div v-if="post.thumbnail" class="feed-media"><img :src="publicAsset(post.thumbnail)" alt="" class="feed-image" /><span v-if="post.photoCount && post.photoCount > 1" class="feed-media-count">1/{{ post.photoCount }}</span><span v-if="post.mediaKind === 'video'" class="feed-video-mark" aria-label="영상">▶</span></div>
-          <footer class="reaction-line"><button type="button"><img :src="`${iconRoot}/reaction-like.svg`" alt="추천" />{{ post.likes }}</button><button type="button"><img :src="`${iconRoot}/reaction-dislike.svg`" alt="비추천" />{{ post.dislikes }}</button><button type="button"><img :src="`${iconRoot}/reaction-comment.svg`" alt="댓글" />{{ post.comments }}</button><span>조회 {{ post.views.toLocaleString() }}</span></footer>
-        </template>
-      </NuxtLink>
-      <div v-if="!filteredPosts.length" class="post-list-empty">
-        <strong>아직 등록된 글이 없습니다.</strong>
-        <span>첫 글을 작성해 새로운 이야기를 시작해보세요.</span>
-      </div>
-    </section>
+  <main ref="phone" :class="phoneClass">
+    <template v-if="ready">
+      <ListAppBar :section="page.communitySection.value" @search="searchToast" @menu="menu?.openMenu()" @section="onSection" />
+      <BoardChannelNav @open-panel="(el) => panel?.openPanel({ opener: el })" />
+      <ListBoardHero />
+      <ListBoardTop ref="boardTop" @board-select="openSheet('board')" @view-sheet="openSheet('view')" @type-sheet="openTypeSheet" @post-options="openPostOptions" />
+      <section id="list" :class="page.listClass.value" @touchstart.passive="boardTop?.onTouchStart($event)" @touchend.passive="boardTop?.onTouchEnd($event)">
+        <ListItems v-if="render.kind === 'items'" />
+        <ListDiscussionFeed v-else-if="render.kind === 'discussion'" :key="'d' + render.variant" :thumb="render.variant !== ''" />
+        <ListLoungeBest v-else-if="render.kind === 'lounge'" :view="render.view" />
+        <ListNaverRanking v-else-if="render.kind === 'ranking'" />
+        <ListCafeViews v-else-if="render.kind === 'cafe-popular'" :key="'cp' + render.left" kind="popular" :left="render.left" />
+        <ListCafeViews v-else-if="render.kind === 'cafe-feed'" kind="feed" />
+        <ListCafeViews v-else-if="render.kind === 'cafe-left'" kind="left" />
+        <ListRedditFeed v-else-if="render.kind === 'reddit'" @options="openSheet('view')" />
+        <ListChototFeed v-else-if="render.kind === 'chotot'" :key="'c' + render.dealer" :dealer="render.dealer" />
+        <SpecialBoardSlot
+          v-else-if="render.kind === 'special'"
+          :board="render.board"
+          :posts="page.posts.value"
+          :phone-classes="page.phoneClasses"
+          :list-class="page.listClass"
+          :type-label="page.typeLabel"
+          :topics="page.topics"
+          :active="page.active"
+          :query="query"
+          :toast="page.toast"
+        />
+      </section>
+      <div class="bottomSpace" />
+      <button class="fab" aria-label="글쓰기" @click="onFab"><img :src="a('assets/reddit-ui/write.svg')" alt=""></button>
     </template>
-
-    <NuxtLink class="floating-write" to="/write" aria-label="글쓰기"><img :src="`${iconRoot}/chzzk/write.svg`" alt="" /></NuxtLink>
-
-    <PostOptionsSheet :open="optionsOpen" :sort="sort" :popular-period="popularPeriod" :view="view" :headword="headword" :headwords="activeBoard.headwords" @close="optionsOpen = false" @update:sort="setSort" @update:popular-period="setPopularPeriod" @update:view="setView" @update:headword="headword = $event" />
-
-    <BoardShortcutManager :open="boardShortcutOpen" :sections="sections" :boards="boards" :selected-board-id="boardId" @close="boardShortcutOpen = false" @select="selectBoard" />
-
-    <Teleport to="body">
-      <Transition name="drawer-slide">
-        <div v-if="boardMenuOpen" class="drawer-backdrop" @click.self="boardMenuOpen = false">
-          <aside class="board-drawer" aria-label="커뮤니티 메뉴">
-            <nav class="drawer-primary" aria-label="커뮤니티 주요 메뉴">
-              <button type="button" @click="setSort('latest'); boardMenuOpen = false"><img :src="`${iconRoot}/reddit/latest.svg`" alt="" /><span>최신</span></button>
-            </nav>
-            <div class="drawer-divider" />
-            <NuxtLink class="drawer-utility" to="/write" @click="boardMenuOpen = false"><img :src="`${iconRoot}/reddit/create-community.svg`" alt="" /><span>커뮤니티 만들기</span></NuxtLink>
-            <div class="drawer-divider" />
-            <section class="drawer-recent-section">
-              <header><strong>최근에 방문함</strong><button v-if="recentBoards.length > 3" type="button" @click="recentExpanded = !recentExpanded">{{ recentExpanded ? '접기' : '모두 보기' }}</button></header>
-              <div>
-                <p v-if="!recentBoards.length" class="drawer-empty">방문한 게시판이 여기에 표시됩니다.</p>
-                <div v-for="board in visibleRecentBoards" :key="`recent-${board!.id}`" class="drawer-board-row drawer-board-row--recent" :class="{ 'is-active': board!.id === boardId }">
-                  <button type="button" @click="selectBoard(board!.id)"><span class="drawer-board-avatar" aria-hidden="true">{{ board!.name.slice(0, 1) }}</span><span>{{ board!.name }}</span></button>
-                </div>
-              </div>
-            </section>
-            <div class="drawer-divider" />
-            <details class="drawer-group drawer-smart-group" open>
-              <summary><span>즐겨찾기</span><span aria-hidden="true">⌄</span></summary>
-              <div>
-                <p v-if="!favoriteBoards.length" class="drawer-empty">게시판 옆 별표를 눌러 추가하세요.</p>
-                <div v-for="board in favoriteBoards" :key="`favorite-${board!.id}`" class="drawer-board-row" :class="{ 'is-active': board!.id === boardId }">
-                  <button type="button" @click="selectBoard(board!.id)"><span class="drawer-board-avatar" aria-hidden="true">{{ board!.name.slice(0, 1) }}</span><span>{{ board!.name }}</span></button>
-                  <button class="drawer-favorite-button is-favorite" type="button" :aria-label="`${board!.name} 즐겨찾기 해제`" aria-pressed="true" @click="toggleFavorite(board!.id)"><img :src="`${iconRoot}/reddit/star-selected.svg?v=20261102redditdrawer4`" alt="" /></button>
-                </div>
-              </div>
-            </details>
-            <div class="drawer-divider" />
-            <p class="drawer-label">전체 게시판</p>
-            <details v-for="section in sections" :key="section.id" class="drawer-group" :open="section.boards.some(board => board.id === boardId)">
-              <summary><span>{{ section.name }}</span><span aria-hidden="true">⌄</span></summary>
-              <div><div v-for="board in section.boards" :key="board.id" class="drawer-board-row" :class="{ 'is-active': board.id === boardId }"><button type="button" @click="selectBoard(board.id)"><span class="drawer-board-avatar" aria-hidden="true">{{ board.name.slice(0, 1) }}</span><span>{{ board.name }}</span></button><button class="drawer-favorite-button" :class="{ 'is-favorite': favoriteBoardIds.includes(board.id) }" type="button" :aria-label="`${board.name} 즐겨찾기 ${favoriteBoardIds.includes(board.id) ? '해제' : '추가'}`" :aria-pressed="favoriteBoardIds.includes(board.id)" @click="toggleFavorite(board.id)"><img :src="`${iconRoot}/reddit/${favoriteBoardIds.includes(board.id) ? 'star-selected.svg?v=20261102redditdrawer4' : 'star.svg'}`" alt="" /></button></div></div>
-            </details>
-            <div class="drawer-divider" />
-            <button class="drawer-utility" type="button" @click="optionsOpen = true; boardMenuOpen = false"><img :src="`${iconRoot}/filter.svg`" alt="" /><span>보기 방식</span></button>
-          </aside>
-        </div>
-      </Transition>
-    </Teleport>
   </main>
+  <div id="toast" :class="['toast', { show: page.toastShow.value }]">{{ page.toastText.value }}</div>
+  <ListSheet ref="sheet" />
+  <template v-if="ready">
+    <BoardOrderPanel ref="panel" />
+    <CommunityServiceMenu ref="menu" @open-panel="panel?.openPanel({ opener: null })" @open-view="openSheet('view')" />
+  </template>
 </template>

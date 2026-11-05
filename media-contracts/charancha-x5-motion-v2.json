@@ -1,0 +1,526 @@
+{
+  "version": "charancha-motion-v2",
+  "vehicle": "BMW X5 (G05) xDrive 30d M 스포츠",
+  "listingId": "019f7d38-ce9e-7d0a-aebc-4b2cd319c1ac",
+  "sourcePage": "https://charancha.com/cars/019f7d38-ce9e-7d0a-aebc-4b2cd319c1ac?viewType=SHORT_FORM",
+  "sourceSha256": "662450ba6ea3d2bcf54285fd2013582add4e78945e2d48ffe6ad5ff35d3d7fe5",
+  "output": "public/videos/charancha-x5-motion/bmw-x5-charancha-60s-v2.mp4",
+  "outputSha256": "c8bbf637469b57fcba689f147351c1bbb76bcdb4b14880657b5117f615c2eef8",
+  "duration": 60,
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "cutCount": 20,
+  "cuts": [
+    {
+      "id": "cut-01",
+      "frame": 0,
+      "endFrame": 51,
+      "start": 0,
+      "duration": 1.7,
+      "frames": 51,
+      "sourceStart": 0,
+      "evidence": "Front establishing",
+      "speed": 1
+    },
+    {
+      "id": "cut-02",
+      "frame": 51,
+      "endFrame": 138,
+      "start": 1.7,
+      "duration": 2.9,
+      "frames": 87,
+      "sourceStart": 5,
+      "evidence": "Wheel / side hook",
+      "speed": 1
+    },
+    {
+      "id": "cut-03",
+      "frame": 138,
+      "endFrame": 219,
+      "start": 4.6,
+      "duration": 2.7,
+      "frames": 81,
+      "sourceStart": 10.7,
+      "evidence": "Rear three-quarter",
+      "speed": 1
+    },
+    {
+      "id": "cut-04",
+      "frame": 219,
+      "endFrame": 295,
+      "start": 7.3,
+      "duration": 2.533333333333333,
+      "frames": 76,
+      "sourceStart": 13,
+      "evidence": "Cargo preview",
+      "speed": 1
+    },
+    {
+      "id": "cut-05",
+      "frame": 295,
+      "endFrame": 417,
+      "start": 9.833333333333334,
+      "duration": 4.066666666666666,
+      "frames": 122,
+      "sourceStart": 0.15,
+      "evidence": "Grille and illuminated headlights",
+      "speed": 0.8
+    },
+    {
+      "id": "cut-06",
+      "frame": 417,
+      "endFrame": 547,
+      "start": 13.9,
+      "duration": 4.333333333333333,
+      "frames": 130,
+      "sourceStart": 39.5,
+      "evidence": "Brown cabin / steering",
+      "speed": 1
+    },
+    {
+      "id": "cut-07",
+      "frame": 547,
+      "endFrame": 583,
+      "start": 18.233333333333334,
+      "duration": 1.2,
+      "frames": 36,
+      "sourceStart": 24.5,
+      "evidence": "Cabin centre wide",
+      "speed": 1
+    },
+    {
+      "id": "cut-08",
+      "frame": 583,
+      "endFrame": 650,
+      "start": 19.433333333333334,
+      "duration": 2.2333333333333334,
+      "frames": 67,
+      "sourceStart": 31.5,
+      "evidence": "Climate controls",
+      "speed": 1
+    },
+    {
+      "id": "cut-09",
+      "frame": 650,
+      "endFrame": 732,
+      "start": 21.666666666666668,
+      "duration": 2.7333333333333334,
+      "frames": 82,
+      "sourceStart": 31,
+      "evidence": "Gear selector",
+      "speed": 1
+    },
+    {
+      "id": "cut-10",
+      "frame": 732,
+      "endFrame": 778,
+      "start": 24.4,
+      "duration": 1.5333333333333334,
+      "frames": 46,
+      "sourceStart": 33.4,
+      "evidence": "Dashboard / temperature introduction",
+      "speed": 1
+    },
+    {
+      "id": "cut-11",
+      "frame": 778,
+      "endFrame": 882,
+      "start": 25.933333333333334,
+      "duration": 3.466666666666667,
+      "frames": 104,
+      "sourceStart": 31.4,
+      "evidence": "17 / 17.5 degree display",
+      "speed": 1
+    },
+    {
+      "id": "cut-12",
+      "frame": 882,
+      "endFrame": 961,
+      "start": 29.4,
+      "duration": 2.6333333333333333,
+      "frames": 79,
+      "sourceStart": 33,
+      "evidence": "Centre wide",
+      "speed": 1
+    },
+    {
+      "id": "cut-13",
+      "frame": 961,
+      "endFrame": 1113,
+      "start": 32.03333333333333,
+      "duration": 5.066666666666666,
+      "frames": 152,
+      "sourceStart": 36.2,
+      "evidence": "Door and seat memory evidence",
+      "speed": 1
+    },
+    {
+      "id": "cut-14",
+      "frame": 1113,
+      "endFrame": 1211,
+      "start": 37.1,
+      "duration": 3.2666666666666666,
+      "frames": 98,
+      "sourceStart": 40.8,
+      "evidence": "Cabin inspection",
+      "speed": 1
+    },
+    {
+      "id": "cut-15",
+      "frame": 1211,
+      "endFrame": 1293,
+      "start": 40.36666666666667,
+      "duration": 2.7333333333333334,
+      "frames": 82,
+      "sourceStart": 13.1,
+      "evidence": "Upper tailgate opening",
+      "speed": 1
+    },
+    {
+      "id": "cut-16",
+      "frame": 1293,
+      "endFrame": 1399,
+      "start": 43.1,
+      "duration": 3.533333333333333,
+      "frames": 106,
+      "sourceStart": 20.1,
+      "evidence": "Lower tailgate and load floor",
+      "speed": 0.65
+    },
+    {
+      "id": "cut-17",
+      "frame": 1399,
+      "endFrame": 1537,
+      "start": 46.63333333333333,
+      "duration": 4.6,
+      "frames": 138,
+      "sourceStart": 45.4,
+      "evidence": "Console detail",
+      "speed": 1
+    },
+    {
+      "id": "cut-18",
+      "frame": 1537,
+      "endFrame": 1677,
+      "start": 51.233333333333334,
+      "duration": 4.666666666666667,
+      "frames": 140,
+      "sourceStart": 52.2,
+      "evidence": "Camera display operation",
+      "speed": 1
+    },
+    {
+      "id": "cut-19",
+      "frame": 1677,
+      "endFrame": 1722,
+      "start": 55.9,
+      "duration": 1.5,
+      "frames": 45,
+      "sourceStart": 59,
+      "evidence": "Rear hatch closing",
+      "speed": 1
+    },
+    {
+      "id": "cut-20",
+      "frame": 1722,
+      "endFrame": 1800,
+      "start": 57.4,
+      "duration": 2.6,
+      "frames": 78,
+      "sourceStart": 60.6,
+      "evidence": "Rear outro",
+      "speed": 1
+    }
+  ],
+  "captions": [
+    {
+      "start": 0.5489999999999999,
+      "end": 4.602,
+      "text": "큰 SUV, 크기만 보고 고르면\n놓치는 게 있죠.",
+      "sourceCaptionRange": [
+        0,
+        2
+      ]
+    },
+    {
+      "start": 4.602,
+      "end": 9.84,
+      "text": "매일 쓰는 부분이 얼마나 편한지,\n이 BMW X5에서 같이 보시죠.",
+      "sourceCaptionRange": [
+        3,
+        6
+      ]
+    },
+    {
+      "start": 9.84,
+      "end": 13.894,
+      "text": "앞에서는 큼직한 키드니 그릴과\n헤드램프가 눈에 들어옵니다.",
+      "sourceCaptionRange": [
+        7,
+        9
+      ]
+    },
+    {
+      "start": 13.894,
+      "end": 18.246,
+      "text": "실내로 들어가면 브라운 톤 도어와\n운전석이 분위기를 바꾸네요.",
+      "sourceCaptionRange": [
+        10,
+        12
+      ]
+    },
+    {
+      "start": 18.246,
+      "end": 21.681,
+      "text": "센터를 보세요.\n화면 아래에 공조 버튼이 따로 있고,",
+      "sourceCaptionRange": [
+        13,
+        15
+      ]
+    },
+    {
+      "start": 21.681,
+      "end": 24.412,
+      "text": "기어 셀렉터 주변에도\n조작부가 모여 있습니다.",
+      "sourceCaptionRange": [
+        16,
+        17
+      ]
+    },
+    {
+      "start": 24.412,
+      "end": 29.386,
+      "text": "온도 표시도 다르죠? 운전석은 17도,\n동승석은 17.5도.",
+      "sourceCaptionRange": [
+        18,
+        20
+      ]
+    },
+    {
+      "start": 29.386,
+      "end": 32.032,
+      "text": "양쪽 온도를 따로 맞춘 모습입니다.",
+      "sourceCaptionRange": [
+        21,
+        21
+      ]
+    },
+    {
+      "start": 32.032,
+      "end": 35.018,
+      "text": "도어에는\n시트 메모리 버튼도 보입니다.",
+      "sourceCaptionRange": [
+        22,
+        23
+      ]
+    },
+    {
+      "start": 35.018,
+      "end": 40.374,
+      "text": "이런 기능은 사진만 보지 말고, 실제로 눌러\n위치가 잘 돌아오는지도 확인해 보세요.",
+      "sourceCaptionRange": [
+        24,
+        27
+      ]
+    },
+    {
+      "start": 40.374,
+      "end": 43.105,
+      "text": "트렁크는\n위아래로 나뉘어 열리는 구조예요.",
+      "sourceCaptionRange": [
+        28,
+        29
+      ]
+    },
+    {
+      "start": 43.105,
+      "end": 46.647,
+      "text": "아래쪽을 내리면\n짐을 싣는 면이 이렇게 펼쳐집니다.",
+      "sourceCaptionRange": [
+        30,
+        32
+      ]
+    },
+    {
+      "start": 46.647,
+      "end": 51.235,
+      "text": "결국 중요한 건 멋진 첫인상과\n내가 쓸 때의 편리함이겠죠.",
+      "sourceCaptionRange": [
+        33,
+        35
+      ]
+    },
+    {
+      "start": 51.235,
+      "end": 56.056,
+      "text": "마음에 드셨다면 매물 정보와\n실제 작동 상태까지 함께 확인해 보세요.",
+      "sourceCaptionRange": [
+        36,
+        38
+      ]
+    },
+    {
+      "start": 56.056,
+      "end": 59.2,
+      "text": "보배드림이었습니다.",
+      "sourceCaptionRange": [
+        39,
+        39
+      ]
+    }
+  ],
+  "sourceAudioUsed": false,
+  "voice": "Previously authored stock HeyGen Korean narration; no voice cloning",
+  "music": {
+    "source": "Original procedural instrumental generated by finish-v2.mjs",
+    "externalSamples": false
+  },
+  "quality": {
+    "verdict": "PROMOTE",
+    "scorecard": {
+      "dims": [
+        1080,
+        1920
+      ],
+      "fps": "30/1",
+      "v_dur": 60,
+      "a_dur": 60,
+      "loudness": {
+        "I": -14.1,
+        "TP": -1.4,
+        "LRA": 4
+      },
+      "black_segs": 0,
+      "black_s": 0,
+      "freezes_gt3s": 0,
+      "silences_gt1_5s": 0,
+      "silence_s": 0
+    },
+    "issues": []
+  },
+  "loudness": {
+    "has_audio": true,
+    "integrated_lufs": -14.12,
+    "true_peak_dbtp": -1.39,
+    "loudness_range_lu": 4,
+    "note": "Social platforms target about -14 LUFS; podcasts about -16."
+  },
+  "channelTiming": {
+    "technicalPassed": true,
+    "errors": [],
+    "expectedDelayMs": 250,
+    "durationSeconds": 60,
+    "maxMeasuredChannelSkewMs": 0,
+    "windows": [
+      {
+        "startSeconds": 1.7107593749999999,
+        "endSeconds": 4.710759375,
+        "left": {
+          "correlation": 0.9972141798062656,
+          "gain": 0.8513974638531324,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "right": {
+          "correlation": 0.9972186005642547,
+          "gain": 0.8505124472502735,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "skewMs": 0
+      },
+      {
+        "startSeconds": 9.694303125000001,
+        "endSeconds": 12.694303125000001,
+        "left": {
+          "correlation": 0.9963786667474549,
+          "gain": 0.9423463051427449,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "right": {
+          "correlation": 0.9963728182391228,
+          "gain": 0.9446794525539138,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "skewMs": 0
+      },
+      {
+        "startSeconds": 19.388606250000002,
+        "endSeconds": 22.388606250000002,
+        "left": {
+          "correlation": 0.9973263898752148,
+          "gain": 0.8994281082904315,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "right": {
+          "correlation": 0.9973175057060443,
+          "gain": 0.8994304862179114,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "skewMs": 0
+      },
+      {
+        "startSeconds": 29.6531625,
+        "endSeconds": 32.6531625,
+        "left": {
+          "correlation": 0.9944951261926193,
+          "gain": 0.9034074601609884,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "right": {
+          "correlation": 0.994518347776585,
+          "gain": 0.9031249051771844,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "skewMs": 0
+      },
+      {
+        "startSeconds": 41.058225,
+        "endSeconds": 44.058225,
+        "left": {
+          "correlation": 0.9954389065151832,
+          "gain": 0.9309478400987238,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "right": {
+          "correlation": 0.9954229162801168,
+          "gain": 0.9315903547130675,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "skewMs": 0
+      },
+      {
+        "startSeconds": 51.32278125,
+        "endSeconds": 54.32278125,
+        "left": {
+          "correlation": 0.9960688613779372,
+          "gain": 0.9708814913246475,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "right": {
+          "correlation": 0.9960392988773202,
+          "gain": 0.9710098152196143,
+          "lagSamples": 4000,
+          "lagMs": 250
+        },
+        "skewMs": 0
+      }
+    ],
+    "perceptualReviewStatus": "not_assessed",
+    "scope": "Reference-based channel timing and coherence check; not a general reverb detector or a substitute for listening."
+  },
+  "independentListeningReview": false,
+  "userRequestedPublication": true,
+  "rights": "Charancha source attribution retained. User requested this editing sample and public GitHub Pages deployment; third-party ownership is not transferred.",
+  "scope": "Media-only deployment; no frontend/backend/API changes"
+}

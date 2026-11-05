@@ -1,0 +1,21 @@
+/* 커뮤니티 상세(정적 chzzk-detail.html) 넉스트 이식 — 전역 main.css 가 이 화면에 새어 드는 것만 되돌린다 (2026-11-04)
+   정적 판 CSS(chzzk-detail.css 등)는 손대지 않는다. 이 파일은 상세 화면이 붙어 있는 동안만 <style>로 붙는다(html.bbmDetailHtml).
+   규칙은 :where() 로 낮은 우선순위를 유지해 정적 판의 원래 규칙이 항상 이기게 한다.
+   main.css 쪽에서 고칠 것(보고): :root{background·color·font-synthesis}, input{color:inherit}, a{color·text-decoration}, .brand{…} 를
+   목록 전용 클래스 아래로 좁히면 이 파일은 필요 없다. */
+
+/* main.css  :root { background: var(--page); color: var(--ink); font-synthesis: none; }
+   정적 판은 html 바탕 #fff, 글자 합성(기울임 .noticeUpdate) 기본값 */
+html.bbmDetailHtml { background: #ffffff; color: CanvasText; font-synthesis: initial; }
+
+/* main.css  button, input, textarea { color: inherit; } — 정적 판 입력칸 글자색은 브라우저 기본 */
+:where(html.bbmDetailHtml) input { color: revert; }
+
+/* main.css  a { color: inherit; text-decoration: none; } — 정적 판은 브라우저 기본 링크 */
+:where(html.bbmDetailHtml) a { color: revert; text-decoration: revert; }
+
+/* main.css  .brand { justify-self:center; display:flex; align-items:center; gap:7px; color: var(--bbm-blue); } */
+:where(html.bbmDetailHtml) .brand { justify-self: revert; display: revert; align-items: revert; gap: revert; color: revert; }
+
+/* main.css  body { min-width: 320px; } — 정적 판에는 없음 */
+:where(html.bbmDetailHtml) body { min-width: revert; }

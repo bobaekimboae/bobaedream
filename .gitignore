@@ -11,3 +11,6 @@ reports/diff/
 .env.production.local
 tmp/
 .preview-*.log
+
+# 작업 에이전트 작업 사본
+.claude/worktrees/
