@@ -155,7 +155,8 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
       kind: String(node.attrs.kind || ''),
       href: String(node.attrs.href || ''),
       first: index === 0,
-      last: index >= ed.state.doc.childCount - 1,
+      // 치지직: 블록 뒤에 남는 빈 문단 하나(「본문 추가」 자리)는 순서에 세지 않는다 → 맨 끝 블록은 「아래로」가 흐려진다
+      last: index >= ed.state.doc.childCount - 1 || (index === ed.state.doc.childCount - 2 && ed.state.doc.lastChild?.type.name === 'paragraph' && !ed.state.doc.lastChild.textContent),
     }
   })
   function setBlockAttr(attrs: Record<string, unknown>) {
