@@ -3,7 +3,7 @@
 import { computed, onBeforeUnmount, ref, watch, type Ref } from 'vue'
 import type { PollData } from './legacyLibs'
 import { embedLib, loadWriteLibs } from './legacyLibs'
-import { POST_TYPES, postTypeById, postTypeProblem, postTypeSummary } from './postTypes'
+import { POST_TYPES, objectParticle, postTypeById, postTypeProblem, postTypeSummary } from './postTypes'
 import { useAppEditor } from './useAppEditor'
 import { useWriteMedia } from './useWriteMedia'
 import { POST_KEY, bodyLines, boardGroups, parseTags, resolveReturnTo } from './writeUtils'
@@ -156,7 +156,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
     if (draft && (draft.title || draft.body)) {
       confirmBox.value = {
         title: '임시저장한 글이 있어요',
-        message: `「${draft.title || '제목 없음'}」을(를) 이어서 쓸까요?`,
+        message: `「${draft.title || '제목 없음'}」${objectParticle(draft.title || '제목 없음')} 이어서 쓸까요?`,
         ok: '이어 쓰기',
         onOk: () => {
           if (!draft) return

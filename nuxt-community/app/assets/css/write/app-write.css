@@ -244,7 +244,7 @@
 .aw-poll-field{display:block;margin:6px 15px 10px}
 .aw-poll-field input,.aw-poll-row{width:100%;height:44px;border-radius:12px;background:var(--aw-soft)}
 .aw-poll-field input{padding:0 15px;border:0;outline:0;color:#222;font:inherit;font-size:16px;font-weight:700}
-.aw-poll-field input::placeholder,.aw-poll-row input::placeholder{color:var(--aw-hint);opacity:1}
+.aw-poll-field input::placeholder,.aw-poll-row input::placeholder{color:#858894;opacity:1}
 .aw-poll-list{display:grid;gap:7px;margin:0 15px}
 .aw-poll-row{position:relative;display:grid;grid-template-columns:22px minmax(0,1fr) 32px 32px;align-items:center;gap:6px;padding:0 6px 0 14px;border:1.5px solid transparent}
 .aw-poll-row.is-focus{border-color:#222;background:#fff}
@@ -470,3 +470,4 @@
 .awv .awv-tag-add{width:70px;height:38px;font-size:13px;line-height:16px}
 .awv .awv-tag{height:38px}
 .awv .awv-input.is-title::placeholder{font-weight:600}
+.awp:focus{outline:none}
