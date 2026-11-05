@@ -230,7 +230,7 @@ watch(sheet, (value) => { if (!value) sheetBodyRef.value = null })
           <button type="button" data-action="quote" aria-label="인용구" @click="writer.insertQuote('인용할 내용을 입력하세요')"><img :src="icon('icon-quote-outline')" alt=""></button>
           <button type="button" data-action="divider" aria-label="구분선" @click="writer.insertDivider()"><span class="line-icon">−</span></button>
           <button type="button" data-action="link" aria-label="링크" @click="openSheet('link', '링크', '첨부')"><img :src="icon('icon-link-outline')" alt=""></button>
-          <button class="poll-tool" type="button" data-action="poll" aria-label="투표" @click="openSheet('poll', '투표', '등록')"><img :src="icon('icon-poll-post-outline')" alt=""><i>NEW</i></button>
+          <button class="poll-tool" type="button" data-action="poll" aria-label="투표" @click="openSheet('poll', '투표', '등록')"><img :src="icon('icon-statistics-outline')" alt=""><i>NEW</i></button>
         </div>
 
         <div id="textTools" class="text-tools" role="toolbar" aria-label="텍스트 서식" :hidden="!textToolsOpen">
@@ -252,7 +252,7 @@ watch(sheet, (value) => { if (!value) sheetBodyRef.value = null })
       </section>
 
       <button class="tag-button" type="button" data-action="tags" @click="openSheet('tags', '태그', '완료')"><b>#</b><span id="tagSummary">{{ tagSummary(tags) }}</span></button>
-      <label class="hide-row"><img :src="icon('icon-communities-outline')" alt=""><span>본문 숨기기</span><input id="hideBody" v-model="hideBody" type="checkbox"><i aria-hidden="true" /></label>
+      <label class="hide-row"><img :src="icon('icon-hide-outline')" alt=""><span>본문 숨기기</span><input id="hideBody" v-model="hideBody" type="checkbox"><i aria-hidden="true" /></label>
 
       <footer class="write-foot">
         <button type="button" data-action="exit" @click="exitWriter">취소</button>
