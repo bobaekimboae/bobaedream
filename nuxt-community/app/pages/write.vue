@@ -66,7 +66,7 @@ onMounted(() => { w?.start() })
     <ChzzkWrite v-if="style === 'chzzk'" :w="w" @body="setBody" />
     <NaverWrite v-else :w="w" @body="setBody" />
 
-    <WriteBoardPicker v-if="w.tool.value === 'board'" :groups="w.groups" :selected="w.board.value" @pick="pickBoard" @close="w.tool.value = ''" />
+    <WriteBoardPicker v-if="w.tool.value === 'board'" :groups="w.groups.value" :selected="w.board.value" @pick="pickBoard" @close="w.tool.value = ''" />
     <WriteTypePicker v-else-if="w.tool.value === 'type'" :selected="w.postTypeId.value" @pick="w.setType" @close="w.tool.value = ''" />
     <WriteStickerPage v-else-if="w.tool.value === 'sticker'" @pick="pickEmoji" @close="w.tool.value = ''" />
     <WriteLinkPage v-else-if="w.tool.value === 'link'" @attach="attach" @close="w.tool.value = ''" />

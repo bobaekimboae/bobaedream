@@ -340,7 +340,13 @@ export function useAppEditor(target: Ref<HTMLElement | null>, options: AppEditor
   /** 치지직: 스티커는 커서 자리에 그림 블록으로 들어간다 */
   function insertSticker(emoji: string) { chain()?.insertContent([{ type: 'writeSticker', attrs: { emoji } }, { type: 'paragraph' }]).run() }
   function insertMedia(item: { id: string, kind: 'photo' | 'video', url: string, name: string }, extra: Record<string, unknown> = {}) {
-    chain()?.insertContent([{ type: 'writeMedia', attrs: { mediaId: item.id, kind: item.kind, src: item.url, name: item.name, ...extra } }, { type: 'paragraph' }]).run()
+    const content = [{ type: 'writeMedia', attrs: { mediaId: item.id, kind: item.kind, src: item.url, name: item.name, ...extra } }, { type: 'paragraph' }]
+    const sel = editor.value?.state.selection
+    // 사진 · 동영상 블록을 고른 채(설명 입력 중 포함) 넣으면 고른 블록을 덮지 말고 그 뒤에 넣는다
+    if (sel instanceof NodeSelection) { chain()?.insertContentAt(sel.to, content).run(); return }
+    const parent = sel?.$from.parent
+    if (sel && parent && parent.type.name !== 'paragraph' && sel.$from.depth === 0) { chain()?.insertContentAt(sel.to, content).run(); return }
+    chain()?.insertContent(content).run()
   }
   /** 선택한 사진 · 동영상 블록의 속성을 바꾼다(교체 · 링크 · 동영상 정보) */
   function setMediaAttrs(attrs: Record<string, unknown>, at?: number) {

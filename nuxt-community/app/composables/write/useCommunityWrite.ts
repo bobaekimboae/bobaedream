@@ -7,6 +7,8 @@ import { POST_TYPES, objectParticle, postTypeById, postTypeProblem, postTypeSumm
 import { useAppEditor } from './useAppEditor'
 import { useWriteMedia } from './useWriteMedia'
 import { POST_KEY, bodyLines, boardGroups, parseTags, resolveReturnTo } from './writeUtils'
+import { buildArticlePayload, pendingUploads, type Uploaded } from './bbmArticle'
+import { BbmError, bbmBase, bbmToken, createArticle, fileOf, loadBoardGroups, saveArticleDraft, uploadMedia } from './bbmBackend'
 
 /** 새 글쓰기 임시저장(예전 간결형 저장 키와 따로 둔다: 글 종류 · 정렬 · 인용구 모양이 더해져 모양이 다르다) */
 export const APP_DRAFT_KEY = 'bbm.community.writeDraft.v2'
@@ -18,7 +20,10 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
   const route = useRoute()
   const query = (name: string) => { const value = route.query[name]; return String((Array.isArray(value) ? value[0] : value) || '') }
   const returnTo = resolveReturnTo(query('returnTo'))
-  const groups = boardGroups(query('board'))
+  const groups = ref(boardGroups(query('board')))
+  /** 보배드림 서버 연결(?bbm=proxy). 켜져 있으면 게시판 · 등록 · 임시저장을 서버로 보낸다 */
+  const backend = ref({ on: Boolean(bbmBase()), ready: false, error: '', busy: false, draftId: null as number | string | null })
+  const boardCodes = new Map<string, string>()
 
   /* ---------- 알림 · 안내 창 ---------- */
   const toastText = ref('')
@@ -116,10 +121,49 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
   function saveDraft(silent = false) {
     if (!title.value.trim()) { if (!silent) alertText.value = '제목을 입력해주세요.'; return false }
     try { localStorage.setItem(APP_DRAFT_KEY, JSON.stringify(snapshot())) } catch { /* 저장소를 못 쓰면 넘어간다 */ }
+    if (!silent && backend.value.on && bbmToken() && boardCodes.has(board.value) && !backend.value.busy) {
+      backend.value.busy = true
+      serverPayload(editor.html())
+        .then(payload => saveArticleDraft(payload, backend.value.draftId))
+        .then((id) => { backend.value.draftId = id; toast('보배드림 서버에 임시저장했어요.') })
+        .catch((error) => { alertText.value = error instanceof Error ? error.message : '임시저장에 실패했습니다.' })
+        .finally(() => { backend.value.busy = false })
+      return true
+    }
     if (!silent) toast('임시저장되었습니다.')
     return true
   }
   function exit() { navigateTo(returnTo) }
+
+  /** 본문 사진 · 동영상 · 대표 이미지 · 투표 사진을 서버에 올리고 서버 주소로 바꾼 등록 값 */
+  async function serverPayload(html: string) {
+    const code = boardCodes.get(board.value)
+    if (!code) throw new BbmError('게시판 목록에서 게시판을 다시 선택해주세요.', 0)
+    const pending = pendingUploads(html)
+    const uploaded = new Map<string, Uploaded>()
+    if (pending.length) {
+      const files = await Promise.all(pending.map((item, index) => fileOf(item.key, `${item.role}-${index + 1}`)))
+      const result = await uploadMedia(files, pending.map(item => item.alt))
+      pending.forEach((item, index) => { if (result[index]) uploaded.set(item.key, result[index]!) })
+    }
+    const summary = postType.value.id === 'normal' ? [] : [postType.value.label, ...postTypeSummary(postType.value, typeValues.value)]
+    return buildArticlePayload({ html, title: title.value, boardCode: code, draftId: backend.value.draftId, summary }, uploaded)
+  }
+  async function submitToServer() {
+    if (backend.value.busy) return
+    if (!bbmToken()) { alertText.value = '보배드림에 로그인해야 글을 올릴 수 있어요.'; return }
+    backend.value.busy = true
+    toast('글을 올리고 있어요.')
+    try {
+      const payload = await serverPayload(editor.html())
+      const res = await createArticle(payload)
+      try { localStorage.removeItem(APP_DRAFT_KEY) } catch { /* 지울 게 없으면 넘어간다 */ }
+      const id = res.data?.public_id
+      confirmBox.value = { title: '게시물 등록 완료', message: id ? `보배드림 게시판에 올렸어요. (글 번호 ${id})` : '보배드림 게시판에 올렸어요.', ok: '확인', onOk: () => navigateTo(returnTo) }
+    }
+    catch (error) { alertText.value = error instanceof Error ? error.message : '게시글 등록에 실패했습니다.' }
+    finally { backend.value.busy = false }
+  }
 
   async function submit() {
     if (!title.value.trim()) { alertText.value = '제목을 입력해주세요.'; return }
@@ -127,6 +171,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
     const hasBody = editor.text() || photos.value.length || videos.value.length || editor.countNodes('writeEmbed') || editor.countNodes('editorPoll')
     if (!hasBody) { alertText.value = '내용을 입력해주세요.'; return }
     if (typeProblem.value) { triedSubmit.value = true; alertText.value = typeProblem.value; return }
+    if (backend.value.on) { await submitToServer(); return }
     const list = [...photos.value, ...videos.value]
     const stored = await Promise.all(list.map(item => item.saved || Promise.resolve(false)))
     const html = editor.html()
@@ -147,7 +192,23 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
   }
 
   /* ---------- 시작 · 끝 ---------- */
+  async function loadServerBoards() {
+    try {
+      const list = await loadBoardGroups()
+      boardCodes.clear()
+      list.forEach(group => group.boards.forEach(item => boardCodes.set(item.name, item.code)))
+      const wanted = query('board')
+      const byCode = list.flatMap(group => group.boards).find(item => item.code === wanted)
+      if (byCode) board.value = byCode.name
+      else if (board.value && !boardCodes.has(board.value)) board.value = ''
+      groups.value = list.map(group => ({ section: group.name, items: group.boards.map(item => item.name) }))
+      backend.value.ready = true
+    }
+    catch (error) { backend.value.error = error instanceof Error ? error.message : '게시판을 불러오지 못했어요.' }
+  }
+
   async function start() {
+    if (backend.value.on) { bbmToken(); void loadServerBoards() }
     try { await loadWriteLibs() } catch { /* 임베드 · 투표 카드만 간단히 보인다 */ }
     let draft: ReturnType<typeof snapshot> | null = null
     try { draft = JSON.parse(localStorage.getItem(APP_DRAFT_KEY) || 'null') } catch { draft = null }
@@ -184,7 +245,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
   watch(tool, (value) => { document.body.style.overflow = value ? 'hidden' : '' })
 
   return {
-    style, returnTo, groups, board, title, tags, tagDraft, hideBody, allowSearch,
+    style, returnTo, groups, backend, board, title, tags, tagDraft, hideBody, allowSearch,
     postTypeId, postType, typeValues, typeProblem, triedSubmit, setType, bodyLength,
     photos, videos, editor, tool, canPress,
     toastText, toastShown, toast, alertText, confirmBox,
