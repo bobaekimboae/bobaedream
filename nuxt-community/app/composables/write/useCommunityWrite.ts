@@ -90,6 +90,9 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
     const added = addFiles(files, kind)
     added.forEach(item => editor.insertMedia(item))
   }
+  /** 치지직형: 동영상은 「동영상 업로드」 화면을 거친 뒤 넣고, 사진은 교체도 한다 */
+  function takeFiles(files: FileList | File[] | null, kind: 'photo' | 'video') { return addFiles(files, kind) }
+  function dropMedia(id: string) { removeMedia(id) }
   function attachUrl(href: string): boolean {
     const lib = embedLib()
     const raw = (lib?.fromCode ? lib.fromCode(href) : href).trim()
@@ -185,7 +188,7 @@ export function useCommunityWrite(bodyEl: Ref<HTMLElement | null>, style: WriteS
     postTypeId, postType, typeValues, typeProblem, triedSubmit, setType, bodyLength,
     photos, videos, editor, tool, canPress,
     toastText, toastShown, toast, alertText, confirmBox,
-    commitTags, addMedia, attachUrl, applyPoll, saveDraft, exit, submit, start,
+    commitTags, addMedia, takeFiles, dropMedia, attachUrl, applyPoll, saveDraft, exit, submit, start,
   }
 }
 

@@ -4,7 +4,8 @@
 //  - AppQuote    : 인용구 블록. 6가지 모양(따옴표 · 세로줄 · 말풍선 · 밑줄 따옴표 · 메모지 · 꺾쇠) + 출처 줄
 //  - WriteImage  : 본문 안 사진 · 동영상(치지직처럼 커서 자리에 들어감, 오른쪽 위 × 로 빼기)
 import { Extension, Mark, Node, mergeAttributes } from '@tiptap/core'
-import { Plugin, PluginKey } from '@tiptap/pm/state'
+import { NodeSelection, Plugin, PluginKey } from '@tiptap/pm/state'
+import type { Node as PMNode } from '@tiptap/pm/model'
 import { Decoration, DecorationSet } from '@tiptap/pm/view'
 
 export const ALIGNS = ['left', 'center', 'right'] as const
@@ -109,54 +110,222 @@ export const AppQuote = Node.create({
   },
 })
 
-/* ---------- 본문 안 사진 · 동영상 ---------- */
-export const WriteMedia = Node.create<{ onRemove: (id: string) => void }>({
+/* ---------- 본문 안 사진 · 동영상 ----------
+   치지직형(chzzk: true, 2026-11-05 폰 3차 확인):
+   - 첫 사진 · 동영상에 보라 「대표」, 다른 것은 고르면 반투명 「대표」 단추가 나와 누르면 대표가 바뀐다
+   - 아래에 「사진 설명을 입력하세요.」 · 「동영상 설명을 입력하세요.」 칸(고르거나 설명이 있을 때만 보임)
+   - 동영상은 편집기 안에서 재생하지 않고 대표 이미지 + 가운데 ▶ + 길이만 보여 준다 */
+export interface WriteMediaOptions {
+  onRemove: (id: string) => void
+  chzzk: boolean
+  onCaptionFocus: (pos: number | null) => void
+}
+const mediaAttr = (name: string, def: unknown) => ({
+  default: def,
+  parseHTML: (el: HTMLElement) => {
+    const raw = el.getAttribute(`data-${name.replace(/[A-Z]/g, c => `-${c.toLowerCase()}`)}`)
+    if (raw === null) return def
+    return typeof def === 'boolean' ? raw === '1' : raw
+  },
+  renderHTML: (a: Record<string, unknown>) => {
+    const v = a[name]
+    if (v === def || v === '' || v === null || v === undefined) return {}
+    return { [`data-${name.replace(/[A-Z]/g, c => `-${c.toLowerCase()}`)}`]: typeof v === 'boolean' ? (v ? '1' : '0') : String(v) }
+  },
+})
+export function formatDuration(sec: number) {
+  const s = Math.max(0, Math.round(sec || 0))
+  return `${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`
+}
+export const WriteMedia = Node.create<WriteMediaOptions>({
   name: 'writeMedia',
   group: 'block',
   atom: true,
   selectable: true,
   draggable: false,
-  addOptions() { return { onRemove: () => {} } },
+  addOptions() { return { onRemove: () => {}, chzzk: false, onCaptionFocus: () => {} } },
   addAttributes() {
     return {
       mediaId: { default: '', parseHTML: (el: HTMLElement) => el.getAttribute('data-media-id') || '', renderHTML: (a: Record<string, unknown>) => ({ 'data-media-id': String(a.mediaId || '') }) },
       kind: { default: 'photo', parseHTML: (el: HTMLElement) => el.getAttribute('data-kind') || 'photo', renderHTML: (a: Record<string, unknown>) => ({ 'data-kind': String(a.kind || 'photo') }) },
       src: { default: '', rendered: false, parseHTML: (el: HTMLElement) => el.querySelector('img,video')?.getAttribute('src') || '' },
       name: { default: '', rendered: false, parseHTML: (el: HTMLElement) => el.querySelector('img')?.getAttribute('alt') || '' },
+      caption: mediaAttr('caption', ''),
+      captionAlign: mediaAttr('captionAlign', 'center'),
+      captionBold: mediaAttr('captionBold', false),
+      captionHref: mediaAttr('captionHref', ''),
+      href: mediaAttr('href', ''),
+      rep: mediaAttr('rep', false),
+      poster: mediaAttr('poster', ''),
+      duration: mediaAttr('duration', ''),
+      title: mediaAttr('title', ''),
+      info: mediaAttr('info', ''),
+      tags: mediaAttr('tags', ''),
     }
   },
   parseHTML() { return [{ tag: 'figure.write-media' }] },
   renderHTML({ node, HTMLAttributes }) {
-    const media = node.attrs.kind === 'video'
-      ? ['video', { src: node.attrs.src, controls: 'true', playsinline: 'true' }]
-      : ['img', { src: node.attrs.src, alt: node.attrs.name }]
-    return ['figure', mergeAttributes(HTMLAttributes, { class: 'write-media' }), media]
+    const a = node.attrs
+    const media = a.kind === 'video'
+      ? ['video', { src: a.src, controls: 'true', playsinline: 'true', ...(a.poster ? { poster: a.poster } : {}) }]
+      : ['img', { src: a.src, alt: a.name }]
+    const body = a.href && a.kind !== 'video' ? ['a', { href: a.href, rel: 'noopener', target: '_blank' }, media] : media
+    const parts: unknown[] = ['figure', mergeAttributes(HTMLAttributes, { class: 'write-media' }), body]
+    if (a.caption) parts.push(['figcaption', { style: `text-align:${a.captionAlign}${a.captionBold ? ';font-weight:700' : ''}` }, a.captionHref ? ['a', { href: a.captionHref }, a.caption] : a.caption])
+    return parts as never
   },
   addNodeView() {
     return ({ node, getPos, editor }) => {
+      let current = node
       const dom = document.createElement('figure')
       dom.className = 'write-media'
       dom.contentEditable = 'false'
       dom.setAttribute('data-media-id', String(node.attrs.mediaId))
       dom.setAttribute('data-kind', String(node.attrs.kind))
-      const el = document.createElement(node.attrs.kind === 'video' ? 'video' : 'img') as HTMLImageElement | HTMLVideoElement
-      el.src = String(node.attrs.src)
-      if (el instanceof HTMLVideoElement) { el.controls = true; el.playsInline = true }
-      else el.alt = String(node.attrs.name || '')
+      const frame = document.createElement('div')
+      frame.className = 'write-media-frame'
+      const isVideo = node.attrs.kind === 'video'
+      const chzzk = this.options.chzzk
+      let el: HTMLImageElement | HTMLVideoElement
+      if (isVideo && !chzzk) {
+        el = document.createElement('video'); el.controls = true; el.playsInline = true
+      } else if (isVideo) {
+        el = document.createElement('img') // 대표 이미지(포스터)
+      } else {
+        el = document.createElement('img'); el.alt = String(node.attrs.name || '')
+      }
+      frame.append(el)
+      const pos = () => (typeof getPos === 'function' ? getPos() : undefined)
+      const setAttrs = (attrs: Record<string, unknown>, keepSelect = true) => {
+        const at = pos()
+        if (typeof at !== 'number') return
+        const tr = editor.state.tr.setNodeMarkup(at, undefined, { ...current.attrs, ...attrs })
+        if (keepSelect) tr.setSelection(NodeSelection.create(tr.doc, at))
+        editor.view.dispatch(tr)
+      }
+      let play: HTMLElement | null = null
+      let rep: HTMLButtonElement | null = null
+      let cap: HTMLInputElement | null = null
+      if (chzzk) {
+        if (isVideo) {
+          play = document.createElement('span')
+          play.className = 'write-media-play'
+          play.innerHTML = '<i aria-hidden="true"></i><b></b>'
+          frame.append(play)
+        }
+        rep = document.createElement('button')
+        rep.type = 'button'
+        rep.className = 'write-media-rep'
+        rep.textContent = '대표'
+        rep.addEventListener('mousedown', event => event.preventDefault())
+        rep.addEventListener('click', (event) => {
+          event.preventDefault()
+          const at = pos()
+          if (typeof at !== 'number') return
+          // 문서 안 모든 사진 · 동영상의 rep 를 끄고 이것만 켠다
+          const tr = editor.state.tr
+          editor.state.doc.descendants((n, p) => {
+            if (n.type.name === 'writeMedia') tr.setNodeMarkup(p, undefined, { ...n.attrs, rep: p === at })
+            return false
+          })
+          tr.setSelection(NodeSelection.create(tr.doc, at))
+          editor.view.dispatch(tr)
+        })
+        frame.append(rep)
+        cap = document.createElement('input')
+        cap.className = 'write-media-cap'
+        cap.type = 'text'
+        cap.maxLength = 100
+        cap.placeholder = isVideo ? '동영상 설명을 입력하세요.' : '사진 설명을 입력하세요.'
+        cap.setAttribute('aria-label', isVideo ? '동영상 설명' : '사진 설명')
+        cap.addEventListener('input', () => setAttrs({ caption: cap!.value }, false))
+        cap.addEventListener('focus', () => { const at = pos(); this.options.onCaptionFocus(typeof at === 'number' ? at : null); dom.classList.add('is-cap-focus') })
+        cap.addEventListener('blur', () => { this.options.onCaptionFocus(null); dom.classList.remove('is-cap-focus') })
+        cap.addEventListener('keydown', (event) => {
+          if (event.key !== 'Enter') return
+          event.preventDefault()
+          // Enter: 설명을 닫고 아래 문단으로
+          const at = pos()
+          if (typeof at !== 'number') return
+          const after = at + current.nodeSize
+          const next = editor.state.doc.nodeAt(after)
+          if (next && next.type.name === 'paragraph') editor.chain().setTextSelection(after + 1).focus().run()
+          else editor.chain().insertContentAt(after, { type: 'paragraph' }).setTextSelection(after + 1).focus().run()
+        })
+      }
       const remove = document.createElement('button')
       remove.type = 'button'
       remove.className = 'write-media-remove'
-      remove.setAttribute('aria-label', node.attrs.kind === 'video' ? '동영상 빼기' : '사진 빼기')
+      remove.setAttribute('aria-label', isVideo ? '동영상 빼기' : '사진 빼기')
       remove.addEventListener('click', (event) => {
         event.preventDefault()
-        const pos = typeof getPos === 'function' ? getPos() : undefined
-        if (typeof pos !== 'number') return
-        editor.view.dispatch(editor.state.tr.delete(pos, pos + node.nodeSize))
-        this.options.onRemove(String(node.attrs.mediaId))
+        const at = pos()
+        if (typeof at !== 'number') return
+        editor.view.dispatch(editor.state.tr.delete(at, at + current.nodeSize))
+        this.options.onRemove(String(current.attrs.mediaId))
       })
-      dom.append(el, remove)
-      return { dom, ignoreMutation: () => true, stopEvent: event => (event.target as HTMLElement).closest('.write-media-remove') !== null }
+      dom.append(frame)
+      if (cap) dom.append(cap)
+      dom.append(remove)
+      const paint = (n: PMNode) => {
+        const a = n.attrs
+        if (el instanceof HTMLVideoElement) { if (el.getAttribute('src') !== a.src) el.src = String(a.src) }
+        else {
+          const want = isVideo && chzzk ? String(a.poster || '') : String(a.src)
+          if (el.getAttribute('src') !== want) { if (want) el.src = want; else el.removeAttribute('src') }
+        }
+        if (play) play.querySelector('b')!.textContent = String(a.duration || '')
+        if (cap) {
+          if (cap.value !== a.caption && document.activeElement !== cap) cap.value = String(a.caption || '')
+          cap.style.textAlign = String(a.captionAlign || 'center')
+          cap.style.fontWeight = a.captionBold ? '700' : ''
+          cap.classList.toggle('is-link', Boolean(a.captionHref))
+        }
+        dom.classList.toggle('has-cap', Boolean(a.caption))
+        dom.classList.toggle('has-link', Boolean(a.href))
+      }
+      paint(node)
+      return {
+        dom,
+        ignoreMutation: () => true,
+        stopEvent: (event) => {
+          const t = event.target as HTMLElement
+          return Boolean(t.closest?.('.write-media-remove,.write-media-rep,.write-media-cap'))
+        },
+        update: (updated) => {
+          if (updated.type !== current.type || updated.attrs.kind !== current.attrs.kind) return false
+          current = updated
+          paint(updated)
+          return true
+        },
+      }
     }
+  },
+})
+
+/** 대표 사진 · 동영상: rep 가 켜진 것, 없으면 첫 번째 */
+export const MediaRep = Extension.create({
+  name: 'mediaRep',
+  addProseMirrorPlugins() {
+    return [new Plugin({
+      key: new PluginKey('mediaRep'),
+      props: {
+        decorations(state) {
+          let first = -1
+          let flagged = -1
+          state.doc.descendants((n, p) => {
+            if (n.type.name !== 'writeMedia') return false
+            if (first < 0) first = p
+            if (flagged < 0 && n.attrs.rep) flagged = p
+            return false
+          })
+          const at = flagged >= 0 ? flagged : first
+          if (at < 0) return DecorationSet.empty
+          const node = state.doc.nodeAt(at)!
+          return DecorationSet.create(state.doc, [Decoration.node(at, at + node.nodeSize, { class: 'is-rep' })])
+        },
+      },
+    })]
   },
 })
 
