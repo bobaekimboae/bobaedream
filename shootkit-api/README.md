@@ -1,8 +1,24 @@
-# shootkit-api — 촬영 키트 임시 업로드 서버
+# shootkit-api — 촬영 키트 업로드 서버
+
+## 보배드림 시험 서버에 올리기(2026-11-06, Ubuntu 24.04 · 121.78.125.73)
+
+서버에서 root 로 한 번 실행하면 끝난다(저장소 받기 → composer → DB `shoot_api` → `.env` → migrate → nginx → https):
+
+```
+curl -fsSL https://raw.githubusercontent.com/bobaekimboae/bobaedream/main/shootkit-api/deploy/server-setup.sh | bash
+```
+
+- 주소는 `https://121-78-125-73.sslip.io`(IP 를 도메인처럼 쓰는 sslip.io 에 Let's Encrypt 인증서). 카메라와 깃허브 페이지가 https 라서 서버도 https 여야 한다.
+- 이 서버에서는 파일이 서버 디스크(`storage/app/public/shoots/…`, 공개 주소 `/storage/…`)에 저장된다(`SHOOT_UPLOAD=direct`, `SHOOT_STORE=db`). Vercel Blob 은 쓰지 않는다.
+- 확인: `curl https://121-78-125-73.sslip.io/api/health` → `"ok":true,"store":"db","upload":"direct","storage":true`
+- 코드가 바뀌면: `bash /var/www/bobaedream/shootkit-api/deploy/server-setup.sh update`
+- 올린 내용 보기: `https://bobaekimboae.github.io/bobaedream/nuxt-shootkit/?shoot=<촬영 번호>`, 파일은 `/var/www/bobaedream/shootkit-api/storage/app/public/shoots/`
+
+## 임시 무료 서버(Vercel) 판
 
 리뉴얼 스택(Laravel 12 · PHP 8.4) 그대로 만든 **임시 무료 서버**다. Vercel Hobby(무료)의 PHP 런타임(`vercel-php`)에서 돈다.
 
-## 어떻게 올라가나
+## 어떻게 올라가나(Vercel 판)
 
 ```
 폰(nuxt-shootkit) ──① 촬영 만들기 POST /api/shoots──────────▶ Laravel

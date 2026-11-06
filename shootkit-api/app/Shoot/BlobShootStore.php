@@ -46,6 +46,11 @@ class BlobShootStore implements ShootStore
         return $out;
     }
 
+    /** Blob 모드는 저장소 목록이 곧 기록이라 따로 적지 않는다. */
+    public function addFile(string $id, array $file): void
+    {
+    }
+
     public function submit(string $id, array $manifest): void
     {
         $this->blob->putJson("shoots/{$id}/submit.json", $manifest);

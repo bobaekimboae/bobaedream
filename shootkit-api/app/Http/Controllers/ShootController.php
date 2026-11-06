@@ -7,6 +7,7 @@ use App\Shoot\ShootError;
 use App\Shoot\ShootStore;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 /**
@@ -30,7 +31,8 @@ class ShootController
             'php' => PHP_VERSION,
             'laravel' => app()->version(),
             'store' => config('shoot.store'),
-            'storage' => app(BlobClient::class)->configured(),
+            'upload' => config('shoot.upload'),
+            'storage' => config('shoot.upload') === 'direct' ? is_writable(Storage::disk('public')->path('')) : app(BlobClient::class)->configured(),
         ]);
     }
 
@@ -56,7 +58,7 @@ class ShootController
         $id = strtolower((string) Str::ulid());
         $meta = $v + ['id' => $id, 'createdAt' => now()->toIso8601String()];
         $this->store->create($id, $meta);
-        return response()->json(['ok' => true, 'id' => $id, 'limits' => config('shoot.limits')], 201);
+        return response()->json(['ok' => true, 'id' => $id, 'upload' => config('shoot.upload'), 'limits' => config('shoot.limits')], 201);
     }
 
     /**
@@ -99,6 +101,55 @@ class ShootController
             'validUntil' => (int) round(microtime(true) * 1000) + config('shoot.token_ttl') * 1000,
         ]);
         return response()->json(['type' => $type, 'clientToken' => $token]);
+    }
+
+    /**
+     * SHOOT_UPLOAD=direct: 파일 본체를 이 서버 디스크에 받는다(PUT 본문 = 파일).
+     * 경로 · 형식 · 크기 · 개수 검사는 blob 허가표와 같다. 저장 위치 storage/app/public/shoots/{id}/{kind}/{name}, 공개 주소 APP_URL/storage/… .
+     */
+    public function put(Request $r, string $id, string $kind, string $name): JsonResponse
+    {
+        if (config('shoot.upload') !== 'direct') {
+            throw new ShootError('이 서버는 직접 업로드를 받지 않아요.', 404, 'no_direct');
+        }
+        $this->assertId($id);
+        if (!preg_match('#^(\d{2})-([a-z0-9-]{1,40})\.([a-z0-9]{2,4})$#', $name, $m) || !in_array($m[3], self::EXT[$kind], true)) {
+            throw new ShootError('올릴 파일 이름이 올바르지 않아요.', 400, 'bad_path');
+        }
+        if (!$this->store->meta($id)) {
+            throw new ShootError('촬영 기록을 찾지 못했어요. 처음부터 다시 등록해 주세요.', 404, 'no_shoot');
+        }
+        if ($this->store->submission($id)) {
+            throw new ShootError('이미 등록을 마친 촬영이에요.', 409, 'submitted');
+        }
+        $limit = config("shoot.limits.$kind");
+        $pathname = "shoots/$id/$kind/$name";
+        $have = array_filter($this->store->files($id), fn ($f) => str_contains($f['pathname'], "/$kind/") && $f['pathname'] !== $pathname);
+        if (count($have) >= $limit['count']) {
+            throw new ShootError('올릴 수 있는 개수를 넘었어요.', 409, 'too_many');
+        }
+        $type = strtolower(explode(';', (string) $r->header('Content-Type', ''))[0]);
+        if (!in_array($type, $limit['types'], true)) {
+            throw new ShootError('이 파일 형식은 올릴 수 없어요.', 400, 'bad_ext');
+        }
+        $size = (int) $r->header('Content-Length', 0);
+        if ($size < 1 || $size > $limit['bytes']) {
+            throw new ShootError('파일이 너무 커요.', 413, 'too_big');
+        }
+        $disk = Storage::disk('public');
+        $stream = $r->getContent(true);
+        $disk->put($pathname, $stream);
+        if (is_resource($stream)) {
+            fclose($stream);
+        }
+        $written = $disk->size($pathname);
+        if ($written !== $size) {
+            $disk->delete($pathname);
+            throw new ShootError('파일이 끝까지 올라오지 않았어요. 다시 올려 주세요.', 400, 'short');
+        }
+        $file = ['pathname' => $pathname, 'url' => $disk->url($pathname), 'size' => $written, 'uploadedAt' => now()->toIso8601String()];
+        $this->store->addFile($id, $file);
+        return response()->json(['ok' => true] + $file, 201);
     }
 
     /** 등록하기 마무리: 폰이 올렸다고 말한 파일이 저장소에 다 있는지 맞춰 본다. */

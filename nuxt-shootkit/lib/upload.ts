@@ -2,8 +2,13 @@
 // 큰 파일은 서버를 거치지 않는다: 폰 → Vercel Blob 직접(@vercel/blob/client), 서버(shootkit-api, Laravel 12)는
 // 촬영 기록 · 업로드 허가표 · 등록 확인만 맡는다. 서버 주소가 없으면 예전처럼 「시안 화면」 안내만 한다.
 
-/** 임시 무료 서버 주소. 비어 있으면 업로드를 끈다(배포 후 채움). */
-export const DEFAULT_API = "";
+/**
+ * 업로드 서버 주소. 비어 있으면 업로드를 끈다.
+ * 2026-11-06 보배드림 시험 서버(121.78.125.73, Ubuntu 24.04 · Laravel 12 · PostgreSQL 15)에 shootkit-api 를 올린다.
+ * 카메라는 https 에서만 켜지고 깃허브 페이지도 https 라, 서버도 https 여야 한다 → IP 를 도메인처럼 쓰는 sslip.io + Let's Encrypt.
+ * 빌드 때 VITE_SHOOT_API 로 바꿀 수 있다.
+ */
+export const DEFAULT_API = (import.meta.env.VITE_SHOOT_API as string | undefined) ?? "https://121-78-125-73.sslip.io";
 
 /** 시험용: ?api=http://127.0.0.1:7799 (내 컴퓨터 주소만 허락 — 다른 곳으로 사진이 새지 않게) */
 export function apiBase(): string {
@@ -15,7 +20,7 @@ export function apiBase(): string {
 export const uploadOn = () => Boolean(apiBase());
 
 export type UpItem = { n: number; kind: "photo" | "video"; label: string; src: string; key: string };
-export type UpState = { id: string | null; done: Record<string, string>; failed: string[] };
+export type UpState = { id: string | null; done: Record<string, string>; failed: string[]; mode?: "blob" | "direct" };
 export type UpProgress = { done: number; total: number; pct: number; label: string };
 export type UpResult = { id: string; photos: number; videos: number; submittedAt: string };
 
@@ -46,6 +51,27 @@ async function api<T>(path: string, body?: unknown): Promise<T> {
 /** 파일 이름: shoots/{id}/photo/01-s3.jpg (번호 = 등록 화면 순서, 이름표는 meta.items) */
 const pathOf = (id: string, it: UpItem, type: string) => `shoots/${id}/${it.kind}/${String(it.n).padStart(2, "0")}-${it.key}.${EXT[type] ?? (it.kind === "photo" ? "jpg" : "mp4")}`;
 
+/** SHOOT_UPLOAD=direct: 파일 본체를 서버 디스크로 바로 보낸다(PUT, 진행률은 XMLHttpRequest 로). */
+function putDirect(url: string, blob: Blob, type: string, onProgress: (loaded: number, total: number) => void): Promise<{ pathname: string }> {
+  return new Promise((resolve, reject) => {
+    const x = new XMLHttpRequest();
+    x.open("PUT", url);
+    x.setRequestHeader("content-type", type);
+    x.setRequestHeader("accept", "application/json");
+    x.upload.onprogress = (e) => onProgress(e.loaded, e.total || blob.size);
+    x.onerror = () => reject(new UploadError("인터넷 연결을 확인해 주세요.", "offline"));
+    x.onload = () => {
+      let j: { ok?: boolean; pathname?: string; error?: string; code?: string } = {};
+      try {
+        j = JSON.parse(x.responseText);
+      } catch {}
+      if (x.status >= 200 && x.status < 300 && j.ok !== false && j.pathname) resolve({ pathname: j.pathname });
+      else reject(new UploadError(j.error || "서버가 잠시 응답하지 않아요.", j.code || String(x.status)));
+    };
+    x.send(blob);
+  });
+}
+
 async function blobOf(src: string): Promise<Blob> {
   const r = await fetch(src);
   if (!r.ok) throw new UploadError("찍은 파일을 읽지 못했어요.", "read");
@@ -62,18 +88,20 @@ export async function uploadShoot(
   state: UpState,
   onProgress: (p: UpProgress) => void,
 ): Promise<UpResult> {
-  const { upload } = await import("@vercel/blob/client");
   const base = apiBase();
   if (!state.id) {
-    const c = await api<{ id: string }>("/api/shoots", {
+    const c = await api<{ id: string; upload?: "blob" | "direct" }>("/api/shoots", {
       ...meta,
       planned: { photo: items.filter((i) => i.kind === "photo").length, video: items.filter((i) => i.kind === "video").length },
       client: "nuxt-shootkit",
       items: items.map(({ n, kind, label }) => ({ n, kind, label })),
     });
     state.id = c.id;
+    state.mode = c.upload === "direct" ? "direct" : "blob";
   }
   const id = state.id;
+  const direct = state.mode === "direct";
+  const upload = direct ? null : (await import("@vercel/blob/client")).upload;
   const total = items.length;
   const bytes = new Map<string, { loaded: number; total: number }>();
   const tick = (label: string) => {
@@ -96,16 +124,20 @@ export async function uploadShoot(
           const type = blob.type || (it.kind === "photo" ? "image/jpeg" : "video/mp4");
           bytes.set(k, { loaded: 0, total: blob.size });
           tick(it.label);
-          const r = await upload(pathOf(id, it, type), blob, {
-            access: "public",
-            handleUploadUrl: `${base}/api/blob/upload`,
-            contentType: type,
-            multipart: blob.size > 8 * 1024 * 1024,
-            onUploadProgress: (e) => {
-              bytes.set(k, { loaded: e.loaded, total: e.total || blob.size });
-              tick(it!.label);
-            },
-          });
+          const pathname = pathOf(id, it, type);
+          const onProg = (loaded: number, total: number) => {
+            bytes.set(k, { loaded, total });
+            tick(it!.label);
+          };
+          const r = upload
+            ? await upload(pathname, blob, {
+                access: "public",
+                handleUploadUrl: `${base}/api/blob/upload`,
+                contentType: type,
+                multipart: blob.size > 8 * 1024 * 1024,
+                onUploadProgress: (e) => onProg(e.loaded, e.total || blob.size),
+              })
+            : await putDirect(`${base}/api/shoots/${id}/files/${it.kind}/${pathname.split("/").pop()}`, blob, type, onProg);
           state.done[k] = r.pathname;
           bytes.delete(k);
           tick(it.label);

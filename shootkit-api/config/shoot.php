@@ -4,6 +4,9 @@ return [
     // blob = Vercel Blob에 JSON으로 기록(임시 무료 서버), db = PostgreSQL(리뉴얼 운영)
     'store' => env('SHOOT_STORE', 'blob'),
 
+    // blob = 폰 → Vercel Blob 직접(임시 무료 서버), direct = 폰 → 이 서버 디스크(storage/app/public/shoots, 보배드림 시험 서버)
+    'upload' => env('SHOOT_UPLOAD', 'blob'),
+
     // 업로드를 허락하는 화면 주소
     'origins' => array_filter(explode(',', env('SHOOT_ORIGINS',
         'https://bobaekimboae.github.io,http://localhost:5191,http://127.0.0.1:5191'))),
