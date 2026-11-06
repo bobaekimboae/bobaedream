@@ -13,7 +13,7 @@ import { embedLib, fixLegacyPaths } from './legacyLibs'
 import { safeDraftHtml } from './writeUtils'
 
 export const FONT_FAMILIES = [
-  { value: '', label: '기본서체' },
+  { value: '', label: '프리텐다드' },
   { value: 'Nanum Gothic', label: '나눔고딕' },
   { value: 'Nanum Myeongjo', label: '나눔명조' },
   { value: 'Nanum Barun Gothic', label: '나눔바른고딕' },
