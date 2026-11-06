@@ -58,6 +58,19 @@ jobs:
         run: |
           mkdir -p dist/client/nuxt-shootkit-lab
           cp -R nuxt-shootkit-lab/.output/public/. dist/client/nuxt-shootkit-lab/
+      - name: Build leh site
+        working-directory: leh
+        env:
+          NUXT_APP_BASE_URL: /bobaedream/leh/
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.33.0 --activate
+          pnpm install --frozen-lockfile
+          pnpm build
+      - name: Add leh site to Pages artifact
+        run: |
+          mkdir -p dist/client/leh
+          cp -R leh/.output/public/. dist/client/leh/
       - name: Build Nuxt community
         working-directory: nuxt-community
         run: |
