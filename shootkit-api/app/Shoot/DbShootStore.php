@@ -47,6 +47,14 @@ class DbShootStore implements ShootStore
                 'uploadedAt' => (string) $f->uploaded_at])->all();
     }
 
+    public function addFile(string $id, array $file): void
+    {
+        DB::table('shoot_files')->updateOrInsert(['pathname' => $file['pathname']], [
+            'shoot_id' => $id, 'kind' => str_contains($file['pathname'], '/video/') ? 'video' : 'photo',
+            'url' => $file['url'], 'size' => $file['size'], 'uploaded_at' => $file['uploadedAt'],
+        ]);
+    }
+
     public function submit(string $id, array $manifest): void
     {
         DB::transaction(function () use ($id, $manifest) {

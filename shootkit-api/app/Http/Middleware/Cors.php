@@ -21,7 +21,7 @@ class Cors
         if ($allowed) {
             $response->headers->set('Access-Control-Allow-Origin', $origin);
             $response->headers->set('Vary', 'Origin');
-            $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+            $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, OPTIONS');
             $response->headers->set('Access-Control-Allow-Headers', 'Content-Type');
             $response->headers->set('Access-Control-Max-Age', '600');
         }

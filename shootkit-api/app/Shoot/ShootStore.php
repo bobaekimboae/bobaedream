@@ -17,6 +17,8 @@ interface ShootStore
 
     /** @return list<array{pathname:string,url:string,size:int,uploadedAt:string}> */
     public function files(string $id): array;
+    /** 서버 디스크 직접 업로드(SHOOT_UPLOAD=direct)에서 파일 하나를 기록한다. @param array{pathname:string,url:string,size:int,uploadedAt:string} $file */
+    public function addFile(string $id, array $file): void;
 
     public function submit(string $id, array $manifest): void;
 
