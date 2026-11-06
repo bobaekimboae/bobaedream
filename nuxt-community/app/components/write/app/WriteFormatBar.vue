@@ -15,7 +15,7 @@ const blockMenu = ref(false)
 const s = computed(() => props.editor.state.value)
 const inQuote = computed(() => s.value.quote > 0)
 const blockLabel = computed(() => ({ p: '본문', h3: '소제목', quote: '인용구' }[s.value.block] || '본문'))
-const fontLabel = computed(() => FONT_FAMILIES.find(font => font.value === s.value.fontFamily)?.label || '기본서체')
+const fontLabel = computed(() => FONT_FAMILIES.find(font => font.value === s.value.fontFamily)?.label || '프리텐다드')
 const alignIcon = computed(() => `icon-align-${s.value.align}-outline`)
 const alignLabel = computed(() => ({ left: '왼쪽 정렬', center: '가운데 정렬', right: '오른쪽 정렬' }[s.value.align]))
 

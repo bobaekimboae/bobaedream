@@ -1,6 +1,7 @@
 <!-- 커뮤니티 글쓰기(2026-11-05). 같은 기능을 두 모양으로 시험한다.
        /write              치지직형(기본, 치지직 앱 글쓰기를 폰에서 직접 확인하고 맞춤)
        /write?style=naver  네이버 카페 앱형(2026-11-06 네이버 카페 앱을 폰에서 직접 확인하고 맞춤, 아이콘은 레딧 원본)
+       /write?style=naver-pc  네이버 카페 PC 웹형(2026-11-06). ?style=naver 도 화면 폭 1024 이상이면 PC 웹형으로 연다(&m=1 이면 앱형 고정, &pc=1 이면 PC 고정)
        /write?style=naver-web 예전 네이버 카페 웹형(정본 모양: public/community/naver-write-parity.html, 비교용)
        /write?style=legacy 예전 간결형(정적 chzzk-write.html 이식본, 비교용)
      글 종류(일반 · 차량 리뷰 · 연비 · 전비 · 질문 · 내 차 팔기 · 구매가)는 composables/write/postTypes.ts 한 곳에서 정한다. -->
@@ -12,6 +13,8 @@ import pollCss from '../../../public/community/community-poll.css?raw'
 import newsCardCss from '../../../public/community/news-card.css?raw'
 import naverCss from '../../../public/community/naver-write-parity.css?raw'
 import naverAppCss from '~/assets/css/write/naver-app.css?raw'
+import naverPcCss from '~/assets/css/write/naver-pc.css?raw'
+import NaverPcWrite from '~/components/write/naver/NaverPcWrite.vue'
 import LegacyChzzkWrite from '~/components/write/LegacyChzzkWrite.vue'
 import ChzzkWrite from '~/components/write/app/ChzzkWrite.vue'
 import NaverWebWrite from '~/components/write/app/NaverWebWrite.vue'
@@ -34,8 +37,11 @@ const route = useRoute()
 const styleQuery = String(route.query.style || '')
 const legacy = styleQuery === 'legacy'
 const naverWeb = styleQuery === 'naver-web'
-const style: WriteStyle = styleQuery === 'naver' || naverWeb ? 'naver' : 'chzzk'
-/** 네이버 카페 앱형(웹형은 예전 모양 그대로) */
+const style: WriteStyle = styleQuery === 'naver' || styleQuery === 'naver-pc' || naverWeb ? 'naver' : 'chzzk'
+/** 네이버 카페 PC 웹형: ?style=naver-pc, 또는 ?style=naver 를 넓은 화면(1024 이상)에서 열 때 */
+const wide = typeof window !== 'undefined' && window.innerWidth >= 1024
+const naverPc = styleQuery === 'naver-pc' || (styleQuery === 'naver' && route.query.m !== '1' && (route.query.pc === '1' || wide))
+/** 네이버 카페 앱형 · PC 웹형(예전 웹형은 모양 그대로). 앱형 CSS(창 · 카드 · 설정 모양)는 PC 웹형도 함께 쓴다 */
 const naverApp = style === 'naver' && !naverWeb
 provide('writeStyle', naverApp ? 'naver' : style === 'naver' ? 'naver-web' : 'chzzk')
 
@@ -53,8 +59,9 @@ if (!legacy) {
       { key: 'write-news-card', textContent: withCommunityUrls(newsCardCss) },
       { key: 'write-app', textContent: appCss },
       ...(naverApp ? [{ key: 'write-naver-app', textContent: withCommunityUrls(naverAppCss) }] : []),
+      ...(naverPc ? [{ key: 'write-naver-pc', textContent: naverPcCss }] : []),
     ],
-    htmlAttrs: { 'data-write-style': naverApp ? 'naver' : naverWeb ? 'naver-web' : style },
+    htmlAttrs: { 'data-write-style': naverPc ? 'naver-pc' : naverApp ? 'naver' : naverWeb ? 'naver-web' : style },
   })
 }
 
@@ -85,12 +92,13 @@ onMounted(() => { w?.start() })
 
 <template>
   <LegacyChzzkWrite v-if="legacy" />
-  <div v-else-if="w" class="aw-root" :class="[`is-${style}`, { 'is-naver-app': naverApp }]">
+  <div v-else-if="w" class="aw-root" :class="[`is-${style}`, { 'is-naver-app': naverApp, 'is-naver-pc': naverPc }]">
     <ChzzkWrite v-if="style === 'chzzk'" :w="w" @body="setBody" />
+    <NaverPcWrite v-else-if="naverPc" :w="w" @body="setBody" />
     <NaverWrite v-else-if="naverApp" :w="w" @body="setBody" />
     <NaverWebWrite v-else :w="w" @body="setBody" />
 
-    <NaverBoardSheet v-if="naverApp && w.tool.value === 'board'" :groups="w.groups.value" :selected="w.board.value" @pick="pickBoard" @close="w.tool.value = ''" />
+    <NaverBoardSheet v-if="naverApp && !naverPc && w.tool.value === 'board'" :groups="w.groups.value" :selected="w.board.value" @pick="pickBoard" @close="w.tool.value = ''" />
     <NaverTagPage v-else-if="w.tool.value === 'tags'" :tags="w.tags.value" @done="setTags" @close="w.tool.value = ''" @toast="w.toast" />
     <NaverMaterialPage v-else-if="w.tool.value === 'material'" @attach="(card) => addCard('material', card)" @close="w.tool.value = ''" />
     <NaverPlacePage v-else-if="w.tool.value === 'place'" @attach="(card) => addCard('place', card)" @close="w.tool.value = ''" />

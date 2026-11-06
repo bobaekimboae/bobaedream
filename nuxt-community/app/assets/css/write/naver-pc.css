@@ -1,0 +1,125 @@
+/* 커뮤니티 글쓰기 · 네이버 카페 PC 웹형(?style=naver-pc, 2026-11-06).
+   네이버 카페 PC 글쓰기 배치: 위 머리 띠 60(흰 · 아래 선) → 가운데 본문 칸 860 + 오른쪽 설정 칸 300(위에 붙어 따라옴).
+   편집기 상자 = 콘텐츠 도구 줄 72(아이콘 24 위 · 글자 12 아래) · 서식 줄 44(#F9F9F9) · 본문 최소 560.
+   글꼴은 프리텐다드. 색은 앱형과 같은 초록(#00C73C · 글자 #009F47). 아이콘은 레딧 원본(색은 필터만).
+   앱형 부품(글감 · 장소 · 일정 · 투표 · 태그 · 글 종류 · 스티커 화면)은 가운데 창(폭 480)으로 띄운다. */
+
+.aw-root.is-naver-app.is-naver-pc{width:100%;max-width:none;margin:0;padding-bottom:0;box-shadow:none}
+.aw-root.is-naver-pc{min-height:100vh;background:#f5f6f8;font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#222;--npc-green:#00c73c;--npc-green-ink:#009f47;--npc-line:#e5e5e5;--npc-sub:#676767;--npc-hint:#949494}
+.aw-root.is-naver-pc *,.aw-root.is-naver-pc *::before,.aw-root.is-naver-pc *::after{box-sizing:border-box}
+.aw-root.is-naver-pc button{font:inherit;color:inherit;cursor:pointer}
+.npc{min-height:100vh}
+
+/* 머리 띠 */
+.npc-head{position:sticky;z-index:30;top:0;height:60px;border-bottom:1px solid var(--npc-line);background:#fff}
+.npc-head-in{display:flex;align-items:center;gap:16px;width:min(1184px,100% - 48px);height:100%;margin:0 auto}
+.npc-logo{display:flex;align-items:center;height:40px;padding:0;border:0;background:none}
+.npc-logo img{display:block;height:26px;width:auto}
+.npc-head h1{margin:0;padding-left:16px;border-left:1px solid #ddd;font-size:18px;line-height:24px;font-weight:700}
+.npc-head-actions{display:flex;align-items:center;gap:8px;margin-left:auto}
+.npc-temp{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border:1px solid #ddd;border-radius:6px;background:#fff;font-size:15px;font-weight:600}
+.npc-temp span{min-width:18px;color:var(--npc-green-ink);font-weight:700;text-align:left}
+.npc-temp:hover{background:#f7f7f7}
+.npc-submit{height:40px;min-width:80px;padding:0 20px;border:0;border-radius:6px;background:var(--npc-green);color:#fff !important;font-size:15px;font-weight:700}
+.npc-submit:hover{background:#00b336}
+.npc-submit[aria-disabled="true"]{opacity:.5;pointer-events:none}
+
+/* 본문 칸 + 설정 칸 */
+.npc-wrap{display:grid;grid-template-columns:minmax(0,860px) 300px;justify-content:center;gap:24px;width:min(1184px,100% - 48px);margin:24px auto 80px}
+.npc-main{min-width:0;padding:32px 40px 32px;border:1px solid var(--npc-line);border-radius:8px;background:#fff}
+
+/* 게시판 · 글 종류 */
+.npc-taxonomy{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:10px}
+.npc-board{position:relative;min-width:0}
+.npc-select{display:flex;align-items:center;gap:8px;width:100%;height:44px;padding:0 12px 0 14px;border:1px solid #ddd;border-radius:6px;background:#fff;font-size:15px;font-weight:500;text-align:left}
+.npc-select span{flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.npc-select.is-empty span{color:var(--npc-hint);font-weight:400}
+.npc-select img{width:18px;height:18px;opacity:.6}
+.npc-select:hover,.npc-select[aria-expanded="true"]{border-color:#bbb}
+.npc-board-menu{position:absolute;z-index:20;top:48px;left:0;right:0;max-height:420px;display:flex;flex-direction:column;border:1px solid #ddd;border-radius:8px;background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.12)}
+.npc-board-search{display:flex;align-items:center;gap:8px;height:40px;margin:10px;padding:0 12px;border-radius:20px;background:#f4f4f4}
+.npc-board-search img{width:18px;height:18px;opacity:.55}
+.npc-board-search input{flex:1;min-width:0;border:0;outline:0;background:none;font:inherit;font-size:14px}
+.npc-board-list{overflow:auto;padding:0 0 8px}
+.npc-board-list h3{margin:8px 16px 4px;font-size:12px;line-height:18px;font-weight:600;color:var(--npc-sub)}
+.npc-board-list button{display:block;width:100%;height:38px;padding:0 16px;border:0;background:none;font-size:14px;text-align:left}
+.npc-board-list button:hover{background:#f7f7f7}
+.npc-board-list button.is-on{color:var(--npc-green-ink);font-weight:700}
+.npc-empty{margin:16px;font-size:14px;color:var(--npc-hint)}
+
+/* 제목 */
+.npc-title{display:block;width:100%;height:68px;margin:12px 0 0;padding:0 2px;border:0;border-bottom:1px solid var(--npc-line);outline:0;background:none;font:inherit;font-size:26px;line-height:36px;font-weight:700;color:#222}
+.npc-title::placeholder{color:#bbb;font-weight:600}
+
+/* 편집기 상자 */
+.npc-editor{position:relative;margin-top:20px;border:1px solid var(--npc-line);border-radius:6px}
+.npc-tools{display:flex;flex-wrap:wrap;align-items:stretch;padding:4px 8px;border-bottom:1px solid var(--npc-line)}
+.npc-tool{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;width:64px;height:64px;padding:0;border:0;border-radius:6px;background:none}
+.npc-tool img{width:24px;height:24px}
+.npc-tool span{font-size:12px;line-height:16px;color:#444}
+.npc-tool:hover{background:#f4f4f4}
+.npc-tool.is-on{background:#e0f8eb}
+.npc-tool.is-on img{filter:invert(52%) sepia(87%) saturate(2190%) hue-rotate(104deg) brightness(95%) contrast(102%)}
+.npc-tool.is-on span{color:var(--npc-green-ink);font-weight:600}
+.npc-format{position:sticky;z-index:5;top:60px;background:#f9f9f9;border-bottom:1px solid var(--npc-line)}
+.npc-format .aw-format{position:static;height:44px;padding:0 10px;background:transparent;border:0;color:#555}
+.npc-format .aw-format>button{color:#555}
+.npc-format .aw-format>button.is-on,.npc-format .aw-format-text.is-pick{color:var(--npc-green)!important}
+.npc-format .aw-format>button.is-on img{filter:invert(53%) sepia(84%) saturate(2700%) hue-rotate(108deg) brightness(97%) contrast(101%);opacity:1}
+.npc-format .aw-quote-pick{color:#555}
+.npc-format .aw-quote-pick.is-on{color:var(--npc-green)}
+.npc-format .aw-quote-pick.is-on .aw-quote-mini img{filter:invert(53%) sepia(84%) saturate(2700%) hue-rotate(108deg) brightness(97%) contrast(101%)}
+.npc-format .aw-quote-delete{margin-left:auto;margin-right:7px}
+.npc-format .aw-quote-delete img{filter:invert(32%) sepia(93%) saturate(3000%) hue-rotate(340deg) brightness(98%) contrast(92%)}
+.npc-format .aw-tools{position:static;background:transparent;border-bottom:1px solid var(--npc-line)}
+.npc-editor .aw-editor-body.is-naver{min-height:560px;padding:28px 32px 48px;font-size:16px;line-height:1.7}
+
+/* 스티커 판 */
+.npc-sticker{border-bottom:1px solid var(--npc-line);background:#fff}
+.npc-sticker-tabs{display:flex;gap:2px;padding:8px 10px 0;border-bottom:1px solid var(--npc-line)}
+.npc-sticker-tabs button{width:40px;height:36px;border:0;border-bottom:2px solid transparent;background:none;font-size:20px}
+.npc-sticker-tabs button.is-on{border-bottom-color:var(--npc-green)}
+.npc-sticker-grid{display:grid;grid-template-columns:repeat(auto-fill,44px);gap:4px;max-height:208px;overflow:auto;padding:10px}
+.npc-sticker-grid button{width:44px;height:44px;border:0;border-radius:6px;background:none;font-size:26px;line-height:44px}
+.npc-sticker-grid button:hover{background:#f4f4f4}
+
+/* 태그 */
+.npc-tags{display:flex;flex-wrap:wrap;align-items:center;gap:6px;min-height:52px;margin-top:16px;padding:8px 12px;border:1px solid var(--npc-line);border-radius:6px;cursor:text}
+.npc-tag{display:inline-flex;align-items:center;gap:2px;height:30px;padding:0 6px 0 12px;border-radius:15px;background:#f4f4f4;font-size:14px;color:#222}
+.npc-tag button{display:grid;place-items:center;width:20px;height:20px;padding:0;border:0;background:none}
+.npc-tag button img{width:14px;height:14px;opacity:.55}
+.npc-tags input{flex:1;min-width:160px;height:32px;border:0;outline:0;background:none;font:inherit;font-size:15px}
+.npc-tags input::placeholder{color:var(--npc-hint)}
+.npc-tags small{margin-left:auto;font-size:12px;color:var(--npc-hint)}
+
+/* 설정 칸 */
+.npc-side{position:sticky;top:84px;align-self:start;padding:20px 20px 12px;border:1px solid var(--npc-line);border-radius:8px;background:#fff}
+.npc-side h2{margin:0 0 8px;font-size:16px;line-height:22px;font-weight:700}
+.npc-side .aw-switch-row{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:10px 0;border-top:1px solid #f0f0f0;font-size:14px;line-height:20px;cursor:pointer}
+.npc-side .aw-switch-row span{display:flex;flex-direction:column}
+.npc-side .aw-switch-row small{margin-top:2px;font-size:12px;line-height:17px;color:var(--npc-hint);word-break:keep-all}
+.npc-side .aw-switch-row input:checked+i{background:var(--npc-green)}
+.npc-visibility{margin:0;padding:10px 0 12px;border:0;border-top:1px solid #f0f0f0}
+.npc-visibility legend{float:left;width:100%;margin-bottom:8px;font-size:14px;line-height:20px}
+.npc-visibility label{display:inline-flex;align-items:center;gap:6px;margin-right:16px;font-size:14px;cursor:pointer}
+.npc-visibility input{width:18px;height:18px;margin:0;accent-color:var(--npc-green)}
+.npc-size{display:flex;flex-direction:column;gap:8px;padding:12px 0 8px;border-top:1px solid #f0f0f0;font-size:14px}
+.npc-size select{height:38px;padding:0 10px;border:1px solid #ddd;border-radius:6px;background:#fff;font:inherit;font-size:14px}
+
+/* 앱형 화면들을 PC에서는 가운데 창으로 */
+.is-naver-pc .awp,.is-naver-pc .nwx{inset:0;width:480px;height:min(720px,100vh - 80px);margin:auto;border-radius:12px;box-shadow:0 0 0 100vmax rgba(0,0,0,.45),0 12px 40px rgba(0,0,0,.25);overflow:hidden}
+.is-naver-pc .nwb-dim{place-items:center;align-items:center}
+.is-naver-pc .nwb{width:480px;border-radius:12px}
+
+/* 좁은 PC 창: 설정 칸을 본문 아래로 */
+@media (max-width:1100px){
+  .npc-wrap{grid-template-columns:minmax(0,1fr)}
+  .npc-side{position:static}
+}
+@media (max-width:640px){
+  .npc-main{padding:20px 16px}
+  .npc-taxonomy{grid-template-columns:1fr}
+  .npc-tool{width:56px}
+}
+
+html[data-write-style="naver-pc"] body{margin:0;padding:0;background:#f5f6f8}
