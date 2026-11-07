@@ -1,0 +1,489 @@
+{
+ "country": "NL",
+ "title": "NL-090",
+ "url": "https://www.youtube.com/shorts/6hvfuNNICOk",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5242,
+  "candidatesTokenCount": 4781,
+  "totalTokenCount": 10023,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4274
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47,
+   "aspect": "9:16",
+   "car": "Fiat Abarth 595 Alitalia",
+   "format": "차 소개/가격 공개/정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.5,
+    "part": "외관 측면",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 13.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 18.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 27.5,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.8,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 33.5,
+    "part": "시트",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 37.5,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 41.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 47.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "EEN ABARTH 200PK",
+    "ko": "아바스 200마력",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "yellow",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "200PK",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "text": "ZOEK JIJ IETS UNIEKS BLIJF DAN EVEN KIJKEN",
+    "ko": "독특한 차를 찾고 계신가요? 계속 시청하세요",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "UNIEKS",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "text": "VERTEL IK JE OP HET EIND EN DIE GAAT JE VERBAZEN",
+    "ko": "가격은 끝에 알려드릴게요. 놀라실 겁니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERBAZEN",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "text": "CUSTOM GEMAAKT",
+    "ko": "주문제작",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "green",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CUSTOM",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "text": "STAGE 1 GETUNED",
+    "ko": "스테이지 1 튜닝",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "green",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STAGE 1",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "text": "200PK",
+    "ko": "200마력",
+    "kind": "숫자 사양",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "yellow",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "200PK",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 33.0,
+    "text": "CARBON ACCENTEN",
+    "ko": "카본 액센트",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "green",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CARBON",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 37.5,
+    "text": "43.500 KM",
+    "ko": "43,500 킬로미터",
+    "kind": "숫자 사양",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "yellow",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "43.500",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 41.5,
+    "text": "2017",
+    "ko": "2017년식",
+    "kind": "숫자 사양",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2017",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 47.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_headline": true,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Pop",
+   "bpm_est": 120,
+   "mood": "밝은/경쾌한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Een Abarth met meer dan 200pk.",
+    "ko": "200마력이 넘는 아바스입니다."
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "Zoek jij iets unieks, blijf dan even kijken.",
+    "ko": "독특한 차를 찾고 계신가요? 계속 시청하세요."
+   },
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "text": "En de prijs vertel ik je op het eind en die gaat je verbazen.",
+    "ko": "가격은 끝에 알려드릴게요. 놀라실 겁니다."
+   },
+   {
+    "start": 7.5,
+    "end": 10.0,
+    "text": "De wrap is custom gemaakt in Italië.",
+    "ko": "랩핑은 이탈리아에서 커스텀 제작되었습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 13.0,
+    "text": "En volledig geïnspireerd op de heritage racewagen van Abarth.",
+    "ko": "그리고 아바스의 헤리티지 레이스카에서 영감을 받았습니다."
+   },
+   {
+    "start": 13.0,
+    "end": 18.0,
+    "text": "Alitalia was vroeger een vliegmaatschappij en dat was de grootste sponsor van Abarth.",
+    "ko": "알리탈리아는 과거 항공사였으며 아바스의 가장 큰 스폰서였습니다."
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "text": "En dat vliegen, dat kan deze auto ook.",
+    "ko": "그리고 그 '비행', 이 차도 할 수 있습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "text": "Normaal heeft de Abarth 170pk.",
+    "ko": "보통 아바스는 170마력입니다."
+   },
+   {
+    "start": 22.0,
+    "end": 27.5,
+    "text": "Maar deze is stage 1 getuned en heeft dus meer dan 200pk.",
+    "ko": "하지만 이 차는 스테이지 1 튜닝이 되어 200마력이 넘습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 30.0,
+    "text": "En ook van binnen is deze auto af.",
+    "ko": "실내도 완벽하게 꾸며져 있습니다."
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "Je ziet overal carbon accenten, die stoelen zijn volledig van carbon.",
+    "ko": "곳곳에 카본 액센트가 보이고, 시트는 완전히 카본입니다."
+   },
+   {
+    "start": 34.0,
+    "end": 37.5,
+    "text": "En de kilometerstand is slechts 43.500 km.",
+    "ko": "주행 거리는 불과 43,500km입니다."
+   },
+   {
+    "start": 37.5,
+    "end": 41.5,
+    "text": "Hij komt uit 2017 en ben je benieuwd naar de prijs? Check dan even de omschrijving.",
+    "ko": "2017년식인데 가격이 궁금하시다면 설명란을 확인하세요."
+   },
+   {
+    "start": 41.5,
+    "end": 47.0,
+    "text": "En je vindt hem in de showroom van Mobimall Pordon en natuurlijk op AutoScout24.nl.",
+    "ko": "모비몰 포르돈 쇼룸과 오토스카우트24에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.5,
+    "speed": "빠름",
+    "summary": "200마력 아바스 소개 및 가격 기대감 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.5,
+    "end": 20.0,
+    "speed": "보통",
+    "summary": "외관 디자인 및 알리탈리아 랩핑 역사 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 20.0,
+    "end": 27.5,
+    "speed": "빠름",
+    "summary": "엔진 튜닝 및 출력 소개 (200마력)"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 27.5,
+    "end": 37.5,
+    "speed": "보통",
+    "summary": "실내 카본 인테리어, 시트, 주행거리 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 37.5,
+    "end": 47.0,
+    "speed": "보통",
+    "summary": "연식, 판매처 안내 및 오토스카우트24 언급"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량의 핵심 스펙(200마력)과 시청 유지 멘트(가격 궁금증)를 배치해 이탈률을 방지한다.",
+   "컷 평균 길이는 2~4초로 짧게 유지하여 지루할 틈을 없앤다.",
+   "자막은 화면 중앙 또는 하단에 노란색/초록색 박스 형태로 팝업(톡 튀어나옴) 효과를 준다.",
+   "차량의 핵심 키워드(CUSTOM, STAGE 1, CARBON 등)는 별도의 초록색 박스 스티커로 강조한다.",
+   "출력, 주행거리, 연식 등 핵심 수치는 노란색 큰 글씨로 시선을 사로잡는다.",
+   "촬영 순서는 외관 전면/측면 -> 트렁크 -> 실내 -> 엔진룸 -> 시트 순으로 자연스럽게 이동한다.",
+   "진행자가 직접 차 주변을 걸어 다니며 손으로 가리키는 역동적인 핸드헬드 샷을 사용한다.",
+   "마지막에는 차량 연식과 함께 자사 플랫폼(AutoScout24) 로고를 노출하며 마무리한다."
+  ]
+ }
+}

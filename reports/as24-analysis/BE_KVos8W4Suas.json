@@ -1,0 +1,491 @@
+{
+ "country": "BE",
+ "title": "BE-093",
+ "url": "https://www.youtube.com/shorts/KVos8W4Suas",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4512,
+  "candidatesTokenCount": 4895,
+  "totalTokenCount": 9407,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3544
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "Audi TT Roadster",
+   "format": "퀴즈/차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "휙 밀기",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.0,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.0,
+    "part": "시트",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 18.5,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 33.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 36.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 38.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Raad het aantal PK's",
+    "ko": "마력 수를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#ffffff",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK's",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "text": "Audi TT Roadster",
+    "ko": "아우디 TT 로드스터",
+    "kind": "제목",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#ffffff",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Roadster",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.0,
+    "text": "vierwielaandrijving\nofte wel Quattro",
+    "ko": "사륜구동, 즉 콰트로",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#fbcc14",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "Quattro",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.0,
+    "text": "Het S line\ninterieur",
+    "ko": "S라인 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#fbcc14",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "S line",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "text": "stoelverwarming",
+    "ko": "열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffffff",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "stoelverwarming",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "text": "nekverwarming",
+    "ko": "목 온열 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffffff",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "nekverwarming",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.9,
+    "text": "Maxton design kit",
+    "ko": "맥스톤 디자인 킷",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffffff",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Maxton",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 18.5,
+    "text": "19 inch\nbronze velgen",
+    "ko": "19인치 브론즈 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#fbcc14",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "bronze",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "automaat 2.0\nTFSI",
+    "ko": "자동 2.0 TFSI",
+    "kind": "숫자 사양",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffffff",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2.0",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.1,
+    "text": "2018",
+    "ko": "2018년식",
+    "kind": "숫자 사양",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#fbcc14",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2018",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 26.0,
+    "text": "82.450 km",
+    "ko": "82,450 km",
+    "kind": "숫자 사양",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#fbcc14",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "82.450 km",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.0,
+    "text": "€29.990",
+    "ko": "29,990 유로",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#fbcc14",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€29.990",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "통통 튀는 업비트 팝/일렉트로닉",
+   "bpm_est": 120,
+   "mood": "경쾌하고 신나는 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Kun jij raden hoeveel PK deze Audi TT Roadster heeft?",
+    "ko": "이 아우디 TT 로드스터가 몇 마력인지 맞출 수 있으신가요?"
+   },
+   {
+    "start": 4.1,
+    "end": 9.0,
+    "text": "Deze Audi TT Roadster is uitgevoerd met vierwielaandrijving, oftewel Quattro.",
+    "ko": "이 아우디 TT 로드스터는 사륜구동, 즉 콰트로가 탑재되어 있습니다."
+   },
+   {
+    "start": 9.0,
+    "end": 15.0,
+    "text": "Het S line interieur, hij heeft stoelverwarming en nekverwarming.",
+    "ko": "S라인 인테리어에 열선 시트와 목 온열 기능이 있습니다."
+   },
+   {
+    "start": 15.0,
+    "end": 19.0,
+    "text": "En hij is voorzien van een Maxton design kit en heeft 19 inch bronzen velgen.",
+    "ko": "그리고 맥스톤 디자인 킷이 장착되어 있고 19인치 브론즈 휠이 있습니다."
+   },
+   {
+    "start": 19.0,
+    "end": 29.0,
+    "text": "Het is een automaat 2.0 TFSI. Hij komt uit 2018, heeft 82.450 km op de teller en hij kost €29.990.",
+    "ko": "자동 2.0 TFSI이며, 2018년식이고 주행거리는 82,450km이며 가격은 29,990유로입니다."
+   },
+   {
+    "start": 29.0,
+    "end": 33.3,
+    "text": "Kun jij raden hoeveel PK deze Audi heeft? Laat het weten in de reactie!",
+    "ko": "이 아우디가 몇 마력인지 맞출 수 있나요? 댓글로 남겨주세요!"
+   },
+   {
+    "start": 33.3,
+    "end": 38.0,
+    "text": "Je vindt hem in de showroom van Garage Vanderveken en op AutoScout24.be",
+    "ko": "가라지 반데르베켄 전시장과 오토스카우트24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "마력을 맞춰보라는 퀴즈 제시와 함께 차량 전면/실내 보여주기"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.1,
+    "end": 19.0,
+    "speed": "빠름",
+    "summary": "사륜구동, S라인, 열선/목 온열, 바디킷, 휠 등 옵션 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 19.0,
+    "end": 29.0,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 가격 스펙 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 29.0,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "다시 마력 퀴즈를 묻고 댓글 유도, 전시장 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 호기심을 자극하는 질문(퀴즈)으로 시작한다.",
+   "컷 평균 길이는 2초 이내로 매우 짧게 가져가 시청 지속률을 높인다.",
+   "핵심 키워드나 옵션명은 화면 중앙에 노란색 형광펜 또는 검정 상자 스타일의 자막으로 강조한다.",
+   "음악은 비트에 맞추어 경쾌하고 빠른 템포의 곡을 사용한다.",
+   "차량의 부위(전면-실내-시트-후면-휠-엔진/미션)를 순차적으로 빠르게 보여준다.",
+   "숫자 사양(연식, 주행거리, 가격)은 노란색 강조 상자를 활용해 시인성을 높인다.",
+   "영상의 마지막에는 댓글 참여를 유도(CTA)하고 판매처를 명시한다."
+  ]
+ }
+}

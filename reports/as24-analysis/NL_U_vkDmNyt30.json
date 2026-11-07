@@ -1,0 +1,240 @@
+{
+ "country": "NL",
+ "title": "NL-092",
+ "url": "https://www.youtube.com/shorts/U_vkDmNyt30",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4146,
+  "candidatesTokenCount": 2132,
+  "totalTokenCount": 6278,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3178
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTE",
+   "format": "퀴즈 및 중고차 정보/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "part": "트렁크",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 19.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 25.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 34.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "RAAD HOEVEEL PK",
+    "ko": "마력수가 얼마인지 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.0,
+    "text": "Auto Scout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "툭 튀어나옴",
+    "highlight_word": "Scout24",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 29.0,
+    "text": "€35.950",
+    "ko": "35,950 유로",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "35.950",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉",
+   "bpm_est": 120,
+   "mood": "경쾌함, 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "what": "AutoScout24 로고 마크",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 40.0,
+    "entrance": "팝업",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Kan jij het aantal pk raden van deze Volkswagen Golf GTE...",
+    "ko": "이 폭스바겐 골프 GTE의 마력 수가 몇 개인지 맞출 수 있나요..."
+   },
+   {
+    "start": 25.0,
+    "end": 28.5,
+    "text": "De prijs van deze Golf is €35.950 euro.",
+    "ko": "이 골프의 가격은 35,950유로입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "마력 맞추기 퀴즈로 시청자 이목 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 15.0,
+    "speed": "빠름",
+    "summary": "플러그인 하이브리드 특징 및 연식/주행거리 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 15.0,
+    "end": 25.0,
+    "speed": "빠름",
+    "summary": "휠, 어댑티브 크루즈 컨트롤, 헤드업 디스플레이 등 주요 옵션 나열"
+   },
+   {
+    "stage": "가격",
+    "start": 25.0,
+    "end": 29.0,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 29.0,
+    "end": 34.0,
+    "speed": "빠름",
+    "summary": "댓글로 마력 수 추측 남기기 및 팔로우 독려"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 질문(마력 맞추기)으로 시청자의 호기심을 유발한다.",
+   "컷 평균 길이는 2~4초로 매우 짧게 가져가 지루함을 없앤다.",
+   "핵심 키워드는 굵은 고딕 폰트에 상자 배경(노란색 또는 검은색)을 적용한다.",
+   "진행자가 화면 안에서 직접 걸으며 말하고 제스처를 크게 쓴다.",
+   "차량 외관, 실내, 휠, 계기판 순으로 빠르게 전환하며 보여준다.",
+   "가격 공개 파트에서는 화면 상단 중앙에 큰 숫자로 가격을 띄운다.",
+   "마지막에는 댓글 참여(CTA)를 유도하며 영상을 끝맺는다.",
+   "배경음악은 밝고 빠른 템포의 비트를 사용하여 리듬감을 준다."
+  ]
+ }
+}

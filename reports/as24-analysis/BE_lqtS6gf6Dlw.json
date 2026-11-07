@@ -1,0 +1,272 @@
+{
+ "country": "BE",
+ "title": "BE-094",
+ "url": "https://www.youtube.com/shorts/lqtS6gf6Dlw",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1876,
+  "candidatesTokenCount": 2204,
+  "totalTokenCount": 4080,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 908
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.0,
+   "aspect": "9:16",
+   "car": "미확인 컨버터블",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "text": "Raad het merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "검정",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 10.0,
+    "text": "Laat het weten in een reactie! 🔍",
+    "ko": "댓글로 알려주세요! 🔍",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "검정",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "검정",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "기타",
+    "event": "EDM 음악 리듬에 맞춰 경적 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 0.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 1.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 1.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 2.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "기타",
+    "event": "경적 소리 반복",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "EDM / 하우스",
+   "bpm_est": 128,
+   "mood": "신나는, 리드미컬한",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "운전석에서 경적을 누르며 차량 브랜드를 맞추는 퀴즈 제시"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 5.0,
+    "end": 10.0,
+    "speed": "빠름",
+    "summary": "댓글 참여 유도 및 채널 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 노란색 형광펜 배경의 굵은 볼드 텍스트 스티커로 시선을 사로잡음",
+   "화면 전환 없이 한 숏 고정 앵글로 10초 전체를 구성함",
+   "음악의 박자에 맞춰 자동차 경적 소리를 반복적으로 싱크함",
+   "인물이 카메라를 보며 표정과 제스처(경적 누르기)로 참여를 유도함",
+   "상단 중앙에 큼직한 노란색 박스 자막을 고정하여 가독성을 높임",
+   "마지막 구간에 브랜드 로고(AutoScout24)를 띄워 채널 아이덴티티를 각인시킴",
+   "별도의 음성 나레이션 없이 배경 음악과 효과음만으로 몰입감을 만듦",
+   "자동차 쇼룸 실내의 밝고 깔끔한 환경을 배경으로 활용함",
+   "시청자의 댓글 참여를 유도하는 명확한 CTA(Call to Action) 문구 사용"
+  ]
+ }
+}

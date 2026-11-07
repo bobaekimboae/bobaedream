@@ -1,0 +1,247 @@
+{
+ "country": "NL",
+ "title": "NL-094",
+ "url": "https://www.youtube.com/shorts/3BD37XL7_cE",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3511,
+  "candidatesTokenCount": 1973,
+  "totalTokenCount": 5484,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2543
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.5,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTE",
+   "format": "차 소개/퀴즈",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "VOLKSWAGEN GOLF",
+    "ko": "폭스바겐 골프",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 90,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLKSWAGEN GOLF",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "text": "BLIND SPOT ASSIST",
+    "ko": "사각지대 어시스트",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BLIND SPOT ASSIST",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "차종 제목 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "what": "사이드미러 가리키는 화살표",
+    "is_3d": false,
+    "size_w_pct": 20,
+    "x_pct": 60,
+    "y_pct": 65,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사각지대 경고등 위치 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Als je één optie mocht kiezen op deze Volkswagen Golf...",
+    "ko": "이 폭스바겐 골프에서 옵션을 딱 하나만 고를 수 있다면..."
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "welke zou dat zijn?",
+    "ko": "어떤 걸 고르시겠어요?"
+   },
+   {
+    "start": 4.1,
+    "end": 7.5,
+    "text": "Deze GTE heeft een camera en parkeersensoren.",
+    "ko": "이 GTE는 카메라와 주차 센서가 있습니다."
+   },
+   {
+    "start": 7.5,
+    "end": 15.0,
+    "text": "Blind Spot Assist, dat betekent dat er een lampje gaat branden als er iemand in je dode hoek zit...",
+    "ko": "블라인드 스팟 어시스트, 사각지대에 누군가 있으면 불이 들어옵니다."
+   },
+   {
+    "start": 15.0,
+    "end": 20.5,
+    "text": "Adaptive Cruise Control of head-up display en meer informatie over deze opties vind je in de omschrijving.",
+    "ko": "어댑티브 크루즈 컨트롤이나 헤드업 디스플레이 등 더 많은 옵션 정보는 설명란에 있습니다."
+   },
+   {
+    "start": 20.5,
+    "end": 26.5,
+    "text": "Nu ben ik benieuwd: welke van deze opties zijn voor jou echt onmisbar?",
+    "ko": "자, 궁금합니다. 이 옵션들 중 여러분에게 꼭 필요한 것은 무엇인가요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "차량 전면 외관을 배경으로 시청자에게 질문을 던져 이목을 끕니다."
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.1,
+    "end": 20.5,
+    "speed": "빠름",
+    "summary": "차량의 주요 옵션(카메라, 사각지대 어시스트, ACC 등)을 차례대로 소개합니다."
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 20.5,
+    "end": 26.5,
+    "speed": "보통",
+    "summary": "댓글 참여를 유도하며 마무리합니다."
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 호기심을 자극하는 질문형 훅과 핵심 제목 자막을 배치한다.",
+   "컷 평균 길이는 2~3초 내외로 매우 짧고 역동적으로 전환한다.",
+   "말자막은 화면 중앙 또는 하단에 노란색 형광펜 배경 상자와 함께 톡 튀어나오게 연출한다.",
+   "핵심 기능이나 위치를 설명할 때는 화면 위에 직접 화살표나 그래픽 아이콘을 겹쳐 띄운다.",
+   "발표자가 직접 차량 주변을 걸으며 손으로 가리키는 핸드헬드/짐벌 샷을 메인으로 사용한다.",
+   "음악은 밝고 경쾌한 템포를 사용하며 목소리 뒤로 볼륨이 줄어든다.",
+   "마지막에는 댓글창 참여 유도(CTA)와 브랜드 로고(AutoScout24)로 깔끔하게 끝맺는다."
+  ]
+ }
+}
