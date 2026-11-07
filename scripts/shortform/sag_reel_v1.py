@@ -33,6 +33,10 @@ SAFE_TOP, SAFE_BOTTOM, SAFE_L, SAFE_R = 240, 1920 - 240, 54, 1080 - 216
 PLATE_COVER = os.environ.get('SAG_PLATE_COVER', '0') == '1'
 SAFE_W, SAFE_CX = SAFE_R - SAFE_L, (SAFE_L + SAFE_R) / 2
 BLUE = (48, 107, 217)
+# 화면 스타일(샘플마다 SAG_CONFIG 파일에서 바꿀 수 있음). 기본값 = 1번 샘플(파나메라)
+STYLE = dict(stk_bg=BLUE, stk_fg=(255, 255, 255), hl='text',  # hl: text = 읽는 단어 노랑 글자 / chip = 파랑 바탕 흰 글자
+             feat_size=68, big_size=116, pad=(0.95, 2.1), big_pad=(0.95, 2.1),  # pad: (양옆 여백, 상자 높이) × 글자 높이
+             feat_y=1120, big_y=760)
 
 # ── 매물 정보(사실만, 시트 그대로). 차량번호·연락처는 넣지 않는다 ──
 CAR = dict(name='포르쉐 파나메라 4', gen='971', year='2021', reg='21년04월', km='38,276km', km_short='3.8만km',
@@ -69,6 +73,10 @@ BLOCKS = [
          shots=[(54.4, 1.1, 1), (18.4, 1.1, 1), (23.2, 1.2, 0), (47.0, 1.1, 0), (6.2, 1.0, 1)], stickers=[('21년 4월 등록', 0), ('38,276km', 1), ('9,200만원', 2), ('보배드림 앱', 3)], end=True),
 ]
 SHOW = {'포.': '4.', '구칠일': '971', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km', '킬로미터입니다.': 'km입니다.'}
+HOOK = None  # None이면 차명 스티커 + 가격 + 연식·주행·연료
+# 샘플별 설정: SAG_CONFIG=파일.py 이면 CAR · BLOCKS · SHOW · STYLE · HOOK 을 덮어쓴다
+if os.environ.get('SAG_CONFIG'):
+    exec(open(os.environ['SAG_CONFIG'], encoding='utf-8').read(), globals())
 KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|보배드림|테일램프|옆태)')
 
 
@@ -179,8 +187,21 @@ def build_sfx(total, sr=48000):
             out[st:st + L] += noise * env * 0.5
         prev = b['sec']
     out = out / (np.max(np.abs(out)) or 1) * 0.5
-    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
     import wave
+    # 블록에 sting=True 이면 STING 파일(코드로 만든 짧은 효과음, 원곡 사용 금지)을 그 블록 말 시작에 맞춰 얹는다
+    sting = globals().get('STING') or os.environ.get('SAG_STING')
+    if sting and os.path.exists(sting):
+        with wave.open(sting) as w:
+            s = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(float) / 32767
+            if w.getnchannels() == 2:
+                s = s.reshape(-1, 2).mean(1)
+        for b in BLOCKS:
+            if b.get('sting'):
+                st = max(0, int((b['t0'] - 0.15) * sr))
+                m = min(len(s), n - st)
+                out[st:st + m] += s[:m] * 0.6
+        out = np.clip(out, -1, 1)
+    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
     with wave.open(os.path.join(OUT, 'sfx.wav'), 'wb') as w:
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
 
@@ -399,11 +420,11 @@ def spec_card(a, b):
     return im
 
 
-def sticker(txt, size=72, tilt=-2.0):
+def sticker(txt, size=72, tilt=-2.0, big=False):
     """키워드 스티커. 오토스카우트24 스티커를 확대해 본 칠 방식 그대로: 안은 단색으로 꽉 채우고(무늬·투명 없음),
     위·아래 가장자리는 잔물결, 양 끝은 붓이 끊긴 듯 들쭉날쭉, 한쪽 끝이 조금 더 높은 사다리꼴, 2~3도 기울임.
     글자는 굵기 Bold(ExtraBold보다 한 단계 가늘게), 상자 높이 = 글자 높이의 약 2.1배. 색만 보배드림 파랑 + 흰 글자"""
-    k = ('sticker', txt, size, tilt)
+    k = ('sticker', txt, size, tilt, big)
     if k in _cache:
         return _cache[k]
     import math
@@ -412,8 +433,9 @@ def sticker(txt, size=72, tilt=-2.0):
     fnt = ImageFont.truetype(BOLD, size)
     bb = fnt.getbbox(txt)
     tw, cap = bb[2] - bb[0], size * 0.74
-    px = int(cap * 0.95)
-    w, h = int(tw + px * 2), int(cap * 2.1)
+    pxr, hr = STYLE['big_pad'] if big else STYLE['pad']
+    px = int(cap * pxr)
+    w, h = int(tw + px * 2), int(cap * hr)
     m = 30
     S = 4  # 4배로 그려 줄여서 가장자리를 매끄럽게
     W2, H2 = (w + m * 2) * S, (h + m * 2) * S
@@ -447,10 +469,10 @@ def sticker(txt, size=72, tilt=-2.0):
     from PIL import ImageFilter
     mask = mask.filter(ImageFilter.GaussianBlur(h * S * .035)).point(lambda v: 255 if v > 127 else 0)  # 이빨을 둥글게
     mask = mask.resize((w + m * 2, h + m * 2), Image.LANCZOS)
-    im = Image.new('RGBA', mask.size, BLUE + (0,))
+    im = Image.new('RGBA', mask.size, tuple(STYLE['stk_bg']) + (0,))
     im.putalpha(mask)
     td = ImageDraw.Draw(im)
-    td.text((m + w / 2, m + h / 2), txt, font=fnt, fill=(255, 255, 255), anchor='mm')
+    td.text((m + w / 2, m + h / 2), txt, font=fnt, fill=tuple(STYLE['stk_fg']), anchor='mm')
     im = im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
     _cache[k] = im
     return im
@@ -540,7 +562,11 @@ def phrase_img(text, act=-1):
         x = (im.width - fnt.getlength(line)) / 2
         y = pad_y + lh * li + lh / 2
         for w in line.split(' '):
-            col = YELLOW if wi == act else (255, 255, 255)
+            col = (255, 255, 255)
+            if wi == act and STYLE['hl'] == 'chip':
+                d.rounded_rectangle((x - 9, y - 34, x + fnt.getlength(w) + 9, y + 36), 10, fill=BLUE + (255,))
+            elif wi == act:
+                col = YELLOW
             d.text((x, y), w, font=fnt, fill=col, anchor='lm')
             wi += 1
             x += fnt.getlength(w) + gap
@@ -559,9 +585,10 @@ def overlay(T, total, shots, shot, blk):
     # 첫 장면 훅(오토스카우트24식): 차명 스티커 + 그 아래 흰 가격
     if T < BLOCKS[1]['t0']:
         e = back(T / .4)
-        t1 = sticker(CAR['name'], 96, -2.5)
-        t2 = text_img(CAR['price'], 92, BLACK, stroke=7)
-        t3 = text_img(f"{CAR['year']} · {CAR['km_short']} · {CAR['fuel']}", 46, BOLD, stroke=5)
+        hk = HOOK or dict(title=CAR['name'], line1=CAR['price'], line2=f"{CAR['year']} · {CAR['km_short']} · {CAR['fuel']}")
+        t1 = sticker(hk['title'], hk.get('size', 96), -2.5, True)
+        t2 = text_img(hk['line1'], 92, BLACK, stroke=7)
+        t3 = text_img(hk['line2'], 46, BOLD, stroke=5)
         paste(ov, t1, (W - t1.width * e) / 2, 300 + t1.height * (1 - e) / 2, min(1, T / .15), e)
         e2 = ease((T - .25) / .3)
         paste(ov, t2, (W - t2.width) / 2, 300 + t1.height + 6 + 30 * (1 - e2), e2)
@@ -579,20 +606,20 @@ def overlay(T, total, shots, shot, blk):
             continue
         big = bool(re.search(r'\d', txt))
         tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6]
-        im = sticker(txt, 116 if big else 68, tilt)
+        im = sticker(txt, STYLE['big_size'] if big else STYLE['feat_size'], tilt, big)
         k = T - st
         out = ease((en - T) / .12)
         if '만원' in txt:  # 가격: 왼쪽에서 밀려 들어옴
             e = ease(k / .3)
             x = (W - im.width) / 2 - (1 - e) * W * .7
-            paste(ov, im, x, 760, out)
+            paste(ov, im, x, STYLE['big_y'], out)
             continue
         e = back(k / .28)
         if big:
-            x, y = (W - im.width) / 2, 760
+            x, y = (W - im.width) / 2, STYLE['big_y']
         else:
             x = [SAFE_L, SAFE_R - im.width, SAFE_CX - im.width / 2][(bi + si) % 3]
-            y = 1120
+            y = STYLE['feat_y']
         paste(ov, im, x + im.width * (1 - e) / 2, y + im.height * (1 - e) / 2, min(1, k / .1) * out, max(.05, e))
     # 구절 자막: 2~3어절씩 묶어 한 덩어리로 보여 준다(튀는 효과 없음, 위치 고정)
     cur = None
@@ -616,7 +643,7 @@ def end_card():
     paste(im, t, (W - t.width) / 2, cy)
     sub = text_img(f"{CAR['year']}년식 · {CAR['km_short']} · {CAR['fuel']} · {CAR['drive']}", 42, MED, stroke=0, fill=(220, 222, 226))
     paste(im, sub, (W - sub.width) / 2, cy + 120)
-    pr = sticker(CAR['price'], 110, -2.5)
+    pr = sticker(CAR['price'], 110, -2.5, True)
     paste(im, pr, (W - pr.width) / 2, cy + 190)
     b = pill('보배드림 앱에서 확인하세요', 44, bg=(255, 255, 255, 255), fg=(20, 20, 24), pad=(44, 22))
     paste(im, b, (W - b.width) / 2, cy + 410)
