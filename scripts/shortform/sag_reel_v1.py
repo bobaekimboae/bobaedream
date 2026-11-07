@@ -45,7 +45,7 @@ BLOCKS = [
     dict(sec='외관', tts='21년식, 2.9 가솔린 사륜구동입니다.', caps=['21년식', '2.9 가솔린 사륜구동입니다'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
          card=('2.9 가솔린 · AWD', '2021년식 · 971')),
     dict(sec='외관', tts='컬러는 짙은 블루입니다. 옆 라인 보시겠습니다.', caps=['컬러는 짙은 블루입니다', '옆 라인 보시겠습니다'], shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
-    dict(sec='휠', tts='휠 상태도 보여드리겠습니다.', caps=['휠 상태도 보여드리겠습니다'], shots=[(18.0, 1.15, 1), (19.2, 1.15, 1)]),
+    dict(sec='휠', tts='휠 상태도 보여드리겠습니다.', caps=['휠 상태도 보여드리겠습니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)]),
     dict(sec='후면', tts='뒤로 오면 테일램프가 가로로 쭉 이어져 있습니다.', caps=['뒤로 오면 테일램프가', '가로로 쭉 이어져 있습니다'], shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)]),
     dict(sec='실내', tts='문 열어보겠습니다. 실내는 베이지 가죽이고, 시트 상태는 영상 그대로 보시면 됩니다.', caps=['문 열어보겠습니다', '실내는 베이지 가죽이고', '시트 상태는', '영상 그대로 보시면 됩니다'], shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)],
          card=('베이지 가죽 시트', None)),
@@ -104,6 +104,32 @@ def build_voice():
 
 
 # ── 2. 배경음악(코드로 만든 박자 → 저작권 문제 없음) ──
+def build_sfx(total, sr=48000):
+    """부위(섹션)가 바뀌는 컷에만 짧은 휙 소리. 컷마다 넣으면 산만하다는 편집 가이드에 따라 섹션 전환에만"""
+    n = int(total * sr) + sr
+    out = np.zeros(n)
+    rng = np.random.default_rng(7)
+    prev = None
+    for bi, b in enumerate(BLOCKS):
+        if bi and b['sec'] != prev:
+            c = b['t0'] - LEAD
+            L = int(0.32 * sr)
+            st = int((c - 0.22) * sr)
+            if st < 0:
+                continue
+            noise = rng.standard_normal(L)
+            # 저역을 걷어낸 잡음에 올라갔다 내려오는 모양 → 휙
+            noise = np.convolve(noise, np.ones(6) / 6, 'same') - np.convolve(noise, np.ones(60) / 60, 'same')
+            env = np.sin(np.linspace(0, np.pi, L)) ** 2
+            out[st:st + L] += noise * env * 0.5
+        prev = b['sec']
+    out = out / (np.max(np.abs(out)) or 1) * 0.5
+    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
+    import wave
+    with wave.open(os.path.join(OUT, 'sfx.wav'), 'wb') as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
+
+
 def build_bgm(total, bpm=112, sr=48000):
     n = int(total * sr) + sr
     t = np.arange(n) / sr
@@ -151,12 +177,24 @@ def build_bgm(total, bpm=112, sr=48000):
 
 # ── 3. 컷 편집표 ──
 def plan_shots(total):
+    """컷은 말 구절이 바뀌는 순간(자막이 바뀌는 순간)에 넣는다. 편집자가 말 단위로 자르는 방식.
+    블록 첫 컷은 그 블록 말보다 LEAD 먼저 바뀐다(그림이 소리보다 살짝 앞서야 자연스러움)"""
     shots = []
     for bi, b in enumerate(BLOCKS):
-        t0 = b['t0'] if bi else 0.0
-        t1 = BLOCKS[bi + 1]['t0'] if bi + 1 < len(BLOCKS) else total
+        t0 = PHRASES[b['ph0']][0] if bi else 0.0  # 블록 첫 자막이 뜨는 순간 = 컷
+        t1 = PHRASES[BLOCKS[bi + 1]['ph0']][0] if bi + 1 < len(BLOCKS) else total
+        words = [w[0] - LEAD for w in b['words'] if t0 + 0.6 < w[0] - LEAD < t1 - 0.6]
         n = len(b['shots'])
-        edges = np.linspace(t0, t1, n + 1)
+        cand = [ph[0] for ph in PHRASES if t0 + 0.6 < ph[0] < t1 - 0.6]  # 이 블록 안 자막 시작점
+        even = list(np.linspace(t0, t1, n + 1)[1:-1])
+        inner = []
+        for e in even:  # 고른 간격에 가장 가까운 자막 시작점(0.8초 안), 없으면 고른 간격
+            c = min(cand, key=lambda x: abs(x - e), default=None)
+            if c is None or abs(c - e) >= 0.8 or c in inner:  # 자막 시작점이 없으면 가장 가까운 어절 시작점
+                c = min(words, key=lambda x: abs(x - e), default=e)
+                c = c if abs(c - e) < 0.8 and c not in inner else e
+            inner.append(c)
+        edges = [t0] + sorted(inner) + [t1]
         for k, (src, sp, plate) in enumerate(b['shots']):
             shots.append(dict(a=edges[k], b=edges[k + 1], src=src, sp=sp, plate=plate, bi=bi, k=k))
     return shots
@@ -321,6 +359,7 @@ def ease(x):
 
 
 PHRASES = []
+LEAD = 0.12  # 자막·컷이 말보다 먼저 들어가는 시간
 
 
 def build_phrases():
@@ -336,15 +375,23 @@ def build_phrases():
         else:
             cuts = [sum(need[:k + 1]) for k in range(len(need))]
         i0 = 0
+        b['ph0'] = len(PHRASES)
         for c, i1 in zip(caps, cuts):
             i1 = max(i0 + 1, min(n, i1))
             PHRASES.append([ws[i0][0], ws[i1 - 1][1], c])
             i0 = i1
-    for i in range(len(PHRASES) - 1):
-        if PHRASES[i + 1][0] - PHRASES[i][1] < 0.45:
-            PHRASES[i][1] = PHRASES[i + 1][0]
-        else:
-            PHRASES[i][1] += 0.25
+    # 싱크 규칙(검색 정리): 말보다 0.12초 먼저 뜨고(0.1~0.3초 권장), 다음 자막과 2프레임 띄우고,
+    # 최소 5/6초 · 최대 7초, 말이 끝나도 0.35초는 남겨 읽을 시간을 준다
+    for ph in PHRASES:
+        ph[0] = max(0.0, ph[0] - LEAD)
+    for i, ph in enumerate(PHRASES):
+        nxt = PHRASES[i + 1][0] if i + 1 < len(PHRASES) else ph[1] + 1.0
+        end = ph[1] + 0.35
+        if nxt - end < 0.5:  # 쉼이 짧으면 다음 자막까지 이어서(깜빡임 방지)
+            end = nxt
+        end = min(end, nxt) - 2 / FPS
+        end = max(end, ph[0] + 5 / 6)
+        ph[1] = min(end, ph[0] + 7.0)
 
 
 def phrase_img(text):
@@ -459,6 +506,7 @@ def main():
     total = build_voice()
     build_bgm(total)
     build_phrases()
+    build_sfx(total)
     cap = cv2.VideoCapture(SRC)
     nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     shots = plan_shots(total)
@@ -516,9 +564,9 @@ def main():
     # 목소리 기준 배경음악 덕킹 + -14 LUFS
     final = os.path.join(OUT, 'sag_reel_v1.mp4')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', os.path.join(OUT, 'video.mp4'), '-i', os.path.join(OUT, 'voice.wav'),
-                    '-i', os.path.join(OUT, 'bgm.wav'), '-filter_complex',
+                    '-i', os.path.join(OUT, 'bgm.wav'), '-i', os.path.join(OUT, 'sfx.wav'), '-filter_complex',
                     '[2:a]volume=0.42[m];[1:a]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
-                    '[v2][md]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
+                    '[3:a]volume=0.22[fx];[v2][md][fx]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
                     '-movflags', '+faststart', final], check=True)
     meta = dict(total=round(total, 2), shots=len(shots), sec_per_cut=round(total / len(shots), 2),
