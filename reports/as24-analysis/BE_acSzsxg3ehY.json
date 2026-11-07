@@ -1,0 +1,195 @@
+{
+ "country": "BE",
+ "title": "BE-019",
+ "url": "https://www.youtube.com/shorts/acSzsxg3ehY",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5256,
+  "candidatesTokenCount": 1695,
+  "totalTokenCount": 6951,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4288
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.0,
+   "aspect": "9:16",
+   "car": "없음",
+   "format": "정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 14.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 19.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 47.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "text": "Anne De Baetzelier PRESENTATRICE",
+    "ko": "안 드 바츨리에 프리젠터",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "Anne De Baetzelier",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 25.0,
+    "text": "Annick De Ridder MINISTER MOBILITEIT",
+    "ko": "아닉 더 리더 모빌리티 장관",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "Annick De Ridder",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "배경음악",
+   "bpm_est": 110,
+   "mood": "토크쇼 배경음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 80.0,
+    "y_pct": 5.0,
+    "entrance": "바로 컷",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 19.9,
+    "what": "Carpass 안내 화면",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 5.0,
+    "y_pct": 20.0,
+    "entrance": "바로 컷",
+    "purpose": "정보 전달",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "text": "op 1 januari volgt voor dealers misschien nog een belangrijkere verandering",
+    "ko": "1월 1일 dealer들에게는 어쩌면 더 중요한 변화가 있습니다"
+   },
+   {
+    "start": 9.9,
+    "end": 14.5,
+    "text": "er is natuurlijk nog wel die carpass hè die verplicht blijft",
+    "ko": "물론 여전히 필수로 남아있는 카패스가 있습니다"
+   },
+   {
+    "start": 14.5,
+    "end": 19.9,
+    "text": "Carpass blijft verplicht bij tweedehands verkoop online",
+    "ko": "온라인 중고차 판매 시 카패스는 계속 의무입니다"
+   },
+   {
+    "start": 19.9,
+    "end": 47.0,
+    "text": "als je die laat fysiek zijn en afleveren door de keuring",
+    "ko": "검사를 통해 물리적으로 배송받는다면"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "1월 1일 중고차 관련 새로운 제도 변화 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 9.9,
+    "end": 47.0,
+    "speed": "보통",
+    "summary": "카패스 제도 유지 및 디지털화 관련 대담"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 핵심 주제를 던져 시청 지속 유도",
+   "인물 인터뷰 위주 쇼츠 구성으로 전환 횟수 최소화",
+   "말하는 사람 이름과 직함을 하단에 노란색 형광펜 배경 자막으로 표시",
+   "우측 상단에 브랜드 로고를 고정 노출하여 채널 아이덴티티 강화",
+   "중요한 정보 전달 시 전면 그래픽 화면(카패스 안내 등) 삽입",
+   "배경음악은 대사가 잘 들리도록 볼륨 조절 적용",
+   "영상 상단 우측에 로고를 지속적으로 배치",
+   "화면의 인물이 자연스럽게 대화하는 토크쇼 형식 유지",
+   "자막의 가독성을 높이기 위해 배경 박스 및 밑줄 효과 활용",
+   "마무리 단계에서 채널 로고 및 플랫폼 안내로 행동 유도"
+  ]
+ }
+}

@@ -1,0 +1,181 @@
+{
+ "country": "BE",
+ "title": "BE-017",
+ "url": "https://www.youtube.com/shorts/tfuPWZOxCUc",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1877,
+  "candidatesTokenCount": 1442,
+  "totalTokenCount": 3319,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9,
+   "aspect": "9:16",
+   "car": "Alfa Romeo Junior",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "en"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 2.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.7,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.0,
+    "end": 9.0,
+    "text": "Alfa Romeo\n€25.900",
+    "ko": "알파 로메오\n25,900유로",
+    "kind": "가격",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "Alfa Romeo",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.0,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디/힙함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "후면-전면-실내 빠르게 3컷 몽타주"
+   },
+   {
+    "stage": "가격",
+    "start": 2.0,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "차량 디테일 컷과 함께 가격 정보 고정 노출"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 8.0,
+    "end": 9.0,
+    "speed": "빠름",
+    "summary": "플랫폼 로고 노출로 종료"
+   }
+  ],
+  "rules": [
+   "첫 2초 내에 3개의 서로 다른 부위(후면, 전면, 실내)를 빠르게 보여주어 시선을 사로잡음.",
+   "전체 영상 길이가 9초로 매우 짧고 호흡이 빠름.",
+   "평균 컷 길이는 약 1초 내외로 비트에 맞춰 전환됨.",
+   "핵심 정보(차량명, 가격)는 중앙에 고정 자막으로 크게 노출함.",
+   "노란색 형광펜 하이라이트 효과를 브랜드명 배경에 활용함.",
+   "음성 없이 배경음악과 비트에 맞춘 컷 편집으로 완성함.",
+   "마지막 화면에는 플랫폼 로고를 띄워 브랜드 인지도 제고."
+  ]
+ }
+}

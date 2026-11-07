@@ -1,0 +1,265 @@
+{
+ "country": "BE",
+ "title": "BE-020",
+ "url": "https://www.youtube.com/shorts/79IRD_Sln-E",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5714,
+  "candidatesTokenCount": 2463,
+  "totalTokenCount": 8177,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4746
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 52,
+   "aspect": "9:16",
+   "car": "없음",
+   "format": "정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 3.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 22.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 32.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 46.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 52,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 3.8,
+    "text": "waarom heeft u dat beslist, wat wil u met deze versoepeling bereiken",
+    "ko": "왜 그런 결정을 내리셨나요, 이 완화를 통해 무엇을 이루고 싶으십니까?",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "versoepeling",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 22.8,
+    "text": "wat moeten we om die verkeersveiligheid te garanderen heel belangrijk wat vraagt Europa van ons...",
+    "ko": "교통 안전을 보장하기 위해 우리가 해야 할 가장 중요한 것은 무엇이며, 유럽이 우리에게 요구하는 것은 무엇입니까...",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "verkeersveiligheid",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "text": "vanaf 1 januari",
+    "ko": "1월 1일부터",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "1 januari",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 32.8,
+    "text": "uiteindelijk de verplichte tweedehandskeuring eruit gaat...",
+    "ko": "결국 의무적인 중고차 검사가 폐지된다는 것입니다...",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "tweedehandskeuring",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 46.2,
+    "text": "waarin we ook willen toelaten dat de garages onder heel strenge voorwaarden ook keuringslijnen kunnen organiseren",
+    "ko": "또한 매우 엄격한 조건 하에 차고에서도 검사 라인을 운영할 수 있도록 허용하고자 합니다.",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "garages",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "배경 음악",
+   "bpm_est": 110,
+   "mood": "토크쇼",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 0,
+    "end": 52,
+    "what": "상단 로고 (Auto Scout24)",
+    "is_3d": false,
+    "size_w_pct": 20,
+    "x_pct": 75,
+    "y_pct": 2,
+    "entrance": "바로 컷",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 3.8,
+    "text": "waarom heeft u dat beslist, wat wil u met deze versoepeling bereiken",
+    "ko": "왜 그런 결정을 내리셨나요, 이 완화를 통해 무엇을 이루고 싶으십니까?"
+   },
+   {
+    "start": 3.8,
+    "end": 22.8,
+    "text": "wat moeten we om die verkeersveiligheid te garanderen heel belangrijk wat vraagt Europa van ons...",
+    "ko": "교통 안전을 보장하기 위해 우리가 해야 할 가장 중요한 것은 무엇이며, 유럽이 우리에게 요구하는 것은 무엇입니까..."
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "text": "vanaf 1 januari",
+    "ko": "1월 1일부터"
+   },
+   {
+    "start": 25.5,
+    "end": 32.8,
+    "text": "uiteindelijk de verplichte tweedehandskeuring eruit gaat...",
+    "ko": "결국 의무적인 중고차 검사가 폐지된다는 것입니다..."
+   },
+   {
+    "start": 32.8,
+    "end": 46.2,
+    "text": "waarin we ook willen toelaten dat de garages onder heel strenge voorwaarden ook keuringslijnen kunnen organiseren",
+    "ko": "또한 매우 엄격한 조건 하에 차고에서도 검사 라인을 운영할 수 있도록 허용하고자 합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 3.8,
+    "speed": "보통",
+    "summary": "진행자가 정책 결정 이유에 대해 질문"
+   },
+   {
+    "stage": "정보",
+    "start": 3.8,
+    "end": 46.2,
+    "speed": "보통",
+    "summary": "장관이 교통안전과 규제 완화에 대해 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 46.2,
+    "end": 52,
+    "speed": "빠름",
+    "summary": "팟캐스트 채널 홍보 화면"
+   }
+  ],
+  "rules": [
+   "첫 3초 내에 질문 형태의 강력한 인터뷰 훅 제시",
+   "화면 하단에 노란색 형광펜 배경의 흰색 자막 고정 배치",
+   "핵심 키워드는 자막 내에서 시각적으로 강조",
+   "토크쇼 형태의 고정 카메라 샷 유지",
+   "상단에 일관된 브랜드 로고(Auto Scout24) 노출",
+   "대화 흐름에 맞춰 중간 관련 화면(그래픽 자료) 삽입",
+   "말하는 사람의 이름과 직함을 하단에 명패 형태로 표기",
+   "배경 음악은 음성과 겹치지 않게 볼륨 조절",
+   "영상 후반부에는 팟캐스트 플랫폼 로고와 함께 아웃트로 삽입"
+  ]
+ }
+}

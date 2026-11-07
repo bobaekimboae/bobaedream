@@ -1,0 +1,207 @@
+{
+ "country": "BE",
+ "title": "BE-018",
+ "url": "https://www.youtube.com/shorts/oxy3zE_Mtko",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1802,
+  "candidatesTokenCount": 1624,
+  "totalTokenCount": 3426,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 834
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9,
+   "aspect": "9:16",
+   "car": "푸조 308 SW",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 2.2,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 2.2,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "검정",
+    "background": "형광펜 칠",
+    "bg_color": "노랑",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Merk",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "검정",
+    "background": "형광펜 칠",
+    "bg_color": "노랑",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0,
+    "type": "휙",
+    "event": "첫 컷 전환 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "전면 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "휙",
+    "event": "측면 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "휙",
+    "event": "실내 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.3,
+    "type": "휙",
+    "event": "측면 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "휙",
+    "event": "정면 컷 및 브랜드 공개 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 100,
+   "mood": "리듬감 있는, 퀴즈쇼 같은",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "차량 운전석에 앉아있는 진행자와 '브랜드를 맞춰보세요' 텍스트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "차량 외관과 실내 디테일을 빠르게 교차 편집하며 보여줌"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 7.4,
+    "end": 9.0,
+    "speed": "빠름",
+    "summary": "정면 샷에서 오토스카우트24 로고 노출하며 종료"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 퀴즈 질문 형태의 훅 자막을 띄워 시청 지속을 유도함",
+   "컷 평균 길이는 1~2초 내외로 매우 짧고 리듬감 있게 전환함",
+   "자막은 검은색 텍스트에 노란색 형광펜 배경 박스를 조합하여 가독성을 높임",
+   "모든 컷 전환 시점에 맞춰 휙 소리의 효과음을 일관되게 사용함",
+   "내레이션 없이 비트감 있는 음악과 효과음만으로 영상을 구성함",
+   "브랜드 로고나 정답 공개는 영상 후반부 혹은 마지막 컷에 배치함"
+  ]
+ }
+}
