@@ -37,6 +37,24 @@ def num(x):
         return None
 
 
+EVENT_BUCKETS = [  # 효과음이 붙은 순간을 몇 가지 때로 묶는다(Gemini가 적은 문장에서 낱말로)
+    ("가격 공개", ("가격", "€", "유로", "prijs", "prix")),
+    ("숫자·사양 팝", ("숫자", "사양", "pk", "마력", "km", "초", "kw", "토크", "속도")),
+    ("로고·끝 화면", ("로고", "autoscout", "엔드", "마무리", "끝")),
+    ("키워드·스티커 등장", ("스티커", "키워드", "자막", "텍스트", "글자", "체크", "아이콘", "이모지", "그래픽", "등장", "팝")),
+    ("컷 전환", ("컷", "전환", "장면")),
+    ("실제 조작·작동", ("버튼", "열림", "닫", "작동", "누르", "문", "트렁크", "시동", "엔진음")),
+]
+
+
+def bucket(ev):
+    e = ev.lower()
+    for name, keys in EVENT_BUCKETS:
+        if any(k in e for k in keys):
+            return name
+    return "기타"
+
+
 def load(d):
     out = []
     for f in sorted(os.listdir(d)):
@@ -125,7 +143,7 @@ def group_stats(docs):
             sfx_per_min.append(len(sfx) / D * 60)
         for x in sfx:
             sfx_type[str(x.get("type", "?"))] += 1
-            sfx_event[str(x.get("event", "?"))[:40]] += 1
+            sfx_event[bucket(str(x.get("event", "")))] += 1
             sfx_level[str(x.get("level", "?"))] += 1
         m = a.get("music") or {}
         if isinstance(m, dict):
