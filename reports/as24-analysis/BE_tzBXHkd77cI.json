@@ -1,0 +1,332 @@
+{
+ "country": "BE",
+ "title": "BE-047",
+ "url": "https://www.youtube.com/shorts/tzBXHkd77cI",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4148,
+  "candidatesTokenCount": 3188,
+  "totalTokenCount": 7336,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3180
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.2,
+   "aspect": "9:16",
+   "car": "Porsche Cayenne S E-Hybrid",
+   "format": "차 소개/퀴즈/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 9.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 20.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 29.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 34.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 4.5,
+    "text": "Raad het aantal PK’s",
+    "ko": "마력 수를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK’s",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.0,
+    "text": "Onder de motorkap",
+    "ko": "보닛 아래에는",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.0,
+    "text": "en 590nm koppel",
+    "ko": "그리고 590Nm 토크",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "590nm",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "text": "en een sprint 0-100 in 5.6 seconden",
+    "ko": "그리고 0-100 가속 5.6초",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "5.6",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "en de topsnelheid is 243 kilometer per uur",
+    "ko": "최고 속도는 시속 243킬로미터",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "243",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 26.5,
+    "text": "heeft 112.233km gereden",
+    "ko": "112,233km 주행",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "112.233km",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "text": "en hij kost €39.750",
+    "ko": "가격은 39,750유로",
+    "kind": "가격",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "€39.750",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 10.5,
+    "type": "충격음",
+    "event": "마력 수 검열 삐 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "라운지 하우스",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 30.5,
+    "end": 34.2,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 70.0,
+    "y_pct": 85.0,
+    "entrance": "바로 컷",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Kun jij raden hoeveel pk deze Porsche Cayenne S Hybrid heeft?",
+    "ko": "이 포르쉐 카이엔 S 하이브리드의 마력이 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 4.5,
+    "end": 10.0,
+    "text": "Onder de motorkap ligt een 3 liter V6 gecombineerd met een elektromotor samen goed voor...",
+    "ko": "보닛 아래에는 전기모터와 결합된 3리터 V6 엔진이 탑재되어..."
+   },
+   {
+    "start": 10.0,
+    "end": 14.0,
+    "text": "...en 590nm koppel",
+    "ko": "...그리고 590Nm 토크를 냅니다."
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "text": "en een sprint 0-100 in 5.6 seconden",
+    "ko": "그리고 0-100 가속은 5.6초이며"
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "en de topsnelheid is 243 kilometer per uur.",
+    "ko": "최고 속도는 시속 243킬로미터입니다."
+   },
+   {
+    "start": 20.0,
+    "end": 26.5,
+    "text": "Hij komt uit 2017, heeft 112.233km gereden",
+    "ko": "2017년식이고, 112,233km를 주행했으며"
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "text": "en hij kost €39.750.",
+    "ko": "가격은 39,750유로입니다."
+   },
+   {
+    "start": 29.5,
+    "end": 34.2,
+    "text": "Je vindt hem in de showroom van Garage Saba en op AutoScout24.be",
+    "ko": "가라지 사바 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "시청자에게 마력 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 4.5,
+    "end": 20.0,
+    "speed": "보통",
+    "summary": "엔진, 토크, 제로백, 최고속도 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 20.0,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 29.5,
+    "end": 34.2,
+    "speed": "빠름",
+    "summary": "전시장 위치 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 노란색 배경 상자의 퀴즈 제목 자막으로 시선을 사로잡는다.",
+   "컷 평균 길이는 5~8초 내외로 안정적인 호흡을 유지한다.",
+   "자막은 화면 하단 중앙에 배치하고 백그라운드 없이 흰색 텍스트로 가독성을 높인다.",
+   "중요한 수치(마력 검열, 590nm, 5.6초, 가격 등)나 핵심 키워드는 색상을 다르게 하거나 강조한다.",
+   "반전 요소나 코믹한 부분(마력 공개 음소거)에 삑 소리 효과음을 넣는다.",
+   "부위 촬영 순서: 전면 외관 -> 측면 걸으며 소개 -> 실내 -> 후면 트렁크/번호판 -> 전시장 전체 뷰.",
+   "마무리 단계에서 매장 이름과 중고차 플랫폼 로고를 노출하여 브랜딩한다."
+  ]
+ }
+}

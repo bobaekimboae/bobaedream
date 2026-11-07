@@ -1,0 +1,192 @@
+{
+ "country": "BE",
+ "title": "BE-045",
+ "url": "https://www.youtube.com/shorts/O1eDE8tX3V0",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2694,
+  "candidatesTokenCount": 1574,
+  "totalTokenCount": 4268,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1726
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.0,
+   "aspect": "9:16",
+   "car": "Renault",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.0,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.5,
+    "part": "휠",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.5,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.0,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "text": "Auto Scout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto Scout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 12.5,
+    "type": "충격음",
+    "event": "후면 테일램프 및 차량 전환 비트 강조",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "마무리 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 12.5,
+     "what": "강한 비트 드롭"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Hoe vaak spot jij het Renault logo?",
+    "ko": "당신은 르노 로고를 얼마나 자주 발견하시나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "보통",
+    "summary": "진행자가 시청자에게 질문을 던지며 시선을 끄는 훅 구간"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 14.5,
+    "speed": "빠름",
+    "summary": "전면 그릴, 헤드램프, 실내, 휠, 후면 디자인을 빠르게 교차 편집하여 보여줌"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 14.5,
+    "end": 18.0,
+    "speed": "보통",
+    "summary": "차량 전면 풀샷과 함께 플랫폼 로고를 띄우며 마무리"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 진행자가 질문을 던져 이탈률을 방지한다.",
+   "컷 평균 길이는 1.5~2초로 매우 짧고 다이내믹하게 가져간다.",
+   "외관 디테일(그릴, 램프)에서 실내와 휠을 거쳐 후면으로 이어지는 순서로 촬영한다.",
+   "음악 비트에 맞춰 화면 전환 컷을 정확히 일치시킨다.",
+   "중요한 비트 전환점에는 강한 타격감의 효과음(SFX)을 넣는다.",
+   "텍스트나 로고는 노란색 배경 상자와 함께 중앙에 눈에 띄게 배치한다.",
+   "쇼츠 전용 9:16 비율을 꽉 채우는 안정적인 구도를 유지한다.",
+   "배경 음악은 진행자의 목소리를 방해하지 않도록 음량이 조절된다.",
+   "마무리 단계에서 브랜드 로고를 각인시키며 영상을 끝낸다."
+  ]
+ }
+}

@@ -1,11 +1,735 @@
 {
  "country": "BE",
- "title": "르노 4 E-Tech (20만)",
+ "title": "BE-041",
  "url": "https://www.youtube.com/shorts/QNLiDz_HZu0",
- "model": "gemini-2.5-pro",
- "fps": 2.0,
- "usage": null,
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4974,
+  "candidatesTokenCount": 7080,
+  "totalTokenCount": 12054,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4006
+   }
+  ],
+  "serviceTier": "standard"
+ },
  "analysis": {
-  "error": "4번 모두 실패"
+  "basic": {
+   "duration_sec": 44.0,
+   "aspect": "9:16",
+   "car": "Renault 4 E-Tech Iconic",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.6,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 10.5,
+    "part": "외관 측면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 24.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.0,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.0,
+    "part": "외관 측면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 37.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 44.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.5,
+    "text": "Dit",
+    "ko": "이것은",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 2.5,
+    "text": "is de volledige nieuwe Renault",
+    "ko": "완전 신형 르노",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "text": "Renault 4 Iconic",
+    "ko": "르노 4 아이코닉",
+    "kind": "제목",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.5,
+    "text": "hij levert 150 pk",
+    "ko": "150마력을 발휘합니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 8.0,
+    "text": "heeft een 52kw batterij",
+    "ko": "52kW 배터리를 탑재하고",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "text": "en dat levert een rijbereik tot 409km",
+    "ko": "최대 409km의 주행 거리를 제공합니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "409km",
+    "ko": "409km",
+    "kind": "숫자 사양",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "text": "je overal verwijzingen naar de oude R4",
+    "ko": "구형 R4에 대한 오마주를 어디서나 볼 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "de verlichte grill",
+    "ko": "점등되는 그릴",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "de karakteristieke achterzijde",
+    "ko": "특징적인 후면부",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "en zelfs de vorm van de zijruiten",
+    "ko": "심지어 측면 창문 형태까지",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.5,
+    "text": "binnenin krijg je",
+    "ko": "실내로 들어가면",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 24.5,
+    "text": "een modern interieur met Google infotainment",
+    "ko": "구글 인포테인먼트가 탑재된 모던한 인테리어와",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.0,
+    "text": "sladge rijhulpsystemen en verrassend veel ruimte",
+    "ko": "스마트한 주행 보조 시스템, 그리고 놀라울 정도로 넓은 공간",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "text": "dankzij die grote achterklep",
+    "ko": "커다란 테일게이트 덕분입니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "text": "het resultaat: de charme van vroeger, maar met alle technologie van vandaag",
+    "ko": "결과물: 옛날의 감성에 오늘의 기술을 더했습니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 37.0,
+    "text": "zou jij deze verkozen boven een Renault 5?",
+    "ko": "르노 5 대신 이 차를 선택하시겠습니까?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.0,
+    "text": "laat het weten in de reacties",
+    "ko": "댓글로 알려주세요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 44.0,
+    "text": "je vindt hem in de showroom van Garage SABA en op AutoScout24.be",
+    "ko": "가라지 사바 전시장과 AutoScout24.be에서 만나보세요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 120,
+   "mood": "upbeat",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "what": "구형 자동차 모델 (쇼룸 천장 공중 부양 전시)",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 10.0,
+    "entrance": "기타",
+    "purpose": "구형 R4 오마주 비교",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Dit is de volledige nieuwe Renault 4 Iconic.",
+    "ko": "이것은 완전 신형 르노 4 아이코닉입니다."
+   },
+   {
+    "start": 4.0,
+    "end": 5.5,
+    "text": "Hij levert 150 pk",
+    "ko": "150마력을 발휘하고"
+   },
+   {
+    "start": 5.5,
+    "end": 8.0,
+    "text": "heeft een 52kw batterij",
+    "ko": "52kW 배터리를 탑재해"
+   },
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "text": "en dat levert een rijbereik tot 409km.",
+    "ko": "최대 409km의 주행 거리를 제공합니다."
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "text": "Qua design zie je overal verwijzingen naar de oude R4.",
+    "ko": "디자인 측면에서 옛날 R4를 떠올리게 하는 요소들을 어디서나 볼 수 있습니다."
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "De verlichte grill,",
+    "ko": "점등되는 그릴,"
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "de karakteristieke achterzijde",
+    "ko": "특징적인 후면부,"
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "en zelfs de vorm van de zijruiten.",
+    "ko": "그리고 심지어 측면 창문 형태까지요."
+   },
+   {
+    "start": 21.0,
+    "end": 22.5,
+    "text": "Binnenin krijg je",
+    "ko": "실내로 들어가면"
+   },
+   {
+    "start": 22.5,
+    "end": 24.5,
+    "text": "een modern interieur met Google infotainment,",
+    "ko": "구글 인포테인먼트가 탑재된 모던한 인테리어,"
+   },
+   {
+    "start": 24.5,
+    "end": 27.0,
+    "text": "slimme rijhulpsystemen en verrassend veel ruimte",
+    "ko": "스마트한 주행 보조 시스템, 그리고 놀라울 정도로 넓은 공간을"
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "text": "dankzij die grote achterklep.",
+    "ko": "커다란 테일게이트 덕분에 누릴 수 있습니다."
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "text": "Het resultaat: de charme van vroeger, maar met alle technologie van vandaag.",
+    "ko": "결과물: 옛날의 감성에 오늘의 모든 기술을 더했습니다."
+   },
+   {
+    "start": 33.5,
+    "end": 37.0,
+    "text": "Zou jij deze verkozen boven een Renault 5?",
+    "ko": "르노 5 대신 이 차를 선택하시겠습니까?"
+   },
+   {
+    "start": 37.0,
+    "end": 39.0,
+    "text": "Laat het weten in de reacties!",
+    "ko": "댓글로 알려주세요!"
+   },
+   {
+    "start": 39.0,
+    "end": 44.0,
+    "text": "Je vindt hem in de showroom van Garage SABA en op AutoScout24.be.",
+    "ko": "가라지 사바 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "신형 르노 4 아이코닉 첫 공개 및 차량명 자막 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 4.0,
+    "end": 11.5,
+    "speed": "보통",
+    "summary": "출력(150마력), 배터리(52kW), 주행거리(409km) 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 11.5,
+    "end": 33.5,
+    "speed": "보통",
+    "summary": "구형 R4 디자인 오마주 요소(그릴, 후면, 창문)와 실내, 인포테인먼트, 트렁크 공간 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 33.5,
+    "end": 44.0,
+    "speed": "보통",
+    "summary": "르노 5와의 비교 투표 유도 및 전시장·플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량 풀샷과 함께 제품명을 노란색 형광펜 배경 자막으로 띄워 시선 사로잡기",
+   "컷 평균 길이는 1.5초~2.5초로 유지하여 빠른 템포감 부여",
+   "말하는 모든 단어에 맞춰 화이트 컬러의 텍스트가 화면 중앙 하단에 실시간으로 팝업 생성",
+   "중요 숫자 사양이나 브랜드 로고는 노란색 형광펜 박스 스타일의 강조 자막으로 표출",
+   "효과음은 거의 사용하지 않고 인물 음성과 배경 음악 위주로 심플하게 구성",
+   "아이콘이나 그래픽 스티커 대신 실제 구형 차량을 천장에 전시한 실물 오브젝트 활용",
+   "부위 촬영 순서: 전면 -> 후면 -> 측면 -> 실내 -> 센터 디스플레이 -> 트렁크 순서로 자연스럽게 이동",
+   "마무리 단계에서 시청자 참여 유도 질문(댓글 독려)과 플랫폼/전시장 브랜딩 노출로 CTA 완성"
+  ]
  }
 }

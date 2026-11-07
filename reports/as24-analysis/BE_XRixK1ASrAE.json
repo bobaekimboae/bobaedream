@@ -1,11 +1,371 @@
 {
  "country": "BE",
- "title": "첫 벌금 (174만)",
+ "title": "BE-043",
  "url": "https://www.youtube.com/shorts/XRixK1ASrAE",
- "model": "gemini-2.5-pro",
- "fps": 2.0,
- "usage": null,
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3531,
+  "candidatesTokenCount": 3394,
+  "totalTokenCount": 6925,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2563
+   }
+  ],
+  "serviceTier": "standard"
+ },
  "analysis": {
-  "error": "4번 모두 실패"
+  "basic": {
+   "duration_sec": 28.0,
+   "aspect": "9:16",
+   "car": "없음",
+   "format": "길거리 인터뷰/퀴즈",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 11.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 16.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 25.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Wat is je duurste boete?",
+    "ko": "가장 비싼 벌금이 얼마인가요?",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "€160",
+    "ko": "€160",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.0,
+    "text": "Mag ik je een paar vragen stellen",
+    "ko": "몇 가지 질문 좀 해도 될까요?",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "text": "Wat was jouw duurste boete?",
+    "ko": "당신의 가장 비싼 벌금은 얼마였나요?",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.0,
+    "text": "€250",
+    "ko": "€250",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 11.0,
+    "text": "snelheidsboete",
+    "ko": "속도 위반 벌금",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "text": "€180",
+    "ko": "€180",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "text": "€160",
+    "ko": "€160",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 120,
+   "mood": "밝은",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 14.0,
+    "end": 16.0,
+    "what": "왕관 이모지",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "웃음/포인트",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "€160 euro door het rood gereden.",
+    "ko": "빨간 불에 지나쳐서 160유로요."
+   },
+   {
+    "start": 2.0,
+    "end": 4.0,
+    "text": "Mag ik je een paar vragen stellen?",
+    "ko": "몇 가지 질문 좀 해도 될까요?"
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "text": "Wat was jouw duurste boete?",
+    "ko": "당신의 가장 비싼 벌금은 얼마였나요?"
+   },
+   {
+    "start": 6.0,
+    "end": 9.0,
+    "text": "Ik denk €250, en toen was ik een auto-accident gehad.",
+    "ko": "250유로 같아요. 교통사고가 났었거든요."
+   },
+   {
+    "start": 9.0,
+    "end": 11.0,
+    "text": "Mijn eerste boete was een snelheidsboete.",
+    "ko": "제 첫 벌금은 속도 위반이었어요."
+   },
+   {
+    "start": 11.0,
+    "end": 17.0,
+    "text": "Ik moet zeggen dat ik heel heel weinig boetes heb gehad in mijn leven.",
+    "ko": "제 인생에서 벌금을 정말 거의 안 내봤다고 말씀드려야겠네요."
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "text": "€180.",
+    "ko": "180유로요."
+   },
+   {
+    "start": 18.0,
+    "end": 25.0,
+    "text": "Ik denk €160, door het rood gereden. Ik had haast, moest ergens dringend zijn.",
+    "ko": "160유로 같아요, 신호위반이요. 급했거든요, 어디에 빨리 가야 했어요."
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "text": "Laat jij het bedrag weten in reacties?",
+    "ko": "댓글로 여러분의 금액을 알려주세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "가장 비싼 벌금 액수를 바로 보여주며 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 25.0,
+    "speed": "보통",
+    "summary": "길거리에서 시민들을 대상으로 가장 비싼 벌금 인터뷰 진행"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 25.0,
+    "end": 28.0,
+    "speed": "빠름",
+    "summary": "댓글 참여 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 핵심 질문과 대답을 미리 보여주어 시청 지속률을 높인다.",
+   "컷 평균 길이는 2~3초로 빠르게 전환하여 지루함을 없앤다.",
+   "핵심 키워드나 가격은 노란색 형광펜 배경의 박스 자막으로 강조한다.",
+   "인터뷰이의 답변 중 핵심 위반 사유나 금액을 자막과 아이콘으로 시각화한다.",
+   "영상의 마지막은 댓글 참여를 유도하는 CTA로 깔끔하게 마무리한다."
+  ]
  }
 }

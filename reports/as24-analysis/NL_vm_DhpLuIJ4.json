@@ -1,0 +1,406 @@
+{
+ "country": "NL",
+ "title": "NL-045",
+ "url": "https://www.youtube.com/shorts/vm_DhpLuIJ4",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4332,
+  "candidatesTokenCount": 4011,
+  "totalTokenCount": 8343,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3364
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 36.8,
+   "aspect": "9:16",
+   "car": "BMW M3 Competition",
+   "format": "퀴즈/차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.9,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 4.7,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 8.0,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 13.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 22.0,
+    "part": "휠",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.8,
+    "part": "시트",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 36.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "RAAD HOEVEEL PK",
+    "ko": "몇 마력인지 맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.9,
+    "text": "BMW M3 COMPETITION",
+    "ko": "BMW M3 컴피티션",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E229",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COMPETITION",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 8.0,
+    "text": "ONDER DE MOTORKAP 3-LITER 6-IN-LIJN",
+    "ko": "본넷 아래 3리터 6기통",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6-IN-LIJN",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 13.9,
+    "text": "DEZE UITVOERING SPRINT 3,9 SECONDEN 100 KM/U",
+    "ko": "이 버전을 0-100 3.9초 만에 스프린트",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3,9 SECONDEN",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.5,
+    "text": "M TRACK PACK",
+    "ko": "M 트랙 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TRACK",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 22.0,
+    "text": "ERAMISCHE REMMEN",
+    "ko": "세라믹 브레이크",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ERAMISCHE",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.8,
+    "text": "2021 70.000 KM",
+    "ko": "2021년식 7만 킬로미터",
+    "kind": "숫자 사양",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "70.000",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.2,
+    "text": "€95.875",
+    "ko": "9만 5875 유로",
+    "kind": "가격",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E229",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€95.875",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 36.8,
+    "text": "Auto Scout24",
+    "ko": "오토 스카우트24",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E229",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto Scout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트 중심 배경음악",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Kan jij raadt hoeveel PK deze BMW M3 Competition heeft?",
+    "ko": "이 BMW M3 컴피티션이 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 1.7,
+    "end": 3.9,
+    "text": "BMW M3 Competition",
+    "ko": "BMW M3 컴피티션"
+   },
+   {
+    "start": 3.9,
+    "end": 8.0,
+    "text": "Onder de motorkap vind je een 3-liter 6-in-lijn met twee turbo's.",
+    "ko": "본넷 아래에는 트윈 터보가 장착된 3리터 6기통 엔진이 있습니다."
+   },
+   {
+    "start": 8.0,
+    "end": 13.9,
+    "text": "Deze uitvoering sprint in ongeveer 3,9 seconden van 0 naar 100 km/u.",
+    "ko": "이 모델은 0에서 100km/h까지 약 3.9초 만에 주파합니다."
+   },
+   {
+    "start": 13.9,
+    "end": 16.5,
+    "text": "En hij beschikt over het M track pack,",
+    "ko": "그리고 M 트랙 패키지가 탑재되어 있습니다."
+   },
+   {
+    "start": 16.5,
+    "end": 22.0,
+    "text": "met onder andere de keramische remmen. Die zijn beter bestand tegen hoge temperaturen tijdens het sportief rijden.",
+    "ko": "세라믹 브레이크 등이 포함됩니다. 스포츠 주행 중 고온에 더 잘 버팁니다."
+   },
+   {
+    "start": 22.0,
+    "end": 25.8,
+    "text": "Verder komt hij uit 2021, heeft nog geen 70.000 km gelopen",
+    "ko": "그리고 2021년식이며 주행거리는 7만 킬로미터가 채 되지 않았고"
+   },
+   {
+    "start": 25.8,
+    "end": 29.2,
+    "text": "en hij kost €95.875.",
+    "ko": "가격은 95,875유로입니다."
+   },
+   {
+    "start": 29.2,
+    "end": 36.8,
+    "text": "Nu ben ik benieuwd of jij kan raden hoeveel PK deze BMW M3 Competition heeft. Laat het even weten in de reactie en vergeet ons niet te volgen!",
+    "ko": "이제 이 BMW M3 컴피티션이 몇 마력인지 맞출 수 있는지 궁금하네요. 댓글로 남겨주시고 팔로우도 잊지 마세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "마력 퀴즈 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 3.9,
+    "speed": "빠름",
+    "summary": "차량 모델명 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 3.9,
+    "end": 13.9,
+    "speed": "보통",
+    "summary": "엔진 및 제로백 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 13.9,
+    "end": 22.0,
+    "speed": "보통",
+    "summary": "M 트랙 패키지 및 브레이크 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 22.0,
+    "end": 29.2,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 29.2,
+    "end": 36.8,
+    "speed": "보통",
+    "summary": "댓글 참여 유도 및 채널 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 호기심을 자극하는 퀴즈형 질문으로 훅을 구성한다.",
+   "컷 평균 길이는 2~5초로 빠르게 전환하여 시청 유지율을 높인다.",
+   "자막은 화면 중앙 하단에 검은색 배경 상자와 함께 흰색 텍스트로 고정 배치한다.",
+   "핵심 키워드나 숫자는 노란색 배경 상자를 사용하여 시각적으로 강조한다.",
+   "촬영 부위 순서는 전면 외관 -> 엔진룸 -> 측면/사람 -> 후면 외관 -> 휠 -> 실내/시트 순으로 진행한다.",
+   "마지막 구간에서는 가격 공개 후 시청자의 댓글 참여(퀴즈 정답)와 팔로우를 유도한다."
+  ]
+ }
+}

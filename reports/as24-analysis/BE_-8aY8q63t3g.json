@@ -1,0 +1,152 @@
+{
+ "country": "BE",
+ "title": "BE-042",
+ "url": "https://www.youtube.com/shorts/-8aY8q63t3g",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1883,
+  "candidatesTokenCount": 1145,
+  "totalTokenCount": 3028,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 915
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.3,
+   "aspect": "9:16",
+   "car": "Mazda MX-5",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 9.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 9.3,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "white",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Merk",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.3,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "쿵",
+    "event": "비트 시작과 함께 경적 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "딸깍",
+    "event": "경적 울림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "딸깍",
+    "event": "경적 울림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "딸깍",
+    "event": "경적 울림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "딸깍",
+    "event": "경적 울림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "쿵",
+    "event": "로고 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌함, 퀴즈",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.3,
+    "speed": "빠름",
+    "summary": "오픈카 안에서 운전자가 경적을 리듬에 맞춰 누르며 브랜드 맞추기 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 퀴즈 질문 자막을 노출해 시선을 사로잡는다.",
+   "자막은 형광펜 스타일 배경을 적용하고 기울기를 주어 역동성을 더한다.",
+   "배경 음악의 비트에 맞춰 효과음(경적 등)을 정확히 일치시킨다.",
+   "영상의 마지막 부분에 브랜드 로고/채널명을 노출한다.",
+   "숏폼 전체 길이를 10초 이내로 짧게 유지하여 이탈률을 줄인다."
+  ]
+ }
+}
