@@ -4,6 +4,8 @@ GitHub Actions에서 GEMINI_API_KEY 비밀값으로 실행한다. 키는 출력�
 표준 라이브러리만 쓴다(설치 없음).
 """
 import json
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import os
 import re
 import sys
@@ -109,14 +111,18 @@ def parse_json(txt):
 
 
 _last = [0.0]
+_tlock = threading.Lock()
+WORKERS = int(os.environ.get("AS24_WORKERS", "8"))  # 한 편이 2~5분 걸려 여러 편을 동시에 보낸다
+STOP = threading.Event()
 
 
 def throttle():
-    gap = 60.0 / RPM
-    wait = _last[0] + gap - time.time()
-    if wait > 0:
-        time.sleep(wait)
-    _last[0] = time.time()
+    with _tlock:  # 요청 시작 간격만 RPM에 맞춤(동시 진행은 WORKERS)
+        gap = 60.0 / RPM
+        wait = _last[0] + gap - time.time()
+        if wait > 0:
+            time.sleep(wait)
+        _last[0] = time.time()
 
 
 def analyze(model, url):
@@ -166,37 +172,49 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     model = pick_model()
     rows = [l.rstrip("\n").split("\t") for l in open(TARGETS, encoding="utf-8") if l.strip() and not l.startswith("#")]
-    n_new = n_skip = n_fail = 0
-    stop = ""
+    todo, n_skip = [], 0
     for country, title, url in rows:
         vid, _ = yt_watch(url)
-        path = os.path.join(OUT, f"{country}_{vid}.json")
-        if done_ok(path):
+        if done_ok(os.path.join(OUT, f"{country}_{vid}.json")):
             n_skip += 1
-            continue
+        else:
+            todo.append((country, title, url))
+    print(f"할 일 {len(todo)}편 · 이미 끝남 {n_skip}편 · 동시 {WORKERS}", flush=True)
+    cnt = {"new": 0, "fail": 0}
+    stop = [""]
+    lock = threading.Lock()
+
+    def work(row):
+        country, title, url = row
+        if STOP.is_set():
+            return
         if (time.time() - T0) / 60 > BUDGET_MIN:
-            stop = "시간 예산 끝"
-            break
-        print(f"분석: {country} {title} {url}", flush=True)
+            stop[0] = "시간 예산 끝"
+            STOP.set()
+            return
         try:
             vid, data, usage = analyze(model, url)
         except DailyQuota as e:
-            stop = "하루 한도 도달: " + str(e)[:200]
-            break
+            stop[0] = "하루 한도 도달: " + str(e)[:200]
+            STOP.set()
+            return
         doc = {"country": country, "title": title, "url": url, "model": model, "fps": FPS, "usage": usage, "analysis": data}
-        with open(path, "w", encoding="utf-8") as f:
+        with open(os.path.join(OUT, f"{country}_{vid}.json"), "w", encoding="utf-8") as f:
             json.dump(doc, f, ensure_ascii=False, indent=1)
-        if isinstance(data, dict) and "basic" in data:
-            n_new += 1
-            print("  완료", flush=True)
-        else:
-            n_fail += 1
-            print("  실패/형식 오류", flush=True)
-        if CKPT and (n_new + n_fail) % 10 == 0:
-            os.system(CKPT)  # 10편마다 중간 저장
+        ok = isinstance(data, dict) and "basic" in data
+        with lock:
+            cnt["new" if ok else "fail"] += 1
+            done = cnt["new"] + cnt["fail"]
+            print(f"{'완료' if ok else '실패'} {title} {vid} ({done}/{len(todo)})", flush=True)
+            if CKPT and done % 10 == 0:
+                os.system(CKPT)  # 10편마다 중간 저장
+
+    with ThreadPoolExecutor(WORKERS) as ex:
+        for fut in as_completed([ex.submit(work, r) for r in todo]):
+            fut.result()
     ok = sum(done_ok(os.path.join(OUT, f)) for f in os.listdir(OUT) if f.endswith(".json") and not f.startswith("_"))
-    summ = {"model": model, "fps": FPS, "new": n_new, "skipped": n_skip, "failed": n_fail, "ok_total": ok,
-            "targets": len(rows), "stopped": stop}
+    summ = {"model": model, "fps": FPS, "new": cnt["new"], "skipped": n_skip, "failed": cnt["fail"], "ok_total": ok,
+            "targets": len(rows), "stopped": stop[0]}
     with open(os.path.join(OUT, "_summary.json"), "w", encoding="utf-8") as f:
         json.dump(summ, f, ensure_ascii=False, indent=1)
     print("요약:", json.dumps(summ, ensure_ascii=False))
