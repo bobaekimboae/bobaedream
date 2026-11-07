@@ -1,0 +1,450 @@
+{
+ "country": "NL",
+ "title": "NL-053",
+ "url": "https://www.youtube.com/shorts/Y_233KDEg3s",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5522,
+  "candidatesTokenCount": 4953,
+  "totalTokenCount": 10475,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4554
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.5,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTE / GTI",
+   "format": "비교 및 정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 12.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 17.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 26.5,
+    "part": "외관 측면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 51.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "TWIJFEL JE TUSSEN VOLKSWAGEN GTE VOLKSWAGEN GTI HET GROOTSTE VERSCHIL",
+    "ko": "폭스바겐 GTE와 폭스바겐 GTI 사이에서 고민중이신가요? 가장 큰 차이점은",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GTE",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.0,
+    "text": "DE GTI IS ALTIJD BENZINEMOTOR ☕ SPORTIEF RIJDEN",
+    "ko": "GTI는 항상 가솔린 엔진이며 스포티한 주행에 초점이 맞춰져 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BENZINEMOTOR",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 12.8,
+    "text": "EN DE GTE COMBINEERT EEN BENZINEMOTOR ☕ MET EEN ELEKTROMOTOR ⚡",
+    "ko": "그리고 GTE는 가솔린 엔진과 전기 모터를 결합했습니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GTE",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 17.5,
+    "text": "JE VEEL RITTEN ZOALS BIJVOORBEELD WOON-WERKVERKEER OF BOODSCHAPPEN GEWOON ELEKTRISCH RIJDEN",
+    "ko": "출퇴근이나 장보기 같은 많은 주행을 순수 전기모드로 할 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCH",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 24.0,
+    "text": "EN ZODRA JE MEER VERMOGEN NODIG HEBT OF LANGERE AFSTANDEN WIL AFLEGEN, DAN GEBRUIKT HIJ BEIDE MOTOREN SAMEN ✔",
+    "ko": "더 많은 출력이 필요하거나 장거리를 주행할 때는 두 모터를 함께 사용합니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BEIDE",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.5,
+    "text": "JE NIKS VOOR TE DOEN REGELT DE AUTO AUTOMATISCH",
+    "ko": "직접 할 필요 없이 차가 알아서 자동 조절합니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOMATISCH",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.0,
+    "text": "EN DEZE GTE KOMT UIT 2022",
+    "ko": "그리고 이 GTE는 2022년식입니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2022",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "text": "245 PK 🏁",
+    "ko": "245마력",
+    "kind": "숫자 사양",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "245 PK",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "EEN BATTERIJ MET EEN STATE OF HEALTH VAN 97%",
+    "ko": "배터리 건강 상태(SoH)는 97%입니다.",
+    "kind": "숫자 사양",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "97%",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 39.5,
+    "text": "DE GTE IS EIGENLIJK IDEAAL ALS JE TOCH SPORTIEF WIL RIJDEN MAAR OOK WIL LETTEN OP HET BRANDSTOF GEBRUIK",
+    "ko": "GTE는 스포티하게 운전하고 싶으면서도 연비도 신경 쓰고 싶을 때 이상적입니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "IDEAAL",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 44.0,
+    "text": "ZOU JIJ GAAN VOOR DE VOLKSWAGEN GTE OF DE VOLKSWAGEN GTI?",
+    "ko": "여러분은 폭스바겐 GTE와 GTI 중 어떤 것을 선택하시겠습니까?",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GTE",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 51.5,
+    "text": "LAAT ER EVEN WETEN IN DE REACTIE IN DE OMSCHRIJVING VIND JE OOK WAT DIE KOST EN JE VINDT HEM NATUURLIJK OP AUTOSCOUT24.NL EN BIJ AUTOBEDRIJF P. DE JONG 📍",
+    "ko": "댓글로 알려주세요! 설명란에서 가격을 확인하실 수 있으며 AutoScout24.nl과 Autobedrijf P. de Jong에서 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24.NL",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 110,
+   "mood": "밝은",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 47.0,
+    "end": 51.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 75.0,
+    "entrance": "바로 컷",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "Twijfel je tussen de Volkswagen GTE en de Volkswagen GTI? Dan is dit het grootste verschil.",
+    "ko": "폭스바겐 GTE와 폭스바겐 GTI 사이에서 고민중이신가요? 가장 큰 차이점은"
+   },
+   {
+    "start": 4.8,
+    "end": 9.0,
+    "text": "De GTI is altijd een benzinemotor en gericht op sportief rijden.",
+    "ko": "GTI는 항상 가솔린 엔진이며 스포티한 주행에 초점이 맞춰져 있습니다."
+   },
+   {
+    "start": 9.0,
+    "end": 12.8,
+    "text": "En de GTE combineert een benzinemotor met een elektromotor.",
+    "ko": "그리고 GTE는 가솔린 엔진과 전기 모터를 결합했습니다."
+   },
+   {
+    "start": 12.8,
+    "end": 17.5,
+    "text": "En daardoor kun je veel ritten, zoals bijvoorbeeld woon-werkverkeer of boodschappen, gewoon elektrisch rijden.",
+    "ko": "출퇴근이나 장보기 같은 많은 주행을 순수 전기모드로 할 수 있습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 24.0,
+    "text": "En zodra je meer vermogen nodig hebt of langere afstanden wil afleggen, dan gebruikt hij beide motoren samen.",
+    "ko": "더 많은 출력이 필요하거나 장거리를 주행할 때는 두 모터를 함께 사용합니다."
+   },
+   {
+    "start": 24.0,
+    "end": 26.5,
+    "text": "En daar hoef je niks voor te doen, dat regelt de auto automatisch.",
+    "ko": "직접 할 필요 없이 차가 알아서 자동 조절합니다."
+   },
+   {
+    "start": 26.5,
+    "end": 29.0,
+    "text": "En deze GTE komt uit 2022 en heeft weer 245 pk.",
+    "ko": "그리고 이 GTE는 2022년식이며 245마력입니다."
+   },
+   {
+    "start": 29.0,
+    "end": 34.0,
+    "text": "En hij heeft een batterij met een state of health van 97%.",
+    "ko": "배터리 건강 상태(SoH)는 97%입니다."
+   },
+   {
+    "start": 34.0,
+    "end": 39.5,
+    "text": "De GTE is eigenlijk ideaal als je toch sportief wil rijden, maar ook wil letten op het brandstofgebruik.",
+    "ko": "GTE는 스포티하게 운전하고 싶으면서도 연비도 신경 쓰고 싶을 때 이상적입니다."
+   },
+   {
+    "start": 39.5,
+    "end": 51.5,
+    "text": "Zou jij gaan voor de Volkswagen GTE of de Volkswagen GTI? Laat er even weten in de reactie. In de omschrijving vind je ook wat die kost en je vindt hem natuurlijk op autoscout24.nl en bij autobedrijf P. de Jong.",
+    "ko": "여러분은 폭스바겐 GTE와 GTI 중 어떤 것을 선택하시겠습니까? 댓글로 알려주세요! 설명란에서 가격을 확인하실 수 있으며 AutoScout24.nl과 Autobedrijf P. de Jong에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "GTE와 GTI의 차이점에 대한 질문"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.8,
+    "end": 26.5,
+    "speed": "빠름",
+    "summary": "GTI와 GTE의 엔진 구성 및 작동 방식 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 26.5,
+    "end": 34.0,
+    "speed": "빠름",
+    "summary": "차량 연식, 마력, 배터리 상태 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 34.0,
+    "end": 51.5,
+    "speed": "빠름",
+    "summary": "선택 투표 유도, 가격 안내 및 플랫폼 소개"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 대상 차량 모델 비교라는 훅(Hook) 질문을 던져 이탈률을 방지한다.",
+   "컷 평균 길이는 2~5초로 매우 짧고 역동적으로 유지한다.",
+   "자막은 화면 하단 중앙에 일관된 노란색 텍스트와 검은색 배경 상자 형태로 고정하여 가독성을 높인다.",
+   "핵심 키워드나 숫자는 자막 내에서 강조 표시(색상 또는 강조어)를 한다.",
+   "진행자가 화면 중앙에서 직접 설명하며 차량 주변을 이동하는 구도를 사용한다.",
+   "부위 촬영 순서: 전면 외관 -> 측면 -> 후면 -> 실내 -> 계기판 순으로 전개된다.",
+   "마지막에는 댓글 참여 유도(CTA)와 함께 플랫폼 링크 및 매장 정보를 음성과 자막으로 안내한다."
+  ]
+ }
+}

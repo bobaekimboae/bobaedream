@@ -1,0 +1,364 @@
+{
+ "country": "BE",
+ "title": "BE-054",
+ "url": "https://www.youtube.com/shorts/BlP_sa_Paro",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4608,
+  "candidatesTokenCount": 3455,
+  "totalTokenCount": 8063,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3640
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "Tesla Model S Plaid",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 16.5,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 38.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "1000 pk in een EV?",
+    "ko": "EV에 1000마력?",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1000 pk",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "text": "in de Tesla Model S Plaid",
+    "ko": "테슬라 모델 S 플래드에",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 10.5,
+    "text": "met track velgen en track package",
+    "ko": "트랙 휠과 트랙 패키지가 포함된",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 20.0,
+    "text": "keramische remmen ... 322km/h topsnelheid",
+    "ko": "세라믹 브레이크... 최고속도 322km/h",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 26.0,
+    "text": "een matte ppf folie",
+    "ko": "무광 PPF 필름",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.5,
+    "text": "2022 ... 78.350km gereden",
+    "ko": "2022년식... 78,350km 주행",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "text": "€79.990",
+    "ko": "79,990유로",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "79.990",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 33.5,
+    "end": 38.0,
+    "what": "Nikola Brussels 및 AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 75.0,
+    "entrance": "바로 컷",
+    "purpose": "브랜딩 및 플랫폼 광고",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "1000 pk in een elektrische voiture... in de Tesla Model S Plaid.",
+    "ko": "전기차에 1000마력? 테슬라 모델 S 플래드에 있습니다."
+   },
+   {
+    "start": 6.0,
+    "end": 10.5,
+    "text": "Dit betreft een bijzonder model met track velgen en track package.",
+    "ko": "트랙 휠과 트랙 패키지가 장착된 특별한 모델입니다."
+   },
+   {
+    "start": 10.5,
+    "end": 20.0,
+    "text": "Keramische remmen die uitsluitend alleen door Tesla geïnstalleerd mogen worden om de unlock te kunnen doen van de 322km/h topsnelheid.",
+    "ko": "322km/h 최고속도를 해제하려면 테슬라에서만 설치할 수 있는 세라믹 브레이크가 필요합니다."
+   },
+   {
+    "start": 20.0,
+    "end": 26.0,
+    "text": "Ook is deze volledig voorzien van een matte ppf folie.",
+    "ko": "또한 무광 PPF 필름이 전체 시공되어 있습니다."
+   },
+   {
+    "start": 26.0,
+    "end": 29.5,
+    "text": "Hij komt uit 2022, heeft 78.350km gereden",
+    "ko": "20 알 2022년식이고, 78,350km를 주행했으며"
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "text": "en hij kost €79.990.",
+    "ko": "가격은 79,990유로입니다."
+   },
+   {
+    "start": 33.5,
+    "end": 38.0,
+    "text": "Je vindt deze Tesla Model S Plaid bij Nikola Brussels en op AutoScout24.be.",
+    "ko": "이 테슬라 모델 S 플래드는 니콜라 브뤼셀과 오토스카우트24에서 찾으실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "1000마력 전기차 질문으로 주의 환기"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 10.5,
+    "speed": "보통",
+    "summary": "테슬라 모델 S 플래드 트랙 패키지 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 10.5,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "세라믹 브레이크, 최고속도, PPF, 연식 및 주행거리"
+   },
+   {
+    "stage": "가격",
+    "start": 29.5,
+    "end": 33.5,
+    "speed": "보통",
+    "summary": "판매 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 33.5,
+    "end": 38.0,
+    "speed": "느림",
+    "summary": "판매처 안내 및 플랫폼 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 노란색 배경 박스 자막과 함께 핵심 질문/후킹 요소를 배치한다.",
+   "컷 평균 길이는 3~4초로 지루할 틈 없이 화면을 전환한다.",
+   "자막은 화면 중앙 하단에 흰색 고딕체로 깔끔하게 표시한다.",
+   "차량의 특장점(휠, 브레이크, 랩핑, 연식)을 순차적으로 클로즈업 촬영한다.",
+   "가격 공개 구간에서 금액 숫자를 강조하여 보여준다.",
+   "마무리 컷에서는 차량 전면부와 함께 딜러사 및 중고차 플랫폼 로고를 띄운다."
+  ]
+ }
+}

@@ -1,0 +1,276 @@
+{
+ "country": "BE",
+ "title": "BE-053",
+ "url": "https://www.youtube.com/shorts/qtZvs3EWaQ4",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4532,
+  "candidatesTokenCount": 2611,
+  "totalTokenCount": 7143,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3564
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 39.5,
+   "aspect": "9:16",
+   "car": "Tesla Model Y",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 6.3,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 10.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.9,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.2,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 27.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 31.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 33.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.9,
+    "end": 36.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "text": "Tesla Model Y\nPremium of Performance",
+    "ko": "테슬라 모델 Y 프리미엄과 퍼포먼스",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 39.5,
+    "text": "말 자막 전체 적용",
+    "ko": "말 자막 전체 적용",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Pop",
+   "bpm_est": 110,
+   "mood": "Upbeat",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "what": "NIKOLA BRUSSELS 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로 컷",
+    "purpose": "브랜드 노출",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로 컷",
+    "purpose": "플랫폼 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "text": "Premium of performance. Welke Model Y kies jij?",
+    "ko": "프리미엄 혹은 퍼포먼스. 어떤 모델 Y를 선택하시겠습니까?"
+   },
+   {
+    "start": 3.9,
+    "end": 13.9,
+    "text": "De premium is de rationele keuze. Hij is zuiniger, heeft meer bereik en rijdt comfortabeler op kleinere wielen. En daarnaast kost hij ook nog eens €9.000 minder.",
+    "ko": "프리미엄은 합리적인 선택입니다. 더 효율적이고, 주행거리가 길며, 더 작은 휠로 편안한 승차감을 줍니다. 게다가 가격도 9,000유로 더 저렴합니다."
+   },
+   {
+    "start": 13.9,
+    "end": 22.8,
+    "text": "De performance doet waar zijn naam voor staat. 0 tot 100 in 3.3 seconden, een hogere topsnelheid, een sportieve look en krachtige remmen.",
+    "ko": "퍼포먼스는 이름값을 합니다. 제로백 3.3초, 더 높은 최고속도, 스포티한 외관, 강력한 브레이크까지."
+   },
+   {
+    "start": 22.8,
+    "end": 31.9,
+    "text": "Wil je maximale waarde, comfort en bereik, kies dan voor de premium. Wil je elke keer extra glimlachen als je de gaspedaal indrukt, dan is de performance de winnaar.",
+    "ko": "최대 가치와 승차감, 주행거리를 원하면 프리미엄을 선택하세요. 가속 페달을 밟을 때마다 미소가 지어지길 원한다면 퍼포먼스가 승자입니다."
+   },
+   {
+    "start": 31.9,
+    "end": 39.5,
+    "text": "Welکه zou jij kiezen? Je vindt ze beide in de showroom van Nikola Brussels en op AutoScout24.be",
+    "ko": "어떤 걸 선택하시겠습니까? 두 차량 모두 니콜라 브뤼셀 전시장과 오토스카우트24에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.9,
+    "speed": "빠름",
+    "summary": "프리미엄 vs 퍼포먼스 질문 제시"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.9,
+    "end": 13.9,
+    "speed": "보통",
+    "summary": "프리미엄 모델의 장점(연비, 가격, 승차감) 설명"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 13.9,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "퍼포먼스 모델의 스펙(제로백, 최고속도, 브레이크) 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 22.8,
+    "end": 39.5,
+    "speed": "빠름",
+    "summary": "취향에 따른 선택 가이드 및 전시장/플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 내에 두 가지 선택지를 제시하는 강렬한 훅을 배치한다.",
+   "컷 평균 길이는 2~4초로 빠르게 전환하여 지루함을 없앤다.",
+   "하단 중앙에 한 줄짜리 백색 말 자막을 고정하여 가독성을 높인다.",
+   "핵심 키워드(제목 등)는 노란색 상자 배경의 볼드체 자막으로 강조한다.",
+   "진행자가 화면 중앙에서 직접 차를 가리키며 설명한다.",
+   "외관 전면-후면-측면-트렁크-실내 순으로 차량 부위를 보여준다.",
+   "마무리 단계에서 브랜드 로고와 플랫폼 이름을 연속으로 노출한다."
+  ]
+ }
+}
