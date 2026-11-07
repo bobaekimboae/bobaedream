@@ -156,6 +156,8 @@ def analyze(model, url):
         return vid, {"error": "응답 없음", "raw": json.dumps(res)[:800]}, res.get("usageMetadata")
     try:
         data = parse_json(txt)
+        if isinstance(data, list) and data and isinstance(data[0], dict):
+            data = data[0]  # 가끔 [ {...} ] 로 감싸서 줌
     except Exception as e:
         data = {"parse_error": str(e), "raw": txt}
     return vid, data, res.get("usageMetadata")
@@ -164,7 +166,10 @@ def analyze(model, url):
 def done_ok(path):
     try:
         d = json.load(open(path, encoding="utf-8"))
-        return isinstance(d.get("analysis"), dict) and "basic" in d["analysis"]
+        a = d.get("analysis")
+        if isinstance(a, list) and a and isinstance(a[0], dict):
+            a = a[0]
+        return isinstance(a, dict) and "basic" in a
     except Exception:
         return False
 
@@ -178,6 +183,11 @@ def main():
     cur = {"i": 0}
     print("모델 순서(하루 한도가 차면 다음 모델):", ", ".join(models), flush=True)
     rows = [l.rstrip("\n").split("\t") for l in open(TARGETS, encoding="utf-8") if l.strip() and not l.startswith("#")]
+    # 나라를 번갈아(NL 1, BE 1, …) 처리해 중간에 멈춰도 두 나라가 고르게 쌓이게
+    by_c = {}
+    for r in rows:
+        by_c.setdefault(r[0], []).append(r)
+    rows = [r for grp in __import__("itertools").zip_longest(*by_c.values()) for r in grp if r]
     todo, n_skip = [], 0
     for country, title, url in rows:
         vid, _ = yt_watch(url)

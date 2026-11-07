@@ -62,6 +62,8 @@ def load(d):
             continue
         doc = json.load(open(os.path.join(d, f), encoding="utf-8"))
         a = doc.get("analysis")
+        if isinstance(a, list) and a and isinstance(a[0], dict):
+            a = doc["analysis"] = a[0]
         if isinstance(a, dict) and "basic" in a:
             out.append(doc)
     return out
