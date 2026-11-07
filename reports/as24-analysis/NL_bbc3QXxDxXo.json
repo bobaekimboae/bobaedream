@@ -2,27 +2,297 @@
  "country": "NL",
  "title": "NL-025",
  "url": "https://www.youtube.com/shorts/bbc3QXxDxXo",
- "model": "gemini-3.6-flash",
+ "model": "gemini-3.5-flash-lite",
  "fps": 1.0,
  "usage": {
   "promptTokenCount": 4427,
-  "candidatesTokenCount": 3151,
-  "totalTokenCount": 8799,
+  "candidatesTokenCount": 2417,
+  "totalTokenCount": 6844,
   "promptTokensDetails": [
-   {
-    "modality": "VIDEO",
-    "tokenCount": 3459
-   },
    {
     "modality": "TEXT",
     "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3459
    }
   ],
-  "thoughtsTokenCount": 1221,
   "serviceTier": "standard"
  },
  "analysis": {
-  "parse_error": "Expecting ',' delimiter: line 84 column 3 (char 1542)",
-  "raw": "{\n  \"basic\": {\n    \"duration_sec\": 38,\n    \"aspect\": \"9:16\",\n    \"car\": \"Kia Picanto\",\n    \"format\": \"차 소개 및 30초 타임어택 가격 공개\",\n    \"person_on_screen\": true,\n    \"voice\": \"사람 직접\",\n    \"language\": \"nl\"\n  },\n  \"shots\": [\n    {\n      \"start\": 0,\n      \"end\": 7.8,\n      \"part\": \"외관 전면\",\n      \"camera\": \"걸으며 손으로\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 7.8,\n      \"end\": 12.2,\n      \"part\": \"외관 측면\",\n      \"camera\": \"옆 이동\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 12.2,\n      \"end\": 14.1,\n      \"part\": \"휠\",\n      \"camera\": \"고정\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 14.1,\n      \"end\": 16.5,\n      \"part\": \"외관 측면\",\n      \"camera\": \"옆 이동\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 16.5,\n      \"end\": 19.8,\n      \"part\": \"외관 후면\",\n      \"camera\": \"당기기\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 19.8,\n      \"end\": 22.0,\n      \"part\": \"실내\",\n      \"camera\": \"고정\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 22.0,\n      \"end\": 24.8,\n      \"part\": \"시트\",\n      \"camera\": \"당기기\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 24.8,\n      \"end\": 33.0,\n      \"part\": \"실내\",\n      \"camera\": \"고정\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    },\n    {\n      \"start\": 33.0,\n      \"end\": 38.0,\n      \"part\": \"외관 전면\",\n      \"camera\": \"고정\",\n      \"transition_in\": \"바로 컷\",\n      \"sure\": true\n    \n  ],\n  \"captions\": [\n    {\n      \"start\": 0,\n      \"end\": 3.5,\n      \"text\": \"KIA PICANTO 30 SECONDEN\",\n      \"ko\": \"기아 피칸토 30초\",\n      \"kind\": \"제목\",\n      \"y_pct\": 20,\n      \"x_center_pct\": 50,\n      \"text_height_pct\": 5,\n      \"color\": \"노란색\",\n      \"background\": \"상자\",\n      \"bg_color\": \"검은색\",\n      \"bg_width_pct\": 60,\n      \"tilt_deg\": 0,\n      \"entrance\": \"톡 튀어나옴\",\n      \"highlight_word\": \"\",\n      \"sure\": true\n    },\n    {\n      \"start\": 8.0,\n      \"end\": 10.0,\n      \"text\": \"2025\",\n      \"ko\": \"2025년식\",\n      \"kind\": \"숫자 사양\",\n      \"y_pct\": 18,\n      \"x_center_pct\": 50,\n      \"text_height_pct\": 6,\n      \"color\": \"검은색\",\n      \"background\": \"상자\",\n      \"bg_color\": \"노란색\",\n      \"bg_width_pct\": 30,\n      \"tilt_deg\": 0,\n      \"entrance\": \"낱말별로 바뀜\",\n      \"highlight_word\": \"\",\n      \"sure\": true\n    },\n    {\n      \"start\": 10.1,\n      \"end\": 12.0,\n      \"text\": \"<10.000KM\",\n      \"ko\": \"10,000km 미만\",\n      \"kind\": \"숫자 사양\",\n      \"y_pct\": 18,\n      \"x_center_pct\": 50,\n      \"text_height_pct\": 6,\n      \"color\": \"검은색\",\n      \"background\": \"상자\",\n      \"bg_color\": \"노란색\",\n      \"bg_width_pct\": 45,\n      \"tilt_deg\": 0,\n      \"entrance\": \"낱말별로 바뀜\",\n      \"highlight_word\": \"\",\n      \"sure\": true\n    },\n    {\n      \"start\": 16.5,\n      \"end\": 19.5,\n      \"text\": \"ACHTERUITRIJCAMERA AFNEEMBARE TREKHAAK\",\n      \"ko\": \"후방 카메라 및 탈착식 견인고리\",\n      \"kind\": \"키워드 스티커\",\n      \"y_pct\": 45,\n      \"x_center_pct\": 50,\n      \"text_height_pct\": 4,\n      \"color\": \"검은색\",\n      \"background\": \"상자\",\n      \"bg_color\": \"노란색\",\n      \"bg_width_pct\": 70,\n      \"tilt_deg\": 0,\n      \"entrance\": \"서서히\",\n      \"highlight_word\": \"\",\n      \"sure\": true\n    },\n    {\n      \"start\": 29.5,\n      \"end\": 33.0,\n      \"text\": \"€23.949\",\n      \"ko\": \"23,949유로\",\n      \"kind\": \"가격\",\n      \"y_pct\": 45,\n      \"x_center_pct\": 50,\n      \"text_height_pct\": 7,\n      \"color\": \"검은색\",\n      \"background\": \"상자\",\n      \"bg_color\": \"노란색\",\n      \"bg_width_pct\": 50,\n      \"tilt_deg\": 0,\n      \"entrance\": \"톡 튀어나옴\",\n      \"highlight_word\": \"\",\n      \"sure\": true\n    }\n  ],\n  \"sfx\": [\n    {\n      \"t\": 3.8,\n      \"type\": \"톡\",\n      \"event\": \"로고 그래픽 등장\",\n      \"level\": \"보통\",\n      \"sure\": true\n    },\n    {\n      \"t\": 29.5,\n      \"type\": \"톡\",\n      \"event\": \"가격 자막 등장\",\n      \"level\": \"보통\",\n      \"sure\": true\n    }\n  ],\n  \"music\": {\n    \"genre\": \"업비트 팝 패스트\",\n    \"bpm_est\": 125,\n    \"mood\": \"경쾌함\",\n    \"ducks_under_voice\": true,\n    \"changes\": [],\n    \"cuts_on_beat\": \"일부\"\n  },\n  \"graphics\": [\n    {\n      \"start\": 3.8,\n      \"end\": 5.5,\n      \"what\": \"AutoScout24 노란 텍스트 박스 로고\",\n      \"is_3d\": false,\n      \"size_w_pct\": 60,\n      \"x_pct\": 50,\n      \"y_pct\": 40,\n      \"entrance\": \"서서히 커짐\",\n      \"purpose\": \"브랜드 노출\",\n      \"sure\": true\n    },\n    {\n      \"start\": 33.0,\n      \"end\": 35.5,\n      \"what\": \"앱 검색 UI 화면 팝업 스크린샷\",\n      \"is_3d\": false,\n      \"size_w_pct\": 70,\n      \"x_pct\": 50,\n      \"y_pct\": 30,\n      \"entrance\": \"위에서 내려옴\",\n      \"purpose\": \"검색 유도\",\n      \"sure\": true\n    }\n  ],\n  \"transcript\": [\n    {\n      \"start\": 0,\n      \"end\": 7.5,\n      \"text\": \"Ik heb 30 seconden om zo veel mogelijk over deze Kia Picanto te vertellen die te koop staat op AutoScout24.nl en op het einde vertel ik ook wat hij kost.\",\n      \"ko\": \"AutoScout24.nl에서 판매 중인 이 기아 피칸토에 대해 30초 동안 최대한 많이 설명해 드릴게요. 마지막에는 가격도 알려드립니다.\"\n    },\n    {\n      \"start\": 7.8,\n      \"end\": 14.0,\n      \"text\": \"Hij komt uit 2025, heeft minder dan 10.000 km gelopen en kijk naar die luxe velgen.\",\n      \"ko\": \"2025년식에 주행거리 10,000km 미만이며, 이 고급스러운 휠을 보세요.\"\n    },\n    {\n      \"start\": 14.1,\n      \"end\": 20.0,\n      \"text\": \"Hij heeft ook 5 deuren, parkeersensoren, achteruitrijcamera en een afneembare trekhaak.\",\n      \"ko\": \"5도어, 주차 센서, 후방 카메라, 탈착식 견인고리도 갖추고 있습니다.\"\n    },\n    {\n      \"start\": 20.1,\n      \"end\": 29.4,\n      \"text\": \"Kom snel mee naar binnen, want hij heeft ook keyless entry, een elektrisch schuifdak, lederen stoelen, adaptive cruise control, het is ook een automaat met stuurverwarming, stoelverwarming...\",\n      \"ko\": \"실내로 가보죠. 키리스 엔트리, 전동 선루프, 가죽 시트, 어댑티브 크루즈 컨트롤, 스티어링 휠/시트 열선이 적용된 자동변속기 차량입니다.\"\n    },\n    {\n      \"start\": 29.5,\n      \"end\": 38.0,\n      \"text\": \"...en hij kost €23.949. En je vindt meer dan 2500 Kia Picanto's op AutoScout24.nl.\",\n      \"ko\": \"가격은 23,949유로입니다. AutoScout24.nl에서 2,500대 이상의 기아 피칸토를 만나보세요.\"\n    }\n  ],\n  \"structure\": [\n    {\n      \"stage\": \"훅\",\n      \"start\": 0,\n      \"end\": 7.8,\n      \"speed\": \"빠름\",\n      \"summary\": \"30초 타임어택 및 가격 공개 전개 예고\"\n    },\n    {\n      \"stage\": \"사양\",\n      \"start\": 7.8,\n      \"end\": 14.1,\n      \"speed\": \"빠름\",\n      \"summary\": \"연식, 주행거리, 휠 등 주요 외관 스펙 제시\"\n    },\n    {\n      \"stage\": \"기능·옵션\",\n      \"start\": 14.1,\n      \"end\": 29.5,\n      \"speed\": \"빠름\",\n      \"summary\": \"후방 카메라, 선루프, 시트 및 운전 보조 기능 연속 나열\"\n    },\n    {\n      \"stage\": \"가격\",\n      \"start\": 29.5,\n      \"end\": 33.0,\n      \"speed\": \"보통\",\n      \"summary\": \"최종 차량 가격 강조 공개\"\n    },\n    {\n      \"stage\": \"마무리·행동 유도\",\n      \"start\": 33.0,\n      \"end\": 38.0,\n      \"speed\": \"보통\",\n      \"summary\": \"플랫폼 검색 유도 및 앱 화면 노출\"\n    }\n  ],\n  \"rules\": [\n    \"1. 첫 3초 내 챌린지 형태의 목표(30초 설명)와 호기심 유도(가격 공개 예고) 제시\",\n    \"2. 컷 평균 길이는 2~3초로 빠른 템포 유지\",\n    \"3. 검은색/노란색 대비 강조 자막을 화면 중앙부 선명하게 배치\",\n    \"4. 주요 스펙 변환 시 톡 소리 효과음 삽입\",\n    \"5. 외관 전면 -> 휠/측면 -> 후면 옵션 -> 실내 선루프/시트 -> 운전석 편의장비 순으로 순차 촬영\",\n    \"6. 가격을 가장 강조되는 서스펜스 포인트에 공개 후 플랫폼 앱 UI 팝업으로 CTA 마무리\"\n  ]\n}"
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "Kia Picanto",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "part": "휠",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 16.5,
+    "part": "외관 측면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.5,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.5,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 32.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 38.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "KIA PICANTO 30 SECONDEN",
+    "ko": "기아 피칸토 30초",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.5,
+    "text": "VERTELLE DIE TE KOOP STAAT OP AutoScout24.nl",
+    "ko": "AutoScout24.nl에 판매 중인 차를 소개합니다",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 18.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "숫자 사양",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "10.000KM",
+    "ko": "1만km 미만",
+    "kind": "숫자 사양",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.5,
+    "text": "€23.949",
+    "ko": "23,949유로",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "첫 타이틀 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "AutoScout24 로고/자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 빠른",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.5,
+    "text": "Ik ga in 30 seconden zoveel mogelijk over deze Kia Picanto vertellen die te koop staat op autoscout24.nl",
+    "ko": "30초 동안 autoscout24.nl에 올라온 이 기아 피칸토에 대해 최대한 많이 말씀드릴게요."
+   },
+   {
+    "start": 6.5,
+    "end": 12.0,
+    "text": "Hij komt uit 2025, heeft minder dan 10.000 kilometer gelopen en kijk naar die luxe velgen.",
+    "ko": "2025년형이고 주행거리는 1만km 미만이며, 저 고급스러운 휠을 보세요."
+   },
+   {
+    "start": 12.0,
+    "end": 20.0,
+    "text": "Hij heeft ook 5 deuren, parkeersensoren, een achteruitrijcamera en een afneembare trekhaak.",
+    "ko": "5도어, 후방 센서, 후방 카메라, 탈부착식 견인 고리도 있습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 32.0,
+    "text": "Kom snel mee naar binnen, want hij heeft ook keyless entry, een elektrisch schuifdak, leren stoelen, adaptive cruise control, het is ook een automaat met stuurverwarming, stoelverwarming en hij kost €23.949.",
+    "ko": "안으로 빨리 따라오세요. 스마트 키, 전동 선루프, 가죽 시트, 어댑티브 크루즈 컨트롤이 있고 핸들 열선과 시트 열선이 있는 오토매틱 차량이며 가격은 23,949유로입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "30초 동안 이 차를 소개하겠다고 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 12.0,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 외관 특징 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 12.0,
+    "end": 30.0,
+    "speed": "매우 빠름",
+    "summary": "문 개수, 센서, 카메라, 실내 옵션 속사포 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 30.0,
+    "end": 33.0,
+    "speed": "보통",
+    "summary": "가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 33.0,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "플랫폼에 매물이 많다는 점 언급하며 마무리"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량명과 영상 컨셉(30초 챌린지)을 노란색 배경 강조 자막과 함께 제시한다.",
+   "컷 평균 길이는 2~3초로 매우 짧게 가져가며 화면 전환을 지루하지 않게 한다.",
+   "핵심 스펙(연식, 주행거리, 가격)은 화면 정중앙에 검은색 박스+흰색 글자로 팝업 띄운다.",
+   "효과음은 자막이 툭 튀어나올 때 타격감을 주기 위해 경쾌한 팝 소스를 사용한다.",
+   "촬영 순서는 전면 외관부터 시작해 측면, 휠, 후면, 실내 순으로 이동하며 보여준다.",
+   "진행자가 화면 안에 계속 등장하며 직접 차를 가리키거나 타면서 역동적으로 설명한다.",
+   "말 빠르기를 극도로 빠르게(속사포) 유지하여 30초라는 제한 시간의 긴장감을 준다.",
+   "마지막에 정확한 판매 가격을 숫자로 크게 띄우고 플랫폼 이름을 다시 각인한다."
+  ]
  }
 }

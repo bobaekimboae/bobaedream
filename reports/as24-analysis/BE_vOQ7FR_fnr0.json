@@ -1,0 +1,581 @@
+{
+ "country": "BE",
+ "title": "BE-022",
+ "url": "https://www.youtube.com/shorts/vOQ7FR_fnr0",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4797,
+  "candidatesTokenCount": 4611,
+  "totalTokenCount": 9408,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3829
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42.0,
+   "aspect": "9:16",
+   "car": "Mazda CX-60 Plug-in Hybrid",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 7.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 19.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 32.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 37.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 42.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "op zoek naar een SUV die kracht, luxe en efficiency combineert",
+    "ko": "힘, 럭셔리, 효율성을 결합한 SUV를 찾고 계시나요?",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 7.0,
+    "text": "dit is de Mazda CX 60 plug in hybrid",
+    "ko": "이것은 마즈다 CX-60 플러그인 하이브리드입니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.0,
+    "text": "we hebben liefst een gecombineerd vermogen van 327 pk",
+    "ko": "최대 327마력의 결합 출력을 자랑합니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "text": "en vierwielaandrijving",
+    "ko": "그리고 사륜구동입니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.8,
+    "text": "hij sprint van 0 naar 100 in maar liefst 5.8 seconden",
+    "ko": "0에서 100까지 단 5.8초 만에 주파합니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 19.0,
+    "text": "dankzij de plug in hybride aandrijving",
+    "ko": "플러그인 하이브리드 구동계 덕분에",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.0,
+    "text": "afstanden volledig elektrisch",
+    "ko": "짧은 거리는 완전 전기로 주행하며",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "text": "langere ritten geniet van de kracht van de benzinemotor",
+    "ko": "장거리 주행 시에는 가솔린 엔진의 힘을 즐길 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.0,
+    "text": "binnenin vind je",
+    "ko": "내부에서는",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "text": "een hoogwaardig afgewerkt interieur",
+    "ko": "고급스럽게 마감된 인테리어를 만나실 수 있으며",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.0,
+    "text": "moderne technologie en alle comfort voor iedere rit",
+    "ko": "모든 주행에 필요한 최신 기술과 편안함을 제공합니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 32.0,
+    "text": "deze Mazda CX 60 komt uit 2025",
+    "ko": "이 마즈다 CX-60은 2025년형이며",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 37.0,
+    "text": "heeft 28.000km gereden en hij kostet €42,990",
+    "ko": "주행거리는 28,000km이며 가격은 42,990유로입니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 42.0,
+    "text": "je vindt hem in de showroom van Garage Govaerts en AutoScout24.be",
+    "ko": "Garage Govaerts 전시장과 AutoScout24.be에서 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 110,
+   "mood": "밝은",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 35,
+    "y_pct": 5,
+    "entrance": "바로 컷",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 37.0,
+    "what": "중고차 플랫폼 앱 스크린샷",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 25,
+    "y_pct": 40,
+    "entrance": "바로 컷",
+    "purpose": "가격 및 정보 표시",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "what": "Garage Govaerts 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 30,
+    "y_pct": 20,
+    "entrance": "바로 컷",
+    "purpose": "딜러사 소개",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "op zoek naar een SUV die kracht, luxe en efficiency combineert",
+    "ko": "힘, 럭셔리, 효율성을 결합한 SUV를 찾고 계시나요?"
+   },
+   {
+    "start": 4.0,
+    "end": 7.0,
+    "text": "dit is de Mazda CX 60 plug in hybrid",
+    "ko": "이것은 마즈다 CX-60 플러그인 하이브리드입니다."
+   },
+   {
+    "start": 7.0,
+    "end": 10.0,
+    "text": "we hebben liefst een gecombineerd vermogen van 327 pk",
+    "ko": "최대 327마력의 결합 출력을 자랑합니다."
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "text": "en vierwielaandrijving",
+    "ko": "그리고 사륜구동입니다."
+   },
+   {
+    "start": 11.5,
+    "end": 15.8,
+    "text": "hij sprint van 0 naar 100 in maar liefst 5.8 seconden",
+    "ko": "0에서 100까지 단 5.8초 만에 주파합니다."
+   },
+   {
+    "start": 15.8,
+    "end": 19.0,
+    "text": "dankzij de plug in hybride aandrijving",
+    "ko": "플러그인 하이브리드 구동계 덕분에"
+   },
+   {
+    "start": 19.0,
+    "end": 20.0,
+    "text": "afstanden volledig elektrisch",
+    "ko": "짧은 거리는 완전 전기로 주행하며"
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "text": "langere ritten geniet van de kracht van de benzinemotor",
+    "ko": "장거리 주행 시에는 가솔린 엔진의 힘을 즐길 수 있습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 23.0,
+    "text": "binnenin vind je",
+    "ko": "내부에서는"
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "text": "een hoogwaardig afgewerkt interieur",
+    "ko": "고급스럽게 마감된 인테리어를 만나실 수 있으며"
+   },
+   {
+    "start": 26.0,
+    "end": 29.0,
+    "text": "moderne technologie en alle comfort voor iedere rit",
+    "ko": "모든 주행에 필요한 최신 기술과 편안함을 제공합니다."
+   },
+   {
+    "start": 29.0,
+    "end": 32.0,
+    "text": "deze Mazda CX 60 komt uit 2025",
+    "ko": "이 마즈다 CX-60은 2025년형이며"
+   },
+   {
+    "start": 32.0,
+    "end": 37.0,
+    "text": "heeft 28.000km gereden en hij kostet €42,990",
+    "ko": "주행거리는 28,000km이며 가격은 42,990유로입니다."
+   },
+   {
+    "start": 37.0,
+    "end": 42.0,
+    "text": "je vindt hem in de showroom van Garage Govaerts en AutoScout24.be",
+    "ko": "Garage Govaerts 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "차량에 대한 질문형 훅 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.0,
+    "end": 11.5,
+    "speed": "빠름",
+    "summary": "모델명 및 핵심 제원(출력, 구동방식) 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 11.5,
+    "end": 29.0,
+    "speed": "빠름",
+    "summary": "제로백, 하이브리드 주행 특성, 실내 및 인테리어 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 29.0,
+    "end": 37.0,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 판매 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 37.0,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "판매처 안내 및 플랫폼 언급"
+   }
+  ],
+  "rules": [
+   "첫 3초 이내에 시청자의 관심을 끄는 질문형 훅과 핵심 키워드를 자바로 제시한다.",
+   "컷 평균 길이는 2~3초 내외로 매우 빠르게 전환하여 지루함을 없앤다.",
+   "자막은 화면 중앙 하단(y=70%)에 흰색 볼드체로 항상 고정하여 가독성을 높인다.",
+   "효과음보다는 빠른 말하기와 템포감 있는 컷 전환으로 몰입도를 유도한다.",
+   "아이콘이나 그래픽은 브랜드 로고와 가격 정보(앱 화면) 등 핵심 정보 전달에만 제한적으로 사용한다.",
+   "부위 촬영 순서는 외관 전면 -> 측면 -> 휠 -> 운전석 -> 실내 디테일 -> 트렁크 순으로 체계적으로 보여준다.",
+   "마무리 단계에서는 차량 가격과 연식, 주행거리 스펙을 명확히 제시한 뒤 딜러사와 플랫폼을 안내하며 CTA를 완료한다."
+  ]
+ }
+}

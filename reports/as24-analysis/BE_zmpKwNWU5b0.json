@@ -1,0 +1,377 @@
+{
+ "country": "BE",
+ "title": "BE-014",
+ "url": "https://www.youtube.com/shorts/zmpKwNWU5b0",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4715,
+  "candidatesTokenCount": 2949,
+  "totalTokenCount": 7664,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3747
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41.5,
+   "aspect": "9:16",
+   "car": "BMW 225xe",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 12.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.8,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 17.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 19.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 29.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 36.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 41.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Waarom zou je plug in hybride?",
+    "ko": "왜 플러그인 하이브리드를 선택해야 할까요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.5,
+    "text": "je vindt er meer dan 11.000",
+    "ko": "11,000대 이상을 찾을 수 있어요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 5.0,
+    "text": "op Autoscout24",
+    "ko": "Autoscout24에서",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Autoscout24",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 38.5,
+    "text": "€18.750",
+    "ko": "18,750유로",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€18.750",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉",
+   "bpm_est": 120,
+   "mood": "활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 3.8,
+    "end": 5.0,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 노출",
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 41.5,
+    "what": "스마트폰 화면 앱 인터페이스",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 10.0,
+    "y_pct": 30.0,
+    "entrance": "바로 컷",
+    "purpose": "플랫폼 매물 화면 인증",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Waarom zou je kiezen voor een plug in hybride?",
+    "ko": "왜 플러그인 하이브리드를 선택해야 할까요?"
+   },
+   {
+    "start": 1.5,
+    "end": 5.0,
+    "text": "Je vindt er meer dan 11.000 op Autoscout24.be.",
+    "ko": "Autoscout24.be에서 11,000대 이상을 찾을 수 있습니다."
+   },
+   {
+    "start": 5.0,
+    "end": 12.0,
+    "text": "Met de plug in hybride profiteer je van de twee werelden: korte ritten elektrisch, lange ritten ga je over op benzine.",
+    "ko": "플러그인 하이브리드로는 두 가지 세계를 모두 누릴 수 있습니다. 짧은 거리는 전기, 긴 거리는 휘발유로 주행합니다."
+   },
+   {
+    "start": 12.0,
+    "end": 20.0,
+    "text": "Deze BMW 225xe levert met het benzine rijden en het elektrische rijden een gecombineerd vermogen op van 224 pk.",
+    "ko": "이 BMW 225xe는 휘발유 주행과 전기 주행을 합쳐 총 224마력의 복합 출력을 발휘합니다."
+   },
+   {
+    "start": 20.0,
+    "end": 23.0,
+    "text": "Er is een automaat met cruise control.",
+    "ko": "크루즈 컨트롤이 포함된 오토매틱 차량입니다."
+   },
+   {
+    "start": 23.0,
+    "end": 31.0,
+    "text": "Hij is vier-vier aangedreven, heeft een hele ruime kofferruimte en een elektrische kofferklep en genoeg ruimte voor het hele gezin.",
+    "ko": "사륜구동이며, 매우 넓은 트렁크 공간과 전동 트렁크 리드, 온 가족을 위한 충분한 공간이 있습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 36.0,
+    "text": "Hij komt uit 2021, heeft 61.800 km op de teller,",
+    "ko": "2021년형이며, 주행거리는 61,800km입니다."
+   },
+   {
+    "start": 36.0,
+    "end": 41.5,
+    "text": "en hij kost €18.750. Je vindt hem op Autoscout24.be.",
+    "ko": "가격은 18,750유로이며, Autoscout24.be에서 찾으실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.5,
+    "speed": "빠름",
+    "summary": "플러그인 하이브리드 추천 이유 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.5,
+    "end": 12.0,
+    "speed": "빠름",
+    "summary": "플랫폼 매물 수 언급 및 장점 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 12.0,
+    "end": 20.0,
+    "speed": "빠름",
+    "summary": "BMW 225xe 마력 및 구동 방식 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 20.0,
+    "end": 31.0,
+    "speed": "빠름",
+    "summary": "변속기, 트렁크, 실내 공간 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 31.0,
+    "end": 38.5,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 38.5,
+    "end": 41.5,
+    "speed": "빠름",
+    "summary": "앱 화면 보여주며 플랫폼 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 질문형 훅으로 시청자 이탈 방지",
+   "컷 평균 길이는 2~3초로 매우 짧고 역동적임",
+   "주요 키워드(브랜드명, 가격)는 노란색 형광펜 박스 자막으로 강조",
+   "효과음 대신 빠른 템포의 배경 음악 비트에 맞춘 컷 편집 위주",
+   "스마트폰 앱 화면을 직접 합성해 플랫폼 접근성 강조",
+   "차량 부위(외관-실내-휠-시트-트렁크) 순서로 빠르게 이동하며 촬영",
+   "호스트가 직접 출연하여 차량 곳곳을 손으로 가리키며 설명",
+   "마지막에 실제 앱 검색 화면을 띄워 구매 행동 유도"
+  ]
+ }
+}

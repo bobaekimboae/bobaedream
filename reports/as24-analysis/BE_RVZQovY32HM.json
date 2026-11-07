@@ -1,0 +1,262 @@
+{
+ "country": "BE",
+ "title": "BE-021",
+ "url": "https://www.youtube.com/shorts/RVZQovY32HM",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 7439,
+  "candidatesTokenCount": 2610,
+  "totalTokenCount": 10049,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6471
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 70.9,
+   "aspect": "9:16",
+   "car": "정보 인터뷰",
+   "format": "정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 15.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 34.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 45.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 50.8,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 64.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.5,
+    "end": 70.9,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "디졸브",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Sinds 1 September\nAnne De Baetzelier\nPRESENTATRICE",
+    "ko": "9월 1일부터\n안 드 배첼리어\n진행자",
+    "kind": "제목",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1 September",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.0,
+    "text": "Annick De Ridder\nMINISTER MOBILITEIT",
+    "ko": "아닉 더 리더\n모빌리티 장관",
+    "kind": "제목",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Annick De Ridder",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "인트로 로고 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "토크쇼 배경음",
+   "bpm_est": 110,
+   "mood": "차분함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "what": "상단 우측 AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 75.0,
+    "y_pct": 2.0,
+    "entrance": "고정",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Sinds 1 september zijn de regels rond de technische keuring in Vlaanderen veranderd.",
+    "ko": "9월 1일부터 플랑드르 지역의 정기 검사 규정이 변경되었습니다."
+   },
+   {
+    "start": 4.5,
+    "end": 15.5,
+    "text": "Er is inderdaad behoorlijk wat veranderd, onder andere dat voor personenwagens het altijd in de toekomst om de twee jaar zal zijn voor wagens ouder dan 4 jaar.",
+    "ko": "실제로 많은 부분이 변경되었습니다. 예를 들어 4년 이상 된 승용차는 앞으로 항상 2년마다 검사를 받게 됩니다."
+   },
+   {
+    "start": 15.5,
+    "end": 28.5,
+    "text": "Maar ook de lichte vracht bestelwagens die gaan wel allemaal geleidelijk aan naar om de twee jaar brengen, nu is dat ook nog om het jaar.",
+    "ko": "또한 경상용차 및 밴들도 점진적으로 2년 주기로 전환될 예정입니다. 현재는 1년 주기입니다."
+   },
+   {
+    "start": 28.5,
+    "end": 34.5,
+    "text": "Taxis, ambulances en bussen, soms moesten die om de 3 maand gaan, om de 6 maand gaan, die worden allemaal naar het om het jaar gebracht.",
+    "ko": "택시, 구급차, 버스의 경우 기존에 3개월 또는 6개월마다 검사받아야 했던 것들이 모두 1년 주기로 통합되었습니다."
+   },
+   {
+    "start": 34.5,
+    "end": 45.5,
+    "text": "En ook andere dingen, bijvoorbeeld de verplichte keuring van de trekhaak gaat eruit, dat wordt geïntegreerd in de gehele keuring maar niet meer apart.",
+    "ko": "또한 견인고리 의무 검사 같은 항목들이 별도가 아닌 전체 검사 과정에 통합됩니다."
+   },
+   {
+    "start": 45.5,
+    "end": 50.8,
+    "text": "Bij ongeval of groot gebrek pas controleren na 2 maand het herstel te doen en niet 15 dagen.",
+    "ko": "사고나 큰 결함이 발생했을 때 수리 기간이 15일에서 2개월로 연장되었습니다."
+   },
+   {
+    "start": 50.8,
+    "end": 64.5,
+    "text": "Keuring is wel degelijk gigantisch belangrijk voor de verkeersveiligheid en de Vlaming moet ook voelen dat dat terecht is.",
+    "ko": "차량 검사는 교통안전에 매우 중요하며, 플랑드르 주민들도 그 필요성을 공감해야 합니다."
+   },
+   {
+    "start": 64.5,
+    "end": 70.9,
+    "text": "In The Driver's Seat By AutoScout24",
+    "ko": "오토스카우트24의 인 더 드라이버 스팟"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "진행자가 9월 1일 이후 변경된 기술 검사 규정에 대해 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.5,
+    "end": 64.5,
+    "speed": "보통",
+    "summary": "장관이 직접 나와 구체적인 차량 검사 주기 변경 사항 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 64.5,
+    "end": 70.9,
+    "speed": "보통",
+    "summary": "팟캐스트 로고 및 아웃트로 애니메이션"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 핵심 주제와 인물 소개를 노란색 형광펜 하이라이트 자막으로 강조한다.",
+   "인터뷰이(장관)와 진행자의 컷 전환은 안정적인 고정 앵글을 유지한다.",
+   "중요한 통계나 핵심 조항 요약 시 노란색 배경의 카드형 자막 화면을 삽입한다.",
+   "자막 배경은 가독성을 높이기 위해 불투명 노란색 상자나 형광펜 효과를 사용한다.",
+   "효과음은 자막이나 그래픽이 튀어나올 때 가볍게 배치한다.",
+   "화면 우측 상단에 고정 브랜딩 로고(AutoScout24)를 항상 노출한다.",
+   "말씀하는 사람의 시선 처리가 자연스러운 대화형 숏폼 포맷을 유지한다.",
+   "인터뷰 도중 핵심 키워드는 시각적 카드 화면으로 전환하여 이해도를 높인다.",
+   "전체 길이는 1분 내외의 호흡으로 정보를 전달한다.",
+   "마무리 단계에서는 브랜드 오디오 및 비주얼 아이덴티티를 명확히 보여준다."
+  ]
+ }
+}

@@ -1,0 +1,494 @@
+{
+ "country": "BE",
+ "title": "BE-024",
+ "url": "https://www.youtube.com/shorts/dZdNsQ2nL3Q",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 6065,
+  "candidatesTokenCount": 4993,
+  "totalTokenCount": 11058,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5097
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 56.5,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLA 250e / GLC 43 AMG / GLE 53 AMG",
+   "format": "퀴즈/비교/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.1,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.6,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 14.8,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.4,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.4,
+    "end": 29.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 35.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.2,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 41.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.9,
+    "end": 44.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.8,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 51.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 56.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Welke kies jij?",
+    "ko": "어떤 걸 고를래?",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Welke kies jij?",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.4,
+    "text": "Mercedes-Benz\nGLA 250e",
+    "ko": "메르세데스 벤츠 GLA 250e",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.6,
+    "text": "Mercedes-Benz\nGLC 43 AMG",
+    "ko": "메르세데스 벤츠 GLC 43 AMG",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 5.9,
+    "text": "Mercedes-Benz\nGLE 53 AMG",
+    "ko": "메르세데스 벤츠 GLE 53 AMG",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 17.0,
+    "text": "Als je zou...\nplugin hybride...\n2022...\n66.800km...\n218 pk...",
+    "ko": "만약 당신이... 플러그인 하이브리드... 2022년... 66,800km... 218마력...",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "text": "€29.980\n€29.450",
+    "ko": "29,980유로 -> 29,450유로",
+    "kind": "가격",
+    "y_pct": 30.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€29.450",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.0,
+    "text": "€37.490\n€36.860",
+    "ko": "37,490유로 -> 36,860유로",
+    "kind": "가격",
+    "y_pct": 30.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€36.860",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.5,
+    "text": "€63.900\n€62.750",
+    "ko": "63,900유로 -> 62,750유로",
+    "kind": "가격",
+    "y_pct": 30.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€62.750",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.5,
+    "text": "Auto\nScout24",
+    "ko": "오토 스카우트 24",
+    "kind": "로고",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -3.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 팝 힙합",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Als je zou moeten kiezen, ga jij voor de...",
+    "ko": "선택해야 한다면, 어떤 걸 고를래?"
+   },
+   {
+    "start": 2.1,
+    "end": 3.4,
+    "text": "Mercedes-Benz GLA...",
+    "ko": "메르세데스 벤츠 GLA..."
+   },
+   {
+    "start": 3.4,
+    "end": 4.6,
+    "text": "GLC?",
+    "ko": "GLC?"
+   },
+   {
+    "start": 4.6,
+    "end": 6.1,
+    "text": "Of de GLE?",
+    "ko": "아니면 GLE?"
+   },
+   {
+    "start": 6.1,
+    "end": 17.0,
+    "text": "Deze Mercedes-Benz GLA 250e is een plug-in hybride, komt uit 2022, 66.800km hij heeft, 218 pk...",
+    "ko": "이 메르세데스 벤츠 GLA 250e는 플러그인 하이브리드이고, 2022년식, 66,800km 주행, 218마력..."
+   },
+   {
+    "start": 17.0,
+    "end": 20.0,
+    "text": "en hij kost €29.980 €29.450.",
+    "ko": "가격은 29,980유로에서 29,450유로."
+   },
+   {
+    "start": 20.0,
+    "end": 33.0,
+    "text": "Of ga jij voor de Mercedes-Benz GLC 43 AMG... BiTurbo 4matic... komt uit 2017... 367 pk... 71.300km...",
+    "ko": "아니면 메르세데스 벤츠 GLC 43 AMG... 비터보 4매틱... 2017년식... 367마력... 71,300km..."
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "en kost €37.490 €36.860.",
+    "ko": "가격은 37,490유로에서 36,860유로."
+   },
+   {
+    "start": 35.0,
+    "end": 51.0,
+    "text": "Of ga jij all-in en kies je voor de Mercedes-Benz GLE 53 AMG... Turbo 4matic+... 2022... 102.000 km... 435 pk... €63.900 €62.750.",
+    "ko": "아니면 올인해서 메르세데스 벤츠 GLE 53 AMG... 터보 4매틱 플러스... 2022년식... 102,000km... 435마력... 63,900유로에서 62,750유로."
+   },
+   {
+    "start": 51.0,
+    "end": 56.5,
+    "text": "Je vindt ze in de showroom van Falcomotive en op AutoScout24.be.",
+    "ko": "팔코모티브 쇼룸과 오토스카우트24.be에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.1,
+    "speed": "빠름",
+    "summary": "세 대의 차량을 차례대로 보여주며 질문 던지기"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.1,
+    "end": 20.0,
+    "speed": "빠름",
+    "summary": "첫 번째 차 GLA 250e 제원 및 가격 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 20.0,
+    "end": 35.0,
+    "speed": "빠름",
+    "summary": "두 번째 차 GLC 43 AMG 제원 및 가격 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 35.0,
+    "end": 51.0,
+    "speed": "빠름",
+    "summary": "세 번째 차 GLE 53 AMG 제원 및 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 51.0,
+    "end": 56.5,
+    "speed": "보통",
+    "summary": "판매처 안내 및 플랫폼 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 질문 형태의 훅 자막과 함께 비교 대상 차량들을 빠르게 스치며 보여준다.",
+   "컷 평균 길이는 2~4초로 짧게 유지하여 지루함을 없앤다.",
+   "자막은 하단 중앙에 흰색 텍스트로 넣고, 핵심 단어나 가격은 노란색 형광펜 배경 상자를 쓴다.",
+   "각 차량 소개 파트마다 전면-트렁크-실내-가격 순으로 동일한 구조를 반복한다.",
+   "가격 정보는 원래 가격에서 할인된 가격으로 갱신되는 연출(취소선 및 가격 변경)을 사용한다.",
+   "발표자가 직접 카메라 앞에서 손짓과 함께 걸으며 설명하는 역동적인 방식을 취한다.",
+   "마지막에는 차량 구입처(쇼룸 및 플랫폼명)를 명확하게 고지하며 끝낸다."
+  ]
+ }
+}

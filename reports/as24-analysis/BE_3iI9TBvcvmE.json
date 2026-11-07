@@ -1,0 +1,220 @@
+{
+ "country": "BE",
+ "title": "BE-023",
+ "url": "https://www.youtube.com/shorts/3iI9TBvcvmE",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1877,
+  "candidatesTokenCount": 1831,
+  "totalTokenCount": 3708,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.0,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLA 250e",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "en"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.3,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.2,
+    "end": 7.5,
+    "text": "Mercedes Benz\nGLA 250e",
+    "ko": "메르세데스 벤츠 GLA 250e",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.0,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.9,
+    "type": "휙",
+    "event": "컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "t": 2.2,
+    "type": "휙",
+    "event": "컷 전환 및 제목 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "휙",
+    "event": "컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "휙",
+    "event": "컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.3,
+    "type": "휙",
+    "event": "컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "휙",
+    "event": "로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "그루브한",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "후면과 전면 외관을 빠르게 보여줌"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 7.5,
+    "speed": "빠름",
+    "summary": "실내외 주요 디테일을 보여주며 차종명(GLA 250e) 노출"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 7.5,
+    "end": 9.0,
+    "speed": "빠름",
+    "summary": "플랫폼 로고(AutoScout24) 노출로 영상 마무리"
+   }
+  ],
+  "rules": [
+   "첫 1초 이내에 가장 시각적으로 매력적인 외관 샷으로 시선을 사로잡음.",
+   "평균 컷 길이는 1초 내외로 매우 빠르게 전환하여 지루함을 없앰.",
+   "모든 컷 전환 시점에 일정한 효과음(휙 소리)을 넣어 리듬감을 부여함.",
+   "자막은 화면 정중앙에 노란색 형광펜 배경 박스를 활용하여 가독성을 높임.",
+   "차량명과 브랜드 로고는 묵직한 볼드체 폰트와 기울기를 적용하여 강조함.",
+   "음악의 비트에 맞춰 컷 전환과 그래픽 등장이 일치하도록 편집함.",
+   "음성 내레이션 없이 음악과 시각적 요소만으로 정보를 전달함.",
+   "차량 외관과 실내 디테일을 교차 편집하여 입체감을 줌.",
+   "마지막 컷에는 플랫폼 로고를 노출하여 브랜드 인지도 강화.",
+   "전체 길이는 10초 이내로 압축하여 모바일 시청에 최적화함."
+  ]
+ }
+}
