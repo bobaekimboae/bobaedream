@@ -1,0 +1,551 @@
+{
+ "country": "NL",
+ "title": "NL-069",
+ "url": "https://www.youtube.com/shorts/ypKRzznYxzY",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 6804,
+  "candidatesTokenCount": 5447,
+  "totalTokenCount": 12251,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5836
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 65,
+   "aspect": "9:16",
+   "car": "Renault R4",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 11.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 20.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 39.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 44.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 47.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 49.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 54.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 65.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "MET DEZE AUTO",
+    "ko": "이 자동차로",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTO",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "text": "KOFFIETJE MAKEN",
+    "ko": "커피를 만들 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KOFFIETJE",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 11.5,
+    "text": "KIJK HIER WAAR\nJE NORMAAL DE\nAUTO OPLAADT\nSTEKKER INSTEKEN\nJE GEWOON\nJE KOFFIEZETAPPARAAT",
+    "ko": "평소 자동차를 충전하는 곳에 플러그를 꽂고 커피머신을 켤 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OPLAADT",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "text": "FOHNEN OF WAT\nJE HEB GEWOON\nOVERAL STROOM",
+    "ko": "헤어드라이어를 쓰거나 무엇이든 어디서나 전기를 쓸 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STROOM",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 20.5,
+    "text": "IN DEZE VIDEO\nVERTEL IK JE MEER\nOVER DEZE\nLEUKE AUTO\nEN OP HET EINDE OOK WAT\nDIE KOST",
+    "ko": "이 영상에서 이 멋진 차에 대해 더 자세히 알려드리고 마지막에는 가격도 공개합니다",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KOST",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "text": "DIT IS DE\nRENAULT R4",
+    "ko": "이것은 르노 R4입니다",
+    "kind": "말 자막",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RENAULT R4",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.5,
+    "text": "DEZE IS VOLLEDIG\nELEKTRISCH\nEN GEINSPIREERD OP",
+    "ko": "이 차는 완전 전기차이며 영감을 받았습니다",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCH",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 33.0,
+    "text": "GRILL AAN DE VOORKANT\nVORM VAN DE ACHTERLICHTEN\nRECHTE LIJNEN",
+    "ko": "전면 그릴, 후면 라이트 형태, 직선 라인",
+    "kind": "키워드 스티커",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "GRILL",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "400 KM",
+    "ko": "400km",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "400 KM",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 50.0,
+    "text": "VOELT HELEMAAL RETRO",
+    "ko": "완전 레트로 감성입니다",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RETRO",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.5,
+    "text": "€32.900",
+    "ko": "32,900 유로",
+    "kind": "가격",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€32.900",
+    "sure": true
+   },
+   {
+    "start": 100.0,
+    "end": 105.0,
+    "text": "AUTO KOESE",
+    "ko": "오토 쿠세",
+    "kind": "로고",
+    "y_pct": 90,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "바로 컷",
+    "highlight_word": "KOESE",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "팝",
+   "bpm_est": 120,
+   "mood": "밝음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "what": "오리지널 르노 4 이미지",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 50,
+    "y_pct": 60,
+    "entrance": "바로 컷",
+    "purpose": "과거 모델 비교",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Met deze auto, zo kan je niet alleen autorijden, maar ook een koffietje maken.",
+    "ko": "이 차로는 운전만 할 수 있는 게 아니라 커피도 만들 수 있어요."
+   },
+   {
+    "start": 2.5,
+    "end": 11.5,
+    "text": "Kijk hier, waar je normaal de auto oplaadt, kan je deze stekker insteken en daarin kan je gewoon je koffietzetapparaat doen.",
+    "ko": "여기 보세요. 평소 차를 충전하는 곳에 이 플러그를 꽂고 거기에 그냥 커피머신을 꽂으면 돼요."
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "text": "Maar je kunt ook je haren föhnen of wat dan ook, je hebt gewoon overal stroom met deze auto.",
+    "ko": "하지만 헤어드라이어를 쓰거나 무엇이든 이 차만 있으면 어디서나 전기를 쓸 수 있죠."
+   },
+   {
+    "start": 14.5,
+    "end": 20.5,
+    "text": "In deze video vertel ik je meer over deze leuke auto en op het einde ook wat die kost.",
+    "ko": "이번 영상에서는 이 멋진 차에 대해 더 자세히 알려드리고 마지막에는 가격도 알려드릴게요."
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "text": "Dit is de Renault R4.",
+    "ko": "이것은 르노 R4입니다."
+   },
+   {
+    "start": 22.0,
+    "end": 26.5,
+    "text": "Deze is volledig elektrisch en geïnspireerd op de Renault 4 uit de jaren 60.",
+    "ko": "이 차는 완전 전기차이며 1960년대 르노 4에서 영감을 받았습니다."
+   },
+   {
+    "start": 26.5,
+    "end": 33.0,
+    "text": "En dat zie je terug in verschillende details, zoals de grill aan de voorkant, de vorm van de achterlichten en rechte lijnen.",
+    "ko": "전면 그릴, 후면 라이트 형태, 직선 라인 같은 다양한 디테일에서 그 모습을 찾아볼 수 있죠."
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "Deze heeft een actieradius van 400 kilometer.",
+    "ko": "이 차의 주행거리는 400킬로미터입니다."
+   },
+   {
+    "start": 35.0,
+    "end": 50.0,
+    "text": "En ook het interieur voelt helemaal retro, maar tegelijkertijd ook echt van nu.",
+    "ko": "그리고 인테리어도 완전히 레트로 느낌이 나면서도 동시에 아주 최신식입니다."
+   },
+   {
+    "start": 50.0,
+    "end": 54.0,
+    "text": "En die mooie zachtblauwe kleur versterkt alleen maar de retro uitstraling.",
+    "ko": "그리고 이 예쁜 연한 파란색 컬러가 레트로한 느낌을 더욱 살려줍니다."
+   },
+   {
+    "start": 54.0,
+    "end": 65.0,
+    "text": "De prijs van deze auto is €32.900.",
+    "ko": "이 차의 가격은 32,900 유로입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "차에서 커피를 내리는 이색적인 기능으로 시선 집중"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.5,
+    "end": 20.5,
+    "speed": "빠름",
+    "summary": "V2L(차량 전력 공급) 기능 시연 및 영상 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 20.5,
+    "end": 33.0,
+    "speed": "보통",
+    "summary": "르노 R4 모델 소개 및 디자인 특징 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 33.0,
+    "end": 35.0,
+    "speed": "보통",
+    "summary": "주행거리(400km) 안내"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 35.0,
+    "end": 54.0,
+    "speed": "보통",
+    "summary": "실내 인테리어 및 외장 컬러 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 54.0,
+    "end": 65.0,
+    "speed": "느림",
+    "summary": "가격 공개 및 마무리 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차의 가장 독특한 기능(V2L로 커피 내리기)을 보여주어 이탈을 방지한다.",
+   "컷 평균 길이는 2~3초로 빠르게 전환하여 지루함을 없앤다.",
+   "자막은 화면 하단 중앙에 검정 배경 상자 스타일로 가독성을 높인다.",
+   "핵심 키워드나 숫자는 노란색 배경 상자로 강조한다.",
+   "진행자가 직접 화면에 나와서 차를 만지고 설명하는 휴먼 중심 촬영을 한다.",
+   "외관 전면/측면에서 시작해 충전구, 실내, 디테일, 가격순으로 체계적으로 보여준다.",
+   "과거 모델 사진을 인서트 그래픽으로 띄워 이해를 돕는다.",
+   "마무리 단계에서 정확한 가격(€32.900)을 명확하게 공개한다."
+  ]
+ }
+}

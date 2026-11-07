@@ -1,0 +1,279 @@
+{
+ "country": "BE",
+ "title": "BE-065",
+ "url": "https://www.youtube.com/shorts/ELwDLnwOHIM",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5165,
+  "candidatesTokenCount": 2234,
+  "totalTokenCount": 7399,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4197
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.5,
+   "aspect": "9:16",
+   "car": "Tesla Model Y",
+   "format": "비교 및 정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 13.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 19.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 24.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 34.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 40.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 46.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Tesla Model Y\nInterieur & Comfort",
+    "ko": "테슬라 모델 Y 인테리어 & 컴포트",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "바로 컷",
+    "highlight_word": "Tesla Model Y",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "text": "De grootste verschillen\ntussen de oude\nen de nieuwe\nTesla Model Y\ndie merk je\nvooral binnenin.",
+    "ko": "구형과 신형 테슬라 모델 Y의 가장 큰 차이점은 안에서 느껴집니다.",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "binnenin",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "Tesla heeft het\ninterieur een flinke\n✨Upgrade✨\ngegeven.",
+    "ko": "테슬라가 인테리어에 엄청난 업그레이드를 주었습니다.",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "Upgrade",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "Geventileerde\nzetels",
+    "ko": "통풍 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Geventileerde",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "스타일리시",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "text": "De grootste verschillen tussen de oude en de nieuwe Tesla Model Y die merk je vooral binnenin.",
+    "ko": "구형과 신형 테슬라 모델 Y의 가장 큰 차이점은 안에서 느껴집니다."
+   },
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "text": "Tesla heeft het interieur een flinke upgrade gegeven.",
+    "ko": "테슬라가 인테리어에 엄청난 업그레이드를 주었습니다."
+   },
+   {
+    "start": 8.5,
+    "end": 13.5,
+    "text": "De materialen voelen beter aan en de afwerking oogt een stuk luxueuzer.",
+    "ko": "소재가 더 좋아졌고 마감도 훨씬 고급스럽습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 19.0,
+    "text": "Nieuw zijn ook de geventileerde voorstoelen. Je kan ze koelen in de zomer en verwarmen in de winter.",
+    "ko": "통풍 앞시트도 새로 생겼습니다. 여름엔 시원하게 겨울엔 따뜻하게 할 수 있습니다."
+   },
+   {
+    "start": 19.0,
+    "end": 24.0,
+    "text": "Achterin krijgen de passagiers nu ook een scherm voor eigen entertainment en klimaatregeling.",
+    "ko": "뒷좌석 승객도 엔터테인먼트와 공조 제어를 위한 스크린을 갖추게 되었습니다."
+   },
+   {
+    "start": 24.0,
+    "end": 34.5,
+    "text": "Maar misschien nog het belangrijkste: de nieuwe Model Y is merkbaar stiller. Dankzij extra isolatie en verbeterd glas hoor je dus minder windgeluid en bandengeluid.",
+    "ko": "하지만 어쩌면 가장 중요한 점: 신형 모델 Y는 눈에 띄게 조용합니다. 추가 방음과 개선된 유리 덕분에 풍절음과 타이어 소음이 줄었습니다."
+   },
+   {
+    "start": 34.5,
+    "end": 40.5,
+    "text": "Het resultaat... De nieuwe Model Y voelt minder als een gadget op wielen, maar meer als een volwassen SUV.",
+    "ko": "그 결과... 신형 모델 Y는 바퀴 달린 가젯이 아니라 성숙한 SUV처럼 느껴집니다."
+   },
+   {
+    "start": 40.5,
+    "end": 46.5,
+    "text": "Je vindt ze beide in de showroom van Nikola Brussels en op AutoScout24.be.",
+    "ko": "두 차량 모두 니콜라 브뤼셀 쇼룸과 오토스카우트24에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "보통",
+    "summary": "신구 모델 Y 인테리어 차이점 암시"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 5.0,
+    "end": 34.5,
+    "speed": "보통",
+    "summary": "인테리어 소재, 통풍시트, 뒷좌석 화면, 정숙성 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 34.5,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "총평 및 쇼룸 방문 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초: 신구 모델 외관 대조와 함께 '안에서 느껴진다'는 훅 제시",
+   "자막 규칙: 단어 단위로 하이라이트되며 노란색/흰색 자막을 하단 20% 위치에 배치",
+   "부위 촬영 순서: 전면 외관 -> 운전석 탑승 -> 실내 소재 -> 통풍시트 -> 뒷좌석 화면 -> 측면/후면 외관",
+   "마무리: 차량에 대한 총평 후 쇼룸 및 플랫폼 정보 안내로 CTA 완료"
+  ]
+ }
+}

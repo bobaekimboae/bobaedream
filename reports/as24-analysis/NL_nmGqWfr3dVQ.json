@@ -1,0 +1,553 @@
+{
+ "country": "NL",
+ "title": "NL-067",
+ "url": "https://www.youtube.com/shorts/nmGqWfr3dVQ",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4966,
+  "candidatesTokenCount": 4528,
+  "totalTokenCount": 9494,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3998
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.1,
+   "aspect": "9:16",
+   "car": "BMW M5 Touring",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.1,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.2,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.9,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.3,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 18.2,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 24.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.2,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 30.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 31.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.1,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 38.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.3,
+    "end": 39.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 43.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "726 PK 🏁",
+    "ko": "726 마력 🏁",
+    "kind": "숫자 사양",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "726 PK",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.0,
+    "text": "BMW M5 TOURING",
+    "ko": "BMW M5 투어링",
+    "kind": "제목",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW M5 TOURING",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 8.7,
+    "text": "DIT IS DE\nULTIEME FAMILIE SPORTAUTO\nVOOR WIE NIETS\nMINDER WIL DAN\nTOP PRESTATIES ✅",
+    "ko": "이것은 최고의 패밀리 스포츠카입니다. 타협 없는 최고 성능을 원하는 이들을 위해.",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TOP PRESTATIES",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.1,
+    "text": "TOP PRESTATIES ✅\nDAGELIJKSE BRUIKBAARHEID ✅",
+    "ko": "최고 성능 ✅\n일상적 실용성 ✅",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 12.1,
+    "text": "MET ZIJN KRACHTIGE\nV8 MOTOR ✅",
+    "ko": " 강력한 V8 엔진과 함께 ✅",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V8 MOTOR",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.9,
+    "text": "V8 MOTOR ✅\nINDRUKWEKKENDE KOPPEL ✅",
+    "ko": "V8 엔진 ✅\n인상적인 토크 ✅",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.3,
+    "text": "V8 MOTOR ✅\nINDRUKWEKKENDE KOPPEL ✅\nGEAVANCEERDE M-TECHNIEK ✅",
+    "ko": "V8 엔진 ✅\n인상적인 토크 ✅\n고급 M 기술 ✅",
+    "kind": "말 자막",
+    "y_pct": 83.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 18.2,
+    "text": "➡️ EXPLOSIEVE ACCELERATIE",
+    "ko": "➡️ 폭발적 가속력",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.8,
+    "text": "➡️ EXPLOSIEVE ACCELERATIE\n➡️ MEESLEPENDE SOUND",
+    "ko": "➡️ 폭발적 가속력\n➡️ 몰입감 넘치는 사운드",
+    "kind": "말 자막",
+    "y_pct": 83.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.9,
+    "text": "➡️ EXPLOSIEVE ACCELERATIE\n➡️ MEESLEPENDE SOUND\n➡️ DIRECT STUURGEVOEL",
+    "ko": "➡️ 폭발적 가속력\n➡️ 몰입감 넘치는 사운드\n➡️ 직관적인 조향 감각",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 26.2,
+    "text": "DAT IEDERE RIT\nVERANDERT IN EEN\nBELEVENIS",
+    "ko": "모든 주행을 모험으로 바꾸는",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BELEVENIS",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.1,
+    "text": "5 ZITPLAATSEN ✅\nGROTE BAGAGERUIMTE ✅",
+    "ko": "5인승 ✅\n넓은 트렁크 공간 ✅",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 33.2,
+    "text": "DEZE M5\nTOURING ZO BIJZONDER",
+    "ko": "이 M5 투어링이 특별한 이유",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "M5 TOURING",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 43.1,
+    "text": "AutoVentura\nAutoScout24.nl",
+    "ko": "오토벤투라\n오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "역동적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "726 pk heeft deze BMW M5 Touring.",
+    "ko": "726마력을 자랑하는 BMW M5 투어링입니다."
+   },
+   {
+    "start": 2.1,
+    "end": 4.0,
+    "text": "Dit is de ultieme familie sportauto voor wie niets minder wil dan top prestaties.",
+    "ko": "타협 없는 최고 성능을 원하는 이를 위한 최고의 패밀리 스포츠카입니다."
+   },
+   {
+    "start": 8.7,
+    "end": 12.1,
+    "text": "Met zijn krachtige V8 motor, indrukwekkende koppel en geavanceerde M-techniek...",
+    "ko": "강력한 V8 엔진, 인상적인 토크, 고급 M 기술로..."
+   },
+   {
+    "start": 16.3,
+    "end": 23.9,
+    "text": "levert hij explosieve acceleratie, meeslepende sound en direct stuurgevoel dat iedere rit verandert in een belevenis.",
+    "ko": "폭발적인 가속력, 몰입감 넘치는 사운드, 모든 주행을 모험으로 바꾸는 직관적인 조향 감각을 제공합니다."
+   },
+   {
+    "start": 24.8,
+    "end": 29.5,
+    "text": "Maar tegelijkertijd heb je gewone 5 zitplaatsen, een grote bagageruimte en alle comfort om er iedere dag mee te rijden.",
+    "ko": "하지만 동시에 5인승 좌석과 넓은 트렁크 공간, 매일 탈 수 있는 편안함까지 갖추고 있습니다."
+   },
+   {
+    "start": 33.2,
+    "end": 43.1,
+    "text": "Ben je benieuwd naar het bouwjaar, de prijs en de kilometerstand van deze auto? Kijk even in de beschrijving of AutoScout24.nl",
+    "ko": "이 차량의 연식, 가격, 주행 거리가 궁금하신가요? 설명란이나 AutoScout24.nl을 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "빠름",
+    "summary": "726마력 스펙 강조 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.1,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "차량명 및 컨셉 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 8.7,
+    "end": 28.1,
+    "speed": "빠름",
+    "summary": "엔진, 주행 성능, 실용성 강조"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 28.1,
+    "end": 43.1,
+    "speed": "빠름",
+    "summary": "가격/연식 확인 안내 및 플랫폼 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량의 핵심 스펙(마력 등)을 노란색 배경 자막으로 강렬하게 띄워 시선을 사로잡는다.",
+   "평균 컷 길이는 1~2초로 매우 짧게 유지하여 지루할 틈을 주지 않는다.",
+   "자막은 화면 하단에 위치하며 체크무늬 이모지(✅)나 화살표(➡️)를 적극 활용해 가독성을 높인다.",
+   "핵심 키워드나 스펙 수치는 노란색 상자 배경의 자막으로 강조한다.",
+   "프레젠터(진행자)가 직접 차 안팎을 오가며 설명하는 현장감 있는 구성 방식을 취한다.",
+   "차량의 외관, 실내, 계기판, 시트 등을 짧게 나누어 교차 편집한다.",
+   "마지막에는 상세 정보 확인 방법과 중고차 플랫폼(AutoScout24)을 안내하며 CTA(행동 유도)로 마무리한다."
+  ]
+ }
+}

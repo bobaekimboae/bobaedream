@@ -1,0 +1,485 @@
+{
+ "country": "NL",
+ "title": "NL-066",
+ "url": "https://www.youtube.com/shorts/GPTafwK5DZs",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4619,
+  "candidatesTokenCount": 4622,
+  "totalTokenCount": 9241,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3651
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41.5,
+   "aspect": "9:16",
+   "car": "Lynk & Co 01",
+   "format": "차 소개/가격 공개/정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.7,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 14.1,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 19.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.5,
+    "part": "외관 전면",
+    "camera": "바로 컷",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 41.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "EEN AANTAL JAAR",
+    "ko": "몇 년 전에는",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.4,
+    "text": "MENSEN NOG NOOIT",
+    "ko": "많은 사람들이 전혀",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 3.7,
+    "text": "LYNK & CO",
+    "ko": "링크앤코를",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "MAAR NU ZIE",
+    "ko": "못 들어봤지만 지금은",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "IN DEZE VIDEO",
+    "ko": "이 영상에서",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.0,
+    "text": "IS BEGONNEN",
+    "ko": "시작되었습니다",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.5,
+    "text": "DE AUTO'S ALLEEN",
+    "ko": "차를 판매하기만",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 19.5,
+    "text": "LEASECONTRACT OF GROTE",
+    "ko": "리스 계약이나 큰",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 24.5,
+    "text": "AUTO'S OP DE",
+    "ko": "중고차 시장에",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.8,
+    "text": "PLUG-IN HYBRIDE ✓",
+    "ko": "플러그인 하이브리드 ✓",
+    "kind": "숫자 사양",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.8,
+    "text": "2023",
+    "ko": "2023",
+    "kind": "숫자 사양",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "56.000 KM",
+    "ko": "56,000 km",
+    "kind": "숫자 사양",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.5,
+    "text": "€24.950",
+    "ko": "€24,950",
+    "kind": "가격",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "통통 튀는 배경음악",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 30,
+    "y_pct": 85,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "Een aantal jaar geleden hadden veel mensen nog nooit van Lynk & Co gehoord, maar nu zie je ze bijna overal. In deze video vertel ik je hoe dat kan.",
+    "ko": "몇 년 전에는 많은 사람들이 링크앤코를 전혀 몰랐지만, 지금은 거의 어디서나 볼 수 있습니다. 이 영상에서 그 이유를 알려드릴게요."
+   },
+   {
+    "start": 6.8,
+    "end": 9.7,
+    "text": "Het komt vooral door de manier waarop het merk is begonnen.",
+    "ko": "주로 브랜드가 시작된 방식 덕분입니다."
+   },
+   {
+    "start": 9.7,
+    "end": 14.1,
+    "text": "In plaats de auto's alleen te verkopen, bood Lynk & Co ze ook aan via een abonnement.",
+    "ko": "차를 판매하기만 하는 대신, 링크앤코는 구독 서비스를 통해서도 제공했습니다."
+   },
+   {
+    "start": 14.1,
+    "end": 19.8,
+    "text": "En daardoor stapten veel mensen zonder langdurig leasecontract of grote investering in een nieuwe auto.",
+    "ko": "그래서 많은 사람들이 장기 리스 계약이나 큰 투자 없이 새 차를 탈 수 있었습니다."
+   },
+   {
+    "start": 19.8,
+    "end": 24.0,
+    "text": "En inmiddels zijn veel van die auto's op de tweedehandsmarkt gekomen.",
+    "ko": "그리고 이제 그 차량들 중 다수가 중고차 시장에 나왔습니다."
+   },
+   {
+    "start": 24.0,
+    "end": 26.6,
+    "text": "Net zoals deze. Ik vertel je zo de prijs, maar eerst even iets anders.",
+    "ko": "이 차처럼요. 가격은 곧 알려드릴 테지만, 먼저 다른 이야기부터 할게요."
+   },
+   {
+    "start": 26.6,
+    "end": 31.8,
+    "text": "Het is een plug-in hybride, hij komt uit 2023 en heeft slechts 56.000 km gelopen.",
+    "ko": "플러그인 하이브리드이고, 2023년형이며, 주행거리는 불과 56,000km입니다."
+   },
+   {
+    "start": 31.8,
+    "end": 36.0,
+    "text": "En de prijs van deze Lynk & Co is €24.950.",
+    "ko": "그리고 이 링크앤코의 가격은 24,950유로입니다."
+   },
+   {
+    "start": 36.0,
+    "end": 41.5,
+    "text": "Je vindt hem in de showroom van Koole & Melse en natuurlijk op AutoScout24.nl.",
+    "ko": "Koole & Melse 전시장과 물론 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "링크앤코가 흔해진 이유에 대한 궁금증 유발"
+   },
+   {
+    "stage": "정보",
+    "start": 6.8,
+    "end": 26.6,
+    "speed": "빠름",
+    "summary": "구독 모델로 시작한 브랜드 배경 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 26.6,
+    "end": 31.8,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 방식 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 31.8,
+    "end": 35.5,
+    "speed": "빠름",
+    "summary": "가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 35.5,
+    "end": 41.5,
+    "speed": "빠름",
+    "summary": "판매처 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 왜요? 또는 궁금증을 자극하는 훅 질문을 던진다.",
+   "컷 평균 길이는 3~5초 이내로 빠르게 전환한다.",
+   "자막은 화면 하단 중앙에 노란색 또는 검정 상자 스타일로 띄운다.",
+   "가격이나 스펙(연식, 주행거리) 등장 시 노란색 박스 자막으로 시선을 끈다.",
+   "발표자가 직접 차를 가리키거나 타는 모션을 취하며 화면 역동성을 높인다.",
+   "차량 부위(전면, 측면, 실내, 트렁크)를 순서대로 빠르게 보여준다.",
+   "마지막에는 차량 전면을 배경으로 전시장 이름과 플랫폼 로고를 노출하며 끝낸다."
+  ]
+ }
+}

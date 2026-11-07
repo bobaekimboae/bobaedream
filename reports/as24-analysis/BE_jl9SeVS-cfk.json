@@ -1,0 +1,470 @@
+{
+ "country": "BE",
+ "title": "BE-067",
+ "url": "https://www.youtube.com/shorts/jl9SeVS-cfk",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5241,
+  "candidatesTokenCount": 4047,
+  "totalTokenCount": 9288,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4273
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.5,
+   "aspect": "9:16",
+   "car": "Tesla Model Y",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 14.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 23.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.7,
+    "end": 30.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 36.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 41.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 46.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Tesla Model Y\nWat is er veranderd?",
+    "ko": "테슬라 모델 Y - 무엇이 변했을까?",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Tesla Model Y",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Zie jij meteen",
+    "ko": "당신은 바로 보이나요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "welke van deze\n2 de allernieuwste\nTesla Model Y is",
+    "ko": "이 두 대 중 무엇이 가장 최신 테슬라 모델 Y인지",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "text": "op het eerste gezicht\nlijken ze wel heel identiek",
+    "ko": "얼핏 보면 완전히 똑같아 보이지만",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 14.1,
+    "text": "Vooraan krijgt de nieuwe Model Y\neen volledige lichtbalk\ndie over de hele voorbumper loopt.",
+    "ko": "전면부에는 신형 모델 Y가 전체 전면 범퍼를 가로지르는 완전한 라이트바를 갖추었습니다.",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.8,
+    "text": "✔ Modernere uitstraling",
+    "ko": "✔ 더 모던한 외관",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Modernere",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 23.5,
+    "text": "Achteraan zien we opnieuw\neen doorlopende lightsignatuur\nwaardoor de auto\nbreder en futuristischer oogt.",
+    "ko": "후면부에서는 다시 한번 이어지는 라이트 시그니처로 차량이 더 넓고 미래지향적으로 보입니다.",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.7,
+    "text": "Daarnaast zijn ook de\naerodynamische details verbeterd,",
+    "ko": "또한 공기역학적 디테일도 개선되었습니다.",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.7,
+    "end": 30.0,
+    "text": "Mooier\nLager verbruik",
+    "ko": "더 멋지게\n더 낮은 연비(전비)",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Lager",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 36.2,
+    "text": "Kort samengevat\nhet is de herkenbare Model Y\nmaar met een\nMooiere Frissere Premium look",
+    "ko": "요약하자면, 친숙한 모델 Y이지만 더 멋지고 신선하며 프리한 룩입니다.",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Mooiere",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 41.0,
+    "text": "Is de\nnieuwer variant mooier\nof gaat jouw\nvoorkeur toch nog\nnaar het oudere model",
+    "ko": "신형이 더 예쁘신가요, 아니면 구형 모델이 더 취향이신가요?",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.5,
+    "text": "NIKOLA\nBRUSSELS",
+    "ko": "니콜라 브뤼셀",
+    "kind": "로고",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.5,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "통통 튀는 비트의 팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Zie jij meteen welke van deze twee de allernieuwste Tesla Model Y is?",
+    "ko": "이 두 대 중 어떤 게 가장 최신 테슬라 모델 Y인지 바로 아시겠어요?"
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "Op het eerste gezicht lijken ze wel heel identiek",
+    "ko": "얼핏 보기에는 완전히 똑같아 보이지만"
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "text": "maar Tesla heeft toch wat dingen aangepast.",
+    "ko": "테슬라가 몇 가지 부분을 수정했습니다."
+   },
+   {
+    "start": 9.2,
+    "end": 14.1,
+    "text": "Vooraan krijgt de nieuwe Model Y een volledige lichtbalk die over de hele voorbumper loopt.",
+    "ko": "앞쪽에는 신형 모델 Y가 전면 범퍼 전체를 가로지르는 풀 라이트바를 탑재했습니다."
+   },
+   {
+    "start": 14.1,
+    "end": 16.8,
+    "text": "Ook de bumper werd hertekend voor een modernere uitstraling.",
+    "ko": "범퍼도 더 모던한 느낌으로 재디자인되었습니다."
+   },
+   {
+    "start": 16.8,
+    "end": 23.5,
+    "text": "Achteraan zien we opnieuw een doorlopende lichtsignatuur waardoor de auto breder en futuristischer oogt.",
+    "ko": "뒤쪽에도 이어지는 라이트 시그니처가 적용되어 차가 더 넓고 미래지향적으로 보입니다."
+   },
+   {
+    "start": 23.5,
+    "end": 26.7,
+    "text": "Daarnaast zijn ook de aerodynamische details verbeterd,",
+    "ko": "게다가 공기역학적 디테일도 개선되어"
+   },
+   {
+    "start": 26.7,
+    "end": 30.0,
+    "text": "wat niet alleen mooier is, maar ook helpt tegen een lager verbruik.",
+    "ko": "보기에도 좋을 뿐더러 전비 향상에도 도움을 줍니다."
+   },
+   {
+    "start": 30.0,
+    "end": 36.2,
+    "text": "Kort samengevat, het is de herkenbare Model Y, maar met een mooiere, frissere en premium look.",
+    "ko": "간단히 말해, 익숙한 모델 Y에 더 멋지고 신선한 프리미엄 룩을 더했습니다."
+   },
+   {
+    "start": 36.2,
+    "end": 41.0,
+    "text": "Wat vind jij? Is de nieuwere variant mooier, of gaat jouw voorkeur toch nog naar het oudere model?",
+    "ko": "여러분의 생각은 어떠신가요? 신형이 더 예쁜가요, 아니면 구형 모델이 더 취향이신가요?"
+   },
+   {
+    "start": 41.0,
+    "end": 46.5,
+    "text": "Je vindt ze beide in de showroom van Nikola Brussels en op AutoScout24.be",
+    "ko": "두 모델 모두 니콜라 브뤼셀 쇼룸과 오토스카우트24에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "신형과 구형 모델 Y 비교 질문"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 6.8,
+    "end": 30.0,
+    "speed": "빠름",
+    "summary": "전면부, 후면부, 공기역학적 변경점 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 30.0,
+    "end": 46.5,
+    "speed": "빠름",
+    "summary": "요약, 선호도 질문, 쇼룸 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 안에 질문을 던져 시청자의 이탈을 막고 훅을 걸어라.",
+   "2. 컷 평균 길이는 2~5초 사이로 매우 짧게 가져가 지루함을 없앤다.",
+   "3. 자막은 화면 중앙 하단에 배치하고, 핵심 키워드는 형광펜 배경 상자를 활용해 강조한다.",
+   "4. 진행자가 매 컷 직접 움직이며 공간감을 살리는 워킹 샷을 적극 활용한다.",
+   "5. 전면, 후면, 측면 순으로 차량 외관의 변화 포인트를 시각적으로 확실히 보여준다.",
+   "6. 밝고 경쾌한 팝 음악을 깔아 전체적인 템포를 살린다.",
+   "7. 마지막에는 장소와 중고차 플랫폼 로고를 띄워 행동을 유도한다."
+  ]
+ }
+}
