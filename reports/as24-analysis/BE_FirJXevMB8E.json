@@ -1,0 +1,11 @@
+{
+ "country": "BE",
+ "title": "마즈다 CX-80 (8.6만)",
+ "url": "https://www.youtube.com/shorts/FirJXevMB8E",
+ "model": "gemini-2.5-pro",
+ "fps": 2.0,
+ "usage": null,
+ "analysis": {
+  "error": "4번 모두 실패"
+ }
+}

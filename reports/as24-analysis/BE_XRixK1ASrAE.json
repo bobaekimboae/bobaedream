@@ -1,0 +1,11 @@
+{
+ "country": "BE",
+ "title": "첫 벌금 (174만)",
+ "url": "https://www.youtube.com/shorts/XRixK1ASrAE",
+ "model": "gemini-2.5-pro",
+ "fps": 2.0,
+ "usage": null,
+ "analysis": {
+  "error": "4번 모두 실패"
+ }
+}
