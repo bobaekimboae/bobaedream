@@ -1,0 +1,358 @@
+{
+ "country": "NL",
+ "title": "NL-064",
+ "url": "https://www.youtube.com/shorts/QIXggwNfBjg",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3420,
+  "candidatesTokenCount": 2834,
+  "totalTokenCount": 6254,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2452
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26,
+   "aspect": "9:16",
+   "car": "Porsche 911",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.0,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "€ 140.000",
+    "ko": "14만 유로",
+    "kind": "가격",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€ 140.000",
+    "sure": true
+   },
+   {
+    "start": 0.3,
+    "end": 1.5,
+    "text": "VOOR EEN",
+    "ko": "~를 위해",
+    "kind": "말 자막",
+    "y_pct": 82,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOOR EEN",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 2.6,
+    "text": "PORSCHE 911",
+    "ko": "포르쉐 911",
+    "kind": "키워드 스티커",
+    "y_pct": 82,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PORSCHE 911",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 11.2,
+    "text": "OPTIES OP DEZE\nAUTO KOSTEN\n€ 40.000",
+    "ko": "이 차의 옵션 가격만 4만 유로",
+    "kind": "가격",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 15,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€ 40.000",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "ACHTERASBESTURING",
+    "ko": "후륜 조향",
+    "kind": "키워드 스티커",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ACHTERASBESTURING",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.2,
+    "text": "FRONTLIFT",
+    "ko": "프론트 리프트",
+    "kind": "키워드 스티커",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FRONTLIFT",
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 17.5,
+    "text": "LED MATRIX KOPLAMPEN",
+    "ko": "LED 매트릭스 헤드램프",
+    "kind": "키워드 스티커",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LED MATRIX KOPLAMPEN",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.5,
+    "text": "7 VERSNELLINGEN",
+    "ko": "7단 수동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7 VERSNELLINGEN",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 105,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 22.0,
+    "end": 23.5,
+    "what": "위치 핀 마커 (AutoVentura)",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 35,
+    "y_pct": 80,
+    "entrance": "톡 튀어나옴",
+    "purpose": "딜러샵 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 30,
+    "y_pct": 75,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "140.000 euro voor een Porsche 911.",
+    "ko": "포르쉐 911 한 대에 14만 유로."
+   },
+   {
+    "start": 1.5,
+    "end": 7.5,
+    "text": "En zodra je de opties ziet, begrijp je direct waarom. En de meest speciale vertel ik je op het eind.",
+    "ko": "옵션을 보는 순간 그 이유를 바로 알게 됩니다. 가장 특별한 건 마지막에 알려드릴게요."
+   },
+   {
+    "start": 7.5,
+    "end": 11.5,
+    "text": "Alleen al de opties op deze auto kosten € 40.000.",
+    "ko": "이 차의 옵션 가격만 4만 유로입니다."
+   },
+   {
+    "start": 11.5,
+    "end": 17.5,
+    "text": "En dat zijn onder andere achterasbesturing, frontlift, de LED matrix koplampen.",
+    "ko": "후륜 조향, 프론트 리프트, LED 매트릭스 헤드램프 등이 포함됩니다."
+   },
+   {
+    "start": 17.5,
+    "end": 22.0,
+    "text": "Deze Porsche 911 is handgeschakeld met zeven versnellingen.",
+    "ko": "이 포르쉐 911은 7단 수동변속기 모델입니다."
+   },
+   {
+    "start": 22.0,
+    "end": 26.0,
+    "text": "En je vindt hem in de showroom van AutoVentura en natuurlijk op AutoScout24.nl",
+    "ko": "오토벤투라 쇼룸과 오토스카우트24에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "차량 가격과 차종 제시"
+   },
+   {
+    "stage": "차 소개/옵션",
+    "start": 3.0,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "고가의 옵션 내역(후륜조향, 리프트 등) 빠른 템포로 나열"
+   },
+   {
+    "stage": "특징",
+    "start": 17.5,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "수동변속기 특징 클로즈업 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 22.0,
+    "end": 26.0,
+    "speed": "빠름",
+    "summary": "판매처 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 안에 차량 가격과 핵심 매력 포인트를 시청각적으로 강력하게 제시한다.",
+   "2. 컷 평균 길이는 2~4초 내외로 매우 짧고 역동적으로 전환한다.",
+   "3. 자막은 화면 하단 중앙에 노란색 또는 검은색 박스 스타일을 활용해 시인성을 높인다.",
+   "4. 가격 공개나 핵심 반전 구간에는 돈 소리 등의 효과음을 매칭한다.",
+   "5. 옵션이나 특징 설명 시 관련 부위(휠, 라이트, 변속기 등)를 손으로 가리키며 다이나믹하게 촬영한다.",
+   "6. 촬영 순서는 전면 -> 후면 -> 휠/옵션 -> 실내 순으로 자연스럽게 이동한다.",
+   "7. 마지막에는 차량 판매 딜러샵과 플랫폼 로고를 노출하여 플랫폼 인지도와 행동 유도를 동시에 잡는다."
+  ]
+ }
+}

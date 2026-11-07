@@ -1,0 +1,563 @@
+{
+ "country": "NL",
+ "title": "NL-062",
+ "url": "https://www.youtube.com/shorts/yg_kBJBu29A",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5883,
+  "candidatesTokenCount": 4972,
+  "totalTokenCount": 10855,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4915
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 54.3,
+   "aspect": "9:16",
+   "car": "Renault Clio",
+   "format": "차 소개/이유 설명 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 5.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.4,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 15.1,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 18.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 22.9,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 26.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 27.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 33.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 35.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 40.1,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.1,
+    "end": 43.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 49.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 51.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "WAAROM KIEZEN ZOVEEL MENSEN VOOR EEN RENAULT CLIO",
+    "ko": "왜 이렇게 많은 사람들이 르노 클리오를 선택할까요?",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RENAULT CLIO",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 5.1,
+    "text": "DIT AL JAREN EEN VAN DE",
+    "ko": "이것은 수년 동안",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.8,
+    "text": "BEST VERKOCHTE AUTO'S VAN EUROPA",
+    "ko": "유럽에서 가장 많이 팔린 자동차 중 하나입니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BEST VERKOCHTE AUTO'S",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.4,
+    "text": "3 REDENEN EN DIE LAATSTE GAAT JE ECHT VERBAZEN",
+    "ko": "3가지 이유가 있으며 마지막 것은 당신을 정말 놀라게 할 것입니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERBAZEN",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 15.1,
+    "text": "IS DAT HIJ ONTZETTEND ZUINIG IS ✓ EN DAT BESPAART FLINK OP JE BRANDSTOFKOSTEN",
+    "ko": "첫째, 매우 경제적이라는 점입니다 ✓ 그리고 그것은 연료비를 크게 절약해 줍니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ONTZETTEND ZUINIG",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 18.2,
+    "text": "HIJ IS COMPACT DUS IDEAAL VOOR IN DE STAD",
+    "ko": "컴팩트해서 도심에 이상적입니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COMPACT",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 22.9,
+    "text": "WEL 5 DEUREN EN VAN BINNEN IS HIJ VERRASSEND RUIM DUS HIJ IS OOK NOG PRAKTISCH",
+    "ko": "5도어이고 내부가 의외로 넓어서 실용적이기도 합니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PRAKTISCH",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 27.5,
+    "text": "EN VEEL MENSEN DENKEN DAT DE CLIO ZO POPULAIR IS OMDAT HIJ VOORDELIG IS",
+    "ko": "그리고 많은 사람들은 클리오가 저렴해서 인기가 많다고 생각합니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOORDELIG",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 33.8,
+    "text": "MAAR DAT IS NIET ZO DE BELANGRIJKSTE REDEN IS DAT HIJ AL JAREN BEKEND STAAT OM ZIJN BETROUWBAARHEID ✓ EN ZIJN LAGE ONDERHOUDSKOSTEN ✓",
+    "ko": "하지만 그렇지 않습니다. 가장 중요한 이유는 수년간 알려진 신뢰성과 낮은 유지비 때문입니다 ✓",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BETROUWBAARHEID",
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 40.1,
+    "text": "EN DAAROM KIEZEN NIET ALLEEN PARTICULIEREN MAAR OOK ZAKELIJKE RIJDERS EN LEASEMAATSCHAPPIJEN MASSAAL VOOR DE CLIO",
+    "ko": "그렇기 때문에 개인뿐만 아니라 법인 운전자와 리스회사들도 대거 클리오를 선택합니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MASSAAL",
+    "sure": true
+   },
+   {
+    "start": 40.1,
+    "end": 43.1,
+    "text": "EN JUIUST DAT ZORGT ERVOOR DAT HIJ JAAR NA JAAR ZO GOED VERKOOPT",
+    "ko": "바로 그것이 매년 잘 팔리는 이유입니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZO GOED VERKOOPT",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 49.3,
+    "text": "DEZE KOMT UIT 2025 SLECHTS 20.000 KM EN HIJ KOST €19.900",
+    "ko": "이 차량은 2025년식, 주행거리 단 2만km이며 가격은 19,900유로입니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_transition": "none",
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€19.900",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 51.5,
+    "text": "DEZE STAAT IN DE SHOWROOM VAN AUTO KOESE",
+    "ko": "이 차량은 오토 쿠에세 전시장과",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTO KOESE",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.3,
+    "text": "EN NATUURLIJK OP AUTOSCOUT24.NL",
+    "ko": "물론 AutoScout24.nl에도 있습니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24.NL",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "corporate pop",
+   "bpm_est": 110,
+   "mood": "밝고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 51.5,
+    "end": 54.3,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 80.0,
+    "entrance": "바로 컷",
+    "purpose": "플랫폼 브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Waarom kiezen zoveel mensen voor een Renault Clio?",
+    "ko": "왜 이렇게 많은 사람들이 르노 클리오를 선택할까요?"
+   },
+   {
+    "start": 2.5,
+    "end": 6.8,
+    "text": "En waarom is dit al jaren één van de best verkochte auto's van Europa?",
+    "ko": "그리고 왜 이 차량은 수년 동안 유럽에서 가장 많이 팔린 자동차 중 하나일까요?"
+   },
+   {
+    "start": 6.8,
+    "end": 10.4,
+    "text": "Ik geef je drie redenen en die laatste gaat je echt verbazen, dus blijf even kijken.",
+    "ko": "세 가지 이유를 알려드릴게요. 마지막 것은 여러분을 정말 놀라게 할 테니 계속 시청해 주세요."
+   },
+   {
+    "start": 10.4,
+    "end": 15.1,
+    "text": "De eerste reden is dat hij ontzettend zuinig is en dat bespaart flink op je brandstofkosten.",
+    "ko": "첫 번째 이유는 엄청나게 경제적이라는 점이며 연료비를 크게 절약해 줍니다."
+   },
+   {
+    "start": 15.1,
+    "end": 18.2,
+    "text": "Hij is compact, dus ideaal voor in de stad.",
+    "ko": "컴팩트해서 도심에 이상적입니다."
+   },
+   {
+    "start": 18.2,
+    "end": 22.9,
+    "text": "Maar ja, wel 5 deuren en van binnen is hij verrassend ruim, dus hij is ook nog praktis.",
+    "ko": "하지만 5도어이고 내부가 의외로 넓어서 실용적이기까지 합니다."
+   },
+   {
+    "start": 22.9,
+    "end": 27.5,
+    "text": "En veel mensen denken dat de Clio zo populair is omdat hij voordelig is.",
+    "ko": "그리고 많은 사람들은 클리오가 저렴해서 인기가 많다고 생각합니다."
+   },
+   {
+    "start": 27.5,
+    "end": 33.8,
+    "text": "Maar dat is niet zo. De belangrijkste reden is dat hij al jaren bekend staat om zijn betrouwbaarheid en zijn lage onderhoudskosten.",
+    "ko": "하지만 그렇지 않습니다. 가장 중요한 이유는 수년간 알려진 신뢰성과 낮은 유지비 때문입니다."
+   },
+   {
+    "start": 33.8,
+    "end": 40.1,
+    "text": "En daarom kiezen niet alleen particulieren, maar ook zakelijke rijders en leasemaatschappijen massaal voor de Clio.",
+    "ko": "그렇기 때문에 개인뿐만 아니라 법인 운전자와 리스회사들도 대거 클리오를 선택합니다."
+   },
+   {
+    "start": 40.1,
+    "end": 43.1,
+    "text": "En juist dat zorgt ervoor dat hij jaar na jaar zo goed verkoopt.",
+    "ko": "바로 그것이 매년 이렇게 잘 팔리는 이유입니다."
+   },
+   {
+    "start": 43.1,
+    "end": 49.3,
+    "text": "Deze komt uit 2025, slechts 20.000 km en hij kost €19.900.",
+    "ko": "이 차량은 2025년식, 주행거리 단 2만km이며 가격은 19,900유로입니다."
+   },
+   {
+    "start": 49.3,
+    "end": 54.3,
+    "text": "Deze staat in de showroom van Auto Koese en natuurlijk op AutoScout24.nl.",
+    "ko": "이 차량은 오토 쿠에세 전시장과 물론 AutoScout24.nl에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.4,
+    "speed": "보통",
+    "summary": "클리오가 유럽 베스트셀러인 이유 3가지를 예고하며 시청 유지 유도"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 10.4,
+    "end": 27.5,
+    "speed": "보통",
+    "summary": "연비, 컴팩트한 크기, 5도어 실내 공간의 실용성 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 27.5,
+    "end": 43.1,
+    "speed": "보통",
+    "summary": "높은 신뢰성과 낮은 유지비가 인기 비결임을 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 43.1,
+    "end": 49.3,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 차량 가격(€19,900) 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 49.3,
+    "end": 54.3,
+    "speed": "보통",
+    "summary": "판매처(Auto Koese 및 AutoScout24) 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 호기심을 자극하는 질문형 훅과 이유 리스트 예고를 배치한다.",
+   "컷 평균 길이는 2~5초 사이로 역동적으로 전환한다.",
+   "자막은 화면 하단 중앙에 크고 굵은 노란색 테두리/흰색 텍스트 스타일로 가독성을 높인다.",
+   "핵심 키워드나 수치(RENAULT CLIO, 3 REDENEN, 연비, 가격 등)에 강조 효과를 준다.",
+   "장소 이동에 맞춰 외관 전면, 측면, 트렁크, 실내 순으로 부위를 자연스럽게 보여준다.",
+   "마지막에 구체적인 차량 연식, 주행거리, 가격 정보를 정확히 제시한다.",
+   "마무리 단계에서 판매처와 플랫폼 이름을 명확히 언급한다.",
+   "진행자가 화면에 직접 등장하여 설명하는 휴먼 브랜딩 방식을 사용한다."
+  ]
+ }
+}

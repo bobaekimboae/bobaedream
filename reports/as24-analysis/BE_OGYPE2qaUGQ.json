@@ -1,0 +1,294 @@
+{
+ "country": "BE",
+ "title": "BE-063",
+ "url": "https://www.youtube.com/shorts/OGYPE2qaUGQ",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3145,
+  "candidatesTokenCount": 2850,
+  "totalTokenCount": 5995,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2177
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24,
+   "aspect": "9:16",
+   "car": "Tesla Roadster",
+   "format": "정보/퀴즈",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 12.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "Wist jij dat op dit moment een Tesla rond de zon draait?",
+    "ko": "지금 이 순간에도 태양 주위를 도는 테슬라가 있다는 것 아시나요?",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 9.0,
+    "text": "In 2018 lanceerde de SpaceX de allereerste Falcon Heavy raket",
+    "ko": "2018년 스페이스X는 최초의 팰컨 헤비 로켓을 발사했습니다",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 14.0,
+    "text": "Als testlading stuurde Elon Musk zijn eigen Tesla Roadster de ruimte in",
+    "ko": "테스트 화물로 일론 머스크는 자신의 테슬라 로드스터를 우주로 보냈습니다",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "text": "Achter het stuur zit er een pop met de naam Starman",
+    "ko": "운전대 뒤에는 스타맨이라는 이름의 마네킹이 타고 있습니다",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "white",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "Starman",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "en op het dashboard staat de boodschap DON'T PANIC!",
+    "ko": "그리고 대시보드에는 '당황하지 마라!'라는 메시지가 적혀 있습니다",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "DON'T PANIC",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "text": "Zou jij er ook mee durven rijden als die ooit terug op aarde komt?",
+    "ko": "언젠가 지상에 다시 돌아온다면 당신도 이걸 운전해 보고 싶으신가요?",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 110,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 5.5,
+    "end": 8.0,
+    "what": "로켓 3D 그래픽 발사",
+    "is_3d": true,
+    "size_w_pct": 30,
+    "x_pct": 60,
+    "y_pct": 10,
+    "entrance": "옆에서 밀려옴",
+    "purpose": "우주 로켓 발사 시각화",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "Wist jij dat op dit moment een Tesla rond de zon draait?",
+    "ko": "지금 이 순간에도 태양 주위를 도는 테슬라가 있다는 것 아시나요?"
+   },
+   {
+    "start": 4.0,
+    "end": 9.0,
+    "text": "In 2018 lanceerde de SpaceX de allereerste Falcon Heavy raket",
+    "ko": "2018년 스페이스X는 최초의 팰컨 헤비 로켓을 발사했습니다"
+   },
+   {
+    "start": 9.0,
+    "end": 14.0,
+    "text": "Als testlading stuurde Elon Musk zijn eigen Tesla Roadster de ruimte in",
+    "ko": "테스트 화물로 일론 머스크는 자신의 테슬라 로드스터를 우주로 보냈습니다"
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "text": "Achter het stuur zit er een pop met de naam Starman",
+    "ko": "운전대 뒤에는 스타맨이라는 이름의 마네킹이 타고 있습니다"
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "en op het dashboard staat de boodschap DON'T PANIC!",
+    "ko": "그리고 대시보드에는 '당황하지 마라!'라는 메시지가 적혀 있습니다"
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "text": "Zou jij er ook mee durven rijden als die ooit terug op aarde komt?",
+    "ko": "언젠가 지상에 다시 돌아온다면 당신도 이걸 운전해 보고 싶으신가요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "태양 주위를 도는 테슬라에 대한 질문으로 시선을 끔"
+   },
+   {
+    "stage": "사양",
+    "start": 4.0,
+    "end": 14.0,
+    "speed": "빠름",
+    "summary": "2018년 팰컨 헤비 로켓과 일론 머스크의 테슬라 로드스터 발사 설명"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 14.0,
+    "end": 20.0,
+    "speed": "빠름",
+    "summary": "스타맨 마네킹과 대시보드 문구 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 20.0,
+    "end": 24.0,
+    "speed": "빠름",
+    "summary": "지구에 돌아오면 운전할 것인지 시청자에게 질문"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 호기심을 유발하는 질문형 훅으로 시작한다.",
+   "진행자가 차량 전시장을 걸어 다니며 직접 말하는 방식으로 현장감을 높인다.",
+   "자막은 화면 하단 중앙에 배치하고 한 단어씩 색상이 바뀌거나 텍스트가 순차 등장한다.",
+   "중요한 키워드(Starman, DON'T PANIC)에는 노란색 배경 상자나 형광펜 효과를 준다.",
+   "스토리 전개에 맞추어 관련 3D 그래픽(로켓 등)을 화면에 자연스럽게 합성한다.",
+   "차량 외부 전시장 소개에서 시작해 실내(운전석, 대시보드) 클로즈업 순으로 촬영한다.",
+   "마지막에는 시청자의 참여와 댓글을 유도하는 질문으로 영상을 끝맺는다."
+  ]
+ }
+}

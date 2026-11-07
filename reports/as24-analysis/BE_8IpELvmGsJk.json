@@ -1,0 +1,436 @@
+{
+ "country": "BE",
+ "title": "BE-060",
+ "url": "https://www.youtube.com/shorts/8IpELvmGsJk",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4702,
+  "candidatesTokenCount": 3372,
+  "totalTokenCount": 8074,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3734
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41,
+   "aspect": "9:16",
+   "car": "BMW M3 Touring",
+   "format": "차 소개 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4,
+    "end": 7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7,
+    "end": 12,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12,
+    "end": 17,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17,
+    "end": 20,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20,
+    "end": 22,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22,
+    "end": 27,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27,
+    "end": 30,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30,
+    "end": 33,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33,
+    "end": 36,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36,
+    "end": 41,
+    "part": "사람",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 4,
+    "text": "BMW Individual",
+    "ko": "BMW 인디비주얼",
+    "kind": "제목",
+    "y_pct": 22,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 4,
+    "end": 6,
+    "text": "Malachite Grun",
+    "ko": "말라카이트 그린",
+    "kind": "키워드 스티커",
+    "y_pct": 22,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 80,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Malachite",
+    "sure": true
+   },
+   {
+    "start": 14,
+    "end": 17,
+    "text": "Individual Malachite Green Metalic",
+    "ko": "인디비주얼 말라카이트 그린 메탈릭",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 90,
+    "tilt_deg": 2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Green",
+    "sure": true
+   },
+   {
+    "start": 17,
+    "end": 19,
+    "text": "BMW Individual programma",
+    "ko": "BMW 인디비주얼 프로그램",
+    "kind": "말 자막",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Individual",
+    "sure": true
+   },
+   {
+    "start": 19,
+    "end": 22,
+    "text": "BMW Individual",
+    "ko": "BMW 인디비주얼",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 23,
+    "end": 27,
+    "text": "✔ Volledig personaliseren",
+    "ko": "✔ 완벽한 개인화 맞춤",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "personaliseren",
+    "sure": true
+   },
+   {
+    "start": 30,
+    "end": 31,
+    "text": "2026",
+    "ko": "2026년식",
+    "kind": "숫자 사양",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2026",
+    "sure": true
+   },
+   {
+    "start": 31,
+    "end": 33,
+    "text": "6.211 KM",
+    "ko": "6,211 km",
+    "kind": "숫자 사양",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6.211",
+    "sure": true
+   },
+   {
+    "start": 34,
+    "end": 36,
+    "text": "€102.900",
+    "ko": "10만 2,900 유로",
+    "kind": "가격",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "102.900",
+    "sure": true
+   },
+   {
+    "start": 37,
+    "end": 39,
+    "text": "AUTO-POINT casier",
+    "ko": "오토포인트 카시에",
+    "kind": "로고",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "흰색",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "casier",
+    "sure": true
+   },
+   {
+    "start": 39,
+    "end": 41,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 자신감 있는 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 4,
+    "text": "Die diepe groene glans, het lijkt alsof die van kleur veranderت in het licht.",
+    "ko": "깊은 초록빛 광택, 빛에 따라 색이 변하는 것처럼 보입니다."
+   },
+   {
+    "start": 4,
+    "end": 7,
+    "text": "Dit is de kleur Malachite Grun.",
+    "ko": "이 색상은 말라카이트 그린입니다."
+   },
+   {
+    "start": 7,
+    "end": 12,
+    "text": "Malachite is groen mineraal de lak heeft een diepe bijna juweelachtige groene metalic glans.",
+    "ko": "말라카이트는 녹색 광물로, 도장은 깊고 보석 같은 녹색 메탈릭 광택을 띱니다."
+   },
+   {
+    "start": 12,
+    "end": 17,
+    "text": "BMW noemt deze kleur officieel Individual Malachite Green Metalic",
+    "ko": "BMW는 이 색상을 공식적으로 인디비주얼 말라카이트 그린 메탈릭이라 부릅니다."
+   },
+   {
+    "start": 17,
+    "end": 20,
+    "text": "via het BMW individual programma.",
+    "ko": "BMW 인디비주얼 프로그램을 통해서요."
+   },
+   {
+    "start": 20,
+    "end": 23,
+    "text": "BMW individual is het maatwerkprogramma van BMW",
+    "ko": "BMW 인디비주얼은 BMW의 맞춤 제작 프로그램입니다."
+   },
+   {
+    "start": 23,
+    "end": 27,
+    "text": "waarmee je je auto volledig kunt personaliseren ver voorbij de standaard opties.",
+    "ko": "표준 옵션을 훨씬 뛰어넘어 차량을 완전히 개인화할 수 있죠."
+   },
+   {
+    "start": 27,
+    "end": 31,
+    "text": "Deze BMW M3 touring komt uit 2026",
+    "ko": "이 BMW M3 투어링은 2026년식이며"
+   },
+   {
+    "start": 31,
+    "end": 34,
+    "text": "heeft 6.211 km gereden en hij kost 102.900 euro.",
+    "ko": "주행거리는 6,211km이고 가격은 10만 2,900유로입니다."
+   },
+   {
+    "start": 36,
+    "end": 41,
+    "text": "Je vindt hem in de showroom van Auto-Point Casier en op autoscout24.be",
+    "ko": "오토포인트 카시에 쇼룸과 autoscout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 4,
+    "speed": "빠름",
+    "summary": "차량의 독특한 그린 컬러 광택 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4,
+    "end": 27,
+    "speed": "보통",
+    "summary": "BMW 인디비주얼 말라카이트 그린 색상 및 프로그램 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 27,
+    "end": 36,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 판매 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 36,
+    "end": 41,
+    "speed": "빠름",
+    "summary": "전시장 위치 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 안에 차량 외관의 가장 매력적인 부분(광택)을 보여주며 시선을 끈다.",
+   "2. 컷 평균 길이는 2~4초로 매우 짧게 유지하여 지루함을 없앤다.",
+   "3. 자막은 노란색 배경의 형광펜 스타일 키워드 스티커를 화면 중앙 또는 하단에 적극 활용한다.",
+   "4. 핵심 키워드(색상명, 브랜드, 연식, 주행거리, 가격)는 반드시 별도 텍스트 스티커로 강조한다.",
+   "5. 촬영 순서는 전면 외관 -> 측후면 -> 실내 인테리어 -> 전면 외관(스펙 공개) -> 전시장 전경 순으로 진행한다.",
+   "6. 발표자가 직접 화면에 등장하여 걸으며 설명하는 역동적인 방식을 취한다.",
+   "7. 마지막에는 연식, 주행거리, 가격을 숫자로 차례대로 띄우며 정보 전달력을 높인다.",
+   "8. 마무리로 차량 판매처와 중고차 플랫폼(AutoScout24) 로고를 노출한다."
+  ]
+ }
+}
