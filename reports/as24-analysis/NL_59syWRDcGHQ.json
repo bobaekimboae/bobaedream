@@ -1,0 +1,452 @@
+{
+ "country": "NL",
+ "title": "NL-079",
+ "url": "https://www.youtube.com/shorts/59syWRDcGHQ",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3892,
+  "candidatesTokenCount": 4374,
+  "totalTokenCount": 8266,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2924
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 32.5,
+   "aspect": "9:16",
+   "car": "Porsche Macan 4",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 10.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.0,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 21.0,
+    "part": "시트",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 32.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "€ 98.840",
+    "ko": "98,840 유로",
+    "kind": "가격",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€ 98.840",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "text": "PORSCHE MACAN 4",
+    "ko": "포르쉐 마칸 4",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PORSCHE MACAN 4",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.5,
+    "text": "2024",
+    "ko": "2024년식",
+    "kind": "숫자 사양",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 8.0,
+    "text": "8.500 KM",
+    "ko": "8,500 킬로미터",
+    "kind": "숫자 사양",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "8.500 KM",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.0,
+    "text": "EEN BEETJE GROEN\nGIJSACHTIG MAAR ECHT\nSUPER MOOI",
+    "ko": "약간 초록빛이 감도는 회색이지만 정말 매우 예쁨",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 15,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "SUPER MOOI",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.0,
+    "text": "HIER IN DE BINNENKANT",
+    "ko": "여기 안쪽에도",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "BINNENKANT",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 21.0,
+    "text": "ACHTIENVOUDIGE\nVERSTELBARE STOELEN",
+    "ko": "18방향 전동 조절 시트",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 15,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "ACHTIENVOUDIGE",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "text": "OFFROAD DESIGN PAKKET ✓",
+    "ko": "오프로드 디자인 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OFFROAD DESIGN PAKKET",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.0,
+    "text": "21 INCH VELGEN ✓",
+    "ko": "21인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "21 INCH VELGEN",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "text": "MATRIX KOPLAMPEN ✓",
+    "ko": "매트릭스 헤드램프",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MATRIX KOPLAMPEN",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "톡",
+    "event": "모델명 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.0,
+    "type": "톡",
+    "event": "연식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "톡",
+    "event": "주행거리 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "통통 튀는 비트의 업템포 팝/힙합",
+   "bpm_est": 120,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 29.5,
+    "end": 32.5,
+    "what": "AutoScout24 로고/텍스트 노란색 뱃지",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 35,
+    "y_pct": 85,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜드 및 중고차 매물 출처 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "98.840 euro kost deze Porsche Macan 4.",
+    "ko": "98,840유로에 이 포르쉐 마칸 4를 만나실 수 있습니다."
+   },
+   {
+    "start": 4.0,
+    "end": 7.5,
+    "text": "Hij komt uit 2024, heeft 8.500 km gelopen.",
+    "ko": "2024년식이고 주행거리는 8,500km입니다."
+   },
+   {
+    "start": 7.5,
+    "end": 10.0,
+    "text": "In deze video vertel ik je wat meer over deze auto.",
+    "ko": "이번 영상에서 이 차에 대해 더 자세히 소개해 드릴게요."
+   },
+   {
+    "start": 10.0,
+    "end": 14.0,
+    "text": "En die kleur, ik vind hem een beetje groen, grijsachtig maar echt super mooi.",
+    "ko": "그리고 색상도 초록빛과 회색빛이 오묘하게 섞여서 정말 너무 예뻐요."
+   },
+   {
+    "start": 14.0,
+    "end": 17.0,
+    "text": "En die groenige kleur zie je ook terug hier in de binnenkant.",
+    "ko": "그 초록빛 포인트는 실내 안쪽에서도 그대로 찾아볼 수 있습니다."
+   },
+   {
+    "start": 17.0,
+    "end": 21.0,
+    "text": "En ook deze achtyenvoudige verstelbare stoelen zijn in die mooie groene kleur.",
+    "ko": "그리고 이 18방향 전동 조절 시트 역시 멋진 그린 컬러로 되어 있어요."
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "text": "Hij heeft het offroad design pakket...",
+    "ko": "오프로드 디자인 패키지가 적용되어 있고..."
+   },
+   {
+    "start": 23.5,
+    "end": 25.0,
+    "text": "...en 21 inch velgen.",
+    "ko": "...21인치 휠이 탑재되어 있습니다."
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "text": "Ook heeft hij matrix koplampen.",
+    "ko": "또한 매트릭스 헤드램프도 적용되어 있죠."
+   },
+   {
+    "start": 27.5,
+    "end": 32.5,
+    "text": "Je vindt hem in de showroom van Pordon en natuurlijk op AutoScout24.nl.",
+    "ko": "포르돈 쇼룸과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "차량 전면과 함께 가격을 굵직하게 제시하며 시선 집중"
+   },
+   {
+    "stage": "사양",
+    "start": 4.0,
+    "end": 10.0,
+    "speed": "빠름",
+    "summary": "연식, 주행거리 등 핵심 제원 빠르게 공개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 10.0,
+    "end": 27.5,
+    "speed": "빠름",
+    "summary": "외관 컬러, 실내 시트, 오프로드 패키지, 휠, 헤드램프 등 옵션 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 27.5,
+    "end": 32.5,
+    "speed": "빠름",
+    "summary": "차량 위치 및 중고차 플랫폼 안내로 마무리"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 가격과 차량명을 큼직한 상자 자막으로 노출해 이탈을 방지함.",
+   "컷 평균 길이는 2~4초 내외로 매우 빠르게 전환하여 지루할 틈을 주지 않음.",
+   "말 자막은 하단 중앙에 배치하고 키워드만 흰색 또는 노란색으로 강조함.",
+   "핵심 옵션이 등장할 때마다 체크(✓) 기호가 포함된 노란색 박스 스티커를 띄움.",
+   "효과음은 자막이 톡 튀어나올 때 가벼운 팝업 사운드를 적극 활용함.",
+   "부위 촬영 순서는 전면(가격) -> 측면(제원) -> 실내 및 시트 -> 휠/헤드램프 순으로 이동함.",
+   "프레젠터(진행자)가 직접 차를 타거나 가리키며 걸으면서 역동적으로 설명함.",
+   "마지막에는 브랜드 쇼룸과 매물 플랫폼(AutoScout24)을 명확하게 언급하며 CTA로 연결함."
+  ]
+ }
+}

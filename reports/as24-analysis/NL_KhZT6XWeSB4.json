@@ -1,0 +1,319 @@
+{
+ "country": "NL",
+ "title": "NL-078",
+ "url": "https://www.youtube.com/shorts/KhZT6XWeSB4",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4522,
+  "candidatesTokenCount": 2601,
+  "totalTokenCount": 7123,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3554
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 39.5,
+   "aspect": "9:16",
+   "car": "Audi A6 Avant",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 16.5,
+    "part": "휠",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 21.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 39.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "WAAROM IK VOOR DEZE AUDI A6 AVANT ZOU KIEZEN",
+    "ko": "내가 이 아우디 A6 아반트를 선택하는 이유",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUDI A6 AVANT",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "text": "DE RUIMTE VAN EEN STATION MAAR DE LUXE WAAR DE A6 OM BEKEND STAAT",
+    "ko": "스테이션의 공간감에 A6 특유의 럭셔리함",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "STATION",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 16.5,
+    "text": "22 INCH VELGEN V",
+    "ko": "22인치 휠 V",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "초록색",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "22 INCH",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 21.0,
+    "text": "HYBRIDE V",
+    "ko": "하이브리드 V",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "초록색",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HYBRIDE",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "367 PK",
+    "ko": "367 마력",
+    "kind": "숫자 사양",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "367 PK",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 39.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트감 있는 팝",
+   "bpm_est": 120,
+   "mood": "세련된, 스포티한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Waarom ik voor deze Audi A6 Avant zou kiezen?",
+    "ko": "내가 이 아우디 A6 아반트를 선택하는 이유는?"
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "text": "Je hebt de ruimte van een station, maar de luxe waar de A6 om bekend staat.",
+    "ko": "스테이션의 넓은 공간과 A6 특유의 럭셔리함을 모두 갖췄기 때문이죠."
+   },
+   {
+    "start": 7.5,
+    "end": 11.0,
+    "text": "En die felblauwe kleur gecombineerd met zwarte accenten...",
+    "ko": "그리고 이 강렬한 블루 컬러에 블랙 악센트의 조합은..."
+   },
+   {
+    "start": 11.0,
+    "end": 16.5,
+    "text": "en deze 22 inch velgen afgewerkt met rode remklauwen maakt hem toch supersportief.",
+    "ko": "레드 캘리퍼가 적용된 22인치 휠까지 더해져 정말 스포티해 보입니다."
+   },
+   {
+    "start": 16.5,
+    "end": 21.0,
+    "text": "En het is een hybride dus je rijdt lekker zuinig, maar die motoren bij elkaar hebben 367 PK.",
+    "ko": "하이브리드라 연비도 좋지만, 두 엔진이 합쳐져 367마력을 발휘해요."
+   },
+   {
+    "start": 23.5,
+    "end": 28.0,
+    "text": "Ik zou het wel weten! En ik ben benieuwd: waarom zou jij voor deze Audi kiezen?",
+    "ko": "전 망설이지 않겠어요! 여러분은 왜 이 아우디를 선택하시겠어요?"
+   },
+   {
+    "start": 28.0,
+    "end": 39.5,
+    "text": "Als je meer informatie wil over het bouwjaar, kilometerstand en de prijs, check dan even de omschrijving!",
+    "ko": "연식, 주행거리, 가격 정보가 궁금하다면 설명란을 확인해보세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "이 차를 고른 이유 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 11.0,
+    "speed": "보통",
+    "summary": "공간, 럭셔리, 컬러 디자인 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 11.0,
+    "end": 23.5,
+    "speed": "빠름",
+    "summary": "22인치 휠, 하이브리드, 367마력 스펙 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 23.5,
+    "end": 39.5,
+    "speed": "보통",
+    "summary": "시청자 질문 및 설명란 유도, 플랫폼 로고"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 훅 질문을 던지고 큰 노란색 메인 자막을 띄워 시선을 잡는다.",
+   "컷 평균 길이는 2~4초로 짧게 유지해 지루함을 없앤다.",
+   "자막은 화면 하단 중앙에 배치하며 핵심 단어는 형광색이나 상자로 강조한다.",
+   "특징(휠, 하이브리드, 마력)을 말할 때 체크(V) 마크 스티커를 팝업으로 띄운다.",
+   "진행자가 직접 차량 부위(외관, 휠, 실내)를 손으로 가리키며 걸어가며 촬영한다.",
+   "배경 음악은 비트가 강한 트랙을 사용해 스포티한 분위기를 강조한다.",
+   "마지막에 플랫폼 로고를 노출하며 행동 유도(설명란 확인)로 끝낸다."
+  ]
+ }
+}

@@ -1,0 +1,724 @@
+{
+ "country": "BE",
+ "title": "BE-076",
+ "url": "https://www.youtube.com/shorts/8LQy_9u9j88",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5238,
+  "candidatesTokenCount": 5653,
+  "totalTokenCount": 10891,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4270
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.5,
+   "aspect": "9:16",
+   "car": "Fiat Topolino & BMW M3 Touring",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "part": "사람",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 19.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 28.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 46.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Perfecte strandauto?\nFIAT Topolino VS\nBMW M3 Touring\nMet welke auto",
+    "ko": "완벽한 해변용 자동차? 피아트 토폴리노 대 BMW M3 투어링. 어떤 차로",
+    "kind": "제목",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 15,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FIAT Topolino VS BMW M3 Touring",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "text": "het strand?",
+    "ko": "해변에 갈래?",
+    "kind": "말 자막",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "strand",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.0,
+    "text": "Fiat Topolino",
+    "ko": "피아트 토폴리노",
+    "kind": "키워드 스티커",
+    "y_pct": 23,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Fiat Topolino",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "text": "maximaal 45km/u en",
+    "ko": "최고속도 시속 45km 및",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "45km/u",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "je laadt hem\nop binnen 4",
+    "ko": "4시간 이내 충전",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "숫자 사양",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2025",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "€13.900",
+    "ko": "13,900유로",
+    "kind": "가격",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€13.900",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "text": "En heb je\nna een dagje strand",
+    "ko": "그리고 해변에서 보낸 하루 뒤",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "strand",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 19.0,
+    "text": "vieze voeten?\nDaar heeft deze\nTopolino\nook een oplossing voor",
+    "ko": "더러워진 발? 이 토폴리노에는 그에 대한 해결책도 있습니다",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "oplossing",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "M3\nTouring?",
+    "ko": "M3 투어링?",
+    "kind": "키워드 스티커",
+    "y_pct": 23,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "M3 Touring",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "Onder\nde kap ligt",
+    "ko": "본넷 아래에는",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "kap",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "text": "3L twin-turbo\nzes-in-라인",
+    "ko": "3리터 트윈터보 직렬 6기통",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3L",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 28.0,
+    "text": "530 PK\nen 650Nm koppel",
+    "ko": "530마력과 650Nm 토크",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "530 PK",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.0,
+    "text": "✅ 500L koffer\nruimte",
+    "ko": "500리터 트렁크 공간",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "500L",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "text": "en ruimte voor\nhet hele gezin",
+    "ko": "그리고 온 가족을 위한 공간",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "gezin",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.0,
+    "text": "Deze BMW M3\ntouring",
+    "ko": "이 BMW M3 투어링은",
+    "kind": "말 자막",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW M3",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.0,
+    "text": "2026",
+    "ko": "2026년식",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2026",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.0,
+    "text": "6.211 KM",
+    "ko": "6,211 km 주행",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6.211 KM",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "text": "€102.900",
+    "ko": "102,900유로",
+    "kind": "가격",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€102.900",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 42.5,
+    "end": 45.0,
+    "what": "AUTO-POINT casier 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 30,
+    "y_pct": 40,
+    "entrance": "페이드인",
+    "purpose": "딜러사 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 46.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 25,
+    "y_pct": 85,
+    "entrance": "페이드인",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Met welke auto ga jij naar het strand?",
+    "ko": "어떤 차를 타고 해변에 가시나요?"
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "text": "Kies jij voor de Fiat Topolino?",
+    "ko": "피아트 토폴리노를 선택하시겠습니까?"
+   },
+   {
+    "start": 3.0,
+    "end": 4.0,
+    "text": "Hij gaat maximaal 45km/u",
+    "ko": "최고속도는 시속 45km이며"
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "text": "en je laadt hem op binnen 4 uurtjes.",
+    "ko": "4시간 이내에 충전할 수 있습니다."
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "Hij komt uit 2025",
+    "ko": "2025년식이고"
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "text": "en hij kost €13.900.",
+    "ko": "가격은 13,900유로입니다."
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "En heb je na een dagje strand vieze voeten?",
+    "ko": "그리고 해변에서 하루 보낸 뒤 발이 더러워졌나요?"
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "text": "Daar heeft deze Topolino ook een oplossing voor.",
+    "ko": "이 토폴리노에는 그에 대한 해결책도 있습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 19.0,
+    "text": "Een kleine mini douche om je voeten af te spoelen.",
+    "ko": "발을 씻을 수 있는 작은 미니 샤워기죠."
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "Of kies je toch voor de M3 touring?",
+    "ko": "아니면 M3 투어링을 선택하시겠습니까?"
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "Onder de kap ligt een 3L twin-turbo zes-in-lijn",
+    "ko": "본넷 아래에는 3리터 트윈터보 직렬 6기통 엔진이 있고"
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "text": "met 530 pk en 650 Nm koppel.",
+    "ko": "530마력과 650Nm의 토크를 냅니다."
+   },
+   {
+    "start": 24.0,
+    "end": 28.0,
+    "text": "En tegelijkertijd heb je 500L aan kofferruimte",
+    "ko": "동시에 500리터의 트렁크 공간과"
+   },
+   {
+    "start": 28.0,
+    "end": 31.0,
+    "text": "en ruimte voor het hele gezin.",
+    "ko": "온 가족을 위한 공간이 있습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "text": "Deze BMW M3 touring komt uit 2026,",
+    "ko": "이 BMW M3 투어링은 2026년식이며"
+   },
+   {
+    "start": 33.0,
+    "end": 36.0,
+    "text": "heeft 6.211 km gereden",
+    "ko": "6,211km를 주행했고"
+   },
+   {
+    "start": 36.0,
+    "end": 37.0,
+    "text": "en hij kost €102.900.",
+    "ko": "가격은 102,900유로입니다."
+   },
+   {
+    "start": 37.0,
+    "end": 46.5,
+    "text": "Je vindt ze bij Auto-Point Casier en op AutoScout24.nl",
+    "ko": "오토포인트 카시에와 오토스카우트24에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.5,
+    "speed": "빠름",
+    "summary": "해변용 차 선택에 대한 질문으로 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.5,
+    "end": 19.0,
+    "speed": "빠름",
+    "summary": "피아트 토폴리노 스펙, 가격, 특수 기능(미니 샤워기) 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 19.0,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "BMW M3 투어링 스펙, 주행거리, 가격 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 42.0,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "딜러사 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 두 대의 차량을 대비시키는 질문과 메인 타이틀을 노출한다.",
+   "컷 평균 길이는 1~3초 내외로 매우 빠르게 전환하여 지루함을 없앤다.",
+   "자막은 화면 중앙 하단에 배치하며 노란색 박스 배경을 적극 활용한다.",
+   "핵심 스펙(마력, 가격, 연식, 주행거리)은 노란색 박스 강조 자막으로 표시한다.",
+   "진행자가 직접 차량 주위를 걸으며 손으로 가리키거나 기능을 직접 시연한다.",
+   "차량 부위 촬영은 전면, 실내, 후면, 트렁크, 엔진룸 순으로 직관적으로 보여준다.",
+   "마지막 화면에는 딜러사와 플랫폼 로고를 연이어 노출하여 브랜딩을 강화한다."
+  ]
+ }
+}

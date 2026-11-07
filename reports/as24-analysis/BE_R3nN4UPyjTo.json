@@ -1,0 +1,457 @@
+{
+ "country": "BE",
+ "title": "BE-079",
+ "url": "https://www.youtube.com/shorts/R3nN4UPyjTo",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5079,
+  "candidatesTokenCount": 4436,
+  "totalTokenCount": 9515,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4111
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 45.4,
+   "aspect": "9:16",
+   "car": "BMW M3 투어링",
+   "format": "차 소개/퀴즈/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 7.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 11.2,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 27.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 34.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.1,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 39.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 45.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Raad het aantal PK's\nKun jij raden hoeveel PK deze M3 touring heeft?",
+    "ko": "마력 수를 맞춰보세요\n이 M3 투어링이 몇 마력인지 맞출 수 있나요?",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA33",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 11.2,
+    "text": "3L twin-turbo zes-in-lijn",
+    "ko": "3리터 트윈터보 직렬 6기통",
+    "kind": "숫자 사양",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3L",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.3,
+    "text": "0-100 in 3,6 seconden",
+    "ko": "제로백 3.6초",
+    "kind": "숫자 사양",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA33",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3,6",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 15.6,
+    "text": "... PK",
+    "ko": "... 마력",
+    "kind": "숫자 사양",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA33",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PK",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "650 Nm koppel",
+    "ko": "토크 650Nm",
+    "kind": "숫자 사양",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "650",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "text": "✅ 500L koffer",
+    "ko": "✅ 500L 트렁크",
+    "kind": "숫자 사양",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA33",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "500L",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.1,
+    "text": "2026",
+    "ko": "2026",
+    "kind": "숫자 사양",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2026",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 39.0,
+    "text": "6.211 KM",
+    "ko": "6,211 km",
+    "kind": "숫자 사양",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA33",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6.211",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.5,
+    "text": "€102.900",
+    "ko": "102,900 유로",
+    "kind": "가격",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA33",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€102.900",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.1,
+    "type": "엔진음",
+    "event": "배기음 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "type": "엔진음",
+    "event": "배기음 가속 소리 반복",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "역동적/리드미컬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.0,
+    "end": 7.0,
+    "what": "스피커 아이콘 3개",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배기음 강조",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.0,
+    "what": "AUTO-POINT casier 로고",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 65.0,
+    "entrance": "바로 컷",
+    "purpose": "전시장 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Kun jij raden hoeveel PK deze M3 touring heeft?",
+    "ko": "이 M3 투어링이 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 7.9,
+    "end": 11.2,
+    "text": "Onder de kap ligt een 3L twin-turbo zes-in-lijn",
+    "ko": "보닛 아래에는 3리터 트윈터보 직렬 6기통이 있습니다"
+   },
+   {
+    "start": 11.2,
+    "end": 14.3,
+    "text": "goed van 0 tot 100 in 3,6 seconden",
+    "ko": "제로백 3.6초"
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "650 Nm koppel",
+    "ko": "토크 650Nm"
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "text": "en tegelijkertijd heb je 500L aan kofferruimte en ruimte voor het hele gezin",
+    "ko": "동시에 500리터 트렁크 공간과 온 가족을 위한 공간이 있습니다"
+   },
+   {
+    "start": 21.0,
+    "end": 27.8,
+    "text": "Dus je kan de kinderen naar school brengen of lekker gaan shoppen en je krijgt er een leuk geluid bij",
+    "ko": "그래서 아이들을 학교에 데려다주거나 쇼핑을 갈 수 있고 멋진 배기음도 얻을 수 있죠"
+   },
+   {
+    "start": 31.9,
+    "end": 41.5,
+    "text": "Deze BMW M3 touring komt uit 2026, heeft 6.211 km gereden en hij kostet €102.900",
+    "ko": "이 BMW M3 투어링은 2026년식이며 6,211km를 달렸고 가격은 102,900유로입니다"
+   },
+   {
+    "start": 41.5,
+    "end": 45.4,
+    "text": "Je vindt hem in de showroom van Auto-Point casier en op AutoScout24.be",
+    "ko": "오토포인트 카지에 전시장과 AutoScout24.be에서 만나보실 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "마력 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 7.9,
+    "speed": "빠름",
+    "summary": "배기음 사운드 재생"
+   },
+   {
+    "stage": "사양",
+    "start": 7.9,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "엔진, 제로백, 토크 스펙 공개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 17.5,
+    "end": 31.9,
+    "speed": "보통",
+    "summary": "트렁크 용량 및 패밀리카 실용성 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 31.9,
+    "end": 41.5,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 41.5,
+    "end": 45.4,
+    "speed": "보통",
+    "summary": "전시장 위치 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초: 마력 맞추기 퀴즈 형태의 질문으로 시청자 참여 유도",
+   "컷 평균 길이: 2~4초 내외로 빠르게 전환하여 지루함 방지",
+   "자막 규칙: 노란색 형광펜 또는 검은색 상자 배경을 사용하여 가독성 확보",
+   "효과음: 배기음 구간에 볼륨감 있는 엔진 소리와 스피커 아이콘 그래픽 활용",
+   "아이콘: 주요 포인트(배기음, 체크 아이콘 등)에 스티커 형태 그래픽 추가",
+   "부위 촬영 순서: 후면 -> 엔진룸 -> 실내 -> 전면 -> 트렁크 순으로 다채롭게 구성",
+   "마무리: 차년식, 주행거리, 가격을 명확히 제시한 뒤 전시장 및 플랫폼 안내로 CTA 완료"
+  ]
+ }
+}

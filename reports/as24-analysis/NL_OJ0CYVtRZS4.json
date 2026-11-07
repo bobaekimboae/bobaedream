@@ -1,0 +1,474 @@
+{
+ "country": "NL",
+ "title": "NL-075",
+ "url": "https://www.youtube.com/shorts/OJ0CYVtRZS4",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4621,
+  "candidatesTokenCount": 3751,
+  "totalTokenCount": 8372,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3653
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.5,
+   "aspect": "9:16",
+   "car": "BMW X1",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 9.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 20.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 27.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "BMW X1",
+    "ko": "BMW X1",
+    "kind": "제목",
+    "y_pct": 18,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D4380D",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW X1",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 4.5,
+    "text": "DE KLEINSTE SUV VAN BMW",
+    "ko": "BMW의 가장 작은 SUV",
+    "kind": "말 자막",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KLEINSTE",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 9.0,
+    "text": "MAAR DAT VALT REUZE MEE",
+    "ko": "하지만 생각보다 훨씬 큽니다",
+    "kind": "말 자막",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REUZE MEE",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 12.8,
+    "text": "HET BOUWJAAR DE PRIJS EN DE KILOMETERSTAND",
+    "ko": "연식, 가격, 주행거리는 설명란에",
+    "kind": "말 자막",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PRIJS",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.0,
+    "text": "491L",
+    "ko": "491리터",
+    "kind": "숫자 사양",
+    "y_pct": 32,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "491L",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "EEN KINDERWAGEN KOFFERS OF GEWOON HEEL VEEL BOODSCHAPPEN",
+    "ko": "유모차, 여행 가방 또는 엄청 많은 장바구니",
+    "kind": "말 자막",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KINDERWAGEN",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "text": "MAAR OOK ACHTERIN IS DEZE AUTO GEWOON RUIM",
+    "ko": "하지만 뒷좌석도 이 차는 널찍합니다",
+    "kind": "말 자막",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RUIM",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 27.5,
+    "text": "DUS KLEIN IS DIE ZEKER NIET EN HIJ IS OOK LUXE",
+    "ko": "그러니 절대 작지 않고 고급스럽기도 합니다",
+    "kind": "말 자막",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUXE",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "KIJK HOE MOOI DAT DAT GROTE SCHERM IS",
+    "ko": "저 큰 화면이 얼마나 멋진지 보세요",
+    "kind": "말 자막",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GROTE SCHERM",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.0,
+    "text": "HYBRIDE 326 PK",
+    "ko": "하이브리드, 326마력",
+    "kind": "숫자 사양",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "326 PK",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.0,
+    "text": "326 PK",
+    "ko": "326마력",
+    "kind": "숫자 사양",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 9,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FAAD14",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "326 PK",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.0,
+    "text": "VERKOCHT",
+    "ko": "판매 완료",
+    "kind": "키워드 스티커",
+    "y_pct": 40,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D4380D",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERKOCHT",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FAAD14",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "통통 튀는 비트의 일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "De baby X1",
+    "ko": "베이비 X1"
+   },
+   {
+    "start": 1.2,
+    "end": 4.5,
+    "text": "is de kleinste SUV van BMW.",
+    "ko": "BMW의 가장 작은 SUV입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 9.0,
+    "text": "Dus dan denk je misschien: die is niet zo groot, maar dat valt reuze mee.",
+    "ko": "그래서 여러분은 '별로 안 크겠네' 생각하시겠지만, 생각보다 훨씬 큽니다."
+   },
+   {
+    "start": 9.0,
+    "end": 12.8,
+    "text": "Het bouwjaar, de prijs en de kilometerstand vind je in de omschrijving.",
+    "ko": "연식, 가격, 주행거리는 설명란에 있습니다."
+   },
+   {
+    "start": 12.8,
+    "end": 16.0,
+    "text": "Een kofferruimte van 491 liter.",
+    "ko": "491리터의 트렁크 공간."
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "Groot genoeg voor een kinderwagen, koffers, of gewoon heel veel boodschappen.",
+    "ko": "유모차, 여행 가방, 혹은 아주 많은 장바구니가 들어가기에 충분히 큽니다."
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "text": "Ik liet je net de kofferruimte zien, maar ook achterin is deze auto gewoon ruim.",
+    "ko": "방금 트렁크를 보여드렸지만, 뒷좌석도 이 차는 정말 널찍합니다."
+   },
+   {
+    "start": 24.0,
+    "end": 27.5,
+    "text": "Dus klein is hij zeker niet, en hij is ook luxe.",
+    "ko": "그러니 절대 작지 않고, 게다가 고급스럽습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "Kijk hoe mooi dat dat grote scherm is.",
+    "ko": "저 커다란 화면이 얼마나 멋진지 보세요."
+   },
+   {
+    "start": 29.5,
+    "end": 33.0,
+    "text": "En hij is ook nog zuinig, want het is een hybride en die heeft meer dan 326 pk.",
+    "ko": "게다가 연비도 좋습니다. 하이브리드 차량이며 326마력이 넘거든요."
+   },
+   {
+    "start": 33.0,
+    "end": 36.0,
+    "text": "Nou, ik ben verkocht.",
+    "ko": "자, 전 이 차에 반했습니다."
+   },
+   {
+    "start": 36.0,
+    "end": 40.5,
+    "text": "En je vindt hem natuurlijk op AutoScout24.nl",
+    "ko": "그리고 이 차는 당연히 AutoScout24.nl에서 찾으실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "가장 작은 SUV라는 반전을 제시하는 도입"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 12.8,
+    "speed": "빠름",
+    "summary": "크기에 대한 오해를 풀고 기본 정보 안내"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 12.8,
+    "end": 33.0,
+    "speed": "빠름",
+    "summary": "트렁크, 실내 공간, 대형 스크린, 하이브리드 성능 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 33.0,
+    "end": 40.5,
+    "speed": "빠름",
+    "summary": "마력 강조 및 플랫폼 브랜드 노출로 마무리"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량 이름과 핵심 특징(가장 작은 SUV)을 강렬한 훅으로 제시한다.",
+   "평균 컷 길이는 3~4초 내외로 빠르게 전환하여 지루함을 없앤다.",
+   "자막은 화면 중앙 상단에 흰색 고딕체로 띄우고 키워드만 색상 박스로 강조한다.",
+   "효과음 대신 활기찬 일렉트로닉 팝 음악을 깔아 리듬감을 부여한다.",
+   "트렁크, 실내, 계기판 순으로 공간을 직접 체험하며 보여준다.",
+   "마지막 화면에는 플랫폼 로고를 노출하여 자연스럽게 중고차 검색을 유도한다."
+  ]
+ }
+}

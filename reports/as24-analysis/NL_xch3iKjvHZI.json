@@ -1,0 +1,488 @@
+{
+ "country": "NL",
+ "title": "NL-077",
+ "url": "https://www.youtube.com/shorts/xch3iKjvHZI",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3347,
+  "candidatesTokenCount": 4847,
+  "totalTokenCount": 8194,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2379
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.5,
+   "aspect": "9:16",
+   "car": "Citroën C1",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.9,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 10.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 26.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "WAAROM KIEZEN ZOVEEL MENSEN VOOR EEN",
+    "ko": "왜 많은 사람들이 선택할까?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.0,
+    "text": "CITROEN C1",
+    "ko": "시트로엥 C1",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.9,
+    "text": "DAT IS EIGENLIJK HEEL SIMPEL",
+    "ko": "사실 아주 간단하다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.0,
+    "text": "DE C1 IS NAMELIJK",
+    "ko": "C1은 바로",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 6.6,
+    "text": "COMPACT ✓",
+    "ko": "컴팩트 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COMPACT",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.2,
+    "text": "ZUINIG ✓",
+    "ko": "연비 좋음 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZUINIG",
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 7.8,
+    "text": "BETAALBAAR",
+    "ko": "합리적인 가격",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BETAALBAAR",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.9,
+    "text": "ZO IS DEZE VAN 2020",
+    "ko": "예를 들어 이 2020년식은",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 10.8,
+    "text": "60.000 KM",
+    "ko": "6만 킬로미터 주행",
+    "kind": "숫자 사양",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "text": "GELOPEN EN KOST",
+    "ko": "주행했고 가격은",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.1,
+    "text": "€ 9.400",
+    "ko": "9,400유로",
+    "kind": "가격",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.5,
+    "text": "5 DEUREN ✓",
+    "ko": "5도어 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5 DEUREN",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.4,
+    "text": "GEBLINDEERDE RAMEN ✓",
+    "ko": "프라이버시 글라스 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEBLINDEERDE RAMEN",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 24.0,
+    "text": "ZOEK JOUW CITROEN",
+    "ko": "당신의 시트로엥을 찾으세요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.5,
+    "text": "AutoScout24.nl",
+    "ko": "AutoScout24.nl",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "통기타/팝",
+   "bpm_est": 110,
+   "mood": "밝은/경쾌한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Waarom kiezen zoveel mensen voor een Citroën C1?",
+    "ko": "왜 많은 사람들이 시트로엥 C1을 선택할까요?"
+   },
+   {
+    "start": 2.1,
+    "end": 4.9,
+    "text": "Dat is eigenlijk heel simpel.",
+    "ko": "사실 아주 간단합니다."
+   },
+   {
+    "start": 4.9,
+    "end": 7.8,
+    "text": "De C1 is namelijk compact, zuinig en betaalbaar.",
+    "ko": "C1은 컴팩트하고, 연비가 좋고, 합리적인 가격이기 때문입니다."
+   },
+   {
+    "start": 7.8,
+    "end": 12.0,
+    "text": "Zo is deze van 2020, heeft nog geen 60.000 km gelopen en kost €9.400.",
+    "ko": "이 2020년식 차량은 주행거리가 6만 km도 안 되었고 9,400유로입니다."
+   },
+   {
+    "start": 12.0,
+    "end": 17.5,
+    "text": "En hij is wel compact, maar ook praktisch met zijn 5 deuren.",
+    "ko": "그리고 컴팩트하면서도 5도어라 실용적입니다."
+   },
+   {
+    "start": 17.5,
+    "end": 20.4,
+    "text": "En hij ziet er ook nog eens sportief uit met zijn geblindeerde ramen.",
+    "ko": "선팅된 창문으로 스포티한 매력까지 더했습니다."
+   },
+   {
+    "start": 20.4,
+    "end": 26.5,
+    "text": "Dus waar wacht je nog op? Zoek jouw Citroën op AutoScout24.nl.",
+    "ko": "그러니 무엇을 망설이시나요? AutoScout24.nl에서 당신의 시트로엥을 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "빠름",
+    "summary": "왜 시트로엥 C1을 많이 선택하는지 질문과 답변"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.9,
+    "end": 7.8,
+    "speed": "빠름",
+    "summary": "C1의 3가지 장점(컴팩트, 연비, 가격) 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 7.8,
+    "end": 14.1,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 가격 정보 공개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 14.1,
+    "end": 20.4,
+    "speed": "빠름",
+    "summary": "5도어, 프라이버시 글라스 등 추가 장점"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 20.4,
+    "end": 26.5,
+    "speed": "빠름",
+    "summary": "플랫폼 언급하며 차량 검색 독려"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 호기심을 자극하는 질문 훅을 던진다.",
+   "컷 평균 길이는 2~3초 내외로 매우 짧고 리드미컬하게 전환한다.",
+   "자막은 화면 중앙 또는 하단에 검은색 배경 상자와 흰색/노란색 조합을 사용한다.",
+   "핵심 키워드(컴팩트, 연비, 가격 등)나 사양 숫자는 노란색 배경 상자 팝업으로 강조한다.",
+   "쇼츠 전용 플랫폼 로고나 브랜드명은 마지막 화면에 크게 노출한다.",
+   "진행자가 직접 차량 옆이나 안에서 말하며 차량 부위(실내, 후면 등)를 순차적으로 보여준다.",
+   "마지막에는 구체적인 플랫폼 웹사이트명과 함께 행동 유도(CTA) 메시지를 전달한다."
+  ]
+ }
+}
