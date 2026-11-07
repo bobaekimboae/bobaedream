@@ -618,7 +618,7 @@ def overlay(T, total, shots, shot, blk):
         if big:
             x, y = (W - im.width) / 2, STYLE['big_y']
         else:
-            x = [SAFE_L, SAFE_R - im.width, SAFE_CX - im.width / 2][(bi + si) % 3]
+            x = [SAFE_L, SAFE_R - im.width, STYLE.get('cap_cx', SAFE_CX) - im.width / 2][(bi + si) % 3]
             y = STYLE['feat_y']
         paste(ov, im, x + im.width * (1 - e) / 2, y + im.height * (1 - e) / 2, min(1, k / .1) * out, max(.05, e))
     # 구절 자막: 2~3어절씩 묶어 한 덩어리로 보여 준다(튀는 효과 없음, 위치 고정)
@@ -630,7 +630,7 @@ def overlay(T, total, shots, shot, blk):
         act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
         im = phrase_img(cur[2], act)
         k = min(1.0, (T - cur[0]) / 0.12)
-        paste(ov, im, SAFE_CX - im.width / 2, 1360, k)
+        paste(ov, im, STYLE.get('cap_cx', SAFE_CX) - im.width / 2, STYLE.get('cap_y', 1360), k)  # cap_cx=540 이면 화면 가운데 정렬
     return ov, False
 
 
