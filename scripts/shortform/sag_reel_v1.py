@@ -444,7 +444,8 @@ def pill(txt, size=34, bg=(0, 0, 0, 165), fg=(255, 255, 255), pad=(26, 14), dot=
     k = ('pill', txt, size, bg, dot)
     if k in _cache:
         return _cache[k]
-    fnt = ImageFont.truetype(BOLD, size)
+    # 오토스카우트24 2차 실측(2026-11-07 벨기에 「Carbon」): 기능 스티커 글자는 중간 굵기 → STYLE stk_weight='semi'
+    fnt = ImageFont.truetype(SEMI if (STYLE.get('stk_weight') == 'semi' and not big) else BOLD, size)
     bb = fnt.getbbox(txt)
     tw, th = bb[2] - bb[0], size
     extra = 26 if dot else 0
@@ -487,7 +488,8 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     import math
     import random
     rnd = random.Random(txt + str(size))
-    fnt = ImageFont.truetype(BOLD, size)
+    # 오토스카우트24 2차 실측(2026-11-07 벨기에 「Carbon」): 기능 스티커 글자는 중간 굵기 → STYLE stk_weight='semi'
+    fnt = ImageFont.truetype(SEMI if (STYLE.get('stk_weight') == 'semi' and not big) else BOLD, size)
     bb = fnt.getbbox(txt)
     tw, cap = bb[2] - bb[0], size * 0.74
     # 포인트 표시(MARKS, 설정 파일): '✓' = 글자 뒤 흰 체크(오토스카우트24 네덜란드식), 그 밖 = 색 이모지를 칠 오른쪽 끝에 걸치게
@@ -498,6 +500,10 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     pxr, hr = STYLE['big_pad'] if big else STYLE['pad']
     px = int(cap * pxr)
     w, h = int(tw_all + px * 2), int(cap * hr)
+    if not big and STYLE.get('stk_maxw') and w > W * STYLE['stk_maxw'] and size > 40:  # 긴 이름은 글자를 줄여 가장자리·오른쪽 버튼 줄을 비움
+        return sticker(txt, int(size * W * STYLE['stk_maxw'] / w), tilt, big)
+    if not big and STYLE.get('stk_minw'):  # 오토스카우트24: 짧은 낱말도 칠은 화면 폭 절반가량(「Carbon」 55%)
+        w = max(w, int(W * STYLE['stk_minw']))
     m = 30
     emo = None
     if mark and mark != '✓':
@@ -697,7 +703,7 @@ def overlay(T, total, shots, shot, blk):
         if not (st <= T < en):
             continue
         big = bool(re.search(r'\d', txt))
-        tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6]
+        tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6] * STYLE.get('tilt_k', 1.0)
         im = sticker(txt, STYLE['big_size'] if big else STYLE['feat_size'], tilt, big)
         k = T - st
         out = ease((en - T) / .12)
@@ -710,9 +716,18 @@ def overlay(T, total, shots, shot, blk):
         if big:
             x, y = (W - im.width) / 2, STYLE['big_y']
         else:
-            x = [SAFE_L, SAFE_R - im.width, STYLE.get('cap_cx', SAFE_CX) - im.width / 2][(bi + si) % 3]
+            if STYLE.get('feat_pos') == 'as24':
+                # 오토스카우트24: 화면 가운데 근처(칠 중심 44~56%)에 두고 가장자리와 오른쪽 버튼 줄을 비움
+                cx = W * (.44, .5, .56)[(bi + si) % 3]
+                x = min(max(cx - im.width / 2, 72), W - 200 - im.width) if im.width < W - 272 else (W - im.width) / 2
+            else:
+                x = [SAFE_L, SAFE_R - im.width, STYLE.get('cap_cx', SAFE_CX) - im.width / 2][(bi + si) % 3]
             y = STYLE['feat_y']
-        paste(ov, im, x + im.width * (1 - e) / 2, y + im.height * (1 - e) / 2, min(1, k / .1) * out, max(.05, e))
+        sc = max(.05, e)
+        px_ = x + im.width * (1 - sc) / 2
+        if STYLE.get('feat_pos') == 'as24':
+            px_ = max(px_, 40)  # 튀어나올 때(살짝 커질 때)도 화면 왼쪽 밖으로 밀리지 않게
+        paste(ov, im, px_, y + im.height * (1 - e) / 2, min(1, k / .1) * out, sc)
     # 구절 자막: 2~3어절씩 묶어 한 덩어리로 보여 준다(튀는 효과 없음, 위치 고정)
     cur = None
     for ph in PHRASES:
