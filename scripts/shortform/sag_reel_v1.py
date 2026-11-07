@@ -33,6 +33,7 @@ SAFE_TOP, SAFE_BOTTOM, SAFE_L, SAFE_R = 240, 1920 - 240, 54, 1080 - 216
 PLATE_COVER = os.environ.get('SAG_PLATE_COVER', '0') == '1'
 SAFE_W, SAFE_CX = SAFE_R - SAFE_L, (SAFE_L + SAFE_R) / 2
 BLUE = (48, 107, 217)
+EMOJI_FONT = '/usr/share/fonts/truetype/noto/NotoColorEmoji.ttf'  # 구글 Noto Color Emoji(OFL)
 # 화면 스타일(샘플마다 SAG_CONFIG 파일에서 바꿀 수 있음). 기본값 = 1번 샘플(파나메라)
 STYLE = dict(stk_bg=BLUE, stk_fg=(255, 255, 255), hl='text',  # hl: text = 읽는 단어 노랑 글자 / chip = 파랑 바탕 흰 글자
              feat_size=68, big_size=116, pad=(0.95, 2.1), big_pad=(0.95, 2.1),  # pad: (양옆 여백, 상자 높이) × 글자 높이
@@ -251,6 +252,62 @@ def build_bgm(total, bpm=112, sr=48000):
         w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st.tobytes())
 
 
+def build_bgm_spy(total, bpm=92, sr=48000):
+    """잔잔한 스파이 영화풍 배경음악(코드로 새로 만듦, 007 원곡 멜로디·리듬 미사용).
+    느린 워킹 베이스 + 브러시 스네어 + 하이햇 셔플 + 떨리는 비브라폰풍 단조 화음. 장르 분위기만 빌림"""
+    n = int(total * sr) + sr
+    t = np.arange(n) / sr
+    beat = 60 / bpm
+    out = np.zeros(n)
+    rng = np.random.default_rng(11)
+    f = lambda m: 440 * 2 ** ((m - 69) / 12)
+    def env(x, a, d):
+        return np.where(x < 0, 0, np.minimum(x / a, 1) * np.exp(-np.maximum(x - a, 0) / d))
+    # 2마디씩: Em → Cmaj7 → Am7 → B7sus (단조 느와르 분위기)
+    prog = [(40, (64, 67, 71, 75)), (36, (64, 67, 71, 76)), (45, (64, 67, 72, 76)), (47, (64, 66, 71, 76))]
+    walk = [0, 7, 12, 7]  # 근음-5도-옥타브-5도 (단순 워킹)
+    nb = int(total / beat) + 2
+    for b in range(nb):
+        st = b * beat
+        root, ch = prog[(b // 8) % 4]
+        # 베이스: 4분음표, 둥근 소리
+        x = t - st
+        m = (x >= 0) & (x < beat)
+        fb = f(root + walk[b % 4] - 12 if walk[b % 4] == 12 else root + walk[b % 4])
+        out[m] += 0.32 * np.tanh(1.6 * np.sin(2 * np.pi * fb * x[m])) * env(x[m], 0.006, 0.28)
+        # 하이햇 셔플(셋잇단 느낌, 아주 작게)
+        for off, amp in ((0, 0.05), (beat * 2 / 3, 0.035)):
+            xh = t - (st + off)
+            mh = (xh >= 0) & (xh < 0.06)
+            hh = rng.standard_normal(mh.sum())
+            out[mh] += amp * np.diff(hh, prepend=0) * env(xh[mh], 0.001, 0.015)
+        # 브러시 스네어: 2·4박에 긴 쉬익
+        if b % 2 == 1:
+            xs = t - st
+            ms = (xs >= 0) & (xs < 0.35)
+            out[ms] += 0.07 * rng.standard_normal(ms.sum()) * env(xs[ms], 0.01, 0.12)
+    # 비브라폰풍 화음: 2마디마다 한 번 울리고 천천히 떨림
+    bar = beat * 4
+    for k in range(int(total / (bar * 2)) + 2):
+        st = k * bar * 2
+        x = t - st
+        m = (x >= 0) & (x < bar * 2)
+        _, ch = prog[k % 4]
+        trem = 0.75 + 0.25 * np.sin(2 * np.pi * 4.5 * x[m])
+        sig = sum(np.sin(2 * np.pi * f(nn) * x[m]) + 0.25 * np.sin(2 * np.pi * f(nn) * 4 * x[m]) * np.exp(-x[m] * 6) for nn in ch)
+        out[m] += 0.045 * sig * trem * env(x[m], 0.01, 2.2)
+    # 아주 짧은 잔향
+    d = int(0.11 * sr)
+    out[d:] += 0.25 * out[:-d]
+    out = out / np.max(np.abs(out)) * 0.5
+    fade = np.minimum(1, (n / sr - t) / 1.5) * np.minimum(1, t / 0.8)
+    out *= fade
+    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
+    import wave
+    with wave.open(os.path.join(OUT, 'bgm.wav'), 'wb') as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
+
+
 # ── 3. 컷 편집표 ──
 def plan_shots(total):
     """컷은 말 구절이 바뀌는 순간(자막이 바뀌는 순간)에 넣는다. 편집자가 말 단위로 자르는 방식.
@@ -433,10 +490,26 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     fnt = ImageFont.truetype(BOLD, size)
     bb = fnt.getbbox(txt)
     tw, cap = bb[2] - bb[0], size * 0.74
+    # 포인트 표시(MARKS, 설정 파일): '✓' = 글자 뒤 흰 체크(오토스카우트24 네덜란드식), 그 밖 = 색 이모지를 칠 오른쪽 끝에 걸치게
+    mark = globals().get('MARKS', {}).get(txt)
+    chk = cap * 0.95 if mark == '✓' else 0
+    tw_all = tw + (chk + cap * 0.42 if chk else 0)
     pxr, hr = STYLE['big_pad'] if big else STYLE['pad']
     px = int(cap * pxr)
-    w, h = int(tw + px * 2), int(cap * hr)
+    w, h = int(tw_all + px * 2), int(cap * hr)
     m = 30
+    emo = None
+    if mark and mark != '✓':
+        try:
+            ef = ImageFont.truetype(EMOJI_FONT, 109)
+            eim = Image.new('RGBA', (160, 160), (0, 0, 0, 0))
+            ImageDraw.Draw(eim).text((80, 80), mark, font=ef, embedded_color=True, anchor='mm')
+            eim = eim.crop(eim.getbbox())
+            eh = int(cap * 1.55)
+            emo = eim.resize((int(eim.width * eh / eim.height), eh), Image.LANCZOS)
+            m = max(m, int(emo.width * 0.75))
+        except Exception:
+            emo = None
     S = 4  # 4배로 그려 줄여서 가장자리를 매끄럽게
     W2, H2 = (w + m * 2) * S, (h + m * 2) * S
     mask = Image.new('L', (W2, H2), 0)
@@ -472,7 +545,20 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     im = Image.new('RGBA', mask.size, tuple(STYLE['stk_bg']) + (0,))
     im.putalpha(mask)
     td = ImageDraw.Draw(im)
-    td.text((m + w / 2, m + h / 2), txt, font=fnt, fill=tuple(STYLE['stk_fg']), anchor='mm')
+    fg = tuple(STYLE['stk_fg'])
+    tx = m + w / 2 - (chk + cap * 0.42) / 2 if chk else m + w / 2
+    td.text((tx, m + h / 2), txt, font=fnt, fill=fg, anchor='mm')
+    if chk:  # 흰 체크: 글자 굵기와 같은 선, 둥근 끝
+        cx0 = tx + tw / 2 + cap * 0.42
+        cy = m + h / 2
+        lw = max(3, int(size * 0.13))
+        p1, p2, p3 = (cx0, cy + cap * .02), (cx0 + chk * .36, cy + cap * .34), (cx0 + chk, cy - cap * .40)
+        td.line([p1, p2, p3], fill=fg, width=lw, joint='curve')
+        for q in (p1, p3):
+            td.ellipse((q[0] - lw / 2, q[1] - lw / 2, q[0] + lw / 2, q[1] + lw / 2), fill=fg)
+    if emo is not None:  # 칠 오른쪽 끝에 3분의 1쯤 걸치고 살짝 반대로 기울임
+        e2 = emo.rotate(8, resample=Image.BICUBIC, expand=True)
+        im.alpha_composite(e2, (int(m + w - e2.width * 0.38), int(m + h / 2 - e2.height * 0.58)))
     im = im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
     _cache[k] = im
     return im
@@ -618,7 +704,7 @@ def overlay(T, total, shots, shot, blk):
         if big:
             x, y = (W - im.width) / 2, STYLE['big_y']
         else:
-            x = [SAFE_L, SAFE_R - im.width, SAFE_CX - im.width / 2][(bi + si) % 3]
+            x = [SAFE_L, SAFE_R - im.width, STYLE.get('cap_cx', SAFE_CX) - im.width / 2][(bi + si) % 3]
             y = STYLE['feat_y']
         paste(ov, im, x + im.width * (1 - e) / 2, y + im.height * (1 - e) / 2, min(1, k / .1) * out, max(.05, e))
     # 구절 자막: 2~3어절씩 묶어 한 덩어리로 보여 준다(튀는 효과 없음, 위치 고정)
@@ -630,7 +716,7 @@ def overlay(T, total, shots, shot, blk):
         act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
         im = phrase_img(cur[2], act)
         k = min(1.0, (T - cur[0]) / 0.12)
-        paste(ov, im, SAFE_CX - im.width / 2, 1360, k)
+        paste(ov, im, STYLE.get('cap_cx', SAFE_CX) - im.width / 2, STYLE.get('cap_y', 1360), k)  # cap_cx=540 이면 화면 가운데 정렬
     return ov, False
 
 
@@ -677,7 +763,7 @@ def main():
     t_start = time.time()
     ext = os.environ.get('SAG_VOICE_FILE')
     total = align_external(ext, os.environ['SAG_VOICE_WORDS']) if ext else build_voice()
-    build_bgm(total)
+    (build_bgm_spy if STYLE.get('bgm') == 'spy' else build_bgm)(total)
     build_phrases()
     build_sfx(total)
     cap = cv2.VideoCapture(SRC)
@@ -738,7 +824,7 @@ def main():
     final = os.path.join(OUT, 'sag_reel_v1.mp4')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', os.path.join(OUT, 'video.mp4'), '-i', os.path.join(OUT, 'voice.wav'),
                     '-i', os.path.join(OUT, 'bgm.wav'), '-i', os.path.join(OUT, 'sfx.wav'), '-filter_complex',
-                    '[2:a]volume=0.42[m];[1:a]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
+                    f"[2:a]volume={STYLE.get('bgm_vol', 0.42)}[m];" '[1:a]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
                     '[3:a]volume=0.22[fx];[v2][md][fx]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
                     '-movflags', '+faststart', final], check=True)
