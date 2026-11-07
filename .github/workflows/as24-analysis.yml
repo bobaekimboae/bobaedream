@@ -30,7 +30,7 @@ jobs:
       - name: Load earlier results (resume)
         run: |
           mkdir -p out
-          if git fetch -q origin as24-analysis-results; then
+          if git fetch -q origin +refs/heads/as24-analysis-results:refs/remotes/origin/as24-analysis-results; then
             git archive origin/as24-analysis-results reports/as24-analysis | tar -x -C /tmp || true
             cp /tmp/reports/as24-analysis/*.json out/ 2>/dev/null || true
           fi
@@ -41,23 +41,11 @@ jobs:
           AS24_FPS: "1"
           AS24_RPM: "8"
           AS24_BUDGET_MIN: "320"
-        run: python -u scripts/shortform/as24/analyze_gemini.py scripts/shortform/as24/targets.txt out
+          AS24_CHECKPOINT_CMD: scripts/shortform/as24/push_results.sh
+        run: |
+          git config --global user.name "bobaedream-analysis-bot"
+          git config --global user.email "actions@users.noreply.github.com"
+          python -u scripts/shortform/as24/analyze_gemini.py scripts/shortform/as24/targets.txt out
       - name: Push results to results branch
         if: always()
-        run: |
-          [ -d out ] || exit 0
-          cp -r out /tmp/as24-out
-          git config user.name "bobaedream-analysis-bot"
-          git config user.email "actions@users.noreply.github.com"
-          if git rev-parse --verify origin/as24-analysis-results >/dev/null 2>&1; then
-            git checkout -q -B as24-analysis-results origin/as24-analysis-results
-          else
-            git checkout -q --orphan as24-analysis-results
-            git rm -rfq --cached . >/dev/null
-            find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
-          fi
-          mkdir -p reports/as24-analysis
-          cp /tmp/as24-out/*.json reports/as24-analysis/
-          git add reports/as24-analysis
-          git commit -qm "data: AS24 shorts analysis ${GITHUB_SHA::7}" || exit 0
-          git push -q origin as24-analysis-results
+        run: scripts/shortform/as24/push_results.sh

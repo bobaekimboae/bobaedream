@@ -19,6 +19,7 @@ FPS = float(os.environ.get("AS24_FPS", "1"))
 BUDGET_MIN = float(os.environ.get("AS24_BUDGET_MIN", "320"))  # 이 시간이 지나면 멈추고 결과를 올린다(다음 실행이 이어서 함)
 RPM = float(os.environ.get("AS24_RPM", "8"))  # 1분 요청 수 상한(무료 등급 보호)
 T0 = time.time()
+CKPT = os.environ.get("AS24_CHECKPOINT_CMD", "")
 
 
 class DailyQuota(Exception):
@@ -191,6 +192,8 @@ def main():
         else:
             n_fail += 1
             print("  실패/형식 오류", flush=True)
+        if CKPT and (n_new + n_fail) % 10 == 0:
+            os.system(CKPT)  # 10편마다 중간 저장
     ok = sum(done_ok(os.path.join(OUT, f)) for f in os.listdir(OUT) if f.endswith(".json") and not f.startswith("_"))
     summ = {"model": model, "fps": FPS, "new": n_new, "skipped": n_skip, "failed": n_fail, "ok_total": ok,
             "targets": len(rows), "stopped": stop}
