@@ -1,0 +1,276 @@
+{
+ "country": "BE",
+ "title": "BE-003",
+ "url": "https://www.youtube.com/shorts/57oZQTsKOis",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3616,
+  "candidatesTokenCount": 2673,
+  "totalTokenCount": 6289,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2648
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.5,
+   "aspect": "9:16",
+   "car": "Kia Proceed GT-Line",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 23.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Opzoek naar je volgende auto?",
+    "ko": "다음 차를 찾고 계시나요?",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "volgende auto",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 13.5,
+    "text": "deze Kia proceed",
+    "ko": "이 기아 프로씨드",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "Kia proceed",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 23.0,
+    "text": "op AutoScout24 vergelijk je",
+    "ko": "오토스카우트24에서 비교할 수 있어요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#ffffff",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 29.5,
+    "text": "AutoScout24.be",
+    "ko": "AutoScout24.be",
+    "kind": "로고",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 18.0,
+    "end": 23.0,
+    "what": "스마트폰 화면 앱 검색 인터페이스 합성",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 20.0,
+    "y_pct": 15.0,
+    "entrance": "옆에서 밀려옴",
+    "purpose": "중고차 플랫폼 앱 검색 결과 예시 시각화",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Opzoek naar je volgende auto, dan moet je deze zeker even zien.",
+    "ko": "다음 차를 찾고 계시나요, 그럼 이 차를 꼭 보세요."
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "text": "Maar dit is nog één van de vele auto's die je kunt ontdekken op AutoScout24.be.",
+    "ko": "하지만 이건 AutoScout24.be에서 발견할 수 있는 수많은 차 중 하나일 뿐이에요."
+   },
+   {
+    "start": 7.5,
+    "end": 13.5,
+    "text": "Deze Kia proceed GT-line combineert een sportieve look met het comfort dat je elke dag wilt.",
+    "ko": "이 기아 프로씨드 GT라인은 스포티한 룩과 매일 원하는 편안함을 결합했어요."
+   },
+   {
+    "start": 13.5,
+    "end": 23.0,
+    "text": "Of je nu op zoek bent naar je eerste auto, naar een gezinsauto of naar een sportieve wagen, op AutoScout24 vergelijk je makkelijk verschillende prijzen, uitvoeringen en modellen.",
+    "ko": "첫 차, 패밀리카, 스포티한 차량 중 무엇을 찾든 AutoScout24에서 가격, 트림, 모델을 쉽게 비교하세요."
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "text": "Zo vind je de auto die echt bij jou past.",
+    "ko": "그렇게 당신에게 딱 맞는 차를 찾을 수 있습니다."
+   },
+   {
+    "start": 26.0,
+    "end": 29.5,
+    "text": "Jouw volgende auto vind je op AutoScout24.be.",
+    "ko": "당신의 다음 차는 AutoScout24.be에서 찾으세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "다음 차 찾니? 질문으로 시선 끌기"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "기아 프로씨드 GT라인 차량 외관 및 장점 소개"
+   },
+   {
+    "stage": "정보",
+    "start": 13.5,
+    "end": 23.0,
+    "speed": "보통",
+    "summary": "다양한 용도의 차 비교 기능 안내 및 스마트폰 화면 합성"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 23.0,
+    "end": 29.5,
+    "speed": "빠름",
+    "summary": "오토스카우트24 플랫폼 방문 독려"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 노란색 형광펜 배경의 질문형 훅 자막을 띄워 이탈을 막는다.",
+   "쇼룸 실내 배경에서 호스트가 차와 함께 걸어 다니며 자연스럽게 진행한다.",
+   "자막은 화면 중앙 상단이나 하단에 배치하고 핵심 키워드에 노란색 형광펜 효과를 준다.",
+   "앱 기능을 설명할 때는 실제 스마트폰 UI 합성 화면을 띄워 신뢰도를 높인다.",
+   "중간에 전환 효과 없이 빠른 컷 편집으로 영상 속도감을 유지한다.",
+   "로고 및 플랫폼 명칭(AutoScout24)은 시각적 강조 스티커로 반복 노출한다.",
+   "마지막에는 브랜드 로고와 웹사이트 주소를 다시 강조하며 행동 유도(CTA)로 끝맺는다."
+  ]
+ }
+}

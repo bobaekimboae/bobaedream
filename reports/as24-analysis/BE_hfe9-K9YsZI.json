@@ -1,0 +1,533 @@
+{
+ "country": "BE",
+ "title": "BE-008",
+ "url": "https://www.youtube.com/shorts/hfe9-K9YsZI",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3440,
+  "candidatesTokenCount": 4918,
+  "totalTokenCount": 8358,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2472
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.0,
+   "aspect": "9:16",
+   "car": "Citroen C3 EV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 3.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.0,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 27.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Deze volledig elektrische Citroën C3",
+    "ko": "이 완전 전기차 시트로엥 C3를",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "elektrische",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "text": "vind je op AutoScout24.be",
+    "ko": "AutoScout24.be에서 찾을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "text": "Hij komt uit 2025",
+    "ko": "2025년형이고",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2025",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.0,
+    "text": "heeft iets meer dan 10.000km gereden",
+    "ko": "주행거리는 1만 km가 조금 넘으며",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "10.000km",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "text": "en zit bomvol leuke snufjes",
+    "ko": "다양한 편의 사양이 가득합니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "bomvol",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "digital cockpit",
+    "ko": "디지털 콕핏",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "Applecarplay en Android auto",
+    "ko": "애플 카플레이 및 안드로이드 오토",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "cruise control",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "text": "inductie laden voor smartphones",
+    "ko": "스마트폰 무선 충전",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "text": "supermooi interieur",
+    "ko": "매우 멋진 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "text": "getinte ramen",
+    "ko": "프라이버시 글라스(선팅 유리)",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "text": "€19.000",
+    "ko": "19,000유로",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 27.0,
+    "text": "Je vindt hem op AutoScout24.be en in de showroom van Garage De Pril",
+    "ko": "AutoScout24.be와 가라주 드프릴 전시장에서 만나보세요",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "통기타/팝",
+   "bpm_est": 115,
+   "mood": "밝음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 5.0,
+    "what": "AutoScout24 차량 매물 카드 UI 오버레이",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 15.0,
+    "entrance": "위에서 떨어짐",
+    "purpose": "매물 플랫폼 및 차량 가격 인증",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Deze volledig elektrische Citroën C3",
+    "ko": "이 완전 전기차 시트로엥 C3를"
+   },
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "text": "vind je op AutoScout24.be.",
+    "ko": "AutoScout24.be에서 찾을 수 있습니다."
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "text": "Hij komt uit 2025,",
+    "ko": "2025년형이고,"
+   },
+   {
+    "start": 6.8,
+    "end": 9.0,
+    "text": "heeft iets meer dan 10.000km gereden",
+    "ko": "주행거리는 1만 km가 조금 넘으며"
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "text": "en zijn bomvol leuke snufjes.",
+    "ko": "다양한 편의 사양이 가득합니다."
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "digital cockpit,",
+    "ko": "디지털 콕핏,"
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "Applecarplay en Android auto,",
+    "ko": "애플 카플레이 및 안드로이드 오토,"
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "cruise control,",
+    "ko": "크루즈 컨트롤,"
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "text": "inductie laden voor smartphones,",
+    "ko": "스마트폰 무선 충전,"
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "text": "supermooi interieur",
+    "ko": "매우 멋진 인테리어"
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "text": "en getinte ramen.",
+    "ko": "그리고 프라이버시 글라스."
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "text": "En hij kost 19.850 euro...",
+    "ko": "그리고 가격은 19,850유로..."
+   },
+   {
+    "start": 22.0,
+    "end": 27.0,
+    "text": "Je vindt hem op AutoScout24.be en in de showroom van Garage De Pril.",
+    "ko": "AutoScout24.be와 가라주 드프릴 전시장에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "차량 전면 소개 및 플랫폼 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 3.0,
+    "end": 10.5,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 특징 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 10.5,
+    "end": 19.5,
+    "speed": "빠름",
+    "summary": "실내 기능 및 옵션 나열"
+   },
+   {
+    "stage": "가격",
+    "start": 19.5,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "가격 공개 및 할인 표시"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 22.0,
+    "end": 27.0,
+    "speed": "빠름",
+    "summary": "구매처 및 전시장 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 주인공 차량과 플랫폼 이름을 동시에 각인시킨다.",
+   "컷 평균 길이는 1.5~2초 안팎으로 빠르게 전환하여 지루함을 없앤다.",
+   "자막은 화면 중앙 하단에 노출하고 핵심 단어(연식, 주행거리, 옵션 등)에 형광펜 하이라이트를 준다.",
+   "실내 옵션 소개 시 기능별로 화면을 즉각 전환하여 몰입도를 높인다.",
+   "차량 매물 플랫폼 UI(스크린샷)를 초반에 띄워 공신력을 더한다.",
+   "가격 공개 시 기존 가격에 취소선을 긋고 할인된 가격을 강조한다.",
+   "마지막에는 플랫폼과 실제 전시장 위치를 함께 언급하며 오프라인 방문을 유도한다."
+  ]
+ }
+}

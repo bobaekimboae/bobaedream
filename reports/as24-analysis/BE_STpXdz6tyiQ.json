@@ -1,0 +1,412 @@
+{
+ "country": "BE",
+ "title": "BE-001",
+ "url": "https://www.youtube.com/shorts/STpXdz6tyiQ",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2878,
+  "candidatesTokenCount": 3039,
+  "totalTokenCount": 5917,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1910
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21,
+   "aspect": "9:16",
+   "car": "Alfa Romeo Giulia Quadrifoglio",
+   "format": "차 소개/옵션 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "사람",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 4.0,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 5.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 6.2,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 6.9,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 7.8,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.7,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.5,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 21.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Luxe optie",
+    "ko": "고급 옵션",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 4.0,
+    "text": "Deze Alfa Romeo Giulia Quadrifoglio is",
+    "ko": "이 알파 로메오 줄리아 콰드리폴리오는",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 8.7,
+    "text": "Carbon",
+    "ko": "카본",
+    "kind": "키워드 스티커",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.5,
+    "text": "2017",
+    "ko": "2017년",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.8,
+    "text": "43.000 km",
+    "ko": "43,000 km",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.5,
+    "text": "€57.990",
+    "ko": "57,990 유로",
+    "kind": "가격",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.0,
+    "text": "SB Cars",
+    "ko": "SB 카즈",
+    "kind": "로고",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트 중심 배경음악",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "Deze Alfa Romeo Giulia Quadrifoglio is uitgevoerd met",
+    "ko": "이 알파 로메오 줄리아 콰드리폴리오는 ~로 장착되어 있습니다"
+   },
+   {
+    "start": 4.0,
+    "end": 9.0,
+    "text": "Carbon carbon carbon carbon carbon carbon carbon carbon",
+    "ko": "카본 카본 카본 카본 카본 카본 카본 카본"
+   },
+   {
+    "start": 9.5,
+    "end": 11.0,
+    "text": "Hij komt uit 2017",
+    "ko": "2017년식입니다"
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "text": "heفت 43.000 kilometer gereden",
+    "ko": "43,000킬로미터를 주행했습니다"
+   },
+   {
+    "start": 13.0,
+    "end": 15.5,
+    "text": "Hij kost €57.990",
+    "ko": "가격은 57,990유로입니다"
+   },
+   {
+    "start": 15.5,
+    "end": 21.0,
+    "text": "Je vindt hem in de showroom van SB Cars en op AutoScout24.be",
+    "ko": "SB 카즈 쇼룸과 오토스카우트24.be에서 만나보실 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.5,
+    "speed": "보통",
+    "summary": "Luxe optie 강조 텍스트와 함께 차량 전면 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.5,
+    "end": 4.0,
+    "speed": "보통",
+    "summary": "차량 모델명 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.0,
+    "end": 9.5,
+    "speed": "빠름",
+    "summary": "차량 곳곳의 카본 부위를 빠르게 짚으며 'Carbon' 반복 텍스트 표출"
+   },
+   {
+    "stage": "사양",
+    "start": 9.5,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "연식(2017)과 주행거리(43,000km) 공개"
+   },
+   {
+    "stage": "가격",
+    "start": 13.0,
+    "end": 15.5,
+    "speed": "보통",
+    "summary": "판매 가격 57,990유로 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 15.5,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "판매처(SB Cars)와 플랫폼(AutoScout24) 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 노란색 형광펜 배경의 제목 텍스트로 시선을 사로잡는다.",
+   "컷 평균 길이는 약 1초 안팎으로 매우 짧고 역동적이다.",
+   "자막은 대부분 노란색 형광펜 박스 배경의 검은색 글씨 형태를 유지한다.",
+   "반복되는 특징(예: 카본)은 같은 단어 자막을 컷 전환마다 빠르게 연달아 띄운다.",
+   "사양, 연식, 가격 등의 정보는 화면 중앙 하단 또는 상단에 강조 박스로 표시한다.",
+   "차량 부위 촬영은 전면 -> 측면/후면 -> 실내(대시보드, 핸들, 시트) -> 휠 순서로 진행한다.",
+   "발화 속도와 비트에 맞춰 컷을 칼같이 전환한다.",
+   "마지막에는 판매처 로고와 플랫폼 로고를 차례대로 띄워 정보 전달을 명확히 한다."
+  ]
+ }
+}
