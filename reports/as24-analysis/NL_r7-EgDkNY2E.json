@@ -1,0 +1,377 @@
+{
+ "country": "NL",
+ "title": "NL-019",
+ "url": "https://www.youtube.com/shorts/r7-EgDkNY2E",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5607,
+  "candidatesTokenCount": 3626,
+  "totalTokenCount": 9947,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4639
+   }
+  ],
+  "thoughtsTokenCount": 714,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "Kia Picanto",
+   "format": "차 소개 / 반전 마케팅",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 3.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 7.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 13.6,
+    "part": "트렁크",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 16.7,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 32.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 42.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 3.0,
+    "text": "5 REDENEN WAAROM JE DEZE KIA PICANTO NIET MOET KOPEN",
+    "ko": "이 기아 피칸토를 사면 안 되는 5가지 이유",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KIA PICANTO",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.8,
+    "text": "STUURVERWARMING",
+    "ko": "스티어링 휠 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.6,
+    "text": "PARKEERSENSOREN",
+    "ko": "주차 감지 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 16.7,
+    "text": "ACHTERUITRIJCAMERA",
+    "ko": "후방 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.6,
+    "text": "ADAPTIVE CRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.5,
+    "text": "ELEKTRISCH SCHUIF-KANTELDAK",
+    "ko": "전동 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.5,
+    "text": "€23.949",
+    "ko": "€23,949",
+    "kind": "가격",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.0,
+    "type": "톡",
+    "event": "핵심 키워드 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "옵션 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "어댑티브 크루즈 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "돈 소리",
+    "event": "가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Pop / Upbeat",
+   "bpm_est": 120,
+   "mood": "밝고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 42.0,
+    "end": 43.0,
+    "what": "체크 마크 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15,
+    "x_pct": 50,
+    "y_pct": 10,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사야 하는 이유 전환 강조",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 50.8,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "서서히",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 3.0,
+    "text": "Vijf redenen waarom je deze Kia Picanto niet moet kopen.",
+    "ko": "이 기아 피칸토를 절대 사면 안 되는 5가지 이유입니다."
+   },
+   {
+    "start": 3.0,
+    "end": 7.8,
+    "text": "Heb jij graag koude handen? Dan moet je deze auto niet kopen, want deze heeft stuurverwarming.",
+    "ko": "차가운 손을 좋아하시나요? 그렇다면 이 차를 사지 마세요, 열선 스티어링 휠이 있거든요."
+   },
+   {
+    "start": 7.8,
+    "end": 16.7,
+    "text": "Rijd jij graag tegen paaltjes aan? Dan moet je deze auto niet kopen, want deze heeft parkeersensoren en een achteruitrijcamera.",
+    "ko": "기둥에 충돌하는 걸 즐기시나요? 사지 마세요. 주차 감지 센서와 후방 카메라가 있으니까요."
+   },
+   {
+    "start": 16.7,
+    "end": 24.6,
+    "text": "Wil jij continu zelf gas geven en remmen? Dan is deze auto niks voor jou, want deze heeft adaptive cruise control.",
+    "ko": "계속 직접 엑셀과 브레이크를 밟고 싶으신가요? 이 차는 피하세요, 어댑티브 크루즈 컨트롤이 탑재되어 있습니다."
+   },
+   {
+    "start": 24.6,
+    "end": 32.5,
+    "text": "Hekel aan veel zonlicht en frisse lucht? Dan moet je deze auto niet kopen, want deze heeft een elektrisch schuif-kanteldak.",
+    "ko": "햇빛과 신선한 공기가 싫으신가요? 전동 선루프가 달려있으니 사지 마세요."
+   },
+   {
+    "start": 32.5,
+    "end": 42.4,
+    "text": "Vind jij het fijn om iedere keer je sleutel te zoeken? Deze Kia Picanto heeft keyless entry. Dus eigenlijk genoeg redenen waarom je hem wel moet kopen.",
+    "ko": "가방에서 열쇠를 찾는 걸 좋아하시나요? 스마트키(키리스 엔트리)가 있습니다. 결국 이 차를 꼭 사야 할 이유들뿐이네요."
+   },
+   {
+    "start": 42.4,
+    "end": 50.8,
+    "text": "De prijs van deze auto is €23.949 en je vindt hem op AutoScout24.nl.",
+    "ko": "이 차의 가격은 23,949유로이며 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "역설적 질문(사지 말아야 할 5가지 이유)으로 시선 집중."
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.0,
+    "end": 42.4,
+    "speed": "보통",
+    "summary": "반전 화법으로 5가지 고급 옵션 연속 소개."
+   },
+   {
+    "stage": "가격/마무리·행동 유도",
+    "start": 42.4,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "최종 가격 공개 및 플랫폼 방문 유도."
+   }
+  ],
+  "rules": [
+   "1. 첫 3초에 부정적 반전 훅(사지 말아야 할 이유) 적용.",
+   "2. 평균 4~7초 간격 숏 전환으로 옵션 강조.",
+   "3. 검은 텍스트+노란 배경 박스 자막으로 가독성 확보.",
+   "4. 주요 옵션 명칭 등장 시 톡 소리 효과음 삽입.",
+   "5. 차 외관-실내-트렁크-선루프 순으로 장소 이동하며 시연.",
+   "6. 가격 공개 시 효과음과 함께 중앙 상단 자막 노출.",
+   "7. CTA 및 로고 노출로 플랫폼 유입 유도."
+  ]
+ }
+}

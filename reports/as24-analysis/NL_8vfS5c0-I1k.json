@@ -1,0 +1,155 @@
+{
+ "country": "NL",
+ "title": "NL-022",
+ "url": "https://www.youtube.com/shorts/8vfS5c0-I1k",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1884,
+  "candidatesTokenCount": 1244,
+  "totalTokenCount": 4302,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 916
+   }
+  ],
+  "thoughtsTokenCount": 1174,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.0,
+   "aspect": "9:16",
+   "car": "Audi A5",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "키워드 스티커",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.5,
+    "text": "LAAT HET WETEN IN EEN REACTIE",
+    "ko": "댓글로 알려주세요",
+    "kind": "마무리·행동 유도",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Funk Pop",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 노출 및 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "핸들 로고를 가린 채 차 브랜드 퀴즈 제시"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.8,
+    "end": 8.5,
+    "speed": "보통",
+    "summary": "실내 디스플레이 및 대시보드 클로즈업"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 8.5,
+    "end": 10.0,
+    "speed": "빠름",
+    "summary": "로고 그래픽과 함께 댓글 참여 유도"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 내 핸들 로고를 손으로 가려 호기심 유발",
+   "2. 평균 컷 길이는 3~4초로 구성",
+   "3. 노란색 배경의 검정 글자 자막으로 가독성 확보",
+   "4. 음성 없이 경쾌한 음악만 사용",
+   "5. 이모지와 텍스트 상자를 활용해 퀴즈 및 댓글 참여 강조",
+   "6. 운전석 측면 shot에서 대시보드 줌인 순으로 시선 이동",
+   "7. 엔딩 1.5초는 브랜드 로고로 마무리"
+  ]
+ }
+}

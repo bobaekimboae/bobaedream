@@ -1,0 +1,351 @@
+{
+ "country": "NL",
+ "title": "NL-024",
+ "url": "https://www.youtube.com/shorts/QHz0MM5ImKM",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 6422,
+  "candidatesTokenCount": 3386,
+  "totalTokenCount": 11091,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5454
+   }
+  ],
+  "thoughtsTokenCount": 1283,
+  "serviceTier": "standard"
+ },
+ "analysis": [
+  {
+   "basic": {
+    "duration_sec": 60,
+    "aspect": "9:16",
+    "car": "Zeekr 001 Performance",
+    "format": "차 소개/퀴즈",
+    "person_on_screen": true,
+    "voice": "사람 직접",
+    "language": "nl"
+   },
+   "shots": [
+    {
+     "start": 0,
+     "end": 8.8,
+     "part": "사람",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 8.8,
+     "end": 15.5,
+     "part": "외관 전면",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 15.5,
+     "end": 24.1,
+     "part": "외관 후면",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 24.1,
+     "end": 30.5,
+     "part": "외관 측면",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 30.5,
+     "end": 43.8,
+     "part": "화면",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 43.8,
+     "end": 49.8,
+     "part": "실내",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 49.8,
+     "end": 60,
+     "part": "사람",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    }
+   ],
+   "captions": [
+    {
+     "start": 0.5,
+     "end": 2,
+     "text": "RAAD HOEVEEL",
+     "ko": "몇 마력인지 맞춰보세요",
+     "kind": "제목",
+     "y_pct": 75,
+     "x_center_pct": 50,
+     "text_height_pct": 5,
+     "color": "yellow",
+     "background": "상자",
+     "bg_color": "black",
+     "bg_width_pct": 60,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 2.1,
+     "end": 4,
+     "text": "DEZE ELEKTRISCHE GEZINSAUTO",
+     "ko": "이 전기 패밀리카가",
+     "kind": "말 자막",
+     "y_pct": 75,
+     "x_center_pct": 50,
+     "text_height_pct": 5,
+     "color": "yellow",
+     "background": "상자",
+     "bg_color": "black",
+     "bg_width_pct": 70,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 7,
+     "end": 8.5,
+     "text": "BMW M3 COMPETITION",
+     "ko": "BMW M3 컴페티션",
+     "kind": "키워드 스티커",
+     "y_pct": 75,
+     "x_center_pct": 50,
+     "text_height_pct": 4,
+     "color": "yellow",
+     "background": "상자",
+     "bg_color": "black",
+     "bg_width_pct": 50,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 11.5,
+     "end": 13,
+     "text": "2 ELEKTROMOTOREN ✔",
+     "ko": "듀얼 듀얼모터 ✔",
+     "kind": "숫자 사양",
+     "y_pct": 75,
+     "x_center_pct": 50,
+     "text_height_pct": 4,
+     "color": "black",
+     "background": "상자",
+     "bg_color": "yellow",
+     "bg_width_pct": 60,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 13.5,
+     "end": 14.8,
+     "text": "100 KW",
+     "ko": "100 kWh 배터리",
+     "kind": "숫자 사양",
+     "y_pct": 75,
+     "x_center_pct": 50,
+     "text_height_pct": 4,
+     "color": "black",
+     "background": "상자",
+     "bg_color": "yellow",
+     "bg_width_pct": 40,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 15,
+     "end": 16.5,
+     "text": "VIERWIELAANDRIJVING ✔",
+     "ko": "사륜구동 ✔",
+     "kind": "숫자 사양",
+     "y_pct": 75,
+     "x_center_pct": 50,
+     "text_height_pct": 4,
+     "color": "black",
+     "background": "상자",
+     "bg_color": "yellow",
+     "bg_width_pct": 60,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    }
+   ],
+   "sfx": [
+    {
+     "t": 7.1,
+     "type": "톡",
+     "event": "BMW M3 이미지 등장",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 9.2,
+     "type": "톡",
+     "event": "지커 그래픽 등장",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 58.1,
+     "type": "톡",
+     "event": "오토스카우트24 로고 등장",
+     "level": "보통",
+     "sure": true
+    }
+   ],
+   "music": {
+    "genre": "Pop/Upbeat Electro",
+    "bpm_est": 120,
+    "mood": "경쾌함",
+    "ducks_under_voice": true,
+    "changes": [],
+    "cuts_on_beat": "일부"
+   },
+   "graphics": [
+    {
+     "start": 7,
+     "end": 8.8,
+     "what": "BMW M3 이미지",
+     "is_3d": false,
+     "size_w_pct": 60,
+     "x_pct": 20,
+     "y_pct": 80,
+     "entrance": "아래에서 슬라이드",
+     "purpose": "비교 대상 시각화",
+     "sure": true
+    },
+    {
+     "start": 9,
+     "end": 11,
+     "what": "Zeekr 001 로고 및 모델명 그래픽",
+     "is_3d": false,
+     "size_w_pct": 70,
+     "x_pct": 15,
+     "y_pct": 70,
+     "entrance": "페이드인",
+     "purpose": "차량 정보 제공",
+     "sure": true
+    },
+    {
+     "start": 57.5,
+     "end": 60,
+     "what": "AutoScout24 로고",
+     "is_3d": false,
+     "size_w_pct": 50,
+     "x_pct": 25,
+     "y_pct": 60,
+     "entrance": "톡 튀어나옴",
+     "purpose": "플랫폼 브랜딩",
+     "sure": true
+    }
+   ],
+   "transcript": [
+    {
+     "start": 0,
+     "end": 8.8,
+     "text": "Ik ben benieuwd of jij kan raden hoeveel pk deze elektrische gezinsauto heeft. En ik geef je alvast een tip, want hij heeft meer pk dan een BMW M3 Competition.",
+     "ko": "이 전기 패밀리카의 마력을 맞출 수 있는지 궁금하네요. 힌트를 주자면 BMW M3 컴페티션보다 마력이 높습니다."
+    },
+    {
+     "start": 8.8,
+     "end": 15.5,
+     "text": "Dit is de Zeekr 001 Performance. Hij heeft 2 elektromotoren, een accu van 100 kW en vierwielaandrijving.",
+     "ko": "이 차는 지커 001 퍼포먼스입니다. 2개의 전기 모터, 100kWh 배터리, 사륜구동을 탑재했습니다."
+    },
+    {
+     "start": 15.5,
+     "end": 30.5,
+     "text": "En wat me meteen opvalt aan deze auto: overal camera's. Daar een camera, hier een camera, daar een camera. En let op: hier een camera, hier een camera, en hier een camera.",
+     "ko": "가장 눈에 띄는 점은 모든 곳에 카메라가 있다는 것입니다. 저기, 여기, 저기, 그리고 이쪽에도 카메라가 있습니다."
+    },
+    {
+     "start": 30.5,
+     "end": 43.8,
+     "text": "Ja, en dat zie je hier dus ook terugkomen. Zie je? Overal camera's. En ik zag ook deze functie: je kunt dus ook een opname starten, een rijrecorder.",
+     "ko": "실내 디스플레이에서도 확인할 수 있죠. 블랙박스 기능처럼 주행 녹화도 가능합니다."
+    },
+    {
+     "start": 43.8,
+     "end": 49.8,
+     "text": "En kijk hoe strak het design is. Je hebt gewoon nog niet eens een start- en stopknop, maar je kunt gewoon instappen en wegrijden.",
+     "ko": "디자인이 깔끔합니다. 스타트 버튼조차 없이 탑승해서 바로 출발할 수 있습니다."
+    },
+    {
+     "start": 49.8,
+     "end": 60,
+     "text": "Dus ik ben benieuwd of jij kan raden hoeveel pk deze auto heeft. Ik vind het echt een toppertje en je vindt hem in de showroom van Auto Corsten en natuurlijk op AutoScout24.nl.",
+     "ko": "과연 이 차가 몇 마력일지 맞춰보세요. 오토 코르스턴 전시장과 AutoScout24에서 확인하세요."
+    }
+   ],
+   "structure": [
+    {
+     "stage": "훅",
+     "start": 0,
+     "end": 8.8,
+     "speed": "빠름",
+     "summary": "마력 맞추기 퀴즈 제시 및 BMW M3 비교 힌트"
+    },
+    {
+     "stage": "차 소개",
+     "start": 8.8,
+     "end": 15.5,
+     "speed": "보통",
+     "summary": "지커 001 주요 스펙(모터/배터리/구동방식) 소개"
+    },
+    {
+     "stage": "기능·옵션",
+     "start": 15.5,
+     "end": 49.8,
+     "speed": "보통",
+     "summary": "서라운드 카메라 및 센서, 실내 모니터, 스마트 시동 디자인 강조"
+    },
+    {
+     "stage": "마무리·행동 유도",
+     "start": 49.8,
+     "end": 60,
+     "speed": "빠름",
+     "summary": "퀴즈 재확인 및 매물 검색 플랫폼 안내"
+    }
+   ],
+   "rules": [
+    "1. 첫 3초 내 퀴즈와 궁금증 유발 멘트로 시선 확보",
+    "2. 평균 컷 길이는 5~8초 내외로 주요 시각 포인트별 전개",
+    "3. 굵은 노란색/검은색 상자 자막으로 키워드 직관 전달",
+    "4. 주요 스펙이나 타사 차종 등장 시 효과음(pop) 및 이미지 그래픽 팝업",
+    "5. 진행자가 차량 주변을 이동하며 렌즈/카메라 센서를 직접 가리키는 현장감 연출",
+    "6. 실외 외관 -> 실내 인포테인먼트 -> 실내 전체 -> 전면 호스트 순으로 전개",
+    "7. 영상 끝에는 질문을 재던지고 브랜드/매매 사이트 브랜드 로고를 등장시켜 유도"
+   ]
+  }
+ ]
+}

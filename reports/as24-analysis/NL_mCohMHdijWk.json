@@ -1,0 +1,147 @@
+{
+ "country": "NL",
+ "title": "NL-016",
+ "url": "https://www.youtube.com/shorts/mCohMHdijWk",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1873,
+  "candidatesTokenCount": 1146,
+  "totalTokenCount": 4276,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 905
+   }
+  ],
+  "thoughtsTokenCount": 1257,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.8,
+   "aspect": "9:16",
+   "car": "Zeekr 001",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.2,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 4.5,
+    "text": "RAAD HET AUTOMERK 👀",
+    "ko": "자동차 브랜드를 맞춰보세요 👀",
+    "kind": "제목",
+    "y_pct": 22,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FEE000",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.2,
+    "text": "LAAT HET WETEN IN DE REACTIES!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "제목",
+    "y_pct": 22,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FEE000",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "바로 나타남",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 팝",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 8.2,
+    "end": 9.8,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "확대",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "엠블럼을 가리키며 브랜드 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 4.5,
+    "end": 9.8,
+    "speed": "보통",
+    "summary": "댓글 유도 자막 및 브랜드 엔딩 로고 노출"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 내 자동차 엠블럼 क्लोज-업 및 퀴즈 자막으로 몰입도 유도",
+   "2. 평균 컷 길이는 2~4초 수준으로 짧게 유지",
+   "3. 노란색 상자 배경의 굵은 상단 자막 사용",
+   "4. 음성 설명 없이 음악과 인물의 손짓 동작으로 메시지 전달",
+   "5. 영상 후반부 행동 유도(댓글 작성) 자막 교체",
+   "6. 8초 이후 브랜드 시그니처 그래픽 팝업으로 마무리"
+  ]
+ }
+}

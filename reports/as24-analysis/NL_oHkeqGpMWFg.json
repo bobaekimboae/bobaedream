@@ -1,0 +1,380 @@
+{
+ "country": "NL",
+ "title": "NL-015",
+ "url": "https://www.youtube.com/shorts/oHkeqGpMWFg",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4893,
+  "candidatesTokenCount": 3482,
+  "totalTokenCount": 8770,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3925
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 395,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf R Variant",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 8.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.5,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "part": "휠",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 32.0,
+    "part": "시트",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 35.0,
+    "part": "계기판",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 43.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "WAAROM HEEFT DEZE VOLKSWAGEN STATION",
+    "ko": "왜 이 폭스바겐 스테이션 왜건은",
+    "kind": "말 자막",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.0,
+    "text": "DRIFTMODE",
+    "ko": "드리프트 모드가 있을까?",
+    "kind": "말 자막",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "320 PK 🏁",
+    "ko": "320馬力 🏁",
+    "kind": "숫자 사양",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "text": "VIERWIELAANDRIJVING ✔️",
+    "ko": "사륜구동 ✔️",
+    "kind": "말 자막",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.0,
+    "text": "€39.995",
+    "ko": "€39.995",
+    "kind": "가격",
+    "y_pct": 40,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "마력 사양 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.0,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 트랩 비트",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 41.5,
+    "end": 43.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "서서히",
+    "purpose": "브랜드 노출 및 아웃트로",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Waarom heeft deze Volkswagen station een driftmode?",
+    "ko": "왜 이 폭스바겐 스테이션 왜건에는 드리프트 모드가 있을까요?"
+   },
+   {
+    "start": 3.0,
+    "end": 8.0,
+    "text": "Dit is namelijk geen normale Golf Variant. En op het einde van de video vertel ik je ook wat hij kost.",
+    "ko": "이것은 일반 골프 바리안트가 아니기 때문입니다. 영상 끝에서 가격도 알려드릴게요."
+   },
+   {
+    "start": 8.0,
+    "end": 14.5,
+    "text": "Dit is de Golf R Variant. En onder de motorkap heeft hij een turbomotor met 320 PK.",
+    "ko": "이 차는 골프 R 바리안트입니다. 보닛 아래에는 320마력의 터보 엔진이 탑재되어 있습니다."
+   },
+   {
+    "start": 14.5,
+    "end": 21.0,
+    "text": "Maar het bijzondere zit in de vierwielaandrijving. Deze Golf kan het vermogen over de twee achterwielen verdelen.",
+    "ko": "특별한 점은 사륜구동 방식입니다. 이 골프는 뒷바퀴 두 개로 동력을 분배할 수 있습니다."
+   },
+   {
+    "start": 21.0,
+    "end": 27.0,
+    "text": "En in driftmode kan er extra kracht naar het buitenste achterwiel worden gestuurd, waardoor je dus gaat driften.",
+    "ko": "드리프트 모드에서는 바깥쪽 뒷바퀴로 더 많은 동력이 전달되어 드리프트가 가능해집니다."
+   },
+   {
+    "start": 28.0,
+    "end": 35.0,
+    "text": "En dat terwijl je achterin ook gewoon 5 ruime zitplaatsen hebt en genoeg kofferruimte.",
+    "ko": "넉넉한 5인승 공간과 충분한 트렁크 용량도 갖추고 있습니다."
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "text": "En hij kost €39.995.",
+    "ko": "가격은 39,995유로입니다."
+   },
+   {
+    "start": 38.0,
+    "end": 43.0,
+    "text": "Je vindt hem in de showroom van Rijnmond Automotive en natuurlijk op AutoScout24.nl.",
+    "ko": "Rijnmond Automotive 전시장과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "왜건의 드리프트 모드 질문으로 흥미 유발."
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "골프 R 바리안트 모델명과 320마력 출력 소개."
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 14.5,
+    "end": 27.0,
+    "speed": "보통",
+    "summary": "사륜구동 시스템과 드리프트 모드 작동 방식 설명."
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 27.0,
+    "end": 35.0,
+    "speed": "보통",
+    "summary": "실내 좌석 공간과 실용성 강조."
+   },
+   {
+    "stage": "가격",
+    "start": 35.0,
+    "end": 38.0,
+    "speed": "빠름",
+    "summary": "가격 39,995유로 공개."
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 38.0,
+    "end": 43.0,
+    "speed": "보통",
+    "summary": "판매처 및 플랫폼 안내 후 종료."
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 내 파격적인 질문(왜건에 드리프트 모드?)으로 훅 형성.",
+   "2. 평균 2~3초 간격의 빠른 컷 전환으로 지루함 방지.",
+   "3. 화면 중앙에 검은 배경 박스+노란색 글자 자막 배치.",
+   "4. 핵심 텍스트 및 사양 등장 시 효과음(톡, 돈 소리) 매칭.",
+   "5. 외관 -> 엔진룸 -> 구동계/휠 -> 실내/시트 -> 전체 외관 순의 촬영 흐름.",
+   "6. 영상 후반부에 확실한 가격 정보 노출 후 구매 유도 브랜딩으로 마무리."
+  ]
+ }
+}

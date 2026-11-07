@@ -1,0 +1,415 @@
+{
+ "country": "NL",
+ "title": "NL-020",
+ "url": "https://www.youtube.com/shorts/Qb6LNPnWFRs",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5698,
+  "candidatesTokenCount": 3919,
+  "totalTokenCount": 10063,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4730
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 446,
+  "serviceTier": "standard"
+ },
+ "analysis": [
+  {
+   "basic": {
+    "duration_sec": 51.0,
+    "aspect": "9:16",
+    "car": "Kia EV6",
+    "format": "차 소개 및 가격 정보",
+    "person_on_screen": true,
+    "voice": "사람 직접",
+    "language": "nl"
+   },
+   "shots": [
+    {
+     "start": 0.0,
+     "end": 3.8,
+     "part": "외관 전면",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 3.8,
+     "end": 6.8,
+     "part": "외관 전면",
+     "camera": "옆 이동",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 6.8,
+     "end": 9.8,
+     "part": "외관 측면",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 9.8,
+     "end": 12.8,
+     "part": "실내",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 12.8,
+     "end": 16.5,
+     "part": "외관 전면",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 16.5,
+     "end": 22.5,
+     "part": "외관 측면",
+     "camera": "옆 이동",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 22.5,
+     "end": 26.8,
+     "part": "실내",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 26.8,
+     "end": 29.8,
+     "part": "실내",
+     "camera": "밀기",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 29.8,
+     "end": 35.5,
+     "part": "화면",
+     "camera": "당기기",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 35.5,
+     "end": 38.2,
+     "part": "시트",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 38.2,
+     "end": 39.8,
+     "part": "기타",
+     "camera": "밀기",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 39.8,
+     "end": 41.8,
+     "part": "시트",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 41.8,
+     "end": 51.0,
+     "part": "외관 전면",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    }
+   ],
+   "captions": [
+    {
+     "start": 0.0,
+     "end": 1.5,
+     "text": "IS JOUW BUDGET €35.000",
+     "ko": "예산이 35,000유로인가요?",
+     "kind": "제목",
+     "y_pct": 20.0,
+     "x_center_pct": 50.0,
+     "text_height_pct": 8.0,
+     "color": "#FFFFFF",
+     "background": "상자",
+     "bg_color": "#FFCC00",
+     "bg_width_pct": 80.0,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "€35.000",
+     "sure": true
+    },
+    {
+     "start": 7.5,
+     "end": 9.2,
+     "text": "KIA EV6",
+     "ko": "기아 EV6",
+     "kind": "제목",
+     "y_pct": 12.0,
+     "x_center_pct": 50.0,
+     "text_height_pct": 6.0,
+     "color": "#FFFFFF",
+     "background": "상자",
+     "bg_color": "#8BC34A",
+     "bg_width_pct": 40.0,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 13.5,
+     "end": 16.5,
+     "text": "18 MINUTEN VAN 10 NAAR 80%",
+     "ko": "18분 만에 10%에서 80% 충전",
+     "kind": "숫자 사양",
+     "y_pct": 75.0,
+     "x_center_pct": 50.0,
+     "text_height_pct": 6.0,
+     "color": "#FFFFFF",
+     "background": "상자",
+     "bg_color": "#FFCC00",
+     "bg_width_pct": 75.0,
+     "tilt_deg": 0,
+     "entrance": "낱말별로 바뀜",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 24.5,
+     "end": 26.5,
+     "text": "500 KM",
+     "ko": "주행거리 500 KM",
+     "kind": "숫자 사양",
+     "y_pct": 75.0,
+     "x_center_pct": 50.0,
+     "text_height_pct": 7.0,
+     "color": "#FFFFFF",
+     "background": "상자",
+     "bg_color": "#8BC34A",
+     "bg_width_pct": 45.0,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 31.8,
+     "end": 35.0,
+     "text": "STUURVERWARMING\nSTOELVERWARMING\nSTOELKOELING",
+     "ko": "스티어링 휠 열선 / 시트 열선 / 통풍 시트",
+     "kind": "키워드 스티커",
+     "y_pct": 45.0,
+     "x_center_pct": 50.0,
+     "text_height_pct": 10.0,
+     "color": "#FFFFFF",
+     "background": "상자",
+     "bg_color": "#FFCC00",
+     "bg_width_pct": 70.0,
+     "tilt_deg": 0,
+     "entrance": "낱말별로 바뀜",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 45.5,
+     "end": 47.0,
+     "text": "€35.000",
+     "ko": "€35,000",
+     "kind": "가격",
+     "y_pct": 50.0,
+     "x_center_pct": 50.0,
+     "text_height_pct": 7.0,
+     "color": "#FFFFFF",
+     "background": "상자",
+     "bg_color": "#FFCC00",
+     "bg_width_pct": 50.0,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    }
+   ],
+   "sfx": [
+    {
+     "t": 0.1,
+     "type": "톡",
+     "event": "제목 자막 팝업",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 7.6,
+     "type": "딸깍",
+     "event": "차량명 스티커 팝업",
+     "level": "작음",
+     "sure": true
+    },
+    {
+     "t": 24.8,
+     "type": "충격음",
+     "event": "주행거리 강조 그래픽 팝업",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 38.5,
+     "type": "톡",
+     "event": "USB-C 아이콘 등장",
+     "level": "작음",
+     "sure": true
+    },
+    {
+     "t": 49.5,
+     "type": "톡",
+     "event": "AutoScout24 로고 등장",
+     "level": "보통",
+     "sure": true
+    }
+   ],
+   "music": {
+    "genre": "Pop / Upbeat Electronic",
+    "bpm_est": 120,
+    "mood": "경쾌함, 트렌디함",
+    "ducks_under_voice": true,
+    "changes": [],
+    "cuts_on_beat": "일부"
+   },
+   "graphics": [
+    {
+     "start": 49.2,
+     "end": 51.0,
+     "what": "AutoScout24 브랜드 로고",
+     "is_3d": false,
+     "size_w_pct": 60.0,
+     "x_pct": 20.0,
+     "y_pct": 45.0,
+     "entrance": "옆에서 밀려옴",
+     "purpose": "브랜딩 및 행동 유도",
+     "sure": true
+    }
+   ],
+   "transcript": [
+    {
+     "start": 0.0,
+     "end": 3.8,
+     "text": "Is jouw budget 35.000 euro en ben je op zoek naar een elektrische auto?",
+     "ko": "예산이 35,000유로이고 전기차를 찾고 계신가요?"
+    },
+    {
+     "start": 3.8,
+     "end": 9.5,
+     "text": "In deze video laat ik je zien wat je voor dat budget krijgt: de Kia EV6.",
+     "ko": "이번 영상에서 그 예산으로 살 수 있는 기아 EV6를 보여드릴게요."
+    },
+    {
+     "start": 9.5,
+     "end": 17.0,
+     "text": "En deze heeft een optie die veel andere elektrische auto's niet hebben. Hij laadt namelijk in 18 minuten van 10 naar 80%.",
+     "ko": "다른 전기차에는 없는 옵션이 있는데요, 10%에서 80%까지 18분 만에 충전됩니다."
+    },
+    {
+     "start": 17.0,
+     "end": 22.8,
+     "text": "Heel handig dus als je vaak lange stukken rijdt maar toch elektrisch wil rijden en snel wil laden.",
+     "ko": "장거리 운전을 자주 하면서도 빠르게 충전하고 싶은 분들께 유용합니다."
+    },
+    {
+     "start": 22.8,
+     "end": 26.8,
+     "text": "En de actieradius van deze auto is ongeveer 500 km.",
+     "ko": "이 차의 주행거리는 약 500km입니다."
+    },
+    {
+     "start": 26.8,
+     "end": 35.5,
+     "text": "Kijk hoe luxe dit interieur eruitziet. Groot scherm, stuurverwarming, stoelverwarming, stoelkoeling en wireless charging.",
+     "ko": "고급스러운 실내를 보세요. 대형 화면, 핸들 열선, 통풍/열선 시트, 무선 충전까지 갖췄습니다."
+    },
+    {
+     "start": 35.5,
+     "end": 41.8,
+     "text": "Achterin is hij lekker ruim, met USB-C-lader en achterin heeft hij ook stoelverwarming.",
+     "ko": "뒷좌석도 넓고 USB-C 포트와 뒷좌석 열선 시트가 있습니다."
+    },
+    {
+     "start": 41.8,
+     "end": 51.0,
+     "text": "Dus al met al heel wat luxe, volledig elektrisch voor 35.000 euro. Deze vind je op AutoScout24.nl.",
+     "ko": "풀 옵션 전기차를 35,000유로에 만나보세요. AutoScout24.nl에서 확인하세요."
+    }
+   ],
+   "structure": [
+    {
+     "stage": "훅",
+     "start": 0.0,
+     "end": 3.8,
+     "speed": "빠름",
+     "summary": "가격 제시로 시선 사로잡기"
+    },
+    {
+     "stage": "차 소개",
+     "start": 3.8,
+     "end": 9.5,
+     "speed": "보통",
+     "summary": "차량 모델 공개"
+    },
+    {
+     "stage": "사양",
+     "start": 9.5,
+     "end": 26.8,
+     "speed": "빠름",
+     "summary": "충전 속도 및 주행거리 강조"
+    },
+    {
+     "stage": "기능·옵션",
+     "start": 26.8,
+     "end": 41.8,
+     "speed": "보통",
+     "summary": "실내 편의 사양 설명"
+    },
+    {
+     "stage": "가격",
+     "start": 41.8,
+     "end": 47.0,
+     "speed": "보통",
+     "summary": "최종 가격 정리"
+    },
+    {
+     "stage": "마무리·행동 유도",
+     "start": 47.0,
+     "end": 51.0,
+     "speed": "빠름",
+     "summary": "구매처 안내 및 브랜드 로고 연출"
+    }
+   ],
+   "rules": [
+    "첫 3초: 핵심 가격(€35.000) 노출로 구매층 훅 유도",
+    "컷 평균 길이: 2~3초 단위 빠른 전환",
+    "자막: 주요 핵심 텍스트를 노란색/연두색 배경 상자로 강조",
+    "효과음: 주요 기능·사양 자막 등장 시 톡/딸깍 효과음 삽입",
+    "아이콘 사용: USB-C 등 기능 설명 시 직관적 그래픽 팝업",
+    "촬영 순서: 전면 외관 -> 측면 -> 운전석 실내 -> 센터콘솔 상세 -> 2열 실내 -> 외관 전면 풀샷",
+    "마무리: 최종 가격 재확인 후 브랜드 로고 애니메이션으로 행동 유도"
+   ]
+  }
+ ]
+}
