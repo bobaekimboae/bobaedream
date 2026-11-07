@@ -493,7 +493,8 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     # 포인트 표시(MARKS, 설정 파일): '✓' = 글자 뒤 흰 체크(오토스카우트24 네덜란드식), 그 밖 = 색 이모지를 칠 오른쪽 끝에 걸치게
     mark = globals().get('MARKS', {}).get(txt)
     chk = cap * 0.95 if mark == '✓' else 0
-    tw_all = tw + (chk + cap * 0.42 if chk else 0)
+    badge = cap * 1.42 if (mark and mark != '✓') else 0  # 이모지는 칠 안, 글자 뒤 흰 원 위에(파란 이모지도 보이게)
+    tw_all = tw + (chk + cap * 0.42 if chk else 0) + (badge + cap * 0.38 if badge else 0)
     pxr, hr = STYLE['big_pad'] if big else STYLE['pad']
     px = int(cap * pxr)
     w, h = int(tw_all + px * 2), int(cap * hr)
@@ -505,9 +506,10 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
             eim = Image.new('RGBA', (160, 160), (0, 0, 0, 0))
             ImageDraw.Draw(eim).text((80, 80), mark, font=ef, embedded_color=True, anchor='mm')
             eim = eim.crop(eim.getbbox())
-            eh = int(cap * 1.55)
+            eh = int(badge * 0.74)
             emo = eim.resize((int(eim.width * eh / eim.height), eh), Image.LANCZOS)
-            m = max(m, int(emo.width * 0.75))
+            if emo.width > badge * 0.8:
+                emo = emo.resize((int(badge * 0.8), int(emo.height * badge * 0.8 / emo.width)), Image.LANCZOS)
         except Exception:
             emo = None
     S = 4  # 4배로 그려 줄여서 가장자리를 매끄럽게
@@ -546,7 +548,8 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     im.putalpha(mask)
     td = ImageDraw.Draw(im)
     fg = tuple(STYLE['stk_fg'])
-    tx = m + w / 2 - (chk + cap * 0.42) / 2 if chk else m + w / 2
+    extra = (chk + cap * 0.42) if chk else ((badge + cap * 0.38) if badge else 0)
+    tx = m + w / 2 - extra / 2
     td.text((tx, m + h / 2), txt, font=fnt, fill=fg, anchor='mm')
     if chk:  # 흰 체크: 글자 굵기와 같은 선, 둥근 끝
         cx0 = tx + tw / 2 + cap * 0.42
@@ -556,9 +559,12 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
         td.line([p1, p2, p3], fill=fg, width=lw, joint='curve')
         for q in (p1, p3):
             td.ellipse((q[0] - lw / 2, q[1] - lw / 2, q[0] + lw / 2, q[1] + lw / 2), fill=fg)
-    if emo is not None:  # 칠 오른쪽 끝에 3분의 1쯤 걸치고 살짝 반대로 기울임
-        e2 = emo.rotate(8, resample=Image.BICUBIC, expand=True)
-        im.alpha_composite(e2, (int(m + w - e2.width * 0.38), int(m + h / 2 - e2.height * 0.58)))
+    if badge:  # 흰 원 + 이모지, 칠 안쪽 글자 뒤
+        bx = tx + tw / 2 + cap * 0.38
+        by = m + h / 2 - badge / 2
+        td.ellipse((bx, by, bx + badge, by + badge), fill=(255, 255, 255, 255))
+        if emo is not None:
+            im.alpha_composite(emo, (int(bx + (badge - emo.width) / 2), int(by + (badge - emo.height) / 2)))
     im = im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
     _cache[k] = im
     return im
