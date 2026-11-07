@@ -1,0 +1,10 @@
+{
+ "model": "gemini-3.8-flash",
+ "fps": 1.0,
+ "new": 10,
+ "skipped": 3,
+ "failed": 0,
+ "ok_total": 13,
+ "targets": 200,
+ "stopped": "하루 한도 도달: HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.goo"
+}
