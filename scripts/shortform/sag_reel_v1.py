@@ -2,7 +2,7 @@
 
 입력: 딜러가 찍은 매물 원본 영상 1개 + 매물 정보(사실만).
 흐름: 대본(사실만) → TTS(어절 시각) → 원본에서 부위별 구간 고르기 → 1.6초 안팎 컷 편집(속도·푸시인)
-     → 번호판 자동 가림(LPD-YuNet) → 한 어절 키네틱 자막 · 부위 칩 · 사양 카드 · 진행선 → 끝 카드
+     → 번호판 자동 가림(LPD-YuNet) → 구절 자막(반투명 바탕) · 부위 칩 · 사양 카드 · 진행선 → 끝 카드
      → 코드로 만든 배경음악 + 목소리 자동 덕킹 → -14 LUFS → 1080×1920 30fps mp4.
 
 실행: python3 scripts/shortform/sag_reel_v1.py <원본.mp4> <출력폴더>
@@ -20,10 +20,18 @@ SRC = sys.argv[1]
 OUT = sys.argv[2]
 os.makedirs(OUT, exist_ok=True)
 W, H, FPS = 1080, 1920, 30
-BLACK = '/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc'
-BOLD = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
-MED = '/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc'
+FONTS = os.path.join(os.path.dirname(__file__), 'fonts')  # Pretendard 1.3.9 (OFL)
+BLACK = os.path.join(FONTS, 'Pretendard-ExtraBold.otf')
+BOLD = os.path.join(FONTS, 'Pretendard-Bold.otf')
+SEMI = os.path.join(FONTS, 'Pretendard-SemiBold.otf')
+MED = os.path.join(FONTS, 'Pretendard-Medium.otf')
 YELLOW = (255, 214, 10)
+# 음성: edge-tts 현수(멀티링구얼, 인준보다 억양이 자연스러움). 구글 Chirp 3: HD 키가 생기면 이 자리만 바꾼다
+VOICE, VOICE_RATE = os.environ.get('SAG_VOICE', 'ko-KR-HyunsuMultilingualNeural'), os.environ.get('SAG_VOICE_RATE', '+8%')
+# 릴스·쇼츠·틱톡 공통 세이프존(1080×1920): 위·아래 240, 오른쪽 216(버튼 줄), 좌우 끝 54 — 자막은 이 안의 가운데
+SAFE_TOP, SAFE_BOTTOM, SAFE_L, SAFE_R = 240, 1920 - 240, 54, 1080 - 216
+PLATE_COVER = os.environ.get('SAG_PLATE_COVER', '0') == '1'
+SAFE_W, SAFE_CX = SAFE_R - SAFE_L, (SAFE_L + SAFE_R) / 2
 BLUE = (48, 107, 217)
 
 # ── 매물 정보(사실만, 시트 그대로). 차량번호·연락처는 넣지 않는다 ──
@@ -33,24 +41,24 @@ CAR = dict(name='포르쉐 파나메라 4', gen='971', year='2021', reg='21년04
 # ── 대본: 숫자 훅 → 차명 → 외관 → 실내 → 옵션 → 조건·DM (선우혁 6단계). 사진·정보에 없는 말은 쓰지 않는다 ──
 # shots: (원본 시작 초, 재생 속도, 번호판 가림 필요)
 BLOCKS = [
-    dict(sec='외관', tts='9,200만 원에 파나메라 포.', shots=[(2.0, 1.2, 1), (4.2, 1.3, 1)], hook=True),
-    dict(sec='외관', tts='2021년식, 2.9 가솔린 사륜구동입니다.', shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
+    dict(sec='외관', tts='9,200만 원. 파나메라 포 들어왔습니다.', caps=['9,200만 원', '파나메라 4 들어왔습니다'], shots=[(2.0, 1.2, 1), (4.2, 1.3, 1)], hook=True),
+    dict(sec='외관', tts='21년식, 2.9 가솔린 사륜구동입니다.', caps=['21년식', '2.9 가솔린 사륜구동입니다'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
          card=('2.9 가솔린 · AWD', '2021년식 · 971')),
-    dict(sec='외관', tts='짙은 블루 컬러에 낮게 떨어지는 패스트백 라인.', shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
-    dict(sec='휠', tts='휠도 가까이서 보시죠.', shots=[(18.0, 1.15, 1), (19.2, 1.15, 1)]),
-    dict(sec='후면', tts='뒤로 가면 가로로 이어진 테일램프.', shots=[(9.6, 1.2, 1), (10.5, 0.95, 1)]),
-    dict(sec='실내', tts='실내는 베이지 가죽 시트, 상태 직접 확인하세요.', shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)],
+    dict(sec='외관', tts='컬러는 짙은 블루입니다. 옆 라인 보시겠습니다.', caps=['컬러는 짙은 블루입니다', '옆 라인 보시겠습니다'], shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
+    dict(sec='휠', tts='휠 상태도 보여드리겠습니다.', caps=['휠 상태도 보여드리겠습니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)]),
+    dict(sec='후면', tts='뒤로 오면 테일램프가 가로로 쭉 이어져 있습니다.', caps=['뒤로 오면 테일램프가', '가로로 쭉 이어져 있습니다'], shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)]),
+    dict(sec='실내', tts='문 열어보겠습니다. 실내는 베이지 가죽이고, 시트 상태는 영상 그대로 보시면 됩니다.', caps=['문 열어보겠습니다', '실내는 베이지 가죽이고', '시트 상태는', '영상 그대로 보시면 됩니다'], shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)],
          card=('베이지 가죽 시트', None)),
-    dict(sec='실내', tts='센터 콘솔은 버튼 대신 터치 패널,', shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
-    dict(sec='실내', tts='천장은 파노라마 선루프입니다.', shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
-    dict(sec='뒷좌석', tts='뒷좌석에도 공조 패널이 따로 있고요,', shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
-    dict(sec='운전석', tts='운전석은 디지털 계기판과 큰 터치스크린.', shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
-    dict(sec='트렁크', tts='트렁크 공간까지 확인하시고요.', shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
-    dict(sec='판매 조건', tts='2021년 4월 최초등록, 주행 3만 8천 킬로미터, 판매가 9,200만 원입니다. 자세한 건 DM 주세요.',
+    dict(sec='실내', tts='센터는 버튼 없이 전부 터치 패널입니다.', caps=['센터는 버튼 없이', '전부 터치 패널입니다'], shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
+    dict(sec='실내', tts='위에는 파노라마 선루프가 들어가 있습니다.', caps=['위에는 파노라마 선루프가', '들어가 있습니다'], shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
+    dict(sec='뒷좌석', tts='뒷좌석 공조도 따로 있습니다.', caps=['뒷좌석 공조도 따로 있습니다'], shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
+    dict(sec='운전석', tts='운전석 앉으면 디지털 계기판에 큰 화면, 이렇게 나옵니다.', caps=['운전석 앉으면', '디지털 계기판에 큰 화면', '이렇게 나옵니다'], shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
+    dict(sec='트렁크', tts='트렁크 열어보면 공간은 이 정도입니다.', caps=['트렁크 열어보면', '공간은 이 정도입니다'], shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
+    dict(sec='판매 조건', tts='21년 4월 등록, 주행은 3만 8천 킬로미터입니다. 가격은 9,200만 원. 문의는 DM으로 주시면 됩니다.', caps=['21년 4월 등록', '주행 3만 8천 km입니다', '가격은 9,200만 원', '문의는 DM으로 주시면 됩니다'],
          shots=[(54.4, 1.1, 1), (18.4, 1.1, 1), (23.2, 1.2, 0), (47.0, 1.1, 0), (6.2, 1.0, 1)], card=('주행 38,276km', '최초등록 2021년 4월'), end=True),
 ]
-SHOW = {'포.': '4.', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km'}
-KEY = re.compile(r'(\d|만|블루|베이지|파노라마|터치|디지털|사륜|AWD|DM|패스트백|테일램프)')
+SHOW = {'포.': '4.', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km', '킬로미터입니다.': 'km입니다.'}
+KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|테일램프|옆태)')
 
 
 # ── 1. TTS ──
@@ -58,7 +66,7 @@ async def edge(text, path):
     import certifi
     certifi.where = lambda: '/root/.ccr/ca-bundle.crt'
     import edge_tts
-    c = edge_tts.Communicate(text, 'ko-KR-InJoonNeural', rate='+14%', boundary='WordBoundary')
+    c = edge_tts.Communicate(text, VOICE, rate=VOICE_RATE, boundary='WordBoundary')
     words = []
     with open(path, 'wb') as f:
         async for ch in c.stream():
@@ -96,6 +104,32 @@ def build_voice():
 
 
 # ── 2. 배경음악(코드로 만든 박자 → 저작권 문제 없음) ──
+def build_sfx(total, sr=48000):
+    """부위(섹션)가 바뀌는 컷에만 짧은 휙 소리. 컷마다 넣으면 산만하다는 편집 가이드에 따라 섹션 전환에만"""
+    n = int(total * sr) + sr
+    out = np.zeros(n)
+    rng = np.random.default_rng(7)
+    prev = None
+    for bi, b in enumerate(BLOCKS):
+        if bi and b['sec'] != prev:
+            c = b['t0'] - LEAD
+            L = int(0.32 * sr)
+            st = int((c - 0.22) * sr)
+            if st < 0:
+                continue
+            noise = rng.standard_normal(L)
+            # 저역을 걷어낸 잡음에 올라갔다 내려오는 모양 → 휙
+            noise = np.convolve(noise, np.ones(6) / 6, 'same') - np.convolve(noise, np.ones(60) / 60, 'same')
+            env = np.sin(np.linspace(0, np.pi, L)) ** 2
+            out[st:st + L] += noise * env * 0.5
+        prev = b['sec']
+    out = out / (np.max(np.abs(out)) or 1) * 0.5
+    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
+    import wave
+    with wave.open(os.path.join(OUT, 'sfx.wav'), 'wb') as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
+
+
 def build_bgm(total, bpm=112, sr=48000):
     n = int(total * sr) + sr
     t = np.arange(n) / sr
@@ -143,12 +177,24 @@ def build_bgm(total, bpm=112, sr=48000):
 
 # ── 3. 컷 편집표 ──
 def plan_shots(total):
+    """컷은 말 구절이 바뀌는 순간(자막이 바뀌는 순간)에 넣는다. 편집자가 말 단위로 자르는 방식.
+    블록 첫 컷은 그 블록 말보다 LEAD 먼저 바뀐다(그림이 소리보다 살짝 앞서야 자연스러움)"""
     shots = []
     for bi, b in enumerate(BLOCKS):
-        t0 = b['t0'] if bi else 0.0
-        t1 = BLOCKS[bi + 1]['t0'] if bi + 1 < len(BLOCKS) else total
+        t0 = PHRASES[b['ph0']][0] if bi else 0.0  # 블록 첫 자막이 뜨는 순간 = 컷
+        t1 = PHRASES[BLOCKS[bi + 1]['ph0']][0] if bi + 1 < len(BLOCKS) else total
+        words = [w[0] - LEAD for w in b['words'] if t0 + 0.6 < w[0] - LEAD < t1 - 0.6]
         n = len(b['shots'])
-        edges = np.linspace(t0, t1, n + 1)
+        cand = [ph[0] for ph in PHRASES if t0 + 0.6 < ph[0] < t1 - 0.6]  # 이 블록 안 자막 시작점
+        even = list(np.linspace(t0, t1, n + 1)[1:-1])
+        inner = []
+        for e in even:  # 고른 간격에 가장 가까운 자막 시작점(0.8초 안), 없으면 고른 간격
+            c = min(cand, key=lambda x: abs(x - e), default=None)
+            if c is None or abs(c - e) >= 0.8 or c in inner:  # 자막 시작점이 없으면 가장 가까운 어절 시작점
+                c = min(words, key=lambda x: abs(x - e), default=e)
+                c = c if abs(c - e) < 0.8 and c not in inner else e
+            inner.append(c)
+        edges = [t0] + sorted(inner) + [t1]
         for k, (src, sp, plate) in enumerate(b['shots']):
             shots.append(dict(a=edges[k], b=edges[k + 1], src=src, sp=sp, plate=plate, bi=bi, k=k))
     return shots
@@ -312,6 +358,72 @@ def ease(x):
     return 1 - (1 - x) ** 3
 
 
+PHRASES = []
+LEAD = 0.12  # 자막·컷이 말보다 먼저 들어가는 시간
+
+
+def build_phrases():
+    """블록마다 미리 정한 자막 구절(caps)에 어절 시각을 차례로 맞춘다. 어절 수가 다르면 비율로 나눈다"""
+    PHRASES.clear()
+    for b in BLOCKS:
+        ws, caps = b['words'], b.get('caps') or [b['tts']]
+        need = [len(c.split()) for c in caps]
+        n = len(ws)
+        if sum(need) != n:
+            tot = sum(need)
+            cuts = [round(n * sum(need[:k + 1]) / tot) for k in range(len(need))]
+        else:
+            cuts = [sum(need[:k + 1]) for k in range(len(need))]
+        i0 = 0
+        b['ph0'] = len(PHRASES)
+        for c, i1 in zip(caps, cuts):
+            i1 = max(i0 + 1, min(n, i1))
+            PHRASES.append([ws[i0][0], ws[i1 - 1][1], c])
+            i0 = i1
+    # 싱크 규칙(검색 정리): 말보다 0.12초 먼저 뜨고(0.1~0.3초 권장), 다음 자막과 2프레임 띄우고,
+    # 최소 5/6초 · 최대 7초, 말이 끝나도 0.35초는 남겨 읽을 시간을 준다
+    for ph in PHRASES:
+        ph[0] = max(0.0, ph[0] - LEAD)
+    for i, ph in enumerate(PHRASES):
+        nxt = PHRASES[i + 1][0] if i + 1 < len(PHRASES) else ph[1] + 1.0
+        end = ph[1] + 0.35
+        if nxt - end < 0.5:  # 쉼이 짧으면 다음 자막까지 이어서(깜빡임 방지)
+            end = nxt
+        end = min(end, nxt) - 2 / FPS
+        end = max(end, ph[0] + 5 / 6)
+        ph[1] = min(end, ph[0] + 7.0)
+
+
+def phrase_img(text):
+    """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(세이프존 폭 810px을 넘으면 가운데 띄어쓰기에서 2줄)
+    · 줄 높이 화면의 약 4.2% · 화면 아래 데드존(하단 약 450px)과 오른쪽 버튼 줄을 피한 고정 위치 · 문장부호 없음 · 숫자만 노랑"""
+    k = ('phrase', text)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(SEMI, 64)
+    text = text.strip(' ,.')
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 70 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    gap = fnt.getlength(' ')
+    lh, pad_x, pad_y = 80, 30, 12
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + pad_x * 2), lh * len(lines) + pad_y * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, im.width - 1, im.height - 1), 14, fill=(0, 0, 0, 140))
+    for li, line in enumerate(lines):
+        x = (im.width - fnt.getlength(line)) / 2
+        y = pad_y + lh * li + lh / 2
+        for w in line.split(' '):
+            col = YELLOW if re.search(r'\d', w) else (255, 255, 255)
+            d.text((x, y), w, font=fnt, fill=col, anchor='lm')
+            x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
 def overlay(T, total, shots, shot, blk):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     end_t = BLOCKS[-1]['t1'] + 0.35
@@ -323,12 +435,12 @@ def overlay(T, total, shots, shot, blk):
     # 부위 칩 (위 왼쪽)
     chip = pill(blk['sec'], 42, dot=YELLOW)
     since = T - (blk['t0'] if blk is not BLOCKS[0] else 0)
-    paste(ov, chip, 54 - 30 * (1 - ease(since / .25)), 150, alpha=ease(since / .25))
+    paste(ov, chip, 54 - 30 * (1 - ease(since / .25)), SAFE_TOP + 20, alpha=ease(since / .25))
     # 첫 장면 훅 제목
     if T < BLOCKS[1]['t0']:
         e = ease(T / .35)
-        t1 = text_img(CAR['price'], 150, stroke=12, key=True)
-        t2 = text_img(f"{CAR['year']} 파나메라 4 · {CAR['km_short']}", 58, BOLD, stroke=7)
+        t1 = text_img(CAR['price'], 150, stroke=8, key=True)
+        t2 = text_img(f"{CAR['year']} 파나메라 4 · {CAR['km_short']}", 58, BOLD, stroke=6)
         paste(ov, t1, (W - t1.width) / 2, 330 + 40 * (1 - e), e, 0.9 + 0.1 * e)
         paste(ov, t2, (W - t2.width) / 2, 530, e)
     # 사양 카드 (아래 왼쪽, 자막 위)
@@ -338,20 +450,15 @@ def overlay(T, total, shots, shot, blk):
             card = spec_card(*blk['card'])
             e = ease((cs - .15) / .3)
             paste(ov, card, 54 - 60 * (1 - e), 1010, e)
-    # 한 어절 키네틱 자막
+    # 구절 자막: 2~3어절씩 묶어 한 덩어리로 보여 준다(튀는 효과 없음, 위치 고정)
     cur = None
-    for b in BLOCKS:
-        for s, e_, w in b['words']:
-            if s - 0.03 <= T < e_ + 0.08:
-                cur = (s, w)
+    for ph in PHRASES:
+        if ph[0] <= T < ph[1]:
+            cur = ph
     if cur:
-        s, w = cur
-        w = w.rstrip(',.')
-        if w:
-            im = text_img(w, 112, stroke=10, key=bool(KEY.search(w)))
-            p = min(1.0, (T - s) / 0.09)
-            sc = 1.18 - 0.18 * ease(p)
-            paste(ov, im, (W - im.width * sc) / 2, 1290 - (im.height * sc) / 2, 1.0, sc)
+        im = phrase_img(cur[2])
+        k = min(1.0, (T - cur[0]) / 0.12)
+        paste(ov, im, SAFE_CX - im.width / 2, 1360, k)
     return ov, False
 
 
@@ -398,10 +505,13 @@ def main():
     t_start = time.time()
     total = build_voice()
     build_bgm(total)
+    build_phrases()
+    build_sfx(total)
     cap = cv2.VideoCapture(SRC)
     nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     shots = plan_shots(total)
-    track = plate_track(shots, total, nframes, os.path.join(OUT, 'plates.json'))
+    # 번호판: 기본은 가리지 않음(딜러 매물은 번호판 공개가 원칙, 사용자 지시 2026-11-07). SAG_PLATE_COVER=1 이면 자동 가림
+    track = plate_track(shots, total, nframes, os.path.join(OUT, 'plates.json')) if PLATE_COVER else {}
     # 필요한 원본 장면만 읽어 둔다
     N = int(round(total * FPS))
     need = {}
@@ -428,7 +538,7 @@ def main():
         T = i / FPS
         sh, sf = need[i]
         img = cv2.imdecode(frames[sf], cv2.IMREAD_COLOR)
-        if sh['plate']:
+        if PLATE_COVER and sh['plate']:
             cover_plates(img, plates_at(track, sf))
         # 컷마다 천천히 밀어 들어가기 + 컷 처음 3장면 살짝 튀는 줌(템포)
         p = (T - sh['a']) / max(.01, sh['b'] - sh['a'])
@@ -454,9 +564,9 @@ def main():
     # 목소리 기준 배경음악 덕킹 + -14 LUFS
     final = os.path.join(OUT, 'sag_reel_v1.mp4')
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', os.path.join(OUT, 'video.mp4'), '-i', os.path.join(OUT, 'voice.wav'),
-                    '-i', os.path.join(OUT, 'bgm.wav'), '-filter_complex',
+                    '-i', os.path.join(OUT, 'bgm.wav'), '-i', os.path.join(OUT, 'sfx.wav'), '-filter_complex',
                     '[2:a]volume=0.42[m];[1:a]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
-                    '[v2][md]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
+                    '[3:a]volume=0.22[fx];[v2][md][fx]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
                     '-movflags', '+faststart', final], check=True)
     meta = dict(total=round(total, 2), shots=len(shots), sec_per_cut=round(total / len(shots), 2),
