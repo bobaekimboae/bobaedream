@@ -1,11 +1,208 @@
 {
  "country": "NL",
- "title": "브랜드 맞히기 (1.5천)",
+ "title": "NL-043",
  "url": "https://www.youtube.com/shorts/b__uy6gWAf8",
- "model": "gemini-2.5-pro",
- "fps": 2.0,
- "usage": null,
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1870,
+  "candidatesTokenCount": 1686,
+  "totalTokenCount": 4331,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 902
+   }
+  ],
+  "thoughtsTokenCount": 775,
+  "serviceTier": "standard"
+ },
  "analysis": {
-  "error": "4번 모두 실패"
+  "basic": {
+   "duration_sec": 9.2,
+   "aspect": "9:16",
+   "car": "BMW X3 (G01)",
+   "format": "퀴즈/참여 유도",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 1.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "part": "계기판",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.0,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.2,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 4.0,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "제목",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 9.2,
+    "text": "LAAT HET WETEN IN EEN REACTIE",
+    "ko": "댓글로 알려주세요",
+    "kind": "제목",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.5,
+    "type": "휙",
+    "event": "컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "휙",
+    "event": "컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "휙",
+    "event": "컷 전환 및 자막 교체",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Electronic Pop",
+   "bpm_est": 124,
+   "mood": "Energetic",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 6.0,
+    "end": 9.2,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 9.2,
+    "text": "(No speech, background music only)",
+    "ko": "(음성 없음, 배경음악만 있음)"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 1.5,
+    "speed": "보통",
+    "summary": "출연자가 핸들 로고를 가리고 퀴즈를 제안함"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 1.5,
+    "end": 6.0,
+    "speed": "빠름",
+    "summary": "차량 실내 주요 부위(핸들, 계기판, 디스플레이)를 빠르게 보여주며 힌트 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 6.0,
+    "end": 9.2,
+    "speed": "보통",
+    "summary": "브랜드 로고 노출 및 댓글 참여 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 이내에 시청자가 참여할 수 있는 명확한 미션(퀴즈)을 제시함",
+   "컷 평균 길이는 약 1.5초로 비트에 맞춰 빠르게 전환함",
+   "자막은 노란색 배경에 검은색 텍스트를 사용하여 가독성을 극대화함",
+   "자막 위치는 화면 하단 중앙(65%)에 고정하여 시선을 분산시키지 않음",
+   "컷이 바뀔 때마다 '휙' 소리의 효과음을 넣어 리듬감을 부여함",
+   "브랜드 로고는 영상 후반부에 스티커 형태로 크게 노출하여 각인시킴",
+   "촬영 순서는 인물 -> 핸들 근접 -> 계기판 -> 센터페시아 순으로 진행함",
+   "마지막은 항상 댓글 작성을 유도하는 CTA 문구로 마무리함"
+  ]
  }
 }

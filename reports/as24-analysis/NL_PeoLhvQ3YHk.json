@@ -1,0 +1,481 @@
+{
+ "country": "NL",
+ "title": "NL-035",
+ "url": "https://www.youtube.com/shorts/PeoLhvQ3YHk",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4695,
+  "candidatesTokenCount": 4363,
+  "totalTokenCount": 14471,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3727
+   }
+  ],
+  "thoughtsTokenCount": 5413,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.2,
+   "aspect": "9:16",
+   "car": "Ferrari 308 GTSi",
+   "format": "차 소개 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.6,
+    "end": 1.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 1.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 6.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 14.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.2,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.2,
+    "end": 21.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.2,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "part": "시트",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.2,
+    "end": 38.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.2,
+    "end": 40.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 6.0,
+    "text": "€75.950",
+    "ko": "€75,950",
+    "kind": "가격",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "yellow",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 6.0,
+    "text": "46 JAAR OUD",
+    "ko": "46년 된",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "yellow",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.0,
+    "text": "WAT KRIJG JE",
+    "ko": "무엇을 얻을 수 있나",
+    "kind": "키워드 스티커",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "yellow",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.2,
+    "text": "FERRARI 308 GTSI",
+    "ko": "페라리 308 GTSI",
+    "kind": "제목",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.1,
+    "text": "3L V8 MOTOR",
+    "ko": "3L V8 엔진",
+    "kind": "숫자 사양",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "HANDGESCHAKELDE VIJFBAK ✓",
+    "ko": "5단 수동 변속기 ✓",
+    "kind": "숫자 사양",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.2,
+    "text": "UITNEEMBAAR TARGA-DAK ✓",
+    "ko": "탈착식 타르가 루프 ✓",
+    "kind": "기능·옵션",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "text": "ZWART LEDEREN INTERIEUR ✓",
+    "ko": "블랙 가죽 인테리어 ✓",
+    "kind": "기능·옵션",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "톡",
+    "event": "나이 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "휙",
+    "event": "모델명 상자 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "휙",
+    "event": "엔진 사양 상자 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "휙",
+    "event": "변속기 사양 상자 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.2,
+    "type": "톡",
+    "event": "로고 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Pop/Electronic",
+   "bpm_est": 124,
+   "mood": "Upbeat",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "배경음악 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 38.5,
+    "end": 40.2,
+    "what": "위치 핀 아이콘",
+    "is_3d": false,
+    "size_w_pct": 5,
+    "x_pct": 15,
+    "y_pct": 70,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시장 위치 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.0,
+    "text": "75.950 euro voor een Ferrari van 46 jaar oud. Wat krijg je daarvoor?",
+    "ko": "46년 된 페라리가 75,950유로입니다. 그 가격에 무엇을 얻을 수 있을까요?"
+   },
+   {
+    "start": 6.0,
+    "end": 9.2,
+    "text": "Dit is een Ferrari 308 GTSi uit 1980.",
+    "ko": "이것은 1980년식 페라리 308 GTSi입니다."
+   },
+   {
+    "start": 9.2,
+    "end": 12.1,
+    "text": "Hij heeft een 3 liter V8 motor achterin.",
+    "ko": "뒤쪽에 3리터 V8 엔진이 장착되어 있습니다."
+   },
+   {
+    "start": 12.1,
+    "end": 16.5,
+    "text": "En schakelen doe je nog volledig zelf met een handgeschakelde vijfbak.",
+    "ko": "그리고 5단 수동 변속기로 여전히 직접 변속을 해야 합니다."
+   },
+   {
+    "start": 16.5,
+    "end": 26.2,
+    "text": "En officieel is dit geen volledige cabrio. GTS betekent dat hij een uitneembaar Targa-dak heeft.",
+    "ko": "공식적으로 이것은 완전한 카브리올레가 아닙니다. GTS는 탈착식 타르가 루프가 있음을 의미합니다."
+   },
+   {
+    "start": 26.2,
+    "end": 32.5,
+    "text": "Dit middelste dakpaneel kun je er dus volledig uithalen. En dit exemplaar is natuurlijk uitgevoerd in het klassieke Ferrari rood en een zwart lederen interieur.",
+    "ko": "이 중앙 루프 패널을 완전히 제거할 수 있습니다. 이 차량은 클래식한 페라리 레드 외장과 블랙 가죽 인테리어로 마감되었습니다."
+   },
+   {
+    "start": 32.5,
+    "end": 40.2,
+    "text": "De kilometerstand van deze auto vind je terug in de omschrijving en je vindt hem natuurlijk op AutoScout24.nl en in de showroom van Iwan van Lankvelt Auto's.",
+    "ko": "이 차량의 주행 거리는 설명란에서 확인하실 수 있으며, AutoScout24.nl과 Iwan van Lankvelt Auto's 전시장에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.0,
+    "speed": "빠름",
+    "summary": "가격과 연식을 강조하며 시청자의 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.0,
+    "end": 12.1,
+    "speed": "보통",
+    "summary": "모델명과 엔진 사양 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 12.1,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "변속기, 타르가 루프, 인테리어 특징 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 32.5,
+    "end": 40.2,
+    "speed": "보통",
+    "summary": "상세 정보 확인 및 판매처 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초: 가격 자막과 함께 인물 샷을 광각-중간-근접 순으로 빠르게 컷 편집하여 시선 집중.",
+   "컷 평균 길이: 약 1.5~2초 내외로 매우 빠른 템포 유지.",
+   "자막 규칙: 훅은 노란색 큰 글씨, 사양은 흰색 배경의 검은색 상자 자막 사용.",
+   "효과음: 자막이 나타날 때마다 '톡' 또는 '휙' 소리를 넣어 강조.",
+   "아이콘: 사양 자막 끝에 체크표시(✓)를 넣어 가독성 향상.",
+   "부위 촬영 순서: 인물 -> 외관 전면 -> 엔진룸/후면 -> 실내 -> 루프 -> 인물 마무리.",
+   "마무리: 브랜드 로고와 판매처 정보를 자막과 함께 노출하며 행동 유도."
+  ]
+ }
+}

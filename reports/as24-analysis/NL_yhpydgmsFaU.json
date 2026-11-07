@@ -1,0 +1,450 @@
+{
+ "country": "NL",
+ "title": "NL-042",
+ "url": "https://www.youtube.com/shorts/yhpydgmsFaU",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3597,
+  "candidatesTokenCount": 4163,
+  "totalTokenCount": 10227,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2629
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 2467,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTI",
+   "format": "차 소개 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 12.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.6,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.6,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.1,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.1,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.1,
+    "end": 24.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 29.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.4,
+    "text": "VOLKSWAGEN GOLF GTI",
+    "ko": "폭스바겐 골프 GTI",
+    "kind": "제목",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.4,
+    "text": "€7.000",
+    "ko": "7,000유로",
+    "kind": "가격",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.1,
+    "text": "Auto Scout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.5,
+    "text": "2010",
+    "ko": "2010년식",
+    "kind": "숫자 사양",
+    "y_pct": 40,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 20,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.1,
+    "text": "209.000 KM",
+    "ko": "209,000 KM",
+    "kind": "숫자 사양",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 12.1,
+    "text": "211 PK",
+    "ko": "211 마력",
+    "kind": "숫자 사양",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 25,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.6,
+    "text": "MOOIE SPORTSTOELEN",
+    "ko": "멋진 스포츠 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.6,
+    "text": "CRUISECONTROL & NAVIGATIE",
+    "ko": "크루즈 컨트롤 & 내비게이션",
+    "kind": "키워드 스티커",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.1,
+    "text": "17 INCH VELGEN",
+    "ko": "17인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.1,
+    "text": "EEN MULTIFUNCTIONEEL STUUR",
+    "ko": "다기능 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.6,
+    "type": "톡",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.4,
+    "type": "휙",
+    "event": "브랜드 로고 등장 및 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.1,
+    "type": "톡",
+    "event": "연식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "톡",
+    "event": "주행거리 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.1,
+    "type": "톡",
+    "event": "마력 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Upbeat Electronic",
+   "bpm_est": 124,
+   "mood": "Energetic",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 18.1,
+    "end": 24.3,
+    "what": "앱 검색 화면 녹화",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "서서히",
+    "purpose": "플랫폼 기능 증명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.4,
+    "text": "Een Volkswagen Golf GTI voor een prijs lager dan 7.000 euro? Dat is deze.",
+    "ko": "7,000유로 미만의 폭스바겐 골프 GTI? 바로 이 차입니다."
+   },
+   {
+    "start": 4.4,
+    "end": 7.1,
+    "text": "En je vindt hem natuurlijk op AutoScout24.nl.",
+    "ko": "물론 AutoScout24.nl에서 찾을 수 있죠."
+   },
+   {
+    "start": 7.1,
+    "end": 12.1,
+    "text": "Komt uit 2010, heeft 209.000 kilometer gelopen en 211 PK.",
+    "ko": "2010년식, 209,000km 주행, 211마력입니다."
+   },
+   {
+    "start": 12.1,
+    "end": 18.1,
+    "text": "Hij heeft mooie sportstoelen, cruisecontrol, navigatie, 17 inch velgen en een multifunctioneel stuur.",
+    "ko": "멋진 스포츠 시트, 크루즈 컨트롤, 내비게이션, 17인치 휠, 다기능 스티어링 휠을 갖췄습니다."
+   },
+   {
+    "start": 18.1,
+    "end": 24.3,
+    "text": "En wist je dat je meer dan 2500 Golf GTI's voor een prijs lager dan 10.000 euro op AutoScout24 vindt?",
+    "ko": "AutoScout24에서 1만 유로 미만의 골프 GTI를 2,500대 이상 찾을 수 있다는 걸 아셨나요?"
+   },
+   {
+    "start": 24.3,
+    "end": 29.0,
+    "text": "Dus zoek jouw Golf GTI snel op AutoScout24.nl.",
+    "ko": "그러니 지금 바로 AutoScout24.nl에서 당신의 골프 GTI를 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.4,
+    "speed": "보통",
+    "summary": "파격적인 가격의 골프 GTI 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.4,
+    "end": 7.1,
+    "speed": "빠름",
+    "summary": "구매 플랫폼 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 7.1,
+    "end": 12.1,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 출력 정보 제공"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 12.1,
+    "end": 18.1,
+    "speed": "빠름",
+    "summary": "주요 내외장 옵션 클로즈업"
+   },
+   {
+    "stage": "기타",
+    "start": 18.1,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "플랫폼 내 매물 수량 강조 및 검색 시연"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 24.3,
+    "end": 29.0,
+    "speed": "보통",
+    "summary": "최종 구매 권유 및 로고 노출"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 이내에 모델명과 파격적인 가격을 노란색 배경 자막으로 강조하여 후킹.",
+   "2. 컷 전환은 평균 1.5~2초 간격으로 매우 빠르게 진행하여 리듬감 유지.",
+   "3. 모든 주요 키워드 자막은 브랜드 컬러인 노란색 배경에 검은색 텍스트 사용.",
+   "4. 자막이 나타날 때마다 '톡' 하는 효과음을 넣어 시각적 요소에 집중 유도.",
+   "5. 사양 정보(연식, KM, PK)는 화면 중앙에 수직으로 쌓듯이 순차 노출.",
+   "6. 차량의 특징적인 부위(시트, 휠, 스티어링 휠)를 대사와 일치시켜 클로즈업 촬영.",
+   "7. 중반부에 실제 서비스 이용 화면(앱 UI)을 오버레이하여 신뢰도와 편의성 강조.",
+   "8. 마무리는 브랜드 로고를 중앙에 크게 배치하고 웹사이트 주소를 명시하여 행동 유도."
+  ]
+ }
+}

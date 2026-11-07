@@ -1,0 +1,621 @@
+{
+ "country": "NL",
+ "title": "NL-041",
+ "url": "https://www.youtube.com/shorts/gAy063fal-s",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5243,
+  "candidatesTokenCount": 5790,
+  "totalTokenCount": 12633,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4275
+   }
+  ],
+  "thoughtsTokenCount": 1600,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.5,
+   "aspect": "9:16",
+   "car": "Ferrari 308 GTSi",
+   "format": "차 소개/퀴즈/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 10.5,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 14.1,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 22.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 25.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 28.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.2,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.2,
+    "end": 33.3,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 34.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.4,
+    "end": 36.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 37.8,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.5,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 46.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 1.1,
+    "text": "IK BEN BENIEUWD",
+    "ko": "궁금하네요",
+    "kind": "키워드 스티커",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "FERRARI HERKENT UIT",
+    "ko": "페라리를 알아보시는지",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.3,
+    "text": "TV-SERIE",
+    "ko": "TV 시리즈",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.5,
+    "text": "80S",
+    "ko": "80년대",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 20,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.2,
+    "text": "FERRARI 308 GTSI",
+    "ko": "페라리 308 GTSI",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 14.1,
+    "text": "THOMAS MAGNUM",
+    "ko": "토마스 매그넘",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.5,
+    "text": "FERRARI 308",
+    "ko": "페라리 308",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.5,
+    "text": "GTSI",
+    "ko": "GTSI",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 20,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 28.8,
+    "text": "3L V8 MOTOR",
+    "ko": "3L V8 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.2,
+    "text": "HANDGESCHAKELDE VIJFBAK ✓",
+    "ko": "수동 5단 변속기 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.2,
+    "end": 33.3,
+    "text": "UITNEEMBAAR TARGA-DAK ✓",
+    "ko": "탈착식 타르가 루프 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 65,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 34.4,
+    "text": "1980",
+    "ko": "1980년식",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 25,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.4,
+    "end": 37.8,
+    "text": "128.000 KM",
+    "ko": "128,000 KM 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.5,
+    "text": "€75.950",
+    "ko": "€75,950",
+    "kind": "가격",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.1,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.3,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "휙",
+    "event": "그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Retro Funk",
+   "bpm_est": 115,
+   "mood": "Upbeat, Nostalgic",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "what": "Magnum P.I. 로고 및 이미지",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 75,
+    "entrance": "서서히",
+    "purpose": "참조 정보 제공",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.1,
+    "what": "토마스 매그넘 캐릭터 이미지",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 50,
+    "y_pct": 75,
+    "entrance": "서서히",
+    "purpose": "참조 정보 제공",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 46.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 50,
+    "y_pct": 45,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.5,
+    "what": "위치 핀 아이콘",
+    "is_3d": false,
+    "size_w_pct": 5,
+    "x_pct": 25,
+    "y_pct": 82,
+    "entrance": "톡 튀어나옴",
+    "purpose": "위치 정보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 4.5,
+    "text": "Ik ben benieuwd of jij deze Ferrari herkent uit een tv-serie uit de jaren 80.",
+    "ko": "80년대 TV 시리즈에 나온 이 페라리를 알아보시는지 궁금하네요."
+   },
+   {
+    "start": 4.5,
+    "end": 7.2,
+    "text": "Dit is een Ferrari 308 GTSi.",
+    "ko": "이것은 페라리 308 GTSi입니다."
+   },
+   {
+    "start": 7.2,
+    "end": 10.5,
+    "text": "Hij werd beroemd door de tv-serie Magnum P.I.",
+    "ko": "매그넘 P.I.라는 TV 시리즈로 유명해졌죠."
+   },
+   {
+    "start": 10.5,
+    "end": 17.5,
+    "text": "Hoofdpersonage Thomas Magnum, gespeeld door Tom Selleck, reed op Hawaii rond in een rode Ferrari 308.",
+    "ko": "톰 셀렉이 연기한 주인공 토마스 매그넘이 하와이에서 빨간색 페라리 308을 타고 다녔습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 22.5,
+    "text": "In het eerste seizoen was dat een Ferrari GTS en later werd dat een GTSi.",
+    "ko": "첫 시즌에는 페라리 GTS였고 나중에는 GTSi가 되었습니다."
+   },
+   {
+    "start": 22.5,
+    "end": 25.4,
+    "text": "En dat is precies het model dat hier staat.",
+    "ko": "그리고 그것이 바로 여기 있는 모델입니다."
+   },
+   {
+    "start": 25.4,
+    "end": 28.8,
+    "text": "En de GTSi heeft een 3 liter V8 motor achterin.",
+    "ko": "GTSi는 뒤쪽에 3리터 V8 엔진을 장착하고 있습니다."
+   },
+   {
+    "start": 28.8,
+    "end": 33.3,
+    "text": "Een handgeschakelde vijfbak en een uitneembaar targa-dak.",
+    "ko": "수동 5단 변속기와 탈착식 타르가 루프가 있죠."
+   },
+   {
+    "start": 33.3,
+    "end": 40.5,
+    "text": "Hij komt uit 1980, heeft ruim 128.000 km gelopen en hij kost 75.950 euro.",
+    "ko": "1980년식으로 128,000km 이상 주행했으며 가격은 75,950유로입니다."
+   },
+   {
+    "start": 40.5,
+    "end": 46.5,
+    "text": "En je vindt hem natuurlijk op AutoScout24.nl en in de showroom van Iwan van Lankvelt Auto's.",
+    "ko": "물론 AutoScout24.nl과 Iwan van Lankvelt Auto's 전시장에서도 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "80년대 TV 시리즈 퀴즈로 시청자 흥미 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 7.2,
+    "speed": "보통",
+    "summary": "모델명 공개"
+   },
+   {
+    "stage": "기타",
+    "start": 7.2,
+    "end": 25.4,
+    "speed": "보통",
+    "summary": "매그넘 P.I. 시리즈와의 역사적 연결고리 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 25.4,
+    "end": 28.8,
+    "speed": "보통",
+    "summary": "엔진 사양 설명"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 28.8,
+    "end": 33.3,
+    "speed": "빠름",
+    "summary": "변속기 및 루프 특징"
+   },
+   {
+    "stage": "가격",
+    "start": 33.3,
+    "end": 40.5,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 가격 정보 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 40.5,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "플랫폼 및 판매처 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초: 질문형 자막과 함께 진행자가 차로 다가가며 시청자 참여 유도",
+   "컷 평균 길이: 약 2~3초로 정보 전달 속도에 맞춰 리드미컬하게 전환",
+   "자막 규칙: 노란색 배경의 검은색 텍스트 상자를 중앙에 배치하여 가독성 극대화",
+   "효과음: 자막이나 그래픽이 등장할 때 '톡' 또는 '휙' 소리를 넣어 강조",
+   "아이콘: 사양 설명 시 체크표시(✓), 위치 안내 시 핀 아이콘 사용",
+   "부위 촬영 순서: 전면 -> 실내 -> 후면 -> 엔진/변속기 디테일 -> 휠 -> 전체",
+   "마무리: 브랜드 로고를 크게 띄우고 판매처 정보를 하단에 고정하여 신뢰도 확보"
+  ]
+ }
+}

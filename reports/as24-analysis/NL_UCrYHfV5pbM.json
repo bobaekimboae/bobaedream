@@ -1,0 +1,455 @@
+{
+ "country": "NL",
+ "title": "NL-032",
+ "url": "https://www.youtube.com/shorts/UCrYHfV5pbM",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5073,
+  "candidatesTokenCount": 3937,
+  "totalTokenCount": 11799,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4105
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 2789,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.2,
+   "aspect": "9:16",
+   "car": "Lexus RX 350h",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 3.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 5.2,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 7.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 10.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 11.4,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 12.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 13.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.4,
+    "end": 17.4,
+    "part": "실내",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.4,
+    "end": 18.4,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.4,
+    "end": 19.4,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 22.4,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.4,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.4,
+    "end": 26.4,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.4,
+    "end": 27.4,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.4,
+    "end": 31.4,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.4,
+    "end": 32.4,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.4,
+    "end": 36.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 46.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.1,
+    "end": 1.1,
+    "text": "IK LAAT JE",
+    "ko": "보여드릴게요",
+    "kind": "제목",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "white",
+    "background": "형광펜 칠",
+    "bg_color": "red",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.2,
+    "text": "LEXUS RX 350H",
+    "ko": "렉서스 RX 350H",
+    "kind": "제목",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 5.2,
+    "text": "MORELLO RED METALLIC ✔",
+    "ko": "모렐로 레드 메탈릭 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.3,
+    "end": 7.1,
+    "text": "KOPLAMP SPROEIERS ✔",
+    "ko": "헤드램프 워셔 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 8.4,
+    "text": "VOORPARKEERSENSOREN ✔",
+    "ko": "전방 주차 센서 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.4,
+    "text": "ACHTERPARKEERSENSOREN ✔",
+    "ko": "후방 주차 센서 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.4,
+    "text": "21-INCH VELGEN ✔",
+    "ko": "21인치 휠 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "text": "€69.900",
+    "ko": "€69,900",
+    "kind": "가격",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "차종 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.3,
+    "type": "톡",
+    "event": "색상 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Electronic Pop",
+   "bpm_est": 120,
+   "mood": "Upbeat",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 43.5,
+    "end": 46.2,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 60,
+    "entrance": "서서히",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 3.2,
+    "text": "Ik laat je in minder dan een minuut deze Lexus RX 350h zien.",
+    "ko": "1분 안에 이 렉서스 RX 350h를 보여드릴게요."
+   },
+   {
+    "start": 3.2,
+    "end": 5.2,
+    "text": "Hij heeft een Morello Red Metallic kleur.",
+    "ko": "모렐로 레드 메탈릭 색상입니다."
+   },
+   {
+    "start": 36.4,
+    "end": 38.5,
+    "text": "De prijs is €69.900.",
+    "ko": "가격은 69,900유로입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 3.2,
+    "speed": "빠름",
+    "summary": "1분 안에 차를 보여주겠다는 약속과 차종 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 3.2,
+    "end": 13.4,
+    "speed": "빠름",
+    "summary": "외관 색상 및 주요 센서, 휠 사양 나열"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 13.4,
+    "end": 32.4,
+    "speed": "빠름",
+    "summary": "오디오, 시트, HUD 등 실내 편의 사양 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 32.4,
+    "end": 38.5,
+    "speed": "보통",
+    "summary": "견인력 사양 및 최종 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 38.5,
+    "end": 46.2,
+    "speed": "보통",
+    "summary": "상세 정보 확인 유도 및 판매처 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 이내에 '1분 안에 보여주겠다'는 챌린지성 훅 사용",
+   "컷 평균 길이는 1.5초 내외로 매우 빠르게 전환",
+   "자막은 화면 중앙에 노란색/흰색 배경의 볼드체로 고정",
+   "주요 옵션 언급 시 체크표시(✔) 이모지를 자막 끝에 포함",
+   "새로운 자막이나 옵션 등장 시 '톡' 하는 효과음 삽입",
+   "가격 공개 시에는 금전 관련 효과음으로 강조",
+   "촬영 순서는 전면 외관 -> 측면/휠 -> 실내 디테일 -> 후면 순서",
+   "출연자가 직접 손으로 부위를 가리키며 설명하여 시선 유도",
+   "마지막은 브랜드 로고 그래픽과 함께 웹사이트 방문 유도"
+  ]
+ }
+}

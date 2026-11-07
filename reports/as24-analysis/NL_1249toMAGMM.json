@@ -1,0 +1,394 @@
+{
+ "country": "NL",
+ "title": "NL-040",
+ "url": "https://www.youtube.com/shorts/1249toMAGMM",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3694,
+  "candidatesTokenCount": 3554,
+  "totalTokenCount": 8618,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2726
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 1370,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.0,
+   "aspect": "9:16",
+   "car": "BMW M3 Competition",
+   "format": "차 소개 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 4.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 15.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 19.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 29.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "text": "BMW M3 COMPETITION",
+    "ko": "BMW M3 컴페티션",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 4.4,
+    "text": "HEEFT IETS",
+    "ko": "무언가 특별한 게 있죠",
+    "kind": "키워드 스티커",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.5,
+    "text": "VERTEL IK JE",
+    "ko": "알려드릴게요",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.8,
+    "text": "M TRACK PACK ✅",
+    "ko": "M 트랙 팩 ✅",
+    "kind": "키워드 스티커",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 15.8,
+    "text": "KERAMISCHE REMMEN ✅",
+    "ko": "세라믹 브레이크 ✅",
+    "kind": "키워드 스티커",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 21.0,
+    "text": "BOMVOL CARBON",
+    "ko": "카본으로 가득함",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "text": "€95.875",
+    "ko": "€95,875",
+    "kind": "가격",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "제목 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "M 트랙 팩 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "톡",
+    "event": "세라믹 브레이크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "돈 소리",
+    "event": "가격 공개",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Electronic Pop",
+   "bpm_est": 124,
+   "mood": "Energetic",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 24.5,
+    "end": 29.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 50,
+    "y_pct": 10,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 29.0,
+    "what": "위치 핀 아이콘",
+    "is_3d": false,
+    "size_w_pct": 5,
+    "x_pct": 15,
+    "y_pct": 85,
+    "entrance": "톡 튀어나옴",
+    "purpose": "장소 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.4,
+    "text": "Deze BMW M3 Competition heeft iets die je niet op elke M3 ziet.",
+    "ko": "이 BMW M3 컴페티션은 일반적인 M3에서는 볼 수 없는 특별한 점이 있습니다."
+   },
+   {
+    "start": 4.4,
+    "end": 7.5,
+    "text": "En wat deze M3 kost, vertel ik je op het einde van deze video.",
+    "ko": "이 M3의 가격이 얼마인지는 영상 마지막에 알려드릴게요."
+   },
+   {
+    "start": 7.5,
+    "end": 9.8,
+    "text": "Daarnaast heeft deze BMW ook het M Track Pack.",
+    "ko": "또한 이 BMW에는 M 트랙 패키지도 포함되어 있습니다."
+   },
+   {
+    "start": 9.8,
+    "end": 15.8,
+    "text": "Met onder andere de keramische remmen. Die zijn beter bestand tegen hoge temperaturen tijdens het sportief rijden.",
+    "ko": "세라믹 브레이크가 포함되어 있어 스포츠 주행 시 고온을 더 잘 견뎌냅니다."
+   },
+   {
+    "start": 15.8,
+    "end": 21.0,
+    "text": "En hij zit bomvol carbon accenten in zowel het exterieur als het interieur.",
+    "ko": "그리고 외관과 내관 모두 카본 액센트로 가득 차 있습니다."
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "text": "En hij kost €95.875.",
+    "ko": "가격은 95,875유로입니다."
+   },
+   {
+    "start": 24.5,
+    "end": 29.0,
+    "text": "En je vindt hem natuurlijk op AutoScout24.nl en in de showroom van Autobedrijf P. de Jong.",
+    "ko": "당연히 AutoScout24.nl과 Autobedrijf P. de Jong 전시장에서도 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.4,
+    "speed": "보통",
+    "summary": "특별한 차임을 강조하며 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.4,
+    "end": 7.5,
+    "speed": "보통",
+    "summary": "가격 공개를 예고하며 시청 지속 유도"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 7.5,
+    "end": 21.0,
+    "speed": "빠름",
+    "summary": "트랙 팩, 세라믹 브레이크, 카본 등 주요 옵션 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 21.0,
+    "end": 24.5,
+    "speed": "보통",
+    "summary": "최종 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 24.5,
+    "end": 29.0,
+    "speed": "보통",
+    "summary": "구매처 안내 및 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 이내에 차량의 전면 풀샷과 제목 스티커를 노출한다.",
+   "영상 초반에 '가격은 마지막에 공개'라는 멘트로 이탈을 방지한다.",
+   "컷 평균 길이는 약 2.5~3초로 유지하여 지루함을 없앤다.",
+   "자막은 노란색 배경에 검은색 글씨의 박스 형태 스티커를 사용한다.",
+   "주요 특징 언급 시 체크표시(✅) 아이콘을 자막에 포함한다.",
+   "스티커나 그래픽이 등장할 때마다 '톡' 하는 효과음을 넣는다.",
+   "가격 공개 시에는 금전 관련 효과음(찰랑)을 사용하여 강조한다.",
+   "진행자가 직접 차량에 탑승하거나 부위를 가리키며 설명한다.",
+   "외관 전면 -> 실내 -> 휠 -> 루프 -> 외관 순서로 보여준다.",
+   "마지막에는 브랜드 로고와 판매처 정보를 그래픽으로 명시한다."
+  ]
+ }
+}
