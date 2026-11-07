@@ -1,0 +1,230 @@
+{
+ "country": "NL",
+ "title": "NL-084",
+ "url": "https://www.youtube.com/shorts/09eY9XyQbLM",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2799,
+  "candidatesTokenCount": 1790,
+  "totalTokenCount": 4589,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1831
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.0,
+   "aspect": "9:16",
+   "car": "BMW Z4",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 7.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 16.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "RAAD HET MERK & MODEL",
+    "ko": "브랜드와 모델을 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "노랑",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MERK & MODEL",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.5,
+    "text": "DE PRODUCTIE VAN GESTOPT IN MAART 2026",
+    "ko": "2026년 3월 생산 중단",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "하양",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "2026",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "text": "ACHTERWIELAANDRIJVING ✓",
+    "ko": "후륜구동 ✓",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "초록",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "ACHTERWIELAANDRIJVING",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "text": "AutoScout24.nl",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "검정",
+    "background": "형광펜 칠",
+    "bg_color": "노랑",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "경쾌한 팝/업템포",
+   "bpm_est": 115,
+   "mood": "발랄함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Kan jij raden welk merk en model deze auto is? Ik geef je een paar tips.",
+    "ko": "이 차가 어떤 브랜드와 모델인지 맞출 수 있나요? 팁 몇 개 줄게요."
+   },
+   {
+    "start": 4.0,
+    "end": 7.0,
+    "text": "De productie van deze auto is gestopt in maart 2026.",
+    "ko": "이 차의 생산은 2026년 3월에 중단됩니다."
+   },
+   {
+    "start": 7.0,
+    "end": 10.0,
+    "text": "Deze roadster heeft achterwielaandrijving.",
+    "ko": "이 로드스터는 후륜구동입니다."
+   },
+   {
+    "start": 10.0,
+    "end": 16.0,
+    "text": "En de modelnaam bestaat uit één letter en één cijfer.",
+    "ko": "그리고 모델 이름은 알파벳 하나와 숫자 하나로 이루어져 있어요."
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "Laat het weten in de reactie! En natuurlijk vind je deze ook op Autoscout24.nl",
+    "ko": "댓글로 알려주세요! 그리고 당연히 오토스카우트24에서도 찾을 수 있죠."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "차량 전면에서 브랜드와 모델을 맞히는 퀴즈 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 3.0,
+    "end": 10.0,
+    "speed": "빠름",
+    "summary": "생산 중단 시기와 구동 방식 힌트 제공"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 10.0,
+    "end": 16.0,
+    "speed": "빠름",
+    "summary": "차량 실내에 탑승하여 모델명 구조 힌트 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 16.0,
+    "end": 20.0,
+    "speed": "빠름",
+    "summary": "댓글 참여 유도 및 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 참여를 유도하는 퀴즈(RAAD HET MERK & MODEL) 노출",
+   "평균 컷 길이는 3~5초로 빠르게 전환하여 이탈률 방지",
+   "주요 키워드는 눈에 띄는 색상(노랑/초록) 박스 자막으로 강조",
+   "화면 전환마다 배경음악 비트나 자연스러운 컷 컷 호흡 유지",
+   "부위 촬영 순서: 전면 외관 -> 측면 -> 후면 -> 실내 탑승 -> 전면 마무리",
+   "마지막 화면에는 플랫폼 로고(AutoScout24)를 노출하며 CTA(행동 유도) 실행"
+  ]
+ }
+}

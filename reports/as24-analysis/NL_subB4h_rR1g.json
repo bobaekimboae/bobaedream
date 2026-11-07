@@ -1,0 +1,305 @@
+{
+ "country": "NL",
+ "title": "NL-089",
+ "url": "https://www.youtube.com/shorts/subB4h_rR1g",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4897,
+  "candidatesTokenCount": 2400,
+  "totalTokenCount": 7297,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3929
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.5,
+   "aspect": "9:16",
+   "car": "Fiat 124 Spider",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 7.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 12.5,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 18.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 25.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 30.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 35.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 40.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 43.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Wist je dat deze",
+    "ko": "이 차에 대해 알고 계셨나요?",
+    "kind": "말 자막",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "deze",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "FIAT 124 SPIDER",
+    "ko": "피아트 124 스파이더",
+    "kind": "키워드 스티커",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E50914",
+    "bg_width_pct": 90,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPIDER",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 40.0,
+    "text": "€21.950",
+    "ko": "21,950유로",
+    "kind": "가격",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "21.950",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "톡",
+    "event": "차명 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/로열티 프리 힙합",
+   "bpm_est": 115,
+   "mood": "경쾌하고 정보 전달력 있는 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 14.0,
+    "end": 15.5,
+    "what": "마쯔다 MX-5 미니어처 차량",
+    "is_3d": false,
+    "size_w_pct": 25,
+    "x_pct": 60,
+    "y_pct": 75,
+    "entrance": "바로 컷",
+    "purpose": "형제차 관계 시각화",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Wist je dat deze Fiat 124 Spider eigenlijk een bijzonder geheime heeft?",
+    "ko": "이 피아트 124 스파이더에 사실 특별한 비밀이 있다는 걸 아시나요?"
+   },
+   {
+    "start": 2.5,
+    "end": 7.5,
+    "text": "En de prijs van deze mooie cabrio vertel ik je op het einde van deze video.",
+    "ko": "이 예쁜 카브리올레의 가격은 이 영상 끝에 알려드릴게요."
+   },
+   {
+    "start": 7.5,
+    "end": 12.5,
+    "text": "Veel mensen denken dat deze cabrio volledig door Fiat ontwikkeld is, maar dat klopt niet helemaal.",
+    "ko": "많은 사람들이 이 카브리올레가 완전히 피아트가 개발했다고 생각하지만, 꼭 그렇진 않아요."
+   },
+   {
+    "start": 12.5,
+    "end": 18.5,
+    "text": "Hij deelt namelijk zijn basis met de Mazda MX-5, één van de populairste roadsters ter wereld.",
+    "ko": "세계에서 가장 인기 있는 로드스터 중 하나인 마쯔다 MX-5와 기본 뼈대를 공유하거든요."
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "Nou, toch heeft Fiat hem een compleet eigen karakter gegeven.",
+    "ko": "그렇지만 피아트만의 완전히 독창적인 캐릭터를 부여했어요."
+   },
+   {
+    "start": 21.0,
+    "end": 30.0,
+    "text": "Zo krijgt hij een 1.4 MultiAir turbo met 140 pk. Het is gewoon een sportievere cabrio, met een zachtere en comfortabelere afstelling.",
+    "ko": "140마력의 1.4 멀티에어 터보를 탑재해 더 부드럽고 편안한 세팅의 스포티한 카브리올레예요."
+   },
+   {
+    "start": 30.0,
+    "end": 35.0,
+    "text": "Hij komt uit 2019, heeft een Lusso automaat en de tofste opties vind je in de omschrijving.",
+    "ko": "2019년식 루소 오토매틱 모델이고 멋진 옵션들은 더보기란에 있어요."
+   },
+   {
+    "start": 35.0,
+    "end": 40.0,
+    "text": "En hij kost €21.950 en je vindt hem in de showroom van Oelers Automotive.",
+    "ko": "가격은 21,950유로이고, 오엘러스 오토모티브 쇼룸에서 만나보실 수 있습니다."
+   },
+   {
+    "start": 40.0,
+    "end": 43.5,
+    "text": "En natuurlijk ook op Autoscout24.nl",
+    "ko": "그리고 물론 오토스카우트24에서도요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "비밀이 있다는 질문으로 시선 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "마쯔다와의 플랫폼 공유 비밀 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.5,
+    "end": 30.0,
+    "speed": "보통",
+    "summary": "피아만의 엔진 및 세팅 차별점 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 30.0,
+    "end": 43.5,
+    "speed": "빠름",
+    "summary": "연식, 가격, 쇼룸 정보 안내 및 마무리"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차의 '비밀/궁금증'을 유발하는 질문과 타이틀 자막으로 이탈 방지",
+   "컷 평균 길이는 3~5초 수준으로 역동적으로 전환",
+   "자막은 하단 혹은 중앙에 검정/강렬한 배경 박스를 깔고 핵심 키워드 강조",
+   "키워드나 중요한 스티커 등장 시 '톡' 튀어나오는 효과음 삽입",
+   "시각적 이해를 돕기 위해 미니어처나 관련 소품을 화면에 합성",
+   "차량 부위 촬영은 전면에서 시작해 실내 탑승, 후면, 다시 전면 순으로 이동",
+   "마무리 단계에서 명확한 가격 공개와 함께 플랫폼 및 전시장 정보 제공"
+  ]
+ }
+}
