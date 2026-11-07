@@ -1,0 +1,470 @@
+"""서울오토갤러리 딜러 인스타 릴스 자동 제작 v1 (로컬 파이프라인).
+
+입력: 딜러가 찍은 매물 원본 영상 1개 + 매물 정보(사실만).
+흐름: 대본(사실만) → TTS(어절 시각) → 원본에서 부위별 구간 고르기 → 1.6초 안팎 컷 편집(속도·푸시인)
+     → 번호판 자동 가림(LPD-YuNet) → 한 어절 키네틱 자막 · 부위 칩 · 사양 카드 · 진행선 → 끝 카드
+     → 코드로 만든 배경음악 + 목소리 자동 덕킹 → -14 LUFS → 1080×1920 30fps mp4.
+
+실행: python3 scripts/shortform/sag_reel_v1.py <원본.mp4> <출력폴더>
+TTS: GOOGLE_TTS=1 이고 GOOGLE_APPLICATION_CREDENTIALS(또는 GOOGLE_TTS_API_KEY)가 있으면 구글 Chirp3-HD 음성, 없으면 edge-tts 임시 음성.
+"""
+import asyncio, json, math, os, re, subprocess, sys, time
+import numpy as np
+import cv2
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+sys.path.insert(0, os.path.dirname(__file__))
+import plate_yunet
+
+SRC = sys.argv[1]
+OUT = sys.argv[2]
+os.makedirs(OUT, exist_ok=True)
+W, H, FPS = 1080, 1920, 30
+BLACK = '/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc'
+BOLD = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
+MED = '/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc'
+YELLOW = (255, 214, 10)
+BLUE = (48, 107, 217)
+
+# ── 매물 정보(사실만, 시트 그대로). 차량번호·연락처는 넣지 않는다 ──
+CAR = dict(name='포르쉐 파나메라 4', gen='971', year='2021', reg='21년04월', km='38,276km', km_short='3.8만km',
+           fuel='가솔린', cc='2,894cc', drive='AWD', price='9,200만원', color='블루', region='경기')
+
+# ── 대본: 숫자 훅 → 차명 → 외관 → 실내 → 옵션 → 조건·DM (선우혁 6단계). 사진·정보에 없는 말은 쓰지 않는다 ──
+# shots: (원본 시작 초, 재생 속도, 번호판 가림 필요)
+BLOCKS = [
+    dict(sec='외관', tts='9,200만 원에 파나메라 포.', shots=[(2.0, 1.2, 1), (4.2, 1.3, 1)], hook=True),
+    dict(sec='외관', tts='2021년식, 2.9 가솔린 사륜구동입니다.', shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
+         card=('2.9 가솔린 · AWD', '2021년식 · 971')),
+    dict(sec='외관', tts='짙은 블루 컬러에 낮게 떨어지는 패스트백 라인.', shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
+    dict(sec='휠', tts='휠도 가까이서 보시죠.', shots=[(18.0, 1.15, 1), (19.2, 1.15, 1)]),
+    dict(sec='후면', tts='뒤로 가면 가로로 이어진 테일램프.', shots=[(9.6, 1.2, 1), (10.5, 0.95, 1)]),
+    dict(sec='실내', tts='실내는 베이지 가죽 시트, 상태 직접 확인하세요.', shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)],
+         card=('베이지 가죽 시트', None)),
+    dict(sec='실내', tts='센터 콘솔은 버튼 대신 터치 패널,', shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
+    dict(sec='실내', tts='천장은 파노라마 선루프입니다.', shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
+    dict(sec='뒷좌석', tts='뒷좌석에도 공조 패널이 따로 있고요,', shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
+    dict(sec='운전석', tts='운전석은 디지털 계기판과 큰 터치스크린.', shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
+    dict(sec='트렁크', tts='트렁크 공간까지 확인하시고요.', shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
+    dict(sec='판매 조건', tts='2021년 4월 최초등록, 주행 3만 8천 킬로미터, 판매가 9,200만 원입니다. 자세한 건 DM 주세요.',
+         shots=[(54.4, 1.1, 1), (18.4, 1.1, 1), (23.2, 1.2, 0), (47.0, 1.1, 0), (6.2, 1.0, 1)], card=('주행 38,276km', '최초등록 2021년 4월'), end=True),
+]
+SHOW = {'포.': '4.', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km'}
+KEY = re.compile(r'(\d|만|블루|베이지|파노라마|터치|디지털|사륜|AWD|DM|패스트백|테일램프)')
+
+
+# ── 1. TTS ──
+async def edge(text, path):
+    import certifi
+    certifi.where = lambda: '/root/.ccr/ca-bundle.crt'
+    import edge_tts
+    c = edge_tts.Communicate(text, 'ko-KR-InJoonNeural', rate='+14%', boundary='WordBoundary')
+    words = []
+    with open(path, 'wb') as f:
+        async for ch in c.stream():
+            if ch['type'] == 'audio':
+                f.write(ch['data'])
+            elif ch['type'] == 'WordBoundary':
+                words.append((ch['offset'] / 1e7, (ch['offset'] + ch['duration']) / 1e7, ch['text']))
+    return words
+
+
+def dur(p):
+    return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p]))
+
+
+def build_voice():
+    t, gap = 0.25, 0.12
+    parts = []
+    for i, b in enumerate(BLOCKS):
+        p = os.path.join(OUT, f'v{i}.mp3')
+        words = asyncio.run(edge(b['tts'], p))
+        d = words[-1][1] + 0.12 if words else dur(p)
+        b['t0'], b['t1'] = t, t + d
+        b['words'] = [(t + s, t + e, SHOW.get(w, w)) for s, e, w in words]
+        parts.append((p, t))
+        t += d + gap
+    total = t + 2.8  # 끝 카드
+    ins, fl = [], []
+    for k, (p, st) in enumerate(parts):
+        ins += ['-i', p]
+        fl.append(f'[{k}:a]adelay={int(st*1000)}|{int(st*1000)},aformat=sample_rates=48000:channel_layouts=stereo[a{k}]')
+    fl.append(''.join(f'[a{k}]' for k in range(len(parts))) + f'amix=inputs={len(parts)}:normalize=0,apad=whole_dur={total}[v]')
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', *ins, '-filter_complex', ';'.join(fl), '-map', '[v]',
+                    '-t', f'{total:.3f}', os.path.join(OUT, 'voice.wav')], check=True)
+    return total
+
+
+# ── 2. 배경음악(코드로 만든 박자 → 저작권 문제 없음) ──
+def build_bgm(total, bpm=112, sr=48000):
+    n = int(total * sr) + sr
+    t = np.arange(n) / sr
+    beat = 60 / bpm
+    out = np.zeros(n)
+    def env(x, a, d):
+        return np.where(x < 0, 0, np.minimum(x / a, 1) * np.exp(-np.maximum(x - a, 0) / d))
+    chords = [(57, 60, 64), (53, 57, 60), (48, 52, 55), (55, 59, 62)]  # Am F C G
+    f = lambda m: 440 * 2 ** ((m - 69) / 12)
+    nb = int(total / beat) + 2
+    for b in range(nb):
+        st = b * beat
+        x = t - st
+        m = (x >= 0) & (x < beat * 1.2)
+        # 킥
+        ph = 2 * np.pi * (45 * x[m] + 60 * (1 - np.exp(-x[m] * 40)) / 40)
+        out[m] += 0.9 * np.sin(ph) * env(x[m], 0.002, 0.16)
+        # 오프비트 하이햇
+        xh = t - (st + beat / 2)
+        mh = (xh >= 0) & (xh < 0.08)
+        out[mh] += 0.12 * np.random.default_rng(b).standard_normal(mh.sum()) * env(xh[mh], 0.001, 0.02)
+        # 베이스(8분)
+        ch = chords[(b // 8) % 4]
+        for half in (0, 1):
+            xb = t - (st + half * beat / 2)
+            mb = (xb >= 0) & (xb < beat / 2)
+            out[mb] += 0.28 * np.tanh(2 * np.sin(2 * np.pi * f(ch[0] - 12) * xb[mb])) * env(xb[mb], 0.005, 0.18)
+    # 패드(2마디마다 코드)
+    bar = beat * 4
+    for k in range(int(total / (bar * 2)) + 2):
+        st = k * bar * 2
+        x = t - st
+        m = (x >= 0) & (x < bar * 2.1)
+        ch = chords[k % 4]
+        sig = sum(np.sin(2 * np.pi * f(nn) * x[m]) + 0.5 * np.sin(2 * np.pi * f(nn) * 1.003 * x[m]) for nn in ch)
+        out[m] += 0.05 * sig * np.minimum(x[m] / 0.4, 1) * np.minimum((bar * 2.1 - x[m]) / 0.4, 1)
+    out = out / np.max(np.abs(out)) * 0.6
+    fade = np.minimum(1, (n / sr - t) / 1.5)
+    out *= fade
+    st = (np.stack([out, out], 1) * 32767).astype(np.int16)
+    import wave
+    with wave.open(os.path.join(OUT, 'bgm.wav'), 'wb') as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st.tobytes())
+
+
+# ── 3. 컷 편집표 ──
+def plan_shots(total):
+    shots = []
+    for bi, b in enumerate(BLOCKS):
+        t0 = b['t0'] if bi else 0.0
+        t1 = BLOCKS[bi + 1]['t0'] if bi + 1 < len(BLOCKS) else total
+        n = len(b['shots'])
+        edges = np.linspace(t0, t1, n + 1)
+        for k, (src, sp, plate) in enumerate(b['shots']):
+            shots.append(dict(a=edges[k], b=edges[k + 1], src=src, sp=sp, plate=plate, bi=bi, k=k))
+    return shots
+
+
+def src_frame(shot, T, nframes):
+    s = shot['src'] + (T - shot['a']) * shot['sp']
+    return int(min(nframes - 1, max(0, round(s * FPS))))
+
+
+# ── 4. 번호판 위치표 ──
+def plate_track(shots, total, nframes, cache):
+    old = {int(k): v for k, v in json.load(open(cache)).items()} if os.path.exists(cache) else {}
+    need = set()
+    for sh in shots:
+        if not sh['plate']:
+            continue
+        f0, f1 = src_frame(sh, sh['a'], nframes), src_frame(sh, sh['b'], nframes)
+        need.update(range(f0 - 4, f1 + 5, 2))
+    cap = cv2.VideoCapture(SRC)
+    track = {k: v for k, v in old.items() if k in need}
+    for fi in sorted(i for i in need if 0 <= i < nframes and i not in old):
+        cap.set(cv2.CAP_PROP_POS_FRAMES, fi)
+        ok, fr = cap.read()
+        if ok:
+            track[fi] = [[list(map(float, p)) for p in q] for q in plate_yunet.detect(fr, th=.45)]
+    json.dump(track, open(cache, 'w'))
+    return track
+
+
+def _box(q):
+    q = np.array(q, np.float32)
+    srt = q[np.argsort(q[:, 1])]
+    top = srt[:2][np.argsort(srt[:2, 0])]
+    ang = math.degrees(math.atan2(top[1][1] - top[0][1], top[1][0] - top[0][0]))
+    return [q[:, 0].min(), q[:, 1].min(), q[:, 0].max(), q[:, 1].max(), max(-8, min(8, ang))]
+
+
+def plates_at(track, fi, win=8):
+    """앞뒤 win 장면 안에서 찾은 번호판을 모두 모아, 겹치는 것끼리 합친 상자(놓친 장면·흔들림에도 가림 유지)"""
+    boxes = []
+    for k in range(fi - win, fi + win + 1):
+        for q in track.get(k, []):
+            b = _box(q)
+            if (b[2] - b[0]) / max(1, b[3] - b[1]) >= 2.0:  # 세로로 서거나 찌그러진 오검출은 버림
+                boxes.append(b)
+    groups = []
+    for b in boxes:
+        cx, cy = (b[0] + b[2]) / 2, (b[1] + b[3]) / 2
+        for g in groups:
+            if abs((g[0] + g[2]) / 2 - cx) < 260 and abs((g[1] + g[3]) / 2 - cy) < 140:
+                g[0], g[1], g[2], g[3] = min(g[0], b[0]), min(g[1], b[1]), max(g[2], b[2]), max(g[3], b[3])
+                g[4].append(b[4])
+                break
+        else:
+            groups.append([b[0], b[1], b[2], b[3], [b[4]]])
+    return [(g[0], g[1], g[2], g[3], float(np.median(g[4]))) for g in groups]
+
+
+def plate_cover():
+    w, h = 520, 120
+    im = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, w - 1, h - 1), 16, fill=(18, 20, 24, 255), outline=(90, 94, 100, 255), width=4)
+    fnt = ImageFont.truetype(BLACK, 66)
+    d.text((w / 2, h / 2 - 4), '보배드림', font=fnt, fill=(255, 255, 255, 255), anchor='mm')
+    return np.array(im)
+
+
+COVER = None
+
+
+def cover_plates(img, boxes):
+    global COVER
+    if COVER is None:
+        COVER = plate_cover()
+    for x0, y0, x1, y1, ang in boxes:
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        w, h = (x1 - x0) * 1.26 + 16, (y1 - y0) * 1.5 + 14  # 모델 상자가 번호판보다 작게 잡히는 일이 있어 넉넉히
+        h = max(h, w / 4.6)
+        h0, w0 = COVER.shape[:2]
+        M = cv2.getRotationMatrix2D((w0 / 2, h0 / 2), -ang, 1.0)
+        M[:, 0] *= w / w0; M[:, 1] *= h / h0  # 크기 맞춤 후 회전
+        M = cv2.getRotationMatrix2D((0, 0), -ang, 1.0)
+        S = np.array([[w / w0, 0, 0], [0, h / h0, 0], [0, 0, 1]], np.float32)
+        T0 = np.array([[1, 0, -w / 2], [0, 1, -h / 2], [0, 0, 1]], np.float32)
+        R = np.vstack([M, [0, 0, 1]]).astype(np.float32)
+        T1 = np.array([[1, 0, cx], [0, 1, cy], [0, 0, 1]], np.float32)
+        A = (T1 @ R @ T0 @ S)[:2]
+        warp = cv2.warpAffine(COVER, A, (img.shape[1], img.shape[0]), flags=cv2.INTER_LINEAR)
+        a = warp[:, :, 3:4].astype(np.float32) / 255
+        img[:] = (img * (1 - a) + warp[:, :, [2, 1, 0]] * a).astype(np.uint8)
+
+
+# ── 5. 그래픽 ──
+_cache = {}
+
+
+def text_img(txt, size, font=BLACK, fill=(255, 255, 255), stroke=9, key=False):
+    k = (txt, size, font, fill, stroke, key)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(font, size)
+    bb = fnt.getbbox(txt, stroke_width=stroke)
+    im = Image.new('RGBA', (bb[2] - bb[0] + 20, bb[3] - bb[1] + 20), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    col = YELLOW if key else fill
+    d.text((10 - bb[0], 10 - bb[1]), txt, font=fnt, fill=col, stroke_width=stroke, stroke_fill=(0, 0, 0))
+    _cache[k] = im
+    return im
+
+
+def pill(txt, size=34, bg=(0, 0, 0, 165), fg=(255, 255, 255), pad=(26, 14), dot=None):
+    k = ('pill', txt, size, bg, dot)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(BOLD, size)
+    bb = fnt.getbbox(txt)
+    tw, th = bb[2] - bb[0], size
+    extra = 26 if dot else 0
+    w, h = tw + pad[0] * 2 + extra, th + pad[1] * 2
+    im = Image.new('RGBA', (w, h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, w - 1, h - 1), h // 2, fill=bg)
+    if dot:
+        d.ellipse((pad[0], h / 2 - 7, pad[0] + 14, h / 2 + 7), fill=dot)
+    d.text((pad[0] + extra, h / 2), txt, font=fnt, fill=fg, anchor='lm')
+    _cache[k] = im
+    return im
+
+
+def spec_card(a, b):
+    k = ('card', a, b)
+    if k in _cache:
+        return _cache[k]
+    f1, f2 = ImageFont.truetype(BLACK, 62), ImageFont.truetype(MED, 38)
+    w = max(f1.getlength(a), f2.getlength(b or '')) + 70
+    h = 122 if not b else 186
+    im = Image.new('RGBA', (int(w), h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, w - 1, h - 1), 22, fill=(255, 255, 255, 240))
+    d.rectangle((0, 22, 10, h - 22), fill=BLUE)
+    d.text((36, 26), a, font=f1, fill=(20, 20, 24))
+    if b:
+        d.text((36, 114), b, font=f2, fill=(90, 92, 98))
+    _cache[k] = im
+    return im
+
+
+def paste(base, im, x, y, alpha=1.0, scale=1.0):
+    if scale != 1.0:
+        im = im.resize((max(1, int(im.width * scale)), max(1, int(im.height * scale))), Image.LANCZOS)
+    if alpha < 1:
+        im = im.copy()
+        im.putalpha(im.getchannel('A').point(lambda v: int(v * alpha)))
+    base.alpha_composite(im, (int(x), int(y)))
+
+
+def ease(x):
+    x = max(0.0, min(1.0, x))
+    return 1 - (1 - x) ** 3
+
+
+def overlay(T, total, shots, shot, blk):
+    ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    end_t = BLOCKS[-1]['t1'] + 0.35
+    # 진행선
+    d = ImageDraw.Draw(ov)
+    d.rectangle((0, 0, int(W * T / total), 7), fill=YELLOW + (255,))
+    if T >= end_t:
+        return ov, True
+    # 부위 칩 (위 왼쪽)
+    chip = pill(blk['sec'], 42, dot=YELLOW)
+    since = T - (blk['t0'] if blk is not BLOCKS[0] else 0)
+    paste(ov, chip, 54 - 30 * (1 - ease(since / .25)), 150, alpha=ease(since / .25))
+    # 첫 장면 훅 제목
+    if T < BLOCKS[1]['t0']:
+        e = ease(T / .35)
+        t1 = text_img(CAR['price'], 150, stroke=12, key=True)
+        t2 = text_img(f"{CAR['year']} 파나메라 4 · {CAR['km_short']}", 58, BOLD, stroke=7)
+        paste(ov, t1, (W - t1.width) / 2, 330 + 40 * (1 - e), e, 0.9 + 0.1 * e)
+        paste(ov, t2, (W - t2.width) / 2, 530, e)
+    # 사양 카드 (아래 왼쪽, 자막 위)
+    if blk.get('card') and T < blk['t1'] + 0.2:
+        cs = T - blk['t0']
+        if cs > 0.15:
+            card = spec_card(*blk['card'])
+            e = ease((cs - .15) / .3)
+            paste(ov, card, 54 - 60 * (1 - e), 1010, e)
+    # 한 어절 키네틱 자막
+    cur = None
+    for b in BLOCKS:
+        for s, e_, w in b['words']:
+            if s - 0.03 <= T < e_ + 0.08:
+                cur = (s, w)
+    if cur:
+        s, w = cur
+        w = w.rstrip(',.')
+        if w:
+            im = text_img(w, 112, stroke=10, key=bool(KEY.search(w)))
+            p = min(1.0, (T - s) / 0.09)
+            sc = 1.18 - 0.18 * ease(p)
+            paste(ov, im, (W - im.width * sc) / 2, 1290 - (im.height * sc) / 2, 1.0, sc)
+    return ov, False
+
+
+def end_card():
+    im = Image.new('RGBA', (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rectangle((0, 0, W, H), fill=(8, 10, 14, 150))
+    cy = 700
+    t = text_img(CAR['name'], 78, stroke=0)
+    paste(im, t, (W - t.width) / 2, cy)
+    sub = text_img(f"{CAR['year']}년식 · {CAR['km_short']} · {CAR['fuel']} · {CAR['drive']}", 42, MED, stroke=0, fill=(220, 222, 226))
+    paste(im, sub, (W - sub.width) / 2, cy + 120)
+    pr = text_img(CAR['price'], 140, stroke=0, key=True)
+    paste(im, pr, (W - pr.width) / 2, cy + 200)
+    b = pill('DM으로 문의하세요', 44, bg=(255, 255, 255, 255), fg=(20, 20, 24), pad=(44, 22))
+    paste(im, b, (W - b.width) / 2, cy + 410)
+    s = text_img('보배드림 매물 · 실매물 영상', 34, MED, stroke=0, fill=(170, 174, 180))
+    paste(im, s, (W - s.width) / 2, cy + 560)
+    return im
+
+
+# ── 6. 그리기 ──
+def grade(img):
+    f = img.astype(np.float32)
+    f = (f - 128) * 1.07 + 131
+    g = f.mean(2, keepdims=True)
+    f = g + (f - g) * 1.10
+    return np.clip(f, 0, 255).astype(np.uint8)
+
+
+VIG = None
+
+
+def vignette(img):
+    global VIG
+    if VIG is None:
+        yy, xx = np.mgrid[0:H, 0:W]
+        r = np.hypot((xx - W / 2) / (W / 2), (yy - H / 2) / (H / 2))
+        VIG = (1 - 0.22 * np.clip(r - 0.55, 0, 1) ** 1.5)[..., None].astype(np.float32)
+    return (img * VIG).astype(np.uint8)
+
+
+def main():
+    t_start = time.time()
+    total = build_voice()
+    build_bgm(total)
+    cap = cv2.VideoCapture(SRC)
+    nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+    shots = plan_shots(total)
+    track = plate_track(shots, total, nframes, os.path.join(OUT, 'plates.json'))
+    # 필요한 원본 장면만 읽어 둔다
+    N = int(round(total * FPS))
+    need = {}
+    for i in range(N):
+        T = i / FPS
+        sh = next(s for s in shots if s['a'] <= T < s['b'] or s is shots[-1])
+        need[i] = (sh, src_frame(sh, T, nframes))
+    want = set(f for _, f in need.values())
+    frames = {}
+    fi = 0
+    while True:
+        ok, fr = cap.read()
+        if not ok:
+            break
+        if fi in want:
+            frames[fi] = cv2.imencode('.jpg', fr, [cv2.IMWRITE_JPEG_QUALITY, 96])[1]
+        fi += 1
+    endc = end_card()
+    enc = subprocess.Popen(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}',
+                            '-r', str(FPS), '-i', '-', '-c:v', 'libx264', '-preset', 'medium', '-crf', '18', '-pix_fmt', 'yuv420p',
+                            os.path.join(OUT, 'video.mp4')], stdin=subprocess.PIPE)
+    end_t = BLOCKS[-1]['t1'] + 0.35
+    for i in range(N):
+        T = i / FPS
+        sh, sf = need[i]
+        img = cv2.imdecode(frames[sf], cv2.IMREAD_COLOR)
+        if sh['plate']:
+            cover_plates(img, plates_at(track, sf))
+        # 컷마다 천천히 밀어 들어가기 + 컷 처음 3장면 살짝 튀는 줌(템포)
+        p = (T - sh['a']) / max(.01, sh['b'] - sh['a'])
+        z = 1.0 + 0.045 * p + (0.05 * (1 - min(1, (T - sh['a']) / 0.1)) if sh['k'] == 0 and sh['bi'] > 0 else 0)
+        if z > 1.001:
+            M = cv2.getRotationMatrix2D((W / 2, H / 2), 0, z)
+            img = cv2.warpAffine(img, M, (W, H), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
+        img = vignette(grade(img))
+        rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        blk = BLOCKS[sh['bi']]
+        ov, is_end = overlay(T, total, shots, sh, blk)
+        base = Image.fromarray(rgb).convert('RGBA')
+        if is_end:
+            k = ease((T - end_t) / 0.4)
+            base = Image.blend(base, base.filter(ImageFilter.GaussianBlur(18)), k)
+            e2 = endc.copy()
+            e2.putalpha(e2.getchannel('A').point(lambda v: int(v * k)))
+            base.alpha_composite(e2)
+        base.alpha_composite(ov)
+        enc.stdin.write(np.array(base.convert('RGB')).tobytes())
+    enc.stdin.close()
+    enc.wait()
+    # 목소리 기준 배경음악 덕킹 + -14 LUFS
+    final = os.path.join(OUT, 'sag_reel_v1.mp4')
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', os.path.join(OUT, 'video.mp4'), '-i', os.path.join(OUT, 'voice.wav'),
+                    '-i', os.path.join(OUT, 'bgm.wav'), '-filter_complex',
+                    '[2:a]volume=0.42[m];[1:a]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
+                    '[v2][md]amix=inputs=2:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
+                    '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
+                    '-movflags', '+faststart', final], check=True)
+    meta = dict(total=round(total, 2), shots=len(shots), sec_per_cut=round(total / len(shots), 2),
+                plate_frames=sum(1 for v in track.values() if v), render_sec=round(time.time() - t_start, 1),
+                blocks=[dict(t=round(b['t0'], 2), sec=b['sec'], text=b['tts']) for b in BLOCKS])
+    json.dump(meta, open(os.path.join(OUT, 'meta.json'), 'w'), ensure_ascii=False, indent=1)
+    print(meta)
+
+
+if __name__ == '__main__':
+    main()
