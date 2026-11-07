@@ -48,21 +48,21 @@ BLOCKS = [
          card=('2.9 가솔린 · AWD', '2021년식 · 971')),
     dict(sec='외관', tts='디자인부터 보시죠. 컬러는 짙은 블루, 옆에서 보면 지붕이 뒤로 길게 떨어지는 패스트백 라인입니다.',
          caps=['디자인부터 보시죠', '컬러는 짙은 블루', '옆에서 보면 지붕이 뒤로', '길게 떨어지는 패스트백 라인입니다'],
-         shots=[(3.2, 1.1, 1), (7.4, 1.2, 1), (5.7, 1.0, 1)]),
-    dict(sec='휠', tts='휠은 검은색 멀티 스포크입니다.', caps=['휠은 검은색 멀티 스포크입니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)]),
+         shots=[(3.2, 1.1, 1), (7.4, 1.2, 1), (5.7, 1.0, 1)], card=('패스트백 라인', None)),
+    dict(sec='휠', tts='휠은 검은색 멀티 스포크입니다.', caps=['휠은 검은색 멀티 스포크입니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)], card=('블랙 멀티 스포크 휠', None)),
     dict(sec='후면', tts='뒤에서는 좌우를 가로로 잇는 테일램프가 포인트입니다.', caps=['뒤에서는 좌우를 가로로 잇는', '테일램프가 포인트입니다'],
-         shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)]),
+         shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)], card=('일자형 테일램프', None)),
     dict(sec='실내', tts='실내로 들어가 보겠습니다. 시트는 베이지 가죽이고, 상태는 영상으로 직접 확인하시면 됩니다.',
          caps=['실내로 들어가 보겠습니다', '시트는 베이지 가죽이고', '상태는 영상으로 직접', '확인하시면 됩니다'],
          shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)], card=('베이지 가죽 시트', None)),
     dict(sec='실내', tts='센터 콘솔은 물리 버튼 대신 터치 패널로 정리돼 있습니다.', caps=['센터 콘솔은 물리 버튼 대신', '터치 패널로 정리돼 있습니다'],
-         shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
+         shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)], card=('터치 패널 센터 콘솔', None)),
     dict(sec='실내', tts='천장에는 파노라마 선루프가 들어갑니다.', caps=['천장에는 파노라마 선루프가 들어갑니다'],
          shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
     dict(sec='뒷좌석', tts='뒷좌석에도 독립 공조 패널이 따로 있습니다.', caps=['뒷좌석에도 독립 공조 패널이 따로 있습니다'],
-         shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
+         shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)], card=('뒷좌석 독립 공조', None)),
     dict(sec='운전석', tts='운전석은 디지털 계기판과 와이드 센터 디스플레이 구성입니다.', caps=['운전석은 디지털 계기판과', '와이드 센터 디스플레이 구성입니다'],
-         shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
+         shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)], card=('디지털 계기판', None)),
     dict(sec='트렁크', tts='트렁크 공간은 이 정도입니다.', caps=['트렁크 공간은 이 정도입니다'], shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
     dict(sec='판매 조건', tts='정리하면, 21년 4월 등록에 주행 3만 8천 킬로미터, 가격은 9,200만 원입니다. 자세한 문의는 DM 주시면 됩니다.',
          caps=['정리하면 21년 4월 등록', '주행 3만 8천 km', '가격은 9,200만 원입니다', '자세한 문의는 DM 주시면 됩니다'],
@@ -399,6 +399,31 @@ def spec_card(a, b):
     return im
 
 
+def sticker(txt, size=72, tilt=-2.0):
+    """키워드 스티커(오토스카우트24 형광펜 스티커 구조, 색은 보배드림 파랑): 파랑 붓질 상자 + 흰 굵은 글자, 살짝 기울임"""
+    k = ('sticker', txt, size, tilt)
+    if k in _cache:
+        return _cache[k]
+    import random
+    rnd = random.Random(txt)
+    fnt = ImageFont.truetype(BLACK, size)
+    tw = fnt.getlength(txt)
+    px, py = int(size * .42), int(size * .30)
+    w, h = int(tw + px * 2), int(size * 1.0 + py * 2)
+    m = 24
+    im = Image.new('RGBA', (w + m * 2, h + m * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    # 붓질 느낌: 위·아래 가장자리를 조금씩 흔들고 양 끝을 비스듬히
+    top = [(m + x, m + rnd.uniform(-3, 4)) for x in range(0, w + 1, max(8, w // 14))]
+    bot = [(m + x, m + h + rnd.uniform(-4, 3)) for x in range(w, -1, -max(8, w // 14))]
+    poly = [(m - 6, m + h * .18)] + top + [(m + w + 8, m + h * .12), (m + w + 2, m + h * .88)] + bot + [(m - 2, m + h * .92)]
+    d.polygon(poly, fill=BLUE + (255,))
+    d.text((m + w / 2, m + h / 2 + 2), txt, font=fnt, fill=(255, 255, 255), anchor='mm')
+    im = im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
+    _cache[k] = im
+    return im
+
+
 def paste(base, im, x, y, alpha=1.0, scale=1.0):
     if scale != 1.0:
         im = im.resize((max(1, int(im.width * scale)), max(1, int(im.height * scale))), Image.LANCZOS)
@@ -433,7 +458,10 @@ def build_phrases():
         b['ph0'] = len(PHRASES)
         for c, i1 in zip(caps, cuts):
             i1 = max(i0 + 1, min(n, i1))
-            PHRASES.append([ws[i0][0], ws[i1 - 1][1], c])
+            nc = len(c.split())
+            span = i1 - i0
+            starts = [ws[i0 + min(span - 1, int(j * span / nc))][0] - LEAD for j in range(nc)]
+            PHRASES.append([ws[i0][0], ws[i1 - 1][1], c, starts])
             i0 = i1
     # 싱크 규칙(검색 정리): 말보다 0.12초 먼저 뜨고(0.1~0.3초 권장), 다음 자막과 2프레임 띄우고,
     # 최소 5/6초 · 최대 7초, 말이 끝나도 0.35초는 남겨 읽을 시간을 준다
@@ -449,10 +477,10 @@ def build_phrases():
         ph[1] = min(end, ph[0] + 7.0)
 
 
-def phrase_img(text):
+def phrase_img(text, act=-1):
     """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(세이프존 폭 810px을 넘으면 가운데 띄어쓰기에서 2줄)
     · 줄 높이 화면의 약 4.2% · 화면 아래 데드존(하단 약 450px)과 오른쪽 버튼 줄을 피한 고정 위치 · 문장부호 없음 · 숫자만 노랑"""
-    k = ('phrase', text)
+    k = ('phrase', text, act)
     if k in _cache:
         return _cache[k]
     fnt = ImageFont.truetype(SEMI, 64)
@@ -465,6 +493,7 @@ def phrase_img(text):
     gap = fnt.getlength(' ')
     lh, pad_x, pad_y = 80, 30, 12
     tw = max(fnt.getlength(l) for l in lines)
+    wi = 0
     im = Image.new('RGBA', (int(tw + pad_x * 2), lh * len(lines) + pad_y * 2), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     d.rounded_rectangle((0, 0, im.width - 1, im.height - 1), 14, fill=(0, 0, 0, 140))
@@ -472,8 +501,9 @@ def phrase_img(text):
         x = (im.width - fnt.getlength(line)) / 2
         y = pad_y + lh * li + lh / 2
         for w in line.split(' '):
-            col = YELLOW if re.search(r'\d', w) else (255, 255, 255)
+            col = YELLOW if wi == act else (255, 255, 255)
             d.text((x, y), w, font=fnt, fill=col, anchor='lm')
+            wi += 1
             x += fnt.getlength(w) + gap
     _cache[k] = im
     return im
@@ -484,34 +514,37 @@ def overlay(T, total, shots, shot, blk):
     end_t = BLOCKS[-1]['t1'] + 0.35
     # 진행선
     d = ImageDraw.Draw(ov)
-    d.rectangle((0, 0, int(W * T / total), 7), fill=YELLOW + (255,))
+    d.rectangle((0, 0, int(W * T / total), 7), fill=BLUE + (255,))
     if T >= end_t:
         return ov, True
     # 부위 칩 (위 왼쪽)
-    chip = pill(blk['sec'], 42, dot=YELLOW)
+    chip = pill(blk['sec'], 42, dot=BLUE)
     since = T - (blk['t0'] if blk is not BLOCKS[0] else 0)
     paste(ov, chip, 54 - 30 * (1 - ease(since / .25)), SAFE_TOP + 20, alpha=ease(since / .25))
     # 첫 장면 훅 제목
     if T < BLOCKS[1]['t0']:
         e = ease(T / .35)
-        t1 = text_img(CAR['price'], 150, stroke=8, key=True)
+        t1 = sticker(CAR['price'], 120, -2.5)
         t2 = text_img(f"{CAR['year']} 파나메라 4 · {CAR['km_short']}", 58, BOLD, stroke=6)
-        paste(ov, t1, (W - t1.width) / 2, 330 + 40 * (1 - e), e, 0.9 + 0.1 * e)
-        paste(ov, t2, (W - t2.width) / 2, 530, e)
+        sc = 0.82 + 0.18 * e
+        paste(ov, t1, (W - t1.width * sc) / 2, 300 + (t1.height * (1 - sc)) / 2, e, sc)
+        paste(ov, t2, (W - t2.width) / 2, 300 + t1.height + 10, e)
     # 사양 카드 (아래 왼쪽, 자막 위)
     if blk.get('card') and T < blk['t1'] + 0.2:
         cs = T - blk['t0']
         if cs > 0.15:
-            card = spec_card(*blk['card'])
-            e = ease((cs - .15) / .3)
-            paste(ov, card, 54 - 60 * (1 - e), 1010, e)
+            card = sticker(blk['card'][0], 66)
+            e = ease((cs - .15) / .22)
+            sc = 0.8 + 0.2 * e
+            paste(ov, card, 40 + card.width * (1 - sc) / 2, 1150 + card.height * (1 - sc) / 2, e, sc)
     # 구절 자막: 2~3어절씩 묶어 한 덩어리로 보여 준다(튀는 효과 없음, 위치 고정)
     cur = None
     for ph in PHRASES:
         if ph[0] <= T < ph[1]:
             cur = ph
     if cur:
-        im = phrase_img(cur[2])
+        act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
+        im = phrase_img(cur[2], act)
         k = min(1.0, (T - cur[0]) / 0.12)
         paste(ov, im, SAFE_CX - im.width / 2, 1360, k)
     return ov, False
@@ -526,8 +559,8 @@ def end_card():
     paste(im, t, (W - t.width) / 2, cy)
     sub = text_img(f"{CAR['year']}년식 · {CAR['km_short']} · {CAR['fuel']} · {CAR['drive']}", 42, MED, stroke=0, fill=(220, 222, 226))
     paste(im, sub, (W - sub.width) / 2, cy + 120)
-    pr = text_img(CAR['price'], 140, stroke=0, key=True)
-    paste(im, pr, (W - pr.width) / 2, cy + 200)
+    pr = sticker(CAR['price'], 110, -2.5)
+    paste(im, pr, (W - pr.width) / 2, cy + 190)
     b = pill('DM으로 문의하세요', 44, bg=(255, 255, 255, 255), fg=(20, 20, 24), pad=(44, 22))
     paste(im, b, (W - b.width) / 2, cy + 410)
     s = text_img('보배드림 매물 · 실매물 영상', 34, MED, stroke=0, fill=(170, 174, 180))
