@@ -1,0 +1,355 @@
+{
+ "country": "NL",
+ "title": "NL-098",
+ "url": "https://www.youtube.com/shorts/5o_Nw9I6p-M",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3425,
+  "candidatesTokenCount": 2911,
+  "totalTokenCount": 6336,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2457
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.0,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz SLK",
+   "format": "차 소개/퀴즈/가격 공개/정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 14.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 21.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 26.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "RAAD HET MERK & MODEL VAN DEZE AUTO",
+    "ko": "이 자동차의 브랜드와 모델을 맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MERK & MODEL",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "text": "MAAR IK GEEF JE EERST NOG EEN PAAR TIPS",
+    "ko": "하지만 먼저 몇 가지 팁을 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PAAR TIPS",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.0,
+    "text": "EERSTE CABRIO'S MET EEN METALEN HARDTOP",
+    "ko": "메탈 하드탑이 있는 최초의 카브리오 중 하나",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "METALEN HARDTOP",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 14.5,
+    "text": "EN BEGIN 2000 WAS DIT ECHT DE DROOMAUTO",
+    "ko": "2000년 초반에는 정말 드림카였어요",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DROOMAUTO",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.0,
+    "text": "DESTIJS KOSTTE DEZE AUTO ROND DE €40.000",
+    "ko": "당시 이 차의 가격은 약 40,000유로였습니다",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€40.000",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.5,
+    "text": "NU RIJD JE HEM VOOR €11.995",
+    "ko": "지금은 11,995유로에 탈 수 있어요",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€11.995",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 26.0,
+    "text": "KAN JIJ RADEN WELK MERK EN MODEL DEZE AUTO IS",
+    "ko": "이 자동차의 브랜드와 모델을 맞출 수 있나요?",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WELK MERK EN MODEL",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 팝/라운지",
+   "bpm_est": 115,
+   "mood": "경쾌함, 호기심 유발",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Kan jij raden welk merk en model deze auto is?",
+    "ko": "이 자동차의 브랜드와 모델을 맞춰보세요."
+   },
+   {
+    "start": 2.5,
+    "end": 5.0,
+    "text": "Je vindt hem natuurlijk op Autoscout24.nl.",
+    "ko": "당연히 Autoscout24.nl에서 찾을 수 있죠."
+   },
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "text": "Maar ik geef je eerst nog een paar tips.",
+    "ko": "하지만 먼저 몇 가지 팁을 드릴게요."
+   },
+   {
+    "start": 7.5,
+    "end": 11.0,
+    "text": "Het is één van de eerste cabrio's met een metalen hardtop cover.",
+    "ko": "메탈 하드탑 커버가 있는 최초의 카브리오 중 하나입니다."
+   },
+   {
+    "start": 11.0,
+    "end": 14.5,
+    "text": "En begin 2000 was dit echt de droomauto.",
+    "ko": "그리고 2000년 초반에는 정말 드림카였어요."
+   },
+   {
+    "start": 14.5,
+    "end": 18.0,
+    "text": "Destijds kostte deze auto rond de €40.000.",
+    "ko": "당시 이 차의 가격은 약 4만 유로였습니다."
+   },
+   {
+    "start": 18.0,
+    "end": 21.5,
+    "text": "Nu rij je hem voor €11.995.",
+    "ko": "지금은 11,995유로에 탈 수 있어요."
+   },
+   {
+    "start": 21.5,
+    "end": 26.0,
+    "text": "Dus ik ben benieuwd, kan jij raden welk merk en model deze auto is? Laat het even weten in een reactie.",
+    "ko": "그래서 궁금하네요, 이 자동차의 브랜드와 모델이 뭔지 맞출 수 있나요? 댓글로 알려주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "차량 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 6.0,
+    "speed": "빠름",
+    "summary": "플랫폼 홍보 및 힌트 예고"
+   },
+   {
+    "stage": "정보",
+    "start": 6.0,
+    "end": 21.5,
+    "speed": "빠름",
+    "summary": "역사, 신차가, 중고차가 힌트 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 21.5,
+    "end": 26.0,
+    "speed": "빠름",
+    "summary": "정답 댓글 유도"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 안에 시청자의 호기심을 자극하는 퀴즈나 질문을 던져 이탈률을 방어한다.",
+   "2. 컷 평균 길이는 2~4초로 매우 짧게 유지하여 지루할 틈을 없앤다.",
+   "3. 화면 중앙에 노란색 배경 상자와 검은색 볼드체 텍스트로 된 자막을 일관되게 사용한다.",
+   "4. 핵심 키워드(가격, 브랜드 등)는 자막에서 색상을 다르게 하거나 강조한다.",
+   "5. 진행자가 직접 차 안팎을 오가며 역동적으로 설명하는 구성을 취한다.",
+   "6. 힌트를 단계별(역사 -> 신차가 -> 중고차가)로 순차적으로 제공해 몰입감을 높인다.",
+   "7. 마지막에는 댓글 참여를 유도하는 명확한 CTA(Call to Action)로 마무리한다."
+  ]
+ }
+}

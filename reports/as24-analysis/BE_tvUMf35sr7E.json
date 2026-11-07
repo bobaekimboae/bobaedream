@@ -1,0 +1,335 @@
+{
+ "country": "BE",
+ "title": "BE-097",
+ "url": "https://www.youtube.com/shorts/tvUMf35sr7E",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5149,
+  "candidatesTokenCount": 3380,
+  "totalTokenCount": 8529,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4181
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 45.0,
+   "aspect": "9:16",
+   "car": "Volkswagen ID.4",
+   "format": "정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.0,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 12.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 19.5,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 23.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 31.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 36.0,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 40.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 45.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "3 Leuke weetjes over de Volkswagen ID.4",
+    "ko": "폭스바겐 ID.4에 대한 재밌는 사실 3가지",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ID.4",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "text": "Het rempedaal en het gaspedaal is",
+    "ko": "브레이크 페달과 가속 페달은",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "text": "Pauzebutton",
+    "ko": "일시정지 버튼",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Pauzebutton",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "Playbutton",
+    "ko": "재생 버튼",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Playbutton",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 18.0,
+    "text": "losse armsteun voor passagier en bestuurder",
+    "ko": "조수석과 운전자용 분리형 암레스트",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "text": "2 bekerhouders",
+    "ko": "컵홀더 2개",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 30.0,
+    "text": "Telefoon opladen",
+    "ko": "휴대폰 충전",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Telefoon",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 110,
+   "mood": "밝은",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "3 leuke weetjes over de Volkswagen ID.4",
+    "ko": "폭스바겐 ID.4에 대한 재밌는 사실 3가지"
+   },
+   {
+    "start": 4.0,
+    "end": 12.0,
+    "text": "Het rempedaal en het gaspedaal is op een leuke manier aangegeven. Wil je remmen duw je op de pauzebutton en wil je gas geven duw je op de playbutton.",
+    "ko": "브레이크 페달과 가속 페달이 재밌게 표시되어 있어요. 멈추고 싶으면 일시정지 버튼을 누르고, 가속하고 싶으면 재생 버튼을 누르세요."
+   },
+   {
+    "start": 12.0,
+    "end": 31.0,
+    "text": "In het interieur heb je leuke dingetjes zoals losse armsteune voor passagier en bestuurder verstelbaar. En je hebt meerdere vakjes. Je hebt twee bekerhouders hier, maar je hebt ook een verborgen vakje. Hier kun je je telefoon opladen en hier heb je nog een extra schuifje om nog eens eventueel twee bekerhouders te maken en een vakje te verstellen.",
+    "ko": "실내에는 운전자와 조수석 모두 조절 가능한 개별 암레스트 같은 재밌는 디테일이 있어요. 그리고 수납공간도 여러 개죠. 컵홀더 2개가 있고, 숨겨진 수납함도 있어요. 여기서는 휴대폰을 충전할 수 있고, 슬라이드를 열면 컵홀더 2개를 더 만들고 수납함을 조절할 수 있어요."
+   },
+   {
+    "start": 31.0,
+    "end": 36.0,
+    "text": "En stap je als bestuurder in, herkent de auto je en is hij meteen rijklaar.",
+    "ko": "그리고 운전석에 타면 차가 알아서 인식하고 바로 운행 준비가 완료됩니다."
+   },
+   {
+    "start": 36.0,
+    "end": 45.0,
+    "text": "Weet jij nog andere leuke weetjes over de Volkswagen ID.4? Laat ze achter in de reacties! Je vindt hem in de showroom van Falcomotive en op AutoScout24.be",
+    "ko": "폭스바겐 ID.4에 대한 다른 재밌는 사실을 아시나요? 댓글로 남겨주세요! 팔코모티브 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "차량 소개와 3가지 사실 예고"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.8,
+    "end": 31.0,
+    "speed": "보통",
+    "summary": "페달 디자인, 암레스트, 수납공간 등 디테일 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 31.0,
+    "end": 36.0,
+    "speed": "보통",
+    "summary": "탑승 시 운전자 자동 인식 기능 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 36.0,
+    "end": 45.0,
+    "speed": "빠름",
+    "summary": "댓글 유도 및 플랫폼/매장 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 내에 숫자와 차량 모델명을 포함한 훅 자막을 띄운다.",
+   "평균 컷 길이는 3~8초로 적절한 호흡을 유지한다.",
+   "핵심 키워드는 형광펜 스타일의 배경 상자와 함께 강조한다.",
+   "효과음은 최소화하고 배경음악으로 분위기를 채운다.",
+   "주요 기능 설명 시 손으로 직접 가리키는 시각적 제스처를 적극 활용한다.",
+   "촬영 순서는 외관 후면 -> 페달 -> 실내(암레스트, 수납함) -> 운전석 탑승 순으로 진행된다.",
+   "마지막에는 댓글 참여 유도와 함께 브랜드 로고를 노출하며 마무리한다."
+  ]
+ }
+}

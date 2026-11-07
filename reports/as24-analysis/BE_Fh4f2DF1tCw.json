@@ -1,0 +1,546 @@
+{
+ "country": "BE",
+ "title": "BE-096",
+ "url": "https://www.youtube.com/shorts/Fh4f2DF1tCw",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5330,
+  "candidatesTokenCount": 5375,
+  "totalTokenCount": 10705,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4362
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.1,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLE 53 AMG",
+   "format": "차 소개/가격 공개/옵션 설명",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.0,
+    "part": "외관 후면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.2,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 10.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.2,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.1,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 17.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.3,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 28.7,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.7,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 37.9,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 39.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 44.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.1,
+    "end": 47.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "Mercedes-Benz GLE 53 AMG €119.870",
+    "ko": "메르세데스 벤츠 GLE 53 AMG 119,870유로",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 25.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GLE 53 AMG",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.7,
+    "text": "53 AMG?",
+    "ko": "53 AMG?",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "53 AMG",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.2,
+    "text": "AMG pakket",
+    "ko": "AMG 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AMG pakket",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.2,
+    "text": "22 inch velgen",
+    "ko": "22인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "22 inch",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.1,
+    "text": "AMG voor en achterbumper",
+    "ko": "AMG 전후면 범퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AMG",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.0,
+    "text": "automatische 9-traps tranmissie",
+    "ko": "자동 9단 변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "9-traps",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.3,
+    "text": "Burmester",
+    "ko": "부메스터",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Burmester",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.3,
+    "text": "Head-up display",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Head-up",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.0,
+    "text": "Multicontour stoelen",
+    "ko": "멀티컨투어 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Multicontour",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 39.5,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "숫자 사양",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2025",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 44.1,
+    "text": "4.766 KM",
+    "ko": "4,766 km",
+    "kind": "숫자 사양",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4.766 KM",
+    "sure": true
+   },
+   {
+    "start": 44.1,
+    "end": 47.1,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "#d7b400",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디/루틴",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.7,
+    "end": 7.0,
+    "what": "AMG 엠블럼 원형 강조 드로잉",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "entrance": "그려짐",
+    "purpose": "엠블럼 위치 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "Ga jij voor de Mercedes-Benz GLE 53 AMG?",
+    "ko": "메르세데스 벤츠 GLE 53 AMG를 선택하시겠습니까?"
+   },
+   {
+    "start": 4.1,
+    "end": 7.0,
+    "text": "Het is natuurlijk een AMG. Dat houdt in hij is volledig uitgerust met een AMG pakket",
+    "ko": "물론 AMG입니다. AMG 패키지가 완전히 장착되어 있다는 뜻이죠."
+   },
+   {
+    "start": 7.0,
+    "end": 11.2,
+    "text": "zoals onder andere 22 inch velgen, AMG voor en achterbumper.",
+    "ko": "무엇보다 22인치 휠, AMG 전후면 범퍼 등이 포함됩니다."
+   },
+   {
+    "start": 11.2,
+    "end": 17.0,
+    "text": "Hij heeft een automatische 9-traps transmissie,",
+    "ko": "자동 9단 변속기가 탑재되어 있습니다."
+   },
+   {
+    "start": 17.0,
+    "end": 21.3,
+    "text": "premium sound systeem van Burmester en een panorama dak en een head-up display.",
+    "ko": "부메스터 프리미엄 사운드 시스템, 파노라마 썬루프, 헤드업 디스플레이가 있습니다."
+   },
+   {
+    "start": 21.3,
+    "end": 28.7,
+    "text": "Een 360 graden camera met een 3D functie. De mogelijkheid ook om het onderstel volledig aan te passen naar keuze.",
+    "ko": "3D 기능이 포함된 360도 카메라와 서스펜션을 취향에 맞게 완전히 조절할 수 있는 기능도 있습니다."
+   },
+   {
+    "start": 28.7,
+    "end": 32.7,
+    "text": "Multicontour stoelen met massagefunctie.",
+    "ko": "마사지 기능이 포함된 멀티컨투어 시트."
+   },
+   {
+    "start": 32.7,
+    "end": 37.9,
+    "text": "Heeft ook nog de optie dynamic select, dan kun je dus kiezen tussen verschillende rijmodussen.",
+    "ko": "다이내믹 셀렉트 옵션도 있어 다양한 주행 모드를 선택할 수 있습니다."
+   },
+   {
+    "start": 37.9,
+    "end": 44.1,
+    "text": "Hij komt uit 2025 en heeft 4.766 km op de teller.",
+    "ko": "2025년식이며 주행거리는 4,766km입니다."
+   },
+   {
+    "start": 44.1,
+    "end": 47.1,
+    "text": "Je vindt ze bij Garage Peeters en op AutoScout24.be",
+    "ko": "가라지 피터스 및 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "차량 전면과 가격을 보여주며 매력적인 질문으로 시작"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.1,
+    "end": 37.9,
+    "speed": "빠름",
+    "summary": "외관 패키지, 휠, 변속기, 사운드, 디스플레이, 시트, 주행 모드 등 주요 옵션 연속 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 37.9,
+    "end": 44.1,
+    "speed": "보통",
+    "summary": "연식과 주행거리 정보 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 4.4,
+    "end": 47.1,
+    "speed": "보통",
+    "summary": "판매처 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량 풀샷과 함께 차명 및 가격을 노란색 배경의 자바로 강하게 각인한다.",
+   "컷 평균 길이는 2~3초 내외로 매우 빠르게 전환하여 시청 지속률을 높인다.",
+   "자바(텍스트/키워드 스티커)는 주로 화면 하단 중앙에 노란색 바탕 상자 형태로 띄운다.",
+   "차량의 특정 부위(엠블럼 등)를 설명할 때는 손가락으로 가리키거나 그래픽 원을 그려 시선을 유도한다.",
+   "외관 전면/후면에서 시작해 휠, 실내, 계기판, 화면, 시트 순으로 순차적으로 촬영한다.",
+   "발표자가 화면에 직접 등장하여 차를 손으로 짚어가며 자연스럽고 친근하게 설명한다.",
+   "마지막에는 연식과 주행거리를 짚어준 뒤 플랫폼 로고로 마무리한다."
+  ]
+ }
+}

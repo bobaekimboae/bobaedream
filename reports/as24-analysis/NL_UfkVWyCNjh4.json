@@ -1,0 +1,377 @@
+{
+ "country": "NL",
+ "title": "NL-099",
+ "url": "https://www.youtube.com/shorts/UfkVWyCNjh4",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3796,
+  "candidatesTokenCount": 3866,
+  "totalTokenCount": 7662,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2828
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.4,
+   "aspect": "9:16",
+   "car": "BMW 1 Serie (F40)",
+   "format": "차 소개 및 색상 특징 정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.1,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 14.8,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.6,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 29.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "DEZE BMW LIJKT PAARS\nMAAR DAT IS NIET\nHET HELE VERHAAL",
+    "ko": "이 BMW는 보라색처럼 보이지만, 그것이 전부가 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 20,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검정색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PAARS",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.3,
+    "text": "DEZE BMW KLEUR\nHEET\nTHUNDERNIGHT METALLIC",
+    "ko": "이 BMW 색상의 이름은 선더나이트 메탈릭입니다",
+    "kind": "말 자막",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 18,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검정색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "THUNDERNIGHT METALLIC",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 11.2,
+    "text": "EN IN DE\nZON ZOALS NU\nDAN IS HIJ MEER\nPAARS\nEN HEEFT HIJ MEER\nBLAUWE TINTEN",
+    "ko": "그리고 지금처럼 햇빛 아래에서는 더 보라빛을 띠고 파란색 톤이 더 감돕니다",
+    "kind": "말 자막",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 30,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검정색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PAARS",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 16.5,
+    "text": "JE GELOOFST HET\nBIJNA NIET\nMAAR OP EEN\nBEWOLKTE DAG\nDAN LIJKT HIJ VEEL\nDONKERDER\nBIJNA ZWART",
+    "ko": "거의 믿기지 않겠지만 흐린 날에는 훨씬 더 어둡고 거의 검은색에 가깝게 보입니다",
+    "kind": "말 자막",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 35,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검정색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BEWOLKTE",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 21.0,
+    "text": "EN EERST WAS DEZE\nKLEUR ALLEEN BESCHIKBAAR\nBIJ DE\nBMW 2 SERIE COUPE\nMAAR LATER DUS\nOOK BIJ DE 1 SERIE",
+    "ko": "처음에 이 색상은 BMW 2시리즈 쿠페에만 제공되었지만, 나중에는 1시리즈에도 적용되었습니다",
+    "kind": "말 자막",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 35,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검정색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KLEUR",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.6,
+    "text": "EEN GOEDE KEUZE\nVAN BMW\nEN JE ZIET HEM\nNOG NIET ZO VAAK",
+    "ko": "BMW의 탁월한 선택이며 아직 흔하게 볼 수 없습니다",
+    "kind": "말 자klar",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 25,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검정색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GOEDE KEUZE",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 29.0,
+    "text": "DUS BEN JIJ OP ZOEK\nNAAR IETS SPECIAALS\nGA DAN NAAR\nDE SHOWROOM VAN\nKESSELS REGIE\nOF BEKIJK HEM",
+    "ko": "따라서 특별한 것을 찾고 있다면 Kessels Regie 쇼룸을 방문하거나 확인해 보세요",
+    "kind": "말 자막",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 30,
+    "color": "노란색",
+    "background": "상자",
+    "bg_color": "검정색",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPECIAALS",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 팝",
+   "bpm_est": 115,
+   "mood": "밝고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "what": "BMW 2시리즈 쿠페 차량 합성 이미지",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 35,
+    "y_pct": 70,
+    "entrance": "바로 컷",
+    "purpose": "이전 적용 모델 설명 시각화",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.4,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 30,
+    "y_pct": 80,
+    "entrance": "바로 컷",
+    "purpose": "플랫폼 홍보 및 행동 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Deze BMW lijkt paars, maar dat is niet het hele verhaal.",
+    "ko": "이 BMW는 보라색처럼 보이지만, 그것이 전부가 아닙니다."
+   },
+   {
+    "start": 3.7,
+    "end": 6.3,
+    "text": "Deze BMW kleur heet Thundernight Metallic.",
+    "ko": "이 BMW 색상의 이름은 선더나이트 메탈릭입니다."
+   },
+   {
+    "start": 6.3,
+    "end": 11.2,
+    "text": "En in de zon zoals nu, dan is hij meer paars en heeft hij meer blauwe tinten.",
+    "ko": "그리고 지금처럼 햇빛 아래에서는 더 보라빛을 띠고 파란색 톤이 더 감돕니다."
+   },
+   {
+    "start": 11.2,
+    "end": 16.5,
+    "text": "Maar je gelooft het bijna niet, maar op een bewolkte dag dan lijkt hij veel donkerder, bijna zwart.",
+    "ko": "거의 믿기지 않겠지만 흐린 날에는 훨씬 더 어둡고 거의 검은색에 가깝게 보입니다."
+   },
+   {
+    "start": 16.5,
+    "end": 21.0,
+    "text": "En eerst was deze kleur alleen beschikbaar bij de 2 Serie Coupé, maar later dus ook bij de 1 Serie.",
+    "ko": "처음에 이 색상은 BMW 2시리즈 쿠페에만 제공되었지만, 나중에는 1시리즈에도 적용되었습니다."
+   },
+   {
+    "start": 21.0,
+    "end": 26.6,
+    "text": "Een goede keuze van BMW en je ziet hem nog niet zo vaak.",
+    "ko": "BMW의 탁월한 선택이며 아직 흔하게 볼 수 없습니다."
+   },
+   {
+    "start": 26.6,
+    "end": 31.4,
+    "text": "Dus ben jij op zoek naar iets speciaals, ga naar de showroom van Kessels Regie of bekijk hem op Autoscout24.nl.",
+    "ko": "따라서 특별한 것을 찾고 있다면 Kessels Regie 쇼룸을 방문하거나 Autoscout24.nl에서 확인해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "보라색 BMW의 반전 매력을 소개하며 시선을 사로잡음"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 16.5,
+    "speed": "보통",
+    "summary": "선더나이트 메탈릭 색상 이름과 날씨/빛에 따른 색감 변화 설명"
+   },
+   {
+    "stage": "정보",
+    "start": 16.5,
+    "end": 26.6,
+    "speed": "보통",
+    "summary": "기존 2시리즈 쿠페에서 1시리즈로 확대 적용된 색상 정보 전달"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 26.6,
+    "end": 31.4,
+    "speed": "빠름",
+    "summary": "딜러사 쇼룸 방문 및 플랫폼 검색 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 호기심을 유발하는 반전 멘트와 훅 자막 제시",
+   "자막은 화면 중앙 상단에 노란색 굵은 텍스트와 검은색 박스 배경 사용",
+   "발표자가 차량 주변을 이동하며 자연스럽게 차의 전/후면 및 트렁크 공개",
+   "추가 정보 설명 시 관련 차량 모델 이미지를 화면에 합성",
+   "배경 음악은 업비트 팝 장르를 사용하여 밝은 분위기 유지",
+   "마지막에 플랫폼 로고를 띄워 매물 검색 유도"
+  ]
+ }
+}
