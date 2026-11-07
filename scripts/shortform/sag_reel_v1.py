@@ -518,6 +518,10 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
                 emo = emo.resize((int(badge * 0.8), int(emo.height * badge * 0.8 / emo.width)), Image.LANCZOS)
         except Exception:
             emo = None
+    if STYLE.get('stk_shape') == 'as24':  # 공용 칠 라이브러리(오토스카우트24 벨기에 리본 칠): 매끈한 위·아래 곡선 + 오른쪽 붓털
+        from brushfill import brush_mask
+        mask = brush_mask(w, h, text=txt, margin=m)
+        return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
     S = 4  # 4배로 그려 줄여서 가장자리를 매끄럽게
     W2, H2 = (w + m * 2) * S, (h + m * 2) * S
     mask = Image.new('L', (W2, H2), 0)
@@ -550,6 +554,11 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     from PIL import ImageFilter
     mask = mask.filter(ImageFilter.GaussianBlur(h * S * .035)).point(lambda v: 255 if v > 127 else 0)  # 이빨을 둥글게
     mask = mask.resize((w + m * 2, h + m * 2), Image.LANCZOS)
+    return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
+
+
+def _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt):
+    """칠 마스크 위에 글자·체크·이모지를 얹고 기울인다(칠 모양과 무관한 공통 부분)"""
     im = Image.new('RGBA', mask.size, tuple(STYLE['stk_bg']) + (0,))
     im.putalpha(mask)
     td = ImageDraw.Draw(im)

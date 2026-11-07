@@ -12,7 +12,7 @@ HOOK = dict(title='벤츠 GLE 450', line1='4MATIC · 흰색', line2='24년06월 
 STYLE = dict(stk_bg=(48, 107, 217), stk_fg=(255, 255, 255), hl='chip', cap_cx=540,
              feat_size=70, big_size=104, pad=(1.6, 2.85), big_pad=(1.1, 2.5), feat_y=1110, big_y=740,
              # 오토스카우트24 칠 2차 실측(벨기에 「Carbon」): 글자 중간 굵기 · 칠 높이 = 글자 높이 2.85배 · 가운데 근처 · 기울기 작게 · 폭 46~70%
-             stk_weight='semi', tilt_k=.6, feat_pos='as24', stk_minw=.46, stk_maxw=.70)
+             stk_weight='semi', tilt_k=.6, feat_pos='as24', stk_minw=.46, stk_maxw=.70, stk_shape='as24')
 # 원본 장면(초): 0~2.8 정면 · 2.8~8.2 헤드램프·그릴 · 8.2~10.7 휠 · 10.7~13.6 테일게이트·트렁크 · 13.6~17.4 2열·실내 뒤에서
 #   17.4~26.8 센터콘솔·대시보드 · 26.8~34.8 도어·뒷좌석 · 34.8~42.8 운전석·계기판·터치패드 · 42.8~48.2 카메라 화면
 #   48.2~51 천장·트렁크 안 · 51~57 트렁크 닫기·후면

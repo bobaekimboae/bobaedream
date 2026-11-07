@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>숏폼 칠 v1</title>
+<style>
+  :root { --bg: #45494f; --card: #2f3237; --ink: #fff; --sub: #c9ccd1; --fill: #306bd9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { margin: 0 0 4px; font-size: 22px; line-height: 30px; }
+  p { margin: 0 0 20px; color: var(--sub); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px 16px; }
+  /* 재사용 방법: 칠 SVG를 mask로 쓰고 색은 background-color */
+  .fill {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 46%; height: 72px; padding: 0 11% 0 7%;
+    background: var(--fill); color: #fff; font-weight: 600; font-size: 26px; white-space: nowrap;
+    -webkit-mask: var(--m) center / 100% 100% no-repeat; mask: var(--m) center / 100% 100% no-repeat;
+    transform: rotate(var(--t, 0deg));
+  }
+  .cell { display: flex; flex-direction: column; gap: 8px; }
+  .cell small { color: var(--sub); }
+  code { background: var(--card); padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>숏폼 칠 v1</h1>
+  <p>오토스카우트24 벨기에 칠 모양(매끈한 위·아래 곡선, 깔끔한 왼쪽, 오른쪽 붓털). 흰색 마스크 8종이라 색은 마음대로 바꿔 씁니다. 파이썬 렌더러는 <code>scripts/shortform/brushfill.py</code>, 웹은 이 폴더의 SVG를 CSS mask로 씁니다.</p>
+  <div class="grid" id="g"></div>
+</main>
+<script>
+  const words = ['카본 핸들', '3,800만원', '헤드업 디스플레이', '어라운드뷰', '30,736km', '파노라마 선루프', '9인승', '2열 열선 · 통풍'];
+  const tilt = [-1.6, 1.2, -0.8, 1.6, -1.2, 0.6, -1.8, 1.0];
+  const g = document.getElementById('g');
+  words.forEach((w, i) => {
+    const n = String(i + 1).padStart(2, '0');
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    const f = document.createElement('span');
+    f.className = 'fill';
+    f.textContent = w;
+    f.style.setProperty('--m', `url(fill-${n}.svg)`);
+    f.style.setProperty('--t', tilt[i] + 'deg');
+    const s = document.createElement('small');
+    s.textContent = `fill-${n}.svg`;
+    cell.append(f, s);
+    g.append(cell);
+  });
+</script>
+</body>
+</html>
