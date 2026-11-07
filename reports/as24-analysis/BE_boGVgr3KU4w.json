@@ -1,0 +1,192 @@
+{
+ "country": "BE",
+ "title": "BE-030",
+ "url": "https://www.youtube.com/shorts/boGVgr3KU4w",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2156,
+  "candidatesTokenCount": 1542,
+  "totalTokenCount": 3698,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1188
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 13.0,
+   "aspect": "9:16",
+   "car": "Mazda CX-60",
+   "format": "차량 기능·옵션 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.8,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 9.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 13.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.2,
+    "end": 5.8,
+    "text": "Assistent ideale rijpositie\nSelecteer uw hoogte, bij benadering.",
+    "ko": "이상적인 운전 자세 어시스턴트\n대략적인 키를 선택하세요.",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "휙",
+    "event": "첫 컷 전환 및 음악 시작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "화면 메뉴 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "휙",
+    "event": "로고 및 아웃트로 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌함, 흥미 유발",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "음악 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "",
+    "ko": ""
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "운전석에 앉은 사람이 불편해하는 제스처를 취함"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.0,
+    "end": 6.0,
+    "speed": "보통",
+    "summary": "키를 입력해 시트를 자동 조절하는 기능 시연"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 6.0,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "편해진 자세에 만족해하는 사람과 차량 외관 컷, 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 불편해하는 운전자의 제스처로 호기심 유발",
+   "컷 평균 길이는 2~3초로 짧고 리드미컬하게 구성",
+   "음악 비트에 맞춰 컷 전환과 효과음 일치시킴",
+   "차량 기능 설명 시 내비게이션/디스플레이 화면을 직접 클로즈업",
+   "자막은 가독성 좋은 검정 박스 배경에 흰색 글씨 사용",
+   "마지막에는 브랜드 로고(노란색 배경)를 강조하여 노출",
+   "사람의 행동과 차량의 특수 기능을 자연스럽게 연결",
+   "전체 길이는 15초 이내로 간결하게 전달"
+  ]
+ }
+}

@@ -1,0 +1,470 @@
+{
+ "country": "BE",
+ "title": "BE-036",
+ "url": "https://www.youtube.com/shorts/tWYUpYEbvkQ",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3884,
+  "candidatesTokenCount": 3880,
+  "totalTokenCount": 7764,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2916
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.5,
+   "aspect": "9:16",
+   "car": "Mazda MX-5",
+   "format": "차 소개/가격 공개/기능 옵션",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 4.8,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.2,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.2,
+    "end": 12.5,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 15.0,
+    "part": "시트",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.5,
+    "part": "화면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 24.8,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 31.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Wie plezier in\nhet rijden voorop\nstelt",
+    "ko": "주행의 즐거움을 최우선으로 생각한다면",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "plezier",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.9,
+    "text": "",
+    "ko": "",
+    "kind": "기타",
+    "y_pct": 0,
+    "x_center_pct": 0,
+    "text_height_pct": 0,
+    "color": "",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "기타",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 6.8,
+    "text": "Mazda MX-5\n€21.450",
+    "ko": "마즈다 MX-5 21,450유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€21.450",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.2,
+    "text": "Leuk feitje ze\nzijn\nnooit\nin een\nautomaat\ngemaakt.",
+    "ko": "재미있는 사실, 오토 모델은 절대 만들어진 적이 없어요.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "nooit",
+    "sure": true
+   },
+   {
+    "start": 10.2,
+    "end": 12.5,
+    "text": "Is uitgevoerd\nmet een Bose\ngeluidsysteem\nmaar",
+    "ko": "보스 사운드 시스템이 장착되어 있지만",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "Bose",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 15.0,
+    "text": "heeft ook\neen\nkopsteun\ngeluidsinstallatie.\nStoelverwarming",
+    "ko": "헤드레스트 스피커와 열선 시트도 있어요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "kopsteun",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 18.5,
+    "text": "multifunctioneel\nstuur met\ncruisecontrol",
+    "ko": "크루즈 컨트롤이 포함된 다기능 핸들",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "multifunctioneel",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.5,
+    "text": "Infotainment\nsysteem met\nAndroid auto\nen Apple CarPlay",
+    "ko": "안드로이드 오토와 애플 카플레이가 지원되는 인포테인먼트 시스템",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "Android auto",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 24.8,
+    "text": "bekerhouders\nen een afsluitbaar\nopbergvakje.",
+    "ko": "컵홀더와 잠금 가능한 수납공간",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "흰색",
+    "background": "background",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "bekerhouders",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.0,
+    "text": "Je vindt\nmeerdere\nMazda MX 5's\nin de showroom\nvan",
+    "ko": "쇼룸에서 여러 대의 마즈다 MX-5를 만날 수 있어요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "showroom",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.5,
+    "text": "Govaerts\nUsed Cars",
+    "ko": "고바에르츠 중고차",
+    "kind": "로고",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 20.0,
+    "color": "흰색",
+    "background": "상자",
+    "bg_color": "검은색",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Govaerts",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.5,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.0,
+    "type": "엔진음",
+    "event": "차량 배기음 및 시동",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉",
+   "bpm_est": 125,
+   "mood": "경쾌함/신남",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.9,
+    "end": 4.8,
+    "what": "3D 배기구 아이콘 3개",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 80.0,
+    "entrance": "바닥에 놓임",
+    "purpose": "튜닝/배기 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Wie plezier in het rijden voorop stelt",
+    "ko": "주행의 즐거움을 최우선으로 생각한다면"
+   },
+   {
+    "start": 3.9,
+    "end": 4.8,
+    "text": "hoeft niet verder te zoeken dan de Mazda MX-5.",
+    "ko": "마즈다 MX-5보다 더 멀리 찾을 필요가 없죠."
+   },
+   {
+    "start": 6.8,
+    "end": 10.2,
+    "text": "Leuk feitje: ze zijn nooit in een automaat gemaakt.",
+    "ko": "재미있는 사실, 오토 모델은 절대 만들어진 적이 없어요."
+   },
+   {
+    "start": 10.2,
+    "end": 15.0,
+    "text": "Is uitgevoerd met een Bose geluidssysteem, maar heeft ook een kopsteun geluidsinstallatie. Stoelverwarming.",
+    "ko": "보스 사운드 시스템이 장착되어 있지만, 헤드레스트 사운드 시스템과 열선 시트도 있어요."
+   },
+   {
+    "start": 15.0,
+    "end": 18.5,
+    "text": "Multifunctioneel stuur met cruisecontrol.",
+    "ko": "크루즈 컨트롤이 포함된 다기능 핸들."
+   },
+   {
+    "start": 18.5,
+    "end": 21.5,
+    "text": "Infotainment systeem met Android auto en Apple CarPlay.",
+    "ko": "안드로이드 오토와 애플 카플레이가 지원되는 인포테인먼트 시스템."
+   },
+   {
+    "start": 21.5,
+    "end": 24.8,
+    "text": "Bekerhouders en een afsluitbaar opbergvakje.",
+    "ko": "컵홀더와 잠금 가능한 수납공간."
+   },
+   {
+    "start": 24.8,
+    "end": 31.5,
+    "text": "Je vindt meerdere Mazda MX-5's in de showroom van Govaerts en op Autoscout24.be",
+    "ko": "쇼룸과 오토스카우트24에서 여러 대의 마즈다 MX-5를 만날 수 있어요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.9,
+    "speed": "빠름",
+    "summary": "주행의 즐거움을 강조하며 차량 배기음과 함께 전면 등장"
+   },
+   {
+    "stage": "가격",
+    "start": 3.9,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "차량 모델명과 가격, 배기구 튜닝 요소 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 6.8,
+    "end": 24.8,
+    "speed": "빠름",
+    "summary": "수동 전용 특징, 보스 스피커, 열선, 핸들, 인포테인먼트, 수납공간 순서로 실내 기능 밀착 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 24.8,
+    "end": 31.5,
+    "speed": "빠름",
+    "summary": "쇼룸 위치 안내 및 플랫폼 정보 제공하며 CTA"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량 배기음과 함께 역동적인 주행 즐거움 훅을 던진다.",
+   "컷 평균 길이는 2~3초로 매우 짧고 속도감 있게 전환한다.",
+   "자막은 하단 중앙(Y=75~78%)에 흰색으로 배치하고 핵심 단어만 노란색/형광펜으로 강조한다.",
+   "말풍선 대신 낱말 단위로 자막이 나타나는 타이핑/팝업 효과를 쓴다.",
+   "효과음은 차량 등장 시 배기음 등을 굵직하게 1~2회 포인트로만 사용한다.",
+   "부위 촬영 순서는 외관 전면-후면-측면을 거쳐 실내 주요 옵션(시트, 핸들, 화면, 수납) 순으로 진행한다.",
+   "마무리 단계에서 판매처 로고와 플랫폼 브랜딩을 노출하며 자연스럽게 행동을 유도한다."
+  ]
+ }
+}

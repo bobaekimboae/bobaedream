@@ -1,0 +1,207 @@
+{
+ "country": "BE",
+ "title": "BE-033",
+ "url": "https://www.youtube.com/shorts/OFwP-7_fFCg",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1877,
+  "candidatesTokenCount": 1785,
+  "totalTokenCount": 3662,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.0,
+   "aspect": "9:16",
+   "car": "Aston Martin DBS Superleggera",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "en"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.2,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 2.7,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "part": "휠",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.1,
+    "part": "기타",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.9,
+    "part": "외관 후면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.2,
+    "end": 9.0,
+    "text": "Aston Martin\n€217.990",
+    "ko": "애스턴 마틴 €217,990",
+    "kind": "가격",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "€217.990",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 4.5,
+    "text": "Superleggera",
+    "ko": "수퍼레제라",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.0,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디/루프",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "차량 전후면 외관과 실내 짧은 컷 연속 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 2.2,
+    "end": 7.9,
+    "speed": "빠름",
+    "summary": "차량 디테일(휠, 엠블럼, 후면)과 가격 고정 노출"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 7.9,
+    "end": 9.0,
+    "speed": "느림",
+    "summary": "시트 실내와 플랫폼 로고로 마무리"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 안에 차량 외관과 실내를 빠르게 보여주어 시각적 이목을 끈다.",
+   "2. 컷 평균 길이는 1초 이내로 매우 짧게 유지하여 속도감을 높인다.",
+   "3. 자막은 노란색 형광펜 배경 상자를 적극 활용해 가독성을 높인다.",
+   "4. 음성은 없이 비트감 있는 배경음악 중심의 ASMR/시각 효과형으로 구성한다.",
+   "5. 브랜드 로고와 가격 정보를 동일한 형광펜 스타일 스티커로 통일한다.",
+   "6. 부위 촬영 순서는 후면->전면->실내->휠->엠블럼->시트 순서로 감각적으로 배치한다.",
+   "7. 마지막 화면에 플랫폼 로고를 노출하여 브랜드 인지도를 남긴다."
+  ]
+ }
+}

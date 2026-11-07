@@ -1,0 +1,432 @@
+{
+ "country": "BE",
+ "title": "BE-031",
+ "url": "https://www.youtube.com/shorts/amqfdKrAbXo",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4152,
+  "candidatesTokenCount": 3614,
+  "totalTokenCount": 7766,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3184
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.0,
+   "aspect": "9:16",
+   "car": "Mazda 2",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 13.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 26.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 34.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Op zoek naar een leuke sportieve stadauto?",
+    "ko": "재미있고 스포티한 시티카를 찾고 계신가요?",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "sportieve",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.0,
+    "text": "Mazda 2",
+    "ko": "마즈다 2",
+    "kind": "키워드 스티커",
+    "y_pct": 35,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Mazda 2",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.0,
+    "text": "Deze Mazda 2",
+    "ko": "이 마즈다 2는",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "Mazda 2",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "text": "116 pk",
+    "ko": "116마력",
+    "kind": "숫자 사양",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "116 pk",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 13.0,
+    "text": "komt uit 2025\nis een hybride\nen heeft 15.000km gereden",
+    "ko": "2025년식, 하이브리드, 15,000km 주행",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 15,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "hybride",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "text": "en van binnen vind je\neen multifunctioneel stuur",
+    "ko": "실내에는 다기능 스티어링 휠이 있습니다",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "multifunctioneel",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 18.0,
+    "text": "adaptive cruise control\nlane assist en nog meer",
+    "ko": "어댑티브 크루즈 컨트롤, 차선 이탈 방지 등",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "adaptive cruise control",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "text": "stoffen zetels met\nzetelverwarming",
+    "ko": "열선이 포함된 패브릭 시트",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "zetelverwarming",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.0,
+    "text": "automaat met verschillende\nrijmodussen",
+    "ko": "다양한 주행 모드가 있는 오토매틱",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "automaat",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.5,
+    "text": "infotainmentssysteem met\nAndroid Auto, Apple Carplay en nog meer",
+    "ko": "안드로이드 오토, 애플 카플레이 등 인포테인먼트",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 90,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "Apple Carplay",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.0,
+    "text": "€19.990",
+    "ko": "19,990유로",
+    "kind": "가격",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€19.990",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "AutoScout24.be",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "팝",
+   "bpm_est": 120,
+   "mood": "밝은",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "Op zoek naar een leuke sportieve stadauto? Dit is de Mazda 2.",
+    "ko": "재미있고 스포티한 시티카를 찾고 계신가요? 이 차량은 마즈다 2입니다."
+   },
+   {
+    "start": 4.0,
+    "end": 13.0,
+    "text": "Deze Mazda 2 is uitgevoerd met 116 pk, komt uit 2025, is een hybride en heeft 15.000km gereden.",
+    "ko": "이 마즈다 2는 116마력, 2025년식, 하이브리드이며 15,000km를 주행했습니다."
+   },
+   {
+    "start": 13.0,
+    "end": 27.0,
+    "text": "En van binnen vind je een multifunctioneel stuur, adaptive cruise control, lane assist en nog meer, stoffen zetels met zetelverwarming, het is een automaat met verschillende rijmodussen, infotainmentsysteem met Android Auto, Apple carplay en nog meer.",
+    "ko": "실내에는 다기능 스티어링 휠, 어댑티브 크루즈 컨트롤, 차선 이탈 방지, 열선 시트, 다양한 주행 모드의 오토매틱 변속기, 안드로이드 오토와 애플 카플레이가 지원되는 인포테인먼트 시스템 등이 있습니다."
+   },
+   {
+    "start": 27.0,
+    "end": 34.0,
+    "text": "En dit krijg je allemaal voor €19.990. Je vindt hem in de showroom van Garage Govaerts en op autoscout24.be.",
+    "ko": "이 모든 것을 19,990유로에 만나보실 수 있습니다. 가라지 고바에츠 쇼룸과 autoscout24.be에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "보통",
+    "summary": "스포티한 시티카 질문과 모델명 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.0,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "연식, 마력, 주행거리, 하이브리드 정보"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 13.0,
+    "end": 26.5,
+    "speed": "빠름",
+    "summary": "실내 옵션, 스티어링 휠, 시트, 인포테인먼트 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 26.5,
+    "end": 30.0,
+    "speed": "보통",
+    "summary": "가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 30.0,
+    "end": 34.0,
+    "speed": "보통",
+    "summary": "전시장 안내 및 플랫폼 언급"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 질문형 훅과 모델명 스티커 노출",
+   "평균 컷 길이는 2~4초로 빠르게 전환",
+   "자막은 하단 중앙에 검정 배경 상자와 흰색 글씨 조합 사용",
+   "핵심 스펙(마력, 가격)은 노란색 강조 상자 스티커로 표시",
+   "인물(진행자)이 직접 차를 짚어가며 설명하는 핸드헬드 촬영 위주",
+   "외관 전면-후면-외관 재촬영-실내-기능 순서로 촬영",
+   "마지막에 가격 공개 후 판매처와 플랫폼 안내로 유도"
+  ]
+ }
+}

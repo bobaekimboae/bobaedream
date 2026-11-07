@@ -1,11 +1,268 @@
 {
  "country": "BE",
- "title": "마즈다 MX-5 (91만)",
+ "title": "BE-038",
  "url": "https://www.youtube.com/shorts/tR2-TRcdnp0",
- "model": "gemini-2.5-pro",
- "fps": 2.0,
- "usage": null,
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3526,
+  "candidatesTokenCount": 1816,
+  "totalTokenCount": 5342,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2558
+   }
+  ],
+  "serviceTier": "standard"
+ },
  "analysis": {
-  "error": "4번 모두 실패"
+  "basic": {
+   "duration_sec": 28.0,
+   "aspect": "9:16",
+   "car": "Mazda MX-5",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 6.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 10.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 10.9,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 16.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 26.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Wie plezier in het rijden vooropstelt",
+    "ko": "운전의 즐거움을 최우선으로 생각한다면",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 5.5,
+    "text": "Mazda MX-5",
+    "ko": "마쓰다 MX-5",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 6.5,
+    "text": "€21.450",
+    "ko": "21,450유로",
+    "kind": "가격",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.0,
+    "type": "엔진음",
+    "event": "차량 배기음과 가속음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "충격음",
+    "event": "경적 또는 임팩트 효과음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.0,
+    "end": 3.5,
+    "what": "스프링 아이콘 3개",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 40.0,
+    "y_pct": 85.0,
+    "entrance": "팝업",
+    "purpose": "시각적 재미",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Wie plezier in het rijden vooropstelt",
+    "ko": "운전의 즐거움을 최우선으로 생각한다면"
+   },
+   {
+    "start": 2.0,
+    "end": 4.0,
+    "text": "hoeft niet verder te zoeken",
+    "ko": "더 이상 멀리 찾을 필요가 없습니다"
+   },
+   {
+    "start": 4.0,
+    "end": 6.5,
+    "text": "dan de Mazda MX-5",
+    "ko": "바로 마쓰다 MX-5입니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "운전의 즐거움에 대한 질문으로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 6.5,
+    "speed": "빠름",
+    "summary": "차량 외관과 가격 정보 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 6.5,
+    "end": 17.6,
+    "speed": "빠름",
+    "summary": "역대 세대 소개 및 특징 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 17.6,
+    "end": 26.5,
+    "speed": "빠름",
+    "summary": "중고차 매물 플랫폼 화면 스크롤 시연"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 26.5,
+    "end": 28.0,
+    "speed": "빠름",
+    "summary": "운전석에 앉아 마무리 인사"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량의 핵심 매력과 주행 장면으로 이목을 끕니다.",
+   "컷 평균 길이는 2~3초로 매우 짧고 역동적입니다.",
+   "자막은 화면 중앙 또는 하단에 배치하며 핵심 키워드는 노란색 박스 등으로 강조합니다.",
+   "차량 등장이나 특정 강조 순간에 타이밍에 맞춘 효과음(배기음, 임팩트 사음 등)을 넣습니다.",
+   "3D 그래픽 아이콘(스프링 등)을 활용해 시각적 요소를 더합니다.",
+   "진행자가 직접 차 주변을 걸으며 역동적으로 소개합니다.",
+   "차량의 역사(세대별), 매물 정보 앱 화면을 교차 편집하여 신뢰도를 높입니다."
+  ]
  }
 }

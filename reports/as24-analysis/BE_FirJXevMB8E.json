@@ -1,11 +1,358 @@
 {
  "country": "BE",
- "title": "마즈다 CX-80 (8.6만)",
+ "title": "BE-029",
  "url": "https://www.youtube.com/shorts/FirJXevMB8E",
- "model": "gemini-2.5-pro",
- "fps": 2.0,
- "usage": null,
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5244,
+  "candidatesTokenCount": 3399,
+  "totalTokenCount": 8643,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4276
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
  "analysis": {
-  "error": "4번 모두 실패"
+  "basic": {
+   "duration_sec": 46.5,
+   "aspect": "9:16",
+   "car": "Mazda CX-80",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.6,
+    "end": 2.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 10.5,
+    "part": "시트",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 17.5,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 35.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 41.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Mazda CX-80\n€56.490",
+    "ko": "마쓰다 CX-80\n€56,490",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Mazda CX-80",
+    "sure": true
+   },
+   {
+    "start": 0.6,
+    "end": 46.0,
+    "text": "De Mazda CX-80 is de grootste personenauto die Mazda ooit in Europa heeft gebracht, deze indrukwekkende SUV biedt plaats aan maximaal 7 personen...",
+    "ko": "마쓰다 CX-80은 유럽에서 마쓰다가 출시한 가장 큰 승용차로, 최대 7명이 탈 수 있습니다...",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로 컷",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "text": "€56.490",
+    "ko": "€56,490",
+    "kind": "가격",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "text": "Auto\nScout24.be",
+    "ko": "오토스카우트24.be",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop/electronic",
+   "bpm_est": 120,
+   "mood": "upbeat",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.5,
+    "text": "De Mazda CX-80 is de grootste personenauto die Mazda ooit in Europa heeft gebracht.",
+    "ko": "마쓰다 CX-80은 유럽에서 마쓰다가 출시한 가장 큰 승용차입니다."
+   },
+   {
+    "start": 6.5,
+    "end": 10.5,
+    "text": "Deze indrukwekkende SUV biedt plaats aan maximaal 7 personen.",
+    "ko": "이 인상적인 SUV는 최대 7명이 탈 수 있습니다."
+   },
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "text": "Hij heeft een lengte van bijna 5 meter en combineert Japans vakmanschap met prestaties en vermogen.",
+    "ko": "전장이 거의 5m에 달하며 일본의 장인정신과 성능 및 파워를 결합했습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 20.0,
+    "text": "Van binnen is die rijk uitgerust met Bose geluidssysteem...",
+    "ko": "실내는 보스 사운드 시스템 등으로 풍부하게 꾸며져 있습니다..."
+   },
+   {
+    "start": 20.0,
+    "end": 24.5,
+    "text": "stuurverwarming, zetelverwarming en zetelventilatie, ook van achter.",
+    "ko": "스티어링 휠 열선, 시트 열선 및 통풍 시트가 뒷좌석에도 있습니다."
+   },
+   {
+    "start": 24.5,
+    "end": 30.5,
+    "text": "Verschillende rijstanden, 360 graden camera, panoramadak.",
+    "ko": "다양한 주행 모드, 360도 카메라, 파노라마 루프."
+   },
+   {
+    "start": 30.5,
+    "end": 35.0,
+    "text": "De plug-in hybride levert een gecombineerd vermogen van 326 pk.",
+    "ko": "플러그인 하이브리드는 합산 출력 326마력을 발휘합니다."
+   },
+   {
+    "start": 35.0,
+    "end": 42.0,
+    "text": "Deze Mazda CX-80 is nieuw uit 2026 en hij kost €56.490.",
+    "ko": "이 마쓰다 CX-80은 2026년형 신차이며 가격은 €56,490입니다."
+   },
+   {
+    "start": 42.0,
+    "end": 46.5,
+    "text": "Je vindt hem in de showroom van Garage Govaerts en op AutoScout24.be.",
+    "ko": "차량은 가라지 고바에르츠 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "차량명과 가격을 전면에 노출하며 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "외관과 실내 공간(7인승) 설명"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 13.5,
+    "end": 35.0,
+    "speed": "보통",
+    "summary": "오디오, 시트 열선/통풍, 카메라 등 편의사양과 성능 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 35.0,
+    "end": 42.0,
+    "speed": "보통",
+    "summary": "연식 및 가격 재확인"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 42.0,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "판매처 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량명과 가격을 노출해 이탈을 방지한다.",
+   "컷 평균 길이는 2~3초로 빠르게 전환해 지루함을 없앤다.",
+   "자막은 하단 중앙에 흰색 고딕체로 고정하고 말하는 내용을 빠짐없이 자막화한다.",
+   "핵심 키워드나 가격은 형광펜 스타일의 노란색 배경 박스로 강조한다.",
+   "진행자가 직접 출연하여 차 주변을 걷거나 탑승하며 설명하는 리포팅 방식을 쓴다.",
+   "실외 외관, 실내 2열, 운전석, 대시보드 순으로 공간을 이동하며 보여준다.",
+   "마지막 화면에서는 차량 판매처와 플랫폼 로고를 노출해 행동을 유도한다."
+  ]
  }
 }
