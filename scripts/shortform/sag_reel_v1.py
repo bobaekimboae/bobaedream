@@ -43,17 +43,17 @@ CAR = dict(name='포르쉐 파나메라 4', gen='971', year='2021', reg='21년04
 BLOCKS = [
     dict(sec='외관', tts='오늘 리뷰할 차는 포르쉐 파나메라 포입니다. 가격은 9,200만 원.',
          caps=['오늘 리뷰할 차는', '포르쉐 파나메라 4입니다', '가격은 9,200만 원'], shots=[(2.0, 1.2, 1), (4.2, 1.3, 1), (0.6, 1.0, 1)], hook=True),
-    dict(sec='외관', tts='21년식 구칠일 세대, 2.9 가솔린에 사륜구동 조합입니다.',
-         caps=['21년식 971 세대', '2.9 가솔린에 사륜구동 조합입니다'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
-         stickers=[('2021년식 · 971', 0), ('2.9 가솔린 · AWD', 1)]),
-    dict(sec='외관', tts='디자인부터 보시죠. 컬러는 짙은 블루, 옆에서 보면 지붕이 뒤로 길게 떨어지는 패스트백 라인입니다.',
-         caps=['디자인부터 보시죠', '컬러는 짙은 블루', '옆에서 보면 지붕이 뒤로', '길게 떨어지는 패스트백 라인입니다'],
+    dict(sec='외관', tts='2021년식, 코드네임 구칠일 2세대 모델이고, 2.9 트윈터보 가솔린에 사륜구동입니다.',
+         caps=['2021년식 코드네임 971', '2세대 모델이고', '2.9 트윈터보 가솔린에 사륜구동입니다'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
+         stickers=[('코드네임 971', 0), ('2.9 트윈터보 · AWD', 2)]),
+    dict(sec='외관', tts='디자인부터 보시죠. 컬러는 짙은 블루, 지붕이 뒤로 길게 떨어지는 패스트백 라인입니다.',
+         caps=['디자인부터 보시죠', '컬러는 짙은 블루', '지붕이 뒤로 길게 떨어지는', '패스트백 라인입니다'],
          shots=[(3.2, 1.1, 1), (7.4, 1.2, 1), (5.7, 1.0, 1)], stickers=[('짙은 블루', 1), ('패스트백 라인', 3)]),
-    dict(sec='휠', tts='휠은 검은색 멀티 스포크입니다.', caps=['휠은 검은색 멀티 스포크입니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)], stickers=[('블랙 멀티 스포크 휠', 0)]),
-    dict(sec='후면', tts='뒤에서는 좌우를 가로로 잇는 테일램프가 포인트입니다.', caps=['뒤에서는 좌우를 가로로 잇는', '테일램프가 포인트입니다'],
+    dict(sec='휠', tts='휠은 블랙 멀티 스포크입니다.', caps=['휠은 블랙 멀티 스포크입니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)], stickers=[('블랙 멀티 스포크 휠', 0)]),
+    dict(sec='후면', tts='뒤에서는 좌우를 한 줄로 잇는 테일램프가 포인트입니다.', caps=['뒤에서는 좌우를 한 줄로 잇는', '테일램프가 포인트입니다'],
          shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)], stickers=[('일자형 테일램프', 1)]),
-    dict(sec='실내', tts='실내로 들어가 보겠습니다. 시트는 베이지 가죽이고, 상태는 영상으로 직접 확인하시면 됩니다.',
-         caps=['실내로 들어가 보겠습니다', '시트는 베이지 가죽이고', '상태는 영상으로 직접', '확인하시면 됩니다'],
+    dict(sec='실내', tts='실내로 들어가 보겠습니다. 시트는 베이지 가죽이고, 상태는 영상으로 직접 확인해 보시죠.',
+         caps=['실내로 들어가 보겠습니다', '시트는 베이지 가죽이고', '상태는 영상으로 직접', '확인해 보시죠'],
          shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)], stickers=[('베이지 가죽 시트', 1)]),
     dict(sec='실내', tts='센터 콘솔은 물리 버튼 대신 터치 패널로 정리돼 있습니다.', caps=['센터 콘솔은 물리 버튼 대신', '터치 패널로 정리돼 있습니다'],
          shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)], stickers=[('터치 패널', 1)]),
@@ -61,14 +61,14 @@ BLOCKS = [
          shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], stickers=[('파노라마 선루프', 0)]),
     dict(sec='뒷좌석', tts='뒷좌석에도 독립 공조 패널이 따로 있습니다.', caps=['뒷좌석에도 독립 공조 패널이 따로 있습니다'],
          shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)], stickers=[('뒷좌석 독립 공조', 0)]),
-    dict(sec='운전석', tts='운전석은 디지털 계기판과 와이드 센터 디스플레이 구성입니다.', caps=['운전석은 디지털 계기판과', '와이드 센터 디스플레이 구성입니다'],
+    dict(sec='운전석', tts='운전석은 디지털 계기판에 와이드 디스플레이 구성입니다.', caps=['운전석은 디지털 계기판에', '와이드 디스플레이 구성입니다'],
          shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)], stickers=[('디지털 계기판', 0), ('와이드 디스플레이', 1)]),
     dict(sec='트렁크', tts='트렁크는 기본 사백구십오 리터, 뒷좌석을 접으면 천삼백 리터까지 늘어납니다.', caps=['트렁크는 기본 495L', '뒷좌석을 접으면 1,300L까지 늘어납니다'], shots=[(52.2, 1.15, 1), (53.4, 1.2, 1), (52.8, 0.9, 1)], stickers=[('495L', 0), ('최대 1,300L', 1)]),
     dict(sec='판매 조건', tts='정리하면, 21년 4월 등록에 주행 3만 8천 킬로미터, 가격은 9,200만 원입니다. 자세한 내용은 보배드림 앱에서 확인하시면 됩니다.',
          caps=['정리하면 21년 4월 등록', '주행 3만 8천 km', '가격은 9,200만 원입니다', '자세한 내용은 보배드림 앱에서', '확인하시면 됩니다'],
          shots=[(54.4, 1.1, 1), (18.4, 1.1, 1), (23.2, 1.2, 0), (47.0, 1.1, 0), (6.2, 1.0, 1)], stickers=[('21년 4월 등록', 0), ('38,276km', 1), ('9,200만원', 2), ('보배드림 앱', 3)], end=True),
 ]
-SHOW = {'포.': '4.', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km', '킬로미터입니다.': 'km입니다.'}
+SHOW = {'포.': '4.', '구칠일': '971', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km', '킬로미터입니다.': 'km입니다.'}
 KEY = re.compile(r'(\d|만|블루|베이지|파노라마|선루프|터치|디지털|사륜|공조|DM|보배드림|테일램프|옆태)')
 
 
@@ -400,25 +400,57 @@ def spec_card(a, b):
 
 
 def sticker(txt, size=72, tilt=-2.0):
-    """키워드 스티커(오토스카우트24 형광펜 스티커 구조, 색은 보배드림 파랑): 파랑 붓질 상자 + 흰 굵은 글자, 살짝 기울임"""
+    """키워드 스티커. 오토스카우트24 스티커를 확대해 본 칠 방식 그대로: 안은 단색으로 꽉 채우고(무늬·투명 없음),
+    위·아래 가장자리는 잔물결, 양 끝은 붓이 끊긴 듯 들쭉날쭉, 한쪽 끝이 조금 더 높은 사다리꼴, 2~3도 기울임.
+    글자는 굵기 Bold(ExtraBold보다 한 단계 가늘게), 상자 높이 = 글자 높이의 약 2.1배. 색만 보배드림 파랑 + 흰 글자"""
     k = ('sticker', txt, size, tilt)
     if k in _cache:
         return _cache[k]
+    import math
     import random
-    rnd = random.Random(txt)
-    fnt = ImageFont.truetype(BLACK, size)
-    tw = fnt.getlength(txt)
-    px, py = int(size * .42), int(size * .30)
-    w, h = int(tw + px * 2), int(size * 1.0 + py * 2)
-    m = 24
-    im = Image.new('RGBA', (w + m * 2, h + m * 2), (0, 0, 0, 0))
-    d = ImageDraw.Draw(im)
-    # 붓질 느낌: 위·아래 가장자리를 조금씩 흔들고 양 끝을 비스듬히
-    top = [(m + x, m + rnd.uniform(-3, 4)) for x in range(0, w + 1, max(8, w // 14))]
-    bot = [(m + x, m + h + rnd.uniform(-4, 3)) for x in range(w, -1, -max(8, w // 14))]
-    poly = [(m - 6, m + h * .18)] + top + [(m + w + 8, m + h * .12), (m + w + 2, m + h * .88)] + bot + [(m - 2, m + h * .92)]
-    d.polygon(poly, fill=BLUE + (255,))
-    d.text((m + w / 2, m + h / 2 + 2), txt, font=fnt, fill=(255, 255, 255), anchor='mm')
+    rnd = random.Random(txt + str(size))
+    fnt = ImageFont.truetype(BOLD, size)
+    bb = fnt.getbbox(txt)
+    tw, cap = bb[2] - bb[0], size * 0.74
+    px = int(cap * 0.95)
+    w, h = int(tw + px * 2), int(cap * 2.1)
+    m = 30
+    S = 4  # 4배로 그려 줄여서 가장자리를 매끄럽게
+    W2, H2 = (w + m * 2) * S, (h + m * 2) * S
+    mask = Image.new('L', (W2, H2), 0)
+    d = ImageDraw.Draw(mask)
+    lift_l, lift_r = rnd.uniform(-.05, .05) * h, rnd.uniform(-.05, .05) * h  # 사다리꼴
+    ph1, ph2 = rnd.uniform(0, 6.28), rnd.uniform(0, 6.28)
+    pts = []
+    n = 60
+    for i in range(n + 1):  # 윗변: 왼→오, 잔물결 + 작은 떨림
+        t = i / n
+        x = m + t * w
+        y = m + (lift_l * (1 - t) + lift_r * t) + math.sin(t * 5 + ph1) * h * .012 + math.sin(t * 23 + ph2) * h * .006 + rnd.uniform(-1, 1) * h * .003
+        pts.append((x, y))
+    for i in range(8):  # 오른쪽 끝: 붓이 끊긴 들쭉날쭉(몇 개만, 둥글게)
+        t = (i + .5) / 8
+        x = m + w + rnd.uniform(-.09, .06) * h
+        y = m + t * h + (lift_r if t < .5 else 0)
+        pts.append((x, y))
+    for i in range(n + 1):  # 아랫변: 오→왼
+        t = 1 - i / n
+        x = m + t * w
+        y = m + h + (lift_l * (1 - t) + lift_r * t) * .4 + math.sin(t * 6 + ph2) * h * .014 + math.sin(t * 19 + ph1) * h * .006 + rnd.uniform(-1, 1) * h * .003
+        pts.append((x, y))
+    for i in range(8):  # 왼쪽 끝
+        t = 1 - (i + .5) / 8
+        x = m + rnd.uniform(-.06, .09) * h
+        y = m + t * h + (lift_l if t < .5 else 0)
+        pts.append((x, y))
+    d.polygon([(x * S, y * S) for x, y in pts], fill=255)
+    from PIL import ImageFilter
+    mask = mask.filter(ImageFilter.GaussianBlur(h * S * .035)).point(lambda v: 255 if v > 127 else 0)  # 이빨을 둥글게
+    mask = mask.resize((w + m * 2, h + m * 2), Image.LANCZOS)
+    im = Image.new('RGBA', mask.size, BLUE + (0,))
+    im.putalpha(mask)
+    td = ImageDraw.Draw(im)
+    td.text((m + w / 2, m + h / 2), txt, font=fnt, fill=(255, 255, 255), anchor='mm')
     im = im.rotate(-tilt, resample=Image.BICUBIC, expand=True)
     _cache[k] = im
     return im
