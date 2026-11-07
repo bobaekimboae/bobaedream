@@ -40,7 +40,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           AS24_FPS: "1"
           AS24_RPM: "12"
-          AS24_WORKERS: "10"
+          AS24_WORKERS: "6"
+          AS24_MODELS: "gemini-3.8-flash,gemini-3.7-flash,gemini-3.6-flash,gemini-3.5-flash,gemini-3-flash-preview,gemini-2.5-flash,gemini-3.1-pro-preview,gemini-omni-1.2-flash,gemini-omni-1.1-flash,gemini-flash-latest,gemini-pro-latest"
           AS24_BUDGET_MIN: "320"
           AS24_CHECKPOINT_CMD: scripts/shortform/as24/push_results.sh
         run: |

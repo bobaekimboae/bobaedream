@@ -140,9 +140,10 @@ def analyze(model, url):
             break
         except RuntimeError as e:
             last_err = str(e)
-            print(f"  {vid} 시도 {attempt + 1} 실패: {last_err[:300]}")
-            if "HTTP 429" in last_err and re.search(r"PerDay|per day|daily", last_err, re.I):
-                raise DailyQuota(last_err)
+            print(f"  {vid} 시도 {attempt + 1} 실패: {last_err[:160]}")
+            if ("HTTP 429" in last_err and re.search(r"PerDay|per day|daily", last_err, re.I)) \
+                    or ("HTTP 404" in last_err and "model" in last_err.lower()):
+                raise DailyQuota(last_err)  # 이 모델의 하루 한도(또는 못 쓰는 모델) → 다음 모델로
             if "video_metadata" in last_err or "videoMetadata" in last_err or "fps" in last_err:
                 body["contents"][0]["parts"][0] = part
             m = re.search(r'"retryDelay":\s*"(\d+)s"', last_err)
@@ -170,7 +171,12 @@ def done_ok(path):
 
 def main():
     os.makedirs(OUT, exist_ok=True)
-    model = pick_model()
+    first = pick_model()
+    models = [m.strip() for m in os.environ.get("AS24_MODELS", "").split(",") if m.strip()] or [first]
+    if first not in models:
+        models.insert(0, first)
+    cur = {"i": 0}
+    print("모델 순서(하루 한도가 차면 다음 모델):", ", ".join(models), flush=True)
     rows = [l.rstrip("\n").split("\t") for l in open(TARGETS, encoding="utf-8") if l.strip() and not l.startswith("#")]
     todo, n_skip = [], 0
     for country, title, url in rows:
@@ -192,12 +198,22 @@ def main():
             stop[0] = "시간 예산 끝"
             STOP.set()
             return
-        try:
-            vid, data, usage = analyze(model, url)
-        except DailyQuota as e:
-            stop[0] = "하루 한도 도달: " + str(e)[:200]
-            STOP.set()
-            return
+        while True:
+            with lock:
+                if cur["i"] >= len(models):
+                    stop[0] = "모든 모델 하루 한도 도달"
+                    STOP.set()
+                    return
+                mi = cur["i"]
+            model = models[mi]
+            try:
+                vid, data, usage = analyze(model, url)
+                break
+            except DailyQuota as e:
+                with lock:
+                    if cur["i"] == mi:
+                        cur["i"] += 1
+                        print(f"모델 한도/불가: {model} → {models[cur['i']] if cur['i'] < len(models) else '없음'} | {str(e)[:900]}", flush=True)
         doc = {"country": country, "title": title, "url": url, "model": model, "fps": FPS, "usage": usage, "analysis": data}
         with open(os.path.join(OUT, f"{country}_{vid}.json"), "w", encoding="utf-8") as f:
             json.dump(doc, f, ensure_ascii=False, indent=1)
@@ -213,7 +229,7 @@ def main():
         for fut in as_completed([ex.submit(work, r) for r in todo]):
             fut.result()
     ok = sum(done_ok(os.path.join(OUT, f)) for f in os.listdir(OUT) if f.endswith(".json") and not f.startswith("_"))
-    summ = {"model": model, "fps": FPS, "new": cnt["new"], "skipped": n_skip, "failed": cnt["fail"], "ok_total": ok,
+    summ = {"models": models, "fps": FPS, "new": cnt["new"], "skipped": n_skip, "failed": cnt["fail"], "ok_total": ok,
             "targets": len(rows), "stopped": stop[0]}
     with open(os.path.join(OUT, "_summary.json"), "w", encoding="utf-8") as f:
         json.dump(summ, f, ensure_ascii=False, indent=1)
