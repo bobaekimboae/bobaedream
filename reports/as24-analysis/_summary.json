@@ -10,13 +10,18 @@
   "gemini-omni-1.2-flash",
   "gemini-omni-1.1-flash",
   "gemini-flash-latest",
-  "gemini-pro-latest"
+  "gemini-pro-latest",
+  "gemini-3.5-flash-lite",
+  "gemini-3.1-flash-lite",
+  "gemini-3.1-flash-lite-preview",
+  "gemini-2.5-flash-lite",
+  "gemini-flash-lite-latest"
  ],
  "fps": 1.0,
- "new": 31,
- "skipped": 13,
- "failed": 6,
- "ok_total": 44,
+ "new": 149,
+ "skipped": 48,
+ "failed": 3,
+ "ok_total": 197,
  "targets": 200,
- "stopped": "모든 모델 하루 한도 도달"
+ "stopped": ""
 }

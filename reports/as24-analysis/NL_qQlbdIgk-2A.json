@@ -1,0 +1,377 @@
+{
+ "country": "NL",
+ "title": "NL-100",
+ "url": "https://www.youtube.com/shorts/qQlbdIgk-2A",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5522,
+  "candidatesTokenCount": 3214,
+  "totalTokenCount": 8736,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4554
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.5,
+   "aspect": "9:16",
+   "car": "Porsche 911 Turbo S Cabriolet",
+   "format": "차 소개 및 퀴즈",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 14.1,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 21.6,
+    "part": "외관 후면",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 26.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 35.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 40.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 44.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.1,
+    "end": 47.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 50.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "DE MEESTE MENSEN DENKEN\nPORSCHE 911 TURBO S CABRIO\nBIJNA €180.000 KOST",
+    "ko": "대부분의 사람들은 이 포르쉐 911 터보 S 카브리오가 거의 18만 유로라고 생각합니다",
+    "kind": "말 자막",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "180.000",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.0,
+    "text": "VANWEGE ZIJN 581 PK",
+    "ko": "581마력 때문에 말이죠",
+    "kind": "말 자막",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "581",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 14.0,
+    "text": "WANT HOEWEL JE VAN 0 NAAR 100 KM/U IN MINDER DAN 3 SECONDEN SPRINT",
+    "ko": "0에서 100까지 3초 안에 스프린트 하지만",
+    "kind": "말 자막",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "3",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 21.0,
+    "text": "ZIE JE DIE VASTE SPOILER\nORIGINELE AEROKIT",
+    "ko": "저 고정 스포일러가 보이시나요? 오리지널 에어로키트",
+    "kind": "말 자막",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "AEROKIT",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.0,
+    "text": "EEN ZELDZAME OPTIE",
+    "ko": "희귀한 옵션입니다",
+    "kind": "말 자막",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "ZELDZAME",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 35.0,
+    "text": "GRAFIETBLAUW\n38.000 KM\nBURMESTER AUDIO\nCARBON INTERIEUR",
+    "ko": "그라파이트 블루, 38,000km, 부메스터 오디오, 카본 인테리어",
+    "kind": "말 자막",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 75,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "CARBON",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 44.0,
+    "text": "NIET ALLEEN BIJZONDER SNEL\nMAAR OOK EXCLUSIEF UITGEVOERD",
+    "ko": "특별히 빠를 뿐만 아니라 독점적으로 꾸며졌습니다",
+    "kind": "말 자막",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "EXCLUSIEF",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 50.5,
+    "text": "CARWORLDCLASSICS MAASTRICHT\nAutoScout24.nl",
+    "ko": "카월드 클래식 마스트리히트, 오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Pop / Electronic",
+   "bpm_est": 120,
+   "mood": "업비트, 밝음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "De meeste mensen denken dat deze Porsche bijna 180.000 euro kost",
+    "ko": "대부분의 사람들은 이 포르쉐가 거의 18만 유로라고 생각합니다"
+   },
+   {
+    "start": 4.1,
+    "end": 7.8,
+    "text": "vanwege zijn 581 pk.",
+    "ko": "581마력 때문에 말이죠."
+   },
+   {
+    "start": 7.8,
+    "end": 14.1,
+    "text": "Want hoewel je van 0 naar 100 in minder dan 3 seconden sprint,",
+    "ko": "0에서 100까지 3초 안에 스프린트 하지만,"
+   },
+   {
+    "start": 14.1,
+    "end": 22.0,
+    "text": "zit de echte waarde ergens anders. Kijk eens goed naar die achterkant. Zie je die vaste spoiler? Dat betekent dat deze uitgevoerd is met de originele aerokit van Porsche,",
+    "ko": "진짜 가치는 다른 곳에 있습니다. 저 뒷모습을 잘 보세요. 저 고정 스포일러가 보이시나요? 포르쉐 정품 에어로키트가 장착되었다는 뜻입니다."
+   },
+   {
+    "start": 22.0,
+    "end": 29.0,
+    "text": "een zeldzame optie die liefhebbers enorm waarderen. Maar hij wordt nog interessanter. Hij is uitgevoerd in de kleur grafietblauw,",
+    "ko": "애호가들이 엄청나게 높이 사는 희귀한 옵션이죠. 하지만 더 흥미로운 점은 그라파이트 블루 색상으로 출고되었고,"
+   },
+   {
+    "start": 29.0,
+    "end": 35.0,
+    "text": "slechts 38.000 km, Burmester audio en een carbon interieur.",
+    "ko": "주행거리는 단 38,000km, 부메스터 오디오와 카본 인테리어가 적용되었습니다."
+   },
+   {
+    "start": 35.0,
+    "end": 43.0,
+    "text": "Dus deze Turbo S is niet alleen bijzonder snel, maar ook exclusief uitgevoerd. Zou jij de aerokit kiezen of juist de standaard Turbo S?",
+    "ko": "따라서 이 터보 S는 특별히 빠를 뿐만 아니라 독점적으로 꾸며졌습니다. 여러분이라면 에어로키트를 고르시겠습니까, 아니면 기본 터보 S를 고르시겠습니까?"
+   },
+   {
+    "start": 43.0,
+    "end": 50.5,
+    "text": "Laat het weten in een reactie. Je vindt hem in de showroom van Carworldclassics Maastricht en natuurlijk op Autoscout24.nl.",
+    "ko": "댓글로 알려주세요. 카월드 클래식 마스트리히트 쇼룸과 오토스카우트24에서 만나실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "차 가격과 예상"
+   },
+   {
+    "stage": "사양",
+    "start": 4.1,
+    "end": 14.1,
+    "speed": "빠름",
+    "summary": "마력 및 제로백"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 14.1,
+    "end": 35.0,
+    "speed": "보통",
+    "summary": "에어로키트 및 내외관 옵션 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 35.0,
+    "end": 50.5,
+    "speed": "보통",
+    "summary": "질문 던지기 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량 가격과 핵심 스펙을 언급하여 시청 지속을 유도한다.",
+   "평균 컷 길이는 3~5초로 짧고 역동적인 전환을 유지한다.",
+   "자막은 화면 중앙 하단에 검정 박스를 깔고 핵심 단어만 노란색으로 강조한다.",
+   "말하는 사람이 화면 중앙에서 차를 가리키며 제스처를 취한다.",
+   "외관 후면, 전면, 실내, 디테일 순으로 차량을 보여준다.",
+   "마지막에는 시청자에게 질문을 던져 댓글 참여를 유도한다.",
+   "플랫폼 로고 및 위치 정보를 마지막 화면에 노출한다."
+  ]
+ }
+}
