@@ -444,8 +444,7 @@ def pill(txt, size=34, bg=(0, 0, 0, 165), fg=(255, 255, 255), pad=(26, 14), dot=
     k = ('pill', txt, size, bg, dot)
     if k in _cache:
         return _cache[k]
-    # 오토스카우트24 2차 실측(2026-11-07 벨기에 「Carbon」): 기능 스티커 글자는 중간 굵기 → STYLE stk_weight='semi'
-    fnt = ImageFont.truetype(SEMI if (STYLE.get('stk_weight') == 'semi' and not big) else BOLD, size)
+    fnt = ImageFont.truetype(BOLD, size)
     bb = fnt.getbbox(txt)
     tw, th = bb[2] - bb[0], size
     extra = 26 if dot else 0
