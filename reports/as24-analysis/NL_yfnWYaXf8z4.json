@@ -1,0 +1,674 @@
+{
+ "country": "NL",
+ "title": "NL-013",
+ "url": "https://www.youtube.com/shorts/yfnWYaXf8z4",
+ "model": "gemini-3.8-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5438,
+  "candidatesTokenCount": 5566,
+  "totalTokenCount": 11860,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4470
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 856,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 49.5,
+   "aspect": "9:16",
+   "car": "홍치(Hongqi) E-HS9",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "더빙",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "뒤로 빠짐",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.4,
+    "part": "외관 측면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 13.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.2,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 24.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.8,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 34.5,
+    "part": "시트",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 39.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 45.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 49.5,
+    "part": "외관 전면",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "KEN JIJ DIT AUTOMERK ?",
+    "ko": "이 자동차 브랜드 알고 계신가요?",
+    "kind": "제목",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.2,
+    "text": "MAAR HET BESTAAT AL SINDS",
+    "ko": "하지만 무려 1958년부터",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 5.2,
+    "text": "1958",
+    "ko": "존재했습니다",
+    "kind": "숫자 사양",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEA00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1958",
+    "sure": true
+   },
+   {
+    "start": 5.3,
+    "end": 6.8,
+    "text": "DIT IS DE HONGQI",
+    "ko": "이 차는 홍치입니다",
+    "kind": "말 자막",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.0,
+    "text": "LUXE AUTOMERK MET EEN INDRUKWEKKENDE GESCHIEDENIS",
+    "ko": "인상적인 역사를 지닌 럭셔리 자동차 브랜드",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "LUXE AUTOMERK",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.8,
+    "text": "HONGQI BETEKENT LETTERLIJK RODE VLAG",
+    "ko": "홍치는 문자 그대로 붉은 깃발을 뜻합니다",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 76.0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "RODE VLAG",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.3,
+    "text": "CHINESE LEIDERS",
+    "ko": "중국 지도자들을 위한 차였습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEA00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.0,
+    "text": "VOLLEDIG ELEKTRISCHE E-HS9",
+    "ko": "완전 순수 전기차 E-HS9",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFEA00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.2,
+    "text": "BIJNA 5,2 METER LANG",
+    "ko": "길이 약 5.2미터 대형 SUV",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "text": "6 ZITPLAATSEN",
+    "ko": "6인승 좌석",
+    "kind": "숫자 사양",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 34.2,
+    "text": "LUCHTVERING, PANORAMADAK, MASSAGESTOELEN, STOELVENTILATIE",
+    "ko": "에어서스펜션, 파노라마 선루프, 마사지시트, 통풍시트",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.5,
+    "text": "360 GRADEN CAMERA",
+    "ko": "360도 어라운드 뷰 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.2,
+    "text": "551 PK",
+    "ko": "최고 출력 551마력",
+    "kind": "숫자 사양",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.5,
+    "text": "OMSCHRIJVING",
+    "ko": "상세 설명란 참조",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "제목 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "톡",
+    "event": "홍치 엠블럼 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "톡",
+    "event": "중국 국기 이모지 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "휙",
+    "event": "번개 아이콘 및 모델명 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.2,
+    "type": "딸깍",
+    "event": "옵션 체크리스트 첫 항목 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.8,
+    "type": "톡",
+    "event": "551마력 레이싱 깃발 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 일렉트로닉",
+   "bpm_est": 120,
+   "mood": "경쾌하고 흥미로운 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.0,
+    "end": 7.0,
+    "what": "홍치 브랜드 로고/엠블럼",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 10.0,
+    "entrance": "위에서 팝업",
+    "purpose": "브랜드 인지",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "what": "중국 국기 그래픽",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 45.0,
+    "y_pct": 28.0,
+    "entrance": "페이드인",
+    "purpose": "제조국 설명",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.8,
+    "what": "전기차 번개 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 40.0,
+    "y_pct": 10.0,
+    "entrance": "팝업",
+    "purpose": "EV 구동계 강조",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.5,
+    "what": "AutoScout24 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.5,
+    "y_pct": 35.0,
+    "entrance": "확대되며 등장",
+    "purpose": "플랫폼 홍보 및 엔딩 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Grote kans dat je dit automerk nog nooit hebt gezien.",
+    "ko": "이 자동차 브랜드를 한 번도 본 적 없을 확률이 높습니다."
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "text": "Maar het bestaat al sinds 1958.",
+    "ko": "하지만 1958년부터 존재해 왔죠."
+   },
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "text": "Dit is de Hongqi.",
+    "ko": "이 차는 홍치입니다."
+   },
+   {
+    "start": 7.5,
+    "end": 10.5,
+    "text": "Een Chinees luxe automerk met een indrukwekkende geschiedenis.",
+    "ko": "인상적인 역사를 지닌 중국 럭셔리 자동차 브랜드입니다."
+   },
+   {
+    "start": 10.5,
+    "end": 13.0,
+    "text": "Hongqi betekent letterlijk 'rode vlag'.",
+    "ko": "홍치는 문자 그대로 '붉은 깃발'을 뜻합니다."
+   },
+   {
+    "start": 13.0,
+    "end": 16.5,
+    "text": "Het merk bouwde oorspronkelijk auto's voor Chinese leiders.",
+    "ko": "이 브랜드는 원래 중국 지도자들을 위한 자동차를 만들었습니다."
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "En tegenwoordig bouwen ze dus dit.",
+    "ko": "그리고 오늘날 그들은 바로 이런 차를 만듭니다."
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "Een volledig elektrische E-HS9.",
+    "ko": "완전 순수 전기차 E-HS9입니다."
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "text": "Een grote SUV van bijna 5,2 meter lang,",
+    "ko": "길이가 거의 5.2미터에 달하는 대형 SUV이며,"
+   },
+   {
+    "start": 24.5,
+    "end": 27.0,
+    "text": "met zes zitplaatsen.",
+    "ko": "6개의 좌석을 갖추고 있습니다."
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "text": "En deze President-uitvoering heeft onder andere",
+    "ko": "그리고 이 프레지던트 트림에는 다음과 같은 옵션들이 들어있습니다."
+   },
+   {
+    "start": 29.5,
+    "end": 34.5,
+    "text": "luchtvering, een panoramadak, massagestoelen, stoelventilatie,",
+    "ko": "에어 서스펜션, 파노라마 선루프, 마사지 시트, 통풍 시트,"
+   },
+   {
+    "start": 34.5,
+    "end": 36.8,
+    "text": "en een 360-graden camera.",
+    "ko": "그리고 360도 카메라까지 갖추고 있죠."
+   },
+   {
+    "start": 36.8,
+    "end": 39.5,
+    "text": "En het vermogen van deze auto is 551 pk.",
+    "ko": "이 차의 출력은 551마력에 달합니다."
+   },
+   {
+    "start": 39.5,
+    "end": 44.5,
+    "text": "De prijs, het bouwjaar en de kilometerstand vind je terug in de omschrijving.",
+    "ko": "가격, 연식, 주행거리는 영상 설명란에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 44.5,
+    "end": 49.5,
+    "text": "Je vindt deze auto in de showroom van Van Vliet Auto en natuurlijk op autoscout24.nl.",
+    "ko": "이 차량은 반 플리트 오토 전시장과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "생소한 자동차 브랜드에 대한 호기심 질문 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "홍치 브랜드의 역사(1958년, 중국 수뇌부 전용차) 브리핑"
+   },
+   {
+    "stage": "사양",
+    "start": 18.5,
+    "end": 27.0,
+    "speed": "빠름",
+    "summary": "전기 SUV 모델명(E-HS9), 전장 길이(5.2m), 6인승 공간 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 27.0,
+    "end": 39.5,
+    "speed": "빠름",
+    "summary": "에어서스, 통풍·마사지 시트, 360도 카메라, 551마력 파워트레인 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 39.5,
+    "end": 49.5,
+    "speed": "보통",
+    "summary": "가격/주행거리는 설명란 유도 및 전시장·AutoScout24 사이트 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초: 호기심을 끄는 질문형 노란색 상자 타이틀 자막으로 시청자 이탈 방지",
+   "컷 평균 길이: 약 2.5~3초 간격으로 매우 경쾌하게 전환",
+   "자막 규칙: 검은색 박스 배경에 흰색 기본 글씨 + 핵심 키워드/숫자는 형광 노랑(#FFEA00) 강조",
+   "화면 중앙 배치: 대화 자막과 핵심 키워드는 화면 중앙(y: 20~55%)에 집중시켜 시선 분산 방지",
+   "효과음 타이밍: 주요 자막 스티커가 팝업되거나 브랜드 그래픽이 나타날 때 정확히 '톡/딸깍' SFX 삽입",
+   "아이콘 활용: 전기차는 번개, 고출력은 레이싱 체커기, 옵션에는 체크마크(✓) 시각화",
+   "촬영 순서: 전면 풀샷(호기심) -> 브랜드 스토리(트렁크/운전석) -> 풀 외관 -> 실내 공간(좌석) -> 고급 옵션 클로즈업 -> 전면 디테일",
+   "정보 분리: 가격/주행거리 등 변동성이 큰 숫자는 영상 대신 설명란 클릭 유도로 인게이지먼트 증대",
+   "엔딩 CTA: 공식 판매처 전시장 언급 후 AutoScout24 로고와 사이트 도메인 노출로 마무리"
+  ]
+ }
+}

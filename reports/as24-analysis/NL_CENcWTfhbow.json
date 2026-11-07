@@ -1,0 +1,541 @@
+{
+ "country": "NL",
+ "title": "NL-008",
+ "url": "https://www.youtube.com/shorts/CENcWTfhbow",
+ "model": "gemini-3.8-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4973,
+  "candidatesTokenCount": 5615,
+  "totalTokenCount": 10753,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4005
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 165,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.5,
+   "aspect": "9:16",
+   "car": "Cupra Formentor",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "더빙",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 14.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.9,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.9,
+    "end": 38.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "MEEST POPULAIRE MODEL VAN CUPRA",
+    "ko": "쿠프라에서 가장 인기 있는 모델",
+    "kind": "제목",
+    "y_pct": 18,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 78,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "text": "CUPRA FORMENTOR",
+    "ko": "쿠프라 포르멘토르",
+    "kind": "제목",
+    "y_pct": 18,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 65,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.7,
+    "text": "DIT IS DE",
+    "ko": "이것은 바로",
+    "kind": "말 자막",
+    "y_pct": 74,
+    "x_center_pct": 50,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "DIT",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "text": "DIT IS DE EERSTE AUTO DIE VOLLEDIG ZELF DOOR CUPRA IS ONTWORPEN",
+    "ko": "쿠프라가 완전히 자체 디자인한 첫 번째 자동차입니다",
+    "kind": "말 자막",
+    "y_pct": 74,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "DIE VOLLEDIG ZELF",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.8,
+    "text": "MAAR WAAROM IS JUIST DIT MODEL ZO POPULAIR",
+    "ko": "그런데 왜 유독 이 모델이 이렇게 인기일까요?",
+    "kind": "말 자막",
+    "y_pct": 76,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "MODEL ZO",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 14.8,
+    "text": "DEZE AUTO RAAKT NAMELIJK NET DIE SWEET SPOT WAAR ANDERE MERKEN NET NAAST ZITTEN",
+    "ko": "이 차는 다른 브랜드들이 비껴가는 스위트 스팟을 정확히 저격합니다",
+    "kind": "말 자막",
+    "y_pct": 72,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "SWEET SPOT",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "text": "HIJ IS ZO PRAKTISCH ALS EEN SUV",
+    "ko": "SUV처럼 실용적이면서도",
+    "kind": "말 자막",
+    "y_pct": 72,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "PRAKTISCH",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.9,
+    "text": "MAAR HIJ RIJDT ALS EEN ECHTE SPORTAUTO",
+    "ko": "진짜 스포츠카처럼 주행합니다",
+    "kind": "말 자막",
+    "y_pct": 72,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "ECHTE SPORTAUTO",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.9,
+    "text": "DE PRIJS VAN SPECIFIEK DEZE VERTEL IK JE AAN HET EINDE VAN DEZE VIDEO",
+    "ko": "이 특정 차량의 가격은 영상 마지막에 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 74,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "EINDE VAN",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 26.2,
+    "text": "JE KOOPT OOK ECHT EEN PREMIUM UITSTRALING MAAR DAN VOOR EEN VOORDELIGE PRIJS",
+    "ko": "합리적인 가격에 진정한 프리미엄 감성을 얻을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 74,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "PREMIUM UITSTRALING",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 32.9,
+    "text": "DAN HEB JE BENZINE HYBRIDE ZOALS DEZE EN NOG EEN EXTRA SPORTIEVE VARIANT DAT IS DE VZ UITVOERING",
+    "ko": "가솔린, 그리고 이 차와 같은 하이브리드가 있고, 더 스포티한 VZ 트림도 있습니다",
+    "kind": "말 자막",
+    "y_pct": 74,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "BENZINE",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.5,
+    "text": "€25.745",
+    "ko": "€25.745 (약 3,800만 원)",
+    "kind": "가격",
+    "y_pct": 18,
+    "x_center_pct": 50,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 52,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 38.8,
+    "text": "DEZE KOST €25.745 EN HET BOUWJAAR EN DE KILOMETERSTAND VIND JE IN DE OMSCHRIJVING",
+    "ko": "이 차는 25,745유로이며 연식과 주행거리는 설명란에 있습니다",
+    "kind": "말 자막",
+    "y_pct": 74,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "DEZE KOST",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "text": "JE VINDT HEM IN DE SHOWROOM VAN VAN DER LINDEN AUTO EN NATUURLIJK OP AUTOSCOUT24.NL",
+    "ko": "반 데르 린덴 오토 매장과 오토스카우트24 웹사이트에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 74,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "JE VINDT",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "헤드라인 상단 노란 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 33.1,
+    "type": "톡",
+    "event": "상단 노란색 가격 스티커 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/전자음악",
+   "bpm_est": 115,
+   "mood": "밝고 경쾌하며 현대적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 20,
+    "y_pct": 40,
+    "entrance": "서서히",
+    "purpose": "브랜드 홍보 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Dit is het meest populaire model van Cupra: dit is de Cupra Formentor.",
+    "ko": "이것은 쿠프라의 가장 인기 있는 모델인 쿠프라 포르멘토르입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "text": "En dit is de eerste auto die volledig zelf door Cupra is ontworpen.",
+    "ko": "그리고 쿠프라가 완전히 자체 기획하고 디자인한 첫 번째 모델이죠."
+   },
+   {
+    "start": 7.4,
+    "end": 9.8,
+    "text": "Maar waarom is juist dit model zo populair?",
+    "ko": "그런데 왜 유독 이 모델이 이렇게 인기가 많을까요?"
+   },
+   {
+    "start": 9.8,
+    "end": 14.8,
+    "text": "Deze auto raakt namelijk net die sweet spot waar andere merken net naast zitten.",
+    "ko": "이 차는 다른 브랜드들이 놓치는 절묘한 스위트 스팟을 공략했기 때문입니다."
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "text": "Hij is zo praktisch als een SUV,",
+    "ko": "SUV만큼 실용적이면서도,"
+   },
+   {
+    "start": 16.7,
+    "end": 18.9,
+    "text": "maar hij rijdt als een echte sportauto.",
+    "ko": "진짜 스포츠카처럼 스포티하게 달립니다."
+   },
+   {
+    "start": 18.9,
+    "end": 21.9,
+    "text": "En de prijs van specifiek deze vertel ik je op het einde van deze video.",
+    "ko": "그리고 이 특정 매물의 가격은 영상 끝에서 알려드릴게요."
+   },
+   {
+    "start": 21.9,
+    "end": 26.2,
+    "text": "En je koopt ook echt een premium uitstraling, maar dan voor een voordelige prijs.",
+    "ko": "고급스러운 외관을 유지하면서도 매우 합리적인 가격대를 제공합니다."
+   },
+   {
+    "start": 26.2,
+    "end": 32.9,
+    "text": "En dan heb je benzine, hybride zoals deze, en dan heb je nog een extra sportieve variant, dat is de VZ-uitvoering.",
+    "ko": "가솔린과 이 차량 같은 하이브리드가 있으며, 더 강력한 VZ 스포츠 트림도 선택할 수 있습니다."
+   },
+   {
+    "start": 32.9,
+    "end": 38.8,
+    "text": "Deze kost €25.745 en het bouwjaar en de kilometerstand vind je in de omschrijving.",
+    "ko": "이 차량은 25,745유로이며, 연식과 주행거리는 상세 설명란에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "text": "Je vindt hem in de showroom van Van der Linden Auto en natuurlijk op AutoScout24.nl.",
+    "ko": "반 데르 린덴 오토 전시장과 AutoScout24.nl에서 확인해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "쿠프라 최다 판매 베스트셀러 모델 소개 및 차량 전면 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 9.8,
+    "speed": "보통",
+    "summary": "쿠프라 독자 개발 첫 차라는 배경 설명과 인기 이유 질문"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 9.8,
+    "end": 21.9,
+    "speed": "빠름",
+    "summary": "SUV의 실용성(트렁크)과 스포츠카의 주행감(운전석), 가격 예고"
+   },
+   {
+    "stage": "사양",
+    "start": 21.9,
+    "end": 32.9,
+    "speed": "보통",
+    "summary": "파워트레인 종류(가솔린, PHEV, 고성능 VZ) 및 가성비 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 32.9,
+    "end": 38.8,
+    "speed": "보통",
+    "summary": "실제 판매 가격(€25,745) 공개 및 연식·키로수 안내"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 38.8,
+    "end": 44.5,
+    "speed": "빠름",
+    "summary": "오프라인 딜러 전시장 위치 및 AutoScout24 사이트 안내 로고 표기"
+   }
+  ],
+  "rules": [
+   "첫 3초: 차량 전면 풀샷과 상단 노란색 타이틀 박스로 브랜드 최다 인기 모델임을 즉시 명시",
+   "컷 평균 길이: 약 3.5~4초 단위로 길지 않게 핵심 스폿 전환",
+   "화면-대사 일치: SUV 실용성 언급 시 트렁크 착석, 스포츠카 주행감 언급 시 운전석 콕핏 촬영",
+   "호기심 유발(리텐션): 영상 전반부에 '가격은 마지막에 공개' 멘트를 넣어 이탈 방지",
+   "자막 디자인: 중앙 하단 검은 테두리 흰색 폰트 자막에 핵심 키워드는 노란색 하이라이트",
+   "키워드/가격 스티커: 화면 상단(y: 18%)에 브랜드 컬러인 노란색 굵은 볼드 텍스트 박스 사용",
+   "촬영 앵글 순서: 전면 풀샷 → 센터페시아 실내 → 후면 엠블럼 → 측면 → 트렁크 → 운전석 → 전측면 순",
+   "제원 간결화: 파워트레인 라인업(가솔린/하이브리드/VZ)만 빠르게 짚고 세부 스펙은 본문 텍스트로 위임",
+   "가격 노출: 후반부에 상단에 큼직한 노란색 가격 박스를 띄우며 명확하게 음성과 동시 전달",
+   "엔딩 CTA: 파트너 딜러사 쇼룸 언급 후 AutoScout24 로고 오버레이로 브랜드 각인"
+  ]
+ }
+}
