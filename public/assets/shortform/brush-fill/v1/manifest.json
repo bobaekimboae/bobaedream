@@ -1,0 +1,256 @@
+{
+ "name": "보배드림 숏폼 칠 v1 (오토스카우트24 벨기에 칠 모양)",
+ "how": "흰색 마스크. CSS mask-image 또는 알파로 쓰고 색은 background-color로 칠한다. SVG는 preserveAspectRatio=none이라 아무 비율로 늘려도 됨(붓털 굵기는 비율에 따라 조금 변함). 파이썬은 scripts/shortform/brushfill.py brush_mask() 사용",
+ "safe_area": {
+  "left": 0.07,
+  "right": 0.11,
+  "top": 0.16,
+  "bottom": 0.16
+ },
+ "text_height_of_fill": 0.35,
+ "default_color": "#306BD9",
+ "text_color": "#FFFFFF",
+ "tilt_deg": "-1.8 ~ 1.8",
+ "variants": [
+  {
+   "variant": 0,
+   "svg": "fill-01.svg",
+   "png": [
+    {
+     "file": "fill-01-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-01-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-01-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  },
+  {
+   "variant": 1,
+   "svg": "fill-02.svg",
+   "png": [
+    {
+     "file": "fill-02-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-02-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-02-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  },
+  {
+   "variant": 2,
+   "svg": "fill-03.svg",
+   "png": [
+    {
+     "file": "fill-03-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-03-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-03-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  },
+  {
+   "variant": 3,
+   "svg": "fill-04.svg",
+   "png": [
+    {
+     "file": "fill-04-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-04-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-04-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  },
+  {
+   "variant": 4,
+   "svg": "fill-05.svg",
+   "png": [
+    {
+     "file": "fill-05-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-05-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-05-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  },
+  {
+   "variant": 5,
+   "svg": "fill-06.svg",
+   "png": [
+    {
+     "file": "fill-06-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-06-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-06-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  },
+  {
+   "variant": 6,
+   "svg": "fill-07.svg",
+   "png": [
+    {
+     "file": "fill-07-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-07-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-07-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  },
+  {
+   "variant": 7,
+   "svg": "fill-08.svg",
+   "png": [
+    {
+     "file": "fill-08-3_0x1.png",
+     "ratio": 3.0,
+     "size": [
+      720,
+      240
+     ]
+    },
+    {
+     "file": "fill-08-4_0x1.png",
+     "ratio": 4.0,
+     "size": [
+      960,
+      240
+     ]
+    },
+    {
+     "file": "fill-08-5_5x1.png",
+     "ratio": 5.5,
+     "size": [
+      1320,
+      240
+     ]
+    }
+   ]
+  }
+ ]
+}

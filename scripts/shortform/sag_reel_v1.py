@@ -188,6 +188,20 @@ def build_sfx(total, sr=48000):
             out[st:st + L] += noise * env * 0.5
         prev = b['sec']
     out = out / (np.max(np.abs(out)) or 1) * 0.5
+    if STYLE.get('sfx_pop'):
+        # 오토스카우트24 쇼츠 200편 분석(2026-11-08): 효과음의 약 6할이 키워드·숫자 스티커가 튀어나올 때의 짧은 「톡」.
+        # 말 자막에는 넣지 않고 스티커 등장에만. 코드로 만든 소리(음원 파일 없음)
+        L = int(0.075 * sr)
+        tt = np.arange(L) / sr
+        f0 = 1250 * np.exp(-tt / 0.03) + 520  # 높은 음에서 빠르게 내려오는 톡
+        pop = np.sin(2 * np.pi * np.cumsum(f0) / sr) * np.exp(-tt / 0.018)
+        pop[:int(0.002 * sr)] *= np.linspace(0, 1, int(0.002 * sr))
+        for b in BLOCKS:
+            for txt, pidx in b.get('stickers', []):
+                st = int((PHRASES[b['ph0'] + pidx][0] + 0.1) * sr)
+                if 0 <= st < n - L:
+                    out[st:st + L] += pop * STYLE.get('sfx_pop_vol', 0.32)
+        out = np.clip(out, -1, 1)
     import wave
     # 블록에 sting=True 이면 STING 파일(코드로 만든 짧은 효과음, 원곡 사용 금지)을 그 블록 말 시작에 맞춰 얹는다
     sting = globals().get('STING') or os.environ.get('SAG_STING')
@@ -518,6 +532,14 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
                 emo = emo.resize((int(badge * 0.8), int(emo.height * badge * 0.8 / emo.width)), Image.LANCZOS)
         except Exception:
             emo = None
+    if STYLE.get('stk_shape') == 'as24':  # 오토스카우트24 원본 칠(노션 아이콘 DB, 파일 그대로): 칸 비율에 맞는 원본을 골라 늘림
+        from brushfill import original_mask
+        mask = original_mask(w, h, margin=m)
+        return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
+    if STYLE.get('stk_shape') == 'as24gen':  # 공용 칠 라이브러리 v1(원본을 본떠 새로 그린 리본 칠 8종)
+        from brushfill import brush_mask
+        mask = brush_mask(w, h, text=txt, margin=m)
+        return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
     S = 4  # 4배로 그려 줄여서 가장자리를 매끄럽게
     W2, H2 = (w + m * 2) * S, (h + m * 2) * S
     mask = Image.new('L', (W2, H2), 0)
@@ -550,6 +572,11 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     from PIL import ImageFilter
     mask = mask.filter(ImageFilter.GaussianBlur(h * S * .035)).point(lambda v: 255 if v > 127 else 0)  # 이빨을 둥글게
     mask = mask.resize((w + m * 2, h + m * 2), Image.LANCZOS)
+    return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
+
+
+def _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt):
+    """칠 마스크 위에 글자·체크·이모지를 얹고 기울인다(칠 모양과 무관한 공통 부분)"""
     im = Image.new('RGBA', mask.size, tuple(STYLE['stk_bg']) + (0,))
     im.putalpha(mask)
     td = ImageDraw.Draw(im)
@@ -710,7 +737,7 @@ def overlay(T, total, shots, shot, blk):
         if '만원' in txt:  # 가격: 왼쪽에서 밀려 들어옴
             e = ease(k / .3)
             x = (W - im.width) / 2 - (1 - e) * W * .7
-            paste(ov, im, x, STYLE['big_y'], out)
+            paste(ov, im, x, STYLE.get('price_y', STYLE['big_y']), out)  # 오토스카우트24: 가격은 화면 위쪽 30% 근처
             continue
         e = back(k / .28)
         if big:
