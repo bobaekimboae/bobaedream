@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>릴스 자동 제작 샘플 2</title>
+<meta name="description" content="딜러 원본 영상 1개와 매물 정보로 자동 편집한 인스타 릴스 샘플 v1 2 (애스턴마틴 밴티지)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; --accent: #306bd9; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 48px; display: grid; gap: 24px; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); align-items: start; }
+  h1 { grid-column: 1 / -1; margin: 0; font-size: 22px; line-height: 30px; }
+  h1 small { display: block; color: var(--sub); font-size: 14px; font-weight: 400; }
+  .player { position: sticky; top: 16px; background: #000; border-radius: 16px; overflow: hidden; aspect-ratio: 9 / 16; }
+  video { width: 100%; height: 100%; display: block; }
+  section { background: var(--card); border-radius: 12px; padding: 20px; }
+  h2 { margin: 0 0 12px; font-size: 18px; line-height: 24px; }
+  ol { margin: 0; padding: 0; list-style: none; }
+  li { display: grid; grid-template-columns: 48px 88px minmax(0, 1fr); gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
+  li:last-child { border-bottom: 0; }
+  li:hover, li:focus-visible { background: #f7f8fa; outline: none; }
+  li.is-now { background: #edf3ff; }
+  .t { color: var(--sub); font-variant-numeric: tabular-nums; }
+  .part { font-weight: 600; }
+  ul { margin: 0; padding-left: 18px; color: var(--sub); }
+  @media (max-width: 720px) { main { grid-template-columns: 1fr; } .player { position: static; max-width: 360px; width: 100%; margin: 0 auto; } li { grid-template-columns: 44px 72px minmax(0, 1fr); } }
+</style>
+</head>
+<body>
+<main>
+  <h1>릴스 자동 제작 샘플 2 · 애스턴마틴 밴티지<small>딜러 원본 영상 1개(23초) + 매물 정보 → 유머 대본 · 음성 · 컷 편집 · 자막 · 효과음까지 자동 (사람 편집 없음) · <a href="../sag-reel-v1/">샘플 1 보기</a></small></h1>
+  <div class="player"><video id="v" src="vantage-v1.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video></div>
+  <div style="display:grid;gap:16px">
+    <section>
+      <h2>대본 (누르면 그 장면으로)</h2>
+      <ol id="script"></ol>
+    </section>
+    <section>
+      <h2>만드는 방식</h2>
+      <ul>
+        <li>대본: 보배드림 커뮤니티 말투(「형님 누나들」) + 웃음 코드. 첫 3초는 그날 화제(11/6 하이닉스 약 10% 하락 뉴스)로 붙잡고, 차 사실(주행 1,480km · 23년 6월 등록 · 1억 7,390만 원)은 매물 정보 그대로. 농담은 사실을 바꾸지 않는 말로만(「트렁크 크기는 영상 보고 판단」처럼 모르는 숫자는 지어내지 않음)</li>
+        <li>마력·토크: 2세대 밴티지 4.0 V8 기본형 공식 제원 510PS · 685Nm(69.8kg.m). 매물 정보에 등급 표기가 없어 기본형 기준</li>
+        <li>음성: 일레븐랩스 eleven_v4 · 「Deok - Energetic Korean Narrator」(예능 · 쇼츠용 유쾌한 목소리), 2테이크 중 2번(49.9초)</li>
+        <li>007 대목 효과음: 실제 007 테마곡은 저작권 곡이라(인스타 음소거·차단) 쓰지 않고, 금관 찌르기 + 트레몰로 기타풍 단음을 코드로 새로 만듦(원곡 멜로디 미사용)</li>
+        <li>스티커: 색 B안 — 노랑 칠 #FFD400 · 검정 글자, 읽는 단어는 파랑 바탕. 크기는 오토스카우트24 스티커 실측에 맞춰 1번 샘플보다 키움</li>
+        <li>편집: 23초 원본을 컷 다수로 다시 엮음(같은 장면은 다른 구간), 컷마다 천천히 밀어 들어가기 · 번호판 가리지 않음 · -14 LUFS</li>
+        <li>테스트용 원본: 차란차 숏폼(판매 완료 매물, 내부 시험용). 외부 게시 전 권리 확인 필요. 하이닉스 문구는 시점이 지나면 바꿔야 함</li>
+      </ul>
+    </section>
+  </div>
+</main>
+<script>
+  const rows = [
+    [0.0, '첫 장면', '보배드림 형님 누나들, 요즘 하이닉스 때문에 속 쓰리시죠? 그럴 땐 차라도 시원하게 바꾸는 겁니다.'],
+    [7.28, '외관', '애스턴마틴 밴티지. 주행 1,480km. 전 주인분, 이거 사 놓고 왜 안 타셨어요.'],
+    [14.16, '엔진', '4.0 V8 트윈터보, 510마력에 토크는 69.8. 하이닉스는 떨어져도, 이 숫자는 안 떨어집니다.'],
+    [22.4, '외관', '네, 007 그 회사 맞습니다. (스파이 영화풍 효과음)'],
+    [24.8, '휠', '색깔 보세요. 주황색에 노란 캘리퍼. 회사 주차장에 세우면 다음 날 소문 다 납니다.'],
+    [31.36, '실내', '실내는 브라운 톤. 출근은 싫어도 이 차 타러 나가는 건 좋습니다.'],
+    [35.81, '후면 · 트렁크', '뒤태는 낮게 쫙 깔렸고, 트렁크도 있긴 있습니다. 크기는… 영상 보고 판단하시죠.'],
+    [42.4, '판매 조건', '23년 6월 등록, 1억 7,390만 원. 주식 앱은 잠깐 덮어 두시고, 자세한 건 보배드림 앱에서 보세요.'],
+  ];
+  const v = document.getElementById('v'), ol = document.getElementById('script');
+  const fmt = s => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  rows.forEach(([t, part, text]) => {
+    const li = document.createElement('li');
+    li.tabIndex = 0;
+    li.innerHTML = `<span class="t">${fmt(t)}</span><span class="part"></span><span></span>`;
+    li.children[1].textContent = part; li.children[2].textContent = text;
+    const go = () => { v.currentTime = t; v.play(); };
+    li.addEventListener('click', go);
+    li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+    ol.appendChild(li);
+  });
+  v.addEventListener('timeupdate', () => {
+    let k = 0; rows.forEach(([t], i) => { if (v.currentTime >= t) k = i; });
+    [...ol.children].forEach((li, i) => li.classList.toggle('is-now', i === k));
+  });
+</script>
+</body>
+</html>
