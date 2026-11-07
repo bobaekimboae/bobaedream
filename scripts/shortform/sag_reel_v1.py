@@ -188,6 +188,20 @@ def build_sfx(total, sr=48000):
             out[st:st + L] += noise * env * 0.5
         prev = b['sec']
     out = out / (np.max(np.abs(out)) or 1) * 0.5
+    if STYLE.get('sfx_pop'):
+        # 오토스카우트24 쇼츠 200편 분석(2026-11-08): 효과음의 약 6할이 키워드·숫자 스티커가 튀어나올 때의 짧은 「톡」.
+        # 말 자막에는 넣지 않고 스티커 등장에만. 코드로 만든 소리(음원 파일 없음)
+        L = int(0.075 * sr)
+        tt = np.arange(L) / sr
+        f0 = 1250 * np.exp(-tt / 0.03) + 520  # 높은 음에서 빠르게 내려오는 톡
+        pop = np.sin(2 * np.pi * np.cumsum(f0) / sr) * np.exp(-tt / 0.018)
+        pop[:int(0.002 * sr)] *= np.linspace(0, 1, int(0.002 * sr))
+        for b in BLOCKS:
+            for txt, pidx in b.get('stickers', []):
+                st = int((PHRASES[b['ph0'] + pidx][0] + 0.1) * sr)
+                if 0 <= st < n - L:
+                    out[st:st + L] += pop * STYLE.get('sfx_pop_vol', 0.32)
+        out = np.clip(out, -1, 1)
     import wave
     # 블록에 sting=True 이면 STING 파일(코드로 만든 짧은 효과음, 원곡 사용 금지)을 그 블록 말 시작에 맞춰 얹는다
     sting = globals().get('STING') or os.environ.get('SAG_STING')
@@ -723,7 +737,7 @@ def overlay(T, total, shots, shot, blk):
         if '만원' in txt:  # 가격: 왼쪽에서 밀려 들어옴
             e = ease(k / .3)
             x = (W - im.width) / 2 - (1 - e) * W * .7
-            paste(ov, im, x, STYLE['big_y'], out)
+            paste(ov, im, x, STYLE.get('price_y', STYLE['big_y']), out)  # 오토스카우트24: 가격은 화면 위쪽 30% 근처
             continue
         e = back(k / .28)
         if big:
