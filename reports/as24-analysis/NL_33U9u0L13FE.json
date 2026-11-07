@@ -1,0 +1,473 @@
+{
+ "country": "NL",
+ "title": "NL-051",
+ "url": "https://www.youtube.com/shorts/33U9u0L13FE",
+ "model": "gemini-flash-latest",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4162,
+  "candidatesTokenCount": 4886,
+  "totalTokenCount": 10065,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3194
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 1017,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.6,
+   "aspect": "9:16",
+   "car": "Volkswagen Polo / Golf",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 18.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 26.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 35.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "IS JOUW BUDGET",
+    "ko": "당신의 예산이",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "€15.000",
+    "ko": "15,000유로라면",
+    "kind": "가격",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€15.000",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "text": "OP ZOEK NAAR",
+    "ko": "찾고 계신가요",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.0,
+    "text": "STADSAUTO 🚗",
+    "ko": "도심형 소형차 🚗",
+    "kind": "키워드 스티커",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.8,
+    "text": "3 VOLKSWAGEN POLO'S",
+    "ko": "폭스바겐 폴로 3대",
+    "kind": "제목",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.3,
+    "text": "2019",
+    "ko": "2019년식",
+    "kind": "숫자 사양",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.1,
+    "text": "138.000 KM",
+    "ko": "138,000 km",
+    "kind": "숫자 사양",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.6,
+    "text": "AUTOMAAT ✔",
+    "ko": "자동변속기 ✔",
+    "kind": "숫자 사양",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "€14.950",
+    "ko": "14,950유로",
+    "kind": "가격",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.5,
+    "text": "130.000 KM",
+    "ko": "130,000 km",
+    "kind": "숫자 사양",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "text": "€12.450",
+    "ko": "12,450유로",
+    "kind": "가격",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "117.000 KM",
+    "ko": "117,000 km",
+    "kind": "숫자 사양",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.0,
+    "text": "€12.950",
+    "ko": "12,950유로",
+    "kind": "가격",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "가격 그래픽 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.4,
+    "type": "휙",
+    "event": "3분할 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "1번 차량 가격 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "톡",
+    "event": "2번 차량 가격 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "톡",
+    "event": "3번 차량 가격 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 일렉트로 팝",
+   "bpm_est": 118,
+   "mood": "밝고 경쾌한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "what": "AutoScout24 노란색 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 26.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.3,
+    "text": "Is jouw budget €15.000 en ben je op zoek naar een leuke stadsauto? Ik laat jou",
+    "ko": "예산이 15,000유로이고 매력적인 도심형 소형차를 찾고 계신가요? 제가 보여드릴게요."
+   },
+   {
+    "start": 4.3,
+    "end": 7.0,
+    "text": "drie Volkswagen Polo's zien tot deze prijs.",
+    "ko": "이 가격 이하의 폭스바겐 폴로 3대입니다."
+   },
+   {
+    "start": 7.0,
+    "end": 10.5,
+    "text": "Je vindt deze Polo's op AutoScout24.nl.",
+    "ko": "이 폴로 모델들은 AutoScout24.nl에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 10.5,
+    "end": 18.7,
+    "text": "Deze Polo komt uit 2019, heeft 138.000 km gelopen en is een automaat. En deze kost €14.950.",
+    "ko": "이 폴로는 2019년식이며, 138,000km를 주행했고 자동변속기 모델입니다. 가격은 14,950유로입니다."
+   },
+   {
+    "start": 18.7,
+    "end": 26.6,
+    "text": "Maar val je liever wat meer op? Ga dan voor deze, ook uit 2019, 130.000 km gelopen en hij kost €12.450.",
+    "ko": "눈에 더 띄는 차를 원하시나요? 그럼 2019년식, 130,000km 주행에 12,450유로인 이 차를 선택하세요."
+   },
+   {
+    "start": 26.6,
+    "end": 35.6,
+    "text": "Of ga je toch liever voor zwart en kies je voor deze uit 2017, 117.000 km gelopen en hij kost €12.950.",
+    "ko": "아니면 깔끔한 블랙이 좋다면 2017년식, 117,000km 주행에 12,950유로인 이 차는 어떠세요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.4,
+    "speed": "빠름",
+    "summary": "예산 15,000유로 질문과 소형차 추천 도입"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.4,
+    "end": 10.5,
+    "speed": "보통",
+    "summary": "3분할 화면으로 3대의 차량 전면/후면 소개 및 플랫폼 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 10.5,
+    "end": 18.7,
+    "speed": "보통",
+    "summary": "1번 그레이 폴로 연식, 주행거리, 오토 옵션, 가격 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 18.7,
+    "end": 26.6,
+    "speed": "보통",
+    "summary": "2번 오렌지 폴로 연식, 주행거리, 가격 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 26.6,
+    "end": 35.6,
+    "speed": "보통",
+    "summary": "3번 블랙 골프/폴로 연식, 주행거리, 가격 제시"
+   }
+  ],
+  "rules": [
+   "첫 3초: 명확한 예산(€15.000)과 타깃 차급(stadsauto)을 키워드로 화면 중앙에 팝업하여 시청자 필터링",
+   "컷 평균 길이: 차량별 약 8초 내외로 연식·주행거리·가격 정보 압축 제시",
+   "화면 분할 활용: 본론 진입 전 3분할 앵글(전면/후면)로 소개할 매물 3대를 한눈에 훑어줌",
+   "자막 규칙: 검정 배경에 노란색 굵은 폰트를 사용하여 시인성 극대화, 단어 단위로 빠르게 리듬감 부여",
+   "핵심 스펙 노출: [연식] -> [주행거리] -> [특징/옵션] -> [최종 가격] 순서로 규격화된 정보 배치",
+   "가격 노출 위치: 가격 발표 시 화면 상단/중앙 위쪽(y 34% 부근)에 대형 텍스트로 시선 유도",
+   "효과음 타이밍: 가격 및 중요 키워드 스티커가 튀어나올 때 경쾌한 톡/팝 사운드 싱크",
+   "진행자 동선: 차량 전면 옆에 서서 손짓으로 가리키며 자연스러운 딜러십 분위기 연출",
+   "브랜드 로고 삽입: 도입부 분할 컷 직후 자사 로고를 팝업하여 플랫폼 유입 유도"
+  ]
+ }
+}

@@ -1,0 +1,436 @@
+{
+ "country": "NL",
+ "title": "NL-048",
+ "url": "https://www.youtube.com/shorts/LvoRINP3cx4",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5437,
+  "candidatesTokenCount": 4181,
+  "totalTokenCount": 11056,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4469
+   }
+  ],
+  "thoughtsTokenCount": 1438,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.0,
+   "aspect": "9:16",
+   "car": "BMW M5 Touring",
+   "format": "차량 리뷰 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 11.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.8,
+    "part": "외관 전면",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.3,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 18.5,
+    "part": "외관 측면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 38.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 46.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 50.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "BMW M5 TOURING",
+    "ko": "BMW M5 투어링",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFF00",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 4.5,
+    "text": "WAARVAN",
+    "ko": "그 중에서도",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFF00",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 18.5,
+    "text": "727 PK 🏁",
+    "ko": "727 마력 🏁",
+    "kind": "숫자 사양",
+    "y_pct": 30,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "text": "V8 ✅",
+    "ko": "V8 엔진 ✅",
+    "kind": "숫자 사양",
+    "y_pct": 30,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "text": "3,6 SECONDEN ⏱️",
+    "ko": "제로백 3.6초 ⏱️",
+    "kind": "숫자 사양",
+    "y_pct": 30,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.0,
+    "text": "M DRIVER'S PACKAGE ✅",
+    "ko": "M 드라이버 패키지 ✅",
+    "kind": "키워드 스티커",
+    "y_pct": 30,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "text": "305 KM/U",
+    "ko": "최고속도 305km/h",
+    "kind": "숫자 사양",
+    "y_pct": 30,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.8,
+    "text": "€148.450",
+    "ko": "약 2억 2,100만원",
+    "kind": "가격",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 46.8,
+    "text": "📍 AUTOVENTURA",
+    "ko": "📍 오토벤투라 매장",
+    "kind": "기타",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "제목 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.3,
+    "type": "휙",
+    "event": "마력 사양 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "딸깍",
+    "event": "V8 체크마크 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.8,
+    "type": "돈 소리",
+    "event": "가격 공개",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Electronic Pop",
+   "bpm_est": 124,
+   "mood": "Energetic",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 47.5,
+    "end": 50.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "옆에서 밀려옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "De BMW M5 Touring is zo'n auto waarvan autoliefhebbers vaak zeggen: als ik er één mocht kopen, dan deze.",
+    "ko": "BMW M5 투어링은 자동차 매니아들이 '딱 한 대만 살 수 있다면 바로 이거다'라고 말하는 그런 차입니다."
+   },
+   {
+    "start": 6.8,
+    "end": 15.0,
+    "text": "Dat komt omdat hij een aantal eigenschappen combineert die je bijna nooit samen ziet. Ik vertel je in deze video meer over deze auto en op het einde ook wat hij kost.",
+    "ko": "거의 보기 힘든 여러 특징들을 하나로 합쳤기 때문이죠. 이 영상에서 차에 대해 더 알려드리고 마지막에 가격도 공개할게요."
+   },
+   {
+    "start": 15.0,
+    "end": 26.5,
+    "text": "Hij heeft 727 PK en het is een station. Hij heeft een V8 en sprint in 3,6 seconden van 0 naar 100, terwijl je ook gewoon met het gezin en alle koffers op vakantie kunt.",
+    "ko": "727마력의 스테이션 왜건입니다. V8 엔진으로 제로백 3.6초를 기록하면서도, 가족들과 모든 짐을 싣고 휴가를 떠날 수 있죠."
+   },
+   {
+    "start": 26.5,
+    "end": 38.0,
+    "text": "Deze BMW heeft het M Driver's Package. Normaal is de topsnelheid begrensd op 250 km/u, maar met dat pakket is die begrensd op 305 km/u.",
+    "ko": "이 차는 M 드라이버 패키지가 적용됐습니다. 원래 최고속도는 250km/h로 제한되지만, 이 패키지로 305km/h까지 올라갑니다."
+   },
+   {
+    "start": 38.0,
+    "end": 50.0,
+    "text": "De prijs van deze BMW is 148.450 euro. Je vindt hem in de showroom van AutoVentura en natuurlijk op AutoScout24.nl.",
+    "ko": "이 BMW의 가격은 148,450유로입니다. 오토벤투라 전시장과 오토스카우트24 홈페이지에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "매니아들이 꿈꾸는 차라는 점을 강조하며 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "차량의 독특한 포지셔닝 설명 및 가격 공개 예고"
+   },
+   {
+    "stage": "사양",
+    "start": 15.0,
+    "end": 26.5,
+    "speed": "빠름",
+    "summary": "마력, 엔진, 가속력 등 핵심 성능 지표 나열"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 26.5,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "M 드라이버 패키지와 최고 속도 옵션 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 38.0,
+    "end": 46.8,
+    "speed": "보통",
+    "summary": "최종 가격 및 판매처 정보 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 46.8,
+    "end": 50.0,
+    "speed": "빠름",
+    "summary": "브랜드 로고와 함께 마무리"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 이내에 노란색 대문자로 차량 모델명 제목 노출",
+   "2. 컷 평균 길이는 약 3~4초로 유지하여 지루함 방지",
+   "3. 핵심 키워드와 수치는 검은색 상자 배경의 흰색/노란색 자막 사용",
+   "4. 성능 수치(PK, 초, 속도) 등장 시 '톡' 또는 '휙' 효과음 삽입",
+   "5. 가격 공개 시에는 특별히 '돈 소리' 효과음으로 강조",
+   "6. 이모지(🏁, ✅, ⏱️)를 자막 끝에 붙여 시각적 직관성 향상",
+   "7. 촬영 순서: 전면 -> 실내 -> 측면 -> 트렁크 -> 전면 디테일",
+   "8. 진행자가 직접 차에 타거나 트렁크에 앉는 등 역동적 동작 포함",
+   "9. 마무리는 브랜드 로고 그래픽이 화면을 덮으며 종료"
+  ]
+ }
+}

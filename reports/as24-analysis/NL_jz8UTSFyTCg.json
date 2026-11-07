@@ -1,11 +1,472 @@
 {
  "country": "NL",
- "title": "마이바흐 62 (5.3천)",
+ "title": "NL-044",
  "url": "https://www.youtube.com/shorts/jz8UTSFyTCg",
- "model": "gemini-2.5-pro",
- "fps": 2.0,
- "usage": null,
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 7978,
+  "candidatesTokenCount": 4280,
+  "totalTokenCount": 13446,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7010
+   }
+  ],
+  "thoughtsTokenCount": 1188,
+  "serviceTier": "standard"
+ },
  "analysis": {
-  "error": "4번 모두 실패"
+  "basic": {
+   "duration_sec": 77.5,
+   "aspect": "9:16",
+   "car": "Maybach 62",
+   "format": "차 소개 및 가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 11.5,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.8,
+    "part": "실내",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 28.5,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 34.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 43.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 45.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 47.8,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 50.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 57.5,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 60.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 105.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 105.0,
+    "end": 106.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.5,
+    "end": 117.5,
+    "part": "외관 측면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 6.0,
+    "text": "€589.000",
+    "ko": "589,000유로",
+    "kind": "가격",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 11.0,
+    "text": "MAYBACH 62",
+    "ko": "마이바흐 62",
+    "kind": "제목",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 16.0,
+    "text": "6,16M",
+    "ko": "6.16미터",
+    "kind": "숫자 사양",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 23.5,
+    "text": "PRIVACY ✔",
+    "ko": "프라이버시 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 47.5,
+    "text": "SCHERMPJES ✔",
+    "ko": "화면들 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 57.0,
+    "text": "MASSAGESTOELEN ✔\nSTOELVERWARMING ✔\nSTOELVENTILATIE ✔",
+    "ko": "마사지 시트 ✔\n시트 열선 ✔\n시트 통풍 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 3,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 59.5,
+    "end": 61.0,
+    "text": "SOFT CLOSE ✔",
+    "ko": "소프트 클로징 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "옆에서 밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 106.5,
+    "end": 110.0,
+    "text": "€77.950",
+    "ko": "77,950유로",
+    "kind": "가격",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "휙",
+    "event": "컷 전환 및 제목 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "딸깍",
+    "event": "체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.0,
+    "type": "딸깍",
+    "event": "리스트 첫 항목 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 106.8,
+    "type": "돈 소리",
+    "event": "최종 중고 가격 공개",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Modern Pop/Rhythmic",
+   "bpm_est": 115,
+   "mood": "고급스럽고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0,
+     "what": "비트 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "what": "잠자는 이모지",
+    "is_3d": false,
+    "size_w_pct": 10,
+    "x_pct": 50,
+    "y_pct": 35,
+    "entrance": "서서히",
+    "purpose": "기능 설명 보조",
+    "sure": true
+   },
+   {
+    "start": 102.0,
+    "end": 105.0,
+    "what": "조종사 이모지",
+    "is_3d": false,
+    "size_w_pct": 10,
+    "x_pct": 45,
+    "y_pct": 80,
+    "entrance": "톡 튀어나옴",
+    "purpose": "쇼퍼 드리븐 강조",
+    "sure": true
+   },
+   {
+    "start": 112.0,
+    "end": 115.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "옆에서 밀려옴",
+    "purpose": "브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "text": "€589.000 kostte deze auto in 2002.",
+    "ko": "이 차는 2002년에 589,000유로였습니다."
+   },
+   {
+    "start": 3.5,
+    "end": 6.0,
+    "text": "En ik begrijp wel waarom.",
+    "ko": "그리고 저는 그 이유를 알 것 같아요."
+   },
+   {
+    "start": 6.0,
+    "end": 8.5,
+    "text": "Dit is de Maybach 62.",
+    "ko": "이것은 마이바흐 62입니다."
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "text": "Deze auto is 6,16 meter lang.",
+    "ko": "이 차의 길이는 6.16미터입니다."
+   },
+   {
+    "start": 106.0,
+    "end": 110.0,
+    "text": "Deze Maybach kost nu slechts €77.950.",
+    "ko": "이 마이바흐는 현재 단돈 77,950유로입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.2,
+    "speed": "보통",
+    "summary": "충격적인 과거 신차 가격 공개로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.2,
+    "end": 16.0,
+    "speed": "보통",
+    "summary": "모델명 및 거대한 차체 크기 강조"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 16.0,
+    "end": 105.0,
+    "speed": "빠름",
+    "summary": "뒷좌석 럭셔리 편의 사양(프라이버시, 시트, 루프 등) 연속 쇼케이스"
+   },
+   {
+    "stage": "가격",
+    "start": 105.0,
+    "end": 110.0,
+    "speed": "보통",
+    "summary": "현재 중고차 가격 공개 (신차 대비 감가 강조)"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 110.0,
+    "end": 117.5,
+    "speed": "보통",
+    "summary": "플랫폼 및 판매처 안내"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 이내에 가장 자극적인 숫자(가격)를 노란색 배경 자막으로 노출한다.",
+   "2. 컷 평균 길이는 약 3~4초로 유지하며 지루함을 방지한다.",
+   "3. 주요 키워드는 노란색 상자 배경의 검은색 텍스트와 체크마크(✔)를 조합한다.",
+   "4. 자막 등장 시 '톡' 또는 '딸깍' 소리의 효과음을 반드시 삽입한다.",
+   "5. 기능 설명 시 이모지를 활용하여 시각적 재미를 더한다.",
+   "6. 호스트가 직접 기능을 조작하는 모습을 보여주어 신뢰도를 높인다.",
+   "7. 실내 촬영 시 광각 렌즈를 사용하여 공간감을 극대화한다.",
+   "8. 영상 마지막에 브랜드 로고 그래픽을 크게 배치한다.",
+   "9. 배경음악은 대사 전달을 방해하지 않도록 적절히 조절(Ducking)한다.",
+   "10. 신차 가격과 현재 가격을 대비시켜 구매 욕구를 자극한다."
+  ]
  }
 }

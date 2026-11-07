@@ -1,10 +1,22 @@
 {
- "model": "gemini-3.8-flash",
+ "models": [
+  "gemini-3.8-flash",
+  "gemini-3.7-flash",
+  "gemini-3.6-flash",
+  "gemini-3.5-flash",
+  "gemini-3-flash-preview",
+  "gemini-2.5-flash",
+  "gemini-3.1-pro-preview",
+  "gemini-omni-1.2-flash",
+  "gemini-omni-1.1-flash",
+  "gemini-flash-latest",
+  "gemini-pro-latest"
+ ],
  "fps": 1.0,
- "new": 10,
- "skipped": 3,
- "failed": 0,
- "ok_total": 13,
+ "new": 31,
+ "skipped": 13,
+ "failed": 6,
+ "ok_total": 44,
  "targets": 200,
- "stopped": "하루 한도 도달: HTTP 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.goo"
+ "stopped": "모든 모델 하루 한도 도달"
 }

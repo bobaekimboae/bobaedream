@@ -1,0 +1,163 @@
+{
+ "country": "NL",
+ "title": "NL-050",
+ "url": "https://www.youtube.com/shorts/xkXkHZx-JUs",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1797,
+  "candidatesTokenCount": 1317,
+  "totalTokenCount": 3824,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 829
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 710,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.1,
+   "aspect": "9:16",
+   "car": "Ferrari 308 GTS",
+   "format": "퀴즈/참여 유도",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 9.1,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 9.1,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "제목",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "RAAD HET MERK",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 9.1,
+    "text": "LAAT HET WETEN IN EEN REACTIE!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "기타",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.5,
+    "type": "딸깍",
+    "event": "마우스 클릭 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Pop/Electronic",
+   "bpm_est": 124,
+   "mood": "Upbeat",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.5,
+    "end": 9.1,
+    "what": "AutoScout24 로고 및 마우스 커서",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 60,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 9.1,
+    "text": "(No speech, background music only)",
+    "ko": "(음성 없음, 배경음악만 있음)"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.5,
+    "speed": "보통",
+    "summary": "여성이 운전석에 앉아 웃으며 손을 흔들어 시청자 시선 집중"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.5,
+    "end": 6.5,
+    "speed": "보통",
+    "summary": "스티어링 휠로 카메라를 클로즈업하며 퀴즈 참여 유도"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 6.5,
+    "end": 9.1,
+    "speed": "보통",
+    "summary": "로고 노출 및 댓글 작성을 유도하는 자막 표시"
+   }
+  ],
+  "rules": [
+   "첫 3초 이내에 인물을 등장시켜 친근감과 호기심 유발",
+   "컷 전환은 최소화하고 카메라 무빙(줌인)으로 몰입감 조성",
+   "브랜드 컬러인 노란색과 흰색을 자막과 그래픽에 적극 활용",
+   "질문형 자막('브랜드를 맞춰보세요')을 하단 중앙에 고정 노출",
+   "영상 후반부에 서비스 로고와 클릭 사운드를 결합해 브랜드 각인",
+   "댓글 작성을 직접적으로 요청하는 CTA 자막 삽입",
+   "차량의 엠블럼을 의도적으로 가리거나 보여주지 않아 참여 유도",
+   "전체적으로 밝고 경쾌한 톤앤매너 유지"
+  ]
+ }
+}

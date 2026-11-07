@@ -1,0 +1,335 @@
+{
+ "country": "NL",
+ "title": "NL-046",
+ "url": "https://www.youtube.com/shorts/9Yk6tQf3qtE",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2870,
+  "candidatesTokenCount": 2973,
+  "totalTokenCount": 7304,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1902
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 1461,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.1,
+   "aspect": "9:16",
+   "car": "Ferrari 308 GTS",
+   "format": "퀴즈/차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 4.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.5,
+    "part": "외관 측면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 20.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 0.8,
+    "text": "RAAD HET",
+    "ko": "맞혀보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.5,
+    "text": "BOUWJAAR",
+    "ko": "제작 연도",
+    "kind": "키워드 스티커",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 4.4,
+    "text": "VAN DEZE FERRARI",
+    "ko": "이 페라리의",
+    "kind": "키워드 스티커",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.5,
+    "text": "EEN PAAR TIPS",
+    "ko": "몇 가지 팁",
+    "kind": "키워드 스티커",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "text": "HANDGESCHAKELDE VIJFBAK ✓",
+    "ko": "수동 5단 변속기 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 3,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.8,
+    "text": "DIT DAK KUN JE ER HANDMATIG UIT HALEN",
+    "ko": "이 루프는 수동으로 탈거 가능합니다",
+    "kind": "말 자막",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 3,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 85,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0,
+    "type": "톡",
+    "event": "첫 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "두 번째 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "휙",
+    "event": "로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "매그넘 P.I. 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Upbeat Pop",
+   "bpm_est": 120,
+   "mood": "Energetic",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "아래에서 위로 튀어오름",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.8,
+    "what": "Magnum P.I. 로고 및 이미지",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 70,
+    "y_pct": 60,
+    "entrance": "톡 튀어나옴",
+    "purpose": "정보 제공/참조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 4.4,
+    "text": "Kan jij raden uit welk bouwjaar deze Ferrari komt?",
+    "ko": "이 페라리가 몇 년도에 제작되었는지 맞힐 수 있나요?"
+   },
+   {
+    "start": 4.4,
+    "end": 5.5,
+    "text": "Ik geef je een paar tips.",
+    "ko": "몇 가지 팁을 드릴게요."
+   },
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "text": "En je vindt hem natuurlijk op AutoScout24.nl.",
+    "ko": "물론 AutoScout24.nl에서 찾으실 수 있습니다."
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "text": "Hij heeft een handgeschakelde vijfbak.",
+    "ko": "수동 5단 변속기가 장착되어 있습니다."
+   },
+   {
+    "start": 9.5,
+    "end": 11.8,
+    "text": "Dit dak kun je er handmatig uithalen.",
+    "ko": "이 루프는 수동으로 떼어낼 수 있어요."
+   },
+   {
+    "start": 11.8,
+    "end": 15.8,
+    "text": "En dit model werd beroemd door de serie Magnum P.I.",
+    "ko": "그리고 이 모델은 드라마 '매그넘 P.I.'를 통해 유명해졌죠."
+   },
+   {
+    "start": 15.8,
+    "end": 20.1,
+    "text": "Weet jij het antwoord? Laat het even weten in een reactie en vergeet ons niet te volgen op de socials.",
+    "ko": "정답을 아시나요? 댓글로 알려주시고 저희 소셜 미디어 팔로우도 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 4.4,
+    "speed": "보통",
+    "summary": "페라리 연도 맞히기 퀴즈 제시"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 4.4,
+    "end": 15.8,
+    "speed": "빠름",
+    "summary": "변속기, 루프, 대중문화 참조 등 3가지 힌트 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 15.8,
+    "end": 20.1,
+    "speed": "보통",
+    "summary": "댓글 참여 및 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 이내에 핵심 질문(연도 맞히기)을 자막과 함께 던짐",
+   "컷 평균 길이는 약 3초로 정보 전달 위주로 구성",
+   "자막은 노란색/검은색 박스 배경을 사용하여 가독성 극대화",
+   "새로운 자막이나 그래픽이 등장할 때마다 '톡' 또는 '휙' 효과음 삽입",
+   "브랜드 로고와 관련 이미지(매그넘 P.I.)를 그래픽 스티커로 활용",
+   "촬영 순서는 전면 -> 측면 -> 실내 -> 후면 -> 전면 순",
+   "마지막은 진행자가 화면 밖으로 걸어나가며 댓글 참여 유도"
+  ]
+ }
+}

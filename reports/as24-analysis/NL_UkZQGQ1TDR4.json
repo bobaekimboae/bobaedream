@@ -1,0 +1,332 @@
+{
+ "country": "NL",
+ "title": "NL-047",
+ "url": "https://www.youtube.com/shorts/UkZQGQ1TDR4",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4688,
+  "candidatesTokenCount": 3250,
+  "totalTokenCount": 10809,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3720
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 2871,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.1,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTE",
+   "format": "정보 제공 및 팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 15.5,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.9,
+    "part": "계기판",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 35.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 40.1,
+    "part": "외관 전면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.6,
+    "text": "ALS JE OP",
+    "ko": "만약 당신이",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 30,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.6,
+    "end": 1.5,
+    "text": "PLUG-IN HYBRIDE",
+    "ko": "플러그인 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": 5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.5,
+    "text": "KILOMETERSTAND",
+    "ko": "주행거리",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 55,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.5,
+    "text": "BATTERIJ",
+    "ko": "배터리",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 35,
+    "tilt_deg": 5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 15.5,
+    "text": "97%",
+    "ko": "97%",
+    "kind": "숫자 사양",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "text": "ACCUTEST?",
+    "ko": "배터리 테스트?",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 40.1,
+    "text": "80.000",
+    "ko": "80,000대",
+    "kind": "숫자 사양",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 45,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.6,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "톡",
+    "event": "숫자 강조 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.5,
+    "type": "톡",
+    "event": "로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Pop",
+   "bpm_est": 120,
+   "mood": "Informative",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 35.5,
+    "end": 40.1,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 15,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "text": "Als je op zoek bent naar een plug-in hybride, kijk dan niet alleen naar de kilometerstand, maar kijk ook naar de batterij. Dat is heel belangrijk. Je kunt namelijk een State of Health rapport aanvragen.",
+    "ko": "플러그인 하이브리드를 찾고 있다면 주행거리만 보지 말고 배터리도 확인하세요. 매우 중요합니다. '배터리 건강 상태(SOH)' 보고서를 요청할 수 있거든요."
+   },
+   {
+    "start": 9.9,
+    "end": 18.9,
+    "text": "Bij deze Volkswagen GTE is de State of Health nog 97%. Dat wil dus zeggen dat hij nog 97% van zijn originele accupercentage heeft.",
+    "ko": "이 폭스바겐 GTE의 SOH는 여전히 97%입니다. 즉, 원래 배터리 용량의 97%를 유지하고 있다는 뜻이죠."
+   },
+   {
+    "start": 18.9,
+    "end": 35.5,
+    "text": "Vraag dus altijd als je een plug-in hybride wilt kopen of er een accutest gedaan is, of dat er een State of Health rapport, een SOH-rapport beschikbaar is. Zo weet je of de accu nog goed is.",
+    "ko": "그러니 플러그인 하이브리드를 살 때는 항상 배터리 테스트를 했는지, SOH 보고서가 있는지 물어보세요. 그래야 배터리 상태가 좋은지 알 수 있습니다."
+   },
+   {
+    "start": 35.5,
+    "end": 40.1,
+    "text": "En ben je op zoek naar een hybride of een elektrische auto? Op AutoScout24 vind je er meer dan 80.000. Keuze genoeg dus.",
+    "ko": "하이브리드나 전기차를 찾으시나요? 오토스카우트24에는 8만 대 이상의 매물이 있습니다. 선택지는 충분하죠."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "주행거리보다 배터리 상태가 중요함을 강조하며 시청자 주의 집중"
+   },
+   {
+    "stage": "사양",
+    "start": 9.9,
+    "end": 18.9,
+    "speed": "보통",
+    "summary": "실제 차량의 SOH 수치를 예시로 보여주며 정보 신뢰도 확보"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 18.9,
+    "end": 35.5,
+    "speed": "보통",
+    "summary": "중고차 구매 시 SOH 보고서 확인을 권장하는 구체적 조언"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 35.5,
+    "end": 40.1,
+    "speed": "보통",
+    "summary": "플랫폼의 방대한 매물 수를 언급하며 서비스 이용 유도"
+   }
+  ],
+  "rules": [
+   "1. 첫 1초 이내에 타겟팅 키워드(플러그인 하이브리드)를 자막으로 노출.",
+   "2. 자막은 화면 중앙, 검정 텍스트, 노란색 형광펜 배경 박스를 일관되게 사용.",
+   "3. 모든 주요 키워드와 그래픽 등장 시 '톡' 하는 효과음을 삽입하여 리듬감 부여.",
+   "4. 자막은 약간의 기울기(±3~5도)를 주어 스티커 같은 느낌을 강조.",
+   "5. 핵심 수치(97%, 80,000)는 폰트 크기를 2배 이상 키워 시각적 임팩트 제공.",
+   "6. 정보 전달자(사람)와 실제 차량(내외관)을 번갈아 보여주며 지루함 방지.",
+   "7. 마지막 5초는 브랜드 로고와 핵심 강점(매물 수)을 그래픽으로 고정 노출.",
+   "8. 배경음악은 정보 전달을 방해하지 않도록 목소리 뒤로 깔리게 조절(Ducking).",
+   "9. 컷 전환은 설명하는 주제가 바뀔 때 명확하게 구분하여 편집.",
+   "10. 전체적으로 밝고 긍정적인 톤앤매너를 유지하여 브랜드 신뢰도 제고."
+  ]
+ }
+}
