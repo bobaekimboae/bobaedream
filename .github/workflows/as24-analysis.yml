@@ -1,0 +1,52 @@
+name: AS24 shorts edit analysis (Gemini)
+
+# 오토스카우트24 쇼츠를 Gemini로 해부한다. 이 브랜치에 push하면 돈다.
+# 결과는 as24-analysis-results 브랜치의 reports/as24-analysis/ 에 올린다(main 배포와 무관).
+on:
+  push:
+    branches: [codex/as24-analysis]
+    paths:
+      - scripts/shortform/as24/**
+      - .github/workflows/as24-analysis.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: as24-analysis
+  cancel-in-progress: false
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Analyze shorts with Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AS24_FPS: "2"
+        run: python scripts/shortform/as24/analyze_gemini.py scripts/shortform/as24/targets.txt out
+      - name: Push results to results branch
+        if: always()
+        run: |
+          [ -d out ] || exit 0
+          git config user.name "bobaedream-analysis-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git fetch origin as24-analysis-results || true
+          if git rev-parse --verify origin/as24-analysis-results >/dev/null 2>&1; then
+            git checkout -B as24-analysis-results origin/as24-analysis-results
+          else
+            git checkout --orphan as24-analysis-results
+            git rm -rf --cached . >/dev/null
+            find . -mindepth 1 -maxdepth 1 ! -name .git ! -name out -exec rm -rf {} +
+          fi
+          mkdir -p reports/as24-analysis
+          cp out/*.json reports/as24-analysis/
+          git add reports/as24-analysis
+          git commit -m "data: AS24 shorts analysis ${GITHUB_SHA::7}" || exit 0
+          git push origin as24-analysis-results

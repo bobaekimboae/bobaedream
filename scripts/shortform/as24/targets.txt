@@ -1,0 +1,10 @@
+# 오토스카우트24 쇼츠 편집 분석 대상 (출처: 구글 시트 「SNS 레퍼런스」 오토스카우트_벨기에 · 오토스카우트_네덜란드)
+# 형식: 국가<TAB>제목<TAB>유튜브 주소
+BE	마즈다 MX-5 (91만)	https://www.youtube.com/shorts/tR2-TRcdnp0
+BE	첫 벌금 (174만)	https://www.youtube.com/shorts/XRixK1ASrAE
+BE	르노 4 E-Tech (20만)	https://www.youtube.com/shorts/QNLiDz_HZu0
+BE	마즈다 CX-80 (8.6만)	https://www.youtube.com/shorts/FirJXevMB8E
+NL	마이바흐 62 (5.3천)	https://www.youtube.com/shorts/jz8UTSFyTCg
+NL	링크앤코 01 (2.3천)	https://www.youtube.com/shorts/zXHiN5XoSE0
+NL	브랜드 맞히기 (1.5천)	https://www.youtube.com/shorts/b__uy6gWAf8
+NL	폴로 3대 예산형 (1.3천)	https://www.youtube.com/shorts/33U9u0L13FE
