@@ -1,0 +1,367 @@
+{
+ "country": "NL",
+ "title": "NL-081",
+ "url": "https://www.youtube.com/shorts/ESp1oXd7W4w",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5603,
+  "candidatesTokenCount": 3524,
+  "totalTokenCount": 9127,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4635
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.5,
+   "aspect": "9:16",
+   "car": "BMW X1",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 3.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 9.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 18.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 34.9,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.9,
+    "end": 39.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 45.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 50.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "ACHTER MIJ",
+    "ko": "내 뒤에",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MIJ",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 3.9,
+    "text": "BMW X1\n€ 47.950",
+    "ko": "BMW X1\n€ 47,950",
+    "kind": "가격",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€ 47.950",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 9.5,
+    "text": "DE BMW X1\nIS DE KLEINSTE\nSUV VAN BMW\nMAAR HIJ BIEDT\nVERRASSEND VEEL RUIMTE ✓",
+    "ko": "BMW X1은\nBMW의 가장 작은 SUV이지만\n놀라울 정도로 많은 공간을 제공합니다 ✓",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 25,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "VERRASSEND VEEL RUIMTE",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 18.8,
+    "text": "EN KIJK HOE\nGROOT\nDEZE\nKOFFERRUIMTE IS\n491L\nEN DAT WIL\nZEGGEN DAT JE\nZONDER MOEITE EEN\nKINDERWAGEN\nKOFFERS OF\nEEN HELEBOEL\nBOODSCHAPPEN\nKAN MEENEMEN",
+    "ko": "그리고 트렁크가 얼마나 큰지 보세요\n491L\n유모차, 여행 가방, 또는\n많은 장바구니를 문제없이 실을 수 있다는 뜻입니다",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 45,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "491L",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 34.9,
+    "text": "OMDAT HIJ\nCOMPACTER IS\nDAN DE X3\nEN DE X5\nIS HIJ NATUURLIJK\nOOK\nMAKKELIJKER\nTE PARKEREN\nEN DIT IS OOK\nECHT EEN\nTOP\nUITVOERING\nEN HIJ IS EEN\nPLUG-IN HYBRIDE ✓\n326 PK\nEN JE BOORDCOMPUTER\nEN HET SCHERM\nDAT IS GEWOON\nBIJ ELKAAR\nÉÉN GROOT\nSCHERM\nKIJK HOE\nMOOI DAT DAT IS",
+    "ko": "X3, X5보다 컴팩트해서\n주차하기도 훨씬 쉽습니다\n그리고 이것은 정말 최고 사양입니다\n플러그인 하이브리드 326마력\n보드컴퓨터와 화면이\n하나의 커다란 화면으로 합쳐져 있습니다\n정말 아름답지 않나요",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 45,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "PLUG-IN HYBRIDE",
+    "sure": true
+   },
+   {
+    "start": 34.9,
+    "end": 39.9,
+    "text": "PERSOONLIJK\nOOK HEEL\nMOOI\nAAN DIE NIEUWE\nMODELLEN\nVAN BMW DAT\nZIJN DIE\nDEURGREPEN",
+    "ko": "그리고 BMW 신형 모델에서\n개인적으로 가장 멋진 부분은\n바로 이 도어 핸들입니다",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 25,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "DEURGREPEN",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 45.8,
+    "text": "ECHT ZO GOED\nALS NIEUW\nWANT HIJ KOMT\nUIT 2023\nEN HEEFT SLECHTS\n22.000 KM\nGELOPEN",
+    "ko": "정말 새것과 다름없습니다\n2023년형이고 주행거리가\n불과 22,000km이기 때문입니다",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 25,
+    "color": "노란색",
+    "background": "없onia",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "22.000 KM",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 50.5,
+    "text": "EN JE VINDT\nHEM IN DE\nSHOWROOM\nVAN\nBOUTEN AUTOMOTIVE\nEN NATUURLIJK OP\nAuto\nScout\n24",
+    "ko": "부우텐 오토모티브 쇼룸에서 만나실 수 있으며\n물론 오토스카우트24에서도 보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 30,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "corporate pop",
+   "bpm_est": 110,
+   "mood": "밝은",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 48.0,
+    "end": 50.5,
+    "what": "AutoScout24 로고/배너",
+    "is_3d": false,
+    "size_w_pct": 20,
+    "x_pct": 40,
+    "y_pct": 80,
+    "entrance": "바로 컷",
+    "purpose": "브랜드 노출 및 플랫폼 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "Achter mij staat een BMW X1",
+    "ko": "내 뒤에 BMW X1이 있습니다"
+   },
+   {
+    "start": 1.1,
+    "end": 3.9,
+    "text": "voor € 47.950",
+    "ko": "47,950유로에 판매 중입니다"
+   },
+   {
+    "start": 3.9,
+    "end": 9.5,
+    "text": "De BMW X1 is de kleinste SUV van BMW maar hij biedt verrassend veel ruimte",
+    "ko": "BMW X1은 BMW의 가장 작은 SUV이지만 놀라울 정도로 많은 공간을 제공합니다"
+   },
+   {
+    "start": 9.5,
+    "end": 18.8,
+    "text": "En kijk hoe groot dat deze kofferruimte is, 491 liter",
+    "ko": "그리고 트렁크 용량이 얼마나 큰지 보세요, 491리터입니다"
+   },
+   {
+    "start": 18.8,
+    "end": 34.9,
+    "text": "Omdat hij compacter is dan de X3 en de X5 is hij natuurlijk ook makkelijker te parkeren. En dit is ook echt een top uitvoering, een plug-in hybride met 326 pk.",
+    "ko": "X3, X5보다 컴팩트해서 주차하기도 훨씬 쉽습니다. 그리고 이것은 정말 최고 사양입니다, 326마력의 플러그인 하이브리드입니다."
+   },
+   {
+    "start": 34.9,
+    "end": 39.9,
+    "text": "En wat ik persoonlijk ook heel mooi vind aan die nieuwe modellen van BMW, dat zijn die deurgrepen.",
+    "ko": "그리고 BMW 신형 모델에서 개인적으로 가장 멋진 부분은 바로 이 도어 핸들입니다."
+   },
+   {
+    "start": 39.9,
+    "end": 45.8,
+    "text": "En hij is echt so goed als nieuw, want hij komt uit 2023 en heeft slechts 22.000 km gelopen.",
+    "ko": "그리고 정말 새것과 다름없습니다. 2023년형이고 주행거리가 불과 22,000km이기 때문입니다."
+   },
+   {
+    "start": 45.8,
+    "end": 50.5,
+    "text": "En je vindt hem in de showroom van Bouten Automotive en natuurlijk op Autoscout24.nl",
+    "ko": "부우텐 오토모티브 쇼룸과 오토스카우트24에서 만나보실 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.1,
+    "speed": "보통",
+    "summary": "뒤의 차를 가리키며 등장"
+   },
+   {
+    "stage": "가격",
+    "start": 1.1,
+    "end": 3.9,
+    "speed": "보통",
+    "summary": "차량 전면과 가격 공개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.9,
+    "end": 34.9,
+    "speed": "빠름",
+    "summary": "실내 공간, 트렁크 용량, 성능 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 34.9,
+    "end": 50.5,
+    "speed": "보통",
+    "summary": "특징 요약 및 플랫폼 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 0.0,
+    "end": 50.5,
+    "speed": "빠름",
+    "summary": "전체 차량 리뷰"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량 모델명과 가격을 자막과 음성으로 동시 노출한다.",
+   "평균 컷 길이는 5~10초 내외로 유지하여 지루함을 방지한다.",
+   "자막은 화면 중앙에 배치하며 굵고 눈에 띄는 노란색 단어 위주로 강조한다.",
+   "핵심 스펙(용량, 마력, 주행거리 등)은 숫자를 크게 강조한다.",
+   "전면 외관, 트렁크, 실내 인테리어, 측면 순으로 부위를 이동하며 촬영한다.",
+   "프레젠터가 직접 차를 만지거나 탑승하여 공간감을 시각적으로 보여준다.",
+   "마지막에는 판매처 쇼룸 정보와 매물 플랫폼 로고를 함께 노출한다.",
+   "배경 음악은 음성을 덮지 않도록 적절히 볼륨을 조절한다.",
+   "시각적 지루함을 줄이기 위해 키워드별로 자막이 교체되도록 편집한다."
+  ]
+ }
+}

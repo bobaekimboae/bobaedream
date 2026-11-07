@@ -1,0 +1,126 @@
+{
+ "country": "BE",
+ "title": "BE-083",
+ "url": "https://www.youtube.com/shorts/Jb1w80UgbPY",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4623,
+  "candidatesTokenCount": 1035,
+  "totalTokenCount": 5658,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3655
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 6.5,
+   "aspect": "9:16",
+   "car": "기아 씨드",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Herken jij de auto?",
+    "ko": "이 자동차를 알아보시겠어요?",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Herken",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 22.0,
+    "color": "빨간색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "쿵",
+    "event": "첫 자막 등장 시 묵직한 베이스 타격음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "톡",
+    "event": "로고 스티커 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 90,
+   "mood": "리드미컬, 퀴즈",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.5,
+    "speed": "빠름",
+    "summary": "차량 옆에 서 있는 진행자와 함께 차를 맞추는 퀴즈 형식 숏폼."
+   }
+  ],
+  "rules": [
+   "첫 3초 내에 커다란 노란색 형광펜 배경의 제목 자막으로 시청자 이목을 끕니다.",
+   "컷 평균 길이는 전체가 단일 롱테이크(약 6.5초)로 유지됩니다.",
+   "자막은 화면 상단 중앙에 노란 박스와 검정색 굵은 고딕체로 배치합니다.",
+   "음악의 박자에 맞춰 타격감 있는 효과음을 동시에 넣어 몰입감을 높입니다.",
+   "브랜드 로고(AutoScout24)는 후반부에 노란색 박스 디자인으로 전환 노출합니다.",
+   "인물이 차에 기대어 선 채 자연스러운 시선 처리를 유도합니다.",
+   "배경음악은 묵직한 힙합 베이스 비트를 사용하여 쇼츠 플랫폼 특유의 트렌디함을 줍니다."
+  ]
+ }
+}

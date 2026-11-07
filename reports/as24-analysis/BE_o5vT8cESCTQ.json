@@ -1,0 +1,133 @@
+{
+ "country": "BE",
+ "title": "BE-082",
+ "url": "https://www.youtube.com/shorts/o5vT8cESCTQ",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1883,
+  "candidatesTokenCount": 1060,
+  "totalTokenCount": 2943,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 915
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.0,
+   "aspect": "9:16",
+   "car": "미확인 초소형 전기차",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 10.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 3.0,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "노란색/검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Merk",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 38.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 8.0,
+    "color": "노란색/검은색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "충격음",
+    "event": "클락션 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "리듬감 있는, 퀴즈 유도형",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "인사 및 브랜드 맞추기 퀴즈 시작 제안"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.0,
+    "end": 10.0,
+    "speed": "보통",
+    "summary": "경적을 울리며 차량 특징을 보여주고 브랜드 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 퀴즈 질문 자막을 띄워 시청자 이탈을 방지한다.",
+   "평균 컷 길이는 짧고 역동적인 비트에 맞춰 전환한다.",
+   "핵심 자막은 노란색 배경 상자에 기울임 효과를 주어 눈에 띄게 배치한다.",
+   "음악의 비트에 맞춰 경적 소리 등의 효과음을 정확히 일치시킨다.",
+   "브랜드 로고나 플랫폼명을 영상 후반부에 스티커 형태로 자연스럽게 노출한다.",
+   "차량 실내 탑승자의 리액션을 중심으로 숏폼 몰입도를 높인다."
+  ]
+ }
+}

@@ -1,0 +1,251 @@
+{
+ "country": "NL",
+ "title": "NL-085",
+ "url": "https://www.youtube.com/shorts/sbgUultk7HQ",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 6528,
+  "candidatesTokenCount": 2648,
+  "totalTokenCount": 9176,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5560
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.5,
+   "aspect": "9:16",
+   "car": "Abarth 595 Competizione",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.5,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 32.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 44.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 49.5,
+    "part": "휠",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 60.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "ZOEK NAAR EEN RACEWAGEN VOOR EEN PRIJS LAGER DAN €25.000",
+    "ko": "25,000유로 미만의 레이스카를 찾고 있다면",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#ffffff",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€25.000",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.5,
+    "text": "DIT IS DE ABARTH 595 COMPETIZIONE",
+    "ko": "이것은 아바스 595 콤페티치오네입니다",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#ffffff",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ABARTH 595 COMPETIZIONE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "type": "톡",
+    "event": "차량 제목 자막",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/일렉",
+   "bpm_est": 124,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "what": "이탈리아 국기 이모지",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 42.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "국가 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "text": "Ben jij op zoek naar een racewagen voor een prijs lager dan € 25.000, dan is deze Abarth iets voor jou.",
+    "ko": "25,000유로 미만의 경주용 차량을 찾고 계신다면 이 아바스가 딱입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 14.0,
+    "text": "Dit is de Abarth 595 Competizione. Wat natuurlijk als eerste opvalt, dat is die wrap die is echt fantastisch. En die is helemaal custom gemaakt in Italië.",
+    "ko": "이것은 아바스 595 콤페티치오네입니다. 가장 먼저 눈에 띄는 것은 랩핑인데, 정말 환상적입니다. 이탈리아에서 완전히 커스텀 제작되었습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 22.0,
+    "text": "En wat ik zelf een leuk weetje vind, is je ziet overal schorpioenen terugkomen. Hier op de motorkap, op het dak, maar ook in het interieur. Maar waarom is dat nu eigenlijk?",
+    "ko": "제가 흥미로운 사실이라고 생각하는 것은 전갈이 어디에나 등장한다는 점입니다. 보닛, 지붕, 그리고 실내에도요. 그런데 왜 그럴까요?"
+   },
+   {
+    "start": 22.0,
+    "end": 31.0,
+    "text": "De oprichter zijn sterrenbeeld is schorpioen. En daarom zie je dus overal schorpioenen terugkomen. Ik vertel je zo het bouwjaar, de kilometerstand en de prijs van deze auto.",
+    "ko": "창립자의 별자리가 전갈자리입니다. 그래서 곳곳에 전갈이 등장하는 것이죠. 잠시 후 이 차의 연식, 주행거리, 가격을 알려드리겠습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 40.0,
+    "text": "Maar kijk eerst even naar het interieur. Je ziet overal carbon accenten terug. Kijk hier in het stuur, zie je zelfs de Italiaanse vlag. En ook deze stoelen zijn volledig van carbon gemaakt.",
+    "ko": "하지만 먼저 실내를 살펴보세요. 곳곳에 카본 액센트가 있습니다. 스티어링 휠을 보시면 이탈리아 국기도 보입니다. 이 시트들도 완전히 카본으로 제작되었습니다."
+   },
+   {
+    "start": 40.0,
+    "end": 49.0,
+    "text": "Deze Abarth is stage 1 getuned en heeft dus meer dan 200 pk. En dat zie je ook terug in de remmen. En kijk even hier in, daar zie je zelfs Abarth staan. Deze auto is echt helemaal af.",
+    "ko": "이 아바스는 스테이지 1 튜닝을 거쳐 200마력이 넘습니다. 브레이크에서도 그 성능을 확인할 수 있습니다. 안쪽을 보시면 아바스 각인도 있습니다. 이 차는 정말 완벽합니다."
+   },
+   {
+    "start": 49.0,
+    "end": 60.5,
+    "text": "Hij komt uit 2017, heeft 43.500 km gelopen. En de exacte prijs, die vind je in de omschrijving. En je vindt hem in de showroom van Mobimall Pordon en natuurlijk op AutoScout24.nl.",
+    "ko": "2017년식이며 주행거리는 43,500km입니다. 정확한 가격은 설명란에서 확인하실 수 있습니다. 모비몰 포르돈 쇼룸과 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "예산 조건 제시하며 차량 첫인상 전달"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.0,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "모델명 및 외관 커스텀 랩핑 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 21.0,
+    "end": 50.0,
+    "speed": "보통",
+    "summary": "실내 카본, 튜닝 성능 및 제원 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 50.0,
+    "end": 60.5,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 판매처 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 대상 차량의 핵심 매력과 가격 조건 제시",
+   "화면 전환은 컷 편집 위주로 빠르게 진행",
+   "핵심 키워드나 가격은 볼드체 및 배경 상자 자막으로 강조",
+   "말소리와 일치하는 직관적인 타이밍에 자막 등장",
+   "이모지나 그래픽 요소는 시각적 환기를 위해 적절히 삽입",
+   "차량 소개 순서는 전면 랩핑 -> 상징 요소 -> 실내/시트 -> 성능/휠 순",
+   "마지막에 연식, 주행거리, 구매 플랫폼 안내로 유도"
+  ]
+ }
+}

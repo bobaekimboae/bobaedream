@@ -1,0 +1,250 @@
+{
+ "country": "BE",
+ "title": "BE-080",
+ "url": "https://www.youtube.com/shorts/w_YlWq35h7Q",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2420,
+  "candidatesTokenCount": 2147,
+  "totalTokenCount": 4567,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1452
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15,
+   "aspect": "9:16",
+   "car": "Fiat Topolino",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.5,
+    "part": "외관 후면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.8,
+    "part": "기타",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.9,
+    "part": "실내",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 6.8,
+    "part": "기타",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 8.9,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.0,
+    "part": "시트",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.7,
+    "part": "시트",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 15.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "FIAT Topolino\n€13.900",
+    "ko": "피아트 토폴리노\n1만 3900유로",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Topolino",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.0,
+    "text": "Vilebrequin Collector's Edition\n1 of 200",
+    "ko": "빌브레퀸 콜렉터즈 에디션\n200대 중 1대",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.0,
+    "text": "Volledig elektrisch",
+    "ko": "완전 전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 11.7,
+    "text": "Maximaal 45km/u",
+    "ko": "최고 속도 시속 45km",
+    "kind": "숫자 사양",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 15.0,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Scout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 90,
+   "mood": "트렌디하고 가벼운 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "차종과 가격 노출"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 2.5,
+    "end": 11.7,
+    "speed": "빠름",
+    "summary": "한정판 에디션, 전기차, 최고속도 등 주요 특징 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 11.7,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "플랫폼 로고 노출 및 탑승 모습"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량명과 가격을 노출한다.",
+   "평균 컷 길이는 1~2초 내외로 빠르게 전환한다.",
+   "자막은 화면 하단 중앙에 배치하고 노란색 박스를 포인트로 활용한다.",
+   "효과음보다는 배경 음악의 비트에 맞춰 컷을 구성한다.",
+   "외관 전면-후면-디테일-실내-주행 스펙 순으로 촬영한다.",
+   "마지막에는 브랜드/플랫폼 로고로 마무리한다."
+  ]
+ }
+}
