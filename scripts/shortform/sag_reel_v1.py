@@ -499,8 +499,9 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     pxr, hr = STYLE['big_pad'] if big else STYLE['pad']
     px = int(cap * pxr)
     w, h = int(tw_all + px * 2), int(cap * hr)
-    if not big and STYLE.get('stk_maxw') and w > W * STYLE['stk_maxw'] and size > 40:  # 긴 이름은 글자를 줄여 가장자리·오른쪽 버튼 줄을 비움
-        return sticker(txt, int(size * W * STYLE['stk_maxw'] / w), tilt, big)
+    mw = STYLE.get('stk_maxw') and (min(.86, STYLE['stk_maxw'] + .16) if big else STYLE['stk_maxw'])
+    if mw and w > W * mw and size > 40:  # 긴 이름은 글자를 줄여 가장자리·오른쪽 버튼 줄을 비움(큰 숫자는 86%까지)
+        return sticker(txt, int(size * W * mw / w), tilt, big)
     if not big and STYLE.get('stk_minw'):  # 오토스카우트24: 짧은 낱말도 칠은 화면 폭 절반가량(「Carbon」 55%)
         w = max(w, int(W * STYLE['stk_minw']))
     m = 30
@@ -701,7 +702,7 @@ def overlay(T, total, shots, shot, blk):
         en = min(en, st + 2.6)
         if not (st <= T < en):
             continue
-        big = bool(re.search(r'\d', txt))
+        big = bool(re.search(r'\d', txt)) and (STYLE.get('feat_pos') != 'as24' or len(txt.replace(' ', '')) <= 9)  # 숫자 사양만 크게(「2열 열선·통풍·전동」 같은 기능 이름은 기능 스티커)
         tilt = (-3, 2.5, -2, 3, -2.5, 2)[(bi + si) % 6] * STYLE.get('tilt_k', 1.0)
         im = sticker(txt, STYLE['big_size'] if big else STYLE['feat_size'], tilt, big)
         k = T - st
