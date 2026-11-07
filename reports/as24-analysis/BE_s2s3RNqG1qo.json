@@ -1,0 +1,189 @@
+{
+ "country": "BE",
+ "title": "BE-055",
+ "url": "https://www.youtube.com/shorts/s2s3RNqG1qo",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1877,
+  "candidatesTokenCount": 1508,
+  "totalTokenCount": 3385,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.3,
+   "aspect": "9:16",
+   "car": "Renault Twingo",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "en"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 2.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "part": "시트",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "part": "휠",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.0,
+    "part": "외관 후면",
+    "camera": "옆 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.0,
+    "part": "외관 후면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.3,
+    "part": "외관 후면",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.0,
+    "end": 6.0,
+    "text": "Renault Twingo",
+    "ko": "르노 트윙고",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.3,
+    "text": "Auto Scout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 100,
+   "mood": "경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "차량 전후면 숏컷 모음"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 6.0,
+    "speed": "빠름",
+    "summary": "르노 트윙고 외관 및 실내 핵심 포인트 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 6.0,
+    "end": 9.3,
+    "speed": "보통",
+    "summary": "후면 디테일 및 플랫폼 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시선을 사로잡는 빠른 컷 전환 사용",
+   "평균 컷 길이는 약 1초 내외로 매우 짧고 리드미컬함",
+   "핵심 제목과 브랜드 로고는 노란색 형광펜 배경 상자에 검은색 텍스트로 강조",
+   "사운드 비트에 맞춰 화면 컷 전환 동기화",
+   "외관 전면, 실내, 시트, 휠, 후면 순서로 차량 구석구석을 빠르게 훑음",
+   "음성 해설 없이 배경 음악과 자막만 활용",
+   "마지막에는 플랫폼 로고를 노출하여 브랜드 각인"
+  ]
+ }
+}

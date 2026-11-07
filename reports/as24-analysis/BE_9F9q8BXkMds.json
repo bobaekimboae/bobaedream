@@ -1,0 +1,659 @@
+{
+ "country": "BE",
+ "title": "BE-057",
+ "url": "https://www.youtube.com/shorts/9F9q8BXkMds",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5622,
+  "candidatesTokenCount": 6266,
+  "totalTokenCount": 11888,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4654
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.5,
+   "aspect": "9:16",
+   "car": "BMW X5 xDrive50e",
+   "format": "차 소개/가격 공개/정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.8,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.1,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 18.5,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 27.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 27.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.7,
+    "end": 28.7,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 33.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 36.3,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 37.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.3,
+    "end": 43.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 47.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 51.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "BMW X5 xDrive50e €75.900",
+    "ko": "BMW X5 xDrive50e 75,900유로",
+    "kind": "제목",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#ffffff",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€75.900",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "360 graden camera",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "360 graden",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "text": "dodehoekdetectie",
+    "ko": "사각지대 감지",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "dodehoek",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "Gebarentaal",
+    "ko": "제스처 제어",
+    "kind": "키워드 스티커",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Gebarentaal",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "warm",
+    "ko": "따뜻함",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "warm",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "text": "Elektrisch verstelbare stoelen + memory functie",
+    "ko": "전동 조절 시트 + 메모리 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 90,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "memory",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.0,
+    "text": "Lederen stoelen",
+    "ko": "가죽 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Lederen",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.0,
+    "text": "Softclose",
+    "ko": "소프트 클로즈",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Softclose",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.0,
+    "text": "Elektrische kofferklep",
+    "ko": "전동 트렁크 테일게이트",
+    "kind": "키워드 스티커",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "kofferklep",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.5,
+    "text": "Elektrische trekhaak",
+    "ko": "전동 견인고리",
+    "kind": "키워드 스티커",
+    "y_pct": 10,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "trekhaak",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.0,
+    "text": "2023",
+    "ko": "2023년식",
+    "kind": "숫자 사양",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 12,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2023",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.5,
+    "text": "68.000 KM",
+    "ko": "68,000 km",
+    "kind": "숫자 사양",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "68.000",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.0,
+    "text": "€75.900",
+    "ko": "75,900유로",
+    "kind": "가격",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 10,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "75.900",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 51.5,
+    "text": "AutoScout24.be",
+    "ko": "AutoScout24.be",
+    "kind": "로고",
+    "y_pct": 80,
+    "x_center_pct": 70,
+    "text_height_pct": 10,
+    "color": "#000000",
+    "background": "형광펜 칠",
+    "bg_color": "#ffcc00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌함/신남",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Achter mij staat een BMW X5 50e en die is bomvol uitgerust.",
+    "ko": "내 뒤에는 BMW X5 50e가 있고, 옵션이 꽉 차 있습니다."
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "text": "Hij is uitgevoerd in de kleur carbonschwarz en heeft een 360 graden camera,",
+    "ko": "카본 블랙 색상이며 360도 카메라가 있습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 10.0,
+    "text": "dodehoekdetectie,",
+    "ko": "사각지대 감지 기능이 있습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "camera in uw boordcomputer,",
+    "ko": "계기판 화면 카메라,"
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "gebarentaal,",
+    "ko": "제스처 제어,"
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "bekerhouders die je drankje koel of warm houden,",
+    "ko": "음료를 차갑거나 따뜻하게 유지하는 컵홀더,"
+   },
+   {
+    "start": 15.0,
+    "end": 18.5,
+    "text": "stoelventilatie, verwarming en stuurverwarming,",
+    "ko": "시트 통풍, 열선 및 핸들 열선,"
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "de mogelijkheid om je auto in hoogte te verstellen,",
+    "ko": "차량 높낮이 조절 기능,"
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "text": "elektrisch verstelbare stoelen met memory functie,",
+    "ko": "메모리 기능이 포함된 전동 시트,"
+   },
+   {
+    "start": 23.0,
+    "end": 24.3,
+    "text": "panoramadak,",
+    "ko": "파노라마 선루프,"
+   },
+   {
+    "start": 24.3,
+    "end": 27.0,
+    "text": "lederen stoelen met kopsteun verstelfunctie,",
+    "ko": "헤드레스트 조절 기능이 있는 가죽 시트,"
+   },
+   {
+    "start": 27.0,
+    "end": 28.7,
+    "text": "softclose,",
+    "ko": "소프트 클로즈,"
+   },
+   {
+    "start": 28.7,
+    "end": 33.3,
+    "text": "oplaadpunt van achter, handige opbergvakjes en een bekerhouder,",
+    "ko": "뒷좌석 충전 포트, 유용한 수납함과 컵홀더,"
+   },
+   {
+    "start": 33.3,
+    "end": 36.3,
+    "text": "en voor extra luxe stoelverwarming op de achterbank",
+    "ko": "그리고 추가적인 고급스러움을 위한 뒷좌석 열선시트,"
+   },
+   {
+    "start": 36.3,
+    "end": 37.0,
+    "text": "en nog wat extra privacy.",
+    "ko": "그리고 프라이버시 보호 기능까지."
+   },
+   {
+    "start": 37.0,
+    "end": 38.8,
+    "text": "Elektrische kofferklep",
+    "ko": "전동 트렁크 테일게이트"
+   },
+   {
+    "start": 38.8,
+    "end": 40.0,
+    "text": "en een elektrische trekhaak.",
+    "ko": "그리고 전동 견인고리."
+   },
+   {
+    "start": 40.0,
+    "end": 41.3,
+    "text": "Hij komt uit 2023,",
+    "ko": "2023년식이며,"
+   },
+   {
+    "start": 41.3,
+    "end": 44.5,
+    "text": "heeft 68.000km gereden",
+    "ko": "68,000km 주행했고,"
+   },
+   {
+    "start": 44.5,
+    "end": 47.0,
+    "text": "en hij kost €75.900.",
+    "ko": "가격은 75,900유로입니다."
+   },
+   {
+    "start": 47.0,
+    "end": 51.5,
+    "text": "Je vindt hem bij Autoswitch en op AutoScout24.be.",
+    "ko": "Autoswitch와 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "차량 소개와 가격 노출"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.8,
+    "end": 37.0,
+    "speed": "빠름",
+    "summary": "다양한 편의사양과 옵션을 빠르게 나열하며 실내외 촬영"
+   },
+   {
+    "stage": "사양",
+    "start": 37.0,
+    "end": 47.0,
+    "speed": "빠름",
+    "summary": "트렁크, 연식, 주행거리, 가격 정보 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 47.0,
+    "end": 51.5,
+    "speed": "빠름",
+    "summary": "구매 플랫폼 안내 및 아웃트로"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량명, 가격, 핵심 비주얼을 동시에 노출해 이탈을 방지한다.",
+   "평균 컷 길이는 1~3초로 매우 짧게 가져가며 속도감을 극대화한다.",
+   "자막은 화면 중앙 또는 상/하단에 노란색 형광펜 배경 박스 + 검은색/흰색 글씨 조합을 쓴다.",
+   "핵심 키워드나 숫자는 자막 안에서 색상을 다르게 하거나 강조한다.",
+   "효과음보다는 빠른 말하기와 컷 전환 자체로 리듬감을 만든다.",
+   "외관 전면에서 시작해 실내 주요 옵션을 훑고, 후면 및 스펙/가격으로 마무리한다.",
+   "진행자가 직접 차량을 만지며 기능을 시연하는 핸드헬드 쇼츠 형식을 유지한다."
+  ]
+ }
+}

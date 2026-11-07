@@ -1,0 +1,166 @@
+{
+ "country": "NL",
+ "title": "NL-056",
+ "url": "https://www.youtube.com/shorts/BjbjSiQWEgs",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1696,
+  "candidatesTokenCount": 1394,
+  "totalTokenCount": 3090,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 728
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 7.5,
+   "aspect": "9:16",
+   "car": "미확인",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "없음",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RAAD",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.3,
+    "text": "LAAT HET WETEN IN DE REACTIES!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "노란색",
+    "background": "없음",
+    "bg_color": "없음",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WETEN",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "검정색",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "첫 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.1,
+    "type": "톡",
+    "event": "둘째 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.3,
+    "type": "톡",
+    "event": "로고 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 7.5,
+    "text": "Raad het merk. Laat het weten in de reacties!",
+    "ko": "브랜드를 맞춰보세요. 댓글로 알려주세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "빠름",
+    "summary": "브랜드 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 2.1,
+    "end": 7.5,
+    "speed": "빠름",
+    "summary": "댓글 참여 유도 및 브랜드 로고 노출"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 참여를 유도하는 퀴즈성 자막을 띄워 이탈을 방지한다.",
+   "전체 영상은 1개의 고정 컷으로 구성해 인물의 자연스러운 리액션에 집중한다.",
+   "자막은 화면 하단 중앙에 배치하고 글자 크기를 키워 가독성을 높인다.",
+   "중요 키워드(RAAD, WETEN)는 노란색으로 강조한다.",
+   "자막과 로고가 등장할 때마다 톡 튀어나오는 애니메이션과 효과음을 함께 넣는다.",
+   "마지막 화면에는 플랫폼 로고(오토스카우트24)를 노출해 브랜드를 각인시킨다.",
+   "배경음악은 인물의 목소리를 묻지 않도록 적절히 조절한다.",
+   "불필요한 컷 전환 없이 하나의 질문에 집중하는 미니 퀴즈 포맷을 활용한다."
+  ]
+ }
+}

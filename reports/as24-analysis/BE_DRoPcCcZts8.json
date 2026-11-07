@@ -1,0 +1,284 @@
+{
+ "country": "BE",
+ "title": "BE-056",
+ "url": "https://www.youtube.com/shorts/DRoPcCcZts8",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4697,
+  "candidatesTokenCount": 2758,
+  "totalTokenCount": 7455,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3729
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41,
+   "aspect": "9:16",
+   "car": "Renault 4 E-Tech (전기차) & Renault 4 (1961)",
+   "format": "차 소개/역사 비교/전기차 리부트",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 9.3,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 25.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 31.0,
+    "part": "기타",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 35.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 41.0,
+    "part": "사람",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Wist je dat dit misschien wel de belangrijkste Renault ooit is?",
+    "ko": "이것이 어쩌면 가장 중요한 르노일지도 모른다는 것을 아시나요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "흰색",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "belangrijkste",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 41.0,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "노란색",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "팝/라운지",
+   "bpm_est": 110,
+   "mood": "경쾌함, 정보성",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 6.5,
+    "end": 9.0,
+    "what": "구형 르노 4 매물 정보 카드(오토스카우트24 UI 화면 오버레이)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 52.0,
+    "y_pct": 42.0,
+    "entrance": "오른쪽에서 밀려옴",
+    "purpose": "과거 모델 가격 및 사양 정보 제시",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 35.5,
+    "what": "신형 및 구형 르노 4 3D 모형/합성 이미지 비교",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "신구 모델 디자인 비교 및 질문 던지기",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Wist je dat dit misschien wel de belangrijkste Renault ooit is?",
+    "ko": "이것이 어쩌면 가장 중요한 르노일지도 모른다는 것을 아시나요?"
+   },
+   {
+    "start": 3.7,
+    "end": 9.3,
+    "text": "In 1961 lanceerde Renault de Renault 4 als antwoord op de 2CV.",
+    "ko": "1961년 르노는 2CV에 대한 응답으로 르노 4를 출시했습니다."
+   },
+   {
+    "start": 9.3,
+    "end": 13.5,
+    "text": "De auto moest betaalbaar, praktisch en comfortabel zijn.",
+    "ko": "자동차는 저렴하고 실용적이며 편안해야 했습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "text": "In de 33 jaar die volgden werden er meer dan 8 miljoen exemplaren gebouwd.",
+    "ko": "이어지는 33년 동안 8백만 대 이상이 생산되었습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "text": "En daarmee behoort de Renault 4 tot de best verkochte auto's ooit.",
+    "ko": "그리하여 르노 4는 역대 가장 많이 팔린 자동차 중 하나가 되었습니다."
+   },
+   {
+    "start": 21.0,
+    "end": 25.0,
+    "text": "Nu ruim 60 jaar later brengt Renault deze legende terug,",
+    "ko": "지금 60년이 넘은 지금, 르노는 이 전설을 되살립니다,"
+   },
+   {
+    "start": 25.0,
+    "end": 31.0,
+    "text": "maar dit keer volledig elektrisch met hetzelfde praktische karakter en een knipoog naar het originele design.",
+    "ko": "하지만 이번에는 완전 전기차로, 동일한 실용적 성격과 오리지널 디자인에 대한 오마주를 담았습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 35.5,
+    "text": "Wat vind jij? Is de nieuwe Renault 4 een waardige opvolger voor het oude model?",
+    "ko": "어떻게 생각하시나요? 신형 르노 4는 구형 모델의 가치 있는 후속작인가요?"
+   },
+   {
+    "start": 35.5,
+    "end": 41.0,
+    "text": "Je vindt hem in de showroom van Garage Saba en op AutoScout24.be.",
+    "ko": "가라지 사바 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "가장 중요한 르노 차에 대한 질문으로 시청자 이목 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "1961년 출시된 원조 르노 4의 역사와 판매량 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 21.0,
+    "end": 31.0,
+    "speed": "보통",
+    "summary": "전기차로 부활한 신형 르노 4의 특징과 디자인 설명"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 31.0,
+    "end": 41.0,
+    "speed": "빠름",
+    "summary": "시청자 의견 질문 및 매장/플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 가장 자극적이거나 호기심을 유발하는 질문형 훅으로 시작할 것",
+   "프레젠터가 차 주위를 걸으며 직접 소개하고, 카메라가 자연스럽게 이동할 것",
+   "과거 모델 언급 시 화면 위에 중고차 플랫폼 매물 스크린샷 카드를 띄울 것",
+   "신구 모델 비교 부분에서는 3D 그래픽/합성 요소를 활용하여 시각적 재미를 더할 것",
+   "자막은 한 화면에 짧은 문장 단위로 띄우고 핵심 단어를 강조할 것",
+   "촬영 부위는 전면 -> 측면 -> 후면 -> 실내 순서로 자연스럽게 이동할 것",
+   "마지막에는 시청자 참여 유도 질문과 함께 플랫폼/매장 정보로 마무리할 것"
+  ]
+ }
+}
