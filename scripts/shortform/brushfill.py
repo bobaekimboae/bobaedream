@@ -100,6 +100,40 @@ def brush_mask(w: int, h: int, variant: int | None = None, text: str = "", margi
     return m.resize((w + margin * 2, h + margin * 2), Image.LANCZOS)
 
 
+ORIGINAL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "public", "assets", "shortform", "brush-fill", "as24-original")
+# 원본 칠(노션 아이콘 DB, 파일 수정 없음)과 원본 비율. 글자 칸 비율에 가장 가까운 것을 늘려 쓴다.
+ORIGINALS = {"yellow_mark": 72 / 38, "highlighter": 116 / 33, "disruptor": 214 / 23}
+# 원본 칠 안에서 글자를 둘 안전 영역(원본 모양을 재서 정함: yellow_mark·highlighter는 위·아래 홈이 있어 더 비움)
+ORIGINAL_SAFE = {
+    "yellow_mark": {"left": 0.12, "right": 0.12, "top": 0.20, "bottom": 0.20},
+    "highlighter": {"left": 0.10, "right": 0.10, "top": 0.18, "bottom": 0.22},
+    "disruptor": {"left": 0.05, "right": 0.07, "top": 0.14, "bottom": 0.14},
+}
+
+
+def pick_original(w: float, h: float) -> str:
+    """글자 칸에 쓸 원본 칠: 짧은 칸(가로÷세로 2.6 미만)은 형광 마커, 그 밖은 벨기에 리본 칠과 같은 형광 강조선.
+    형광펜 밑줄(highlighter)은 이름으로 골라 쓴다(위·아래 홈이 글자에 가까워 기본에서는 뺌)."""
+    r = max(0.1, w / max(1, h))
+    return "yellow_mark" if r < 2.6 else "disruptor"
+
+
+def original_mask(w: int, h: int, name: str | None = None, margin: int = 0) -> Image.Image:
+    """오토스카우트24 원본 칠 SVG를 w×h로 늘려 그린 알파 마스크(PIL 'L'). rsvg-convert 사용, 원본 파일은 그대로."""
+    import io
+    import subprocess
+
+    name = name or pick_original(w, h)
+    path = os.path.join(ORIGINAL_DIR, name + ".svg")
+    png = subprocess.run(["rsvg-convert", "-w", str(w), "-h", str(h), path], check=True, capture_output=True).stdout
+    im = Image.open(io.BytesIO(png)).convert("RGBA")
+    if im.size != (w, h):
+        im = im.resize((w, h), Image.LANCZOS)
+    m = Image.new("L", (w + margin * 2, h + margin * 2), 0)
+    m.paste(im.getchannel("A"), (margin, margin))
+    return m
+
+
 def safe_box(w: int, h: int) -> tuple[float, float, float, float]:
     """글자를 둘 안전 영역 (x0, y0, x1, y1)"""
     return (w * SAFE["left"], h * SAFE["top"], w * (1 - SAFE["right"]), h * (1 - SAFE["bottom"]))

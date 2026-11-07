@@ -518,7 +518,11 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
                 emo = emo.resize((int(badge * 0.8), int(emo.height * badge * 0.8 / emo.width)), Image.LANCZOS)
         except Exception:
             emo = None
-    if STYLE.get('stk_shape') == 'as24':  # 공용 칠 라이브러리(오토스카우트24 벨기에 리본 칠): 매끈한 위·아래 곡선 + 오른쪽 붓털
+    if STYLE.get('stk_shape') == 'as24':  # 오토스카우트24 원본 칠(노션 아이콘 DB, 파일 그대로): 칸 비율에 맞는 원본을 골라 늘림
+        from brushfill import original_mask
+        mask = original_mask(w, h, margin=m)
+        return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
+    if STYLE.get('stk_shape') == 'as24gen':  # 공용 칠 라이브러리 v1(원본을 본떠 새로 그린 리본 칠 8종)
         from brushfill import brush_mask
         mask = brush_mask(w, h, text=txt, margin=m)
         return _sticker_finish(txt, k, mask, m, w, h, fnt, tw, cap, size, chk, badge, emo, tilt)
