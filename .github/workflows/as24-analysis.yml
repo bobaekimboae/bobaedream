@@ -1,7 +1,8 @@
 name: AS24 shorts edit analysis (Gemini)
 
-# 오토스카우트24 쇼츠를 Gemini로 해부한다. 이 브랜치에 push하면 돈다.
-# 결과는 as24-analysis-results 브랜치의 reports/as24-analysis/ 에 올린다(main 배포와 무관).
+# 오토스카우트24 쇼츠(네덜란드·벨기에 각 100편)를 Gemini로 해부한다. 이 브랜치에 push하면 돈다.
+# 결과는 as24-analysis-results 브랜치의 reports/as24-analysis/ 에 쌓인다(main 배포와 무관).
+# 이미 끝난 영상은 건너뛰므로, 한도·시간 때문에 멈추면 다시 실행(workflow_dispatch)하면 이어서 한다.
 on:
   push:
     branches: [codex/as24-analysis]
@@ -15,38 +16,48 @@ permissions:
 
 concurrency:
   group: as24-analysis
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   analyze:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Load earlier results (resume)
+        run: |
+          mkdir -p out
+          if git fetch -q origin as24-analysis-results; then
+            git archive origin/as24-analysis-results reports/as24-analysis | tar -x -C /tmp || true
+            cp /tmp/reports/as24-analysis/*.json out/ 2>/dev/null || true
+          fi
+          ls out | wc -l
       - name: Analyze shorts with Gemini
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          AS24_FPS: "2"
-        run: python scripts/shortform/as24/analyze_gemini.py scripts/shortform/as24/targets.txt out
+          AS24_FPS: "1"
+          AS24_RPM: "8"
+          AS24_BUDGET_MIN: "320"
+        run: python -u scripts/shortform/as24/analyze_gemini.py scripts/shortform/as24/targets.txt out
       - name: Push results to results branch
         if: always()
         run: |
           [ -d out ] || exit 0
+          cp -r out /tmp/as24-out
           git config user.name "bobaedream-analysis-bot"
           git config user.email "actions@users.noreply.github.com"
-          git fetch origin as24-analysis-results || true
           if git rev-parse --verify origin/as24-analysis-results >/dev/null 2>&1; then
-            git checkout -B as24-analysis-results origin/as24-analysis-results
+            git checkout -q -B as24-analysis-results origin/as24-analysis-results
           else
-            git checkout --orphan as24-analysis-results
-            git rm -rf --cached . >/dev/null
-            find . -mindepth 1 -maxdepth 1 ! -name .git ! -name out -exec rm -rf {} +
+            git checkout -q --orphan as24-analysis-results
+            git rm -rfq --cached . >/dev/null
+            find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
           fi
           mkdir -p reports/as24-analysis
-          cp out/*.json reports/as24-analysis/
+          cp /tmp/as24-out/*.json reports/as24-analysis/
           git add reports/as24-analysis
-          git commit -m "data: AS24 shorts analysis ${GITHUB_SHA::7}" || exit 0
-          git push origin as24-analysis-results
+          git commit -qm "data: AS24 shorts analysis ${GITHUB_SHA::7}" || exit 0
+          git push -q origin as24-analysis-results

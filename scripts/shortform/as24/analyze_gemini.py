@@ -15,7 +15,14 @@ API = "https://generativelanguage.googleapis.com/v1beta"
 KEY = os.environ["GEMINI_API_KEY"]
 OUT = sys.argv[2] if len(sys.argv) > 2 else "as24-out"
 TARGETS = sys.argv[1] if len(sys.argv) > 1 else "scripts/shortform/as24/targets.txt"
-FPS = float(os.environ.get("AS24_FPS", "2"))
+FPS = float(os.environ.get("AS24_FPS", "1"))
+BUDGET_MIN = float(os.environ.get("AS24_BUDGET_MIN", "320"))  # 이 시간이 지나면 멈추고 결과를 올린다(다음 실행이 이어서 함)
+RPM = float(os.environ.get("AS24_RPM", "8"))  # 1분 요청 수 상한(무료 등급 보호)
+T0 = time.time()
+
+
+class DailyQuota(Exception):
+    pass
 
 PROMPT = """너는 숏폼 영상 편집 분석가다. 이 유튜브 쇼츠(오토스카우트24 공식 계정, 중고차 플랫폼)를 처음부터 끝까지 보고 들은 뒤,
 우리 회사 숏폼 편집 기준표를 만들기 위해 편집 기법을 시간순으로 정밀 분석해라.
@@ -56,13 +63,14 @@ def call(method, path, body=None, timeout=600):
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return json.loads(r.read())
     except urllib.error.HTTPError as e:
-        msg = e.read().decode(errors="replace")[:600]
+        msg = e.read().decode(errors="replace")[:1500]
         raise RuntimeError(f"HTTP {e.code}: {msg}") from None
 
 
 def pick_model():
     if os.environ.get("GEMINI_MODEL"):
         return os.environ["GEMINI_MODEL"]
+    pref = os.environ.get("AS24_MODEL_PREF", "flash")  # 200편은 하루 한도가 넉넉한 flash
     names = []
     tok = ""
     while True:
@@ -78,8 +86,9 @@ def pick_model():
     def score(n):
         v = re.search(r"gemini-(\d+(?:\.\d+)?)", n)
         ver = float(v.group(1)) if v else 0
-        bad = any(k in n for k in ("tts", "image", "embedding", "live", "audio", "lite", "robotics", "computer"))
-        return (not bad, "pro" in n, "preview" not in n and "exp" not in n, ver)
+        bad = any(k in n for k in ("tts", "image", "embedding", "live", "audio", "lite", "robotics", "computer", "nano", "gemma"))
+        stable = "preview" not in n and "exp" not in n and not re.search(r"-\d{3,}$", n)
+        return (not bad, pref in n, stable, ver)
 
     cands = [n for n in names if n.startswith("gemini-")]
     best = max(cands, key=score)
@@ -98,6 +107,17 @@ def parse_json(txt):
     return json.loads(txt)
 
 
+_last = [0.0]
+
+
+def throttle():
+    gap = 60.0 / RPM
+    wait = _last[0] + gap - time.time()
+    if wait > 0:
+        time.sleep(wait)
+    _last[0] = time.time()
+
+
 def analyze(model, url):
     vid, watch = yt_watch(url)
     part = {"file_data": {"file_uri": watch}}
@@ -105,44 +125,78 @@ def analyze(model, url):
         "contents": [{"parts": [dict(part, video_metadata={"fps": FPS}), {"text": PROMPT}]}],
         "generationConfig": {"responseMimeType": "application/json", "temperature": 0.2},
     }
-    for attempt in range(4):
+    last_err = ""
+    for attempt in range(5):
+        throttle()
         try:
             res = call("POST", f"models/{model}:generateContent", body)
             break
         except RuntimeError as e:
-            print(f"  {vid} 시도 {attempt + 1} 실패: {e}")
-            if "video_metadata" in str(e) or "videoMetadata" in str(e) or "fps" in str(e):
-                body["contents"][0]["parts"][0] = part  # fps 지정이 안 되면 기본(1초 1장)으로
-            time.sleep(20 * (attempt + 1))
+            last_err = str(e)
+            print(f"  {vid} 시도 {attempt + 1} 실패: {last_err[:300]}")
+            if "HTTP 429" in last_err and re.search(r"PerDay|per day|daily", last_err, re.I):
+                raise DailyQuota(last_err)
+            if "video_metadata" in last_err or "videoMetadata" in last_err or "fps" in last_err:
+                body["contents"][0]["parts"][0] = part
+            m = re.search(r'"retryDelay":\s*"(\d+)s"', last_err)
+            time.sleep(int(m.group(1)) + 2 if m else 15 * (attempt + 1))
     else:
-        return vid, {"error": "4번 모두 실패"}, None
-    txt = "".join(p.get("text", "") for p in res["candidates"][0]["content"]["parts"])
+        return vid, {"error": last_err[:500]}, None
+    try:
+        txt = "".join(p.get("text", "") for p in res["candidates"][0]["content"]["parts"])
+    except Exception:
+        return vid, {"error": "응답 없음", "raw": json.dumps(res)[:800]}, res.get("usageMetadata")
     try:
         data = parse_json(txt)
-    except Exception as e:  # JSON이 깨지면 원문을 남긴다
+    except Exception as e:
         data = {"parse_error": str(e), "raw": txt}
     return vid, data, res.get("usageMetadata")
+
+
+def done_ok(path):
+    try:
+        d = json.load(open(path, encoding="utf-8"))
+        return isinstance(d.get("analysis"), dict) and "basic" in d["analysis"]
+    except Exception:
+        return False
 
 
 def main():
     os.makedirs(OUT, exist_ok=True)
     model = pick_model()
     rows = [l.rstrip("\n").split("\t") for l in open(TARGETS, encoding="utf-8") if l.strip() and not l.startswith("#")]
-    summary = []
+    n_new = n_skip = n_fail = 0
+    stop = ""
     for country, title, url in rows:
-        print(f"분석: {country} {title} {url}")
-        vid, data, usage = analyze(model, url)
+        vid, _ = yt_watch(url)
+        path = os.path.join(OUT, f"{country}_{vid}.json")
+        if done_ok(path):
+            n_skip += 1
+            continue
+        if (time.time() - T0) / 60 > BUDGET_MIN:
+            stop = "시간 예산 끝"
+            break
+        print(f"분석: {country} {title} {url}", flush=True)
+        try:
+            vid, data, usage = analyze(model, url)
+        except DailyQuota as e:
+            stop = "하루 한도 도달: " + str(e)[:200]
+            break
         doc = {"country": country, "title": title, "url": url, "model": model, "fps": FPS, "usage": usage, "analysis": data}
-        with open(os.path.join(OUT, f"{country}_{vid}.json"), "w", encoding="utf-8") as f:
+        with open(path, "w", encoding="utf-8") as f:
             json.dump(doc, f, ensure_ascii=False, indent=1)
-        ok = isinstance(data, dict) and "basic" in data
-        summary.append({"country": country, "title": title, "id": vid, "ok": ok, "usage": usage})
-        print("  완료" if ok else "  실패/형식 오류")
-        time.sleep(5)
+        if isinstance(data, dict) and "basic" in data:
+            n_new += 1
+            print("  완료", flush=True)
+        else:
+            n_fail += 1
+            print("  실패/형식 오류", flush=True)
+    ok = sum(done_ok(os.path.join(OUT, f)) for f in os.listdir(OUT) if f.endswith(".json") and not f.startswith("_"))
+    summ = {"model": model, "fps": FPS, "new": n_new, "skipped": n_skip, "failed": n_fail, "ok_total": ok,
+            "targets": len(rows), "stopped": stop}
     with open(os.path.join(OUT, "_summary.json"), "w", encoding="utf-8") as f:
-        json.dump({"model": model, "fps": FPS, "items": summary}, f, ensure_ascii=False, indent=1)
-    if not any(s["ok"] for s in summary):
-        sys.exit(1)
+        json.dump(summ, f, ensure_ascii=False, indent=1)
+    print("요약:", json.dumps(summ, ensure_ascii=False))
 
 
 if __name__ == "__main__":
