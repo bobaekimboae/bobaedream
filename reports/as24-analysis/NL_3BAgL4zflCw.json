@@ -1,0 +1,457 @@
+{
+ "country": "NL",
+ "title": "NL-072",
+ "url": "https://www.youtube.com/shorts/3BAgL4zflCw",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4617,
+  "candidatesTokenCount": 4565,
+  "totalTokenCount": 9182,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3649
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.5,
+   "aspect": "9:16",
+   "car": "Audi A6 Avant",
+   "format": "차 소개/가격 공개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.9,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 11.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 17.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 27.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 34.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "VOORDAT JE DEZE",
+    "ko": "이 차량을 사기 전에",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DEZE",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.5,
+    "text": "AUDI A6 AVANT",
+    "ko": "아우디 A6 아반트",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AVANT",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.0,
+    "text": "MOET JE DIT WETEN",
+    "ko": "이걸 알아야 합니다",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WETEN",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 11.0,
+    "text": "PLUG-IN HYBRIDE ✓",
+    "ko": "플러그인 하이브리드 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HYBRIDE",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "text": "367 PK 🏁",
+    "ko": "367 마력 🏁",
+    "kind": "숫자 사양",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "367",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "QUATTRO VIERWIELAANDRIJVING ✓",
+    "ko": "콰트로 사륜구동 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "QUATTRO",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 27.0,
+    "text": "COMPETITION S-PAKKET ✓",
+    "ko": "컴피티션 S 패키지 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "S-PAKKET",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "2022",
+    "ko": "2022년식",
+    "kind": "숫자 사양",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2022",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.5,
+    "text": "70.000 KM",
+    "ko": "70,000 km",
+    "kind": "숫자 사양",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "70.000",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 34.5,
+    "text": "€45.650",
+    "ko": "45,650 유로",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "45.650",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "BOUTEN AUTOMOTIVE ✓",
+    "ko": "바우텐 오토모티브 ✓",
+    "kind": "로고",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOMOTIVE",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 120,
+   "mood": "upbeat",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Voordat je deze Audi A6 Avant koopt, moet je dit weten.",
+    "ko": "이 아우디 A6 아반트를 사기 전에 이걸 알아야 합니다."
+   },
+   {
+    "start": 3.0,
+    "end": 7.0,
+    "text": "En de prijs, bouwjaar en kilometerstand vertel ik je op het eind.",
+    "ko": "그리고 가격, 연식, 주행거리는 끝에 알려드릴게요."
+   },
+   {
+    "start": 7.0,
+    "end": 11.0,
+    "text": "Er is een plug-in hybride. Dat betekent dat hij een benzine- en elektromotor combineert.",
+    "ko": "플러그인 하이브리드입니다. 가솔린 엔진과 전기 모터가 결합되어 있다는 뜻이죠."
+   },
+   {
+    "start": 11.0,
+    "end": 17.0,
+    "text": "Maar deze auto draait niet alleen om zuinig rijden, want samen hebben die motoren 367 pk.",
+    "ko": "하지만 이 차는 연비만을 위한 게 아닙니다. 두 모터가 합쳐서 367마력을 내거든요."
+   },
+   {
+    "start": 17.0,
+    "end": 21.0,
+    "text": "En door die quattro vierwielaandrijving heb je grip bij elke weersomstandigheden.",
+    "ko": "그리고 콰트로 사륜구동 덕분에 어떤 날씨에도 그립력을 유지합니다."
+   },
+   {
+    "start": 21.0,
+    "end": 24.0,
+    "text": "Hij heeft mooie sportstoelen, een digitaal dashboard",
+    "ko": "멋진 스포츠 시트와 디지털 계기판이 있고,"
+   },
+   {
+    "start": 24.0,
+    "end": 27.0,
+    "text": "en het competition S-pakket waardoor hij een sportievere look krijgt.",
+    "ko": "컴피티션 S 패키지가 적용되어 더 스포티한 외관을 보여줍니다."
+   },
+   {
+    "start": 27.0,
+    "end": 34.5,
+    "text": "Hij komt uit 2022, heeft net geen 70.000 km gelopen en de prijs is €45.650.",
+    "ko": "2022년식이고 주행거리는 7만km가 채 안 되며, 가격은 45,650유로입니다."
+   },
+   {
+    "start": 34.5,
+    "end": 40.5,
+    "text": "Je vindt hem natuurlijk op AutoScout24.nl en in de showroom van Bouten Automotive.",
+    "ko": "AutoScout24.nl과 바우텐 오토모티브 전시장에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "차량 모델명 소개 및 구매 전 필수 시청 유도"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.0,
+    "end": 27.0,
+    "speed": "빠름",
+    "summary": "하이브리드 시스템, 마력, 사륜구동, 실내 및 S패키지 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 27.0,
+    "end": 40.5,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 가격 공개 및 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 핵심 차량 모델명과 '이것만은 알아야 한다'는 훅을 던져 이탈을 막는다.",
+   "컷 평균 길이는 2~3초 내외로 짧게 유지하여 지루함을 없앤다.",
+   "자막은 화면 하단 중앙에 검정 배경 상자와 흰색 글씨 조합을 기본으로 사용한다.",
+   "핵심 스펙(마력, 가격, 연식 등)은 노란색 글씨나 별도 색상으로 강조한다.",
+   "체크마크(✓)나 깃발(🏁) 같은 이모지를 키워드 스티커에 적극 활용한다.",
+   "차량 부위 촬영 순서: 외관 전면 -> 측면 -> 충전구 -> 실내 운전석 -> 후면 램프 -> 실내 계기판 및 시트 -> 외관 전면.",
+   "가격, 연식, 주행거리 등의 정보는 영상 후반부에 몰아서 스피디하게 공개한다.",
+   "마무리 단계에서 구체적인 플랫폼(AutoScout24)과 판매처 상명을 명시하여 행동을 유도한다."
+  ]
+ }
+}

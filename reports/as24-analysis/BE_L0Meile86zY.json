@@ -1,0 +1,400 @@
+{
+ "country": "BE",
+ "title": "BE-072",
+ "url": "https://www.youtube.com/shorts/L0Meile86zY",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2883,
+  "candidatesTokenCount": 3995,
+  "totalTokenCount": 6878,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1915
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21.0,
+   "aspect": "9:16",
+   "car": "Tesla Cybertruck",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.9,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 9.2,
+    "part": "실내",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.0,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 16.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 21.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Het interieur van de Cybertruck",
+    "ko": "사이버트럭의 인테리어",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Cybertruck",
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 2.0,
+    "text": "Tesla Cybertruck €175.450",
+    "ko": "테슬라 사이버트럭 €175,450",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€175.450",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "text": "infotainment scherm van",
+    "ko": "인포테인먼트 화면",
+    "kind": "말 자막",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "infotainment",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "text": "19,5 inch",
+    "ko": "19.5인치",
+    "kind": "숫자 사양",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19,5",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 9.2,
+    "text": "Waar je onder andere Netflix op kunt kijken, spelletjes op kunt spelen en je hele auto op kunt instellen",
+    "ko": "그곳에서 넷플릭스를 보거나, 게임을 하거나, 차 전체를 설정할 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Netflix",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.5,
+    "text": "Ook achterin geniet je van een 9,5 inch infotainment scherm",
+    "ko": "뒷좌석에서도 9.5인치 인포테인먼트 화면을 즐길 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "9,5 inch",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.0,
+    "text": "Panoramadak",
+    "ko": "파노라마 루프",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "yellow",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Panoramadak",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 16.0,
+    "text": "Elektrisch verstelbare zetels en zetelverwarming",
+    "ko": "전동 조절 시트 및 시트 열선",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Elektrisch",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "Je vindt deze auto bij PlusCars en op AutoScout24.be",
+    "ko": "이 차는 PlusCars와 AutoScout24.be에서 찾을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "white",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PlusCars",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "text": "PlusCars.be",
+    "ko": "PlusCars.be",
+    "kind": "로고",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "black",
+    "background": "상자",
+    "bg_color": "white",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PlusCars.be",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "Auto Scout24",
+    "ko": "오토 스카우트 24",
+    "kind": "로고",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "yellow",
+    "background": "상자",
+    "bg_color": "black",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto Scout24",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "pop",
+   "bpm_est": 120,
+   "mood": "bright",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 2.0,
+    "what": "중고차 플랫폼 차량 정보 카드 스티커 (사진, 가격, 평점)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 27.5,
+    "y_pct": 5.0,
+    "entrance": "위에서 떨어짐/테이프 붙임",
+    "purpose": "차량 정보 및 가격 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Het interieur van de Cybertruck",
+    "ko": "사이버트럭의 인테리어"
+   },
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "text": "Hij heeft een infotainment scherm van 19,5 inch",
+    "ko": "19.5인치 인포테인먼트 화면이 있습니다"
+   },
+   {
+    "start": 4.5,
+    "end": 9.2,
+    "text": "waar je onder andere Netflix op kunt kijken, spelletjes op kunt spelen en je hele auto op kunt instellen.",
+    "ko": "그곳에서 넷플릭스를 보거나, 게임을 하거나, 차 전체를 설정할 수 있습니다."
+   },
+   {
+    "start": 9.2,
+    "end": 12.5,
+    "text": "Ook achterin geniet je van een 9,5 inch infotainment scherm.",
+    "ko": "뒷좌석에서도 9.5인치 인포테인먼트 화면을 즐길 수 있습니다."
+   },
+   {
+    "start": 12.5,
+    "end": 14.0,
+    "text": "Verder heeft hij een panoramadak,",
+    "ko": "또한 파노라마 루프가 있고,"
+   },
+   {
+    "start": 14.0,
+    "end": 16.0,
+    "text": "elektrisch verstelbare zetels en zetelverwarming.",
+    "ko": "전동 조절 시트와 시트 열선이 있습니다."
+   },
+   {
+    "start": 16.0,
+    "end": 21.0,
+    "text": "Je vindt deze auto bij PlusCars en op AutoScout24.be. Volg ons voor meer!",
+    "ko": "이 차는 PlusCars와 AutoScout24.be에서 찾을 수 있습니다. 더 많은 정보를 원하시면 팔로우하세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "차량 외관 문 열며 시작, 가격과 함께 모델 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 2.0,
+    "end": 16.0,
+    "speed": "빠름",
+    "summary": "앞/뒷좌석 화면, 파노라마루프, 시트 옵션 등 실내 주요 기능 소개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 16.0,
+    "end": 21.0,
+    "speed": "빠름",
+    "summary": "판매처 안내 및 플랫폼 로고 노출, 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 차량 가격과 모델명을 스티커로 크게 노출하여 시선을 잡는다.",
+   "컷 평균 길이는 2~3초로 매우 짧게 가져가 지루함을 없앤다.",
+   "말 자막은 화면 하단에 흰색 고딕체로 기본 출력하고 주요 키워드는 노란색/형광펜 박스로 강조한다.",
+   "핵심 수치(화면 인치 등)는 노란색 배경 박스에 검은 글씨로 상단에 팝업 시킨다.",
+   "발표자가 직접 차에 타거나 걸으며 역동적으로 공간을 이동하며 소개한다.",
+   "실내 주요 옵션(화면, 루프, 시트)을 순서대로 빠르게 짚어준다.",
+   "마지막에는 제휴처 로고와 플랫폼 로고 스티커를 띄우고 CTA(팔로우 유도)로 끝맺는다.",
+   "효과음보다는 빠른 템포의 배경음악과 자막 등장 애니메이션으로 속도감을 준다."
+  ]
+ }
+}

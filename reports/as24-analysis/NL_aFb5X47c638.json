@@ -1,0 +1,321 @@
+{
+ "country": "NL",
+ "title": "NL-074",
+ "url": "https://www.youtube.com/shorts/aFb5X47c638",
+ "model": "gemini-3.5-flash-lite",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 2894,
+  "candidatesTokenCount": 3121,
+  "totalTokenCount": 6015,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1926
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21.0,
+   "aspect": "9:16",
+   "car": "Toyota Aygo",
+   "format": "차 소개/퀴즈",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 11.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "RAAD HET MERK & MODEL",
+    "ko": "브랜드와 모델을 맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "노랑",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MERK & MODEL",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.8,
+    "text": "EEN PAAR TIPS",
+    "ko": "몇 가지 팁을 줄게요",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "노랑",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TIPS",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "text": "1200",
+    "ko": "1200",
+    "kind": "숫자 사양",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "하양",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1200",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.8,
+    "text": "Auto Scout24",
+    "ko": "오토스카우트24",
+    "kind": "로고",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 16.0,
+    "color": "하양",
+    "background": "상자",
+    "bg_color": "빨강",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto Scout24",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 11.5,
+    "text": "EN VEEL VAN DE TECHNIEK WORDT GEDEELD MET DE",
+    "ko": "기술의 많은 부분이 공유됩니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "하양",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "TECHNIEK",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.9,
+    "text": "KLEINSTE MODEL VAN DIT MERK",
+    "ko": "이 브랜드의 가장 작은 모델",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "하양",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0.0,
+    "entrance": "서서히",
+    "highlight_word": "KLEINSTE",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.0,
+    "text": "IDEALE STADSAUTO ✔",
+    "ko": "이상적인 도심형 자동차 ✔",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "노랑",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STADSAUTO",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 21.0,
+    "text": "MERK & MODEL",
+    "ko": "브랜드 & 모델",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "노랑",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MERK & MODEL",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "경쾌한 팝 록",
+   "bpm_est": 118,
+   "mood": "발랄함/퀴즈쇼",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "모름"
+  },
+  "graphics": [
+   {
+    "start": 8.8,
+    "end": 11.5,
+    "what": "경차 3D 애니메이션/일러스트 (토요타 아이고, 푸조 107 등)",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "형제차/공유 기술 힌트 제공",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Kan jij raden welk merk en model deze auto is?",
+    "ko": "이 차가 어떤 브랜드와 모델인지 맞출 수 있나요?"
+   },
+   {
+    "start": 2.2,
+    "end": 3.8,
+    "text": "Ik geef je een paar tips.",
+    "ko": "몇 가지 팁을 줄게요."
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "text": "Je vindt er zo'n 1200 van op Autoscout24.nl.",
+    "ko": "오토스카우트24에 1200대가 올라와 있어요."
+   },
+   {
+    "start": 6.8,
+    "end": 11.5,
+    "text": "En veel van de techniek wordt gedeeld met de Toyota Aygo en de Peugeot 107.",
+    "ko": "그리고 기술의 많은 부분이 토요타 아이고, 푸조 107과 공유됩니다."
+   },
+   {
+    "start": 11.5,
+    "end": 13.9,
+    "text": "Dit is het kleinste model van dit merk.",
+    "ko": "이 브랜드에서 가장 작은 모델입니다."
+   },
+   {
+    "start": 13.9,
+    "end": 16.0,
+    "text": "En hij staat bekend als ideale stadsauto.",
+    "ko": "그리고 이상적인 도심형 자동차로 유명하죠."
+   },
+   {
+    "start": 16.0,
+    "end": 21.0,
+    "text": "Dus nu ben ik benieuwd: kan jij raden welk merk en model dit is? Laat het weten in de reacties en vergeet ons niet te volgen!",
+    "ko": "궁금하네요: 어떤 브랜드와 모델인지 맞출 수 있나요? 댓글로 알려주시고 팔로우도 잊지 마세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "차량 전면을 배경으로 시청자에게 차종 맞추기 퀴즈 제안"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.8,
+    "end": 13.9,
+    "speed": "빠름",
+    "summary": "매물 대수, 형제차(토요타·푸조) 정보 및 세그먼트 힌트 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 13.9,
+    "end": 21.0,
+    "speed": "빠름",
+    "summary": "도심형 자동차 특징 언급 후 댓글 참여 및 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 '차종 맞추기' 훅 자막을 띄워 이탈 방지",
+   "컷 평균 길이는 약 4~5초로 지루하지 않게 구성",
+   "자막은 화면 중앙에 검은색 박스 배경을 두고 노란색/하얀색 굵은 폰트 사용",
+   "핵심 키워드(MERK & MODEL, TIPS 등)는 노란색 강조",
+   "힌트 제공 시 관련 차량 2D 그래픽 아이콘을 화면에 팝업",
+   "진행자가 직접 차량 주위를 이동하며 생동감 부여",
+   "마지막은 댓글 참여 유도와 팔로우 콜투액션으로 마무리"
+  ]
+ }
+}
