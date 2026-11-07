@@ -1,0 +1,163 @@
+{
+ "country": "NL",
+ "title": "NL-029",
+ "url": "https://www.youtube.com/shorts/wq4GVWuzhwQ",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 1789,
+  "candidatesTokenCount": 1271,
+  "totalTokenCount": 4368,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 821
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 1308,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.5,
+   "aspect": "9:16",
+   "car": "기아 EV6",
+   "format": "퀴즈",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 3.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "part": "계기판",
+    "camera": "밀기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 3.0,
+    "text": "RAAD HET MERK",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "서서히",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "text": "LAAT HET WETEN IN DE REACTIES",
+    "ko": "댓글로 알려주세요",
+    "kind": "제목",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "검은색",
+    "background": "형광펜 칠",
+    "bg_color": "노란색",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "기타",
+    "event": "자동차 경적 소리 발생",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트/힙합",
+   "bpm_est": 110,
+   "mood": "밝음",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.8,
+    "end": 9.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 20,
+    "y_pct": 40,
+    "entrance": "서서히",
+    "purpose": "브랜드 마크",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 3.0,
+    "speed": "보통",
+    "summary": "출연자가 경적을 누르며 차 브랜드 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 3.0,
+    "end": 6.0,
+    "speed": "보통",
+    "summary": "운전대 및 계기판 클로즈업 후 댓글 유도"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 6.0,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "브랜드 로고 노출로 엔딩"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 내 경적 소리와 자막으로 퀴즈 훅 제시.",
+   "2. 평균 컷 길이는 약 3초 유지.",
+   "3. 노란 바탕에 검은 글씨 강조 자막 사용.",
+   "4. 경적음과 음악 비트를 결합하여 시청각 자극.",
+   "5. 스티어링 휠 엠블럼을 가려 퀴즈 요소 강화.",
+   "6. 3초 시점에 줌인 컷 전환으로 시선 집중.",
+   "7. 후반부에 브랜드 로고 그래픽으로 행동 유도 및 마감."
+  ]
+ }
+}

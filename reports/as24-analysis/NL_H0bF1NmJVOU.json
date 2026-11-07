@@ -1,0 +1,397 @@
+{
+ "country": "NL",
+ "title": "NL-027",
+ "url": "https://www.youtube.com/shorts/H0bF1NmJVOU",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4791,
+  "candidatesTokenCount": 3748,
+  "totalTokenCount": 9743,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3823
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 1204,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42,
+   "aspect": "9:16",
+   "car": "Zeekr 001 Performance",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0,
+    "end": 3.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 17.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.5,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 23.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 28.0,
+    "part": "화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 42.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0,
+    "end": 2.5,
+    "text": "KEN JIJ DIT AUTOMERK ?",
+    "ko": "이 자동차 브랜드 알고 계신가요?",
+    "kind": "제목",
+    "y_pct": 15,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "노랑",
+    "background": "상자",
+    "bg_color": "검정",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 4.5,
+    "text": "544 PK 🏁",
+    "ko": "544 마력 🏁",
+    "kind": "숫자 사양",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "노랑",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.5,
+    "text": "VIERWIELAANDRIJVING ✔️",
+    "ko": "사륜구동 ✔️",
+    "kind": "숫자 사양",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "흰색",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.0,
+    "text": "VOLLEDIG ELEKTRISCH ⚡",
+    "ko": "순수 전기차 ⚡",
+    "kind": "키워드 스티커",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "노랑",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "ACCU VAN 100 KW",
+    "ko": "100 kW 배터리",
+    "kind": "숫자 사양",
+    "y_pct": 55,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "흰색",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 23.0,
+    "text": "LUXE STOELEN MET ALCANTARA ✔️",
+    "ko": "알칸타라 고급 시트 ✔️",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 3,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "흰색",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.0,
+    "text": "GROOT SCHERM ✔️",
+    "ko": "대형 디스플레이 ✔️",
+    "kind": "키워드 스티커",
+    "y_pct": 80,
+    "x_center_pct": 50,
+    "text_height_pct": 3,
+    "color": "검정",
+    "background": "상자",
+    "bg_color": "흰색",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.0,
+    "text": "97%",
+    "ko": "97%",
+    "kind": "숫자 사양",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "노랑",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Pop / Dance",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 9.5,
+    "end": 17.5,
+    "what": "Zeekr 로고 및 모델명 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 25,
+    "y_pct": 40,
+    "entrance": "서서히",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 20,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "마무리 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0,
+    "end": 3.0,
+    "text": "Ik ben benieuwd of jij ooit van dit automerk hebt gehoord.",
+    "ko": "이 자동차 브랜드에 대해 들어보신 적이 있는지 궁금하네요."
+   },
+   {
+    "start": 3.0,
+    "end": 9.5,
+    "text": "Hij heeft 544 PK, vierwielaandrijving en hij is volledig elektrisch met een accu van 100 kW.",
+    "ko": "544마력, 사륜구동, 100kW 배터리를 탑재한 순수 전기차입니다."
+   },
+   {
+    "start": 9.5,
+    "end": 17.5,
+    "text": "Dit is de Zeekr 001 Performance. Zeekr is een relatief jong Chinees merk dat valt onder hetzelfde moederconcern als Volvo en Lynk & Co.",
+    "ko": "지커 001 퍼포먼스 모델입니다. 지커는 볼보, 링크앤코와 같은 모기업에 속한 신생 중국 브랜드입니다."
+   },
+   {
+    "start": 17.5,
+    "end": 28.0,
+    "text": "En kijk hoe luxe dit interieur is. Een groot panoramadak, luxe stoelen met Alcantara en groot scherm. Je ziet ook nergens knoppen en hij is heel mooi afgewerkt met dat rose goud.",
+    "ko": "인테리어가 얼마나 고급스러운지 보세요. 대형 파노라마 루프, 알칸타라 시트, 대형 화면이 적용되었고 버튼이 없으며 로즈골드로 마감되었습니다."
+   },
+   {
+    "start": 28.0,
+    "end": 33.0,
+    "text": "En bij deze occasion is de batterijgezondheid gemeten op 97%.",
+    "ko": "이 중고차의 배터리 건강 상태는 97%로 측정되었습니다."
+   },
+   {
+    "start": 33.0,
+    "end": 42.0,
+    "text": "Ik ben benieuwd of jij dit merk al kende. Laat het even weten in de reacties. Je vindt hem in de showroom van Auto Corsten en natuurlijk op AutoScout24.nl.",
+    "ko": "이 브랜드를 알고 계셨나요? 댓글로 남겨주세요. 오토 코르스텐 전시장과 오토스카우트24에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0,
+    "end": 3.0,
+    "speed": "보통",
+    "summary": "호기심 유발 질문"
+   },
+   {
+    "stage": "사양",
+    "start": 3.0,
+    "end": 9.5,
+    "speed": "빠름",
+    "summary": "핵심 성능 지표 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 9.5,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "브랜드 배경 및 모델명 소개"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 17.5,
+    "end": 28.0,
+    "speed": "보통",
+    "summary": "실내 디테일 및 옵션 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 28.0,
+    "end": 33.0,
+    "speed": "보통",
+    "summary": "중고차 배터리 상태 강조"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 33.0,
+    "end": 42.0,
+    "speed": "보통",
+    "summary": "댓글 참여 유도 및 구매 처 안내"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초: 질문형 텍스트와 발표자의 등장으로 시청자 참여 유도",
+   "2. 컷 평균 길이: 약 2~3초 간격으로 빠른 화면 전환",
+   "3. 자막 규칙: 중요 키워드와 숫자를 상자형 스티커로 강조",
+   "4. 효과음: 음성 및 BGM 중심으로 별도 효과음 최소화",
+   "5. 아이콘 활용: 체크박스, 번개, 체커기 아이콘으로 직관성 강화",
+   "6. 촬영 순서: 외관 전면 → 스펙 자막 → 브랜드 소개 → 실내 루프/시트/디스플레이 → 후면 → 마무리 전면",
+   "7. 마무리: 플랫폼 로고 노출 및 댓글 유도 콜투액션으로 종료"
+  ]
+ }
+}

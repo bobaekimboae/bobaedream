@@ -1,0 +1,274 @@
+{
+ "country": "NL",
+ "title": "NL-030",
+ "url": "https://www.youtube.com/shorts/hVbEDDK9JBY",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 4148,
+  "candidatesTokenCount": 2555,
+  "totalTokenCount": 7342,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3180
+   }
+  ],
+  "thoughtsTokenCount": 639,
+  "serviceTier": "standard"
+ },
+ "analysis": [
+  {
+   "basic": {
+    "duration_sec": 34.5,
+    "aspect": "9:16",
+    "car": "BMW 5-Serie Touring",
+    "format": "차 소개 및 가격 공개",
+    "person_on_screen": true,
+    "voice": "사람 직접",
+    "language": "nl"
+   },
+   "shots": [
+    {
+     "start": 0.0,
+     "end": 2.5,
+     "part": "외관 전면",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 2.5,
+     "end": 10.5,
+     "part": "사람",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 10.5,
+     "end": 17.5,
+     "part": "외관 측면",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 17.5,
+     "end": 21.5,
+     "part": "트렁크",
+     "camera": "당기기",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 21.5,
+     "end": 34.5,
+     "part": "실내",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    }
+   ],
+   "captions": [
+    {
+     "start": 0.0,
+     "end": 2.0,
+     "text": "BMW 5-SERIE TOURING IN 30 SECONDEN",
+     "ko": "BMW 5시리즈 투어링 30초 만에 보기",
+     "kind": "제목",
+     "y_pct": 25,
+     "x_center_pct": 50,
+     "text_height_pct": 6,
+     "color": "검정",
+     "background": "상자",
+     "bg_color": "노랑",
+     "bg_width_pct": 80,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 2.1,
+     "end": 3.2,
+     "text": "286 PK",
+     "ko": "286 마력",
+     "kind": "숫자 사양",
+     "y_pct": 25,
+     "x_center_pct": 50,
+     "text_height_pct": 5,
+     "color": "검정",
+     "background": "상자",
+     "bg_color": "노랑",
+     "bg_width_pct": 35,
+     "tilt_deg": 0,
+     "entrance": "낱말별로 바뀜",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 3.3,
+     "end": 5.5,
+     "text": "2000 KG TREKGEWICHT",
+     "ko": "견인력 2000 KG",
+     "kind": "숫자 사양",
+     "y_pct": 25,
+     "x_center_pct": 50,
+     "text_height_pct": 5,
+     "color": "검정",
+     "background": "상자",
+     "bg_color": "노랑",
+     "bg_width_pct": 60,
+     "tilt_deg": 0,
+     "entrance": "낱말별로 바뀜",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 27.5,
+     "end": 29.5,
+     "text": "€33.950",
+     "ko": "33,950 유로",
+     "kind": "가격",
+     "y_pct": 50,
+     "x_center_pct": 50,
+     "text_height_pct": 8,
+     "color": "검정",
+     "background": "상자",
+     "bg_color": "노랑",
+     "bg_width_pct": 45,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    }
+   ],
+   "sfx": [
+    {
+     "t": 0.0,
+     "type": "톡",
+     "event": "제목 자막 등장",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 27.5,
+     "type": "돈 소리",
+     "event": "가격 그래픽 등장",
+     "level": "보통",
+     "sure": true
+    }
+   ],
+   "music": {
+    "genre": "Pop",
+    "bpm_est": 120,
+    "mood": "경쾌함",
+    "ducks_under_voice": true,
+    "changes": [],
+    "cuts_on_beat": "일부"
+   },
+   "graphics": [
+    {
+     "start": 32.5,
+     "end": 34.5,
+     "what": "AutoScout24 로고",
+     "is_3d": false,
+     "size_w_pct": 40,
+     "x_pct": 50,
+     "y_pct": 60,
+     "entrance": "서서히",
+     "purpose": "브랜드 홍보",
+     "sure": true
+    }
+   ],
+   "transcript": [
+    {
+     "start": 0.0,
+     "end": 5.5,
+     "text": "Ben je op zoek naar een dikke 5-serie met 286 pk waar je ook 2000 kg mee mag trekken?",
+     "ko": "286마력에 2000kg 견인력을 갖춘 멋진 5시리즈를 찾고 계신가요?"
+    },
+    {
+     "start": 5.6,
+     "end": 10.5,
+     "text": "Laat dan even goed op, want in 30 seconden vertel ik je zoveel mogelijk over deze auto en op het einde ook wat hij kost.",
+     "ko": "30초 동안 이 차에 대해 최대한 설명하고 마지막에 가격도 알려드릴 테니 주목해 주세요."
+    },
+    {
+     "start": 10.6,
+     "end": 17.5,
+     "text": "Het is een 3 liter 6 cilinder diesel met het LCI en M-pakket, en dat wil zeggen dat hij zowel sportief is van binnen als van buiten.",
+     "ko": "3리터 6기통 디젤 LCI M 패키지 모델로, 안팎 모두 스포티한 디자인을 자랑합니다."
+    },
+    {
+     "start": 17.6,
+     "end": 21.5,
+     "text": "En er blijft natuurlijk een Touring dus heel veel ruimte. Kijk die bagageruimte, supergroot!",
+     "ko": "투어링 모델이라 공간이 매우 넉넉합니다. 트렁크 공간도 엄청나게 넓죠!"
+    },
+    {
+     "start": 21.6,
+     "end": 29.5,
+     "text": "En kom, gaan we snel naar binnen, want hij heeft ook luxe stoelen, Apple CarPlay, stuur- en stoelverwarming. En hij kost €33.950.",
+     "ko": "안으로 들어가 보시죠. 고급 시트, 애플 카플레이, 열선 스티어링 휠/시트가 제공되며 가격은 33,950유로입니다."
+    },
+    {
+     "start": 29.6,
+     "end": 34.5,
+     "text": "Je vindt hem bij Autobedrijf Mike Zwenger en natuurlijk op AutoScout24.nl.",
+     "ko": "마이크 즈웽거 매장 및 AutoScout24.nl에서 확인하실 수 있습니다."
+    }
+   ],
+   "structure": [
+    {
+     "stage": "훅",
+     "start": 0.0,
+     "end": 5.5,
+     "speed": "빠름",
+     "summary": "주요 사양 강조로 시선 집중"
+    },
+    {
+     "stage": "차 소개",
+     "start": 5.6,
+     "end": 17.5,
+     "speed": "보통",
+     "summary": "외관 및 엔진 사양 안내"
+    },
+    {
+     "stage": "기능·옵션",
+     "start": 17.6,
+     "end": 27.4,
+     "speed": "빠름",
+     "summary": "트렁크 및 실내 옵션 소개"
+    },
+    {
+     "stage": "가격",
+     "start": 27.5,
+     "end": 29.5,
+     "speed": "보통",
+     "summary": "차량 판매 가격 공개"
+    },
+    {
+     "stage": "마무리·행동 유도",
+     "start": 29.6,
+     "end": 34.5,
+     "speed": "보통",
+     "summary": "판매처 안내 및 웹사이트 방문 유도"
+    }
+   ],
+   "rules": [
+    "1. 첫 3초 내 강렬한 사양 텍스트와 노란 상자 자막 노출",
+    "2. 평균 컷 길이는 5~7초 내외로 원컷에 가까운 유기적 카메라 워킹 활용",
+    "3. 텍스트 자막은 중앙 상단에 노란 배경 상자로 가독성 확보",
+    "4. 주요 스펙 및 가격 강조 시 톡/돈 효과음 배치",
+    "5. 촬영 순서는 전면 -> 측면 -> 트렁크 -> 실내 순서로 이동",
+    "6. 영상 끝에 웹사이트 로고로 구매 유도"
+   ]
+  }
+ ]
+}

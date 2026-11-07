@@ -1,0 +1,375 @@
+{
+ "country": "NL",
+ "title": "NL-028",
+ "url": "https://www.youtube.com/shorts/tP76Y3Kho48",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 6154,
+  "candidatesTokenCount": 3591,
+  "totalTokenCount": 11023,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5186
+   }
+  ],
+  "thoughtsTokenCount": 1278,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "Maybach 62",
+   "format": "차 소개 및 정보",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 13.0,
+    "part": "실내",
+    "camera": "당기기",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 17.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 23.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 32.0,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 36.6,
+    "part": "시트",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 44.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 54.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 57.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "DEZE AUTO IS LANGER DAN SOMMIGE BESTELBUSJES",
+    "ko": "이 차는 일부 승합차보다 깁니다",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "text": "6.16M",
+    "ko": "6.16m",
+    "kind": "숫자 사양",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.0,
+    "text": "MAYBACH 62",
+    "ko": "마이바흐 62",
+    "kind": "제목",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "text": "5.5L V12 / 551 PK 🏁",
+    "ko": "5.5L V12 / 551마력 🏁",
+    "kind": "숫자 사양",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 23.5,
+    "text": "2800 KG / 5,4 SECONDEN",
+    "ko": "2800kg / 5.4초",
+    "kind": "숫자 사양",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "낱말별로 바뀜",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 49.0,
+    "text": "€77.950",
+    "ko": "77,950유로",
+    "kind": "가격",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "치수 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "딸깍",
+    "event": "프라이버시 파티션 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "톡",
+    "event": "가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트/팝",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 52.0,
+    "end": 54.5,
+    "what": "AutoScout24 노란색 로고 노출",
+    "is_3d": false,
+    "size_w_pct": 60,
+    "x_pct": 20,
+    "y_pct": 65,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "Deze auto is langer dan sommige bestelbusjes. 6 meter en 16 centimeter. Zo lang is deze Maybach.",
+    "ko": "이 차는 일부 승합차보다 깁니다. 6미터 16센티미터. 이 마이바흐가 그 정도로 깁니다."
+   },
+   {
+    "start": 6.8,
+    "end": 13.0,
+    "text": "Dit is de Maybach 62. En bij deze auto draait eigenlijk alles om degene die achterin zit.",
+    "ko": "이 차는 마이바흐 62입니다. 이 차는 뒷좌석 승객 중심의 차량입니다."
+   },
+   {
+    "start": 13.0,
+    "end": 17.8,
+    "text": "En voorin ligt een 5.5L V12 met 551 PK.",
+    "ko": "전면에는 551마력의 5.5L V12 엔진이 탑재되어 있습니다."
+   },
+   {
+    "start": 17.8,
+    "end": 23.8,
+    "text": "En zelfs met een gewicht van 2800 kg gaat hij van 0 naar 100 in 5,4 seconden.",
+    "ko": "2800kg의 무게에도 0에서 100km/h까지 5.4초 만에 가속합니다."
+   },
+   {
+    "start": 23.8,
+    "end": 32.0,
+    "text": "En ik laat je direct even een eerste knopje zien, want kijk, je hebt ook heel veel privacy.",
+    "ko": "버튼 하나를 보여드릴게요. 보시다시피 프라이버시 기능이 훌륭합니다."
+   },
+   {
+    "start": 32.0,
+    "end": 36.6,
+    "text": "Maar daar blijft het niet bij, want kijk, je kunt gewoon heerlijk slapen in deze auto.",
+    "ko": "여기서 끝이 아닙니다. 이렇게 편안하게 편히 쉴 수 있습니다."
+   },
+   {
+    "start": 36.6,
+    "end": 44.5,
+    "text": "En bij deze auto hoef je natuurlijk niet zelf de deur dicht te maken. Kijk. Doei!",
+    "ko": "이 차에서는 직접 문을 닫을 필요도 없습니다. 보세요. 안녕!"
+   },
+   {
+    "start": 44.5,
+    "end": 57.0,
+    "text": "Deze Maybach kost nu slechts €77.950. Meer informatie vind je in de omschrijving en op AutoScout24.nl.",
+    "ko": "이 마이바흐의 가격은 77,950유로입니다. 자세한 정보는 설명란과 AutoScout24.nl에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "차량 길이 강조로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "모델명 및 뒷좌석 콘셉트 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 13.0,
+    "end": 23.8,
+    "speed": "빠름",
+    "summary": "엔진, 출력, 제로백 사양 제시"
+   },
+   {
+    "stage": "기능·옵션",
+    "start": 23.8,
+    "end": 44.5,
+    "speed": "보통",
+    "summary": "파티션, 리클라이닝, 자동 문 닫힘 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 44.5,
+    "end": 50.0,
+    "speed": "빠름",
+    "summary": "중고 판매 가격 공개"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 50.0,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "플랫폼 및 매장 안내"
+   }
+  ],
+  "rules": [
+   "1. 훅: 첫 3초 내 차 길이(6.16m) 강조로 강렬한 인상 전달.",
+   "2. 컷 편집: 3~6초 단위의 컷 전환으로 몰입감 유지를 유도.",
+   "3. 촬영 순서: 외관 휠베이스 -> 전면 -> 뒷좌석 실내 -> 성능 -> 기능 시연 순 구성.",
+   "4. 자막: 중앙/하단에 황색·검정 배경 자막 사용, 핵심 수치 대형 강조.",
+   "5. 효과음: 수치 및 가격 자막 등장 시 톡 소리 SFX 배치.",
+   "6. 진행자: 직접 옵션 조작 및 리클라이닝 체험으로 직관적 전달.",
+   "7. CTA: 가격 공개 후 AutoScout24 브랜딩 로고와 매장 정보로 마무리."
+  ]
+ }
+}

@@ -1,0 +1,432 @@
+{
+ "country": "NL",
+ "title": "NL-026",
+ "url": "https://www.youtube.com/shorts/ORe1kzRtaXs",
+ "model": "gemini-3.6-flash",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 5251,
+  "candidatesTokenCount": 4080,
+  "totalTokenCount": 9833,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4283
+   }
+  ],
+  "thoughtsTokenCount": 502,
+  "serviceTier": "standard"
+ },
+ "analysis": [
+  {
+   "basic": {
+    "duration_sec": 47.5,
+    "aspect": "9:16",
+    "car": "BMW X3",
+    "format": "차 소개/비교",
+    "person_on_screen": true,
+    "voice": "사람 직접",
+    "language": "nl"
+   },
+   "shots": [
+    {
+     "start": 0.0,
+     "end": 4.5,
+     "part": "외관 전면/사람",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 4.5,
+     "end": 9.5,
+     "part": "외관 측면/사람",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 9.5,
+     "end": 13.8,
+     "part": "외관 측면/사람",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 13.8,
+     "end": 16.8,
+     "part": "시트/실내/사람",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 16.8,
+     "end": 23.8,
+     "part": "트렁크/사람",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 23.8,
+     "end": 33.5,
+     "part": "외관 전면/측면/사람",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 33.5,
+     "end": 35.5,
+     "part": "계기판/실내",
+     "camera": "옆 이동",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 35.5,
+     "end": 36.8,
+     "part": "시트",
+     "camera": "옆 이동",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 36.8,
+     "end": 40.5,
+     "part": "실내/사람",
+     "camera": "고정",
+     "transition_in": "바로 컷",
+     "sure": true
+    },
+    {
+     "start": 40.5,
+     "end": 47.5,
+     "part": "외관 측면/사람",
+     "camera": "걸으며 손으로",
+     "transition_in": "바로 컷",
+     "sure": true
+    }
+   ],
+   "captions": [
+    {
+     "start": 0.0,
+     "end": 1.0,
+     "text": "WAAROM ZOU JE",
+     "ko": "왜 선택해야 할까",
+     "kind": "말 자막",
+     "y_pct": 82,
+     "x_center_pct": 50,
+     "text_height_pct": 4,
+     "color": "#FFFFFF",
+     "background": "상자",
+     "bg_color": "#000000",
+     "bg_width_pct": 60,
+     "tilt_deg": 0,
+     "entrance": "낱말별로 바뀜",
+     "highlight_word": "WAAROM",
+     "sure": true
+    },
+    {
+     "start": 1.0,
+     "end": 3.0,
+     "text": "BMW X3",
+     "ko": "BMW X3",
+     "kind": "키워드 스티커",
+     "y_pct": 25,
+     "x_center_pct": 50,
+     "text_height_pct": 6,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#F7CA18",
+     "bg_width_pct": 50,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 3.0,
+     "end": 5.0,
+     "text": "X1 X5",
+     "ko": "X1 X5",
+     "kind": "키워드 스티커",
+     "y_pct": 20,
+     "x_center_pct": 50,
+     "text_height_pct": 5,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#FFFFFF",
+     "bg_width_pct": 45,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 15.5,
+     "end": 16.8,
+     "text": "MEER RUIMTE ✓",
+     "ko": "더 넓은 공간 ✓",
+     "kind": "키워드 스티커",
+     "y_pct": 75,
+     "x_center_pct": 50,
+     "text_height_pct": 5,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#FFFFFF",
+     "bg_width_pct": 60,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 19.5,
+     "end": 21.0,
+     "text": "550 L",
+     "ko": "550 L",
+     "kind": "숫자 사양",
+     "y_pct": 70,
+     "x_center_pct": 50,
+     "text_height_pct": 6,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#F7CA18",
+     "bg_width_pct": 35,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 35.5,
+     "end": 36.8,
+     "text": "2020",
+     "ko": "2020년식",
+     "kind": "숫자 사양",
+     "y_pct": 50,
+     "x_center_pct": 50,
+     "text_height_pct": 7,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#F7CA18",
+     "bg_width_pct": 40,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 36.8,
+     "end": 38.5,
+     "text": "95.000 KM",
+     "ko": "95,000 KM",
+     "kind": "숫자 사양",
+     "y_pct": 50,
+     "x_center_pct": 50,
+     "text_height_pct": 6,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#FFFFFF",
+     "bg_width_pct": 65,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 38.8,
+     "end": 40.5,
+     "text": "€35.950",
+     "ko": "€35,950",
+     "kind": "가격",
+     "y_pct": 55,
+     "x_center_pct": 50,
+     "text_height_pct": 7,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#F7CA18",
+     "bg_width_pct": 55,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    },
+    {
+     "start": 43.5,
+     "end": 45.5,
+     "text": "AutoScout24",
+     "ko": "AutoScout24",
+     "kind": "로고",
+     "y_pct": 65,
+     "x_center_pct": 50,
+     "text_height_pct": 8,
+     "color": "#000000",
+     "background": "상자",
+     "bg_color": "#F7CA18",
+     "bg_width_pct": 70,
+     "tilt_deg": 0,
+     "entrance": "톡 튀어나옴",
+     "highlight_word": "",
+     "sure": true
+    }
+   ],
+   "sfx": [
+    {
+     "t": 1.0,
+     "type": "톡",
+     "event": "BMW X3 스티커 등장",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 3.0,
+     "type": "톡",
+     "event": "X1 X5 스티커 등장",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 19.5,
+     "type": "톡",
+     "event": "550 L 용량 수치 등장",
+     "level": "보통",
+     "sure": true
+    },
+    {
+     "t": 38.8,
+     "type": "돈 소리",
+     "event": "가격 텍스트 등장",
+     "level": "보통",
+     "sure": true
+    }
+   ],
+   "music": {
+    "genre": "Pop / Upbeat Electronic",
+    "bpm_est": 120,
+    "mood": "밝음, 경쾌함",
+    "ducks_under_voice": true,
+    "changes": [],
+    "cuts_on_beat": "일부"
+   },
+   "graphics": [
+    {
+     "start": 45.5,
+     "end": 47.5,
+     "what": "위치 핀 아이콘 및 딜러명 배너",
+     "is_3d": false,
+     "size_w_pct": 80,
+     "x_pct": 10,
+     "y_pct": 75,
+     "entrance": "아래에서 위로 올라옴",
+     "purpose": "판매처 안내",
+     "sure": true
+    }
+   ],
+   "transcript": [
+    {
+     "start": 0.0,
+     "end": 5.0,
+     "text": "Waarom zou je voor een BMW X3 kiezen als er ook een X1 en X5 bestaat?",
+     "ko": "X1과 X5가 있는데 왜 BMW X3를 선택해야 할까요?"
+    },
+    {
+     "start": 5.0,
+     "end": 10.0,
+     "text": "De X3 zit precies tussen die twee in, maar dat betekent niet dat hij alleen middelgroot is.",
+     "ko": "X3는 두 모델의 딱 중간이지만, 단순히 중간 크기라는 뜻만은 아닙니다."
+    },
+    {
+     "start": 10.0,
+     "end": 16.5,
+     "text": "De X1 is compacter en makkelijker in de stad, maar in de X3 krijg je duidelijk meer ruimte.",
+     "ko": "X1은 더 компакт하고 도심 주행이 쉽지만, X3는 확실히 넓은 공간을 제공합니다."
+    },
+    {
+     "start": 16.5,
+     "end": 24.0,
+     "text": "En de bagageruimte van deze BMW X3 is 550 liter. Ruim genoeg voor een kinderwagen, boodschappen of koffers.",
+     "ko": "BMW X3의 트렁크 공간은 550리터로 유모차, 장보기, 캐리어를 싣기에 충분합니다."
+    },
+    {
+     "start": 24.0,
+     "end": 33.5,
+     "text": "En die X5 gaat er nog een stap bovenop. Die is groter, maar ook duurder in aanschaf en dagelijks gebruik.",
+     "ko": "X5는 한 단계 위급으로 더 크지만, 구매가와 유지비가 더 비쌉니다."
+    },
+    {
+     "start": 33.5,
+     "end": 40.5,
+     "text": "Deze luxe BMW X3 komt uit 2020, heeft 95.000 km gelopen en kost €35.950.",
+     "ko": "이 고급 BMW X3는 2020년식, 95,000km 주행에 가격은 €35,950입니다."
+    },
+    {
+     "start": 40.5,
+     "end": 47.5,
+     "text": "Je vindt deze BMW natuurlijk op AutoScout24.nl en in de showroom van Autobedrijf Mike Zwenger.",
+     "ko": "이 매물은 AutoScout24.nl 및 Mike Zwenger 전시장에서 확인할 수 있습니다."
+    }
+   ],
+   "structure": [
+    {
+     "stage": "훅",
+     "start": 0.0,
+     "end": 5.0,
+     "speed": "빠름",
+     "summary": "X1·X5 대비 X3 선택 이유 질문"
+    },
+    {
+     "stage": "기능·옵션",
+     "start": 5.0,
+     "end": 24.0,
+     "speed": "보통",
+     "summary": "X1 대비 차이점 및 트렁크 용량 시연"
+    },
+    {
+     "stage": "차 소개",
+     "start": 24.0,
+     "end": 33.5,
+     "speed": "보통",
+     "summary": "X5 대비 포지셔닝 및 경제성 비교"
+    },
+    {
+     "stage": "사양",
+     "start": 33.5,
+     "end": 38.5,
+     "speed": "빠름",
+     "summary": "연식 및 주행거리 안내"
+    },
+    {
+     "stage": "가격",
+     "start": 38.5,
+     "end": 40.5,
+     "speed": "빠름",
+     "summary": "판매 가격 공개"
+    },
+    {
+     "stage": "마무리·행동 유도",
+     "start": 40.5,
+     "end": 47.5,
+     "speed": "보통",
+     "summary": "AutoScout24 및 매장 안내"
+    }
+   ],
+   "rules": [
+    "1. 첫 3초 내 모델명 스티커와 비교 질문으로 시선 확보",
+    "2. 평균 컷 길이 4~5초 수준의 안정적인 구성",
+    "3. 핵심 수치 및 특징은 노란색/흰색 볼드 상자 자막 처리",
+    "4. 수치/가격 등장 시 효과음(톡/돈 소리) 동시 배치",
+    "5. 뒷좌석 승차, 트렁크 개방 등 직접 시연 영상 포함",
+    "6. 주요 정보(연식, KM, 가격)는 Quick-cut 실내 샷으로 빠르게 배치",
+    "7. 영상 하단에는 AutoScout24 브랜딩 및 딜러 위치 명시"
+   ]
+  }
+ ]
+}

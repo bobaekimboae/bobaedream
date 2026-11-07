@@ -1,0 +1,275 @@
+{
+ "country": "NL",
+ "title": "NL-033",
+ "url": "https://www.youtube.com/shorts/kaROgGCezF0",
+ "model": "gemini-3-flash-preview",
+ "fps": 1.0,
+ "usage": {
+  "promptTokenCount": 3329,
+  "candidatesTokenCount": 2422,
+  "totalTokenCount": 6518,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2361
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 968
+   }
+  ],
+  "thoughtsTokenCount": 767,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.5,
+   "aspect": "9:16",
+   "car": "BMW X3",
+   "format": "퀴즈/정보 제공",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 8.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.8,
+    "part": "실내",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 18.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.4,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "RAAD HET MERK & MODEL VAN DEZE AUTO",
+    "ko": "이 차의 브랜드와 모델을 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 60,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.8,
+    "text": "EEN PAAR TIPS",
+    "ko": "몇 가지 팁",
+    "kind": "키워드 스티커",
+    "y_pct": 40,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 40,
+    "tilt_deg": 2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.8,
+    "text": "2003",
+    "ko": "2003",
+    "kind": "숫자 사양",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 30,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.7,
+    "text": "ELEKTRISCHE",
+    "ko": "전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "black",
+    "background": "형광펜 칠",
+    "bg_color": "yellow",
+    "bg_width_pct": 50,
+    "tilt_deg": 2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "메인 제목 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "휙",
+    "event": "컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Pop/Upbeat",
+   "bpm_est": 115,
+   "mood": "활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 60,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Kun jij raden welk merk en model deze auto is?",
+    "ko": "이 차가 어떤 브랜드와 모델인지 맞힐 수 있나요?"
+   },
+   {
+    "start": 3.0,
+    "end": 4.0,
+    "text": "Ik geef je een paar tips.",
+    "ko": "몇 가지 팁을 드릴게요."
+   },
+   {
+    "start": 4.0,
+    "end": 8.5,
+    "text": "Je vindt er meer dan 1600 van dit specifieke model op AutoScout24.nl.",
+    "ko": "AutoScout24.nl에서 이 특정 모델을 1600대 이상 찾을 수 있습니다."
+   },
+   {
+    "start": 8.5,
+    "end": 11.8,
+    "text": "De eerste generatie van dit model verscheen al in 2003.",
+    "ko": "이 모델의 1세대는 이미 2003년에 출시되었습니다."
+   },
+   {
+    "start": 11.8,
+    "end": 14.7,
+    "text": "En inmiddels bestaat er ook een volledig elektrische variant.",
+    "ko": "그리고 이제는 완전 전기차 버전도 존재합니다."
+   },
+   {
+    "start": 14.7,
+    "end": 18.4,
+    "text": "Binnen het modellengamma zit hij precies tussen twee modellen in.",
+    "ko": "모델 라인업 내에서 정확히 두 모델 사이에 위치합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "보통",
+    "summary": "차량 전면에서 퀴즈 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.8,
+    "end": 18.4,
+    "speed": "빠름",
+    "summary": "중고차 매물 수, 출시 연도, 전기차 유무 등 힌트 제공"
+   },
+   {
+    "stage": "마무리·행동 유도",
+    "start": 18.4,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "댓글로 정답 요청 및 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "1. 첫 3초 이내에 노란색 배경의 큰 자막으로 시청자의 참여(퀴즈)를 유도함.",
+   "2. 컷 평균 길이는 약 3~4초로 정보 전달 속도에 맞춰 전환됨.",
+   "3. 자막은 검은색 텍스트에 노란색 형광펜 스타일 배경을 일관되게 사용함.",
+   "4. 텍스트나 그래픽이 등장할 때 '톡' 하는 효과음을 넣어 강조함.",
+   "5. 브랜드 로고(AutoScout24)를 힌트 중간에 자연스럽게 노출함.",
+   "6. 촬영 순서는 전면 -> 측면 -> 실내 -> 후측면 순으로 주요 부위를 보여줌.",
+   "7. 자막에 약간의 기울기(tilt)를 주어 역동적인 느낌을 더함.",
+   "8. 마지막은 항상 댓글 참여와 팔로우를 유도하는 멘트로 마무리함."
+  ]
+ }
+}
