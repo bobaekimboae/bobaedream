@@ -20,9 +20,11 @@ SRC = sys.argv[1]
 OUT = sys.argv[2]
 os.makedirs(OUT, exist_ok=True)
 W, H, FPS = 1080, 1920, 30
-BLACK = '/usr/share/fonts/opentype/noto/NotoSansCJK-Black.ttc'
-BOLD = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
-MED = '/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc'
+FONTS = os.path.join(os.path.dirname(__file__), 'fonts')  # Pretendard 1.3.9 (OFL)
+BLACK = os.path.join(FONTS, 'Pretendard-ExtraBold.otf')
+BOLD = os.path.join(FONTS, 'Pretendard-Bold.otf')
+SEMI = os.path.join(FONTS, 'Pretendard-SemiBold.otf')
+MED = os.path.join(FONTS, 'Pretendard-Medium.otf')
 YELLOW = (255, 214, 10)
 BLUE = (48, 107, 217)
 
@@ -340,23 +342,31 @@ def build_phrases():
 
 
 def phrase_img(text):
+    """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(14자 넘으면 가운데 띄어쓰기에서 2줄)
+    · 줄 높이 화면의 약 4.2% · 화면 아래 데드존(하단 약 450px)과 오른쪽 버튼 줄을 피한 고정 위치 · 문장부호 없음 · 숫자만 노랑"""
     k = ('phrase', text)
     if k in _cache:
         return _cache[k]
-    fnt = ImageFont.truetype(BOLD, 68)
-    words = text.split(' ')
+    fnt = ImageFont.truetype(SEMI, 64)
+    text = text.strip(' ,.')
+    lines = [text]
+    if len(text) > 14 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
     gap = fnt.getlength(' ')
-    widths = [fnt.getlength(w) for w in words]
-    tw = sum(widths) + gap * (len(words) - 1)
-    pad_x, h = 34, 104
-    im = Image.new('RGBA', (int(tw + pad_x * 2), h), (0, 0, 0, 0))
+    lh, pad_x, pad_y = 80, 30, 12
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + pad_x * 2), lh * len(lines) + pad_y * 2), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    d.rounded_rectangle((0, 0, im.width - 1, h - 1), 18, fill=(0, 0, 0, 150))
-    x = pad_x
-    for w, ww in zip(words, widths):
-        col = YELLOW if re.search(r'\d', w) else (255, 255, 255)
-        d.text((x, h / 2 + 2), w, font=fnt, fill=col, anchor='lm')
-        x += ww + gap
+    d.rounded_rectangle((0, 0, im.width - 1, im.height - 1), 14, fill=(0, 0, 0, 140))
+    for li, line in enumerate(lines):
+        x = (im.width - fnt.getlength(line)) / 2
+        y = pad_y + lh * li + lh / 2
+        for w in line.split(' '):
+            col = YELLOW if re.search(r'\d', w) else (255, 255, 255)
+            d.text((x, y), w, font=fnt, fill=col, anchor='lm')
+            x += fnt.getlength(w) + gap
     _cache[k] = im
     return im
 
@@ -376,8 +386,8 @@ def overlay(T, total, shots, shot, blk):
     # 첫 장면 훅 제목
     if T < BLOCKS[1]['t0']:
         e = ease(T / .35)
-        t1 = text_img(CAR['price'], 150, stroke=12, key=True)
-        t2 = text_img(f"{CAR['year']} 파나메라 4 · {CAR['km_short']}", 58, BOLD, stroke=7)
+        t1 = text_img(CAR['price'], 150, stroke=8, key=True)
+        t2 = text_img(f"{CAR['year']} 파나메라 4 · {CAR['km_short']}", 58, BOLD, stroke=6)
         paste(ov, t1, (W - t1.width) / 2, 330 + 40 * (1 - e), e, 0.9 + 0.1 * e)
         paste(ov, t2, (W - t2.width) / 2, 530, e)
     # 사양 카드 (아래 왼쪽, 자막 위)
