@@ -26,6 +26,11 @@ BOLD = os.path.join(FONTS, 'Pretendard-Bold.otf')
 SEMI = os.path.join(FONTS, 'Pretendard-SemiBold.otf')
 MED = os.path.join(FONTS, 'Pretendard-Medium.otf')
 YELLOW = (255, 214, 10)
+# 음성: edge-tts 현수(멀티링구얼, 인준보다 억양이 자연스러움). 구글 Chirp 3: HD 키가 생기면 이 자리만 바꾼다
+VOICE, VOICE_RATE = os.environ.get('SAG_VOICE', 'ko-KR-HyunsuMultilingualNeural'), os.environ.get('SAG_VOICE_RATE', '+8%')
+# 릴스·쇼츠·틱톡 공통 세이프존(1080×1920): 위·아래 240, 오른쪽 216(버튼 줄), 좌우 끝 54 — 자막은 이 안의 가운데
+SAFE_TOP, SAFE_BOTTOM, SAFE_L, SAFE_R = 240, 1920 - 240, 54, 1080 - 216
+SAFE_W, SAFE_CX = SAFE_R - SAFE_L, (SAFE_L + SAFE_R) / 2
 BLUE = (48, 107, 217)
 
 # ── 매물 정보(사실만, 시트 그대로). 차량번호·연락처는 넣지 않는다 ──
@@ -36,7 +41,7 @@ CAR = dict(name='포르쉐 파나메라 4', gen='971', year='2021', reg='21년04
 # shots: (원본 시작 초, 재생 속도, 번호판 가림 필요)
 BLOCKS = [
     dict(sec='외관', tts='9,200만 원. 파나메라 포 들어왔습니다.', caps=['9,200만 원', '파나메라 4 들어왔습니다'], shots=[(2.0, 1.2, 1), (4.2, 1.3, 1)], hook=True),
-    dict(sec='외관', tts='21년식이고요, 2.9 가솔린에 사륜이에요.', caps=['21년식이고요', '2.9 가솔린에 사륜이에요'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
+    dict(sec='외관', tts='21년식이고요, 2.9 가솔린에 사륜이에요.', caps=['21년식이고요', '2.9 가솔린에 사륜이에요'], shots=[(5.0, 0.95, 1), (18.6, 1.0, 1)],
          card=('2.9 가솔린 · AWD', '2021년식 · 971')),
     dict(sec='외관', tts='컬러는 짙은 블루고요, 옆 라인 한번 보시죠.', caps=['컬러는 짙은 블루고요', '옆 라인 한번 보시죠'], shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
     dict(sec='휠', tts='휠도 한번 보시고요,', caps=['휠도 한번 보시고요'], shots=[(18.0, 1.15, 1), (19.2, 1.15, 1)]),
@@ -60,7 +65,7 @@ async def edge(text, path):
     import certifi
     certifi.where = lambda: '/root/.ccr/ca-bundle.crt'
     import edge_tts
-    c = edge_tts.Communicate(text, 'ko-KR-InJoonNeural', rate='+14%', boundary='WordBoundary')
+    c = edge_tts.Communicate(text, VOICE, rate=VOICE_RATE, boundary='WordBoundary')
     words = []
     with open(path, 'wb') as f:
         async for ch in c.stream():
@@ -342,7 +347,7 @@ def build_phrases():
 
 
 def phrase_img(text):
-    """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(14자 넘으면 가운데 띄어쓰기에서 2줄)
+    """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(세이프존 폭 810px을 넘으면 가운데 띄어쓰기에서 2줄)
     · 줄 높이 화면의 약 4.2% · 화면 아래 데드존(하단 약 450px)과 오른쪽 버튼 줄을 피한 고정 위치 · 문장부호 없음 · 숫자만 노랑"""
     k = ('phrase', text)
     if k in _cache:
@@ -350,7 +355,7 @@ def phrase_img(text):
     fnt = ImageFont.truetype(SEMI, 64)
     text = text.strip(' ,.')
     lines = [text]
-    if len(text) > 14 and ' ' in text:
+    if fnt.getlength(text) > SAFE_W - 70 and ' ' in text:
         sp = [i for i, c in enumerate(text) if c == ' ']
         cut = min(sp, key=lambda i: abs(i - len(text) / 2))
         lines = [text[:cut], text[cut + 1:]]
@@ -382,7 +387,7 @@ def overlay(T, total, shots, shot, blk):
     # 부위 칩 (위 왼쪽)
     chip = pill(blk['sec'], 42, dot=YELLOW)
     since = T - (blk['t0'] if blk is not BLOCKS[0] else 0)
-    paste(ov, chip, 54 - 30 * (1 - ease(since / .25)), 150, alpha=ease(since / .25))
+    paste(ov, chip, 54 - 30 * (1 - ease(since / .25)), SAFE_TOP + 20, alpha=ease(since / .25))
     # 첫 장면 훅 제목
     if T < BLOCKS[1]['t0']:
         e = ease(T / .35)
@@ -405,7 +410,7 @@ def overlay(T, total, shots, shot, blk):
     if cur:
         im = phrase_img(cur[2])
         k = min(1.0, (T - cur[0]) / 0.12)
-        paste(ov, im, (W - im.width) / 2, 1360, k)
+        paste(ov, im, SAFE_CX - im.width / 2, 1360, k)
     return ov, False
 
 
