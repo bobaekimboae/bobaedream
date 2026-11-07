@@ -41,20 +41,31 @@ CAR = dict(name='포르쉐 파나메라 4', gen='971', year='2021', reg='21년04
 # ── 대본: 숫자 훅 → 차명 → 외관 → 실내 → 옵션 → 조건·DM (선우혁 6단계). 사진·정보에 없는 말은 쓰지 않는다 ──
 # shots: (원본 시작 초, 재생 속도, 번호판 가림 필요)
 BLOCKS = [
-    dict(sec='외관', tts='9,200만 원. 파나메라 포 들어왔습니다.', caps=['9,200만 원', '파나메라 4 들어왔습니다'], shots=[(2.0, 1.2, 1), (4.2, 1.3, 1)], hook=True),
-    dict(sec='외관', tts='21년식, 2.9 가솔린 사륜구동입니다.', caps=['21년식', '2.9 가솔린 사륜구동입니다'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
+    dict(sec='외관', tts='오늘 리뷰할 차는 포르쉐 파나메라 포입니다. 가격은 9,200만 원.',
+         caps=['오늘 리뷰할 차는', '포르쉐 파나메라 4입니다', '가격은 9,200만 원'], shots=[(2.0, 1.2, 1), (4.2, 1.3, 1), (0.6, 1.0, 1)], hook=True),
+    dict(sec='외관', tts='21년식 구칠일 세대, 2.9 가솔린에 사륜구동 조합입니다.',
+         caps=['21년식 971 세대', '2.9 가솔린에 사륜구동 조합입니다'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
          card=('2.9 가솔린 · AWD', '2021년식 · 971')),
-    dict(sec='외관', tts='컬러는 짙은 블루입니다. 옆 라인 보시겠습니다.', caps=['컬러는 짙은 블루입니다', '옆 라인 보시겠습니다'], shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
-    dict(sec='휠', tts='휠 상태도 보여드리겠습니다.', caps=['휠 상태도 보여드리겠습니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)]),
-    dict(sec='후면', tts='뒤로 오면 테일램프가 가로로 쭉 이어져 있습니다.', caps=['뒤로 오면 테일램프가', '가로로 쭉 이어져 있습니다'], shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)]),
-    dict(sec='실내', tts='문 열어보겠습니다. 실내는 베이지 가죽이고, 시트 상태는 영상 그대로 보시면 됩니다.', caps=['문 열어보겠습니다', '실내는 베이지 가죽이고', '시트 상태는', '영상 그대로 보시면 됩니다'], shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)],
-         card=('베이지 가죽 시트', None)),
-    dict(sec='실내', tts='센터는 버튼 없이 전부 터치 패널입니다.', caps=['센터는 버튼 없이', '전부 터치 패널입니다'], shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
-    dict(sec='실내', tts='위에는 파노라마 선루프가 들어가 있습니다.', caps=['위에는 파노라마 선루프가', '들어가 있습니다'], shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
-    dict(sec='뒷좌석', tts='뒷좌석 공조도 따로 있습니다.', caps=['뒷좌석 공조도 따로 있습니다'], shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
-    dict(sec='운전석', tts='운전석 앉으면 디지털 계기판에 큰 화면, 이렇게 나옵니다.', caps=['운전석 앉으면', '디지털 계기판에 큰 화면', '이렇게 나옵니다'], shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
-    dict(sec='트렁크', tts='트렁크 열어보면 공간은 이 정도입니다.', caps=['트렁크 열어보면', '공간은 이 정도입니다'], shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
-    dict(sec='판매 조건', tts='21년 4월 등록, 주행은 3만 8천 킬로미터입니다. 가격은 9,200만 원. 문의는 DM으로 주시면 됩니다.', caps=['21년 4월 등록', '주행 3만 8천 km입니다', '가격은 9,200만 원', '문의는 DM으로 주시면 됩니다'],
+    dict(sec='외관', tts='디자인부터 보시죠. 컬러는 짙은 블루, 옆에서 보면 지붕이 뒤로 길게 떨어지는 패스트백 라인입니다.',
+         caps=['디자인부터 보시죠', '컬러는 짙은 블루', '옆에서 보면 지붕이 뒤로', '길게 떨어지는 패스트백 라인입니다'],
+         shots=[(3.2, 1.1, 1), (7.4, 1.2, 1), (5.7, 1.0, 1)]),
+    dict(sec='휠', tts='휠은 검은색 멀티 스포크입니다.', caps=['휠은 검은색 멀티 스포크입니다'], shots=[(17.9, 0.9, 1), (18.9, 0.75, 1)]),
+    dict(sec='후면', tts='뒤에서는 좌우를 가로로 잇는 테일램프가 포인트입니다.', caps=['뒤에서는 좌우를 가로로 잇는', '테일램프가 포인트입니다'],
+         shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)]),
+    dict(sec='실내', tts='실내로 들어가 보겠습니다. 시트는 베이지 가죽이고, 상태는 영상으로 직접 확인하시면 됩니다.',
+         caps=['실내로 들어가 보겠습니다', '시트는 베이지 가죽이고', '상태는 영상으로 직접', '확인하시면 됩니다'],
+         shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)], card=('베이지 가죽 시트', None)),
+    dict(sec='실내', tts='센터 콘솔은 물리 버튼 대신 터치 패널로 정리돼 있습니다.', caps=['센터 콘솔은 물리 버튼 대신', '터치 패널로 정리돼 있습니다'],
+         shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
+    dict(sec='실내', tts='천장에는 파노라마 선루프가 들어갑니다.', caps=['천장에는 파노라마 선루프가 들어갑니다'],
+         shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
+    dict(sec='뒷좌석', tts='뒷좌석에도 독립 공조 패널이 따로 있습니다.', caps=['뒷좌석에도 독립 공조 패널이 따로 있습니다'],
+         shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
+    dict(sec='운전석', tts='운전석은 디지털 계기판과 와이드 센터 디스플레이 구성입니다.', caps=['운전석은 디지털 계기판과', '와이드 센터 디스플레이 구성입니다'],
+         shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
+    dict(sec='트렁크', tts='트렁크 공간은 이 정도입니다.', caps=['트렁크 공간은 이 정도입니다'], shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
+    dict(sec='판매 조건', tts='정리하면, 21년 4월 등록에 주행 3만 8천 킬로미터, 가격은 9,200만 원입니다. 자세한 문의는 DM 주시면 됩니다.',
+         caps=['정리하면 21년 4월 등록', '주행 3만 8천 km', '가격은 9,200만 원입니다', '자세한 문의는 DM 주시면 됩니다'],
          shots=[(54.4, 1.1, 1), (18.4, 1.1, 1), (23.2, 1.2, 0), (47.0, 1.1, 0), (6.2, 1.0, 1)], card=('주행 38,276km', '최초등록 2021년 4월'), end=True),
 ]
 SHOW = {'포.': '4.', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km', '킬로미터입니다.': 'km입니다.'}
@@ -79,6 +90,50 @@ async def edge(text, path):
 
 def dur(p):
     return float(subprocess.check_output(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', p]))
+
+
+def align_external(path, words_json):
+    """외부 음성(일레븐랩스 등) + 받아쓰기 어절 시각 → 대본 어절 시각. 글자 단위로 맞춰 대본과 받아쓰기 표기가 달라도 따라간다"""
+    import difflib
+    sw = json.load(open(words_json))  # [{text,start,end}]
+    norm = lambda t: re.sub(r'[^0-9A-Za-z가-힣]', '', t)
+    sc, st = [], []  # 받아쓰기 글자, 글자마다 시각
+    for w in sw:
+        t = norm(w['text'])
+        for k, ch in enumerate(t):
+            sc.append(ch); st.append(w['start'] + (w['end'] - w['start']) * k / max(1, len(t)))
+    bc, owner = [], []  # 대본 글자, 글자마다 (블록, 어절)
+    for bi, b in enumerate(BLOCKS):
+        for wi, w in enumerate(b['tts'].split()):
+            for ch in norm(w):
+                bc.append(ch); owner.append((bi, wi))
+    sm = difflib.SequenceMatcher(None, ''.join(bc), ''.join(sc), autojunk=False)
+    mp = [None] * len(bc)
+    for a0, b0, n in sm.get_matching_blocks():
+        for k in range(n):
+            mp[a0 + k] = st[b0 + k]
+    known = [i for i, v in enumerate(mp) if v is not None]
+    for i in range(len(mp)):  # 못 맞춘 글자는 앞뒤 사이를 이어 붙임
+        if mp[i] is None:
+            lo = max([k for k in known if k < i], default=None); hi = min([k for k in known if k > i], default=None)
+            if lo is None: mp[i] = mp[hi]
+            elif hi is None: mp[i] = mp[lo] + 0.08 * (i - lo)
+            else: mp[i] = mp[lo] + (mp[hi] - mp[lo]) * (i - lo) / (hi - lo)
+    first = {}
+    for i, o in enumerate(owner):
+        first.setdefault(o, i)
+    d = dur(path)
+    for bi, b in enumerate(BLOCKS):
+        ws = b['tts'].split()
+        starts = [mp[first[(bi, wi)]] for wi in range(len(ws))]
+        nb = mp[first[(bi + 1, 0)]] if bi + 1 < len(BLOCKS) else d
+        ends = starts[1:] + [min(nb - 0.05, starts[-1] + 0.6 + 0.07 * len(ws[-1]))]
+        b['words'] = [(s_, e_, SHOW.get(w, w)) for s_, e_, w in zip(starts, ends, ws)]
+        b['t0'], b['t1'] = starts[0], ends[-1]
+    total = d + 2.8
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', path, '-af', f'aformat=sample_rates=48000:channel_layouts=stereo,apad=whole_dur={total}',
+                    '-t', f'{total:.3f}', os.path.join(OUT, 'voice.wav')], check=True)
+    return total
 
 
 def build_voice():
@@ -503,7 +558,8 @@ def vignette(img):
 
 def main():
     t_start = time.time()
-    total = build_voice()
+    ext = os.environ.get('SAG_VOICE_FILE')
+    total = align_external(ext, os.environ['SAG_VOICE_WORDS']) if ext else build_voice()
     build_bgm(total)
     build_phrases()
     build_sfx(total)
