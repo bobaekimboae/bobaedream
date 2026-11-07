@@ -2,7 +2,7 @@
 
 입력: 딜러가 찍은 매물 원본 영상 1개 + 매물 정보(사실만).
 흐름: 대본(사실만) → TTS(어절 시각) → 원본에서 부위별 구간 고르기 → 1.6초 안팎 컷 편집(속도·푸시인)
-     → 번호판 자동 가림(LPD-YuNet) → 한 어절 키네틱 자막 · 부위 칩 · 사양 카드 · 진행선 → 끝 카드
+     → 번호판 자동 가림(LPD-YuNet) → 구절 자막(반투명 바탕) · 부위 칩 · 사양 카드 · 진행선 → 끝 카드
      → 코드로 만든 배경음악 + 목소리 자동 덕킹 → -14 LUFS → 1080×1920 30fps mp4.
 
 실행: python3 scripts/shortform/sag_reel_v1.py <원본.mp4> <출력폴더>
@@ -33,20 +33,20 @@ CAR = dict(name='포르쉐 파나메라 4', gen='971', year='2021', reg='21년04
 # ── 대본: 숫자 훅 → 차명 → 외관 → 실내 → 옵션 → 조건·DM (선우혁 6단계). 사진·정보에 없는 말은 쓰지 않는다 ──
 # shots: (원본 시작 초, 재생 속도, 번호판 가림 필요)
 BLOCKS = [
-    dict(sec='외관', tts='9,200만 원. 파나메라 포 들어왔습니다.', shots=[(2.0, 1.2, 1), (4.2, 1.3, 1)], hook=True),
-    dict(sec='외관', tts='21년식이고요, 2.9 가솔린에 사륜이에요.', shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
+    dict(sec='외관', tts='9,200만 원. 파나메라 포 들어왔습니다.', caps=['9,200만 원', '파나메라 4 들어왔습니다'], shots=[(2.0, 1.2, 1), (4.2, 1.3, 1)], hook=True),
+    dict(sec='외관', tts='21년식이고요, 2.9 가솔린에 사륜이에요.', caps=['21년식이고요', '2.9 가솔린에 사륜이에요'], shots=[(5.0, 1.25, 1), (6.6, 1.25, 1)],
          card=('2.9 가솔린 · AWD', '2021년식 · 971')),
-    dict(sec='외관', tts='컬러는 짙은 블루. 이 옆 라인 보세요, 파나메라는 옆태죠.', shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
-    dict(sec='휠', tts='휠도 한번 보시고요,', shots=[(18.0, 1.15, 1), (19.2, 1.15, 1)]),
-    dict(sec='후면', tts='뒤로 오면 요 테일램프, 가로로 쭉 이어져 있습니다.', shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)]),
-    dict(sec='실내', tts='문 열어볼게요. 실내는 베이지 가죽이고, 시트 상태는 영상 그대로 보시면 됩니다.', shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)],
+    dict(sec='외관', tts='컬러는 짙은 블루고요, 옆 라인 한번 보시죠.', caps=['컬러는 짙은 블루고요', '옆 라인 한번 보시죠'], shots=[(7.4, 1.2, 1), (5.7, 1.0, 1)]),
+    dict(sec='휠', tts='휠도 한번 보시고요,', caps=['휠도 한번 보시고요'], shots=[(18.0, 1.15, 1), (19.2, 1.15, 1)]),
+    dict(sec='후면', tts='뒤로 오면 테일램프가 가로로 쭉 이어져 있습니다.', caps=['뒤로 오면 테일램프가', '가로로 쭉 이어져 있습니다'], shots=[(8.9, 1.0, 1), (9.7, 1.0, 1), (10.5, 0.85, 1)]),
+    dict(sec='실내', tts='문 열어볼게요. 실내는 베이지 가죽이고, 시트 상태는 영상 그대로 보시면 됩니다.', caps=['문 열어볼게요', '실내는 베이지 가죽이고', '시트 상태는', '영상 그대로 보시면 됩니다'], shots=[(20.4, 1.3, 0), (22.0, 1.3, 0), (24.0, 1.3, 0)],
          card=('베이지 가죽 시트', None)),
-    dict(sec='실내', tts='센터는 버튼 없이 전부 터치 패널이에요.', shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
-    dict(sec='실내', tts='위에는 파노라마 선루프 들어가 있고요,', shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
-    dict(sec='뒷좌석', tts='뒷자리 공조도 따로 있어요.', shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
-    dict(sec='운전석', tts='운전석 앉으면 디지털 계기판에 큰 화면, 딱 이렇게 나옵니다.', shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
-    dict(sec='트렁크', tts='트렁크 열어보면 공간은 이 정도.', shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
-    dict(sec='판매 조건', tts='21년 4월 등록, 3만 8천 탔고요. 가격은 9,200만 원. 궁금한 건 DM 주세요.',
+    dict(sec='실내', tts='센터는 버튼 없이 전부 터치 패널이에요.', caps=['센터는 버튼 없이', '전부 터치 패널이에요'], shots=[(26.2, 1.25, 0), (28.0, 1.25, 0)]),
+    dict(sec='실내', tts='위에는 파노라마 선루프 들어가 있고요,', caps=['위에는 파노라마 선루프', '들어가 있고요'], shots=[(33.2, 1.2, 0), (34.6, 1.2, 0)], card=('파노라마 선루프', None)),
+    dict(sec='뒷좌석', tts='뒷자리 공조도 따로 있어요.', caps=['뒷자리 공조도 따로 있어요'], shots=[(41.0, 1.25, 0), (42.6, 1.25, 0)]),
+    dict(sec='운전석', tts='운전석 앉으면 디지털 계기판에 큰 화면, 이렇게 나옵니다.', caps=['운전석 앉으면', '디지털 계기판에 큰 화면', '이렇게 나옵니다'], shots=[(46.2, 1.2, 0), (47.8, 1.2, 0), (37.2, 1.2, 0)]),
+    dict(sec='트렁크', tts='트렁크 열어보면 공간은 이 정도입니다.', caps=['트렁크 열어보면', '공간은 이 정도입니다'], shots=[(52.2, 1.15, 1), (53.4, 1.2, 1)]),
+    dict(sec='판매 조건', tts='21년 4월 등록, 3만 8천 탔고요. 가격은 9,200만 원. 궁금한 건 DM 주세요.', caps=['21년 4월 등록', '3만 8천 탔고요', '가격은 9,200만 원', '궁금한 건 DM 주세요'],
          shots=[(54.4, 1.1, 1), (18.4, 1.1, 1), (23.2, 1.2, 0), (47.0, 1.1, 0), (6.2, 1.0, 1)], card=('주행 38,276km', '최초등록 2021년 4월'), end=True),
 ]
 SHOW = {'포.': '4.', '포,': '4,', '포': '4', '킬로미터,': 'km,', '킬로미터': 'km'}
@@ -312,6 +312,55 @@ def ease(x):
     return 1 - (1 - x) ** 3
 
 
+PHRASES = []
+
+
+def build_phrases():
+    """블록마다 미리 정한 자막 구절(caps)에 어절 시각을 차례로 맞춘다. 어절 수가 다르면 비율로 나눈다"""
+    PHRASES.clear()
+    for b in BLOCKS:
+        ws, caps = b['words'], b.get('caps') or [b['tts']]
+        need = [len(c.split()) for c in caps]
+        n = len(ws)
+        if sum(need) != n:
+            tot = sum(need)
+            cuts = [round(n * sum(need[:k + 1]) / tot) for k in range(len(need))]
+        else:
+            cuts = [sum(need[:k + 1]) for k in range(len(need))]
+        i0 = 0
+        for c, i1 in zip(caps, cuts):
+            i1 = max(i0 + 1, min(n, i1))
+            PHRASES.append([ws[i0][0], ws[i1 - 1][1], c])
+            i0 = i1
+    for i in range(len(PHRASES) - 1):
+        if PHRASES[i + 1][0] - PHRASES[i][1] < 0.45:
+            PHRASES[i][1] = PHRASES[i + 1][0]
+        else:
+            PHRASES[i][1] += 0.25
+
+
+def phrase_img(text):
+    k = ('phrase', text)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(BOLD, 68)
+    words = text.split(' ')
+    gap = fnt.getlength(' ')
+    widths = [fnt.getlength(w) for w in words]
+    tw = sum(widths) + gap * (len(words) - 1)
+    pad_x, h = 34, 104
+    im = Image.new('RGBA', (int(tw + pad_x * 2), h), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, im.width - 1, h - 1), 18, fill=(0, 0, 0, 150))
+    x = pad_x
+    for w, ww in zip(words, widths):
+        col = YELLOW if re.search(r'\d', w) else (255, 255, 255)
+        d.text((x, h / 2 + 2), w, font=fnt, fill=col, anchor='lm')
+        x += ww + gap
+    _cache[k] = im
+    return im
+
+
 def overlay(T, total, shots, shot, blk):
     ov = Image.new('RGBA', (W, H), (0, 0, 0, 0))
     end_t = BLOCKS[-1]['t1'] + 0.35
@@ -338,20 +387,15 @@ def overlay(T, total, shots, shot, blk):
             card = spec_card(*blk['card'])
             e = ease((cs - .15) / .3)
             paste(ov, card, 54 - 60 * (1 - e), 1010, e)
-    # 한 어절 키네틱 자막
+    # 구절 자막: 2~3어절씩 묶어 한 덩어리로 보여 준다(튀는 효과 없음, 위치 고정)
     cur = None
-    for b in BLOCKS:
-        for s, e_, w in b['words']:
-            if s - 0.03 <= T < e_ + 0.08:
-                cur = (s, w)
+    for ph in PHRASES:
+        if ph[0] <= T < ph[1]:
+            cur = ph
     if cur:
-        s, w = cur
-        w = w.rstrip(',.')
-        if w:
-            im = text_img(w, 112, stroke=10, key=bool(KEY.search(w)))
-            p = min(1.0, (T - s) / 0.09)
-            sc = 1.18 - 0.18 * ease(p)
-            paste(ov, im, (W - im.width * sc) / 2, 1290 - (im.height * sc) / 2, 1.0, sc)
+        im = phrase_img(cur[2])
+        k = min(1.0, (T - cur[0]) / 0.12)
+        paste(ov, im, (W - im.width) / 2, 1360, k)
     return ov, False
 
 
@@ -398,6 +442,7 @@ def main():
     t_start = time.time()
     total = build_voice()
     build_bgm(total)
+    build_phrases()
     cap = cv2.VideoCapture(SRC)
     nframes = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
     shots = plan_shots(total)
