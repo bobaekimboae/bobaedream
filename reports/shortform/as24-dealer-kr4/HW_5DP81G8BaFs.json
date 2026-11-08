@@ -1,0 +1,850 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/5DP81G8BaFs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6714,
+  "candidatesTokenCount": 6996,
+  "totalTokenCount": 13710,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5454
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.0,
+   "aspect": "9:16",
+   "car": "현대 그랜저 IG / 벤츠 E클래스 카브리올레",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 30.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 54.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 60.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "친.구.야 ^^",
+    "ko": "친구야 ^^",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.2,
+    "text": "차.샀.다 ^^",
+    "ko": "차 샀다 ^^",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.0,
+    "text": "뭐샀는데??",
+    "ko": "뭐 샀는데??",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.4,
+    "text": "이거 아이가 ^^",
+    "ko": "이거 아니가 ^^",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "야 차 이거 좋노 ^^",
+    "ko": "야 차 이거 좋네 ^^",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "하지마라 ㅡ ㅡ",
+    "ko": "하지 마라",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "새차가? ㅎㅎ",
+    "ko": "새 차가? ㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.0,
+    "text": "하.지.마.라",
+    "ko": "하지 마라",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "text": "돌아이이가 ㅡ ㅡ",
+    "ko": "돌아이 아니가",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.5,
+    "text": "야 차안에 함 보자 ㅎㅎㅎㅎ",
+    "ko": "야 차 안에 한 번 보자 ㅎㅎㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 49.5,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.5,
+    "text": "깔끔~~하다이가 ^^",
+    "ko": "깔끔하다 아니가 ^^",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "이러는거 아이가 원래 ㅎㅎ",
+    "ko": "이러는 거 아니가 원래 ㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.5,
+    "text": "미친toRL인가",
+    "ko": "미친새끼인가",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.5,
+    "text": "아 이거 좋다 차 ㅎㅎㅎㅎ",
+    "ko": "아 이거 차 좋다 ㅎㅎㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.5,
+    "text": "차.좋.다 ^^",
+    "ko": "차 좋다 ^^",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.5,
+    "text": "차 안살건데? ㅋ",
+    "ko": "차 안 살 건데? ㅋ",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "text": "2년 뒤...",
+    "ko": "2년 뒤...",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#333333",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.0,
+    "text": "생.수.야 ^^",
+    "ko": "생수야 ^^",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "text": "내 차샀다이가 ^^",
+    "ko": "나 차 샀다 아니가 ^^",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "text": "차.를.샀.다.고 ?!?!?!?!",
+    "ko": "차를 샀다고?!?!?!?",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "이야.. 이거 때깔좋네 ? 어?",
+    "ko": "이야.. 이거 때깔 좋네? 어?",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.5,
+    "text": "하지마라 ㅠㅠ",
+    "ko": "하지 마라 ㅠㅠ",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.5,
+    "text": "고사 안지냈제 이거?? ㅋ",
+    "ko": "고사 안 지냈지 이거?? ㅋ",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.5,
+    "text": "야 !! 뭐하는데 !! 어어!! 하지마라 ㅠㅠㅠㅠㅠ",
+    "ko": "야 뭐 하는데 하지 마라",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.5,
+    "text": "뭐여 천이있어?!",
+    "ko": "뭐야 천이 있어?!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.5,
+    "text": "(진짜 할기세) 진짜 하지마라 ㅡ ㅡ",
+    "ko": "(진짜 할 기세) 진짜 하지 마라",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.5,
+    "text": "진짜 내 니한테 할 말이 있다...",
+    "ko": "진짜 나 너한테 할 말이 있다...",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.5,
+    "type": "쿵",
+    "event": "차 본넷에 손 짚으며 자막 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "쿵",
+    "event": "본넷 위로 발 올릴 때 느낌표",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "쿵",
+    "event": "조수석 대시보드에 발 올릴 때 느낌표",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "딸깍",
+    "event": "손으로 핸들 치며 옥신각신",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.5,
+    "type": "쿵",
+    "event": "차에 침 뱉으려는 시늉 느낌표",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "쿵",
+    "event": "무릎 꿇는 순간 비장한 효과음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "코믹 배경음악 / 슬픈 현악 테마",
+   "bpm_est": 110,
+   "mood": "익살스러움에서 비장/슬픔으로 전환",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 54.8,
+     "what": "코믹 BGM 종료 후 비장한 첼로/바이올린 사운드로 전환"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 60.0,
+    "what": "상단 딜러 로고 및 24시간 문의 전화번호, 카카오톡 ID 상단 고정 바",
+    "is_3d": false,
+    "size_w_pct": 95.0,
+    "x_pct": 50.0,
+    "y_pct": 6.0,
+    "entrance": "고정",
+    "purpose": "딜러 상시 연락처 노출",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.5,
+    "what": "손가락 지목 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 75.0,
+    "y_pct": 68.0,
+    "entrance": "바로",
+    "purpose": "차 가리키는 손 강조",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "what": "느낌표 3개 스티커",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 49.5,
+    "y_pct": 78.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "충격 리액션 강조",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "what": "느낌표 3개 스티커",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 49.5,
+    "y_pct": 78.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "충격 리액션 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "친구야 차 샀다 와? 차 뭐 샀는데?",
+    "ko": "친구야 차 샀다 와? 차 뭐 샀는데?"
+   },
+   {
+    "start": 3.0,
+    "end": 8.0,
+    "text": "이거 아이가. 야 차 이거 좋노 하지 마라",
+    "ko": "이거 아니냐. 야 이 차 좋다 하지 마라"
+   },
+   {
+    "start": 8.0,
+    "end": 14.0,
+    "text": "새차가? 하지 마라 하지 마라 돌아이가 야 차 안에 한 번 보자",
+    "ko": "새 차냐? 하지 마라 하지 마라 돌아이냐 야 차 안에도 한 번 보자"
+   },
+   {
+    "start": 14.0,
+    "end": 20.0,
+    "text": "깔끔하다이가 원래 이러는 거 아이가 미친놈인가",
+    "ko": "깔끔하지 않냐 원래 이러는 거 아니냐 미친놈인가"
+   },
+   {
+    "start": 20.0,
+    "end": 26.5,
+    "text": "야 하지 마라 아 이거 차 좋다 미친놈 아이가 이거 차 좋다 니 차 사면 보자 차 안 살 건데?",
+    "ko": "야 하지 마라 아 이거 차 좋다 미친놈 아니냐 이거 차 좋다 너 차 사면 보자 차 안 살 건데?"
+   },
+   {
+    "start": 27.6,
+    "end": 32.5,
+    "text": "생수야 내 차 샀다이가 요 봐라 차를 샀다고?",
+    "ko": "생수야 나 차 샀다 이거 봐라 차를 샀다고?"
+   },
+   {
+    "start": 32.5,
+    "end": 42.0,
+    "text": "이야 이거 때깔 좋네 어 하지 마라 야 고사 안 지냈제 이거 야 뭐 하는데 어어 하지 마라",
+    "ko": "이야 이거 때깔 좋네 어 하지 마라 야 고사 안 지냈지 이거 야 뭐 하냐 하지 마라"
+   },
+   {
+    "start": 42.0,
+    "end": 50.0,
+    "text": "뭐여 천이 있어? 하지 마라 아까 우산이 있었는데 좋은 차인데 안 찢어지겠지 아니 아니 진짜 하지 마라",
+    "ko": "뭐야 천이 있어? 하지 마라 아까 우산이 있었는데 좋은 차인데 안 찢어지겠지 아니 아니 진짜 하지 마라"
+   },
+   {
+    "start": 50.0,
+    "end": 60.0,
+    "text": "진짜 내 니한테 할 말이 있다 내가 미안하다 내 미안하다",
+    "ko": "진짜 나 너한테 할 말이 있다 내가 미안하다 나 미안하다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 14.5,
+    "speed": "빠름",
+    "summary": "친구가 그랜저를 샀다며 자랑하자 본넷에 발을 올리며 괴롭힘"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.5,
+    "end": 26.6,
+    "speed": "빠름",
+    "summary": "차 내부 대시보드에 양말 신은 발을 올리며 깐족거림"
+   },
+   {
+    "stage": "기타",
+    "start": 26.6,
+    "end": 54.7,
+    "speed": "빠름",
+    "summary": "2년 뒤 친구가 벤츠 오픈카를 사서 복수하려 하자 패닉"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 54.7,
+    "end": 60.0,
+    "speed": "느림",
+    "summary": "무릎 꿇고 진심으로 사과하는 반전 결말"
+   }
+  ],
+  "rules": [
+   "딜러 채널 상단에 로고와 전화번호 및 카카오톡 ID를 상시 고정 노출하여 광고 효과 극대화",
+   "스토리텔링 콩트 형식(인과응보/참교육)으로 몰입도와 바이럴 유도",
+   "경남 방언의 현실적인 친구 티키타카 대사로 유머 요소 강조",
+   "결말에 흑백 화면과 슬픈 음악으로 톤을 급변시켜 코믹한 사죄 장면 연출"
+  ],
+  "option_highlights": [
+   {
+    "start": 42.5,
+    "end": 46.0,
+    "feature": "소프트탑 (카브리올레)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "지하주차장에서 친구에게 차 샀다고 신나게 자랑하며 걸어오는 장면",
+   "type": "행동",
+   "text": "친구야 차 샀다"
+  },
+  "narration_points": [
+   {
+    "t": 15.5,
+    "point": "그랜저 실내가 아주 깔끔함",
+    "category": "상태·이력"
+   },
+   {
+    "t": 43.0,
+    "point": "벤츠 카브리올레 소프트탑 지붕 재질 언급",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "한우카",
+    "010-3696-2227",
+    "카카오톡 900928L"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "24시간 문의 010.3696.2227 / 900928L",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "기타",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "외관 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단에 한우카 로고 및 파란색 배너 24시간 연락처 고정"
+  }
+ }
+}

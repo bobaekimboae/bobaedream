@@ -1,0 +1,671 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Y_A4yYnkJ4A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5256,
+  "candidatesTokenCount": 5427,
+  "totalTokenCount": 11449,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3996
+   }
+  ],
+  "thoughtsTokenCount": 766,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.6,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 E클래스",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 9.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.6,
+    "end": 14.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.3,
+    "end": 20.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 25.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 29.3,
+    "end": 34.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 41.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 43.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "와... 니 차 왜이래 많은데;;",
+    "ko": "와... 너 차 왜 이렇게 많은데;;",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 36.4,
+    "text_height_pct": 7.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.7,
+    "text": "야 니 타고 싶은 거 다~ 타라 ! 이거 다~~ 내 거다 이거 !",
+    "ko": "야 너 타고 싶은 거 다 타라! 이거 다 내 거다 이거!",
+    "kind": "말 자막",
+    "y_pct": 53.6,
+    "x_center_pct": 51.5,
+    "text_height_pct": 7.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.4,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.4,
+    "text": "와 대박이네..\n다 니 거가 이거??",
+    "ko": "와 대박이네.. 다 너 거냐 이거??",
+    "kind": "말 자막",
+    "y_pct": 69.8,
+    "x_center_pct": 49.3,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 64.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.3,
+    "text": "어 당연하지 !!\n야 뭐탈래??",
+    "ko": "어 당연하지!! 야 뭐 탈래??",
+    "kind": "말 자막",
+    "y_pct": 34.5,
+    "x_center_pct": 53.2,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 63.8,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.2,
+    "text": "포르쉐??",
+    "ko": "포르쉐??",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 52.8,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.2,
+    "end": 8.9,
+    "text": "랜드로버??",
+    "ko": "랜드로버??",
+    "kind": "말 자막",
+    "y_pct": 37.8,
+    "x_center_pct": 51.5,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 46.8,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 9.4,
+    "text": "벤츠??",
+    "ko": "벤츠??",
+    "kind": "말 자막",
+    "y_pct": 39.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.9,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 27.5,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.6,
+    "text": "야 그럼 내 벤츠 한 번만 타보면 안되나??",
+    "ko": "야 그럼 나 벤츠 한 번만 타보면 안 되나??",
+    "kind": "말 자막",
+    "y_pct": 69.8,
+    "x_center_pct": 50.8,
+    "text_height_pct": 7.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 73.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 14.5,
+    "text": "아 뭐 벤츠 탈라고??\n뭐 벤츠 요거 타봐라 !\n요거 완전 신차다 !",
+    "ko": "아 뭐 벤츠 타려고?? 뭐 벤츠 이거 타봐라! 이거 완전 신차다!",
+    "kind": "말 자막",
+    "y_pct": 51.5,
+    "x_center_pct": 60.5,
+    "text_height_pct": 8.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 18.3,
+    "text": "니 진짜 대박이다..\n역시 재벌은 다르네...",
+    "ko": "너 진짜 대박이다.. 역시 재벌은 다르네...",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 61.2,
+    "text_height_pct": 7.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.4,
+    "end": 20.8,
+    "text": "야 뭐 또 딴 거 타볼래???\n다 타봐도 된다 !!\n뭐 탈래?!",
+    "ko": "야 뭐 또 딴 거 타볼래??? 다 타봐도 된다!! 뭐 탈래?!",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 55.4,
+    "text_height_pct": 9.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.8,
+    "text": "야 그럼...\n니 내랑 이거 타고 여자 꼬시러 가자 !!",
+    "ko": "야 그럼... 너 나랑 이거 타고 여자 꼬시러 가자!!",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 7.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 23.9,
+    "text": "진짜?!",
+    "ko": "진짜?!",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 51.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.8,
+    "text": "가자~~",
+    "ko": "가자~~",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.3,
+    "text": "가자 --",
+    "ko": "가자...",
+    "kind": "말 자막",
+    "y_pct": 66.8,
+    "x_center_pct": 33.2,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 26.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.4,
+    "end": 34.6,
+    "text": "아 뭐하노 - 빨리 닦고 가자\n오늘 닦을 차 ro많다 -_-\n아 자고 있노 짜증나게 -_-",
+    "ko": "아 뭐 하냐 빨리 닦고 가자 오늘 닦을 차 엄청 많다 자고 있냐 짜증나게",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 58.5,
+    "text_height_pct": 9.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 41.5,
+    "text": "아... 알겠다...\n아..x나 좋았는데...",
+    "ko": "아... 알겠다... 아.. 완전 좋았는데...",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 25.8,
+    "type": "휙",
+    "event": "꿈에서 깨어나는 전환 효과음 (블러 페이드)",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "코믹·현실자각",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 41.6,
+    "what": "한우카 채널 워터마크 로고",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 14.5,
+    "y_pct": 6.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 43.6,
+    "what": "한우카 로고 및 웹사이트 도메인 엔딩 카드",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "앱 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "와 야 니 차 왜이래 많은데",
+    "ko": "와 야 너 차 왜 이렇게 많은데"
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "야 니 타고 싶은 거 다 타라 이거 다 내 거다 이거",
+    "ko": "야 너 타고 싶은 거 다 타라 이거 다 내 거다 이거"
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "와 대박이네 다 니 거가 이거",
+    "ko": "와 대박이네 다 너 거냐 이거"
+   },
+   {
+    "start": 5.4,
+    "end": 9.4,
+    "text": "어 당연하지 야 뭐 탈래 포르쉐 랜드로버 벤츠",
+    "ko": "어 당연하지 야 뭐 탈래 포르쉐 랜드로버 벤츠"
+   },
+   {
+    "start": 9.4,
+    "end": 11.6,
+    "text": "야 그럼 내 벤츠 한 번만 타보면 안되나",
+    "ko": "야 그럼 나 벤츠 한 번만 타보면 안 되나"
+   },
+   {
+    "start": 11.6,
+    "end": 14.5,
+    "text": "아 뭐 벤츠 탈라고 뭐 벤츠 요거 타봐라 이거 완전 신차다",
+    "ko": "아 뭐 벤츠 타려고 뭐 벤츠 이거 타봐라 이거 완전 신차다"
+   },
+   {
+    "start": 14.5,
+    "end": 18.3,
+    "text": "야 와 니 진짜 대박이다 진짜 멋있다 역시 재벌은 다르네",
+    "ko": "야 와 너 진짜 대박이다 진짜 멋있다 역시 재벌은 다르네"
+   },
+   {
+    "start": 18.3,
+    "end": 20.8,
+    "text": "야 뭐 또 딴 거 타볼래 다 타봐도 된다 뭐 탈래",
+    "ko": "야 뭐 또 딴 거 타볼래 다 타봐도 된다 뭐 탈래"
+   },
+   {
+    "start": 20.8,
+    "end": 22.9,
+    "text": "야 그럼 니 내랑 이거 타고 여자 꼬시러 가자",
+    "ko": "야 그럼 너 나랑 이거 타고 여자 꼬시러 가자"
+   },
+   {
+    "start": 22.9,
+    "end": 25.8,
+    "text": "진짜 가자 가자 가자",
+    "ko": "진짜 가자 가자 가자"
+   },
+   {
+    "start": 25.8,
+    "end": 29.3,
+    "text": "가자 아 씨",
+    "ko": "가자 아 씨"
+   },
+   {
+    "start": 29.3,
+    "end": 34.6,
+    "text": "아 뭐하노 빨리 닦고 가자 오늘 닦을 차 개많다 아 자고 있노 짜증나게",
+    "ko": "아 뭐 하냐 빨리 닦고 가자 오늘 닦을 차 엄청 많다 아 자고 있냐 짜증나게"
+   },
+   {
+    "start": 34.6,
+    "end": 41.6,
+    "text": "아 알겠다 씨 아 졸라 좋았는데 아",
+    "ko": "아 알겠다 아 완전 좋았는데 아"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "주차장에 차가 많다며 전부 자기 차라고 자랑하는 친구"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "포르쉐, 랜드로버 등 고가 수입차 중 벤츠 신차급 차량 추천"
+   },
+   {
+    "stage": "기능",
+    "start": 14.5,
+    "end": 25.8,
+    "speed": "빠름",
+    "summary": "벤츠에 타서 감탄하며 드라이브 나가자고 들뜸"
+   },
+   {
+    "stage": "차 소개",
+    "start": 25.8,
+    "end": 41.6,
+    "speed": "보통",
+    "summary": "꿈에서 깨어나 보니 세차 작업 중 잠든 현실 반전"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 41.6,
+    "end": 43.6,
+    "speed": "보통",
+    "summary": "한우카 채널 로고 및 웹사이트 안내"
+   }
+  ],
+  "rules": [
+   "개그 상황극 형태의 반전 스토리로 중고차 단지의 대규모 매물을 유쾌하게 노출",
+   "대화가 바뀔 때마다 샷을 번갈아 컷 편집하여 코믹한 티키타카 리듬 유지",
+   "화면 좌상단에 상시 채널 로고를 띄워 매매상사 브랜딩",
+   "대화 내용을 굵은 검은색 테두리의 흰색 자막으로 가독성 있게 표시"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "많은 차가 있는 주차장에 들어서며 차가 왜 이렇게 많냐고 놀라는 장면",
+   "type": "감탄·리액션",
+   "text": "와... 니 차 왜이래 많은데;;"
+  },
+  "narration_points": [
+   {
+    "t": 13.5,
+    "point": "매물로 있는 벤츠가 완전 신차급 컨디션임을 언급",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 41.6
+  },
+  "cta": {
+   "t": 41.6,
+   "text": "www.한우카.com",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "사람",
+    "외관 측면",
+    "실내 앞"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "좌상단 원형 한우카 로고 오버레이 및 엔딩 로고 화면 고정 활용"
+  }
+ }
+}

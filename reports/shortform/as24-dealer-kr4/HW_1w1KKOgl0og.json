@@ -1,0 +1,581 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/1w1KKOgl0og",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5630,
+  "candidatesTokenCount": 4887,
+  "totalTokenCount": 10517,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4370
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.0,
+   "aspect": "9:16",
+   "car": "그랜저 HG",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 9.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 38.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.6,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 46.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "그랜저신형 500만 원에\n파시는 딜러분 맞죠?!",
+    "ko": "그랜저신형 500만 원에 파시는 딜러분 맞죠?!",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.0,
+    "text": "어 네네 !!\n이 차 입니다 ㅎㅎ",
+    "ko": "어 네네 !! 이 차 입니다 ㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 4.4,
+    "text": "이 차요...?",
+    "ko": "이 차요...?",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.0,
+    "text": "이거 신형\n아닌데...?",
+    "ko": "이거 신형 아닌데...?",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 6.9,
+    "text": "무슨 소리에요\n이거 ㅡ ㅡ",
+    "ko": "무슨 소리에요 이거 ㅡ ㅡ",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.0,
+    "text": "그랜저ig 도 있고\n더뉴그랜저ig 도 있는데\n이거 신형 아니에요\nㅡ ㅡ",
+    "ko": "그랜저ig 도 있고 더뉴그랜저ig 도 있는데 이거 신형 아니에요 ㅡ ㅡ",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.2,
+    "text": "그건 뭐에요...?",
+    "ko": "그건 뭐에요...?",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.3,
+    "end": 16.0,
+    "text": "이 사람 지금 장난하나\n2022년도에 지금\n14년도 차를 들고와가지고\n신형이라 하고\n뭐하는 겁니까 지금",
+    "ko": "이 사람 지금 장난하나 2022년도에 지금 14년도 차를 들고와가지고 신형이라 하고 뭐하는 겁니까 지금",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.1,
+    "end": 17.0,
+    "text": "뭐라고요...??",
+    "ko": "뭐라고요...??",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.2,
+    "text": "지금 2022년도라고요?",
+    "ko": "지금 2022년도라고요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 24.5,
+    "text": "제가 교통사고나서\n병원에서 좀 자고 왔는데...",
+    "ko": "제가 교통사고나서 병원에서 좀 자고 왔는데...",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.5,
+    "text": "8년이나 지났네요...",
+    "ko": "8년이나 지났네요...",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.0,
+    "text": "아... 십... 8년이나\n주무셨나보네요...",
+    "ko": "아... 십... 8년이나 주무셨나보네요...",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.3,
+    "text": "그냥 제가 이 차\n계약할게요 !!",
+    "ko": "그냥 제가 이 차 계약할게요 !!",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.5,
+    "text": "계약서 바로 들고올게요!!!!!",
+    "ko": "계약서 바로 들고올게요!!!!!",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 44.0,
+    "text": "어 자기야 ㅎㅎㅎ\n우리 오늘 1주년인데 레스토랑 예약해놨어\n응 ㅎㅎ 딱 한 대 팔았..... 으....?",
+    "ko": "어 자기야 레스토랑 예약해놨어 한 대 팔았어",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 16.0,
+    "type": "쿵",
+    "event": "딜러의 당황하는 반전 대사 시작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "쿵",
+    "event": "통화 소리를 듣고 속은 것을 알아차림",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "배경음악 없음",
+   "bpm_est": 0,
+   "mood": "코믹/드라마",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 46.5,
+    "what": "한우카 채널 원형 로고",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 12.0,
+    "y_pct": 6.0,
+    "entrance": "고정",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "what": "엔딩 로고 및 웹사이트 주소",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "그랜저 신형 500만 원에 파시는 딜러분 맞죠?",
+    "ko": "그랜저 신형 500만 원에 파시는 딜러분 맞죠?"
+   },
+   {
+    "start": 1.8,
+    "end": 3.0,
+    "text": "어 네네 이 차입니다.",
+    "ko": "어 네네 이 차입니다."
+   },
+   {
+    "start": 3.1,
+    "end": 4.4,
+    "text": "이 차요?",
+    "ko": "이 차요?"
+   },
+   {
+    "start": 4.5,
+    "end": 6.0,
+    "text": "이거 신형 아닌데?",
+    "ko": "이거 신형 아닌데?"
+   },
+   {
+    "start": 6.1,
+    "end": 10.0,
+    "text": "어 신형인데요? 무슨 소리예요 이거 그랜저 IG도 있고 더 뉴 그랜저 IG도 있는데 이거 신형 아니에요.",
+    "ko": "어 신형인데요? 무슨 소리예요 이거 그랜저 IG도 있고 더 뉴 그랜저 IG도 있는데 이거 신형 아니에요."
+   },
+   {
+    "start": 10.1,
+    "end": 15.8,
+    "text": "그건 뭐예요? 이 사람 지금 장난하나 2022년도에 지금 14년도 차를 들고 와가지고 신형이라 하고 뭐하는 겁니까 지금?",
+    "ko": "그건 뭐예요? 이 사람 지금 장난하나 2022년도에 지금 14년도 차를 들고 와가지고 신형이라 하고 뭐하는 겁니까 지금?"
+   },
+   {
+    "start": 15.9,
+    "end": 18.5,
+    "text": "뭐라고요? 지금 2022년도라고요?",
+    "ko": "뭐라고요? 지금 2022년도라고요?"
+   },
+   {
+    "start": 21.0,
+    "end": 26.5,
+    "text": "제가 교통사고 나서 병원에서 좀 자고 왔는데... 8년이나 지났네요.",
+    "ko": "제가 교통사고 나서 병원에서 좀 자고 왔는데... 8년이나 지났네요."
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "아... 십... 8년이나 주무셨나 보네요.",
+    "ko": "아... 십... 8년이나 주무셨나 보네요."
+   },
+   {
+    "start": 34.0,
+    "end": 38.5,
+    "text": "그냥 제가 이 차 계약할게요! 계약서 바로 들고 올게요!",
+    "ko": "그냥 제가 이 차 계약할게요! 계약서 바로 들고 올게요!"
+   },
+   {
+    "start": 39.5,
+    "end": 43.5,
+    "text": "어 자기야 우리 오늘 1주년인데 레스토랑 예약해 놨어. 응 딱 한 대 팔았... 어?",
+    "ko": "어 자기야 우리 오늘 1주년인데 레스토랑 예약해 놨어. 응 딱 한 대 팔았... 어?"
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "text": "아 저 씨... 8년...",
+    "ko": "아 저 씨... 8년..."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "그랜저 신형 500만 원 매물 확인"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 10.0,
+    "speed": "보통",
+    "summary": "구형 그랜저 HG를 보여주며 실랑이"
+   },
+   {
+    "stage": "기타",
+    "start": 10.0,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "8년 동안 혼수상태였다는 딜러의 핑계 연기에 속아 계약 결심"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 38.0,
+    "end": 48.0,
+    "speed": "빠름",
+    "summary": "딜러의 연기에 속았다는 것을 알고 분노하는 반전 결말 및 채널 엔딩"
+   }
+  ],
+  "rules": [
+   "상황극(콩트) 형태의 중고차 허위매물/사기 수법 풍자 숏폼",
+   "화면 중앙 또는 하단에 대사 자막을 텍스트 중심(검정 글씨/흰색 외곽선)으로 표시",
+   "반전 장면에서 임팩트 있는 저음 쿵 효과음 사용"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "그랜저 신형 500만 원에 파는 딜러 맞냐는 질문으로 시작",
+   "type": "가격",
+   "text": "그랜저신형 500만 원에 파시는 딜러분 맞죠?!"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "그랜저 신형 500만 원 매물",
+    "category": "가격·조건"
+   },
+   {
+    "t": 13.0,
+    "point": "실제 차량은 2014년식 그랜저 HG",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "한우카 로고",
+    "웹사이트 주소"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 46.5,
+   "text": "www.한우카.com",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "기타",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "사람",
+    "주차장 전경",
+    "사람"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "좌측 상단 고정 원형 로고 및 블랙 배경 채널 엔딩 카드 사용"
+  }
+ }
+}
