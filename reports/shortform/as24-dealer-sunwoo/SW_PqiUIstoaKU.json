@@ -1,0 +1,254 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/PqiUIstoaKU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2982,
+  "candidatesTokenCount": 2181,
+  "totalTokenCount": 5747,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1726
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 584,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.8,
+   "aspect": "9:16",
+   "car": "페라리 푸로산게 (Ferrari Purosangue)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 11.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 14.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "출고까지 7억 이상, 대기시간 = ???\nFERRARI PUROSANGUE",
+    "ko": "출고까지 7억 이상, 대기시간 = ??? FERRARI PUROSANGUE",
+    "kind": "제목",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "7억",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 묵직한",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "7억 이상 희귀 슈퍼 SUV 페라리 푸로산게 전면 공개 및 가격 호기심 유발 자막"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "방향지시등 점등 및 외관 디테일과 후면 배기/라인 쇼케이스"
+   },
+   {
+    "stage": "기능",
+    "start": 6.8,
+    "end": 16.5,
+    "speed": "보통",
+    "summary": "스티어링 휠, 기어 레버 콘솔, 로터리 공조 다이얼, 버킷 시트, V12 엔진룸 순차 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 16.5,
+    "end": 18.8,
+    "speed": "보통",
+    "summary": "실내 계기판 시동 및 그래픽 연출로 영상 마무리"
+   }
+  ],
+  "rules": [
+   "도입부에 고가 차량의 출고가와 대기시간을 자막으로 띄워 즉각적인 호기심을 유발한다.",
+   "사람의 목소리나 내레이션 없이 감각적인 BGM과 시네마틱 카메라 워크만으로 차량의 고급스러움을 전달한다.",
+   "외관 전체부터 헤드라이트, 실내 조작계, 엔진룸, 디지털 계기판까지 디테일 위주로 짧게 컷을 끊어 보여준다."
+  ],
+  "option_highlights": [
+   {
+    "start": 12.3,
+    "end": 13.9,
+    "feature": "팝업형 공조 조절 로터리 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "feature": "풀 디지털 계기판 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "페라리 푸로산게 외관 전면과 함께 '출고까지 7억 이상, 대기시간 = ???' 자막 노출",
+   "type": "가격",
+   "text": "출고까지 7억 이상, 대기시간 = ???"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "출고까지 7억 이상 소요되며 오랜 대기시간이 필요한 페라리 푸로산게",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "옵션 작동",
+    "뒷좌석",
+    "엔진룸",
+    "계기판"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 굵은 폰트 자막과 미니멀한 구성의 시네마틱 쇼케이스 스타일"
+  }
+ }
+}

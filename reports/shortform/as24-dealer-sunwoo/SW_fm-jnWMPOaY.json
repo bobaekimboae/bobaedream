@@ -1,0 +1,933 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/fm-jnWMPOaY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5627,
+  "candidatesTokenCount": 7949,
+  "totalTokenCount": 13576,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4371
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.2,
+   "aspect": "9:16",
+   "car": "페라리 SF90 스파이더",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 6.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 9.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 16.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 21.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 36.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.7,
+    "end": 40.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 48.2,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "합산출력",
+    "ko": "합산출력",
+    "kind": "키워드 스티커",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.2,
+    "text": "0-100 = 2.5s",
+    "ko": "0-100 = 2.5s",
+    "kind": "키워드 스티커",
+    "y_pct": 86.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.1,
+    "text": "0-200 = 7s\n0-100 = 2.5s",
+    "ko": "0-200 = 7s\n0-100 = 2.5s",
+    "kind": "키워드 스티커",
+    "y_pct": 84.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "규정 속도를 준수합시다",
+    "ko": "규정 속도를 준수합시다",
+    "kind": "말 자막",
+    "y_pct": 89.2,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "SF90 SPIDER",
+    "ko": "SF90 SPIDER",
+    "kind": "제목",
+    "y_pct": 87.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "text": "(넣을 수 있는 옵션이 진짜 많아요...)",
+    "ko": "(넣을 수 있는 옵션이 진짜 많아요...)",
+    "kind": "말 자막",
+    "y_pct": 88.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.5,
+    "text": "2023.06 정식출고!",
+    "ko": "2023.06 정식출고!",
+    "kind": "키워드 스티커",
+    "y_pct": 88.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "text": "신차가격\n약 ₩832,000,000",
+    "ko": "신차가격\n약 ₩832,000,000",
+    "kind": "가격",
+    "y_pct": 84.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.6,
+    "text": "[BIANCO CERVINO]",
+    "ko": "[BIANCO CERVINO]",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.8,
+    "text": "\"그 색상\"",
+    "ko": "\"그 색상\"",
+    "kind": "키워드 스티커",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.6,
+    "text": "\"그 색상\"\nROSSO FERRARI",
+    "ko": "\"그 색상\"\nROSSO FERRARI",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.4,
+    "text": "카본 파츠 다수!",
+    "ko": "카본 파츠 다수!",
+    "kind": "키워드 스티커",
+    "y_pct": 88.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "text": "카본 파츠 다수!\n(이게 다 돈이다...)",
+    "ko": "카본 파츠 다수!\n(이게 다 돈이다...)",
+    "kind": "키워드 스티커",
+    "y_pct": 86.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "text": "경량화의 핵심\n티타늄 볼트!\n(약 360만원..)",
+    "ko": "경량화의 핵심\n티타늄 볼트!\n(약 360만원..)",
+    "kind": "키워드 스티커",
+    "y_pct": 83.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 30.8,
+    "text": "모터 모터 모터",
+    "ko": "모터 모터 모터",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.7,
+    "text": "(아마도 1,675kg)",
+    "ko": "(아마도 1,675kg)",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 34.5,
+    "text": "편-안",
+    "ko": "편-안",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.7,
+    "text": "(솔직히 카본 버킷? 너무 딱딱합니다)",
+    "ko": "(솔직히 카본 버킷? 너무 딱딱합니다)",
+    "kind": "말 자막",
+    "y_pct": 87.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.7,
+    "end": 38.8,
+    "text": "\"1,000마력\"",
+    "ko": "\"1,000마력\"",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.5,
+    "text": "편-안(2)",
+    "ko": "편-안(2)",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.6,
+    "text": "구매 정보는?\n캡션",
+    "ko": "구매 정보는?\n캡션",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 45.5,
+    "text": "게시물!\n더 많은 차량?",
+    "ko": "게시물!\n더 많은 차량?",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 48.2,
+    "text": "팔로우 부탁드립니다!",
+    "ko": "팔로우 부탁드립니다!",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "0-100 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "톡",
+    "event": "0-200 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "쿵",
+    "event": "SF90 SPIDER 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "톡",
+    "event": "출고일 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "돈 소리",
+    "event": "신차가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "톡",
+    "event": "ROSSO FERRARI 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "딸깍",
+    "event": "카본 부위 마우스 클릭 아이콘 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "톡",
+    "event": "티타늄 볼트 자막 및 마우스 클릭 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.5,
+    "type": "띵",
+    "event": "팔로우 요청 자막 강조",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 묵직함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 21.6,
+    "end": 23.4,
+    "what": "클릭 손가락/마우스 커서 아이콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 53.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "카본 파츠 위치 지목",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "what": "클릭 손가락 여러 개 아이콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "외관/실내 카본 파츠 위치 지목",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "what": "클릭 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 45.0,
+    "y_pct": 74.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "휠 티타늄 볼트 지목",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "합산 출력 천 마력, 제로백은 2.5초, 제로이백은 7초.",
+    "ko": "합산 출력 천 마력, 제로백은 2.5초, 제로이백은 7초."
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "text": "물론 공도에서는 불법입니다. 소개합니다, SF90 스파이더.",
+    "ko": "물론 공도에서는 불법입니다. 소개합니다, SF90 스파이더."
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "text": "옵션 따라 억 단위는 우습게 바뀌는 신차 가격.",
+    "ko": "옵션 따라 억 단위는 우습게 바뀌는 신차 가격."
+   },
+   {
+    "start": 9.4,
+    "end": 14.5,
+    "text": "2023년 6월에 출고된 이 페라리는 무려 신차 가격 8억 3,200만 원이랍니다.",
+    "ko": "2023년 6월에 출고된 이 페라리는 무려 신차 가격 8억 3,200만 원이랍니다."
+   },
+   {
+    "start": 14.5,
+    "end": 16.6,
+    "text": "비앙코 세르비노 화이트 메탈릭 외관에",
+    "ko": "비앙코 세르비노 화이트 메탈릭 외관에"
+   },
+   {
+    "start": 16.6,
+    "end": 21.6,
+    "text": "페라리라면 빼놓을 수 없는 컬러죠. 로쏘 페라리 레드 인테리어로 실내에 힘을 줬습니다.",
+    "ko": "페라리라면 빼놓을 수 없는 컬러죠. 로쏘 페라리 레드 인테리어로 실내에 힘을 줬습니다."
+   },
+   {
+    "start": 21.6,
+    "end": 26.6,
+    "text": "바깥으로 보이는 수많은 카본 파츠들, 하나하나가 옵션입니다. 작게는 몇백만 원, 크게는 몇천만 원.",
+    "ko": "바깥으로 보이는 수많은 카본 파츠들, 하나하나가 옵션입니다. 작게는 몇백만 원, 크게는 몇천만 원."
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "text": "경량화의 핵심 티타늄 볼트까지 추가해서,",
+    "ko": "경량화의 핵심 티타늄 볼트까지 추가해서,"
+   },
+   {
+    "start": 28.7,
+    "end": 32.7,
+    "text": "전기 모터를 세 개나 달았지만 중량은 1.7톤이 안 됩니다. 굉장하죠?",
+    "ko": "전기 모터를 세 개나 달았지만 중량은 1.7톤이 안 됩니다. 굉장하죠?"
+   },
+   {
+    "start": 32.7,
+    "end": 36.7,
+    "text": "카본 레이싱 시트가 아니지만 더 편안합니다. 멋은 다른 카본으로 충분하죠.",
+    "ko": "카본 레이싱 시트가 아니지만 더 편안합니다. 멋은 다른 카본으로 충분하죠."
+   },
+   {
+    "start": 36.7,
+    "end": 41.5,
+    "text": "성능은 두말하면 잔소리랍니다. 근데 또 타보면 기가 막히게 편한,",
+    "ko": "성능은 두말하면 잔소리랍니다. 근데 또 타보면 기가 막히게 편한,"
+   },
+   {
+    "start": 41.5,
+    "end": 45.5,
+    "text": "이 차량의 구매에 필요한 정보는 캡션과 프로필 게시물을 참조해 주세요.",
+    "ko": "이 차량의 구매에 필요한 정보는 캡션과 프로필 게시물을 참조해 주세요."
+   },
+   {
+    "start": 45.5,
+    "end": 48.2,
+    "text": "더 많은 차량을 보고 싶다면 팔로우 부탁드립니다!",
+    "ko": "더 많은 차량을 보고 싶다면 팔로우 부탁드립니다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "1000마력, 제로백/제로이백 수치 강조 및 SF90 스파이더 모델명 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 6.8,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "23년식 출고 이력 및 8억 3,200만원 신차가 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.5,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "비앙코 세르비노 외장 및 로쏘 페라리 실내 색상 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 21.6,
+    "end": 36.7,
+    "speed": "보통",
+    "summary": "카본 파츠, 티타늄 볼트, 3모터 하이브리드 경량화 및 컴포트 시트 장점 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 36.7,
+    "end": 48.2,
+    "speed": "보통",
+    "summary": "구매 안내(캡션/프로필) 및 계정 팔로우 유도"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 48.2,
+    "end": 48.2,
+    "speed": "보통",
+    "summary": ""
+   }
+  ],
+  "rules": [
+   "초반 3초에 강력한 성능 수치(마력, 제로백)를 띄워 시청 지속시간 확보",
+   "옵션 파츠를 화면에서 마우스 커서 스티커와 효과음으로 직접 지목",
+   "억대 신차가격과 출고연월을 명확한 노란색 텍스트로 표기",
+   "매물 가격 및 상세 문의는 캡션/프로필 확인으로 유도하여 전환 증대"
+  ],
+  "option_highlights": [
+   {
+    "start": 21.6,
+    "end": 26.6,
+    "feature": "카본 익스테리어 파츠",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "마우스 커서 클릭 아이콘",
+    "x_pct": 53.0,
+    "y_pct": 38.0,
+    "size_w_pct": 10.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "feature": "티타늄 휠 볼트",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "마우스 커서 클릭 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 74.0,
+    "size_w_pct": 10.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 36.7,
+    "feature": "컴포트 시트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야간 도심에 서 있는 화이트 SF90 스파이더와 '합산출력 1000마력, 제로백 2.5초' 음성 및 자막",
+   "type": "숫자·성능",
+   "text": "합산출력 1000마력 0-100 = 2.5s"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "합산 출력 1,000마력, 제로백 2.5초, 제로이백 7초의 압도적 가속력",
+    "category": "성능"
+   },
+   {
+    "t": 9.4,
+    "point": "2023년 6월 정식 출고 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 11.5,
+    "point": "신차 출고 가격 약 8억 3,200만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 14.5,
+    "point": "비앙코 세르비노 화이트 외장 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 17.5,
+    "point": "로쏘 페라리 레드 인테리어 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "수많은 카본 외장 옵션 파츠 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 26.6,
+    "point": "약 360만 원 상당의 경량화 티타늄 볼트 옵션",
+    "category": "성능"
+   },
+   {
+    "t": 29.5,
+    "point": "전기모터 3개 탑재 하이브리드임에도 공차중량 1,675kg 수준",
+    "category": "성능"
+   },
+   {
+    "t": 33.5,
+    "point": "카본 버킷 대신 장착된 편안한 시트 착좌감",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "가격 등 보인 항목"
+   ],
+   "t": 41.5
+  },
+  "cta": {
+   "t": 41.5,
+   "text": "구매 정보는 캡션과 프로필 게시물 참조 / 팔로우 부탁드립니다",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "실내 앞",
+    "휠",
+    "엔진룸",
+    "실내 앞",
+    "계기판"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색·빨간색 포인트의 굵은 고딕 자막과 클릭 손가락 그래픽을 일관되게 활용"
+  }
+ }
+}

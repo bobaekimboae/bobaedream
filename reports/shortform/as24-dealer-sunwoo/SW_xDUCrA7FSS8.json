@@ -1,0 +1,874 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/xDUCrA7FSS8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5620,
+  "candidatesTokenCount": 7389,
+  "totalTokenCount": 13799,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4364
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 790,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.0,
+   "aspect": "9:16",
+   "car": "페라리 푸로산게",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 5.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 8.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 10.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 13.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.6,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 29.5,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 32.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.9,
+    "end": 34.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 40.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 45.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "PUROSANGUE",
+    "ko": "푸로산게",
+    "kind": "제목",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 3.3,
+    "text": "ASTxx\nLAmxxx = V8\nBEnxx",
+    "ko": "경쟁사 V8 SUV 비교",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V8",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.7,
+    "text": "V12",
+    "ko": "V12 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 92.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.4,
+    "text": "FERRARI\nSUV(FUV) 등장!",
+    "ko": "페라리 SUV 등장!",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "text": "??? : Expensive ^^",
+    "ko": "출고 가격은 겁나게 비쌈",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "text": "약 7억 7천만원...\n세금 포함입니다",
+    "ko": "약 7억 7천만원 세금 포함",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "약 7억 7천만원...",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 15.0,
+    "text": "신차가는 매년 우상향",
+    "ko": "신차가는 매년 우상향",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 17.6,
+    "text": "Why?\n찾아보겠습니다",
+    "ko": "도대체 왜 비쌀까 찾아보겠습니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 21.6,
+    "text": "N/A임을 강조\nV12 엔진\n6.5L, 725마력",
+    "ko": "자연흡기 V12 6.5L 725마력",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6.5L, 725마력",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.8,
+    "text": "Clamshell\n= 조개껍데기\nLike \"진주\"",
+    "ko": "조개껍데기 방식 본닛",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Like \"진주\"",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.5,
+    "text": "4 door, 4 Bucket Seat\n레이싱 유전자는\n안 갑니다!",
+    "ko": "4도어 4버킷시트 레이싱 유전자",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 29.5,
+    "text": "저요?",
+    "ko": "저요?",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.6,
+    "end": 31.8,
+    "text": "GRIGIO SQUALO\n(대략 크레용 옵션가의 5배 이상..)",
+    "ko": "그리지오 스쿠알로 페인트",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GRIGIO SQUALO",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 34.5,
+    "text": "블랙 시트!\n+ 옐로우 스티치\n깔끔하게!",
+    "ko": "블랙 시트에 옐로우 스티치",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.3,
+    "text": "\"경량화\"\n카본 옵션만 10개 이상!",
+    "ko": "경량화 카본 옵션 10개 이상",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 40.4,
+    "text": "More carbon\n= More expensive",
+    "ko": "카본이 많을수록 더 비쌈",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 45.5,
+    "text": "\"캡션\"\n소개된 차량의 자세한 내용은?\n\"팔로우\"\n더 많은 차량은?",
+    "ko": "캡션 참고 및 팔로우 유도",
+    "kind": "기타",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "\"캡션\"",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.0,
+    "text": "감사합니다",
+    "ko": "감사합니다",
+    "kind": "기타",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.1,
+    "type": "톡",
+    "event": "경쟁사 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "쿵",
+    "event": "V12 텍스트 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "딸깍",
+    "event": "Expensive 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "쿵",
+    "event": "7억 7천만원 가격 공개",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "돋보기 소년 밈 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.7,
+    "type": "띵",
+    "event": "카이엔 사진 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 코치도어 열림 모터 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "웅장하고 긴장감 있음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 16.4,
+    "end": 17.6,
+    "what": "돋보기 들고 탐색하는 아이 밈 캐릭터",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "이유 탐색 강조",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 29.5,
+    "what": "포르쉐 카이엔 쿠페 이미지 컷아웃",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "크레용 컬러 대조용 위트",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.0,
+    "what": "절하는 남녀 이모티콘 3개",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "인사 및 마무리",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.7,
+    "text": "와우 푸로산게. 다른 브랜드에서 8기통 SUV를 출시할 때 기를 모아서 12기통 엔진을 달고 나온",
+    "ko": "와우 푸로산게. 다른 브랜드에서 8기통 SUV를 출시할 때 기를 모아서 12기통 엔진을 달고 나온"
+   },
+   {
+    "start": 5.7,
+    "end": 8.4,
+    "text": "페라리의 쿠페형 SUV를 소개합니다.",
+    "ko": "페라리의 쿠페형 SUV를 소개합니다."
+   },
+   {
+    "start": 8.4,
+    "end": 14.8,
+    "text": "출고 가격은 역시나 겁나게 비싸답니다. 차량 등록까지 무려 7억 7천만 원, 환율 상승으로 지금은 더 비싸졌죠.",
+    "ko": "출고 가격은 역시나 겁나게 비싸답니다. 차량 등록까지 무려 7억 7천만 원, 환율 상승으로 지금은 더 비싸졌죠."
+   },
+   {
+    "start": 14.8,
+    "end": 17.6,
+    "text": "도대체 왜 이렇게 비싼 걸까요? 이유를 찾아보겠습니다.",
+    "ko": "도대체 왜 이렇게 비싼 걸까요? 이유를 찾아보겠습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 24.8,
+    "text": "725마력의 성능을 자랑하는 12기통 자연흡기 엔진. 클램셸 방식의 보닛 안쪽에 진주처럼 자리하고 있습니다.",
+    "ko": "725마력의 성능을 자랑하는 12기통 자연흡기 엔진. 클램셸 방식의 보닛 안쪽에 진주처럼 자리하고 있습니다."
+   },
+   {
+    "start": 24.8,
+    "end": 28.6,
+    "text": "뒷좌석까지 버킷 스타일 시트라니 레이싱 유전자는 어디 안 갑니다.",
+    "ko": "뒷좌석까지 버킷 스타일 시트라니 레이싱 유전자는 어디 안 갑니다."
+   },
+   {
+    "start": 28.6,
+    "end": 34.6,
+    "text": "크레용? 아니고, 그리지오 스쿠알로 페인트에 블랙 시트에 옐로우 스티치만 포인트로 깔끔하게!",
+    "ko": "크레용? 아니고, 그리지오 스쿠알로 페인트에 블랙 시트에 옐로우 스티치만 포인트로 깔끔하게!"
+   },
+   {
+    "start": 34.6,
+    "end": 40.5,
+    "text": "카본도 덕지덕지. 페라리는 카본 옵션이 세분화되어 카본이 얼마나 많냐에 따라서 금액이 천차만별이죠.",
+    "ko": "카본도 덕지덕지. 페라리는 카본 옵션이 세분화되어 카본이 얼마나 많냐에 따라서 금액이 천차만별이죠."
+   },
+   {
+    "start": 40.5,
+    "end": 45.6,
+    "text": "소개된 차량의 자세한 내용은 캡션을 참고해 주세요. 더 많은 차량은 팔로우하시고 만나보세요.",
+    "ko": "소개된 차량의 자세한 내용은 캡션을 참고해 주세요. 더 많은 차량은 팔로우하시고 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.7,
+    "speed": "빠름",
+    "summary": "푸로산게 외관 및 경쟁사 V8 대비 V12 자연흡기 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 5.7,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "출고가 7억 7천만원 및 환율 인상 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 14.8,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "V12 6.5L 엔진 및 클램셸 보닛 구조 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 24.8,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "4좌석 버킷시트, 그리지오 스쿠알로 외장, 실내 스티치, 카본 옵션 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 40.5,
+    "end": 47.0,
+    "speed": "보통",
+    "summary": "코치도어 작동 시연과 함께 캡션 확인 및 채널 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "하이퍼카/슈퍼 SUV의 압도적 스펙(V12)과 실구매가(7억대)를 초반에 공개해 몰입도 극대화",
+   "경쟁 차종(애스턴마틴, 람보르기니, 벤틀리 V8 및 포르쉐 크레용 컬러)을 유머러스하게 비교 텍스트로 노출",
+   "중요 포인트마다 굵고 가독성 높은 외곽선 텍스트와 볼드한 폰트 활용",
+   "카본, 도색 옵션 등 초고가 옵션의 특수성을 하나씩 짚어 비싼 이유를 합리화",
+   "마지막에 자동 코치도어 개폐를 보여주며 캡션 확인 및 팔로우 CTA 연결"
+  ],
+  "option_highlights": [
+   {
+    "start": 3.3,
+    "end": 5.7,
+    "feature": "V12 자연흡기 엔진",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.8,
+    "feature": "클램셸 보닛",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "feature": "뒷좌석 독립 버킷시트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "feature": "그리지오 스쿠알로 외장 컬러",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 78.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 40.5,
+    "feature": "외장 카본 패키지",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 45.5,
+    "feature": "전동식 코치 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "거리 위 페라리 푸로산게의 웅장한 전면 모습과 타사 V8 대비 V12 엔진 강조",
+   "type": "희귀차",
+   "text": "와우 푸로산게. 다른 브랜드에서 8기통 SUV를 출시할 때 기를 모아서 12기통 엔진을 달고 나온"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "타 브랜드 V8 대비 12기통 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 11.5,
+    "point": "등록비 포함 약 7억 7천만원에 달하는 출고가",
+    "category": "가격·조건"
+   },
+   {
+    "t": 19.0,
+    "point": "6.5L V12 725마력 자연흡기 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 22.5,
+    "point": "조개껍데기 형태의 역방향 클램셸 본닛",
+    "category": "디자인"
+   },
+   {
+    "t": 26.0,
+    "point": "뒷좌석까지 적용된 4좌석 버킷 시트",
+    "category": "실내"
+   },
+   {
+    "t": 30.5,
+    "point": "포르쉐 크레용의 5배 이상 가격인 그리지오 스쿠알로 외장 페인트",
+    "category": "디자인"
+   },
+   {
+    "t": 35.5,
+    "point": "10개 이상의 익스테리어 카본 옵션 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 41.5,
+    "point": "역방향으로 열리는 전동 코치도어",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 42.0,
+   "text": "소개된 차량의 자세한 내용은 캡션을 참고해주세요 / 더 많은 차량은 팔로우하시고 만나보세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "엔진룸",
+    "외관 후면",
+    "외관 전면",
+    "외관 후면",
+    "외관 전면",
+    "실내 앞",
+    "엔진룸",
+    "뒷좌석",
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "외관 전면",
+    "휠",
+    "옵션 작동"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색/노란색 강조 자막과 검정 외곽선, 재치있는 인터넷 밈 컷 활용"
+  }
+ }
+}
