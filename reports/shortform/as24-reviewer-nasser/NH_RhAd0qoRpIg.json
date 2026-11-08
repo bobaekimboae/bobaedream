@@ -1,0 +1,1180 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/RhAd0qoRpIg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7715,
+  "candidatesTokenCount": 9577,
+  "totalTokenCount": 17292,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6552
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 71.8,
+   "aspect": "9:16",
+   "car": "푸조 3008 vs 기아 스포티지",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 24.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 29.8,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.3,
+    "end": 42.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 46.2,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 49.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 53.6,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 58.9,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.9,
+    "end": 103.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 103.0,
+    "end": 107.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.8,
+    "end": 111.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 2.3,
+    "text": "PEUGEOT 3008",
+    "ko": "푸조 3008",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "text": "KIA SPORTAGE",
+    "ko": "기아 스포티지",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "text": "أصغر",
+    "ko": "더 작음",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.2,
+    "text": "1600 CC",
+    "ko": "1600 CC",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 13.8,
+    "text": "180 HP",
+    "ko": "180 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "DCT WET سريع في التبديل",
+    "ko": "습식 DCT 빠른 변속",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 7.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "text": "Auto matic عادي جداً",
+    "ko": "일반 자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "i-Cockpit",
+    "ko": "아이 콕핏",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.0,
+    "text": "شاشة الاختصارات",
+    "ko": "단축키 화면",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.5,
+    "color": "#00FFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.5,
+    "text": "Double Screen",
+    "ko": "더블 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.5,
+    "text": "Wireless charger",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFA500",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "text": "تسخين / تبريد",
+    "ko": "열선 / 통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#FFA500",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.5,
+    "text": "الدخول ليها اسهل",
+    "ko": "탑승이 더 쉬움",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.0,
+    "text": "اوسع",
+    "ko": "더 넓음",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "text": "مش ضيقة",
+    "ko": "좁지 않음",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.5,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.1,
+    "end": 49.3,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFA500",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 53.5,
+    "text": "520 Liter",
+    "ko": "520 리터",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 9.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 56.5,
+    "text": "أكبر",
+    "ko": "더 큼",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 8.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 100.2,
+    "end": 101.8,
+    "text": "ADAS System",
+    "ko": "ADAS 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 101.9,
+    "end": 103.5,
+    "text": "Cameras 360",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 104.5,
+    "end": 107.0,
+    "text": "مقدم 30%",
+    "ko": "선납금 30%",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 8.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 106.0,
+    "end": 108.5,
+    "text": "cashback 10%",
+    "ko": "캐시백 10%",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 8.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "휙",
+    "event": "푸조 로고 및 3008 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "기아 로고 및 스포티지 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "톡",
+    "event": "휠 강조 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "쿵",
+    "event": "1600cc 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.6,
+    "type": "쿵",
+    "event": "180마력 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.6,
+    "type": "휙",
+    "event": "DCT 변속기 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "휙",
+    "event": "푸조 자동변속기 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.2,
+    "type": "톡",
+    "event": "아이콕핏 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "휙",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "톡",
+    "event": "기아 디스플레이 인터페이스 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 35.1,
+    "type": "띵",
+    "event": "무선충전 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.9,
+    "type": "휙",
+    "event": "시트 열선 불꽃 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.2,
+    "type": "휙",
+    "event": "푸조 시트 열선/통풍 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.1,
+    "type": "톡",
+    "event": "뒷좌석 탑승 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.2,
+    "type": "휙",
+    "event": "뒷좌석 열선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.7,
+    "type": "쿵",
+    "event": "트렁크 520리터 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.7,
+    "type": "쿵",
+    "event": "트렁크 비교 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 100.3,
+    "type": "휙",
+    "event": "ADAS 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 102.0,
+    "type": "휙",
+    "event": "360도 카메라 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 104.6,
+    "type": "돈 소리",
+    "event": "선납금 프로모션 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 106.2,
+    "type": "돈 소리",
+    "event": "캐시백 프로모션 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.8,
+    "end": 2.5,
+    "what": "푸조 로고 및 네온 텍스트",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "위에서 내려옴",
+    "purpose": "차종 표기",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "what": "기아 로고 및 네온 텍스트",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "위에서 내려옴",
+    "purpose": "차종 표기",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "what": "애플 카플레이 및 안드로이드 오토 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "what": "애플 카플레이 및 안드로이드 오토 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.0,
+    "what": "불꽃 열선 그래픽",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 70.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "what": "불꽃 열선 및 얼음 통풍 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 45.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.3,
+    "what": "2열 시트 열선 불꽃 그래픽",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 65.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "لو انت هتختار بيجو 3008 ولا كيا سبورتاج الشكل الجديد",
+    "ko": "푸조 3008과 신형 기아 스포티지 중 당신이라면 무엇을 선택하시겠습니까?"
+   },
+   {
+    "start": 4.5,
+    "end": 9.9,
+    "text": "السبورتاج من قدام بقى شكلها اجمل بكتير من القديمة بس هي اهدى من ال3008 وكمان جنوطها اصغر",
+    "ko": "스포티지 앞모습은 구형보다 훨씬 멋있어졌지만 3008보다 차분하고 휠 사이즈도 더 작습니다."
+   },
+   {
+    "start": 9.9,
+    "end": 13.8,
+    "text": "الاتنين 1600 سي سي تيربو وبيخرجوا 180 حصان",
+    "ko": "두 차량 모두 1600cc 터보 엔진에 180마력을 발휘합니다."
+   },
+   {
+    "start": 13.8,
+    "end": 19.9,
+    "text": "فتيس السبورتاج DCT WET سريع في التبديل بس فتيس ال3008 اوتوماتيك عادي جداً فاعتمادي اكتر",
+    "ko": "스포티지의 미션은 변속이 빠른 습식 DCT이고, 3008은 일반 자동변속기라 내구성이 더 뛰어납니다."
+   },
+   {
+    "start": 19.9,
+    "end": 29.8,
+    "text": "داخلية البيجو عاملة حاجة اسمها i-Cockpit يعني كل حاجة لافة ناحية السواق من اول شاشة الاختصارات والدبل سكرين اللي فيها ابل كاربلاي واندرويد اوتو والدركسيون الرياضي جداً",
+    "ko": "푸조 인테리어는 운전석 쪽으로 몰려있는 아이콕핏 구조이며, 단축키 스크린, 듀얼 스크린, 카플레이, 스포티한 스티어링 휠이 적용되었습니다."
+   },
+   {
+    "start": 29.8,
+    "end": 42.0,
+    "text": "ودركسيون الكيا جميل وممكن يبقى تسخين وفيها دبل سكرين بردو فيها ابل كاربلاي واندرويد اوتو وشاحن وايرلس والكراسي بتاعتها ممكن تبقى تسخين وتبريد وكراسي البيجو بصراحة اجمل وفيها تسخين وتبريد وممكن كمان مساج",
+    "ko": "스포티지도 핸들 열선과 듀얼 스크린, 카플레이, 무선충전, 열선·통풍시트가 들어가며 푸조 시트는 더 멋지고 마사지 기능까지 있습니다."
+   },
+   {
+    "start": 42.0,
+    "end": 49.3,
+    "text": "كنبة السبورتاج الدخول ليها اسهل وكمان هي سنة اوسع بس البيجو الكنبة بتاعتها مش ضيقة وكمان بتنزل تسخين",
+    "ko": "스포티지 2열은 탑승이 쉽고 살짝 더 넓으며, 푸조 역시 좁지 않고 2열 열선시트가 적용됩니다."
+   },
+   {
+    "start": 49.3,
+    "end": 58.9,
+    "text": "وفي المساحات ال3008 شنطتها 520 لتر وكمان كراسيها بتنزل بس شنطة السبورتاج اكبر بحاجة بسيطة وكراسيها بتنزل بردو والرف بتاعها متحرك",
+    "ko": "트렁크는 푸조가 520L에 폴딩 지원, 스포티지는 약간 더 크고 선반 조절이 가능합니다."
+   },
+   {
+    "start": 58.9,
+    "end": 103.5,
+    "text": "والاتنين فيهم 6 ايرباج كروز كنترول اداس سيستم وكاميرات 360",
+    "ko": "두 차량 모두 에어백 6개, 크루즈 컨트롤, ADAS 시스템, 360도 카메라가 장착되어 있습니다."
+   },
+   {
+    "start": 103.5,
+    "end": 111.8,
+    "text": "واي عربية من فور براذرز لو دفعت مقدم 30% بتاخد منهم 10% كاش باك وفور براذرز موجود في 58 عمر بن الخطاب خلف سيتي ستارز",
+    "ko": "포 브라더스 매장에서 선수금 30% 납부 시 10% 캐시백 혜택이 있으며, 시티스타즈 뒤편에 위치합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "푸조 3008 vs 기아 스포티지 선택 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "전면 디자인 및 휠 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 9.9,
+    "end": 19.9,
+    "speed": "빠름",
+    "summary": "엔진 스펙 및 변속기(DCT vs 자동) 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 19.9,
+    "end": 58.9,
+    "speed": "빠름",
+    "summary": "실내 디스플레이, 시트 편의기능, 뒷좌석 공간, 트렁크 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 58.9,
+    "end": 103.5,
+    "speed": "보통",
+    "summary": "안전 사양(에어백, ADAS, 360도 카메라) 비교"
+   },
+   {
+    "stage": "가격",
+    "start": 103.5,
+    "end": 108.0,
+    "speed": "보통",
+    "summary": "선수금 및 캐시백 금융 프로모션 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 108.0,
+    "end": 111.8,
+    "speed": "보통",
+    "summary": "매장 위치 주소 소개 및 마무리"
+   }
+  ],
+  "rules": [
+   "차량 두 대를 나란히 두고 전면/실내/트렁크를 1:1로 번갈아 보여주며 비교",
+   "스펙이나 주요 옵션이 언급될 때마다 입체적인 3D 텍스트와 네온 그래픽 활용",
+   "변속기나 시트, 스크린 등 비교 부위를 리뷰어가 직접 누르거나 조작하며 설명",
+   "타격감 있는 효과음(쿵, 휙)을 그래픽 등장 시점에 정확히 싱크"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.8,
+    "end": 16.6,
+    "feature": "기어 변속기 (DCT)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.8,
+    "feature": "전자식 토글 기어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 28.5,
+    "feature": "단축키 및 듀얼 스크린",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "애플 카플레이 및 안드로이드 오토 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.5,
+    "feature": "스마트폰 무선충전",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.0,
+    "feature": "열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 이모지 아이콘",
+    "x_pct": 70.0,
+    "y_pct": 55.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "feature": "시트 열선 및 통풍",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃과 얼음 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 50.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.3,
+    "feature": "뒷좌석 열선",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "2열 송풍구 위 불꽃 아이콘",
+    "x_pct": 65.0,
+    "y_pct": 50.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 53.5,
+    "feature": "트렁크 용량",
+    "shown_how": "글자 카드",
+    "icon_desc": "3D 520 Liter 텍스트",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "푸조 3008과 기아 스포티지 사이에 서서 어떤 차를 살지 묻는 질문",
+   "type": "질문",
+   "text": "لو انت هتختار بيجو 3008 ولا كيا سبورتاج الشكل الجديد",
+   "ko": "푸조 3008과 신형 기아 스포티지 중 당신이라면 무엇을 선택하시겠습니까?"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "푸조 3008 vs 기아 스포티지 신형 비교",
+    "category": "디자인"
+   },
+   {
+    "t": 5.0,
+    "point": "스포티지 디자인이 차분하고 휠이 비교적 작음",
+    "category": "디자인"
+   },
+   {
+    "t": 11.0,
+    "point": "두 차 모두 1.6 터보 180마력 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 15.0,
+    "point": "스포티지는 빠른 DCT, 푸조는 내구성 좋은 자동변속기",
+    "category": "성능"
+   },
+   {
+    "t": 22.0,
+    "point": "푸조의 운전자 중심 아이콕핏과 단축키 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 32.0,
+    "point": "스포티지 듀얼 스크린 및 무선 충전, 열선/통풍 시트",
+    "category": "편의"
+   },
+   {
+    "t": 40.0,
+    "point": "푸조 시트의 고급감과 마사지 기능 지원",
+    "category": "편의"
+   },
+   {
+    "t": 44.0,
+    "point": "스포티지 2열이 승하차 편하고 조금 더 여유로움",
+    "category": "공간"
+   },
+   {
+    "t": 51.0,
+    "point": "푸조 트렁크 520L, 스포티지 트렁크가 약간 더 큼",
+    "category": "공간"
+   },
+   {
+    "t": 100.5,
+    "point": "공통 안전 사양: 에어백 6개, ADAS, 360 카메라",
+    "category": "안전"
+   },
+   {
+    "t": 105.0,
+    "point": "선납금 30% 납부 시 10% 캐시백 프로모션",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 109.0,
+   "text": "وفور براذرز موجود في 58 عمر بن الخطاب خلف سيتي ستارز",
+   "ko": "포 브라더스 매장은 시티 스타즈 뒤편 오마르 이븐 알카탑 58번지에 위치해 있습니다.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "휠",
+    "외관 전면",
+    "옵션 작동",
+    "실내 앞",
+    "센터 화면",
+    "실내 앞",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

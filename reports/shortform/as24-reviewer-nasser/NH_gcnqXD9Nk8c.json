@@ -1,0 +1,799 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/gcnqXD9Nk8c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8538,
+  "candidatesTokenCount": 6668,
+  "totalTokenCount": 15206,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7375
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 81.6,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG C43",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.3,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 24.3,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 28.9,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 31.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 36.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 38.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 45.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 48.7,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 51.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 55.4,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 59.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 62.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.7,
+    "end": 66.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 70.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 76.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 76.5,
+    "end": 81.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "C43 MERCEDES AMG",
+    "ko": "C43 메르세데스 AMG",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "C43",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "TURBO ماتور كهرباء",
+    "ko": "터보 전기 모터",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TURBO",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.5,
+    "text": "416hp",
+    "ko": "416 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "416hp",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 24.2,
+    "text": "+34hp",
+    "ko": "+34 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 10.0,
+    "color": "#FF2020",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+34hp",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.0,
+    "text": "SUSP & TCS",
+    "ko": "서스펜션 & TCS",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SUSP",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.5,
+    "text": "DRIVE MODES",
+    "ko": "드라이브 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DRIVE",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 64.5,
+    "text": "PILOT SPORT",
+    "ko": "파일럿 스포츠",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PILOT",
+    "sure": true
+   },
+   {
+    "start": 64.5,
+    "end": 66.5,
+    "text": "20\"",
+    "ko": "20인치",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20\"",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 73.5,
+    "text": "455L",
+    "ko": "455리터",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "455L",
+    "sure": true
+   },
+   {
+    "start": 78.5,
+    "end": 81.2,
+    "text": "التجمع الخامس C PARK",
+    "ko": "뉴 카이로 C 파크",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "C PARK",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "차량 모델명 텍스트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "일렉트리파이드 터보 그래픽 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.5,
+    "type": "톡",
+    "event": "마력 수치 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.6,
+    "type": "톡",
+    "event": "+34hp 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.1,
+    "type": "딸깍",
+    "event": "스티어링 다이얼 조작 및 서스펜션 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.1,
+    "type": "딸깍",
+    "event": "드라이브 모드 다이얼 조작 및 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 63.0,
+    "type": "톡",
+    "event": "타이어 모델명 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 64.6,
+    "type": "톡",
+    "event": "휠 사이즈 20인치 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 71.1,
+    "type": "톡",
+    "event": "트렁크 용량 455L 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 78.8,
+    "type": "톡",
+    "event": "매장 위치 핀 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "what": "전기 모터 및 터보차저 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 20.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전동화 터보 시스템 시각화",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 35.5,
+    "what": "카플레이/유튜브/구글 아이콘",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 78.5,
+    "end": 81.2,
+    "what": "지도 위치 핀 아이콘",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 35.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 방문 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر وليه تشتري 340 لما في في السوق مرسيدس C43 AMG؟",
+    "ko": "저는 나사르입니다. 시장에 벤츠 C43 AMG가 있는데 왜 340i를 사시나요?"
+   },
+   {
+    "start": 4.5,
+    "end": 10.8,
+    "text": "دي الكربون فايبر باكيدج، مرايات كربون فايبر، سقف بانوراما، وكربون فايبر سبويلر.",
+    "ko": "카본 파이버 패키지가 적용되어 카본 미러, 파노라마 선루프, 카본 스포일러가 들어갑니다."
+   },
+   {
+    "start": 10.8,
+    "end": 16.5,
+    "text": "وإليكتريفايد تيربو مع ماتور كهرباء عشان يقلل التيربو لاج ويديك أحسن ريسبونس.",
+    "ko": "전기 모터가 결합된 전동 터보로 터보랙을 줄이고 최상의 응답성을 제공합니다."
+   },
+   {
+    "start": 16.5,
+    "end": 24.3,
+    "text": "استرات بار، موتور AMG هاندميد بيطلع 416 حصان، أكتر بـ 34 حصان.",
+    "ko": "스트럿 바와 핸드메이드 AMG 엔진으로 416마력을 발휘하며, 34마력 더 높습니다."
+   },
+   {
+    "start": 24.3,
+    "end": 31.9,
+    "text": "الكراسي العادية أو باكت سيتس جلد وألكانتارا، وتطريز أصفر على الدركسيون.",
+    "ko": "기본 시트 혹은 알칸타라 가죽 버킷 시트가 적용되며 스티어링 휠에 옐로우 스티치가 들어갑니다."
+   },
+   {
+    "start": 31.9,
+    "end": 41.5,
+    "text": "كربون فايبر على التابلوه، شاشة تدعم كاربلاي، وساعة IWC، وشواحن وايرلس.",
+    "ko": "대시보드 카본 마감, 카플레이 지원 디스플레이, IWC 스톱워치, 무선 충전기가 있습니다."
+   },
+   {
+    "start": 41.5,
+    "end": 51.0,
+    "text": "تحكم AMG في السسبنشن وأوضاع القيادة، شاشة ديجيتال وهيد أب ديسبلاي ضخم.",
+    "ko": "AMG 서스펜션과 주행 모드 조절 다이얼, 디지털 디스플레이와 대형 HUD까지 갖췄습니다."
+   },
+   {
+    "start": 51.0,
+    "end": 59.9,
+    "text": "أحزمة حمراء، كنبة جلد وألكانتارا، تكييف فور زون وسماعات برومستر.",
+    "ko": "레드 안전벨트, 가죽 및 알칸타라 뒷좌석 시트, 4존 풀오토 에어컨과 부메스터 오디오가 있습니다."
+   },
+   {
+    "start": 59.9,
+    "end": 70.8,
+    "text": "ديجيتال لايت، جنوط 20 إنش ميشلان بايلوت سبورت، فرامل رياضية ورير أكسل.",
+    "ko": "디지털 라이트, 20인치 미쉐린 파일럿 스포츠 휠, 고성능 브레이크와 후륜 조향이 들어갑니다."
+   },
+   {
+    "start": 70.8,
+    "end": 76.5,
+    "text": "شنطة كهرباء 455 لتر، ديفيوزر رياضي مع شكمانات رباعية.",
+    "ko": "455리터 전동 트렁크, 스포츠 디퓨저와 쿼드 머플러가 장착되어 있습니다."
+   },
+   {
+    "start": 76.5,
+    "end": 81.6,
+    "text": "متوفرة بأربع ألوان ومواصفات مختلفة في بيسبوك سي بارك التجمع.",
+    "ko": "뉴 카이로 C 파크 비스포크 매장에서 4가지 색상과 사양으로 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "BMW M340i 대비 메르세데스 AMG C43 추천 도발 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 10.8,
+    "speed": "빠름",
+    "summary": "카본 익스테리어 패키지 및 디자인 요소 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.8,
+    "end": 24.3,
+    "speed": "빠름",
+    "summary": "엔진룸 공개, 전동 터보 기술과 마력 출력 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 24.3,
+    "end": 59.9,
+    "speed": "빠름",
+    "summary": "실내 가죽/알칸타라 시트, 디스플레이, AMG 핸들 다이얼, 오디오 옵션"
+   },
+   {
+    "stage": "사양",
+    "start": 59.9,
+    "end": 76.5,
+    "speed": "빠름",
+    "summary": "20인치 휠, 후륜 조향, 전동 트렁크 및 쿼드 배기 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 76.5,
+    "end": 81.6,
+    "speed": "보통",
+    "summary": "매장 위치 안내 및 4가지 옵션 재고 안내"
+   }
+  ],
+  "rules": [
+   "도입부에서 경쟁 차종(340i)을 언급하며 시청자의 호기심을 끄는 질문형 훅 사용",
+   "외관, 엔진, 실내 앞좌석, 뒷좌석, 하체/휠, 트렁크 순서로 매우 빠른 컷 전환 진행",
+   "주요 스펙(마력, 휠 크기, 용량)은 대형 볼드 영문 폰트 그래픽으로 중앙에 즉각 띄움",
+   "화면 속 부품(터보, 앱, 위치)에 맞춰 3D 아이콘 및 스티커를 정확한 위치에 팝업"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "feature": "일렉트리파이드 터보차저",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "녹색 배터리와 터보 부품이 결합된 형태의 그래픽",
+    "x_pct": 20.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.5,
+    "feature": "스마트폰 미러링 및 앱 지원",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "카플레이, 안드로이드 오토, 유튜브, 구글 로고",
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.4,
+    "feature": "AMG 스티어링 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "다이얼 회전 그래픽과 라벨 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 66.5,
+    "feature": "20인치 AMG 휠 & 미쉐린 타이어",
+    "shown_how": "글자 카드",
+    "icon_desc": "PILOT SPORT 문구 및 대형 20인치 숫자",
+    "x_pct": 30.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 74.0,
+    "feature": "전동 트렁크 용량",
+    "shown_how": "글자 카드",
+    "icon_desc": "대형 455L 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 매장 앞 차들 사이에서 걸어나오며 340을 왜 사냐고 질문함",
+   "type": "질문",
+   "text": "ليه تشتري 340 لما في في السوق مرسيدس C43 AMG؟",
+   "ko": "시장에 벤츠 C43 AMG가 있는데 왜 340을 사시나요?"
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "외관에 리얼 카본 미러 커버 및 카본 스포일러 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 11.5,
+    "point": "터보랙을 줄여주는 전기 모터 일체형 전동 터보 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 18.0,
+    "point": "핸드메이드 4기통 AMG 엔진으로 416마력 발휘",
+    "category": "성능"
+   },
+   {
+    "t": 28.0,
+    "point": "알칸타라 가죽 및 옐로우 스티치가 적용된 AMG 스티어링 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 35.0,
+    "point": "IWC 스톱워치 기능 및 스마트폰 연동 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "스티어링 휠에서 서스펜션과 드라이브 모드를 즉시 변경 가능한 다이얼",
+    "category": "성능"
+   },
+   {
+    "t": 56.0,
+    "point": "뒷좌석 독립 제어가 가능한 4존 에어컨과 부메스터 프리미엄 사운드",
+    "category": "편의"
+   },
+   {
+    "t": 64.0,
+    "point": "20인치 휠 및 고성능 미쉐린 파일럿 스포츠 타이어",
+    "category": "성능"
+   },
+   {
+    "t": 68.0,
+    "point": "좁은 골목이나 유턴 시 회전반경을 줄여주는 리어 액슬 스티어링(후륜 조향)",
+    "category": "성능"
+   },
+   {
+    "t": 72.0,
+    "point": "455리터의 넉넉한 공간을 제공하는 전동식 스마트 트렁크",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 77.0,
+   "text": "في بيسبوك C PARK التجمع",
+   "ko": "뉴 카이로 C 파크 비스포크 쇼룸 방문",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "엔진룸",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "휠",
+    "외관 후면",
+    "트렁크"
+   ]
+  }
+ }
+}

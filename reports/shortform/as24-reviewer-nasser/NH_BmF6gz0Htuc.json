@@ -1,0 +1,1221 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/BmF6gz0Htuc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6716,
+  "candidatesTokenCount": 10238,
+  "totalTokenCount": 16954,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5553
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.3,
+   "aspect": "9:16",
+   "car": "BMW i5",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 5.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.1,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 19.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.3,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 38.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.9,
+    "end": 44.2,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 46.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.7,
+    "end": 48.4,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.4,
+    "end": 51.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 56.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.9,
+    "end": 61.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "text": "Radar",
+    "ko": "레이더",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Radar",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.5,
+    "text": "19\"",
+    "ko": "19인치",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19\"",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 16.9,
+    "text": "713 KM",
+    "ko": "주행거리 713km",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "713",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.2,
+    "text": "320 HP",
+    "ko": "320마력",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "320",
+    "sure": true
+   },
+   {
+    "start": 18.3,
+    "end": 19.8,
+    "text": "410 NM",
+    "ko": "410Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "410",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.8,
+    "text": "شنطة كهرباء",
+    "ko": "전동 트렁크",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1E7E34",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.3,
+    "text": "460 Liter",
+    "ko": "460리터",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "460",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.8,
+    "text": "مساحات تخزين",
+    "ko": "수납 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -15,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "text": "على شحنة واحدة",
+    "ko": "1회 충전으로",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#76FF03",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "text": "فخامة رياضية",
+    "ko": "스포티한 고급감",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF6F00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -15,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.8,
+    "text": "Built-in Wi-Fi",
+    "ko": "내장 와이파이",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.9,
+    "end": 38.0,
+    "text": "Digital Display",
+    "ko": "디지털 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.0,
+    "text": "M Power",
+    "ko": "M 파워",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "text": "Wireless Charger",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 90,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.0,
+    "text": "الفتيس",
+    "ko": "기어 노브",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 47.0,
+    "text": "Panorama",
+    "ko": "파노라마 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.5,
+    "text": "مكان للشاشات",
+    "ko": "스크린 장착 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 49.8,
+    "text": "مريحة جداً",
+    "ko": "매우 편안함",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 51.5,
+    "text": "Cup Holders",
+    "ko": "컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 54.0,
+    "text": "Blind Spot Assist",
+    "ko": "사각지대 경고",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 57.0,
+    "text": "harman/kardon",
+    "ko": "하만카돈 사운드",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00FF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 61.3,
+    "text": "التجمع الاول البنفسج 5 جنب ريد بوينت",
+    "ko": "뉴카이로 퍼스트 세틀먼트 반프사그 5 레드포인트 옆",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "쿵",
+    "event": "BMW 로고와 모델명 타이틀 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "톡",
+    "event": "Radar 조준선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "톡",
+    "event": "휠 19인치 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "톡",
+    "event": "손키스 소리 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.3,
+    "type": "쿵",
+    "event": "713km 주행거리 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.9,
+    "type": "쿵",
+    "event": "320마력 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "쿵",
+    "event": "410Nm 토크 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "전동 트렁크 자막 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "쿵",
+    "event": "트렁크 460L 용량 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "톡",
+    "event": "수납 공간 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.5,
+    "type": "톡",
+    "event": "지도 경로 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "톡",
+    "event": "시트 열선 불꽃 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "톡",
+    "event": "내장 와이파이 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "톡",
+    "event": "M Power 로고 및 스티어링 휠 강조 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "톡",
+    "event": "무선충전 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "기어노브 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.5,
+    "type": "톡",
+    "event": "파노라마 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "톡",
+    "event": "스크린 장착부 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.8,
+    "type": "톡",
+    "event": "컵홀더 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.5,
+    "type": "톡",
+    "event": "블라인드 스팟 눈 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.0,
+    "type": "톡",
+    "event": "하만카돈 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.5,
+    "type": "쿵",
+    "event": "매장 위치 안내 박스 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.7,
+    "end": 5.8,
+    "what": "BMW 엠블럼 및 Go Green i5 3D 로고",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 75.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 및 브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "what": "그릴 센서 부위 레이더 조준선 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 55.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.5,
+    "what": "카이로에서 알렉산드리아 이동 점선 경로 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "주행거리 설명 보조",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.0,
+    "what": "시트 열선 불꽃 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 35.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.0,
+    "what": "M Power 로고 및 핸들 테두리 네온 하이라이트",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 54.0,
+    "what": "사이드미러 사각지대 감지 눈동자 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 35.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.0,
+    "text": "أنا ناصر، والفايف سيريز عربيات فخمة بس غالية، بس بي إم دبليو آي فايف أقوى وأرخص بأكتر من مليون جنيه.",
+    "ko": "저는 나세르입니다. 5시리즈는 고급이지만 비쌉니다. 하지만 BMW i5는 백만 파운드 이상 더 저렴하면서도 강력합니다."
+   },
+   {
+    "start": 6.0,
+    "end": 15.0,
+    "text": "وش العربية قوي وليه حضور، عندك خطوط قوية جداً على الكبوت، وحدة رادار، أنوار مداها أكتر من نص كيلو، وجنوط مقاس 19.",
+    "ko": "전면 디자인은 강렬하고 존재감이 넘칩니다. 보닛의 굵은 라인, 레이더 유닛, 조사거리 500m 이상의 라이트, 그리고 19인치 휠이 들어갑니다."
+   },
+   {
+    "start": 15.0,
+    "end": 20.0,
+    "text": "واسمع الأرقام: 713 كيلو رينج، 320 حصان، و410 نيوتن.",
+    "ko": "이 스펙을 들어보세요: 주행거리 713km, 320마력, 410Nm 토크."
+   },
+   {
+    "start": 20.0,
+    "end": 25.0,
+    "text": "وعندك شنطة كهرباء 460 لتر، بكهف إضافي هنا، ومساحات تخزين في الجناب.",
+    "ko": "그리고 460리터 전동 트렁크가 있고, 아래쪽 추가 수납공간과 양옆 수납공간도 있습니다."
+   },
+   {
+    "start": 25.0,
+    "end": 29.0,
+    "text": "يعني تسفرك إسكندرية وتجيبك على شحنة واحدة، وإنت بتجري كمان.",
+    "ko": "즉, 고속으로 달려도 1회 충전으로 알렉산드리아를 왕복할 수 있습니다."
+   },
+   {
+    "start": 29.0,
+    "end": 34.0,
+    "text": "ومن جوة جمعت بين الفخامة والرياضية، عندك مخدات، كراسي فيها تسخين وتبريد، أروش أمبينت لايت في عالم العربيات.",
+    "ko": "실내는 럭셔리와 스포티함이 조화를 이룹니다. 헤드레스트 쿠션, 통풍 및 열선 시트, 자동차 업계 최고의 앰비언트 라이트가 적용되었습니다."
+   },
+   {
+    "start": 34.0,
+    "end": 43.0,
+    "text": "شاشة فيها Built-in Wi-Fi متصلة بديجيتال ديسبلاي، ودريكسيون من M Power. عندك مخارج شواحن، شاحن وايرلس، ده الفتيس بتاعك، نوب إزاز، والفخامة مكملة ورا.",
+    "ko": "내장 Wi-Fi가 탑재된 디지털 디스플레이, M Power 스티어링 휠, 충전 포트와 무선 충전기, 크리스탈 기어 노브까지 있으며 고급감은 뒷좌석으로 이어집니다."
+   },
+   {
+    "start": 43.0,
+    "end": 52.0,
+    "text": "لو دوست هنا هتفتح ستاير، السقف البانوراما، مكان للشاشات، والكنبة بتاعتها مريحة جداً، كاب هولدر، ومساحة تخزين.",
+    "ko": "여기를 누르면 파노라마 선루프 전동 차양막이 열리고, 스크린 장착 홀더와 매우 편안한 시트, 컵홀더 및 수납공간이 있습니다."
+   },
+   {
+    "start": 52.0,
+    "end": 57.0,
+    "text": "وعندك 6 كاميرات، وبلايند سبوت أسيست، وهارمن كاردون ساوند سيستم.",
+    "ko": "또한 6개의 카메라, 사각지대 어시스트, 하만카돈 사운드 시스템이 갖춰져 있습니다."
+   },
+   {
+    "start": 57.0,
+    "end": 61.3,
+    "text": "وهتلاقيها في جو جرين التجمع الأول البنفسج 5 جنب ريد بوينت.",
+    "ko": "뉴카이로 퍼스트 세틀먼트 반프사그 5, 레드포인트 옆 고 그린(Go Green) 매장에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "5시리즈보다 100만 파운드 저렴한 전기차 i5 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.8,
+    "end": 15.1,
+    "speed": "빠름",
+    "summary": "외관 전면 디자인, 레이더, 헤드라이트, 19인치 휠"
+   },
+   {
+    "stage": "사양",
+    "start": 15.1,
+    "end": 28.5,
+    "speed": "빠름",
+    "summary": "출력, 주행거리, 트렁크 용량 및 장거리 실사용성"
+   },
+   {
+    "stage": "기능",
+    "start": 28.5,
+    "end": 57.0,
+    "speed": "빠름",
+    "summary": "실내 앰비언트 라이트, 디스플레이, 시트, 선루프, 오디오 등 편의장치"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 57.0,
+    "end": 61.3,
+    "speed": "보통",
+    "summary": "Go Green 쇼룸 전시장 위치 안내 및 방문 유도"
+   }
+  ],
+  "rules": [
+   "진행자의 제스처에 맞춰 화면의 정확한 부위에 네온 컬러 3D 타이포그래피와 아이콘을 띄운다.",
+   "새로운 옵션을 소개할 때마다 짧고 굵은 효과음(쿵/톡)을 함께 삽입하여 리듬감을 준다.",
+   "내부 및 외부 디테일 기능(수납함, 터치 버튼 등)은 손으로 직접 누르고 가리키는 동작을 타이트하게 잡는다.",
+   "수치(마력, 주행거리, 트렁크 용량)는 중앙에 큰 숫자로 팝업시켜 시각적 각인 효과를 준다.",
+   "마지막 3~5초는 전시장 외경 풀샷과 함께 쇼룸 주소 박스를 띄우며 오프라인 방문을 유도한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "feature": "전면 레이더 센서",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "초록색 타겟 조준선 그래픽",
+    "x_pct": 55.0,
+    "y_pct": 40.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.5,
+    "feature": "19인치 알로이 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "초록색 19인치 입체 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 33.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.3,
+    "feature": "전동 파워 트렁크",
+    "shown_how": "글자 카드",
+    "icon_desc": "전동 트렁크 글자 배너 및 460L 용량 표기",
+    "x_pct": 75.0,
+    "y_pct": 15.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.0,
+    "feature": "시트 열선/통풍",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "시트 방석 위에 타오르는 불꽃 3D 그래픽",
+    "x_pct": 35.0,
+    "y_pct": 52.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.8,
+    "feature": "내장 와이파이",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "초록색 와이파이 신호 아이콘",
+    "x_pct": 75.0,
+    "y_pct": 35.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.0,
+    "feature": "M 스포츠 스티어링 휠",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "핸들 림 전체를 감싸는 초록색 네온 라인과 M Power 로고",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.7,
+    "feature": "파노라마 글라스 루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "버튼 조작으로 루프 선쉐이드가 전동으로 열리는 모습 시연",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 54.0,
+    "feature": "사각지대 경고 시스템",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "사이드미러 위 감시하는 눈동자 형태의 네온 아이콘",
+    "x_pct": 35.0,
+    "y_pct": 33.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 57.0,
+    "feature": "하만카돈 서라운드 사운드",
+    "shown_how": "글자 카드",
+    "icon_desc": "대시보드 위로 떠오르는 harman/kardon 입체 로고",
+    "x_pct": 50.0,
+    "y_pct": 33.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 BMW 5시리즈의 높은 가격 대비 i5의 가성비와 강력함을 제시하며 등장",
+   "type": "가격",
+   "text": "والفايف سيريز عربيات فخمة بس غالية، بس بي إم دبليو آي فايف أقوى وأرخص بأكتر من مليون جنيه",
+   "ko": "5시리즈는 고급이지만 비쌉니다. 하지만 BMW i5는 백만 파운드 이상 더 저렴하면서도 훨씬 강력합니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "내연기관 5시리즈보다 100만 파운드 이상 저렴하고 강력함",
+    "category": "가격·조건"
+   },
+   {
+    "t": 8.0,
+    "point": "전면 보닛 라인과 레이더, 500m 조사거리 헤드라이트",
+    "category": "디자인"
+   },
+   {
+    "t": 12.5,
+    "point": "19인치 알로이 휠 탑재",
+    "category": "디자인"
+   },
+   {
+    "t": 16.0,
+    "point": "주행거리 713km, 320마력, 410Nm 토크",
+    "category": "성능"
+   },
+   {
+    "t": 20.5,
+    "point": "460리터 전동 트렁크 및 하부 추가 수납공간",
+    "category": "공간"
+   },
+   {
+    "t": 26.0,
+    "point": "1회 충전으로 카이로-알렉산드리아 왕복 가능",
+    "category": "성능"
+   },
+   {
+    "t": 31.0,
+    "point": "쿠션 헤드레스트와 통풍 및 열선 시트",
+    "category": "편의"
+   },
+   {
+    "t": 33.0,
+    "point": "화려한 인터랙션 앰비언트 라이트",
+    "category": "디자인"
+   },
+   {
+    "t": 35.5,
+    "point": "내장 와이파이 및 통합형 커브드 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 38.0,
+    "point": "M 스포츠 스티어링 휠 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 41.0,
+    "point": "크리스탈 기어 노브 및 무선 충전 패드",
+    "category": "편의"
+   },
+   {
+    "t": 45.0,
+    "point": "전동 쉐이드 파노라마 글라스 루프",
+    "category": "편의"
+   },
+   {
+    "t": 47.5,
+    "point": "뒷좌석 엔터테인먼트 마운트 및 안락한 시트/암레스트",
+    "category": "편의"
+   },
+   {
+    "t": 53.0,
+    "point": "360도 6개 카메라 및 사각지대 어시스트",
+    "category": "안전"
+   },
+   {
+    "t": 55.0,
+    "point": "하만카돈 프리미엄 오디오 시스템",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 58.0,
+   "text": "وهتلاقيها في جو جرين التجمع الأول البنفسج 5 جنب ريد بوينت",
+   "ko": "Go Green 매장(뉴카이로 퍼스트 세틀먼트 반프사그 5 레드포인트 옆)에서 확인하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "휠",
+    "외관 전면",
+    "트렁크",
+    "외관 후면",
+    "실내 앞",
+    "센터 화면",
+    "뒷좌석",
+    "외관 측면",
+    "실내 앞",
+    "외관 전면"
+   ]
+  }
+ }
+}

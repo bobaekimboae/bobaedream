@@ -1,0 +1,1025 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/HPM2BWK_scg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6541,
+  "candidatesTokenCount": 8973,
+  "totalTokenCount": 16760,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5378
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 1246,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.6,
+   "aspect": "9:16",
+   "car": "BYD Tang L REV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 15.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 18.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 26.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.1,
+    "end": 28.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 34.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 40.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.9,
+    "end": 44.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.9,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 54.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 59.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "OPTIONS الكهرباء",
+    "ko": "전기차 옵션",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OPTIONS",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "و راحة بال البنزين",
+    "ko": "그리고 가솔린의 안도감",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 3.8,
+    "text": "BYD TANG L",
+    "ko": "BYD TANG L",
+    "kind": "제목",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.0,
+    "text": "بس دي REV",
+    "ko": "하지만 이건 REV",
+    "kind": "말 자막",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REV",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "text": "1200km",
+    "ko": "1200km",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#4AFE37",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.0,
+    "text": "SENSOR",
+    "ko": "센서",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 64.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "HEAD UP",
+    "ko": "헤드업",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "DIGITAL DISPLAY و",
+    "ko": "디지털 디스플레이와",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.8,
+    "text": "بانوراما عملاق",
+    "ko": "거대한 파노라마 루프",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFC000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.0,
+    "text": "و مساج",
+    "ko": "그리고 마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "شاشة كبيرة",
+    "ko": "대형 스크린",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.0,
+    "text": "WIRELESS شاحن",
+    "ko": "무선 충전기",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.0,
+    "text": "DYNAUDIO SOUND SYSTEM X 21",
+    "ko": "다인오디오 사운드 시스템 21개 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "21",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 43.8,
+    "text": "540hp",
+    "ko": "540마력",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#4AFE37",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.0,
+    "text": "670Nm",
+    "ko": "670Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#4AFE37",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 46.0,
+    "text": "LIDAR",
+    "ko": "라이다",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 4.5,
+    "color": "#4AFE37",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "톡",
+    "event": "첫 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.3,
+    "type": "쿵",
+    "event": "BYD TANG L 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "휙",
+    "event": "REV 하이브리드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "띵",
+    "event": "1200km 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.9,
+    "type": "띵",
+    "event": "사이드미러 사각지대 아이콘 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "톡",
+    "event": "운전자 주의 센서 지칭",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "휙",
+    "event": "시트 열선 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "띵",
+    "event": "냉장고 얼음 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "쿵",
+    "event": "다인오디오 21 스피커 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "띵",
+    "event": "540hp 마력 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.8,
+    "type": "띵",
+    "event": "670Nm 토크 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "톡",
+    "event": "라이다 센서 지칭 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "휙",
+    "event": "카메라 12대 레이더 18개 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 신나는 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.9,
+    "end": 7.0,
+    "what": "엔진 및 전기모터 충전 파워트레인 구조 그래픽",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "페이드",
+    "purpose": "REV(주행거리 연장형) 구동 원리 설명",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.9,
+    "what": "1200km 주행거리 및 카이로-사헬 경로 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "1회 주행거리 시각화",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.0,
+    "what": "사이드미러 후측방 감지 경고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 52.0,
+    "y_pct": 22.0,
+    "entrance": "페이드",
+    "purpose": "사각지대 경고 옵션 표시",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.2,
+    "what": "냉장 수납함 위 3D 얼음 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "센터콘솔 냉장 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.5,
+    "what": "카메라 12대 및 레이더 18개 자율주행 센서 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 60.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "자율주행 하드웨어 스펙 전달",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.6,
+    "what": "전시장 위치 핀 및 주소 텍스트 박스",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "لو عايز اوبشنز الكهرباء وراحة بال البنزين",
+    "ko": "전기차의 옵션과 가솔린의 안도감을 모두 원한다면"
+   },
+   {
+    "start": 2.2,
+    "end": 5.0,
+    "text": "BYD Tang L بس دي REV",
+    "ko": "BYD Tang L입니다, 하지만 이건 REV(주행거리 연장형) 모델이죠"
+   },
+   {
+    "start": 5.0,
+    "end": 10.0,
+    "text": "REV يعني موتور بنزين بيشحن موتور كهرباء بيخليها تمشي 1200 كيلو، يعني مشوار الساحل 4 مرات",
+    "ko": "REV란 가솔린 엔진이 모터를 충전해 1200km를 주행할 수 있게 해주며, 사헬을 4번 왕복하는 거리입니다"
+   },
+   {
+    "start": 10.0,
+    "end": 15.0,
+    "text": "عندك Blind spots، سنسور يراقب انتباهك، Head up، ديجيتال ديسبلاي، دركسيون جلد وفيه تسخين",
+    "ko": "사각지대 경고, 운전자 주의 모니터링 센서, 헤드업 디스플레이, 디지털 계기판, 열선 가죽 스티어링 휠이 적용되었습니다"
+   },
+   {
+    "start": 15.0,
+    "end": 19.0,
+    "text": "بانوراما عملاق حرفياً، الكراسي فيها تسخين وتبريد ومساج",
+    "ko": "말 그대로 거대한 파노라마 선루프, 시트에는 열선과 통풍, 마사지 기능까지 있습니다"
+   },
+   {
+    "start": 19.0,
+    "end": 26.0,
+    "text": "شاشة كبيرة تقدر تتفرج فيها على افلام، مساحة تخزين، شاحن وايرلس، كب هولدرز وثلاجة، وثلاجة كمان ورا وتقدر تسخنها",
+    "ko": "영화를 볼 수 있는 대형 화면, 수납공간, 무선 충전기, 컵홀더와 냉장고, 그리고 뒷좌석에도 온열까지 가능한 냉온장고가 있습니다"
+   },
+   {
+    "start": 26.0,
+    "end": 31.0,
+    "text": "وعايزك تقولي منافس! الكنبة تسخين وتبريد ومساج بـ Cupholders ومكان للموبايل",
+    "ko": "경쟁 모델을 한번 대보세요! 2열 시트도 열선·통풍·마사지에 컵홀더와 스마트폰 거치대까지 갖췄습니다"
+   },
+   {
+    "start": 31.0,
+    "end": 37.0,
+    "text": "وعشان توسع للي قاعد ورا، تقدر تزق الكراسي لقدام، وعشان تخش بتزق الايد دي، وأول صف تالت ياخد ناس كبيرة",
+    "ko": "뒤쪽 탑승자를 위해 시트를 밀 수 있고 손잡이를 당겨 탑승하며, 성인도 편하게 탈 수 있는 3열 시트입니다"
+   },
+   {
+    "start": 37.0,
+    "end": 41.0,
+    "text": "وعندك أنوار، فتحات تكييف، Cupholders و 21 سماعة من Dynaudio",
+    "ko": "조명, 에어컨 송풍구, 컵홀더 그리고 21개의 다인오디오 스피커가 장착되었습니다"
+   },
+   {
+    "start": 41.0,
+    "end": 45.0,
+    "text": "وعشان تحرك الشقة دي بتخرج 540 حصان و 670 نيوتن",
+    "ko": "이 움직이는 아파트를 끌기 위해 540마력과 670Nm의 토크를 뿜어냅니다"
+   },
+   {
+    "start": 45.0,
+    "end": 50.8,
+    "text": "وعندك Lidar و 12 كاميرا و 18 رادار ما بين Ultrasonic و Laser و Wave بتسوق نفسها اكتر ما انت بتسوقها",
+    "ko": "라이다와 12개의 카메라, 초음파·레이저·밀리미터파 등 18개의 레이더로 운전자보다 차가 더 알아서 운전합니다"
+   },
+   {
+    "start": 50.8,
+    "end": 55.0,
+    "text": "وعندك شنطة كهربا مساحتها كويسة والصف التالت نازل، ما بالك والصف التاني نازل",
+    "ko": "전동 트렁크 공간은 3열을 접었을 때도 훌륭하며 2열까지 접으면 엄청납니다"
+   },
+   {
+    "start": 55.0,
+    "end": 59.6,
+    "text": "وهتلاقيها في Go Green التجمع الأول البنفسج 5 بجوار Red Point",
+    "ko": "이 차는 고그린(Go Green) 뉴카이로 1지구 엘바나프세그 5 레드포인트 옆에서 만나보실 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "전기차 옵션과 가솔린 편의성을 동시에 잡은 차 질문 던지기"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 10.0,
+    "speed": "빠름",
+    "summary": "BYD Tang L REV 소개 및 1200km 주행거리 파워트레인 원리 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 10.0,
+    "end": 31.0,
+    "speed": "빠름",
+    "summary": "1열 및 2열 첨단 편의기능(마사지 시트, 대화면, 냉온장고 등) 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 31.0,
+    "end": 50.8,
+    "speed": "빠름",
+    "summary": "3열 공간감, 21개 오디오, 출력 스펙(540마력) 및 라이다·자율주행 센서 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.8,
+    "end": 59.6,
+    "speed": "보통",
+    "summary": "트렁크 적재공간 시연 및 Go Green 전시장 방문 안내(CTA)"
+   }
+  ],
+  "rules": [
+   "첫 2초 안에 시청자의 가려운 곳(전기차의 옵션 + 가솔린 주행 안정감)을 질문 형태로 자극하여 이탈 방지",
+   "수치(1200km, 540hp, 670Nm) 및 기술 용어(REV, SENSOR, LIDAR)는 굵고 밝은 네온 그린 폰트로 중앙 상단에 즉각 시각화",
+   "리뷰어가 손으로 해당 옵션을 가리키는 순간 정확히 텍스트와 그래픽이 싱크를 맞춰 등장",
+   "기능의 수치 설명에 그치지 않고 '사헬을 4번 왕복', '움직이는 아파트' 등 직관적이고 친근한 비유 활용",
+   "마지막 컷에 전시장 명칭과 위치를 그린 맵 핀 그래픽과 함께 제시하여 오프라인 방문 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.9,
+    "end": 7.0,
+    "feature": "REV 하이브리드 구동계",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "엔진과 전기모터의 동력 흐름도 3D 애니메이션",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.0,
+    "feature": "사각지대 감지(BSD)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "사이드미러 상단 차량 감지 경고등 그래픽",
+    "x_pct": 52.0,
+    "y_pct": 22.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.1,
+    "feature": "운전자 주의 모니터링 센서",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락으로 A필러 적외선 센서 직접 지칭 및 텍스트 표시",
+    "x_pct": 64.0,
+    "y_pct": 43.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.5,
+    "feature": "헤드업 디스플레이(HUD)",
+    "shown_how": "글자 카드",
+    "icon_desc": "HUD 투영부를 가리키며 HEAD UP 영문 텍스트 표시",
+    "x_pct": 53.0,
+    "y_pct": 49.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.9,
+    "feature": "통풍·열선·마사지 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 아이콘(열선) 및 마사지 아이콘 순차 팝업",
+    "x_pct": 50.0,
+    "y_pct": 53.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.0,
+    "feature": "콘솔 냉장고",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "콘솔함 위에 회전하는 푸른색 3D 얼음 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 35.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.0,
+    "feature": "2열 냉온장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "2열 수납함 열고 온도 조절 디스플레이 터치 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.0,
+    "feature": "다인오디오 21스피커 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "DYNAUDIO SOUND SYSTEM X 21 텍스트 팝업",
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 46.0,
+    "feature": "루프 탑 라이다(LiDAR)",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "전면 유리 상단 라이다 센서를 손가락으로 가리킴",
+    "x_pct": 47.0,
+    "y_pct": 43.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.5,
+    "feature": "자율주행용 12카메라 & 18레이더",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "CCTV 카메라 및 레이더 스캔 아이콘과 수치 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 30.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 향해 걸어나오며 전기차의 옵션과 가솔린의 안도감을 둘 다 잡고 싶은 사람을 부름",
+   "type": "질문",
+   "text": "لو عايز اوبشنز الكهرباء وراحة بال البنزين",
+   "ko": "전기차의 옵션과 가솔린의 안도감을 모두 원한다면"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "전기차의 최첨단 사양과 가솔린의 주행거리 안도감을 결합한 차량 제시",
+    "category": "희소성"
+   },
+   {
+    "t": 6.0,
+    "point": "가솔린 엔진으로 배터리를 충전하는 REV 구동 방식으로 총 1,200km 주행 가능",
+    "category": "성능"
+   },
+   {
+    "t": 10.5,
+    "point": "사각지대 경고, 헤드업 디스플레이, 운전자 안면 인식 센서 장착",
+    "category": "안전"
+   },
+   {
+    "t": 16.0,
+    "point": "초대형 파노라마 선루프 및 1열 열선·통풍·마사지 시트",
+    "category": "편의"
+   },
+   {
+    "t": 20.0,
+    "point": "영화 시청이 가능한 대형 회전식 센터 디스플레이 및 무선 충전 패드",
+    "category": "편의"
+   },
+   {
+    "t": 24.0,
+    "point": "1열 센터콘솔 냉장고 및 2열 전용 냉온장고 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "동급 유일 수준의 2열 마사지·통풍·열선 리클라이닝 시트",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "성인이 탑승해도 여유로운 3열 레그룸 공간과 독립 공조 덕트",
+    "category": "공간"
+   },
+   {
+    "t": 40.0,
+    "point": "다인오디오 21개 프리미엄 사운드 시스템 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "합산 최고출력 540마력, 최대토크 670Nm의 고성능 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 47.0,
+    "point": "라이다, 카메라 12개, 레이더 18개 기반의 고도화된 주행 보조 시스템",
+    "category": "안전"
+   },
+   {
+    "t": 52.0,
+    "point": "3열 및 2열 폴딩 시 광활한 적재 공간을 제공하는 전동 트렁크",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 56.0,
+   "text": "وهتلاقيها في Go Green التجمع الأول البنفسج 5 بجوار Red Point",
+   "ko": "Go Green 매장(뉴카이로 1지구 엘바나프세그 5, 레드포인트 옆)에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "뒷좌석",
+    "외관 측면",
+    "외관 전면",
+    "트렁크"
+   ]
+  }
+ }
+}

@@ -1,0 +1,975 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/7H2oUPKWaJs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7621,
+  "candidatesTokenCount": 8025,
+  "totalTokenCount": 16192,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6458
+   }
+  ],
+  "thoughtsTokenCount": 546,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 70.6,
+   "aspect": "9:16",
+   "car": "Dodge RAM 1500 Tungsten",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.0,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "part": "센터 화면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 14.1,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.0,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.8,
+    "part": "센터 화면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "part": "계기판",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 21.8,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.0,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.6,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 30.1,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 32.1,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 34.6,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.9,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.9,
+    "end": 40.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.0,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 47.7,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 50.7,
+    "part": "외관 전면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.7,
+    "end": 54.0,
+    "part": "외관 전면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 55.3,
+    "part": "외관 전면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.3,
+    "end": 57.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 62.0,
+    "part": "외관 전면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.0,
+    "end": 64.9,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.9,
+    "end": 67.8,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.8,
+    "end": 70.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 7.9,
+    "end": 9.5,
+    "text": "شاشة للمرافق",
+    "ko": "동승자 전용 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#FFA500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "text": "KLIPSCH SOUND SYSTEM",
+    "ko": "클립쉬 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FF7A33",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.8,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 8.0,
+    "color": "#FFAA00",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "تسخين تبريد",
+    "ko": "통풍 / 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 51.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.5,
+    "text": "+1000 KG",
+    "ko": "+1000 kg",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 54.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 61.5,
+    "text": "V6 540hp 706Nm",
+    "ko": "V6 540마력 706Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#B71C1C",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "RAM 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "띵",
+    "event": "동승자 스크린 그래픽 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.9,
+    "type": "딸깍",
+    "event": "센터 콘솔 슬라이딩 덮개 열기",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "딸깍",
+    "event": "컵홀더 트레이 슬라이드 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "딸깍",
+    "event": "암레스트 수납함 2단 오픈",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "딸깍",
+    "event": "디지털 룸미러 스위치 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "띵",
+    "event": "클립쉬 스피커 텍스트 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "쿵",
+    "event": "A필러 손잡이 잡는 동작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "휙",
+    "event": "스티어링 휠 열선 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.6,
+    "type": "휙",
+    "event": "뒷좌석 열선/통풍 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "쿵",
+    "event": "뒷좌석 시트 접기 동작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.2,
+    "type": "딸깍",
+    "event": "바닥 아이스박스 덮개 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "딸깍",
+    "event": "램박스(RamBox) 측면 수납함 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "딸깍",
+    "event": "발판 스텝 전개 작동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.6,
+    "type": "쿵",
+    "event": "1000kg 적재중량 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 46.8,
+    "type": "쿵",
+    "event": "테일게이트 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.5,
+    "type": "휙",
+    "event": "V6 엔진 스펙 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 63.4,
+    "type": "딸깍",
+    "event": "전동 사이드스텝 전개",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 66.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 페달 높낮이 조절 모터음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "도입부 비트 시작"
+    },
+    {
+     "t": 56.5,
+     "what": "엔진 스펙 소개 시 비트 강조"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.1,
+    "end": 4.0,
+    "what": "RAM 로고 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 18.8,
+    "what": "Apple CarPlay 및 Android Auto 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 시각화",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.2,
+    "what": "적재 용량 1000kg 경고추 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 55.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "수치 강조",
+    "sure": true
+   },
+   {
+    "start": 57.2,
+    "end": 61.5,
+    "what": "엔진 V6 트윈터보 마력/토크 뱃지",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 48.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 정보 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "أنا ناصر ولازم أشتري رام! دوج رام تنجستن",
+    "ko": "저는 나사르입니다. 램을 꼭 사야겠습니다! 닷지 램 텅스텐!"
+   },
+   {
+    "start": 4.1,
+    "end": 8.5,
+    "text": "عندك بانوراما عملاق، هيدريست بيتحرك، الكراسي فيها تسخين وتبريد ومساج",
+    "ko": "거대한 파노라마 루프, 움직이는 헤드레스트, 시트에는 열선, 통풍, 마사지 기능까지 있습니다."
+   },
+   {
+    "start": 8.6,
+    "end": 14.0,
+    "text": "شاشة للمرافق، شحن وايرلس، مساحة تخزين، كاب هولدر، مساحة تخزين وواحدة كمان وواحدة كمان!",
+    "ko": "동승자 디스플레이, 무선 충전, 수납공간, 컵홀더, 수납공간이 또 하나, 또 하나 더!"
+   },
+   {
+    "start": 14.1,
+    "end": 18.5,
+    "text": "مراية بتتقلب كاميرا، كليبش ساوند سيستم، مكان للنظارة، وشاشة فيها أبل كاربلاي وأندرويد أوتو",
+    "ko": "카메라로 변하는 디지털 룸미러, 클립쉬 사운드 시스템, 선글라스 보관함, 카플레이와 안드로이드 오토가 지원되는 화면."
+   },
+   {
+    "start": 18.6,
+    "end": 23.9,
+    "text": "ديجيتال ديسبلاي، هيد أب ديسبلاي، قبضة عشان تمسك نفسك، ودريكسيون فخم جداً وفيه تسخين",
+    "ko": "디지털 클러스터, 헤드업 디스플레이, 몸을 지탱할 손잡이, 고급스럽고 열선이 들어간 스티어링 휠."
+   },
+   {
+    "start": 24.0,
+    "end": 30.0,
+    "text": "الكنبة ورا واسعة جداً، عندك سماعة جنب ودنك وفي الكرسي اللي قدامك، كاب هولدر، الكنبة تسخين وتبريد، فيشة للابتوب",
+    "ko": "뒷좌석은 엄청 넓고, 귀 옆과 앞좌석 뒤에 스피커, 컵홀더, 열선/통풍 시트, 노트북용 콘센트까지 있습니다."
+   },
+   {
+    "start": 30.1,
+    "end": 36.8,
+    "text": "كاب هولدر ومساحة تخزين، الكنبة بتنام وعندك مساحة تخزين تحت الكراسي ولو شيلت السجاد هيبقى عندك آيس بوكس للمشروبات",
+    "ko": "컵홀더와 수납공간, 등받이가 눕혀지며 시트 아래 수납함과 매트를 들추면 음료용 아이스박스까지 나옵니다."
+   },
+   {
+    "start": 36.9,
+    "end": 42.5,
+    "text": "مليانة مساحات تخزين! عندك مساحة جانبية بدرين عشان لو حاطت مشروبات، عتبة عشان تطلع فوق العربية",
+    "ko": "수납공간으로 가득합니다! 배수구가 있는 측면 수납함, 차에 올라갈 수 있는 발판 스텝."
+   },
+   {
+    "start": 42.6,
+    "end": 47.5,
+    "text": "ومساحة التخزين تشيل أكتر من طن، وعشان تقفلها زقة بسيطة",
+    "ko": "적재함은 1톤 이상 실을 수 있고, 가볍게 살짝 밀기만 하면 닫힙니다."
+   },
+   {
+    "start": 47.6,
+    "end": 55.0,
+    "text": "ومن قدام عندك أنوار قوية جداً عشان تنورلك الصحراء، الشبكة بتاعتك كلها كروم لأن التنجستن بتديك فخامة وكاميرات 360",
+    "ko": "전면에는 사막을 밝혀줄 강력한 조명과 텅스텐의 고급스러움을 보여주는 크롬 그릴, 360도 카메라가 있습니다."
+   },
+   {
+    "start": 55.1,
+    "end": 62.0,
+    "text": "لأن العربية كبيرة! وعشان تحرك الديناصور ده عندك 6 سلندر توين تيربو بيطلع 540 حصان و 706 نيوتن",
+    "ko": "차가 거대하니까요! 이 공룡을 움직이기 위해 540마력, 706Nm를 뿜어내는 6기통 트윈터보 엔진이 들어갔습니다."
+   },
+   {
+    "start": 62.1,
+    "end": 67.5,
+    "text": "ولو حاسسها عالية عليك عندك عتب بيشيل لحد 200 كيلو، ولو مش طايل الدواسات بتقدر ترفعهم وتنزّلهم",
+    "ko": "차고가 높게 느껴진다면 최대 200kg을 버티는 발판이 나오고, 페달이 멀다면 높낮이를 조절할 수 있습니다."
+   },
+   {
+    "start": 67.6,
+    "end": 70.6,
+    "text": "وشكراً دوج الإمارات من حلبة ياس مارينا أبوظبي",
+    "ko": "아부다비 야스 마리나 서킷에서, 닷지 UAE 감사합니다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "리뷰어의 강렬한 도입 멘트 및 차량 전면 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.1,
+    "end": 23.9,
+    "speed": "빠름",
+    "summary": "운전석 및 앞좌석 주요 편의 장치 및 수납공간 속사포 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 24.0,
+    "end": 36.8,
+    "speed": "빠름",
+    "summary": "광활한 뒷좌석 공간, 리클라이닝, 시트 하단 수납함 및 바닥 아이스박스 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 36.9,
+    "end": 47.5,
+    "speed": "빠름",
+    "summary": "적재함 램박스, 리어 범퍼 스텝, 1톤 적재 용량 및 댐퍼 테일게이트 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 47.6,
+    "end": 55.0,
+    "speed": "빠름",
+    "summary": "외관 크롬 그릴, 헤드램프, 360도 어라운드뷰 카메라 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 55.1,
+    "end": 62.0,
+    "speed": "보통",
+    "summary": "V6 트윈터보 엔진 출력 및 토크 스펙 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 62.1,
+    "end": 67.5,
+    "speed": "빠름",
+    "summary": "전동 사이드스텝 및 전동 페달 조절 기능 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 67.6,
+    "end": 70.6,
+    "speed": "보통",
+    "summary": "적재함에 걸터앉아 야스 마리나 서킷 촬영 협찬 감사 인사"
+   }
+  ],
+  "rules": [
+   "진행자의 빠른 이집트 방언 말속도에 맞춰 1~2초 단위로 옵션 작동을 직접 보여주는 컷 전환",
+   "화려한 3D 그래픽과 네온 볼드 타이포그래피를 핵심 키워드(통풍, 마력, 중량 등) 순간에 팝업 노출",
+   "직접 손으로 열고, 누르고, 젖히는 실물 인터랙션을 연속적으로 연출하여 직관성 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.0,
+    "end": 6.7,
+    "feature": "전동 조절 헤드레스트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "손 조작",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "feature": "동승자석 전용 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": "주황색 네온 글자 카드",
+    "x_pct": 52.0,
+    "y_pct": 28.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 14.0,
+    "feature": "다단 센터 콘솔 수납함",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "손 조작",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.0,
+    "feature": "디지털 룸미러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "손 조작",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.6,
+    "feature": "클립쉬 프리미엄 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "주황색 3D 영문 타이틀 카드",
+    "x_pct": 50.0,
+    "y_pct": 21.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.8,
+    "feature": "스티어링 휠 열선",
+    "shown_how": "글자 카드",
+    "icon_desc": "빛나는 노란색 3D 아랍어 텍스트",
+    "x_pct": 48.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "feature": "뒷좌석 열선 및 통풍 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 및 눈송이 아이콘과 아랍어 텍스트",
+    "x_pct": 51.0,
+    "y_pct": 47.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.8,
+    "feature": "뒷좌석 바닥 아이스박스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "손 조작",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.5,
+    "feature": "배수구 내장 램박스(RamBox)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "손 조작",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.0,
+    "feature": "리어 범퍼 접이식 발판 스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "발 조작",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 62.5,
+    "end": 64.8,
+    "feature": "전동 파워 사이드스텝 (200kg 지탱)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "문 열림 연동",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 65.0,
+    "end": 67.6,
+    "feature": "전동 조절식 가속/브레이크 페달",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "스위치 연동 전동 작동",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라 앞에서 팔을 벌리며 램 텅스텐 트럭을 꼭 사야 한다고 강렬하게 외침",
+   "type": "행동",
+   "text": "أنا ناصر ولازم أشتري رام! دوج رام تنجستن",
+   "ko": "저는 나사르입니다. 램을 꼭 사야겠어요! 닷지 램 텅스텐!"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "파노라마 루프와 마사지/열선/통풍 및 가동형 헤드레스트 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 8.5,
+    "point": "동승자 전용 디스플레이와 끝없는 수납공간 제공",
+    "category": "편의"
+   },
+   {
+    "t": 14.5,
+    "point": "디지털 룸미러와 클립쉬 프리미엄 사운드 시스템 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 24.5,
+    "point": "뒷좌석 전용 스피커, 독립 열선/통풍 및 노트북 콘센트 지원",
+    "category": "공간"
+   },
+   {
+    "t": 34.5,
+    "point": "시트 하부 수납공간 및 바닥 전용 아이스박스 내장",
+    "category": "공간"
+   },
+   {
+    "t": 38.0,
+    "point": "배수가 가능한 램박스 적재함과 1톤 이상의 적재 하중 지원",
+    "category": "편의"
+   },
+   {
+    "t": 48.0,
+    "point": "사막을 밝히는 강력한 헤드램프와 텅스텐 전용 크롬 그릴, 360도 카메라",
+    "category": "디자인"
+   },
+   {
+    "t": 56.5,
+    "point": "540마력 706Nm를 발휘하는 6기통 트윈터보 허리케인 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 63.0,
+    "point": "200kg을 지탱하는 전동 사이드스텝과 전동 높낮이 조절 페달",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 68.0,
+   "text": "شكراً دوج الإمارات من حلبة ياس مارينا أبوظبي",
+   "ko": "아부다비 야스 마리나 서킷에서, 닷지 UAE 감사합니다!",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면",
+    "외관 측면",
+    "외관 전면",
+    "옵션 작동"
+   ]
+  }
+ }
+}
