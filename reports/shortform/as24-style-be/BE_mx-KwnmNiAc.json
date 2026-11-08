@@ -1,0 +1,748 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/mx-KwnmNiAc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4829,
+  "candidatesTokenCount": 7326,
+  "totalTokenCount": 12519,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3461
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "thoughtsTokenCount": 364,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.4,
+   "aspect": "9:16",
+   "car": "Ford Focus Clipper",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 19.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 31.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 33.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 38.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "Gezinswagen onder de €20.000",
+    "ko": "20,000유로 미만 패밀리카",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€20.000",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.4,
+    "text": "100.000 KM",
+    "ko": "100,000 km 미만",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "Ford Focus Clipper",
+    "ko": "포드 포커스 클리퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Ford",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "text": "Adaptive cruise control",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.3,
+    "end": 12.4,
+    "text": "stoelverwarming",
+    "ko": "시트 열선",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 13.5,
+    "text": "voorruit verwarming",
+    "ko": "전면유리 열선",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.0,
+    "text": "verkeersbord herkenning",
+    "ko": "교통표지판 인식",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 56.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.3,
+    "text": "achteruitrijcamera",
+    "ko": "후방 카메라",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 28.7,
+    "text": "2022",
+    "ko": "2022년형",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.8,
+    "text": "99.500 KM",
+    "ko": "99,500 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 33.7,
+    "text": "€15.900",
+    "ko": "15,900 유로",
+    "kind": "가격",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "첫 훅 자막 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "톡",
+    "event": "100.000 KM 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "휙",
+    "event": "Ford Focus Clipper 칩 등장 및 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "톡",
+    "event": "Adaptive cruise control 칩 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.3,
+    "type": "톡",
+    "event": "stoelverwarming 칩 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "톡",
+    "event": "voorruit verwarming 칩 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.6,
+    "type": "톡",
+    "event": "verkeersbord herkenning 칩 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.0,
+    "type": "톡",
+    "event": "achteruitrijcamera 자막 칩 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "톡",
+    "event": "2022 연식 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "99.500 KM 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.9,
+    "type": "돈 소리",
+    "event": "€15.900 가격 칩 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 36.0,
+    "type": "띵",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크/로파이 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "what": "FORD Focus Clipper 상단 로고 박스",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 36.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "what": "빨간 자동차 이모지",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 52.0,
+    "y_pct": 64.0,
+    "entrance": "페이드",
+    "purpose": "드라이브 모드 그래픽 강조",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.4,
+    "what": "AutoScout24 노란색 로고 뱃지",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩 및 엔드카드 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Gezinswagen nodig voor onder de 20.000 euro?",
+    "ko": "2만 유로 미만의 패밀리카가 필요하신가요?"
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "En met minder dan 100.000 km?",
+    "ko": "주행거리도 10만 km 미만으로요?"
+   },
+   {
+    "start": 4.5,
+    "end": 6.5,
+    "text": "Dit is de Ford Focus Clipper.",
+    "ko": "이 차가 바로 포드 포커스 클리퍼입니다."
+   },
+   {
+    "start": 6.5,
+    "end": 8.7,
+    "text": "En hij is uitgevoerd met bomvol opties, kom maar mee!",
+    "ko": "옵션이 가득 차 있어요, 같이 보시죠!"
+   },
+   {
+    "start": 8.7,
+    "end": 11.0,
+    "text": "Keyless entry, adaptive cruise control en lane assist,",
+    "ko": "스마트키, 어댑티브 크루즈 컨트롤, 차선 유지 보조,"
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "text": "stoelverwarming en voorruitverwarming,",
+    "ko": "시트 열선과 앞유리 열선,"
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "verkeersbordherkenning,",
+    "ko": "표지판 인식 기능,"
+   },
+   {
+    "start": 15.0,
+    "end": 18.9,
+    "text": "verschillende rijstanden: Normaal, Eco en Sport,",
+    "ko": "다양한 주행 모드: 노멀, 에코, 스포츠,"
+   },
+   {
+    "start": 18.9,
+    "end": 20.3,
+    "text": "achteruitrijcamera,",
+    "ko": "후방 카메라,"
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "text": "en genoeg ruimte voor het hele gezin.",
+    "ko": "그리고 온 가족을 위한 넉넉한 공간."
+   },
+   {
+    "start": 22.0,
+    "end": 23.6,
+    "text": "Bekerhouders en een skiluik,",
+    "ko": "컵홀더와 스키 스루,"
+   },
+   {
+    "start": 23.6,
+    "end": 26.8,
+    "text": "een elektrische kofferklep met zoveel ruimte, perfect voor een roadtrip.",
+    "ko": "전동 트렁크와 엄청난 적재공간까지, 로드트립에 딱이죠."
+   },
+   {
+    "start": 26.8,
+    "end": 31.8,
+    "text": "Hij komt uit 2022, heeft 99.500 km,",
+    "ko": "2022년형에 주행거리는 99,500km이고,"
+   },
+   {
+    "start": 31.8,
+    "end": 33.7,
+    "text": "en hij kost 15.900 euro.",
+    "ko": "가격은 15,900유로입니다."
+   },
+   {
+    "start": 33.7,
+    "end": 38.4,
+    "text": "Je vindt hem bij Autoswitch en op autoscout24.be.",
+    "ko": "오토스위치와 autoscout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "2만 유로 이하, 10만 km 이하 조건 질문으로 시청자 흥미 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "포드 포커스 클리퍼 외관 전면 소개 및 내부로 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 8.7,
+    "end": 26.8,
+    "speed": "빠름",
+    "summary": "주행보조, 편의사양(열선·모드·카메라), 뒷좌석, 전동트렁크 빠른 템포로 연속 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 26.8,
+    "end": 31.8,
+    "speed": "보통",
+    "summary": "연식(2022)과 실주행거리(99,500km) 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 31.8,
+    "end": 33.7,
+    "speed": "빠름",
+    "summary": "3단 분할 컷과 함께 최종 판매가(15,900유로) 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 33.7,
+    "end": 38.4,
+    "speed": "보통",
+    "summary": "매매상사 Autoswitch 및 AutoScout24 플랫폼 콜투액션"
+   }
+  ],
+  "rules": [
+   "진행자의 대사 중 핵심 스펙이나 기능 명칭이 발음되는 순간 노란색 칩 자막이 팝업 애니메이션과 함께 등장함",
+   "정보 칩은 브랜드 시그니처 색상인 고채도 옐로우(#FFEA00) 바탕에 검은색 볼드 산세리프 텍스트 조합을 일관되게 유지",
+   "화면 중앙이나 컷의 빈 공간에 배치하여 피사체 가림을 최소화하고 시선 집중 유도",
+   "옵션 나열 구간은 0.8~1.5초 단위의 빠른 호흡 컷 전환으로 지루할 틈 없이 전달",
+   "가격 공개 시점에 3단 분할 화면과 찰랑거리는 금전/캐시 효과음을 결합하여 가격 경쟁력을 극대화",
+   "영상 말미에는 로고 스티커와 웹사이트 안내를 통해 딜러사 및 중고차 플랫폼 방문을 유도하는 CTA 배치"
+  ],
+  "caption_styles": [
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 24,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 4.0,
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 3,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFEA00",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 120,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 7,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "대문자",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 28,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 5.0,
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.8,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "말 자막",
+    "font": "굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.8,
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFEA00",
+    "in_anim": "바로",
+    "in_ms": 50,
+    "out_anim": "바로",
+    "stay_sec": 1.2,
+    "count": 12,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 80,
+    "loud_vs_voice": "비슷",
+    "count": 8
+   },
+   {
+    "event": "가격 등장",
+    "sound": "돈 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 300,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "띵",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 150,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 34.0,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 4.4
+  },
+  "safe_zone_note": "우측 상호작용 아이콘(좋아요, 댓글, 공유) 및 하단 사용자 정보 영역을 피해 주요 노란색 칩과 텍스트는 화면 Y축 25%~70% 내 중앙 배치됨"
+ }
+}

@@ -1,0 +1,174 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/Jb1w80UgbPY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5023,
+  "candidatesTokenCount": 1388,
+  "totalTokenCount": 6411,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3655
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 7.0,
+   "aspect": "9:16",
+   "car": "Seat Leon Estate (Sports Tourer)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Herken jij\nde auto?",
+    "ko": "너 이 차 알아봐?",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Herken",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 46.0,
+    "y_pct": 24.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "차 로고를 가린 채 차종을 맞추라는 질문 스티커 노출"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 4.5,
+    "end": 7.0,
+    "speed": "빠름",
+    "summary": "AutoScout24 브랜드 로고 팝업 및 종료"
+   }
+  ],
+  "rules": [
+   "음성 대사 없이 짧은 질문 자막과 경쾌한 BGM으로 시청자 참여(댓글 유도) 유도",
+   "질문 그래픽은 브랜드 시그니처 색상인 옐로우와 블랙/화이트 조합 사용",
+   "엔딩에 AutoScout24 로고가 효과음과 함께 튀어나오며 브랜드 각인"
+  ],
+  "caption_styles": [
+   {
+    "role": "제목",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 24,
+    "box_padding_pct": 4.0,
+    "text_height_pct": 6.5,
+    "y_pct": 25.0,
+    "x_center_pct": 47.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFFFFF",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 3.7,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "조금 먼저",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 150,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 4.5,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.5
+  },
+  "safe_zone_note": "중앙 상단(y: 20~30%)에 자막과 로고를 집중 배치하여 하단 캡션 및 우측 소셜 인터랙션 버튼 영역과의 간섭 완벽 회피"
+ }
+}
