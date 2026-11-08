@@ -1,0 +1,634 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Fw9EQCwYF8M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7628,
+  "candidatesTokenCount": 5374,
+  "totalTokenCount": 13002,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6372
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 70.8,
+   "aspect": "9:16",
+   "car": "Ferrari 296 GTS Assetto Fiorano",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 9.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 20.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 27.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 37.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 48.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.9,
+    "end": 59.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 64.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 70.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "이 페라리는",
+    "ko": "이 페라리는",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "text": "30% 이상을",
+    "ko": "30% 이상을",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "30%",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "text": "옵션이 차지합니다!",
+    "ko": "옵션이 차지합니다!",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "옵션",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 14.0,
+    "text": "Price : ₩32,000,000\nSpecial PNTN\n: Viola Hongkong",
+    "ko": "가격: 3200만원 특별 페인트: 비올라 홍콩",
+    "kind": "가격",
+    "y_pct": 91.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "Viola Hongkong",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 27.9,
+    "text": "Racing Stripe\nPrice ₩25,000,000",
+    "ko": "레이싱 스트라이프 가격 2500만원",
+    "kind": "가격",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "₩25,000,000",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 50.8,
+    "text": "Price ₩35,000,000\nCarbon Racing Wheel + Titanium Bolts",
+    "ko": "가격 3500만원 카본 레이싱 휠 + 티타늄 볼트",
+    "kind": "가격",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "₩35,000,000",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 54.0,
+    "text": "Price ₩11,600,000\nCarbon Rear Diffuser",
+    "ko": "가격 1160만원 카본 리어 디퓨저",
+    "kind": "가격",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFE500",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "₩11,600,000",
+    "sure": true
+   },
+   {
+    "start": 60.1,
+    "end": 62.5,
+    "text": "₩232,200,000",
+    "ko": "2억 3220만원",
+    "kind": "가격",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 62.6,
+    "end": 64.2,
+    "text": "₩671,200,000",
+    "ko": "6억 7120만원",
+    "kind": "가격",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 후드 전동 오픈 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.1,
+    "type": "돈 소리",
+    "event": "옵션 총액 2억 3천만원 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 62.6,
+    "type": "쿵",
+    "event": "신차가 6억 7천만원 자막 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스웨이브/일렉트로닉",
+   "bpm_est": 125,
+   "mood": "트렌디하고 웅장한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 6.0,
+    "what": "엔진룸 인서트 PIP 화면",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 75.0,
+    "y_pct": 25.0,
+    "entrance": "확대 전환",
+    "purpose": "엔진 실물 강조",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.5,
+    "what": "차명 그래픽 타이틀 (Ferrari 296 GTS Assetto Fiorano)",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 70.8,
+    "what": "본문 확인 유도 손가락 아이콘 스티커",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하단 본문 클릭 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "이 페라리는 차량 가격의 30% 이상이 옵션입니다!",
+    "ko": "이 페라리는 차량 가격의 30% 이상이 옵션입니다!"
+   },
+   {
+    "start": 4.9,
+    "end": 7.0,
+    "text": "V6 830마력 하드탑의 개방감도 함께 드릴게요!",
+    "ko": "V6 830마력 하드탑의 개방감도 함께 드릴게요!"
+   },
+   {
+    "start": 7.1,
+    "end": 9.8,
+    "text": "안녕하세요 페라리 296 GTS 입고되었습니다.",
+    "ko": "안녕하세요 페라리 296 GTS 입고되었습니다."
+   },
+   {
+    "start": 9.9,
+    "end": 14.8,
+    "text": "3,200만 원짜리 스페셜 컬러 비올라 홍콩의 색감은 정말 미쳤습니다.",
+    "ko": "3,200만 원짜리 스페셜 컬러 비올라 홍콩의 색감은 정말 미쳤습니다."
+   },
+   {
+    "start": 15.0,
+    "end": 20.8,
+    "text": "너무 예쁘죠? 이 차량은 아세토 피오라노 패키지가 적용되어 있습니다.",
+    "ko": "너무 예쁘죠? 이 차량은 아세토 피오라노 패키지가 적용되어 있습니다."
+   },
+   {
+    "start": 20.9,
+    "end": 27.8,
+    "text": "보닛부터 리어 스포일러까지 일직선으로 이어진 레이싱 스트라이프는 약 2,500만 원.",
+    "ko": "보닛부터 리어 스포일러까지 일직선으로 이어진 레이싱 스트라이프는 약 2,500만 원."
+   },
+   {
+    "start": 28.0,
+    "end": 37.5,
+    "text": "서킷에 특화된 멀티매틱 서스펜션과 다운포스 파츠가 적용된 아세토 피오라노 옵션.",
+    "ko": "서킷에 특화된 멀티매틱 서스펜션과 다운포스 파츠가 적용된 아세토 피오라노 옵션."
+   },
+   {
+    "start": 37.6,
+    "end": 47.9,
+    "text": "실내 확장형 카본과 데이토나 스타일 카본 버킷 시트가 적용되었습니다.",
+    "ko": "실내 확장형 카본과 데이토나 스타일 카본 버킷 시트가 적용되었습니다."
+   },
+   {
+    "start": 48.0,
+    "end": 54.0,
+    "text": "카본 레이싱 휠 3,500만 원, 리어 디퓨저 1,160만 원.",
+    "ko": "카본 레이싱 휠 3,500만 원, 리어 디퓨저 1,160만 원."
+   },
+   {
+    "start": 54.1,
+    "end": 64.0,
+    "text": "이 차량의 총 옵션가는 2억 3,220만 원, 신차가는 6억 7,120만 원입니다.",
+    "ko": "이 차량의 총 옵션가는 2억 3,220만 원, 신차가는 6억 7,120만 원입니다."
+   },
+   {
+    "start": 64.1,
+    "end": 70.8,
+    "text": "자세한 구매 정보는 하단 본문을 참고해 주세요. 감사합니다.",
+    "ko": "자세한 구매 정보는 하단 본문을 참고해 주세요. 감사합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "옵션 가격만 차값의 30% 이상이라는 파격적인 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.9,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "차량 모델명 소개 및 3200만원 스페셜 컬러 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 14.9,
+    "end": 37.5,
+    "speed": "보통",
+    "summary": "아세토 피오라노 패키지 및 레이싱 스트라이프 옵션 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 37.6,
+    "end": 54.0,
+    "speed": "보통",
+    "summary": "실내 카본 버킷 시트 및 외관 카본 휠/디퓨저 가격 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 54.1,
+    "end": 64.0,
+    "speed": "빠름",
+    "summary": "총 옵션가 2.3억 및 총 신차가 6.7억 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 64.1,
+    "end": 70.8,
+    "speed": "보통",
+    "summary": "하단 본문 참조 안내 및 클로징"
+   }
+  ],
+  "rules": [
+   "초반 3초 안에 고가의 옵션 비중(30%)을 언급하여 슈퍼카 매니아 시청자를 즉시 사로잡는다.",
+   "각 옵션 파츠를 비출 때 옵션명과 가격 텍스트 상자를 화면 하단에 명확하게 노출한다.",
+   "주행 컷과 실내 디테일 컷을 교차하여 차량의 상태와 실물 색감을 실감나게 보여준다.",
+   "핵심 가격(옵션 총액, 신차가)이 나오는 순간에 강력한 효과음과 강조 자막을 배치한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 9.9,
+    "end": 14.8,
+    "feature": "스페셜 외장 컬러 (비올라 홍콩)",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 91.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 27.5,
+    "feature": "레이싱 스트라이프",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 89.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 45.0,
+    "feature": "데이토나 스타일 카본 버킷 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 89.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.8,
+    "feature": "카본 레이싱 휠 + 티타늄 볼트",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 89.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 54.0,
+    "feature": "카본 리어 디퓨저",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 89.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "후드를 열고 서 있는 페라리와 '30% 이상을 옵션이 차지합니다!' 문구 노출",
+   "type": "숫자·성능",
+   "text": "이 페라리는 30% 이상을 옵션이 차지합니다!"
+  },
+  "narration_points": [
+   {
+    "t": 1.2,
+    "point": "차량 가격의 30% 이상이 옵션 비용",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.5,
+    "point": "3,200만 원 상당의 비올라 홍콩 스페셜 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 15.5,
+    "point": "아세토 피오라노 패키지 적용",
+    "category": "성능"
+   },
+   {
+    "t": 22.5,
+    "point": "2,500만 원 상당의 유상 옵션 레이싱 스트라이프",
+    "category": "디자인"
+   },
+   {
+    "t": 41.0,
+    "point": "실내 확장 카본 및 데이토나 카본 버킷 시트",
+    "category": "편의"
+   },
+   {
+    "t": 48.5,
+    "point": "3,500만 원 카본 레이싱 휠과 티타늄 볼트",
+    "category": "성능"
+   },
+   {
+    "t": 52.5,
+    "point": "1,160만 원 카본 리어 디퓨저",
+    "category": "디자인"
+   },
+   {
+    "t": 60.0,
+    "point": "총 옵션가 2억 3,220만 원, 신차가 6억 7,120만 원",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 54.5
+  },
+  "cta": {
+   "t": 66.0,
+   "text": "이 차량의 구매에 필요한 자세한 정보는 하단 본문을 참고해주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "휠",
+    "외관 후면",
+    "실내 앞"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 옵션 카드 폰트 및 옐로우/화이트 컬러 자막 스타일 통일"
+  }
+ }
+}

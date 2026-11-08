@@ -1,0 +1,680 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/jzKerSL4pdE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6364,
+  "candidatesTokenCount": 5578,
+  "totalTokenCount": 11942,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5108
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "포르쉐 911 (992.1) 4 GTS 카브리올레",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 18.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.8,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 39.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.4,
+    "end": 44.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 46.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 51.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 57.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "자동차가 이 정도로 노란색이면 주차장에서 차 찾느라 헤맬 일은 없겠습니다.",
+    "ko": "자동차가 이 정도로 노란색이면 주차장에서 차 찾느라 헤맬 일은 없겠습니다.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.0,
+    "text": "PORSCHE\n992.1 4 GTS Cabriolet",
+    "ko": "포르쉐 992.1 4 GTS 카브리올레",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 12.8,
+    "text": "Racing Yellow & Red Top",
+    "ko": "레이싱 옐로우 & 레드 탑",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "text": "Bordeaux Red",
+    "ko": "보르도 레드",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FF2B2B",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.0,
+    "text": "통풍시트",
+    "ko": "통풍시트",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.0,
+    "text": "서라운드 뷰",
+    "ko": "서라운드 뷰",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.8,
+    "text": "PDLS+ LED HEADLIGHT",
+    "ko": "PDLS+ LED 헤드라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.8,
+    "text": "\"Rear axle\"",
+    "ko": "리어 액슬",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "띵",
+    "event": "이모티콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "휙",
+    "event": "강조 집중선 그래픽 연출",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "띵",
+    "event": "반짝이 효과 그래픽 연출",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi / Chillhop",
+   "bpm_est": 88,
+   "mood": "차분하고 감성적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 3.5,
+    "what": "선글라스 스마일 이모지",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 62.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "유머 강조",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "what": "화이트 집중선 효과",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "바디 라인 강조",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.0,
+    "what": "화이트 스파클(반짝이) 효과",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 60.0,
+    "y_pct": 40.0,
+    "entrance": "페이드",
+    "purpose": "시트 헤드레스트 각인 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "자동차가 이 정도로 노란색이면 주차장에서 차 찾느라 헤맬 일은 없겠습니다.",
+    "ko": "자동차가 이 정도로 노란색이면 주차장에서 차 찾느라 헤맬 일은 없겠습니다."
+   },
+   {
+    "start": 3.7,
+    "end": 7.8,
+    "text": "안녕하세요. 포르쉐 911 4 GTS 카브리올레 입고되었습니다.",
+    "ko": "안녕하세요. 포르쉐 911 4 GTS 카브리올레 입고되었습니다."
+   },
+   {
+    "start": 7.8,
+    "end": 13.2,
+    "text": "레이싱 옐로우 페인트에 레드 탑, 992 특유의 둥글둥글한 바디랑 정말 잘 어울려요.",
+    "ko": "레이싱 옐로우 페인트에 레드 탑, 992 특유의 둥글둥글한 바디랑 정말 잘 어울려요."
+   },
+   {
+    "start": 13.2,
+    "end": 18.8,
+    "text": "실내는 보르도 레드, 옐로우 바디에 레드 인테리어라니 조합만 보면 상당히 과감한데 포르쉐라면 가능합니다.",
+    "ko": "실내는 보르도 레드, 옐로우 바디에 레드 인테리어라니 조합만 보면 상당히 과감한데 포르쉐라면 가능합니다."
+   },
+   {
+    "start": 18.8,
+    "end": 24.8,
+    "text": "그리고 이 차량은 4 GTS입니다. 사륜구동의 GTS, 공도에서 출력을 다 쓸 수 없을 정도의 490마력...",
+    "ko": "그리고 이 차량은 4 GTS입니다. 사륜구동의 GTS, 공도에서 출력을 다 쓸 수 없을 정도의 490마력..."
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "text": "하지만 적당한 레이싱 감성에 또 따라온 옵션도 필요한 것들 잘 들어가 있습니다.",
+    "ko": "하지만 적당한 레이싱 감성에 또 따라온 옵션도 필요한 것들 잘 들어가 있습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 34.8,
+    "text": "통풍시트, 서라운드 뷰, PDLS+ LED 헤드라이트까지. 거기에 리어 액슬 스티어링까지 들어가 있어요.",
+    "ko": "통풍시트, 서라운드 뷰, PDLS+ LED 헤드라이트까지. 거기에 리어 액슬 스티어링까지 들어가 있어요."
+   },
+   {
+    "start": 34.8,
+    "end": 42.0,
+    "text": "저속에서는 차를 더 짧게 느끼게 해주고 고속에서는 안정감을 더해주죠. 911에 붙으면 체감이 꽤 좋은 옵션입니다.",
+    "ko": "저속에서는 차를 더 짧게 느끼게 해주고 고속에서는 안정감을 더해주죠. 911에 붙으면 체감이 꽤 좋은 옵션입니다."
+   },
+   {
+    "start": 42.0,
+    "end": 48.0,
+    "text": "카레라보다 조금 더 날카롭고 터보까지 가기에는 부담스러운 분들에게 추천드리는 이 차량! 2023년식에 24,000km대,",
+    "ko": "카레라보다 조금 더 날카롭고 터보까지 가기에는 부담스러운 분들에게 추천드리는 이 차량! 2023년식에 24,000km대,"
+   },
+   {
+    "start": 48.0,
+    "end": 53.0,
+    "text": "현재 금융리스 승계조건으로 판매 중입니다. 당연히 완전 무사고 차량이구요.",
+    "ko": "현재 금융리스 승계조건으로 판매 중입니다. 당연히 완전 무사고 차량이구요."
+   },
+   {
+    "start": 53.0,
+    "end": 57.0,
+    "text": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요.",
+    "ko": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "강렬한 노란색 컬러로 시선 집중 및 농담조 멘트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 18.8,
+    "speed": "보통",
+    "summary": "차량명 및 레이싱 옐로우/레드탑/보르도레드 실내 색상 조합 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.8,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "4 GTS 사륜구동 성능 및 490마력 출력 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 24.8,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "통풍시트, 어라운드뷰, PDLS+, 리어 액슬 스티어링 옵션 클로즈업"
+   },
+   {
+    "stage": "가격",
+    "start": 42.0,
+    "end": 53.0,
+    "speed": "보통",
+    "summary": "추천 대상 및 연식(23년), 주행거리(2.4만km), 완전무사고 금융리스 조건"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.0,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "하단 본문 참조 안내 및 실내 전경 마무리"
+   }
+  ],
+  "rules": [
+   "말 자막은 음절 단위로 화면 하단 중앙에 깔끔하게 싱크 맞춰 생성",
+   "주요 차량 사양 및 옵션 명칭은 영문/한글 텍스트 스티커로 해당 부위 노출 시 중앙에 강조",
+   "스마트폰 짐벌을 이용해 차체를 부드럽게 팔로우하는 워크어라운드 촬영 기법 적용",
+   "옵션(통풍시트 버튼, 어라운드 뷰 화면, 휠/헤드램프)은 1~2초 컷으로 빠른 템포 편집"
+  ],
+  "option_highlights": [
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "feature": "통풍시트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "feature": "서라운드 뷰",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.8,
+    "feature": "PDLS+ LED 헤드라이트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.8,
+    "feature": "리어 액슬 스티어링",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 85.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "화사한 레이싱 옐로우 포르쉐 911 카브리올레가 서 있는 모습과 노란색 관련 멘트",
+   "type": "희귀차",
+   "text": "자동차가 이 정도로 노란색이면 주차장에서 차 찾느라 헤맬 일은 없겠습니다."
+  },
+  "narration_points": [
+   {
+    "t": 8.0,
+    "point": "레이싱 옐로우 외장 페인트 & 레드 탑",
+    "category": "디자인"
+   },
+   {
+    "t": 13.5,
+    "point": "보르도 레드 실내 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 20.0,
+    "point": "사륜구동 4 GTS, 최고출력 490마력",
+    "category": "성능"
+   },
+   {
+    "t": 29.0,
+    "point": "통풍시트 및 서라운드 뷰",
+    "category": "편의"
+   },
+   {
+    "t": 31.5,
+    "point": "PDLS+ LED 헤드라이트",
+    "category": "안전"
+   },
+   {
+    "t": 33.5,
+    "point": "리어 액슬 스티어링 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 47.0,
+    "point": "2023년식, 24,000km대 주행거리",
+    "category": "상태·이력"
+   },
+   {
+    "t": 49.0,
+    "point": "완전 무사고, 금융리스 승계 조건",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "서울오토갤러리 배경 간판 노출",
+    "리스 승계조건"
+   ],
+   "t": 0.5
+  },
+  "cta": {
+   "t": 54.0,
+   "text": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요.",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "실내 앞",
+    "외관 후면",
+    "외관 전면",
+    "실내 앞",
+    "옵션 작동",
+    "센터 화면",
+    "외관 전면",
+    "휠",
+    "외관 전면",
+    "실내 앞"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 한 글자씩 출력되는 타이핑 자막 스타일과 깔끔한 영문 옵션 명칭 배치"
+  }
+ }
+}

@@ -1,0 +1,1106 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/IUDfdXiWW3c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5902,
+  "candidatesTokenCount": 11306,
+  "totalTokenCount": 18268,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4646
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 1060,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.5,
+   "aspect": "9:16",
+   "car": "포르쉐 911 (992.1) 카레라 4 GTS",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.2,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 26.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 37.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 44.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 46.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "여러분!",
+    "ko": "여러분!",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "여러분!",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "대표모델이죠",
+    "ko": "대표모델이죠",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "대표모델이죠",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.2,
+    "text": "911",
+    "ko": "911",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "911",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.5,
+    "text": "Code name 992.1",
+    "ko": "코드네임 992.1",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FEE589",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.4,
+    "text": "+ 사륜이니까 4",
+    "ko": "+ 사륜이니까 4",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.2,
+    "text": "+ 고성능이니까 GTS",
+    "ko": "+ 고성능이니까 GTS",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GTS",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.0,
+    "text": "를 합치면?",
+    "ko": "를 합치면?",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.8,
+    "text": "PORSCHE\n992. 4. GTS",
+    "ko": "포르쉐 992 4 GTS",
+    "kind": "제목",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PORSCHE",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.2,
+    "text": "Base Price에서",
+    "ko": "기본 가격에서",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "+ ₩35,600,000",
+    "ko": "+ 3,560만원 옵션 추가",
+    "kind": "가격",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+ ₩35,600,000",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "text": "구성.잘.뽑았습니다.ㅎㅎ\n한번 보고가세요!",
+    "ko": "구성 잘 뽑았습니다. 한번 보고 가세요!",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "Agate Grey Metallic",
+    "ko": "아게이트 그레이 메탈릭",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.2,
+    "text": "PDLS+ 매트릭스 LED\n(Tinted)",
+    "ko": "PDLS+ 매트릭스 LED (틴티드)",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.3,
+    "end": 19.5,
+    "text": "Bordeaux Red",
+    "ko": "보르도 레드",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.6,
+    "end": 22.8,
+    "text": "18-Way 어댑티브 스포츠 시트 Plus\n세밀하게 잡아줍니다!",
+    "ko": "18-Way 어댑티브 스포츠 시트 Plus 세밀하게 잡아줍니다!",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 26.5,
+    "text": "개방감이\n전동 슬라이드/틸티드 글라스 선루프",
+    "ko": "개방감을 위한 전동 선루프",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.2,
+    "text": "\"필수옵션\"",
+    "ko": "\"필수옵션\"",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "필수옵션",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "적용! 편의사양도 완비!",
+    "ko": "적용! 편의사양도 완비!",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 34.4,
+    "text": "통풍시트\n액티브 파킹 서포트\n(서라운드뷰)",
+    "ko": "통풍시트, 액티브 파킹 서포트 (서라운드뷰)",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.8,
+    "text": "프런트 액슬 리프팅 시스템!\n지하주차장에 대한 거부감을 줄여주고",
+    "ko": "프런트 액슬 리프팅 시스템!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "text": "리어 액슬 스티어링!\n주행 만족도 상승!",
+    "ko": "리어 액슬 스티어링!",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 42.0,
+    "text": "신차가 얼마인데요?",
+    "ko": "신차가 얼마인데요?",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#F39800",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.2,
+    "text": "₩239,700,000",
+    "ko": "신차가 2억 3,970만원",
+    "kind": "가격",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩239,700,000",
+    "sure": true
+   },
+   {
+    "start": 44.3,
+    "end": 48.0,
+    "text": "완전무사고(보험이력 0건)\n전체 PPF 시공 완료\n2022년 3월 정식 출고\n보증 연장 완료(~2029.03)",
+    "ko": "차량 주요 스펙 요약 리스트",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 51.5,
+    "text": "이 차량의 구매 정보는!?",
+    "ko": "이 차량의 구매 정보는!?",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.9,
+    "type": "톡",
+    "event": "'여러분!' 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "'911' 텍스트 임팩트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "'+ 4' 자막 추가",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "'+ GTS' 자막 추가",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "휙",
+    "event": "로고/모델명 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "돈 소리",
+    "event": "옵션가 +35,600,000 등장과 이모지",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.8,
+    "type": "띵",
+    "event": "'필수옵션' 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "쿵",
+    "event": "신차가격 2억 3970만원 공개",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.5,
+    "type": "딸깍",
+    "event": "하단 클릭 유도 손가락 픽셀 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 105,
+   "mood": "트렌디하고 긴장감 있는 비트",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 7.2,
+    "end": 9.8,
+    "what": "네온 프레임 라인 및 모델명 레터링 그래픽",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 27.0,
+    "entrance": "페이드",
+    "purpose": "차량 풀네임 강조",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "what": "놀란 표정 이모지 스티커 😲",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 82.0,
+    "y_pct": 69.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 금액 리액션 강조",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.2,
+    "what": "선글라스 낀 이모지 스티커 🤓",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 66.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "신차가 강조",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 51.5,
+    "what": "아래를 가리키는 픽셀 손가락 포인터 아이콘 👇",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "본문 및 댓글 링크 확인 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "자 여러분 포르쉐의 대표 모델이죠 911",
+    "ko": "자 여러분 포르쉐의 대표 모델이죠 911"
+   },
+   {
+    "start": 3.3,
+    "end": 7.2,
+    "text": "에서도 코드네임 992 사륜이니까 4 고성능이니까 GTS를 합치면?",
+    "ko": "에서도 코드네임 992 사륜이니까 4 고성능이니까 GTS를 합치면?"
+   },
+   {
+    "start": 7.2,
+    "end": 10.0,
+    "text": "안녕하세요 포르쉐 카레라 4 GTS 입고되었습니다.",
+    "ko": "안녕하세요 포르쉐 카레라 4 GTS 입고되었습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 14.8,
+    "text": "베이스 프라이스에서 옵션만 약 3,500만 원 추가! 진짜 구성 잘 뽑았습니다.",
+    "ko": "베이스 프라이스에서 옵션만 약 3,500만 원 추가! 진짜 구성 잘 뽑았습니다."
+   },
+   {
+    "start": 14.8,
+    "end": 18.2,
+    "text": "한 번 보고 가세요! 아게이트 그레이 메탈릭에 PDLS 플러스 매트릭스 LED 헤드라이트",
+    "ko": "한 번 보고 가세요! 아게이트 그레이 메탈릭에 PDLS 플러스 매트릭스 LED 헤드라이트"
+   },
+   {
+    "start": 18.2,
+    "end": 23.0,
+    "text": "실내는 보르도 레드입니다. 18웨이 어댑티브 스포츠 시트 플러스가 세밀하게 포지션을 잡아줍니다.",
+    "ko": "실내는 보르도 레드입니다. 18웨이 어댑티브 스포츠 시트 플러스가 세밀하게 포지션을 잡아줍니다."
+   },
+   {
+    "start": 23.0,
+    "end": 26.6,
+    "text": "개방감이 아쉬운 분들을 위한 전동 슬라이드 앤 틸티드 글라스 선루프에",
+    "ko": "개방감이 아쉬운 분들을 위한 전동 슬라이드 앤 틸티드 글라스 선루프에"
+   },
+   {
+    "start": 26.6,
+    "end": 30.5,
+    "text": "포르쉐 크레스트가 새겨진 헤드레스트까지 적용! 편의사양도 완비되어 있네요.",
+    "ko": "포르쉐 크레스트가 새겨진 헤드레스트까지 적용! 편의사양도 완비되어 있네요."
+   },
+   {
+    "start": 30.5,
+    "end": 34.5,
+    "text": "ACC 통풍시트 액티브 파킹 서포트 서라운드 뷰까지",
+    "ko": "ACC 통풍시트 액티브 파킹 서포트 서라운드 뷰까지"
+   },
+   {
+    "start": 34.5,
+    "end": 38.0,
+    "text": "프런트 액슬 리프팅 시스템은 지하주차장에 대한 거부감을 줄여주고",
+    "ko": "프런트 액슬 리프팅 시스템은 지하주차장에 대한 거부감을 줄여주고"
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "text": "리어 액슬 스티어링은 주행 만족도를 올려줍니다.",
+    "ko": "리어 액슬 스티어링은 주행 만족도를 올려줍니다."
+   },
+   {
+    "start": 40.0,
+    "end": 44.0,
+    "text": "이것저것 다 추가한 이 차량의 신차 가격은 2억 3,970만 원!",
+    "ko": "이것저것 다 추가한 이 차량의 신차 가격은 2억 3,970만 원!"
+   },
+   {
+    "start": 44.0,
+    "end": 48.0,
+    "text": "완전무사고에 전체 PPF, 22년 출고 차량이며 보증 연장까지 완료한",
+    "ko": "완전무사고에 전체 PPF, 22년 출고 차량이며 보증 연장까지 완료한"
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "text": "이 차량의 구매 정보는 하단 본문을 참조해주세요.",
+    "ko": "이 차량의 구매 정보는 하단 본문을 참조해주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.0,
+    "speed": "빠름",
+    "summary": "코드네임(992) + 구동방식(4) + 트림(GTS) 덧셈 공식으로 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.0,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "카레라 4 GTS 입고 소식 및 추가 옵션 총액(3,560만 원) 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 14.8,
+    "end": 23.0,
+    "speed": "보통",
+    "summary": "아게이트 그레이 외장, PDLS+ 헤드램프, 보르도 레드 시트 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 23.0,
+    "end": 40.0,
+    "speed": "빠름",
+    "summary": "글라스 선루프, 헤드레스트 크레스트, ACC, 통풍, 프런트 리프팅, 리어 액슬 연속 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 40.0,
+    "end": 44.2,
+    "speed": "보통",
+    "summary": "옵션 포함 신차가 2억 3,970만원 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 44.2,
+    "end": 51.5,
+    "speed": "보통",
+    "summary": "무사고/전체PPF/보증연장 스펙 정리 및 더보기 본문 확인 유도"
+   }
+  ],
+  "rules": [
+   "도입부에서 차명 스펠링/숫자를 단계별로 더해 완성하는 빌드업 훅 구성",
+   "옵션 금액(+3,560만원)을 초반에 공개해 구매 욕구와 영상 집중도 향상",
+   "내비 화면, 버튼, 시트 등 실제 옵션 작동부를 직접 클로즈업 촬영",
+   "AI 성우 나레이션에 딱 맞는 싱크로 타이포그래피 자막 노출",
+   "핵심 옵션명과 스펙 요약은 하단 흰색 고딕 텍스트로 깔끔하게 정렬"
+  ],
+  "option_highlights": [
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "feature": "익스클루시브 디자인 주유구 캡",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.2,
+    "feature": "PDLS+ 매트릭스 LED (Tinted)",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 22.8,
+    "feature": "18-Way 어댑티브 스포츠 시트 Plus",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 26.5,
+    "feature": "전동 슬라이드/틸티드 글라스 선루프",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.5,
+    "feature": "헤드레스트 포르쉐 크레스트 각인",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.4,
+    "feature": "통풍시트 / 액티브 파킹 서포트 (서라운드뷰) / ACC",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 37.8,
+    "feature": "프런트 액슬 리프팅 시스템",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 74.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.0,
+    "feature": "리어 액슬 스티어링",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 64.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "포르쉐 911이 슬로프로 서서히 내려오는 모습과 함께 대표모델 911 소개",
+   "type": "질문",
+   "text": "992 + 4 + GTS를 합치면?"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "992.1 4륜 GTS 모델 라인업 소개",
+    "category": "성능"
+   },
+   {
+    "t": 11.0,
+    "point": "기본가에서 추가 옵션만 3,560만 원 적용",
+    "category": "가격·조건"
+   },
+   {
+    "t": 15.0,
+    "point": "아게이트 그레이 메탈릭 및 틴티드 PDLS+ 매트릭스 LED 라이트",
+    "category": "디자인"
+   },
+   {
+    "t": 18.5,
+    "point": "보르도 레드 실내 가죽과 18-Way 어댑티브 스포츠 시트 플러스",
+    "category": "편의"
+   },
+   {
+    "t": 23.5,
+    "point": "개방감을 주는 전동 슬라이드/틸티드 글라스 선루프",
+    "category": "편의"
+   },
+   {
+    "t": 27.0,
+    "point": "헤드레스트 포르쉐 크레스트 음각 각인",
+    "category": "디자인"
+   },
+   {
+    "t": 31.0,
+    "point": "통풍시트, ACC, 액티브 파킹 서포트(360도 서라운드뷰)",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "지하주차장 진입을 돕는 필수 옵션 프런트 액슬 리프팅",
+    "category": "편의"
+   },
+   {
+    "t": 38.0,
+    "point": "코너링과 주행 안정감을 높여주는 리어 액슬 스티어링",
+    "category": "성능"
+   },
+   {
+    "t": 42.0,
+    "point": "신차가격 총 2억 3,970만 원 상당의 풀옵션급 차량",
+    "category": "가격·조건"
+   },
+   {
+    "t": 45.0,
+    "point": "완전무사고, 전체 PPF, 22년 출고, 2029년까지 보증 연장 완료",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 1.0
+  },
+  "cta": {
+   "t": 48.0,
+   "text": "이 차량의 구매 정보는!? 하단 본문을 참조해주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "주유구",
+    "외관 전면",
+    "헤드라이트",
+    "실내 시트",
+    "뒷좌석",
+    "선루프",
+    "계기판",
+    "센터콘솔",
+    "센터페시아",
+    "스티어링 휠",
+    "지하주차장 주행 외관"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "네온 간판 SAG(서울오토갤러리) 로고와 검은 외곽선 흰색 고딕 폰트로 매물 스펙을 일관되게 전달"
+  }
+ }
+}

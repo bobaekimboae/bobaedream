@@ -1,0 +1,902 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/tIcaRflQEgA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5990,
+  "candidatesTokenCount": 9449,
+  "totalTokenCount": 15971,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4734
+   }
+  ],
+  "thoughtsTokenCount": 532,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 52.4,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 G400d (G클래스)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.6,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.3,
+    "end": 21.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 25.7,
+    "end": 27.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 30.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 45.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 48.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 52.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "여러분 그거 아세요?",
+    "ko": "여러분 그거 아세요?",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.3,
+    "end": 4.3,
+    "text": "G400d 모델은\n통풍시트가 없습니다!",
+    "ko": "G400d 모델은 통풍시트가 없습니다!",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "통풍시트가 없습니다!",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.8,
+    "text": "하지만 편의사양 완비된!\n오늘의 차량!",
+    "ko": "하지만 편의사양 완비된! 오늘의 차량!",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "Mercedes\nG400d",
+    "ko": "메르세데스 G400d",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.5,
+    "text": "해외 수출로 귀해져버린 블랙바디...",
+    "ko": "해외 수출로 귀해져버린 블랙바디...",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 12.0,
+    "text": "지바겐 = BLACK",
+    "ko": "지바겐 = 블랙",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 14.2,
+    "text": "덩치에 비해서\n연비는 매우 실용적!",
+    "ko": "덩치에 비해서 연비는 매우 실용적!",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 18.2,
+    "text": "공인연비 : 약 8.2km/L\n장거리 주행시 10km/L 이상!",
+    "ko": "공인연비 : 약 8.2km/L, 장거리 주행시 10km/L 이상!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.3,
+    "end": 21.6,
+    "text": "경제적인 지바겐..?\n이게 무슨 소리없는 아우성 같은 말...!",
+    "ko": "경제적인 지바겐..? 이게 무슨 소리없는 아우성 같은 말...!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.3,
+    "text": "추측입니다...",
+    "ko": "추측입니다...",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.2,
+    "text": "[ 통풍시트 X ]\n신차가격이 1억 후반인데...",
+    "ko": "[ 통풍시트 X ] 신차가격이 1억 후반인데...",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 30.5,
+    "text": "450d 출시 후 적용된 옵션\n통풍, keyless Go 등",
+    "ko": "450d 출시 후 적용된 옵션: 통풍, keyless Go 등",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.3,
+    "text": "하지만 이 차량?\n450d에 들어가는 기능\n튜닝 완료!",
+    "ko": "하지만 이 차량? 450d에 들어가는 기능 튜닝 완료!",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "튜닝 완료!",
+    "sure": true
+   },
+   {
+    "start": 33.4,
+    "end": 35.8,
+    "text": "INTC. 마끼아또 베이지\n(염색입니다)",
+    "ko": "인테리어 컬러: 마끼아또 베이지 (염색)",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.9,
+    "end": 40.5,
+    "text": "송풍구 앰비언트\n+ 카본 스티어링 휠!",
+    "ko": "송풍구 앰비언트 + 카본 스티어링 휠!",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FF69B4",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.6,
+    "end": 42.6,
+    "text": "장축 사이드스텝 (중요)",
+    "ko": "장축 사이드스텝 (중요)",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 42.7,
+    "end": 48.7,
+    "text": "2023년식 . 약 3.3만 km\n완전무사고",
+    "ko": "2023년식, 약 3.3만 km, 완전무사고",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 52.4,
+    "text": "구매에 필요한 자세한 정보는??\n하단 본문을 참고해주세요",
+    "ko": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "톡",
+    "event": "화난 이모지 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "휙",
+    "event": "화면 전환 및 선글라스 이모지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.9,
+    "type": "쿵",
+    "event": "차량 모델명 타이틀 폰트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.2,
+    "type": "톡",
+    "event": "의아해하는 이모지 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "톡",
+    "event": "반한 이모지 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "트렌디 힙합 비트",
+   "bpm_est": 95,
+   "mood": "리드미컬하고 세련됨",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "what": "화난 표정 노란색 3D 이모지",
+    "is_3d": true,
+    "size_w_pct": 28.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍시트 없다는 아쉬움 강조",
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 5.5,
+    "what": "선글라스 낀 엄지척 3D 이모지",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "풀튜닝 완비 강조",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "what": "손가락 턱에 괸 채 생각하는 3D 이모지",
+    "is_3d": true,
+    "size_w_pct": 28.0,
+    "x_pct": 20.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "경제적인 지바겐에 대한 의문 표현",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.3,
+    "what": "하트 눈 반한 3D 이모지",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 78.0,
+    "y_pct": 73.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "튜닝 완료 매력 강조",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 52.4,
+    "what": "아래를 가리키는 흰 장갑 손가락 그래픽",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하단 설명란 클릭 유도(CTA)",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "여러분 그거 아세요? 원래 G400 디젤 모델은 통풍 시트가 없습니다.",
+    "ko": "여러분 그거 아세요? 원래 G400 디젤 모델은 통풍 시트가 없습니다."
+   },
+   {
+    "start": 4.5,
+    "end": 8.3,
+    "text": "하지만 편의사양 완비된 오늘의 차량! 안녕하세요 메르세데스 G400d 입고되었습니다.",
+    "ko": "하지만 편의사양 완비된 오늘의 차량! 안녕하세요 메르세데스 G400d 입고되었습니다."
+   },
+   {
+    "start": 8.3,
+    "end": 12.0,
+    "text": "해외 수출로 귀해져 버린 블랙바디. 지바겐은 확실히 검정색이죠.",
+    "ko": "해외 수출로 귀해져 버린 블랙바디. 지바겐은 확실히 검정색이죠."
+   },
+   {
+    "start": 12.0,
+    "end": 18.3,
+    "text": "덩치에 비해 연비는 매우 실용적입니다. 공인 연비는 리터당 8km 내외지만, 장거리 주행 시 10 이상 나오는 지바겐.",
+    "ko": "덩치에 비해 연비는 매우 실용적입니다. 공인 연비는 리터당 8km 내외지만, 장거리 주행 시 10 이상 나오는 지바겐."
+   },
+   {
+    "start": 18.3,
+    "end": 26.0,
+    "text": "경제적인 지바겐이라니, 이게 무슨 소리 없는 아우성 같은 말일까요. 63과 체급을 나누려 한 건지는 몰라도 400d 모델에는 여러 편의사양이 빠져 있었죠.",
+    "ko": "경제적인 지바겐이라니, 이게 무슨 소리 없는 아우성 같은 말일까요. 63과 체급을 나누려 한 건지는 몰라도 400d 모델에는 여러 편의사양이 빠져 있었죠."
+   },
+   {
+    "start": 26.0,
+    "end": 33.3,
+    "text": "후속 모델 450 디젤이 나오고 나서야 통풍, 키레스고 옵션이 적용되었습니다. 하지만 이 차량, 450의 옵션 그대로 튜닝 완료했습니다.",
+    "ko": "후속 모델 450 디젤이 나오고 나서야 통풍, 키레스고 옵션이 적용되었습니다. 하지만 이 차량, 450의 옵션 그대로 튜닝 완료했습니다."
+   },
+   {
+    "start": 33.3,
+    "end": 42.6,
+    "text": "실내는 마끼아또 베이지 컬러로 염색 완료. 송풍구 앰비언트에 카본 스티어링 휠까지 과하지 않게 필요한 튜닝이 모두 되어 있습니다. 장축 사이드스텝까지 빠짐없이 말이죠.",
+    "ko": "실내는 마끼아또 베이지 컬러로 염색 완료. 송풍구 앰비언트에 카본 스티어링 휠까지 과하지 않게 필요한 튜닝이 모두 되어 있습니다. 장축 사이드스텝까지 빠짐없이 말이죠."
+   },
+   {
+    "start": 42.6,
+    "end": 48.7,
+    "text": "23년식 주행거리 3만 km 대에 완전 무사고. 깔끔하게 상품화 완료 후 매장 입고 완료했고요.",
+    "ko": "23년식 주행거리 3만 km 대에 완전 무사고. 깔끔하게 상품화 완료 후 매장 입고 완료했고요."
+   },
+   {
+    "start": 48.7,
+    "end": 52.4,
+    "text": "구매에 필요한 자세한 정보는 하단 본문을 참고해 주세요.",
+    "ko": "구매에 필요한 자세한 정보는 하단 본문을 참고해 주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "G400d의 단점(통풍시트 없음)을 던지고 반전으로 해결된 차량임을 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.8,
+    "end": 12.0,
+    "speed": "보통",
+    "summary": "차량 모델명 및 희귀한 블랙 바디 외관 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 12.0,
+    "end": 18.3,
+    "speed": "보통",
+    "summary": "디젤 모델 특유의 뛰어난 실연비(8.2~10km/L) 어필"
+   },
+   {
+    "stage": "기능",
+    "start": 18.3,
+    "end": 42.6,
+    "speed": "빠름",
+    "summary": "신형 450d급 옵션 튜닝(통풍시트, 키레스고, 베이지 염색, 송풍구 앰비언트, 카본 핸들, 전동스텝) 상세 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 42.6,
+    "end": 48.7,
+    "speed": "보통",
+    "summary": "연식(2023), 주행거리(약 3.3만 km), 완전무사고 매물 상태 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 48.7,
+    "end": 52.4,
+    "speed": "보통",
+    "summary": "하단 본문 링크 확인 요청 (CTA)"
+   }
+  ],
+  "rules": [
+   "초반 3초에 소비자가 아쉬워하는 단점(통풍시트 부재)을 질문형 훅으로 던져 즉각적인 호기심 유발",
+   "단점을 보완한 튜닝 내역을 신형(450d) 스펙과 비교해 가치를 극대화",
+   "감정 이모티콘 3D 그래픽을 적재적소에 팝업시켜 시청 유지력 향상",
+   "내장 컬러 염색 및 편의 튜닝(송풍구 앰비언트, 전동 발판 등)을 클로즈업으로 선명하게 증명",
+   "가격 및 세부 문의는 영상 내 노출 대신 하단 본문 더보기 클릭으로 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 27.2,
+    "end": 28.7,
+    "feature": "통풍시트 버튼 및 메모리 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도어 트림 통풍/열선 버튼 클로즈업",
+    "x_pct": 55.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 33.4,
+    "end": 35.8,
+    "feature": "마끼아또 베이지 시트 염색",
+    "shown_how": "확대",
+    "icon_desc": "베이지 시트 및 도어 트림",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 35.9,
+    "end": 37.8,
+    "feature": "송풍구 터빈 앰비언트 라이트",
+    "shown_how": "확대",
+    "icon_desc": "발광하는 핑크빛 송풍구",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.5,
+    "feature": "카본 D컷 스티어링 휠",
+    "shown_how": "확대",
+    "icon_desc": "카본 마감 핸들",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 40.6,
+    "end": 42.6,
+    "feature": "장축 전동 사이드스텝",
+    "shown_how": "확대",
+    "icon_desc": "차량 하부 사이드스텝",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정차 중인 블랙 지바겐에 'G400d 모델은 통풍시트가 없습니다' 자막과 화난 이모티콘",
+   "type": "질문",
+   "text": "여러분 그거 아세요? 원래 G400d 모델은 통풍시트가 없습니다!"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "원래 순정 G400d에는 통풍시트 부재",
+    "category": "편의"
+   },
+   {
+    "t": 8.5,
+    "point": "해외 수출로 더욱 희귀해진 정통 블랙 바디",
+    "category": "희소성"
+   },
+   {
+    "t": 13.5,
+    "point": "공인 8.2km/L, 고속 10km/L 이상의 경제적인 디젤 연비",
+    "category": "성능"
+   },
+   {
+    "t": 28.0,
+    "point": "신형 450d 옵션인 통풍시트와 키레스고 완벽 튜닝",
+    "category": "편의"
+   },
+   {
+    "t": 34.0,
+    "point": "마끼아또 베이지 가죽 염색 및 카본 핸들/앰비언트 송풍구 장착",
+    "category": "디자인"
+   },
+   {
+    "t": 41.0,
+    "point": "편리한 승하차를 돕는 장축 사이드스텝 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 44.0,
+    "point": "23년식 3.3만km 완전무사고 상품화 완료",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "위치 (영상 배경에 서울오토갤러리 SEOUL AUTO GALLERY 건물 노출)"
+   ],
+   "t": 4.5
+  },
+  "cta": {
+   "t": 49.0,
+   "text": "구매에 필요한 자세한 정보는 하단 본문을 참고해주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "계기판",
+    "외관 측면",
+    "센터 화면",
+    "실내 앞",
+    "옵션 작동",
+    "실내 앞",
+    "외관 측면",
+    "외관 전면",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 70~75% 높이에 굵은 흰색/검은 외곽선 손글씨풍 고딕 자막과 감정 이모티콘 스티커 활용"
+  }
+ }
+}
