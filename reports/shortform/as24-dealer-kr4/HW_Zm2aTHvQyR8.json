@@ -1,0 +1,714 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Zm2aTHvQyR8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6712,
+  "candidatesTokenCount": 6217,
+  "totalTokenCount": 12929,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5452
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.8,
+   "aspect": "9:16",
+   "car": "벤츠 E클래스",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 44.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 57.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 59.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.7,
+    "end": 2.2,
+    "text": "아 벤츠 이거\n와이레 좁노 !!",
+    "ko": "아 벤츠 이거 왜 이렇게 좁아!!",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "내가 덩치가 커서\n그런가..",
+    "ko": "내가 덩치가 커서 그런가..",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.1,
+    "text": "좁아서 못타겠다\n이거 하...",
+    "ko": "좁아서 못 타겠다 이거 하...",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.1,
+    "text": "어!! 왔나?!",
+    "ko": "어!! 왔어?!",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.4,
+    "text": "하...그렇구나...",
+    "ko": "하...그렇구나...",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "text": "난 버스타고..\n다니는데...",
+    "ko": "난 버스 타고 다니는데...",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "text": "버스는 넓지 뭐\nㅎㅎ",
+    "ko": "버스는 넓지 뭐 ㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "안탄지 좀..\n되긴..했네 ㅎ",
+    "ko": "안 탄 지 좀 되긴 했네 ㅎ",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.7,
+    "text": "하... 그래 뭐\n차도 있고...",
+    "ko": "하... 그래 뭐 차도 있고...",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 16.5,
+    "text": "벤츠 타니까\n버스를 뭐 탈 일이나\n있겠나 ㅎ",
+    "ko": "벤츠 타니까 버스를 탈 일이나 있겠어? 좋겠네",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "text": "아...그런게.. 아이고..",
+    "ko": "아... 그런 게 아니고..",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.3,
+    "text": "그래도 니는\n차 할부값 안낸다이가\nㅎㅎ",
+    "ko": "그래도 너는 차 할부값 안 내잖아 ㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.1,
+    "text": "나도 집 산거\n할부 나간다...",
+    "ko": "나도 집 산 거 할부 나간다...",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 24.8,
+    "text": "니..ㅈ....\n집이..있나?\n집을..샀어..?",
+    "ko": "너 집이 있어? 집을 샀어?",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.5,
+    "text": "내 서울에\n집샀잖아 ㅎ",
+    "ko": "나 서울에 집 샀잖아 ㅎ",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 31.8,
+    "text": "아.....\n나는 원룸 살면서\n벤츠 할부 내고\n있는데...",
+    "ko": "아..... 나는 원룸 살면서 벤츠 할부 내고 있는데...",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 36.8,
+    "text": "야 그래도 원룸은\n니 거겠지 ㅎㅎ\n그러니까 벤츠도 타고 !!!\n설마 내 친구가\n카푸어처럼 살겠나 ㅎㅎ",
+    "ko": "야 그래도 원룸은 네 거겠지 ㅎㅎ 그러니까 벤츠도 타고! 설마 내 친구가 카푸어처럼 살겠어 ㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 15.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.8,
+    "text": "아..내..월...ㅅ..",
+    "ko": "아.. 내 월세..",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 41.0,
+    "text": "아 아이다 야 !!\n내 약속 있어서\n먼저 갈게 !!",
+    "ko": "아니다 야! 나 약속 있어서 먼저 갈게!!",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 44.5,
+    "text": "어 내 가야된다\n갈게 !",
+    "ko": "어 나 가야 된다 갈게!",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.5,
+    "text": "하..씨...\n카푸어 뭐\n월세 살면\n카푸어 -_-",
+    "ko": "하.. 씨... 카푸어 뭐 월세 살면 카푸어야",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 52.0,
+    "text": "나도 집 사면 되지!\n어 !?\n함 보자 !!\n얼마 있는지 !!",
+    "ko": "나도 집 사면 되지! 어!? 한번 보자 얼마 있는지!!",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 55.5,
+    "text": "자 일..십..백..\n천...",
+    "ko": "자 일.. 십.. 백.. 천...",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 55.5,
+    "end": 57.5,
+    "text": "아..300만 원\n있네...",
+    "ko": "아.. 300만 원 있네...",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.05,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 쿵 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "딸깍",
+    "event": "안전벨트 착용 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "코믹/대화형",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 57.7,
+    "what": "채널 로고(한우카)",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 12.0,
+    "y_pct": 6.0,
+    "entrance": "고정",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 59.8,
+    "what": "엔딩 카드(한우카 로고 및 웹사이트)",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.5,
+    "end": 5.0,
+    "text": "아 벤츠 이거 와이레 좁노 내가 덩치가 커서 그런가 좁아서 못 타겠다 이거 아 씨",
+    "ko": "아 벤츠 이거 왜 이렇게 좁아 내가 덩치가 커서 그런가 좁아서 못 타겠다 이거 아 씨"
+   },
+   {
+    "start": 5.0,
+    "end": 6.0,
+    "text": "어 왔나",
+    "ko": "어 왔어?"
+   },
+   {
+    "start": 6.0,
+    "end": 9.0,
+    "text": "하 그렇구나 난 버스 타고 다니는데 버스는 넓지 뭐",
+    "ko": "하 그렇구나 난 버스 타고 다니는데 버스는 넓지 뭐"
+   },
+   {
+    "start": 9.0,
+    "end": 12.0,
+    "text": "아 버스도 좋지 안 탄 지 좀 되긴 했네",
+    "ko": "아 버스도 좋지 안 탄 지 좀 되긴 했네"
+   },
+   {
+    "start": 12.0,
+    "end": 16.5,
+    "text": "하 그래 뭐 차도 있고 벤츠 타니까 버스 탈 일이나 있겠나 좋겠네",
+    "ko": "하 그래 뭐 차도 있고 벤츠 타니까 버스 탈 일이나 있겠어 좋겠네"
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "text": "아 그런 게 아니고 그래도 너는 차 할부값 안 낸다이가",
+    "ko": "아 그런 게 아니고 그래도 너는 차 할부값 안 내잖아"
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "text": "나도 집 산 거 할부 나간다",
+    "ko": "나도 집 산 거 할부 나간다"
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "어 너 집이 있나 집을 샀어 언제",
+    "ko": "어 너 집이 있어? 집을 샀어? 언제?"
+   },
+   {
+    "start": 24.5,
+    "end": 27.5,
+    "text": "아 내 서울에 집 샀잖아 몰랐나",
+    "ko": "아 나 서울에 집 샀잖아 몰랐어?"
+   },
+   {
+    "start": 27.5,
+    "end": 31.8,
+    "text": "아 나는 원룸 살면서 벤츠 할부 내고 있는데 아 집이 있구나",
+    "ko": "아 나는 원룸 살면서 벤츠 할부 내고 있는데 아 집이 있구나"
+   },
+   {
+    "start": 31.8,
+    "end": 37.0,
+    "text": "야 그래도 원룸은 너 거겠지 그러니까 벤츠도 타고 설마 내 친구가 카푸어처럼 살겠나",
+    "ko": "야 그래도 원룸은 네 거겠지 그러니까 벤츠도 타고 설마 내 친구가 카푸어처럼 살겠어"
+   },
+   {
+    "start": 37.0,
+    "end": 44.0,
+    "text": "아 내 월세 아 아니다 야 내 약속 있어서 먼저 갈게 어 내 가야 된다 갈게 갈게",
+    "ko": "아 내 월세 아 아니다 야 나 약속 있어서 먼저 갈게 어 나 가야 된다 갈게 갈게"
+   },
+   {
+    "start": 45.0,
+    "end": 52.0,
+    "text": "카푸어 하 씨 카푸어 뭐 월세 살면 카푸어 나도 집 사면 되지 어 한번 보자 얼마 있는지 짜증 나네",
+    "ko": "카푸어 하 씨 카푸어 뭐 월세 살면 카푸어야 나도 집 사면 되지 어 한번 보자 얼마 있는지 짜증 나네"
+   },
+   {
+    "start": 52.0,
+    "end": 57.5,
+    "text": "자 1, 10, 100, 1000 아 300만 원 있네 아 씨",
+    "ko": "자 1, 10, 100, 1000 아 300만 원 있네 아 씨"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.5,
+    "speed": "보통",
+    "summary": "벤츠에서 내리며 차가 좁다고 허세 부리는 주인공"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.5,
+    "end": 22.0,
+    "speed": "보통",
+    "summary": "친구와 버스/차 할부 이야기를 나눔"
+   },
+   {
+    "stage": "기능",
+    "start": 22.0,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "친구가 서울에 자가를 샀다는 말에 당황하며 월세 카푸어임이 밝혀짐"
+   },
+   {
+    "stage": "가격",
+    "start": 38.0,
+    "end": 57.7,
+    "speed": "보통",
+    "summary": "급히 자리를 피해 차 안에서 통장 잔고 300만 원 확인"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 57.7,
+    "end": 59.8,
+    "speed": "보통",
+    "summary": "한우카 채널 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "배경음악 없이 1인 다역/대화 음성 연기에 집중",
+   "중앙에 굵은 검은색 외곽선 흰색 고딕 자막을 2~3줄로 크게 배치",
+   "좌측 상단에 채널 로고 항시 노출",
+   "실제 차량 실내외를 배경으로 한 콩트/상황극 형식의 숏폼"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "벤츠에서 투덜거리며 내리는 남자의 허세 리액션",
+   "type": "감탄·리액션",
+   "text": "아 벤츠 이거 와이레 좁노 !!"
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "웹사이트"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 58.0,
+   "text": "www.한우카.com",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "기타",
+   "part_order": [
+    "외관 측면",
+    "실내 앞"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 좌측 한우카 원형 로고 고정 및 동일 자막 폰트 스타일 유지"
+  }
+ }
+}

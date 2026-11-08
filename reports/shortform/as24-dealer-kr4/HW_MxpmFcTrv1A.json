@@ -1,0 +1,653 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/MxpmFcTrv1A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6265,
+  "candidatesTokenCount": 5360,
+  "totalTokenCount": 11625,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5005
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.0,
+   "aspect": "9:16",
+   "car": "현대 그랜저 IG / 현대 각그랜저(1세대)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 19.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 26.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 31.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 34.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 41.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 48.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 53.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "딜러님 !!",
+    "ko": "딜러님 !!",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 31.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 3.2,
+    "text": "근데 요 차량 진짜 300만 원 맞아요...?",
+    "ko": "근데 요 차량 진짜 300만 원 맞아요...?",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 43.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -3,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.5,
+    "text": "너무 싼데...",
+    "ko": "너무 싼데...",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "네 !! 이거 300만 원 맞습니다 !!",
+    "ko": "네 !! 이거 300만 원 맞습니다 !!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "text": "아..근데..이거... 말을..해줘야되나...",
+    "ko": "아..근데..이거... 말을..해줘야되나...",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.3,
+    "text": "뭔데요...?",
+    "ko": "뭔데요...?",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 10.9,
+    "text": "사람이..죽었답니다..",
+    "ko": "사람이..죽었답니다..",
+    "kind": "말 자막",
+    "y_pct": 83.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.5,
+    "text": "!!!!",
+    "ko": "!!!!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "text": "사..사람이.. 죽었다고요?!!",
+    "ko": "사..사람이.. 죽었다고요?!!",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.3,
+    "text": "아 이런 차를 팔면 어떡합니까 ㅡㅡ",
+    "ko": "아 이런 차를 팔면 어떡합니까 ㅡㅡ",
+    "kind": "말 자막",
+    "y_pct": 83.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.5,
+    "text": "그래서 가격이 싼 겁니다...",
+    "ko": "그래서 가격이 싼 겁니다...",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 43.5,
+    "text": "이 차 입니다 !!",
+    "ko": "이 차 입니다 !!",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 44.5,
+    "text": "1990년식 !",
+    "ko": "1990년식 !",
+    "kind": "키워드 스티커",
+    "y_pct": 83.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.0,
+    "text": "45만km !",
+    "ko": "45만km !",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "text": "요거 300만 원입니다 !!",
+    "ko": "요거 300만 원입니다 !!",
+    "kind": "가격",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 10.9,
+    "type": "쿵",
+    "event": "충격 리액션 줌인 및 느낌표 자막",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 42.0,
+    "type": "띵",
+    "event": "각그랜저 등장 안내 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "톡",
+    "event": "1990년식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "톡",
+    "event": "45만km 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "코믹 배경음악",
+   "bpm_est": 110,
+   "mood": "유머러스하고 코믹함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 53.5,
+    "what": "상단 한우카 로고 및 24시간 문의 전화번호/카카오톡 ID 배너",
+    "is_3d": false,
+    "size_w_pct": 95.0,
+    "x_pct": 50.0,
+    "y_pct": 5.0,
+    "entrance": "바로",
+    "purpose": "딜러사 브랜딩 및 연락처 노출",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.0,
+    "what": "엔딩 로고 및 웹사이트 주소(www.한우카.com)",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "채널 브랜딩 및 아웃트로",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "딜러님! 근데 요 차량 진짜 300만 원 맞아요? 너무 싼데...",
+    "ko": "딜러님! 근데 요 차량 진짜 300만 원 맞아요? 너무 싼데..."
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "text": "네! 이거 300만 원 맞습니다!",
+    "ko": "네! 이거 300만 원 맞습니다!"
+   },
+   {
+    "start": 6.8,
+    "end": 8.3,
+    "text": "아.. 근데.. 이거.. 말을.. 해줘야 되나...",
+    "ko": "아.. 근데.. 이거.. 말을.. 해줘야 되나..."
+   },
+   {
+    "start": 8.3,
+    "end": 9.2,
+    "text": "뭔데요...?",
+    "ko": "뭔데요...?"
+   },
+   {
+    "start": 9.2,
+    "end": 10.9,
+    "text": "사실 이거.. 사람이 죽었답니다..",
+    "ko": "사실 이거.. 사람이 죽었답니다.."
+   },
+   {
+    "start": 10.9,
+    "end": 14.8,
+    "text": "네?! 사.. 사람이.. 죽었다고요?! 아 이런 차를 팔면 어떡합니까ㅡㅡ",
+    "ko": "네?! 사.. 사람이.. 죽었다고요?! 아 이런 차를 팔면 어떡합니까ㅡㅡ"
+   },
+   {
+    "start": 14.8,
+    "end": 19.3,
+    "text": "그래서 가격이 싼 겁니다... 아.. 손님이 너무 착해보여가지고 알려드리는 거예요..",
+    "ko": "그래서 가격이 싼 겁니다... 아.. 손님이 너무 착해보여가지고 알려드리는 거예요.."
+   },
+   {
+    "start": 19.3,
+    "end": 26.3,
+    "text": "아 완전 미친놈이네.. 근데 내가 착하긴 착하지.. 아.. 그러면.. 요 차 말고.. 다른 차는 없어요? 너무 무서운데.. 사람 안 죽은 걸로 조금..",
+    "ko": "아 완전 미친놈이네.. 근데 내가 착하긴 착하지.. 아.. 그러면.. 요 차 말고.. 다른 차는 없어요? 너무 무서운데.. 사람 안 죽은 걸로 조금.."
+   },
+   {
+    "start": 26.3,
+    "end": 31.0,
+    "text": "아.. 그 300만 원대 그랜저 보여주면 되겠죠?!",
+    "ko": "아.. 그 300만 원대 그랜저 보여주면 되겠죠?!"
+   },
+   {
+    "start": 31.0,
+    "end": 34.0,
+    "text": "어 네! 300만 원대면 딱 좋습니다. 아 알겠습니다! 갑시다!",
+    "ko": "어 네! 300만 원대면 딱 좋습니다. 아 알겠습니다! 갑시다!"
+   },
+   {
+    "start": 34.0,
+    "end": 41.5,
+    "text": "고객님 근데 나이가 어떻게 되시죠? 저 33살입니다. 서른셋? 고객님이랑 딱 친구 같은 차가 하나 있습니다.",
+    "ko": "고객님 근데 나이가 어떻게 되시죠? 저 33살입니다. 서른셋? 고객님이랑 딱 친구 같은 차가 하나 있습니다."
+   },
+   {
+    "start": 41.5,
+    "end": 47.9,
+    "text": "이 차입니다! 1990년식! 45만 km! 그랜다이저! 요거 300만 원입니다!",
+    "ko": "이 차입니다! 1990년식! 45만 km! 그랜다이저! 요거 300만 원입니다!"
+   },
+   {
+    "start": 47.9,
+    "end": 53.5,
+    "text": "하... 사람 죽은 거보다 낫지..! 고마 이 차로 합시다! 갑시다!",
+    "ko": "하... 사람 죽은 거보다 낫지..! 고마 이 차로 합시다! 갑시다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 14.8,
+    "speed": "빠름",
+    "summary": "최신 그랜저가 300만 원인 이유가 사망 사고차라는 코믹 상황극 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.8,
+    "end": 41.5,
+    "speed": "보통",
+    "summary": "다른 300만 원대 그랜저를 보여주겠다고 손님과 동갑인 차량으로 이동"
+   },
+   {
+    "stage": "사양",
+    "start": 41.5,
+    "end": 48.0,
+    "speed": "빠름",
+    "summary": "1990년식 45만km 각그랜저(그랜다이저) 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 48.0,
+    "end": 53.5,
+    "speed": "보통",
+    "summary": "300만 원 구매 결정 리액션"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.5,
+    "end": 55.0,
+    "speed": "보통",
+    "summary": "한우카 채널 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "딜러와 고객 1인 2역의 코믹 콩트 형식으로 호기심을 유발",
+   "화면 상단에 상시 문의 전화번호와 카톡 ID 배너를 고정 배치",
+   "중요한 대사마다 굵은 고딕 폰트의 볼드 외곽선 자막으로 가독성 확보",
+   "충격 반전 및 황당한 상황에 맞춰 카메라 줌인과 쾅 효과음 삽입"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "최신형 그랜저가 300만 원이라는 믿기지 않는 가격에 대해 손님이 의아해하며 질문함",
+   "type": "가격",
+   "text": "근데 요 차량 진짜 300만 원 맞아요...?"
+  },
+  "narration_points": [
+   {
+    "t": 10.0,
+    "point": "최신 그랜저가 300만 원인 이유는 사망 사고 이력 때문이라고 농담",
+    "category": "가격·조건"
+   },
+   {
+    "t": 43.5,
+    "point": "33세 손님과 동갑인 1990년식 45만km 각그랜저를 300만 원에 소개",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "전화",
+    "가격"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "24시간 문의 010-3696-2227",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 전면",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 상시 문의 배너와 한우카 로고를 영상 전체에 일관되게 유지"
+  }
+ }
+}

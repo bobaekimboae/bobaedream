@@ -1,0 +1,366 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/utoOI6ty7IQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3435,
+  "candidatesTokenCount": 3312,
+  "totalTokenCount": 7599,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2175
+   }
+  ],
+  "thoughtsTokenCount": 852,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.9,
+   "aspect": "9:16",
+   "car": "현대 싼타페 DM",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 9.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 13.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 21.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.9,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 21.7,
+    "text": "연애할 때 SUV 타는 이유",
+    "ko": "연애할 때 SUV 타는 이유",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 4.4,
+    "text": "1개월",
+    "ko": "1개월",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 9.1,
+    "text": "1년",
+    "ko": "1년",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 13.5,
+    "text": "3년",
+    "ko": "3년",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 21.7,
+    "text": "10년",
+    "ko": "10년",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.9,
+    "text": "좋은 중고차로 보답하겠습니다!",
+    "ko": "좋은 중고차로 보답하겠습니다!",
+    "kind": "말 자막",
+    "y_pct": 18.2,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.9,
+    "text": "010 3696 2227",
+    "ko": "010 3696 2227",
+    "kind": "키워드 스티커",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "타이어 미끄러지며 급가속 출발하는 배기/주행 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "쿵",
+    "event": "바닥에 가방 던져 떨어지는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "코믹/재즈/유튜브 BGM",
+   "bpm_est": 120,
+   "mood": "경쾌하고 익살스러움",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 21.7,
+    "what": "상단 우측 한우카 원형 로고 및 전화번호 워터마크",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 83.0,
+    "y_pct": 6.5,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.9,
+    "what": "엔딩 로고 및 웹사이트 도메인 그래픽",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 9.4,
+    "end": 11.2,
+    "text": "아 빨리 가자, 늦었다.",
+    "ko": "아 빨리 가자, 늦었다."
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "아 가방이라도 좀 들어주지...",
+    "ko": "아 가방이라도 좀 들어주지..."
+   },
+   {
+    "start": 18.2,
+    "end": 20.8,
+    "text": "오빠! 오빠!",
+    "ko": "오빠! 오빠!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.4,
+    "speed": "보통",
+    "summary": "연애 1개월 차: 여자를 안아서 조심스럽게 차에 태워주는 다정한 모습"
+   },
+   {
+    "stage": "기타",
+    "start": 4.4,
+    "end": 9.1,
+    "speed": "보통",
+    "summary": "연애 1년 차: 함께 걸어가 차 문을 직접 열어주는 모습"
+   },
+   {
+    "stage": "기타",
+    "start": 9.1,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "연애 3년 차: 혼자 앞서가며 문도 안 열어주고 재촉하는 모습"
+   },
+   {
+    "stage": "기타",
+    "start": 13.5,
+    "end": 21.7,
+    "speed": "빠름",
+    "summary": "연애 10년 차: 여자를 버려두고 혼자 차를 몰고 떠나버리는 반전 코미디"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 21.7,
+    "end": 23.9,
+    "speed": "보통",
+    "summary": "한우카 로고 및 매장 연락처 아웃트로"
+   }
+  ],
+  "rules": [
+   "공감형 연애 기간별 비교(1개월-1년-3년-10년) 상황극을 통해 바이럴 시청 지속 시간 확보",
+   "화면 상단에 고정된 타이틀과 기간 텍스트로 직관적인 맥락 전달",
+   "영상 말미에 차가 급출발하며 버려지는 코믹한 반전과 효과음 활용",
+   "영상 종료 후 고정된 딜러 브랜드/연락처 아웃트로 카드 삽입"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "남자가 여자를 공주님 안기 형태로 번쩍 안아 차량 조수석에 태워주는 장면",
+   "type": "행동",
+   "text": "연애할 때 SUV 타는 이유 / 1개월"
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": true,
+   "how": "명함 화면",
+   "items": [
+    "상사명",
+    "전화",
+    "도메인 주소"
+   ],
+   "t": 22.0
+  },
+  "cta": {
+   "t": 22.5,
+   "text": "010 3696 2227 / www.한우카.com",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 우측에 로고 및 전화번호 상시 노출 후 엔딩에 공식 아웃트로 카드 배치"
+  }
+ }
+}

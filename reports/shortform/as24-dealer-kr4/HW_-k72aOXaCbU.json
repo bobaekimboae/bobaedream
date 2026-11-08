@@ -1,0 +1,251 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/-k72aOXaCbU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2816,
+  "candidatesTokenCount": 2101,
+  "totalTokenCount": 5529,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1556
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 612,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.0,
+   "aspect": "9:16",
+   "car": "제네시스 G80 & 벤츠 E클래스 쿠페",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 15.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 18.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 15.8,
+    "text": "좋은 차 타도 소용없는 이유",
+    "ko": "좋은 차 타도 소용없는 이유",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "쿵",
+    "event": "트렁크 킥 센서 작동 후 열리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "벤츠 차 문 열리는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.2,
+    "type": "쿵",
+    "event": "트렁크 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "EDM / 댄스 팝",
+   "bpm_est": 128,
+   "mood": "유쾌함, 밈, 신남",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 5.0,
+     "what": "페드로(Pedro) 비트 드롭 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 15.8,
+    "what": "우측 상단 채널 로고 및 연락처 스티커",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 85.0,
+    "y_pct": 8.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 18.0,
+    "what": "엔딩 상호 로고 및 대표 번호 안내 카드",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "와~ 오~",
+    "ko": "와~ 오~"
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "안되나? 쯧",
+    "ko": "안되나? 쯧"
+   },
+   {
+    "start": 8.8,
+    "end": 10.2,
+    "text": "어, 늦었어요?",
+    "ko": "어, 늦었어요?"
+   },
+   {
+    "start": 12.8,
+    "end": 13.8,
+    "text": "여기요",
+    "ko": "여기요"
+   },
+   {
+    "start": 14.2,
+    "end": 15.6,
+    "text": "아 씨 개부럽노",
+    "ko": "아 씨 개부럽네"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "제네시스 킥센서 스마트 파워트렁크 작동 자랑"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 15.8,
+    "speed": "보통",
+    "summary": "벤츠 차주가 발길질하자 조수석에서 여성이 내려 트렁크를 열어주는 반전 콩트"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 15.8,
+    "end": 18.0,
+    "speed": "빠름",
+    "summary": "한우카 로고 및 매물 문의 번호 안내 엔딩 카드"
+   }
+  ],
+  "rules": [
+   "밈 음악(Pedro)의 드롭 타이밍에 맞춰 반전 행동(여성 등장)을 연결함",
+   "스마트키 풋센서 옵션 시연을 유머 콩트 상황극으로 풀어냄",
+   "상단에 호기심을 유발하는 고정 텍스트 바를 전 구간 노출",
+   "영상 마지막에 딜러사 로고와 연락처를 단독 엔딩 카드로 2초간 제시"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "feature": "스마트 파워 트렁크 (풋 킥 센서)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 18.0,
+    "y_pct": 65.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "양손에 짐을 든 남성이 범퍼 아래로 발을 차자 트렁크가 자동으로 열림",
+   "type": "행동",
+   "text": "좋은 차 타도 소용없는 이유"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "풋센서로 열리는 전동 트렁크 편의성",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "명함 화면",
+   "items": [
+    "상사명",
+    "전화",
+    "웹사이트"
+   ],
+   "t": 16.0
+  },
+  "cta": {
+   "t": 16.0,
+   "text": "010 3696 2227 / www.한우카.com",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "우측 상단 엠블럼과 엔딩 카드에 고유 한우카 브랜딩이 적용됨"
+  }
+ }
+}

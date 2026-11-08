@@ -1,0 +1,630 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/QgVy9RtxkpU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6629,
+  "candidatesTokenCount": 5221,
+  "totalTokenCount": 11850,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5369
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.2,
+   "aspect": "9:16",
+   "car": "포르쉐 파나메라",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 7.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 22.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 25.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.7,
+    "end": 29.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 33.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 39.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 45.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 48.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 53.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 57.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.2,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "그 혹시 벤츠 있어요?",
+    "ko": "그 혹시 벤츠 있어요?",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "벤츠 많습니다 고객님!",
+    "ko": "벤츠 많습니다 고객님!",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "아아 그 포르쉐 파나메라 그거 있어요?",
+    "ko": "아아 그 포르쉐 파나메라 그거 있어요?",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "아 빠나메라 있죠 고객님! 요 차량 요거 어떠세요~?",
+    "ko": "아 빠나메라 있죠 고객님! 요 차량 요거 어떠세요~?",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.9,
+    "text": "이야.. 이거 좋네! 이거 200만 원 가능하죠?",
+    "ko": "이야.. 이거 좋네! 이거 200만 원 가능하죠?",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.8,
+    "text": "200..만원이요..? 장난합니까 지금?",
+    "ko": "200..만원이요..? 장난합니까 지금?",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.0,
+    "text": "어 왜요 인터넷에서는 이거 200만에 된다 하던데?",
+    "ko": "어 왜요 인터넷에서는 이거 200만에 된다 하던데?",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 22.9,
+    "text": "아 그 허위매물이잖아요 조선의 파나메라 그랜저XG 그거 살래요?",
+    "ko": "아 그 허위매물이잖아요 조선의 파나메라 그랜저XG 그거 살래요?",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 25.7,
+    "text": "예..?! 아니 포르쉐 파나메라 사러 왔다니깐요",
+    "ko": "예..?! 아니 포르쉐 파나메라 사러 왔다니깐요",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.7,
+    "end": 29.0,
+    "text": "확 씨마 이걸 그냥 마 아오 씨 가이소!",
+    "ko": "확 씨마 이걸 그냥 마 아오 씨 가이소!",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 33.7,
+    "text": "아 왜 화를 내고 그러는교 안 살랍니다 그냥",
+    "ko": "아 왜 화를 내고 그러는교 안 살랍니다 그냥",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 39.8,
+    "text": "아 그 흑우카죠? 포르쉐 파나메라 월 200만 원에 된다는 거 지금 되면 바로 살게요",
+    "ko": "아 그 흑우카죠? 포르쉐 파나메라 월 200만 원에 된다는 거 지금 되면 바로 살게요",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 45.6,
+    "text": "저 또라이가 저거 월 200이면 빨리 말하던가 저런 새끼한텐 내가 안 팔지",
+    "ko": "저 또라이가 저거 월 200이면 빨리 말하던가 저런 새끼한텐 내가 안 팔지",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 57.5,
+    "text": "아.. 씨.. 전화할까 다시... 미안하다고 할까..",
+    "ko": "아.. 씨.. 전화할까 다시... 미안하다고 할까..",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "기타",
+   "bpm_est": 0,
+   "mood": "코믹",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 57.5,
+    "what": "채널 로고 '한우카'",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 12.0,
+    "y_pct": 6.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.2,
+    "what": "엔딩 로고 및 웹사이트 주소",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "그 혹시 벤츠 있어요?",
+    "ko": "그 혹시 벤츠 있어요?"
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "벤츠 많습니다 고객님!",
+    "ko": "벤츠 많습니다 고객님!"
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "아아 그 포르쉐 파나메라 그거 있어요?",
+    "ko": "아아 그 포르쉐 파나메라 그거 있어요?"
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "아 빠나메라 있죠 고객님! 요 차량 요거 어떠세요~?",
+    "ko": "아 빠나메라 있죠 고객님! 요 차량 요거 어떠세요~?"
+   },
+   {
+    "start": 7.4,
+    "end": 9.9,
+    "text": "이야.. 이거 좋네! 이거 200만 원 가능하죠?",
+    "ko": "이야.. 이거 좋네! 이거 200만 원 가능하죠?"
+   },
+   {
+    "start": 9.9,
+    "end": 13.8,
+    "text": "200..만원이요..? 장난합니까 지금?",
+    "ko": "200..만원이요..? 장난합니까 지금?"
+   },
+   {
+    "start": 13.8,
+    "end": 16.0,
+    "text": "어 왜요 인터넷에서는 이거 200만에 된다 하던데?",
+    "ko": "어 왜요 인터넷에서는 이거 200만에 된다 하던데?"
+   },
+   {
+    "start": 16.0,
+    "end": 22.9,
+    "text": "아 그 허위매물이잖아요 아무튼 파나메라를 아 200에 살 수는 있겠다 조선의 파나메라 그랜저XG 그거 살래요?",
+    "ko": "아 그 허위매물이잖아요 아무튼 파나메라를 아 200에 살 수는 있겠다 조선의 파나메라 그랜저XG 그거 살래요?"
+   },
+   {
+    "start": 22.9,
+    "end": 25.7,
+    "text": "예..?! 아니 포르쉐 파나메라 사러 왔다니깐요",
+    "ko": "예..?! 아니 포르쉐 파나메라 사러 왔다니깐요"
+   },
+   {
+    "start": 25.7,
+    "end": 29.0,
+    "text": "확 씨마 이걸 그냥 마 아우 씨 가이소!",
+    "ko": "확 씨마 이걸 그냥 마 아우 씨 가이소!"
+   },
+   {
+    "start": 29.0,
+    "end": 33.7,
+    "text": "아 왜 화를 내고 그러는교 안 살랍니다 그냥",
+    "ko": "아 왜 화를 내고 그러는교 안 살랍니다 그냥"
+   },
+   {
+    "start": 33.7,
+    "end": 39.8,
+    "text": "아 그 흑우카죠? 포르쉐 파나메라 월 200만 원에 된다는 거 지금 되면 바로 살게요 예예",
+    "ko": "아 그 흑우카죠? 포르쉐 파나메라 월 200만 원에 된다는 거 지금 되면 바로 살게요 예예"
+   },
+   {
+    "start": 39.8,
+    "end": 45.6,
+    "text": "저 또라이가 저거 월 200이면 빨리 말하던가 저런 새끼한텐 내가 안 팔지 으씨",
+    "ko": "저 또라이가 저거 월 200이면 빨리 말하던가 저런 새끼한텐 내가 안 팔지 으씨"
+   },
+   {
+    "start": 45.6,
+    "end": 48.7,
+    "text": "에이 씨 짜증 나네 진짜",
+    "ko": "에이 씨 짜증 나네 진짜"
+   },
+   {
+    "start": 48.7,
+    "end": 53.6,
+    "text": "에이 씨 짜증 나네 진짜 성이 와 이라노 이거",
+    "ko": "에이 씨 짜증 나네 진짜 성이 와 이라노 이거"
+   },
+   {
+    "start": 53.6,
+    "end": 57.5,
+    "text": "아.. 씨.. 전화할까 다시... 미안하다고 할까.. 어떡하지 아 씨",
+    "ko": "아.. 씨.. 전화할까 다시... 미안하다고 할까.. 어떡하지 아 씨"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "손님이 포르쉐 파나메라를 200만원에 달라고 제안"
+   },
+   {
+    "stage": "기타",
+    "start": 9.9,
+    "end": 29.0,
+    "speed": "보통",
+    "summary": "200만원은 허위매물이라며 그랜저XG를 권유하다 손님을 쫓아냄"
+   },
+   {
+    "stage": "기타",
+    "start": 29.0,
+    "end": 39.8,
+    "speed": "보통",
+    "summary": "손님이 '월 200만원' 리스/할부 매물로 통화하며 돌아섬"
+   },
+   {
+    "stage": "기타",
+    "start": 39.8,
+    "end": 57.5,
+    "speed": "보통",
+    "summary": "월 200만원인 걸 뒤늦게 알고 후회하는 딜러의 콩트 마무리"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 57.5,
+    "end": 59.2,
+    "speed": "보통",
+    "summary": "채널 로고 및 사이트 안내"
+   }
+  ],
+  "rules": [
+   "딜러와 고객 역할을 1인 다역 또는 상황극 콩트로 연출",
+   "화면 하단에 크고 굵은 흰색 테두리 자막으로 대사를 직관적으로 표시",
+   "중고차 허위매물과 월납입금 오해를 소재로 한 유머 쇼츠 형식",
+   "좌측 상단에 채널 로고 항시 고정 노출"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "포르쉐 파나메라를 찾는 손님과 응대하는 딜러의 대화",
+   "type": "행동",
+   "text": "그 혹시 벤츠 있어요? / 포르쉐 파나메라 그거 있어요?"
+  },
+  "narration_points": [
+   {
+    "t": 16.0,
+    "point": "포르쉐 파나메라 200만 원은 인터넷 허위매물",
+    "category": "가격·조건"
+   },
+   {
+    "t": 36.0,
+    "point": "차량가 200만 원이 아니라 월 200만 원 리스/할부 조건",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "웹사이트"
+   ],
+   "t": 57.5
+  },
+  "cta": {
+   "t": 57.5,
+   "text": "www.한우카.com",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "좌측 상단 '한우카' 원형 로고 고정 및 동일한 자막 폰트 스타일 유지"
+  }
+ }
+}
