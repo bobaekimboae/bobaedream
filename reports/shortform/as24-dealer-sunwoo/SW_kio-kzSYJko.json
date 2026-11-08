@@ -1,0 +1,979 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/kio-kzSYJko",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4721,
+  "candidatesTokenCount": 8073,
+  "totalTokenCount": 12794,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3465
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.6,
+   "aspect": "9:16",
+   "car": "페라리 GTC4 루쏘 T",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.6,
+    "end": 35.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 38.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "왜건의",
+    "ko": "왜건의",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "인기가",
+    "ko": "인기가",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "바닥인 한국이지만",
+    "ko": "바닥인 한국이지만",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.4,
+    "text": "이 차는 누가 봐도",
+    "ko": "이 차는 누가 봐도",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.4,
+    "text": "맘에 들 것 같아요!",
+    "ko": "맘에 들 것 같아요!",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.4,
+    "text": "V8 610마력 슈팅브레이크",
+    "ko": "V8 610마력 슈팅브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFF370",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "V8",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "text": "FERRARI\nGTC4 Lusso T",
+    "ko": "페라리 GTC4 루쏘 T",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "T",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "text": "진짜 4인승!\n2열 넓은거 보세요..",
+    "ko": "진짜 4인승! 2열 넓은거 보세요..",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "진짜 4인승!",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "text": "\"GRIGIO SILVERSTONE\"",
+    "ko": "\"그리지오 실버스톤\"",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.0,
+    "text": "진짜 너무 예쁘다",
+    "ko": "진짜 너무 예쁘다",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.9,
+    "text": "Daytona Style / Black\n+ Yellow Stitch",
+    "ko": "데이토나 스타일 / 블랙 + 옐로우 스티치",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.6,
+    "text": "페라리에 이런 개방감...\n진짜... 제 드림카 입니다",
+    "ko": "페라리에 이런 개방감... 진짜... 제 드림카 입니다",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.6,
+    "text": "카본 스티어링 휠 + LED",
+    "ko": "카본 스티어링 휠 + LED",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.1,
+    "text": "대시보드 카본",
+    "ko": "대시보드 카본",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.6,
+    "text": "리프트",
+    "ko": "리프트",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "text": "서라운드 뷰\n약 27,000km",
+    "ko": "서라운드 뷰 약 27,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.6,
+    "text": "패신저 디스플레이\n금융리스 승계조건!",
+    "ko": "패신저 디스플레이 금융리스 승계조건!",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.6,
+    "end": 35.1,
+    "text": "이 차량의 가격과 자세한 정보는??\n하단 캡션을 확인!",
+    "ko": "이 차량의 가격과 자세한 정보는?? 하단 캡션을 확인!",
+    "kind": "가격",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFF370",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 38.6,
+    "text": "지금 팔로우하고 가시면\n더 많은 차량을 소개해드릴게요!",
+    "ko": "지금 팔로우하고 가시면 더 많은 차량을 소개해드릴게요!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "이모지 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "쿵",
+    "event": "차량 모델명 타이틀 전환 시 강한 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.6,
+    "type": "딸깍",
+    "event": "카본 스티어링 휠 손가락 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 23.6,
+    "type": "딸깍",
+    "event": "대시보드 카본 손가락 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 25.1,
+    "type": "딸깍",
+    "event": "리프트 스위치 손가락 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "딸깍",
+    "event": "서라운드 뷰 손가락 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "딸깍",
+    "event": "패신저 디스플레이 손가락 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "what": "슬픈 표정 이모지",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "왜건 비인기 강조",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "what": "엔진룸 인서트 원형 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 25.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 스펙 강조",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.9,
+    "what": "FF 전작 인서트 원형 이미지",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "후속 모델 비교",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.6,
+    "what": "클릭 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "바로",
+    "purpose": "옵션 위치 지목",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.1,
+    "what": "클릭 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 70.0,
+    "y_pct": 18.0,
+    "entrance": "바로",
+    "purpose": "옵션 위치 지목",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.6,
+    "what": "클릭 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 35.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "옵션 위치 지목",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "what": "클릭 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 28.0,
+    "y_pct": 28.0,
+    "entrance": "바로",
+    "purpose": "옵션 위치 지목",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.6,
+    "what": "클릭 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 32.0,
+    "y_pct": 42.0,
+    "entrance": "바로",
+    "purpose": "옵션 위치 지목",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "왜건의 인기가 바닥인 한국이지만",
+    "ko": "왜건의 인기가 바닥인 한국이지만"
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "text": "이 차는 누가 봐도 맘에 들 것 같아요. 8기통 610마력 슈팅브레이크",
+    "ko": "이 차는 누가 봐도 맘에 들 것 같아요. 8기통 610마력 슈팅브레이크"
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "text": "안녕하세요 페라리 GTC4 루쏘 T가 입고되었습니다.",
+    "ko": "안녕하세요 페라리 GTC4 루쏘 T가 입고되었습니다."
+   },
+   {
+    "start": 7.9,
+    "end": 9.9,
+    "text": "FF의 후속으로 나온 루쏘는",
+    "ko": "FF의 후속으로 나온 루쏘는"
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "text": "몇 안 되는 진짜 4인승 페라리죠.",
+    "ko": "몇 안 되는 진짜 4인승 페라리죠."
+   },
+   {
+    "start": 12.0,
+    "end": 16.0,
+    "text": "그리지오 실버스톤 페인트는 차량 디자인과 더불어 유럽 감성을 한층 더 끌어올려 줍니다.",
+    "ko": "그리지오 실버스톤 페인트는 차량 디자인과 더불어 유럽 감성을 한층 더 끌어올려 줍니다."
+   },
+   {
+    "start": 16.0,
+    "end": 18.9,
+    "text": "블랙 컬러의 데이토나 스타일 시트, 옐로우 스티치까지",
+    "ko": "블랙 컬러의 데이토나 스타일 시트, 옐로우 스티치까지"
+   },
+   {
+    "start": 18.9,
+    "end": 21.6,
+    "text": "개방감 맥스 글라스루프까지. 진짜 제 드림카입니다.",
+    "ko": "개방감 맥스 글라스루프까지. 진짜 제 드림카입니다."
+   },
+   {
+    "start": 21.6,
+    "end": 25.1,
+    "text": "카본 스티어링 휠과 대시보드 카본까지",
+    "ko": "카본 스티어링 휠과 대시보드 카본까지"
+   },
+   {
+    "start": 25.1,
+    "end": 28.5,
+    "text": "정말 깔끔한 구성의 이 루쏘 T. 2019년식의 주행거리는 약 27,000km.",
+    "ko": "정말 깔끔한 구성의 이 루쏘 T. 2019년식의 주행거리는 약 27,000km."
+   },
+   {
+    "start": 28.5,
+    "end": 31.6,
+    "text": "금융리스 승계 조건의 소장 가치가 분명한",
+    "ko": "금융리스 승계 조건의 소장 가치가 분명한"
+   },
+   {
+    "start": 31.6,
+    "end": 35.1,
+    "text": "이 차량의 가격과 자세한 정보는 하단 캡션에서 확인하실 수 있습니다.",
+    "ko": "이 차량의 가격과 자세한 정보는 하단 캡션에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 35.1,
+    "end": 38.6,
+    "text": "지금 팔로우하고 가시면 더 많은 차량을 소개해드릴게요!",
+    "ko": "지금 팔로우하고 가시면 더 많은 차량을 소개해드릴게요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "한국에서 비인기인 왜건이지만 누구나 반할 8기통 페라리 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 12.0,
+    "speed": "보통",
+    "summary": "차명 GTC4 루쏘 T 소개 및 4인승 공간성 어필"
+   },
+   {
+    "stage": "사양",
+    "start": 12.0,
+    "end": 16.0,
+    "speed": "보통",
+    "summary": "그리지오 실버스톤 외장 컬러 및 외관 디자인 감상"
+   },
+   {
+    "stage": "기능",
+    "start": 16.0,
+    "end": 28.5,
+    "speed": "빠름",
+    "summary": "시트, 글라스루프, 카본 휠, 리프트, 어라운드 뷰 등 주요 옵션 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 28.5,
+    "end": 35.1,
+    "speed": "보통",
+    "summary": "연식/주행거리 및 금융리스 승계 안내, 캡션 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 35.1,
+    "end": 38.6,
+    "speed": "보통",
+    "summary": "팔로우 요청 CTA"
+   }
+  ],
+  "rules": [
+   "단어/문장 단위로 튀어나오는 중앙 볼드 자막 사용",
+   "옵션 소개 시 손가락 포인팅 그래픽 스티커와 딸깍 사운드 매칭",
+   "원형 인서트 이미지를 상단에 띄워 전작 모델이나 엔진룸 비교 강조",
+   "영상 하단 캡션(더보기란)으로 유도하여 가격 노출 방어 및 인게이지먼트 증대"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.0,
+    "end": 18.9,
+    "feature": "데이토나 스타일 시트 / 옐로우 스티치",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.6,
+    "feature": "파노라마 글라스루프",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 62.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.6,
+    "feature": "카본 스티어링 휠 + LED",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 포인터",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.1,
+    "feature": "대시보드 카본",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 포인터",
+    "x_pct": 70.0,
+    "y_pct": 28.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.6,
+    "feature": "프론트 리프트",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 포인터",
+    "x_pct": 35.0,
+    "y_pct": 60.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "feature": "서라운드 뷰",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 포인터",
+    "x_pct": 30.0,
+    "y_pct": 38.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.6,
+    "feature": "패신저 디스플레이",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 포인터",
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 도로를 서행하는 페라리 GTC4 루쏘 외관과 함께 '왜건의 인기가 바닥인 한국이지만' 멘트",
+   "type": "희귀차",
+   "text": "왜건의 인기가 바닥인 한국이지만 이 차는 누가 봐도 맘에 들 것 같아요!"
+  },
+  "narration_points": [
+   {
+    "t": 4.0,
+    "point": "8기통 610마력 슈팅브레이크",
+    "category": "성능"
+   },
+   {
+    "t": 10.5,
+    "point": "몇 안 되는 진짜 4인승 페라리",
+    "category": "공간"
+   },
+   {
+    "t": 12.5,
+    "point": "그리지오 실버스톤 외장 컬러의 유럽 감성",
+    "category": "디자인"
+   },
+   {
+    "t": 16.5,
+    "point": "데이토나 스타일 시트와 옐로우 스티치",
+    "category": "디자인"
+   },
+   {
+    "t": 19.5,
+    "point": "글라스루프의 압도적 개방감",
+    "category": "편의"
+   },
+   {
+    "t": 22.0,
+    "point": "카본 휠/트림 및 리프트, 서라운드뷰, 패신저 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 27.5,
+    "point": "2019년식 약 27,000km 주행거리",
+    "category": "상태·이력"
+   },
+   {
+    "t": 30.0,
+    "point": "금융리스 승계 조건",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 33.0,
+   "text": "이 차량의 가격과 자세한 정보는 하단 캡션을 확인! / 지금 팔로우하고 가시면 더 많은 차량을 소개해드릴게요!",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전측면",
+    "엠블럼 클로즈업",
+    "외관 전면",
+    "외관 후면",
+    "2열 실내",
+    "외관 보닛",
+    "외관 사이드뷰",
+    "1열 시트",
+    "글라스루프 및 전체 실내",
+    "스티어링 휠",
+    "대시보드",
+    "리프트 버튼",
+    "센터페시아 서라운드뷰",
+    "패신저 디스플레이",
+    "외관 주행/서행"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색/흰색 볼드 텍스트 및 손가락 포인팅 스티커를 일관되게 활용"
+  }
+ }
+}

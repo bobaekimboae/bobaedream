@@ -1,0 +1,821 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/eKt--gnLq-A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4455,
+  "candidatesTokenCount": 6531,
+  "totalTokenCount": 10986,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3199
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.8,
+   "aspect": "9:16",
+   "car": "포르쉐 911 카레라 4S 카브리올레 (992)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 24.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 35.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "청송포르쉐",
+    "ko": "청송포르쉐",
+    "kind": "키워드 스티커",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#4A3AFF",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.1,
+    "text": "뭘 좀 아시는 분!",
+    "ko": "뭘 좀 아시는 분!",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.4,
+    "text": "실내는",
+    "ko": "실내는",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.5,
+    "text": "브라운!",
+    "ko": "브라운!",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#783F04",
+    "bg_width_pct": 24.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "PORSCHE\nCARRERA 4S CAB.",
+    "ko": "포르쉐 카레라 4S 카브리올레",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.7,
+    "text": "Gentian Blue Metallic\n+ Roof in Blue",
+    "ko": "젠티안 블루 메탈릭 + 블루 탑",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#1C39BB",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "text": "Club Leather\nin Truffle Brown\n+ Chalk Stitching",
+    "ko": "트러플 브라운 클럽 가죽 + 초크 스티칭",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#5C3A21",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "옵션 多",
+    "ko": "옵션 다수",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "text": "18-way 스포츠 시트\n+ 통풍 O",
+    "ko": "18웨이 스포츠 시트 + 통풍 포함",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.8,
+    "text": "PDLS+\n(중요)",
+    "ko": "PDLS+ (중요)",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.6,
+    "text": "Sport Exhaust System",
+    "ko": "스포츠 배기 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 22.0,
+    "text": "PTV+",
+    "ko": "PTV+",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.3,
+    "text": "PASM 전자제어 서스펜션",
+    "ko": "PASM 전자제어 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.5,
+    "text": "우주선 같이 생긴 것 같기도 하고...",
+    "ko": "우주선 같이 생긴 것 같기도 하고...",
+    "kind": "말 자막",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "text": "출고가격\n₩265,000,000",
+    "ko": "출고가격 2억 6500만원",
+    "kind": "가격",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.8,
+    "text": "캡션 참조!",
+    "ko": "캡션 참조!",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 35.8,
+    "text": "팔로우 = 😍😜\n다양한 차량을 소개해드리겠습니다.",
+    "ko": "팔로우 부탁드립니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "딸깍",
+    "event": "청송포르쉐 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 0.9,
+    "type": "딸깍",
+    "event": "뭘 좀 아시는 분 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "딸깍",
+    "event": "브라운 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "쿵",
+    "event": "포르쉐 타이틀 그래픽 등장 및 렌즈플레어",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "딸깍",
+    "event": "옵션 다 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "딸깍",
+    "event": "18-way 시트 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "딸깍",
+    "event": "PDLS+ 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "딸깍",
+    "event": "스포츠 배기 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.7,
+    "type": "딸깍",
+    "event": "PTV+ 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "딸깍",
+    "event": "PASM 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "쿵",
+    "event": "출고가격 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 115,
+   "mood": "세련되고 트렌디함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "what": "헤드라이트 플레어 광원 효과 및 모델명 로고 타이틀",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "확대 전환",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "청송포르쉐라니 뭘 좀 아시는 분이네요.",
+    "ko": "청송포르쉐라니 뭘 좀 아시는 분이네요."
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "text": "실내는 클래식한 브라운 컬러! 옵션은 한가득!",
+    "ko": "실내는 클래식한 브라운 컬러! 옵션은 한가득!"
+   },
+   {
+    "start": 4.5,
+    "end": 7.4,
+    "text": "안녕하세요. 포르쉐 카레라 4S 카브리올레 입고되었습니다.",
+    "ko": "안녕하세요. 포르쉐 카레라 4S 카브리올레 입고되었습니다."
+   },
+   {
+    "start": 7.4,
+    "end": 9.8,
+    "text": "젠티안 블루 메탈릭, 블루탑 색상 기가 막히죠.",
+    "ko": "젠티안 블루 메탈릭, 블루탑 색상 기가 막히죠."
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "text": "흔하지 않은 인테리어 클럽 레더 트러플 브라운 컬러.",
+    "ko": "흔하지 않은 인테리어 클럽 레더 트러플 브라운 컬러."
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "옵션은 정말 많이 들어갔습니다.",
+    "ko": "옵션은 정말 많이 들어갔습니다."
+   },
+   {
+    "start": 14.8,
+    "end": 17.6,
+    "text": "18웨이 어댑티브 스포츠 시트, 당연히 통풍 포함이고요.",
+    "ko": "18웨이 어댑티브 스포츠 시트, 당연히 통풍 포함이고요."
+   },
+   {
+    "start": 17.6,
+    "end": 20.6,
+    "text": "PDLS 플러스에 스포츠 배기 시스템까지.",
+    "ko": "PDLS 플러스에 스포츠 배기 시스템까지."
+   },
+   {
+    "start": 20.6,
+    "end": 24.3,
+    "text": "포르쉐 토크 벡터링 플러스, PASM 전자제어 서스펜션으로",
+    "ko": "포르쉐 토크 벡터링 플러스, PASM 전자제어 서스펜션으로"
+   },
+   {
+    "start": 24.3,
+    "end": 26.6,
+    "text": "우주선 같이 생긴 것 같기도 하고, 외계인 소리 절로 나오게 만드는 이 차량.",
+    "ko": "우주선 같이 생긴 것 같기도 하고, 외계인 소리 절로 나오게 만드는 이 차량."
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "text": "출고 가격은 2억 6,500만 원이고요.",
+    "ko": "출고 가격은 2억 6,500만 원이고요."
+   },
+   {
+    "start": 28.7,
+    "end": 32.8,
+    "text": "판매 가격은 캡션에 적어 두었습니다. 관심 있으시면 참고해 주세요.",
+    "ko": "판매 가격은 캡션에 적어 두었습니다. 관심 있으시면 참고해 주세요."
+   },
+   {
+    "start": 32.8,
+    "end": 35.8,
+    "text": "팔로우도 부탁드립니다. 다양한 차량을 소개해 드리겠습니다.",
+    "ko": "팔로우도 부탁드립니다. 다양한 차량을 소개해 드리겠습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "블루 외관과 브라운 시트 색상 조합 강조로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "차량 모델명 및 익스테리어/인테리어 컬러 조합 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 12.8,
+    "end": 24.3,
+    "speed": "빠름",
+    "summary": "18웨이 시트, PDLS+, 스포츠 배기, PASM 등 풍부한 옵션 나열"
+   },
+   {
+    "stage": "사양",
+    "start": 24.3,
+    "end": 26.6,
+    "speed": "보통",
+    "summary": "디자인 및 감성 평가"
+   },
+   {
+    "stage": "가격",
+    "start": 26.6,
+    "end": 31.5,
+    "speed": "보통",
+    "summary": "신차 출고가 공개 및 판매가는 본문 캡션 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 31.5,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "팔로우 요청 CTA"
+   }
+  ],
+  "rules": [
+   "자막이 뜰 때마다 직관적인 팝 사운드(딸깍 SFX)를 삽입해 리듬감을 형성",
+   "옵션 및 스펙 설명 시 영문 정식 옵션명과 한글 설명을 자막으로 병기",
+   "실제 판매 가격은 캡션으로 유도하여 댓글 및 본문 체류 시간 증대",
+   "전문 딜러 용어(청송포르쉐: 청색 외장/갈색 내장)를 활용한 친근한 훅 구성"
+  ],
+  "option_highlights": [
+   {
+    "start": 14.8,
+    "end": 17.6,
+    "feature": "18-way 어댑티브 스포츠 시트 및 통풍",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.8,
+    "feature": "PDLS+ (포르쉐 다이내믹 라이트 시스템)",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 74.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.6,
+    "feature": "스포츠 배기 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 73.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 22.0,
+    "feature": "PTV+ (포르쉐 토크 벡터링 플러스)",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 77.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.3,
+    "feature": "PASM 전자제어 서스펜션",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 도로에 서 있는 청색 포르쉐 카브리올레와 브라운 실내 컷을 보여주며 '청송포르쉐' 멘트",
+   "type": "감탄·리액션",
+   "text": "청송포르쉐라니 뭘 좀 아시는 분이네요! 실내는 브라운!"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "인기 높은 청색 외장 + 브라운 시트 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 7.4,
+    "point": "젠티안 블루 메탈릭 외장과 블루 소프트탑",
+    "category": "디자인"
+   },
+   {
+    "t": 9.8,
+    "point": "트러플 브라운 클럽 가죽과 초크 스티칭",
+    "category": "디자인"
+   },
+   {
+    "t": 14.8,
+    "point": "18웨이 전동 스포츠 시트 및 통풍 기능 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 18.0,
+    "point": "PDLS+ 및 스포츠 배기 시스템 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 21.0,
+    "point": "PTV+ 및 PASM 전자제어 서스펜션 적용",
+    "category": "성능"
+   },
+   {
+    "t": 26.6,
+    "point": "신차 출고가 2억 6,500만원",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "위치",
+    "가격"
+   ],
+   "t": 30.0
+  },
+  "cta": {
+   "t": 31.0,
+   "text": "판매 가격은 캡션 참조 및 채널 팔로우 요청",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "실내 앞",
+    "휠",
+    "실내 앞",
+    "센터 화면",
+    "외관 전면",
+    "외관 후면",
+    "외관 측면",
+    "계기판"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "어두운 외곽선 자막에 주요 스펙 영문 강조 및 팝업 효과음 반복 사용"
+  }
+ }
+}

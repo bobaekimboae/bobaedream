@@ -1,0 +1,637 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/S_D1WlqyVKk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5730,
+  "candidatesTokenCount": 5332,
+  "totalTokenCount": 11640,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4474
+   }
+  ],
+  "thoughtsTokenCount": 578,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.2,
+   "aspect": "9:16",
+   "car": "페라리 FF V12",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 13.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 24.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 28.1,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 33.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 39.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.2,
+    "end": 44.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 50.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "다 큰 성인도 뒷자리에 탈 수 있는",
+    "ko": "다 큰 성인도 뒷자리에 탈 수 있는",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "어른들도",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "text": "4인승 페라리?",
+    "ko": "4인승 페라리?",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4인승 페라리",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.8,
+    "text": "Ferrari FF V12",
+    "ko": "Ferrari FF V12",
+    "kind": "제목",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FF2020",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Ferrari",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.8,
+    "text": "2+2 seat",
+    "ko": "2+2 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "2+2 seat",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "text": "FF = 2열도 쾌적",
+    "ko": "FF는 2열도 쾌적",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "쾌적",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.9,
+    "text": "장거리 여행 OK!",
+    "ko": "장거리 여행 OK!",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OK",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 24.5,
+    "text": "V12 6.3L 엔진 [660 마력]",
+    "ko": "V12 6.3리터 엔진 660마력",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "660 마력",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 28.1,
+    "text": "감성 = 충만",
+    "ko": "감성 충만",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "충만",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 33.5,
+    "text": "블랙 랩핑(원색은 레드!) / 탄 계열의 전동식 컴포트 시트!",
+    "ko": "블랙 랩핑 원색 레드 및 탄 시트",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "레드",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 42.2,
+    "text": "구매에 필요한 정보? 캡션을 참고해주세요!",
+    "ko": "구매에 필요한 정보는 캡션 참고",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "캡션",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 50.2,
+    "text": "영상이 마음에 드신다면? 팔로우 = ❤️",
+    "ko": "영상이 마음에 드신다면 팔로우 부탁드립니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "팔로우",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.1,
+    "type": "톡",
+    "event": "자막 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "차량 모델명 자막 표시",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 90,
+   "mood": "스타일리시하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 33.8,
+    "end": 36.3,
+    "what": "엄지 척 이모지 3개",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "entrance": "바로",
+    "purpose": "승차감 호평 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "다 큰 성인도 뒷자리에 탈 수 있는 4인승 페라리를 찾으신다면 이 차 추천드려볼게요.",
+    "ko": "다 큰 성인도 뒷자리에 탈 수 있는 4인승 페라리를 찾으신다면 이 차 추천드려볼게요."
+   },
+   {
+    "start": 4.5,
+    "end": 8.0,
+    "text": "안녕하세요, 4인승 4륜구동 페라리 FF V12입니다.",
+    "ko": "안녕하세요, 4인승 4륜구동 페라리 FF V12입니다."
+   },
+   {
+    "start": 8.0,
+    "end": 13.5,
+    "text": "슈퍼카 중에 2+2 시트는 많죠. 하지만 뒷자리는 사실상 짐칸입니다. 목이 꺾입니다.",
+    "ko": "슈퍼카 중에 2+2 시트는 많죠. 하지만 뒷자리는 사실상 짐칸입니다. 목이 꺾입니다."
+   },
+   {
+    "start": 13.5,
+    "end": 19.9,
+    "text": "하지만 우리 슈팅브레이크 FF는 뒷자리도 쾌적합니다. 트렁크 공간도 널럴해서 주말에 장거리 여행도 다 가능하죠.",
+    "ko": "하지만 우리 슈팅브레이크 FF는 뒷자리도 쾌적합니다. 트렁크 공간도 널럴해서 주말에 장거리 여행도 다 가능하죠."
+   },
+   {
+    "start": 19.9,
+    "end": 28.1,
+    "text": "물론 12기통 6.3리터 엔진으로 660마력의 출력을 자랑하는 FF는 사운드, 스피드, 즉 슈퍼카의 감성도 모두 챙겼습니다.",
+    "ko": "물론 12기통 6.3리터 엔진으로 660마력의 출력을 자랑하는 FF는 사운드, 스피드, 즉 슈퍼카의 감성도 모두 챙겼습니다."
+   },
+   {
+    "start": 28.1,
+    "end": 33.5,
+    "text": "블랙 랩핑으로 원색은 로쏘 계열의 빨간색. 실내는 탄 계열의 전동식 컴포트 시트 들어가 있고요.",
+    "ko": "블랙 랩핑으로 원색은 로쏘 계열의 빨간색. 실내는 탄 계열의 전동식 컴포트 시트 들어가 있고요."
+   },
+   {
+    "start": 33.5,
+    "end": 36.5,
+    "text": "승차감은 뭐 말이 필요할까요? 정말 편합니다.",
+    "ko": "승차감은 뭐 말이 필요할까요? 정말 편합니다."
+   },
+   {
+    "start": 36.5,
+    "end": 42.2,
+    "text": "이 차량의 구매에 필요한 정보는 캡션에 남겨두었습니다. 그 외 궁금한 내용이 있으시다면 언제든 연락 주세요.",
+    "ko": "이 차량의 구매에 필요한 정보는 캡션에 남겨두었습니다. 그 외 궁금한 내용이 있으시다면 언제든 연락 주세요."
+   },
+   {
+    "start": 42.2,
+    "end": 44.8,
+    "text": "더 많은 차량은 프로필에서 보실 수 있습니다.",
+    "ko": "더 많은 차량은 프로필에서 보실 수 있습니다."
+   },
+   {
+    "start": 44.8,
+    "end": 50.2,
+    "text": "영상이 마음에 드신다면 팔로우도 한번 부탁드릴게요. 다양한 슈퍼카를 소개해 드립니다.",
+    "ko": "영상이 마음에 드신다면 팔로우도 한번 부탁드릴게요. 다양한 슈퍼카를 소개해 드립니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "성인이 탈 수 있는 4인승 페라리 소개 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "페라리 FF V12 모델명 및 콘셉트 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 8.0,
+    "end": 19.9,
+    "speed": "보통",
+    "summary": "일반 2+2 시트와의 차별점 및 뒷좌석 쾌적성·트렁크 공간 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 19.9,
+    "end": 28.1,
+    "speed": "보통",
+    "summary": "V12 6.3L 660마력 엔진 성능 및 슈퍼카 감성 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 28.1,
+    "end": 36.5,
+    "speed": "보통",
+    "summary": "외관 랩핑/원색 상태, 탄 전동시트, 승차감 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 36.5,
+    "end": 44.8,
+    "speed": "보통",
+    "summary": "구매 정보 캡션 안내 및 문의 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 44.8,
+    "end": 50.2,
+    "speed": "보통",
+    "summary": "팔로우 및 채널 홍보 CTA"
+   }
+  ],
+  "rules": [
+   "매물 차량의 차별화 포인트(4인승 실용성)를 초반 훅 질문으로 제시",
+   "부위별 고화질 디테일 컷과 함께 명확한 텍스트 배너로 스펙을 직관적으로 표기",
+   "구매 상세 조건(가격, 스펙 등)은 본문 캡션으로 유도하여 체류 시간 및 상호작용 극대화",
+   "영상 말미에 프로필 방문 및 팔로우 유도 문구를 고정 템플릿화"
+  ],
+  "option_highlights": [
+   {
+    "start": 9.8,
+    "end": 19.9,
+    "feature": "실사용 가능한 2열 뒷좌석",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 24.5,
+    "feature": "V12 6.3L 자연흡기 엔진",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 33.5,
+    "feature": "탄 전동 컴포트 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야간 도심에 서 있는 블랙 페라리 FF 전면과 함께 '성인도 탈 수 있는 4인승 페라리?' 내레이션",
+   "type": "질문",
+   "text": "다 큰 성인도 뒷자리에 탈 수 있는 4인승 페라리?"
+  },
+  "narration_points": [
+   {
+    "t": 2.0,
+    "point": "성인 탑승이 가능한 실용적 4인승 페라리 FF",
+    "category": "공간"
+   },
+   {
+    "t": 6.0,
+    "point": "4인승 및 4륜 구동 시스템 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 11.0,
+    "point": "일반 슈퍼카의 형식적 2+2 시트와 다른 쾌적한 2열 공간",
+    "category": "공간"
+   },
+   {
+    "t": 18.0,
+    "point": "넉넉한 트렁크 공간으로 장거리 여행 가능",
+    "category": "공간"
+   },
+   {
+    "t": 22.0,
+    "point": "V12 6.3L 엔진 660마력의 폭발적 슈퍼카 성능",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "블랙 랩핑 시공(원색 로쏘 레드) 및 탄 가죽 전동 컴포트 시트",
+    "category": "디자인"
+   },
+   {
+    "t": 35.0,
+    "point": "우수한 승차감",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "위치",
+    "상사명"
+   ],
+   "t": 37.0
+  },
+  "cta": {
+   "t": 41.0,
+   "text": "구매에 필요한 정보는 캡션 참고 / 궁금한 내용은 언제든 연락 / 팔로우 부탁",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "엠블럼",
+    "외관 측면",
+    "외관 후면",
+    "뒷좌석",
+    "엔진룸",
+    "계기판/스티어링",
+    "실내 운전석",
+    "휠/브레이크",
+    "지하주차장 전면",
+    "기어노브",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 굵은 고딕 자막, 핵심 키워드 컬러 강조, 영상 후반 프로필 및 캡션 유도 일관성 유지"
+  }
+ }
+}
