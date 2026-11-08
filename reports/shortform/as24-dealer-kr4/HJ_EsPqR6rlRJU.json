@@ -1,0 +1,940 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/EsPqR6rlRJU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6278,
+  "candidatesTokenCount": 7934,
+  "totalTokenCount": 14212,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5018
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.4,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스 S",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 21.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 30.2,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 37.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 38.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 39.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 44.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 46.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.3,
+    "end": 47.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 49.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 50.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 51.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.7,
+    "end": 53.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "최저가 우루스 S",
+    "ko": "최저가 우루스 S",
+    "kind": "제목",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "대한민국에서 가장 저렴한 우루스 S를 소개합니다",
+    "ko": "대한민국에서 가장 저렴한 우루스 S를 소개합니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "카프리스토 풀배기 (250셀 다운파이프)",
+    "ko": "카프리스토 풀배기 (250셀 다운파이프)",
+    "kind": "키워드 스티커",
+    "y_pct": 86.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "배기음이 진짜 미쳤습니다! 풀배기!",
+    "ko": "배기음이 진짜 미쳤습니다! 풀배기!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 10.0,
+    "text": "최저가인데 3000km밖에 주행 안 한 신차급 차량이에요",
+    "ko": "최저가인데 3000km밖에 주행 안 한 신차급 차량이에요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 14.5,
+    "text": "어라 이게 말이 되나 싶으실 텐데 이 차량 속상하지만 신차 출고 후 사고가 있었습니다",
+    "ko": "어라 이게 말이 되나 싶으실 텐데 이 차량 속상하지만 신차 출고 후 사고가 있었습니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 21.0,
+    "text": "눈길에서 가드레일 측면을 살짝 부딪혔는데 글쎄 에어백이 전개되어 버렸습니다!",
+    "ko": "눈길에서 가드레일 측면을 살짝 부딪혔는데 글쎄 에어백이 전개되어 버렸습니다!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 25.5,
+    "text": "속상해라! 이 때문에 대시보드와 에어백까지 전부 신품으로 교체하였습니다",
+    "ko": "속상해라! 이 때문에 대시보드와 에어백까지 전부 신품으로 교체하였습니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.5,
+    "text": "하지만 이미 일어난 일, 눈물의 감가를 머금고 판매하시기로 하셨습니다",
+    "ko": "하지만 이미 일어난 일, 눈물의 감가를 머금고 판매하시기로 하셨습니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 35.0,
+    "text": "주행거리가 짧은 만큼 실내 사용감 일체 없고 원색도 가장 인기 있는 네로 헬렌의 검정색!",
+    "ko": "주행거리가 짧은 만큼 실내 사용감 일체 없고 원색도 가장 인기 있는 네로 헬렌의 검정색!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 42.5,
+    "text": "게다가 전체 PPF 시공, 23인치 휠, B&O 오디오, 파노라마 루프, 4인 시트 스펙, 5년 워런티까지 가입한 차량입니다",
+    "ko": "게다가 전체 PPF 시공, 23인치 휠, B&O 오디오, 파노라마 루프, 4인 시트 스펙, 5년 워런티까지 가입한 차량입니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 46.5,
+    "text": "24년 12월 출고 차량이니 29년 12월까지 걱정 없겠죠?",
+    "ko": "24년 12월 출고 차량이니 29년 12월까지 걱정 없겠죠?",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.0,
+    "text": "1인 소유 개인 명의 현금 차량으로 최소 과표 이전 가능합니다",
+    "ko": "1인 소유 개인 명의 현금 차량으로 최소 과표 이전 가능합니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 55.4,
+    "text": "고객님의 위탁 판매 차량입니다! 판매 가격과 상세 정보는 본문에서 확인해 보세요! 감사합니다",
+    "ko": "고객님의 위탁 판매 차량입니다! 판매 가격과 상세 정보는 본문에서 확인해 보세요! 감사합니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "시동 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 팝콘 사운드 배출",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 팝콘 사운드 배출",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "띵",
+    "event": "감탄 강조 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.2,
+    "type": "띵",
+    "event": "물음표 느낌표 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "쿵",
+    "event": "속상한 표정 이모지 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "리드미컬하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 3.7,
+     "what": "배기음 시연을 위해 일시적으로 소리 줄어듦"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.2,
+    "end": 6.6,
+    "what": "배기구 불꽃 그래픽 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 15.0,
+    "y_pct": 71.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배기음 강조",
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 6.6,
+    "what": "배기구 불꽃 그래픽 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 85.0,
+    "y_pct": 71.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배기음 강조",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "what": "강조 효과선 스티커",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 42.0,
+    "y_pct": 37.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "신차급 강조",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "what": "물음표 느낌표 스티커 (?!)",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 53.0,
+    "y_pct": 47.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "의문 유발 리액션",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.2,
+    "what": "속상한 얼굴 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 52.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사고 이력 언급 감정 표현",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "대한민국에서 현재 가장 저렴한 우루스 S를 소개합니다",
+    "ko": "대한민국에서 현재 가장 저렴한 우루스 S를 소개합니다"
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "배기음이 진짜 미쳤습니다 카프리스토 풀배기",
+    "ko": "배기음이 진짜 미쳤습니다 카프리스토 풀배기"
+   },
+   {
+    "start": 6.7,
+    "end": 10.0,
+    "text": "최저가인데 3000km밖에 주행 안 한 신차급 차량이에요",
+    "ko": "최저가인데 3000km밖에 주행 안 한 신차급 차량이에요"
+   },
+   {
+    "start": 10.0,
+    "end": 14.5,
+    "text": "어라 이게 말이 되나 싶으실 텐데 이 차량 속상하지만 신차 출고 후 사고가 있었습니다",
+    "ko": "어라 이게 말이 되나 싶으실 텐데 이 차량 속상하지만 신차 출고 후 사고가 있었습니다"
+   },
+   {
+    "start": 14.5,
+    "end": 21.0,
+    "text": "눈길에서 가드레일 측면을 살짝 부딪혔는데 글쎄 에어백이 전개되어 버렸습니다",
+    "ko": "눈길에서 가드레일 측면을 살짝 부딪혔는데 글쎄 에어백이 전개되어 버렸습니다"
+   },
+   {
+    "start": 21.0,
+    "end": 25.5,
+    "text": "속상해라 이때문에 대시보드와 에어백까지 전부 신품으로 교체하였습니다",
+    "ko": "속상해라 이때문에 대시보드와 에어백까지 전부 신품으로 교체하였습니다"
+   },
+   {
+    "start": 25.5,
+    "end": 29.5,
+    "text": "하지만 이미 일어난 일 눈물의 감가를 머금고 판매하시기로 하셨습니다",
+    "ko": "하지만 이미 일어난 일 눈물의 감가를 머금고 판매하시기로 하셨습니다"
+   },
+   {
+    "start": 29.5,
+    "end": 35.0,
+    "text": "주행거리가 짧은 만큼 실내 사용감 일체 없고 원색도 가장 인기 있는 네로 헬렌의 검정색",
+    "ko": "주행거리가 짧은 만큼 실내 사용감 일체 없고 원색도 가장 인기 있는 네로 헬렌의 검정색"
+   },
+   {
+    "start": 35.0,
+    "end": 42.5,
+    "text": "게다가 전체 PPF 시공 23인치 휠 B&O 오디오 파노라마 루프 4인 시트 스펙 5년 워런티까지 가입한 차량입니다",
+    "ko": "게다가 전체 PPF 시공 23인치 휠 B&O 오디오 파노라마 루프 4인 시트 스펙 5년 워런티까지 가입한 차량입니다"
+   },
+   {
+    "start": 42.5,
+    "end": 46.5,
+    "text": "24년 12월 출고 차량이니 29년 12월까지 걱정 없겠죠",
+    "ko": "24년 12월 출고 차량이니 29년 12월까지 걱정 없겠죠"
+   },
+   {
+    "start": 46.5,
+    "end": 50.0,
+    "text": "1인 소유 개인 명의 현금 차량으로 최소 과표 이전 가능합니다",
+    "ko": "1인 소유 개인 명의 현금 차량으로 최소 과표 이전 가능합니다"
+   },
+   {
+    "start": 50.0,
+    "end": 55.4,
+    "text": "고객님의 위탁 판매 차량입니다 판매 가격과 상세 정보는 본문에서 확인해 보세요 감사합니다",
+    "ko": "고객님의 위탁 판매 차량입니다 판매 가격과 상세 정보는 본문에서 확인해 보세요 감사합니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.7,
+    "speed": "빠름",
+    "summary": "전국 최저가 타이틀과 카프리스토 풀배기 사운드 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.7,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "신차급 주행거리 대비 저렴한 이유인 가벼운 사고 및 감가 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 29.5,
+    "end": 46.5,
+    "speed": "빠름",
+    "summary": "외관 색상, 옵션 사양(휠, 오디오, 루프, PPF), 5년 보증 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 46.5,
+    "end": 50.0,
+    "speed": "보통",
+    "summary": "1인 소유 개인 현금차량 및 최소 과표 이전 가능 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.0,
+    "end": 55.4,
+    "speed": "보통",
+    "summary": "위탁 판매 안내 및 본문 가격 확인 CTA"
+   }
+  ],
+  "rules": [
+   "단어 단위 톡톡 튀는 굵은 자막으로 화면 중앙 하단 고정",
+   "중요한 감정 포인트나 전환 시점에 귀여운 이모지와 효과음 사용",
+   "배기음 시연 구간에는 자막과 튜닝 스펙을 직관적으로 하단에 병기"
+  ],
+  "option_highlights": [
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "feature": "카프리스토 풀배기(250셀 다운파이프)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "불꽃 이모티콘",
+    "x_pct": 50.0,
+    "y_pct": 71.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "배기음",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 37.8,
+    "feature": "23인치 휠",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 38.8,
+    "feature": "B&O 오디오",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 39.8,
+    "feature": "파노라마 루프",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.1,
+    "feature": "4인 시트 스펙",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "우루스 S 외관 풀샷과 스타트 버튼 조작, 상단에 '최저가 우루스 S' 텍스트",
+   "type": "가격",
+   "text": "대한민국에서 현재 가장 저렴한 우루스 S"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "국내 최저가 람보르기니 우루스 S",
+    "category": "가격·조건"
+   },
+   {
+    "t": 4.5,
+    "point": "카프리스토 풀배기 튜닝 배기음",
+    "category": "성능"
+   },
+   {
+    "t": 7.5,
+    "point": "3,000km 짧은 실주행 신차급",
+    "category": "상태·이력"
+   },
+   {
+    "t": 16.0,
+    "point": "눈길 단독 접촉 사고로 에어백 전개 후 정품 신품 수리",
+    "category": "상태·이력"
+   },
+   {
+    "t": 33.5,
+    "point": "인기 컬러 네로 헬렌 블랙 및 실내 상태 신차급",
+    "category": "디자인"
+   },
+   {
+    "t": 36.5,
+    "point": "전체 PPF, 23인치 휠, 뱅앤올룹슨, 파노라마 선루프, 4인승",
+    "category": "편의"
+   },
+   {
+    "t": 42.0,
+    "point": "5년 워런티 연장(2029년 12월까지)",
+    "category": "가격·조건"
+   },
+   {
+    "t": 47.0,
+    "point": "1인신조 개인 명의 현금차량 (최소 과표 등록 가능)",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명(FLOSSY 번호판 플레이트)"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 51.5,
+   "text": "판매 가격과 상세 정보는 본문에서 확인해 보세요",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "시동 버튼",
+    "실내 앞",
+    "외관 후면",
+    "외관 전측면",
+    "실내 시트",
+    "전면 헤드램프",
+    "실내 대시보드",
+    "스티어링 휠",
+    "뒷좌석",
+    "파노라마 썬루프",
+    "휠",
+    "스피커",
+    "후면 테일램프",
+    "계기판",
+    "머플러"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "FLOSSY 번호판 플레이트 사용 및 굵은 검은 테두리 자막 스타일 통일"
+  }
+ }
+}

@@ -1,0 +1,266 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/QzKqeVZKk18",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2345,
+  "candidatesTokenCount": 2006,
+  "totalTokenCount": 4351,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1085
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.6,
+   "aspect": "9:16",
+   "car": "페라리 푸로산게",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "7억원 SUV 대장\n페라리 푸로산게\nIn Seoul",
+    "ko": "7억원 SUV 대장 페라리 푸로산게 In Seoul",
+    "kind": "제목",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "7억원 SUV 대장",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.7,
+    "text": "Grigio Scuro",
+    "ko": "그리지오 스쿠로 (외장 색상명)",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 66.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "text": "페라리에 코치\n도어라니..ㅎㅎ",
+    "ko": "페라리에 코치 도어라니..ㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 32.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "text": "V12 자연흡기 SUV\n푸로산게를 만나보세요!",
+    "ko": "V12 자연흡기 SUV 푸로산게를 만나보세요!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "7억원대 초고가 SUV 페라리 푸로산게 외관 전측면 및 후면 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 6.7,
+    "speed": "보통",
+    "summary": "배기구 및 외장 컬러(Grigio Scuro) 디테일"
+   },
+   {
+    "stage": "기능",
+    "start": 6.7,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "코치 도어(수어사이드 도어) 오픈 및 실내 후열 모습"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 8.7,
+    "end": 10.6,
+    "speed": "보통",
+    "summary": "V12 자연흡기 스티어링 휠 및 실내 전면부 안내"
+   }
+  ],
+  "rules": [
+   "비트감 있는 BGM에 맞춰 2초 내외로 빠른 장면 전환",
+   "상단 타이틀로 7억원대 초고가 희소성을 직관적으로 강조",
+   "푸로산게의 시그니처인 코치도어와 V12 엔진 포인트를 자막으로 언급"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "feature": "코치 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야간 도심 도로변에 정차된 페라리 푸로산게 외관과 7억원 SUV 대장 자막",
+   "type": "가격",
+   "text": "7억원 SUV 대장 페라리 푸로산게 In Seoul"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "7억원대 초고가 SUV 페라리 푸로산게 서울 포착",
+    "category": "가격·조건"
+   },
+   {
+    "t": 4.5,
+    "point": "외장 컬러 Grigio Scuro 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 6.7,
+    "point": "페라리 최초의 코치 도어 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 8.7,
+    "point": "V12 자연흡기 고성능 SUV",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 8.7,
+   "text": "푸로산게를 만나보세요!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "배기구",
+    "뒷좌석 도어",
+    "실내 운전석"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "볼드한 고딕 자막과 검은색 외곽선/말풍선 스타일 활용"
+  }
+ }
+}

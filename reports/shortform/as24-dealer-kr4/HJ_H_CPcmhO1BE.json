@@ -1,0 +1,628 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/H_CPcmhO1BE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4003,
+  "candidatesTokenCount": 6263,
+  "totalTokenCount": 11441,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2743
+   }
+  ],
+  "thoughtsTokenCount": 1175,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.8,
+   "aspect": "9:16",
+   "car": "벤틀리 컨티넨탈 GT W12",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 6.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 11.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 27.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "text": "벤틀리 컨티넨탈 GT\n30초만에 둘러보기!\n(판매 금액 포함!)",
+    "ko": "벤틀리 컨티넨탈 GT 30초만에 둘러보기! (판매 금액 포함!)",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "벤틀리",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.3,
+    "text": "차량 페인트 컬러는\nGlacier White\n\n벤틀리의 가장 대표적인\n솔리드 계열 화이트 컬러",
+    "ko": "차량 페인트 컬러는 Glacier White, 벤틀리의 가장 대표적인 솔리드 계열 화이트 컬러",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Glacier White",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.5,
+    "text": "실내 구성은 듀오톤\nColor Split - C",
+    "ko": "실내 구성은 듀오톤 Color Split - C",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Color Split - C",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.5,
+    "text": "메인 컬러는 밝은 베이지톤의\nLinen",
+    "ko": "메인 컬러는 밝은 베이지톤의 Linen",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Linen",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.0,
+    "text": "세컨더리 컬러는 정열적인\nHot Spur",
+    "ko": "세컨더리 컬러는 정열적인 Hot Spur",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Hot Spur",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "국내에서 가장 선호하는\nSplit 구성 중 하나!\n한국인은 흰빨빨!",
+    "ko": "국내에서 가장 선호하는 Split 구성 중 하나! 한국인은 흰빨빨!",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 16.5,
+    "text": "듀오톤 스티어링 휠 옵션과\n하이글로시 Veneers로\n트렌디하게!",
+    "ko": "듀오톤 스티어링 휠 옵션과 하이글로시 Veneers로 트렌디하게!",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "text": "벤틀리 신형의 상징과도 같은\n로테이팅 디스플레이 적용!",
+    "ko": "벤틀리 신형의 상징과도 같은 로테이팅 디스플레이 적용!",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "로테이팅 디스플레이",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.6,
+    "text": "그 외,\nB&O 오디오,\n시티 스펙 (서라운드 뷰)\n투어링 스펙 (ACC/차선이탈방지)\n뮬리너 스펙 (22인치 휠, 가죽 패턴)\n무드라이트 스펙 (앰비언트)\n등등 완전 풀스펙 구성!\n(빠진 옵션 없음!)",
+    "ko": "주요 탑재 옵션 목록 안내 자막",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.5,
+    "text": "이 멋진 벤틀리의\n판매 금액은?",
+    "ko": "이 멋진 벤틀리의 판매 금액은?",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.6,
+    "text": "₩250,000,000원!",
+    "ko": "2억 5천만 원",
+    "kind": "가격",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "250,000,000",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.8,
+    "text": "BENTLEY\nGT W12",
+    "ko": "벤틀리 GT W12",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.8,
+    "text": "다음에 멋진 차량으로\n또 만나요 안녕~",
+    "ko": "다음에 멋진 차량으로 또 만나요 안녕~",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "쿵",
+    "event": "도입부 비트 및 제목 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "딸깍",
+    "event": "카메라 셔터음 및 뷰파인더 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "띵",
+    "event": "로테이팅 디스플레이 회전 시작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "쿵",
+    "event": "판매 가격 자막과 불꽃 파티클 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/팝 비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.8,
+    "end": 4.0,
+    "what": "카메라 뷰파인더 UI 오버레이",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 5.0,
+    "y_pct": 5.0,
+    "entrance": "바로",
+    "purpose": "카메라 촬영 연출",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.0,
+    "what": "Glacier White 페인트 샘플 카드",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 34.0,
+    "y_pct": 68.0,
+    "entrance": "바로",
+    "purpose": "외장 컬러 시각 안내",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "what": "Color Split - C 인테리어 조합 카드",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 70.0,
+    "entrance": "바로",
+    "purpose": "실내 색상 조합 시각화",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "what": "Linen 가죽 컬러 샘플 카드",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 36.0,
+    "y_pct": 65.0,
+    "entrance": "바로",
+    "purpose": "메인 가죽 컬러 안내",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "what": "Hotspur 레드 가죽 컬러 샘플 카드",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 36.0,
+    "y_pct": 68.0,
+    "entrance": "바로",
+    "purpose": "세컨더리 가죽 컬러 안내",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "what": "황금빛 반짝임 파티클 이펙트",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 0.0,
+    "y_pct": 0.0,
+    "entrance": "페이드",
+    "purpose": "로테이팅 디스플레이 강조",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.6,
+    "what": "불꽃 및 빛망울 폭발 파티클 이펙트",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 0.0,
+    "y_pct": 0.0,
+    "entrance": "바로",
+    "purpose": "판매 가격 공개 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.8,
+    "speed": "빠름",
+    "summary": "차량 전면 모습과 '30초만에 둘러보기' 후킹 타이틀 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.8,
+    "end": 6.5,
+    "speed": "보통",
+    "summary": "Glacier White 외장 컬러 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 6.5,
+    "end": 14.7,
+    "speed": "빠름",
+    "summary": "듀오톤 실내 컬러 조합(Linen + Hot Spur) 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 14.7,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "로테이팅 디스플레이 작동 및 풀스펙 주요 옵션 리스트 공개"
+   },
+   {
+    "stage": "가격",
+    "start": 21.6,
+    "end": 24.6,
+    "speed": "빠름",
+    "summary": "이펙트와 함께 2억 5천만 원 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.6,
+    "end": 30.8,
+    "speed": "보통",
+    "summary": "스티어링 휠 로고 및 후면 외관과 함께 마무리 인사"
+   }
+  ],
+  "rules": [
+   "음성 내레이션 없이 트렌디한 BGM과 텍스트 자막만으로 정보 전달",
+   "실제 카탈로그 색상 스와치 이미지를 화면 중앙 하단에 띄워 고급 옵션 컬러 직관적 설명",
+   "벤틀리의 핵심 하이라이트인 로테이팅 디스플레이 작동 장면과 파티클 효과를 결합하여 고급감 극대화",
+   "숏폼 후반부에 가격 질문 후 임팩트 사운드와 함께 가격을 공개해 시청 지속 시간 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "feature": "로테이팅 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.6,
+    "feature": "B&O 오디오 / 시티 스펙 / 투어링 스펙 / 뮬리너 스펙",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정차된 화이트 벤틀리 컨티넨탈 GT 외관과 함께 '30초만에 둘러보기! (판매 금액 포함!)' 문구 노출",
+   "type": "가격",
+   "text": "벤틀리 컨티넨탈 GT 30초만에 둘러보기! (판매 금액 포함!)"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "외장 컬러: Glacier White (솔리드 계열 대표 화이트)",
+    "category": "디자인"
+   },
+   {
+    "t": 7.0,
+    "point": "실내 구성: Color Split - C 듀오톤 (Linen + Hotspur)",
+    "category": "디자인"
+   },
+   {
+    "t": 14.8,
+    "point": "듀오톤 스티어링 휠 및 하이글로시 Veneers 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 16.8,
+    "point": "벤틀리 시그니처 로테이팅 디스플레이 적용",
+    "category": "편의"
+   },
+   {
+    "t": 19.5,
+    "point": "B&O 오디오, 시티스펙, 투어링스펙, 뮬리너스펙 등 빠짐없는 풀옵션",
+    "category": "편의"
+   },
+   {
+    "t": 23.5,
+    "point": "판매 금액: 2억 5천만 원",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "가격"
+   ],
+   "t": 23.5
+  },
+  "cta": {
+   "t": 27.8,
+   "text": "다음에 멋진 차량으로 또 만나요 안녕~",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "뒷좌석",
+    "실내 앞",
+    "옵션 작동",
+    "외관 측면",
+    "실내 앞",
+    "계기판",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검정 외곽선의 깔끔한 고딕 자막과 공식 컬러 샘플 카드를 활용한 구성"
+  }
+ }
+}

@@ -1,0 +1,1031 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/iL-3mBFicw0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5549,
+  "candidatesTokenCount": 8316,
+  "totalTokenCount": 13865,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4289
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.7,
+   "aspect": "9:16",
+   "car": "벤틀리 컨티넨탈 GT 뮬리너 4세대",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 22.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 47.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "4세대 벤틀리 GT 뮬리너\n이게 벌써 매물로..ㄷㄷ",
+    "ko": "4세대 벤틀리 GT 뮬리너 이게 벌써 매물로..ㄷㄷ",
+    "kind": "제목",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "4세대 벤틀리 GT 뮬리너",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "text": "따끈따끈 3개월 전 출고",
+    "ko": "따끈따끈 3개월 전 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "따끈따끈 3개월 전 출고",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "4세대 최신형 모델",
+    "ko": "4세대 최신형 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4세대",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "최상위 등급 뮬리너 모델",
+    "ko": "최상위 등급 뮬리너 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "최상위 등급",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "text": "일반 모델 대비 +4천만원",
+    "ko": "일반 모델 대비 +4천만원",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+4천만원",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.8,
+    "text": "Tan & Linen 뮬리너 스펙",
+    "ko": "Tan & Linen 뮬리너 스펙",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Tan & Linen",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.8,
+    "text": "듀오톤 스티어링 휠",
+    "ko": "듀오톤 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "듀오톤",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.8,
+    "text": "글레이셔 화이트 외장 컬러",
+    "ko": "글레이셔 화이트 외장 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "글레이셔 화이트",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "text": "전체 PPF 시공 완료",
+    "ko": "전체 PPF 시공 완료",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "전체 PPF",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.8,
+    "text": "로테이팅 디스플레이 적용",
+    "ko": "로테이팅 디스플레이 적용",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "로테이팅 디스플레이",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 22.8,
+    "text": "끝내주는 신형 테일램프",
+    "ko": "끝내주는 신형 테일램프",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "신형 테일램프",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "text": "아날로그 시계 보세요..",
+    "ko": "아날로그 시계 보세요..",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "아날로그 시계",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "text": "와.. 진짜 너무 아름답다..",
+    "ko": "와.. 진짜 너무 아름답다..",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "너무 아름답다",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.8,
+    "text": "바투르 하이퍼카에서\n가져온 컨셉 헤드램프",
+    "ko": "바투르 하이퍼카에서 가져온 컨셉 헤드램프",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "바투르 하이퍼카",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.8,
+    "text": "2025년 07월, 정식 출고",
+    "ko": "2025년 07월, 정식 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2025년 07월",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.8,
+    "text": "주행거리 2,000km",
+    "ko": "주행거리 2,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,000km",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.8,
+    "text": "완전 무사고 (보험이력 0원)",
+    "ko": "완전 무사고 (보험이력 0원)",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "완전 무사고",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.8,
+    "text": "파노라마 글라스 루프",
+    "ko": "파노라마 글라스 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "파노라마 글라스 루프",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.8,
+    "text": "신차가 435,570,000원",
+    "ko": "신차가 435,570,000원",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "435,570,000원",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.8,
+    "text": "뮬리너 전용 투톤 실내",
+    "ko": "뮬리너 전용 투톤 실내",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "뮬리너 전용",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.8,
+    "text": "2200W 네임 오디오",
+    "ko": "2200W 네임 오디오",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "네임 오디오",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.8,
+    "text": "개인명의 현금차량",
+    "ko": "개인명의 현금차량",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "개인명의 현금차량",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 47.7,
+    "text": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "ko": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "[프로필 방문]",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "톡",
+    "event": "따끈따끈 3개월 전 출고 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "4세대 최신형 모델 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "최상위 등급 뮬리너 모델 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "일반 모델 대비 +4천만원 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "톡",
+    "event": "Tan & Linen 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "듀오톤 스티어링 휠 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "톡",
+    "event": "외장 컬러 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.8,
+    "type": "톡",
+    "event": "전체 PPF 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "로테이팅 디스플레이 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "톡",
+    "event": "테일램프 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "아날로그 시계 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "톡",
+    "event": "감탄 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.8,
+    "type": "톡",
+    "event": "바투르 헤드램프 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "출고 정보 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.8,
+    "type": "톡",
+    "event": "주행거리 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "톡",
+    "event": "완전 무사고 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.8,
+    "type": "톡",
+    "event": "파노라마 루프 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "톡",
+    "event": "신차가 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "톡",
+    "event": "투톤 실내 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.8,
+    "type": "톡",
+    "event": "네임 오디오 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.8,
+    "type": "톡",
+    "event": "개인명의 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "톡",
+    "event": "CTA 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/드라이빙 비트",
+   "bpm_est": 115,
+   "mood": "고급스러움, 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "what": "실내 원형 인셋 이미지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "바로",
+    "purpose": "실내 미리보기 훅",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "보통",
+    "summary": "최신 4세대 벤틀리 GT 뮬리너 매물 등장 알림"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 19.8,
+    "speed": "보통",
+    "summary": "출고 시기, 최상위 뮬리너 등급, 익스테리어 및 인테리어 컬러 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 19.8,
+    "end": 28.8,
+    "speed": "보통",
+    "summary": "로테이팅 디스플레이, 바투르 헤드램프, 신형 테일램프 등 주요 특징"
+   },
+   {
+    "stage": "사양",
+    "start": 28.8,
+    "end": 36.8,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 무사고 이력 및 루프 옵션"
+   },
+   {
+    "stage": "가격",
+    "start": 36.8,
+    "end": 44.8,
+    "speed": "보통",
+    "summary": "신차가(4억 3500만원대), 네임 오디오, 명의 상태"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 44.8,
+    "end": 47.7,
+    "speed": "보통",
+    "summary": "프로필 방문 유도 CTA"
+   }
+  ],
+  "rules": [
+   "음성 내레이션 없이 감각적인 BGM과 2초 단위의 빠른 비트 컷 전환 사용",
+   "모든 컷마다 볼드한 텍스트 스티커와 함께 통통 튀는 짧은 효과음(톡) 매칭",
+   "포인트 키워드는 노란색/골드 텍스트로 강조하여 주목도 향상",
+   "상세 스펙(연식, 주행거리, 무사고, 신차가격)을 후반부에 연달아 간결하게 배치"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.8,
+    "end": 13.8,
+    "feature": "Tan & Linen 뮬리너 스펙 인테리어",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.8,
+    "feature": "로테이팅 디스플레이",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.8,
+    "feature": "바투르 컨셉 헤드램프",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.8,
+    "feature": "파노라마 글라스 루프",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.8,
+    "feature": "2200W 네임(Naim) 프리미엄 오디오",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 도로에 세워진 최신형 화이트 벤틀리 GT 외관과 실내 인셋 이미지, 4세대 뮬리너 매물 등장 텍스트",
+   "type": "희귀차",
+   "text": "4세대 벤틀리 GT 뮬리너 이게 벌써 매물로..ㄷㄷ"
+  },
+  "narration_points": [
+   {
+    "t": 2.8,
+    "point": "출고 3개월 된 최신형 4세대 매물",
+    "category": "상태·이력"
+   },
+   {
+    "t": 6.8,
+    "point": "일반 모델 대비 4천만원 높은 최상위 뮬리너 등급",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.8,
+    "point": "고급스러운 탠 & 리넨 컬러 인테리어 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 17.8,
+    "point": "전체 PPF 보호필름 시공 완료",
+    "category": "상태·이력"
+   },
+   {
+    "t": 26.8,
+    "point": "바투르 하이퍼카 디자인 차용한 신형 헤드램프",
+    "category": "디자인"
+   },
+   {
+    "t": 30.8,
+    "point": "신차급 주행거리 2,000km 및 무사고",
+    "category": "상태·이력"
+   },
+   {
+    "t": 36.8,
+    "point": "신차가격 4억 3,557만원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 40.8,
+    "point": "고출력 2200W 네임 오디오 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 42.8,
+    "point": "개인명의 현금차량으로 승계 용이",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 44.8,
+   "text": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전측면",
+    "전면 그릴",
+    "헤드램프",
+    "그릴 엠블럼",
+    "휠",
+    "실내 전체",
+    "스티어링 휠",
+    "외관 전면",
+    "외관 후면",
+    "센터페시아 스크린",
+    "테일램프",
+    "아날로그 시계",
+    "실내 시트",
+    "헤드램프 상세",
+    "계기판",
+    "파노라마 루프",
+    "시트 및 스피커",
+    "도어트림 스피커",
+    "뒷좌석",
+    "도어트림 가죽"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검은 외곽선 흰색/노란색 고딕 자막 폰트와 통일된 효과음 사용"
+  }
+ }
+}

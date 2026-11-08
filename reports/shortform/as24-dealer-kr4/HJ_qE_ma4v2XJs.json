@@ -1,0 +1,288 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/qE_ma4v2XJs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2169,
+  "candidatesTokenCount": 2289,
+  "totalTokenCount": 4458,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.5,
+   "aspect": "9:16",
+   "car": "페라리 로마 스파이더",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "현시점 가장 핫한 페라리 신모델",
+    "ko": "현시점 가장 핫한 페라리 신모델",
+    "kind": "제목",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "페라리 신모델",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "페라리 로마 스파이더 입고!",
+    "ko": "페라리 로마 스파이더 입고!",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "페라리 로마 스파이더",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "2024년 07월, 정식 출고",
+    "ko": "2024년 07월, 정식 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "2024년 07월",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.9,
+    "text": "실 주행거리 1,000km",
+    "ko": "실 주행거리 1,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "1,000km",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 8.7,
+    "text": "메리츠 금융리스 조건 자유!",
+    "ko": "메리츠 금융리스 조건 자유!",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "금융리스",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 92,
+   "mood": "트렌디하고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "what": "손가락으로 입 다물라는 이모티콘 🤫",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 27.0,
+    "entrance": "바로",
+    "purpose": "시선 유도",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.5,
+    "what": "손 흔드는 인사 이모티콘 👋",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "클로징 인사",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "보통",
+    "summary": "가장 핫한 페라리 신모델 언급과 함께 소프트탑 개폐 장면 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "차명 페라리 로마 스파이더 입고 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 6.9,
+    "speed": "보통",
+    "summary": "연식(2024년 7월) 및 실주행거리(1,000km) 전달"
+   },
+   {
+    "stage": "가격",
+    "start": 6.9,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "금융 조건(메리츠 금융리스 조건자유) 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 8.7,
+    "end": 9.5,
+    "speed": "빠름",
+    "summary": "검은 화면과 손인사 이모티콘으로 마무리"
+   }
+  ],
+  "rules": [
+   "단일 롱테이크 소프트탑 오픈 클립 위에 텍스트와 하이라이트 박스만 비트에 맞춰 순차적으로 전환",
+   "핵심 키워드(차명, 연식, 주행거리, 금융)에 노란색 강조 하이라이트 적용",
+   "목소리 설명 없이 트렌디한 비트 배경음악과 자막만으로 정보 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 8.7,
+    "feature": "전동식 소프트탑 컨버터블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "페라리 로마 스파이더의 소프트탑이 부드럽게 열리는 장면과 함께 '현시점 가장 핫한 페라리 신모델' 텍스트 등장",
+   "type": "희귀차",
+   "text": "현시점 가장 핫한 페라리 신모델"
+  },
+  "narration_points": [
+   {
+    "t": 1.7,
+    "point": "페라리 로마 스파이더 신규 입고",
+    "category": "희소성"
+   },
+   {
+    "t": 3.7,
+    "point": "2024년 07월식 정식 출고 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 5.4,
+    "point": "실 주행거리 1,000km의 신차급 상태",
+    "category": "상태·이력"
+   },
+   {
+    "t": 6.9,
+    "point": "메리츠 금융리스 조건 자유 승계/설정 가능",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 8.7,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "옵션 작동"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색 키워드 형광펜 하이라이트 스타일 자막 바 유지"
+  }
+ }
+}

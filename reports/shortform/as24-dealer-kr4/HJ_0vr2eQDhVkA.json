@@ -1,0 +1,885 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/0vr2eQDhVkA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6461,
+  "candidatesTokenCount": 7389,
+  "totalTokenCount": 13850,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5201
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스 S",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 3.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 7.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.4,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 16.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 17.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 19.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 22.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 24.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 42.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 48.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.6,
+    "end": 51.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.4,
+    "end": 57.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "최저가 우루스 S",
+    "ko": "최저가 우루스 S",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "최저가",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "현재 대한민국에서 가장 저렴한 우루스 S를 소개합니다!",
+    "ko": "현재 대한민국에서 가장 저렴한 우루스 S를 소개합니다!",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 7.5,
+    "text": "판매 가격이 다른 차량보다 약 4000만원 이상 저렴한데요?",
+    "ko": "판매 가격이 다른 차량보다 약 4000만원 이상 저렴한데요?",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4000만원",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.4,
+    "text": "그 이유는 무엇일까요?",
+    "ko": "그 이유는 무엇일까요?",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 16.3,
+    "text": "람보르기니의 상징 지알로 컬러에 B&O 오디오 이중 접합 유리 23인치 휠 파노라마 루프 통풍 마사지 시트까지 필수 옵션이 빠졌나 보니 그건 아니네요?",
+    "ko": "람보르기니의 상징 지알로 컬러에 B&O 오디오 이중 접합 유리 23인치 휠 파노라마 루프 통풍 마사지 시트까지 필수 옵션이 빠졌나 보니 그건 아니네요?",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 19.3,
+    "text": "그러면 왜 이렇게 저렴할까요?",
+    "ko": "그러면 왜 이렇게 저렴할까요?",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "text": "인수금이 5천만원대로 낮은 초기 인수금이 특징입니다!",
+    "ko": "인수금이 5천만원대로 낮은 초기 인수금이 특징입니다!",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5천만원대",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 26.8,
+    "text": "초기 인수금과 월 리스료를 낮추기 위해 잔존 가치를 높게 설정했습니다",
+    "ko": "초기 인수금과 월 리스료를 낮추기 위해 잔존 가치를 높게 설정했습니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 30.2,
+    "text": "내야 할 돈을 뒤로 많이 미뤄둔 것이죠",
+    "ko": "내야 할 돈을 뒤로 많이 미뤄둔 것이죠",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 32.7,
+    "text": "미룬 만큼 남은 이자는 많은 편입니다",
+    "ko": "미룬 만큼 남은 이자는 많은 편입니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 37.7,
+    "text": "남은 이자를 내더라도 초기 인수금이 적은 유동성 확보가 최우선이라면 이 차량을 추천드립니다",
+    "ko": "남은 이자를 내더라도 초기 인수금이 적은 유동성 확보가 최우선이라면 이 차량을 추천드립니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 42.6,
+    "text": "여기에서 중요한 것은 그만큼 차주님께서 차량을 저렴하게 판매하시기로 결정하셨다는 점입니다!",
+    "ko": "여기에서 중요한 것은 그만큼 차주님께서 차량을 저렴하게 판매하시기로 결정하셨다는 점입니다!",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 48.8,
+    "text": "5년 워런티! 5년 소모품 무상 차량이며 완전 무사고 보험 이력 0원의 깨끗한 클린 개체입니다",
+    "ko": "5년 워런티! 5년 소모품 무상 차량이며 완전 무사고 보험 이력 0원의 깨끗한 클린 개체입니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 53.4,
+    "text": "필수 옵션 모두 포함된 우루스 S 차량을 위탁 판매합니다",
+    "ko": "필수 옵션 모두 포함된 우루스 S 차량을 위탁 판매합니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.4,
+    "end": 57.0,
+    "text": "판매 가격과 더 많은 정보를 본문에서 확인해 주세요 감사합니다",
+    "ko": "판매 가격과 더 많은 정보를 본문에서 확인해 주세요 감사합니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.5,
+    "type": "띵",
+    "event": "감탄 강조 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "띵",
+    "event": "생각하는 이모티콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "쿵",
+    "event": "물음표 느낌표 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.5,
+    "end": 3.4,
+    "what": "노란색 반짝이/강조 효과 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시선 유도",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "what": "생각하는 표정 이모티콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "감정 표현",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 19.3,
+    "what": "빨간 물음표 느낌표 ?!",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "의문 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "현재 대한민국에서 가장 저렴한 우루스 S를 소개합니다!",
+    "ko": "현재 대한민국에서 가장 저렴한 우루스 S를 소개합니다!"
+   },
+   {
+    "start": 3.4,
+    "end": 7.5,
+    "text": "판매 가격이 다른 차량보다 약 4000만원 이상 저렴한데요?",
+    "ko": "판매 가격이 다른 차량보다 약 4000만원 이상 저렴한데요?"
+   },
+   {
+    "start": 7.5,
+    "end": 9.4,
+    "text": "그 이유는 무엇일까요?",
+    "ko": "그 이유는 무엇일까요?"
+   },
+   {
+    "start": 9.4,
+    "end": 16.3,
+    "text": "람보르기니의 상징 지알로 컬러에 B&O 오디오 이중 접합 유리 23인치 휠 파노라마 루프 통풍 마사지 시트까지 필수 옵션이 빠졌나 보니 그건 아니네요?",
+    "ko": "람보르기니의 상징 지알로 컬러에 B&O 오디오 이중 접합 유리 23인치 휠 파노라마 루프 통풍 마사지 시트까지 필수 옵션이 빠졌나 보니 그건 아니네요?"
+   },
+   {
+    "start": 16.3,
+    "end": 19.3,
+    "text": "그러면 왜 이렇게 저렴할까요?",
+    "ko": "그러면 왜 이렇게 저렴할까요?"
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "text": "인수금이 5천만원대로 낮은 초기 인수금이 특징입니다!",
+    "ko": "인수금이 5천만원대로 낮은 초기 인수금이 특징입니다!"
+   },
+   {
+    "start": 22.3,
+    "end": 26.8,
+    "text": "초기 인수금과 월 리스료를 낮추기 위해 잔존 가치를 높게 설정했습니다",
+    "ko": "초기 인수금과 월 리스료를 낮추기 위해 잔존 가치를 높게 설정했습니다"
+   },
+   {
+    "start": 26.8,
+    "end": 30.2,
+    "text": "내야 할 돈을 뒤로 많이 미뤄둔 것이죠",
+    "ko": "내야 할 돈을 뒤로 많이 미뤄둔 것이죠"
+   },
+   {
+    "start": 30.2,
+    "end": 32.7,
+    "text": "미룬 만큼 남은 이자는 많은 편입니다",
+    "ko": "미룬 만큼 남은 이자는 많은 편입니다"
+   },
+   {
+    "start": 32.7,
+    "end": 37.7,
+    "text": "남은 이자를 내더라도 초기 인수금이 적은 유동성 확보가 최우선이라면 이 차량을 추천드립니다",
+    "ko": "남은 이자를 내더라도 초기 인수금이 적은 유동성 확보가 최우선이라면 이 차량을 추천드립니다"
+   },
+   {
+    "start": 37.7,
+    "end": 42.6,
+    "text": "여기에서 중요한 것은 그만큼 차주님께서 차량을 저렴하게 판매하시기로 결정하셨다는 점입니다!",
+    "ko": "여기에서 중요한 것은 그만큼 차주님께서 차량을 저렴하게 판매하시기로 결정하셨다는 점입니다!"
+   },
+   {
+    "start": 42.6,
+    "end": 48.8,
+    "text": "5년 워런티! 5년 소모품 무상 차량이며 완전 무사고 보험 이력 0원의 깨끗한 클린 개체입니다",
+    "ko": "5년 워런티! 5년 소모품 무상 차량이며 완전 무사고 보험 이력 0원의 깨끗한 클린 개체입니다"
+   },
+   {
+    "start": 48.8,
+    "end": 53.4,
+    "text": "필수 옵션 모두 포함된 우루스 S 차량을 위탁 판매합니다",
+    "ko": "필수 옵션 모두 포함된 우루스 S 차량을 위탁 판매합니다"
+   },
+   {
+    "start": 53.4,
+    "end": 57.0,
+    "text": "판매 가격과 더 많은 정보를 본문에서 확인해 주세요 감사합니다",
+    "ko": "판매 가격과 더 많은 정보를 본문에서 확인해 주세요 감사합니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.4,
+    "speed": "빠름",
+    "summary": "대한민국 최저가 4000만원 저렴한 우루스 S 소개 및 이유 질문"
+   },
+   {
+    "stage": "기능",
+    "start": 9.4,
+    "end": 16.3,
+    "speed": "빠름",
+    "summary": "옵션이 빠졌는지 확인 (풍부한 옵션 확인)"
+   },
+   {
+    "stage": "가격",
+    "start": 16.3,
+    "end": 37.7,
+    "speed": "보통",
+    "summary": "5천만원대 낮은 초기 인수금 및 고잔가 리스 구조 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 37.7,
+    "end": 48.8,
+    "speed": "보통",
+    "summary": "5년 워런티, 무사고 무이력 차량 상태 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 48.8,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "위탁 판매 안내 및 본문 확인 유도"
+   }
+  ],
+  "rules": [
+   "단어 단위로 끊어지는 자막이 중앙 하단에 빠르게 전환됨",
+   "화두를 던질 때 의문형 스티커와 적절한 효과음 활용",
+   "리스 차량의 조건(잔존가치, 인수금 구조)을 솔직하게 분석해 신뢰감 유도",
+   "차량 번호판 자리에 자체 로고(FLOSSY) 플레이트 부착"
+  ],
+  "option_highlights": [
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "feature": "지알로 외장 컬러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.1,
+    "feature": "B&O 오디오 & 이중 접합 유리",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.0,
+    "feature": "23인치 휠",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.2,
+    "feature": "파노라마 루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 16.3,
+    "feature": "통풍 마사지 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "노란색 우루스 외관과 '최저가 우루스 S' 자막 및 내레이션",
+   "type": "가격",
+   "text": "현재 대한민국에서 가장 저렴한 우루스 S를 소개합니다!"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "대한민국에서 가장 저렴한 우루스 S 매물",
+    "category": "가격·조건"
+   },
+   {
+    "t": 4.0,
+    "point": "타 매물 대비 약 4000만원 저렴",
+    "category": "가격·조건"
+   },
+   {
+    "t": 9.5,
+    "point": "지알로 컬러, B&O 오디오, 이중접합유리, 23인치휠, 파노라마루프, 통풍마사지시트 풀옵션",
+    "category": "편의"
+   },
+   {
+    "t": 19.5,
+    "point": "초기 인수금 5천만원대 세팅",
+    "category": "가격·조건"
+   },
+   {
+    "t": 22.5,
+    "point": "높은 잔존가치 설정으로 월 리스료와 초기 인수금을 대폭 낮춤",
+    "category": "가격·조건"
+   },
+   {
+    "t": 43.0,
+    "point": "5년 워런티 및 5년 소모품 무상 지원 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 46.0,
+    "point": "완전 무사고, 보험이력 0원",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 53.5,
+   "text": "판매 가격과 더 많은 정보를 본문에서 확인해 주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "휠",
+    "옵션 작동",
+    "계기판",
+    "센터 화면",
+    "뒷좌석",
+    "외관 전후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "FLOSSY 번호판 플레이트와 노란색 포인트 자막 디자인"
+  }
+ }
+}

@@ -1,0 +1,666 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/7WsU8ApkCSQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5351,
+  "candidatesTokenCount": 5386,
+  "totalTokenCount": 10885,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4091
+   }
+  ],
+  "thoughtsTokenCount": 148,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.9,
+   "aspect": "9:16",
+   "car": "페라리 12칠린드리 스파이더",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 12.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 22.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 28.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.7,
+    "end": 43.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.4,
+    "end": 44.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "국내 최초",
+    "ko": "국내 최초",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "국내",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.6,
+    "text": "가장 비싼 페라리",
+    "ko": "가장 비싼 페라리",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "페라리",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.7,
+    "text": "구매할 사람을 직접 정한다",
+    "ko": "구매할 사람을 직접 정한다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "직접",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 9.4,
+    "text": "페라리 VIP 전용 모델",
+    "ko": "페라리 VIP 전용 모델",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "VIP",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 12.8,
+    "text": "12 실린드리 스파이더 소개",
+    "ko": "12 실린드리 스파이더 소개",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "스파이더",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.5,
+    "text": "무려 9억 원",
+    "ko": "무려 9억 원",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "9억",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "text": "일반 페라리 2대를 살 수 있는 금액",
+    "ko": "일반 페라리 2대를 살 수 있는 금액",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "2대",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 28.7,
+    "text": "마지막 자연흡기 12기통",
+    "ko": "마지막 자연흡기 12기통",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "자연흡기",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 41.5,
+    "text": "무주행 신차급 컨디션",
+    "ko": "무주행 신차급 컨디션",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "신차급",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.9,
+    "text": "본문에서 확인해보세요",
+    "ko": "본문에서 확인해보세요",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "본문",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "휙",
+    "event": "상단 타이틀 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "VIP 박스 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "휙",
+    "event": "화살표 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 배기음 가속 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 회전수 상승 사운드",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "긴장감 있고 고급스러운",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.1,
+    "end": 1.7,
+    "what": "상단 텍스트 배너 '제일 비싼 페라리'",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "훅 강조",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.5,
+    "what": "빨간 테두리 텍스트 박스 '페라리 VIP 전용 모델'",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "희소성 강조",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 6.8,
+    "what": "본넷 가리키는 곡선 화살표 그래픽",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 62.0,
+    "y_pct": 38.0,
+    "entrance": "밀려옴",
+    "purpose": "엔진룸 강조",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.8,
+    "what": "중앙 영문 차명 텍스트 '12 Cilindri Spider'",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "모델명 소개",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "국내 최초입니다 가장 최신형이자 가장 비싼 페라리를 판매합니다",
+    "ko": "국내 최초입니다 가장 최신형이자 가장 비싼 페라리를 판매합니다"
+   },
+   {
+    "start": 3.6,
+    "end": 8.7,
+    "text": "이 모델은 페라리에서 구매할 사람을 직접 정한다고 하죠 페라리 VIP 전용 모델",
+    "ko": "이 모델은 페라리에서 구매할 사람을 직접 정한다고 하죠 페라리 VIP 전용 모델"
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "text": "12기통 오픈카 12 실린드리 스파이더를 소개합니다",
+    "ko": "12기통 오픈카 12 실린드리 스파이더를 소개합니다"
+   },
+   {
+    "start": 12.8,
+    "end": 16.5,
+    "text": "2026년 주문 기준 무려 9억 원을 자랑합니다",
+    "ko": "2026년 주문 기준 무려 9억 원을 자랑합니다"
+   },
+   {
+    "start": 16.5,
+    "end": 22.4,
+    "text": "일반 페라리 두 대를 살 수 있는 금액인 만큼 그 가치는 확실한데요 이 차량의 구매자는 이미 차고에 페라리가 두 대 이상일 가능성이 높습니다",
+    "ko": "일반 페라리 두 대를 살 수 있는 금액인 만큼 그 가치는 확실한데요 이 차량의 구매자는 이미 차고에 페라리가 두 대 이상일 가능성이 높습니다"
+   },
+   {
+    "start": 22.4,
+    "end": 28.7,
+    "text": "가장 큰 매력이 무엇일까요 확정된 건 아니지만 페라리의 마지막 자연흡기 12기통 모델일 가능성이 매우 높습니다",
+    "ko": "가장 큰 매력이 무엇일까요 확정된 건 아니지만 페라리의 마지막 자연흡기 12기통 모델일 가능성이 매우 높습니다"
+   },
+   {
+    "start": 28.7,
+    "end": 37.8,
+    "text": "이제 이 미친 하이피치 사운드도 마지막일 수 있다니 물론 스페셜 모델은 제외입니다 황홀한 12기통 엔진 사운드에 오픈탑 감성까지 더해져 국내에서는 더욱 희소한 개체입니다",
+    "ko": "이제 이 미친 하이피치 사운드도 마지막일 수 있다니 물론 스페셜 모델은 제외입니다 황홀한 12기통 엔진 사운드에 오픈탑 감성까지 더해져 국내에서는 더욱 희소한 개체입니다"
+   },
+   {
+    "start": 37.8,
+    "end": 41.5,
+    "text": "무주행 신차급 컨디션의 12 실린드리 스파이더 새로운 주인을 찾습니다",
+    "ko": "무주행 신차급 컨디션의 12 실린드리 스파이더 새로운 주인을 찾습니다"
+   },
+   {
+    "start": 41.5,
+    "end": 44.9,
+    "text": "판매 가격과 더 많은 정보를 본문에서 확인해 보세요 감사합니다",
+    "ko": "판매 가격과 더 많은 정보를 본문에서 확인해 보세요 감사합니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.6,
+    "speed": "빠름",
+    "summary": "국내 최초 및 가장 비싼 페라리 판매 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.6,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "VIP 전용 12기통 모델 12칠린드리 스파이더 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 12.8,
+    "end": 22.4,
+    "speed": "보통",
+    "summary": "주문가 9억 원 및 VIP 조건 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 22.4,
+    "end": 37.8,
+    "speed": "보통",
+    "summary": "마지막 자연흡기 V12 엔진 사운드와 오픈탑 감성 강조"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 37.8,
+    "end": 44.9,
+    "speed": "빠름",
+    "summary": "무주행 신차 매물 안내 및 본문 확인 유도"
+   }
+  ],
+  "rules": [
+   "자막은 화면 중앙 하단에 한 줄씩 볼드 고딕으로 강조 단어와 함께 표시",
+   "VIP 한정판, 가격 등 핵심 소구점은 화면 상단에 별도 박스/스티커 그래픽으로 강조",
+   "엔진 배기음 소리가 나오는 구간은 엔진룸/계기판 샷과 맞추어 청각적 몰입감 유도",
+   "매물 가격과 상세 조건은 '본문에서 확인'으로 유도하여 설명란/댓글 클릭 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.7,
+    "end": 6.8,
+    "feature": "본넷/엔진룸 오픈",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "하얀색 곡선 화살표",
+    "x_pct": 62.0,
+    "y_pct": 38.0,
+    "size_w_pct": 15.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 12.8,
+    "feature": "오픈탑 / 배기음",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 28.7,
+    "feature": "6.5L V12 자연흡기 엔진",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "붉은색 페라리 전면 주행 모습과 함께 '국내 최초 제일 비싼 페라리' 그래픽/내레이션",
+   "type": "희귀차",
+   "text": "국내 최초입니다. 가장 최신형이자 가장 비싼 페라리를 판매합니다."
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "국내 최초 및 가장 비싼 최신형 페라리",
+    "category": "희소성"
+   },
+   {
+    "t": 3.6,
+    "point": "페라리 본사에서 구매자를 지정하는 VIP 전용 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 12.8,
+    "point": "2026년 기준 무려 9억 원 호가",
+    "category": "가격·조건"
+   },
+   {
+    "t": 23.9,
+    "point": "페라리의 마지막 자연흡기 12기통 모델 가능성",
+    "category": "성능"
+   },
+   {
+    "t": 37.8,
+    "point": "무주행 신차급 컨디션 즉시 출고 가능 매물",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 41.5,
+   "text": "판매 가격과 더 많은 정보를 본문에서 확인해보세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "외관 측면",
+    "엔진룸",
+    "실내 앞",
+    "외관 후면",
+    "계기판",
+    "외관 전면",
+    "엔진룸",
+    "실내 앞",
+    "센터 화면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색 외곽선 텍스트 자막과 FLOSSY 번호판 가리개 사용"
+  }
+ }
+}

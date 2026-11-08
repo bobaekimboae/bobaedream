@@ -1,0 +1,693 @@
+{
+ "country": "HJ",
+ "kind": "dealer",
+ "url": "https://youtu.be/nPgoAu7fvaM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4461,
+  "candidatesTokenCount": 5778,
+  "totalTokenCount": 10239,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3201
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.8,
+   "aspect": "9:16",
+   "car": "페라리 599 GTB",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 7.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 25.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 26.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "368km 냉동 페라리\n와.. 이게 한국에 있네..",
+    "ko": "368km 냉동 페라리\n와.. 이게 한국에 있네..",
+    "kind": "제목",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "368km 냉동 페라리",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "2010년식\n599 GTB",
+    "ko": "2010년식\n599 GTB",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 6.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "2010년식",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.6,
+    "text": "2010년도 임시번호판",
+    "ko": "2010년도 임시번호판",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 7.4,
+    "text": "아직 익지 않은 머플러\n출고 당시 그대로..",
+    "ko": "아직 익지 않은 머플러\n출고 당시 그대로..",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "아직 익지 않은 머플러",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "text": "정식 번호판 등록 서류 보유\n최초 등록 가능한 신차",
+    "ko": "정식 번호판 등록 서류 보유\n최초 등록 가능한 신차",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "정식 번호판 등록 서류 보유",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.5,
+    "text": "완벽 보존된 15년 지난 엔진룸",
+    "ko": "완벽 보존된 15년 지난 엔진룸",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "FMK 페라리 정식 출고",
+    "ko": "FMK 페라리 정식 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.6,
+    "text": "실내도 신차 상태 그대로..",
+    "ko": "실내도 신차 상태 그대로..",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.5,
+    "text": "총 주행거리 368km",
+    "ko": "총 주행거리 368km",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.3,
+    "text": "그 누구도 앉은 적 없는 조수석",
+    "ko": "그 누구도 앉은 적 없는 조수석",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 25.8,
+    "text": "모든 버튼도 15년 전 그대로..",
+    "ko": "모든 버튼도 15년 전 그대로..",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 26.8,
+    "text": "사용감 없는 후석 러기지",
+    "ko": "사용감 없는 후석 러기지",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "text": "신차 당시 프론트 전체 PPF",
+    "ko": "신차 당시 프론트 전체 PPF",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "text": "분진이 묻은 적 없는 Silver rims",
+    "ko": "분진이 묻은 적 없는 Silver rims",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "새것과 동일한 테일 램프",
+    "ko": "새것과 동일한 테일 램프",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.0,
+    "text": "두번 다시 없을\n피닌파리나 V12 페라리",
+    "ko": "두번 다시 없을\n피닌파리나 V12 페라리",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.8,
+    "text": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "ko": "이 차량의 더 많은 정보를\n[프로필 방문]을 통해 만나보세요!",
+    "kind": "기타",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "[프로필 방문]",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "오페라/클래식 보컬",
+   "bpm_est": 65,
+   "mood": "웅장하고 감격스러움",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.1,
+    "end": 5.6,
+    "what": "임시 번호판을 가리키는 흰색 곡선 화살표",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 33.0,
+    "y_pct": 38.0,
+    "entrance": "페이드",
+    "purpose": "위치 지칭",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.5,
+    "what": "계기판 주행거리 368km를 표시하는 초록색 둥근 사각 테두리",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 38.0,
+    "y_pct": 61.0,
+    "entrance": "바로",
+    "purpose": "강조",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "주행거리 368km 2010년식 신차급 페라리 599 GTB 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "임시번호판, 미사용 머플러, 등록 서류 신차 상태, V12 엔진룸 보존 상태"
+   },
+   {
+    "stage": "기능",
+    "start": 14.8,
+    "end": 26.8,
+    "speed": "보통",
+    "summary": "실내 계기판 주행거리 368km, 신차 비닐 상태의 조수석, 센터페시아, 후석 러기지 확인"
+   },
+   {
+    "stage": "사양",
+    "start": 26.8,
+    "end": 33.0,
+    "speed": "보통",
+    "summary": "전체 PPF, 분진 없는 휠, 테일램프 및 피닌파리나 V12 디자인 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 33.0,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "프로필 방문 유도 CTA"
+   }
+  ],
+  "rules": [
+   "감격스러운 오페라 클래식 BGM을 배경으로 대사 없이 비주얼과 자막으로만 가치를 전달",
+   "노란색 포인트 키워드와 굵은 고딕 자막을 화면 중앙/하단에 안정적으로 배치",
+   "디테일 컷(임시번호판, 주행거리 계기판)에는 화살표와 테두리 그래픽으로 즉각 시선 유도",
+   "마지막 화면에서 '프로필 방문' 문구를 노란색으로 강조하여 전환 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 3.7,
+    "end": 5.6,
+    "feature": "2010년도 임시번호판 보유",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "흰색 곡선 화살표 그래픽",
+    "x_pct": 33.0,
+    "y_pct": 38.0,
+    "size_w_pct": 10.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.5,
+    "feature": "계기판 368km 주행거리",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "녹색 둥근 사각 박스",
+    "x_pct": 38.0,
+    "y_pct": 61.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "368km 냉동 페라리 와.. 이게 한국에 있네.. 자막과 함께 주행 중인 페라리 599 GTB 외관",
+   "type": "희귀차",
+   "text": "368km 냉동 페라리 와.. 이게 한국에 있네.."
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "한국에 실존하는 368km 주행 냉동 페라리",
+    "category": "희소성"
+   },
+   {
+    "t": 2.0,
+    "point": "2010년식 페라리 599 GTB 모델",
+    "category": "상태·이력"
+   },
+   {
+    "t": 4.0,
+    "point": "2010년도 임시번호판이 그대로 부착",
+    "category": "상태·이력"
+   },
+   {
+    "t": 6.0,
+    "point": "열화되지 않고 출고 당시 그대로인 머플러",
+    "category": "상태·이력"
+   },
+   {
+    "t": 8.0,
+    "point": "정식 번호판 등록 서류를 보유한 최초 등록 가능 신차",
+    "category": "상태·이력"
+   },
+   {
+    "t": 11.0,
+    "point": "15년이 지났으나 완벽 보존된 V12 엔진룸",
+    "category": "상태·이력"
+   },
+   {
+    "t": 14.0,
+    "point": "공식 수입원 FMK 페라리 정식 출고 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 17.5,
+    "point": "실제 총 주행거리 368km",
+    "category": "상태·이력"
+   },
+   {
+    "t": 20.5,
+    "point": "신차 비닐이 남아있고 탑승 흔적 없는 조수석",
+    "category": "상태·이력"
+   },
+   {
+    "t": 24.0,
+    "point": "버튼 끈적임 없이 15년 전 신차 상태인 센터페시아",
+    "category": "상태·이력"
+   },
+   {
+    "t": 27.5,
+    "point": "신차 출고 당시 시공된 프론트 전체 PPF",
+    "category": "상태·이력"
+   },
+   {
+    "t": 29.0,
+    "point": "브레이크 분진이 한 번도 묻지 않은 순정 실버 휠",
+    "category": "상태·이력"
+   },
+   {
+    "t": 32.5,
+    "point": "피닌파리나 디자인의 자연흡기 V12 페라리",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "프로필 방문"
+   ],
+   "t": 33.0
+  },
+  "cta": {
+   "t": 33.0,
+   "text": "이 차량의 더 많은 정보를 [프로필 방문]을 통해 만나보세요!",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 측면",
+    "헤드램프",
+    "번호판/그릴",
+    "머플러",
+    "주행 후면",
+    "엔진룸 전체",
+    "배출가스 표지판",
+    "운전석 실내",
+    "계기판 클러스터",
+    "조수석 시트",
+    "센터페시아",
+    "후석 선반",
+    "보닛/휀더",
+    "앞바퀴 휠",
+    "테일램프",
+    "대시보드 패널"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검은색 테두리의 굵은 흰색·노란색 텍스트와 보조 강조 그래픽을 일관되게 사용"
+  }
+ }
+}
