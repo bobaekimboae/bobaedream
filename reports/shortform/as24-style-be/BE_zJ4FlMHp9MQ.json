@@ -1,0 +1,225 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/zJ4FlMHp9MQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2199,
+  "candidatesTokenCount": 1791,
+  "totalTokenCount": 3990,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 831
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.5,
+   "aspect": "9:16",
+   "car": "Tesla Roadster (1st gen)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 23.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전자가 스티어링 휠 중앙 혼(경적)을 손으로 누름",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "쿵",
+    "event": "보닛/앞 트렁크를 손으로 닫아 쿵 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전자가 스티어링 휠 혼 재차 누름",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트/힙합 인스트루멘탈",
+   "bpm_est": 95,
+   "mood": "리드미컬하고 캐주얼함",
+   "ducks_under_voice": "아님",
+   "changes": [
+    {
+     "t": 7.4,
+     "what": "엔딩 카드 전환 시 음악 페이드아웃"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 7.4,
+    "end": 9.5,
+    "what": "AutoScout24 로고 그래픽 및 오버레이",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "보통",
+    "summary": "로고가 가려진 1세대 테슬라 로드스터 뒤에서 출연자가 브랜드 퀴즈 제안"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "로고를 손으로 가린 채 차의 실내, 보닛, 스티어링 휠을 보여주며 힌트 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.4,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "AutoScout24 로고와 함께 차량 후면 번호판 딜러 정보 노출"
+   }
+  ],
+  "rules": [
+   "대사 없이 비트 음악과 실제 차 조작 소리(경적, 보닛 닫힘)로 리듬감을 형성함",
+   "스티어링 휠과 보닛의 제조사 엠블럼을 손으로 가려 '브랜드 맞추기' 퀴즈 참여 유도",
+   "상단 제목 텍스트는 브랜드 시그니처 옐로우(#FFDE00) 붓질/박스를 적용하여 시인성 확보",
+   "영상 길이를 10초 이내로 극도로 짧게 구성하여 루프 시청 및 댓글 참여율 극대화"
+  ],
+  "caption_styles": [
+   {
+    "role": "제목",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 2,
+    "box": "붓질 모양",
+    "box_color": "#FFDE00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 5.8,
+    "y_pct": 23.5,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFDE00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 5.4,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "조금 먼저",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "실제 차 소리",
+    "sound": "실제 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 350,
+    "loud_vs_voice": "더 큼",
+    "count": 3
+   }
+  ],
+  "end_card": {
+   "start_sec": 7.4,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.1
+  },
+  "safe_zone_note": "제목 자막이 상단 20~25% 영역에 위치해 숏츠 인터페이스(우측 버튼, 하단 설명란)와 겹치지 않음"
+ }
+}

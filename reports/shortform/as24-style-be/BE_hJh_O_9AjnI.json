@@ -1,0 +1,685 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/hJh_O_9AjnI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4279,
+  "candidatesTokenCount": 5779,
+  "totalTokenCount": 10058,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2911
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.5,
+   "aspect": "9:16",
+   "car": "BYD Seal U DM-i",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 14.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 20.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 26.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 31.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "BYD Seal U DM-i",
+    "ko": "비야디 씰 U DM-i",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -2,
+    "entrance": "바로",
+    "highlight_word": "Seal U DM-i",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "een standaard beeldscherm",
+    "ko": "일반적인 기본 화면",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "검정 외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "standaard",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.9,
+    "text": "2 camera's",
+    "ko": "카메라 2대",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 10.3,
+    "text": "maar dit kunnen er ook 3 zijn",
+    "ko": "하지만 3개가 될 수도 있습니다",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "검정 외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "3",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.5,
+    "text": "3 camera's",
+    "ko": "카메라 3대",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -1,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 20.5,
+    "text": "en je kunt kiezen welke kant je wil zien",
+    "ko": "그리고 원하는 방향을 선택해 볼 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "검정 외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "welke",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "€33.700",
+    "ko": "33,700유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.0,
+    "text": "218 PK",
+    "ko": "218마력",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.0,
+    "text": "AUTO-POINT Casier",
+    "ko": "오토포인트 카시에",
+    "kind": "기타",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "붓질 모양",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "딸깍",
+    "event": "화면 회전 버튼 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "휙",
+    "event": "거울 대칭 분할 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "2 camera's 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "딸깍",
+    "event": "스티어링 휠 화면 회전 버튼 누름",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.2,
+    "type": "톡",
+    "event": "3 camera's 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "돈 소리",
+    "event": "€33.700 가격 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫히는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 25.5,
+    "type": "톡",
+    "event": "218 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "띵",
+    "event": "딜러샵 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "휙",
+    "event": "오토스카우트24 로고 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 훵크 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "what": "상단 노란색 타이틀 배너",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 12.5,
+    "y_pct": 22.0,
+    "entrance": "바로",
+    "purpose": "차량명 강조",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 4.5,
+    "what": "대칭 미러 글리치 효과",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 0.0,
+    "y_pct": 0.0,
+    "entrance": "확대 전환",
+    "purpose": "화면 전환 연출",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.0,
+    "what": "딜러 로고 카드",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 12.5,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "판매처 소개",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.5,
+    "what": "AutoScout24 로고 및 노란 브러시 스트로크",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 15.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩 및 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "En kijk een draaiend scherm.",
+    "ko": "그리고 보세요, 회전하는 화면이에요."
+   },
+   {
+    "start": 4.5,
+    "end": 7.8,
+    "text": "Normaal heb je een standaard beeldscherm met twee camera's zichtbaar,",
+    "ko": "보통은 2개의 카메라가 보이는 표준 화면이지만,"
+   },
+   {
+    "start": 7.9,
+    "end": 10.3,
+    "text": "maar dit kunnen er ook drie zijn. Let op.",
+    "ko": "이게 3개가 될 수도 있어요. 주목하세요."
+   },
+   {
+    "start": 14.0,
+    "end": 16.5,
+    "text": "Nu heb je dus drie camera's,",
+    "ko": "이제 3개의 카메라 뷰가 나오고,"
+   },
+   {
+    "start": 16.5,
+    "end": 20.8,
+    "text": "en je kunt ook nog kiezen welke kant je wilt zien op de camera.",
+    "ko": "카메라에서 어느 쪽을 볼지 선택할 수도 있습니다."
+   },
+   {
+    "start": 21.0,
+    "end": 24.8,
+    "text": "Deze BYD kost €33.700 en is volledig nieuw,",
+    "ko": "이 BYD는 33,700유로이고 완전히 신차이며,"
+   },
+   {
+    "start": 25.0,
+    "end": 27.0,
+    "text": "en heeft 218 pk.",
+    "ko": "218마력을 발휘합니다."
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "text": "Je vindt hem in de showroom van Auto-Point Casier,",
+    "ko": "오토포인트 카시에 쇼룸에서 만나보실 수 있으며,"
+   },
+   {
+    "start": 29.8,
+    "end": 31.5,
+    "text": "en op autoscout24.be.",
+    "ko": "autoscout24.be에서도 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "전동 회전 센터 디스플레이 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "디스플레이 세로 회전 시 멀티 카메라(어라운드 뷰) 모드 상세 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 20.8,
+    "end": 27.0,
+    "speed": "빠름",
+    "summary": "차량 가격, 신차 상태 및 218마력 출력 사양 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 27.0,
+    "end": 30.0,
+    "speed": "보통",
+    "summary": "판매 딜러샵 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 30.0,
+    "end": 31.5,
+    "speed": "빠름",
+    "summary": "AutoScout24 로고 및 사이트 안내"
+   }
+  ],
+  "rules": [
+   "핵심 강조 키워드(가격, 출력, 기능)는 노란색(#FFFF00) 배경 박스 스티커로 시각적 일관성을 유지한다.",
+   "새로운 정보 스티커가 나타날 때마다 경쾌한 톡/효과음(SFX)을 매칭하여 주목도를 높인다.",
+   "일반 음성 자막은 화면 중앙(40~50% 높이)에 흰색 텍스트와 얇은 검정 테두리를 적용해 인물과 차량 버튼을 가리지 않는다.",
+   "중간 전환 구간에 짧은 대칭 미러/글리치 컷을 삽입해 숏폼 특유의 리듬감을 준다.",
+   "영상 말미에는 딜러 로고와 오토스카우트 공식 노란색 브러시 로고로 명확하게 구매 경로를 남긴다."
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게, 산세리프 고딕",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": null,
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.8,
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFFF00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 4,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게, 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFFF00",
+    "box_corner_px_at_1080": 16,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 5.2,
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 2,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 3,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게, 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFFF00",
+    "box_corner_px_at_1080": 20,
+    "box_padding_pct": 4.0,
+    "text_height_pct": 6.5,
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "제목",
+    "font": "아주 굵게, 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFFF00",
+    "box_corner_px_at_1080": 12,
+    "box_padding_pct": 4.0,
+    "text_height_pct": 5.5,
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 4,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 3.7,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "굵게, 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 6,
+    "box": "붓질 모양",
+    "box_color": "#FFFF00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 5.0,
+    "text_height_pct": 7.5,
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFFF00",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 200,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 3
+   },
+   {
+    "event": "가격 등장",
+    "sound": "돈 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 500,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   },
+   {
+    "event": "컷 전환",
+    "sound": "휙",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 250,
+    "loud_vs_voice": "비슷",
+    "count": 2
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "띵",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 400,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   },
+   {
+    "event": "실제 차 소리",
+    "sound": "실제 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 300,
+    "loud_vs_voice": "더 큼",
+    "count": 2
+   }
+  ],
+  "end_card": {
+   "start_sec": 30.0,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 1.5
+  },
+  "safe_zone_note": "우측 하단 플랫폼 상호작용 아이콘(좋아요, 댓글 등)을 피해 주요 텍스트 칩과 자막을 화면 가로 기준 정중앙(x=50%) 및 세로 18~50% 영역에 배치함"
+ }
+}
