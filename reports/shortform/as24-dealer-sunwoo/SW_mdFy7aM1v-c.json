@@ -1,0 +1,905 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/mdFy7aM1v-c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5897,
+  "candidatesTokenCount": 7525,
+  "totalTokenCount": 13422,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4641
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG G63",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 19.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 27.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 32.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.9,
+    "end": 37.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 41.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 47.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 50.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 1.4,
+    "text": "눈이",
+    "ko": "눈이",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.2,
+    "text": "떨어지는",
+    "ko": "떨어지는",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "도로에 많이 보이는 바로 그 차량",
+    "ko": "도로에 많이 보이는 바로 그 차량",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.8,
+    "text": "미묘한 외관의 곡선 = 신형",
+    "ko": "미묘한 외관의 곡선 = 신형",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5,
+    "entrance": "바로",
+    "highlight_word": "신형",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 6.8,
+    "text": "가슴뛰는",
+    "ko": "가슴뛰는",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 7.9,
+    "text": "BI-TURBO",
+    "ko": "바이터보",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 8.1,
+    "text": "터보가 두개지요",
+    "ko": "터보가 두개지요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 9.2,
+    "text": "585마력",
+    "ko": "585마력",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 10.3,
+    "text": "상남자의 드림카",
+    "ko": "상남자의 드림카",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FF3366",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "text": "Mercedes - Benz",
+    "ko": "메르세데스-벤츠",
+    "kind": "키워드 스티커",
+    "y_pct": 83.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "G63 AMG",
+    "ko": "G63 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "text": "박력 넘치는 오프로드 스타일",
+    "ko": "박력 넘치는 오프로드 스타일",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.8,
+    "text": "독보적인 디자인, 비교 불가",
+    "ko": "독보적인 디자인, 비교 불가",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.8,
+    "text": "WOW!",
+    "ko": "와우!",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FFFF",
+    "background": "상자",
+    "bg_color": "#333399",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.8,
+    "text": "INTC. ???",
+    "ko": "인테리어 컬러 ???",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#00FFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 27.6,
+    "text": "Starlight",
+    "ko": "스타라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.5,
+    "text": "튜닝비 삼천만원 이상!",
+    "ko": "튜닝비 삼천만원 이상!",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF0033",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 33.0,
+    "text": "미래지향적 실내",
+    "ko": "미래지향적 실내",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.5,
+    "text": "2024MY",
+    "ko": "2024년형",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.0,
+    "text": "보증기간 잔존\n(~2027.xx)",
+    "ko": "보증기간 잔존 (~2027.xx)",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#00E5FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 44.0,
+    "text": "리스 승계조건\n\"승계\" 버튼을 눌러 \"취등록세\" 를 [SAVE]",
+    "ko": "리스 승계조건 \"승계\" 버튼을 눌러 \"취등록세\" 를 [SAVE]",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#00FFCC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.0,
+    "text": "이 차량에 대한 자세한 정보?",
+    "ko": "이 차량에 대한 자세한 정보?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 47.7,
+    "text": "캡션 or 프로필 게시물!",
+    "ko": "캡션 or 프로필 게시물!",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 49.5,
+    "text": "더 많은 차량들을 만나보시려면?",
+    "ko": "더 많은 차량들을 만나보시려면?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 50.8,
+    "text": "팔로우!",
+    "ko": "팔로우!",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "585마력 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "톡",
+    "event": "상남자의 드림카 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "띵",
+    "event": "WOW 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 사운드 재생",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 120,
+   "mood": "트렌디하고 묵직함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "what": "손 흔드는 이모지 3개",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 30.0,
+    "y_pct": 53.0,
+    "entrance": "바로",
+    "purpose": "인사 제스처 강조",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "what": "손가락 포인팅 이모지",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 27.0,
+    "entrance": "바로",
+    "purpose": "송풍구 튜닝 지목",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 37.5,
+    "what": "포인팅 손가락 이모지 및 배기구 원형 확대 픽처인픽처",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "entrance": "바로",
+    "purpose": "전동 사이드스텝 및 가변배기 팁 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "비나 눈이 한 방울이라도 떨어지는 날이면 도로에 많이 보이는 바로 그 차량",
+    "ko": "비나 눈이 한 방울이라도 떨어지는 날이면 도로에 많이 보이는 바로 그 차량"
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "미묘한 외관의 곡선이 신형임을 보여주는",
+    "ko": "미묘한 외관의 곡선이 신형임을 보여주는"
+   },
+   {
+    "start": 6.8,
+    "end": 10.5,
+    "text": "가슴 뛰는 V8 바이터보 585마력 상남자의 드림카",
+    "ko": "가슴 뛰는 V8 바이터보 585마력 상남자의 드림카"
+   },
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "text": "안녕하세요 메르세데스 벤츠 G63 AMG입니다",
+    "ko": "안녕하세요 메르세데스 벤츠 G63 AMG입니다"
+   },
+   {
+    "start": 13.5,
+    "end": 19.8,
+    "text": "전천후를 뽐낼 것 같은 오프로드 스타일이지만 오프로드에선 본 적 없는 이 차량, 외관만 보면 여느 지바겐과 다를 바가 없을 것 같지만",
+    "ko": "전천후를 뽐낼 것 같은 오프로드 스타일이지만 오프로드에선 본 적 없는 이 차량, 외관만 보면 여느 지바겐과 다를 바가 없을 것 같지만"
+   },
+   {
+    "start": 19.8,
+    "end": 23.5,
+    "text": "실내를 그냥 싹 바꿨습니다. 특정 브랜드가 떠오르는 청량한 컬러 인테리어",
+    "ko": "실내를 그냥 싹 바꿨습니다. 특정 브랜드가 떠오르는 청량한 컬러 인테리어"
+   },
+   {
+    "start": 23.5,
+    "end": 27.6,
+    "text": "천장에는 스타라이트, 전장고가 높다 보니 꽤나 멋스럽습니다",
+    "ko": "천장에는 스타라이트, 전장고가 높다 보니 꽤나 멋스럽습니다"
+   },
+   {
+    "start": 27.6,
+    "end": 33.0,
+    "text": "송풍구 앰비언트까지 3천만 원 이상 튜닝된 이 차량, 실내는 가히 미래에서 온 느낌이네요",
+    "ko": "송풍구 앰비언트까지 3천만 원 이상 튜닝된 이 차량, 실내는 가히 미래에서 온 느낌이네요"
+   },
+   {
+    "start": 33.0,
+    "end": 37.8,
+    "text": "전동 사이드스텝과 배기 튜닝으로 멋과 실용성 두 마리를 다 잡았습니다",
+    "ko": "전동 사이드스텝과 배기 튜닝으로 멋과 실용성 두 마리를 다 잡았습니다"
+   },
+   {
+    "start": 37.8,
+    "end": 43.5,
+    "text": "24년식 모델로 아직 보증기간이 남아있으며 리스 승계 조건으로 취등록세를 세이브할 수 있습니다",
+    "ko": "24년식 모델로 아직 보증기간이 남아있으며 리스 승계 조건으로 취등록세를 세이브할 수 있습니다"
+   },
+   {
+    "start": 43.5,
+    "end": 50.8,
+    "text": "이 차량에 대한 자세한 정보가 필요하시면 캡션 또는 프로필 게시물을 참고해 주세요. 더 많은 차량들을 만나보시려면 팔로우 부탁드립니다",
+    "ko": "이 차량에 대한 자세한 정보가 필요하시면 캡션 또는 프로필 게시물을 참고해 주세요. 더 많은 차량들을 만나보시려면 팔로우 부탁드립니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.5,
+    "speed": "빠름",
+    "summary": "날씨 조건과 출력 수치 언급하며 드림카 지바겐 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.5,
+    "end": 19.8,
+    "speed": "보통",
+    "summary": "차명 소개 및 외관 스타일 브리핑"
+   },
+   {
+    "stage": "기능",
+    "start": 19.8,
+    "end": 37.8,
+    "speed": "빠름",
+    "summary": "민트 커스텀 실내, 스타라이트, 송풍구 앰비언트, 전동스텝, 가변배기 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 37.8,
+    "end": 43.5,
+    "speed": "보통",
+    "summary": "연식, 잔여보증, 리스승계 조건 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 43.5,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "캡션/프로필 확인 및 팔로우 요청 CTA"
+   }
+  ],
+  "rules": [
+   "자막 키워드는 하단 중앙에 크고 굵은 고딕 폰트로 배치하고 노랑/민트 색상 강조",
+   "중요한 튜닝 포인트(송풍구, 사이드스텝)에는 손가락 이모지와 돋보기 원형 PIP를 적극 활용",
+   "설명은 AI 남성 내레이션으로 일정한 톤을 유지하며 빠른 템포로 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 23.8,
+    "end": 27.6,
+    "feature": "스타라이트 헤드라이너",
+    "shown_how": "글자 카드",
+    "icon_desc": "Starlight 영문 자막",
+    "x_pct": 50.0,
+    "y_pct": 36.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "feature": "송풍구 앰비언트 라이트",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 포인팅 이모지",
+    "x_pct": 50.0,
+    "y_pct": 27.0,
+    "size_w_pct": 15.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 37.8,
+    "feature": "전동 사이드스텝 및 가변 배기",
+    "shown_how": "확대",
+    "icon_desc": "원형 배기구 PIP 확대경 및 손가락 이모지",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야간 도심에 정차된 화이트 지바겐 풀샷과 비/눈 올 때 보이는 차라는 멘트",
+   "type": "질문",
+   "text": "비나 눈이 한방울이라도 떨어지는 날이면 도로에 많이 보이는 바로 그 차량"
+  },
+  "narration_points": [
+   {
+    "t": 6.8,
+    "point": "V8 바이터보 585마력의 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 19.8,
+    "point": "티파니 민트 톤 맞춤형 커스텀 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 23.8,
+    "point": "천장 은하수 스타라이트 시공",
+    "category": "디자인"
+   },
+   {
+    "t": 28.0,
+    "point": "송풍구 앰비언트 포함 3천만 원 이상 실내외 튜닝",
+    "category": "디자인"
+   },
+   {
+    "t": 33.5,
+    "point": "전동 사이드스텝 및 배기 튜닝",
+    "category": "편의"
+   },
+   {
+    "t": 38.0,
+    "point": "24년식 잔존 보증 및 취등록세 절감 가능한 리스 승계",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "캡션/프로필 게시물 유도"
+   ],
+   "t": 46.0
+  },
+  "cta": {
+   "t": 49.5,
+   "text": "더 많은 차량들을 만나보시려면? 팔로우!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 헤드램프",
+    "실내 천장",
+    "외관 전면",
+    "외관 후면",
+    "외관 전면",
+    "실내 콕핏",
+    "계기판/핸들",
+    "뒷좌석/천장",
+    "센터페시아",
+    "도어스텝/하부배기",
+    "헤드레스트",
+    "실내 콕핏",
+    "센터페시아"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 굵은 자막, 포인트 이모지, 일정한 AI 보이스 및 네온 컬러 키워드 사용"
+  }
+ }
+}

@@ -1,0 +1,1082 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/PH1AVthEWMc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7893,
+  "candidatesTokenCount": 9601,
+  "totalTokenCount": 17494,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6637
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 73.0,
+   "aspect": "9:16",
+   "car": "롤스로이스 고스트 블랙배지 (Rolls-Royce Ghost Black Badge)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 21.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 32.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 39.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 45.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 50.3,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.3,
+    "end": 56.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.7,
+    "end": 61.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 61.3,
+    "end": 66.2,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.2,
+    "end": 73.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "여러분!",
+    "ko": "여러분!",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "여러분!",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "자동차로 부의 상징을",
+    "ko": "자동차로 부의 상징을",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "부의 상징",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "text": "떠올리면",
+    "ko": "떠올리면",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "떠올리면",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 3.7,
+    "text": "(딱 한 대만...!) 떠오르시나요?",
+    "ko": "(딱 한 대만...!) 떠오르시나요?",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "떠오르시나요?",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "text": "Spirit Of Ecstasy\n= 환희의 여신상",
+    "ko": "Spirit Of Ecstasy = 환희의 여신상",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "환희의 여신상",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.2,
+    "text": "Rolls Royce\nGhost Black Badge",
+    "ko": "롤스로이스 고스트 블랙배지",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "Ghost Black Badge",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.5,
+    "text": "크롬 → 다크 크롬\n+21\" 카본 알로이 단조 휠",
+    "ko": "크롬 → 다크 크롬 +21인치 카본 알로이 단조 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "다크 크롬",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.5,
+    "text": "테크니컬 카본 베니어\n강렬한 퍼포먼스, 어두운 미학 + 기술적 감성",
+    "ko": "테크니컬 카본 베니어",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "테크니컬 카본 베니어",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.8,
+    "text": "₩489,000,000\nBase price (기본 옵션)",
+    "ko": "4억 8900만원 기본 가격",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "489,000,000",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "₩555,000,000\nBlack Badge",
+    "ko": "5억 5500만원 블랙배지",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "555,000,000",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.8,
+    "text": "더블 코치라인\n₩4,000,000",
+    "ko": "더블 코치라인 400만원",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4,000,000",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 32.2,
+    "text": "Damson + White\n투 톤 인테리어(블랙뱃지)\n₩13,000,000",
+    "ko": "댐슨 + 화이트 투톤 인테리어 1300만원",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "13,000,000",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.5,
+    "text": "시트 스티칭 + 파이핑\n₩15,000,000",
+    "ko": "시트 스티칭 + 파이핑 1500만원",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "15,000,000",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 39.5,
+    "text": "✨ 슈팅 스타 헤드라이너 ✨\n₩17,000,000",
+    "ko": "슈팅 스타 헤드라이너 1700만원",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "17,000,000",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 45.0,
+    "text": "Bespoke Audio System\n₩20,000,000",
+    "ko": "비스포크 오디오 시스템 2000만원",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20,000,000",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 50.0,
+    "text": "리어 엔터테인먼트 + 비즈니스 테이블\n₩26,000,000",
+    "ko": "리어 엔터테인먼트 + 비즈니스 테이블 2600만원",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "26,000,000",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 56.5,
+    "text": "Illuminated Fascia\n+ Bespoke Clocks\n₩21,000,000",
+    "ko": "일루미네이티드 페시아 + 비스포크 시계 2100만원",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "21,000,000",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 61.0,
+    "text": "₩682,000,000",
+    "ko": "신차가격 6억 8200만원",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "682,000,000",
+    "sure": true
+   },
+   {
+    "start": 61.5,
+    "end": 65.5,
+    "text": "2022MY\n주행거리 23,xxx km",
+    "ko": "2022년식 주행거리 23,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "2022MY",
+    "sure": true
+   },
+   {
+    "start": 66.5,
+    "end": 70.0,
+    "text": "캡션 또는 프로필 게시물",
+    "ko": "캡션 또는 프로필 게시물",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "프로필 게시물",
+    "sure": true
+   },
+   {
+    "start": 70.5,
+    "end": 73.0,
+    "text": "팔로우!",
+    "ko": "팔로우!",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "팔로우!",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "휙",
+    "event": "텍스트 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "텍스트 강조 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "물음 자막 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "휙",
+    "event": "차량 모델명 타이틀 모션 블러 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.0,
+    "type": "휙",
+    "event": "다크 크롬 스티커 모션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "휙",
+    "event": "기본 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.0,
+    "type": "휙",
+    "event": "블랙배지 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "쿵",
+    "event": "'묵직' 텍스트 등장 강조음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "톡",
+    "event": "마우스 포인터 클릭 및 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "톡",
+    "event": "포인터 클릭 및 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "포인터 클릭 및 스피커 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "톡",
+    "event": "포인터 클릭 및 리어 테이블 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.0,
+    "type": "휙",
+    "event": "최종 신차가격 텍스트 슬라이드 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 70.5,
+    "type": "톡",
+    "event": "'팔로우!' 강조 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/힙합 비트",
+   "bpm_est": 115,
+   "mood": "고급스럽고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "what": "손가락 포인터 아이콘",
+    "is_3d": false,
+    "size_w_pct": 8.0,
+    "x_pct": 58.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "카본 베니어 위치 지칭",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "what": "마우스 포인터 아이콘",
+    "is_3d": false,
+    "size_w_pct": 8.0,
+    "x_pct": 36.0,
+    "y_pct": 47.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "더블 코치라인 위치 지칭",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.5,
+    "what": "마우스 포인터 아이콘",
+    "is_3d": false,
+    "size_w_pct": 8.0,
+    "x_pct": 82.0,
+    "y_pct": 53.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 파이핑 위치 지칭",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "what": "마우스 포인터 아이콘",
+    "is_3d": false,
+    "size_w_pct": 8.0,
+    "x_pct": 74.0,
+    "y_pct": 56.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "오디오 스피커 위치 지칭",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 49.0,
+    "what": "마우스 포인터 아이콘",
+    "is_3d": false,
+    "size_w_pct": 8.0,
+    "x_pct": 52.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비즈니스 테이블 위치 지칭",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "여러분 자동차로 부의 상징을 떠올리면 어떤 차가 떠오르시나요?",
+    "ko": "여러분 자동차로 부의 상징을 떠올리면 어떤 차가 떠오르시나요?"
+   },
+   {
+    "start": 3.7,
+    "end": 7.0,
+    "text": "저는 이 환희의 여신상이 떠오릅니다. 근데 검은색 여신상이네요?",
+    "ko": "저는 이 환희의 여신상이 떠오릅니다. 근데 검은색 여신상이네요?"
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "text": "소개합니다. 롤스로이스 고스트 블랙뱃지.",
+    "ko": "소개합니다. 롤스로이스 고스트 블랙뱃지."
+   },
+   {
+    "start": 9.5,
+    "end": 16.8,
+    "text": "럭셔리한 크롬에서 스포티한 다크 크롬으로 변경하고 실내 베니어도 테크니컬 카본으로 변경한 롤스로이스의 영 앤 리치 세그먼트입니다.",
+    "ko": "럭셔리한 크롬에서 스포티한 다크 크롬으로 변경하고 실내 베니어도 테크니컬 카본으로 변경한 롤스로이스의 영 앤 리치 세그먼트입니다."
+   },
+   {
+    "start": 16.8,
+    "end": 21.0,
+    "text": "덕분에 신차가격도 베이스 모델에 비해서 약 7천만 원 정도 비싸게 시작하죠.",
+    "ko": "덕분에 신차가격도 베이스 모델에 비해서 약 7천만 원 정도 비싸게 시작하죠."
+   },
+   {
+    "start": 21.0,
+    "end": 26.2,
+    "text": "그와 더불어 롤스로이스의 옵션 프라이스는 여타 브랜드와 다르게 하나하나가 묵직합니다.",
+    "ko": "그와 더불어 롤스로이스의 옵션 프라이스는 여타 브랜드와 다르게 하나하나가 묵직합니다."
+   },
+   {
+    "start": 26.2,
+    "end": 28.9,
+    "text": "너무나도 잘 알려진 더블 코치라인은 400만 원.",
+    "ko": "너무나도 잘 알려진 더블 코치라인은 400만 원."
+   },
+   {
+    "start": 28.9,
+    "end": 32.5,
+    "text": "댐슨과 화이트 투톤으로 구성된 인테리어 1,300만 원.",
+    "ko": "댐슨과 화이트 투톤으로 구성된 인테리어 1,300만 원."
+   },
+   {
+    "start": 32.5,
+    "end": 35.6,
+    "text": "거기에 1,500만 원을 추가하면 시트에 스티칭과 파이핑을 넣을 수 있습니다.",
+    "ko": "거기에 1,500만 원을 추가하면 시트에 스티칭과 파이핑을 넣을 수 있습니다."
+   },
+   {
+    "start": 35.6,
+    "end": 39.5,
+    "text": "시그니처 슈팅 스타 헤드라이너는 무려 1,700만 원. 끝이 아닙니다.",
+    "ko": "시그니처 슈팅 스타 헤드라이너는 무려 1,700만 원. 끝이 아닙니다."
+   },
+   {
+    "start": 39.5,
+    "end": 45.4,
+    "text": "반짝거리는 스피커 커버를 보셨다면 비스포크 오디오 시스템 적용 모델입니다. 2천만 원.",
+    "ko": "반짝거리는 스피커 커버를 보셨다면 비스포크 오디오 시스템 적용 모델입니다. 2천만 원."
+   },
+   {
+    "start": 45.4,
+    "end": 50.3,
+    "text": "아직 남았습니다. 뒷자리에 추가된 이 전동식 모니터와 테이블, 네 2,600만 원.",
+    "ko": "아직 남았습니다. 뒷자리에 추가된 이 전동식 모니터와 테이블, 네 2,600만 원."
+   },
+   {
+    "start": 50.3,
+    "end": 56.7,
+    "text": "마지막으로 조수석에서 빛나는 약 850여 개의 조명, 일루미네이티드 페시아. 비스포크 시계와 합쳐 2,100만 원입니다.",
+    "ko": "마지막으로 조수석에서 빛나는 약 850여 개의 조명, 일루미네이티드 페시아. 비스포크 시계와 합쳐 2,100만 원입니다."
+   },
+   {
+    "start": 56.7,
+    "end": 61.3,
+    "text": "국산차 한 대씩 우습게 추가된 이 차량의 신차 가격은 6억 8,200만 원입니다.",
+    "ko": "국산차 한 대씩 우습게 추가된 이 차량의 신차 가격은 6억 8,200만 원입니다."
+   },
+   {
+    "start": 61.3,
+    "end": 66.2,
+    "text": "2022년 제작, 2만 3천 km 주행한 이 차량에 대한 자세한 정보는,",
+    "ko": "2022년 제작, 2만 3천 km 주행한 이 차량에 대한 자세한 정보는,"
+   },
+   {
+    "start": 66.2,
+    "end": 70.0,
+    "text": "캡션 또는 프로필 게시물에서 확인하실 수 있습니다.",
+    "ko": "캡션 또는 프로필 게시물에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 70.0,
+    "end": 73.0,
+    "text": "더 많은 차량들을 만나보시려면 팔로우도 잊지 말아 주세요.",
+    "ko": "더 많은 차량들을 만나보시려면 팔로우도 잊지 말아 주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.0,
+    "speed": "보통",
+    "summary": "부의 상징 롤스로이스 환희의 여신상(블랙) 질문으로 시청자 주목 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.0,
+    "end": 16.7,
+    "speed": "보통",
+    "summary": "고스트 블랙배지 모델 소개 및 다크 크롬/카본 베니어 차별점 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 16.7,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "기본 모델 대비 약 7천만원 비싼 블랙배지 기본 시작 가격 안내"
+   },
+   {
+    "stage": "옵션",
+    "start": 21.0,
+    "end": 56.7,
+    "speed": "빠름",
+    "summary": "코치라인, 시트, 헤드라이너, 오디오, 테이블, 페시아 등 개별 옵션 가격 릴레이 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 56.7,
+    "end": 61.3,
+    "speed": "보통",
+    "summary": "옵션이 더해진 총 신차가격 6억 8,200만원 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 61.3,
+    "end": 66.2,
+    "speed": "보통",
+    "summary": "해당 매물의 2022년식 연식 및 23,000km 주행거리 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 66.2,
+    "end": 73.0,
+    "speed": "보통",
+    "summary": "캡션 및 프로필 링크 확인 유도 및 계정 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "매 옵션 소개마다 마우스 포인터 그래픽과 '톡' 사운드를 일치시켜 해당 부위를 직관적으로 포인팅",
+   "옵션명과 가격 텍스트는 노란색(#FFCC00)과 흰색 조합의 굵은 볼드 폰트로 하단부에 배치하여 가독성 극대화",
+   "국산차 한 대 가격에 맞먹는 초고가 옵션 프라이스를 차례대로 열거해 놀라움을 유발하는 딜러식 스토리텔링 구조"
+  ],
+  "option_highlights": [
+   {
+    "start": 26.2,
+    "end": 28.9,
+    "feature": "더블 코치라인",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "마우스 포인터 그래픽",
+    "x_pct": 36.0,
+    "y_pct": 47.0,
+    "size_w_pct": 8.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 32.5,
+    "feature": "댐슨+화이트 투톤 인테리어",
+    "shown_how": "글자 카드",
+    "icon_desc": "없음",
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.6,
+    "feature": "시트 스티칭 + 파이핑",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "마우스 포인터 그래픽",
+    "x_pct": 82.0,
+    "y_pct": 53.0,
+    "size_w_pct": 8.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 39.5,
+    "feature": "슈팅 스타 헤드라이너",
+    "shown_how": "글자 카드",
+    "icon_desc": "별 이모지",
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 45.4,
+    "feature": "비스포크 오디오 시스템",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "마우스 포인터 그래픽",
+    "x_pct": 74.0,
+    "y_pct": 56.0,
+    "size_w_pct": 8.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 50.3,
+    "feature": "리어 엔터테인먼트 + 비즈니스 테이블",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "마우스 포인터 그래픽",
+    "x_pct": 52.0,
+    "y_pct": 52.0,
+    "size_w_pct": 8.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 50.3,
+    "end": 56.7,
+    "feature": "일루미네이티드 페시아 + 비스포크 시계",
+    "shown_how": "글자 카드",
+    "icon_desc": "없음",
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 도로에 서 있는 흰색 롤스로이스 고스트와 '부의 상징을 떠올리면' 질문 자막 및 내레이션",
+   "type": "질문",
+   "text": "여러분 자동차로 부의 상징을 떠올리면 어떤 차가 떠오르시나요?"
+  },
+  "narration_points": [
+   {
+    "t": 7.0,
+    "point": "다크 크롬과 카본 베니어가 들어간 롤스로이스 고스트 블랙배지 소개",
+    "category": "디자인"
+   },
+   {
+    "t": 17.0,
+    "point": "일반 고스트 대비 7천만원 높은 기본 가격",
+    "category": "가격·조건"
+   },
+   {
+    "t": 26.5,
+    "point": "더블 코치라인 옵션 가격 400만원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 29.0,
+    "point": "댐슨+화이트 투톤 인테리어 1,300만원",
+    "category": "디자인"
+   },
+   {
+    "t": 32.5,
+    "point": "시트 스티칭 및 파이핑 1,500만원",
+    "category": "디자인"
+   },
+   {
+    "t": 36.0,
+    "point": "슈팅 스타 헤드라이너 1,700만원",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "비스포크 오디오 시스템 2,000만원",
+    "category": "편의"
+   },
+   {
+    "t": 47.0,
+    "point": "리어 엔터테인먼트 및 테이블 2,600만원",
+    "category": "편의"
+   },
+   {
+    "t": 52.0,
+    "point": "일루미네이티드 페시아 및 시계 2,100만원",
+    "category": "디자인"
+   },
+   {
+    "t": 57.0,
+    "point": "옵션이 포함된 총 신차가격 6억 8,200만원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 62.0,
+    "point": "2022년식 23,000km 주행 스펙",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "캡션/프로필 확인 유도"
+   ],
+   "t": 66.5
+  },
+  "cta": {
+   "t": 66.5,
+   "text": "캡션 또는 프로필 게시물에서 확인 / 팔로우",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "엠블럼(환희의 여신상)",
+    "외관 측면",
+    "외관 후면",
+    "실내 운전석",
+    "외관 측면(코치도어 개방)",
+    "도어 코치라인",
+    "뒷좌석 시트",
+    "헤드라이너 천장",
+    "스피커",
+    "리어 비즈니스 모니터/테이블",
+    "조수석 대시보드(페시아)",
+    "휠",
+    "뒷좌석"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색/흰색 볼드 폰트와 마우스 클릭 포인터 효과음을 규칙적으로 활용"
+  }
+ }
+}

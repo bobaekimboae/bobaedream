@@ -1,0 +1,1205 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Ng305N85JOI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8459,
+  "candidatesTokenCount": 10385,
+  "totalTokenCount": 19680,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7203
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 836,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 80.1,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스 SE PHEV",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 18.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 21.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 27.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 40.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 46.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 55.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 101.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 61.4,
+    "end": 66.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.2,
+    "end": 71.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 80.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "마음만 먹으면",
+    "ko": "마음만 먹으면",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.6,
+    "text": "시속 300km 가능",
+    "ko": "시속 300km 가능",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFF000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "300km",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.4,
+    "text": "EV모드로 60km 주행 가능!",
+    "ko": "EV모드로 60km 주행 가능!",
+    "kind": "말 자막",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "PHEV 적용",
+    "ko": "PHEV 적용",
+    "kind": "말 자막",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#00FFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PHEV",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.7,
+    "text": "슈퍼 SUV",
+    "ko": "슈퍼 SUV",
+    "kind": "말 자막",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "슈퍼 SUV",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.3,
+    "text": "합산 출력 800hp",
+    "ko": "합산 출력 800hp",
+    "kind": "말 자막",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFF000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "800hp",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.0,
+    "text": "제로백 3.4초",
+    "ko": "제로백 3.4초",
+    "kind": "말 자막",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FF3300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3.4초",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.9,
+    "text": "URUS S-E PHEV",
+    "ko": "우루스 SE PHEV",
+    "kind": "말 자막",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "URUS S-E",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 18.2,
+    "text": "Arancio Argos\n(₩24,540,909)",
+    "ko": "아란치오 아르고스 (₩24,540,909)",
+    "kind": "가격",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FF8800",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Arancio Argos",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 21.3,
+    "text": "Taigete 23' + color Accent\n(₩8,936,740)",
+    "ko": "타이게테 23인치 + 컬러 악센트 (₩8,936,740)",
+    "kind": "가격",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FF8800",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Taigete",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 27.5,
+    "text": "Style Pack.\nFull in High Gloss Black\n(₩4,861,987)",
+    "ko": "스타일 팩 하이글로스 블랙 (₩4,861,987)",
+    "kind": "가격",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "text": "Shiny Black Top with\nPanoramic roof\n(₩13,881,493)",
+    "ko": "샤이니 블랙 탑 파노라믹 루프 (₩13,881,493)",
+    "kind": "가격",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "text": "(우루스를 자주 보셨다면 캐치 가능!)",
+    "ko": "(우루스를 자주 보셨다면 캐치 가능!)",
+    "kind": "말 자막",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 36.0,
+    "text": "Akrapovic...?",
+    "ko": "아크라포빅...?",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Akrapovic",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.0,
+    "text": "걸출하다..",
+    "ko": "걸출하다..",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "Akrapovic...?\n(₩29,090,910)",
+    "ko": "아크라포빅 배기 (₩29,090,910)",
+    "kind": "가격",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩29,090,910",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 46.5,
+    "text": "Bang & Olufsen Sound System\n(₩9,675,855)",
+    "ko": "뱅앤올룹슨 사운드 시스템 (₩9,675,855)",
+    "kind": "가격",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩9,675,855",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 52.0,
+    "text": "Arancio Leonis\nSportivo Leather INT.\n(₩7,880,038)",
+    "ko": "아란치오 레오니스 스포르티보 가죽 인테리어 (₩7,880,038)",
+    "kind": "가격",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FF8800",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Arancio Leonis",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 55.4,
+    "text": "성공의 맛..",
+    "ko": "성공의 맛..",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 58.0,
+    "text": "Base Price\n(₩330,000,000)",
+    "ko": "기본 가격 3억 3천만원",
+    "kind": "가격",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 61.4,
+    "text": "Base Price\n(₩330,000,000)\n+\nOption Price\n(₩129,781,779)",
+    "ko": "기본가격 3억3천 + 옵션가격 1억2천9백",
+    "kind": "가격",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Option Price",
+    "sure": true
+   },
+   {
+    "start": 61.4,
+    "end": 66.2,
+    "text": "Total Price\n₩458,351,779\n(취, 등록세 별도)",
+    "ko": "총 가격 4억 5천 8백만원 (취, 등록세 별도)",
+    "kind": "가격",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩458,351,779",
+    "sure": true
+   },
+   {
+    "start": 66.2,
+    "end": 69.5,
+    "text": "메인터넌스 + 보증기간",
+    "ko": "메인터넌스 + 보증기간",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 69.5,
+    "end": 71.0,
+    "text": "5년 적용",
+    "ko": "5년 적용",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5년",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 73.5,
+    "text": "자세한 정보는?",
+    "ko": "자세한 정보는?",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 73.5,
+    "end": 76.5,
+    "text": "캡션 or 프로필게시물!",
+    "ko": "캡션 or 프로필게시물!",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#00FFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "프로필게시물",
+    "sure": true
+   },
+   {
+    "start": 76.5,
+    "end": 78.0,
+    "text": "더 많은 차량은?",
+    "ko": "더 많은 차량은?",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 78.0,
+    "end": 80.1,
+    "text": "Follow me !",
+    "ko": "Follow me !",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Follow",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "시속 300km 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "PHEV 적용 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "톡",
+    "event": "슈퍼 SUV 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "합산 출력 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.3,
+    "type": "톡",
+    "event": "제로백 3.4초 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "URUS S-E PHEV 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.9,
+    "type": "톡",
+    "event": "컬러 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "톡",
+    "event": "휠 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.3,
+    "type": "톡",
+    "event": "스타일팩 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "톡",
+    "event": "루프 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "아크라포빅 배기음 공회전 배기 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "돈 소리",
+    "event": "아크라포빅 배기 옵션 가격 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "톡",
+    "event": "뱅앤올룹슨 옵션 가격 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.5,
+    "type": "톡",
+    "event": "실내 가죽 인테리어 옵션 가격 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.4,
+    "type": "톡",
+    "event": "Base Price 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "돈 소리",
+    "event": "Option Price 추가 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 61.4,
+    "type": "쿵",
+    "event": "Total Price 최종 합계 가격 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 73.5,
+    "type": "띵",
+    "event": "프로필게시물 안내 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 78.0,
+    "type": "띵",
+    "event": "Follow me 안내 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "세련되고 묵직한",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 35.5,
+     "what": "배기음 감상을 위해 음악 볼륨 감소"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "마음만 먹으면 시속 300km로 달릴 수 있는 차,",
+    "ko": "마음만 먹으면 시속 300km로 달릴 수 있는 차,"
+   },
+   {
+    "start": 3.6,
+    "end": 5.4,
+    "text": "저속에서는 전기모드로 주행 가능합니다.",
+    "ko": "저속에서는 전기모드로 주행 가능합니다."
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "text": "플러그인 하이브리드가 들어간 슈퍼 SUV.",
+    "ko": "플러그인 하이브리드가 들어간 슈퍼 SUV."
+   },
+   {
+    "start": 8.7,
+    "end": 13.9,
+    "text": "합산 출력 800마력 제로백 3.4초의 안녕하세요 우루스 S-E입니다.",
+    "ko": "합산 출력 800마력 제로백 3.4초의 안녕하세요 우루스 S-E입니다."
+   },
+   {
+    "start": 13.9,
+    "end": 18.2,
+    "text": "오렌지 빛깔의 아란치오 아르고스 2450만원짜리 페인트 컬러입니다.",
+    "ko": "오렌지 빛깔의 아란치오 아르고스 2450만원짜리 페인트 컬러입니다."
+   },
+   {
+    "start": 18.2,
+    "end": 21.3,
+    "text": "휠에도 동일한 색으로 악센트를 줬습니다.",
+    "ko": "휠에도 동일한 색으로 악센트를 줬습니다."
+   },
+   {
+    "start": 21.3,
+    "end": 27.5,
+    "text": "전체적인 마감은 카본 대신 하이글로스 블랙 패키지를 적용하여 깔끔하게 멋을 흐르게 했습니다.",
+    "ko": "전체적인 마감은 카본 대신 하이글로스 블랙 패키지를 적용하여 깔끔하게 멋을 흐르게 했습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "text": "무려 루프까지 유광으로 마감했지요.",
+    "ko": "무려 루프까지 유광으로 마감했지요."
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "text": "전작과 비슷한 듯하면서도 바뀐 앞과 뒤.",
+    "ko": "전작과 비슷한 듯하면서도 바뀐 앞과 뒤."
+   },
+   {
+    "start": 32.8,
+    "end": 35.5,
+    "text": "어? 아크라포빅 머플러 아닌가요 이거?",
+    "ko": "어? 아크라포빅 머플러 아닌가요 이거?"
+   },
+   {
+    "start": 35.5,
+    "end": 40.5,
+    "text": "또 풍족한 배기에 석유가 터진듯한 사운드. 이 사운드의 비용은 2900만원 되겠습니다.",
+    "ko": "또 풍족한 배기에 석유가 터진듯한 사운드. 이 사운드의 비용은 2900만원 되겠습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 46.5,
+    "text": "배기음 듣기도 바쁘지만 뱅앤올룹슨 오디오 시스템 추가하셨고요, 960만원 되겠습니다.",
+    "ko": "배기음 듣기도 바쁘지만 뱅앤올룹슨 오디오 시스템 추가하셨고요, 960만원 되겠습니다."
+   },
+   {
+    "start": 46.5,
+    "end": 55.4,
+    "text": "실내도 동일하게 아란치오 계열의 레오니스 컬러로 포인트를 준 스포르티보 레더 인테리어. 성공의 맛.. 오렌지처럼 상큼하네요.",
+    "ko": "실내도 동일하게 아란치오 계열의 레오니스 컬러로 포인트를 준 스포르티보 레더 인테리어. 성공의 맛.. 오렌지처럼 상큼하네요."
+   },
+   {
+    "start": 55.4,
+    "end": 66.2,
+    "text": "베이스 프라이스는 3억 3천만원이지만 옵션으로 1억 3천만원 가량 추가되어 이 차량의 출고 가격은 약 4억 6천만원에 육박합니다.",
+    "ko": "베이스 프라이스는 3억 3천만원이지만 옵션으로 1억 3천만원 가량 추가되어 이 차량의 출고 가격은 약 4억 6천만원에 육박합니다."
+   },
+   {
+    "start": 66.2,
+    "end": 71.0,
+    "text": "굉장하죠? 메인터넌스 패키지와 차량 보증기간은 5년으로 폭넓게 적용된,",
+    "ko": "굉장하죠? 메인터넌스 패키지와 차량 보증기간은 5년으로 폭넓게 적용된,"
+   },
+   {
+    "start": 71.0,
+    "end": 76.5,
+    "text": "이 차량에 대한 자세한 정보는 캡션 또는 프로필 게시물을 확인해 주세요.",
+    "ko": "이 차량에 대한 자세한 정보는 캡션 또는 프로필 게시물을 확인해 주세요."
+   },
+   {
+    "start": 76.5,
+    "end": 80.1,
+    "text": "더 많은 차량을 만나보시려면 팔로우 부탁드립니다.",
+    "ko": "더 많은 차량을 만나보시려면 팔로우 부탁드립니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "300km 주행 가능 및 저속 EV 60km 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 13.9,
+    "speed": "보통",
+    "summary": "우루스 SE PHEV 800마력 제원 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 13.9,
+    "end": 30.0,
+    "speed": "보통",
+    "summary": "외관 오렌지 컬러, 휠, 하이글로스 블랙팩, 루프 옵션 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 30.0,
+    "end": 55.4,
+    "speed": "보통",
+    "summary": "아크라포빅 배기음 시연 및 오디오, 실내 가죽 옵션 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 55.4,
+    "end": 66.2,
+    "speed": "보통",
+    "summary": "기본가, 옵션가 합산 총 4억 5800만원 출고가 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 66.2,
+    "end": 76.5,
+    "speed": "보통",
+    "summary": "5년 보증 설명 및 캡션/프로필 링크 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 76.5,
+    "end": 80.1,
+    "speed": "보통",
+    "summary": "팔로우 유도 CTA"
+   }
+  ],
+  "rules": [
+   "각 옵션이 나올 때마다 옵션 영문명과 정확한 원화 옵션 가격을 자막과 효과음으로 강조",
+   "실제 배기음 사운드를 들려줄 때는 배경음악 볼륨을 줄여 소리에 집중시킴",
+   "기본 가격과 옵션 가격을 더해 최종 출고가를 명확하게 영수증처럼 제시",
+   "차량의 내외관 시그니처 컬러(오렌지/블랙)에 맞춰 자막 폰트 색상을 주황색 및 노란색으로 일치시킴"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.9,
+    "end": 18.2,
+    "feature": "외장 컬러 (Arancio Argos)",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 90.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 21.3,
+    "feature": "타이게테 23인치 휠 + 컬러 액센트",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 90.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 27.5,
+    "feature": "하이글로스 블랙 스타일 팩",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "feature": "샤이니 블랙 탑 & 파노라믹 루프",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 12.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 40.5,
+    "feature": "아크라포빅 스포츠 배기 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 46.5,
+    "feature": "뱅앤올룹슨 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 90.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 55.4,
+    "feature": "아란치오 레오니스 스포르티보 가죽 인테리어",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 90.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "우루스가 주행하는 외관 영상과 함께 '마음만 먹으면 시속 300km 가능'이라는 대형 텍스트와 보이스",
+   "type": "숫자·성능",
+   "text": "마음만 먹으면 시속 300km로 달릴 수 있는 차"
+  },
+  "narration_points": [
+   {
+    "t": 1.2,
+    "point": "시속 300km 주행 가능 및 저속 EV 60km 주행",
+    "category": "성능"
+   },
+   {
+    "t": 5.4,
+    "point": "PHEV 플러그인 하이브리드 슈퍼 SUV",
+    "category": "성능"
+   },
+   {
+    "t": 8.7,
+    "point": "합산 출력 800마력, 제로백 3.4초 제원",
+    "category": "성능"
+   },
+   {
+    "t": 13.9,
+    "point": "2,450만원 상당 아란치오 아르고스 외장 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 18.2,
+    "point": "890만원 상당 타이게테 23인치 휠 및 컬러 악센트",
+    "category": "디자인"
+   },
+   {
+    "t": 21.3,
+    "point": "하이글로스 블랙 패키지 및 파노라믹 루프 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 32.8,
+    "point": "2,900만원 상당 아크라포빅 배기 머플러 사운드",
+    "category": "성능"
+   },
+   {
+    "t": 42.6,
+    "point": "960만원 상당 뱅앤올룹슨 고급 오디오",
+    "category": "편의"
+   },
+   {
+    "t": 48.0,
+    "point": "780만원 상당 아란치오 레오니스 스포르티보 가죽 실내",
+    "category": "디자인"
+   },
+   {
+    "t": 55.4,
+    "point": "기본가 3억 3천 + 옵션 1억 3천 = 총 출고가 4억 5800만원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 66.2,
+    "point": "차량 보증 및 메인터넌스 5년 적용",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 71.0,
+   "text": "캡션 or 프로필 게시물을 확인해 주세요 / 팔로우 부탁드립니다",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "옵션 작동",
+    "외관 후면",
+    "외관 측면",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "외관 후면",
+    "실내 앞",
+    "옵션 작동",
+    "실내 앞",
+    "센터 화면",
+    "외관 전면",
+    "실내 앞",
+    "옵션 작동"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "블랙/주황/노랑 텍스트 조합과 각 옵션별 정밀 견적 표기 형식 통일"
+  }
+ }
+}

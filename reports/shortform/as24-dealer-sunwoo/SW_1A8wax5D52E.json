@@ -1,0 +1,160 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/1A8wax5D52E",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2615,
+  "candidatesTokenCount": 1326,
+  "totalTokenCount": 4820,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1359
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 879,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.9,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 G클래스 브라부스 커스텀",
+   "format": "투어",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 14.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/R&B",
+   "bpm_est": 85,
+   "mood": "트렌디하고 감각적인",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.5,
+    "speed": "보통",
+    "summary": "민트/티파니 블루 풀 커스텀 가죽과 카본 센터페시아를 보여주며 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.5,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "센터콘솔에서 운전석 시트 및 브라부스 로고 헤드레스트로 부드러운 패닝"
+   },
+   {
+    "stage": "기능",
+    "start": 8.0,
+    "end": 14.9,
+    "speed": "느림",
+    "summary": "천장 전체에 시공된 롤스로이스 스타일 스타라이트(은하수) 헤드라이너 무드 연출"
+   }
+  ],
+  "rules": [
+   "자막이나 인위적인 효과음 없이 원테이크 무빙 영상과 감각적인 BGM만으로 럭셔리 커스텀 감성을 강조함",
+   "센터페시아에서 시작하여 시트를 거쳐 천장 은하수 무드등으로 자연스럽게 이어지는 수직/사선 카메라 무빙 적용"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "feature": "티파니 블루 풀 가죽 인테리어 & 카본 트림",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.0,
+    "feature": "브라부스(BRABUS) 커스텀 시트 헤드레스트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 14.9,
+    "feature": "스타라이트(은하수 무드등) 헤드라이너",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "화려한 민트색 가죽 인테리어와 카본 트림이 돋보이는 G바겐 콕핏",
+   "type": "희귀차",
+   "text": ""
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "실내 앞 센터페시아",
+    "센터콘솔",
+    "운전석 시트",
+    "천장(헤드라이너)"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "로고나 자막 틀 없이 영상 원본의 화려함과 BGM만을 강조하는 감성 숏폼 스타일"
+  }
+ }
+}
