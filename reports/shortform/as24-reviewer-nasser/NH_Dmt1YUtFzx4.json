@@ -1,0 +1,729 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Dmt1YUtFzx4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8344,
+  "candidatesTokenCount": 6158,
+  "totalTokenCount": 14718,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7181
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 216,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 78.5,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG G63 Carlex Design",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 8.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 23.9,
+    "part": "계기판",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 30.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 38.6,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 46.5,
+    "part": "실내 앞",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 52.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.6,
+    "end": 57.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 61.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 61.8,
+    "end": 67.4,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.4,
+    "end": 71.8,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 71.8,
+    "end": 75.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 75.3,
+    "end": 78.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "text": "7 أسباب يخلوك تشتري G63",
+    "ko": "G63을 사야 하는 7가지 이유",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "G63",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.5,
+    "text": "عندك فتحة سقف والحاجات العجبتني",
+    "ko": "선루프와 마음에 든 점들",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 8.5,
+    "text": "تسخين وتبريد ومساج",
+    "ko": "열선, 통풍 그리고 마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.2,
+    "text": "CUPHOLDER وتبريد وتسخين",
+    "ko": "컵홀더 온열 및 냉각",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "CUPHOLDER",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "text": "APPLE CARPLAY & ANDROID AUTO",
+    "ko": "애플 카플레이 및 안드로이드 오토",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.8,
+    "text": "OFFROAD MODE",
+    "ko": "오프로드 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 23.5,
+    "text": "دركسيون AMG الجديد",
+    "ko": "새로운 AMG 스티어링 휠",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 62.5,
+    "end": 66.5,
+    "text": "V8 577hp 850Nm",
+    "ko": "V8 577마력 850토크",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "577hp",
+    "sure": true
+   },
+   {
+    "start": 68.0,
+    "end": 71.0,
+    "text": "22\" DRILED DISCS",
+    "ko": "22인치 타공 디스크",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "22\"",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "휙",
+    "event": "타이틀 텍스트 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "시트 기능 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "카플레이 아이콘 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 문 닫는 묵직한 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 62.8,
+    "type": "쿵",
+    "event": "엔진 스펙 텍스트 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 68.2,
+    "type": "띵",
+    "event": "휠 사이즈 22인치 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너제틱하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 38.6,
+     "what": "트렁크 씬 진입 시 비트 유지 및 목소리 포커스"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.1,
+    "end": 3.5,
+    "what": "메르세데스 벤츠 로고 및 삼각별",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.5,
+    "what": "불꽃 및 마사지 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 편의사양 시각화",
+    "sure": true
+   },
+   {
+    "start": 62.5,
+    "end": 66.0,
+    "what": "577hp 입체 텍스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "출력 제원 강조",
+    "sure": true
+   },
+   {
+    "start": 75.5,
+    "end": 78.5,
+    "what": "위치 핀 그래픽",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "페이드",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "أنا ناصر، ودول 7 أسباب يخلوك تشتري G63",
+    "ko": "저는 나사르입니다. G63을 사야 하는 7가지 이유를 소개합니다."
+   },
+   {
+    "start": 3.8,
+    "end": 8.5,
+    "text": "عندك فتحة سقف، والحاجات اللي عجبتني تصميم الكراسي الجديد اللي فيها تسخين وتبريد ومساج",
+    "ko": "선루프가 있고, 마음에 드는 새 시트 디자인에는 열선, 통풍, 마사지가 들어있습니다."
+   },
+   {
+    "start": 8.6,
+    "end": 15.5,
+    "text": "شاحن وايرلس، كاب هولدرز بتبريد وتسخين، ماوس للشاشة، آبل كاربلاي وأندرويد أوتو، وساعة IWC",
+    "ko": "무선 충전기, 냉온 컵홀더, 터치 마우스, 카플레이/안드로이드 오토, IWC 스톱워치까지."
+   },
+   {
+    "start": 15.6,
+    "end": 23.8,
+    "text": "أوف رود مود بدرجات الميل، دركسيون AMG الجديد مع أزرار التحكم بالشاشات والقيادة",
+    "ko": "경사각을 보여주는 오프로드 모드, 조작 노브가 달린 신형 AMG 스티어링 휠."
+   },
+   {
+    "start": 23.9,
+    "end": 30.7,
+    "text": "الكنبة الخلفية بتسخين وشعار كارليكس، سقف ألكنتارا، نظام صوت بورمستر وشاشات ترفيه",
+    "ko": "열선과 카렉스 로고가 들어간 2열 시트, 알칸타라 천장, 부메스터 오디오와 엔터테인먼트 스크린."
+   },
+   {
+    "start": 30.8,
+    "end": 38.5,
+    "text": "شنطة عملاقة بتبطين ألكنتارا وسماعات، وهاندل مسك... قمة في الدلع",
+    "ko": "알칸타라 마감의 거대한 트렁크와 스피커, 손잡이까지... 최고의 럭셔리입니다."
+   },
+   {
+    "start": 38.6,
+    "end": 46.4,
+    "text": "دي مش G عادية، تعديل كارليكس بمناسبة 40 سنة على G-Class مع كتابات خاصة",
+    "ko": "평범한 G바겐이 아닌 카렉스 튜닝 모델로, G클래스 40주년 기념 레터링이 들어갔습니다."
+   },
+   {
+    "start": 46.5,
+    "end": 57.5,
+    "text": "مخارج هواء عشان الضغط وقت قفل الباب، 3 دفلوكات ونظام تعليق وتصفيح يمشي في أي مكان",
+    "ko": "문 닫을 때 압력을 빼주는 에어 벤트, 3개의 디퍼렌셜 락과 하부 보호판으로 어디든 갑니다."
+   },
+   {
+    "start": 57.6,
+    "end": 67.3,
+    "text": "الشكمان ماشي تحت العربية، وموتور V8 بايتيربو 577 حصان و850 نيوتن متر",
+    "ko": "측면 배기구 파이프와 577마력, 850Nm의 V8 바이터보 엔진."
+   },
+   {
+    "start": 67.4,
+    "end": 75.2,
+    "text": "جنوط 22 إنش ودسكات مخرمة، وأجمل حاجة هو شكل الصندوق الشهير",
+    "ko": "22인치 휠과 타공 디스크, 그리고 가장 멋진 특유의 각진 박스형 디자인입니다."
+   },
+   {
+    "start": 75.3,
+    "end": 78.5,
+    "text": "وتلاقيهم في V Room مجمع البنوك التجمع الخامس",
+    "ko": "뉴카이로 제5정착지 은행단지 내 V-Room 매장에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "G63을 사야 하는 7가지 이유 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.8,
+    "end": 15.5,
+    "speed": "빠름",
+    "summary": "실내 오렌지 인테리어 및 1열 편의사양"
+   },
+   {
+    "stage": "기능",
+    "start": 15.6,
+    "end": 30.7,
+    "speed": "보통",
+    "summary": "오프로드 디스플레이, 스티어링 휠, 2열 공간"
+   },
+   {
+    "stage": "사양",
+    "start": 30.8,
+    "end": 57.5,
+    "speed": "빠름",
+    "summary": "트렁크, 카렉스 에디션 디테일, 3 디프락 시스템"
+   },
+   {
+    "stage": "기능",
+    "start": 57.6,
+    "end": 75.2,
+    "speed": "빠름",
+    "summary": "배기 라인, V8 엔진 제원, 22인치 휠 디자인"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 75.3,
+    "end": 78.5,
+    "speed": "보통",
+    "summary": "차량 전시 매장 위치 소개 및 마무리"
+   }
+  ],
+  "rules": [
+   "진행자의 신속한 손짓과 시선 이동에 맞춰 카메라가 디테일을 즉각 클로즈업한다",
+   "화려한 오렌지 가죽 내장재와 대비되는 화이트/블랙 박스 자막 스티커를 중앙 하단에 배치한다",
+   "중요 제원(마력, 토크, 인치)은 화면 중앙에 볼드한 영문 텍스트와 숫자로 팝업한다",
+   "각 옵션 설명마다 아이콘과 짧은 타이틀 텍스트를 직관적으로 결합해 지루함을 줄인다",
+   "차량 부위를 빠르게 짚고 넘어가는 템포감 있는 숏컷 전환을 유지한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.0,
+    "end": 8.5,
+    "feature": "시트 열선/통풍/마사지",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "불꽃 및 마사지 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.2,
+    "feature": "냉온 컵홀더 및 무선 충전",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음",
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 19.0,
+    "feature": "오프로드 주행 디스플레이",
+    "shown_how": "화면 분할",
+    "icon_desc": "오프로드 모드 영문 자막",
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.8,
+    "feature": "AMG 스티어링 휠 주행모드 셀렉터 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음",
+    "x_pct": 65.0,
+    "y_pct": 75.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 52.8,
+    "feature": "트리플 디퍼렌셜 락(3x Diff Locks)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "3X DEFLOCKS 글자 스티커",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전시장에 세워진 블랙 G63 앞에서 리뷰어가 7가지 구매 이유를 말하며 오프닝",
+   "type": "숫자·성능",
+   "text": "أنا ناصر، ودول 7 أسباب يخلوك تشتري G63",
+   "ko": "저는 나사르입니다. G63을 사야 하는 7가지 이유!"
+  },
+  "narration_points": [
+   {
+    "t": 6.5,
+    "point": "화려한 오렌지 가죽 버킷 시트에 열선, 통풍, 마사지 기능 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 13.0,
+    "point": "애플 카플레이, 안드로이드 오토 및 IWC 전용 스톱워치 내장",
+    "category": "디자인"
+   },
+   {
+    "t": 17.5,
+    "point": "차량 기울기와 서스펜션 정보를 실시간 표기하는 오프로드 모드",
+    "category": "성능"
+   },
+   {
+    "t": 27.5,
+    "point": "2열 알칸타라 천장 마감과 부메스터 프리미엄 사운드 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 42.5,
+    "point": "G클래스 40주년 기념 Carlex Design 스페셜 튜닝 디테일",
+    "category": "희소성"
+   },
+   {
+    "t": 48.0,
+    "point": "문 닫을 때 내부 공기압으로 유리가 깨지지 않도록 설계된 에어 벤트",
+    "category": "안전"
+   },
+   {
+    "t": 51.5,
+    "point": "전/중/후 3개의 기계식 디퍼렌셜 락과 하부 언더바디 보호판",
+    "category": "성능"
+   },
+   {
+    "t": 63.5,
+    "point": "577마력, 850Nm 토크를 뿜어내는 4.0L V8 바이터보 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 69.5,
+    "point": "거대한 브레이크 캘리퍼와 조합된 22인치 휠 및 상징적인 박스형 외관",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 76.0,
+   "text": "وتلاقيهم في V Room مجمع البنوك التجمع الخامس",
+   "ko": "뉴카이로 은행단지 V Room 전시장에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "옵션 작동",
+    "센터 화면",
+    "계기판",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면",
+    "실내 앞",
+    "외관 후면",
+    "외관 측면",
+    "엔진룸",
+    "휠",
+    "외관 전면"
+   ]
+  }
+ }
+}
