@@ -1,0 +1,583 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/Z1i_Pad3xmk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5559,
+  "candidatesTokenCount": 5121,
+  "totalTokenCount": 10680,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4817
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 52.8,
+   "aspect": "9:16",
+   "car": "Volkswagen ID. 2all Concept",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 18.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 24.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 29.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 35.1,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 46.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 52.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "DAS HATTE VW EIGENTLICH ABGESCHAFFT",
+    "ko": "폭스바겐이 사실상 없앴던 것",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "IN DEN LETZTEN",
+    "ko": "지난 몇",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LETZTEN",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "JAHREN WAREN VOLKSWAGEN",
+    "ko": "년 동안 폭스바겐 고객들은",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLKSWAGEN",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "DASS VOLKSWAGEN HIER",
+    "ko": "폭스바겐이 여기서",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLKSWAGEN",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.4,
+    "text": "LÄNGST ABGESCHAFFT HABEN",
+    "ko": "진작에 없앴던 것들을",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HABEN",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "NATÜRLICH AUFFÄLLT",
+    "ko": "당연히 눈에 띄는 것은",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUFFÄLLT",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "BEDIENTASTEN AM LENKRAD",
+    "ko": "스티어링 휠의 조작 버튼들",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LENKRAD",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "text": "IHR HÖRT'S SCHON HIER",
+    "ko": "여기서 이미 들리시죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HIER",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "text": "SICH WIEDER WAS",
+    "ko": "다시 돌아왔습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WAS",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.8,
+    "text": "KEIN SLIDEN",
+    "ko": "슬라이드 터치 없음",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SLIDEN",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "text": "WIR HABEN WIEDER",
+    "ko": "다시 들어왔습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIEDER",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.8,
+    "text": "ALLE VIER FENSTERHEBER",
+    "ko": "4개 윈도우 스위치 모두",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FENSTERHEBER",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "text": "TEXTILBEZÜGE HIER AUF",
+    "ko": "직물 마감이 적용된",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TEXTILBEZÜGE",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.6,
+    "text": "SEHR SCHÖN GEMACHT",
+    "ko": "매우 잘 만들어졌습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEMACHT",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "KEIN KLAVIERLACK MEHR",
+    "ko": "더 이상 피아노 블랙이 아닌",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KLAVIERLACK",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.0,
+    "text": "DIE HELLE INNENAUSSTATTUNG",
+    "ko": "밝은 실내 인테리어",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "INNENAUSSTATTUNG",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "text": "HOCHWERTIGES GEFÜHL",
+    "ko": "고급스러운 느낌",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEFÜHL",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.0,
+    "text": "ENDLICH WIEDER ALLES RICHTIG",
+    "ko": "드디어 모든 것을 제대로",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RICHTIG",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.8,
+    "text": "SCHREIBT'S MAL UNTEN",
+    "ko": "댓글로 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "UNTEN",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 8.0,
+    "type": "딸깍",
+    "event": "스티어링 휠 물리 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "딸깍",
+    "event": "물리 버튼 클릭음 연타",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "딸깍",
+    "event": "창문 스위치 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "딸깍",
+    "event": "센터 콘솔 무광 패널 손가락으로 두드림",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 90,
+   "mood": "경쾌하고 리듬감 있음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "In den letzten Jahren waren Volkswagen Kunden so sauer, dass Volkswagen hier Dinge gemacht hat, die sie eigentlich längst abgeschafft haben.",
+    "ko": "최근 몇 년 동안 폭스바겐 고객들은 폭스바겐이 사실상 없애버렸던 것들 때문에 크게 불만을 품었습니다."
+   },
+   {
+    "start": 5.4,
+    "end": 12.8,
+    "text": "Das erste, was natürlich auffällt, sind die richtigen Bedientasten am Lenkrad. Ihr hört's schon hier. Da tut sich wieder was. Kein Sliden und Wischen.",
+    "ko": "가장 먼저 눈에 띄는 것은 스티어링 휠의 진짜 조작 버튼입니다. 들리시죠? 다시 돌아왔습니다. 슬라이드나 스와이프가 아닙니다."
+   },
+   {
+    "start": 12.8,
+    "end": 18.8,
+    "text": "Von diesen zwei Schaltern hatte man sich eigentlich verabschiedet, aber sie sind zurück. Wir haben wieder vier Schalter für alle vier Fensterheber.",
+    "ko": "원래 두 개 스위치와 작별했었지만 돌아왔습니다. 이제 4개 윈도우 스위치가 모두 온전히 들어갔습니다."
+   },
+   {
+    "start": 18.8,
+    "end": 24.6,
+    "text": "Und wenn man sich hier umschaut, findet man neuen Kunststoff, Textilbezüge hier auf dem Armaturenbrett, sogar hier oben. Sehr schön gemacht.",
+    "ko": "주변을 둘러보면 새로운 플라스틱 소재와 대시보드 위 직물 마감을 볼 수 있습니다. 매우 잘 마감되었습니다."
+   },
+   {
+    "start": 24.6,
+    "end": 34.5,
+    "text": "Echte Schalter in der Mittelkonsole und vor allem hier in der Mitte kein Klavierlack mehr, sondern dieses matte Material. Scheint mir auf jeden Fall deutlich weniger kratzeranfällig zu sein als zuvor.",
+    "ko": "센터 콘솔의 물리 스위치, 그리고 특히 중앙에 피아노 블랙 대신 무광 소재가 적용되어 이전보다 흠집에 훨씬 덜 취약해 보입니다."
+   },
+   {
+    "start": 34.5,
+    "end": 46.8,
+    "text": "Die helle Innenausstattung in Kombination hier mit den dunklen Akzenten, hellem Stoff hier auch im Cockpit, leider nicht für den Einstieg verfügbar, aber finde ich, gibt dem Ganzen gerade hier in den Sitzen ein sehr, sehr hochwertiges Gefühl.",
+    "ko": "어두운 포인트와 조합된 밝은 실내 인테리어와 콕핏의 밝은 패브릭은 비록 기본 사양은 아니지만, 시트 전반에 걸쳐 아주 고급스러운 느낌을 줍니다."
+   },
+   {
+    "start": 46.8,
+    "end": 52.8,
+    "text": "Was sagt ihr dazu? Hat Volkswagen hier endlich wieder alles richtig gemacht oder doch etwa nicht? Schreibt's mal unten in die Kommentare.",
+    "ko": "여러분은 어떻게 생각하시나요? 폭스바겐이 이번에 마침내 올바른 선택을 한 걸까요, 아니면 아닐까요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "보통",
+    "summary": "폭스바겐이 고객 불만을 수용해 부활시킨 기능들 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "스티어링 휠의 물리 버튼 부활 소개 및 조작 클릭음 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 12.8,
+    "end": 18.8,
+    "speed": "보통",
+    "summary": "도어 트림에 부활한 4개 개별 윈도우 스위치"
+   },
+   {
+    "stage": "차 소개",
+    "start": 18.8,
+    "end": 35.1,
+    "speed": "보통",
+    "summary": "대시보드 패브릭 소재, 센터 콘솔 물리 버튼 및 무광 패널 개선점"
+   },
+   {
+    "stage": "차 소개",
+    "start": 35.1,
+    "end": 46.8,
+    "speed": "보통",
+    "summary": "밝은 톤의 시트와 실내 내장재 퀄리티 호평"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 46.8,
+    "end": 52.8,
+    "speed": "보통",
+    "summary": "시청자에게 의견을 묻는 마무리와 댓글 유도"
+   }
+  ],
+  "rules": [
+   "자막 키워드는 노란색 하이라이트 단어로 강조",
+   "1인칭 시점(POV)으로 직접 손가락으로 만지고 조작하는 모습을 생생하게 노출",
+   "버튼 클릭음 및 소재 두드리는 소리를 증폭하여 촉각적 만족감 전달",
+   "마무리는 시청자의 찬반 의견을 묻는 질문으로 인터랙션 극대화"
+  ]
+ }
+}

@@ -1,0 +1,233 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/k2M61bkSD6M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1646,
+  "candidatesTokenCount": 1933,
+  "totalTokenCount": 5121,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 904
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1542,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.5,
+   "aspect": "9:16",
+   "car": "VW (폭스바겐 신형 전기차 라인업)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 6.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 9.5,
+    "text": "POV: VW hat endlich die Kommentare gelesen",
+    "ko": "POV: 폭스바겐이 드디어 댓글들을 읽었다",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 9.5,
+    "text": "Stromverbrauch kombiniert (kWh/100 km): 15,8-14,4\nCO2-Emission kombiniert (g/km): 0\nCO2-Klasse: A",
+    "ko": "복합 전력 소비량 (kWh/100 km): 15.8-14.4 / CO2 배출량: 0 g/km",
+    "kind": "기타",
+    "y_pct": 92.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문 닫히는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 1.4,
+    "type": "딸깍",
+    "event": "물리 회전 다이얼 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.0,
+    "type": "딸깍",
+    "event": "다이얼 중앙 누름 클릭음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "딸깍",
+    "event": "스티어링 휠 물리 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "딸깍",
+    "event": "스티어링 휠 물리 버튼 연속 클릭",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.2,
+    "type": "딸깍",
+    "event": "스티어링 휠 물리 버튼 하단 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.1,
+    "type": "딸깍",
+    "event": "도어 윈도우 스위치 개별 조작음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "딸깍",
+    "event": "도어 윈도우 스위치 연속 클릭",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "톡",
+    "event": "센터 콘솔 소재 손가락 태핑 ASMR",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "현장감 있는 ASMR",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 0.9,
+    "speed": "빠름",
+    "summary": "차 문을 닫고 탑승하며 호기심 유발"
+   },
+   {
+    "stage": "기능",
+    "start": 0.9,
+    "end": 7.9,
+    "speed": "빠름",
+    "summary": "댓글 피드백으로 개선된 다이얼, 스티어링 버튼, 윈도우 스위치 조작 ASMR"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.9,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "실내 전경과 함께 만족감을 나타내는 엄지척 제스처"
+   }
+  ],
+  "rules": [
+   "배경음악과 음성 내레이션 없이 버튼과 다이얼의 선명한 조작 ASMR로 집중도 유도",
+   "상단에 상황 설명용 POV 자막을 영상 내내 고정 노출하여 메시지 명확화",
+   "기존 터치 패널의 불만 사항이던 물리 버튼 복귀 포인트를 짧은 컷으로 템포감 있게 연결",
+   "마지막 컷에서 엄지척 제스처로 리뷰어의 긍정적 평가를 직관적으로 전달"
+  ]
+ }
+}

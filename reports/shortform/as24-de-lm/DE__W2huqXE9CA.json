@@ -1,0 +1,170 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/_W2huqXE9CA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2282,
+  "candidatesTokenCount": 1449,
+  "totalTokenCount": 4278,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1540
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 547,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 16.8,
+   "aspect": "9:16",
+   "car": "BMW M2",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 6.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 16.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 16.8,
+    "text": "BMW M2",
+    "ko": "BMW M2",
+    "kind": "제목",
+    "y_pct": 86.5,
+    "x_center_pct": 31.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 100.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "수동 변속기 기어 체결음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "수동 변속기 조작 딸깍음",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 앰비언트",
+   "bpm_est": 118,
+   "mood": "차분하고 현대적인",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 16.8,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 18.0,
+    "y_pct": 7.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 16.8,
+    "what": "하단 공식 연비 및 배출량 고지문",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 96.0,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.6,
+    "text": "Wir haben hier noch einen echten Schalthebel, 6-Gang-Schaltgetriebe in diesem M2.",
+    "ko": "이 M2에는 아직 진짜 기어 레버인 6단 수동변속기가 장착되어 있습니다."
+   },
+   {
+    "start": 6.6,
+    "end": 12.0,
+    "text": "Optional, bzw. nicht optional, serienmäßig, BMW hat das umgedreht, serienmäßig 8-Stufen-Automatik",
+    "ko": "옵션이 아니라, 기본 사양으로, BMW가 순서를 바꿔서 8단 자동변속기가 기본이고,"
+   },
+   {
+    "start": 12.0,
+    "end": 16.8,
+    "text": "und optional, kostet Aufpreis, 500 Euro, das 6-Gang-Handschaltgetriebe.",
+    "ko": "6단 수동변속기는 500유로의 추가 비용이 드는 옵션입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "기능",
+    "start": 0.0,
+    "end": 6.6,
+    "speed": "보통",
+    "summary": "BMW M2의 6단 수동 기어노브 조작 및 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 6.6,
+    "end": 16.8,
+    "speed": "보통",
+    "summary": "자동이 기본이고 수동이 500유로 옵션이라는 정책 설명"
+   }
+  ],
+  "rules": [
+   "진행자가 말하는 핵심 대상(기어 레버)을 빠르게 인서트 컷으로 확대하여 시각적 직관성을 높임",
+   "상단에 브랜드 로고, 하단에 모델명 바를 고정 배치하여 일관된 템플릿 유지",
+   "화면 하단에 유럽 법규에 맞춘 공인 연비 및 CO2 배출량 정보를 상시 표기"
+  ]
+ }
+}

@@ -1,0 +1,299 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/YRk47IjqJ9s",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2111,
+  "candidatesTokenCount": 2643,
+  "totalTokenCount": 5570,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1369
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 816,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.6,
+   "aspect": "9:16",
+   "car": "Alfa Romeo Spider",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.6,
+    "end": 2.4,
+    "text": "Wie ist er denn so, dein neuer Romeo?",
+    "ko": "새로 만난 로미오는 어때?",
+    "kind": "말 자막",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "neuer Romeo?",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.7,
+    "text": "Papa, der ist geil!",
+    "ko": "아빠, 완전 끝내줘!",
+    "kind": "말 자막",
+    "y_pct": 63.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Papa, geil!",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 5.5,
+    "text": "Hab ich aus dem Internet.",
+    "ko": "인터넷에서 구했거든.",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Internet.",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.3,
+    "text": "Das Auto zum Verlieben findest du bei uns.",
+    "ko": "첫눈에 반할 차는 여기서 찾을 수 있어요.",
+    "kind": "말 자막",
+    "y_pct": 72.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Auto du",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 10.5,
+    "text": "Wenn Auto kaufen, dann AutoScout24.",
+    "ko": "차를 살 땐, 오토스카우트24.",
+    "kind": "말 자막",
+    "y_pct": 81.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Wenn dann AutoScout24.",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "컨버터블 전동 소프트탑 열리는 모터 구동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "알파로메오 주행 배기음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "띵",
+    "event": "오토스카우트24 브랜드 징글 사운드",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "어쿠스틱 팝 / 상업 징글",
+   "bpm_est": 115,
+   "mood": "유쾌함, 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 5.5,
+     "what": "자동차 등장과 함께 경쾌한 비트 및 어쿠스틱 스트럼 시작"
+    },
+    {
+     "t": 11.2,
+     "what": "브랜드 징글 보컬('Wenn Auto... dann AutoScout24')로 연결"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 7.4,
+    "what": "AutoScout24 로고 워터마크",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 5.0,
+    "y_pct": 33.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "what": "AutoScout24 최종 타이틀 카드 및 웹사이트 주소",
+    "is_3d": false,
+    "size_w_pct": 82.0,
+    "x_pct": 9.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.6,
+    "end": 2.4,
+    "text": "Wie ist er denn so, dein neuer Romeo?",
+    "ko": "새로 만난 로미오는 어때?"
+   },
+   {
+    "start": 2.4,
+    "end": 4.7,
+    "text": "Papa, der ist geil!",
+    "ko": "아빠, 진짜 끝내줘!"
+   },
+   {
+    "start": 4.7,
+    "end": 5.6,
+    "text": "Hab ich aus dem Internet.",
+    "ko": "인터넷에서 찾았어."
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "text": "Das Auto zum Verlieben findest du bei uns.",
+    "ko": "첫눈에 반할 자동차를 여기서 찾아보세요."
+   },
+   {
+    "start": 7.8,
+    "end": 11.0,
+    "text": "Wenn Auto kaufen, dann AutoScout24.",
+    "ko": "차를 살 땐, 오토스카우트24."
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "text": "Wenn Auto, dann AutoScout24.",
+    "ko": "차를 생각할 땐, 오토스카우트24."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.5,
+    "speed": "보통",
+    "summary": "딸의 새로운 연인(로미오)에 대해 묻는 아버지와 유쾌한 반전 대화"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.5,
+    "end": 11.2,
+    "speed": "빠름",
+    "summary": "로미오가 알파로메오 컨버터블임을 보여주며 신나게 드라이빙"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 11.2,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "브랜드 슬로건 및 공식 웹사이트 URL 노출과 징글"
+   }
+  ],
+  "rules": [
+   "단어 유희(로미오 = 알파로메오)를 활용한 위트 있는 훅 구성",
+   "화이트 자막에 브랜드 시그니처 옐로우 컬러로 핵심 키워드를 하이라이트",
+   "스토리텔링 후 경쾌한 음악 및 브랜드 징글로 자연스러운 전환"
+  ]
+ }
+}

@@ -1,0 +1,564 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/VGX9Iyg2n8c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6193,
+  "candidatesTokenCount": 5060,
+  "totalTokenCount": 12099,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5451
+   }
+  ],
+  "thoughtsTokenCount": 846,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.6,
+   "aspect": "9:16",
+   "car": "BMW 750iL (E38)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 12.6,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 22.3,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 33.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 37.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 40.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.3,
+    "end": 43.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.4,
+    "end": 45.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.9,
+    "end": 47.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 53.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 59.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Es ist 1998 und du hast gerade",
+    "ko": "지금은 1998년, 당신은 방금",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "1998",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.8,
+    "text": "deine erste Urlaubsfahrt mit deinem neuen BMW 750iL in die Toskana absolviert.",
+    "ko": "새 BMW 750iL을 타고 토스카나로 떠난 첫 휴가 드라이브를 마쳤습니다.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "BMW 750iL",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 12.6,
+    "text": "Unter der Haube steckt ein 326 PS starker V12-Sauger mit absoluter Laufruhe.",
+    "ko": "보닛 아래에는 최고출력 326마력의 부드러운 V12 자연흡기 엔진이 탑재되어 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "V12",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 22.3,
+    "text": "Ein 7er E38 ist genau das, was du suchst, aber es muss nicht unbedingt ein Zwölfzylinder sein. Auf AutoScout24 findest du gute Angebote schon für unter 6.000 €.",
+    "ko": "7시리즈 E38은 당신이 찾던 바로 그 차지만, 꼭 12기통일 필요는 없습니다. 오토스카우트24에서는 6천 유로 미만 매물도 찾을 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "6.000 €",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 28.9,
+    "text": "Hinein in die gute Stube, vorbei am verpixelten Bordcomputer, hin zum ersten Großserien-Kartennavi",
+    "ko": "실내로 들어가 픽셀 깨진 온보드 컴퓨터를 지나 최초의 양산형 지도 내비게이션으로,",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Großserien-",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 33.7,
+    "text": "und weiter zum Autotelefon, mit dem dich Oma Erna auch im Urlaub immer erreichen kann.",
+    "ko": "그리고 휴가 중에도 에르나 할머니가 연락할 수 있는 차량용 전화기까지.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Autotelefon,",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 40.0,
+    "text": "Karl-Heinz, deinen Fahrer, hast du zu Hause gelassen, also genießt du den langen Radstand nur im Stand.",
+    "ko": "운전기사 카를-하인츠를 집에 두고 와서 롱휠베이스의 여유는 정차 중에만 만끽합니다.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "nur im Stand.",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 45.9,
+    "text": "Fond-Klima: Check. Ausziehtischchen: Check. Ein Clipboard? Na ja, Check.",
+    "ko": "뒷좌석 에어컨: 체크. 접이식 테이블: 체크. 클립보드? 뭐, 체크.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Check.",
+    "sure": true
+   },
+   {
+    "start": 45.9,
+    "end": 53.6,
+    "text": "Das Separee verdunkelst du mit Rollos. Und deine Kinder lieben es, über die mächtige Konsole in der Mittelarmlehne jeden möglichen Unfug anzustellen.",
+    "ko": "선블라인드로 프라이빗 공간을 만들고, 아이들은 뒷좌석 암레스트 콘솔을 마구 만지작거리길 좋아하죠.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Mittelarmlehne",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 59.6,
+    "text": "Alles andere als Unfug ist die Fahrzeugbewertung auf AutoScout24. Finde sofort heraus, was dein Auto wert ist.",
+    "ko": "장난이 아닌 것은 바로 오토스카우트24의 내 차 시세 평가입니다. 지금 내 차의 가치를 즉시 확인해보세요.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "딸깍",
+    "event": "차 키 잠금 해제 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "보닛 후드 레버 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전석 도어 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "딸깍",
+    "event": "차량용 전화기 수화기 분리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "뒷좌석 도어 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "뒷좌석 도어 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "딸깍",
+    "event": "시트백 접이식 테이블 펼침",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "측면 수동 선블라인드 올림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.3,
+    "type": "딸깍",
+    "event": "암레스트 버튼 조작",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi Hip-Hop / 90s Chillout",
+   "bpm_est": 88,
+   "mood": "향수적이고 편안함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 12.6,
+    "end": 22.3,
+    "what": "AutoScout24 앱 중고차 매물 검색 스크린샷 화면",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "시세 정보 전달",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 59.6,
+    "what": "AutoScout24 내차 시세 조회 (Fahrzeugbewertung) 화면",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "서비스 홍보 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Es ist 1998 und du hast gerade",
+    "ko": "지금은 1998년, 당신은 방금"
+   },
+   {
+    "start": 2.1,
+    "end": 6.8,
+    "text": "deine erste Urlaubsfahrt mit deinem neuen BMW 750iL in die Toskana absolviert.",
+    "ko": "새 BMW 750iL을 타고 토스카나로 떠난 첫 휴가 드라이브를 마쳤습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 12.6,
+    "text": "Unter der Haube steckt ein 326 PS starker V12-Sauger mit absoluter Laufruhe.",
+    "ko": "보닛 아래에는 최고출력 326마력의 부드러운 V12 자연흡기 엔진이 탑재되어 있습니다."
+   },
+   {
+    "start": 12.6,
+    "end": 22.3,
+    "text": "Ein 7er E38 ist genau das, was du suchst, aber es muss nicht unbedingt ein Zwölfzylinder sein. Auf AutoScout24 findest du gute Angebote schon für unter 6.000 €.",
+    "ko": "7시리즈 E38은 당신이 찾던 바로 그 차지만, 꼭 12기통일 필요는 없습니다. 오토스카우트24에서는 6천 유로 미만 매물도 찾을 수 있습니다."
+   },
+   {
+    "start": 22.3,
+    "end": 28.9,
+    "text": "Hinein in die gute Stube, vorbei am verpixelten Bordcomputer, hin zum ersten Großserien-Kartennavi",
+    "ko": "실내로 들어가 픽셀 깨진 온보드 컴퓨터를 지나 최초의 양산형 지도 내비게이션으로,"
+   },
+   {
+    "start": 28.9,
+    "end": 33.7,
+    "text": "und weiter zum Autotelefon, mit dem dich Oma Erna auch im Urlaub immer erreichen kann.",
+    "ko": "그리고 휴가 중에도 에르나 할머니가 연락할 수 있는 차량용 전화기까지."
+   },
+   {
+    "start": 33.7,
+    "end": 40.0,
+    "text": "Karl-Heinz, deinen Fahrer, hast du zu Hause gelassen, also genießt du den langen Radstand nur im Stand.",
+    "ko": "운전기사 카를-하인츠를 집에 두고 와서 롱휠베이스의 여유는 정차 중에만 만끽합니다."
+   },
+   {
+    "start": 40.0,
+    "end": 45.9,
+    "text": "Fond-Klima: Check. Ausziehtischchen: Check. Ein Clipboard? Na ja, Check.",
+    "ko": "뒷좌석 에어컨: 체크. 접이식 테이블: 체크. 클립보드? 뭐, 체크."
+   },
+   {
+    "start": 45.9,
+    "end": 53.6,
+    "text": "Das Separee verdunkelst du mit Rollos. Und deine Kinder lieben es, über die mächtige Konsole in der Mittelarmlehne jeden möglichen Unfug anzustellen.",
+    "ko": "선블라인드로 프라이빗 공간을 만들고, 아이들은 뒷좌석 암레스트 콘솔을 마구 만지작거리길 좋아하죠."
+   },
+   {
+    "start": 53.6,
+    "end": 59.6,
+    "text": "Alles andere als Unfug ist die Fahrzeugbewertung auf AutoScout24. Finde sofort heraus, was dein Auto wert ist.",
+    "ko": "장난이 아닌 것은 바로 오토스카우트24의 내 차 시세 평가입니다. 지금 내 차의 가치를 즉시 확인해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "1998년 과거 회상 콘셉트와 BMW 750iL 외관 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 6.8,
+    "end": 12.6,
+    "speed": "보통",
+    "summary": "326마력 V12 자연흡기 엔진 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 12.6,
+    "end": 22.3,
+    "speed": "보통",
+    "summary": "AutoScout24 앱에서 E38 7시리즈 중고 시세 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 22.3,
+    "end": 33.7,
+    "speed": "보통",
+    "summary": "1열 클래식 옵션(내비게이션, 온보드 컴퓨터, 차량 전화기) 리뷰"
+   },
+   {
+    "stage": "기능",
+    "start": 33.7,
+    "end": 53.6,
+    "speed": "보통",
+    "summary": "2열 리무진 럭셔리 기능(테이블, 블라인드, 다기능 암레스트) 체크"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 53.6,
+    "end": 59.6,
+    "speed": "빠름",
+    "summary": "AutoScout24 내차 시세 평가(Fahrzeugbewertung) 유도"
+   }
+  ],
+  "rules": [
+   "시대극 형식의 롤플레잉(1998년 여름 휴가) 훅으로 시청자의 감성과 몰입을 유도함",
+   "말하는 핵심 단어마다 노란색 하이라이트 자막을 적용해 가독성을 높임",
+   "도어 여닫힘, 키 버튼 클릭, 테이블 펼침 등 실제 차량 조작 효과음(Foley)을 자연스럽게 살려 현장감을 부여함",
+   "중간과 엔딩에서 자연스럽게 중고차 매물 검색 및 차량 무료 평가 서비스로 연결되는 스폰서 브랜디드 구성"
+  ]
+ }
+}

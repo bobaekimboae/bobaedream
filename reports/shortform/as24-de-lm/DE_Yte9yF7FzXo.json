@@ -1,0 +1,421 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/Yte9yF7FzXo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5296,
+  "candidatesTokenCount": 4609,
+  "totalTokenCount": 11358,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4554
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1453,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.5,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz E 500 (W212)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "part": "외관 후면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 15.5,
+    "part": "외관 후면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 33.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 42.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 50.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Jürgen Trittin von den Grünen hat mal gesagt,",
+    "ko": "녹색당 위르겐 트리틴이 말했었죠,",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.1,
+    "text": "uns nicht mehr kosten als eine Kugel Eis.",
+    "ko": "아이스크림 한 스쿱보다 비싸지 않을 거라고요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.1,
+    "text": "Das war, glaube ich, eine Täuschung.",
+    "ko": "그건 제 생각에 속임수였던 것 같네요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.5,
+    "text": "Ja, genau wie dieses Auto.",
+    "ko": "네, 바로 이 차처럼요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.4,
+    "text": "Manche denken, dass ist ein E200.",
+    "ko": "어떤 사람들은 이게 E200이라고 생각하죠.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.0,
+    "text": "Ist es aber nicht. Ist ein E500",
+    "ko": "하지만 아닙니다. E500입니다.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.3,
+    "text": "mit 408 PS, 600 Newtonmetern.",
+    "ko": "408마력, 600Nm의 토크를 내죠.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.3,
+    "end": 15.5,
+    "text": "Der geht wie die Hölle in dezent.",
+    "ko": "얌전한 외모지만 미친 듯이 잘 나갑니다.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 19.8,
+    "text": "einen klassischen Sleeper gebaut. Was ist ein Sleeper?",
+    "ko": "클래식한 슬리퍼카를 만들었죠. 슬리퍼카가 뭐냐고요?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "text": "Ein dezentes Auto mit richtig Leistung",
+    "ko": "얌전해 보이지만 성능은 엄청난 차를 말하죠.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 27.9,
+    "text": "mega selten. Weil es ist ein E500 mit reinem Heckantrieb",
+    "ko": "정말 보기 드문 차예요. 후륜구동 E500 모델이거든요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.9,
+    "end": 31.6,
+    "text": "wie ein Schäfchen.",
+    "ko": "생긴 건 순한 양 같은데 말이죠.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.7,
+    "text": "Schade, dass es sowas nicht mehr gibt.",
+    "ko": "이런 차가 더 이상 안 나온다는 게 아쉽네요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.6,
+    "text": "aktiviert die Suchfunktion bei uns bei AutoScout24.",
+    "ko": "저희 AutoScout24에서 검색 기능을 활성화해 보세요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Lo-fi Hip-hop",
+   "bpm_est": 85,
+   "mood": "여유롭고 차분함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "Jürgen Trittin von den Grünen hat mal gesagt, die Energiewende wird uns nicht mehr kosten als eine Kugel Eis.",
+    "ko": "녹색당의 위르겐 트리틴은 에너지 전환에 아이스크림 한 덩이 값도 들지 않을 거라고 말했었죠."
+   },
+   {
+    "start": 4.1,
+    "end": 7.5,
+    "text": "Das war, glaube ich, eine Täuschung. Ja, genau wie dieses Auto.",
+    "ko": "그건 제 생각에 속임수였습니다. 네, 바로 이 차처럼요."
+   },
+   {
+    "start": 7.5,
+    "end": 14.5,
+    "text": "Manche denken, das ist ein E200. Ist es aber nicht. Ist ein E500 mit 408 PS, 600 Newtonmetern. Der geht wie die Hölle in dezent.",
+    "ko": "어떤 이들은 이게 E200이라고 생각하지만, 아닙니다. 408마력, 600Nm의 E500입니다. 얌전해 보여도 괴물처럼 달리죠."
+   },
+   {
+    "start": 15.5,
+    "end": 22.8,
+    "text": "Ich glaube ein bisschen ungewollt hat Mercedes hier einen klassischen Sleeper gebaut. Was ist ein Sleeper? Ein dezentes Auto mit richtig Leistung und das ist hier so.",
+    "ko": "메르세데스가 의도치 않게 전형적인 슬리퍼를 만든 것 같습니다. 슬리퍼가 뭐냐고요? 점잖은 외관에 엄청난 성능을 지닌 차인데, 이 차가 바로 그렇습니다."
+   },
+   {
+    "start": 23.0,
+    "end": 33.7,
+    "text": "Übrigens dieses Autos ist mega selten. Weil es ist ein E500 mit reinem Heckantrieb ist kein 4matic. Ja, geht wie die Hölle und sieht aus wie ein Schäfchen. Schade, dass es sowas nicht mehr gibt.",
+    "ko": "참고로 이 차는 정말 귀합니다. 4매틱이 아닌 순수 후륜구동 E500이거든요. 미친 듯이 나가지만 양처럼 생겼죠. 이제 이런 차가 안 나온다는 게 아쉽습니다."
+   },
+   {
+    "start": 34.0,
+    "end": 50.0,
+    "text": "Ja, wenn jetzt so ein Ding sucht, wird richtig schwer. Kann ich euch einen Tipp geben: aktiviert die Suchfunktion bei uns bei AutoScout24. Da kann man die Parameter einstellen, die man haben will, und dann muss man einfach warten, bis mal einer im Netz zappelt. Vielleicht bald bei dir in der Garage steht.",
+    "ko": "이런 차를 찾으려면 정말 힘들 겁니다. 팁을 하나 드리자면, AutoScout24에서 검색 알림을 켜두세요. 원하는 옵션을 설정하고 기다리기만 하면 매물이 걸려들 겁니다. 곧 여러분 차고에 서 있을지도 모르죠."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.5,
+    "speed": "보통",
+    "summary": "에너지 정책 발언을 인용하며 '속임수'라는 키워드로 차량 반전 복선 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.5,
+    "end": 15.5,
+    "speed": "보통",
+    "summary": "E200처럼 보이지만 408마력 V8 터보 엔진을 품은 E500임을 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 15.5,
+    "end": 33.7,
+    "speed": "보통",
+    "summary": "슬리퍼카의 개념 설명 및 4Matic이 아닌 후륜구동 모델로서의 희소성 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 33.7,
+    "end": 50.5,
+    "speed": "보통",
+    "summary": "희귀 매물을 찾기 위한 AutoScout24 검색 필터 및 알림 기능 활용 권장"
+   }
+  ],
+  "rules": [
+   "자극적인 인트로 비유(정치인 발언)로 시청자 시선을 먼저 사로잡음",
+   "화려한 그래픽이나 효과음 없이 진행자의 안정적인 딕션과 롱테이크 원테이크 느낌의 무빙으로 신뢰도 전달",
+   "중앙 하단에 가독성 높은 흰색 굵은 텍스트 자막을 말소리에 맞춰 끊어 배치",
+   "희귀한 고성능차에 대한 지식을 풀어내며 자연스럽게 중고차 검색 플랫폼(AutoScout24)의 검색 알림 기능 홍보로 연결"
+  ]
+ }
+}

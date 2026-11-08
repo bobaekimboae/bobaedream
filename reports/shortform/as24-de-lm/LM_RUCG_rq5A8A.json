@@ -1,0 +1,408 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/RUCG_rq5A8A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4215,
+  "candidatesTokenCount": 4117,
+  "totalTokenCount": 9151,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3473
+   }
+  ],
+  "thoughtsTokenCount": 819,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 39.0,
+   "aspect": "9:16",
+   "car": "Hyundai Tucson",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 24.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 39.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 6.2,
+    "text": "179 € FÜR EINEN TUCSON\nFAST ZU GUT",
+    "ko": "투싼에 179유로라니\n너무 조건이 좋다",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "179 €",
+    "sure": true
+   },
+   {
+    "start": 0.3,
+    "end": 1.5,
+    "text": "EIN VOLLWERTIGES FAMILIEN-SUV",
+    "ko": "완벽한 패밀리 SUV",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.8,
+    "text": "FÜR 179 €",
+    "ko": "179유로에",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "179 €",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.8,
+    "text": "IST KEIN KLEINER PSEUDO SUV",
+    "ko": "어설픈 미니 SUV가 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.8,
+    "text": "ÜBER 4 1/2 METER LÄNGE",
+    "ko": "전장 4.5미터 이상",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.0,
+    "text": "5 SITZE",
+    "ko": "5인승",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.0,
+    "text": "ÜBER 600 LITER KOFFERRAUM",
+    "ko": "600리터 넘는 트렁크 용량",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.5,
+    "text": "150 PS UND AUTOMATIK",
+    "ko": "150마력 및 자동변속기",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "text": "5.000 KILOMETER JÄHRLICH",
+    "ko": "연간 주행거리 5,000km",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5.000 KILOMETER",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.5,
+    "text": "417 KILOMETER IM MONAT",
+    "ko": "월평균 417km",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "417 KILOMETER",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "톡",
+    "event": "현대 투싼 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "179€ 가격 라벨 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "띵",
+    "event": "KM?? 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 설명에 집중되는 톤",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 24.8,
+    "what": "현대 투싼 누끼 차량 이미지",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "설명 대상 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 6.0,
+    "what": "179€ 텍스트 라벨",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 30.0,
+    "y_pct": 63.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "파격적 월 리스 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.5,
+    "what": "KM?? 텍스트 라벨",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 70.0,
+    "y_pct": 63.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "조건의 함정(주행거리 제한) 환기",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "text": "Ein vollwertiges Familien-SUV für 179 Euro.",
+    "ko": "179유로에 만나는 온전한 패밀리 SUV."
+   },
+   {
+    "start": 3.9,
+    "end": 6.6,
+    "text": "Aber die Kilometer sind hier der eigentliche Preis.",
+    "ko": "하지만 주행거리 조건이 진짜 대가입니다."
+   },
+   {
+    "start": 6.6,
+    "end": 8.9,
+    "text": "Der Tucson ist kein kleiner Pseudo-SUV.",
+    "ko": "투싼은 무늬만 SUV인 작은 차가 아닙니다."
+   },
+   {
+    "start": 8.9,
+    "end": 15.6,
+    "text": "Über viereinhalb Meter Länge, fünf Sitze, über 600 Liter Kofferraum, 150 PS und Automatik.",
+    "ko": "전장 4.5m 이상, 5인승, 600L 이상의 트렁크, 150마력에 자동변속기까지 갖췄죠."
+   },
+   {
+    "start": 15.6,
+    "end": 18.0,
+    "text": "Das Auto ist außerdem sofort verfügbar.",
+    "ko": "게다가 즉시 출고 가능합니다."
+   },
+   {
+    "start": 18.0,
+    "end": 20.9,
+    "text": "Entscheidend sind hier aber 5000 Kilometer jährlich.",
+    "ko": "하지만 결정적인 건 연간 5,000km라는 조건입니다."
+   },
+   {
+    "start": 20.9,
+    "end": 24.6,
+    "text": "Das sind im Schnitt gerade mal 417 Kilometer im Monat.",
+    "ko": "이건 한 달에 겨우 417km 수준입니다."
+   },
+   {
+    "start": 24.6,
+    "end": 30.1,
+    "text": "Für jemand mit viel Homeoffice, kurzen Stadtwegen und einem zweiten Auto kann das ein guter Deal sein.",
+    "ko": "재택근무가 많고 도심 단거리 위주에 세컨카가 있는 분에겐 훌륭한 딜일 수 있습니다."
+   },
+   {
+    "start": 30.1,
+    "end": 34.8,
+    "text": "Bei nur 20 Kilometern Arbeitsweg pro Strecke kann dieser Vertrag allerdings direkt hinfällig sein.",
+    "ko": "하지만 편도 20km만 출퇴근해도 이 계약은 바로 불리해질 수 있습니다."
+   },
+   {
+    "start": 34.8,
+    "end": 39.0,
+    "text": "Ein sehr guter Deal für Wenigfahrer, allerdings kein guter für Pendler.",
+    "ko": "주행거리가 적은 분에겐 대박이지만, 출퇴근 통근자에겐 비추천입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.6,
+    "speed": "보통",
+    "summary": "179유로라는 파격가 제시 후 주행거리 함정 경고"
+   },
+   {
+    "stage": "사양",
+    "start": 6.6,
+    "end": 15.6,
+    "speed": "빠름",
+    "summary": "투싼의 크기, 실내 공간, 마력, 변속기 등 장점 나열"
+   },
+   {
+    "stage": "기능",
+    "start": 15.6,
+    "end": 24.6,
+    "speed": "보통",
+    "summary": "즉시 출고와 연간 5,000km(월 417km) 제약 조건 분석"
+   },
+   {
+    "stage": "가격",
+    "start": 24.6,
+    "end": 39.0,
+    "speed": "보통",
+    "summary": "재택근무자 vs 통근자 기준 딜 추천 대상 정리"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에 앉아 차량 누끼 그래픽을 손 위에 얹은 듯 합성해 시선 집중 유도",
+   "상단에 핵심 요약 타이틀(가격 및 주제)을 지속 배치해 스크롤 중 이탈 방지",
+   "화면 중앙 단어 단위의 빠른 자막 팝업으로 전달력 극대화",
+   "단순 스펙 자랑에 그치지 않고 실제 출퇴근 거리로 환산해 추천/비추천 대상 명확화"
+  ]
+ }
+}

@@ -1,0 +1,162 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/n6tlxvQK4kI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2026,
+  "candidatesTokenCount": 1301,
+  "totalTokenCount": 3894,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1284
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 567,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.9,
+   "aspect": "9:16",
+   "car": "BMW M2",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 14.9,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 14.9,
+    "text": "BMW M2",
+    "ko": "BMW M2",
+    "kind": "제목",
+    "y_pct": 86.5,
+    "x_center_pct": 34.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#202830",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스 앰비언트",
+   "bpm_est": 110,
+   "mood": "차분하고 진지함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 14.9,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 18.0,
+    "y_pct": 5.5,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 14.9,
+    "what": "연비 및 탄소배출량 의무 표기 문구",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 97.0,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Aber es wird so ein Auto nicht mehr geben",
+    "ko": "하지만 이런 차는 이제 더 이상 나오지 않을 것입니다"
+   },
+   {
+    "start": 2.1,
+    "end": 7.3,
+    "text": "und wir haben hier wahrscheinlich den letzten, ja, waschechten M-BMW,",
+    "ko": "그리고 우리는 아마도 마지막 진정한 순수 M BMW를 마주하고 있죠,"
+   },
+   {
+    "start": 7.3,
+    "end": 14.9,
+    "text": "nicht elektrifiziert, mit Schaltgetriebe, Hinterradantrieb, den es so geben wird.",
+    "ko": "전동화되지 않고 수동변속기와 후륜구동을 갖춘 마지막 모델일 것입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "보통",
+    "summary": "다시는 나오지 않을 차라는 강렬한 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.1,
+    "end": 7.3,
+    "speed": "보통",
+    "summary": "마지막 순수 내연기관 M 모델임을 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 7.3,
+    "end": 14.9,
+    "speed": "보통",
+    "summary": "비전동화, 수동변속기, 후륜구동의 핵심 가치 요약"
+   }
+  ],
+  "rules": [
+   "진행자의 단호한 멘트로 마지막 순수 내연기관 수동 M이라는 상징성을 어필",
+   "화려한 자막 효과 대신 인터뷰 다큐멘터리 스타일의 정적인 컷 전환 활용",
+   "하단에 차종명과 법적 의무 고지 정보를 고정 배치하여 신뢰도 유지"
+  ]
+ }
+}

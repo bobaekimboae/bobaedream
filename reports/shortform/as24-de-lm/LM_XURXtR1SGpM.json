@@ -1,0 +1,618 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/XURXtR1SGpM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6304,
+  "candidatesTokenCount": 5219,
+  "totalTokenCount": 11523,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5562
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.9,
+   "aspect": "9:16",
+   "car": "Audi A6 allroad quattro",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 8.0,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 17.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 24.1,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 29.8,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 38.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 43.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 49.3,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 52.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.4,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 61.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "IST DAS HIER",
+    "ko": "이것이 바로",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "IST DAS HIER",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.5,
+    "text": "AUDI A6 AVANT",
+    "ko": "아우디 A6 아반트",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUDI A6 AVANT",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.0,
+    "text": "A6 ALLROAD",
+    "ko": "A6 올로드",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "A6 ALLROAD",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.0,
+    "text": "MIT V6 TDI",
+    "ko": "V6 TDI 탑재",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V6 TDI",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.5,
+    "text": "UND 299 PS",
+    "ko": "그리고 299마력",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "299 PS",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 10.7,
+    "text": "77.250 EURO",
+    "ko": "77,250 유로",
+    "kind": "가격",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "77.250 EURO",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "text": "A6 AVANT",
+    "ko": "A6 아반트",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "A6 AVANT",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "text": "71.800 EURO",
+    "ko": "71,800 유로",
+    "kind": "가격",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "71.800 EURO",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.7,
+    "text": "ALSO 5.450 EURO",
+    "ko": "즉 5,450유로",
+    "kind": "가격",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5.450 EURO",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "text": "2.150 EURO",
+    "ko": "2,150 유로",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2.150 EURO",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "21 ZOLL",
+    "ko": "21인치",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "21 ZOLL",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "text": "850 EURO",
+    "ko": "850 유로",
+    "kind": "가격",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "850 EURO",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.5,
+    "text": "2.450 EURO",
+    "ko": "2,450 유로 차이",
+    "kind": "가격",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2.450 EURO",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "text": "11 ZENTIMETER",
+    "ko": "11 센티미터",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "11 ZENTIMETER",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.0,
+    "text": "BIS ZU 2,5 TONNEN",
+    "ko": "최대 2.5톤",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,5 TONNEN",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "휙",
+    "event": "첫 장면 인트로 텍스트 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.6,
+    "type": "쿵",
+    "event": "보닛 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.6,
+    "type": "돈 소리",
+    "event": "77.250 유로 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "돈 소리",
+    "event": "71.800 유로 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "차액 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "딸깍",
+    "event": "인포테인먼트 터치스크린 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "돈 소리",
+    "event": "옵션 가격 2.150 유로 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "돈 소리",
+    "event": "휠 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.0,
+    "type": "딸깍",
+    "event": "견인고리 손으로 만질 때 실제 기계음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Ist das hier vielleicht der bessere Audi A6 Avant?",
+    "ko": "이것이 어쩌면 더 나은 아우디 A6 아반트일까요?"
+   },
+   {
+    "start": 2.6,
+    "end": 7.0,
+    "text": "Der Audi A6 allroad mit V6 TDI und 299 PS",
+    "ko": "V6 TDI와 299마력을 탑재한 아우디 A6 올로드는"
+   },
+   {
+    "start": 7.1,
+    "end": 10.7,
+    "text": "startet ab 77.250 Euro.",
+    "ko": "77,250유로부터 시작합니다."
+   },
+   {
+    "start": 10.8,
+    "end": 15.5,
+    "text": "Der normale A6 Avant mit exakt demselben Motor startet ab 71.800 Euro,",
+    "ko": "완전히 동일한 엔진을 탑재한 일반 A6 아반트는 71,800유로부터 시작하므로,"
+   },
+   {
+    "start": 15.6,
+    "end": 17.7,
+    "text": "also 5.450 Euro weniger.",
+    "ko": "즉 5,450유로 더 저렴합니다."
+   },
+   {
+    "start": 17.8,
+    "end": 21.4,
+    "text": "Aber beim A6 allroad ist die adaptive Luftfederung serienmäßig,",
+    "ko": "하지만 A6 올로드에는 어댑티브 에어 서스펜션이 기본 사양이며,"
+   },
+   {
+    "start": 21.5,
+    "end": 24.0,
+    "text": "die kostet beim A6 Avant 2.150 Euro extra.",
+    "ko": "이것은 A6 아반트에서 추가로 2,150유로가 듭니다."
+   },
+   {
+    "start": 24.1,
+    "end": 29.7,
+    "text": "Dazu kommen serienmäßig mindestens 19 Zoll beim A6 allroad und es geht bis zu 21 Zoll mit diesen coolen Felgen.",
+    "ko": "게다가 A6 올로드는 기본 최소 19인치에 이 멋진 21인치 휠까지 장착 가능합니다."
+   },
+   {
+    "start": 29.8,
+    "end": 34.0,
+    "text": "Vergleichbare 19 Zoll Räder beim A6 Avant kosten euch mindestens 850 Euro.",
+    "ko": "A6 아반트에서 동급 19인치 휠은 최소 850유로가 듭니다."
+   },
+   {
+    "start": 34.1,
+    "end": 39.5,
+    "text": "Damit läge der Unterschied noch bei 2.450 Euro, aber eine Sache, die gibt's hier immer und beim A6 Avant nie.",
+    "ko": "따라서 실제 차이는 2,450유로 수준이지만, 여기에만 있고 일반 아반트엔 절대 없는 것이 하나 있습니다."
+   },
+   {
+    "start": 39.6,
+    "end": 44.0,
+    "text": "Und das ist ein 11 cm breiterer Widebody. Man sieht's hier vorne schon richtig gut.",
+    "ko": "바로 11cm 더 넓은 와이드바디입니다. 앞쪽에서도 이미 확연히 보이죠."
+   },
+   {
+    "start": 44.1,
+    "end": 49.2,
+    "text": "Dann diese Kotflügelverbreiterung hier und auch die Hinterachse ist deutlich breiter als beim normalen A6 Avant.",
+    "ko": "이 펜더 플레어와 뒤 차축 또한 일반 A6 아반트보다 훨씬 넓습니다."
+   },
+   {
+    "start": 49.3,
+    "end": 52.8,
+    "text": "Außerdem noch diese coolen Seitenschweller, mehr Bodenfreiheit und Offroad-Modi,",
+    "ko": "게다가 이 멋진 사이드 스커트, 더 높은 지상고와 오프로드 모드,"
+   },
+   {
+    "start": 52.9,
+    "end": 55.4,
+    "text": "und sogar bis zu 2,5 Tonnen Anhängelast.",
+    "ko": "그리고 최대 2.5톤의 견인 용량까지 갖췄습니다."
+   },
+   {
+    "start": 55.5,
+    "end": 61.9,
+    "text": "Aber was denkt ihr? Ist das hier der bessere Audi A6 oder ist der allroad sein Geld nicht wert? Schreibt's mal in die Kommentare.",
+    "ko": "여러분 생각은 어떠신가요? 이것이 더 나은 A6인가요, 아니면 돈값을 못하나요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "일반 A6 아반트보다 올로드가 더 나은 선택인지 질문 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 2.6,
+    "end": 17.7,
+    "speed": "빠름",
+    "summary": "기본 가격 비교 (올로드 vs 일반 아반트 차액 5,450유로)"
+   },
+   {
+    "stage": "기능",
+    "start": 17.8,
+    "end": 34.0,
+    "speed": "보통",
+    "summary": "에어 서스펜션, 휠 등 올로드 기본 옵션 가치 계산 후 실질 차액 도출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 34.1,
+    "end": 55.4,
+    "speed": "빠름",
+    "summary": "11cm 와이드바디, 펜더, 지상고, 오프로드 모드 및 견인력 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 55.5,
+    "end": 61.9,
+    "speed": "보통",
+    "summary": "시청자에게 올로드의 가치에 대한 의견 댓글 요청"
+   }
+  ],
+  "rules": [
+   "가격 수치 언급 시 굵고 노란색 강조 폰트 스티커를 화면 중앙에 정확히 매칭하여 표시",
+   "화면 전환마다 신속한 비트 컷과 효과음을 사용하여 역동적인 템포 유지",
+   "직접 손으로 가리키는 POV(1인칭 시점) 앵글로 몰입감 부여"
+  ]
+ }
+}

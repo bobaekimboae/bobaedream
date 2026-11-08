@@ -1,0 +1,489 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/V5c3qoZTZyE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5104,
+  "candidatesTokenCount": 4302,
+  "totalTokenCount": 9406,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4362
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.9,
+   "aspect": "9:16",
+   "car": "Ford Transit Custom MS-RT",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 33.7,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 37.0,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 47.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "Das ist der neue",
+    "ko": "이것이 새로운",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.2,
+    "text": "Ford Transit MS-RT.",
+    "ko": "포드 트랜짓 MS-RT입니다.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "Das Ende einer langen Reise,",
+    "ko": "긴 여정의 끝,",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "die 1965 begann.",
+    "ko": "1965년에 시작된 여정이죠.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "Als erstes Europaprojekt",
+    "ko": "포드 미국 본사의 첫",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "von Ford USA überhaupt.",
+    "ko": "유럽 프로젝트로 말이죠.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.9,
+    "text": "Das ist der erste Europäer von Ford.",
+    "ko": "이것이 포드의 첫 유럽 모델입니다.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "text": "Und in England ist das Ding eingeschlagen wie eine Bombe.",
+    "ko": "그리고 영국에서 이 차는 폭탄처럼 대박을 쳤죠.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.2,
+    "text": "Scotland Yard hat 1972 gesagt,",
+    "ko": "스코틀랜드 야드는 1972년에 말했습니다,",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 19.5,
+    "text": "95 % aller Überfälle in England wurden mit dem Ford Transit gemacht.",
+    "ko": "영국 내 모든 강도 사건의 95%가 포드 트랜짓으로 행해졌다고요.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.8,
+    "text": "Und warum? Beliebig, schnell und die Beute hat reingepasst. Irre, oder?",
+    "ko": "왜냐고요? 흔하고, 빠르고, 전리품이 쏙 들어갔으니까요. 놀랍죠?",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "text": "So begann die Legende des White Man Van.",
+    "ko": "그렇게 '화이트 맨 밴'의 전설이 시작되었습니다.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 33.7,
+    "text": "So sagt man in England dazu, zu dem rücksichtslosen Handwerker...",
+    "ko": "영국에서는 급한 일 때문에 다른 차들을 제치는 거친 기술자를 그렇게 부르죠...",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.1,
+    "end": 37.0,
+    "text": "Was hast du heutzutage im Angebot? 170 PS von einem Diesel,",
+    "ko": "요즘 라인업엔 뭐가 있을까요? 170마력 디젤,",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 43.6,
+    "text": "als Hybrid mit 232 PS oder nimmst als Fluchtfahrzeug, weil besonders leise, die E-Variante mit 285 PS.",
+    "ko": "232마력 하이브리드, 아니면 조용해서 도주용 차량으로 딱인 285마력 전기차 버전도 있죠.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 47.5,
+    "text": "Das wäre dann auch der schnellste Ford Transit, der je ab Werk gekommen ist.",
+    "ko": "그게 포드 공장에서 나온 역대 가장 빠른 포드 트랜짓이 될 겁니다.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스팝 / 일렉트로 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 흥미진진함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 47.9,
+    "what": "차량 공식 연비 및 배출가스 고지 문구",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Das ist der neue Ford Transit MS-RT.",
+    "ko": "이것이 새로운 포드 트랜짓 MS-RT입니다."
+   },
+   {
+    "start": 2.2,
+    "end": 8.5,
+    "text": "Das Ende einer langen Reise, die 1965 begann. Als erstes Europaprojekt von Ford USA überhaupt.",
+    "ko": "1965년에 시작된 긴 여정의 끝이죠. 포드 미국 본사의 첫 유럽 프로젝트였습니다."
+   },
+   {
+    "start": 8.9,
+    "end": 10.9,
+    "text": "Das ist der erste Europäer von Ford.",
+    "ko": "이것이 포드의 첫 유럽 모델입니다."
+   },
+   {
+    "start": 11.8,
+    "end": 19.5,
+    "text": "Und in England ist das Ding eingeschlagen wie eine Bombe. Scotland Yard hat 1972 gesagt, 95% aller Überfälle in England wurden mit dem Ford Transit gemacht.",
+    "ko": "그리고 영국에서 대박을 쳤죠. 스코틀랜드 야드는 1972년에 영국 모든 강도 사건의 95%가 포드 트랜짓으로 벌어졌다고 했습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 24.8,
+    "text": "Und warum? Beliebig, schnell und die Beute hat reingepasst. Irre, oder?",
+    "ko": "왜냐고요? 흔하고 빠르며 훔친 짐이 다 들어갔거든요. 기가 막히죠?"
+   },
+   {
+    "start": 25.4,
+    "end": 33.7,
+    "text": "So begann die Legende des White Man Van. So sagt man in England dazu, zu dem rücksichtslosen Handwerker, der alles zur Seite schiebt, weil er Arbeit dringend zu erledigen hat.",
+    "ko": "그렇게 '화이트 맨 밴'의 전설이 시작됐습니다. 영국에선 바쁜 일 때문에 거칠게 운전하는 작업자들을 그렇게 부르죠."
+   },
+   {
+    "start": 34.1,
+    "end": 43.6,
+    "text": "Was hast du heutzutage im Angebot? 170 PS von einem Diesel, als Hybrid mit 232 PS oder nimmst als Fluchtfahrzeug, weil besonders leise, die E-Variante mit 285 PS.",
+    "ko": "요즘엔 어떤 트림이 나올까요? 170마력 디젤, 232마력 하이브리드, 아니면 아주 조용해서 도주용 차량으로 안성맞춤인 285마력 전기차 버전도 있습니다."
+   },
+   {
+    "start": 43.6,
+    "end": 47.5,
+    "text": "Das wäre dann auch der schnellste Ford Transit, der je ab Werk gekommen ist.",
+    "ko": "이게 바로 포드 순정 출고 모델 중 역사상 가장 빠른 포드 트랜짓이 될 겁니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.9,
+    "speed": "보통",
+    "summary": "신형 트랜짓 MS-RT 소개 및 1965년 역사 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.9,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "운전석 사이드미러 구도에서 영국의 강도 사건 95%가 트랜짓이었다는 역사 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 24.8,
+    "end": 33.7,
+    "speed": "보통",
+    "summary": "엔진룸 열고 영국 '화이트 맨 밴' 별명의 유래 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 33.7,
+    "end": 47.9,
+    "speed": "보통",
+    "summary": "디젤, 하이브리드, 고성능 전기차(285마력) 파워트레인 라인업 소개"
+   }
+  ],
+  "rules": [
+   "진행자의 재미있는 썰/역사 스토리텔링을 통해 상용차를 지루하지 않게 소개한다.",
+   "중앙 화면 중앙-하단 부근에 2줄 이내의 흰색 굵은 자막을 지속적으로 표시한다.",
+   "법적 고지 문구(WLTP 연비/배출가스)는 영상 하단에 지속적으로 작게 배치한다.",
+   "운전석 창문, 보닛 앞, 전면 등 다양한 위치에서 설명하며 시청자의 지루함을 덜어준다."
+  ]
+ }
+}

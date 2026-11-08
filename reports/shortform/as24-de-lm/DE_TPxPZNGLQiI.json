@@ -1,0 +1,295 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/TPxPZNGLQiI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3025,
+  "candidatesTokenCount": 2123,
+  "totalTokenCount": 5148,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2283
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.2,
+   "aspect": "9:16",
+   "car": "Tesla Model Y Performance",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 26.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Wie öffnen eigentlich Teslafahrer ihren Model Y?",
+    "ko": "테슬라 운전자들은 실제로 모델 Y를 어떻게 열까요?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 7.5,
+    "text": "Der Anfänger.",
+    "ko": "초보자.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 11.5,
+    "text": "Der Uber-Nutzer.",
+    "ko": "우버 이용자.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.8,
+    "text": "Der Tesla-Fahrer.",
+    "ko": "테슬라 운전자.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 19.8,
+    "text": "Der Psycho.",
+    "ko": "싸이코.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.1,
+    "end": 22.8,
+    "text": "Der Pro.",
+    "ko": "프로.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.2,
+    "text": "Wie macht ihr eure Tesla-Tür auf?",
+    "ko": "여러분은 테슬라 문을 어떻게 여시나요?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "쿵",
+    "event": "주먹으로 세게 문 손잡이 치는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 19.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 90,
+   "mood": "익살스러움",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Wie öffnen eigentlich Teslafahrer ihren Model Y?",
+    "ko": "테슬라 운전자들은 실제로 모델 Y를 어떻게 열까요?"
+   },
+   {
+    "start": 3.0,
+    "end": 4.1,
+    "text": "Der Anfänger.",
+    "ko": "초보자."
+   },
+   {
+    "start": 7.9,
+    "end": 9.2,
+    "text": "Der Uber-Nutzer.",
+    "ko": "우버 이용자."
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "Der Tesla-Fahrer.",
+    "ko": "테슬라 운전자."
+   },
+   {
+    "start": 16.3,
+    "end": 17.6,
+    "text": "Der Psycho.",
+    "ko": "싸이코."
+   },
+   {
+    "start": 20.1,
+    "end": 21.2,
+    "text": "Der Pro.",
+    "ko": "프로."
+   },
+   {
+    "start": 23.0,
+    "end": 26.2,
+    "text": "Wie macht ihr eure Tesla-Tür auf?",
+    "ko": "여러분은 테슬라 문을 어떻게 여시나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.9,
+    "speed": "보통",
+    "summary": "테슬라 문 여는 다양한 유형 질문 던지기"
+   },
+   {
+    "stage": "기능",
+    "start": 3.0,
+    "end": 22.9,
+    "speed": "보통",
+    "summary": "문 여는 유형 5가지 시연 (초보자, 우버 이용자, 테슬라 오너, 싸이코, 프로)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 23.0,
+    "end": 26.2,
+    "speed": "보통",
+    "summary": "시청자에게 어떤 방식으로 여는지 댓글 유도 질문"
+   }
+  ],
+  "rules": [
+   "원테이크 느낌으로 한 앵글에서 다양한 문 여는 방식(유형별 꽁트)을 연출한다",
+   "유형별 이름이 호명된 직후 해당 동작을 수행하고 차 문을 닫는 루틴을 반복한다",
+   "영상 말미에 시청자의 참여(댓글)를 유도하는 질문으로 마무리한다"
+  ]
+ }
+}

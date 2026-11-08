@@ -1,0 +1,373 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/Q-TEjmhTMYQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5295,
+  "candidatesTokenCount": 4048,
+  "totalTokenCount": 10512,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4553
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1169,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "Fiat 500 Hybrid",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 12.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.7,
+    "end": 22.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 36.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 50.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Stellantis, ein Riesenkonzern hat",
+    "ko": "스텔란티스라는 거대 기업에는",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.9,
+    "text": "Autos im Programm wie meinen Dodge RAM, den ich abgöttisch liebe.",
+    "ko": "내가 열렬히 사랑하는 닷지 램 같은 차도 있죠.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 8.5,
+    "text": "In wen ich mich auch verlieben könnte? In diesen Fiat 500",
+    "ko": "제가 또 반할 만한 차가 뭐냐고요? 바로 이 피아트 500입니다.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 12.7,
+    "text": "in der Farbe Sun of Italy. Oder wie wir im Norden sagen: Senfgelb.",
+    "ko": "'선 오브 이태리' 컬러, 우리 북부식으로 말하자면 겨자색이죠.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 17.5,
+    "text": "Seit 1957 wird diese Knutschkugel hergestellt und am Konzept hat sich nichts geändert.",
+    "ko": "1957년부터 생산된 이 귀요미는 콘셉트가 변하지 않았습니다.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 22.5,
+    "text": "Kleiner Motor, geiles Aussehen, günstiger Preis. Das macht dieses Auto so attraktiv.",
+    "ko": "작은 엔진, 멋진 외모, 합리적 가격. 이게 바로 매력이죠.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 29.5,
+    "text": "Hättet ihr euch mal vorstellen können, dass an einem italienischen Auto... mal Mopar steht?",
+    "ko": "이탈리아를 대표하는 차에 모파(Mopar)가 적혀있을 줄 상상이나 했나요?",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.5,
+    "text": "Die uramerikanische Sportmarke für Verbrenner.",
+    "ko": "원조 미국 내연기관 스포츠 브랜드 말입니다.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 39.8,
+    "text": "Nichtsdestotrotz, warum liebe ich dieses Auto? Jetzt ich ganz persönlich nach der Probefahrt?",
+    "ko": "그럼에도 제가 시승 후 이 차를 왜 좋아하게 되었을까요?",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 46.5,
+    "text": "Geiles Fahrverhalten, emotional sehr ansprechend und es ist einer der wenigen Kleinwagen, wo ich mir drinne nicht blöd vorkomme.",
+    "ko": "주행감이 훌륭하고 감성적이며, 덩치 큰 제가 타도 어색하지 않은 몇 안 되는 경차입니다.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 50.5,
+    "text": "Ist halt ein Fiat 500. Macht euch selber mal ein Bild.",
+    "ko": "역시 피아트 500이죠. 직접 한번 경험해보세요.",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 33.3,
+    "type": "쿵",
+    "event": "진행자가 팔 힘을 주며 힘주는 제스처",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "자동차 문 손잡이를 당겨 도어를 여는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-fi Indie Beat",
+   "bpm_est": 92,
+   "mood": "여유롭고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 50.8,
+    "what": "연비 및 탄소배출량 법적 고지 텍스트 오버레이",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 43.0,
+    "entrance": "바로",
+    "purpose": "법적 정보 제공",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "Stellantis, ein Riesenkonzern hat Autos im Programm wie meinen Dodge RAM, den ich abgöttisch liebe.",
+    "ko": "스텔란티스라는 거대 기업에는 제가 끔찍이 아끼는 닷지 램 같은 차가 있죠."
+   },
+   {
+    "start": 4.9,
+    "end": 12.7,
+    "text": "In wen ich mich auch verlieben könnte? In diesen Fiat 500 in der Farbe Sun of Italy. Oder wie wir im Norden sagen: Senfgelb.",
+    "ko": "제가 또 반할 만한 차는 바로 '선 오브 이태리', 북부식으로 머스터드색인 이 피아트 500입니다."
+   },
+   {
+    "start": 13.0,
+    "end": 22.5,
+    "text": "Seit 1957 wird diese Knutschkugel hergestellt und am Konzept hat sich nichts geändert. Kleiner Motor, geiles Aussehen, günstiger Preis. Das macht dieses Auto so attraktiv.",
+    "ko": "1957년부터 나온 이 차는 콘셉트가 그대로예요. 작은 엔진, 멋진 디자인, 착한 가격이 매력입니다."
+   },
+   {
+    "start": 23.0,
+    "end": 34.5,
+    "text": "Hättet ihr euch mal vorstellen können, dass an einem italienischen Auto, was für ganz Italien steht eigentlich, mal Mopar steht? Die uramerikanische Sportmarke für Verbrenner.",
+    "ko": "이탈리아 대표 차량에 미국 정통 스포츠 브랜드인 모파 마크가 붙을 줄 누가 상상이나 했을까요?"
+   },
+   {
+    "start": 35.0,
+    "end": 50.5,
+    "text": "Nichtsdestotrotz, warum liebe ich dieses Auto? Jetzt ich ganz persönlich nach der Probefahrt? Geiles Fahrverhalten, emotional sehr ansprechend und es ist einer der wenigen Kleinwagen, wo ich mir drinne nicht blöd vorkomme. Ist halt ein Fiat 500. Macht euch selber mal ein Bild.",
+    "ko": "그럼에도 시승 후 왜 이 차를 사랑할까요? 주행이 훌륭하고 감성적이며 덩치 큰 제가 타도 어울리니까요. 역시 피아트 500입니다. 직접 확인해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 12.7,
+    "speed": "보통",
+    "summary": "거구의 남성이 픽업트럭 램 대신 피아트 500을 좋아하는 이유 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 12.7,
+    "end": 22.5,
+    "speed": "보통",
+    "summary": "1957년부터 유지된 피아트 500의 핵심 3대 매력 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 22.5,
+    "end": 36.5,
+    "speed": "보통",
+    "summary": "이탈리아 감성 차에 들어간 미국 모파(Mopar) 파츠 특징 언급"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 36.5,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "문을 열고 기대어 시승 총평 및 시청자 확인 권유"
+   }
+  ],
+  "rules": [
+   "진행자의 신체 크기와 대조되는 경차를 대비시켜 훅을 형성함",
+   "화면 중앙 하단에 명확한 독일어 폰트로 한두 문장씩 자막 싱크 처리",
+   "화면 전환마다 앵글(후면-전면 풀샷-측면 클로즈업-도어 개방)을 명확히 컷 전환함",
+   "법적 연비 고지 텍스트는 차량 본체 위에 반투명 화이트로 상시 배치"
+  ]
+ }
+}

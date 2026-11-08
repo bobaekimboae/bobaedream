@@ -1,0 +1,349 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/qtGSuf6k7-g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3016,
+  "candidatesTokenCount": 3435,
+  "totalTokenCount": 6805,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2274
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 354,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.0,
+   "aspect": "9:16",
+   "car": "현대 캐스퍼 일렉트릭 (인스터, Hyundai Inster)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 25.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "ERRATE DAS AUTO",
+    "ko": "차량을 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ERRATE DAS AUTO",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.8,
+    "text": "LEVEL SCHWER",
+    "ko": "난이도: 어려움",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SCHWER",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.4,
+    "text": "IN WELCHEM AUTO SITZ",
+    "ko": "내가 지금 어떤 차에 타고 있는지",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTO",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "text": "ICH HIER GRADE",
+    "ko": "여기 앉아있는지",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.7,
+    "text": "IST NICHT SO",
+    "ko": "그리 쉽지는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "text": "LEICHT ZU ERRATEN",
+    "ko": "맞히기 어려울 거예요",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ERRATEN",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.2,
+    "text": "ICH KANN EUCH",
+    "ko": "하나 말씀드리자면",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "ES IST EIN ELEKTROAUTO",
+    "ko": "전기차이고요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ELEKTROAUTO",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "text": "IST EIN KLEINWAGEN",
+    "ko": "소형차입니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KLEINWAGEN",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "DAS SOLLTE ABER",
+    "ko": "이 정도 힌트면",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "text": "LENKRADHEIZUNG UND EINE",
+    "ko": "스티어링 휠 열선과",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "LENKRADHEIZUNG",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "IN DIE KOMMENTARE",
+    "ko": "댓글로 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KOMMENTARE",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 호기심을 유발함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Errate das Auto, Level schwer.",
+    "ko": "차량을 맞혀보세요. 난이도 높음."
+   },
+   {
+    "start": 3.5,
+    "end": 6.8,
+    "text": "Ja Leute, in welchem Auto sitze ich hier gerade?",
+    "ko": "여러분, 제가 지금 어떤 차에 앉아있을까요?"
+   },
+   {
+    "start": 6.9,
+    "end": 9.2,
+    "text": "Ich glaube, es ist nicht so leicht zu erraten.",
+    "ko": "맞히기가 그렇게 쉽지는 않을 것 같은데요."
+   },
+   {
+    "start": 9.3,
+    "end": 13.8,
+    "text": "Ich kann euch eins sagen, es ist ein Elektroauto und das ist ein Kleinwagen.",
+    "ko": "한 가지 힌트를 드리자면, 전기차이고 소형차입니다."
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "text": "Das sollte aber reichen mit den Tipps.",
+    "ko": "하지만 힌트는 이 정도로 충분하겠죠."
+   },
+   {
+    "start": 15.7,
+    "end": 19.8,
+    "text": "Hier seht ihr noch, er hat so eine Lenkradheizung und eine Sitzheizung, also auch eine gute Ausstattung.",
+    "ko": "여기 보시면 스티어링 휠 열선과 시트 열선도 있어서 옵션도 좋습니다."
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "text": "Aber was meint ihr? Was für ein Auto ist das hier? Schreibt's auf jeden Fall mal unten in die Kommentare.",
+    "ko": "여러분 생각은 어떠신가요? 이게 무슨 차일까요? 꼭 아래 댓글에 남겨주세요."
+   },
+   {
+    "start": 22.9,
+    "end": 24.8,
+    "text": "Ich hoffe, es können ein paar von euch erraten.",
+    "ko": "여러분 중 몇 분이라도 맞히실 수 있기를 바랍니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.5,
+    "speed": "보통",
+    "summary": "로고를 가린 스티어링 휠을 보여주며 차량 맞히기 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 3.5,
+    "end": 19.0,
+    "speed": "보통",
+    "summary": "실내 시트, 도어 버튼(열선 등), 파워트레인(전기 소형차) 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 19.0,
+    "end": 25.0,
+    "speed": "보통",
+    "summary": "댓글 참여 유도(CTA)"
+   }
+  ],
+  "rules": [
+   "운전석 1인칭 POV 단일 롱테이크로 손동작과 카메라 팬을 통해 시청자 몰입감 유도",
+   "핵심 단어에 노란색(#FFE600) 하이라이트를 주어 자막 가독성 확보",
+   "차량 엠블럼 부위를 손으로 가려 퀴즈 참여율과 댓글 반응 극대화"
+  ]
+ }
+}

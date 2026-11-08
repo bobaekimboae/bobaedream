@@ -1,0 +1,532 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/EsGAgSlm3Nc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4198,
+  "candidatesTokenCount": 4423,
+  "totalTokenCount": 8621,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3456
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "BMW E28 M535i / 525i",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 14.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 21.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 26.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 32.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 38.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Wir wissen das schon ziemlich lange,",
+    "ko": "우리는 이걸 꽤 오래전부터 알고 있었죠,",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.6,
+    "text": "denn wir sind AutoScout24",
+    "ko": "우리는 오토스카우트24니까요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 5.4,
+    "text": "und wir sehen die Preisentwicklung.",
+    "ko": "그리고 우리는 가격 추이를 봅니다.",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.6,
+    "text": "BMW E28 kennt nur eine Bewegung.",
+    "ko": "BMW E28은 오직 한 방향만 알죠.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "Nicht so.",
+    "ko": "이쪽이 아니라.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.9,
+    "text": "Sondern so.",
+    "ko": "이렇게요.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 10.9,
+    "text": "Und warum?",
+    "ko": "왜냐고요?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.9,
+    "text": "Weil Gefühlspaß immer mehr kostet.",
+    "ko": "감성적인 운전 재미는 점점 더 비싸지기 때문이죠.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.9,
+    "text": "Das ist ein BMW E28 M535i.",
+    "ko": "이건 BMW E28 M535i입니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 20.9,
+    "text": "Für so ein Teil musst du inzwischen bis zu 60.000 € anlegen.",
+    "ko": "이런 차는 이제 최대 60,000 유로까지 투자해야 합니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "60.000 €",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.8,
+    "text": "Der Bankautomat sagt bei den Preisen nein?",
+    "ko": "ATM 기계가 이 가격에 NO라고 하나요?",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.3,
+    "text": "Gibt ne Alternative.",
+    "ko": "대안이 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.4,
+    "end": 27.8,
+    "text": "Nimm den 525i.",
+    "ko": "525i를 고르세요.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.5,
+    "text": "150 PS, auch ein Reihensechszylinder M30.",
+    "ko": "150마력, 똑같이 직렬 6기통 M30 엔진.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 32.4,
+    "text": "Macht ähnlich Spaß.",
+    "ko": "비슷하게 재미있죠.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 33.7,
+    "text": "Nicht ganz so,",
+    "ko": "완전히 같진 않지만,",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 36.6,
+    "text": "aber kostet nur 10.000 €. Circa.",
+    "ko": "하지만 가격은 약 10,000 유로에 불과합니다.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "10.000 €",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 7.9,
+    "type": "휙",
+    "event": "손으로 아래 방향 표시할 때",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "휙",
+    "event": "손으로 위 방향(상승) 표시할 때",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "띵",
+    "event": "60.000 € 강조 단어 노란색 전환 시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.5,
+    "type": "띵",
+    "event": "10.000 € 강조 단어 노란색 전환 시",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트 / 로파이 비트",
+   "bpm_est": 92,
+   "mood": "여유롭고 리드미컬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Wir wissen das schon ziemlich lange, denn wir sind AutoScout24 und wir sehen die Preisentwicklung.",
+    "ko": "우리는 이걸 꽤 오래전부터 알고 있었죠, 우리는 오토스카우트24이고 가격 추이를 보니까요."
+   },
+   {
+    "start": 5.7,
+    "end": 10.0,
+    "text": "BMW E28 kennt nur eine Bewegung. Nicht so. Sondern so.",
+    "ko": "BMW E28은 한 방향만 압니다. 이쪽이 아니라, 위쪽으로요."
+   },
+   {
+    "start": 10.0,
+    "end": 14.0,
+    "text": "Und warum? Weil Gefühlspaß immer mehr kostet.",
+    "ko": "왜일까요? 감성적 운전 재미는 점점 더 비싸지기 때문입니다."
+   },
+   {
+    "start": 14.1,
+    "end": 21.0,
+    "text": "Das ist ein BMW E28 M535i. Für so ein Teil musst du inzwischen bis zu 60.000 € anlegen.",
+    "ko": "이것은 BMW E28 M535i입니다. 이제 이런 차는 60,000 유로까지 줘야 합니다."
+   },
+   {
+    "start": 21.5,
+    "end": 26.3,
+    "text": "Der Bankautomat sagt bei den Preisen nein? Gibt ne Alternative.",
+    "ko": "ATM 기계가 이 가격에 거절하나요? 대안이 있습니다."
+   },
+   {
+    "start": 26.4,
+    "end": 32.5,
+    "text": "Nimm den 525i. 150 PS, auch ein Reihensechszylinder M30. Macht ähnlich Spaß.",
+    "ko": "525i를 사세요. 150마력에 똑같은 직렬 6기통 M30 엔진입니다. 비슷한 재미를 주죠."
+   },
+   {
+    "start": 32.7,
+    "end": 37.0,
+    "text": "Nicht ganz so, aber kostet nur 10.000 €. Circa.",
+    "ko": "완전히 같진 않지만, 약 10,000 유로면 됩니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.0,
+    "speed": "보통",
+    "summary": "오토스카우트24 데이터 소개 및 BMW E28 가격 급등 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.0,
+    "end": 17.0,
+    "speed": "보통",
+    "summary": "BMW E28 M535i 모델 등장 및 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 17.0,
+    "end": 21.5,
+    "speed": "보통",
+    "summary": "M535i의 급등한 시세(최대 60,000유로) 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 21.5,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "가성비 대안으로 525i(150마력, 직렬 6기통) 제안"
+   },
+   {
+    "stage": "가격",
+    "start": 32.5,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "대안 모델 525i의 저렴한 가격(약 10,000유로)과 마무리"
+   }
+  ],
+  "rules": [
+   "진행자의 손동작(상승/하강 제스처)에 맞춰 스위시(휙) 효과음을 삽입해 시각적 집중도를 높인다.",
+   "핵심 키워드나 가격 수치(AutoScout24, 60.000 €, 10.000 €)는 텍스트 색상을 노란색(#FFCC00)으로 전환하며 띵 효과음을 매칭한다.",
+   "고가의 드림카를 보여준 뒤 가격 장벽을 언급하고 현실적인 하위 트림 대안을 제시하는 비교 스토리라인을 구성한다.",
+   "카메라는 진행자를 중심으로 얕은 심도(아웃포커싱)를 유지하며 부드러운 움직임으로 차량과 진행자를 함께 담아낸다."
+  ]
+ }
+}

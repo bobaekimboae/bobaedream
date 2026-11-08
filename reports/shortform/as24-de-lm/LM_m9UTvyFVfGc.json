@@ -1,0 +1,241 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/m9UTvyFVfGc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1667,
+  "candidatesTokenCount": 2095,
+  "totalTokenCount": 3762,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 925
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.8,
+   "aspect": "9:16",
+   "car": "Volvo EX90",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.6,
+    "end": 1.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "기타",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "기타",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "기타",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "VOLVO EX 90\nab 84.190€",
+    "ko": "볼보 EX90 / 84,190유로부터",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ab 84.190€",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "text": "Ausstattung\n7 Sitzer",
+    "ko": "옵션 사양 / 7인승",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "7 Sitzer",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.3,
+    "text": "Kofferraumvolumen\n+1.000l",
+    "ko": "트렁크 용량 / 1,000L 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "+1.000l",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.8,
+    "text": "Innenausstattung\n360°-Parkkamera",
+    "ko": "실내 사양 / 360도 주차 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "360°-Parkkamera",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.6,
+    "type": "휙",
+    "event": "재킷 트랜지션 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.4,
+    "type": "휙",
+    "event": "재킷 트랜지션 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.1,
+    "type": "휙",
+    "event": "재킷으로 렌즈 가리는 효과",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 그루비함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "옷(재킷) 트랜지션을 이용해 차의 전·측·후면을 빠르게 전환하며 가격 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 2.5,
+    "end": 7.3,
+    "speed": "보통",
+    "summary": "7인승 시트 및 트렁크 적재 용량 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 7.3,
+    "end": 10.8,
+    "speed": "보통",
+    "summary": "360도 어라운드 뷰 디스플레이 조작 및 외관 디테일"
+   }
+  ],
+  "rules": [
+   "초반에는 옷(자켓)으로 화면을 가리고 벗기는 물리적 와이프 트랜지션으로 시선을 사로잡는다",
+   "화면 상단 고정 위치에 흰색 둥근 박스와 형광 노란색 하이라이트 박스를 겹친 일관된 타이틀 디자인을 유지한다",
+   "음성 내레이션 없이 음악 비트와 핵심 스펙 키워드 자막만으로 간결하게 정보를 전달한다"
+  ]
+ }
+}

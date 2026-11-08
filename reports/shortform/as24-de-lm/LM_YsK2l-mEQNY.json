@@ -1,0 +1,443 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/YsK2l-mEQNY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 11579,
+  "candidatesTokenCount": 3694,
+  "totalTokenCount": 15915,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 10837
+   }
+  ],
+  "thoughtsTokenCount": 642,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 120.0,
+   "aspect": "9:16",
+   "car": "Volkswagen ID.5 Pro",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 15.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 24.3,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 30.7,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 32.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 47.1,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 100.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.4,
+    "end": 118.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 118.0,
+    "end": 132.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 132.3,
+    "end": 147.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 147.8,
+    "end": 160.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "IST DER VOLKSWAGEN ID.5",
+    "ko": "폭스바겐 ID.5는",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLKSWAGEN ID.5",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "text": "GUTES ELEKTROAUTO",
+    "ko": "좋은 전기차일까",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTROAUTO",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 13.5,
+    "text": "571 KILOMETER REICHWEITE",
+    "ko": "571km의 주행 가능 거리",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "571 KILOMETER",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.5,
+    "text": "MAXIMAL MIT 165 KW DC",
+    "ko": "최대 165 kW DC 고속충전",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "165 KW DC",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.0,
+    "text": "KEIN FRUNK GIBT",
+    "ko": "프렁크가 없음",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FRUNK",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 52.0,
+    "text": "TOUCHKNÖPFE AM LENKRAD",
+    "ko": "스티어링 휠의 터치 버튼",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TOUCHKNÖPFE",
+    "sure": true
+   },
+   {
+    "start": 150.0,
+    "end": 155.0,
+    "text": "AB 43.360 EURO",
+    "ko": "43,360 유로부터 시작",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "43.360 EURO",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 16.2,
+    "type": "딸깍",
+    "event": "충전구 덮개 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.1,
+    "type": "딸깍",
+    "event": "충전구 덮개 닫기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "쿵",
+    "event": "보닛(엔진룸) 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전석 도어 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.5,
+    "type": "톡",
+    "event": "스티어링 휠 버튼 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 106.8,
+    "type": "톡",
+    "event": "중앙 디스플레이 화면 터치 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 120.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "시트 표면 손으로 두드리기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 141.5,
+    "type": "딸깍",
+    "event": "뒷좌석 암레스트 내리기",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi Hip-Hop / Electronic",
+   "bpm_est": 95,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 8.0,
+    "end": 155.0,
+    "what": "상단 공인 연비 및 배출가스 인증 문구 텍스트",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "페이드",
+    "purpose": "법적 고지 표기",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 8.0,
+    "text": "Ist der Volkswagen ID.5 immer noch ein gutes Elektroauto, was man im Alltag fahren kann, oder ist die Technik mittlerweile einfach nur veraltet?",
+    "ko": "폭스바겐 ID.5는 여전히 일상에서 타기 좋은 전기차일까요, 아니면 기술이 구식이 되었을까요?"
+   },
+   {
+    "start": 8.0,
+    "end": 15.0,
+    "text": "Wir haben den Testwagen heute in der Pro-Variante. Das heißt erstmal 571 km Reichweite nach WLTP, was sehr, sehr gut ist.",
+    "ko": "오늘 시승차는 Pro 모델입니다. WLTP 기준 571km의 주행 거리를 제공해 매우 훌륭합니다."
+   },
+   {
+    "start": 15.0,
+    "end": 24.3,
+    "text": "Ein sehr großer Nachteil: Der Wagen lädt maximal mit 165 kW DC nach an der Schnellladesäule, und das ist mittlerweile einfach nicht mehr zeitgemäß.",
+    "ko": "큰 단점은 급속충전 시 최대 165kW로만 충전된다는 점이며, 이는 요즘 기준에 다소 뒤처집니다."
+   },
+   {
+    "start": 24.3,
+    "end": 30.7,
+    "text": "Aber schauen wir uns jetzt mal den Frunk an. Blöd nur, dass es keinen Frunk gibt. Hier wurde leider viel Platz verschwendet.",
+    "ko": "프렁크를 살펴보겠습니다. 아쉽게도 프렁크가 없습니다. 공간 활용이 아쉬운 부분입니다."
+   },
+   {
+    "start": 30.7,
+    "end": 47.1,
+    "text": "Hier fällt uns sofort auf: Wir haben nur ein sehr kleines Fahrerdisplay, zeigt aber die wichtigsten Informationen.",
+    "ko": "실내에서 바로 눈에 띄는 건 작은 운전석 디스플레이지만, 필수 정보는 알차게 표시합니다."
+   },
+   {
+    "start": 47.1,
+    "end": 100.4,
+    "text": "Was mir leider nicht so gut gefällt, sind die Touchknöpfe am Lenkrad.",
+    "ko": "아쉬운 점은 스티어링 휠에 적용된 터치식 버튼입니다."
+   },
+   {
+    "start": 100.4,
+    "end": 118.0,
+    "text": "Schauen wir uns mal das Infotainment-Display an. Das ist erstmal sehr groß, übersichtlich.",
+    "ko": "인포테인먼트 화면은 큼직하고 시인성이 좋습니다."
+   },
+   {
+    "start": 118.0,
+    "end": 132.3,
+    "text": "Was die Sitze angeht, bin ich sehr zufrieden. Da merkt man einfach, dass Volkswagen extrem viel Erfahrung im Autobau hat.",
+    "ko": "시트는 대단히 만족스럽고, 폭스바겐의 오랜 제조 노하우가 느껴집니다."
+   },
+   {
+    "start": 132.3,
+    "end": 147.8,
+    "text": "Kurzer Rückbankcheck noch: Ich habe hier genug Beinfreiheit, bin selber 1,80 m groß.",
+    "ko": "뒷좌석 확인: 180cm 기준 레그룸과 헤드룸 모두 충분합니다."
+   },
+   {
+    "start": 147.8,
+    "end": 160.0,
+    "text": "Kommen wir zum vielleicht wichtigsten Punkt: der Preis. Der ist relativ hoch, ab 43.360 Euro.",
+    "ko": "가장 중요한 가격은 43,360 유로부터 시작해 다소 높은 편입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.0,
+    "speed": "빠름",
+    "summary": "ID.5의 경쟁력에 대한 의문 제기"
+   },
+   {
+    "stage": "사양",
+    "start": 8.0,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "주행거리 장점과 충전속도 단점 지적"
+   },
+   {
+    "stage": "기능",
+    "start": 24.3,
+    "end": 30.7,
+    "speed": "빠름",
+    "summary": "프렁크 공간 부재 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 30.7,
+    "end": 147.8,
+    "speed": "보통",
+    "summary": "디스플레이, 스티어링 휠, 시트, 뒷좌석 등 실내 리뷰"
+   },
+   {
+    "stage": "가격",
+    "start": 147.8,
+    "end": 154.0,
+    "speed": "보통",
+    "summary": "차량 시작 가격 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 154.0,
+    "end": 160.0,
+    "speed": "빠름",
+    "summary": "LeasingMarkt.de 리스 딜 홍보 및 마무리"
+   }
+  ],
+  "rules": [
+   "1인칭 시점(POV)으로 진행자가 손을 뻗어 실제 만지고 조작하며 리뷰를 직관적으로 전달한다.",
+   "핵심 키워드와 수치는 굵은 볼드 폰트와 노란색 하이라이트로 중앙 하단에 배치해 즉각적인 인지를 돕는다.",
+   "장점(주행거리, 시트)과 단점(충전속도, 프렁크 부재, 터치 버튼)을 가감 없이 솔직하게 교차 제시한다.",
+   "조작부 터치 및 도어/암레스트 작동 시 실제 사운드를 살려 현장감을 높인다."
+  ]
+ }
+}

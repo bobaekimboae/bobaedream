@@ -1,0 +1,540 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/2fgryPJrf3M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5033,
+  "candidatesTokenCount": 5480,
+  "totalTokenCount": 10762,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4291
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 249,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.9,
+   "aspect": "9:16",
+   "car": "Hyundai Inster",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 12.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 19.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 24.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.6,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 39.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 47.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "EINSTIEGS ELEKTRO-SUV",
+    "ko": "엔트리급 전기 SUV",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "EINSTIEGS",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "FÜR UNTER 25.000",
+    "ko": "25,000유로 미만",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "25.000",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.0,
+    "text": "HYUNDAI INSTER",
+    "ko": "현대 인스터",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "LÄCHELN HIER VORNE",
+    "ko": "전면부의 미소",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "LÄCHELN",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "MODERNEN DESIGN",
+    "ko": "모던한 디자인",
+    "kind": "말 자막",
+    "y_pct": 87.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.0,
+    "text": "FUTURISTISCHEN SCHEINWERFERN",
+    "ko": "미래지향적인 헤드라이트",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "FUTURISTISCHEN",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "DIE BLINKER SIND",
+    "ko": "방향지시등은",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BLINKER",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "SEHR KLASSISCHE SUV",
+    "ko": "매우 클래식한 SUV",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SUV",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.0,
+    "text": "SEHR KASTIG",
+    "ko": "매우 각진 형태",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.2,
+    "text": "PLATZANGEBOT HABEN",
+    "ko": "공간을 확보하다",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PLATZANGEBOT",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 24.5,
+    "text": "CLADDINGS UND STAHLFELGEN",
+    "ko": "클래딩과 스틸 휠",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "STAHLFELGEN",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "HIER VORNE STOFFSITZE",
+    "ko": "앞쪽 직물 시트",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "STOFFSITZE",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.0,
+    "text": "AN ASSISTENZSYSTEMEN",
+    "ko": "다양한 주행 보조 시스템",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ASSISTENZSYSTEMEN",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.5,
+    "text": "HAPTISCHE BUTTONS",
+    "ko": "물리 버튼들",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "HAPTISCHE",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.8,
+    "text": "IM BODEN",
+    "ko": "바닥에 있음에도",
+    "kind": "말 자막",
+    "y_pct": 77.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.0,
+    "text": "HYUNDAI INSTER",
+    "ko": "현대 인스터",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "HYUNDAI",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 47.5,
+    "text": "DEALS ZU DIESEM",
+    "ko": "이 차량에 대한 딜",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "DEALS",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.1,
+    "type": "톡",
+    "event": "HYUNDAI INSTER 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "딸깍",
+    "event": "센터페시아 물리 버튼 터치",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi Hip-Hop / Chill Trap",
+   "bpm_est": 115,
+   "mood": "경쾌하고 편안함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 13.0,
+    "end": 47.9,
+    "what": "법적 연비 및 배출량 고지 텍스트 박스",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 8.0,
+    "entrance": "바로",
+    "purpose": "법적 표기사항 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Einstiegs-Elektro-SUV für unter 25.000 Euro: Das ist der Hyundai Inster",
+    "ko": "25,000유로 미만의 엔트리급 전기 SUV, 바로 현대 인스터입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 12.8,
+    "text": "mit einem breiten Lächeln hier vorne und einem modernen Design mit diesen retro-futuristischen Scheinwerfern, die automatisch auch die Blinker sind hier oben.",
+    "ko": "전면부의 미소 짓는 형상과 모던한 디자인, 위쪽에 방향지시등 역할을 겸하는 레트로-미래지향적인 헤드라이트가 특징입니다."
+   },
+   {
+    "start": 12.8,
+    "end": 20.0,
+    "text": "Von der Seite haben wir eine sehr klassische SUV-Form, so sehr, sehr, sehr kastig. Das sorgt dafür, dass wir auch im Innenraum gutes Platzangebot haben.",
+    "ko": "측면을 보면 매우 각진 정통 SUV 형태라 실내에 넉넉한 공간을 제공합니다."
+   },
+   {
+    "start": 20.0,
+    "end": 24.5,
+    "text": "Ansonsten haben wir hier SUV-mäßig diese Claddings und Stahlfelgen für den Einstieg.",
+    "ko": "또한 엔트리 트림다운 스틸 휠과 SUV 특유의 휠아치 클래딩이 적용되었습니다."
+   },
+   {
+    "start": 24.5,
+    "end": 30.0,
+    "text": "Im Innenraum finden wir vor allen Dingen viel Hartplastik, hier vorne Stoffsitze, sehr einfach,",
+    "ko": "실내에는 하드 플라스틱이 주를 이루고 앞좌석에는 직물 시트가 적용되어 매우 간결합니다."
+   },
+   {
+    "start": 30.0,
+    "end": 36.4,
+    "text": "aber dafür jede Menge an Assistenzsystemen, zwei Displays hier und hier, haptische Buttons",
+    "ko": "하지만 풍부한 운전자 보조 시스템과 두 개의 디스플레이, 직관적인 물리 버튼들이 탑재되어 있습니다."
+   },
+   {
+    "start": 36.4,
+    "end": 39.8,
+    "text": "und auf jeden Fall genügend Platz trotz der Batterie im Boden.",
+    "ko": "그리고 바닥에 배터리가 있음에도 넉넉한 헤드룸과 거주성을 보여줍니다."
+   },
+   {
+    "start": 39.8,
+    "end": 47.9,
+    "text": "Was sagt ihr zu diesem ausgefallenen Design beim Hyundai Inster? Falls er euch gefällt, schaut auf jeden Fall bei LeasingMarkt für die besten Leasing-Deals zu diesem Auto vorbei.",
+    "ko": "현대 인스터의 독특한 디자인 어떻게 생각하시나요? 마음에 드신다면 리싱마르크트에서 최고의 리스 딜을 확인해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "25,000유로 미만 전기 SUV 현대 인스터 도입"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 24.5,
+    "speed": "보통",
+    "summary": "전면 램프 디자인, 박시한 측면 실루엣 및 휠/클래딩 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 24.5,
+    "end": 39.8,
+    "speed": "보통",
+    "summary": "실내 소재, 디스플레이, 물리 버튼, 거주 공간 확인"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.8,
+    "end": 47.9,
+    "speed": "보통",
+    "summary": "후면부 디자인 질문 및 플랫폼 리스 딜 유도"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 차를 직접 짚으며 속도감 있게 설명",
+   "중요 키워드 단어는 볼드체 노란색(#FFEA00)으로 하이라이트",
+   "화면 상단에 독일 전기차 법정 에너지 소비량 고지 문구 상시 고정",
+   "실내 버튼 터치 및 주요 디자인 요소를 핸드헬드 앵글로 근접 촬영",
+   "영상 말미에 시청자 질문 던지기 및 제휴 리스 플랫폼 프로모션 유도"
+  ]
+ }
+}

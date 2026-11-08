@@ -1,0 +1,153 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/XJ2OOgVgLcg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4944,
+  "candidatesTokenCount": 1502,
+  "totalTokenCount": 6446,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4202
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.5,
+   "aspect": "9:16",
+   "car": "Porsche 911 GT3 mit Touring-Paket",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 46.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 46.5,
+    "text": "Porsche 911 GT3 mit Touring-Paket Kraftstoffverbrauch (WLTP):\nKraftstoffverbrauch kombiniert: 13,8 - 13,7 l/100km;\nCO₂-Emissionen kombiniert: 312 - 310 g/km; CO₂-Klasse: G",
+    "ko": "포르쉐 911 GT3 투어링 패키지 연비 (WLTP): 복합 연비 13.8 - 13.7 l/100km, 복합 CO2 배출량: 312 - 310 g/km, CO2 등급: G",
+    "kind": "기타",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 46.5,
+    "text": "Jetzt auf\nYouTube",
+    "ko": "지금 유튜브에서",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "포르쉐 911 GT3 아우토반 주행 및 엔진 가속 사운드 (POV)",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "변속기 조작 및 다운시프트 / 레브매칭 사운드",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "엔진음 위주",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 16.5,
+    "end": 46.5,
+    "what": "빨간색 가로 구분 바 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 32.5,
+    "y_pct": 65.5,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구분선 및 시선 유도",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 46.5,
+    "what": "AutoScout24 로고 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 27.5,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "채널 브랜딩 및 유튜브 유입 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 16.5,
+    "speed": "빠름",
+    "summary": "운전자 1인칭 시점(POV)에서 포르쉐 911 GT3 투어링 모델의 아우토반 고속 주행 및 엔진음 체감"
+   },
+   {
+    "stage": "차 소개",
+    "start": 16.5,
+    "end": 46.5,
+    "speed": "빠름",
+    "summary": "추월 및 고속 가속 질주와 함께 전체 영상 풀버전 시청 안내(AutoScout24 유튜브) 표시"
+   }
+  ],
+  "rules": [
+   "POV(운전자 1인칭 숄더 뷰) 단일 롱테이크 샷으로 아우토반 초고속 주행의 현장감 극대화",
+   "배경음악과 내레이션을 완전히 배제하고 911 GT3 자연흡기 고회전 엔진음과 배기 사운드만을 전달",
+   "하단에 독일 공식 WLTP 연비 및 배출가스 정보를 고정 텍스트로 필수 표기",
+   "주행 몰입 후 중반부터 유튜브 풀버전 유입 스티커와 브랜드 로고를 중앙 하단에 지속 노출"
+  ]
+ }
+}

@@ -1,0 +1,142 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/xbYiczC63ig",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2099,
+  "candidatesTokenCount": 1197,
+  "totalTokenCount": 3296,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1357
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.8,
+   "aspect": "9:16",
+   "car": "VW Golf Rallye G60",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 6.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 14.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 14.8,
+    "text": "VW Golf Rallye G60",
+    "ko": "폭스바겐 골프 랠리 G60",
+    "kind": "제목",
+    "y_pct": 74.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#232637",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스팝 / 훵크 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 레트로한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 14.8,
+    "what": "AutoScout24 노란색 로고 심볼 마크",
+    "is_3d": false,
+    "size_w_pct": 16.0,
+    "x_pct": 5.0,
+    "y_pct": 74.0,
+    "entrance": "바로",
+    "purpose": "브랜드 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.0,
+    "text": "Von 83 bis 92 hat VW 6 Millionen 2er Golfs hergestellt, also ein echtes Massenprodukt.",
+    "ko": "83년부터 92년까지 폭스바겐은 2세대 골프를 600만 대 생산했으니 진짜 대량생산 모델이죠."
+   },
+   {
+    "start": 6.0,
+    "end": 10.0,
+    "text": "Aber es gibt auch echten seltenen Golf und das ist der Golf Rallye.",
+    "ko": "하지만 정말 희귀한 골프도 있는데, 바로 골프 랠리입니다."
+   },
+   {
+    "start": 10.0,
+    "end": 14.8,
+    "text": "5000 Mal gebaut, wahrscheinlich ist der eher selten und wir haben davon zwei dabei.",
+    "ko": "5000대만 제작되어 꽤나 희귀한데, 오늘 저희가 두 대를 준비했습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.3,
+    "speed": "보통",
+    "summary": "골프 2세대의 엄청난 생산량 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.3,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "5000대 한정 생산된 희귀 모델 골프 랠리 G60 소개 예고"
+   }
+  ],
+  "rules": [
+   "진행자가 벤치에 앉아 줌아웃 구도로 전개되며 이야기하는 인트로 훅 구성",
+   "하단에 브랜드 로고가 결합된 차종명 라벨 바를 고정 노출하여 시청 지속 유도",
+   "말의 강조점에 맞춰 컷을 전환(클로즈업에서 와이드로 줌아웃 전환)"
+  ]
+ }
+}

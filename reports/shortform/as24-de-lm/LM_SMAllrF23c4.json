@@ -1,0 +1,642 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/SMAllrF23c4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6574,
+  "candidatesTokenCount": 5414,
+  "totalTokenCount": 12546,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5832
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 558,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 64.7,
+   "aspect": "9:16",
+   "car": "Hyundai Ioniq 6 N",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 27.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 34.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.3,
+    "end": 41.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 50.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 56.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 64.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "Brandneu\nIONIQ 6N",
+    "ko": "완전 신형\n아이오닉 6 N",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "IONIQ 6N",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "IST DAS DAS BESTE ELEKTROAUTO",
+    "ko": "이것이 시장에서 가장 최고의 전기차일까요?",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTROAUTO",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "text": "AUF DEM MARKT HYUNDAI MACHT",
+    "ko": "현대가 아이오닉 6 N으로 보여주고 있습니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MARKT",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "IONIQ 6N VOR WAS ALLE ANDEREN",
+    "ko": "다른 모든 브랜드들이 따라해야 할 표본을요",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOR",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.7,
+    "text": "NACHMACHEN DAS FACELIFT HAT DEM",
+    "ko": "이번 페이스리프트는 아이오닉 6 N에 아주 긍정적입니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "NACHMACHEN",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 13.5,
+    "text": "VORNE SEHR AGGRESSIV AUS DAS LIEGT",
+    "ko": "전면부가 무척 공격적으로 보입니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DAS LIEGT",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "text": "TAGFAHRLEUCHTEN DIE HAUPTSCHEINWERFER",
+    "ko": "슬림한 주간주행등과 헤드라이트 때문이죠",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TAGFAHRLEUCHTEN",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.3,
+    "text": "DIE 20-ZOLL-FELGEN",
+    "ko": "20인치 휠과 오렌지색 스트립 라인",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DIE 20-ZOLL-FELGEN",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.5,
+    "text": "BIS ZUM HECK",
+    "ko": "후면부까지 이어집니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BIS ZUM HECK",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 27.0,
+    "text": "5 METER LANG UND TROTZDEM",
+    "ko": "전장이 거의 5미터에 달합니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5 METER LANG",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 30.5,
+    "text": "DER IONIQ 5N",
+    "ko": "형제차 아이오닉 5 N보다 휠베이스가 짧죠",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DER IONIQ 5N",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.6,
+    "text": "RIESIGEN HECKSPOILER",
+    "ko": "거대한 리어 디퓨저와 대형 윙 스포일러",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RIESIGEN HECKSPOILER",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.3,
+    "text": "WIRKLICH",
+    "ko": "진짜 고성능 탑버전임을 증명합니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIRKLICH",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 46.0,
+    "text": "SPORTLENKRAD",
+    "ko": "멋진 스포츠 스티어링 휠",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPORTLENKRAD",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 50.5,
+    "text": "BOOST-SCHALTER",
+    "ko": "N 부스트 버튼과 위성 스위치",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BOOST-SCHALTER",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 55.0,
+    "text": "SCHALTUNG SIMULIERT",
+    "ko": "전기차임에도 리얼한 가상 변속 시스템 구현",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SCHALTUNG SIMULIERT",
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 64.7,
+    "text": "BEI LEASINGMARKT.DE",
+    "ko": "LeasingMarkt.de 에서 최고의 리스 딜을 확인하세요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BEI LEASINGMARKT.DE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "휙",
+    "event": "제목 텍스트 'Brandneu' 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "휙",
+    "event": "헤드램프 디테일 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "휙",
+    "event": "휠 클로즈업 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 20.3,
+    "type": "휙",
+    "event": "측면 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "휙",
+    "event": "후면 스포일러 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.3,
+    "type": "딸깍",
+    "event": "운전석 도어 핸들 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "휙",
+    "event": "실내 스티어링 휠 시점 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 53.6,
+    "type": "휙",
+    "event": "주행 컷 전환",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 힙합 비트",
+   "bpm_est": 120,
+   "mood": "에너지틱하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 64.7,
+    "what": "상단 공식 연비 및 탄소배출 정보 텍스트",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 8.0,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Ist das das beste Elektroauto auf dem Markt?",
+    "ko": "이것이 시장에서 가장 최고의 전기차일까요?"
+   },
+   {
+    "start": 3.2,
+    "end": 7.0,
+    "text": "Hyundai macht mit dem Ioniq 6N vor, was alle anderen nachmachen.",
+    "ko": "현대는 아이오닉 6 N을 통해 다른 이들이 따라갈 기준을 제시합니다."
+   },
+   {
+    "start": 7.0,
+    "end": 11.5,
+    "text": "Das Facelift hat dem Ioniq 6N sehr gut getan, und seitdem sieht er von vorne sehr aggressiv aus.",
+    "ko": "페이스리프트를 거치며 전면부가 매우 공격적으로 변했습니다."
+   },
+   {
+    "start": 11.5,
+    "end": 16.6,
+    "text": "Das liegt vor allen Dingen an den schmalen Tagfahrleuchten und die Hauptscheinwerfer verschwinden fast in der Front darunter.",
+    "ko": "슬림한 주간주행등과 그 아래 자연스럽게 숨겨진 메인 헤드램프 덕분이죠."
+   },
+   {
+    "start": 16.6,
+    "end": 23.3,
+    "text": "Die Lippe mit dem orangenen Streifen zieht sich über die 20-Zoll-Felgen und die gesamte Seite bis zum Heck des Fahrzeugs.",
+    "ko": "오렌지 스트라이프 립이 20인치 휠을 지나 측면 전체를 거쳐 리어까지 이어집니다."
+   },
+   {
+    "start": 23.3,
+    "end": 29.5,
+    "text": "Insgesamt ist er fast 5 m lang und trotzdem hat er einen kürzeren Radstand als sein Bruder, der Ioniq 5N.",
+    "ko": "길이는 거의 5미터에 달하지만, 형제 모델인 아이오닉 5 N보다 휠베이스가 짧습니다."
+   },
+   {
+    "start": 29.5,
+    "end": 35.0,
+    "text": "Am Heck rastet Hyundai dann noch mal so richtig aus mit diesem großen Diffusor und vor allen Dingen diesem riesigen Heckspoiler.",
+    "ko": "리어에서는 대형 디퓨저와 거대한 윙 스포일러로 한층 더 과감해졌습니다."
+   },
+   {
+    "start": 35.0,
+    "end": 39.0,
+    "text": "Das N am Heck verrät dann auch der letzten Person, dass es sich hier wirklich um die Topversion handelt.",
+    "ko": "후면의 N 엠블럼은 이것이 진정한 최상위 고성능 버전임을 보여줍니다."
+   },
+   {
+    "start": 39.0,
+    "end": 42.0,
+    "text": "Schreibt doch mal in die Kommentare, wie euch das Design von außen gefällt.",
+    "ko": "외관 디자인이 어떤지 댓글로 남겨주세요."
+   },
+   {
+    "start": 42.0,
+    "end": 46.5,
+    "text": "Und im Interieur finden wir jetzt den Grund, warum in Zukunft alle Hyundai kopieren werden.",
+    "ko": "그리고 실내에는 앞으로 모두가 현대를 모방하게 될 이유가 있습니다."
+   },
+   {
+    "start": 46.5,
+    "end": 50.5,
+    "text": "Zwar nicht wegen diesem wirklich sehr schönen Sportlenkrad mit Satellitenschaltern und diesem orangenen Boost-Schalter hier,",
+    "ko": "위성 스위치와 오렌지색 부스트 버튼이 달린 아름다운 스포티 스티어링 휠 때문만이 아니라,"
+   },
+   {
+    "start": 50.5,
+    "end": 56.0,
+    "text": "sondern weil Hyundai trotz des Elektromotors eine echte Schaltung simuliert und diese sich einfach viel zu realistisch anfühlt.",
+    "ko": "전기차임에도 불구하고 너무나 리얼하게 느껴지는 가상 변속 시스템을 탑재했기 때문입니다."
+   },
+   {
+    "start": 56.0,
+    "end": 64.7,
+    "text": "Was sagt ihr zu dem Auto? Schreibt's uns in die Kommentare, und wenn ihr die besten Leasing-Deals zum Hyundai Ioniq 6N nicht verpassen wollt, dann schaut auf jeden Fall bei LeasingMarkt.de vorbei.",
+    "ko": "여러분 생각은 어떠신가요? 댓글로 알려주시고, 현대 아이오닉 6 N의 최저가 리스 상품을 놓치고 싶지 않다면 LeasingMarkt.de를 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "최고의 전기차인지 질문하며 관심 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 23.3,
+    "speed": "보통",
+    "summary": "전면 공격적 디자인, DRL 및 20인치 휠, 사이드 라인 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 23.3,
+    "end": 39.0,
+    "speed": "보통",
+    "summary": "차체 길이, 휠베이스 비교, 리어 디퓨저 및 거대 스포일러 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 39.0,
+    "end": 56.0,
+    "speed": "빠름",
+    "summary": "실내 스포츠 스티어링 휠, 부스트 버튼 및 리얼한 가상 변속 시스템 극찬"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 56.0,
+    "end": 64.7,
+    "speed": "보통",
+    "summary": "댓글 소통 유도 및 LeasingMarkt.de 리스 견적 확인 CTA"
+   }
+  ],
+  "rules": [
+   "진행자의 손이 직접 화면에 등장하는 POV 1인칭 화법으로 시청자의 몰입도를 극대화",
+   "화면 하단 중앙에 핵심 키워드가 노란색으로 강조되는 싱크 자막 배치",
+   "외관 디테일 파츠(램프, 휠, 스포일러)와 실내 핵심 장치에 맞춘 빠른 컷 전환과 스우시 효과음 활용",
+   "영상 말미에 번호판 패널을 가리키며 제휴 리스 플랫폼(LeasingMarkt.de) 방문 유도"
+  ]
+ }
+}

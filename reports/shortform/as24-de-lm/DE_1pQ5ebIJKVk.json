@@ -1,0 +1,355 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/1pQ5ebIJKVk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3291,
+  "candidatesTokenCount": 2629,
+  "totalTokenCount": 6994,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2549
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1074,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 28.5,
+   "aspect": "9:16",
+   "car": "Rolls-Royce Ghost / Dawn / Cullinan",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.7,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 8.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 11.1,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 13.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 15.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 28.5,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Jetzt auf Youtube!",
+    "ko": "지금 유튜브에서 확인하세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 39.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -2,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.4,
+    "text": "@autoscout24",
+    "ko": "@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 70.8,
+    "x_center_pct": 68.0,
+    "text_height_pct": 2.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 28.5,
+    "text": "Jetzt auf Youtube!",
+    "ko": "지금 유튜브에서 확인하세요!",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 44.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -3,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 28.5,
+    "text": "@autoscout24",
+    "ko": "@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 64.0,
+    "text_height_pct": 2.4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.3,
+    "type": "쿵",
+    "event": "인트로 인물 대화에서 차량 몽타주로 비트 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "휙",
+    "event": "망점 패턴 디졸브 전환 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "휙",
+    "event": "마지막 장면에서 엔딩 카드 슬라이드 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.6,
+    "type": "딸깍",
+    "event": "엔딩 카드 계정명 태그 팝업 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "트랩 / 힙합 비트",
+   "bpm_est": 96,
+   "mood": "웅장하고 고급스러움",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 3.4,
+     "what": "대화 종료 후 강한 비트 드롭과 몽타주 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 22.8,
+    "what": "AutoScout24 좌상단 로고 워터마크",
+    "is_3d": false,
+    "size_w_pct": 14.0,
+    "x_pct": 7.0,
+    "y_pct": 5.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "Das sind meine drei special Babys.",
+    "ko": "이것들이 제 세 대의 특별한 아가들입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "보통",
+    "summary": "차주가 자신의 롤스로이스 3대를 가리키며 소개하는 오프닝"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 22.8,
+    "speed": "빠름",
+    "summary": "트랩 비트에 맞춘 커스텀 롤스로이스 3대의 디테일 및 외관 쇼케이스 몽타주"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 22.8,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "유튜브 풀버전 시청 유도 아웃트로"
+   }
+  ],
+  "rules": [
+   "도입부 3초 내에 호기심을 끄는 멘트로 시선을 집중시킨 후 비트 드롭과 함께 차량 디테일을 감각적으로 보여준다.",
+   "1초 내외의 빠른 컷 전환을 음악 템포와 킥/스네어에 정확히 맞춰 시각적 리듬감을 극대화한다.",
+   "시계 다이얼 휠, 엠블럼, 실내 자수 등 최고급 커스텀 디테일을 초근접 매크로 샷으로 번갈아 배치해 볼거리를 제공한다.",
+   "영상 시작과 끝에 동일한 노란색 사선 라벨 형태의 유튜브 시청 유도 CTA를 배치해 브랜딩을 강화한다."
+  ]
+ }
+}

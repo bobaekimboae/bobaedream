@@ -1,0 +1,359 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/wQ_XU3pUbG4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2922,
+  "candidatesTokenCount": 3347,
+  "totalTokenCount": 7084,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2180
+   }
+  ],
+  "thoughtsTokenCount": 815,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.4,
+   "aspect": "9:16",
+   "car": "MG ZS",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.4,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 12.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 17.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 23.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Was für ein Auto ist das?",
+    "ko": "이건 무슨 차일까요?",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.1,
+    "text": "Gute Frage.",
+    "ko": "좋은 질문이네요.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.8,
+    "text": "Von vorne, mit diesen Scheinwerfern und der Front könnte es ein Mazda sein.",
+    "ko": "앞쪽 헤드램프와 프론트 디자인을 보면 마쓰다 같기도 하죠.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.3,
+    "text": "Mit den Felgen ein Mercedes.",
+    "ko": "휠을 보면 벤츠 같고,",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "text": "Mit der Seitenlinie",
+    "ko": "사이드 라인을 보면",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "vielleicht ein Hyundai.",
+    "ko": "현대차 같기도 합니다.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.2,
+    "end": 14.8,
+    "text": "Und von hinten,",
+    "ko": "그리고 뒤에서 보면,",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.4,
+    "text": "eventuell ein BMW X3.",
+    "ko": "어쩌면 BMW X3처럼 보이죠.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "text": "Ja was ist es jetzt?",
+    "ko": "그럼 과연 무슨 차일까요?",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.4,
+    "text": "Tadaa, es ist ein MG.",
+    "ko": "짜잔, 바로 MG입니다.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트/힙합 인스트루멘털",
+   "bpm_est": 95,
+   "mood": "리드미컬하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 23.4,
+    "what": "WLTP 연비 및 CO2 배출 정보 법적 고지 텍스트",
+    "is_3d": false,
+    "size_w_pct": 82.0,
+    "x_pct": 50.0,
+    "y_pct": 66.5,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Was für ein Auto ist das?",
+    "ko": "이 차는 무슨 차일까요?"
+   },
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "text": "Gute Frage.",
+    "ko": "좋은 질문입니다."
+   },
+   {
+    "start": 4.1,
+    "end": 7.8,
+    "text": "Von vorne, mit diesen Scheinwerfern und der Front könnte es ein Mazda sein.",
+    "ko": "앞모습은 헤드라이트와 전면부 때문에 마쓰다 같을 수 있습니다."
+   },
+   {
+    "start": 8.0,
+    "end": 9.3,
+    "text": "Mit den Felgen ein Mercedes.",
+    "ko": "휠은 메르세데스 벤츠 느낌이고요."
+   },
+   {
+    "start": 9.5,
+    "end": 13.0,
+    "text": "Mit der Seitenlinie vielleicht ein Hyundai.",
+    "ko": "측면 라인은 아마도 현대차 같죠."
+   },
+   {
+    "start": 13.2,
+    "end": 17.4,
+    "text": "Und von hinten, eventuell ein BMW X3.",
+    "ko": "그리고 뒤는 어쩌면 BMW X3 느낌입니다."
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "text": "Ja was ist es jetzt?",
+    "ko": "그럼 이제 진짜 정체는 뭘까요?"
+   },
+   {
+    "start": 20.0,
+    "end": 23.4,
+    "text": "Tadaa, es ist ein MG.",
+    "ko": "짜잔, 바로 MG입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "보통",
+    "summary": "차량 엠블럼을 몸으로 가린 채 '무슨 차일까?' 질문으로 호기심 유발"
+   },
+   {
+    "stage": "기능",
+    "start": 2.5,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "전면, 휠, 측면, 후면 부위별로 타 브랜드(마쓰다, 벤츠, 현대, BMW)와 닮은 디자인 요소 비교"
+   },
+   {
+    "stage": "차 소개",
+    "start": 17.5,
+    "end": 23.4,
+    "speed": "보통",
+    "summary": "몸을 비키며 MG 로고를 보여주고 정답 공개"
+   }
+  ],
+  "rules": [
+   "진행자가 엠블럼을 가리고 퀴즈 형식으로 시작해 끝까지 시청을 유도함",
+   "말하는 브랜드 언급에 맞춰 카메라가 전면, 휠, 사이드라인, 리어 램프로 컷 전환됨",
+   "자막은 화면 중앙 하단에 일정한 굵기의 흰색 텍스트와 검은 테두리로 가독성 확보",
+   "하단에는 유럽 기준 WLTP 공인 연비 및 배출량 고지 텍스트를 상시 노출"
+  ]
+ }
+}

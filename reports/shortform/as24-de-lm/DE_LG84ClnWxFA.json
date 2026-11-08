@@ -1,0 +1,302 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/LG84ClnWxFA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6205,
+  "candidatesTokenCount": 2692,
+  "totalTokenCount": 9418,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5463
+   }
+  ],
+  "thoughtsTokenCount": 521,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.0,
+   "aspect": "9:16",
+   "car": "BMW M5 (E60)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 8.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 20.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 25.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 39.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 50.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 56.5,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "AutoScout24 testet",
+    "ko": "AutoScout24가 테스트합니다",
+    "kind": "제목",
+    "y_pct": 40.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 60.0,
+    "text": "App runterladen",
+    "ko": "앱 다운로드",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 56.5,
+    "text": "Beispiel-Angebote",
+    "ko": "예시 매물",
+    "kind": "키워드 스티커",
+    "y_pct": 94.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 1.8,
+    "color": "#333333",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "V10 자연흡기 고회전 배기음 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "타이어 스키드 및 드리프트 마찰음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "코너링 슬라이드 주행 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 레드존 8000RPM 회전 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "휙",
+    "event": "앱 매물 카드 전환 스와이프 효과음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "휙",
+    "event": "매물 카드 다음 페이지 슬라이드 효과음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 54.5,
+    "type": "휙",
+    "event": "매물 카드 슬라이드 효과음",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/트랩 비트",
+   "bpm_est": 130,
+   "mood": "역동적이고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 50.5,
+     "what": "주행 파트 종료 후 앱 CTA 아웃트로 비트로 전환"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "what": "AutoScout24 테스트 매물 카드 그래픽 (BMW M5 €55.400)",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "바로",
+    "purpose": "테스트 차량 기본 정보 및 시세 제시",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 56.5,
+    "what": "AutoScout24 M5 세대별 매물 가격 카드 슬라이드쇼",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "중고차 시세 및 매물 예시 제공",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.0,
+    "what": "스마트폰 목업 내 AutoScout24 앱 탐색 화면",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "밀기",
+    "purpose": "앱 다운로드 유도 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.5,
+    "speed": "빠름",
+    "summary": "AutoScout24 테스트 타이틀 및 가격 카드 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.5,
+    "end": 50.5,
+    "speed": "빠름",
+    "summary": "3단 분할 화면을 활용한 BMW M5의 고속 주행, 드리프트, 배기음 액션 시퀀스"
+   },
+   {
+    "stage": "가격",
+    "start": 50.5,
+    "end": 56.5,
+    "speed": "보통",
+    "summary": "BMW M5 다양한 세대별 실제 중고차 시세 카드 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 56.5,
+    "end": 60.0,
+    "speed": "보통",
+    "summary": "AutoScout24 모바일 앱 다운로드 CTA 및 엔딩"
+   }
+  ],
+  "rules": [
+   "상·중·하 3분할 세로 프레임으로 동일 차량의 서로 다른 앵글(휠, 전면, 와이드)을 동시 노출하여 속도감과 입체감을 극대화한다.",
+   "별도 음성 내레이션 없이 순수 고회전 자연흡기 배기음과 비트 음악을 조화시켜 시각과 청각의 몰입도를 높인다.",
+   "주행 클립 중간에 타코미터(계기판 고회전) 컷을 삽입해 차량의 고성능 이미지를 각인시킨다.",
+   "후반부에는 노란색 브랜드 컬러 배경에 실제 중고 매물 카드와 모바일 앱 UI를 빠르게 보여주며 앱 다운로드로 전환을 유도한다."
+  ]
+ }
+}

@@ -1,0 +1,376 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/4zxlxWc1IQM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5397,
+  "candidatesTokenCount": 3798,
+  "totalTokenCount": 9195,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4655
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.6,
+   "aspect": "9:16",
+   "car": "Kia EV3 (EV2로 발음하나 EV3 모델)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.6,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.3,
+    "end": 43.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 51.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.6,
+    "text": "3 FAKTEN\nKIA EV2",
+    "ko": "기아 EV2에 대한 3가지 사실",
+    "kind": "제목",
+    "y_pct": 21.5,
+    "x_center_pct": 52.3,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "3",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "KOMMEN WIR DIREKT",
+    "ko": "바로 가보시죠",
+    "kind": "말 자막",
+    "y_pct": 72.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KOMMEN",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.0,
+    "text": "AB 26.600€",
+    "ko": "26,600유로부터",
+    "kind": "가격",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AB 26.600€",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "text": "38.800€",
+    "ko": "38,800유로",
+    "kind": "가격",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "38.800€",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "ZU 45.000€",
+    "ko": "45,000유로까지",
+    "kind": "가격",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "45.000€",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.8,
+    "text": "2",
+    "ko": "2",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "text": "3",
+    "ko": "3",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "제목 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "숫자 2 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "충전구 도어 열림 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "충전구 도어 닫힘 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "숫자 3 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스티어링 휠 버튼 누르는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Drei Fakten zum Kia EV2.",
+    "ko": "기아 EV2에 대한 3가지 사실."
+   },
+   {
+    "start": 2.0,
+    "end": 5.9,
+    "text": "Fakt Nummer eins, kommen wir direkt zum Preis: Den Wagen gibt es ab 26.600 €.",
+    "ko": "첫 번째 사실, 바로 가격입니다. 이 차는 26,600유로부터 시작합니다."
+   },
+   {
+    "start": 5.9,
+    "end": 12.5,
+    "text": "So wie er hier steht, kostet er allerdings 38.800 € und man kann ihn sogar bis zu 45.000 € ausstatten.",
+    "ko": "하지만 지금 서 있는 이 차는 38,800유로이며, 최대 45,000유로까지 옵션을 넣을 수 있습니다."
+   },
+   {
+    "start": 12.5,
+    "end": 17.5,
+    "text": "Das ist natürlich viel Geld. Schaut ansonsten mal bei LeasingMarkt.de, da gibt's die besten Leasingangebote.",
+    "ko": "물론 큰 돈이죠. 아니라면 LeasingMarkt.de를 확인해 보세요, 최고의 리스 매물이 있습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 23.0,
+    "text": "Fakt Nummer zwei: Optional gibt's bei dem Wagen einen 22 kW AC-Onboard-Charger.",
+    "ko": "두 번째 사실: 옵션으로 22kW 완속 온보드 차저를 탑재할 수 있습니다."
+   },
+   {
+    "start": 23.0,
+    "end": 29.8,
+    "text": "Das ist vor allem deswegen cool, weil der Wagen einen bis zu 61 kWh großen Akku hat und den habt ihr dann wieder ganz schnell aufgeladen.",
+    "ko": "최대 61kWh 배터리를 탑재해 다시 아주 빠르게 완충할 수 있다는 점에서 특히 멋집니다."
+   },
+   {
+    "start": 29.8,
+    "end": 34.0,
+    "text": "Fakt Nummer drei zeig ich euch hier aus dem Interieur, und ich muss sagen, das gefällt mir richtig gut.",
+    "ko": "세 번째 사실은 실내에서 보여드릴 텐데요, 개인적으로 정말 마음에 듭니다."
+   },
+   {
+    "start": 34.0,
+    "end": 42.8,
+    "text": "Das Lenkrad hat echte physische Knöpfe, Walzen, und ich kann hier das Infotainmentsystem bedienen und hier die Fahrassistenz. Hier hab ich auch noch einen Drive-Mode-Schalter.",
+    "ko": "스티어링 휠에 진짜 물리 버튼과 휠 다이얼이 있어서 여기서 인포테인먼트 조작, 여기서 주행 보조를 씁니다. 여기 드라이브 모드 버튼도 있습니다."
+   },
+   {
+    "start": 42.8,
+    "end": 46.5,
+    "text": "Optisch keine zehn von zehn, aber definitiv sehr praktisch.",
+    "ko": "외관상 10점 만점은 아니지만 확실히 매우 실용적입니다."
+   },
+   {
+    "start": 46.5,
+    "end": 51.6,
+    "text": "Was haltet ihr von diesem Kia EV2? Schreibt's mir unten in die Kommentare und vergesst nicht, unserem Kanal zu folgen.",
+    "ko": "이 기아 EV2 어떻게 생각하시나요? 댓글로 남겨주시고 저희 채널 팔로우도 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "Kia EV2 3가지 핵심 팩트 소개 시작"
+   },
+   {
+    "stage": "가격",
+    "start": 1.7,
+    "end": 17.6,
+    "speed": "보통",
+    "summary": "기본 가격부터 풀옵션 가격 비교 및 리스 플랫폼 추천"
+   },
+   {
+    "stage": "사양",
+    "start": 17.6,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "22kW AC 온보드 차저와 대용량 배터리 충전 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "스티어링 휠의 물리 버튼 및 실내 인터페이스 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 46.5,
+    "end": 51.6,
+    "speed": "보통",
+    "summary": "의견 댓글 유도 및 채널 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "숫자 기반 리스트형(3 Fakten) 포맷으로 전개해 시청자 지속 시청 유도",
+   "화면 중앙 하단에 굵은 고딕 대문자로 1~3단어씩 빠르게 교체되는 자막 노출",
+   "핵심 키워드와 숫자/가격에는 노란색 강조 하이라이트 적용",
+   "실제 차 부품(충전구 커버 누르기, 스티어링 버튼 클릭) 조작 음향을 현장감 있게 활용"
+  ]
+ }
+}

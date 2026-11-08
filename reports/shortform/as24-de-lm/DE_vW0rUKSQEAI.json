@@ -1,0 +1,216 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/vW0rUKSQEAI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3112,
+  "candidatesTokenCount": 1609,
+  "totalTokenCount": 5429,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2370
+   }
+  ],
+  "thoughtsTokenCount": 708,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.8,
+   "aspect": "9:16",
+   "car": "MINI Cooper Cabrio",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 4.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 15.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 19.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 26.8,
+    "text": "MINI Cooper Cabrio",
+    "ko": "미니 쿠퍼 카브리오",
+    "kind": "제목",
+    "y_pct": 70.0,
+    "x_center_pct": 39.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "주행 중 엔진음 및 노면 소음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Funky Pop / Instrumental",
+   "bpm_est": 115,
+   "mood": "경쾌함, 드라이빙",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 26.8,
+    "what": "좌측 노란색 X 로고 및 차명 배너",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 5.0,
+    "y_pct": 67.0,
+    "entrance": "바로",
+    "purpose": "차량 모델명 표기",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Leider ist der Mini, also der Ur-Mini, ja nie als Cabrio gebaut worden. Das hat erst BMW übernommen.",
+    "ko": "안타깝게도 오리지널 미니는 카브리오로 만들어진 적이 없죠. BMW가 인수한 뒤에야 시작되었습니다."
+   },
+   {
+    "start": 4.5,
+    "end": 10.7,
+    "text": "Aber wie gut sie das gemacht haben, merkt man wirklich beim Fahren. Das Auto zittert nicht,",
+    "ko": "하지만 얼마나 잘 만들었는지는 주행해 보면 바로 느껴집니다. 차체가 떨리지 않아요,"
+   },
+   {
+    "start": 10.7,
+    "end": 15.3,
+    "text": "im Gegensatz zu diesen ganzen Tunermodellen, die es vom ersten gab, also die einfach aufgeschnippelt wurden und irgendwie so ein Dach daran gebrezelt.",
+    "ko": "1세대 기반으로 단순히 지붕을 잘라내 대충 덮개를 얹었던 온갖 튜닝 개조 모델들과는 완전히 다릅니다."
+   },
+   {
+    "start": 15.3,
+    "end": 18.0,
+    "text": "Das funktioniert hier wesentlich besser, ne?",
+    "ko": "이 차는 훨씬 완성도 있게 작동하죠, 그렇죠?"
+   },
+   {
+    "start": 18.0,
+    "end": 22.8,
+    "text": "Und du hast die großen Vorteile eines Minis: ein kleines, kompaktes Auto,",
+    "ko": "그리고 미니만의 큰 장점도 그대로 갖고 있습니다. 작고 콤팩트한 차체로,"
+   },
+   {
+    "start": 22.8,
+    "end": 26.8,
+    "text": "was wirklich Kurven wuseln kann ohne Ende. Das macht wirklich Spaß.",
+    "ko": "끝없이 코너를 날렵하게 파고들 수 있죠. 정말 운전이 즐겁습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "오리지널 미니와 BMW 미니 카브리오의 유래 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 18.0,
+    "speed": "보통",
+    "summary": "정식 오픈톱 차체의 강성과 주행 완성도 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 18.0,
+    "end": 26.8,
+    "speed": "보통",
+    "summary": "미니 특유의 콤팩트함과 경쾌한 코너링 재미 강조"
+   }
+  ],
+  "rules": [
+   "진행자의 주행 설명 숏과 역동적인 외부 주행 컷을 교차 편집하여 지루함을 방지한다",
+   "화면 하단에 차량명 배너를 지속적으로 고정 노출하여 시청자의 차량 인지를 돕는다",
+   "운전자의 실제 음성과 엔진 주행음을 적절히 믹싱하여 현장감 있는 드라이빙 쇼츠를 구성한다"
+  ]
+ }
+}

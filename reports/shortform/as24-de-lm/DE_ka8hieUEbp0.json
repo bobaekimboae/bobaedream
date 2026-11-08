@@ -1,0 +1,433 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/ka8hieUEbp0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6215,
+  "candidatesTokenCount": 4578,
+  "totalTokenCount": 10885,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5473
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 92,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.3,
+   "aspect": "9:16",
+   "car": "Tesla Model Y Performance",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 60.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "Moin.",
+    "ko": "안녕.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 3.4,
+    "text": "Neues aus dem AutoScout24\nTestfuhrpark und zwar weiter",
+    "ko": "AutoScout24 테스트 차량단의 새로운 소식,",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 6.3,
+    "text": "mit unserem Model\nY Performance.",
+    "ko": "바로 우리 모델 Y 퍼포먼스 이야기입니다.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 10.3,
+    "text": "Ultra cooles Auto. Fahre das anderthalb\nWochen, muss sagen, es funktioniert tadellos,",
+    "ko": "정말 멋진 차예요. 일주일 반 동안 탔는데 완벽하게 작동합니다,",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 13.9,
+    "text": "Software habe ich mich dran gewöhnt.\nDas Auto selber macht Spaß",
+    "ko": "소프트웨어에도 적응했고 차 자체도 재미있어요.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 18.9,
+    "text": "und wer Elektro fahren will, das funktioniert\nalle super mit einer Sache, dass das Laden.",
+    "ko": "전기차를 타려는 사람에게 다 좋지만, 단 한 가지 충전 문제가 있죠.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 23.3,
+    "text": "nicht am Tesla Supercharger,\neinwandfrei. Einstöpseln,",
+    "ko": "테슬라 슈퍼차저는 문제없이 잘 돼요. 꽂기만 하면,",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 27.6,
+    "text": "Die erkennen sich, das wird darüber abgerechnet\nüberhaupt keine Probleme.",
+    "ko": "서로 인식해서 자동 결제되고 전혀 문제없습니다.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.7,
+    "text": "Ich wollte derzeit zweimal woanders laden.\nEinmal bei einem Aral-Lader,",
+    "ko": "최근 다른 곳에서 두 번 충전하려 했는데 한번은 Aral 충전기였고,",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 35.8,
+    "text": "der war defekt und das zweite Mal\nbei einer EnBW Ladesäule.",
+    "ko": "그건 고장 났었고, 두 번째는 EnBW 충전소였어요.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.7,
+    "text": "Obwohl ich die App hab, haben die das Auto\neinfach nicht erkannt. Hat immer sofort abgebrochen.",
+    "ko": "앱이 있는데도 차량 인식을 못 하고 계속 즉시 중단되더군요.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.7,
+    "end": 45.4,
+    "text": "mir ging es genau so und das sind so die Storys,\ndie du leider immer noch ab und zu hörst",
+    "ko": "저도 똑같이 겪었고, 이게 아직도 종종 들려오는 이야기들이죠.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 49.3,
+    "text": "die das nicht im Griff haben, dann funktioniert's\neinfach nicht. Also das Laden funktioniert,",
+    "ko": "제대로 관리되지 않으면 그냥 작동하지 않아요. 충전소는 충분히 있지만,",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 54.0,
+    "text": "Ladesäulen gibt es genug, aber die sind durcheinander\nund überall brauchst du irgendeine extra Lösung.",
+    "ko": "시스템이 뒤죽박죽이고 어디서든 별도의 해결책이 필요합니다.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 57.8,
+    "text": "War nur eine Momentaufnahme. Aber das hier\nfunktioniert auf jeden Fall tadellos.",
+    "ko": "그냥 일시적 경험일 수도 있지만, 이건 정말 완벽히 작동합니다.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 60.3,
+    "text": "Tesla Supercharger, kann man nur empfehlen.",
+    "ko": "테슬라 슈퍼차저, 강력 추천할 수밖에 없네요.",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "담담함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "text": "Moin. Neues aus dem AutoScout24 Testfuhrpark und zwar weiter mit unserem Model Y Performance.",
+    "ko": "안녕하세요. AutoScout24 테스트 차량 소식, 모델 Y 퍼포먼스 이야기입니다."
+   },
+   {
+    "start": 6.3,
+    "end": 17.5,
+    "text": "Ultra cooles Auto. Fahre das anderthalb Wochen, muss sagen, es funktioniert tadellos, Software habe ich mich dran gewöhnt. Das Auto selber macht Spaß und wer Elektro fahren will, das funktioniert alle super mit einer Sache,",
+    "ko": "정말 멋진 차입니다. 일주일 반 타봤는데 완벽하고 소프트웨어도 적응됐고 운전도 재밌어요. 다 좋은데 딱 한 가지,"
+   },
+   {
+    "start": 17.5,
+    "end": 26.8,
+    "text": "dass das Laden. Nicht am Tesla Supercharger, einwandfrei. Einstöpseln, die erkennen sich, das wird darüber abgerechnet, überhaupt keine Probleme.",
+    "ko": "충전입니다. 테슬라 슈퍼차저는 문제없어요. 그냥 꽂으면 인식되고 자동 결제되어 아무 문제 없습니다."
+   },
+   {
+    "start": 26.8,
+    "end": 41.2,
+    "text": "Ich wollte derzeit zweimal woanders laden. Einmal bei einem Aral-Lader, der war defekt, und das zweite Mal bei einer EnBW Ladesäule. Obwohl ich die App hab, haben die das Auto einfach nicht erkannt. Hat immer sofort abgebrochen, mir ging es genau so,",
+    "ko": "최근 두 번 다른 충전기를 쓰려 했는데, 한 번은 고장난 Aral 충전기였고 한 번은 EnBW였는데 앱이 있어도 차를 인식 못 하고 바로 끊겼어요."
+   },
+   {
+    "start": 41.2,
+    "end": 53.8,
+    "text": "und das sind so die Storys, die du leider immer noch ab und zu hörst. Die das nicht im Griff haben, dann funktioniert's einfach nicht. Also das Laden funktioniert, Ladesäulen gibt es genug, aber die sind durcheinander und überall brauchst du irgendeine extra Lösung.",
+    "ko": "아직도 이런 일들이 발생하죠. 관리가 안 되면 작동을 안 해요. 충전소는 많지만 제각각이고 매번 별도 방법이 필요합니다."
+   },
+   {
+    "start": 53.8,
+    "end": 60.3,
+    "text": "War nur eine Momentaufnahme. Aber das hier funktioniert auf jeden Fall tadellos. Tesla Supercharger, kann man nur empfehlen.",
+    "ko": "단편적인 경험일 수 있지만, 슈퍼차저는 정말 완벽합니다. 테슬라 슈퍼차저 강력 추천합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.3,
+    "speed": "보통",
+    "summary": "차량 소개 (테슬라 모델 Y 퍼포먼스)"
+   },
+   {
+    "stage": "기능",
+    "start": 6.3,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "1주일 반 주행 후기와 긍정적 평가"
+   },
+   {
+    "stage": "기능",
+    "start": 17.5,
+    "end": 53.8,
+    "speed": "보통",
+    "summary": "타사 충전소(Aral, EnBW) 실패 경험 vs 테슬라 슈퍼차저 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.8,
+    "end": 60.3,
+    "speed": "보통",
+    "summary": "슈퍼차저 추천 및 총평 마무리"
+   }
+  ],
+  "rules": [
+   "운전석에서 폰을 거치하고 자연스러운 토크 형식으로 롱테이크 셀프캠을 진행한다.",
+   "중간에 차량 화면을 빠르게 인서트하여 차량 모델과 실제 주행 상황을 보여준다.",
+   "화면 하단에 기본 깔끔한 흰색 자막을 말하는 템포에 맞춰 노출한다.",
+   "별도의 배경음악이나 효과음 없이 진행자의 음성에만 집중시키는 솔직한 브이로그 리뷰 형식을 취한다."
+  ]
+ }
+}

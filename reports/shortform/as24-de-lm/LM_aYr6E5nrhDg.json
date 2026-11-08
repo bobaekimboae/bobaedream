@@ -1,0 +1,437 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/aYr6E5nrhDg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2847,
+  "candidatesTokenCount": 4169,
+  "totalTokenCount": 7413,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2105
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 397,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.3,
+   "aspect": "9:16",
+   "car": "Skoda Kodiaq RS",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 7.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 14.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 23.3,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "ERRATE DAS AUTO",
+    "ko": "차를 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AUTO",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.5,
+    "text": "LEVEL EINFACH",
+    "ko": "난이도 쉬움",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "EINFACH",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "DENN DIE MARKE SOLLTE HIER",
+    "ko": "왜냐하면 브랜드는 여기서",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.5,
+    "text": "ALLZU SCHWER",
+    "ko": "그리 어렵지 않게",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.0,
+    "text": "WIR HABEN DAS IN DER MITTE",
+    "ko": "가운데에 있는 대형 화면과",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "text": "SMART DIALS",
+    "ko": "스마트 다이얼",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.5,
+    "text": "UND JEDE MENGE",
+    "ko": "그리고 수많은 수납공간",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.5,
+    "text": "VOR ALLEM DINGEN",
+    "ko": "무엇보다도",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.5,
+    "text": "AUCH DAS MODELL",
+    "ko": "모델명까지",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.0,
+    "text": "NUR AM INTERIEUR?",
+    "ko": "실내만 보고 맞힐 수 있나요?",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "ICH GEBE",
+    "ko": "마지막 힌트를",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "ES IST EIN",
+    "ko": "꽤 커다란",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.5,
+    "text": "BÄR BENANNT",
+    "ko": "곰의 이름을 딴",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 23.3,
+    "text": "SCHREIBT EURE ANTWORT",
+    "ko": "댓글로 정답을 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Hip-hop beat / Lo-fi trap",
+   "bpm_est": 95,
+   "mood": "호기심을 유발하는 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Errate das Auto, Level: einfach.",
+    "ko": "차를 맞혀보세요, 난이도: 쉬움."
+   },
+   {
+    "start": 2.5,
+    "end": 5.4,
+    "text": "Denn die Marke sollte hier nicht allzu schwer erkennbar sein.",
+    "ko": "여기서 브랜드는 그리 어렵지 않게 알아볼 수 있을 테니까요."
+   },
+   {
+    "start": 5.4,
+    "end": 7.4,
+    "text": "Wir haben das große Display in der Mitte,",
+    "ko": "중앙에 커다란 디스플레이가 있고,"
+   },
+   {
+    "start": 7.4,
+    "end": 9.2,
+    "text": "die sogenannten Smart Dials hier",
+    "ko": "여기에 소위 '스마트 다이얼'이 있으며,"
+   },
+   {
+    "start": 9.2,
+    "end": 10.9,
+    "text": "und jede Menge Ablageflächen.",
+    "ko": "그리고 정말 많은 수납공간이 있습니다."
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "text": "Dafür ist vor allen Dingen eine Marke bekannt.",
+    "ko": "이것으로 특히 유명한 브랜드가 하나 있죠."
+   },
+   {
+    "start": 13.0,
+    "end": 15.8,
+    "text": "Aber könnt ihr auch das Modell erraten, nur am Interieur?",
+    "ko": "하지만 실내만 보고 모델명까지 맞힐 수 있을까요?"
+   },
+   {
+    "start": 15.8,
+    "end": 17.5,
+    "text": "Ich gebe euch noch einen finalen Tipp:",
+    "ko": "마지막 힌트를 하나 드릴게요:"
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "text": "Es ist ein ganz schön großes SUV und nach einem Bär benannt.",
+    "ko": "꽤 큼직한 SUV이고 곰의 이름을 따서 지어졌습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 23.2,
+    "text": "Schreibt eure Antwort mal unten in die Kommentare.",
+    "ko": "여러분의 정답을 아래 댓글로 적어주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "운전대 로고를 가린 채 차 맞히기 퀴즈 시작 선언"
+   },
+   {
+    "stage": "기능",
+    "start": 2.5,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "실내 디스플레이, 스마트 다이얼, vRS 시트 등 디테일 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 14.5,
+    "end": 23.3,
+    "speed": "보통",
+    "summary": "곰 이름 힌트 제시 및 댓글 참여 유도"
+   }
+  ],
+  "rules": [
+   "스티어링 휠의 엠블럼을 한 손으로 직접 가려 시청자의 궁금증을 유발하는 1인칭 POV 연출",
+   "말의 흐름에 맞춰 실내 주요 특징(디스플레이, 스마트 다이얼, RS 버킷시트)을 유기적으로 훑는 원테이크 느낌의 카메라 무빙",
+   "중앙 하단에 짧은 단위의 굵은 볼드 자막을 지속적으로 노출하여 가독성 극대화"
+  ]
+ }
+}

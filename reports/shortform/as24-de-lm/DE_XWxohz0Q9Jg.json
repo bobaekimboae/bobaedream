@@ -1,0 +1,253 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/XWxohz0Q9Jg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4105,
+  "candidatesTokenCount": 2315,
+  "totalTokenCount": 6909,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3363
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 489,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 36.0,
+   "aspect": "9:16",
+   "car": "Ferrari 512 BB",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 14.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 17.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 31.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 36.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.2,
+    "end": 7.5,
+    "text": "Jetzt auf Youtube!\n@autoscout24",
+    "ko": "지금 유튜브에서 확인하세요!\n@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -6,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Jetzt auf Youtube!",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 35.5,
+    "text": "Jetzt auf Youtube!\n@autoscout24",
+    "ko": "지금 유튜브에서 확인하세요!\n@autoscout24",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -5,
+    "entrance": "밀려옴",
+    "highlight_word": "Jetzt auf Youtube!",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.2,
+    "type": "톡",
+    "event": "유튜브 시청 유도 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "외관 주행 컷 전환 및 강한 가속 엔진 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 31.9,
+    "type": "휙",
+    "event": "엔딩 카드 그래픽 애니메이션 등장음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스 사운드스케이프 / 앰비언트",
+   "bpm_est": 115,
+   "mood": "긴장감 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 14.7,
+     "what": "주행 배기음 강조를 위해 음악이 페이드아웃되었다가 17.5초에 비트 재시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 31.9,
+    "what": "AutoScout24 채널 로고 워터마크",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 12.0,
+    "y_pct": 6.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 7.5,
+    "what": "풀버전 유튜브 시청 안내 팝업 스티커",
+    "is_3d": false,
+    "size_w_pct": 68.0,
+    "x_pct": 52.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구독 및 본편 유입",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 36.0,
+    "what": "엔딩 아웃트로 카드",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "밀려옴",
+    "purpose": "본편 시청 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Ganz anderes Erlebnis.",
+    "ko": "완전히 다른 경험이네요."
+   },
+   {
+    "start": 2.2,
+    "end": 14.5,
+    "text": "Ich glaube auch, was was sehr gut wäre, das mache ich jetzt auch mal, indem ich gleich mal die Scheiben runtermach' ein Stück... Und dann vielleicht einfach den Motor nochmal in Summe besser hören zu können. So.",
+    "ko": "창문을 살짝 내려보는 것도 아주 좋을 것 같아서 지금 한번 해보겠습니다... 그러면 엔진 소리를 전체적으로 훨씬 더 잘 들을 수 있겠죠. 자."
+   },
+   {
+    "start": 17.5,
+    "end": 25.5,
+    "text": "Ah! Hat der Papa recht gehabt, oder? Du musst die Fensterchen runtermachen, dann wird's schön. Nochmal!",
+    "ko": "아! 아빠 말이 맞았죠? 창문을 내려야 진짜 좋아집니다. 한 번 더!"
+   },
+   {
+    "start": 25.5,
+    "end": 30.2,
+    "text": "Boah! Wie toll!",
+    "ko": "우와! 정말 환상적이네요!"
+   },
+   {
+    "start": 30.2,
+    "end": 31.9,
+    "text": "Ganz anderes Erlebnis.",
+    "ko": "완전히 다른 경험이에요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "창문을 열기 전 주행 소감 멘트로 호기심 유도"
+   },
+   {
+    "stage": "기능",
+    "start": 2.2,
+    "end": 14.7,
+    "speed": "보통",
+    "summary": "배기음을 더 듣기 위해 창문을 내리는 행동과 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.7,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "외관 주행 장면과 강렬한 배기음 인서트"
+   },
+   {
+    "stage": "기능",
+    "start": 17.5,
+    "end": 31.9,
+    "speed": "빠름",
+    "summary": "창문을 내린 후 폭발적인 엔진 소리에 감탄하는 운전자 리액션"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 31.9,
+    "end": 36.0,
+    "speed": "보통",
+    "summary": "유튜브 풀영상 시청 유도 아웃트로"
+   }
+  ],
+  "rules": [
+   "자막을 남발하지 않고 운전자의 감정과 리얼한 표정, 엔진 사운드에 집중하게 연출함",
+   "창문을 내린다는 멘트 직후 실제 외관 주행 배기음 컷을 빠르게 인서트하여 청각적 카타르시스를 극대화함",
+   "중간과 말미에 브랜드 컬러(노란색)를 반영한 기울어진 스티커 배너로 풀버전 영상 유입을 유도함"
+  ]
+ }
+}

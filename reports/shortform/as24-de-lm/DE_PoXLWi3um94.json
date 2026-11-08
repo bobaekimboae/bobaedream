@@ -1,0 +1,303 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/PoXLWi3um94",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5928,
+  "candidatesTokenCount": 3016,
+  "totalTokenCount": 9676,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5186
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 732,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "Toyota Land Cruiser",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 13.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.2,
+    "end": 26.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 43.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 57.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "Wie nachhaltig kann",
+    "ko": "얼마나 지속 가능할 수 있을까",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "ein Auto sein?",
+    "ko": "자동차가?",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "Das ist eine gute Frage.",
+    "ko": "좋은 질문입니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.5,
+    "text": "Toyota liefert",
+    "ko": "토요타가 제시합니다",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.7,
+    "text": "mit dem Land Cruiser.",
+    "ko": "랜드크루저로.",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.5,
+    "text": "480.000 Kilometer zu fahren.",
+    "ko": "48만 킬로미터를 달릴 수 있는.",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "text": "Das Ding hält einfach.",
+    "ko": "이 차는 그냥 버텨줍니다.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "인디 록 / 어쿠스틱 비트",
+   "bpm_est": 110,
+   "mood": "차분하고 진정성 있는",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 57.0,
+    "what": "공인 연비 및 배출가스 법적 고지 텍스트 (WLTP 정보)",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 5.0,
+    "y_pct": 42.0,
+    "entrance": "바로",
+    "purpose": "법적 의무 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Wie nachhaltig kann ein Auto sein?",
+    "ko": "자동차가 얼마나 지속 가능할 수 있을까요?"
+   },
+   {
+    "start": 2.2,
+    "end": 6.0,
+    "text": "Das ist eine gute Frage. Toyota liefert da eine Antwort, zum Beispiel mit dem Land Cruiser.",
+    "ko": "좋은 질문입니다. 토요타는 예를 들어 랜드크루저로 그 해답을 제시합니다."
+   },
+   {
+    "start": 6.0,
+    "end": 12.8,
+    "text": "Das ist ein Auto, was durchaus die Möglichkeit hat, 480.000 Kilometer zu fahren.",
+    "ko": "이 차는 충분히 48만 킬로미터를 주행할 수 있는 역량을 가진 차입니다."
+   },
+   {
+    "start": 13.0,
+    "end": 21.5,
+    "text": "Die Wahrscheinlichkeit, dass du ein Auto kaufst, was 480.000 Kilometer durchhält mit einem Motor, ist bei einem Toyota Land Cruiser extrem gegeben.",
+    "ko": "엔진 하나로 48만 킬로미터를 버티는 차를 살 확률은 토요타 랜드크루저에서 매우 높습니다."
+   },
+   {
+    "start": 21.5,
+    "end": 30.5,
+    "text": "Und es gibt tausend Stories, wo dieses Auto ewig lange gelaufen ist. Also irgendwelche Weltumfahrer, die mit dem Auto sonst wohin gefahren sind. Das Ding hält einfach.",
+    "ko": "이 차가 끝없이 달렸다는 수천 가지 이야기가 있습니다. 전 세계를 일주하는 여행자들이 어디든 타고 다녔죠. 이 기계는 그냥 버텨냅니다."
+   },
+   {
+    "start": 30.8,
+    "end": 43.8,
+    "text": "Und warum ist das so? Weil die Japaner eine Philosophie haben, die darauf basiert, dass man die Autos da entwickelt, wo sie gebraucht werden. Das heißt nicht am Schreibtisch, nicht am Laptop, nicht am Rechner, sondern ganz einfach da, wo die Leute dieses Auto benutzen.",
+    "ko": "왜 그럴까요? 일본인들은 차가 실제로 필요한 현장에서 개발한다는 철학을 갖고 있기 때문입니다. 책상이나 노트북 앞, 컴퓨터가 아니라 사람들이 이 차를 실제로 쓰는 바로 그 현장에서 말이죠."
+   },
+   {
+    "start": 44.0,
+    "end": 52.8,
+    "text": "Die Japaner fahren durch die Botanik, gucken sich in Afrika, Asien oder Südamerika Gegenden an, wo diese Autos eingesetzt werden und entwickeln danach den Toyota Land Cruiser.",
+    "ko": "자연 속을 누비며 아프리카, 아시아, 남미 등 이 차들이 쓰이는 지역들을 직접 살펴보고 그에 맞춰 랜드크루저를 개발합니다."
+   },
+   {
+    "start": 53.0,
+    "end": 56.5,
+    "text": "Ja, und das sorgt dafür, dass diese Dinger ewig halten. Ist das nicht eine coole Sache?",
+    "ko": "그리고 그것이 이 차들이 영원히 버틸 수 있게 만드는 이유입니다. 멋지지 않나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.0,
+    "speed": "보통",
+    "summary": "지속 가능성에 대한 질문과 랜드크루저 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.0,
+    "end": 30.5,
+    "speed": "보통",
+    "summary": "48만 km 내구성과 세계 일주 사례 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 30.5,
+    "end": 52.8,
+    "speed": "보통",
+    "summary": "현장 중심의 토요타 개발 철학 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 52.8,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "오래가는 이유 요약 및 마무리 질문"
+   }
+  ],
+  "rules": [
+   "자연스러운 야외 숲길을 배경으로 차량 전면을 고정한 원테이크 스타일 촬영 활용",
+   "화면 중앙에 말의 호흡에 맞춘 짧은 텍스트 자막 배치",
+   "친근한 스토리텔링 형식으로 기술 제원 대신 내구성 철학에 집중"
+  ]
+ }
+}

@@ -1,0 +1,538 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/Z6S30wtrB9M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5201,
+  "candidatesTokenCount": 5632,
+  "totalTokenCount": 11797,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4459
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 964,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.7,
+   "aspect": "9:16",
+   "car": "Volvo XC60 T8 AWD Polestar Engineered",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 23.3,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "휙",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 34.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 42.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "휙",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 48.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "455 PS in einem Volvo?",
+    "ko": "볼보에 455마력이라고?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "455 PS",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 5.2,
+    "text": "Aber na klar, weil das ist der schnellste XC 60, der je gebaut wurde.",
+    "ko": "물론이죠, 지금까지 만들어진 가장 빠른 XC60이니까요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 8.7,
+    "text": "XC 60 T8 AWD Polestar Engineered.",
+    "ko": "XC60 T8 AWD 폴스타 엔지니어드.",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Polestar Engineered.",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "text": "fährt aber unglaublich schnell.",
+    "ko": "하지만 믿을 수 없을 만큼 빠릅니다.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 15.0,
+    "text": "Unter der Haube ein 2-Liter Vierzylinder Motor mit Turbo- und Kompressoraufladung.",
+    "ko": "보닛 아래에는 터보와 슈퍼차저가 달린 2.0리터 4기통 엔진이 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.2,
+    "text": "Über 300 PS sind keine 455 PS.",
+    "ko": "300마력 넘는 건 455마력이 아니죠.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 20.6,
+    "text": "Also haben wir hinten nochmal einen Elektromotor mit über 145 PS,",
+    "ko": "그래서 뒤쪽에 145마력이 넘는 전기모터를 하나 더 달아서,",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 23.3,
+    "text": "zusammen 455 PS.",
+    "ko": "합산 455마력을 냅니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 27.5,
+    "text": "Für 95.000 €, was dieser Testwagen kostet, darfst du sogar deine Dämpferrate selber einstellen.",
+    "ko": "이 시승차 가격인 9만 5천 유로면 감쇠력도 직접 조절할 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "95.000 €",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "von Öhlins aus Schweden. Echt ne coole Sache.",
+    "ko": "스웨덴 올린즈 제품이죠. 정말 멋진 기능입니다.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.6,
+    "text": "kannst du mit der Hand dran klicken und es gibt eine schicke Domstrebe dazu.",
+    "ko": "손으로 직접 딸깍 돌릴 수 있고, 멋진 스트럿 바도 함께 제공됩니다.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.0,
+    "text": "In unter 5 Sekunden auf 100",
+    "ko": "시속 100km까지 5초 미만,",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.4,
+    "text": "noch schneller wieder zurück mit solch amtlichen Bremssätteln.",
+    "ko": "이런 강력한 브레이크 캘리퍼 덕분에 멈추는 건 훨씬 더 빠릅니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.4,
+    "end": 42.1,
+    "text": "Sieht das Porno aus? Auf jeden Fall.",
+    "ko": "끝내주게 생겼죠? 당연하죠.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 45.4,
+    "text": "Ja, früher war Volvo eher was für Amtsräte.",
+    "ko": "예전의 볼보는 공무원들이나 타는 차였지만,",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 48.7,
+    "text": "Heute mit diesen Dingern eher was für Sportlehrer auf Espresso.",
+    "ko": "요즘 이런 차는 에스프레소 마신 체육 선생님을 위한 차죠.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 10.6,
+    "type": "휙",
+    "event": "엔진룸으로 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "딸깍",
+    "event": "올린즈 서스펜션 감쇠력 조절 다이얼 클릭 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "휙",
+    "event": "휠/캘리퍼 장면으로 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "455 PS in einem Volvo?",
+    "ko": "볼보에 455마력이라고?"
+   },
+   {
+    "start": 1.7,
+    "end": 5.2,
+    "text": "Aber na klar, weil das ist der schnellste XC 60, der je gebaut wurde.",
+    "ko": "물론이죠, 지금까지 만들어진 가장 빠른 XC60이니까요."
+   },
+   {
+    "start": 5.2,
+    "end": 8.7,
+    "text": "XC 60 T8 AWD Polestar Engineered.",
+    "ko": "XC60 T8 AWD 폴스타 엔지니어드."
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "text": "Klingt lang, fährt aber unglaublich schnell.",
+    "ko": "이름은 길지만 엄청나게 빠릅니다."
+   },
+   {
+    "start": 10.6,
+    "end": 15.0,
+    "text": "Unter der Haube ein 2-Liter Vierzylinder Motor mit Turbo- und Kompressoraufladung.",
+    "ko": "보닛 아래에는 터보와 슈퍼차저가 장착된 2.0리터 4기통 엔진."
+   },
+   {
+    "start": 15.0,
+    "end": 17.2,
+    "text": "Über 300 PS sind keine 455 PS.",
+    "ko": "300마력 넘는 걸로는 455마력이 안 되죠."
+   },
+   {
+    "start": 17.2,
+    "end": 20.6,
+    "text": "Also haben wir hinten nochmal einen Elektromotor mit über 145 PS,",
+    "ko": "그래서 뒤쪽에 145마력이 넘는 전기모터를 추가해,"
+   },
+   {
+    "start": 20.6,
+    "end": 23.3,
+    "text": "zusammen 455 PS.",
+    "ko": "합산 455마력이 됩니다."
+   },
+   {
+    "start": 23.3,
+    "end": 27.5,
+    "text": "Für 95.000 €, was dieser Testwagen kostet, darfst du sogar deine Dämpferrate selber einstellen.",
+    "ko": "이 시승차 가격인 95,000유로면 감쇠력도 직접 조절할 수 있습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "Die Federbeine sind nämlich von Öhlins aus Schweden. Echt ne coole Sache.",
+    "ko": "스웨덴 올린즈 서스펜션이거든요. 진짜 멋진 부분입니다."
+   },
+   {
+    "start": 30.5,
+    "end": 34.6,
+    "text": "kannst du mit der Hand dran klicken und es gibt eine schicke Domstrebe dazu. Tuning wie früher.",
+    "ko": "손으로 직접 딸깍 돌릴 수 있고 멋진 스트럿 바도 있습니다. 옛날 튜닝 감성이죠."
+   },
+   {
+    "start": 34.6,
+    "end": 37.0,
+    "text": "In unter 5 Sekunden auf 100",
+    "ko": "100km/h까지 5초 미만,"
+   },
+   {
+    "start": 37.0,
+    "end": 40.4,
+    "text": "und wahrscheinlich noch schneller wieder zurück mit solch amtlichen Bremssätteln.",
+    "ko": "그리고 이런 듬직한 브레이크 캘리퍼로 멈추는 건 더 빠릅니다."
+   },
+   {
+    "start": 40.4,
+    "end": 42.1,
+    "text": "Sieht das Porno aus? Auf jeden Fall.",
+    "ko": "끝내주게 멋지죠? 당연하죠."
+   },
+   {
+    "start": 42.1,
+    "end": 45.4,
+    "text": "Ja, früher war Volvo eher was für Amtsräte.",
+    "ko": "예전 볼보는 점잖은 공무원 이미지였지만,"
+   },
+   {
+    "start": 45.4,
+    "end": 48.7,
+    "text": "Heute mit diesen Dingern eher was für Sportlehrer auf Espresso.",
+    "ko": "오늘날 이런 차는 에스프레소 마신 체육 선생님을 위한 차입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.6,
+    "speed": "빠름",
+    "summary": "볼보에 455마력이라는 파격적 수치와 역대 최강 XC60 폴스타 엔지니어드 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.6,
+    "end": 23.3,
+    "speed": "보통",
+    "summary": "보닛을 열고 2.0 트윈차저 내연기관 + 후륜 모터 하이브리드 파워트레인 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 23.3,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "95,000유로 가격 언급 및 올린즈 수동 조절식 감쇠력 다이얼과 스트럿 바 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 34.6,
+    "end": 42.1,
+    "speed": "빠름",
+    "summary": "제로백 5초 미만 성능과 폴스타 전용 골드 브레이크 캘리퍼 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 42.1,
+    "end": 48.7,
+    "speed": "빠름",
+    "summary": "과거 공무원 차 이미지에서 열정적인 고성능 차로 변모한 브랜드 이미지 위트 있는 마무리"
+   }
+  ],
+  "rules": [
+   "호스트의 대사에 맞춰 중앙 영역에 굵은 고딕체 자막을 핵심 단위로 끊어 배치",
+   "핵심 기술적 특성(올린즈 감쇠력 다이얼, 브레이크 캘리퍼)은 직접 손으로 만지며 클로즈업 촬영",
+   "화면 하단에 법적 배출가스 및 연비 고지 문구를 지속 노출",
+   "위트 있는 비유와 제스처로 짧은 시간 안에 핵심 고성능 요소를 경쾌하게 요약"
+  ]
+ }
+}

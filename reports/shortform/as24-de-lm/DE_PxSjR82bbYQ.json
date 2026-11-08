@@ -1,0 +1,483 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/PxSjR82bbYQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5391,
+  "candidatesTokenCount": 5377,
+  "totalTokenCount": 11030,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4649
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 262,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.5,
+   "aspect": "9:16",
+   "car": "Škoda Superb Sportline",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 17.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 51.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "Ist ja allgemein bekannt,",
+    "ko": "다들 알다시피,",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "der Wirtschaft geht schlecht.",
+    "ko": "경제가 안 좋아요.",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 3.2,
+    "text": "Das heißt, alle müssen sparen.",
+    "ko": "즉, 모두가 아껴야 하죠.",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.5,
+    "text": "Auch die Geschäftsführer.",
+    "ko": "임원들도 예외는 아닙니다.",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "Da ist vielleicht die S-Klasse für 120.000 € nicht mehr drin.",
+    "ko": "12만 유로짜리 S클래스는 더 이상 어렵겠죠.",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "S-Klasse",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 10.0,
+    "text": "Für 60.000 € gibt es diesen Škoda Superb,",
+    "ko": "6만 유로면 이 스코다 수퍼브를 살 수 있습니다,",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Škoda Superb",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 13.0,
+    "text": "der viele Annehmlichkeiten bietet, die die S-Klasse auch hatte.",
+    "ko": "S클래스에 있던 많은 편의 기능을 갖추고 있죠.",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 15.3,
+    "text": "Wie zum Beispiel diese große Tür mit getönten Scheiben.",
+    "ko": "예를 들어 틴팅된 유리가 달린 커다란 문처럼요.",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.4,
+    "end": 17.5,
+    "text": "Sieht keiner, wer drinne sitzt. Und drinnen geht es weiter.",
+    "ko": "누가 탔는지 안 보이죠. 그리고 안으로 들어가 보면,",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.3,
+    "text": "Natürlich hast du hier hinten erst mal Platz ohne Ende.",
+    "ko": "당연히 뒷좌석 공간은 끝없이 넓습니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 22.8,
+    "text": "Ihr seht die Kniefreiheit, Kopffreiheit, alles gegeben.",
+    "ko": "무릎 공간, 머리 공간 모두 넉넉하죠.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.5,
+    "text": "Sehr bequeme Sitze. Hier hinten ist natürlich auch ein Rollo an der Scheibe,",
+    "ko": "시트도 정말 편안하고, 창문에는 블라인드도 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 28.5,
+    "text": "natürlich nicht elektrisch wie in der S-Klasse, aber es gibt ein Rollo.",
+    "ko": "S클래스처럼 전동은 아니지만 롤러블라인드가 있죠.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.8,
+    "text": "Und du hast eine tolle Mittelarmlehne. Da gibt's eine ganz tolle Funktion:",
+    "ko": "멋진 암레스트도 있고, 훌륭한 기능도 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 37.0,
+    "text": "Hier hast du nicht riesen Bildschirm wie in der S-Klasse, aber du kannst ein Handy reinstellen und die Börsenkurse verfolgen.",
+    "ko": "대형 화면은 없지만 스마트폰을 거치해 주식 시세를 볼 수 있죠.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Handy",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 41.5,
+    "text": "Und wenn dir dabei kalt wird, hast du noch eine Sitzheizung, oder wenn das nicht reicht,",
+    "ko": "추워지면 열선시트를 켜거나, 그것도 모자라면",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 44.5,
+    "text": "natürlich Škoda-typisch, eine schöne Decke.",
+    "ko": "스코다답게 포근한 담요도 있죠.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 50.5,
+    "text": "Dann sitzt du hier hinten und sagst: Liebe Regierung, sorgt dafür, dass es uns bald wieder besser geht.",
+    "ko": "뒷좌석에 편히 앉아서 이렇게 말하는 거죠: '정부여, 경제 좀 살려주세요.'",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 15.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "진행자가 뒷좌석 문 손잡이를 당겨 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "뒷좌석 도어 롤러블라인드를 걸쇠에 거는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "딸깍",
+    "event": "뒷좌석 암레스트를 아래로 내리는 둔탁한 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "딸깍",
+    "event": "암레스트 휴대폰 거치 슬롯에 스마트폰을 끼우는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/로파이 비트",
+   "bpm_est": 95,
+   "mood": "여유롭고 위트 있는 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "Ist ja allgemein bekannt, der Wirtschaft geht schlecht. Das heißt, alle müssen sparen. Auch die Geschäftsführer. Da ist vielleicht die S-Klasse für 120.000 € nicht mehr drin.",
+    "ko": "다들 알다시피 경제가 어렵습니다. 모두 아껴야 하고 대표이사들도 마찬가지죠. 12만 유로짜리 S클래스는 힘들 수도 있습니다."
+   },
+   {
+    "start": 6.9,
+    "end": 17.5,
+    "text": "Für 60.000 € gibt es diesen Škoda Superb, der viele Annehmlichkeiten bietet, die die S-Klasse auch hatte. Wie zum Beispiel diese große Tür mit getönten Scheiben. Sieht keiner, wer drinne sitzt. Und drinnen geht es weiter.",
+    "ko": "6만 유로면 S클래스 못지않은 편의성을 갖춘 스코다 수퍼브가 있습니다. 틴팅된 큼직한 문처럼 누가 탔는지 보이지 않죠. 내부도 계속 살펴보겠습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 28.5,
+    "text": "Natürlich hast du hier hinten erst mal Platz ohne Ende. Ihr seht die Kniefreiheit, Kopffreiheit, alles gegeben. Sehr bequeme Sitze. Hier hinten ist natürlich auch ein Rollo an der Scheibe, natürlich nicht elektrisch wie in der S-Klasse, aber es gibt ein Rollo.",
+    "ko": "뒷좌석 공간은 끝없이 넓습니다. 무릎 공간, 머리 공간 모두 넉넉하고 시트도 편안합니다. 윈도우 블라인드도 있는데, S클래스처럼 전동은 아니지만 확실히 있습니다."
+   },
+   {
+    "start": 28.6,
+    "end": 44.5,
+    "text": "Und du hast eine tolle Mittelarmlehne. Da gibt's eine ganz tolle Funktion: Hier hast du nicht riesen Bildschirm wie in der S-Klasse, aber du kannst ein Handy reinstellen und die Börsenkurse verfolgen. Und wenn dir dabei kalt wird, hast du noch eine Sitzheizung, oder wenn das nicht reicht, natürlich Škoda-typisch, eine schöne Decke.",
+    "ko": "멋진 암레스트에는 유용한 기능이 있습니다. 대형 화면 대신 휴대폰을 거치해 주식 차트를 볼 수 있죠. 추우면 열선시트를 틀고, 그래도 모자라면 스코다만의 포근한 담요도 덮을 수 있습니다."
+   },
+   {
+    "start": 44.6,
+    "end": 51.5,
+    "text": "Dann sitzt du hier hinten und sagst: Liebe Regierung, sorgt dafür, dass es uns bald wieder besser geht.",
+    "ko": "이렇게 뒷자리에 편히 앉아 정부에게 경제 좀 살려달라고 외치면 됩니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "불황으로 12만 유로 S클래스 대신 가성비 세단이 필요한 상황 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.9,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "6만 유로 대안인 스코다 수퍼브 외관 및 프라이버시 틴팅 글래스 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 17.6,
+    "end": 44.5,
+    "speed": "보통",
+    "summary": "뒷좌석 거주성, 햇빛가리개, 폰 거치 암레스트, 열선, 담요 등 디테일 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 44.6,
+    "end": 51.5,
+    "speed": "보통",
+    "summary": "담요를 덮고 편안히 휴식하며 던지는 유머러스한 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 직접 설명하며 차량 기능(도어, 블라인드, 암레스트, 담요)을 직접 조작해 직관적으로 전달한다.",
+   "하단에는 공식 연비 및 배출가스 인증 문구가 고정 표기된다.",
+   "자막은 음성 싱크에 맞춰 화면 중앙 하단에 한 문장 단위로 간결하게 표시된다."
+  ]
+ }
+}

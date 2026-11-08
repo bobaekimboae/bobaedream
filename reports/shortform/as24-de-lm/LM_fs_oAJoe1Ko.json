@@ -1,0 +1,460 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/fs_oAJoe1Ko",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8753,
+  "candidatesTokenCount": 4149,
+  "totalTokenCount": 13354,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8011
+   }
+  ],
+  "thoughtsTokenCount": 452,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 88.6,
+   "aspect": "9:16",
+   "car": "Volvo EX90 Ultra Performance Twin Motor",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 15.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 20.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 28.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 33.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 49.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 55.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 102.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 102.5,
+    "end": 109.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 109.0,
+    "end": 121.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 121.0,
+    "end": 88.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 3.0,
+    "text": "VOLVO EX90 ULTRA PERFORMANCE TWIN MOTOR",
+    "ko": "볼보 EX90 울트라 퍼포먼스 트윈 모터",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "EX90",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "text": "IN UNTER 60 SEKUNDEN",
+    "ko": "60초 안에",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "60 SEKUNDEN",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 13.5,
+    "text": "THORS HAMMER MATRIX LED",
+    "ko": "토르의 망치 매트릭스 LED",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MATRIX LED",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 27.5,
+    "text": "22 ZOLL AERO DESIGN",
+    "ko": "22인치 에어로 디자인",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "22 ZOLL",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 45.0,
+    "text": "1.000 LITER KOFFERRAUM",
+    "ko": "1,000리터 트렁크",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1.000 LITER",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.5,
+    "text": "ÜBER 2.000 LITER",
+    "ko": "2,000리터 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2.000",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 55.0,
+    "text": "BOWERS & WILKINS",
+    "ko": "바우어스 앤 윌킨스",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.0,
+    "text": "14,5 ZOLL DISPLAY",
+    "ko": "14.5인치 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "14,5 ZOLL",
+    "sure": true
+   },
+   {
+    "start": 110.0,
+    "end": 115.0,
+    "text": "106 kWh AKKU / 580 KM WLTP",
+    "ko": "106 kWh 배터리 / 580 km WLTP",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "106 kWh",
+    "sure": true
+   },
+   {
+    "start": 126.0,
+    "end": 88.6,
+    "text": "LEASINGMARKT.DE",
+    "ko": "LeasingMarkt.de",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 11.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "매트릭스 헤드램프 오픈 메커니즘 구동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 버튼 클릭 및 열림 비프음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 시트 폴딩 모터 작동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 116.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "충전구 도어 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "스타일리시하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 88.6,
+    "what": "상단 공인 전비 및 탄소배출 정보 고정 표기 자막",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 8.0,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 8.0,
+    "text": "Das hier ist der neue Volvo EX90 Ultra Performance Twin Motor, und ich erzähle dir jetzt alles, was du zum Auto wissen musst, in unter 60 Sekunden.",
+    "ko": "이 차는 신형 볼보 EX90 울트라 퍼포먼스 트윈 모터입니다. 60초 안에 알아야 할 모든 것을 알려드릴게요."
+   },
+   {
+    "start": 8.0,
+    "end": 15.0,
+    "text": "In der Front finden wir diese Scheinwerfer mit Thors Hammer, der einmal auffährt, um dahinter die Matrix-LED-Scheinwerfer zu revealen.",
+    "ko": "전면부에는 '토르의 망치' 헤드램프가 열리며 뒤편의 매트릭스 LED 헤드라이트를 드러냅니다."
+   },
+   {
+    "start": 15.0,
+    "end": 28.0,
+    "text": "Passend zur Außenfarbe in Sand Dune finden wir hier alle Akzente in Schwarz Hochglanz... 22-Zoll-Felgen mit Aero-Design für die Reichweitenoptimierung.",
+    "ko": "샌드 듄 외장 컬러와 조화로운 유광 블랙 포인트와 주행거리 최적화를 위한 22인치 에어로 휠이 적용되었습니다."
+   },
+   {
+    "start": 28.0,
+    "end": 49.8,
+    "text": "Am Heck... elektrisch umklappbare Rücksitze, bis zu 1.000 Liter Kofferraumvolumen, flachgelegt über 2.000 Liter plus Frunk vorne.",
+    "ko": "후면에는 전동 폴딩 시트로 트렁크 용량 1,000리터, 접으면 2,000리터 이상과 앞쪽 프렁크까지 제공됩니다."
+   },
+   {
+    "start": 49.8,
+    "end": 109.0,
+    "text": "Für den Fahrer... Bowers & Wilkins, 14,5-Zoll-Infotainment-Display mit Android Auto... Ambiente-Licht hinter dem Holz hinterlegt.",
+    "ko": "운전석에는 바우어스 앤 윌킨스 사운드, 안드로이드 오토가 지원되는 14.5인치 디스플레이, 우드 뒤로 투과되는 앰비언트 라이트가 고급스럽습니다."
+   },
+   {
+    "start": 109.0,
+    "end": 121.0,
+    "text": "Größter Kritikpunkt: Trotz 106 kWh Akku ist die Reichweite begrenzt... Außerdem kann er beim Laden nur 11 kW AC laden.",
+    "ko": "가장 큰 단점은 106 kWh 배터리에도 실주행거리가 아쉽고 완속 AC 충전이 11 kW에 불과하다는 점입니다."
+   },
+   {
+    "start": 121.0,
+    "end": 88.6,
+    "text": "Was sagt ihr zum Auto? Schreibt's unten in die Kommentare. Und falls ihr die besten Leasing-Deals nicht verpassen wollt, checkt LeasingMarkt.de aus.",
+    "ko": "여러분 생각은 어떠신가요? 댓글로 남겨주시고, 최저가 리스 딜은 LeasingMarkt.de에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.0,
+    "speed": "빠름",
+    "summary": "차량 모델 소개 및 60초 리뷰 선언"
+   },
+   {
+    "stage": "외관",
+    "start": 8.0,
+    "end": 28.0,
+    "speed": "보통",
+    "summary": "토르의 망치 가변 헤드램프, 사이드 미러 센서, 에어로 휠 소개"
+   },
+   {
+    "stage": "트렁크",
+    "start": 28.0,
+    "end": 49.8,
+    "speed": "빠름",
+    "summary": "전동 시트 폴딩 및 1000L~2000L 트렁크 용량 시연"
+   },
+   {
+    "stage": "실내 앞",
+    "start": 49.8,
+    "end": 109.0,
+    "speed": "보통",
+    "summary": "B&W 오디오, 14.5인치 센터 디스플레이, 백라이트 우드 트림"
+   },
+   {
+    "stage": "사양",
+    "start": 109.0,
+    "end": 121.0,
+    "speed": "빠름",
+    "summary": "배터리 용량, 실주행거리 한계 및 11kW AC 충전 비판"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 121.0,
+    "end": 88.6,
+    "speed": "보통",
+    "summary": "댓글 유도 및 LeasingMarkt.de 제휴 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 차량 부품(라이트, 트렁크, 화면, 충전구)을 조작하며 실시간 동작을 보여줌",
+   "중요 스펙 수치(인치, 리터, 용량, 가격)는 노란색 굵은 폰트 상자 자막으로 강조",
+   "화면 상단에 독일 법규 규정 배출가스 및 전비 공시 텍스트를 지속적으로 배치",
+   "장점만 나열하지 않고 배터리 효율과 충전 속도 등 실사용 단점을 명확히 비판하여 신뢰도 확보",
+   "마지막 컷에서 번호판 부착 브랜드(LeasingMarkt.de)와 연계된 CTA로 마무리"
+  ]
+ }
+}

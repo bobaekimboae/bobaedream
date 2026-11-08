@@ -1,0 +1,551 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/4YcDlatONN0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5303,
+  "candidatesTokenCount": 4809,
+  "totalTokenCount": 10112,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4561
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "Skoda Elroq (Peaq)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 22.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.6,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 37.3,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 43.1,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 50.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "DER NEUE SKODA PEAQ",
+    "ko": "새로운 스코다 피크",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SKODA PEAQ",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.2,
+    "text": "STARTET AB UNTER 50.000€",
+    "ko": "5만 유로 미만에서 시작",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "50.000€",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.5,
+    "text": "UND HIER KOMMEN EINIGE FEATURES",
+    "ko": "그리고 여기 몇 가지 기능이 있습니다",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "EINIGE FEATURES",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "FÜR 100.000 EURO BEKOMMEN WÜRDEST",
+    "ko": "10만 유로에도 얻지 못할 것들",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "100.000 EURO",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "FÜR DIE PERFEKTE LADEPAUSE GIBT ES NICHT",
+    "ko": "완벽한 충전 휴식을 위해",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.4,
+    "text": "NUR DIESEN TISCH HIER IN DER MITTE",
+    "ko": "가운데 있는 이 테이블뿐만 아니라",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.2,
+    "text": "SONDERN AUCH NOCH RECLINING SEATS",
+    "ko": "리클라이닝 시트까지 있습니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RECLINING SEATS",
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 15.5,
+    "text": "HIERAUF KANNST DU WÄHREND DER LADEPAUSE QUASI EINEN NAP MACHEN",
+    "ko": "충전하는 동안 낮잠을 잘 수도 있습니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NAP",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.8,
+    "text": "MIT WADENSTÜTZE UND DIESER LIEGEFUNKTION",
+    "ko": "종아리 받침대와 리클라이닝 기능으로",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "WADENSTÜTZE",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 22.8,
+    "text": "AUSSERDEM SIND DIE SITZE NATÜRLICH MIT SITZHEIZUNG SITZBELÜFTUNG UND MASSAGE",
+    "ko": "게다가 시트 열선, 통풍, 마사지 기능까지",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MASSAGE",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.3,
+    "text": "AUSSERDEM GIBT ES DAS GRÖSSTE GLASDACH DAS SKODA JEMALS VERBAUT HAT",
+    "ko": "또한 스코다 역사상 가장 큰 글래스 루프가 탑재되어",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "GLASDACH",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 29.8,
+    "text": "DASS SICH HIER MIT EINEM KLICK AUTOMATISCH AUCH ABDUNKELN LÄSST",
+    "ko": "원클릭으로 자동 조광이 가능합니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTOMATISCH",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.2,
+    "text": "NEBEN ÜBER 642 KILOMETERN REICHWEITE",
+    "ko": "642km 이상의 주행거리 외에도",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "642",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 37.0,
+    "text": "GIBT ES AUSSERDEM AUCH ÜBER 900 LITER KOFFERRAUMVOLUMEN",
+    "ko": "900리터가 넘는 트렁크 용량 제공",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "900 LITER",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.5,
+    "text": "WAS SICH NOCHMAL VERGRÖSSERN LÄSST WENN MAN HIER DIE RÜCKBANK EINMAL",
+    "ko": "뒷좌석을 접으면 더 확장됩니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RÜCKBANK",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.1,
+    "text": "UMSCHMEISST DANN GIBT ES FAST 2.000 LITER HIER DRIN",
+    "ko": "접으면 거의 2,000리터의 공간이 생깁니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "2.000 LITER",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.4,
+    "text": "HÄTTET IHR DAS ERWARTET UND GEHT SKODA HIER EINEN SCHRITT IN DIE RICHTIGE RICHTUNG",
+    "ko": "예상하셨나요? 스코다가 올바른 방향으로 가고 있나요?",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SCHRITT IN DIE",
+    "sure": true
+   },
+   {
+    "start": 46.4,
+    "end": 50.8,
+    "text": "SCHREIBT'S MAL UNTEN IN DIE KOMMENTARE OB DAS HIER EUER NÄCHSTES AUTO WERDEN KÖNNTE",
+    "ko": "다음 차가 될 수 있을지 아래 댓글로 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NÄCHSTES AUTO",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 25.5,
+    "type": "딸깍",
+    "event": "루프 조광 버튼 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "딸깍",
+    "event": "트렁크 오픈 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.2,
+    "type": "쿵",
+    "event": "뒷좌석 시트 접힘",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "Der neue Skoda Peaq startet ab unter 50.000 € und hier kommen einige Features, die du nicht mal für 100.000 € bekommen würdest.",
+    "ko": "새로운 스코다 피크는 5만 유로 미만에서 시작하며, 10만 유로 차량에서도 볼 수 없는 기능들을 소개합니다."
+   },
+   {
+    "start": 6.8,
+    "end": 15.6,
+    "text": "Für die perfekte Ladepause gibt es nicht nur diesen Tisch hier in der Mitte, sondern auch noch Reclining Seats. Hierauf kannst du während der Ladepause quasi einen Nap machen,",
+    "ko": "완벽한 충전 휴식을 위해 중앙 테이블뿐만 아니라 리클라이닝 시트도 제공되어 낮잠을 잘 수 있습니다."
+   },
+   {
+    "start": 15.6,
+    "end": 22.8,
+    "text": "mit Wadenstütze und dieser Liegefunktion. Außerdem sind die Sitze natürlich mit Sitzheizung, Sitzbelüftung und Massage.",
+    "ko": "종아리 받침과 풀 리클라이닝 기능, 그리고 시트 열선, 통풍, 마사지 기능이 탑재되어 있습니다."
+   },
+   {
+    "start": 22.8,
+    "end": 29.8,
+    "text": "Außerdem gibt es das größte Glasdach, das Skoda jemals verbaut hat, dass sich hier mit einem Klick automatisch auch abdunkeln lässt.",
+    "ko": "또한 스코다 역사상 가장 큰 글래스 루프가 원클릭으로 자동 조광됩니다."
+   },
+   {
+    "start": 29.8,
+    "end": 37.0,
+    "text": "Neben über 642 km Reichweite gibt es außerdem auch über 900 l Kofferraumvolumen,",
+    "ko": "642km 이상의 주행거리뿐만 아니라 900리터가 넘는 트렁크 용량을 자랑하며,"
+   },
+   {
+    "start": 37.0,
+    "end": 43.1,
+    "text": "was sich noch mal vergrößern lässt, wenn man hier die Rückbank einmal umschmeißt, dann gibt es fast 2.000 l hier drin.",
+    "ko": "뒷좌석을 접으면 트렁크 공간이 거의 2,000리터까지 확장됩니다."
+   },
+   {
+    "start": 43.1,
+    "end": 50.8,
+    "text": "Hättet ihr das erwartet und geht Skoda hier einen Schritt in die richtige Richtung? Schreibt's mal unten in die Kommentare, ob das hier euer nächstes Auto werden könnte.",
+    "ko": "이런 점을 기대하셨나요? 스코다가 올바른 방향으로 가고 있는지, 다음 차로 고려할 만한지 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "차량 가격 대비 프리미엄 사양 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 6.8,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "휴식용 테이블 및 리클라이닝 마사지 시트 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 22.8,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "전자식 조광 파노라마 글래스 루프 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 29.8,
+    "end": 43.1,
+    "speed": "빠름",
+    "summary": "주행거리 및 2열 폴딩 트렁크 적재 용량 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 43.1,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "외관 후면 워크어라운드 및 댓글 유도 콜투액션"
+   }
+  ],
+  "rules": [
+   "진행자의 손 제스처를 시점 카메라(POV)처럼 화면 하단에서 보여주며 생동감 부여",
+   "화면 중앙 하단에 굵은 볼드 텍스트로 핵심 키워드를 노란색으로 강조",
+   "버튼 터치, 시트 폴딩 등 실제 조작음을 생생하게 담아 ASMR적 효과 연출",
+   "기능 설명마다 카메라를 가까이 접근시켜 디테일한 작동 모습을 직관적으로 보여줌"
+  ]
+ }
+}

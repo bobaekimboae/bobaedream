@@ -1,0 +1,364 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/y6tIpD0QaPQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5387,
+  "candidatesTokenCount": 2542,
+  "totalTokenCount": 8829,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4645
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 900,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.5,
+   "aspect": "9:16",
+   "car": "VW Golf 8 R",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "드론",
+    "transition_in": "페이드",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.3,
+    "end": 6.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.2,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 16.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 17.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.7,
+    "end": 27.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.8,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.7,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 32.7,
+    "part": "외관 후면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.8,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.8,
+    "part": "외관 전면",
+    "camera": "드론",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.7,
+    "end": 41.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 43.8,
+    "part": "외관 후면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.7,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 51.5,
+    "part": "외관 측면",
+    "camera": "드론",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "AutoScout24\nVW Golf 8 R\nca. 49.980 € | 2024 | 6.000 km",
+    "ko": "오토스카우트24 / 폭스바겐 골프 8 R / 약 49,980 유로 | 2024년식 | 6,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 46.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Golf 8 R",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스웨이브/일렉트로닉",
+   "bpm_est": 125,
+   "mood": "세련되고 역동적인",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "도입부 비트 시작"
+    },
+    {
+     "t": 27.2,
+     "what": "주행 영상과 함께 베이스 및 비트 고조"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "what": "AutoScout24 로고 및 매물 정보 요약 배너 카드",
+    "is_3d": false,
+    "size_w_pct": 72.0,
+    "x_pct": 14.0,
+    "y_pct": 36.5,
+    "entrance": "바로",
+    "purpose": "차량 기본 스펙 및 가격 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "느림",
+    "summary": "설산 배경 안갯속 실루엣과 주요 제원 카드"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 14.2,
+    "speed": "빠름",
+    "summary": "외관 디자인 디테일 컷 (엠블럼, 램프, 휠 등)"
+   },
+   {
+    "stage": "기능",
+    "start": 14.2,
+    "end": 27.2,
+    "speed": "보통",
+    "summary": "실내 인테리어 및 디스플레이, R 전용 시트 등 디테일"
+   },
+   {
+    "stage": "차 소개",
+    "start": 27.2,
+    "end": 51.5,
+    "speed": "보통",
+    "summary": "알프스 산악 도로를 질주하는 역동적인 주행 롤"
+   }
+  ],
+  "rules": [
+   "음악 비트의 다운비트에 맞춰 정확하게 화면 전환(컷)을 진행한다.",
+   "음성 해설이나 자막 없이 영상미와 사운드트랙만으로 차량의 감성을 극대화한다.",
+   "외관 디테일 -> 인테리어 -> 와인딩 주행 씬으로 유기적인 서사를 구성한다.",
+   "도입부에 차량 기본 정보(가격, 연식, 주행거리)가 적힌 미니멀한 카드를 노출하여 쇼츠의 목적을 명확히 한다."
+  ]
+ }
+}

@@ -1,0 +1,542 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/nZzcN8EacCk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8657,
+  "candidatesTokenCount": 5640,
+  "totalTokenCount": 15285,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7915
+   }
+  ],
+  "thoughtsTokenCount": 988,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 87.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTI Edition 50",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 14.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.3,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 27.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 33.6,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 37.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 39.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 43.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 54.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.2,
+    "end": 56.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.4,
+    "end": 59.2,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.2,
+    "end": 63.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.4,
+    "end": 67.2,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.2,
+    "end": 70.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.3,
+    "end": 73.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 73.1,
+    "end": 76.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 76.2,
+    "end": 80.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 80.2,
+    "end": 87.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "HIER KOMMT ALLES",
+    "ko": "여기 모든 정보가 나옵니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ALLES",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 2.7,
+    "text": "60 SEKUNDEN",
+    "ko": "60초 안에",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "60 SEKUNDEN",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "GOLF GTI EDITION 50",
+    "ko": "골프 GTI 에디션 50",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GOLF GTI",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "text": "325 PS",
+    "ko": "325마력",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "325 PS",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.0,
+    "text": "5,3 SEKUNDEN VON 0 AUF 100",
+    "ko": "제로백 5.3초",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5,3",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "text": "270 KM/H",
+    "ko": "최고속도 270km/h",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "270 KM/H",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.5,
+    "text": "19 ZOLL SCHMIEDERÄDER",
+    "ko": "19인치 단조 휠",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19 ZOLL",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.5,
+    "text": "AKRAPOVIC ABGASANLAGE",
+    "ko": "아크라포빅 배기 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AKRAPOVIC",
+    "sure": true
+   },
+   {
+    "start": 124.0,
+    "end": 127.0,
+    "text": "LEASINGMARKT.DE AB",
+    "ko": "LeasingMarkt.de 확인",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE600",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LEASINGMARKT.DE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "휙",
+    "event": "진행자 뛰어오며 인트로 시작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.7,
+    "type": "쿵",
+    "event": "GOLF GTI EDITION 50 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "쿵",
+    "event": "보닛 닫히는 실제 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 54.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "아크라포빅 배기음 사운드 테스트",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Hip-Hop / Electronic Beat",
+   "bpm_est": 120,
+   "mood": "에너제틱하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 54.2,
+     "what": "배기음 시연을 위해 배경음악 잠시 볼륨 다운"
+    },
+    {
+     "t": 56.4,
+     "what": "실내 촬영으로 전환되며 배경음악 복귀"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 70.0,
+    "what": "에너지 소비량 및 CO2 배출 정보 법적 고지 텍스트",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 8.0,
+    "entrance": "페이드",
+    "purpose": "법적 고지 의무 표기",
+    "sure": true
+   },
+   {
+    "start": 82.5,
+    "end": 84.5,
+    "what": "댓글 유도 하향 화살표 이모지 3개",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "댓글 참여 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Hier kommt alles, was du wissen musst in unter 60 Sekunden zum Golf GTI in der Edition 50.",
+    "ko": "골프 GTI 에디션 50에 대해 알아야 할 모든 정보를 60초 안에 알려드립니다."
+   },
+   {
+    "start": 4.5,
+    "end": 17.5,
+    "text": "Hier vorne haben wir dieses rote durchgezogene Band bis in die Scheinwerfer, das GTI-Logo selbstverständlich und ein beleuchtetes VW-Logo sowie die Matrix-LED-Scheinwerfer, serienmäßiges IQ.Light und eine schwarze Frontlippe für den maximal sportlichen Look.",
+    "ko": "전면에는 헤드라이트까지 이어지는 빨간색 스트라이프 라인, 당연히 GTI 로고, 발광 VW 로고, 매트릭스 LED 헤드라이트 기본 장착 IQ.Light, 그리고 극도의 스포티한 룩을 위한 블랙 프론트 립이 있습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 27.6,
+    "text": "Unter der Haube steckt der bekannte 2-Liter-Vierzylinder, hier aber mit 325 PS, die dich in 5,3 Sekunden von 0 auf 100 bringen, und erst bei 270 km/h ist Schluss.",
+    "ko": "보닛 아래에는 잘 알려진 2.0리터 4기통 엔진이 탑재되어 있으며, 여기서는 325마력을 발휘하여 제로백 5.3초, 최고속도 270km/h에 달합니다."
+   },
+   {
+    "start": 27.6,
+    "end": 43.1,
+    "text": "Exklusiv für den Edition 50 gibt es 19-Zoll-Schmiederäder. Diese hier sind leider noch die Winterfelgen. Außerdem ziehen sich die schwarzen Akzente nicht nur durch den Seitenschweller, die Außenspiegel und das Dach durch, sondern auch durch diese Folierung hier. Und serienmäßig gibt es das Fahrwerk DCC.",
+    "ko": "에디션 50 전용으로 19인치 단조 휠이 제공됩니다. 장착된 것은 윈터 휠입니다. 또한 블랙 포인트가 사이드 스커트, 사이드 미러, 루프뿐 아니라 이 데칼 필름까지 이어지며, DCC 서스펜션이 기본 탑재됩니다."
+   },
+   {
+    "start": 43.1,
+    "end": 56.4,
+    "text": "Am Heck finden wir in erster Linie diesen massiven Dachkantenspoiler, das GTI-Logo bekanntermaßen in der Mitte und diesen schwarzen Diffusor hier unten, der in einer Akrapovic-Abgasanlage endet, die ordentlich Krach macht.",
+    "ko": "후면에는 주로 이 거대한 루프 스포일러, 중앙의 GTI 로고, 그리고 하단에 강력한 소리를 내는 아크라포빅 배기 시스템이 적용된 블랙 디퓨저가 있습니다."
+   },
+   {
+    "start": 56.4,
+    "end": 80.2,
+    "text": "Im Interieur finden wir nicht nur rote Sicherheitsgurte, sondern auch ein Leder-Alcantara-Lenkrad mit GTI Edition 50 Plakette, außerdem dieses Sonderdesign im Display, die bekannte Aufmachung hier in der Mittelkonsole und Sitze hier mit dem Karomuster, was an die alten GTIs von früher erinnert. Außerdem auch hier Alcantara und diesen GTI-Schriftzug eingelassen.",
+    "ko": "실내에는 레드 안전벨트뿐 아니라 GTI Edition 50 플라크가 부착된 가죽/알칸타라 스티어링 휠, 디스플레이의 특별 디자인, 익숙한 센터 콘솔 구성, 클래식 GTI를 연상시키는 체크 패턴 시트가 적용되어 있습니다. 알칸타라 소재와 양각 GTI 레터링도 볼 수 있습니다."
+   },
+   {
+    "start": 80.2,
+    "end": 87.0,
+    "text": "Was sagt ihr zum Golf GTI in der Edition 50? Schreibt's mir unten in die Kommentare. Und für die besten Leasing-Deals checkt LeasingMarkt.de ab.",
+    "ko": "골프 GTI 에디션 50에 대해 어떻게 생각하시나요? 댓글로 남겨주세요. 최고의 리스 딜을 확인하시려면 LeasingMarkt.de를 방문해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "진행자가 차를 향해 뛰어가며 60초 리뷰 훅 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "전면 디자인 특징 (그릴, 발광 엠블럼, 매트릭스 LED, 범퍼 립)"
+   },
+   {
+    "stage": "사양",
+    "start": 17.5,
+    "end": 27.6,
+    "speed": "보통",
+    "summary": "엔진룸 개방 및 마력, 가속 성능, 최고속도 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 27.6,
+    "end": 56.4,
+    "speed": "빠름",
+    "summary": "휠, 측면 데칼, 리어 스포일러, 아크라포빅 배기 및 사운드 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 56.4,
+    "end": 80.2,
+    "speed": "보통",
+    "summary": "실내 인테리어 디테일 (벨트, 스티어링 휠, 계기판, 체크 시트)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 80.2,
+    "end": 87.0,
+    "speed": "빠름",
+    "summary": "시청자 질문 댓글 유도 및 리스마켓 웹사이트 프로모션"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 뛰어가고 보닛을 닫거나 부품을 손으로 가리키며 현장감과 템포 유지",
+   "화면 중앙 하단에 노란색 강조 단어를 포함한 굵은 볼드 텍스트로 가독성 극대화",
+   "엔진 배기음 시연 구간에서는 배경음악을 완전히 줄여 실차 배기음을 극대화",
+   "60초 분량에 맞춰 주요 포인트마다 2~4초 이내의 빠른 컷 전환 활용"
+  ]
+ }
+}

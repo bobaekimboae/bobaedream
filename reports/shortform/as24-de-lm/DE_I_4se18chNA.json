@@ -1,0 +1,275 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/I_4se18chNA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3557,
+  "candidatesTokenCount": 2374,
+  "totalTokenCount": 5931,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2815
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.6,
+   "aspect": "9:16",
+   "car": "Ferrari Testarossa",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 9.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 16.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 21.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 25.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.6,
+    "end": 10.0,
+    "text": "Jetzt auf Youtube!\n@autoscout24",
+    "ko": "지금 유튜브에서 확인하세요!\n@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.6,
+    "text": "Jetzt auf Youtube!\n@autoscout24",
+    "ko": "지금 유튜브에서 확인하세요!\n@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "차량 문 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 여는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 2.6,
+    "type": "띵",
+    "event": "유튜브 홍보 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 다시 여닫는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "차량 펜더 철판 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.2,
+    "type": "톡",
+    "event": "문짝 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "톡",
+    "event": "앞 펜더 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 묵직하게 닫히는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 25.5,
+    "type": "띵",
+    "event": "엔딩 화면 유튜브 배너 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "현장감",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 25.5,
+    "what": "AutoScout24 로고 워터마크",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 12.0,
+    "y_pct": 5.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "text": "Das Geräusch, ne?",
+    "ko": "이 소리 들리죠, 그렇죠?"
+   },
+   {
+    "start": 10.1,
+    "end": 13.0,
+    "text": "Da ist noch...",
+    "ko": "여기 아직..."
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "text": "Ist das Blech? Das ist tatsächlich Blech.",
+    "ko": "이거 철판인가요? 진짜 철판이네요."
+   },
+   {
+    "start": 16.5,
+    "end": 19.0,
+    "text": "Ich hätte jetzt getippt, dass das schon Kunststoff ist.",
+    "ko": "난 이미 플라스틱 재질일 줄 알았는데요."
+   },
+   {
+    "start": 21.0,
+    "end": 25.5,
+    "text": "Aber weil die Tür fällt so... so satt ins Schloss, zack!",
+    "ko": "하지만 문이 닫힐 때 정말... 묵직하게 착 감기며 잠기네요, 팍!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "클래식 페라리 문을 두드리고 열고 닫으며 도어 개폐감과 소리 확인"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.0,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "차체 패널을 직접 두드리며 철판 소재와 도어의 묵직한 마감 감탄"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 25.5,
+    "end": 30.6,
+    "speed": "느림",
+    "summary": "유튜브 풀버전 시청 안내 엔딩 카드"
+   }
+  ],
+  "rules": [
+   "배경음악을 배제하고 차량의 물리적 조작음(ASMR, 도어 닫힘음, 철판 노크음)을 극대화하여 몰입감 유도",
+   "화면 상단 모서리에 채널 로고 워터마크를 상시 고정 노출",
+   "시청자 이탈 전 시점에 유튜브 채널 유입용 스티커 배너를 팝업 효과음과 함께 노출",
+   "말자막을 과하게 넣지 않고 현장 사운드와 진행자의 직관적 반응에 집중"
+  ]
+ }
+}

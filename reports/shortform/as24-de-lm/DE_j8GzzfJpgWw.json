@@ -1,0 +1,195 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/j8GzzfJpgWw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3561,
+  "candidatesTokenCount": 1477,
+  "totalTokenCount": 5794,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2819
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 756,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.2,
+   "aspect": "9:16",
+   "car": "VW Golf I",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 17.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 23.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 30.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 9.8,
+    "type": "띵",
+    "event": "민감한 은어(티텐타호) 음성 비프음 검열",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "어쿠스틱 팝 비트",
+   "bpm_est": 105,
+   "mood": "담백하고 여유로운 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 30.2,
+    "what": "차량 모델명 배너 (노란색 X 로고와 VW Golf I 텍스트)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 25.0,
+    "y_pct": 68.0,
+    "entrance": "바로",
+    "purpose": "차량 모델 식별",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Ja, wenn man jetzt hier reinguckt, das ist natürlich... die Vergangenheit klopft an, muss man so sagen, ne?",
+    "ko": "여기를 들여다보면, 당연히 과거가 노크하는 기분이라고 해야겠죠?"
+   },
+   {
+    "start": 4.5,
+    "end": 8.0,
+    "text": "Also das klassische Lenkrad, hier mit dem Wolf drauf.",
+    "ko": "여기 늑대 엠블럼이 박힌 클래식한 스티어링 휠이 있고요."
+   },
+   {
+    "start": 8.0,
+    "end": 10.3,
+    "text": "Wir haben hier schon die bessere Ausstattung, den...",
+    "ko": "여기엔 더 좋은 옵션이 들어가 있어서..."
+   },
+   {
+    "start": 10.3,
+    "end": 16.2,
+    "text": "...Tacho, sagt man so, weil er zwei Öffnungen hat, normal gab's nur eine in der Mitte, mit einer wunderschönen Uhr, die natürlich funktioniert.",
+    "ko": "...계기판이라고 부르는데, 구멍이 두 개 있고(원래는 가운데 하나만 있었죠), 제대로 작동하는 멋진 시계도 있습니다."
+   },
+   {
+    "start": 16.2,
+    "end": 23.4,
+    "text": "Das ist alles sehr reduziert, aber man sieht auch hier schon das Konzept, was VW im Golf später immer durchgezogen hat: gute Bedienbarkeit.",
+    "ko": "매우 간결하지만, 폭스바겐이 이후 골프에서 계속 고수한 콘셉트인 뛰어난 조작 편의성을 엿볼 수 있습니다."
+   },
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "text": "Also das Radio auf Augenhöhe, nicht da unten irgendwo verbaut, alles im Griffbereich,",
+    "ko": "라디오는 눈높이에 맞춰 아래쪽에 처박히지 않고 손이 닿는 곳에 배치되어 있죠."
+   },
+   {
+    "start": 26.6,
+    "end": 30.2,
+    "text": "eine schöne Rundumsicht in alle Richtungen, also hier kann man wirklich super rausgucken.",
+    "ko": "사방으로 시야가 확 트여서 밖을 내다보기가 정말 좋습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "차 소개",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "골프 1세대 실내 전체적인 첫인상 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "스티어링 휠과 독특한 계기판 디테일 리뷰"
+   },
+   {
+    "stage": "기능",
+    "start": 17.5,
+    "end": 30.2,
+    "speed": "보통",
+    "summary": "직관적인 조작계 배치와 탁월한 전방위 시야 설명"
+   }
+  ],
+  "rules": [
+   "진행자의 설명과 해당 부품 클로즈업 컷을 교차 편집하여 직관적인 정보 전달",
+   "화면 좌측 하단에 모델명 그래픽 배너를 영상 전체에 고정 노출",
+   "특정 비속어나 민감한 클래식카 은어 단어에 비프음(삐 소리) 음향 효과 삽입"
+  ]
+ }
+}

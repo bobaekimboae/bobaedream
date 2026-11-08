@@ -1,0 +1,155 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/AgIDBap_fxs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2009,
+  "candidatesTokenCount": 1270,
+  "totalTokenCount": 3503,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1267
+   }
+  ],
+  "thoughtsTokenCount": 224,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 13.5,
+   "aspect": "9:16",
+   "car": "VW Golf I",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 13.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "수동 윈도우 크랭크 돌리는 마찰음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "딸깍",
+    "event": "유튜브 구독 버튼 클릭 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "딸깍",
+    "event": "AutoScout24 구독 버튼 클릭 효과음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "로파이 힙합/비트",
+   "bpm_est": 85,
+   "mood": "여유롭고 편안함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 13.5,
+    "what": "노란색 X 심볼 및 VW Golf I 차량 명칭 라벨",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 27.5,
+    "y_pct": 68.0,
+    "entrance": "바로",
+    "purpose": "차량 모델 식별",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.0,
+    "what": "유튜브 구독(abonnieren) 및 AutoScout24 채널 버튼 그래픽 및 마우스 커서 클릭 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "밀려옴",
+    "purpose": "채널 구독 유도 (CTA)",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "text": "Ist ja wie früher.",
+    "ko": "완전 예전 그대로네."
+   },
+   {
+    "start": 4.1,
+    "end": 7.8,
+    "text": "Übrigens, wenn euch unsere Videos gefallen, liked sie doch und abonniert den Kanal.",
+    "ko": "그건 그렇고, 우리 영상이 마음에 드신다면 좋아요를 누르고 채널을 구독해 주세요."
+   },
+   {
+    "start": 8.2,
+    "end": 12.3,
+    "text": "Und wenn ihr eine Erinnerung mit dem Golf habt, die hat eigentlich jeder, schreibt's mal unten in die Kommentarspalte.",
+    "ko": "그리고 골프에 얽힌 추억이 있다면—사실 다들 하나씩은 있잖아요—댓글란에 적어주세요."
+   },
+   {
+    "start": 12.5,
+    "end": 13.5,
+    "text": "Weiter geht's.",
+    "ko": "계속 가봅시다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "보통",
+    "summary": "창문을 손으로 내리며 예전 감성을 회상"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 4.0,
+    "end": 12.5,
+    "speed": "보통",
+    "summary": "구독/좋아요 및 댓글 유도 (CTA)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.5,
+    "end": 13.5,
+    "speed": "빠름",
+    "summary": "본편으로 이어지는 전환 멘트"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 차량 부품(수동 창문)을 조작하는 현장음을 초반 훅으로 활용",
+   "좌측 하단에 고정된 모델명 그래픽 뱃지로 일관된 브랜드 아이덴티티 유지",
+   "구독 권유 시점에 맞춰 마우스 클릭 애니메이션과 딸깍 효과음을 정확히 동기화"
+  ]
+ }
+}

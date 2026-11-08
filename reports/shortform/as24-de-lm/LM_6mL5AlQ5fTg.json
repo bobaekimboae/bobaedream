@@ -1,0 +1,499 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/6mL5AlQ5fTg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 10475,
+  "candidatesTokenCount": 4456,
+  "totalTokenCount": 14931,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 9733
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 107.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Tayron",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 23.3,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 33.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 42.0,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 56.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 106.3,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.3,
+    "end": 114.2,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 114.2,
+    "end": 119.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 119.3,
+    "end": 122.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 122.9,
+    "end": 128.2,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 128.2,
+    "end": 135.2,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 135.2,
+    "end": 139.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 139.5,
+    "end": 147.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "KLEINER TIGUAN",
+    "ko": "작은 티구안",
+    "kind": "말 자막",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.5,
+    "text": "GROßER TOUAREG ODER",
+    "ko": "큰 투아렉 아니면",
+    "kind": "말 자막",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.9,
+    "text": "KODIAQ BRUDER",
+    "ko": "코디악 형제?",
+    "kind": "말 자막",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 5.7,
+    "text": "VW TAYRON",
+    "ko": "폭스바겐 타이론",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TAYRON",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.0,
+    "text": "UNTER 60 SEKUNDEN",
+    "ko": "60초 안에",
+    "kind": "말 자막",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "FUN FACT",
+    "ko": "흥미로운 사실",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.5,
+    "text": "VON 150 BIS 272 PS",
+    "ko": "150마력부터 272마력까지",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "text": "R-LINE MIT LACKIERTEM SCHWARZ HOCHGLANZ GRILL",
+    "ko": "R-라인 유광 블랙 그릴",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "text": "IQ LIGHT HD MATRIX SCHEINWERFER",
+    "ko": "IQ 라이트 HD 매트릭스 헤드램프",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "text": "20 ZOLL FELGEN",
+    "ko": "20인치 휠",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 60.5,
+    "text": "885 LITER KOFFERRAUM",
+    "ko": "885리터 트렁크 공간",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 18.0,
+    "type": "쿵",
+    "event": "보닛을 닫을 때 '쾅' 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 131.0,
+    "type": "딸깍",
+    "event": "센터콘솔 드라이빙 모드 다이얼 돌릴 때 조작음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "text": "Kleiner Tiguan, großer Touareg oder Kodiaq Bruder?",
+    "ko": "작은 티구안, 큰 투아렉 아니면 코디악의 형제?"
+   },
+   {
+    "start": 3.9,
+    "end": 7.5,
+    "text": "Das hier ist der VW Tayron und ich erkläre dir jetzt in unter 60 Sekunden alles, was du zu ihm wissen musst.",
+    "ko": "이 차는 폭스바겐 타이론입니다. 60초 안에 알아야 할 모든 것을 설명해 드릴게요."
+   },
+   {
+    "start": 7.8,
+    "end": 16.0,
+    "text": "Fun Fact: Der Platz unter der Haube zwischen Motorhaube und Motor ist für den Fußgängerschutz, damit die Motorhaube bei einem Aufprall nicht hochkatapultiert werden muss.",
+    "ko": "흥미로운 사실: 보닛과 엔진 사이의 빈 공간은 보행자 보호용으로, 충돌 시 보닛이 튕겨 오르지 않도록 한 것입니다."
+   },
+   {
+    "start": 16.0,
+    "end": 23.0,
+    "text": "Ansonsten gibt es von 150 bis 272 PS: Benziner, Mild-Hybrid, Plug-in-Hybrid und Dieselmotoren.",
+    "ko": "그 외에도 150마력부터 272마력까지 가솔린, 마일드 하이브리드, 플러그인 하이브리드, 디젤 엔진이 있습니다."
+   },
+   {
+    "start": 23.3,
+    "end": 33.5,
+    "text": "In der Front finden wir dieses durchgezogene Lichtband hier in der R-Line mit lackiertem schwarz Hochglanz Grill und beleuchtetem VW-Logo, das gibt's serienmäßig.",
+    "ko": "전면에는 R-라인 전용 블랙 유광 그릴과 길게 이어진 라이트 바, 기본 적용된 조명 VW 로고가 있습니다."
+   },
+   {
+    "start": 33.7,
+    "end": 42.0,
+    "text": "Außerdem haben wir hier die IQ.Light HD-Matrix-Scheinwerfer und 20-Zoll-Felgen, starten tut er bei 17 Zoll.",
+    "ko": "또한 IQ.라이트 HD 매트릭스 헤드램프와 20인치 휠이 장착되어 있으며, 기본은 17인치부터 시작합니다."
+   },
+   {
+    "start": 42.0,
+    "end": 50.5,
+    "text": "In der Seite finden wir einmal diesen chromfarbenen Hockeystick und insgesamt eine verlängerte Silhouette, bis zu 23 Zentimeter ist er länger als der Tiguan.",
+    "ko": "측면에는 하키스틱 모양의 크롬 장식과 길어진 실루엣이 있으며, 티구안보다 최대 23cm 더 깁니다."
+   },
+   {
+    "start": 50.5,
+    "end": 56.5,
+    "text": "Ansonsten haben wir hier noch diese Claddings hier lackiert in der R-Line, sieht sehr cool aus, gibt einen sportlichen Look.",
+    "ko": "또한 R-라인에서는 바디 컬러 클래딩이 적용되어 매우 멋지고 스포티한 느낌을 줍니다."
+   },
+   {
+    "start": 56.6,
+    "end": 66.5,
+    "text": "Im Heck haben wir 885 Liter Kofferraum in der Standardvariante, das wird weniger beim Plug-in-Hybrid oder wenn ihr die dritte Sitzreihe bestellt.",
+    "ko": "후면에는 기본 885리터의 트렁크 용량이 제공되며, 플러그인 하이브리드나 3열 시트 옵션을 선택하면 줄어듭니다."
+   },
+   {
+    "start": 67.0,
+    "end": 74.0,
+    "text": "Im Interieur: nichts vor dem man sich fürchten müsste. Auf der Rückbank gibt es mehr als genügend Platz, verschiebbare Rückbank inklusive.",
+    "ko": "실내는 전혀 걱정할 것이 없습니다. 뒷좌석 공간은 여유로우며 슬라이딩 시트도 기본 포함됩니다."
+   },
+   {
+    "start": 74.2,
+    "end": 82.5,
+    "text": "Hier vorne ein Sportlenkrad in der R-Line mit echten Tasten, danke VW! Ansonsten ein 10,25-Zoll-Display hier, ein Head-up-Display da oben...",
+    "ko": "앞쪽엔 물리 버튼이 적용된 R-라인 스포츠 스티어링 휠이 있습니다. 폭스바겐 고마워요! 그리고 10.25인치 디스플레이와 헤드업 디스플레이도 있습니다."
+   },
+   {
+    "start": 82.5,
+    "end": 95.0,
+    "text": "...und hier ein 12,9-Zoll-Display serienmäßig, hier sind es jetzt 15 Zoll. Ansonsten diesen neuen Fahrerlebnisschalter nennt ihn VW, wo ich direkt meine Modi und Lautstärke einstellen kann.",
+    "ko": "...기본 12.9인치 디스플레이 대신 여기엔 15인치가 장착되었습니다. 또 모드와 볼륨을 조절할 수 있는 새로운 '주행 경험 다이얼'도 있습니다."
+   },
+   {
+    "start": 95.0,
+    "end": 100.0,
+    "text": "Diese Sportsitze in der R-Line sind by the way sehr sehr sehr gemütlich.",
+    "ko": "참고로 이 R-라인 스포츠 시트는 정말 매우 편안합니다."
+   },
+   {
+    "start": 100.0,
+    "end": 107.0,
+    "text": "Was sagt ihr zum neuen VW Tayron? Schreibt mir eure Meinung unten in die Kommentare!",
+    "ko": "신형 폭스바겐 타이론에 대해 어떻게 생각하시나요? 여러분의 의견을 댓글로 남겨주세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.8,
+    "speed": "빠름",
+    "summary": "차량 정체성 의문 제기 및 차종 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 7.8,
+    "end": 23.3,
+    "speed": "빠름",
+    "summary": "보닛 오픈, 보행자 보호 공간 팁 및 엔진 라인업"
+   },
+   {
+    "stage": "기능",
+    "start": 23.3,
+    "end": 56.6,
+    "speed": "빠름",
+    "summary": "전면 램프/그릴, 휠 크기 및 측면 비율 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 56.6,
+    "end": 67.0,
+    "speed": "보통",
+    "summary": "트렁크 용량 및 시트 확장성 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 67.0,
+    "end": 100.0,
+    "speed": "빠름",
+    "summary": "실내 거주성, 스티어링 휠 버튼, 화면 디스플레이 및 다이얼 조작"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 100.0,
+    "end": 107.0,
+    "speed": "보통",
+    "summary": "시청자 의견 유도 및 리스 사이트 홍보 클로징"
+   }
+  ],
+  "rules": [
+   "자막은 노란색 볼드 텍스트에 검은색 윤곽선을 사용하여 시인성을 확보함",
+   "화면 하단 중앙에 핵심 키워드 단어 단위로 빠른 템포의 음성과 연동되어 교체됨",
+   "보닛을 닫거나 다이얼을 조작하는 등 실제 현장 소리를 살려 생동감을 줌",
+   "단일 롱테이크가 아닌 부위별(외관-엔진-측면-트렁크-실내) 빠른 점프 컷 구성"
+  ]
+ }
+}

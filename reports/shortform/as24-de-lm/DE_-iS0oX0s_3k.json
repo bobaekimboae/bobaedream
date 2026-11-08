@@ -1,0 +1,831 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/-iS0oX0s_3k",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7576,
+  "candidatesTokenCount": 7554,
+  "totalTokenCount": 15720,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6834
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 590,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 75.5,
+   "aspect": "9:16",
+   "car": "Audi A6 Avant e-tron",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.9,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 18.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 23.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 30.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 34.4,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.4,
+    "end": 37.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 44.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 50.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.4,
+    "end": 55.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.6,
+    "end": 101.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 101.4,
+    "end": 106.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.1,
+    "end": 111.4,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 111.4,
+    "end": 115.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "text": "HINTER MIR",
+    "ko": "내 뒤에는",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HINTER MIR",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 2.2,
+    "text": "AUDI A6 AVANT",
+    "ko": "아우디 A6 아반트",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "A6",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "IST DER SEINE\n100.000€ WERT?",
+    "ko": "10만 유로의 가치가 있을까?",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "100.000€",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 9.9,
+    "text": "WIR HABEN EINEN\n27 LITER GROSSEN FRUNK,",
+    "ko": "27리터 용량의 프렁크가 있으며,",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GROSSEN",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "WUNDERSCHÖNE\nMATRIX LED LEUCHTEN",
+    "ko": "아름다운 매트릭스 LED 라이트",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LEUCHTEN",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.9,
+    "text": "21 ZOLL FELGEN.",
+    "ko": "21인치 휠.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZOLL",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.5,
+    "text": "IN DIESEM FALL KEINE\nKAMERA-AUSSENSPIEGEL,\nGIBT ES OPTIONAL.",
+    "ko": "이번엔 카메라 사이드미러가 아니지만 옵션으로 제공됩니다.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KEINE",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.7,
+    "text": "DANN ABER\nEINGELASSENE TÜRGRIFFE.",
+    "ko": "하지만 매립형 도어 핸들이 적용되었습니다.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TÜRGRIFFE",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 23.3,
+    "text": "HINTEN EINE ELEKTRISCH\nÖFFNENDE LADEKLAPPE,",
+    "ko": "뒤쪽엔 전동으로 열리는 충전구 플랩,",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCH",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.5,
+    "text": "MIT EINEM\nCCS-ANSCHLUSS HIER.",
+    "ko": "여기에 CCS 포트가 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CCS-ANSCHLUSS",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.5,
+    "text": "DANN HIER HINTEN\nOLED-RÜCKLEUCHTEN\nUND EIN BELEUCHTETES\nAUDI-LOGO.",
+    "ko": "그리고 뒤쪽엔 OLED 테일램프와 점등되는 아우디 로고.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OLED-RÜCKLEUCHTEN",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "DIE HECKKLAPPE\nGEHT NATÜRLICH\nSENSORGESTEUERT AUF.",
+    "ko": "테일게이트는 센서 감지로 전동 개폐됩니다.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SENSORGESTEUERT",
+    "sure": true
+   },
+   {
+    "start": 34.4,
+    "end": 37.0,
+    "text": "WIR HABEN EIN\nELEKTRISCH VERSTELLBARES\nPANORAMAGLASDACH,",
+    "ko": "전자식 조광 파노라마 글라스 루프,",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PANORAMAGLASDACH",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 44.5,
+    "text": "LAUTSPRECHER\nIN DEN SITZEN,\nLEDERBEZÜGE:\nGEHEIZT, NICHT GEKÜHLT,\nDAFÜR EINE BEINAUFLAGE.",
+    "ko": "시트 내장 스피커, 통풍 없이 열선만 지원되는 가죽시트, 조절식 허벅지 지지대.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GEHEIZT",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.9,
+    "text": "HIER HABEN WIR:\n\"KAI VON AUTOSCOUT24\"\nAUF DEM BEIFAHRERDISPLAY,",
+    "ko": "여기 동승석 디스플레이엔 오토스카우트24의 카이.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.5,
+    "text": "EINE BANG & OLUFSEN\nSOUNDANLAGE,",
+    "ko": "뱅앤올룹슨 사운드 시스템,",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SOUNDANLAGE",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 55.4,
+    "text": "PANORAMA-DISPLAY\nRIESENGROSS\nOLED-TECHNIK,\nANDROID-AUTO,\nAPPLE-CARPLAY,",
+    "ko": "거대한 OLED 파노라마 디스플레이, 안드로이드 오토와 애플 카플레이,",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OLED-TECHNIK",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.6,
+    "text": "DA VORNE KANNST DU\nDEIN TELEFON\nREINSTECKEN ZUM LADEN,",
+    "ko": "앞쪽엔 무선 충전을 위한 스마트폰 슬롯,",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LADEN",
+    "sure": true
+   },
+   {
+    "start": 57.6,
+    "end": 63.5,
+    "text": "HIER HAST DU EINE\nKRATZEMPFINDLICHE\nUND SCHMIEREMPFINDLICHE\nMITTELKONSOLE,",
+    "ko": "흠집과 지문에 취약한 센터 콘솔과 스티어링 휠,",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KRATZEMPFINDLICHE",
+    "sure": true
+   },
+   {
+    "start": 63.5,
+    "end": 66.0,
+    "text": "AUGMENTED REALITY\nHEAD-UP DISPLAY.",
+    "ko": "증강현실 헤드업 디스플레이.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUGMENTED REALITY",
+    "sure": true
+   },
+   {
+    "start": 66.0,
+    "end": 71.3,
+    "text": "HINTEN HABEN WIR\nSEHR VIEL KRATZIGES PLASTIK,\nPLATZ FÜR KINDER,\nABER NICHT WIRKLICH\nFÜR ERWACHSENE.",
+    "ko": "뒷좌석은 딱딱한 플라스틱이 많고 아이들에겐 충분하지만 성인에겐 좁습니다.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PLASTIK",
+    "sure": true
+   },
+   {
+    "start": 71.3,
+    "end": 75.5,
+    "text": "UND HINTER MIR\nSEHT IHR DIE POWERBANK\nFÜRS AUTO.",
+    "ko": "그리고 내 뒤엔 자동차용 보조배터리(풍력 발전기)가 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "POWERBANK",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.3,
+    "type": "돈 소리",
+    "event": "100.000€ 자막 강조 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "프렁크 본닛 개폐 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 충전구 커버 열림 모터 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 테일게이트 열리는 경고 비프음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.0,
+    "type": "딸깍",
+    "event": "시트 허벅지 지지대 조절 래치 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 54.0,
+    "type": "톡",
+    "event": "앱 아이콘 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "띵",
+    "event": "배터리 충전 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "electronic pop",
+   "bpm_est": 115,
+   "mood": "energetic upbeat",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 14.5,
+    "end": 16.2,
+    "what": "디지털 사이드미러 옵션 사진 인셋",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 35.0,
+    "y_pct": 60.0,
+    "entrance": "바로",
+    "purpose": "옵션 안내",
+    "sure": true
+   },
+   {
+    "start": 45.3,
+    "end": 47.5,
+    "what": "동료 진행자 카이 사진 스티커",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 75.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "재미 요소",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 55.3,
+    "what": "Android Auto & Apple CarPlay 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 시각화",
+    "sure": true
+   },
+   {
+    "start": 56.2,
+    "end": 57.6,
+    "what": "무선충전 배터리 충전 애니메이션 스티커",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 시각화",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Hinter mir steht der neue Audi A6 Avant e-tron. Ist der seine 100.000 € wert?",
+    "ko": "내 뒤에는 신형 아우디 A6 아반트 e-트론이 있습니다. 과연 10만 유로의 가치가 있을까요?"
+   },
+   {
+    "start": 5.8,
+    "end": 9.9,
+    "text": "Wir haben einen 27 l großen Frunk, wo sogar eine Tasche reinpasst.",
+    "ko": "가방이 들어갈 수 있는 27리터 크기의 프렁크가 있습니다."
+   },
+   {
+    "start": 9.9,
+    "end": 13.9,
+    "text": "Wunderschöne Matrix-LED-Leuchten, 21-Zoll-Felgen.",
+    "ko": "아름다운 매트릭스 LED 램프와 21인치 휠."
+   },
+   {
+    "start": 13.9,
+    "end": 18.7,
+    "text": "In diesem Fall keine Kamera-Außenspiegel, gibt es optional. Dann aber eingelassene Türgriffe.",
+    "ko": "이번엔 카메라 사이드미러가 아니지만 옵션으로 선택할 수 있습니다. 매립형 도어 핸들이 들어갔네요."
+   },
+   {
+    "start": 18.7,
+    "end": 25.5,
+    "text": "Hinten eine elektrisch öffnende Ladeklappe pro Seite eine, mit einem CCS-Anschluss hier.",
+    "ko": "뒤쪽엔 양쪽에 전동 개폐식 충전구가 있고, 여기엔 CCS 포트가 있습니다."
+   },
+   {
+    "start": 25.5,
+    "end": 30.5,
+    "text": "Dann hier hinten OLED-Rückleuchten und ein beleuchtetes Audi-Logo.",
+    "ko": "뒤쪽에는 OLED 테일램프와 불이 들어오는 아우디 로고가 있습니다."
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "Die Heckklappe geht natürlich sensorgesteuert auf.",
+    "ko": "트렁크 테일게이트는 센서로 작동해 자동으로 열립니다."
+   },
+   {
+    "start": 34.4,
+    "end": 44.5,
+    "text": "Wir haben ein elektrisch verstellbares Panoramaglasdach, Lautsprecher in den Sitzen, Lederbezüge: geheizt, nicht gekühlt, dafür eine Beinauflage, die man auch wieder einklappen kann.",
+    "ko": "전자식 파노라마 글라스 루프, 헤드레스트 스피커, 통풍은 없지만 열선이 되는 가죽 시트, 접이식 허벅지 지지대가 있습니다."
+   },
+   {
+    "start": 44.5,
+    "end": 47.9,
+    "text": "Hier haben wir: „Kai von AutoScout24“ auf dem Beifahrerdisplay, auch wenn man ihn gerade nicht sieht.",
+    "ko": "보조석 디스플레이에는 'AutoScout24의 카이'가 나오고 있습니다."
+   },
+   {
+    "start": 48.0,
+    "end": 55.4,
+    "text": "Eine Bang & Olufsen Soundanlage, Panorama-Display riesengroß OLED-Technik, Android-Auto, Apple-CarPlay.",
+    "ko": "뱅앤올룹슨 사운드 시스템, 거대한 파노라마 OLED 디스플레이, 안드로이드 오토 및 애플 카플레이 지원."
+   },
+   {
+    "start": 55.4,
+    "end": 63.5,
+    "text": "Da vorne kannst du dein Telefon reinstecken zum Laden. Hier hast du eine kratzempfindliche und schmierempfindliche Mittelkonsole, genauso ein schmierempfindliches Lenkrad.",
+    "ko": "앞쪽엔 휴대폰 무선 충전 슬롯이 있고, 센터 콘솔과 스티어링 휠은 흠집과 지문에 다소 취약한 소재입니다."
+   },
+   {
+    "start": 63.5,
+    "end": 66.0,
+    "text": "Dafür aber ein super Augmented Reality Head-Up-Display.",
+    "ko": "대신 아주 뛰어난 증강현실 헤드업 디스플레이가 탑재되어 있습니다."
+   },
+   {
+    "start": 66.0,
+    "end": 71.3,
+    "text": "Hinten haben wir sehr viel kratziges Plastik. Platz für Kinder, aber nicht wirklich für Erwachsene.",
+    "ko": "뒷좌석에는 단단한 플라스틱이 많고 아이들에겐 괜찮지만 성인이 타기엔 좁습니다."
+   },
+   {
+    "start": 71.3,
+    "end": 75.5,
+    "text": "Und hinter mir seht ihr die Powerbank fürs Auto.",
+    "ko": "그리고 제 뒤에는 이 차를 충전할 대형 보조배터리(풍력 발전기)가 보이네요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "차명 및 10만 유로 가치 질문으로 시청자 흥미 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 34.4,
+    "speed": "빠름",
+    "summary": "외관 주요 특징(프렁크, 라이트, 충전구, 테일램프) 퀵 리뷰"
+   },
+   {
+    "stage": "기능",
+    "start": 34.4,
+    "end": 66.0,
+    "speed": "빠름",
+    "summary": "실내 편의사양, 디스플레이, 장단점 분석"
+   },
+   {
+    "stage": "사양",
+    "start": 66.0,
+    "end": 71.3,
+    "speed": "보통",
+    "summary": "뒷좌석 공간감 및 내장재 품질 체크"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 71.3,
+    "end": 75.5,
+    "speed": "보통",
+    "summary": "배경의 풍력발전기를 이용한 유머러스한 마무리"
+   }
+  ],
+  "rules": [
+   "말하는 음절의 타이밍에 맞춰 핵심 단어를 노란색 볼드체로 강조 표시한다.",
+   "새로운 기능이나 스펙을 언급할 때마다 1~3초 내외로 컷 전환하여 빠른 템포를 유지한다.",
+   "중요한 포인트(가격, 브랜드, 앱, 기능)마다 직관적인 스티커 그래픽과 팝업 효과음을 동반한다.",
+   "장점뿐만 아니라 지문/스크래치에 약한 내장재나 좁은 뒷좌석 등 단점도 명확히 짚어 신뢰도를 확보한다."
+  ]
+ }
+}

@@ -1,0 +1,352 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/HRJ9fOaiT5Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4565,
+  "candidatesTokenCount": 2708,
+  "totalTokenCount": 7273,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3823
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42.4,
+   "aspect": "9:16",
+   "car": "Hyundai Tucson N Line X (2025)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.3,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 26.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 42.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "text": "Leasingrate\n178 € / Monat",
+    "ko": "리스 요금\n월 178유로",
+    "kind": "가격",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF55",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "178 € / Monat",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.2,
+    "text": "Bruttolistenpreis\nca. 50.000 €",
+    "ko": "신차가격(총액)\n약 50,000유로",
+    "kind": "가격",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF55",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ca. 50.000 €",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.4,
+    "text": "Sonderzahlung\n0 €",
+    "ko": "선납금\n0유로",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF55",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "0 €",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "월 리스료 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "차량 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "선납금 0유로 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi / Chillhop",
+   "bpm_est": 85,
+   "mood": "차분하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Das ist mein Hyundai Tucson, für den zahle ich 178 € im Monat,",
+    "ko": "이건 제 현대 투싼인데, 월 178유로를 내고 있어요."
+   },
+   {
+    "start": 3.2,
+    "end": 5.9,
+    "text": "und das ist tatsächlich mit 23 Jahren schon mein zweites Leasing-Auto.",
+    "ko": "그리고 23살에 벌써 두 번째 리스 차량입니다."
+   },
+   {
+    "start": 6.0,
+    "end": 11.8,
+    "text": "Also das ist ein Hyundai Tucson von 2025 in der Ausstattungslinie N Line X.",
+    "ko": "이 모델은 2025년형 현대 투싼 N Line X 트림입니다."
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "text": "Also bei dem Auto, ich glaube das hat einen Bruttolistenpreis von 50.000 €.",
+    "ko": "이 차량은 공식 출고가가 약 50,000유로 정도 합니다."
+   },
+   {
+    "start": 15.8,
+    "end": 19.0,
+    "text": "Ich hab den jetzt privat geleast, also die Rate ist brutto,",
+    "ko": "개인 리스로 계약해서 월 납입금은 부가세 포함 금액이고,"
+   },
+   {
+    "start": 19.3,
+    "end": 21.0,
+    "text": "und ich hab in dem Fall auch keine Sonderzahlung.",
+    "ko": "그리고 선납금(보증금)도 0원이었습니다."
+   },
+   {
+    "start": 21.8,
+    "end": 26.0,
+    "text": "Ich glaube, als ich das Angebot gesehen habe, habe ich mich innerhalb von ein oder zwei Stunden entschieden.",
+    "ko": "이 딜을 보자마자 한두 시간 만에 바로 계약 결정을 내렸던 것 같아요."
+   },
+   {
+    "start": 26.0,
+    "end": 29.8,
+    "text": "Man hat super bequeme Sitze, man hat hier zum Beispiel eine Sitzbelüftung,",
+    "ko": "시트가 정말 편하고, 통풍 시트도 들어가 있고요,"
+   },
+   {
+    "start": 30.0,
+    "end": 35.0,
+    "text": "und auch so Sachen wie ein Head-up-Display oder auch ein Panoramadach, was man hier hat.",
+    "ko": "헤드업 디스플레이나 파노라마 선루프 같은 옵션도 갖춰져 있습니다."
+   },
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "text": "Ich glaube, das ist einfach super für den Preis gerade.",
+    "ko": "이 가격대에서는 정말 최고라고 생각해요."
+   },
+   {
+    "start": 37.5,
+    "end": 42.4,
+    "text": "Wie gesagt, der Preis 178 € ist einfach ein super Deal für das Auto.",
+    "ko": "말씀드렸듯 월 178유로는 이 차에 정말 대단한 조건입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.9,
+    "speed": "빠름",
+    "summary": "차량 소개 및 파격적인 월 178유로 리스 조건 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.9,
+    "end": 12.3,
+    "speed": "보통",
+    "summary": "2025 투싼 N Line X 모델 외관 및 트림 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 12.3,
+    "end": 22.3,
+    "speed": "보통",
+    "summary": "차량가 5만 유로 대비 선납금 0원의 조건 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 22.3,
+    "end": 37.1,
+    "speed": "보통",
+    "summary": "통풍시트, HUD, 파노라마 선루프 등 주요 탑재 옵션 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 37.1,
+    "end": 42.4,
+    "speed": "보통",
+    "summary": "가성비 뛰어난 리스 딜 최종 요약 및 마무리"
+   }
+  ],
+  "rules": [
+   "리스료, 출고가, 선납금 등 숫자가 핵심인 정보는 노란색 라운드 박스 배너 그래픽과 팝 사운드로 강렬하게 전달한다.",
+   "오너가 차 안팎에서 직접 대화하듯 설명하며 외관/실내 인서트 컷을 1~3초 주기로 빠르게 교차 편집한다.",
+   "하단에는 공식 연비 및 CO2 배출량 법적 필수 표기 문구를 반투명 텍스트로 항상 고정 표시한다."
+  ]
+ }
+}

@@ -1,0 +1,434 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/dQrtdr_qYqg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8394,
+  "candidatesTokenCount": 4669,
+  "totalTokenCount": 13896,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7652
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 833,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 84.4,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLB / EQB",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 10.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 16.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.4,
+    "end": 27.2,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 36.2,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 41.2,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 51.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 64.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.2,
+    "end": 69.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 69.4,
+    "end": 76.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 76.1,
+    "end": 84.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Mercedes GLB",
+    "ko": "메르세데스 GLB",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Mercedes GLB",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 5.2,
+    "text": "60 Sekunden",
+    "ko": "60초",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "60 Sekunden",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "text": "BELEUCHTETEN STERNEN",
+    "ko": "조명이 들어오는 삼각별",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "STERNEN",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.0,
+    "text": "540 LITER",
+    "ko": "540리터",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "540 LITER",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.5,
+    "text": "127 LITER IM FRUNK",
+    "ko": "프렁크에 127리터",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "127 LITER",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.0,
+    "text": "10 CM LÄNGER",
+    "ko": "10cm 더 길어짐",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "10 CM",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.0,
+    "text": "SUPERSCREEN MIT DREI DISPLAYS",
+    "ko": "3개 디스플레이의 슈퍼스크린",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SUPERSCREEN",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "휙",
+    "event": "Mercedes GLB 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 엠블럼 레버 작동 및 전동 트렁크 열림음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "보닛(엔진룸) 열리는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 84.4,
+    "what": "상단 공인 전비 및 탄소배출량 법적 표기 문구",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 14.0,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   },
+   {
+    "start": 78.5,
+    "end": 81.0,
+    "what": "댓글 유도 흰색 하향 화살표 이모지 3개",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 77.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "CTA(참여 유도)",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "text": "Das hier ist der neue Mercedes GLB und ich erzähl dir jetzt unter 60 Sekunden alles, was du zu diesem Fahrzeug wissen musst.",
+    "ko": "이 차는 신형 메르세데스 GLB입니다. 60초 안에 알아야 할 모든 정보를 알려드릴게요."
+   },
+   {
+    "start": 6.3,
+    "end": 16.4,
+    "text": "In der Front begrüßt uns dieser Grill mit 94 beleuchteten Sternen, das sieht man in der Nacht besonders schön. In den Tagfahrlichtern finden wir jetzt wie in den Rückfahrlichtern auch diese Sterne.",
+    "ko": "전면에는 94개의 조명 삼각별이 들어간 그릴이 반겨주며, 밤에 보면 특히 멋집니다. 주간주행등과 후미등에도 이 별 패턴이 적용되어 있습니다."
+   },
+   {
+    "start": 16.4,
+    "end": 27.2,
+    "text": "Am Heck des EQB finden wir jetzt diese durchgezogene Leuchte hier, außerdem hier unten diesen Diffusor und ansonsten dieses relativ gerade Heck, um eben möglichst viel Platz im Innenraum zu schaffen.",
+    "ko": "EQB의 후면에는 가로로 이어진 라이트 바와 하단 디퓨저, 그리고 넉넉한 실내 공간 확보를 위한 각진 후면 디자인이 적용되었습니다."
+   },
+   {
+    "start": 27.2,
+    "end": 36.2,
+    "text": "Entweder für 540 Liter Kofferraumvolumen beziehungsweise 480, denn es gibt ihn auch als Siebensitzer.",
+    "ko": "트렁크 용량은 기본 540리터 또는 7인승 사양의 경우 480리터가 제공됩니다."
+   },
+   {
+    "start": 36.2,
+    "end": 41.2,
+    "text": "Plus nochmals 127 Liter im Frunk unter der Motorhaube.",
+    "ko": "보닛 아래 프렁크에도 추가로 127리터의 적재 공간이 있습니다."
+   },
+   {
+    "start": 41.2,
+    "end": 51.5,
+    "text": "Von der Seite ist der GLB sehr kastig geblieben, aber 10 cm länger. Hier steht er übrigens auf 20-Zoll-Felgen, und warum er 10 cm länger ist, das sehen wir im Interieur.",
+    "ko": "측면에서 보면 특유의 박스형 실루엣을 유지하면서 10cm 길어졌습니다. 20인치 휠이 장착되어 있으며, 길이가 늘어난 이유는 실내에서 확인할 수 있습니다."
+   },
+   {
+    "start": 51.5,
+    "end": 64.2,
+    "text": "Im Interieur finden wir das neue Lenkrad jetzt wieder mit echten Schaltern und vor allen Dingen diesem großen Superscreen mit drei Displays, die hier integriert sind und für Fahrer und Beifahrer jede Menge Entertainment bieten.",
+    "ko": "실내에는 실제 버튼이 복귀한 신형 스티어링 휠과 3개의 디스플레이가 통합된 거대한 슈퍼스크린이 운전자와 동승자에게 다양한 인포테인먼트를 제공합니다."
+   },
+   {
+    "start": 64.2,
+    "end": 69.4,
+    "text": "Ansonsten haben wir hier in der Ausstattungslinie ein Bicolor-Interieur mit einem Zierteil aus Papier.",
+    "ko": "또한 이 트림에는 투톤 인테리어와 종이 소재의 친환경 트림 장식이 적용되었습니다."
+   },
+   {
+    "start": 69.4,
+    "end": 76.1,
+    "text": "Dank 10 cm mehr Länge gibt es im GLB jetzt nicht nur auf der zweiten Sitzreihe, sondern auch in der optionalen dritten mehr Platz.",
+    "ko": "10cm 늘어난 전장 덕분에 2열뿐만 아니라 옵션인 3열 좌석 공간도 더욱 넓어졌습니다."
+   },
+   {
+    "start": 76.1,
+    "end": 84.4,
+    "text": "Was sagt ihr zum GLB? Schreibt's unten in die Kommentare und schaut bei LeasingMarkt für die besten Deals auch zum Mercedes GLB vorbei.",
+    "ko": "여러분은 이 GLB를 어떻게 생각하시나요? 댓글로 남겨주시고, 최저가 리스 견적은 LeasingMarkt에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.3,
+    "speed": "빠름",
+    "summary": "1인칭 POV 손짓과 함께 60초 안에 신형 메르세데스 GLB의 모든 것을 소개한다고 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.3,
+    "end": 16.4,
+    "speed": "빠름",
+    "summary": "전면 94개 조명 스타 그릴 및 헤드램프 디테일 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 16.4,
+    "end": 27.2,
+    "speed": "보통",
+    "summary": "후면 라이트바 및 박스형 디자인 특징"
+   },
+   {
+    "stage": "사양",
+    "start": 27.2,
+    "end": 41.2,
+    "speed": "빠름",
+    "summary": "트렁크 용량(540L/480L), 7인승 구조 및 127L 프렁크 공간 실측 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 41.2,
+    "end": 51.5,
+    "speed": "보통",
+    "summary": "측면 프로포션, 20인치 휠 및 10cm 늘어난 전장 포인트 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 51.5,
+    "end": 69.4,
+    "speed": "빠름",
+    "summary": "신형 물리버튼 스티어링 휠, 3열 슈퍼스크린, 친환경 페이퍼 트림 실내 투어"
+   },
+   {
+    "stage": "사양",
+    "start": 69.4,
+    "end": 76.1,
+    "speed": "보통",
+    "summary": "전장 확대에 따른 2열 및 3열 거주성 체감"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 76.1,
+    "end": 84.4,
+    "speed": "빠름",
+    "summary": "댓글 반응 유도 화살표 및 LeasingMarkt 프로모션 안내"
+   }
+  ],
+  "rules": [
+   "촬영자가 화면에 직접 나오지 않고 1인칭 POV 시점에서 손으로 대상을 직접 가리키며 설명한다.",
+   "핵심 키워드와 숫자는 노란색 볼드 텍스트로 화면 하단 또는 중앙에 강조 표시한다.",
+   "각 부위별(외관 전면-후면-트렁크-프렁크-측면-실내-뒷좌석)로 5~10초 내외의 빠른 템포 컷 편집을 유지한다.",
+   "상단에 공인 전비/배출가스 법적 고지문을 영상 전체에 반투명 텍스트로 고정 배치한다."
+  ]
+ }
+}

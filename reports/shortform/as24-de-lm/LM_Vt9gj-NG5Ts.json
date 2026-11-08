@@ -1,0 +1,209 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/Vt9gj-NG5Ts",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3756,
+  "candidatesTokenCount": 1628,
+  "totalTokenCount": 5384,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3014
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.4,
+   "aspect": "9:16",
+   "car": "Volkswagen ID.5",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 21.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 28.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.4,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 14.5,
+    "type": "딸깍",
+    "event": "충전구 도어 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "딸깍",
+    "event": "충전구 캡 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.8,
+    "type": "딸깍",
+    "event": "충전구 캡 닫기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.9,
+    "type": "쿵",
+    "event": "충전구 도어 닫기",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "electronic",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Drei Fakten zum Volkswagen ID.5.",
+    "ko": "폭스바겐 ID.5에 관한 3가지 사실."
+   },
+   {
+    "start": 2.8,
+    "end": 8.7,
+    "text": "Erstens, der ID.5 war nach ID.3 und ID.4 das dritte Elektromodell der ID-Familie von Volkswagen in Europa.",
+    "ko": "첫째, ID.5는 ID.3와 ID.4에 이어 유럽에서 폭스바겐 ID 패밀리의 세 번째 전기 모델이었습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 13.5,
+    "text": "Zweitens, in der Pro-Variante schafft er bis zu 571 km nach WLTP.",
+    "ko": "둘째, Pro 트림에서는 WLTP 기준 최대 571km를 주행할 수 있습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 21.0,
+    "text": "Kleiner Nachteil: An der Ladesäule schafft er maximal 165 kW DC, was einfach nicht mehr der aktuelle Stand ist. Schreibt mal in die Kommentare, was ihr davon haltet.",
+    "ko": "작은 단점: 충전소에서 최대 165kW DC 속도만 지원하는데, 이는 최신 기준에 다소 아쉽습니다. 어떻게 생각하시는지 댓글로 남겨주세요."
+   },
+   {
+    "start": 21.0,
+    "end": 28.5,
+    "text": "Und drittens, er ist natürlich kein Schnäppchen. Er kostet ab 49.455 € in der Pro-Variante ohne Allrad.",
+    "ko": "그리고 셋째, 당연히 저렴하지는 않습니다. 사륜구동 없는 Pro 트림 기준 49,455유로(약 7,200만 원)부터 시작합니다."
+   },
+   {
+    "start": 28.5,
+    "end": 33.4,
+    "text": "Wenn euch das zu viel ist, schaut auf jeden Fall mal bei LeasingMarkt.de, denn da gibt es wie immer die besten Leasing-Deals.",
+    "ko": "가격이 부담된다면 LeasingMarkt.de를 확인해 보세요. 언제나처럼 최고의 리스 혜택이 준비되어 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "ID.5에 대한 3가지 팩트 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "첫 번째 사실: 폭스바겐 ID 라인업의 세 번째 모델"
+   },
+   {
+    "stage": "사양",
+    "start": 8.7,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "두 번째 사실: 571km의 WLTP 주행 가능 거리"
+   },
+   {
+    "stage": "기능",
+    "start": 13.5,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "충전 속도 한계(최대 165kW DC)와 의견 유도"
+   },
+   {
+    "stage": "가격",
+    "start": 21.0,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "세 번째 사실: 시작 가격 49,455유로"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.5,
+    "end": 33.4,
+    "speed": "빠름",
+    "summary": "LeasingMarkt.de 프로모션 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 손 제스처(손가락으로 1, 2, 3 표시 및 특정 부위 가리키기)를 활용해 몰입감과 전달력을 높임",
+   "1인칭 시점(POV)으로 차량 주변을 걸어 다니며 직접 조작하는 현장감 연출",
+   "별도의 화면 자막 없이 오디오 내레이션과 차량의 실제 조작 사운드로만 간결하게 구성"
+  ]
+ }
+}

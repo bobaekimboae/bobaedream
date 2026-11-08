@@ -1,0 +1,387 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/8JEJkoHakAU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2384,
+  "candidatesTokenCount": 3789,
+  "totalTokenCount": 7114,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1642
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 941,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.8,
+   "aspect": "9:16",
+   "car": "Fiat Panda",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 18.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "ERRATE\nDAS AUTO",
+    "ko": "차를 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ERRATE",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.8,
+    "text": "LEVEL SUPER EASY",
+    "ko": "난이도 아주 쉬움",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 5.0,
+    "text": "LEUTE IN WELCHEM",
+    "ko": "여러분 제가 어떤",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.1,
+    "text": "AUTO SITZE ICH",
+    "ko": "차에 타고 있을까요",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTO",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.4,
+    "text": "ICH MUSSTE SCHON",
+    "ko": "벌써 좀 가려야 했어요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.3,
+    "text": "UND DAS LENKRAD",
+    "ko": "그리고 스티어링 휠을",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "LENKRAD",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.2,
+    "text": "KOMPLETT VERDECKEN",
+    "ko": "완전히 가려야 했죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 10.5,
+    "text": "VIEL ZU LEICHT",
+    "ko": "너무 쉬웠을 테니까요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.9,
+    "text": "ALSO IN WAS",
+    "ko": "그러니 어떤",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.0,
+    "text": "FÜR EINEM KOMPAKTEN",
+    "ko": "컴팩트하고",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.1,
+    "text": "IKONISCHEN AUTO",
+    "ko": "상징적인 자동차에",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.3,
+    "text": "ICH HIER GERADE",
+    "ko": "지금 타고 있을까요",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 16.5,
+    "text": "SCHREIBT EURE ANTWORT",
+    "ko": "답을 댓글로 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "ES KÖNNEN ALLE ERRATEN",
+    "ko": "모두 맞히실 수 있길 바라요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트/힙합 인스트루멘탈",
+   "bpm_est": 95,
+   "mood": "캐주얼하고 리드미컬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 18.8,
+    "what": "스티어링 휠 로고 가림용 검정 원형 마스킹",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 22.0,
+    "y_pct": 36.0,
+    "entrance": "바로",
+    "purpose": "퀴즈 정답 유출 방지용 로고 블러/가림",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Errate das Auto.",
+    "ko": "자동차를 맞혀보세요."
+   },
+   {
+    "start": 2.1,
+    "end": 3.8,
+    "text": "Level super easy.",
+    "ko": "난이도 초급."
+   },
+   {
+    "start": 4.0,
+    "end": 6.1,
+    "text": "Leute, in welchem Auto sitze ich hier gerade?",
+    "ko": "여러분, 제가 지금 어떤 차에 앉아 있을까요?"
+   },
+   {
+    "start": 6.2,
+    "end": 10.3,
+    "text": "Ich musste schon etwas abkleben und das Lenkrad komplett verdecken, sonst wäre es viel zu leicht gewesen.",
+    "ko": "제가 이미 몇 군데를 가리고 스티어링 휠을 완전히 덮어두어야 했는데, 안 그랬으면 너무 쉬웠을 테니까요."
+   },
+   {
+    "start": 10.8,
+    "end": 14.5,
+    "text": "Also, in was für einem kompakten ikonischen Auto sitze ich hier gerade?",
+    "ko": "자, 제가 지금 어떤 컴팩트하고 아이코닉한 차에 앉아 있을까요?"
+   },
+   {
+    "start": 14.8,
+    "end": 18.5,
+    "text": "Schreibt eure Antwort in die Kommentare, ich hoffe es können alle erraten.",
+    "ko": "댓글로 정답을 적어주세요, 모두 맞히실 수 있길 바랍니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "보통",
+    "summary": "자동차 맞히기 퀴즈 주제 제시 및 난이도 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.8,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "실내 대시보드와 도어 트림을 보여주며 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 14.8,
+    "end": 18.8,
+    "speed": "보통",
+    "summary": "댓글로 정답 작성을 유도하며 마무리"
+   }
+  ],
+  "rules": [
+   "1인칭 시점(POV) 원테이크 촬영으로 시청자가 직접 차에 앉아 둘러보는 듯한 몰입감 연출",
+   "엠블럼과 로고 부위에 모션 트래킹 원형 그래픽을 씌워 퀴즈 참여 유도",
+   "핵심 키워드는 노란색 볼드 텍스트로 강조하여 가독성 극대화",
+   "화면 하단에 짧은 호흡의 자막을 음성과 싱크를 맞춰 전달"
+  ]
+ }
+}

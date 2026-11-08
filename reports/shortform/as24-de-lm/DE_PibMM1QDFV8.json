@@ -1,0 +1,172 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/PibMM1QDFV8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3663,
+  "candidatesTokenCount": 1429,
+  "totalTokenCount": 5374,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2921
+   }
+  ],
+  "thoughtsTokenCount": 282,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 32.5,
+   "aspect": "9:16",
+   "car": "클래식 올드카",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 27.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 32.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "주행 중 엔진 소음 및 노면 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "자연스러움",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.5,
+    "end": 2.5,
+    "text": "Was ein herrlicher Tag heute.",
+    "ko": "오늘 정말 멋진 날이네요."
+   },
+   {
+    "start": 2.7,
+    "end": 7.0,
+    "text": "Sonne lacht, es ist warm, der Oldtimer wird das erste Mal ausgeführt.",
+    "ko": "햇살도 좋고, 따뜻하고, 올드카를 처음으로 몰고 나왔습니다."
+   },
+   {
+    "start": 7.2,
+    "end": 11.0,
+    "text": "Und es gibt noch einen Grund, gute Laune zu haben, weil wir haben 50.000 Abos",
+    "ko": "그리고 기분 좋을 이유가 하나 더 있는데, 바로 구독자 5만 명을"
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "haben wir gerissen.",
+    "ko": "돌파했기 때문입니다."
+   },
+   {
+    "start": 13.1,
+    "end": 14.8,
+    "text": "Muss ich sagen, danke!",
+    "ko": "감사하다는 말씀을 드립니다!"
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "text": "Danke im Namen des ganzen Teams,",
+    "ko": "팀 전체를 대표해서 감사드립니다,"
+   },
+   {
+    "start": 17.1,
+    "end": 18.2,
+    "text": "Danke von AutoScout,",
+    "ko": "오토스카우트에서도 감사드리고,"
+   },
+   {
+    "start": 18.3,
+    "end": 19.3,
+    "text": "Danke von mir,",
+    "ko": "저도 감사드리고,"
+   },
+   {
+    "start": 19.4,
+    "end": 21.3,
+    "text": "Danke von Stefan, die Linse, unser Kameramann.",
+    "ko": "우리 카메라맨 스테판에게도 감사를 표합니다."
+   },
+   {
+    "start": 21.5,
+    "end": 24.6,
+    "text": "Ey wirklich richtig toll. Bleibt uns weiter gewogen und seid gespannt.",
+    "ko": "정말 너무 멋집니다. 계속 응원해 주시고 기대해 주세요."
+   },
+   {
+    "start": 24.7,
+    "end": 29.0,
+    "text": "Aber jetzt genießen wir erst mal zusammen weiter diesen wunderschönen Ausritt.",
+    "ko": "하지만 지금은 우선 이 멋진 드라이브를 함께 더 즐겨보죠."
+   },
+   {
+    "start": 29.1,
+    "end": 30.5,
+    "text": "Ciao!",
+    "ko": "안녕!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "날씨와 올드카 드라이브 이야기 및 5만 구독자 달성 소식 발표"
+   },
+   {
+    "stage": "차 소개",
+    "start": 13.0,
+    "end": 24.6,
+    "speed": "보통",
+    "summary": "구독자 및 제작진(카메라맨 등)에게 감사 인사"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.6,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "주행 전방 화면을 보여주며 마무리 인사"
+   }
+  ],
+  "rules": [
+   "자막이나 그래픽 요소 없이 브이로그 형식의 현장감 넘치는 원테이크 카메라 워크 사용",
+   "배경음악을 배제하고 올드카 특유의 배기음과 엔진 소리를 그대로 전달",
+   "인물 정면 클로즈업에서 클로징 시 주행하는 도로 전방 뷰로 자연스럽게 팬 이동"
+  ]
+ }
+}

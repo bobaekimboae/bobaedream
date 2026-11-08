@@ -1,0 +1,448 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/9XNLKjq0xO8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 10040,
+  "candidatesTokenCount": 4179,
+  "totalTokenCount": 14219,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 9298
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 102.5,
+   "aspect": "9:16",
+   "car": "VW Passat Variant, Skoda Elroq, VW Tiguan, Skoda Octavia Combi, Kia EV5, Skoda Kodiaq",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 102.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "WELCHES FAMILIENAUTO IST",
+    "ko": "어떤 패밀리카가",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "FAMILIENAUTO",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 2.5,
+    "text": "EIGENTLICH WIRKLICH S-TIER",
+    "ko": "진짜 S티어일까",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "S-TIER",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.4,
+    "text": "WENN KINDERWAGEN",
+    "ko": "유모차와",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "KINDERWAGEN",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.1,
+    "text": "URLAUB",
+    "ko": "휴가 짐과",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "URLAUB",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.0,
+    "text": "UND MONATLICHE RATE",
+    "ko": "월 리스료까지",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MONATLICHE RATE",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.5,
+    "text": "ALLE IRGENDWIE REINPASSEN MÜSSEN",
+    "ko": "모두 다 맞아야 할 때",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.4,
+    "text": "VW PASSAT",
+    "ko": "폭스바겐 파사트",
+    "kind": "제목",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "text": "SKODA ELROQ",
+    "ko": "스코다 엘록",
+    "kind": "제목",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 31.5,
+    "text": "VW TIGUAN",
+    "ko": "폭스바겐 티구안",
+    "kind": "제목",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 44.5,
+    "text": "SKODA OCTAVIA",
+    "ko": "스코다 옥타비아",
+    "kind": "제목",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 55.5,
+    "text": "KIA EV5",
+    "ko": "기아 EV5",
+    "kind": "제목",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 115.5,
+    "end": 116.5,
+    "text": "SKODA KODIAQ",
+    "ko": "스코다 코디악",
+    "kind": "제목",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.5,
+    "type": "톡",
+    "event": "티어 리스트 및 첫 번째 차 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "톡",
+    "event": "VW 파사트 A티어로 이동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "스코다 엘록 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "톡",
+    "event": "스코다 엘록 C티어로 이동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "VW 티구안 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "톡",
+    "event": "VW 티구안 B티어로 이동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "톡",
+    "event": "스코다 옥타비아 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.8,
+    "type": "톡",
+    "event": "스코다 옥타비아 S티어로 이동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "톡",
+    "event": "기아 EV5 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 114.0,
+    "type": "톡",
+    "event": "기아 EV5 B티어로 이동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 116.0,
+    "type": "톡",
+    "event": "스코다 코디악 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 130.5,
+    "type": "톡",
+    "event": "스코다 코디악 A티어로 이동",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "로파이 힙합 비트",
+   "bpm_est": 85,
+   "mood": "차분하고 편안한 정보 전달 톤",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.5,
+    "end": 137.0,
+    "what": "S/A/B/C 등급 티어 리스트 오버레이",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 10.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "패밀리카 순위 시각화",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.5,
+    "text": "Welches Familienauto ist eigentlich wirklich S-Tier, wenn Kinderwagen, Urlaub und monatliche Rate alle irgendwie reinpassen müssen?",
+    "ko": "유모차, 여행 짐, 월 리스료까지 모두 맞아떨어져야 할 때 진짜 S티어 패밀리카는 무엇일까요?"
+   },
+   {
+    "start": 6.6,
+    "end": 15.5,
+    "text": "VW Passat als Variant. Limousine gibt's schon gar nicht mehr. Super geräumig und toll für die Langstrecke, aber mit etwas höheren Leasingraten. Für mich daher nur eine A-Tier.",
+    "ko": "폭스바겐 파사트 바리안트. 세단은 이미 단종됐죠. 매우 넓고 장거리에 훌륭하지만 리스료가 다소 높습니다. 그래서 제게는 A티어입니다."
+   },
+   {
+    "start": 16.0,
+    "end": 30.0,
+    "text": "Skoda Elroq. Grundsätzlich aktuell ein sehr beliebtes Auto als E-Auto mit guter Reichweite und gutem Preis. Allerdings für die große Familie definitiv etwas überschätzt, denn da kann es platzmäßig dann schnell auch etwas enger werden. Für mich daher hier nur C-Tier.",
+    "ko": "스코다 엘록. 좋은 주행거리와 착한 가격의 전기차로 현재 인기가 많습니다. 하지만 대가족용으로는 공간이 좁아질 수 있어 다소 과대평가되었습니다. 따라서 제게는 C티어입니다."
+   },
+   {
+    "start": 30.5,
+    "end": 43.0,
+    "text": "VW Tiguan. Ein guter Allrounder mit genügend Platz für die ganze Familie, einem guten Einstieg und gute Verfügbarkeit. Im direkten Nutzwertvergleich mit Passat oder Octavia gibt es dort allerdings deutlich mehr Gepäckraum für weniger Geld. Deswegen B-Tier.",
+    "ko": "폭스바겐 티구안. 온 가족을 위한 충분한 공간, 승하차 편의성, 빠른 출고성을 갖춘 좋은 올라운더입니다. 하지만 파사트나 옥타비아와 실용성을 비교하면 더 저렴한 가격에 훨씬 넓은 트렁크를 주죠. 그래서 B티어입니다."
+   },
+   {
+    "start": 43.5,
+    "end": 54.0,
+    "text": "Der Skoda Octavia als Kombi: absoluter Alleskönner. Groß und geräumig, gut für die Langstrecke und sehr gute Leasingraten, gerade auch im Privatleasing. Für mich definitiv S-Tier.",
+    "ko": "스코다 옥타비아 왜건: 완벽한 만능차입니다. 크고 넓으며 장거리에 좋고, 특히 개인 리스 요율이 아주 훌륭합니다. 제게는 확실한 S티어입니다."
+   },
+   {
+    "start": 54.5,
+    "end": 114.5,
+    "text": "Kia EV5. Bewusst für Familien entwickelt als E-Auto SUV Option. Aktuell aber noch mit einem etwas zu hohen Preis. Er bietet ordentlich Platz, eine gute Reichweite mit über 500 Kilometern und ist sofort verfügbar. Allerdings müsst ihr bei eurer persönlichen E-Auto Förderung aufpassen, wie hoch die Rate am Ende für euch ausfällt. Daher für mich aktuell nur B-Tier mit Potenzial nach oben.",
+    "ko": "기아 EV5. 패밀리용 전기 SUV로 의도 개발된 모델입니다. 현재는 가격이 다소 높습니다. 공간이 넓고 500km 이상의 넉넉한 주행거리에 즉시 출고 가능합니다. 하지만 개인 보조금에 따라 최종 리스료가 달라질 수 있죠. 따라서 상향 잠재력이 있는 B티어입니다."
+   },
+   {
+    "start": 115.0,
+    "end": 131.0,
+    "text": "Skoda Kodiaq. Definitiv ein Riesenauto mit bis zu 7 Sitzen und jeder Menge Platz. Vor allen Dingen auch sehr gut, was Preis-Leistung angeht. Wenn du mehr als zwei Kinder hast: S-Tier. Bei weniger ist es wahrscheinlich einfach zu viel Platz und zu viel Kosten. Deswegen für mich eher A-Tier.",
+    "ko": "스코다 코디악. 최대 7인승에 엄청난 공간을 갖춘 거대한 차입니다. 특히 가성비가 훌륭하죠. 자녀가 3명 이상이라면 S티어이지만, 그보다 적다면 과한 공간과 비용일 수 있어 A티어에 둡니다."
+   },
+   {
+    "start": 131.5,
+    "end": 142.5,
+    "text": "Das beste Familienauto ist also nicht unbedingt das größte, sollte aber vom Platzangebot zu deinen Nutzungsansprüchen passen. Schreib mal in die Kommentare, welches Auto wir vergessen haben und wo du es in dieser Tierlist eingeordnet hättest.",
+    "ko": "결국 최고의 패밀리카는 무조건 큰 차가 아니라 내 용도와 공간 요구에 맞는 차입니다. 저희가 빠뜨린 차가 있는지, 여러분이라면 어느 등급에 둘지 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.5,
+    "speed": "빠름",
+    "summary": "패밀리카 티어 리스트 기준 소개(공간, 리스료 등)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.6,
+    "end": 131.0,
+    "speed": "보통",
+    "summary": "파사트, 엘록, 티구안, 옥타비아, EV5, 코디악 차례로 티어 배치"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 131.1,
+    "end": 142.5,
+    "speed": "보통",
+    "summary": "선택 기준 요약 및 댓글 참여 유도(CTA)"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 카메라를 정면 응시하며 원테이크로 이야기하고 하단에 그래픽을 배치한다",
+   "화면 하단에 티어 리스트 보드를 고정하고, 언급하는 차종의 누끼 이미지가 튀어나와 해당 등급으로 이동한다",
+   "각 차종이 언급될 때마다 화면 상단에 차종 이름 박스 자막을 크게 띄워 가독성을 높인다",
+   "중요한 키워드와 숫자(S-Tier, 500km 등)가 음성과 완벽히 싱크되어 자막 색상으로 강조된다",
+   "영상 말미에 시청자에게 누락된 차종 추천 및 티어 평가를 유도하여 댓글 반응률을 높인다"
+  ]
+ }
+}

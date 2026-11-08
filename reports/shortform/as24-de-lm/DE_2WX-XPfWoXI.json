@@ -1,0 +1,540 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/2WX-XPfWoXI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4470,
+  "candidatesTokenCount": 5491,
+  "totalTokenCount": 11244,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3728
+   }
+  ],
+  "thoughtsTokenCount": 1283,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.5,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz 190 (W201)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 12.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 22.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 26.2,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 36.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 40.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "Hier sehen Sie",
+    "ko": "여기 보시는 차가 바로",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.1,
+    "text": "das teuerste Baby der Welt.",
+    "ko": "세상에서 가장 비싼 베이비입니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 5.4,
+    "text": "1,9 Milliarden DM",
+    "ko": "19억 마르크의",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "Entwicklungskosten.",
+    "ko": "개발 비용.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "Eine unglaubliche Summe.",
+    "ko": "믿기 힘든 금액이죠.",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.2,
+    "text": "Und das ganze Geld um einen großen Mercedes",
+    "ko": "그리고 그 모든 돈은 큰 메르세데스를",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "so klein zu machen, ganz neuen Klasse war.",
+    "ko": "완전히 새로운 급으로 작게 만들기 위해 쓰였죠.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.3,
+    "text": "Das ist der Vorläufer der C-Klasse.",
+    "ko": "이 차가 바로 C클래스의 전신입니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.5,
+    "text": "jetzt so viel Geld gekostet auch noch?",
+    "ko": "그럼 대체 무엇에 그렇게 돈이 많이 들었을까요?",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "Zum Beispiel war eine 5-Lenker Hinterachse",
+    "ko": "예를 들어 5링크 리어 액슬이었는데",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.3,
+    "text": "in dieser Klasse nicht. Gab es nirgendwo vorher.",
+    "ko": "당시 이 차급엔 없었고, 이전 어디에도 없었습니다.",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 26.2,
+    "text": "Innovativ und Fahrvergnügen vom Feinsten.",
+    "ko": "혁신적이며 최상의 운전 재미를 주었죠.",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 30.0,
+    "text": "das schöne ist? 1,9 Milliarden ausgeben und so ein Auto zu kaufen.",
+    "ko": "좋은 점이 뭔지 아세요? 이 차를 사려고 19억을 쓸 필요가 없다는 겁니다.",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "auf der Seite bei AutoScout24 natürlich schon günstiger.",
+    "ko": "AutoScout24 웹사이트에서 훨씬 저렴하게 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 38.0,
+    "text": "Von Einstieg bis Evo-Modelle, die unglaublich teuer sind.",
+    "ko": "엔트리 모델부터 믿을 수 없이 비싼 Evo 모델까지 다양합니다.",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "bei uns, bei AutoScout24.",
+    "ko": "직접 확인해보세요, AutoScout24에서요.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.1,
+    "type": "쿵",
+    "event": "1,9 Milliarden DM 자막 강조 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.6,
+    "type": "휙",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "휙",
+    "event": "마무리 AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/업비트 일렉트로닉",
+   "bpm_est": 115,
+   "mood": "경쾌하고 흥미진진함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "what": "AutoScout24 브랜드 텍스트 로고 (노란색/흰색)",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 40.5,
+    "what": "AutoScout24 브랜드 텍스트 로고 (노란색/흰색)",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 66.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "CTA 마무리 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Hier sehen Sie das teuerste Baby der Welt.",
+    "ko": "여기 보시는 차가 세상에서 가장 비싼 베이비입니다."
+   },
+   {
+    "start": 2.5,
+    "end": 5.5,
+    "text": "1,9 Milliarden DM Entwicklungskosten.",
+    "ko": "19억 마르크의 개발 비용이 들었습니다."
+   },
+   {
+    "start": 5.5,
+    "end": 8.0,
+    "text": "Eine unglaubliche Summe.",
+    "ko": "믿기 힘든 엄청난 금액이죠."
+   },
+   {
+    "start": 8.0,
+    "end": 12.8,
+    "text": "Und das ganze Geld, um einen großen Mercedes so klein zu machen, dass er in einer ganz neuen Klasse war.",
+    "ko": "그리고 그 모든 돈은 큰 메르세데스를 작게 만들어 완전히 새로운 클래스로 만들기 위해 투입되었습니다."
+   },
+   {
+    "start": 12.8,
+    "end": 15.0,
+    "text": "Das ist der Vorläufer der C-Klasse.",
+    "ko": "이 차가 바로 C클래스의 전신입니다."
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "Und was hat jetzt so viel Geld gekostet auch noch?",
+    "ko": "그렇다면 무엇에 그렇게 돈이 많이 들었을까요?"
+   },
+   {
+    "start": 17.5,
+    "end": 22.3,
+    "text": "Zum Beispiel die Hinterachse. War eine 5-Lenker Hinterachse, gab's damals in dieser Klasse nicht. Gab es nirgendswo vorher.",
+    "ko": "예를 들어 리어 액슬입니다. 5링크 리어 액슬은 당시 이 차급에는 없었고, 그 이전 어디에도 없었죠."
+   },
+   {
+    "start": 22.3,
+    "end": 26.0,
+    "text": "Innovativ und Fahrvergnügen vom Feinsten.",
+    "ko": "혁신적이었고 최고의 운전 재미를 제공했습니다."
+   },
+   {
+    "start": 26.0,
+    "end": 30.0,
+    "text": "Und wisst ihr was das Schöne ist? Ihr müsst keine 1,9 Milliarden ausgeben, um so ein Auto zu kaufen.",
+    "ko": "그리고 좋은 점이 뭔지 아세요? 이 차를 사기 위해 19억을 쓸 필요가 없다는 것입니다."
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "Bei uns auf der Seite bei AutoScout24 gibt's die natürlich schon günstiger.",
+    "ko": "AutoScout24 사이트에서는 훨씬 저렴한 가격에 만나보실 수 있습니다."
+   },
+   {
+    "start": 34.0,
+    "end": 38.0,
+    "text": "Von Einstieg bis Evo-Modelle, die unglaublich teuer sind.",
+    "ko": "입문용 모델부터 엄청나게 비싼 Evo 모델까지 다양합니다."
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "Aber schaut selber. Bei uns, bei AutoScout24.",
+    "ko": "직접 확인해보세요. AutoScout24에서요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.6,
+    "speed": "보통",
+    "summary": "19억 마르크라는 천문학적 개발비의 '베이비 벤츠' 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.6,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "C클래스의 전신인 메르세데스 190의 역사적 배경 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 15.0,
+    "end": 26.2,
+    "speed": "보통",
+    "summary": "개발비의 핵심이었던 혁신적인 5링크 서스펜션 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 26.2,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼에서 다양한 트림의 190 매물을 찾아보도록 유도"
+   }
+  ],
+  "rules": [
+   "진행자의 제스처와 몸동작에 맞춰 5초 내외로 컷 전환을 진행하여 역동성을 유지함",
+   "역사적이고 상징적인 차종의 비하인드 스토리(개발비, 서스펜션 혁신)를 흥미로운 훅으로 활용",
+   "화면 중앙에 검은 외곽선의 화이트 자막을 짧은 호흡으로 배치하여 가독성 확보",
+   "후반부 플랫폼 유도 구간에서 브랜드 로고 팝업 그래픽을 2회 배치하여 명확한 CTA 유도"
+  ]
+ }
+}

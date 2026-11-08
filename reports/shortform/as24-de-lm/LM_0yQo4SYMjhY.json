@@ -1,0 +1,351 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/0yQo4SYMjhY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3028,
+  "candidatesTokenCount": 2701,
+  "totalTokenCount": 6149,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2286
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 420,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.5,
+   "aspect": "9:16",
+   "car": "Škoda Epiq",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 20.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Škoda Epiq 55\nAb 29.500 €",
+    "ko": "스코다 에픽 55 / 29,500유로부터",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Ab 29.500 €",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 5.4,
+    "text": "Kofferraum:\n475 Liter",
+    "ko": "트렁크:\n475리터",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "475 Liter",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 9.5,
+    "text": "Neues Interieur:\nEchte Knöpfe",
+    "ko": "새로운 인테리어:\n물리 버튼",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Echte Knöpfe",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 13.6,
+    "text": "Reichweite:\nBis zu 440km",
+    "ko": "주행거리:\n최대 440km",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Bis zu 440km",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 16.7,
+    "text": "Leistung:\n211 PS; 7,1 s 0-100 km/h",
+    "ko": "출력:\n211마력; 0-100 km/h 7.1초",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "211 PS; 7,1 s 0-100 km/h",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.6,
+    "text": "Ladezeit:\n10-80% in 24 Minuten",
+    "ko": "충전시간:\n10-80% 충전 24분",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "10-80% in 24 Minuten",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 25.5,
+    "text": "Preis:\nAb 25.900€",
+    "ko": "가격:\n25,900유로부터",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Ab 25.900€",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "일렉트로닉 팝 / 댄스",
+   "bpm_est": 124,
+   "mood": "경쾌하고 세련된",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "보통",
+    "summary": "차량 전면/후면 룩과 모델명 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 2.7,
+    "end": 5.4,
+    "speed": "보통",
+    "summary": "트렁크 용량(475L) 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 5.4,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "신규 인테리어 및 물리 버튼 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 9.5,
+    "end": 13.6,
+    "speed": "보통",
+    "summary": "1회 충전 주행거리 사양 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 13.6,
+    "end": 16.7,
+    "speed": "보통",
+    "summary": "최고출력 및 제로백 성능 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 16.7,
+    "end": 20.6,
+    "speed": "보통",
+    "summary": "급속 충전 시간 사양 공개"
+   },
+   {
+    "stage": "가격",
+    "start": 20.6,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "시작 가격 안내 및 전체 외관 샷"
+   }
+  ],
+  "rules": [
+   "내레이션 없이 경쾌한 비트 음악 위에 핵심 스펙 자막을 상단 중앙에 고정 배치",
+   "노란색 둥근 모서리 박스에 핵심 수치를 강조하여 가독성 극대화",
+   "음악 비트에 맞춰 1~2초 간격으로 외관 디테일과 실내 주요 부위를 교차 편집",
+   "하단에 독일 전기차 법적 공시 정보(소비전력, CO2, 전비)를 일정하게 유지"
+  ]
+ }
+}

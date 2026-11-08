@@ -1,0 +1,164 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/sqrBu9MhcMM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2383,
+  "candidatesTokenCount": 1404,
+  "totalTokenCount": 4382,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1641
+   }
+  ],
+  "thoughtsTokenCount": 595,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.3,
+   "aspect": "9:16",
+   "car": "MINI Cooper Cabrio",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 11.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 18.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 18.3,
+    "text": "MINI Cooper Cabrio",
+    "ko": "미니 쿠퍼 카브리오",
+    "kind": "제목",
+    "y_pct": 70.0,
+    "x_center_pct": 39.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "인디 록/펑크 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 산뜻함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 18.3,
+    "what": "AutoScout24 상징 노란색 X 그래픽 아이콘",
+    "is_3d": false,
+    "size_w_pct": 14.0,
+    "x_pct": 6.0,
+    "y_pct": 70.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "Und weil sie es richtig ernst meinen mit dem Offenfahren, gibt's hier sogar eine Funktion, die nennt sich Always Open Timer.",
+    "ko": "오픈 에어링에 진심인 만큼, 여기엔 '올웨이즈 오픈 타이머'라는 기능까지 있습니다."
+   },
+   {
+    "start": 4.9,
+    "end": 8.7,
+    "text": "Ich hoffe, ich hab's richtig gesagt, ich und mein Englisch.",
+    "ko": "제대로 발음했나 모르겠네요, 제 영어 실력으로는."
+   },
+   {
+    "start": 8.7,
+    "end": 16.8,
+    "text": "Dieses Auto ist schon 402 Stunden und 46 Minuten offen bewegt worden und wir haben es jetzt gerade heute 1 Stunde und 8 Minuten ohne Deckel ausgehalten.",
+    "ko": "이 차는 이미 402시간 46분 동안 오픈 상태로 주행되었고, 저희는 오늘 뚜껑 없이 1시간 8분을 버텼습니다."
+   },
+   {
+    "start": 16.8,
+    "end": 18.0,
+    "text": "Schön.",
+    "ko": "좋네요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "기능",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "보통",
+    "summary": "주행 모습과 함께 미니 카브리오의 오픈 타이머 기능 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.9,
+    "end": 11.8,
+    "speed": "보통",
+    "summary": "인포테인먼트 화면의 Always Open Timer 실제 누적 주행 시간 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 11.8,
+    "end": 18.3,
+    "speed": "보통",
+    "summary": "오늘의 오픈 주행 소감과 만족스러운 마무리"
+   }
+  ],
+  "rules": [
+   "좌측 하단에 채널 로고 심볼(노란색 X)과 차종 타이틀 바를 영상 전체에 고정 노출",
+   "화자가 차량 고유의 재미있는 기능(Always Open Timer)을 설명할 때 화면 클로즈업으로 즉시 전환하여 직관성 확보",
+   "주행 중 현장 음성과 경쾌한 배경음악을 자연스럽게 믹싱하여 오픈카 특유의 자유로운 분위기 연출"
+  ]
+ }
+}

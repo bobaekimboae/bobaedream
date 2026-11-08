@@ -1,0 +1,299 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/6bsCqoJ2n4w",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4844,
+  "candidatesTokenCount": 2296,
+  "totalTokenCount": 8019,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4102
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 879,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 45.4,
+   "aspect": "9:16",
+   "car": "Rolls-Royce Phantom",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 9.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.1,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.4,
+    "end": 15.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 28.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 32.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 35.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 45.4,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 6.8,
+    "end": 11.2,
+    "text": "Jetzt auf Youtube! @autoscout24",
+    "ko": "지금 유튜브에서 확인하세요! @autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -6,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Jetzt auf Youtube!",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 45.4,
+    "text": "Jetzt auf Youtube! @autoscout24",
+    "ko": "지금 유튜브에서 확인하세요! @autoscout24",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Jetzt auf Youtube!",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "유튜브 안내 배너 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "쿵",
+    "event": "엔딩 카드 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-fi / Ambient Hip-hop",
+   "bpm_est": 85,
+   "mood": "여유롭고 고급스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 40.5,
+    "what": "AutoScout24 로고 워터마크 좌상단",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 14.0,
+    "y_pct": 5.5,
+    "entrance": "고정",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.6,
+    "text": "Diese Fußmatte war der Grund, warum ich meinen ersten Rolls-Royce gekauft habe.",
+    "ko": "이 발매트가 제가 첫 롤스로이스를 사게 된 이유였어요."
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "Hör mal, was ist das für eine Fußmatte?",
+    "ko": "이것 봐, 이게 무슨 발매트야?"
+   },
+   {
+    "start": 8.3,
+    "end": 11.5,
+    "text": "Ey! Hab ich noch nie gesehen sowas!",
+    "ko": "와! 이런 건 태어나서 처음 봐요!"
+   },
+   {
+    "start": 12.0,
+    "end": 18.2,
+    "text": "Also diese Fußmatte war der Grund, warum ich meinen ersten Rolls-Royce gekauft habe.",
+    "ko": "그러니까 이 발매트가 제가 첫 롤스로이스를 구매했던 이유라니까요."
+   },
+   {
+    "start": 18.5,
+    "end": 24.2,
+    "text": "Da war ich bei Bentley in Düsseldorf, hatte erst überlegt mir einen Bentley zu kaufen,",
+    "ko": "뒤셀도르프의 벤틀리 매장에 갔었는데, 처음엔 벤틀리를 살까 고민했었죠."
+   },
+   {
+    "start": 24.5,
+    "end": 28.5,
+    "text": "und dann stand da damals ein Phantom, aber die ältere Serie.",
+    "ko": "그런데 거기에 팬텀 구형 모델이 한 대 서 있더라고요."
+   },
+   {
+    "start": 28.8,
+    "end": 31.8,
+    "text": "Aber ich hatte Schlappen an, solche Hermès-Schläppchen,",
+    "ko": "근데 제가 슬리퍼를 신고 있었거든요, 에르메스 슬리퍼 같은 거요."
+   },
+   {
+    "start": 32.0,
+    "end": 37.0,
+    "text": "dann bin ich ins Auto eingestiegen, hab die Schlappen so ausgezogen,",
+    "ko": "차에 타서 슬리퍼를 딱 벗고는,"
+   },
+   {
+    "start": 37.1,
+    "end": 40.5,
+    "text": "und bin dann mit den Füßen in die Fußmatte rein. Da hab ich gesagt: Das Auto nehme ich.",
+    "ko": "맨발로 발매트에 발을 딛는 순간 말했죠. '이 차로 하겠습니다.'"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "보통",
+    "summary": "발매트 때문에 롤스로이스를 샀다는 흥미로운 멘트로 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 5.8,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "롤스로이스의 극도로 두꺼운 양털 매트를 꺼내 보여주며 감탄"
+   },
+   {
+    "stage": "차 소개",
+    "start": 18.5,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "차주가 벤틀리 대신 롤스로이스를 사게 된 실제 에피소드 회상"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 40.5,
+    "end": 45.4,
+    "speed": "빠름",
+    "summary": "유튜브 채널 구독 및 본편 시청 유도 엔딩"
+   }
+  ],
+  "rules": [
+   "도입부에 호기심을 유발하는 강력한 한 문장으로 시청자 이탈 방지",
+   "화제 대상(양털 발매트)의 촉감과 두께를 직접 꺼내 클로즈업으로 체감 유도",
+   "인물 대화 형식으로 지루하지 않게 럭셔리카의 디테일 스토리텔링 전달",
+   "핵심 강조 구간에 시그니처 배너(유튜브 유도)를 사선 각도로 팝업 노출"
+  ]
+ }
+}

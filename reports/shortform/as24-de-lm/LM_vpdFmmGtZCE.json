@@ -1,0 +1,400 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/vpdFmmGtZCE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2740,
+  "candidatesTokenCount": 3797,
+  "totalTokenCount": 7774,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1998
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1237,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21.7,
+   "aspect": "9:16",
+   "car": "현대 코나 N 라인",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 11.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 16.2,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 21.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "ERRATE DAS AUTO",
+    "ko": "차를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ERRATE",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.8,
+    "text": "LEVEL MEDIUM",
+    "ko": "난이도 보통",
+    "kind": "제목",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MEDIUM",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 5.2,
+    "text": "LEUTE IN WELCHEM",
+    "ko": "여러분 제가 지금",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "LEUTE",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.4,
+    "text": "AUTO SITZ ICH",
+    "ko": "어떤 차에 앉아있을까요",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTO",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "text": "HABEN ROTE KONTRASTNÄHTE",
+    "ko": "빨간 스티치가 있고",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ROTE",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.2,
+    "text": "EINE ZIEMLICH OFFENE",
+    "ko": "꽤 개방적인",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "EINE",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "text": "MITTELKONSOLE MIT INDUKTIVEM",
+    "ko": "무선 충전 센터 콘솔과",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "MITTELKONSOLE",
+    "sure": true
+   },
+   {
+    "start": 11.3,
+    "end": 13.0,
+    "text": "UND EIN INFOTAINMENT",
+    "ko": "인포테인먼트 시스템",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "INFOTAINMENT",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.1,
+    "text": "SYSTEM MIT VIELEN PHYSISCHEN KNÖPFEN",
+    "ko": "많은 물리 버튼이 있어서",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KNÖPFEN",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 16.5,
+    "text": "ICH SEHR GUT",
+    "ko": "정말 마음에 듭니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SEHR",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.2,
+    "text": "IN DIE KOMMENTARE",
+    "ko": "댓글로 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KOMMENTARE",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.5,
+    "text": "IN WELCHEM AUTO",
+    "ko": "어떤 차인지",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "WELCHEM",
+    "sure": true
+   },
+   {
+    "start": 19.6,
+    "end": 20.6,
+    "text": "EIN PAAR LEUTE",
+    "ko": "몇몇 분들이",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "LEUTE",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 21.7,
+    "text": "RICHTIG ERRATEN",
+    "ko": "맞히길 바랍니다",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RICHTIG",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 캐주얼함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Errate das Auto. Level medium.",
+    "ko": "차를 맞춰보세요. 난이도 중간."
+   },
+   {
+    "start": 3.9,
+    "end": 7.5,
+    "text": "Ja Leute, in welchem Auto sitze ich hier gerade? Ihr seht, wir haben rote Kontrastnähte,",
+    "ko": "여러분 제가 지금 어떤 차에 앉아있을까요? 보시다시피 빨간 콘트라스트 스티치가 있고,"
+   },
+   {
+    "start": 7.6,
+    "end": 11.2,
+    "text": "hier eine ziemlich offene Mittelkonsole mit induktivem Ladespot,",
+    "ko": "여기는 무선 충전 패드가 있는 꽤 개방적인 센터 콘솔이 있으며,"
+   },
+   {
+    "start": 11.3,
+    "end": 16.2,
+    "text": "und ein Infotainmentsystem mit vielen physischen Knöpfen, was ich sehr gut finde.",
+    "ko": "물리 버튼이 많이 장착된 인포테인먼트 시스템이 있는데, 저는 이게 정말 좋습니다."
+   },
+   {
+    "start": 16.3,
+    "end": 21.7,
+    "text": "Aber schreibt mal in die Kommentare, was ihr denkt, in welchem Auto ich hier sitze. Und ich hoffe, es können auch ein paar Leute richtig erraten.",
+    "ko": "댓글로 제가 어떤 차에 앉아있는지 생각을 남겨주세요. 정답을 맞히는 분들이 있길 바랍니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "보통",
+    "summary": "핸들 로고를 손으로 가린 채 차종 퀴즈 시작 알림"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.9,
+    "end": 16.2,
+    "speed": "보통",
+    "summary": "시트 스티치, 센터 콘솔, 내비게이션 및 물리 버튼 등 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 16.3,
+    "end": 21.7,
+    "speed": "보통",
+    "summary": "댓글로 정답을 맞혀보라는 인터랙션 유도"
+   }
+  ],
+  "rules": [
+   "운전석 1인칭 POV 시점에서 핸들의 엠블럼을 손으로 직접 가려 시청자의 호기심 유도",
+   "화면 중앙 하단에 음성과 일치하는 키워드 강조형 대문자 자막을 노란색 포인트와 함께 템포감 있게 노출",
+   "카메라를 연속적으로 부드럽게 움직이며 실내 디자인 단서들을 순차적으로 제시",
+   "영상의 마지막에 댓글 참여(Call to Action)를 강력하게 유도하여 쇼츠 알고리즘 인게이지먼트 증대"
+  ]
+ }
+}

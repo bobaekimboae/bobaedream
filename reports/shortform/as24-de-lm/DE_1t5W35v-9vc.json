@@ -1,0 +1,589 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/1t5W35v-9vc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5926,
+  "candidatesTokenCount": 5061,
+  "totalTokenCount": 12085,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5184
+   }
+  ],
+  "thoughtsTokenCount": 1098,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "BMW E28 (M535i)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 7.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 14.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 22.2,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.2,
+    "end": 24.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 30.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.6,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 47.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.4,
+    "end": 49.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 52.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 53.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 57.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "Die 80er.",
+    "ko": "80년대.",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.7,
+    "text": "Gefühlt das geilste\nJahrzehnt,",
+    "ko": "체감상 최고의 10년,",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.7,
+    "text": "was ich je erlebt habe.\nDie 80er Jahre hatten die\ngeilste Musik,",
+    "ko": "내가 겪어본 시절 중 말이죠.\n80년대는 음악도 최고였고,",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 7.3,
+    "text": "die geilste Klamotten\nund die geilsten\ndeutschen Limousinen.",
+    "ko": "옷도 최고였으며\n독일 세단들도 최고였습니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.8,
+    "text": "Audi hat den 100, den Typ\n44 gehabt.",
+    "ko": "아우디에는 100, Typ 44가 있었죠.",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.2,
+    "text": "Habe ich übrigens auch.",
+    "ko": "저도 한 대 가지고 있었고요.",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.9,
+    "text": "Mercedes hatte den\nW124 - legendär -",
+    "ko": "메르세데스에는 전설적인 W124가 있었고,",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 17.6,
+    "text": "und BMW hatte\nden E28 mit der\nSharknose.",
+    "ko": "BMW에는 샤크노즈의\nE28이 있었습니다.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 22.0,
+    "text": "Während der Audi 100\neigentlich\nein fahrendes\nGewächshaus war\nmit ganz viel Glas",
+    "ko": "아우디 100이 넓은 유리창으로\n달리는 온실 같았고,",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.3,
+    "text": "und der W124 von\nMercedes\neigentlich schon in den\nNeunzigern war,",
+    "ko": "메르세데스 W124가 사실상\n이미 90년대 차 같았다면,",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 30.6,
+    "text": "war der E28, der Rüpel,\nder Kurvenräuber,\nder Aggressive.\nGeil.",
+    "ko": "E28은 무법자이자\n코너의 사냥꾼, 공격수였습니다.\n최고죠.",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.7,
+    "text": "Ja, Leistung konnte\nMercedes auch.",
+    "ko": "네, 메르세데스도 성능은 좋았습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.6,
+    "text": "Aber nur BMW hat den\nReihensechszylinder\nverbunden",
+    "ko": "하지만 오직 BMW만이\n직렬 6기통을",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 38.6,
+    "text": "mit einem göttlichen\nFahrwerk,\nmit einer herrlichen\nStraßenlage,",
+    "ko": "신이 내린 섀시와\n환상적인 로드홀딩,",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 43.1,
+    "text": "mit einer mega direkten\nLenkung\nund einer ultra coolen\nBremse.",
+    "ko": "매우 즉각적인 조향감과\n끝내주는 브레이크와 결합했죠.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 47.4,
+    "text": "Und das ganze schön\naggressiv verpackt.\nI love it.",
+    "ko": "그리고 이 모든 걸 완벽히 공격적인 패키징으로 담아냈죠.\n정말 마음에 들어요.",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 47.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "주행 장면 전환과 함께 가속 엔진/배기음 울림",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스웨이브/레트로 일렉트로닉",
+   "bpm_est": 115,
+   "mood": "향수 어린, 역동적인, 경쾌한",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 47.4,
+     "what": "주행 장면으로 넘어가며 음악 볼륨 상승 및 비트 고조"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.1,
+    "text": "Die 80er. Gefühlt das geilste Jahrzehnt, was ich je erlebt habe.",
+    "ko": "80년대. 체감상 내가 겪어본 가장 멋진 10년이었습니다."
+   },
+   {
+    "start": 3.1,
+    "end": 7.3,
+    "text": "Die 80er Jahre hatten die geilste Musik, die geilste Klamotten und die geilsten deutschen Limousinen.",
+    "ko": "80년대는 최고의 음악, 최고의 패션, 그리고 최고의 독일 세단들이 있었죠."
+   },
+   {
+    "start": 7.4,
+    "end": 10.1,
+    "text": "Audi hat den 100, den Typ 44 gehabt. Habe ich übrigens auch.",
+    "ko": "아우디는 100, Typ 44가 있었죠. 저도 가지고 있었습니다."
+   },
+   {
+    "start": 10.2,
+    "end": 14.1,
+    "text": "Mercedes hatte den W124 - legendär -",
+    "ko": "메르세데스는 W124가 있었는데, 전설적이었죠."
+   },
+   {
+    "start": 14.2,
+    "end": 17.5,
+    "text": "und BMW hatte den E28 mit der Sharknose.",
+    "ko": "그리고 BMW에는 샤크노즈를 가진 E28이 있었습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 24.3,
+    "text": "Während der Audi 100 eigentlich ein fahrendes Gewächshaus war mit ganz viel Glas und der W124 von Mercedes eigentlich schon in den Neunzigern war,",
+    "ko": "아우디 100이 넓은 유리로 달리는 온실 같았고 메르세데스 W124가 이미 90년대 차에 가까웠던 반면,"
+   },
+   {
+    "start": 24.4,
+    "end": 30.6,
+    "text": "war der E28, der Rüpel, der Kurvenräuber, der Aggressive. Geil.",
+    "ko": "E28은 무법자이자 코너를 삼키는 맹수, 공격적인 차였습니다. 최고죠."
+   },
+   {
+    "start": 30.7,
+    "end": 32.7,
+    "text": "Ja, Leistung konnte Mercedes auch.",
+    "ko": "네, 출력 면에서는 메르세데스도 뒤지지 않았습니다."
+   },
+   {
+    "start": 32.8,
+    "end": 43.1,
+    "text": "Aber nur BMW hat den Reihensechszylinder verbunden mit einem göttlichen Fahrwerk, mit einer herrlichen Straßenlage, mit einer mega direkten Lenkung und einer ultra coolen Bremse.",
+    "ko": "하지만 오직 BMW만이 직렬 6기통에 환상적인 하체 세팅, 뛰어난 접지력, 매우 직관적인 스티어링과 끝내주는 브레이크를 조합했습니다."
+   },
+   {
+    "start": 43.2,
+    "end": 47.4,
+    "text": "Und das ganze schön aggressiv verpackt. I love it.",
+    "ko": "그리고 이 모든 걸 멋지고 공격적인 패키지로 완성했죠. 정말 좋아합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.4,
+    "speed": "보통",
+    "summary": "80년대 황금기에 대한 회상과 찬사"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.4,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "당시 독일 3사 대표 세단 비교 및 E28 언급"
+   },
+   {
+    "stage": "사양",
+    "start": 17.5,
+    "end": 47.4,
+    "speed": "보통",
+    "summary": "라이벌 대비 E28의 공격적인 성향과 직렬 6기통 섀시 장점 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 47.4,
+    "end": 57.0,
+    "speed": "빠름",
+    "summary": "BMW E28의 주행 컷 및 사운드 감상"
+   }
+  ],
+  "rules": [
+   "진행자의 말 속도에 맞춰 흰색 배경에 검은 글씨의 박스형 자막을 지속적으로 표시",
+   "정적인 스탠딩 해설 중간중간 차량의 디테일(그릴, 휠, 엔진룸) 컷을 삽입하여 시각적 지루함 방지",
+   "후반부 주행 전환 시 배기음 사운드를 강조하며 비트에 맞춘 역동적인 롤링샷 시퀀스 구성"
+  ]
+ }
+}

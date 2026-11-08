@@ -1,0 +1,578 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/Eld6CUPDeG4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5032,
+  "candidatesTokenCount": 4481,
+  "totalTokenCount": 9513,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4290
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.0,
+   "aspect": "9:16",
+   "car": "Audi SQ7",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.3,
+    "end": 2.2,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.6,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 13.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 25.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.3,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.3,
+    "end": 34.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 39.9,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 48.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "3 FAKTEN",
+    "ko": "3가지 사실",
+    "kind": "제목",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "AUDI SQ7",
+    "ko": "아우디 SQ7",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "FAKT 1",
+    "ko": "팩트 1",
+    "kind": "제목",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.5,
+    "text": "UNTER DER HAUBE",
+    "ko": "보닛 아래에는",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.4,
+    "text": "V8 BI TURBO",
+    "ko": "V8 바이터보",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "MIT 4 LITER",
+    "ko": "4리터와 함께",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.7,
+    "text": "507 PS",
+    "ko": "507마력",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "770 NEWTONMETERN",
+    "ko": "770 뉴턴미터",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.4,
+    "text": "DIE DICH IN",
+    "ko": "당신을",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 11.2,
+    "text": "4,1 SEKUNDEN",
+    "ko": "4.1초 만에",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.3,
+    "text": "100 BRINGEN",
+    "ko": "100km/h까지 올려주며",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.5,
+    "text": "KLINGEN",
+    "ko": "소리를 냅니다",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.8,
+    "text": "2",
+    "ko": "2",
+    "kind": "제목",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.5,
+    "text": "DIE VERARBEITUNGSQUALITÄT",
+    "ko": "마감 품질은",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "text": "3",
+    "ko": "3",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 47.8,
+    "text": "LEASINGMARKT.DE",
+    "ko": "LeasingMarkt.de",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "AUDI SQ7 자막 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "화면 전환 및 FAKT 1 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 배기 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "휙",
+    "event": "실내로 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.1,
+    "type": "딸깍",
+    "event": "스티어링 휠 버튼 누르는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "쿵",
+    "event": "트렁크 씬 전환 및 3 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "딸깍",
+    "event": "트렁크 차고 조절 버튼 누르는 동작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 39.9,
+    "type": "휙",
+    "event": "차량 후면으로 화면 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 13.5,
+     "what": "배기음 강조를 위해 음악 일시 감소/중단"
+    },
+    {
+     "t": 15.6,
+     "what": "음악 재개"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Drei Fakten zum Audi SQ7.",
+    "ko": "아우디 SQ7에 대한 세 가지 사실."
+   },
+   {
+    "start": 2.2,
+    "end": 13.5,
+    "text": "Fakt Nummer 1: Unter der Haube sitzt ein V8 Bi-Turbo mit 4 Liter Hubraum, 507 PS, 770 Newtonmetern, die dich in 4,1 Sekunden von 0 auf 100 bringen und genau so klingen.",
+    "ko": "팩트 1: 보닛 아래에는 4.0리터 배기량, 507마력, 770Nm의 V8 바이터보 엔진이 탑재되어 0-100km/h를 4.1초 만에 주파하며 이런 소리를 냅니다."
+   },
+   {
+    "start": 15.6,
+    "end": 29.8,
+    "text": "Fakt Nummer 2: Die Verarbeitungsqualität in diesem SQ7 ist echt top. Trotz viel Klavierlack und einigen Touchoberflächen finden wir noch echte Knöpfe in der Bedienung und ein schönes Lenkrad auch hier mit haptischen Knöpfen.",
+    "ko": "팩트 2: 이 SQ7의 마감 품질은 정말 최고입니다. 피아노 블랙과 터치 인터페이스가 많지만 조작계에 물리 버튼이 여전히 남아있고, 스티어링 휠에도 햅틱 버튼이 있습니다."
+   },
+   {
+    "start": 29.8,
+    "end": 40.5,
+    "text": "Fakt Nummer 3: Neben der Hinterachslenkung, die ihn trotz seiner großen Größe richtig wendig macht, gibt es hier ein Luftfahrwerk, ihr habt es gerade gesehen, was hoch und runter fährt je nach Fahrmodi oder auch zum Beladen des Kofferraums.",
+    "ko": "팩트 3: 큰 차체에도 민첩하게 만들어주는 후륜 조향 외에도, 방금 보신 것처럼 주행 모드나 트렁크 짐 싣기에 따라 높낮이가 조절되는 에어 서스펜션이 있습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 48.0,
+    "text": "Schreibt mal in die Kommentare, was haltet ihr vom SQ7? Und falls ihr die besten Deals im Leasing sucht, schaut bei LeasingMarkt.de vorbei.",
+    "ko": "댓글로 SQ7에 대해 어떻게 생각하는지 남겨주세요! 그리고 최고의 리스 딜을 찾으신다면 LeasingMarkt.de를 방문해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "아우디 SQ7 3가지 팩트 인트로"
+   },
+   {
+    "stage": "사양",
+    "start": 2.2,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "팩트 1: V8 엔진 스펙 및 배기음 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 15.6,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "팩트 2: 실내 인테리어 마감과 물리 버튼"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "팩트 3: 후륜 조향과 차고 조절 에어 서스펜션"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.5,
+    "end": 48.0,
+    "speed": "보통",
+    "summary": "시청자 의견 유도 및 리스 사이트 홍보"
+   }
+  ],
+  "rules": [
+   "핵심 키워드와 수치는 굵은 노란색(#FFEE00) 텍스트로 중앙에 강조한다.",
+   "배기음 구간에서는 배경음악을 줄이고 실제 차량 엔진 사운드를 선명하게 들려준다.",
+   "각 팩트 전환 시 강렬한 숫자/타이틀 그래픽과 효과음을 넣어 전환을 알린다."
+  ]
+ }
+}

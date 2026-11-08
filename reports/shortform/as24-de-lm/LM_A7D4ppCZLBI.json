@@ -1,0 +1,748 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/A7D4ppCZLBI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4828,
+  "candidatesTokenCount": 6082,
+  "totalTokenCount": 10910,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4086
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.8,
+   "aspect": "9:16",
+   "car": "Skoda Epiq / Vision 7S",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 5.0,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.0,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.8,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.3,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.1,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.1,
+    "end": 31.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 38.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "DAS KRIEGST DU BEI SKODA FÜR UNTER 50.000€ EINSTIEGSPREIS",
+    "ko": "5만 유로 미만 시작 가격으로 슈코다에서 얻을 수 있는 것",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SKODA",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 4.9,
+    "text": "EIN FRUNK",
+    "ko": "프렁크",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FRUNK",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.7,
+    "text": "LACKIERUNG IN ROSEWOOD",
+    "ko": "로즈우드 색상 도장",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ROSEWOOD",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.6,
+    "text": "DIESEN MÄCHTIGEN LOOK VORNE",
+    "ko": "웅장한 전면 디자인",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LOOK",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "text": "EINE SEITENLINIE DIE VERRÄT HIER GIBT'S PLATZ",
+    "ko": "넉넉한 공간을 보여주는 사이드 라인",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PLATZ",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.9,
+    "text": "21 ZOLL SCHLAPPEN",
+    "ko": "21인치 대구경 휠타이어",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SCHLAPPEN",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.7,
+    "text": "SITZE DIE SICH IN EINE LIEGEPOSITION FAHREN",
+    "ko": "리클라이닝 모드로 눕혀지는 시트",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LIEGEPOSITION",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "text": "EIN ROTIERENDES DISPLAY",
+    "ko": "회전식 디스플레이",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ROTIERENDES",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 17.9,
+    "text": "MAGSAFE CHARGER",
+    "ko": "맥세이프 충전기",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MAGSAFE",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.2,
+    "text": "ECHTE BUTTONS HIER UND WALZEN HIER",
+    "ko": "진짜 물리 버튼과 스크롤 다이얼",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ECHTE",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.9,
+    "text": "PANORAMAGLASDACH",
+    "ko": "파노라마 글라스 루프",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PANORAMAGLASDACH",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.7,
+    "text": "GENÜGEND BEINFREIHEIT AUF DER RÜCKBANK",
+    "ko": "여유로운 2열 레그룸",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BEINFREIHEIT",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.7,
+    "text": "EINE HANDY ODER TABLETHALTERUNG",
+    "ko": "스마트폰 또는 태블릿 거치대",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TABLETHALTERUNG",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.7,
+    "text": "EIN LENKRAD MIT ECHTEN TASTEN",
+    "ko": "물리 버튼이 있는 스티어링 휠",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ECHTEN",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.0,
+    "text": "UND DIESEN LOOK VON HINTEN",
+    "ko": "그리고 이 후면 디자인",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LOOK",
+    "sure": true
+   },
+   {
+    "start": 29.1,
+    "end": 31.7,
+    "text": "BIS ZU 642 KILOMETER REICHWEITE",
+    "ko": "최대 642km 주행거리",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "642",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.6,
+    "text": "NOCH EIN SCHRIFTZUG DAMIT DU NICHT VERGISST WELCHES AUTO DU FÄHRST",
+    "ko": "무슨 차를 타는지 잊지 않게 해주는 레터링",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SCHRIFTZUG",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 38.7,
+    "text": "UND ÜBER 900 LITER KOFFERRAUMVOLUMEN ODER STATTDESSEN EINE DRITTE SITZREIHE HIER IM KOFFERRAUM",
+    "ko": "900리터가 넘는 트렁크 용량 또는 3열 좌석 공간",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "900",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.8,
+    "text": "WAS SAGT IHR SCHREIBT'S UNTEN IN DIE KOMMENTARE BESTEN DEALS LEASINGMARKT.DE",
+    "ko": "어떻게 생각하시나요? 댓글로 남겨주시고 리싱마르크트에서 최고의 딜을 확인하세요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LEASINGMARKT.DE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "보닛 닫히는 쾅 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "회전식 디스플레이 모터 구동음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "딸깍",
+    "event": "충전 패드에 휴대폰 안착 딸깍",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "딸깍",
+    "event": "센터 콘솔 물리 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "딸깍",
+    "event": "물리 스크롤 다이얼 조작 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "딸깍",
+    "event": "휴대폰 거치대 탈착 딸깍 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "딸깍",
+    "event": "스티어링 휠 다이얼 조작 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "딸깍",
+    "event": "충전구 커버 누름",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 92,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Das kriegst du bei Škoda für unter 50.000 € Einstiegspreis:",
+    "ko": "5만 유로 미만 시작가로 슈코다에서 얻을 수 있는 것:"
+   },
+   {
+    "start": 3.9,
+    "end": 4.9,
+    "text": "Ein Frunk,",
+    "ko": "프렁크,"
+   },
+   {
+    "start": 5.0,
+    "end": 6.7,
+    "text": "Lackierung in Rosewood,",
+    "ko": "로즈우드 컬러 도장,"
+   },
+   {
+    "start": 6.8,
+    "end": 8.6,
+    "text": "diesen mächtigen Look vorne,",
+    "ko": "웅장한 전면 디자인,"
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "text": "eine Seitenlinie, die verrät: hier gibt's Platz,",
+    "ko": "공간감을 보여주는 사이드 라인,"
+   },
+   {
+    "start": 10.9,
+    "end": 11.9,
+    "text": "21-Zoll-Schlappen,",
+    "ko": "21인치 휠,"
+   },
+   {
+    "start": 12.0,
+    "end": 14.7,
+    "text": "Sitze, die sich in eine Liegeposition fahren,",
+    "ko": "누울 수 있는 리클라이닝 시트,"
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "text": "ein rotierendes Display,",
+    "ko": "회전하는 디스플레이,"
+   },
+   {
+    "start": 16.8,
+    "end": 17.9,
+    "text": "MagSafe-Charger,",
+    "ko": "맥세이프 충전기,"
+   },
+   {
+    "start": 18.0,
+    "end": 20.2,
+    "text": "echte Buttons hier und Walzen hier,",
+    "ko": "여기 물리 버튼과 스크롤 롤러,"
+   },
+   {
+    "start": 20.3,
+    "end": 21.9,
+    "text": "ein riesiges Panoramaglasdach,",
+    "ko": "거대한 파노라마 글라스 루프,"
+   },
+   {
+    "start": 22.0,
+    "end": 23.7,
+    "text": "genügend Beinfreiheit auf der Rückbank,",
+    "ko": "뒷좌석의 충분한 레그룸,"
+   },
+   {
+    "start": 23.8,
+    "end": 25.7,
+    "text": "eine Handy- oder Tablethalterung,",
+    "ko": "스마트폰 또는 태블릿 거치대,"
+   },
+   {
+    "start": 25.8,
+    "end": 27.7,
+    "text": "ein Lenkrad mit echten Tasten,",
+    "ko": "물리 버튼이 달린 스티어링 휠,"
+   },
+   {
+    "start": 27.8,
+    "end": 29.0,
+    "text": "und diesen Look von hinten,",
+    "ko": "그리고 후면 디자인,"
+   },
+   {
+    "start": 29.1,
+    "end": 31.7,
+    "text": "bis zu 642 Kilometer Reichweite,",
+    "ko": "최대 642km 주행거리,"
+   },
+   {
+    "start": 31.8,
+    "end": 33.6,
+    "text": "noch ein Schriftzug, damit du nicht vergisst, welches Auto du fährst,",
+    "ko": "무슨 차를 타는지 안 잊게 해줄 레터링,"
+   },
+   {
+    "start": 33.7,
+    "end": 38.7,
+    "text": "und über 900 Liter Kofferraumvolumen oder stattdessen eine dritte Sitzreihe hier im Kofferraum.",
+    "ko": "900리터 넘는 트렁크 공간 혹은 3열 시트."
+   },
+   {
+    "start": 38.8,
+    "end": 44.8,
+    "text": "Was sagt ihr zum Škoda? Schreibt's unten in die Kommentare und checkt die besten Deals auf leasingmarkt.de.",
+    "ko": "이 슈코다 어떠신가요? 댓글로 남겨주시고 leasingmarkt.de에서 최고의 딜을 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.9,
+    "speed": "빠름",
+    "summary": "5만 유로 이하 가성비 강조 훅"
+   },
+   {
+    "stage": "기능",
+    "start": 3.9,
+    "end": 20.3,
+    "speed": "빠름",
+    "summary": "외관 색상, 휠 및 1열 핵심 기능 소개 (회전 디스플레이, 물리버튼 등)"
+   },
+   {
+    "stage": "기능",
+    "start": 20.3,
+    "end": 38.8,
+    "speed": "빠름",
+    "summary": "루프, 2열 거치대, 스티어링 휠, 트렁크 및 주행거리 사양 릴레이"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 38.8,
+    "end": 44.8,
+    "speed": "보통",
+    "summary": "댓글 유도 및 플랫폼 프로모션 CTA"
+   }
+  ],
+  "rules": [
+   "1~2초마다 한 가지 옵션/특징을 빠르게 짚고 넘어가는 템포 빠른 카운트다운식 나열",
+   "화면 하단 자막의 핵심 단어를 노란색 굵은 텍스트로 강조하여 시선 고정",
+   "버튼 누르기, 충전기 부착, 보닛 닫기 등 시각과 일치하는 폴리 효과음(ASMR) 적극 활용"
+  ]
+ }
+}

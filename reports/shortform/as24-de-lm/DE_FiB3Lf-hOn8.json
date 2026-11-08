@@ -1,0 +1,453 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/FiB3Lf-hOn8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2740,
+  "candidatesTokenCount": 4362,
+  "totalTokenCount": 8056,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1998
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 954,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21.7,
+   "aspect": "9:16",
+   "car": "BMW M5 (E60)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 9.4,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 21.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Wenn du weißt, was du tust,",
+    "ko": "네가 무엇을 하는지 안다면,",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 3.1,
+    "text": "dann baust du sowas:",
+    "ko": "이런 걸 만들게 되지:",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 4.9,
+    "text": "Einen 5-Liter-V10",
+    "ko": "5리터 V10 엔진에",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.8,
+    "text": "mit 507 PS maximaler",
+    "ko": "최대 507마력,",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "text": "Leistung, bis 8.250 Umdrehungen.",
+    "ko": "최고 8,250rpm까지 올라가는 성능.",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.7,
+    "text": "Du hast ein Herz für alte 5er?",
+    "ko": "올드 5시리즈를 좋아하시나요?",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 13.6,
+    "text": "Vielleicht sogar für einen E60",
+    "ko": "어쩌면 E60",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.0,
+    "text": "als Limousine oder Touring?",
+    "ko": "세단이나 투어링 모델을?",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.7,
+    "text": "Dann erlebe nicht dein blaues Wunder,",
+    "ko": "그렇다면 큰코다치지 말고,",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.2,
+    "text": "sondern vergleiche jetzt die Preise auf",
+    "ko": "지금 바로 가격을 비교해보세요",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.5,
+    "text": "Und wenn du schon dabei",
+    "ko": "그리고 검색하는 김에",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.8,
+    "text": "bist, kannst du auch checken,",
+    "ko": "내 차 시세도",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 21.7,
+    "text": "was dein Auto",
+    "ko": "확인해보세요",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "V10 고회전 배기음 가속 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "V10 엔진 고회전 질주 사운드",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스 비트 / 모던 일렉트로닉",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적인",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "what": "AutoScout24 testet 스티커 배지",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 50.0,
+    "y_pct": 6.5,
+    "entrance": "페이드",
+    "purpose": "시리즈 타이틀 표기",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "what": "AutoScout24 차량 매물 카드 (€ 55.400,-)",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 50.0,
+    "y_pct": 33.0,
+    "entrance": "페이드",
+    "purpose": "중고차 매물 가격 표시",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.9,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Wenn du weißt, was du tust,",
+    "ko": "네가 무엇을 하는지 안다면,"
+   },
+   {
+    "start": 1.5,
+    "end": 3.1,
+    "text": "dann baust du sowas:",
+    "ko": "이런 걸 만들게 되지:"
+   },
+   {
+    "start": 3.1,
+    "end": 4.9,
+    "text": "Einen 5-Liter-V10",
+    "ko": "5리터 V10 엔진에"
+   },
+   {
+    "start": 4.9,
+    "end": 6.8,
+    "text": "mit 507 PS maximaler",
+    "ko": "최대 507마력,"
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "text": "Leistung, bis 8.250 Umdrehungen.",
+    "ko": "최고 8,250rpm까지 올라가는 성능."
+   },
+   {
+    "start": 9.4,
+    "end": 11.7,
+    "text": "Du hast ein Herz für alte 5er?",
+    "ko": "올드 5시리즈를 좋아하시나요?"
+   },
+   {
+    "start": 11.7,
+    "end": 13.6,
+    "text": "Vielleicht sogar für einen E60",
+    "ko": "어쩌면 E60"
+   },
+   {
+    "start": 13.6,
+    "end": 15.0,
+    "text": "als Limousine oder Touring?",
+    "ko": "세단이나 투어링 모델을?"
+   },
+   {
+    "start": 15.0,
+    "end": 16.7,
+    "text": "Dann erlebe nicht dein blaues Wunder,",
+    "ko": "그렇다면 큰코다치지 말고,"
+   },
+   {
+    "start": 16.7,
+    "end": 18.2,
+    "text": "sondern vergleiche jetzt die Preise auf AutoScout24.",
+    "ko": "지금 바로 AutoScout24에서 가격을 비교해보세요."
+   },
+   {
+    "start": 18.2,
+    "end": 21.7,
+    "text": "Und wenn du schon dabei bist, kannst du auch checken, was dein Auto...",
+    "ko": "그리고 하는 김에 내 차 시세도 확인해보세요..."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.1,
+    "speed": "빠름",
+    "summary": "M5 주행 영상과 엔진룸을 열며 강렬한 인트로"
+   },
+   {
+    "stage": "사양",
+    "start": 3.1,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "5.0L V10 507마력 8250rpm 스펙 설명 및 주행 컷"
+   },
+   {
+    "stage": "차 소개",
+    "start": 9.4,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "운전석에서 뒤돌아보며 5시리즈 E60 세단/투어링 모델 질문"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 15.0,
+    "end": 21.7,
+    "speed": "빠름",
+    "summary": "오토스카우트24 플랫폼 가격 비교 및 시세 조회 제안"
+   }
+  ],
+  "rules": [
+   "화면을 상·중·하 3분할로 고정하고 각 영역마다 주행·인물·디테일 컷을 동시에 보여주어 시각적 밀도를 극대화함",
+   "중앙 분할 영역에 인물과 핵심 자막을 배치해 세로형 모바일 화면에서 시선 집중을 유도함",
+   "차량 스펙 언급 시 배경으로 실제 V10 고회전 엔진 가속음을 믹싱해 몰입감을 높임",
+   "플랫폼 서비스 유도 구간에서 브랜드 로고 그래픽을 중앙에 배치해 메시지를 명확히 전달함"
+  ]
+ }
+}

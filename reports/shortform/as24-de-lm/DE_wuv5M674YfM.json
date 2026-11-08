@@ -1,0 +1,403 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/wuv5M674YfM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4018,
+  "candidatesTokenCount": 4065,
+  "totalTokenCount": 8083,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3276
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.8,
+   "aspect": "9:16",
+   "car": "Toyota Land Cruiser 2.8L Diesel",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 21.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 35.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "der gerne Menschen hilft.",
+    "ko": "사람들을 돕는 것을 좋아하고,",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.1,
+    "text": "Der was für\ndie Umwelt tut,",
+    "ko": "환경을 위해 일하고,",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.3,
+    "text": "auf der richtigen Seite",
+    "ko": "항상 옳은 편에 서며,",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.4,
+    "text": "sogar am Freitag\nmit nem\nPappschild rumläuft.",
+    "ko": "금요일마다 피켓을 들고 나가는 사람인데,",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 10.9,
+    "text": "Möchtest aber trotzdem\nnen dicken Diesel\nin einem SUV fahren?",
+    "ko": "그래도 거대한 디젤 SUV를 타고 싶으신가요?",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "Wie kriegst du das\nzusammen?",
+    "ko": "그 두 가지를 어떻게 양립시킬 수 있을까요?",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.1,
+    "text": "Kauf dir\neinen Toyota\nLand Cruiser.",
+    "ko": "토요타 랜드크루저를 사세요.",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 19.3,
+    "text": "Ganz einfach:\ndas offizielle Auto\nvon Hilfsorganisationen\nwie der UN",
+    "ko": "아주 간단해요. UN 같은 구호단체의 공식 차량이자,",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 13.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "text": "und allen\nGuten dieser Welt,\ndie auf der ganzen Welt",
+    "ko": "세상 모든 선한 사람들이 타는 차니까요.",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 25.1,
+    "text": "Weil dieses Auto\nmusst du nicht erklären.",
+    "ko": "이 차는 변명이나 설명이 필요 없거든요.",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.8,
+    "text": "Dieses Auto tut gute\nSachen.",
+    "ko": "이 차는 좋은 일을 하니까요.",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 30.7,
+    "text": "Witzig ist\nübrigens, dass Toyota\nauch Autos baut\nfür die bösen Jungs,",
+    "ko": "재미있는 건 토요타가 악당들을 위한 차도 만든다는 거죠.",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 13.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 33.7,
+    "text": "den Toyota Hilux.\nDen Pickup, wo dann\nimmer was draufsteht\nrumgemacht wird.",
+    "ko": "토요타 하이럭스처럼 뒤에 무언가 장착하고 다니는 픽업트럭 말이에요.",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 13.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.8,
+    "text": "Komisch, oder?",
+    "ko": "참 묘하죠?",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 쿵 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 인디 록",
+   "bpm_est": 115,
+   "mood": "유쾌하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Du bist jemand, der gerne Menschen hilft. Der was für die Umwelt tut,",
+    "ko": "사람 돕는 걸 좋아하고 환경을 생각하며,"
+   },
+   {
+    "start": 3.8,
+    "end": 8.0,
+    "text": "der also immer auf der richtigen Seite ist, vielleicht sogar am Freitag mit nem Pappschild rumläuft.",
+    "ko": "늘 올바른 편에 서서 금요일마다 시위 피켓을 들 수도 있는 사람이죠."
+   },
+   {
+    "start": 8.0,
+    "end": 12.5,
+    "text": "Möchtest aber trotzdem 'nen dicken Diesel in einem SUV fahren? Wie kriegst du das zusammen?",
+    "ko": "그런데도 거대한 디젤 SUV를 몰고 싶다면? 어떻게 둘 다 만족할 수 있을까요?"
+   },
+   {
+    "start": 12.5,
+    "end": 21.8,
+    "text": "Kauf dir einen Toyota Land Cruiser. Ganz einfach: das offizielle Auto von Hilfsorganisationen wie der UN und allen Guten dieser Welt, die auf der ganzen Welt Gutes tun.",
+    "ko": "토요타 랜드크루저를 사세요. UN 같은 국제 구호기구와 전 세계 선한 사람들이 타는 공식 차량이니까요."
+   },
+   {
+    "start": 21.8,
+    "end": 26.8,
+    "text": "Weil dieses Auto musst du nicht erklären. Dieses Auto tut gute Sachen.",
+    "ko": "이 차는 굳이 변명할 필요가 없어요. 좋은 일을 하는 차니까요."
+   },
+   {
+    "start": 26.8,
+    "end": 33.7,
+    "text": "Witzig ist übrigens, dass Toyota auch Autos baut für die bösen Jungs: den Toyota Hilux. Den Pickup, wo dann immer was draufsteht und peng peng peng gemacht wird.",
+    "ko": "웃긴 건 토요타가 악당들을 위한 차도 만든다는 건데, 바로 토요타 하이럭스죠. 짐칸에 기관총을 얹고 빵빵 쏘는 그 픽업트럭이요."
+   },
+   {
+    "start": 33.7,
+    "end": 35.8,
+    "text": "Komisch, oder?",
+    "ko": "참 아이러니하죠?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 12.5,
+    "speed": "보통",
+    "summary": "친환경과 대형 디젤 SUV라는 모순된 딜레마 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 12.5,
+    "end": 26.8,
+    "speed": "보통",
+    "summary": "UN 구호차량 이미지의 토요타 랜드크루저 추천 및 명분 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 26.8,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "하이럭스와 대조되는 유머러스한 마무리 질문"
+   }
+  ],
+  "rules": [
+   "자연스러운 배경(숲길, 장작더미)에서 진행자가 직접 차 문을 닫고 걸어 나오며 현실감을 높임",
+   "화면 중앙에 굵은 고딕체의 흰색 자막을 말 타이밍에 맞춰 깔끔하게 전환",
+   "법적 표기(연비 및 CO2 배출량)를 하단에 고정 표시하여 브랜드 가이드라인 준수",
+   "차량 스펙보다는 사회적 이미지와 유머러스한 스토리텔링으로 구매 명분을 제시"
+  ]
+ }
+}

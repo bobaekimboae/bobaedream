@@ -1,0 +1,631 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/rQgx86lKiaA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5664,
+  "candidatesTokenCount": 4838,
+  "totalTokenCount": 10502,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4922
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.4,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTI",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.6,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 20.3,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 38.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.6,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 47.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 52.4,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.4,
+    "end": 55.4,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "GTI-LOGO-CHALLENGE:\nFINDEST DU MEHR?",
+    "ko": "GTI 로고 챌린지: 더 많이 찾을 수 있나요?",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "FINDEST DU MEHR?",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "text": "GTI COUNTER: 1",
+    "ko": "GTI 카운터: 1",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "text": "GTI COUNTER: 2",
+    "ko": "GTI 카운터: 2",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.9,
+    "text": "GTI COUNTER: 3",
+    "ko": "GTI 카운터: 3",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 23.3,
+    "text": "GTI COUNTER: 4",
+    "ko": "GTI 카운터: 4",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 24.5,
+    "text": "GTI COUNTER: 5",
+    "ko": "GTI 카운터: 5",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 27.4,
+    "text": "GTI COUNTER: 6",
+    "ko": "GTI 카운터: 6",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.5,
+    "text": "GTI COUNTER: 7",
+    "ko": "GTI 카운터: 7",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 30.2,
+    "text": "GTI COUNTER: 8",
+    "ko": "GTI 카운터: 8",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.3,
+    "end": 35.8,
+    "text": "GTI COUNTER: 9",
+    "ko": "GTI 카운터: 9",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.9,
+    "end": 42.6,
+    "text": "GTI COUNTER: 12",
+    "ko": "GTI 카운터: 12",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.0,
+    "type": "띵",
+    "event": "GTI COUNTER 1 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "띵",
+    "event": "GTI COUNTER 2 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "띵",
+    "event": "GTI COUNTER 3 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.0,
+    "type": "띵",
+    "event": "GTI COUNTER 4 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.1,
+    "type": "기타",
+    "event": "R 로고 가리키며 실망 톤 사운드",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "보닛 닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.4,
+    "type": "띵",
+    "event": "GTI COUNTER 5 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.6,
+    "type": "띵",
+    "event": "GTI COUNTER 6 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "띵",
+    "event": "GTI COUNTER 7 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.6,
+    "type": "띵",
+    "event": "GTI COUNTER 8 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.3,
+    "type": "띵",
+    "event": "GTI COUNTER 9 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.9,
+    "type": "띵",
+    "event": "GTI COUNTER 12 증가",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 닫는 쿵 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝",
+   "bpm_est": 115,
+   "mood": "경쾌하고 호기심 유발",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Woran erkennt man eigentlich einen GTI?",
+    "ko": "GTI는 원래 어떻게 알아볼까요?"
+   },
+   {
+    "start": 2.3,
+    "end": 4.5,
+    "text": "Richtig, am Logo. Aber wie viele gibt's eigentlich auf diesem Golf?",
+    "ko": "맞아요, 로고죠. 그런데 이 골프에는 몇 개나 있을까요?"
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "Schwer zu übersehen, Nummer 1.",
+    "ko": "눈에 띄는 1번."
+   },
+   {
+    "start": 6.9,
+    "end": 8.7,
+    "text": "Unter den Spiegeln, Nummer 2 und 3.",
+    "ko": "사이드미러 아래, 2번과 3번."
+   },
+   {
+    "start": 8.8,
+    "end": 11.2,
+    "text": "Zwar ohne rote Leiste, aber Nummer 4 im Kühlergrill.",
+    "ko": "빨간 줄은 없지만 라디에이터 그릴에 4번."
+   },
+   {
+    "start": 11.2,
+    "end": 15.5,
+    "text": "Felgen und Bremssattel: Fehlanzeige. Dafür haben wir hier ein R-Logo.",
+    "ko": "휠과 브레이크 캘리퍼: 없음. 대신 여기 R 로고가 있네요."
+   },
+   {
+    "start": 15.6,
+    "end": 18.0,
+    "text": "War's das mit draußen? Auf dem Motor vielleicht?",
+    "ko": "외부는 끝인가요? 엔진 위에는 어떨까요?"
+   },
+   {
+    "start": 18.1,
+    "end": 20.3,
+    "text": "Fehlanzeige. Da finden wir nicht mal ein VW-Logo.",
+    "ko": "없음. 여기엔 폭스바겐 로고조차 없네요."
+   },
+   {
+    "start": 20.4,
+    "end": 22.0,
+    "text": "Schauen wir also in den Innenraum.",
+    "ko": "그럼 실내를 한번 살펴봅시다."
+   },
+   {
+    "start": 22.0,
+    "end": 25.3,
+    "text": "Hier finden wir das Stitching auf den Sitzen, Nummer 5 und 6.",
+    "ko": "시트에 자수로 새겨진 5번과 6번."
+   },
+   {
+    "start": 25.4,
+    "end": 27.5,
+    "text": "Richtige Fans haben auch den passenden Schlüsselanhänger, Nummer 7.",
+    "ko": "진짜 팬이라면 어울리는 키링도 있죠, 7번."
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "text": "Nummer 8 im Infotainment,",
+    "ko": "인포테인먼트 계기판에 8번,"
+   },
+   {
+    "start": 29.5,
+    "end": 31.7,
+    "text": "und Nummer 9 hier unten auf dem Lenkrad.",
+    "ko": "그리고 스티어링 휠 하단에 9번."
+   },
+   {
+    "start": 31.8,
+    "end": 35.8,
+    "text": "Ich habe alle Seiten durchsucht, und streng genommen finden wir hier beim Fahrzeug noch mal die drei Logos, die wir auch außen finden,",
+    "ko": "모든 화면을 뒤져봤는데, 엄밀히 말하면 외부에서 봤던 3개 로고를 화면 속 차량에서도 볼 수 있죠,"
+   },
+   {
+    "start": 35.9,
+    "end": 38.8,
+    "text": "auf der Heckklappe aber keins.",
+    "ko": "하지만 트렁크 해치백에는 없네요."
+   },
+   {
+    "start": 38.9,
+    "end": 42.6,
+    "text": "Insgesamt also gerade mal 12 Logos. Kann das sein? Kennt ihr mehr?",
+    "ko": "총 겨우 12개 로고뿐입니다. 이게 맞을까요? 더 아시는 분 있나요?"
+   },
+   {
+    "start": 42.7,
+    "end": 47.6,
+    "text": "Digger, das kann doch nicht sein, nur 12 Logos? Nicht mal auf den Fußmatten ist hier irgendwas.",
+    "ko": "설마 고작 12개라고? 매트 위에도 아무것도 없네."
+   },
+   {
+    "start": 47.7,
+    "end": 51.5,
+    "text": "Ob hier noch Ersatzrad oder irgendwie irgendwas drin ist? Keine Logos.",
+    "ko": "스페어 타이어나 뭐 다른 데 숨어 있나? 로고 없음."
+   },
+   {
+    "start": 52.4,
+    "end": 55.4,
+    "text": "Auf der Abgasanlage?",
+    "ko": "배기 머플러 쪽에 있나?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.3,
+    "speed": "빠름",
+    "summary": "골프 GTI 로고 개수 맞히기 챌린지 시작 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.3,
+    "end": 20.3,
+    "speed": "빠름",
+    "summary": "차량 외부 및 엔진룸에서 GTI 로고 찾기 (1~4번)"
+   },
+   {
+    "stage": "기능",
+    "start": 20.3,
+    "end": 38.8,
+    "speed": "빠름",
+    "summary": "실내 시트, 키, 클러스터, 핸들, 디스플레이에서 로고 카운트 (5~12번)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 38.8,
+    "end": 55.4,
+    "speed": "보통",
+    "summary": "총 12개 확인 후 트렁크/매트 등을 뒤지며 시청자에게 더 아는지 질문"
+   }
+  ],
+  "rules": [
+   "로고를 발견할 때마다 화면 하단 카운터 숫자와 함께 띵 효과음을 매칭",
+   "화면 상단에 고정된 챌린지 제목 스티커 유지",
+   "스마트폰 1인칭 시점 핸드헬드로 빠르게 움직이며 탐색하는 현장감 연출"
+  ]
+ }
+}

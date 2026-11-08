@@ -1,0 +1,290 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/dnhNA6aXovI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6668,
+  "candidatesTokenCount": 3100,
+  "totalTokenCount": 10908,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5926
+   }
+  ],
+  "thoughtsTokenCount": 1140,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 65.6,
+   "aspect": "9:16",
+   "car": "Volkswagen Amarok",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 65.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Gibt ja zwei riesen Autohersteller: Ford und VW.",
+    "ko": "거대 자동차 제조사 두 곳이 있죠: 포드와 폭스바겐.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 6.5,
+    "text": "Da denkt man, die machen nie was zusammen... das stimmt nicht.",
+    "ko": "둘이 절대 협업 안 할 것 같지만... 사실이 아닙니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 14.5,
+    "text": "Die haben das sogar schon mal getan. Da gab's nämlich mal einen Minivan: Galaxy und Sharan.",
+    "ko": "이전에도 협업한 적이 있죠. 바로 갤럭시와 샤란이라는 미니밴이었습니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 19.5,
+    "text": "Eigentlich dasselbe Auto. Sie haben es wieder getan: bei diesem Amarok.",
+    "ko": "사실상 같은 차였죠. 이번에 다시 뭉쳤습니다: 바로 이 아마록 픽업트럭입니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.6,
+    "end": 26.5,
+    "text": "Technisch ist es der Ford Ranger, einer der meistverkauften Pick-Ups.",
+    "ko": "기술적으로는 세계에서 가장 많이 팔리는 픽업 중 하나인 포드 레인저 기반입니다.",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 41.5,
+    "text": "18 Zentimeter länger als der alte Amarok, mehr Platz hinten.",
+    "ko": "이전 아마록보다 18cm 더 길어져 뒷좌석 공간 불만을 해결했습니다.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 56.0,
+    "text": "V6 TDI, über 200 PS, 10-Gang-Automatik, Allradantrieb, 5 Geländeprogramme.",
+    "ko": "V6 TDI 디젤, 200마력 이상, 10단 자동, 4륜구동, 5가지 오프로드 모드 탑재.",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 61.0,
+    "end": 65.5,
+    "text": "Eine Kooperation zwischen den beiden: echt gelungen.",
+    "ko": "둘 사이의 이번 협업은 정말 훌륭하게 성공했습니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "인디 록/컨트리 록 그루브",
+   "bpm_est": 115,
+   "mood": "경쾌하고 편안함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Gibt ja zwei riesen Autohersteller: Ford und VW.",
+    "ko": "거대 자동차 제조사 두 곳이 있죠: 포드와 폭스바겐."
+   },
+   {
+    "start": 2.6,
+    "end": 6.5,
+    "text": "Da denkt man, die machen nie was zusammen... das stimmt nicht.",
+    "ko": "둘이 절대 협력 안 할 것 같지만... 사실이 아닙니다."
+   },
+   {
+    "start": 6.6,
+    "end": 14.5,
+    "text": "Die haben das sogar schon mal getan, da gab's nämlich mal einen Minivan: Galaxy und Sharan.",
+    "ko": "이전에도 협업한 적이 있죠. 바로 갤럭시와 샤란이라는 미니밴이었습니다."
+   },
+   {
+    "start": 14.6,
+    "end": 19.5,
+    "text": "Eigentlich dasselbe Auto. Sie haben es wieder getan, und zwar bei einem Pick-Up: diesem Amarok.",
+    "ko": "사실상 같은 차였죠. 이번에 다시 뭉쳤습니다: 바로 이 아마록 픽업트럭입니다."
+   },
+   {
+    "start": 19.6,
+    "end": 26.5,
+    "text": "Technisch ist es der Ford Ranger, einer der meistverkauften Pick-Ups der Welt.",
+    "ko": "기술적으로는 세계에서 가장 많이 팔리는 픽업 중 하나인 포드 레인저 기반입니다."
+   },
+   {
+    "start": 26.6,
+    "end": 33.5,
+    "text": "Und da hat sich VW gedacht: Wenn wir schon mit jemand zusammenarbeiten, machen wir das mit Ford.",
+    "ko": "그래서 폭스바겐도 생각했죠: 협력할 거라면 포드와 하자고 말이죠."
+   },
+   {
+    "start": 33.6,
+    "end": 42.0,
+    "text": "Was bekommt der Kunde jetzt? Einen coolen Pick-Up. 18 Zentimeter länger als der alte Amarok.",
+    "ko": "고객은 무엇을 얻게 될까요? 멋진 픽업트럭이자 구형보다 18cm 더 긴 차체입니다."
+   },
+   {
+    "start": 42.1,
+    "end": 56.5,
+    "text": "Was man aber gut fand: den V6 Diesel. Über 200 PS, 10-Gang-Automatik, Allradantrieb, 5 Geländeprogramme.",
+    "ko": "호평받았던 V6 디젤 엔진 그대로 탑재되어 200마력 초과, 10단 변속기, 사륜구동, 5가지 지형 모드를 지원합니다."
+   },
+   {
+    "start": 56.6,
+    "end": 65.5,
+    "text": "Alles was du brauchst, um im Gelände zu fahren. Also diese Kooperation ist echt gelungen.",
+    "ko": "오프로드 주행에 필요한 모든 것이 있죠. 둘의 이번 협업은 정말 성공적입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "포드와 폭스바겐의 과거 협업(샤란/갤럭시) 역사 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.6,
+    "end": 33.5,
+    "speed": "보통",
+    "summary": "포드 레인저 기반의 신형 폭스바겐 아마록 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 33.6,
+    "end": 60.0,
+    "speed": "보통",
+    "summary": "전장 확장, V6 TDI 엔진, 변속기, 4WD 및 주행 모드 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 60.1,
+    "end": 65.6,
+    "speed": "보통",
+    "summary": "양사 협업에 대한 총평 및 마무리"
+   }
+  ],
+  "rules": [
+   "컷 편집 없이 진행자가 움직이며 말하는 60초 롱테이크(원테이크) 연출 활용",
+   "화면 중앙에 검은 반투명 박스 기반의 또렷한 자막 배치",
+   "배경에 차량 제원 및 공식 연비 고지 문구를 작게 고정 표기"
+  ]
+ }
+}

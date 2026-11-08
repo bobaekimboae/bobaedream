@@ -1,0 +1,494 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/SfXPUqKrlpw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5835,
+  "candidatesTokenCount": 4048,
+  "totalTokenCount": 10505,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5093
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 622,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.6,
+   "aspect": "9:16",
+   "car": "Volkswagen Tiguan & T-Roc",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 10.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 15.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 22.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.2,
+    "end": 32.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 37.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 50.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.4,
+    "end": 55.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "16 ZENTIMETER LÄNGE",
+    "ko": "16센티미터 더 긴 길이",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 3.0,
+    "text": "7€",
+    "ko": "단 7유로",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7€",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "text": "DER VERGLEICH",
+    "ko": "비교 기준",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "text": "BEIDE SIND",
+    "ko": "둘 다",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.3,
+    "text": "150 PS",
+    "ko": "150마력",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "24 MONATE",
+    "ko": "24개월",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 13.9,
+    "text": "LEASING",
+    "ko": "리스",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "LEASING",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.0,
+    "text": "10.000 KILOMETERN",
+    "ko": "10,000 km",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 16.5,
+    "text": "DER TIGUAN",
+    "ko": "티구안은",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "TIGUAN",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.6,
+    "text": "DER SPANNENDERE",
+    "ko": "더 흥미로운 선택",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.4,
+    "type": "톡",
+    "event": "7€ 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "Tiguan 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "휙",
+    "event": "T-Roc 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.2,
+    "type": "톡",
+    "event": "Tiguan 이미지 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 53.5,
+    "type": "띵",
+    "event": "왕관 이모지 및 티구안 그래픽 강조",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 리드미컬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 6.2,
+    "what": "VW Tiguan 누끼 이미지 및 텍스트 라벨",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 75.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.2,
+    "what": "VW T-Roc 누끼 이미지 및 텍스트 라벨",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 18.0,
+    "what": "VW Tiguan 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 68.0,
+    "y_pct": 69.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 차급 설명",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 37.5,
+    "what": "VW Tiguan 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 65.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 요인 설명 보조",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.6,
+    "what": "VW Tiguan 이미지 + 왕관 이모지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 52.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최종 추천 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "16 Zentimeter Länge für gerade mal 7 €.",
+    "ko": "단 7유로에 16센티미터나 더 길다고요?"
+   },
+   {
+    "start": 2.7,
+    "end": 6.3,
+    "text": "Warum der Tiguan gerade fast so günstig im Leasing ist wie der T-Roc.",
+    "ko": "왜 지금 티구안 리스가 티록과 거의 비슷한 가격일까요?"
+   },
+   {
+    "start": 6.3,
+    "end": 10.4,
+    "text": "Der Vergleich ist fair: Beide sind R-Line, 150 PS und Automatik.",
+    "ko": "공정한 비교입니다. 둘 다 R라인, 150마력, 자동변속기죠."
+   },
+   {
+    "start": 10.4,
+    "end": 15.1,
+    "text": "Außerdem haben wir 24 Monate Laufzeit im Privatleasing mit 10.000 Kilometern pro Jahr.",
+    "ko": "또한 개인 리스 24개월 기간에 연간 1만 km 조건입니다."
+   },
+   {
+    "start": 15.1,
+    "end": 22.2,
+    "text": "Der Tiguan ist aber rund 16 Zentimeter länger, steht eigentlich eine Fahrzeugklasse über dem T-Roc und bietet deutlich mehr Platz im Innenraum.",
+    "ko": "하지만 티구안은 약 16cm 더 길고, 사실상 티록보다 한 체급 위라 실내 공간도 훨씬 넓습니다."
+   },
+   {
+    "start": 22.2,
+    "end": 32.8,
+    "text": "Der Grund dafür ist, dass sich die Leasingrate nicht nur nach Listenpreis und Größe orientiert. Entscheidend sind vielmehr der erwartete Restwert, Nachfrage und Verfügbarkeit sowie aktuelle Händler- oder Herstelleraktionen.",
+    "ko": "그 이유는 리스료가 차량 가격과 크기만으로 결정되지 않기 때문입니다. 잔존가치, 수요, 재고 현황 및 프로모션이 핵심이죠."
+   },
+   {
+    "start": 32.8,
+    "end": 37.8,
+    "text": "Beim Tiguan kommen diese Faktoren aktuell so gut zusammen, dass die Rate fast auf das Niveau des T-Roc fällt.",
+    "ko": "현재 티구안은 이 조건들이 절묘하게 맞아떨어져 티록 수준까지 가격이 내려왔습니다."
+   },
+   {
+    "start": 37.8,
+    "end": 50.4,
+    "text": "Das bedeutet nicht per se, dass der Tiguan jetzt immer 7 € teurer ist als der T-Roc. Du musst natürlich vor allen Dingen die gewählte Ausstattung und die Ausstattungsdetails sowie eventuelle Kosten für die Überführung oder Bereitstellung hier mit einkalkulieren.",
+    "ko": "물론 티구안이 무조건 항상 7유로 차이라는 뜻은 아닙니다. 옵션 세부사항과 탁송료 등 부대비용도 반드시 함께 계산해야 합니다."
+   },
+   {
+    "start": 50.4,
+    "end": 55.6,
+    "text": "Aber wenn beide Angebote in deinen Alltag passen, wäre der Tiguan für mich aktuell auf jeden Fall der spannendere Deal.",
+    "ko": "하지만 두 제안 모두 일상에 맞는다면, 지금 시점에서는 티구안이 분명 훨씬 매력적인 거래입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.3,
+    "speed": "빠름",
+    "summary": "티구안과 티록의 7유로 차이 리스 가격 비교 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 6.3,
+    "end": 15.1,
+    "speed": "보통",
+    "summary": "동일 조건(R-Line, 150마력, 24개월/1만km) 기준 설정"
+   },
+   {
+    "stage": "차 소개",
+    "start": 15.1,
+    "end": 22.2,
+    "speed": "보통",
+    "summary": "16cm 더 길고 한 체급 위인 티구안의 공간적 우위 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 22.2,
+    "end": 37.8,
+    "speed": "보통",
+    "summary": "리스 가격이 낮아진 이유(잔가, 공급, 제조사 프로모션)"
+   },
+   {
+    "stage": "팁",
+    "start": 37.8,
+    "end": 50.4,
+    "speed": "보통",
+    "summary": "실제 계약 시 확인해야 할 옵션 및 탁송 비용 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.4,
+    "end": 55.6,
+    "speed": "보통",
+    "summary": "티구안을 더 추천한다는 결론 제시"
+   }
+  ],
+  "rules": [
+   "진행자의 말마디 호흡에 맞춰 컷을 촘촘히 잘라 긴장감과 속도감을 유지한다",
+   "화면 중앙 하단에 굵은 고딕 대문자 자막을 1~3단어 단위로 리드미컬하게 전환한다",
+   "주요 비교 대상 차량(티구안, 티록)은 누끼 컷아웃 이미지와 스티커 효과음으로 시각적 흥미를 준다",
+   "중요한 키워드(가격, 차명, 기간 등)는 노란색(#FFEA00) 포인트 컬러로 강조한다"
+  ]
+ }
+}

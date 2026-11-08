@@ -1,0 +1,343 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/LPqx-Jcyn3g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2466,
+  "candidatesTokenCount": 3232,
+  "totalTokenCount": 6262,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1724
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 564,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.8,
+   "aspect": "9:16",
+   "car": "Volkswagen Tiguan (3세대)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.3,
+    "end": 18.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "ERRATE DAS AUTO",
+    "ko": "차를 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "바로",
+    "highlight_word": "ERRATE",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "text": "LEVEL EASY",
+    "ko": "난이도 쉬움",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EASY",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 5.4,
+    "text": "SITZE ICH HIER GERADE",
+    "ko": "제가 지금 앉아있을까요?",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SITZE",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 6.7,
+    "text": "MEINE TIPPS",
+    "ko": "힌트를 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TIPPS",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.3,
+    "text": "BESONDERE TÜRENTRIEGELUNG",
+    "ko": "독특한 도어 잠금 해제",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TÜRENTRIEGELUNG",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.2,
+    "text": "FAHRERLEBNISSCHALTER IN DER MITTELKONSOLE",
+    "ko": "센터 콘솔의 드라이빙 익스피리언스 다이얼",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "FAHRERLEBNISSCHALTER",
+    "sure": true
+   },
+   {
+    "start": 13.3,
+    "end": 15.5,
+    "text": "AN TIPPS GENÜGEN",
+    "ko": "힌트는 이 정도면 충분하겠죠",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TIPPS",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "text": "SCHREIBT EURE ANTWORT JETZT IN DIE KOMMENTARE",
+    "ko": "지금 댓글로 정답을 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KOMMENTARE",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.8,
+    "text": "KÖNNEN ES ERRATEN",
+    "ko": "모두 맞히실 수 있길 바랍니다",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ERRATEN",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "LEVEL EASY 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.2,
+    "type": "딸깍",
+    "event": "센터 콘솔 다이얼 조작 클릭음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "긴장감/궁금증 유발",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Errate das Auto, Level Easy.",
+    "ko": "차를 맞혀보세요, 난이도 쉬움."
+   },
+   {
+    "start": 3.3,
+    "end": 5.4,
+    "text": "In welchem Auto sitze ich hier gerade?",
+    "ko": "제가 지금 어떤 차에 앉아 있을까요?"
+   },
+   {
+    "start": 5.5,
+    "end": 6.7,
+    "text": "Hier kommen meine Tipps.",
+    "ko": "힌트를 알려드립니다."
+   },
+   {
+    "start": 6.8,
+    "end": 9.3,
+    "text": "In diesem Auto gibt es eine besondere Türentriegelung,",
+    "ko": "이 차에는 특별한 도어 잠금 해제 장치가 있고,"
+   },
+   {
+    "start": 9.4,
+    "end": 13.2,
+    "text": "und diesen Fahrerlebnisschalter in der Mittelkonsole des Autos.",
+    "ko": "센터 콘솔에 이 드라이빙 익스피리언스 스위치가 있습니다."
+   },
+   {
+    "start": 13.3,
+    "end": 15.5,
+    "text": "So, das müsste an Tipps genügen.",
+    "ko": "자, 힌트는 이걸로 충분하겠죠."
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "text": "Schreibt eure Antwort jetzt in die Kommentare.",
+    "ko": "지금 바로 댓글에 정답을 적어주세요."
+   },
+   {
+    "start": 17.1,
+    "end": 18.8,
+    "text": "Ich hoffe alle können es erraten.",
+    "ko": "모두 맞히실 수 있기를 바랍니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.5,
+    "speed": "보통",
+    "summary": "엠블럼을 손으로 가린 채 차종 맞히기 퀴즈 시작 선언"
+   },
+   {
+    "stage": "기능",
+    "start": 3.5,
+    "end": 13.3,
+    "speed": "빠름",
+    "summary": "도어 캐치 디자인 및 센터 콘솔 다이얼 힌트 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 13.3,
+    "end": 18.8,
+    "speed": "보통",
+    "summary": "댓글 유도(CTA) 및 마무리"
+   }
+  ],
+  "rules": [
+   "스티어링 휠 로고를 손으로 가려 썸네일과 시작 시점에서 호기심을 극대화함",
+   "화면 중앙 하단에 노란색/흰색 강조 자막을 짧은 호흡으로 배치하여 시선 분산을 막음",
+   "신형 차종만의 고유 특징적 요소(드라이브 모드 다이얼 조작)를 클로즈업해 힌트로 제공",
+   "영상의 끝부분에서 시청자에게 직접 댓글 참여를 유도하여 인터랙션을 높임"
+  ]
+ }
+}

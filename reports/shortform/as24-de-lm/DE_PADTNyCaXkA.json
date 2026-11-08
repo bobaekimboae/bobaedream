@@ -1,0 +1,635 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/PADTNyCaXkA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4664,
+  "candidatesTokenCount": 6367,
+  "totalTokenCount": 12370,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3922
+   }
+  ],
+  "thoughtsTokenCount": 1339,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.0,
+   "aspect": "9:16",
+   "car": "BMW Z4 (2013)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 10.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 25.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 33.7,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.3,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.3,
+    "end": 36.9,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.9,
+    "end": 38.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.2,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 44.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Das erste Schätzchen: ein Z4 von 2013.",
+    "ko": "첫 번째 보물: 2013년형 Z4입니다.",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.9,
+    "text": "Für Leute, die keinen Aluhut tragen, aber gerne ein Aludach hätten.",
+    "ko": "은박지 모자는 안 쓰지만 알루미늄 루프는 갖고 싶은 분들을 위한 차죠.",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 86.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.3,
+    "text": "Alle BMWs sind sexy.",
+    "ko": "모든 BMW는 섹시합니다.",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.4,
+    "text": "Dieser ist besonders sexy.",
+    "ko": "이 녀석은 특히나 섹시하죠.",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 9.4,
+    "text": "Und warum?",
+    "ko": "왜일까요?",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.6,
+    "text": "Den haben zwei Frauen gezeichnet.",
+    "ko": "여성 디자이너 두 명이 디자인했기 때문입니다.",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.3,
+    "text": "Was spricht für das Auto?",
+    "ko": "이 차의 장점은 뭘까요?",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.7,
+    "text": "Natürlich Reihensechszylinder,",
+    "ko": "당연히 직렬 6기통 엔진,",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 15.6,
+    "text": "340 PS, BMW-Verarbeitung.",
+    "ko": "340마력, 뛰어난 BMW 마감.",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "Alltagstauglichkeit durch das Klappdach,",
+    "ko": "하드탑 접이식 루프로 인한 데일리 실용성,",
+    "kind": "말 자막",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "text": "ein guter Preis.",
+    "ko": "착한 가격.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "text": "Das Ding ist 100.000 km gelaufen",
+    "ko": "이 차량은 주행거리 10만km이고",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.4,
+    "text": "und hat eine coole Farbkombi",
+    "ko": "멋진 컬러 조합을 가졌습니다.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 25.4,
+    "text": "in Champagner mit diesem Braunton.",
+    "ko": "샴페인 컬러와 이 브라운 톤의 조화죠.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.5,
+    "text": "Die BMW-Essenz: Reihe-6,",
+    "ko": "BMW의 본질: 직렬 6기통,",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.6,
+    "text": "3-Liter-Benziner.",
+    "ko": "3.0리터 가솔린.",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.7,
+    "text": "Einen Haken muss es ja haben.",
+    "ko": "단점도 하나쯤은 있어야겠죠.",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 34.0,
+    "text": "Platz, hinten keinen.",
+    "ko": "공간, 뒷좌석은 아예 없습니다.",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.9,
+    "type": "휙",
+    "event": "우측 상단 AutoScout24 매물 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "휙",
+    "event": "우측 상단 AutoScout24 매물 가격 카드 재등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 커버를 주먹으로 두드리는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 33.7,
+    "type": "휙",
+    "event": "매물 리스트 화면 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 92,
+   "mood": "경쾌하고 그루브한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.7,
+    "end": 5.9,
+    "what": "AutoScout24 매물 카드 (€ 24.990,-)",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 6.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "실제 등록 매물 정보 및 가격 노출",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 22.0,
+    "what": "AutoScout24 매물 카드 (€ 24.990,-)",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 8.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "실제 가격 재차 강조",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 40.2,
+    "what": "AutoScout24 브랜드 노란색 프레임 속 다양한 연식의 Z4 매물 가격 슬라이드쇼",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 0.0,
+    "y_pct": 0.0,
+    "entrance": "바로",
+    "purpose": "앱 내 다양한 가격대 대안 제시 유도",
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 44.0,
+    "what": "AutoScout24 앱 다운로드 및 제조사 필터 UI 안내",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 0.0,
+    "y_pct": 0.0,
+    "entrance": "밀려옴",
+    "purpose": "앱 다운로드 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Das erste Schätzchen: ein Z4 von 2013.",
+    "ko": "첫 번째 보물: 2013년형 Z4입니다."
+   },
+   {
+    "start": 3.0,
+    "end": 5.9,
+    "text": "Für Leute, die keinen Aluhut tragen, aber gerne ein Aludach hätten.",
+    "ko": "음모론 은박지 모자는 안 쓰지만 알루미늄 하드탑은 갖고 싶은 분들을 위한 차죠."
+   },
+   {
+    "start": 5.9,
+    "end": 8.4,
+    "text": "Alle BMWs sind sexy. Dieser ist besonders sexy.",
+    "ko": "모든 BMW는 섹시하지만, 이 녀석은 특히나 섹시합니다."
+   },
+   {
+    "start": 8.4,
+    "end": 10.6,
+    "text": "Und warum? Den haben zwei Frauen gezeichnet.",
+    "ko": "왜냐고요? 두 여성 디자이너가 그렸거든요."
+   },
+   {
+    "start": 10.6,
+    "end": 15.6,
+    "text": "Was spricht für das Auto? Natürlich Reihensechszylinder, 340 PS, BMW-Verarbeitung.",
+    "ko": "이 차를 선택해야 하는 이유? 직렬 6기통, 340마력, BMW다운 완성도죠."
+   },
+   {
+    "start": 15.6,
+    "end": 18.7,
+    "text": "Alltagstauglichkeit durch das Klappdach, ein guter Preis.",
+    "ko": "하드탑으로 사계절 실용성에, 좋은 가격까지."
+   },
+   {
+    "start": 18.7,
+    "end": 25.4,
+    "text": "Das Ding ist 100.000 km gelaufen und hat eine coole Farbkombi in Champagner mit diesem Braunton.",
+    "ko": "10만 km 주행에 샴페인 컬러와 브라운 실내의 쿨한 색상 조합까지 갖췄습니다."
+   },
+   {
+    "start": 25.5,
+    "end": 30.6,
+    "text": "Die BMW-Essenz: Reihe-6, 3-Liter-Benziner.",
+    "ko": "진정한 BMW의 본질: 직렬 6기통 3리터 가솔린 엔진."
+   },
+   {
+    "start": 30.7,
+    "end": 34.0,
+    "text": "Einen Haken muss es ja haben. Platz, hinten keinen.",
+    "ko": "단점도 하나 있어야겠죠. 뒤쪽에 공간이 전혀 없다는 점."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.9,
+    "speed": "빠름",
+    "summary": "2013년형 BMW Z4 소개 및 매물 카드 노출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.9,
+    "end": 10.6,
+    "speed": "보통",
+    "summary": "디자인 포인트(여성 디자이너 2인 디자인) 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 10.6,
+    "end": 25.5,
+    "speed": "빠름",
+    "summary": "출력, 직렬 6기통, 실내 색상 조합, 하드탑 장점 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 25.5,
+    "end": 34.0,
+    "speed": "보통",
+    "summary": "엔진룸 확인 및 트렁크 공간(단점) 유머러스하게 언급"
+   },
+   {
+    "stage": "가격",
+    "start": 34.0,
+    "end": 40.2,
+    "speed": "빠름",
+    "summary": "AutoScout24 내 다양한 가격대 예시 매물 슬라이드"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.2,
+    "end": 44.0,
+    "speed": "보통",
+    "summary": "AutoScout24 앱 인터페이스 및 다운로드 유도"
+   }
+  ],
+  "rules": [
+   "진행자의 말 자막은 검은색 반투명 박스 배경에 흰색 폰트로 중앙 하단에 고정 배치",
+   "플랫폼(AutoScout24) 매물 카드는 휙(whoosh) 효과음과 함께 화면 우측 상단에 스티커 형태로 노출",
+   "단점(수납공간 부족)까지 솔직하고 유머러스하게 전달하여 신뢰도 상승",
+   "영상 후반부에는 동일 차종의 저가부터 고가까지 다양한 매물 가격대를 연속 슬라이드로 보여주어 앱 검색 유도"
+  ]
+ }
+}

@@ -1,0 +1,155 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/5Am_0C3hkmQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1563,
+  "candidatesTokenCount": 1222,
+  "totalTokenCount": 2785,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 821
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.9,
+   "aspect": "9:16",
+   "car": "VW Golf Rallye G60",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 9.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "text": "VW Golf Rallye G60",
+    "ko": "폭스바겐 골프 랠리 G60",
+    "kind": "제목",
+    "y_pct": 74.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#232323",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.4,
+    "text": "Tunnel!",
+    "ko": "터널!",
+    "kind": "말 자막",
+    "y_pct": 39.5,
+    "x_center_pct": 21.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "랠리카 주행 가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "터널 진입 후 울리는 고회전 엔진 배기음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "엔진음 강조",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 9.9,
+    "what": "AutoScout24 노란색 로고 심볼",
+    "is_3d": false,
+    "size_w_pct": 14.0,
+    "x_pct": 6.0,
+    "y_pct": 74.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 3.8,
+    "end": 5.4,
+    "text": "Tunnel!",
+    "ko": "터널!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "차 소개",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "도로를 고속으로 질주해 지나가는 폭스바겐 골프 랠리 G60 외관 주행 샷"
+   },
+   {
+    "stage": "기능",
+    "start": 2.2,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "운전자가 '터널!'이라고 외치며 터널 진입 후 굉음의 배기 사운드 감상"
+   }
+  ],
+  "rules": [
+   "음악 없이 오직 리얼한 차량 배기 사운드만을 들려주는 ASMR/사운드 쇼츠 구성",
+   "하단에 차종명과 브랜드 로고 뱃지를 고정 배치하여 일관된 브랜드 정체성 유지",
+   "터널 진입 순간의 극적인 사운드 울림을 활용한 몰입감 유도"
+  ]
+ }
+}

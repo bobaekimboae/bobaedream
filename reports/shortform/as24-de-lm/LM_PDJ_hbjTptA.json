@@ -1,0 +1,394 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/PDJ_hbjTptA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3112,
+  "candidatesTokenCount": 3978,
+  "totalTokenCount": 7863,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2370
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 773,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.5,
+   "aspect": "9:16",
+   "car": "Audi A6 e-tron",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 4.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 8.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 17.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 26.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "3 FAKTEN",
+    "ko": "3가지 팩트",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": -5.0,
+    "entrance": "바로",
+    "highlight_word": "FAKTEN",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "ZUM NEUEN AUDI A6 E-TRON",
+    "ko": "새로운 아우디 A6 e-트론에 대해",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUDI A6 E-TRON",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.2,
+    "text": "DIGITALE AUßENSPIEGEL",
+    "ko": "디지털 사이드미러",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DIGITALE AUßENSPIEGEL",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.2,
+    "text": "ABER DER 2. GENERATION",
+    "ko": "하지만 2세대 모델",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2. GENERATION",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.4,
+    "text": "KOMMT IHR 7 KILOMETER WEITER",
+    "ko": "7km 더 주행 가능합니다",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7 KILOMETER",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.5,
+    "text": "WIR HABEN EIN PANORAMADACH",
+    "ko": "파노라마 루프가 탑재되어 있고",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PANORAMADACH",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "text": "MIT SCHALTBARER TRANSPARENZ",
+    "ko": "투명도 조절 기능 지원",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TRANSPARENZ",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 16.5,
+    "text": "9 VERSCHIEDENEN SEGMENTEN",
+    "ko": "9개의 개별 구역으로",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SEGMENTEN",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.3,
+    "text": "WIR HABEN HIER STARKE REICHWEITE",
+    "ko": "주행거리가 매우 뛰어납니다",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STARKE REICHWEITE",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.8,
+    "text": "NÄMLICH BIS ZU 738 KILOMETER",
+    "ko": "최대 738km까지",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "738 KILOMETER",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.5,
+    "text": "ALS BEI SEINEM DIREKTEN WETTBOWERBER DEM BMW I5",
+    "ko": "직접 경쟁자인 BMW i5보다 긴 주행거리",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DEM BMW I5",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "쿵",
+    "event": "도입부 3 FAKTEN 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.2,
+    "type": "휙",
+    "event": "배경 3D 숫자 1 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "딸깍",
+    "event": "호스트가 선루프 투명도 조절 스위치 터치",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "what": "3D 노란색 입체 숫자 3",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시선 집중용 훅 그래픽",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 3.0,
+    "what": "건물 벽에 매핑된 노란색 입체 숫자 1",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 47.0,
+    "y_pct": 12.0,
+    "entrance": "페이드",
+    "purpose": "팩트 번호 안내 트랙 그래픽",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Drei Fakten zum neuen Audi A6 e-tron. Fakt Nummer eins:",
+    "ko": "새로운 아우디 A6 e-트론에 관한 3가지 팩트. 팩트 1번:"
+   },
+   {
+    "start": 2.2,
+    "end": 8.3,
+    "text": "Wir haben jetzt digitale Außenspiegel, optional, aber der zweiten Generation und damit kommt ihr 7 km weiter.",
+    "ko": "옵션 사양이지만 2세대 디지털 사이드미러가 적용되어 7km를 더 주행할 수 있습니다."
+   },
+   {
+    "start": 8.4,
+    "end": 17.5,
+    "text": "Fakt Nummer zwei: Wir haben ein Panoramadach mit schaltbarer Transparenz und das in neun verschiedenen Segmenten.",
+    "ko": "팩트 2번: 투명도 조절이 가능한 파노라마 루프가 탑재되었으며 9개의 구역으로 개별 조절됩니다."
+   },
+   {
+    "start": 17.6,
+    "end": 26.5,
+    "text": "Fakt Nummer drei: Wir haben hier eine richtig starke Reichweite, nämlich bis zu 738 km und das ist weiter als bei seinem direkten Wettbewerber, dem BMW i5.",
+    "ko": "팩트 3번: 매우 강력한 주행거리를 제공합니다. 최대 738km로 직접 경쟁 모델인 BMW i5보다 깁니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "빠름",
+    "summary": "3가지 팩트 소개 오프닝"
+   },
+   {
+    "stage": "기능",
+    "start": 2.1,
+    "end": 8.3,
+    "speed": "빠름",
+    "summary": "팩트 1: 2세대 디지털 사이드미러와 주행거리 향상"
+   },
+   {
+    "stage": "기능",
+    "start": 8.3,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "팩트 2: 9분할 투명도 조절 스마트 파노라마 루프 실내 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 17.5,
+    "end": 26.5,
+    "speed": "보통",
+    "summary": "팩트 3: 최대 738km 주행거리 및 BMW i5와의 비교"
+   }
+  ],
+  "rules": [
+   "공간 트래킹 3D 넘버 그래픽으로 각 팩트의 시작을 시각적으로 강조",
+   "화면 하단 자막은 핵심 키워드(수치, 기능명)에 노란색 강조색 적용",
+   "기능 설명 시 버튼을 직접 터치하고 즉각적인 시각적 변화(루프 투명도)를 원테이크로 보여줌",
+   "경쟁 모델(BMW i5)을 직접 언급하여 사양 우위를 명확히 전달"
+  ]
+ }
+}

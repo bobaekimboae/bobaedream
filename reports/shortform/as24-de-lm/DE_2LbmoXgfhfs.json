@@ -1,0 +1,180 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/2LbmoXgfhfs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3667,
+  "candidatesTokenCount": 1604,
+  "totalTokenCount": 6096,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2925
+   }
+  ],
+  "thoughtsTokenCount": 825,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.5,
+   "aspect": "9:16",
+   "car": "BMW M2",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 22.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 33.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 33.5,
+    "text": "BMW M2",
+    "ko": "BMW M2",
+    "kind": "제목",
+    "y_pct": 88.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 100.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 22.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "가속 시 고회전 엔진음 및 레브 리미터 사운드",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "현장음 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 33.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 8.0,
+    "y_pct": 5.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 33.5,
+    "what": "하단 공식 배기량/연비 고지 자막 및 노란 포인트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 0.0,
+    "y_pct": 82.0,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 8.0,
+    "text": "Motor vorne, Getriebe manuell, Antrieb hinten, und zwischendrin ein Fahrer, der richtig Bock drauf hat.",
+    "ko": "앞엔 엔진, 수동 변속기, 후륜 구동, 그리고 그 가운데 진심으로 운전을 즐기는 드라이버."
+   },
+   {
+    "start": 8.0,
+    "end": 14.5,
+    "text": "Das macht einfach Laune, ja? Also das wird auch kein... ja, Elektroautofahrer...",
+    "ko": "그냥 운전할 맛이 나죠. 이건 아마 전기차 운전자들은..."
+   },
+   {
+    "start": 14.5,
+    "end": 21.0,
+    "text": "verstehen, der jetzt vielleicht vorne hier jetzt 'n Frunk vermisst, ja? Da ist 'n Motor vorne drin, und der darf sich auch noch...",
+    "ko": "이해 못 할 수도 있어요. 앞에 프렁크가 없다고 아쉬워할 수도 있지만 앞엔 엔진이 있고, 당연히..."
+   },
+   {
+    "start": 21.0,
+    "end": 25.0,
+    "text": "Er darf sich auch noch nach 'nem Motor anhören.",
+    "ko": "진짜 엔진다운 소리가 나야 하니까요."
+   },
+   {
+    "start": 25.0,
+    "end": 28.5,
+    "text": "Wenn wir jetzt hier in den Begrenzer gehen...",
+    "ko": "여기서 레브 리미터까지 올려보면..."
+   },
+   {
+    "start": 29.0,
+    "end": 33.5,
+    "text": "Ach, das ist einfach... das ist einfach herrlich.",
+    "ko": "아, 이건 정말... 정말 환상적입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "내연기관 스포츠카의 정석(FR, 수동 변속기) 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.0,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "전기차와 대비되는 아날로그 엔진의 감성과 엔진 사운드 가치 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 22.8,
+    "end": 33.5,
+    "speed": "보통",
+    "summary": "와인딩 로드 고회전 가속 사운드 및 주행 컷 감상"
+   }
+  ],
+  "rules": [
+   "운전석 토크 장면에서 주행 외관 컷으로 전환되며 실제 엔진 사운드를 극대화해 청각적 쾌감을 준다",
+   "화면 하단에 모델명과 필수 법적 연비 고지 문구를 템플릿화하여 일관되게 고정한다",
+   "배경음악을 배제하고 인카 음성과 직결된 순수 배기/엔진 사운드로 몰입감을 높인다"
+  ]
+ }
+}

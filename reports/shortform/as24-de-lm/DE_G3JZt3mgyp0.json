@@ -1,0 +1,264 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/G3JZt3mgyp0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3026,
+  "candidatesTokenCount": 2276,
+  "totalTokenCount": 6117,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2284
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 815,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.2,
+   "aspect": "9:16",
+   "car": "롤스로이스 던 (Rolls-Royce Dawn)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 후면",
+    "camera": "드론",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 8.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 12.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 17.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 25.2,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Jetzt auf Youtube!",
+    "ko": "지금 유튜브에서 시청하세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 66.5,
+    "x_center_pct": 43.5,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -3.5,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.7,
+    "text": "@autoscout24",
+    "ko": "@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 71.8,
+    "x_center_pct": 57.0,
+    "text_height_pct": 2.4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 48.0,
+    "tilt_deg": -3.5,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 25.2,
+    "text": "Jetzt auf Youtube!",
+    "ko": "지금 유튜브에서 시청하세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 43.5,
+    "x_center_pct": 45.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEB00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -3.5,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 25.2,
+    "text": "@autoscout24",
+    "ko": "@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 48.8,
+    "x_center_pct": 58.0,
+    "text_height_pct": 2.4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 48.0,
+    "tilt_deg": -3.5,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "컨버터블 차량의 급가속 및 V12 배기음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Rock / Upbeat Groove",
+   "bpm_est": 115,
+   "mood": "에너제틱하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 20.6,
+    "what": "AutoScout24 채널 로고 워터마크",
+    "is_3d": false,
+    "size_w_pct": 14.5,
+    "x_pct": 10.0,
+    "y_pct": 5.5,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 1.5,
+    "end": 3.8,
+    "text": "Na komm, machen wir mal Gas einmal.",
+    "ko": "자 어서, 가속 한번 밟아보자."
+   },
+   {
+    "start": 13.0,
+    "end": 14.2,
+    "text": "Nicht schlecht.",
+    "ko": "나쁘지 않은데."
+   },
+   {
+    "start": 14.2,
+    "end": 16.8,
+    "text": "Nein, nein, nein, ja. Der geht schon gut.",
+    "ko": "아냐 아냐 아냐, 그래. 진짜 잘 나가네."
+   },
+   {
+    "start": 16.8,
+    "end": 17.5,
+    "text": "Ja ja, ist...",
+    "ko": "그렇지 그렇지..."
+   },
+   {
+    "start": 17.5,
+    "end": 20.4,
+    "text": "Und auch da der Klang, total souverän wieder. Der geht gut.",
+    "ko": "그리고 사운드도 아주 여유로워. 아주 잘 나가."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "숲길을 달리는 롤스로이스 드론 뷰와 가속 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 8.5,
+    "speed": "빠름",
+    "summary": "급가속 시 탑승자의 실제 체감 리액션"
+   },
+   {
+    "stage": "기능",
+    "start": 8.5,
+    "end": 20.6,
+    "speed": "보통",
+    "summary": "운전자와 동승자의 엄지척 및 엔진 회전 질감 호평"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 20.6,
+    "end": 25.2,
+    "speed": "느림",
+    "summary": "유튜브 풀영상 시청 유도 아웃트로"
+   }
+  ],
+  "rules": [
+   "오프닝과 엔딩에 일관된 노란색/흰색 배너 스티커로 유튜브 풀영상 시청을 유도함",
+   "화면 좌측 상단에 브랜드 로고를 고정 노출하여 채널 정체성을 확보함",
+   "가속 순간에는 탑승자의 표정과 거친 배기음을 강조하여 몰입감을 높임",
+   "대화 도중 화자가 바뀔 때마다 카메라 앵글을 즉각 교차 편집함"
+  ]
+ }
+}

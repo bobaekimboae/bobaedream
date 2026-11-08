@@ -1,0 +1,601 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/0UIAkfOOlGc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6296,
+  "candidatesTokenCount": 4872,
+  "totalTokenCount": 12081,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5554
+   }
+  ],
+  "thoughtsTokenCount": 913,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.5,
+   "aspect": "9:16",
+   "car": "Ford Mustang Dark Horse",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 18.5,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 25.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.3,
+    "end": 35.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.4,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 45.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 50.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.4,
+    "end": 58.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.6,
+    "end": 61.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "text": "Das ist der Mustang Dark Horse.",
+    "ko": "이것이 바로 머스탱 다크호스입니다.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 4.8,
+    "text": "453 PS, 5 Liter-V8.",
+    "ko": "453마력, 5리터 V8.",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.0,
+    "text": "Handgerissen.",
+    "ko": "수동 변속기.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.7,
+    "text": "Das ist kein weichgespülter Racer.",
+    "ko": "이건 나약한 레이서용이 아닙니다.",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 10.3,
+    "text": "Das ist was für echte Autofahrer",
+    "ko": "진짜 운전자들을 위한 차죠",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.8,
+    "text": "mit Benzin im Blut. Wie mich.",
+    "ko": "피 대신 가솔린이 흐르는 사람, 나처럼.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.4,
+    "text": "Dieses Auto ist so hart. Es ist nichts für Warmduscher.",
+    "ko": "이 차는 너무 거칠어서 겁쟁이들을 위한 게 아닙니다.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 25.8,
+    "text": "Selbst mit allen elektrischen Helferlein kommt das Ding schon gerne mal quer.",
+    "ko": "전자 장비가 다 켜져 있어도 뒤가 쉽게 털립니다.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.3,
+    "text": "Druck ohne Ende. Aber ein Fahrwerk. Ein Träumchen.",
+    "ko": "끝없는 출력, 그리고 환상적인 서스펜션.",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.3,
+    "end": 35.8,
+    "text": "Magnetic-Ride-Fahrwerk wie im Ferrari. Bremsen aus dem Maserati. Und dieselben Reifen wie ein Pagani.",
+    "ko": "페라리급 마그네틱 라이드 서스펜션, 마세라티 브레이크, 파가니와 같은 타이어.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "text": "Und das Ganze in einem echten amerikanischen Boliden.",
+    "ko": "이 모든 게 진짜 정통 미국 머슬카 안에 들어있죠.",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.4,
+    "text": "Ja. Mir macht es tierisch Spaß.",
+    "ko": "네, 미칠 듯이 재미있습니다.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 47.8,
+    "text": "So, früher haben Mama und Papa alles für dich geregelt, oder der große Bruder? Kauf dir nicht dieses Auto.",
+    "ko": "부모님이나 형이 다 해결해 주던 삶을 살았나요? 그럼 이 차는 사지 마세요.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 52.8,
+    "text": "Dieses Auto verzeiht dir gar nichts. Das will, dass DU fährst mit ihm. Und musst es regeln können.",
+    "ko": "이 차는 실수를 전혀 용서치 않습니다. 당신이 직접 다뤄내야만 합니다.",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DU",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 58.0,
+    "text": "Mustang Dark Horse. Und wo findet ihr den? Natürlich bei uns auf der Seite bei AutoScout24.",
+    "ko": "머스탱 다크호스, 어디서 찾을 수 있을까요? 당연히 AutoScout24 웹사이트죠.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 13.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "주행 중 엔진 배기음 및 타이어 회전음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "급가속 V8 엔진 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 58.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 가속 배기음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스록 / 인더스트리얼 록",
+   "bpm_est": 120,
+   "mood": "에너지 넘치고 강렬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 55.7,
+    "end": 58.2,
+    "what": "AutoScout24 로고 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "text": "Das ist der Mustang Dark Horse.",
+    "ko": "이것이 바로 머스탱 다크호스입니다."
+   },
+   {
+    "start": 1.9,
+    "end": 4.8,
+    "text": "453 PS, 5 Liter-V8.",
+    "ko": "453마력, 5리터 V8."
+   },
+   {
+    "start": 4.8,
+    "end": 6.0,
+    "text": "Handgerissen.",
+    "ko": "수동 변속기."
+   },
+   {
+    "start": 6.0,
+    "end": 7.7,
+    "text": "Das ist kein weichgespülter Racer.",
+    "ko": "이건 나약한 레이서용이 아닙니다."
+   },
+   {
+    "start": 7.7,
+    "end": 10.3,
+    "text": "Das ist was für echte Autofahrer",
+    "ko": "진짜 운전자들을 위한 차죠."
+   },
+   {
+    "start": 10.3,
+    "end": 12.8,
+    "text": "mit Benzin im Blut. Wie mich.",
+    "ko": "피 대신 가솔린이 흐르는 사람, 나처럼 말이죠."
+   },
+   {
+    "start": 18.5,
+    "end": 22.4,
+    "text": "Dieses Auto ist so hart. Es ist nichts für Warmduscher.",
+    "ko": "이 차는 너무 거칠어서 겁쟁이들을 위한 게 아닙니다."
+   },
+   {
+    "start": 22.4,
+    "end": 25.8,
+    "text": "Selbst mit allen elektrischen Helferlein kommt das Ding schon gerne mal quer.",
+    "ko": "전자 제어 장치를 다 켜도 툭하면 미끄러집니다."
+   },
+   {
+    "start": 25.8,
+    "end": 29.3,
+    "text": "Druck ohne Ende. Aber ein Fahrwerk. Ein Träumchen.",
+    "ko": "넘치는 힘, 그리고 기가 막힌 서스펜션."
+   },
+   {
+    "start": 29.3,
+    "end": 35.8,
+    "text": "Magnetic-Ride-Fahrwerk wie im Ferrari. Bremsen aus dem Maserati. Und dieselben Reifen wie ein Pagani.",
+    "ko": "페라리 같은 마그네틱 라이드 서스펜션, 마세라티의 브레이크, 파가니와 같은 타이어."
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "text": "Und das Ganze in einem echten amerikanischen Boliden.",
+    "ko": "이 모든 게 진짜 아메리칸 머슬카 안에 있습니다."
+   },
+   {
+    "start": 39.0,
+    "end": 42.4,
+    "text": "Ja. Mir macht es tierisch Spaß.",
+    "ko": "네, 정말 엄청나게 재밌습니다."
+   },
+   {
+    "start": 42.4,
+    "end": 47.8,
+    "text": "So, früher haben Mama und Papa alles für dich geregelt, oder der große Bruder? Kauf dir nicht dieses Auto.",
+    "ko": "어릴 때 부모님이나 형이 다 챙겨주던 타입인가요? 그럼 이 차는 사지 마세요."
+   },
+   {
+    "start": 47.8,
+    "end": 52.8,
+    "text": "Dieses Auto verzeiht dir gar nichts. Das will, dass DU fährst mit ihm. Und musst es regeln können.",
+    "ko": "이 차는 실수를 봐주지 않아요. 당신이 직접 통제할 수 있어야 합니다."
+   },
+   {
+    "start": 52.8,
+    "end": 58.0,
+    "text": "Mustang Dark Horse. Und wo findet ihr den? Natürlich bei uns auf der Seite bei AutoScout24.",
+    "ko": "머스탱 다크호스, 어디서 찾을 수 있을까요? AutoScout24에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 12.8,
+    "speed": "빠름",
+    "summary": "강력한 V8 수동 머슬카 소개 및 마초적 훅"
+   },
+   {
+    "stage": "사양",
+    "start": 12.8,
+    "end": 38.6,
+    "speed": "빠름",
+    "summary": "주행 하체 및 슈퍼카급 부품(페라리/마세라티/파가니 동급 사양) 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 38.6,
+    "end": 52.8,
+    "speed": "보통",
+    "summary": "하드코어한 운전 재미와 직접 다뤄야 하는 운전 성향 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 52.8,
+    "end": 61.5,
+    "speed": "보통",
+    "summary": "AutoScout24 매물 검색 유도 및 마무리 컷"
+   }
+  ],
+  "rules": [
+   "진행자의 단호하고 개성 넘치는 운전석 토크와 역동적인 외부 주행 롤링 샷을 교차 편집",
+   "화면 중앙 하단에 큼직한 흰색 고대비 볼드 자막을 배치해 가독성 확보",
+   "슈퍼카 브랜드(Ferrari, Maserati, Pagani)를 비교군으로 언급해 하드웨어 완성도를 직관적으로 부각",
+   "하단에 공식 연비 및 배출가스 인증 문구를 상시 고지하여 법적 요건 준수",
+   "엔딩에 플랫폼 로고 스티커를 팝업하고 음성으로 매물 검색 CTA 유도"
+  ]
+ }
+}

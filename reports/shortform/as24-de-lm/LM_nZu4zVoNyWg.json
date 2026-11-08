@@ -1,0 +1,423 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/nZu4zVoNyWg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8481,
+  "candidatesTokenCount": 3994,
+  "totalTokenCount": 12978,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7739
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 503,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 85.3,
+   "aspect": "9:16",
+   "car": "Kia EV4 (EV3)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 17.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 34.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 49.3,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 53.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 58.7,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 107.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.5,
+    "end": 120.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 120.3,
+    "end": 125.3,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.2,
+    "text": "KIA EV4",
+    "ko": "기아 EV4",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KIA EV4",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.3,
+    "text": "58 KW/H",
+    "ko": "58 kWh",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "58 KW/H",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "81 KW/H",
+    "ko": "81 kWh",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "81 KW/H",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.2,
+    "text": "128 KW SCHNELLLADEN",
+    "ko": "128kW 급속충전",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "128 KW",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.5,
+    "text": "NUR 101 KW SCHNELLLADEN",
+    "ko": "단 101kW 급속충전",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "NUR 101 KW",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.5,
+    "text": "600 KM WEIT NACH WLTP",
+    "ko": "WLTP 기준 600km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "600 KM WEIT",
+    "sure": true
+   },
+   {
+    "start": 101.5,
+    "end": 103.5,
+    "text": "37.500€",
+    "ko": "37,500유로",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "37.500€",
+    "sure": true
+   },
+   {
+    "start": 104.5,
+    "end": 107.0,
+    "text": "55.000€",
+    "ko": "55,000유로",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "55.000€",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 11.8,
+    "type": "딸깍",
+    "event": "충전구 도어 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.8,
+    "type": "딸깍",
+    "event": "충전구 도어 닫기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "딸깍",
+    "event": "스티어링 휠 버튼/다이얼 조작",
+    "level": "작음",
+    "sure": false
+   },
+   {
+    "t": 55.5,
+    "type": "딸깍",
+    "event": "도어 버튼 터치",
+    "level": "작음",
+    "sure": false
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트 / 로우파이 인스트루멘털",
+   "bpm_est": 115,
+   "mood": "경쾌하고 현대적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "Das ist der neue Kia EV4 und wir schauen uns jetzt mal genau an, ob das wirklich ein gutes Elektroauto ist.",
+    "ko": "이 차가 바로 새로운 기아 EV4입니다. 진짜 괜찮은 전기차인지 함께 자세히 살펴보죠."
+   },
+   {
+    "start": 4.8,
+    "end": 17.5,
+    "text": "Kommen wir erstmal zu den Akkugrößen. Es gibt eine kleine Variante und eine große. Der kleine hat 58 kWh und der große, den wir hier haben, 81 kWh. Der große kann dann 128 kW schnellladen und der kleine nur 101 kW schnellladen.",
+    "ko": "먼저 배터리 크기부터 살펴보겠습니다. 소형과 대형 두 가지 옵션이 있습니다. 기본형은 58kWh, 지금 보시는 대용량은 81kWh입니다. 대용량은 128kW, 소형은 101kW 급속 충전을 지원합니다."
+   },
+   {
+    "start": 17.5,
+    "end": 28.5,
+    "text": "Das ist jetzt wirklich kein Bestwert, aber für ein Fahrzeug in der Kategorie in Ordnung. Was ich schade finde, es gibt keine 22 kW Onboard-Charger, sondern nur 11 kW an der AC-Ladesäule.",
+    "ko": "충전 속도가 최고 수준은 아니지만, 이 급의 차종에서는 준수합니다. 아쉬운 점은 22kW 완속 충전기가 아닌 11kW 충전기만 지원된다는 점입니다."
+   },
+   {
+    "start": 28.5,
+    "end": 34.8,
+    "text": "Was mir aber sehr gut gefällt: Mit dem großen Akku kommt ihr bis zu 600 km weit nach WLTP. Und das ist wirklich ein sehr guter Wert.",
+    "ko": "반면 마음에 드는 점은 대용량 배터리로 WLTP 기준 최대 600km까지 달릴 수 있다는 것입니다. 아주 훌륭한 수치죠."
+   },
+   {
+    "start": 34.8,
+    "end": 49.3,
+    "text": "Was mir sehr gut gefällt, ist dieser schöne Innenraum. Das eckige Lenkrad gefällt mir gut. Wir haben hier echte Knöpfe zur Bedienung der Assistenzsysteme und natürlich auch zur Bedienung des Infotainmentsystems mit echten Walzen und Wippen. Super, das sollte jeder so machen.",
+    "ko": "인테리어도 정말 마음에 듭니다. 각진 스티어링 휠 디자인도 좋고, 주행 보조 장치와 인포테인먼트를 직관적으로 조작할 수 있는 물리 버튼, 롤러, 토글 스위치가 있습니다. 아주 훌륭해요, 모든 차가 이래야 합니다."
+   },
+   {
+    "start": 49.3,
+    "end": 58.7,
+    "text": "Dann das Interieur: Auch echt schön. Diese Sportsitze hier sehr komfortabel, mit Sitzlüftung, Sitzheizung und es gibt sogar eine Lenkradheizung. Das gefällt mir auch gut.",
+    "ko": "실내 구성도 멋집니다. 스포츠 시트는 착좌감이 매우 편안하고 통풍 및 열선 기능이 있으며, 스티어링 휠 열선까지 지원합니다. 정말 마음에 듭니다."
+   },
+   {
+    "start": 58.7,
+    "end": 107.5,
+    "text": "Über eine Sache müssen wir aber noch reden, denn das ist der Preis. Den Wagen gibt es ab 37.500 Euro. So wie er hier steht, kostet er allerdings knapp 55.000 Euro. Und das ist schon eine Menge Geld.",
+    "ko": "하지만 꼭 짚고 넘어가야 할 것이 바로 가격입니다. 시작가는 37,500유로부터이며, 현재 보시는 사양은 거의 55,000유로에 달합니다. 꽤 비싼 가격이죠."
+   },
+   {
+    "start": 107.5,
+    "end": 120.3,
+    "text": "Wenn ihr das nicht auf den Tisch legen wollt, kann ich das vollkommen verstehen. Dann ist LeasingMarkt.de eure Option. Hier gibt's die besten Leasingangebote, könnt ihr günstig vergleichen und so ein E-Auto ist sowieso besser geleast als gekauft, meiner Meinung nach.",
+    "ko": "이 금액이 부담스러우시다면 전적으로 공감합니다. 그럴 때는 LeasingMarkt.de를 이용해 보세요. 최적의 리스 조건을 저렴하게 비교해볼 수 있습니다. 전기차는 구매보다 리스가 낫다는 게 제 생각입니다."
+   },
+   {
+    "start": 120.3,
+    "end": 125.3,
+    "text": "Also, schreibt mir eure Meinung zum Kia EV4 mal in die Kommentare und vergesst nicht, uns zu folgen.",
+    "ko": "여러분은 기아 EV4에 대해 어떻게 생각하시나요? 댓글로 남겨주시고, 팔로우도 잊지 마세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "차량 전면 소개 및 핵심 질문 던지기"
+   },
+   {
+    "stage": "사양",
+    "start": 4.8,
+    "end": 34.8,
+    "speed": "보통",
+    "summary": "배터리 용량, 급속 및 완속 충전 스펙, 1회 충전 주행거리 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 34.8,
+    "end": 58.7,
+    "speed": "보통",
+    "summary": "실내 스티어링 휠, 물리 버튼, 시트 편의사양 점검"
+   },
+   {
+    "stage": "가격",
+    "start": 58.7,
+    "end": 107.5,
+    "speed": "보통",
+    "summary": "기본 시작가 및 풀옵션 차량 가격 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 107.5,
+    "end": 120.3,
+    "speed": "보통",
+    "summary": "LeasingMarkt.de 리스 플랫폼 추천"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 120.3,
+    "end": 125.3,
+    "speed": "보통",
+    "summary": "댓글 반응 유도 및 채널 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "진행자의 1인칭 시점 핸드헬드 촬영과 손짓 포인트로 시청자의 시선을 특정 부품으로 직접 유도함",
+   "스펙 수치(용량, 출력, 주행거리, 가격)는 노란색 강조 굵은 볼드 텍스트로 중앙 하단에 강렬하게 띄움",
+   "말하는 박자에 맞추어 단어별 컷 전환과 자막 교체가 빠르게 이루어짐",
+   "전기차 충전구 플랩 여닫기 및 실내 버튼을 직접 만지며 촉각적 디테일을 보여줌",
+   "높은 구매 가격의 단점을 언급한 직후 자사 리스 플랫폼 프로모션으로 자연스럽게 솔루션을 연결함"
+  ]
+ }
+}

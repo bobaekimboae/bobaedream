@@ -1,0 +1,425 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/LSp43Rk_P4U",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2759,
+  "candidatesTokenCount": 4075,
+  "totalTokenCount": 7748,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2017
+   }
+  ],
+  "thoughtsTokenCount": 914,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.1,
+   "aspect": "9:16",
+   "car": "Cupra Born",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 9.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 13.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 18.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 23.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "ERRATE DAS AUTO",
+    "ko": "차량을 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FAEB46",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ERRATE DAS AUTO",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "LEVEL EASY",
+    "ko": "난이도: 쉬움",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EASY",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.4,
+    "text": "IN WELCHEM AUTO SITZE ICH HIER",
+    "ko": "제가 지금 어떤 차에 타고 있을까요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.8,
+    "text": "ICH DENKE DIE MARKE",
+    "ko": "브랜드는",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.4,
+    "text": "SOLLTE ZIEMLICH SCHNELL KLAR WERDEN",
+    "ko": "꽤 금방 알아채실 수 있을 겁니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.0,
+    "text": "KUPFERFARBENEN AKZENTEN",
+    "ko": "구리색 포인트와",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FAEB46",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KUPFERFARBENEN AKZENTEN",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 11.2,
+    "text": "UND DIESEN SPORTLICHEN SITZEN",
+    "ko": "이 스포티한 시트를 보면요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPORTLICHEN",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.7,
+    "text": "ABER IN WELCHEM AUTO SITZEN WIR HIER GENAU",
+    "ko": "하지만 정확히 어떤 차일까요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 15.6,
+    "text": "ICH KANN EUCH EINS SAGEN",
+    "ko": "한 가지 힌트를 드리자면",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "text": "WIRKLICH GROSS",
+    "ko": "그리 크지 않고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.8,
+    "text": "UND NOCH ZIEMLICH NEU",
+    "ko": "꽤 최신 모델입니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZIEMLICH NEU",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.2,
+    "text": "SCHREIBT EURE ANTWORT",
+    "ko": "정답을",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 21.6,
+    "text": "JETZT MAL IN DIE KOMMENTARE",
+    "ko": "댓글로 남겨주세요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FAEB46",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "IN",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.1,
+    "text": "ICH HOFFE ALLE KÖNNEN ES ERRATEN",
+    "ko": "모두 맞히시길 바랍니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Hip Hop / Beat",
+   "bpm_est": 95,
+   "mood": "리드미컬하고 캐주얼함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 23.1,
+    "what": "스티어링 휠 로고 블러 마스크",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 17.5,
+    "y_pct": 35.0,
+    "entrance": "바로",
+    "purpose": "차량 엠블럼을 가려 퀴즈 난이도 유지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Errate das Auto. Level: easy.",
+    "ko": "차량을 맞혀보세요. 난이도: 쉬움."
+   },
+   {
+    "start": 2.7,
+    "end": 4.4,
+    "text": "In welchem Auto sitze ich hier gerade?",
+    "ko": "제가 지금 무슨 차에 앉아있을까요?"
+   },
+   {
+    "start": 4.4,
+    "end": 9.0,
+    "text": "Ich denke die Marke des Autos sollte ziemlich schnell klar werden, gerade an den kupferfarbenen Akzenten",
+    "ko": "구리색 악센트만 봐도 브랜드는 금방 감이 오실 텐데요,"
+   },
+   {
+    "start": 9.0,
+    "end": 11.2,
+    "text": "und diesen sportlichen Sitzen.",
+    "ko": "그리고 이 스포티한 시트까지요."
+   },
+   {
+    "start": 11.2,
+    "end": 13.7,
+    "text": "Aber in welchem Auto sitzen wir hier genau?",
+    "ko": "하지만 정확히 어떤 모델일까요?"
+   },
+   {
+    "start": 13.7,
+    "end": 18.8,
+    "text": "Ich kann euch eins sagen, das Auto ist nicht wirklich groß und noch ziemlich neu.",
+    "ko": "한 가지 힌트를 드리자면, 차가 그리 크지 않고 꽤 신형입니다."
+   },
+   {
+    "start": 18.8,
+    "end": 23.1,
+    "text": "So, schreibt eure Antwort jetzt mal in die Kommentare. Ich hoffe alle können es erraten.",
+    "ko": "자, 여러분의 정답을 댓글로 남겨주세요. 모두 맞히시길 바라요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "보통",
+    "summary": "블러 처리된 엠블럼을 보여주며 차 맞히기 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 2.8,
+    "end": 18.2,
+    "speed": "보통",
+    "summary": "실내 디스플레이, 쿠퍼 색상 트림, 버킷 시트 등 차량 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 18.2,
+    "end": 23.1,
+    "speed": "보통",
+    "summary": "댓글 작성을 유도하는 인터랙션 클로징"
+   }
+  ],
+  "rules": [
+   "정답 유출 방지를 위해 스티어링 휠 중앙 엠블럼에 모션 블러 마스크 적용",
+   "화면 중앙 하단에 1~2줄 단위의 단어별 하이라이트 자막을 지속 노출",
+   "스마트폰 1인칭 POV 원테이크 핸드헬드로 실내 디테일을 훑으며 몰입감 조성",
+   "댓글 참여를 유도하는 CTA(Call-to-Action) 퀴즈 포맷 쇼츠"
+  ]
+ }
+}

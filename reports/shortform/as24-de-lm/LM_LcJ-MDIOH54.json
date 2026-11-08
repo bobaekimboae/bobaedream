@@ -1,0 +1,380 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/LcJ-MDIOH54",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7026,
+  "candidatesTokenCount": 4287,
+  "totalTokenCount": 13004,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6284
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1691,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 69.5,
+   "aspect": "9:16",
+   "car": "Renault Twingo Legend (E-Tech / Gen 4) & Renault Twingo I",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 22.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 25.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 32.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 40.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 46.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 52.3,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.3,
+    "end": 56.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 59.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 104.2,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.2,
+    "end": 109.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "text": "IST DER NEUE RENAULT TWINGO ELECTRIC",
+    "ko": "새로운 르노 트윙고 일렉트릭은",
+    "kind": "말 자막",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RENAULT TWINGO ELECTRIC",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.4,
+    "text": "NOCH EIN RICHTIGER TWINGO?",
+    "ko": "아직도 진짜 트윙고일까요?",
+    "kind": "말 자막",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RICHTIGER TWINGO",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 36.6,
+    "text": "PREISLICH LAG DER ERSTE RENAULT TWINGO BEI RUND 16.000 DM",
+    "ko": "1세대 트윙고 가격은 당시 약 16,000 마르크였으며",
+    "kind": "가격",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "16.000 DM",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.5,
+    "text": "INFLATIONSBEREINIGT ENTSPRICHT DAS HEUTE CIRCA 15.000 €",
+    "ko": "물가상승률을 감안하면 오늘날 약 15,000유로에 해당합니다",
+    "kind": "가격",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "15.000 €",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 43.6,
+    "text": "DER NEUE STARTET BEI RUND 19.990 €",
+    "ko": "신형 모델은 약 19,990유로부터 시작합니다",
+    "kind": "가격",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "19.990 €",
+    "sure": true
+   },
+   {
+    "start": 105.0,
+    "end": 109.5,
+    "text": "RENAULT TWINGO TOP ODER EHER EIN FLOP?",
+    "ko": "르노 트윙고, 대박일까요 아니면 쪽박일까요?",
+    "kind": "말 자막",
+    "y_pct": 74.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "TOP",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 48.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전석 도어 손잡이를 당겨 문을 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 102.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문을 닫는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi Hip-Hop / Chill Electronic",
+   "bpm_est": 92,
+   "mood": "경쾌하고 편안함",
+   "ducks_under_voice": "일부",
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.2,
+    "text": "Ist der neue Renault Twingo Electric noch ein richtiger Twingo? Das schauen wir uns in diesem Video mal an.",
+    "ko": "새로운 르노 트윙고 일렉트릭은 여전히 진짜 트윙고일까요? 이 영상에서 한번 살펴보겠습니다."
+   },
+   {
+    "start": 5.2,
+    "end": 14.9,
+    "text": "Denn man muss schon sagen, die Ähnlichkeit ist natürlich verblüffend. Generation 2 und 3 des Twingo sahen nicht mehr wirklich aus wie der erste Twingo, aber die Generation 4 versucht wirklich wieder so auszusehen wie der erste Twingo.",
+    "ko": "확실히 닮은 점이 정말 놀랍습니다. 2세대와 3세대 트윙고는 1세대와 크게 닮지 않았지만, 4세대는 다시금 1세대처럼 보이려고 진지하게 노력했습니다."
+   },
+   {
+    "start": 14.9,
+    "end": 18.5,
+    "text": "Aber reicht das aus, um ein echter Twingo zu sein? Das schauen wir uns jetzt mal an.",
+    "ko": "하지만 그것만으로 진짜 트윙고가 되기에 충분할까요? 지금 살펴보죠."
+   },
+   {
+    "start": 18.5,
+    "end": 27.5,
+    "text": "Der erste Renault Twingo kam 1993 auf den Markt und war damals eine kleine Revolution. Statt verschiedener Ausstattungen gab es zunächst nur eine Version, einen Motor und vier Farben. Einfacher ging es kaum.",
+    "ko": "최초의 르노 트윙고는 1993년에 출시되어 당시 작은 혁명이었습니다. 복잡한 트림 대신 단 하나의 버전, 하나의 엔진, 네 가지 색상뿐이었습니다. 이보다 단순할 수 없었죠."
+   },
+   {
+    "start": 27.5,
+    "end": 33.0,
+    "text": "Trotzdem wurde der Twingo zum Kultauto und verkaufte sich über alle Generationen hinweg über 4,1 Millionen Mal.",
+    "ko": "그럼에도 트윙고는 컬트적인 인기를 얻으며 전 세대에 걸쳐 410만 대 이상 팔려나갔습니다."
+   },
+   {
+    "start": 33.0,
+    "end": 39.2,
+    "text": "Preislich lag der erste Renault Twingo in Deutschland bei rund 16.000 D-Mark. Inflationsbereinigt entspricht das heute circa 15.000 €.",
+    "ko": "독일 기준 1세대 트윙고의 가격은 약 16,000 마르크였으며, 인플레이션을 반영하면 현재 약 15,000유로 수준입니다."
+   },
+   {
+    "start": 39.2,
+    "end": 52.0,
+    "text": "Der neue vollelektrische Twingo startet bei rund 19.990 €, also rund 5.000 € mehr. Bringt dafür aber einen Elektroantrieb, moderne Assistenzsysteme, Google-Infotainment und bis zu 262 km WLTP-Reichweite mit.",
+    "ko": "새로운 순수 전기 트윙고는 약 19,990유로부터 시작하여 5,000유로가량 더 비싸지만, 전기 구동계, 최신 주행 보조 시스템, 구글 인포테인먼트, 최대 262km의 WLTP 주행거리를 제공합니다."
+   },
+   {
+    "start": 52.0,
+    "end": 60.1,
+    "text": "Und trotzdem: Das Wichtigste hat Renault beibehalten. Das freundliche Gesicht, das clevere Raumkonzept und die Idee, ein sympathisches Stadtauto für möglichst viele Menschen zu bauen.",
+    "ko": "그리고 무엇보다 르노는 가장 핵심적인 요소를 지켜냈습니다. 친근한 인상, 영리한 공간 활용, 가능한 많은 사람들을 위한 매력적인 도심형 차량이라는 철학 말이죠."
+   },
+   {
+    "start": 60.1,
+    "end": 64.3,
+    "text": "Der neue Twingo sieht deshalb nicht nur aus wie ein Twingo, er fühlt sich auch endlich wieder wie ein richtiger Twingo an.",
+    "ko": "신형 트윙고는 단지 겉모습만 트윙고다운 것이 아니라, 마침내 다시 진짜 트윙고다운 느낌을 줍니다."
+   },
+   {
+    "start": 64.3,
+    "end": 69.5,
+    "text": "Aber schreibt mir eure Meinung mal in die Kommentare: Ist der neue Renault Twingo top oder eher ein Flop?",
+    "ko": "여러분의 생각을 댓글로 남겨주세요: 신형 르노 트윙고는 대박일까요, 아니면 쪽박일까요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "1세대와 4세대 트윙고를 나란히 두고 디자인 유사성에 대한 질문 제기"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 32.7,
+    "speed": "보통",
+    "summary": "1세대 헤리티지와 4세대의 레트로 복원 디자인, 1세대의 역사와 성공 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 32.7,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "1세대 당시 가격(인플레 환산 1.5만 유로) 대비 신형 전기차 가격(약 2만 유로) 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 46.5,
+    "end": 59.9,
+    "speed": "보통",
+    "summary": "실내 공개 및 주행거리, 구글 OS 인포테인먼트, 공간 콘셉트 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 59.9,
+    "end": 69.5,
+    "speed": "보통",
+    "summary": "총평 및 댓글 참여 유도(Top vs Flop 투표 질문)"
+   }
+  ],
+  "rules": [
+   "구형 원조 모델(1세대)과 신형 전기 콘셉트카를 나란히 세워 직관적인 세대 간 비주얼 비교 연출",
+   "중앙 하단에 2~3단어로 끊어지는 굵은 고딕 텍스트와 노란색 키워드 하이라이트로 높은 가독성 유지",
+   "실제 인플레이션 환산 가격과 신형 전기차 가격을 직관적으로 대조하여 가격 접근성 강조",
+   "1인칭 시점 핸드헬드로 외관 워크어라운드부터 도어 오픈, 실내 디테일까지 자연스럽게 연결",
+   "마지막에 'Top or Flop?' 양자택일 질문과 핸드 제스처로 댓글 참여율 극대화"
+  ]
+ }
+}

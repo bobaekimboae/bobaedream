@@ -1,0 +1,254 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/-OEEJgzgx3M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4656,
+  "candidatesTokenCount": 2446,
+  "totalTokenCount": 7967,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3914
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 865,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.4,
+   "aspect": "9:16",
+   "car": "VW Golf Rallye G60",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 17.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.4,
+    "end": 19.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 25.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 27.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.4,
+    "end": 30.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.3,
+    "end": 37.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 43.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 43.4,
+    "text": "VW Golf Rallye G60",
+    "ko": "폭스바겐 골프 랠리 G60",
+    "kind": "제목",
+    "y_pct": 82.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#232A35",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 28.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "플라스틱 글로브박스 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트 / 인스트루멘털",
+   "bpm_est": 90,
+   "mood": "차분하고 리듬감 있음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 43.4,
+    "what": "AutoScout24 로고 심볼(노란색 X 마크)이 포함된 차명 하단 자막 바",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 5.0,
+    "y_pct": 77.0,
+    "entrance": "바로",
+    "purpose": "차량 모델명 상시 노출 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Woran erkennst du einen original Golf Rallye?",
+    "ko": "오리지널 골프 랠리는 어떻게 알아볼 수 있을까요?"
+   },
+   {
+    "start": 3.0,
+    "end": 7.0,
+    "text": "Natürlich erstmal an den verbreiterten Kotflügeln, da mussten 205er Reifen drunter passen.",
+    "ko": "물론 첫 번째는 205 폭의 타이어가 들어가야 했던 와이드 펜더입니다."
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "text": "Das Spoilerpaket einmal drumherum, ganz markant sind die Scheinwerfer.",
+    "ko": "차량을 둘러싼 스포일러 패키지와 매우 특징적인 헤드라이트죠."
+   },
+   {
+    "start": 9.5,
+    "end": 17.0,
+    "text": "Die natürlich bei vielen ausgebaut wurden und in normalen GTIs verbaut, was wieder darum sorgt, dass sie mega selten sind und zu deutsch richtig teuer.",
+    "ko": "많은 이들이 이걸 떼어내 일반 GTI에 장착했기 때문에 지금은 극도로 귀하고 엄청나게 비쌉니다."
+   },
+   {
+    "start": 17.0,
+    "end": 25.5,
+    "text": "Woran erkennt man's noch? Innen drinne Tacho bis 260, geschäumtes Armaturenbrett, das war auch eine Ausstattungsvariante, die einigen GTIs vorbehalten wurden und den Golf Rallyes.",
+    "ko": "또 무엇으로 알 수 있을까요? 260km/h까지 표기된 계기판, 폼 마감된 대시보드는 일부 GTI와 골프 랠리에만 적용된 사양입니다."
+   },
+   {
+    "start": 25.5,
+    "end": 32.5,
+    "text": "Sehr gut zu erkennen übrigens daran, dass das Handschuhfach noch normal das alte Hartplastik ist, während das hier oben schön weich ist.",
+    "ko": "상단은 푹신한 반면 글로브박스는 여전히 구형 딱딱한 플라스틱인 점으로 쉽게 구별됩니다."
+   },
+   {
+    "start": 32.5,
+    "end": 43.4,
+    "text": "Und eine absolute Besonderheit: Um mehr Steifigkeit in die Struktur reinzukriegen, also breitere Holme, sind die Scheiben geklebt. Das ist immer ein ganz eindeutiges Erkennungsmerkmal für den Golf Rallye.",
+    "ko": "그리고 절대적인 특징은 차체 강성을 높이고 필러를 넓히기 위해 유리가 접착식으로 시공되었다는 점입니다. 이것이 골프 랠리의 가장 확실한 식별 포인트입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "보통",
+    "summary": "오리지널 골프 랠리 판별법 질문으로 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 17.0,
+    "speed": "보통",
+    "summary": "와이드 펜더, 전용 스포일러 패키지 및 각형 헤드라이트 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 17.0,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "260 계기판 및 소프트폼 대시보드와 하드 플라스틱 글로브박스 대비 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 32.5,
+    "end": 43.4,
+    "speed": "보통",
+    "summary": "차체 강성을 위한 접착식 윈도우 글라스 특징 설명 및 마무리"
+   }
+  ],
+  "rules": [
+   "진행자의 설명 타이밍에 맞춰 실제 차량의 해당 외관 디테일과 실내 클로즈업 컷을 교차 편집",
+   "화면 하단 좌측에 일관된 AutoScout24 전용 차량명 배너를 지속 배치하여 정보 전달",
+   "재질의 차이를 설명할 때 직접 두드리는 행위와 실제 소리를 담아 신뢰감 부여",
+   "별도의 자막 텍스트 대신 깔끔한 현장 직관 설명 중심 구성"
+  ]
+ }
+}

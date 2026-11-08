@@ -1,0 +1,260 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/BAfN61PIu9o",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2031,
+  "candidatesTokenCount": 1830,
+  "totalTokenCount": 3861,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1289
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.8,
+   "aspect": "9:16",
+   "car": "Porsche 911 GT3 Touring",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 14.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.6,
+    "end": 6.6,
+    "text": "Was ist'n das fürn Kombi?",
+    "ko": "저거 무슨 왜건이야?",
+    "kind": "말 자막",
+    "y_pct": 59.8,
+    "x_center_pct": 49.8,
+    "text_height_pct": 2.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "Alter.",
+    "ko": "대박.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.1,
+    "text_height_pct": 2.7,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.4,
+    "text": "Das muss man lassen.",
+    "ko": "인정할 건 인정해야지.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.6,
+    "text": "Gerade abgezogen worden",
+    "ko": "방금 따였어",
+    "kind": "말 자막",
+    "y_pct": 62.4,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "von nem AMG.",
+    "ko": "AMG한테.",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "포르쉐 GT3 고회전 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "추월하는 AMG 왜건 굉음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "긴박함/리얼리티",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 14.8,
+    "what": "공식 연비 및 CO2 배출 정보 법적 고지 텍스트",
+    "is_3d": false,
+    "size_w_pct": 72.0,
+    "x_pct": 14.0,
+    "y_pct": 69.5,
+    "entrance": "바로",
+    "purpose": "법적 고지",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "what": "유튜브 출처 표기 (Quelle: YouTube - Abarthbenny)",
+    "is_3d": false,
+    "size_w_pct": 36.0,
+    "x_pct": 32.0,
+    "y_pct": 67.5,
+    "entrance": "바로",
+    "purpose": "출처 표기",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 4.6,
+    "end": 6.6,
+    "text": "Was ist'n das fürn Kombi?",
+    "ko": "저거 무슨 왜건이야?"
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "Alter.",
+    "ko": "대박."
+   },
+   {
+    "start": 9.4,
+    "end": 10.4,
+    "text": "Das muss man lassen.",
+    "ko": "인정할 건 인정해야지."
+   },
+   {
+    "start": 10.9,
+    "end": 12.6,
+    "text": "Gerade abgezogen worden",
+    "ko": "방금 따였어"
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "von nem AMG.",
+    "ko": "AMG한테."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "포르쉐 GT3를 몰며 가속하는 운전자"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 6.7,
+    "speed": "빠름",
+    "summary": "아우토반에서 AMG 왜건에 추월당하는 바이럴 밈 영상 인용"
+   },
+   {
+    "stage": "훅",
+    "start": 6.7,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "AMG 왜건에게 따였다며 허탈하게 웃는 운전자의 리액션"
+   }
+  ],
+  "rules": [
+   "유명한 자동차 바이럴 밈(Was ist das für ein Kombi) 영상을 중간 컷으로 교차 편집해 유머러스한 리액션 쇼츠 구성",
+   "화면 중앙에 검은 외곽선의 심플한 화이트 자막으로 대사를 깔끔하게 전달",
+   "배경음악 없이 순수 엔진음과 대사로 현장감과 유머를 극대화"
+  ]
+ }
+}

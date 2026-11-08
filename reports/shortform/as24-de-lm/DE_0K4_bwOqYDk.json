@@ -1,0 +1,162 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/0K4_bwOqYDk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3302,
+  "candidatesTokenCount": 1510,
+  "totalTokenCount": 5839,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2560
+   }
+  ],
+  "thoughtsTokenCount": 1027,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 28.5,
+   "aspect": "9:16",
+   "car": "Dacia Spring",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 11.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 18.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 28.5,
+    "text": "Dacia Spring",
+    "ko": "다치아 스프링",
+    "kind": "제목",
+    "y_pct": 69.5,
+    "x_center_pct": 39.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2A2A2A",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "앰비언트 신스팝",
+   "bpm_est": 95,
+   "mood": "차분하고 편안함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 28.5,
+    "what": "노란색 X 로고 및 Dacia Spring 텍스트 플레이트",
+    "is_3d": false,
+    "size_w_pct": 68.0,
+    "x_pct": 34.0,
+    "y_pct": 70.0,
+    "entrance": "바로",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 28.5,
+    "what": "하단 공식 전비 및 배출가스 안내 문구",
+    "is_3d": false,
+    "size_w_pct": 94.0,
+    "x_pct": 50.0,
+    "y_pct": 96.0,
+    "entrance": "바로",
+    "purpose": "법적 의무 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 8.5,
+    "text": "Also ich merke ja immer, dass ich Fan von einem Auto bin, wenn ich darüber nachdenke, was für Felgen man darauf ziehen könnte, oder ob man den tieferlegt oder höher. Das geht mir gerade so durch den Kopf.",
+    "ko": "내가 어떤 차의 팬이 됐다는 걸 알 때는 언제나, 어떤 휠을 끼울지, 차고를 낮출지 높일지 상상할 때예요. 지금 딱 그 생각이 머릿속을 스치네요."
+   },
+   {
+    "start": 8.5,
+    "end": 17.5,
+    "text": "Ich glaube den Spring, so in einer Extreme-Variante, so ein bisschen aufgebockt, mit ein bisschen dickeren Felgen... oh, das wäre irgendwie cool. Ja, weil dieses Auto passt einfach.",
+    "ko": "이 스프링을 익스트림 버전으로 차고를 살짝 높이고, 두툼한 휠을 달면... 오, 꽤 멋질 것 같아요. 정말 딱 들어맞는 차니까요."
+   },
+   {
+    "start": 17.5,
+    "end": 28.5,
+    "text": "Ja, du kannst damit im Kirchturm fahren, mit diesem kleinen Duracell-Hasen, in seinem Kupfer-Kupra-Look... Hat alles, was man braucht. Ist eine coole Sache.",
+    "ko": "이 작은 듀라셀 토끼 같은 차를 타고 구리빛 쿠프라 룩으로 어디든 다닐 수 있죠. 필요한 건 다 갖췄어요. 정말 멋진 녀석입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.5,
+    "speed": "보통",
+    "summary": "운전자가 차를 커스텀하고 싶어지는 감정을 말하며 흥미 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.5,
+    "end": 18.7,
+    "speed": "보통",
+    "summary": "주행 외관 컷과 함께 튜닝 상상 및 차량의 매력 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 18.7,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "디자인 디테일과 실용성에 대한 긍정적 총평"
+   }
+  ],
+  "rules": [
+   "운전석 토크와 도로 주행 뷰를 교차 편집하여 인터뷰의 지루함을 방지함",
+   "화면 하단에 차량 브랜드·모델명 바를 지속 노출하여 브랜드 인지도 확보",
+   "별도의 화려한 그래픽이나 자막 효과 없이 진행자의 자연스러운 입담에 집중함"
+  ]
+ }
+}

@@ -1,0 +1,393 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/6P_q-xWBf-U",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2395,
+  "candidatesTokenCount": 3876,
+  "totalTokenCount": 7057,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1653
+   }
+  ],
+  "thoughtsTokenCount": 786,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.5,
+   "aspect": "9:16",
+   "car": "Seat Ibiza / Arona",
+   "format": "기타",
+   "person_on_screen": false,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "ERRATE DAS AUTO LEVEL MEDIUM",
+    "ko": "차 맞히기 난이도 중간",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": -5.0,
+    "entrance": "바로",
+    "highlight_word": "AUTO",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "IN WELCHEM AUTO",
+    "ko": "어떤 차에",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.2,
+    "text": "GERADE?",
+    "ko": "지금 앉아있을까요?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#F3E300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 5.4,
+    "text": "JETZT GERNE MAL",
+    "ko": "댓글로 한번",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.2,
+    "text": "ICH ZEIG EUCH",
+    "ko": "디테일을",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 6.8,
+    "text": "DETAILS",
+    "ko": "보여드릴게요",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#F3E300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "HIER DER SCHALTHEBEL",
+    "ko": "여기는 기어봉",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "text": "DEN WAGEN",
+    "ko": "이 차량은",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.0,
+    "text": "UNTER 200€",
+    "ko": "200유로 미만으로",
+    "kind": "가격",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#F3E300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.0,
+    "text": "IM LEASING AUF",
+    "ko": "리스 가능합니다",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.0,
+    "text": "LEASINGMARKT.DE",
+    "ko": "Leasingmarkt.de에서",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#F3E300",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "ABER SCHREIBT JETZT",
+    "ko": "하지만 지금 바로",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.5,
+    "text": "MAL UNTEN IN",
+    "ko": "아래 댓글에",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 16.5,
+    "text": "WAS IHR DENKT",
+    "ko": "무슨 차인지 적어보세요",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "ES SICH HIER HANDELT",
+    "ko": "어떤 차량인지",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Errate das Auto, Level Medium. Ja, in welchem Auto",
+    "ko": "차 맞히기, 중간 난이도. 네, 지금 제가 어떤 차에"
+   },
+   {
+    "start": 3.0,
+    "end": 6.8,
+    "text": "sitze ich hier gerade? Das könnt ihr jetzt gerne mal erraten. Ich zeig euch noch ein paar Details.",
+    "ko": "앉아 있을까요? 한번 알아맞혀 보세요. 디테일을 몇 개 더 보여드릴게요."
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "Hier der Schalthebel.",
+    "ko": "여기는 기어 레버입니다."
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "text": "Außerdem gibt es den Wagen dauerhaft für unter 200 € im Leasing auf Leasingmarkt.de.",
+    "ko": "게다가 이 차는 Leasingmarkt.de에서 월 200유로 미만으로 계속 리스할 수 있습니다."
+   },
+   {
+    "start": 12.8,
+    "end": 18.5,
+    "text": "Aber schreibt jetzt mal unten in die Kommentare, was ihr denkt, um welches Fahrzeug es sich hier handelt.",
+    "ko": "하지만 지금 바로 어떤 차라고 생각하시는지 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "보통",
+    "summary": "실내를 비추며 퀴즈 제시 (어떤 차일까요?)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.0,
+    "end": 8.5,
+    "speed": "보통",
+    "summary": "실내 디테일(인포테인먼트, 공조기, 수동 변속기) 단서 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 8.5,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "월 200유로 미만 리스 힌트 및 사이트 언급"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 13.0,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "댓글 유도(CTA)"
+   }
+  ],
+  "rules": [
+   "원테이크 1인칭 POV 카메라 앵글로 차량 내부를 천천히 스캔하여 시청자의 몰입감 유지",
+   "화면 중앙 하단에 굵은 고딕 텍스트로 음성과 일치하는 키워드 자막 순차 노출",
+   "중요 단어와 플랫폼명에는 노란색(#F3E300) 하이라이트 색상 적용",
+   "시청자 참여를 유도하는 퀴즈 포맷과 댓글 CTA 배치"
+  ]
+ }
+}

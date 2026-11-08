@@ -1,0 +1,269 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/d7NCAWhjwl8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3738,
+  "candidatesTokenCount": 2416,
+  "totalTokenCount": 6154,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2996
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 32.5,
+   "aspect": "9:16",
+   "car": "Rolls-Royce Spectre",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 24.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 28.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 32.5,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.7,
+    "end": 8.1,
+    "text": "Jetzt auf Youtube!\n@autoscout24",
+    "ko": "지금 유튜브에서 확인하세요!\n@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 63.5,
+    "x_center_pct": 43.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 32.5,
+    "text": "Jetzt auf Youtube!\n@autoscout24",
+    "ko": "지금 유튜브에서 확인하세요!\n@autoscout24",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 78.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 닫힘 및 전자음 효과",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "대화 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 28.0,
+    "what": "AutoScout24 로고 워터마크",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 8.0,
+    "y_pct": 4.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Pack ein und bring mir dann ohne eine Probefahrt, ohne alles.",
+    "ko": "포장해서 시승도 없이, 아무것도 없이 바로 가져와 줘."
+   },
+   {
+    "start": 3.0,
+    "end": 5.4,
+    "text": "In München war das. Hab ich mit einer Frau Kontakt gehabt.",
+    "ko": "뮌헨이었어. 어떤 여성분과 연락을 주고받았지."
+   },
+   {
+    "start": 5.4,
+    "end": 9.0,
+    "text": "Sagt sie: \"Was willst du denn haben?\" Ich sage: \"Am liebsten total verrückt.\"",
+    "ko": "그녀가 말하길 \"어떤 걸 원하세요?\" 내가 말했지: \"가장 완전히 미친 놈으로.\""
+   },
+   {
+    "start": 9.0,
+    "end": 12.8,
+    "text": "Dann hat sie mir ein Foto geschickt von dem Auto.",
+    "ko": "그랬더니 그녀가 그 차 사진을 보내줬어."
+   },
+   {
+    "start": 12.8,
+    "end": 15.5,
+    "text": "Ich sage: \"Und das ist total verrückt.\"",
+    "ko": "내가 말했지: \"그리고 그게 완전히 미쳤다고.\""
+   },
+   {
+    "start": 15.5,
+    "end": 20.1,
+    "text": "Haben wir 3 Minuten über den Preis gesprochen. Ich sage: \"Pack das Ding auf den Hänger. Ich überweise das Geld.\"",
+    "ko": "3분 동안 가격 얘기를 나눴어. 내가 말했지: \"그거 트레일러에 실어줘. 바로 돈 송금할 테니까.\""
+   },
+   {
+    "start": 20.1,
+    "end": 24.3,
+    "text": "Pack ein und bring mir dann ohne eine Probefahrt, ohne alles.",
+    "ko": "포장해서 시승도 없이, 아무것도 없이 바로 가져와."
+   },
+   {
+    "start": 24.3,
+    "end": 28.0,
+    "text": "Der war in der Konfiguration? Ja, orange innen, außen grau.",
+    "ko": "원래 그 조합으로 나와 있던 거야? 응, 실내는 오렌지색, 외부는 그레이였지."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "시승도 없이 차를 주문했던 화려한 일화 요약 도입"
+   },
+   {
+    "stage": "기타",
+    "start": 3.0,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "딜러와 주고받은 통화 내용과 즉석 구매 스토리 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 24.3,
+    "end": 28.0,
+    "speed": "보통",
+    "summary": "차량의 내/외장 컬러 조합 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 28.0,
+    "end": 32.5,
+    "speed": "느림",
+    "summary": "유튜브 풀영상 유도 엔딩 카드"
+   }
+  ],
+  "rules": [
+   "자극적인 대화의 결론 구절을 초반 0초에 짧게 배치해 흥미 유발",
+   "인터뷰이의 시선 방향과 말의 호흡에 맞춰 인물 바스트샷과 풀샷을 점프컷으로 리듬감 있게 전환",
+   "독특한 실내 버튼 및 디테일 인서트 컷을 대화 중간에 보여줘 시각적 흥미 유지",
+   "영상 말미에 유튜브 채널 유도용 스티커 그래픽과 전용 엔딩 화면 배치"
+  ]
+ }
+}

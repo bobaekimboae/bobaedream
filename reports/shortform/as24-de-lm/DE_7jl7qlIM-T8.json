@@ -1,0 +1,572 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/7jl7qlIM-T8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3572,
+  "candidatesTokenCount": 5749,
+  "totalTokenCount": 10237,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2830
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 916,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.7,
+   "aspect": "9:16",
+   "car": "Range Rover SVAutobiography (L405)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 9.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 15.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 23.4,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 31.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "Also Elektro-Torben mag",
+    "ko": "그러니까 전기차 매니아 토르벤은",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.1,
+    "text": "ja dieses Auto nicht,",
+    "ko": "이 차를 안 좋아해요,",
+    "kind": "말 자막",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.1,
+    "text": "weil das hat einen",
+    "ko": "왜냐면 이 차엔",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 4.9,
+    "text": "fünf Liter V8 mit Kompressor",
+    "ko": "5리터 V8 슈퍼차저 엔진에",
+    "kind": "말 자막",
+    "y_pct": 49.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.6,
+    "text": "und 565 PS.",
+    "ko": "565마력이나 되거든요.",
+    "kind": "말 자막",
+    "y_pct": 55.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.9,
+    "text": "Verstehe ich gar nicht.",
+    "ko": "전 도무지 이해가 안 가네요.",
+    "kind": "말 자막",
+    "y_pct": 49.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.4,
+    "text": "Dabei ist an diesem Auto eigentlich alles elektrisch.",
+    "ko": "사실 이 차는 거의 모든 게 전기식이거든요.",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.2,
+    "text": "Zum Beispiel die Heckklappe.",
+    "ko": "예를 들어 테일게이트.",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "Aber nicht nur einmal, Torben,",
+    "ko": "그런데 한 번이 아니라 토르벤,",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.1,
+    "text": "zweimal.",
+    "ko": "위아래 두 번 열려요.",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.6,
+    "text": "Elektrisch.",
+    "ko": "전동식으로요.",
+    "kind": "말 자막",
+    "y_pct": 46.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.2,
+    "text": "Und Torben, auch die Türen.",
+    "ko": "그리고 토르벤, 문도 마찬가지예요.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 18.6,
+    "text": "Alle vier elektrisch.",
+    "ko": "네 짝 다 전동식이죠.",
+    "kind": "말 자막",
+    "y_pct": 42.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.3,
+    "text": "Und Torben, guck mal hier:",
+    "ko": "그리고 토르벤, 여기 좀 봐요:",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.6,
+    "text": "Selbst der Bildschirm:",
+    "ko": "화면조차도:",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.4,
+    "text": "Lässt sich neigen.",
+    "ko": "각도 조절이 돼요.",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 25.4,
+    "text": "Und selbst der Gangwahlhebel",
+    "ko": "기어 노브마저도",
+    "kind": "말 자막",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "text": "versenkt sich elektrisch.",
+    "ko": "전동식으로 쏙 들어가요.",
+    "kind": "말 자막",
+    "y_pct": 49.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.2,
+    "text": "Wie viel Elektro willst du denn noch, Torben?",
+    "ko": "얼마나 더 '전기'를 원해, 토르벤?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.2,
+    "end": 31.7,
+    "text": "Torben.",
+    "ko": "토르벤.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 10.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 상단 도어 전동 개폐 모터 작동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 하단 크램셸 전동 개방 모터 및 잠금 해제음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 닫힘 모터 구동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 전동 압축 래치 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "터치스크린 디스플레이 각도 조절 전동 모터 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "시동 OFF 후 다이얼식 기어노브 수납 모터음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 90,
+   "mood": "위트있고 여유로운",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.6,
+    "text": "Also Elektro-Torben mag ja dieses Auto nicht, weil das hat einen fünf Liter V8 mit Kompressor und 565 PS.",
+    "ko": "전기차 팬 토르벤은 이 차를 안 좋아해요, 5리터 슈퍼차저 V8에 565마력이나 되니까요."
+   },
+   {
+    "start": 6.6,
+    "end": 9.4,
+    "text": "Verstehe ich gar nicht. Dabei ist an diesem Auto eigentlich alles elektrisch.",
+    "ko": "전 이해가 안 가네요. 사실 이 차는 거의 다 전동식이거든요."
+   },
+   {
+    "start": 9.4,
+    "end": 15.6,
+    "text": "Zum Beispiel die Heckklappe. Aber nicht nur einmal, Torben, zweimal. Elektrisch.",
+    "ko": "예를 들어 테일게이트요. 한 번도 아니고 토르벤, 위아래 두 번이나 전동으로 열려요."
+   },
+   {
+    "start": 15.6,
+    "end": 18.6,
+    "text": "Und Torben, auch die Türen. Alle vier elektrisch.",
+    "ko": "그리고 토르벤, 도어도 마찬가지로 4개 문 모두 전동(소프트클로징)이죠."
+   },
+   {
+    "start": 18.6,
+    "end": 23.4,
+    "text": "Und Torben guck mal hier: Selbst der Bildschirm: Lässt sich neigen.",
+    "ko": "토르벤 여기도 봐: 화면조차도 전동으로 기울여져요."
+   },
+   {
+    "start": 23.4,
+    "end": 31.7,
+    "text": "Und selbst der Gangwahlhebel versenkt sich elektrisch. Wie viel Elektro willst du denn noch, Torben? Torben.",
+    "ko": "기어 셀렉터 노브마저도 전동으로 숨겨진다고요. 전기를 도대체 얼마나 더 바라는 거야, 토르벤?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "가상 인물 '전기 토르벤'을 핑계로 V8 대배기량차의 모든 전동 옵션 패러독스를 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 9.4,
+    "end": 18.6,
+    "speed": "보통",
+    "summary": "전동 분할 테일게이트와 4개 전동 소프트클로징 도어 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 18.6,
+    "end": 27.6,
+    "speed": "보통",
+    "summary": "실내 전동 틸팅 디스플레이와 전동 수납 기어 다이얼 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 27.6,
+    "end": 31.7,
+    "speed": "느림",
+    "summary": "'얼마나 더 전기를 원하냐'며 카메라를 응시하는 유머러스한 펀치라인 마무리"
+   }
+  ],
+  "rules": [
+   "대배기량 가솔린 엔진의 단점을 역설적으로 '온갖 편의기능이 전기(전동)'라는 말장난으로 풀어내는 유머러스한 훅 구성",
+   "화자가 특정 인물('Torben')을 계속 호명하며 시청자와의 대화체 및 숏폼 몰입도 강화",
+   "모든 전동 옵션(테일게이트, 도어, 화면 틸팅, 기어노브)의 실제 기계 모터 소리를 음소거하지 않고 선명하게 노출",
+   "텍스트는 간결하게 중앙 하단에 배치하며 컷마다 실제 작동 모습을 화면 중심에 꽉 차게 보여줌"
+  ]
+ }
+}

@@ -1,0 +1,441 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/kGM3wFqN6Uw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2476,
+  "candidatesTokenCount": 4259,
+  "totalTokenCount": 7119,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1734
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 384,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 19.5,
+   "aspect": "9:16",
+   "car": "Audi S5 (2025)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 19.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "ERRATE\nDAS AUTO",
+    "ko": "차를 맞혀보세요",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFF829",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ERRATE",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "text": "LEVEL\nMEDIUM",
+    "ko": "난이도 보통",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "DIE MARKE",
+    "ko": "브랜드는",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFF829",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.0,
+    "text": "SOLLTE ZIEMLICH LEICHT",
+    "ko": "꽤 쉬울 겁니다",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 6.8,
+    "text": "ZU ERRATEN SEIN",
+    "ko": "맞히기가",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.5,
+    "text": "SO DIE GANZEN",
+    "ko": "여기 모든",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "text": "DETAILS ANSCHAUT",
+    "ko": "디테일을 살펴보면요",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.4,
+    "text": "HIER IM SITZ",
+    "ko": "여기 시트의 로고도요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 11.4,
+    "text": "ABER DAS GENAUE",
+    "ko": "하지만 정확한",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 12.6,
+    "text": "IST WIRKLICH SCHWER",
+    "ko": "차종을 맞히기는 정말 어렵습니다",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 13.9,
+    "text": "DA MUSS MAN",
+    "ko": "여기서는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.0,
+    "text": "DETAILS ACHTEN",
+    "ko": "디테일에 주의해야 합니다",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.2,
+    "text": "UND ICH GLAUBE",
+    "ko": "제 생각엔",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 17.0,
+    "text": "DAS",
+    "ko": "이 차는",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 18.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.2,
+    "text": "ERRATEN WIRKLICH NUR",
+    "ko": "진짜 전문가들만",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.5,
+    "text": "DIE ECHTEN KENNER",
+    "ko": "알아맞힐 수 있을 겁니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스 비트 / 로파이 힙합",
+   "bpm_est": 110,
+   "mood": "호기심을 유발하고 집중되는 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Errate das Auto. Level medium.",
+    "ko": "차를 맞혀보세요. 보통 난이도."
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "text": "Die Marke des Autos sollte ziemlich leicht zu erraten sein,",
+    "ko": "자동차 브랜드는 맞히기 꽤 쉬울 겁니다,"
+   },
+   {
+    "start": 6.8,
+    "end": 10.4,
+    "text": "wenn man sich hier mal so die ganzen Details anschaut und auch dieses Logo hier im Sitz.",
+    "ko": "여기 디테일들과 시트에 박힌 이 로고를 본다면요."
+   },
+   {
+    "start": 10.4,
+    "end": 12.6,
+    "text": "Aber das genaue Auto zu erraten ist wirklich schwer.",
+    "ko": "하지만 정확한 차종을 맞히기는 정말 어렵습니다."
+   },
+   {
+    "start": 12.6,
+    "end": 15.0,
+    "text": "Da muss man auf ein paar Details achten,",
+    "ko": "몇 가지 세부 디테일에 집중해야 하죠,"
+   },
+   {
+    "start": 15.0,
+    "end": 19.5,
+    "text": "und ich glaube das erraten wirklich nur die echten Kenner.",
+    "ko": "제 생각엔 진짜 전문가들만 맞힐 수 있을 겁니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "스티어링 휠 로고를 손으로 가린 채 차종 맞히기 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "대시보드 디스플레이, 조수석 스크린, S 로고 시트 등 실내 디테일 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.8,
+    "end": 19.5,
+    "speed": "보통",
+    "summary": "운전석으로 돌아와 진짜 전문가만 맞힐 수 있다며 댓글 참여 유도"
+   }
+  ],
+  "rules": [
+   "스티어링 휠 엠블럼을 손으로 가려 시청자의 궁금증을 즉시 유발하는 퀴즈 포맷을 적용한다.",
+   "중앙 하단에 굵은 고딕 대문자 자막을 짧은 구문 단위로 빠르게 교체하여 시선 이탈을 방지한다.",
+   "화면 전환 시 실내 핵심 디테일(보조 스크린, 시트 엠블럼)을 손으로 직접 가리키며 힌트를 준다."
+  ]
+ }
+}

@@ -1,0 +1,381 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/BB2aFVv5VoQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6835,
+  "candidatesTokenCount": 3823,
+  "totalTokenCount": 11585,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6093
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 927,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 66.8,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz VLE 300",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 18.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 24.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 31.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 40.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 49.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 58.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.8,
+    "end": 66.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "3 FAKTEN ZUM BRANDNEUEN MERCEDES VLE EXCLUSIVE LINE",
+    "ko": "완전 신형 메르세데스 VLE 익스클루시브 라인의 3가지 팩트",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3 FAKTEN",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "DER VLE IST KOMPLETT ELEKTRISCH",
+    "ko": "VLE는 순수 전기차입니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "ELEKTRISCH",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 9.5,
+    "text": "707 KILOMETERN",
+    "ko": "707 km",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "707 KILOMETERN",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "text": "300 KW SCHNELL",
+    "ko": "300 kW 급속 충전",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "300 KW",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 57.5,
+    "text": "DER HINTERRADLENKUNG",
+    "ko": "후륜 조향 시스템",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "HINTERRADLENKUNG",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "휙",
+    "event": "제목 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "띵",
+    "event": "숫자 1 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "딸깍",
+    "event": "충전구 커버 누르고 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.7,
+    "type": "띵",
+    "event": "숫자 2 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "천장 스크린 전동 전개 및 웰컴 사운드 재생",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 49.8,
+    "type": "띵",
+    "event": "숫자 3 그래픽 등장 및 슬라이딩 도어 개방",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 / 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 31.0,
+     "what": "차량 디스플레이 애니메이션 음향을 위해 배경음 일시 감쇠"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.7,
+    "end": 5.5,
+    "what": "숫자 1 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "팩트 번호 안내",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 15.5,
+    "what": "숫자 2 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "팩트 번호 안내",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 51.5,
+    "what": "숫자 3 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "팩트 번호 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Drei Fakten zum brandneuen Mercedes VLE in der Exclusive Line.",
+    "ko": "완전 신형 메르세데스 VLE 익스클루시브 라인의 3가지 팩트."
+   },
+   {
+    "start": 3.7,
+    "end": 13.5,
+    "text": "Fakt Nummer 1: Der VLE ist komplett elektrisch, hat eine Reichweite von 707 Kilometern, zumindest so wie er hier steht, und lädt mit bis zu 300 kW schnell.",
+    "ko": "팩트 1: VLE는 완전 전기차로, 현재 사양 기준 707km의 주행거리를 제공하며 최대 300kW 급속 충전이 가능합니다."
+   },
+   {
+    "start": 13.5,
+    "end": 24.0,
+    "text": "Fakt Nummer 2: Vorne interessiert uns gar nicht, denn hier geht's um Chauffiert-Werden. Deswegen gibt's ihn in fünf, sechs, sieben oder sogar acht Sitzen, hier in der zweiten und dritten Sitzreihe.",
+    "ko": "팩트 2: 앞좌석은 볼 필요가 없습니다. 쇼퍼드리븐 차량이기 때문이죠. 그래서 2열과 3열에 5, 6, 7, 심지어 8인승 구성까지 제공합니다."
+   },
+   {
+    "start": 24.0,
+    "end": 31.0,
+    "text": "Was den VLE wirklich einzigartig macht, ist dieses Feature hier. Und dafür muss ich glaube ich gar nicht mehr sagen. Lasst das Ganze einfach mal auf euch wirken.",
+    "ko": "VLE를 진정 특별하게 만드는 것은 바로 이 기능입니다. 더 설명할 필요도 없겠네요. 직접 보시죠."
+   },
+   {
+    "start": 40.0,
+    "end": 49.8,
+    "text": "Zusätzlich kann man die Sitze hier komplett flachlegen, wie in einer S-Klasse oder vielleicht sogar noch besser. Schaut euch das mal an.",
+    "ko": "게다가 시트를 S클래스처럼, 혹은 그 이상으로 완전히 평평하게 눕힐 수도 있습니다. 한번 보세요."
+   },
+   {
+    "start": 49.8,
+    "end": 58.8,
+    "text": "Fakt Nummer 3: Trotz seiner großen Größe und seiner langen Länge hat er dank der Hinterradlenkung einen super Wendekreis und fühlt sich echt toll in der Stadt an.",
+    "ko": "팩트 3: 커다란 덩치와 긴 전장에도 불구하고 후륜 조향 덕분에 회전 반경이 매우 훌륭해 도심에서도 운전하기 편합니다."
+   },
+   {
+    "start": 58.8,
+    "end": 66.8,
+    "text": "Was sagt ihr zum Auto? Schreibt's mal unten in die Kommentare und checkt auf jeden Fall bei LeasingMarkt die besten Deals zum Mercedes-Benz VLE.",
+    "ko": "이 차에 대해 어떻게 생각하시나요? 댓글로 남겨주시고 리싱마르크트에서 메르세데스-벤츠 VLE 최고 조건 딜을 확인해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "3가지 팩트 소개 오프닝"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "팩트 1 - 주행거리 707km 및 300kW 급속 충전"
+   },
+   {
+    "stage": "기능",
+    "start": 13.5,
+    "end": 49.8,
+    "speed": "보통",
+    "summary": "팩트 2 - 럭셔리 쇼퍼드리븐 실내, 전동 시어터 스크린, 플랫 리클라이닝 시트"
+   },
+   {
+    "stage": "기능",
+    "start": 49.8,
+    "end": 58.8,
+    "speed": "빠름",
+    "summary": "팩트 3 - 후륜 조향 시스템과 도심 회전 반경"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 58.8,
+    "end": 66.8,
+    "speed": "보통",
+    "summary": "댓글 유도 및 LeasingMarkt.de 딜 확인 CTA"
+   }
+  ],
+  "rules": [
+   "1인칭 POV 시점에서 손으로 대상을 직접 가리키며 시청자의 시선을 유도",
+   "'3가지 팩트' 구조를 사용하여 넘버링 그래픽(1, 2, 3)과 효과음으로 정보 전달력을 극대화",
+   "화려한 옵션(시어터 스크린 전개) 시점에서는 멘트를 멈추고 현장 사운드를 살려 집중도 향상",
+   "핵심 단어(전기, 주행거리, 충전 속도, 후륜 조향)에 노란색 강조 폰트를 사용"
+  ]
+ }
+}

@@ -1,0 +1,484 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/Aq0gNoVi4x0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5211,
+  "candidatesTokenCount": 4991,
+  "totalTokenCount": 11118,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4469
+   }
+  ],
+  "thoughtsTokenCount": 916,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 49.5,
+   "aspect": "9:16",
+   "car": "Audi A6 Sportback e-tron",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 7.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 15.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 24.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.4,
+    "end": 28.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 38.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 49.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Audi A6 Sportback e-tron.",
+    "ko": "아우디 A6 스포트백 e-트론.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.8,
+    "text": "Für alle Elektriker und Energiewendeberater.",
+    "ko": "모든 전기 기술자와 에너지 전환 컨설턴트를 위해.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.3,
+    "text": "Cooles Auto. Weil man das so macht in Reels.",
+    "ko": "멋진 차죠. 릴스에선 다들 이렇게 하니까요.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.0,
+    "text": "Mit dem Performance-Paket.",
+    "ko": "퍼포먼스 패키지 탑재.",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "Kein Quattro, Heckantrieb.",
+    "ko": "콰트로 아님, 후륜구동.",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.4,
+    "text": "Klebt auf dem Pfännchen wie Raclette. Oder auf der Straße.",
+    "ko": "라클렛 팬에 눌어붙듯 도로에 착 달라붙죠.",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "CW-Wert 0,21.",
+    "ko": "공기저항계수(Cd) 0.21.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.3,
+    "text": "Die Luft merkt gar nicht, dass du da bist. Stealth-Technologie für die Straße.",
+    "ko": "공기가 지나가는 것도 모릅니다. 도로 위의 스텔스 기술이죠.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "text": "Laden von 10 auf 80 % in 21 Minuten. Das ist ultra schnell.",
+    "ko": "10%에서 80%까지 충전하는 데 21분. 초고속입니다.",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 33.5,
+    "text": "Kofferraumvolumen 502 Liter. Genauso viel wie beim Avant.",
+    "ko": "트렁크 용량 502리터. 아반트 모델과 똑같습니다.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 38.6,
+    "text": "Umgeklappt 1.320 Liter. 10 Liter weniger als beim Avant. Das macht die Entscheidung nicht gerade einfacher.",
+    "ko": "폴딩 시 1,320리터. 아반트보다 10리터 적어서 선택이 더 고민되죠.",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 44.0,
+    "text": "Glasdach in 9 Segmenten mit Milchglas,",
+    "ko": "9개 구역으로 조절되는 불투명 스마트 글라스 루프,",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 49.3,
+    "text": "digitale Außenspiegel, und ein Display für den Beifahrer. Herrlich.",
+    "ko": "디지털 사이드미러, 그리고 조수석 디스플레이까지. 아주 훌륭합니다.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 16.0,
+    "type": "휙",
+    "event": "손으로 공기 흐름 가리키는 동작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "딸깍",
+    "event": "스마트 글라스 루프 전환 터치",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 124,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 49.5,
+    "what": "공식 전비 및 배출량 고지 텍스트 (하단)",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "entrance": "바로",
+    "purpose": "법적 필수 정보 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Audi A6 Sportback e-tron.",
+    "ko": "아우디 A6 스포트백 e-트론."
+   },
+   {
+    "start": 2.1,
+    "end": 4.8,
+    "text": "Für alle Elektriker und Energiewendeberater.",
+    "ko": "모든 전기 기술자와 에너지 전환 컨설턴트를 위해."
+   },
+   {
+    "start": 4.8,
+    "end": 7.3,
+    "text": "Cooles Auto. Warum rede ich so? Weil man das so macht in Reels.",
+    "ko": "멋진 차죠. 왜 이렇게 말하냐고요? 릴스에선 원래 이러니까요."
+   },
+   {
+    "start": 7.4,
+    "end": 10.0,
+    "text": "Mit dem Performance-Paket.",
+    "ko": "퍼포먼스 패키지 적용."
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "Kein Quattro, Heckantrieb.",
+    "ko": "콰트로 없이 후륜구동."
+   },
+   {
+    "start": 12.0,
+    "end": 15.4,
+    "text": "Klebt auf dem Pfännchen wie Raclette. Oder auf der Straße.",
+    "ko": "라클렛 팬에 치즈 붙듯 도로에 딱 붙습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 24.3,
+    "text": "CW-Wert 0,21. Die Luft merkt gar nicht, dass du da bist. Stealth-Technologie für die Straße.",
+    "ko": "공기저항계수 0.21. 공기가 눈치채지도 못하죠. 도로를 위한 스텔스 기술입니다."
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "text": "Laden von 10 auf 80 % in 21 Minuten. Das ist ultra schnell.",
+    "ko": "10%에서 80% 충전까지 21분. 초고속입니다."
+   },
+   {
+    "start": 28.8,
+    "end": 33.5,
+    "text": "Kofferraumvolumen 502 Liter. Genauso viel wie beim Avant.",
+    "ko": "트렁크 502리터. 아반트 모델과 완전히 동일합니다."
+   },
+   {
+    "start": 33.6,
+    "end": 38.6,
+    "text": "Umgeklappt 1.320 Liter. 10 Liter weniger als beim Avant. Das macht die Entscheidung nicht gerade einfacher.",
+    "ko": "폴딩하면 1,320리터. 아반트보다 딱 10리터 적으니 고민이 더 깊어지죠."
+   },
+   {
+    "start": 39.0,
+    "end": 44.0,
+    "text": "Aber das Coolste ist der Innenraum. Glasdach in 9 Segmenten mit Milchglas,",
+    "ko": "하지만 제일 멋진 건 실내예요. 9개 구역으로 나뉜 불투명 글라스 루프,"
+   },
+   {
+    "start": 44.0,
+    "end": 49.3,
+    "text": "digitale Außenspiegel, und ein Display für den Beifahrer, dass er dem Fahrer nicht auf den Zünder geht. Herrlich.",
+    "ko": "디지털 사이드미러, 조수석 전용 디스플레이까지. 완벽합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "유머러스한 릴스 톤앤매너로 A6 스포트백 e-트론 소개 시작"
+   },
+   {
+    "stage": "사양",
+    "start": 7.4,
+    "end": 28.8,
+    "speed": "빠름",
+    "summary": "후륜구동 성능, 공기저항계수(0.21), 초고속 충전(21분) 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 28.8,
+    "end": 49.5,
+    "speed": "보통",
+    "summary": "트렁크 용량 비교 및 세그먼트 글라스루프, 디지털 미러 등 실내 옵션 시연"
+   }
+  ],
+  "rules": [
+   "호스트의 과장된 연기와 유머러스한 제스처로 빠른 템포 유지",
+   "스펙 수치(0.21, 21분, 502리터 등)를 직관적 비유와 함께 중앙 자막으로 전달",
+   "화면 중앙에 또렷한 흰색 볼드 텍스트 자막 배치",
+   "배경 음악에 맞춰 호스트가 리듬감 있게 이동하며 주요 파트를 짚어줌"
+  ]
+ }
+}

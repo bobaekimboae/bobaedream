@@ -1,0 +1,165 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/M2a1Dq8IYXE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2659,
+  "candidatesTokenCount": 1458,
+  "totalTokenCount": 4845,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1917
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 728,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21.9,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf I",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 15.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 21.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 21.9,
+    "text": "VW Golf I",
+    "ko": "폭스바겐 골프 1세대",
+    "kind": "제목",
+    "y_pct": 71.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#16273B",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스팝/일렉트로닉 앰비언트",
+   "bpm_est": 110,
+   "mood": "차분하고 진지한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 21.9,
+    "what": "노란색 X자 심볼 아이콘과 네이비색 배경의 차량명 뱃지",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 1.0,
+    "y_pct": 68.0,
+    "entrance": "바로",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "Risiko, volles Risiko, das ist 1974 VW gegangen.",
+    "ko": "위험, 완전한 모험을 1974년에 폭스바겐이 감행했습니다."
+   },
+   {
+    "start": 4.1,
+    "end": 9.2,
+    "text": "Nachdem man sich ein bisschen mit dem Passat an Frontantrieb und Vierzylinder herangetastet hatte, war der Käfer dranne.",
+    "ko": "파사트로 전륜구동과 4기통을 살짝 맛본 뒤, 비틀의 차례가 왔죠."
+   },
+   {
+    "start": 9.2,
+    "end": 10.9,
+    "text": "Aus dem wurde der Golf.",
+    "ko": "그렇게 탄생한 것이 바로 골프입니다."
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "Ein Erfolg in der inzwischen achten Generation.",
+    "ko": "이제는 8세대에 이르는 대성공을 거두었죠."
+   },
+   {
+    "start": 13.5,
+    "end": 16.2,
+    "text": "Über 50 Jahre ist das jetzt langsam her.",
+    "ko": "벌써 50년도 더 전의 일입니다."
+   },
+   {
+    "start": 16.2,
+    "end": 18.5,
+    "text": "Ja, macht mit mir eine kleine Zeitreise.",
+    "ko": "자, 저와 함께 짧은 시간 여행을 떠나보시죠."
+   },
+   {
+    "start": 18.5,
+    "end": 20.3,
+    "text": "Ich bin der Kai von AutoScout24.",
+    "ko": "AutoScout24의 카이입니다."
+   },
+   {
+    "start": 20.3,
+    "end": 21.9,
+    "text": "Seid gespannt.",
+    "ko": "기대해 주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "1974년 비틀 후속으로 골프를 개발하게 된 역사적 배경과 모험 서사 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.9,
+    "end": 21.9,
+    "speed": "보통",
+    "summary": "50년 역사를 돌아보는 골프 1세대 시승/리뷰 시간 여행 예고 및 호스트 소개"
+   }
+  ],
+  "rules": [
+   "자막을 과도하게 쓰지 않고 좌하단 차량명 고정 뱃지만 유지하여 인물과 차체에 시선 집중",
+   "스토리텔링 초반(상반신 클로즈업)에서 후반부(골프 차량 전면부가 드러나는 바스트샷)로의 간결한 2컷 점프컷 구성",
+   "화려한 효과음 없이 진행자의 전달력 높은 목소리와 잔잔한 비트 음악만으로 몰입감 유도"
+  ]
+ }
+}

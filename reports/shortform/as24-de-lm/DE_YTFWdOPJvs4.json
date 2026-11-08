@@ -1,0 +1,168 @@
+{
+ "country": "DE",
+ "url": "https://youtu.be/YTFWdOPJvs4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3653,
+  "candidatesTokenCount": 1738,
+  "totalTokenCount": 6249,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2911
+   }
+  ],
+  "thoughtsTokenCount": 858,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.8,
+   "aspect": "9:16",
+   "car": "Volkswagen T-Roc",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 17.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 31.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 31.8,
+    "text": "VW T-Roc Life 1.5 l eTSI 85 kW (116 PS) 7-Gang-DSG,\nEnergieverbrauch kombiniert: 5,5 l/100km;\nCO2-Emission kombiniert: 126 g/km; CO2-Klasse: D",
+    "ko": "VW 티록 라이프 1.5 eTSI 85kW (116마력) 7단 DSG, 복합 연비: 5.5 l/100km, 복합 CO2 배출량: 126 g/km, CO2 등급: D",
+    "kind": "기타",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스팝/드라마틱 비트",
+   "bpm_est": 110,
+   "mood": "진지하고 엄숙함",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 17.2,
+     "what": "묵념 구간 시작과 함께 비트가 진지하게 고조됨"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 7.1,
+    "text": "2024 hat VW eine Ankündigung gemacht, die eingeschlagen ist wie eine Bombe. Und zwar wird es den T-Roc nicht mehr als Cabrio geben.",
+    "ko": "2024년 폭스바겐은 폭탄과도 같은 발표를 했습니다. 바로 티록 카브리올레를 더 이상 출시하지 않는다는 것입니다."
+   },
+   {
+    "start": 7.1,
+    "end": 12.8,
+    "text": "Nur den T-Roc? Denn nicht nur der T-Roc wird nicht mehr als Cabrio produziert, sondern VW hat gar kein Cabrio mehr im Programm.",
+    "ko": "티록뿐일까요? 티록만 카브리올레로 생산 중단되는 것이 아니라, 폭스바겐 라인업 전체에서 카브리올레가 완전히 사라집니다."
+   },
+   {
+    "start": 12.8,
+    "end": 17.2,
+    "text": "Nach 75 Jahren stellt VW die Produktion von Cabrios ein.",
+    "ko": "75년 만에 폭스바겐이 카브리올레 생산을 전면 중단하는 것입니다."
+   },
+   {
+    "start": 17.2,
+    "end": 22.0,
+    "text": "Drum lasst uns eine kurze Gedenksekunde halten an die Kult-Cabrios, die VW gebaut hat:",
+    "ko": "그러니 폭스바겐이 만들어온 전설적인 카브리올레들을 기리며 잠시 묵념의 시간을 가져보죠."
+   },
+   {
+    "start": 22.0,
+    "end": 26.5,
+    "text": "Den Käfer Cabrio, dem Erdbeerkörbchen, den Eos.",
+    "ko": "비틀 카브리오, '딸기 바구니'(골프 1 카브리오), 그리고 이오스까지."
+   },
+   {
+    "start": 26.5,
+    "end": 31.8,
+    "text": "Was ist euer Lieblings-VW-Cabrio, was leider nicht mehr gebaut wird? Schreibt's drunter.",
+    "ko": "이제 단종되어 볼 수 없는 여러분의 최애 폭스바겐 카브리올레는 무엇인가요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.1,
+    "speed": "보통",
+    "summary": "폭스바겐의 티록 카브리올레 단종 발표 언급"
+   },
+   {
+    "stage": "사양",
+    "start": 7.1,
+    "end": 17.2,
+    "speed": "보통",
+    "summary": "75년 만에 폭스바겐 전 카브리올레 라인업 단종 소식 전달"
+   },
+   {
+    "stage": "기능",
+    "start": 17.2,
+    "end": 26.5,
+    "speed": "느림",
+    "summary": "과거 폭스바겐의 아이코닉한 컨버터블 모델들을 회상하며 추모 제스처"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 26.5,
+    "end": 31.8,
+    "speed": "보통",
+    "summary": "시청자에게 가장 좋아하는 폭스바겐 카브리올레 댓글 작성 요청"
+   }
+  ],
+  "rules": [
+   "자극적인 그래픽이나 큰 자막 없이 진행자의 차분한 스토리텔링과 묵직한 배경음악으로 몰입감을 유도",
+   "원테이크 느낌의 3단계 컷 전환(측면 밀착 -> 전면 보닛 -> 전신 풀샷)으로 자연스러운 시선 확장",
+   "법적 의무 연비/배출가스 정보 텍스트를 하단에 고정 표시",
+   "과거 명차들을 열거한 뒤 댓글 참여(CTA)로 마무리하여 높은 인게이지먼트 유도"
+  ]
+ }
+}

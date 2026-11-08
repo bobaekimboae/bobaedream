@@ -1,0 +1,175 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/cdNMdiD_mR0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2118,
+  "candidatesTokenCount": 1544,
+  "totalTokenCount": 4233,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1376
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 571,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.6,
+   "aspect": "9:16",
+   "car": "Skoda Peaq",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 4.5,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "POV: Du hast beim Autokauf einfach überall 'mehr Platz' angekreuzt",
+    "ko": "POV: 차 살 때 그냥 모든 항목에 '더 넓은 공간'을 체크했을 때",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 15.6,
+    "text": "Stromverbrauch (kombiniert): 15,9-18,5 kWh/100 km\nCO2-Emissionen (kombiniert): 0 g/km\nCO2-Klasse: A\nelektrische Reichweite: 526-609 km.",
+    "ko": "전력소비량(복합): 15.9-18.5 kWh/100 km\nCO2 배출량(복합): 0 g/km\nCO2 등급: A\n전기 주행거리: 526-609 km",
+    "kind": "기타",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "센터 콘솔 테이블 접는 소리",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/트랩",
+   "bpm_est": 110,
+   "mood": "여유롭고 트렌디함",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 4.5,
+     "what": "베이스 드롭 및 비트 본격 전개"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "접이식 테이블 및 넉넉한 공간에 대한 POV 유머 문구 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "비트 드롭과 함께 스코다 PEAQ의 외관, 트렁크, 실내 공간 전반을 감각적으로 노출"
+   }
+  ],
+  "rules": [
+   "초반 4초 동안 POV 밈 형식의 텍스트와 실내 디테일로 시청자의 호기심 유발",
+   "음악의 베이스 드롭 타이밍에 맞춰 차량 외관 풀샷으로 컷 전환",
+   "별도의 음성 없이 트렌디한 BGM과 감각적인 카메라 무빙으로 공간감을 강조",
+   "후반부에는 필수 법적 고지(전비, 배출가스, 주행거리 등)를 상단에 배치"
+  ]
+ }
+}

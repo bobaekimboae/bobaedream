@@ -1,0 +1,511 @@
+{
+ "country": "LM",
+ "url": "https://youtu.be/maqIKT9UJ-o",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6031,
+  "candidatesTokenCount": 5244,
+  "totalTokenCount": 11275,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5289
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.7,
+   "aspect": "9:16",
+   "car": "Tesla Model 3, VW ID. Polo, VW ID.Cross, VW ID.3 Neo",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "de"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 16.9,
+    "part": "사람",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 28.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 40.5,
+    "part": "사람",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 50.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 58.7,
+    "part": "사람",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "E-AUTOS FÜR LEUTE, DIE EINFACH FAHREN WOLLEN",
+    "ko": "그냥 편하게 타고 싶은 사람들을 위한 전기차",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E5A914",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "E-AUTOS",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "WELCHES E-AUTO",
+    "ko": "어떤 전기차가",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "TESLA MODEL 3",
+    "ko": "테슬라 모델 3",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 16.9,
+    "text": "C-TIER",
+    "ko": "C 등급",
+    "kind": "키워드 스티커",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.6,
+    "text": "VW ID.POLO",
+    "ko": "폭스바겐 ID. 폴로",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.7,
+    "text": "A-TIER",
+    "ko": "A 등급",
+    "kind": "키워드 스티커",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "text": "VW ID.CROSS",
+    "ko": "폭스바겐 ID. 크로스",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.2,
+    "end": 40.5,
+    "text": "B-TIER",
+    "ko": "B 등급",
+    "kind": "키워드 스티커",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 47.0,
+    "text": "ID3 NEO",
+    "ko": "ID.3 네오",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 51.0,
+    "text": "S-TIER",
+    "ko": "S 등급",
+    "kind": "키워드 스티커",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#E5A914",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.6,
+    "type": "톡",
+    "event": "손 위에 자동차 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "쿵",
+    "event": "X 표시와 함께 사이버트럭 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "테슬라 모델 3 텍스트 및 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "휙",
+    "event": "티어 리스트 표 화면 하단 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.2,
+    "type": "딸깍",
+    "event": "C티어에 테슬라 배치 완료",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "VW ID.POLO 텍스트 및 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.8,
+    "type": "휙",
+    "event": "티어 리스트 표 재등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "딸깍",
+    "event": "A티어에 ID.POLO 배치 완료",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "VW ID.CROSS 텍스트 및 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "휙",
+    "event": "티어 리스트 표 재등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.2,
+    "type": "딸깍",
+    "event": "B티어에 ID.CROSS 배치 완료",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "톡",
+    "event": "ID3 NEO 텍스트 및 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.9,
+    "type": "휙",
+    "event": "티어 리스트 표 재등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.3,
+    "type": "딸깍",
+    "event": "S티어에 ID3 NEO 배치 완료",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 리드미컬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 14.8,
+    "end": 16.9,
+    "what": "티어 리스트 표(S/A/B/C) 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "entrance": "밀려옴",
+    "purpose": "티어 평가 시각화",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.7,
+    "what": "티어 리스트 표(S/A/B/C) 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "entrance": "밀려옴",
+    "purpose": "티어 평가 시각화",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.5,
+    "what": "티어 리스트 표(S/A/B/C) 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "entrance": "밀려옴",
+    "purpose": "티어 평가 시각화",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 53.0,
+    "what": "티어 리스트 표(S/A/B/C) 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "entrance": "밀려옴",
+    "purpose": "티어 평가 시각화",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "Welches E-Auto passt eigentlich zu dir, wenn du elektrisch fahren möchtest, aber kein E-Auto-Nerd werden möchtest?",
+    "ko": "전기차를 타고 싶지만 전기차 덕후가 되고 싶지는 않은 당신에게 딱 맞는 전기차는 무엇일까요?"
+   },
+   {
+    "start": 5.4,
+    "end": 16.9,
+    "text": "Tesla Model 3. Die Bedienung ist total auf das Touchpad ausgelegt. Außerdem musst du jedem jederzeit erklären, dass du dieses Auto nicht wegen Elon Musk, sondern trotz Elon Musk geholt hast. Für mich: C-Tier.",
+    "ko": "테슬라 모델 3. 조작이 전적으로 터치패드 중심입니다. 게다가 일론 머스크 때문이 아니라 일론 머스크에도 불구하고 샀다고 매번 설명해야 하죠. 저에겐 C티어입니다."
+   },
+   {
+    "start": 16.9,
+    "end": 28.7,
+    "text": "Der VW ID. Polo. Ein Auto, das wir so auch gebraucht haben. Günstiger Einstieg, gute Reichweite von über 450 km und schon ab 219 Euro bei LeasingMarkt zu haben. Für mich: A-Tier.",
+    "ko": "폭스바겐 ID. 폴로. 우리가 원하던 바로 그 차입니다. 저렴한 진입 장벽, 450km 이상의 준수한 주행거리, 리스마르크트에서 219유로대부터 이용 가능하죠. 저에겐 A티어입니다."
+   },
+   {
+    "start": 28.7,
+    "end": 40.5,
+    "text": "Sein Bruder, der VW ID.Cross. Aktuell noch deutlich teurer als der ID. Polo, insgesamt aber ein cooles SUV-Konzept und vielleicht genau das Richtige. Aus Preis-Leistungs-Gründen für mich aber gerade eher: B-Tier.",
+    "ko": "형제 모델인 폭스바겐 ID. 크로스. 현재 ID. 폴로보다 훨씬 비싸지만 전반적으로 멋진 SUV 콘셉트입니다. 다만 가성비 측면에서 지금은 B티어에 가깝습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 53.0,
+    "text": "Der Golf ist nicht umsonst eines der beliebtesten Autos der Welt mit Absatzzahlen in Rekordhöhe. Deswegen ist der ID.3 Neo, weil sie vieles wieder richtig gemacht haben, für mich in diesem Fall auf jeden Fall: S-Tier. Du kannst einfach jedem sagen, du fährst einen elektrischen Golf.",
+    "ko": "골프는 역대급 판매량을 기록하며 세계에서 가장 인기 있는 차 중 하나가 된 데는 이유가 있습니다. 많은 부분을 제대로 바로잡은 ID.3 네오는 무조건 S티어입니다. 그냥 '전기 골프 타'라고 말하면 끝나니까요."
+   },
+   {
+    "start": 53.0,
+    "end": 58.7,
+    "text": "Was sagt ihr? Welche Autos fehlen euch in der Tierlist und welches Ranking hätten sie bekommen? Schreibt's uns unten in die Kommentare.",
+    "ko": "여러분 생각은 어떠신가요? 티어 리스트에 빠진 차가 있나요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "보통",
+    "summary": "전기차 입문자를 위한 추천 질문 및 인트로"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 16.9,
+    "speed": "빠름",
+    "summary": "테슬라 모델 3 소개 및 단점 지적 (C티어)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 16.9,
+    "end": 28.7,
+    "speed": "보통",
+    "summary": "폭스바겐 ID. 폴로 장점 및 가성비 소개 (A티어)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 28.7,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "폭스바겐 ID. 크로스 SUV 콘셉트 평가 (B티어)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 40.5,
+    "end": 53.0,
+    "speed": "빠름",
+    "summary": "폭스바겐 ID.3 네오 최고 평가 및 이유 설명 (S티어)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.0,
+    "end": 58.7,
+    "speed": "보통",
+    "summary": "시청자 의견 유도 및 댓글 참여 요청"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 정면을 응시하며 1인칭으로 이야기하는 토킹 헤드 형식 유지",
+   "각 차종마다 컷 전환과 줌인/줌아웃을 번갈아 배치해 시각적 지루함 방지",
+   "차량명이 언급될 때 누끼 딴 차량 이미지와 노란색 텍스트가 효과음과 함께 팝업",
+   "각 차량 평가 결론 시점에 동일한 S/A/B/C 티어 그래픽이 아래에서 슬라이드 업되며 최종 티어 표시",
+   "말 자막은 단어/구문 단위로 화면 중앙에 크고 굵은 흰색 산세리프 폰트로 순차 노출"
+  ]
+ }
+}
