@@ -1,0 +1,214 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/-8aY8q63t3g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2283,
+  "candidatesTokenCount": 1853,
+  "totalTokenCount": 4136,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 915
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.3,
+   "aspect": "9:16",
+   "car": "마쓰다 MX-5 (Mazda MX-5 Miata)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 10.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 58.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "영상 시작과 함께 인트로 효과음 및 경적 사운드 연출",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "휙",
+    "event": "엔드 카드 AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트 / 인스트루멘탈",
+   "bpm_est": 95,
+   "mood": "경쾌하고 리듬감 있는 챌린지 분위기",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 7.7,
+    "end": 10.3,
+    "what": "AutoScout24 브랜딩 로고 오버레이",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.2,
+    "speed": "보통",
+    "summary": "'Raad het Merk(브랜드를 맞춰보세요)' 텍스트와 함께 스티어링 휠 로고를 가린 채 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 3.2,
+    "end": 7.7,
+    "speed": "보통",
+    "summary": "운전자가 스티어링 휠을 잡고 고민하는 모습을 보여주며 퀴즈 진행"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.7,
+    "end": 10.3,
+    "speed": "보통",
+    "summary": "AutoScout24 로고 등장 및 배경에 마쓰다 매장 간판이 보이며 정답 힌트 노출"
+   }
+  ],
+  "rules": [
+   "음성 해설 없이 화면 자막과 행동만으로 시청자 참여형 퀴즈 유도",
+   "핵심 키워드 낱말('Raad')에 노란색 배경 박스 및 검정 텍스트를 적용하여 시각적 강조",
+   "마지막 컷에서 매장 간판을 배경에 배치하여 자연스럽게 퀴즈의 정답 힌트 제시",
+   "엔딩에 플랫폼 브랜딩 로고(AutoScout24)를 노란 붓터치 그래픽과 함께 강하게 노출"
+  ],
+  "caption_styles": [
+   {
+    "role": "제목",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 2.0,
+    "text_height_pct": 7.0,
+    "y_pct": 58.0,
+    "x_center_pct": 49.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#111111",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 3.2,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "굵게 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 9.0,
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#111111",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.6,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "조금 먼저",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "로고·끝 화면",
+    "sound": "휙",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 250,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 7.7,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.6
+  },
+  "safe_zone_note": "제목 텍스트가 화면 하단 58% 부근에 위치하여 쇼츠/릴스 UI(댓글, 좋아요 등)와 겹치지 않는 안전 영역에 배치됨"
+ }
+}

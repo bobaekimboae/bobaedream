@@ -1,0 +1,222 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/O1eDE8tX3V0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3094,
+  "candidatesTokenCount": 1660,
+  "totalTokenCount": 4754,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1726
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.4,
+   "aspect": "9:16",
+   "car": "Renault Rafale",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 5.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 18.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "RnB / Hip-hop Beat",
+   "bpm_est": 95,
+   "mood": "세련되고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 2.7,
+     "what": "오프닝 멘트 후 비트 본격 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 16.5,
+    "end": 18.4,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "Hoe vaak spot jij het Renault logo?",
+    "ko": "르노 로고를 몇 번이나 찾으셨나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "보통",
+    "summary": "진행자가 르노 로고를 찾아보라는 질문을 던지며 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.7,
+    "end": 16.5,
+    "speed": "빠름",
+    "summary": "차량 그릴, 라이트, 실내 암레스트, 대시보드, 휠, 후면 테일램프 곳곳의 로고 디테일 컷 노출"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 16.5,
+    "end": 18.4,
+    "speed": "보통",
+    "summary": "AutoScout24 로고 팝업 및 차량 전면 풀샷 마무리"
+   }
+  ],
+  "rules": [
+   "도입부에서 진행자의 멘트(질문형 훅)로 시청자의 몰입을 유도한 뒤 디테일 쇼케이스로 전환",
+   "음악 비트에 맞춰 로고가 숨겨진 차량의 세부 파트를 빠른 템포로 연속 컷 편집",
+   "영상 말미에 시그니처 사운드와 함께 오토스카우트24 브랜딩 로고를 띄워 마무리"
+  ],
+  "caption_styles": [
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 5.0,
+    "text_height_pct": 8.0,
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 200,
+    "out_anim": "바로",
+    "stay_sec": 1.9,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 150,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 16.5,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 1.9
+  },
+  "safe_zone_note": "로고가 상단 중앙(y 20%)에 위치하여 유튜브/인스타 쇼츠 UI 버튼과 겹치지 않고 가독성 확보"
+ }
+}

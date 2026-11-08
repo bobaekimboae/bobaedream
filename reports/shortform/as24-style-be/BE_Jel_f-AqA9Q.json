@@ -1,0 +1,575 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/Jel_f-AqA9Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5645,
+  "candidatesTokenCount": 5916,
+  "totalTokenCount": 12123,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4277
+   }
+  ],
+  "thoughtsTokenCount": 562,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.0,
+   "aspect": "9:16",
+   "car": "Renault & Alpine (A290, R5 E-Tech, Rafale)",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 7.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 14.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 20.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 34.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 37.3,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 41.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 47.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "Renault of Alpine?",
+    "ko": "르노인가 알핀인가?",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Alpine",
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 2.1,
+    "text": "Alpine en Renault",
+    "ko": "알핀과 르노",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Alpine",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.2,
+    "text": "hoe zit dat nu eigenlijk?",
+    "ko": "실제로는 어떤 관계일까요?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "dat",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 7.4,
+    "text": "Alpine begon in 1955 als een zelfstandig Frans sportwagenmerk.",
+    "ko": "알핀은 1955년 독자적인 프랑스 스포츠카 브랜드로 시작했습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Frans",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 14.0,
+    "text": "Ze bouwden lichte sportwagens op basis van Renault techniek en boekten daarmee grote successen in de rallysport.",
+    "ko": "르노의 기술력을 바탕으로 경량 스포츠카를 제작해 랠리에서 큰 성공을 거두었죠.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "rallysport",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 20.7,
+    "text": "In 1973 nam Renault Alpine over en sindsdien maken de twee uit van dezelfde familie.",
+    "ko": "1973년 르노가 알핀을 인수하면서 두 브랜드는 한 가족이 되었습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "familie",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 28.4,
+    "text": "Vandaag de dag is Alpine het sportieve premium merk van Renault. Zie het als de Franse tegenhanger van BMW M of Mercedes-AMG.",
+    "ko": "오늘날 알핀은 르노의 스포티 프리미엄 브랜드입니다. BMW M이나 벤츠 AMG의 프랑스 버전으로 보시면 됩니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "premium",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 34.4,
+    "text": "Een goed voorbeeld? De nieuwe Alpine A290 deelt zijn basis met de Renault 5 E-Tech.",
+    "ko": "좋은 예시로 신형 알핀 A290은 르노 5 E-Tech와 플랫폼을 공유합니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Renault",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 41.5,
+    "text": "En ook in de Formule 1 zie je de samenwerking terug. Het fabrieksteam van Renault rijdt tegenwoordig onder de naam Alpine F1 team.",
+    "ko": "포뮬러 1에서도 이 협업을 볼 수 있습니다. 르노 팩토리 팀은 현재 알핀 F1 팀으로 활동하고 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Alpine",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 47.0,
+    "text": "Je vindt hem in de showroom van Garage Saba en op AutoScout24.be",
+    "ko": "가라지 사바 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "도입부 제목 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "휙",
+    "event": "Alpine A290 공식 이미지로 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 43.6,
+    "type": "톡",
+    "event": "Garage Saba 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 박스 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크",
+   "bpm_est": 118,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "what": "Renault of Alpine? 노란색 헤드라인 스티커",
+    "is_3d": false,
+    "size_w_pct": 72.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시청 지속 훅",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 45.0,
+    "what": "Garage Saba Deinze 딜러 로고",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 46.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "딜러 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 47.0,
+    "what": "AutoScout24 로고 (노란 둥근 사각 배경)",
+    "is_3d": false,
+    "size_w_pct": 54.0,
+    "x_pct": 50.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "Alpine en Renault, hoe zit dat nu eigenlijk?",
+    "ko": "알핀과 르노, 실제로는 어떤 관계일까요?"
+   },
+   {
+    "start": 3.0,
+    "end": 7.4,
+    "text": "Alpine begon in 1955 als een zelfstandig Frans sportwagenmerk.",
+    "ko": "알핀은 1955년 독자적인 프랑스 스포츠카 브랜드로 시작했습니다."
+   },
+   {
+    "start": 7.5,
+    "end": 14.0,
+    "text": "Ze bouwden lichte sportwagens op basis van Renault techniek en boekten daarmee grote successen in de rallysport.",
+    "ko": "르노 기술력을 바탕으로 경량 스포츠카를 만들어 랠리 무대에서 대성공을 거두었죠."
+   },
+   {
+    "start": 14.1,
+    "end": 20.7,
+    "text": "In 1973 nam Renault Alpine over en sindsdien maken de twee uit van dezelfde familie.",
+    "ko": "1973년에 르노가 알핀을 인수했고, 이후 두 브랜드는 한 식구가 되었습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 28.4,
+    "text": "Vandaag de dag is Alpine het sportieve premium merk van Renault. Zie het als de Franse tegenhanger van BMW M of Mercedes-AMG.",
+    "ko": "현재 알핀은 르노의 스포티 프리미엄 브랜드 역할을 하며, BMW M이나 메르세데스-AMG의 프랑스 버전 같은 셈입니다."
+   },
+   {
+    "start": 28.5,
+    "end": 34.4,
+    "text": "Een goed voorbeeld? De nieuwe Alpine A290 deelt zijn basis met de Renault 5 E-Tech.",
+    "ko": "좋은 예로, 신형 알핀 A290은 르노 5 E-Tech와 차체를 공유합니다."
+   },
+   {
+    "start": 34.5,
+    "end": 41.5,
+    "text": "En ook in de Formule 1 zie je de samenwerking terug. Het fabrieksteam van Renault rijdt tegenwoordig onder de naam Alpine F1 team.",
+    "ko": "F1 레이스에서도 협업이 이어져, 르노 워크스팀은 알핀 F1 팀이라는 이름으로 달리고 있습니다."
+   },
+   {
+    "start": 41.6,
+    "end": 47.0,
+    "text": "Je vindt hem in de showroom van Garage Saba en op AutoScout24.be.",
+    "ko": "가라지 사바 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "보통",
+    "summary": "알핀과 르노의 관계에 대한 호기심 유발 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "알핀의 1955년 창립 역사와 1973년 르노 인수 배경 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 20.8,
+    "end": 34.5,
+    "speed": "보통",
+    "summary": "르노 고성능 프리미엄 포지션 설명 및 A290/R5 E-Tech 플랫폼 공유 비교"
+   },
+   {
+    "stage": "기타",
+    "start": 34.5,
+    "end": 41.5,
+    "speed": "보통",
+    "summary": "F1 알핀 팀 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 41.5,
+    "end": 47.0,
+    "speed": "보통",
+    "summary": "쇼룸 방문 안내 및 AutoScout24 검색 유도"
+   }
+  ],
+  "rules": [
+   "진행자가 매장을 걸어 다니며 자연스러운 원테이크 느낌으로 브랜드 스토리텔링을 전달",
+   "단어 단위로 핵심 키워드를 브랜드 시그니처 옐로우(#FFDE00)로 강조하여 가독성 강화",
+   "도입부와 마무리 CTA 시 브랜드 시그니처 색상의 볼드 스티커 그래픽에 팝 사운드 매칭",
+   "실물 전시차와 공식 렌더링 컷을 교차 배치하여 이해도 향상"
+  ],
+  "caption_styles": [
+   {
+    "role": "제목",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFDE00",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 4.5,
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 3,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFFFFF",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.4,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "말 자막",
+    "font": "굵게 고딕(산세리프)",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": null,
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.8,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFDE00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.2,
+    "count": 22,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 3,
+    "box": "둥근 알약",
+    "box_color": "#FFDE00",
+    "box_corner_px_at_1080": 16,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 7.0,
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 180,
+    "out_anim": "페이드",
+    "stay_sec": 2.0,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 80,
+    "loud_vs_voice": "비슷",
+    "count": 3
+   },
+   {
+    "event": "컷 전환",
+    "sound": "휙",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "더 작음",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 43.5,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 3.5
+  },
+  "safe_zone_note": "중앙 하단 자막(y 65-70%)은 쇼츠 하단 캡션 오버레이 영역을 살짝 피해 배치되었으며, 브랜드 스티커와 로고는 상단 및 중앙에 집중되어 인터페이스 간섭 없음"
+ }
+}
