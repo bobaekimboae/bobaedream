@@ -1,0 +1,789 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/54_bb7sOYaQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4903,
+  "candidatesTokenCount": 7965,
+  "totalTokenCount": 14372,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3740
+   }
+  ],
+  "thoughtsTokenCount": 1504,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42.3,
+   "aspect": "9:16",
+   "car": "기타 (지프 랭글러 소품 등장 / 다나 몰 부동산 홍보)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 16.0,
+    "part": "그래픽",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.3,
+    "part": "그래픽",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.6,
+    "part": "그래픽",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 31.0,
+    "part": "그래픽",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 34.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 39.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.3,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 13.8,
+    "end": 16.0,
+    "text": "DAMIETTA DANA MALL",
+    "ko": "두미야트 다나 몰",
+    "kind": "제목",
+    "y_pct": 22.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 8.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DANA",
+    "sure": true
+   },
+   {
+    "start": 17.9,
+    "end": 20.2,
+    "text": "58 محل",
+    "ko": "58개 상점",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 24.0,
+    "text_height_pct": 9.0,
+    "color": "#E6C687",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "58",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 22.1,
+    "text": "16M²",
+    "ko": "16제곱미터",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.6,
+    "text": "75M²",
+    "ko": "75제곱미터",
+    "kind": "키워드 스티커",
+    "y_pct": 18.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.7,
+    "text": "L.E/M² 160,000",
+    "ko": "제곱미터당 16만 이집트 파운드",
+    "kind": "가격",
+    "y_pct": 41.0,
+    "x_center_pct": 43.0,
+    "text_height_pct": 6.5,
+    "color": "#52D68A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "160,000",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.1,
+    "text": "1ST FLOOR 36 محل",
+    "ko": "1층 36개 매장",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 8.5,
+    "color": "#E6C687",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1ST FLOOR",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "text": "33M²",
+    "ko": "33제곱미터",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 51.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "text": "70M²",
+    "ko": "70제곱미터",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 51.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.0,
+    "text": "L.E/M² 110,000",
+    "ko": "제곱미터당 11만 이집트 파운드",
+    "kind": "가격",
+    "y_pct": 28.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 6.5,
+    "color": "#74E09E",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "110,000",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 36.3,
+    "text": "مقدم 20%",
+    "ko": "계약금 20%",
+    "kind": "가격",
+    "y_pct": 15.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 8.0,
+    "color": "#FFD23F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20%",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 39.0,
+    "text": "أقساط 4YRS",
+    "ko": "할부 4년",
+    "kind": "가격",
+    "y_pct": 23.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 9.0,
+    "color": "#FFD23F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4YRS",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "지프 랭글러 차량 급정거 및 드리프트 진입",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "쿵",
+    "event": "납치 후 사막으로 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "휙",
+    "event": "CGI 다나 몰 전경 전환 및 로고 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.2,
+    "type": "딸깍",
+    "event": "공사 현장 위 조감도 CGI 레이어 덮이기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "띵",
+    "event": "58개 매장 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.5,
+    "type": "톡",
+    "event": "16m2 면적 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.2,
+    "type": "휙",
+    "event": "75m2 면적 박스로 확장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.4,
+    "type": "돈 소리",
+    "event": "지상층 단가 16만 파운드 표시 및 지폐 이펙트",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "띵",
+    "event": "1층 36개 매장 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.6,
+    "type": "톡",
+    "event": "1층 33m2 면적 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.9,
+    "type": "휙",
+    "event": "70m2 면적 확장 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.3,
+    "type": "돈 소리",
+    "event": "1층 단가 11만 파운드 표시 및 지폐 폭죽",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "톡",
+    "event": "선수금 20% 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "톡",
+    "event": "4년 무이자 할부 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "코믹 시네마틱 비트 / 트랩 비트",
+   "bpm_est": 115,
+   "mood": "긴박하다가 유쾌하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "긴장감 넘치는 베이스"
+    },
+    {
+     "t": 13.6,
+     "what": "경쾌하고 그루브한 홍보 비트로 전환"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 13.7,
+    "end": 16.0,
+    "what": "DANA MALL 금빛 3D 입체 로고 및 위치 핀",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 20.0,
+    "y_pct": 15.0,
+    "entrance": "위에서 뚝 떨어지며 톡 튀어나옴",
+    "purpose": "프로젝트 브랜드 및 명칭 각인",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.8,
+    "what": "사막 부지 위 3D 투시 지하주차장 및 건물 레이아웃 CGI",
+    "is_3d": true,
+    "size_w_pct": 85.0,
+    "x_pct": 8.0,
+    "y_pct": 8.0,
+    "entrance": "오버레이 합성",
+    "purpose": "몰 구조 및 층별 조감도 시각화",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 23.5,
+    "what": "바닥에 투영되는 그리드 면적 가상 박스 (16m² -> 75m²)",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 22.0,
+    "entrance": "스케일 확대",
+    "purpose": "유닛 면적 비교 직관적 전달",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.6,
+    "what": "3D 가격 글자 및 쏟아지는 지폐 파티클",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 10.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 및 가성비 강조",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 34.0,
+    "what": "110,000 파운드 단가 글자와 흩날리는 돈다발",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 15.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "할인된 분양가 시각화",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 39.0,
+    "what": "하늘에 띄운 3D 골드 분양 조건 텍스트(선수금 20%, 4년 할부)",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 35.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "purpose": "지불 조건 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "احبسه والله هاحبسه",
+    "ko": "감옥에 처넣을 거야, 진짜 넣을 거라고!"
+   },
+   {
+    "start": 4.8,
+    "end": 7.0,
+    "text": "ناصر عايزك تعملي إعلان",
+    "ko": "나사르, 나 광고 하나 찍어줬으면 해."
+   },
+   {
+    "start": 7.1,
+    "end": 10.8,
+    "text": "إعلان؟ ما كنت بعتلي على إنستجرام ولا كلمت مدير أعمالي!",
+    "ko": "광고라고요? 인스타그램 DM을 보내든가 매니저한테 전화를 하지 그랬어요!"
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "ده دانا مول أميز مشروع في دمياط الجديدة.. اتفضل.. هاعملك الإعلان من غير خطف",
+    "ko": "이건 뉴 두미야트 최고의 프로젝트 '다나 몰'이야.. 자, 받아요.. 납치 안 해도 광고 찍어줄 테니까!"
+   },
+   {
+    "start": 13.6,
+    "end": 16.0,
+    "text": "ده دانا مول، مول جديد في دمياط",
+    "ko": "이곳이 바로 두미야트의 새로운 몰, 다나 몰입니다."
+   },
+   {
+    "start": 16.0,
+    "end": 17.8,
+    "text": "والمبنى فيه: بدروم، دور أرضي، أول وتاني",
+    "ko": "건물은 지하층, 지상 1층, 2층과 3층으로 구성되어 있죠."
+   },
+   {
+    "start": 17.9,
+    "end": 20.3,
+    "text": "الدور الأرضي فيه 58 محل",
+    "ko": "지상층에는 58개의 상점이 입점합니다."
+   },
+   {
+    "start": 20.4,
+    "end": 23.6,
+    "text": "والمساحات بتبدأ من 16 لحد 75 متر",
+    "ko": "면적은 16제곱미터부터 최대 75제곱미터까지 다양합니다."
+   },
+   {
+    "start": 23.7,
+    "end": 26.8,
+    "text": "وطبقة الكريمة المتر من أول 160 ألف.. يا بلاش والله!",
+    "ko": "핵심 층 평당가는 16만 파운드부터 시작합니다.. 진짜 공짜나 다름없네요!"
+   },
+   {
+    "start": 26.9,
+    "end": 28.5,
+    "text": "والدور الأول 36 محل",
+    "ko": "그리고 1층에는 36개 매장이 있고요,"
+   },
+   {
+    "start": 28.6,
+    "end": 31.0,
+    "text": "من أول 33 متر لحد 70 متر",
+    "ko": "33제곱미터부터 70제곱미터까지 구성됩니다."
+   },
+   {
+    "start": 31.1,
+    "end": 34.0,
+    "text": "والسعر أرخص! المتر بـ 110 ألف، كان لازم يخطفوني فعلاً!",
+    "ko": "가격은 더 저렴해서 제곱미터당 11만 파운드! 이 정도면 납치당할 만하네요!"
+   },
+   {
+    "start": 34.1,
+    "end": 35.3,
+    "text": "الناس هاتدفع إزاي؟",
+    "ko": "결제 조건은 어떻게 되죠?"
+   },
+   {
+    "start": 35.4,
+    "end": 38.3,
+    "text": "بمقدم 20%، وأقساط على أربع سنين بس",
+    "ko": "선수금 20%에 4년 무이자 할부입니다."
+   },
+   {
+    "start": 38.4,
+    "end": 42.0,
+    "text": "بقولك إيه.. هاتوا عشان الفيديو الجاي.. طب ما كنت أخدت رقمي أسهل!",
+    "ko": "있잖아.. 다음 영상도 찍게 다시 묶어!.. 그냥 내 번호를 따가는 게 더 쉽잖아요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "길거리에서 전화를 하던 리뷰어가 지프에 납치당하는 드라마틱한 오프닝"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 13.5,
+    "speed": "빠름",
+    "summary": "사막 공사장에서 묶인 채 광고 의뢰를 받고 브로슈어를 전달받는 코믹한 상황극"
+   },
+   {
+    "stage": "차 소개",
+    "start": 13.5,
+    "end": 17.8,
+    "speed": "빠름",
+    "summary": "다나 몰(Dana Mall) CGI 외관과 건물 층별 구조 조감도 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 17.8,
+    "end": 31.0,
+    "speed": "빠름",
+    "summary": "지상층 및 1층 상가 개수와 16~75m² 유닛 면적을 3D 그래픽으로 시각화"
+   },
+   {
+    "stage": "가격",
+    "start": 31.0,
+    "end": 38.5,
+    "speed": "보통",
+    "summary": "제곱미터당 16만 및 11만 파운드 가격과 선수금 20%, 4년 할부 조건 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 38.5,
+    "end": 42.3,
+    "speed": "빠름",
+    "summary": "다음 편을 찍기 위해 다시 밧줄로 묶으려 하자 항의하는 유쾌한 결말"
+   }
+  ],
+  "rules": [
+   "영화 같은 납치극 시나리오로 도입부 3초 시선 집중 유도",
+   "공사장 실물 부지와 3D CGI 조감도를 매끄럽게 합성하여 실제 완공 모습을 직관적으로 체험시킴",
+   "상가 면적(m²)과 가격 수치를 화면 중앙에 커다란 3D 텍스트와 그리드 박스로 띄워 가독성 극대화",
+   "금전 관련 멘트가 나올 때 지폐 파티클 CG와 카운터 효과음을 동기화하여 혜택 부각",
+   "말투와 연출 모두 B급 코미디 톤을 유지하여 광고 거부감을 낮추고 끝까지 시청 유지"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.0,
+    "end": 17.8,
+    "feature": "지하주차장 및 건물 전체 레이아웃",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "사막 현장 위에 투영되는 3D 단면 투시 조감도",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 23.5,
+    "feature": "호실 분양 면적 (16m²~75m²)",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "바닥에 입체적으로 펼쳐지는 격자형 공간 박스 가이드",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "스케일 확대",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 38.5,
+    "feature": "계약 조건 (선수금 20%, 4년 분납)",
+    "shown_how": "글자 카드",
+    "icon_desc": "공중에 떠 있는 3D 볼드 골드 텍스트",
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "size_w_pct": 45.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전화로 화를 내는 남성 뒤로 검은색 지프 랭글러가 급제동하며 납치극을 벌이는 장면",
+   "type": "행동",
+   "text": "احبسه والله هاحبسه",
+   "ko": "감옥에 처넣을 거야, 진짜 넣을 거라고!"
+  },
+  "narration_points": [
+   {
+    "t": 12.0,
+    "point": "뉴 두미야트 중심부에 들어서는 최고 입지의 상업 시설 다나 몰",
+    "category": "디자인"
+   },
+   {
+    "t": 16.5,
+    "point": "지하 주차장부터 지상층, 1층, 2층까지 체계적인 층별 시설 구성",
+    "category": "공간"
+   },
+   {
+    "t": 18.5,
+    "point": "지상 1층에 58개 매장 입점 및 16~75m²의 다양한 평형대",
+    "category": "공간"
+   },
+   {
+    "t": 24.5,
+    "point": "지상층 기준 m²당 16만 이집트 파운드부터 시작하는 합리적 분양가",
+    "category": "가격·조건"
+   },
+   {
+    "t": 28.0,
+    "point": "2층(1st Floor) 36개 매장 및 33~70m² 규모",
+    "category": "공간"
+   },
+   {
+    "t": 32.0,
+    "point": "2층은 m²당 11만 이집트 파운드의 파격적인 단가",
+    "category": "가격·조건"
+   },
+   {
+    "t": 36.0,
+    "point": "계약금 20%에 4년 무이자 분할 납부 가능",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 33.0,
+   "text": "SW STAR WEALTH 17279",
+   "ko": "스타 웰스 대표번호 17279",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "인물 상황극",
+    "차량 급정거",
+    "사막 현장",
+    "몰 3D 모델링 외관",
+    "부지 조감도",
+    "상가 내부 CGI",
+    "빌보드 및 계약 조건 안내"
+   ]
+  }
+ }
+}

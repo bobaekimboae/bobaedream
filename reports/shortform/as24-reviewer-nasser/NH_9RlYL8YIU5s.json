@@ -1,0 +1,1010 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/9RlYL8YIU5s",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7173,
+  "candidatesTokenCount": 8817,
+  "totalTokenCount": 15990,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6010
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 66.8,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG SL55, Bentley Continental GT W12, Porsche 911 Carrera, Mercedes-AMG GT53, Mercedes-AMG G63, Range Rover Sport SVR, Range Rover Sport, Mercedes V-Class, BMW X7, Range Rover Vogue",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 27.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 33.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 36.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 37.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 43.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 45.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.3,
+    "end": 48.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 57.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 59.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 66.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "رخصة",
+    "ko": "등록증",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A1A1A",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.4,
+    "text": "10,400,000\nMERCEDES SL55",
+    "ko": "10,400,000 EGP / 메르세데스 SL55",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.8,
+    "text": "CABRIOLET",
+    "ko": "카브리올레",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "14,500,000\nCONTINENTAL GT",
+    "ko": "14,500,000 EGP / 콘티넨탈 GT",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 4.5,
+    "color": "#FFA500",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.5,
+    "text": "تبريد",
+    "ko": "통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 4.5,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "911\nCarrera",
+    "ko": "911 카레라",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 6.0,
+    "color": "#D4AF37",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 27.5,
+    "text": "6,250,000\nMERCEDES GT53",
+    "ko": "6,250,000 EGP / 메르세데스 GT53",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.5,
+    "text": "14,000,000\nMERCEDES G63",
+    "ko": "14,000,000 EGP / 메르세데스 G63",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 37.8,
+    "text": "عربية الساحل\nالأساسية",
+    "ko": "해변 필수 차량",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.2,
+    "end": 41.0,
+    "text": "9,000,000\nSPORT SVR",
+    "ko": "9,000,000 EGP / 레인지로버 스포츠 SVR",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.2,
+    "text": "3000KM\nZERO",
+    "ko": "3,000km 신차급",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.6,
+    "text": "9,500,000\nRANGE ROVER SPORT",
+    "ko": "9,500,000 EGP / 레인지로버 스포츠",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.5,
+    "text": "6,500,000\nV CLASS",
+    "ko": "6,500,000 EGP / V클래스",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 57.5,
+    "text": "6,900,000\nBMW X7",
+    "ko": "6,900,000 EGP / BMW X7",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 60.5,
+    "text": "6,000,000\nVOGUE",
+    "ko": "6,000,000 EGP / 보그",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 61.5,
+    "end": 66.8,
+    "text": "التسعين الشمالي\nمول اللوتس",
+    "ko": "북부 90번가 / 로터스 몰",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.9,
+    "type": "휙",
+    "event": "SL55 컷 전환 트랜지션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "톡",
+    "event": "면허증 그래픽 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "띵",
+    "event": "SL55 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "톡",
+    "event": "CABRIOLET 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "띵",
+    "event": "벤틀리 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "열선 시트 아이콘/자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.1,
+    "type": "톡",
+    "event": "통풍 시트 아이콘/자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "휙",
+    "event": "포르쉐 트럭 이동 컷 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "띵",
+    "event": "GT53 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "톡",
+    "event": "5인승 사람 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 33.7,
+    "type": "띵",
+    "event": "G63 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.2,
+    "type": "띵",
+    "event": "레인지로버 SVR 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "톡",
+    "event": "주행거리 게이지 스티커 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 46.0,
+    "type": "띵",
+    "event": "레인지로버 스포츠 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.0,
+    "type": "띵",
+    "event": "V클래스 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.5,
+    "type": "띵",
+    "event": "BMW X7 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "띵",
+    "event": "보그 가격 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 61.5,
+    "type": "톡",
+    "event": "매장 위치 핀 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "what": "등록증/면허 아이콘 박스",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 30.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 등록 상태 안내",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "what": "열선 시트 불꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 46.0,
+    "y_pct": 56.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 열선 옵션 표시",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.5,
+    "what": "통풍 시트 눈꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 46.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 통풍 옵션 표시",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.3,
+    "what": "5인 탑승자 픽토그램",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 22.0,
+    "y_pct": 74.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "5인승 공간 강조",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.2,
+    "what": "계기판 속도계 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 82.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "짧은 주행거리 강조",
+    "sure": true
+   },
+   {
+    "start": 61.5,
+    "end": 66.8,
+    "what": "빨간색 위치 핀 그래픽",
+    "is_3d": false,
+    "size_w_pct": 14.0,
+    "x_pct": 18.0,
+    "y_pct": 19.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "أنا ناصر، ولو عايز عربية حلوة للساحل اوعى يفوتك الفيديو ده.",
+    "ko": "저는 나사르입니다. 올여름 북부 해안에 어울리는 멋진 차를 찾으신다면 이 영상을 절대 놓치지 마세요."
+   },
+   {
+    "start": 3.0,
+    "end": 7.4,
+    "text": "SL55، رخصة وبروتكشن وماشية 300 كم وبـ 10,400,000.",
+    "ko": "SL55, 등록 완료에 PPF 시공, 300km 주행에 1,040만 파운드입니다."
+   },
+   {
+    "start": 7.4,
+    "end": 10.3,
+    "text": "لونها أحمر وكمان كابورليه، هتولع في مراسي.",
+    "ko": "레드 컬러에 카브리올레, 마라시 해변을 뒤흔들 차죠."
+   },
+   {
+    "start": 10.3,
+    "end": 15.8,
+    "text": "بنتلي كونتيننتال GT 2020 بـ 14.5، موتور 12 سلندر وكمان وكيل.",
+    "ko": "벤틀리 콘티넨탈 GT 2020년식 1,450만, 12기통 정식 출고 차량입니다."
+   },
+   {
+    "start": 15.8,
+    "end": 20.8,
+    "text": "وانت بتجري عندك كراسي تسخين وتبريد ومساج وبإنتيرير بنتلي اللي من رأيي أحلى من رولز رويس.",
+    "ko": "달리면서 열선, 통풍, 마사지 시트를 누릴 수 있고, 제 생각엔 롤스로이스보다 멋진 벤틀리 인테리어입니다."
+   },
+   {
+    "start": 20.8,
+    "end": 23.6,
+    "text": "وفي كاريرا زيرو لسه جاية من التوكيل حالاً، هنعملها فيديو لوحدها.",
+    "ko": "그리고 방금 공식 센터에서 막 도착한 신차급 911 카레라, 이건 따로 단독 영상으로 다룰게요."
+   },
+   {
+    "start": 23.6,
+    "end": 27.8,
+    "text": "AMG GT53، مط وكيل وبـ 6,250,000، يا بلاش.",
+    "ko": "AMG GT53 무광 정식 차량 625만 파운드, 정말 거저죠."
+   },
+   {
+    "start": 27.8,
+    "end": 33.3,
+    "text": "ومن جوة عندك أجمل إنتيرير أحمر على AMG، وكاربون فايبر في كل حتة وتاخد خمسة طايرين.",
+    "ko": "실내는 가장 아름다운 AMG 레드 인테리어에 카본 파이버 도배, 5명이 날아가듯 탈 수 있습니다."
+   },
+   {
+    "start": 33.3,
+    "end": 37.8,
+    "text": "G63 24 بـ 14 مليون جنيه، ودي عربية الساحل الأساسية.",
+    "ko": "G63 24년식 1,400만 파운드, 이건 해안가의 필수 아이템이죠."
+   },
+   {
+    "start": 37.8,
+    "end": 43.1,
+    "text": "سبورت SVR 22 بـ 9 مليون جنيه، وعندك كاربون فايبر في كل حتة من برة وكمان من جوة.",
+    "ko": "레인지로버 스포츠 SVR 22년식 900만 파운드, 외관과 실내 전체가 카본 파이버입니다."
+   },
+   {
+    "start": 43.1,
+    "end": 45.3,
+    "text": "وماشية 3000 كم، زيرو.",
+    "ko": "주행거리 단 3,000km, 완전 신차 수준입니다."
+   },
+   {
+    "start": 45.3,
+    "end": 48.8,
+    "text": "سبورت 23 ماشية 18 ألف بس، وبـ 9 مليون ونص.",
+    "ko": "스포츠 23년식 18,000km 주행, 950만 파운드입니다."
+   },
+   {
+    "start": 48.8,
+    "end": 53.8,
+    "text": "وفي كلاس أعلى حاجة بـ 6 مليون ونص VIP كمان، عشان انت والعيلة تروحوا الساحل مستريحين.",
+    "ko": "V클래스 최고급 VIP 트림 650만 파운드, 가족들과 편안하게 바다로 떠나기 최고죠."
+   },
+   {
+    "start": 53.8,
+    "end": 57.7,
+    "text": "وأعلى حاجة في اللاين BMW X7 بـ 6 مليون 900.",
+    "ko": "라인업 중 최고인 BMW X7 690만 파운드입니다."
+   },
+   {
+    "start": 57.7,
+    "end": 60.5,
+    "text": "رينج روفر فوج 2019 بـ 6,000,000.",
+    "ko": "레인지로버 보그 2019년식 600만 파운드입니다."
+   },
+   {
+    "start": 60.5,
+    "end": 66.8,
+    "text": "وكل دول في لاكجري لاين أوتوموتيف، والعنوان التجمع الخامس، التسعين الشمالي، مول اللوتس بجوار سفارة فلسطين.",
+    "ko": "이 모든 차량은 럭셔리 라인 오토모티브에 있습니다. 위치는 뉴카이로 5번 지구 북부 90번가 로터스 몰, 팔레스타인 대사관 옆입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "해변 휴양지용 럭셔리카 모음 소개 인트로"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 10.3,
+    "speed": "빠름",
+    "summary": "벤츠 AMG SL55 오픈카 소개 및 가격 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.3,
+    "end": 20.8,
+    "speed": "빠름",
+    "summary": "벤틀리 콘티넨탈 GT W12 실내외 옵션 및 감상"
+   },
+   {
+    "stage": "차 소개",
+    "start": 20.8,
+    "end": 33.3,
+    "speed": "빠름",
+    "summary": "포르쉐 카레라 예고 및 AMG GT53 실내외 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 33.3,
+    "end": 37.8,
+    "speed": "빠름",
+    "summary": "벤츠 G63 AMG 가격 및 해변 필수 차량 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 37.8,
+    "end": 48.8,
+    "speed": "빠름",
+    "summary": "레인지로버 스포츠 SVR 및 스포츠 23년식 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 48.8,
+    "end": 60.5,
+    "speed": "빠름",
+    "summary": "벤츠 V클래스 VIP, BMW X7, 레인지로버 보그 연속 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 60.5,
+    "end": 66.8,
+    "speed": "보통",
+    "summary": "전시장 상호명 및 오프라인 매장 상세 위치 안내"
+   }
+  ],
+  "rules": [
+   "각 차량마다 상단에 가격(초록색 대형 볼드체)과 모델명을 함께 오버레이하여 직관적인 가격 정보를 전달함",
+   "중요 옵션(열선, 통풍, 탑승 정원, 주행거리) 언급 시 해당 위치 근처에 전용 아이콘과 모션 그래픽을 동기화함",
+   "화면 전환마다 경쾌한 스우시(휙) 효과음과 팝업 띵 소리를 넣어 빠른 템포를 유지함",
+   "차량 1대당 3~7초 내외의 빠른 컷 분배로 다량의 매물을 속도감 있게 나열함",
+   "마지막 매장 전경 컷에서 붉은색 위치 핀 그래픽을 띄워 방문 유도 CTA를 완성함"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "feature": "시트 열선",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "주황색 불꽃 모양과 아랍어 텍스트",
+    "x_pct": 46.0,
+    "y_pct": 56.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.5,
+    "feature": "시트 통풍",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "하늘색 눈송이 모양과 아랍어 텍스트",
+    "x_pct": 46.0,
+    "y_pct": 65.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.3,
+    "feature": "5인승 패밀리 고성능 세단",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "사람 모양 픽토그램 5개 배열",
+    "x_pct": 22.0,
+    "y_pct": 74.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.2,
+    "feature": "초저주행거리 3,000km",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "속도계 게이지 그래픽과 텍스트",
+    "x_pct": 82.0,
+    "y_pct": 42.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 슈퍼카들이 도열한 매장 복도를 걸어나오며 여름 해변용 최고급 차들을 소개하겠다고 선언",
+   "type": "행동",
+   "text": "أنا ناصر، ولو عايز عربية حلوة للساحل اوعى يفوتك الفيديو ده.",
+   "ko": "저는 나사르입니다. 올여름 북부 해안에 어울리는 멋진 차를 찾으신다면 이 영상을 절대 놓치지 마세요."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "메르세데스 SL55: 정식 등록, PPF 시공, 주행 300km, 1,040만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.3,
+    "point": "벤틀리 컨티넨탈 GT: 2020년식 W12 엔진 정식 출고 차량 1,450만 파운드",
+    "category": "성능"
+   },
+   {
+    "t": 15.8,
+    "point": "벤틀리 고급 실내: 열선/통풍/마사지 시트 탑재 및 롤스로이스급 마감",
+    "category": "편의"
+   },
+   {
+    "t": 23.6,
+    "point": "AMG GT53: 무광 그레이 정식 출고차, 625만 파운드의 가성비",
+    "category": "가격·조건"
+   },
+   {
+    "t": 28.5,
+    "point": "AMG GT53 실내: 카본 파이버 트림과 레드 인테리어, 5인 탑승 가능",
+    "category": "공간"
+   },
+   {
+    "t": 33.3,
+    "point": "벤츠 G63: 2024년식 1,400만 파운드, 해변 필수 프리미엄 SUV",
+    "category": "희소성"
+   },
+   {
+    "t": 38.0,
+    "point": "레인지로버 스포츠 SVR: 22년식 900만 파운드, 내외장 풀 카본 파이버",
+    "category": "디자인"
+   },
+   {
+    "t": 48.8,
+    "point": "벤츠 V클래스 VIP: 650만 파운드, 가족 휴가용 최고급 밴",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 60.5,
+   "text": "وكل دول في لاكجري لاين أوتوموتيف، والعنوان التجمع الخامس، التسعين الشمالي، مول اللوتس",
+   "ko": "이 모든 차들은 럭셔리 라인 오토모티브에 있습니다. 뉴카이로 북부 90번가 로터스 몰로 오세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "엔진룸",
+    "실내 앞",
+    "외관 측면",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "외관 후면",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "뒷좌석",
+    "외관 전면"
+   ]
+  }
+ }
+}

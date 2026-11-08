@@ -1,0 +1,1037 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/ScdOkCRo0Ic",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6706,
+  "candidatesTokenCount": 8903,
+  "totalTokenCount": 15609,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5543
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.5,
+   "aspect": "9:16",
+   "car": "BYD FangChengBao Bao 5 (Ti-7)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 18.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 22.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.7,
+    "part": "트렁크",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 36.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 38.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.9,
+    "end": 45.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.9,
+    "end": 52.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.0,
+    "part": "계기판",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 57.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.4,
+    "end": 3.6,
+    "text": "TI-7 BYD",
+    "ko": "BYD TI-7",
+    "kind": "제목",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#00FFCC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TI-7",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "المصريين بيحبو BOXY SHAPE",
+    "ko": "이집트인들이 좋아하는 박스형 디자인",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BOXY SHAPE",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.6,
+    "text": "علشان بيموتو في البراح",
+    "ko": "넓은 공간을 너무 좋아하니까",
+    "kind": "말 자막",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "البراح",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "بنحب نبقا باينين",
+    "ko": "우린 돋보이는 걸 좋아하죠",
+    "kind": "말 자막",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FFCC",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "باينين",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.0,
+    "text": "يعني...",
+    "ko": "즉 무슨 뜻이냐면...",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "يعني",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 15.0,
+    "text": "1500 CC موتور بنزين",
+    "ko": "1500cc 가솔린 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#22A699",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1500 CC",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 16.5,
+    "text": "بطارية كهرباء",
+    "ko": "전기 배터리",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#22A699",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كهرباء",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.8,
+    "text": "315 NM / 275 HP",
+    "ko": "토크 315Nm / 출력 275마력",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 6.5,
+    "color": "#00FFCC",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "275 HP",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 20.2,
+    "text": "1000KM",
+    "ko": "주행거리 1,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 8.0,
+    "color": "#00FFCC",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1000KM",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.9,
+    "text": "حسب دوستك ع البنزين",
+    "ko": "악셀 밟는 정도에 따라 달라져요",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "البنزين",
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 32.5,
+    "text": "صلابة / تطور العربية",
+    "ko": "견고함 / 진화한 차량",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "صلابة",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.8,
+    "text": "التقفيل",
+    "ko": "마감 완성도",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "التقفيل",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.6,
+    "text": "كنبة واسعة جداً",
+    "ko": "매우 넓은 2열 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "واسعة",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.5,
+    "text": "مشترك كهرباء",
+    "ko": "외부 전원 멀티탭 (V2L)",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.5,
+    "color": "#00FFCC",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كهرباء",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 45.8,
+    "text": "تبريد علشان الحر",
+    "ko": "더위를 식혀줄 통풍 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 6.5,
+    "color": "#00FFCC",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تبريد",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 47.2,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIRELESS",
+    "sure": true
+   },
+   {
+    "start": 47.4,
+    "end": 49.0,
+    "text": "BUILT IN G",
+    "ko": "구글 내장",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FFCC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BUILT IN",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.5,
+    "text": "DIGITAL DISPLAY",
+    "ko": "디지털 계기판",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FFCC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DIGITAL",
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 60.1,
+    "text": "CAMERA",
+    "ko": "사각지대 카메라 연동",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1A2530",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CAMERA",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.4,
+    "type": "휙",
+    "event": "차량 모델명 3D 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "박시 셰이프 박스 테두리 그래픽 생성",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "띵",
+    "event": "사이드미러 DM-i 로고 터치 시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.1,
+    "type": "톡",
+    "event": "엔진 3D 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.1,
+    "type": "톡",
+    "event": "배터리 팩 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "띵",
+    "event": "출력 및 토크 스펙 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.9,
+    "type": "휙",
+    "event": "1000KM 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "딸깍",
+    "event": "후면 스페어타이어 수납함 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 테일게이트 트렁크 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.2,
+    "type": "쿵",
+    "event": "망치 아이콘 티타늄 글자 타격",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "문 손잡이 및 도어 트림 마감 손으로 당겨봄",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "딸깍",
+    "event": "V2L 외부 방전 플러그 충전구에 체결",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.2,
+    "type": "띵",
+    "event": "무선 충전 패드 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 58.7,
+    "type": "띵",
+    "event": "방향지시등 조작 시 센터화면에 카메라 영상 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.3,
+    "end": 3.7,
+    "what": "TI-7 BYD 홀로그램 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "확대 전환",
+    "purpose": "차명 소개",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.2,
+    "what": "차체 외곽 박스형 점선 프레임",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "밀려옴",
+    "purpose": "박시 셰이프 강조",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 18.8,
+    "what": "가솔린 엔진 및 배터리 3D 모델 일러스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 68.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "DM-i 하이브리드 파워트레인 설명",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.5,
+    "what": "부서지는 암석 및 망치 3D 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "entrance": "위에서 떨어짐",
+    "purpose": "티타늄 강인함 비유",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.8,
+    "what": "눈꽃 모양 통풍 시트 쿨링 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "페이드",
+    "purpose": "통풍시트 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "text": "أنا ناصر، ولمحبين البوكسي شيب،",
+    "ko": "저는 나사르입니다. 각진 박스형 차를 좋아하시는 분들을 위한,"
+   },
+   {
+    "start": 2.4,
+    "end": 3.6,
+    "text": "BYD Ti-7.",
+    "ko": "BYD Ti-7입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "المصريين بيحبوا البوكسي شيب علشان بيموتوا في البراح،",
+    "ko": "이집트 사람들은 넓은 실내를 너무 좋아해서 박스카 형태를 사랑하죠."
+   },
+   {
+    "start": 6.8,
+    "end": 10.8,
+    "text": "وبنحب نبقى باينين، مع الإيميرالد جرين، وتيتانيوم إل إي ديز، وكاميرات 360،",
+    "ko": "돋보이는 에메랄드 그린 컬러, 티타늄 LED 헤드램프, 360도 어라운드뷰 카메라에,"
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "text": "وبتقنية الـ DM-i، يعني...",
+    "ko": "DM-i 기술이 들어갔는데, 이게 뭐냐면..."
+   },
+   {
+    "start": 13.1,
+    "end": 18.8,
+    "text": "موتور بنزين 1500 وبطارية كهرباء على بعض بيطلعوا 315 نيوتن و 275 حصان،",
+    "ko": "1500cc 가솔린 엔진과 전기 배터리가 합쳐져 315Nm 토크에 275마력을 발휘합니다."
+   },
+   {
+    "start": 18.9,
+    "end": 22.0,
+    "text": "يمشوك 1000 كيلو، أكتر أقل حسب دوستك على البنزين.",
+    "ko": "엑셀 밟는 습관에 따라 1,000km 안팎을 주행할 수 있습니다."
+   },
+   {
+    "start": 22.1,
+    "end": 26.5,
+    "text": "ومن ورا عندك مساحة تخزين 12 كيلو، حط فيها لحمة وفراخ علشان الباربكيو،",
+    "ko": "후면 스페어타이어 함엔 12kg 수납이 가능해서 바베큐용 고기를 넣을 수 있고,"
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "text": "ولو عايز المطبخ كله، عندك مساحة تخزين تشيل طن،",
+    "ko": "트렁크 전체에는 1톤도 실을 수 있을 만큼 공간이 넉넉합니다."
+   },
+   {
+    "start": 28.8,
+    "end": 32.6,
+    "text": "وتيتانيوم وده إسقاط على صلابة وتطور العربية،",
+    "ko": "티타늄 레터링은 이 차의 뛰어난 강성과 진보를 상징합니다."
+   },
+   {
+    "start": 32.7,
+    "end": 36.2,
+    "text": "ومش هقولك خامتها حلوة، روح أقرب BYD وجرب التقفيل والملمس،",
+    "ko": "소재가 좋다는 말 대신, 가까운 BYD 매장에서 마감과 재질을 직접 만져보세요."
+   },
+   {
+    "start": 36.3,
+    "end": 38.8,
+    "text": "وعلشان الصحبة تبقى مرتاحة، عندك كنبة واسعة جداً،",
+    "ko": "동승자가 편하도록 뒷좌석 시트도 아주 넓습니다."
+   },
+   {
+    "start": 38.9,
+    "end": 42.8,
+    "text": "وعلشان الكاتيل والبوتاجاز، عندك مشترك كهربا بيتوصل بالعربية،",
+    "ko": "커피포트나 버너를 쓸 수 있게 차에 연결하는 멀티탭(V2L)도 지원됩니다."
+   },
+   {
+    "start": 42.9,
+    "end": 45.9,
+    "text": "وبانوراما كبير جداً وكراسي تبريد علشان الحر،",
+    "ko": "거대한 파노라마 선루프와 더위를 날려줄 통풍 시트도 갖췄죠."
+   },
+   {
+    "start": 46.0,
+    "end": 52.7,
+    "text": "شاحن وايرلس، وأبل كاربلاي وأندرويد أوتو، وبيلت إن جوجل ويوتيوب،",
+    "ko": "무선 충전기, 애플 카플레이, 안드로이드 오토, 구글과 유튜브가 내장되어 있습니다."
+   },
+   {
+    "start": 52.8,
+    "end": 56.9,
+    "text": "ديجيتال ديسبلاي بيشغل المابس وكروز كنترول،",
+    "ko": "디지털 디스플레이로 내비 지도를 띄우고 크루즈 컨트롤도 작동합니다."
+   },
+   {
+    "start": 57.0,
+    "end": 60.5,
+    "text": "ولما بتدي إشارة، بيفتحلك الكاميرا فعوضوك برضو.",
+    "ko": "깜빡이를 켜면 화면에 카메라 뷰가 바로 떠서 사각지대를 완벽히 보완해 줍니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "박시 셰이프 SUV 소개 및 화려한 타이틀 그래픽"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 12.8,
+    "speed": "빠름",
+    "summary": "이집트인이 선호하는 차체 비율, 외관 컬러, 램프 및 360 카메라"
+   },
+   {
+    "stage": "사양",
+    "start": 12.8,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "DM-i 하이브리드 제원(1.5 엔진+배터리, 275마력, 1000km 주행)"
+   },
+   {
+    "stage": "기능",
+    "start": 22.0,
+    "end": 33.0,
+    "speed": "빠름",
+    "summary": "후면 스토리지, 트렁크 용량 및 차체 견고함 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 33.0,
+    "end": 45.9,
+    "speed": "빠름",
+    "summary": "실내 감성품질, 뒷좌석 레그룸, V2L 전원 단자, 통풍 시트 및 파노라마 루프"
+   },
+   {
+    "stage": "기능",
+    "start": 45.9,
+    "end": 60.5,
+    "speed": "빠름",
+    "summary": "무선충전, 내장 앱, 디지털 계기판 및 턴시그널 연동 사각지대 카메라"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 60.0,
+    "end": 60.5,
+    "speed": "빠름",
+    "summary": "최종 긍정적 멘트로 마무리"
+   }
+  ],
+  "rules": [
+   "자막 폰트는 굵은 아랍어/영문 산세리프에 어두운 네이비 배경 박스를 감싸 사막 배경에서도 높은 시인성 확보",
+   "설명하는 자동차 부품(엔진, 배터리, V2L 멀티탭, 커피포트 등)을 3D 일러스트 팝업 그래픽으로 시각화",
+   "화면 전환마다 경쾌한 스우시(휙) 효과음과 팝업 팅 효과음을 박자에 맞춰 배치",
+   "직접 만져보거나(도어트림), 플러그를 꽂거나, 문을 여는 등 동적인 액션을 끊임없이 보여줌"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.9,
+    "end": 12.5,
+    "feature": "DM-i 하이브리드 시스템 로고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "사이드미러 하단 DM-i 점등 표시",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "확대",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 24.5,
+    "feature": "스페어타이어 박스 수납공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손으로 열어보는 소형 외장 수납함",
+    "x_pct": 60.0,
+    "y_pct": 60.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.8,
+    "feature": "V2L 차량 외부 방전 기능",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "충전구에 220V 멀티탭 소켓 직접 연결",
+    "x_pct": 55.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 45.8,
+    "feature": "통풍 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 표면에 눈꽃과 쿨링을 나타내는 파란색 일러스트",
+    "x_pct": 52.0,
+    "y_pct": 52.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 47.3,
+    "feature": "스마트폰 무선 충전",
+    "shown_how": "글자 카드",
+    "icon_desc": "센터 콘솔 무선충전 패드 위 WIRELESS CHARGER 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 60.2,
+    "feature": "방향지시등 연동 측후방 카메라 뷰",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "깜빡이 레버 조작 시 중앙 디스플레이 상단에 팝업창으로 카메라 실시간 표출",
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 제스처를 취하며 박스형 SUV를 선호하는 이들을 위한 BYD Ti-7 소개",
+   "type": "행동",
+   "text": "أنا ناصر، ولمحبين البوكسي شيب، BYD Ti-7",
+   "ko": "저는 나사르입니다. 각진 스타일을 사랑하는 분들을 위한 BYD Ti-7입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.7,
+    "point": "이집트인들이 선호하는 각진 박스형 실루엣과 넓은 공간감",
+    "category": "디자인"
+   },
+   {
+    "t": 7.5,
+    "point": "에메랄드 그린 컬러와 티타늄 LED 헤드램프, 360 어라운드 뷰",
+    "category": "디자인"
+   },
+   {
+    "t": 13.5,
+    "point": "1.5L 가솔린 엔진과 배터리 결합 DM-i 시스템 (275마력, 315Nm 토크)",
+    "category": "성능"
+   },
+   {
+    "t": 19.5,
+    "point": "최대 1,000km에 달하는 복합 주행 가능 거리",
+    "category": "성능"
+   },
+   {
+    "t": 23.0,
+    "point": "후면 스페어타이어 12kg 보조 수납공간 및 대용량 트렁크",
+    "category": "공간"
+   },
+   {
+    "t": 34.0,
+    "point": "단단한 조립 마감과 고급스러운 감성 품질",
+    "category": "상태"
+   },
+   {
+    "t": 37.0,
+    "point": "여유로운 2열 레그룸 및 좌석 공간",
+    "category": "공간"
+   },
+   {
+    "t": 40.5,
+    "point": "캠핑/야외활동에 유용한 V2L 전원 공급 기능",
+    "category": "편의"
+   },
+   {
+    "t": 44.5,
+    "point": "파노라마 선루프 및 시트 쿨링(통풍) 기능",
+    "category": "편의"
+   },
+   {
+    "t": 47.5,
+    "point": "대화면 디스플레이, 무선충전, 구글/유튜브 안드로이드 오토 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 58.0,
+    "point": "방향지시등 점등 시 센터 화면에 사각지대 카메라 자동 연동",
+    "category": "안전"
+   }
+  ],
+  "cta": {
+   "t": 34.0,
+   "text": "روح أقرب BYD وجرب التقفيل والملمس",
+   "ko": "가까운 BYD 전시장에 직접 방문해 마감 품질을 만져보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 측면",
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "트렁크",
+    "실내 앞",
+    "뒷좌석",
+    "외관 측면",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "센터 화면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,907 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/dIvBI6cn6kw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9355,
+  "candidatesTokenCount": 8005,
+  "totalTokenCount": 17858,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8192
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 498,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 90.7,
+   "aspect": "9:16",
+   "car": "Cadillac Escalade-V (Onyx Package with Executive Rear Seats)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 8.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 16.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 29.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 47.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 57.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.3,
+    "end": 102.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 102.2,
+    "end": 113.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 113.3,
+    "end": 122.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 122.0,
+    "end": 126.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 126.0,
+    "end": 130.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "أنا لفيت السوق كله",
+    "ko": "온 시장을 다 돌아다녔어",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.2,
+    "text": "بس كده!!",
+    "ko": "겨우 그것뿐이야?!",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "text": "طلبك عندي",
+    "ko": "내가 다 구해줄게",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 18.2,
+    "text": "عارف يعني ايه V ؟؟",
+    "ko": "V가 무슨 뜻인지 알아??",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.5,
+    "color": "#FFD700",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 26.5,
+    "text": "VELOCITY",
+    "ko": "속도 (Velocity)",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFD700",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 29.5,
+    "text": "أسرع ESCALADE في العالم",
+    "ko": "세계에서 가장 빠른 에스컬레이드",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.0,
+    "text": "شاشة وسطية",
+    "ko": "중앙 컨트롤 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -6.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 46.5,
+    "text": "بيبان كهرباء",
+    "ko": "전동 도어",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.5,
+    "color": "#FFD700",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.5,
+    "text": "55 INCH",
+    "ko": "55인치 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.0,
+    "text": "شاشة للتحكم",
+    "ko": "제어용 터치스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 126.5,
+    "end": 130.0,
+    "text": "23 عبد الرازق السنهوري",
+    "ko": "압델 라자크 엘 산후리 23번지",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "쿵",
+    "event": "주인공이 문 열고 부딪히며 들어올 때",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "책상 위 미니어처 차량 CG 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "띵",
+    "event": "텍스트 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "휙",
+    "event": "캐딜락 엠블럼 및 3D 텍스트 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "딸깍",
+    "event": "스티어링 휠 V 모드 버튼 누를 때",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "V8 슈퍼차저 급가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "휙",
+    "event": "보닛 열리며 Velocity 엠블럼 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.2,
+    "type": "톡",
+    "event": "시트 기능 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "띵",
+    "event": "전동 도어 닫힘 및 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.8,
+    "type": "톡",
+    "event": "55인치 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 105.8,
+    "type": "휙",
+    "event": "포르쉐 718 스파이더 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 107.5,
+    "type": "휙",
+    "event": "AMG GT 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 109.0,
+    "type": "휙",
+    "event": "람보르기니 우라칸 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 110.8,
+    "type": "휙",
+    "event": "페라리 푸로산게 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 127.0,
+    "type": "띵",
+    "event": "내비게이션 핀 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "긴박하고 에너제틱함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "빠른 비트와 리드미컬한 배경음악 시작"
+    },
+    {
+     "t": 19.5,
+     "what": "가속 장면에서 엔진 배기음 살리며 일시 감소"
+    },
+    {
+     "t": 23.5,
+     "what": "설명 구간에서 비트 유지"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "what": "에스컬레이드 미니어처 컷아웃 및 V 로고",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 75.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "요청 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.0,
+    "what": "캐딜락 3D 로고와 ESCALADE / REAR EXECUTIVE SEATS 텍스트",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 타이틀",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.5,
+    "what": "캐딜락 V 3D 엠블럼과 VELOCITY 텍스트",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "밀려옴",
+    "purpose": "V 배지 의미 설명",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "what": "V8 SUPERCHARGED 682HP 입체 텍스트",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 스펙 강조",
+    "sure": true
+   },
+   {
+    "start": 105.5,
+    "end": 112.5,
+    "what": "쇼룸 보유 슈퍼카 누끼 이미지 연속 등장 (포르쉐, AMG, 람보르기니, 페라리)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시장 라인업 홍보",
+    "sure": true
+   },
+   {
+    "start": 126.5,
+    "end": 130.0,
+    "what": "3D 위치 핀 아이콘 및 CIB 은행 로고",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "쇼룸 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "text": "هو فين؟ إوعى أنت.. عمر!",
+    "ko": "어디 있어? 비켜봐.. 오마르!"
+   },
+   {
+    "start": 3.5,
+    "end": 7.8,
+    "text": "أنا لفيت السوق كله عايز اسكاليد تبقى V أونكس باكدج وRear Executive Seats",
+    "ko": "온 시장을 다 뒤졌는데 에스컬레이드 V, 오닉스 패키지에 리어 이그제큐티브 시트 달린 걸 원해"
+   },
+   {
+    "start": 7.8,
+    "end": 10.5,
+    "text": "بس كده؟ طلبك عندي، تعالى معايا",
+    "ko": "겨우 그거야? 내가 해결해줄게, 따라와"
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "أهم حاجة جبت الكاش؟ لا تقلق.. ماشي",
+    "ko": "제일 중요한 현금은 챙겼어? 걱정 마.. 좋아"
+   },
+   {
+    "start": 12.0,
+    "end": 16.5,
+    "text": "طلبك اهو اسكاليد V-Series أونكس باكدج وRear Executive Seats",
+    "ko": "네가 찾던 바로 그거야. 에스컬레이드 V시리즈 오닉스 패키지, 리어 이그제큐티브 시트"
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "text": "عارف يعني ايه V؟ اه V فظيعة",
+    "ko": "V가 무슨 뜻인지 알아? 대단한(Fazee'a) 거 아냐?"
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "text": "شايف الزرار ده؟ شايفه.. اهو",
+    "ko": "이 버튼 보여? 보여.. 눌러봐"
+   },
+   {
+    "start": 23.5,
+    "end": 29.8,
+    "text": "V for Velocity يعني أسرع اسكاليد في العالم بتنزل بموتور V8 سوبرتشارج بيولد 682 حصان",
+    "ko": "V는 Velocity(속도)야. 세계에서 가장 빠른 에스컬레이드지. 682마력을 내는 V8 슈퍼차저 엔진이 들어갔어"
+   },
+   {
+    "start": 30.0,
+    "end": 33.0,
+    "text": "بس انا مابسوقش! تعالى ورا ع الصف التاني بسرعة",
+    "ko": "하지만 난 운전 안 하잖아! 빨리 2열 뒷좌석으로 가보자"
+   },
+   {
+    "start": 33.0,
+    "end": 46.0,
+    "text": "وعشان كده جبتها لك برير إكزيكتيف سيتس كراسي تبريد وتسخين ومساج وترابيزة وشاشة وسطية وبيبان كهربا",
+    "ko": "그래서 리어 이그제큐티브 시트로 가져왔지. 통풍, 열선, 마사지 시트에 테이블, 중앙 제어 스크린, 자동 전동 도어까지 다 있어"
+   },
+   {
+    "start": 46.5,
+    "end": 57.0,
+    "text": "فرجني من قدام.. مراية مقلوبة كاميرا، 55 بوصة شاشات، كاربون فايبر وثلاجة",
+    "ko": "앞좌석도 보여줘.. 디지털 룸미러 카메라, 55인치 디스플레이, 리얼 카본 파이버에 냉장고까지"
+   },
+   {
+    "start": 57.5,
+    "end": 62.5,
+    "text": "والأونكس فين؟ تعالى أوريك.. أونكس وسموكت تيل لايتس",
+    "ko": "오닉스는 어디 있어? 보여줄게.. 블랙 오닉스 배지와 스모크 테일램프"
+   },
+   {
+    "start": 102.5,
+    "end": 113.0,
+    "text": "طب وجولدن ميلر ده اسكاليد بس؟ لأ ده كولكشن أميز عربيات في مصر بورش وAMG وهوراكان وفيراري",
+    "ko": "골든 밀러는 에스컬레이드만 취급해? 아니, 이집트 최고 라인업인 포르쉐, AMG GT, 우라칸, 푸로산게도 있어"
+   },
+   {
+    "start": 113.0,
+    "end": 121.5,
+    "text": "مفيش حاجة للناس اللي زينا؟ كودياك، GLC، C-Class، E-Class من الإبرة للصاروخ",
+    "ko": "우리 같은 서민을 위한 차는 없어? 코디악, GLC, C클래스, E클래스까지 바늘부터 미사일까지 다 있어"
+   },
+   {
+    "start": 121.5,
+    "end": 130.5,
+    "text": "المكان الحلو ده فين؟ 23 عبد الرازق السنهوري فوق بنك CIB",
+    "ko": "이 멋진 곳 어디야? 압델 라자크 엘 산후리 23번지 CIB 은행 바로 위층이야"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 11.5,
+    "speed": "빠름",
+    "summary": "쇼룸으로 급하게 뛰어들어와 에스컬레이드 V를 요구하는 콩트 오프닝"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.5,
+    "end": 18.0,
+    "speed": "보통",
+    "summary": "에스컬레이드 V Onyx 에디션 실물 대면 및 V 엠블럼 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.0,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "V 모드 가속 배기음 시연 및 V8 슈퍼차저 682마력 엔진룸 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 46.5,
+    "speed": "빠름",
+    "summary": "VIP 리어 이그제큐티브 시트 편의사양(통풍·열선·마사지·테이블·전동도어)"
+   },
+   {
+    "stage": "기능",
+    "start": 46.5,
+    "end": 62.5,
+    "speed": "빠름",
+    "summary": "운전석 55인치 스크린, 냉장고 및 외관 Onyx 블랙 디테일 점검"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 62.5,
+    "end": 82.0,
+    "speed": "보통",
+    "summary": "골든 밀러 쇼룸의 슈퍼카 라인업 및 대중 세단/SUV 라인업 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 82.0,
+    "end": 90.7,
+    "speed": "보통",
+    "summary": "쇼룸 위치 주소 안내 및 마무리 대화"
+   }
+  ],
+  "rules": [
+   "도입부를 빠른 발걸음과 문의를 빙자한 짧은 상황극(콩트)으로 시작해 즉각적인 몰입감을 형성함",
+   "스펙이나 트림명(V-Series, Onyx Package, Executive Seats)을 3D 그래픽 타이틀과 음향으로 시각화하여 프리미엄감을 강조함",
+   "차량의 고성능 엔진 배기음과 가속 장면을 영상 전반부에 삽입하여 청각적 임팩트를 줌",
+   "옵션(마사지 시트, 테이블, 55인치 화면, 전동 도어 등)을 하나씩 직접 만지고 작동시키며 빠른 템포로 리뷰함",
+   "단일 차량 소개에 그치지 않고 후반부에 쇼룸 내 다른 라인업(슈퍼카 및 데일리 카)을 연속으로 보여주며 딜러십 전체를 자연스럽게 홍보함"
+  ],
+  "option_highlights": [
+   {
+    "start": 17.8,
+    "end": 20.2,
+    "feature": "V-Mode 퍼포먼스 드라이빙 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 45.0,
+    "y_pct": 32.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "버튼 딸깍음",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 37.0,
+    "feature": "VIP 2열 열선/통풍/마사지 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "불꽃 이모지와 텍스트 스티커",
+    "x_pct": 60.0,
+    "y_pct": 32.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.0,
+    "feature": "2열 접이식 비즈니스 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.0,
+    "feature": "2열 중앙 컨트롤 터치 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 45.0,
+    "y_pct": 52.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.0,
+    "feature": "파워 전동 도어 (소프트 클로징)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "번개 아이콘과 3D 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 70.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 53.5,
+    "feature": "55인치 일체형 커브드 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": "55 INCH 텍스트 스티커",
+    "x_pct": 60.0,
+    "y_pct": 42.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 55.5,
+    "end": 57.2,
+    "feature": "센터 콘솔 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "얼음 3D 그래픽",
+    "x_pct": 48.0,
+    "y_pct": 65.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "남자가 문을 거칠게 열고 쇼룸으로 뛰어들어오며 '오마르 어디 있어?!'라고 소리침",
+   "type": "행동",
+   "text": "هو فين؟ إوعى أنت.. عمر!",
+   "ko": "어디 있어? 비켜봐.. 오마르!"
+  },
+  "narration_points": [
+   {
+    "t": 5.5,
+    "point": "에스컬레이드 V시리즈, 오닉스 패키지, 리어 이그제큐티브 시트 조합 요청",
+    "category": "희소성"
+   },
+   {
+    "t": 24.5,
+    "point": "세계에서 가장 빠른 682마력 6.2리터 V8 슈퍼차저 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 35.0,
+    "point": "2열 통풍·열선·마사지 시트 및 비즈니스 접이식 테이블",
+    "category": "편의"
+   },
+   {
+    "t": 44.5,
+    "point": "손가락 하나로 가볍게 닫히는 전동 자동 도어",
+    "category": "편의"
+   },
+   {
+    "t": 51.5,
+    "point": "대시보드를 가득 채우는 55인치 울트라 와이드 디스플레이",
+    "category": "디자인"
+   },
+   {
+    "t": 56.0,
+    "point": "센터 콘솔 냉장고 및 리얼 카본 파이버 트림 마감",
+    "category": "편의"
+   },
+   {
+    "t": 60.0,
+    "point": "오닉스 패키지 블랙 엠블럼 및 스모크 테일램프",
+    "category": "디자인"
+   },
+   {
+    "t": 107.0,
+    "point": "포르쉐 718, AMG GT, 람보르기니 우라칸, 페라리 푸로산게 등 슈퍼카 구비",
+    "category": "희소성"
+   },
+   {
+    "t": 118.5,
+    "point": "코디악, 벤츠 GLC/C클래스/E클래스 등 대중적인 데일리 모델까지 보유",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 127.0,
+   "text": "23 عبد الرازق السنهوري فوق بنك CIB",
+   "ko": "쇼룸 위치: 압델 라자크 엘 산후리 23번지, CIB 은행 바로 위",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "실내 앞",
+    "외관 후면",
+    "엔진룸",
+    "뒷좌석",
+    "실내 앞",
+    "외관 전면"
+   ]
+  }
+ }
+}

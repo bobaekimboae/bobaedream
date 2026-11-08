@@ -1,0 +1,737 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/dJU_1N7CXGs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5362,
+  "candidatesTokenCount": 5984,
+  "totalTokenCount": 11346,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4199
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.5,
+   "aspect": "9:16",
+   "car": "Lamborghini Urus / Haval H6 / 기타",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 13.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 23.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 36.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 42.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 46.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "text": "عربيتك مخبوطة",
+    "ko": "차가 파손되었거나",
+    "kind": "말 자막",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "text": "الأزاز مكسور",
+    "ko": "유리가 깨져 있다면",
+    "kind": "말 자막",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "حاجة تعصب",
+    "ko": "화나는 일이죠",
+    "kind": "말 자막",
+    "y_pct": 31.0,
+    "x_center_pct": 23.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#CC4400",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.0,
+    "text": "(تحتاج كابل OBD منفصل)",
+    "ko": "(별도 OBD 케이블 필요)",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "INTERIOR CAMERA",
+    "ko": "내부 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 56.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#333333",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.3,
+    "text": "شركات السياحة",
+    "ko": "여행사",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.0,
+    "text": "باصات المدارس",
+    "ko": "스쿨버스",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.2,
+    "text": "طب لو حد خبطك من ورا؟",
+    "ko": "뒤에서 들이받히면?",
+    "kind": "말 자막",
+    "y_pct": 23.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.5,
+    "text": "3RD CAMERA",
+    "ko": "3번째 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#333333",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.2,
+    "end": 30.5,
+    "text": "G-SENSOR",
+    "ko": "G센서 충격 감지",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "text": "50x",
+    "ko": "50배",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "쿵",
+    "event": "사고 난 우루스 CG 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "유리 깨지는 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "화남 이모지 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "휙",
+    "event": "블랙박스 기기 박스 내밀기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.1,
+    "type": "딸깍",
+    "event": "블랙박스 전면 유리 부착",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "띵",
+    "event": "24시간 녹화 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.2,
+    "type": "톡",
+    "event": "실내 카메라 손가락 가리킴",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "쿵",
+    "event": "후면 파손 CG 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "띵",
+    "event": "G센서 아이콘 및 파동 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "딸깍",
+    "event": "SD카드 탈거",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "돈 소리",
+    "event": "50x 머니 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너지틱",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.8,
+    "end": 2.7,
+    "what": "차량 완파/유리 파손 CG 합성",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 60.0,
+    "y_pct": 55.0,
+    "entrance": "바로",
+    "purpose": "파손 상황 연출 훅",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.0,
+    "what": "초록색 체크 인증 마크",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 62.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "간편 장착 강조",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 12.5,
+    "what": "24h 시계 및 REC 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "페이드",
+    "purpose": "24시간 상시 녹화 강조",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "what": "탑승자-운전자 아이콘 간 화살표",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "실내 승객 보호 및 모니터링",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.2,
+    "what": "트렁크/후면부 완파 CG",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "바로",
+    "purpose": "후방 추돌 사고 연출",
+    "sure": true
+   },
+   {
+    "start": 28.2,
+    "end": 30.5,
+    "what": "G-센서 신호 파동 아이콘",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "충격 감지 녹화 보존 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "تخيل تصحى الصبح وتلاقي عربيتك مخبوطة أو القزاز مكسور",
+    "ko": "아침에 일어났는데 차가 부서져 있거나 유리가 깨져 있다면 어떨까요?"
+   },
+   {
+    "start": 2.6,
+    "end": 5.0,
+    "text": "حاجة تعصب وتبقى عايز تاخد حقك، هقولك إزاي",
+    "ko": "정말 화나고 보상받고 싶겠죠, 방법 알려드릴게요."
+   },
+   {
+    "start": 5.0,
+    "end": 8.0,
+    "text": "الداش كاميرا من ماجنتيك هتساعدك تحافظ على عربيتك",
+    "ko": "마젠틱의 대시캠이 여러분의 차를 지켜줍니다."
+   },
+   {
+    "start": 8.0,
+    "end": 13.0,
+    "text": "أولاً هي سهلة التركيب، وبالكابل الـ OBD بتسجل اللي قدامك 24 ساعة متواصل",
+    "ko": "첫째, 설치가 쉽고 OBD 케이블로 24시간 연속 녹화됩니다."
+   },
+   {
+    "start": 13.0,
+    "end": 18.0,
+    "text": "وكمان فيها كاميرا داخلية عشان تتأكد إن السواق مش بيضايق الركاب والعكس",
+    "ko": "내부 카메라도 있어서 기사와 승객 사이의 안전을 모니터링할 수 있죠."
+   },
+   {
+    "start": 18.0,
+    "end": 21.5,
+    "text": "وده كويس لشركات السياحة، أوبر وكريم وباصات المدارس",
+    "ko": "여행사, 우버/카림, 통학버스 등에 아주 적합합니다."
+   },
+   {
+    "start": 21.5,
+    "end": 25.5,
+    "text": "طب لو حد خبطك من ورا؟ في كاميرا تالتة بتركبها ورا",
+    "ko": "뒤에서 들이받히면요? 뒤에 장착하는 3번째 후방 카메라가 있습니다."
+   },
+   {
+    "start": 25.5,
+    "end": 28.0,
+    "text": "ومن الشاشة تقدر تسجل وتشوف اللي وراك",
+    "ko": "화면을 통해 후방 상황을 직접 확인하고 기록할 수 있습니다."
+   },
+   {
+    "start": 28.0,
+    "end": 33.0,
+    "text": "وفيها G-Sensor لو عملت حادثة أو وقفت فجأة بتحفظ الملفات عشان ما تتمسحش",
+    "ko": "G-센서가 있어 사고나 급제동 시 영상을 지워지지 않게 잠금 저장합니다."
+   },
+   {
+    "start": 33.0,
+    "end": 37.0,
+    "text": "وده دليل قوي يخليك ترجع حقك اللي ممكن يبقى 50 ضعف سعر الكاميرا",
+    "ko": "카메라 가격의 50배가 넘는 피해를 보상받을 수 있는 확실한 증거가 되죠."
+   },
+   {
+    "start": 37.0,
+    "end": 42.0,
+    "text": "دي الـ MZ-03 بـ 3 كاميرات، وفي الـ MZ-02 والـ MZ-01",
+    "ko": "이건 3채널 MZ-03 모델이고, 2채널과 1채널 모델도 있습니다."
+   },
+   {
+    "start": 42.0,
+    "end": 46.5,
+    "text": "تقدر تطلبه من على موقع ماجنتيك بس الحقوا قبل ما يخلص",
+    "ko": "마젠틱 웹사이트에서 주문 가능하니 품절 전에 서두르세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "빠름",
+    "summary": "차량 파손 CG와 함께 물피도주/사고 상황에 대한 분노 유발 공감 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.6,
+    "end": 8.0,
+    "speed": "빠름",
+    "summary": "마젠틱 차량용 대시캠 제품 라인업 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 8.0,
+    "end": 36.8,
+    "speed": "빠름",
+    "summary": "상시녹화, 실내 카메라, 후방 카메라, G센서 충격보존 등 핵심 기능 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 36.8,
+    "end": 42.1,
+    "speed": "보통",
+    "summary": "1채널부터 3채널까지 모델별(MZ-01/02/03) 스펙 구분"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 42.1,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "공식 웹사이트 구매 촉구 CTA"
+   }
+  ],
+  "rules": [
+   "도입부에 실제 차량이 파손된 것 같은 정교한 3D CG 합성으로 시청자의 시선을 즉시 잡는다.",
+   "새로운 기능(내부 카메라, 후방 카메라, 센서)이 설명될 때마다 해당하는 텍스트 카드와 전용 아이콘이 팝업된다.",
+   "단순 전자기기 리뷰가 아닌 '내 돈(피해 보상금 50배)을 지키는 보험'이라는 실질적 금전 이점을 강조한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 8.0,
+    "end": 12.8,
+    "feature": "24시간 주차/상시 녹화",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "24h 시계 타이머와 빨간색 REC 녹화 표시",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 17.5,
+    "feature": "실내 촬영 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "운전자와 승객 사이를 잇는 그래픽 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 27.5,
+    "feature": "후방 카메라 및 화면 연동",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "차량 후방을 주시하는 차량/눈 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.0,
+    "feature": "G센서 충격 감지 파일 보호",
+    "shown_how": "글자 카드",
+    "icon_desc": "전파/신호 파동 형태의 G SENSOR 엠블럼",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "우루스 차량 앞부분이 완파되고 유리가 깨진 CG를 보여주며 '아침에 차가 이렇게 되어있다면?' 질문",
+   "type": "질문",
+   "text": "تخيل تصحى الصبح وتلاقي عربيتك مخبوطة أو القزاز مكسور",
+   "ko": "아침에 일어났는데 차가 부서져 있거나 유리가 깨져 있다면 어떨까요?"
+  },
+  "narration_points": [
+   {
+    "t": 10.0,
+    "point": "OBD 상시 케이블 연결을 통해 24시간 내내 연속 주차 녹화 가능",
+    "category": "안전"
+   },
+   {
+    "t": 15.0,
+    "point": "실내 카메라가 있어 영업용 차량(택시/스쿨버스) 내부 안전 모니터링 가능",
+    "category": "편의"
+   },
+   {
+    "t": 25.0,
+    "point": "후방 3번째 카메라로 후방 추돌 및 사각지대 녹화",
+    "category": "안전"
+   },
+   {
+    "t": 30.0,
+    "point": "G센서 탑재로 급제동이나 충돌 사고 시 영상을 지워지지 않게 자동 보관",
+    "category": "안전"
+   }
+  ],
+  "cta": {
+   "t": 43.0,
+   "text": "تقدر تطلبه من على موقع ماجنتيك بس الحقوا قبل ما يخلص",
+   "ko": "마젠틱 웹사이트에서 주문 가능하니 품절 전에 서두르세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "옵션 작동",
+    "실내 앞",
+    "외관 후면",
+    "실내 앞",
+    "옵션 작동",
+    "외관 전면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,856 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/YnuJM5ZNAwI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7262,
+  "candidatesTokenCount": 7290,
+  "totalTokenCount": 15201,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6099
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 649,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 67.2,
+   "aspect": "9:16",
+   "car": "Nissan Patrol VIP",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 11.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 19.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 27.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.4,
+    "end": 31.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 37.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 43.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 51.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.6,
+    "end": 55.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 59.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 62.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.6,
+    "end": 64.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.8,
+    "end": 67.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.9,
+    "end": 4.5,
+    "text": "خييييينا",
+    "ko": "배신자야~",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.5,
+    "text": "ثلاجة",
+    "ko": "냉장고",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#5DADE2",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -8.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "text": "بمستوى رئاسي",
+    "ko": "대통령급 수준",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.0,
+    "color": "#F1C40F",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.3,
+    "end": 13.0,
+    "text": "FOOTREST CUSHION BLOCK",
+    "ko": "발받침 쿠션 블록",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 3.8,
+    "color": "#F1C40F",
+    "background": "외곽선",
+    "bg_color": "#922B21",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "CENTRAL SCREEN",
+    "ko": "중앙 컨트롤 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#F1C40F",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.0,
+    "text": "COFFEE MACHINE",
+    "ko": "커피 머신",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#F1C40F",
+    "background": "외곽선",
+    "bg_color": "#922B21",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.0,
+    "text": "MASTER",
+    "ko": "마스터 조명",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.8,
+    "color": "#F1C40F",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.5,
+    "text": "V6 425hp 700Nm",
+    "ko": "V6 425마력 700Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 6.0,
+    "color": "#F39C12",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.0,
+    "text": "AIR SUSP. CUSHION BLOCK\nHBMC",
+    "ko": "에어 서스펜션 & HBMC 유압 차체 제어",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#F1C40F",
+    "background": "외곽선",
+    "bg_color": "#922B21",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 64.9,
+    "end": 67.0,
+    "text": "CHILLOUT AUC",
+    "ko": "칠아웃 AUC 주유소",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.9,
+    "type": "톡",
+    "event": "화면 글자 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "톡",
+    "event": "냉장고 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "띵",
+    "event": "왕관 및 대통령급 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "시트 냉방/통풍 눈꽃 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "휙",
+    "event": "중앙 컨트롤 스크린 타이틀 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "딸깍",
+    "event": "터치스크린 커피 버튼 클릭",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "톡",
+    "event": "커피 머신 그래픽 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "띵",
+    "event": "조명 켜지며 MASTER 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.6,
+    "type": "휙",
+    "event": "하부 서스펜션 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동식 사이드스텝 전개 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 65.0,
+    "type": "띵",
+    "event": "위치 핀 맵 마커 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트 힙합",
+   "bpm_est": 115,
+   "mood": "경쾌하고 고급스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "what": "골드 왕관 아이콘",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 72.0,
+    "y_pct": 46.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "대통령급 VIP 럭셔리 강조",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.5,
+    "what": "시트 통풍/냉방 눈꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 22.0,
+    "x_pct": 28.0,
+    "y_pct": 39.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍 시트 기능 시각화",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.2,
+    "what": "커피잔 아이콘 스티커",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 25.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "커피 머신 탑재 강조",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 56.2,
+    "what": "열선 시트 불꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 22.0,
+    "x_pct": 48.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 열선 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 64.9,
+    "end": 67.2,
+    "what": "빨간색 3D 위치 핀 마커",
+    "is_3d": true,
+    "size_w_pct": 28.0,
+    "x_pct": 18.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "العربية دي فيها سينما VIP تتفرج عليها طول الطريق",
+    "ko": "이 차에는 이동 내내 즐길 수 있는 VIP 시네마가 갖춰져 있습니다"
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "وثلاجة وكل اللي هتحتاجه كرجل أعمال",
+    "ko": "그리고 냉장고까지, 비즈니스맨에게 필요한 모든 것이 있죠"
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "text": "لان دي نيسان باترول من أوتو ستاد القعدة بمستوى رئاسي",
+    "ko": "오토 스태드의 닛산 패트롤이기 때문입니다. 대통령급 탑승 공간이죠"
+   },
+   {
+    "start": 11.0,
+    "end": 16.0,
+    "text": "عندك مكان تحط فيه رجلك الارضية بتاعتك صوف الكراسي بتاعتك تسخين وتبريد ومساج",
+    "ko": "발을 뻗을 공간과 양모 카펫, 열선·통풍·마사지 시트가 제공됩니다"
+   },
+   {
+    "start": 16.0,
+    "end": 22.8,
+    "text": "اتنين كاب هولدر تحكم في الشاشة وتابلت تتحكم منه في العربية وتحت دي عندك كاسات",
+    "ko": "듀얼 컵홀더, 화면 컨트롤러와 차량 제어 태블릿, 그 아래엔 글라스 전용 수납함까지 있죠"
+   },
+   {
+    "start": 22.8,
+    "end": 27.4,
+    "text": "لو دوست هنا هيطلعلك ماكينة قهوة تشرب منها اللي انت عايزه",
+    "ko": "여기를 누르면 전동 커피 머신이 올라와 원하는 음료를 즐길 수 있습니다"
+   },
+   {
+    "start": 27.4,
+    "end": 33.1,
+    "text": "عندك ستارلايت ولو عايز تقرأ تفتح النور الأساسي ولو عايز نور ربنا افتح الستاير",
+    "ko": "은하수 스타라이트 루프, 독서등, 그리고 햇빛을 원하면 전동 커튼을 열면 됩니다"
+   },
+   {
+    "start": 33.1,
+    "end": 37.8,
+    "text": "ولو طالعين اتنين كل واحد يقدر يشغل الفيلم اللي هو عايزه قدامه الترابيزة بتاعته",
+    "ko": "두 명이 탑승해도 각자 원하는 영상을 보며 개별 접이식 테이블을 쓸 수 있습니다"
+   },
+   {
+    "start": 37.8,
+    "end": 43.1,
+    "text": "واللي بيحركها توين تيربو V6 بيطلع 425 حصان و700 نيوتن",
+    "ko": "심장은 V6 트윈터보 엔진으로 425마력, 700Nm의 토크를 발휘합니다"
+   },
+   {
+    "start": 43.1,
+    "end": 46.2,
+    "text": "وعشان راحة سيادتك عندك ادابتيف اير سسبنشن و هيدروليك موشن كنترول",
+    "ko": "최상의 승차감을 위해 어댑티브 에어 서스펜션과 HBMC 유압 차체 제어 시스템이 적용되었습니다"
+   },
+   {
+    "start": 46.2,
+    "end": 51.6,
+    "text": "ولسهولة الدخول عندك عتب متحرك وكمان بينور",
+    "ko": "승하차를 돕는 조명 내장 전동 사이드스텝도 갖췄습니다"
+   },
+   {
+    "start": 51.6,
+    "end": 59.9,
+    "text": "ولو سيادتك فكرت تسوق عندك سقف وسكاي روف وكراسي تبريد وتسخين وثلاجة",
+    "ko": "직접 운전하시더라도 파노라마 루프, 통풍·열선 시트, 전면 냉장고를 누릴 수 있습니다"
+   },
+   {
+    "start": 59.9,
+    "end": 67.2,
+    "text": "وهتلاقيها في أوتو ستاد متخصصين في استيراد الاكزوتكس في بنزينة تشيل اوت AUC",
+    "ko": "이그조틱 카 직수입 전문 오토 스태드(AUC 칠아웃 주유소)에서 만나보실 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "뒷좌석 VIP 영화관 및 팝콘 먹방으로 이목 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 11.0,
+    "speed": "보통",
+    "summary": "오토 스태드 닛산 패트롤 VIP 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 11.0,
+    "end": 37.8,
+    "speed": "빠름",
+    "summary": "발받침, 마사지 시트, 커피머신, 스타라이트 루프, 듀얼 엔터테인먼트 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 37.8,
+    "end": 51.6,
+    "speed": "보통",
+    "summary": "V6 트윈터보 엔진 제원, 에어 서스펜션, 전동 사이드스텝 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 51.6,
+    "end": 59.9,
+    "speed": "보통",
+    "summary": "운전석 편의 사양(파노라마 썬루프, 센터콘솔 냉장고, 변속 패널)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 59.9,
+    "end": 67.2,
+    "speed": "보통",
+    "summary": "전시장 소개 및 방문 위치 안내(Chillout AUC)"
+   }
+  ],
+  "rules": [
+   "호화 VIP 옵션을 직접 작동시키며(커피머신 리프트, 전동 커튼 등) 역동적으로 시연",
+   "화면 중앙 및 시트 주변에 3D·2D 아이콘(왕관, 눈꽃, 불꽃, 커피잔)을 팝업해 옵션 기능 즉각 전달",
+   "기능 명칭을 굵은 영문 볼드체 그래픽 스티커로 강조 표기",
+   "속도감 넘치는 컷 전환과 상황별 짧은 효과음(톡, 띵) 결합"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "feature": "뒷좌석 독립 모니터 / 엔터테인먼트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "화면에 드라마 영상 재생 및 손가락 가리킴",
+    "x_pct": 40.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "feature": "센터 콘솔 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "콘솔을 열고 생수병을 꺼내는 손동작과 아랍어 텍스트",
+    "x_pct": 45.0,
+    "y_pct": 55.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "feature": "VIP 시트 통풍 및 냉방",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 위에 나타나는 3개의 눈꽃 그래픽",
+    "x_pct": 28.0,
+    "y_pct": 39.0,
+    "size_w_pct": 22.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "feature": "통합 태블릿 컨트롤러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "전동식으로 솟아오르는 태블릿 스크린 터치",
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 27.2,
+    "feature": "전동 리프트 내장 커피 머신",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "버튼 터치 후 암레스트에서 솟아오르는 커피 머신과 3D 커피잔 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 31.0,
+    "feature": "스타라이트 루프 및 마스터 조명",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락으로 천장 은하수 조명과 마스터 바 조명을 가리키며 점등",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 51.5,
+    "feature": "전동 전개식 LED 사이드스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도어를 열면 자동으로 펴지며 불이 들어오는 발판 시연",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 뒷좌석에서 팝콘과 음료를 테이블에 두고 영화관처럼 앉아 VIP 시네마를 자랑하는 모습",
+   "type": "행동",
+   "text": "العربية دي فيها سينما VIP",
+   "ko": "이 차에는 VIP 영화관이 있습니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "이동 중 시청 가능한 뒷좌석 VIP 시네마 시스템 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 5.0,
+    "point": "비즈니스맨을 위한 차량용 전용 냉장고",
+    "category": "편의"
+   },
+   {
+    "t": 10.0,
+    "point": "대통령급 VIP 공간 구성 및 양모 카펫",
+    "category": "공간"
+   },
+   {
+    "t": 14.0,
+    "point": "시트 열선, 통풍 및 마사지 기능 기본 제공",
+    "category": "편의"
+   },
+   {
+    "t": 18.0,
+    "point": "차량 전체 제어가 가능한 전동 팝업 태블릿 컨트롤러",
+    "category": "편의"
+   },
+   {
+    "t": 24.0,
+    "point": "버튼으로 전동 팝업되는 고급 캡슐 커피 머신",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "천장 은하수 스타라이트 루프 및 고급 독서등",
+    "category": "디자인"
+   },
+   {
+    "t": 34.0,
+    "point": "탑승객별 독립 영화 시청 모니터와 개별 테이블",
+    "category": "편의"
+   },
+   {
+    "t": 39.0,
+    "point": "425마력, 700Nm 토크의 V6 트윈터보 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 44.0,
+    "point": "어댑티브 에어 서스펜션과 HBMC 유압 차체 제어",
+    "category": "성능"
+   },
+   {
+    "t": 48.0,
+    "point": "야간 조명 내장 전동 사이드스텝 장착",
+    "category": "편의"
+   },
+   {
+    "t": 53.0,
+    "point": "운전자를 위한 파노라마 루프 및 앞좌석 냉장고",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 65.0,
+   "text": "هتلاقيهم في بنزينة تشيل اوت AUC",
+   "ko": "AUC 칠아웃 주유소 오토 스태드 매장을 찾아주세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "뒷좌석",
+    "옵션 작동",
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 전면",
+    "옵션 작동",
+    "외관 측면",
+    "실내 앞",
+    "센터 화면",
+    "외관 전면"
+   ]
+  }
+ }
+}
