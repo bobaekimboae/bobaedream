@@ -1,0 +1,771 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/OPQSWscfGnk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6275,
+  "candidatesTokenCount": 6625,
+  "totalTokenCount": 14180,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5019
+   }
+  ],
+  "thoughtsTokenCount": 1280,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 56.4,
+   "aspect": "9:16",
+   "car": "페라리 296 GTB",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 16.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 30.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 32.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 43.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 47.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.3,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 56.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "6기통이라고",
+    "ko": "6기통이라고",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.1,
+    "text": "하기에는",
+    "ko": "하기에는",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.8,
+    "text": "830hp !",
+    "ko": "830마력 !",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#38B6FF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.0,
+    "text": "제로백 2.9s",
+    "ko": "제로백 2.9초",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFDE59",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.3,
+    "text": "PHEV 슈퍼카",
+    "ko": "플러그인 하이브리드 슈퍼카",
+    "kind": "키워드 스티커",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "text": "Ferrari 296GTB PHEV",
+    "ko": "페라리 296GTB 플러그인 하이브리드",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 16.5,
+    "text": "PNTN. Rosso Corsa",
+    "ko": "외장 색상 로쏘 코르사",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FF3131",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 20.5,
+    "text": "2.9L V6 (663마력)\nTurbo 엔진!\n+ 전기 모터 (167마력)\n= 총 830마력!",
+    "ko": "2.9L V6 터보 663마력 + 모터 167마력 총 830마력",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFDE59",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "830마력",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "text": "성능 + 승차감 👍👍👍",
+    "ko": "성능 및 승차감 만족",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 34.0,
+    "text": "INTN. SABBIA",
+    "ko": "내장 색상 사비아 (베이지)",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFDE59",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 40.5,
+    "text": "● 2022. 04 정식출고\n● 주행거리 약 7,000km\n● 완전 무사고! (보험이력 X)",
+    "ko": "출고 및 주행거리, 무사고 스펙 안내",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.5,
+    "text": "신차 출고가격은?\n₩427,300,000",
+    "ko": "신차 출고가 4억 2730만 원",
+    "kind": "가격",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDE59",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩427,300,000",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 47.0,
+    "text": "리스 승계 조건",
+    "ko": "리스 승계 조건",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 50.5,
+    "text": "차량 가격 및 승계 조건은?\n→ 캡션에 적어두었습니다!",
+    "ko": "상세 조건 본문 캡션 안내",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFDE59",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 56.0,
+    "text": "다양한 차량들을 프로필에서 소개하고 있습니다\n팔로우 한번 부탁드릴게요!",
+    "ko": "프로필 안내 및 팔로우 요청",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFDE59",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "팔로우",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.1,
+    "type": "쿵",
+    "event": "830hp 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "휙",
+    "event": "차량 모델명 타이틀 슬라이드",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "띵",
+    "event": "엄지 이모지 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "돈 소리",
+    "event": "신차 출고가 금액 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "what": "Ferrari 296GTB PHEV 타이틀 로고 바",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "entrance": "밀려옴",
+    "purpose": "차종 안내",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 50.5,
+    "what": "하단 캡션 가리키는 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "캡션 유도",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 56.0,
+    "what": "팔로우/프로필 클릭 유도 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "팔로우 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "text": "6기통이라고 하기에는 합산 출력 무려 830마력, 제로백 2.9초의 플러그인 하이브리드 슈퍼카.",
+    "ko": "6기통이라고 하기에는 합산 출력 무려 830마력, 제로백 2.9초의 플러그인 하이브리드 슈퍼카."
+   },
+   {
+    "start": 6.4,
+    "end": 9.2,
+    "text": "안녕하세요. 페라리 296 GTB가 입고되었습니다.",
+    "ko": "안녕하세요. 페라리 296 GTB가 입고되었습니다."
+   },
+   {
+    "start": 9.3,
+    "end": 16.7,
+    "text": "페라리 하면 가장 먼저 떠오르는 컬러죠. 로쏘 코르사 페인트, 낮은 자세에 미드십 엔진의 볼륨감이 정통 레드 컬러와 정말 잘 어울린다고 할 수 있겠습니다.",
+    "ko": "페라리 하면 가장 먼저 떠오르는 컬러죠. 로쏘 코르사 페인트, 낮은 자세에 미드십 엔진의 볼륨감이 정통 레드 컬러와 정말 잘 어울린다고 할 수 있겠습니다."
+   },
+   {
+    "start": 16.8,
+    "end": 24.5,
+    "text": "2.9리터 V6 터보 엔진에 전기모터가 힘을 보태는 구조로 다른 페라리에 비해 배기량은 작지만 성능은 좋아졌어요. 승차감도 마찬가지이고요.",
+    "ko": "2.9리터 V6 터보 엔진에 전기모터가 힘을 보태는 구조로 다른 페라리에 비해 배기량은 작지만 성능은 좋아졌어요. 승차감도 마찬가지이고요."
+   },
+   {
+    "start": 24.6,
+    "end": 34.6,
+    "text": "실내도 한 번 보시죠. 화려한 외장과 대비되는 새비아 컬러의 베이지 시트. 실내 분위기를 밝고 고급스럽게 만들어 줌과 동시에 흔하게 볼 수 없는 조합이라 더욱 매력적이죠.",
+    "ko": "실내도 한 번 보시죠. 화려한 외장과 대비되는 새비아 컬러의 베이지 시트. 실내 분위기를 밝고 고급스럽게 만들어 줌과 동시에 흔하게 볼 수 없는 조합이라 더욱 매력적이죠."
+   },
+   {
+    "start": 34.7,
+    "end": 43.6,
+    "text": "2022년 4월 출고된 차량으로 현재 주행거리는 약 7,000km, 당연히 완전 무사고 차량입니다. 신차 출고 가격은 4억 2,730만 원입니다.",
+    "ko": "2022년 4월 출고된 차량으로 현재 주행거리는 약 7,000km, 당연히 완전 무사고 차량입니다. 신차 출고 가격은 4억 2,730만 원입니다."
+   },
+   {
+    "start": 43.7,
+    "end": 50.8,
+    "text": "리스 승계 조건으로 만나보실 수 있는 깔끔한 컬러 조합의 296 GTB, 차량 가격과 자세한 승계 조건은 캡션에 적어두었습니다.",
+    "ko": "리스 승계 조건으로 만나보실 수 있는 깔끔한 컬러 조합의 296 GTB, 차량 가격과 자세한 승계 조건은 캡션에 적어두었습니다."
+   },
+   {
+    "start": 50.9,
+    "end": 56.4,
+    "text": "다양한 차량들을 프로필에서 소개하고 있습니다. 팔로우 한번 부탁드릴게요.",
+    "ko": "다양한 차량들을 프로필에서 소개하고 있습니다. 팔로우 한번 부탁드릴게요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.3,
+    "speed": "빠름",
+    "summary": "V6지만 830마력 제로백 2.9초라는 스펙 강조로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.3,
+    "end": 16.7,
+    "speed": "보통",
+    "summary": "입고 소식 및 로쏘 코르사 외장 컬러/익스테리어 디자인 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 16.7,
+    "end": 24.5,
+    "speed": "보통",
+    "summary": "2.9L V6 터보 + 전기모터 하이브리드 파워트레인 및 승차감 특징 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 24.5,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "새비아(베이지) 실내 시트 및 카본 인테리어 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 34.6,
+    "end": 43.6,
+    "speed": "보통",
+    "summary": "연식(2022년), 주행거리(7천km), 무사고 여부 및 신차 출고가 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 43.6,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "리스 승계 판매 방식 및 캡션(본문) 확인 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.8,
+    "end": 56.4,
+    "speed": "보통",
+    "summary": "프로필 방문 및 계정 팔로우 요청 CTA"
+   }
+  ],
+  "rules": [
+   "초반 3초 안에 고성능 수치(830마력, 제로백 2.9초)를 큰 볼드 자막과 사운드로 임팩트 있게 전달한다.",
+   "외관 컬러코드(PNTN. Rosso Corsa)와 내장 컬러명(INTN. Sabbia) 공식 명칭을 박스 자막으로 표기하여 신뢰도를 준다.",
+   "출고연월, 실주행거리, 무사고 상태 등 핵심 매물 정보를 불릿 포인트 텍스트로 한눈에 요약 노출한다.",
+   "신차 출고가는 '돈 소리' 효과음과 반짝이는 이펙트로 강조하고, 실제 판매 승계 조건은 캡션(더보기란)으로 유도해 시청 지속과 참여를 유도한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 10.5,
+    "end": 16.5,
+    "feature": "로쏘 코르사 외장 페인트",
+    "shown_how": "글자 카드",
+    "icon_desc": "PNTN. Rosso Corsa 블랙 박스 자막",
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.8,
+    "feature": "V6 플러그인 하이브리드 엔진룸",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 34.0,
+    "feature": "사비아(베이지) 가죽 인테리어",
+    "shown_how": "글자 카드",
+    "icon_desc": "INTN. SABBIA 박스 라벨",
+    "x_pct": 50.0,
+    "y_pct": 86.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.8,
+    "feature": "풀 디지털 계기판 공조 디스플레이",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "달리는 레드 페라리와 함께 '6기통이라고 하기에는 합산 출력 무려 830마력' 멘트",
+   "type": "숫자·성능",
+   "text": "6기통이라고 하기에는 합산 출력 무려 830hp !"
+  },
+  "narration_points": [
+   {
+    "t": 2.1,
+    "point": "V6 엔진이지만 합산 830마력, 제로백 2.9초 달성",
+    "category": "성능"
+   },
+   {
+    "t": 10.5,
+    "point": "정통 페라리 시그니처 로쏘 코르사 레드 외장 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "작아진 배기량 대비 월등해진 성능과 개선된 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 28.0,
+    "point": "흔치 않은 세비아 컬러 베이지 시트의 고급스러움",
+    "category": "디자인"
+   },
+   {
+    "t": 35.0,
+    "point": "2022년 4월 정식출고, 7천km 실주행, 완전 무사고",
+    "category": "상태·이력"
+   },
+   {
+    "t": 41.5,
+    "point": "신차 출고가 4억 2,730만 원 상당의 리스 승계 매물",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "가격",
+    "위치"
+   ],
+   "t": 42.0
+  },
+  "cta": {
+   "t": 53.0,
+   "text": "다양한 차량들을 프로필에서 소개하고 있습니다. 팔로우 한번 부탁드릴게요!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "엔진룸",
+    "실내 앞",
+    "계기판",
+    "실내 디테일",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 고정 검정 박스 옵션명 라벨 및 노란색 포인트 폰트 통일"
+  }
+ }
+}

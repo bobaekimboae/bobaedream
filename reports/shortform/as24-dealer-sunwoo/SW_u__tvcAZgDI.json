@@ -1,0 +1,670 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/u__tvcAZgDI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5988,
+  "candidatesTokenCount": 6610,
+  "totalTokenCount": 13344,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4732
+   }
+  ],
+  "thoughtsTokenCount": 746,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.9,
+   "aspect": "9:16",
+   "car": "애스턴마틴 DBX V8",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 8.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 20.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 21.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 39.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 44.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 51.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "이전과 다르게",
+    "ko": "이전과 다르게",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.2,
+    "text": "슈퍼카 브랜드마다",
+    "ko": "슈퍼카 브랜드마다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.2,
+    "text": "SUV는 다 있죠.",
+    "ko": "SUV는 다 있죠.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.8,
+    "text": "Aston Martin\nDBX V8",
+    "ko": "애스턴마틴 DBX V8",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.5,
+    "text": "4.0L . V8 . T-T",
+    "ko": "4.0리터 V8 트윈터보",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.6,
+    "text": "550마력!",
+    "ko": "550마력!",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2D2D",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.5,
+    "text": "SPICY RED & IVORY\nASIAN SPEC !",
+    "ko": "스파이시 레드 & 아이보리 아시안 스펙",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 48.0,
+    "text": "2021MY\n주행거리 약 36,000km",
+    "ko": "2021년식 주행거리 약 3만6천km",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 8.0,
+    "type": "쿵",
+    "event": "메인 타이틀 등장 및 주행 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "휙",
+    "event": "엔진 스펙 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "쿵",
+    "event": "550마력 스티커 텍스트 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "톡",
+    "event": "실내 색상 스펙 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 43.8,
+    "type": "톡",
+    "event": "DBX! 강조 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 92,
+   "mood": "세련되고 묵직한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 8.0,
+    "what": "3단 분할 레이아웃(벤테이가, DBX, 우루스 비교 화면)",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "경쟁 브랜드 슈퍼 SUV 라인업 비교",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.9,
+    "what": "하단 본문 참조 안내 손가락 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "페이드",
+    "purpose": "상세 스펙 확인 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "이전과 다르게 요즘에는 슈퍼카 브랜드마다 SUV는 다 있죠.",
+    "ko": "이전과 다르게 요즘에는 슈퍼카 브랜드마다 SUV는 다 있죠."
+   },
+   {
+    "start": 2.5,
+    "end": 5.8,
+    "text": "럭셔리함의 벤테이가, 스포티함의 우루스.",
+    "ko": "럭셔리함의 벤테이가, 스포티함의 우루스."
+   },
+   {
+    "start": 5.8,
+    "end": 8.2,
+    "text": "그 중간 어딘가에 있는 영국제 GT 감성의 이 차량.",
+    "ko": "그 중간 어딘가에 있는 영국제 GT 감성의 이 차량."
+   },
+   {
+    "start": 8.2,
+    "end": 10.8,
+    "text": "안녕하세요, 애스턴마틴 DBX 입고되었습니다.",
+    "ko": "안녕하세요, 애스턴마틴 DBX 입고되었습니다."
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "text": "애스턴마틴에서 만든 최초의 SUV!",
+    "ko": "애스턴마틴에서 만든 최초의 SUV!"
+   },
+   {
+    "start": 13.0,
+    "end": 16.0,
+    "text": "엔진은 AMG에서 가져온 4리터 V8 트윈터보.",
+    "ko": "엔진은 AMG에서 가져온 4리터 V8 트윈터보."
+   },
+   {
+    "start": 16.0,
+    "end": 18.0,
+    "text": "신형 버전인 707, S가 있지만,",
+    "ko": "신형 버전인 707, S가 있지만,"
+   },
+   {
+    "start": 18.0,
+    "end": 21.0,
+    "text": "공도에서는 당연히 다 못 씁니다. 노멀 모델 또한 550마력의 출력을 자랑합니다.",
+    "ko": "공도에서는 당연히 다 못 씁니다. 노멀 모델 또한 550마력의 출력을 자랑합니다."
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "독보적인 디자인에 눈에 띄는 레드 페인트.",
+    "ko": "독보적인 디자인에 눈에 띄는 레드 페인트."
+   },
+   {
+    "start": 23.5,
+    "end": 26.5,
+    "text": "실내도 베이지와 레드 투톤 조합으로 완전 아시안 스펙입니다.",
+    "ko": "실내도 베이지와 레드 투톤 조합으로 완전 아시안 스펙입니다."
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "text": "가죽 질감은 역시 애스턴마틴이죠. 캬 정말 고급스럽습니다.",
+    "ko": "가죽 질감은 역시 애스턴마틴이죠. 캬 정말 고급스럽습니다."
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "text": "고성능에 장거리 주행도 편합니다. 그야말로 그란 투리스모.",
+    "ko": "고성능에 장거리 주행도 편합니다. 그야말로 그란 투리스모."
+   },
+   {
+    "start": 32.8,
+    "end": 36.8,
+    "text": "출고 개체수가 적은 덕분에 유니크함은 덤으로 가져갈 수 있죠.",
+    "ko": "출고 개체수가 적은 덕분에 유니크함은 덤으로 가져갈 수 있죠."
+   },
+   {
+    "start": 36.8,
+    "end": 42.5,
+    "text": "독보적인 감가율 때문에 비슷한 가격대 경쟁군은 카이엔, 아니면 벤테이가 구형 등을 꼽을 수 있지만,",
+    "ko": "독보적인 감가율 때문에 비슷한 가격대 경쟁군은 카이엔, 아니면 벤테이가 구형 등을 꼽을 수 있지만,"
+   },
+   {
+    "start": 42.5,
+    "end": 45.0,
+    "text": "이 중에서 한 대를 고른다고 하시면 저는 DBX를 선택하겠습니다.",
+    "ko": "이 중에서 한 대를 고른다고 하시면 저는 DBX를 선택하겠습니다."
+   },
+   {
+    "start": 45.0,
+    "end": 48.0,
+    "text": "21년식, 주행거리는 약 36,000km.",
+    "ko": "21년식, 주행거리는 약 36,000km."
+   },
+   {
+    "start": 48.0,
+    "end": 51.9,
+    "text": "차량 구매에 필요한 자세한 정보는 하단 본문을 참고해 주세요!",
+    "ko": "차량 구매에 필요한 자세한 정보는 하단 본문을 참고해 주세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.0,
+    "speed": "빠름",
+    "summary": "슈퍼 SUV(벤테이가 vs 우루스) 사이의 영국제 GT 감성 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.0,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "애스턴마틴 최초 SUV DBX 모델 입고 인사"
+   },
+   {
+    "stage": "사양",
+    "start": 13.0,
+    "end": 20.7,
+    "speed": "보통",
+    "summary": "AMG 4.0 V8 트윈터보 엔진 및 550마력 출력 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 20.7,
+    "end": 33.0,
+    "speed": "보통",
+    "summary": "레드 외장 컬러 및 베이지/레드 인테리어 투톤 가죽 퀄리티 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 33.0,
+    "end": 44.5,
+    "speed": "보통",
+    "summary": "희소성 및 중고 감가 대비 카이엔·구형 벤테이가와의 가성비 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 44.5,
+    "end": 51.9,
+    "speed": "보통",
+    "summary": "21년식 36,000km 스펙 표기 및 본문 참조 구매 유도"
+   }
+  ],
+  "rules": [
+   "경쟁 차종(벤테이가, 우루스) 3분할 비교로 초반 시청자 몰입도 확보",
+   "화면 중앙 하단에 또렷한 고딕 폰트의 한글 자막 일관 배치",
+   "엔진 스펙, 마력, 인테리어 컬러 등 중요 세일링 포인트는 타이포그래피 스티커로 강조",
+   "중고 수입차 특유의 감가율 장점과 대체 불가한 GT 감성을 스토리텔링으로 어필",
+   "영상 말미에 연식·주행거리 표시와 함께 더보기 본문 확인 CTA 적용"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "feature": "4.0L V8 트윈터보 엔진",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.8,
+    "feature": "스파이시 레드 & 아이보리 투톤 실내",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 86.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 48.0,
+    "feature": "2021년식 / 36,000km 스펙",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "텍스트 포인트 원형 인디케이터",
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "탁송 트럭에서 내려오는 강렬한 레드 컬러 DBX 후면과 슈퍼 SUV 비교 언급",
+   "type": "질문",
+   "text": "이전과 다르게 요즘에는 슈퍼카 브랜드마다 SUV는 다 있죠."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "벤테이가의 럭셔리함과 우루스의 스포티함 중간에 있는 영국 GT 감성",
+    "category": "디자인"
+   },
+   {
+    "t": 13.5,
+    "point": "AMG에서 공급받은 4.0리터 V8 트윈터보 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 19.0,
+    "point": "공도 주행에 차고 넘치는 550마력 고출력",
+    "category": "성능"
+   },
+   {
+    "t": 24.0,
+    "point": "베이지와 레드 투톤 조합의 고급스러운 아시안 스펙 실내",
+    "category": "디자인"
+   },
+   {
+    "t": 34.0,
+    "point": "출고 개체수가 적어 독보적인 희소성과 유니크함",
+    "category": "희소성"
+   },
+   {
+    "t": 38.0,
+    "point": "높은 감가율 덕분에 카이엔이나 구형 벤테이가 가격대로 진입 가능",
+    "category": "가격·조건"
+   },
+   {
+    "t": 46.0,
+    "point": "2021년식에 주행거리 약 36,000km 양호한 상태",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 16.0
+  },
+  "cta": {
+   "t": 48.0,
+   "text": "차량 구매에 필요한 자세한 정보는 하단 본문을 참고해주세요!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 후면",
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "외관 전면",
+    "외관 후면",
+    "센터 화면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "서울오토갤러리 로고 네온 배경 활용 및 깔끔한 고딕 타이포그래피 스타일"
+  }
+ }
+}

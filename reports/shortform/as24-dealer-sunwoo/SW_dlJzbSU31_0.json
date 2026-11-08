@@ -1,0 +1,960 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/dlJzbSU31_0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6364,
+  "candidatesTokenCount": 8039,
+  "totalTokenCount": 14403,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5108
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 56.6,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz G400d",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 12.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 27.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 30.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.3,
+    "end": 50.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 56.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "주유소",
+    "ko": "주유소",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 2.2,
+    "text": "\" G-Wagon \"",
+    "ko": "\"지바겐\"",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.5,
+    "text": "소리도",
+    "ko": "소리도",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 4.8,
+    "text": "마치... 도심형 지바겐?",
+    "ko": "마치... 도심형 지바겐?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.4,
+    "text": "Mercedes-Benz\nG400d",
+    "ko": "메르세데스-벤츠 G400d",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE57F",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.6,
+    "text": "깔끔하게 튜닝 완료!",
+    "ko": "깔끔하게 튜닝 완료!",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 12.0,
+    "text": "마음에 드신다면",
+    "ko": "마음에 드신다면",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "text": "골드색상 랩핑\nog color. Black",
+    "ko": "골드색상 랩핑 (원색 블랙)",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.8,
+    "text": "Bull bar 또는 Push bumper\n프론트 범퍼 가드",
+    "ko": "프론트 범퍼 가드",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.6,
+    "text": "확장형 전동 사이드스텝 !",
+    "ko": "확장형 전동 사이드스텝 !",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.8,
+    "text": "실내도 한번 볼까요?",
+    "ko": "실내도 한번 볼까요?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 27.0,
+    "text": "og color. 트러플 브라운\n마끼아또 베이지 드레스업",
+    "ko": "마끼아또 베이지 드레스업",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 30.6,
+    "text": "신차가 약 1.8억에 통풍시트 추가 불가능...",
+    "ko": "신차가 약 1.8억에 통풍시트 추가 불가능...",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.5,
+    "text": "송풍구 앰비언트 포함",
+    "ko": "송풍구 앰비언트 포함",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.1,
+    "text": "통풍시트 시공 완료",
+    "ko": "통풍시트 시공 완료",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 39.8,
+    "text": "크롬 죽이기 완료",
+    "ko": "크롬 죽이기 완료",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.1,
+    "text": "6기통 디젤\n330마력!",
+    "ko": "6기통 디젤 330마력!",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.5,
+    "text": "아쉬운건 단 하나...\n소리가...ㅠ",
+    "ko": "아쉬운건 단 하나... 소리가...ㅠ",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.3,
+    "text": "하지만 편의사양등, 장점이 더 많은 !",
+    "ko": "하지만 편의사양등, 장점이 더 많은 !",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.3,
+    "end": 50.0,
+    "text": "리스 승계조건\n위탁판매 중 !",
+    "ko": "리스 승계조건 위탁판매 중 !",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 53.0,
+    "text": "구매에 필요한 자세한 내용은??\n본문을 통해 확인하실 수 있습니다",
+    "ko": "구매에 필요한 자세한 내용은?? 본문을 통해 확인하실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 56.6,
+    "text": "팔로우 해주시면\n더 많은 차량을 소개해드리겠습니다",
+    "ko": "팔로우 해주시면 더 많은 차량을 소개해드리겠습니다",
+    "kind": "말 자막",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FF5252",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "\"G-Wagon\" 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.5,
+    "type": "딸깍",
+    "event": "선글라스 이모티콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "쿵",
+    "event": "차량 모델명 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "딸깍",
+    "event": "전동 사이드스텝 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "딸깍",
+    "event": "통풍시트 버튼 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 42.1,
+    "type": "쿵",
+    "event": "식은땀 이모티콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "띵",
+    "event": "팔로우 CTA 자막 및 손가락 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 묵직한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 3.5,
+    "end": 4.8,
+    "what": "선글라스 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 90.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "재미 연출",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 47.3,
+    "what": "식은땀 흘리는 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "아쉬운 점(배기음) 강조",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 56.6,
+    "what": "손가락 포인팅 이모지",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "본문 및 팔로우 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "여기 주유소 자주 갈 필요 없는 지바겐이 있습니다. 소리도 더 얌전하죠. 마치... 도심형 지바겐이랄까?",
+    "ko": "여기 주유소 자주 갈 필요 없는 지바겐이 있습니다. 소리도 더 얌전하죠. 마치... 도심형 지바겐이랄까?"
+   },
+   {
+    "start": 4.8,
+    "end": 12.0,
+    "text": "안녕하세요 메르세데스 G400 디젤 판매합니다. 이 차량은 튜닝을 깔끔하게 다 해놨습니다. 마음에 드시는 분들은 한번 보고 가세요!",
+    "ko": "안녕하세요 메르세데스 G400 디젤 판매합니다. 이 차량은 튜닝을 깔끔하게 다 해놨습니다. 마음에 드시는 분들은 한번 보고 가세요!"
+   },
+   {
+    "start": 12.0,
+    "end": 21.6,
+    "text": "매끈한 골드바디 랩핑이고 원색은 블랙입니다. 앞에는 큼지막한 프론트 범퍼 가드, 일명 불바라고 하죠. 측면에는 확장형 전동 사이드스텝도 장착되어 있습니다.",
+    "ko": "매끈한 골드바디 랩핑이고 원색은 블랙입니다. 앞에는 큼지막한 프론트 범퍼 가드, 일명 불바라고 하죠. 측면에는 확장형 전동 사이드스텝도 장착되어 있습니다."
+   },
+   {
+    "start": 21.6,
+    "end": 35.1,
+    "text": "실내도 한번 볼까요? 원색은 트러플 브라운이지만 마끼아또 베이지 톤으로 싹 컨버전되어 있습니다. 63과의 구분을 위해 몇 가지 옵션을 빼버린 디젤 모델이지만, 정식 출고 옵션과 구분이 안 되도록 깔끔하게 통풍시트 작업도 완료되어 있죠.",
+    "ko": "실내도 한번 볼까요? 원색은 트러플 브라운이지만 마끼아또 베이지 톤으로 싹 컨버전되어 있습니다. 63과의 구분을 위해 몇 가지 옵션을 빼버린 디젤 모델이지만, 정식 출고 옵션과 구분이 안 되도록 깔끔하게 통풍시트 작업도 완료되어 있죠."
+   },
+   {
+    "start": 35.1,
+    "end": 44.5,
+    "text": "카본 핸들에 에디션 스타일로 크롬은 하나도 안 보이게 마감 처리한 이 차량. 3리터 직렬 6기통 디젤 엔진에 330마력. 아쉬운 건 단 하나... 소리입니다만,",
+    "ko": "카본 핸들에 에디션 스타일로 크롬은 하나도 안 보이게 마감 처리한 이 차량. 3리터 직렬 6기통 디젤 엔진에 330마력. 아쉬운 건 단 하나... 소리입니다만,"
+   },
+   {
+    "start": 44.5,
+    "end": 56.6,
+    "text": "하지만 그보다 실용적인 포인트가 많은 이 차량을 현재 리스 승계 조건으로 위탁 판매 중입니다. 구매에 필요한 자세한 내용은 본문을 통해 확인하실 수 있습니다. 팔로우 해주시면 더 많은 차량을 소개해드리겠습니다.",
+    "ko": "하지만 그보다 실용적인 포인트가 많은 이 차량을 현재 리스 승계 조건으로 위탁 판매 중입니다. 구매에 필요한 자세한 내용은 본문을 통해 확인하실 수 있습니다. 팔로우 해주시면 더 많은 차량을 소개해드리겠습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "주유소 자주 갈 필요 없는 디젤 지바겐의 조용함 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 12.0,
+    "speed": "보통",
+    "summary": "차량 모델명 소개 및 튜닝 완성도 어필"
+   },
+   {
+    "stage": "사양",
+    "start": 12.0,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "골드 랩핑, 프론트 범퍼가드(불바), 전동 사이드스텝 외관 튜닝 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 21.6,
+    "end": 39.8,
+    "speed": "보통",
+    "summary": "실내 베이지 컨버전, 사제 통풍시트 시공, 카본핸들, 크롬죽이기 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 39.8,
+    "end": 44.5,
+    "speed": "보통",
+    "summary": "3리터 6기통 디젤 스펙 및 배기음 아쉬운 점 솔직 리뷰"
+   },
+   {
+    "stage": "가격",
+    "start": 44.5,
+    "end": 53.0,
+    "speed": "보통",
+    "summary": "리스 승계 위탁 판매 조건 안내 및 본문 확인 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.0,
+    "end": 56.6,
+    "speed": "보통",
+    "summary": "팔로우 요청 클로징"
+   }
+  ],
+  "rules": [
+   "한국 중고차 쇼츠 전형의 깔끔한 AI 음성 내레이션 사용",
+   "화면 중앙 하단에 2~3초 단위의 핵심 튜닝/옵션 키워드 자막 배치",
+   "단점(배기음 부재)을 솔직하게 언급하여 신뢰도를 높인 후 가성비/실용성으로 전환",
+   "차량 세부 정보 및 가격은 본문(캡션/설명란)으로 유도하여 체류 시간 및 클릭 증대",
+   "영상 끝에 손가락 이모지와 함께 계정 팔로우 유도 문구 노출"
+  ],
+  "option_highlights": [
+   {
+    "start": 14.8,
+    "end": 18.0,
+    "feature": "프론트 범퍼 가드 (Bull bar)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.6,
+    "feature": "확장형 전동 사이드스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 27.0,
+    "feature": "마끼아또 베이지 실내 컨버전",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.5,
+    "feature": "송풍구 앰비언트 라이트",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.1,
+    "feature": "도어 트림 통풍시트 버튼 시공",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 39.8,
+    "feature": "카본 핸들 및 크롬 죽이기",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "골드 랩핑된 지바겐이 조용하게 도로를 주행하며 '주유소 자주 갈 필요 없는 지바겐' 멘트",
+   "type": "질문",
+   "text": "여기 주유소 자주 갈 필요 없는 지바겐이 있습니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "연비 좋고 조용한 디젤 도심형 지바겐",
+    "category": "성능"
+   },
+   {
+    "t": 12.5,
+    "point": "원색 블랙에서 골드 바디 랩핑 완료",
+    "category": "디자인"
+   },
+   {
+    "t": 15.5,
+    "point": "프론트 범퍼가드(불바) 장착",
+    "category": "디자인"
+   },
+   {
+    "t": 18.5,
+    "point": "확장형 전동 사이드스텝 장착",
+    "category": "편의"
+   },
+   {
+    "t": 23.5,
+    "point": "실내 마끼아또 베이지 가죽 컨버전",
+    "category": "디자인"
+   },
+   {
+    "t": 32.5,
+    "point": "순정 옵션에 없던 통풍시트 시공 및 송풍구 엠비언트",
+    "category": "편의"
+   },
+   {
+    "t": 36.0,
+    "point": "카본 D컷 핸들 및 익스테리어 크롬 죽이기 시공",
+    "category": "디자인"
+   },
+   {
+    "t": 41.0,
+    "point": "3.0L 직렬 6기통 디젤 330마력 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 43.0,
+    "point": "디젤이라 가솔린 63에 비해 배기음은 부족",
+    "category": "성능"
+   },
+   {
+    "t": 48.0,
+    "point": "리스 승계 조건으로 위탁 판매",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 51.0,
+   "text": "구매에 필요한 자세한 내용은 본문을 통해 확인 / 팔로우 유도",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 후면",
+    "외관 측면",
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "옵션 작동",
+    "외관 디테일",
+    "외관 주행"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "명조/고딕 계열 흰색 텍스트와 외곽선, AI 남성 음성을 활용한 일관된 딜러 쇼츠 템플릿"
+  }
+ }
+}

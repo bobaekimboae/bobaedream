@@ -1,0 +1,877 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Vfis6Qayo98",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6725,
+  "candidatesTokenCount": 7422,
+  "totalTokenCount": 15554,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5469
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 1407,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.3,
+   "aspect": "9:16",
+   "car": "Porsche 911 Carrera 4S Coupe (992.1)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 19.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 33.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 38.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.9,
+    "end": 40.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 56.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 7.4,
+    "text": "GT Silver Metallic\n₩1,800,000",
+    "ko": "GT 실버 메탈릭 180만원",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩1,800,000",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.5,
+    "text": "Porsche 992.1\n4S Coupe",
+    "ko": "포르쉐 992.1 4S 쿠페",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 22.3,
+    "text": "Glass Sunroof\n₩3,200,000",
+    "ko": "글라스 선루프 320만원",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩3,200,000",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.0,
+    "text": "Black & Bordeaux red",
+    "ko": "블랙 & 보르도 레드",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "text": "Sports exhaust system",
+    "ko": "스포츠 배기 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.1,
+    "end": 36.5,
+    "text": "Sports Chrono Pack.\nPDLS+ (!)",
+    "ko": "스포츠 크로노 패키지 PDLS+ (!)",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "text": "BOSE audio system",
+    "ko": "보스 오디오 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.9,
+    "text": "AWD\n역시 포르쉐는 사륜이다...",
+    "ko": "AWD 역시 포르쉐는 사륜이다...",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AWD",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.0,
+    "text": "\" S \"\n기본 385마력 -> 450마력",
+    "ko": "S 기본 385마력에서 450마력",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "450마력",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.3,
+    "type": "톡",
+    "event": "차량 엠블럼 줌인 및 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "돈 소리",
+    "event": "옵션 가격 1,800,000원 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "이모지 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "띵",
+    "event": "차명 타이틀 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "글라스 선루프 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "돈 소리",
+    "event": "선루프 옵션 가격 3,200,000원 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "블랙 & 보르도 레드 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "딸깍",
+    "event": "배기 버튼 누르는 모션과 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.2,
+    "type": "톡",
+    "event": "스포츠 크로노 패키지 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "띵",
+    "event": "PDLS+ 헤드램프 반짝이 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "톡",
+    "event": "카본 인테리어 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "톡",
+    "event": "보스 오디오 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "휙",
+    "event": "AWD 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.2,
+    "type": "띵",
+    "event": "S 출력 450마력 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi Hip-Hop / Chill R&B",
+   "bpm_est": 85,
+   "mood": "트렌디하고 차분하며 고급스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.7,
+    "end": 7.5,
+    "what": "놀란 눈 이모지 스티커",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 80.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비싼 컬러 옵션에 대한 놀람 리액션",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 38.5,
+    "what": "헤드램프 반짝임(스파클) 이펙트",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 28.0,
+    "entrance": "페이드",
+    "purpose": "PDLS+ 고성능 라이트 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 60.0,
+    "what": "아래 가리키는 손가락 아이콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하단 더보기 본문 확인 유도 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 7.3,
+    "text": "여기 보이는 이 차량은 제가 포르쉐에서 가장 좋아하는 색상 GT 실버 페인트가 들어가 있습니다. 180만 원짜리 옵션 컬러죠. 너무 예쁘지 않나요?",
+    "ko": "여기 보이는 이 차량은 제가 포르쉐에서 가장 좋아하는 색상 GT 실버 페인트가 들어가 있습니다. 180만 원짜리 옵션 컬러죠. 너무 예쁘지 않나요?"
+   },
+   {
+    "start": 7.4,
+    "end": 13.8,
+    "text": "안녕하세요. 포르쉐 911 4S 쿠페 입고되었습니다. 카브리올레의 민족답게 쿠페는 개체 수가 더 적지만,",
+    "ko": "안녕하세요. 포르쉐 911 4S 쿠페 입고되었습니다. 카브리올레의 민족답게 쿠페는 개체 수가 더 적지만,"
+   },
+   {
+    "start": 13.9,
+    "end": 17.0,
+    "text": "정통 레이싱 머신의 감성을 느끼려면 역시 쿠페가 최고입니다.",
+    "ko": "정통 레이싱 머신의 감성을 느끼려면 역시 쿠페가 최고입니다."
+   },
+   {
+    "start": 17.1,
+    "end": 22.3,
+    "text": "아쉬움을 달래기 위한 글라스 선루프가 들어가 있고요, 옵션 가격은 320만 원입니다.",
+    "ko": "아쉬움을 달래기 위한 글라스 선루프가 들어가 있고요, 옵션 가격은 320만 원입니다."
+   },
+   {
+    "start": 22.4,
+    "end": 28.0,
+    "text": "이 차량은 기본 가격에서 추가된 옵션만 약 4,000만 원. 그중에서도 필수라고 불리는 옵션 몇 가지만 말씀드려볼게요.",
+    "ko": "이 차량은 기본 가격에서 추가된 옵션만 약 4,000만 원. 그중에서도 필수라고 불리는 옵션 몇 가지만 말씀드려볼게요."
+   },
+   {
+    "start": 28.1,
+    "end": 31.0,
+    "text": "레더 투톤 인테리어 블랙 앤 보르도 레드,",
+    "ko": "레더 투톤 인테리어 블랙 앤 보르도 레드,"
+   },
+   {
+    "start": 31.1,
+    "end": 33.6,
+    "text": "한층 더 걸걸한 감성을 채워주는 스포츠 배기 시스템,",
+    "ko": "한층 더 걸걸한 감성을 채워주는 스포츠 배기 시스템,"
+   },
+   {
+    "start": 33.7,
+    "end": 38.9,
+    "text": "스포츠 크로노 패키지와 PDLS 플러스까지 없으면 감가 요소라고 봐도 무방한 옵션들입니다.",
+    "ko": "스포츠 크로노 패키지와 PDLS 플러스까지 없으면 감가 요소라고 봐도 무방한 옵션들입니다."
+   },
+   {
+    "start": 39.0,
+    "end": 44.5,
+    "text": "거기에 서라운드 뷰와 통풍 시트, 카본 인테리어 패키지, 보스 오디오까지 편의 사양도 완비되어 있습니다.",
+    "ko": "거기에 서라운드 뷰와 통풍 시트, 카본 인테리어 패키지, 보스 오디오까지 편의 사양도 완비되어 있습니다."
+   },
+   {
+    "start": 44.6,
+    "end": 50.2,
+    "text": "진정한 데일리 포르쉐라고 할 수 있죠. 4륜이어서 주행 안정성도 우수하고, S라서 출력도 과분합니다.",
+    "ko": "진정한 데일리 포르쉐라고 할 수 있죠. 4륜이어서 주행 안정성도 우수하고, S라서 출력도 과분합니다."
+   },
+   {
+    "start": 50.3,
+    "end": 56.4,
+    "text": "멋과 맛을 다 챙기실 수 있는 이 차량은 지금 판매 중이며, 구매에 필요한 자세한 정보는 하단 본문에 적어두었습니다.",
+    "ko": "멋과 맛을 다 챙기실 수 있는 이 차량은 지금 판매 중이며, 구매에 필요한 자세한 정보는 하단 본문에 적어두었습니다."
+   },
+   {
+    "start": 56.5,
+    "end": 60.2,
+    "text": "팔로우도 잊지 말아 주세요. 더 많은 차량들을 소개해 드리겠습니다.",
+    "ko": "팔로우도 잊지 말아 주세요. 더 많은 차량들을 소개해 드리겠습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.4,
+    "speed": "보통",
+    "summary": "GT 실버 옵션 컬러와 가격 소개로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.4,
+    "end": 17.0,
+    "speed": "보통",
+    "summary": "992.1 4S 쿠페 모델명 소개 및 쿠페의 감성 어필"
+   },
+   {
+    "stage": "기능",
+    "start": 17.0,
+    "end": 22.3,
+    "speed": "보통",
+    "summary": "글라스 선루프 옵션과 가격 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 22.4,
+    "end": 44.5,
+    "speed": "빠름",
+    "summary": "4,000만원 상당 추가 필수 옵션(레드 시트, 가변배기, 크로노, PDLS+, 서라운드뷰, 통풍, 카본, 보스) 열거"
+   },
+   {
+    "stage": "차 소개",
+    "start": 44.6,
+    "end": 50.2,
+    "speed": "보통",
+    "summary": "4륜 구동과 S 트림 450마력 스펙 어필"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.3,
+    "end": 60.3,
+    "speed": "보통",
+    "summary": "매물 판매 안내, 하단 본문 상세 정보 및 팔로우 요청 CTA"
+   }
+  ],
+  "rules": [
+   "옵션이 언급될 때마다 해당 파트의 클로즈업 샷과 함께 영문 공식 옵션명 및 가격을 화면 중앙에 팝업",
+   "단어 단위 싱크 맞춘 중앙 하단 숏폼용 한글 음성 자막 배치",
+   "주요 포인트(헤드램프, 선루프, 배기 버튼) 등장 시 맞춤 효과음(반짝임, 돈 소리, 버튼 클릭음) 삽입",
+   "판매 차량의 번호판은 딜러/튜너 커스텀 플레이트(MANSORY)로 커버",
+   "영상 말미에 손가락 포인팅 이모지로 설명란(본문) 확인을 유도하는 CTA 규칙 적용"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 7.4,
+    "feature": "GT 실버 메탈릭 페인트",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 22.3,
+    "feature": "글라스 선루프",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 31.0,
+    "feature": "블랙 & 보르도 레드 투톤 인테리어",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 31.1,
+    "end": 33.6,
+    "feature": "스포츠 배기 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.5,
+    "feature": "스포츠 크로노 패키지",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 38.9,
+    "feature": "PDLS+ (포르쉐 다이내믹 라이트 시스템)",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "반짝임 스파클 이펙트",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.8,
+    "feature": "서라운드 뷰 360 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 40.9,
+    "end": 42.1,
+    "feature": "카본 인테리어 패키지",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 42.2,
+    "end": 44.5,
+    "feature": "보스(BOSE) 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 도로를 서행하는 GT 실버 포르쉐 911의 전면과 본넷 엠블럼 클로즈업",
+   "type": "감탄·리액션",
+   "text": "여기 보이는 이 차량은 제가 포르쉐에서 가장 좋아하는 색상 GT 실버 페인트가 들어가 있습니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "포르쉐 인기 옵션 컬러 GT 실버 메탈릭 (180만원)",
+    "category": "디자인"
+   },
+   {
+    "t": 11.0,
+    "point": "국내 희소한 911 쿠페 바디의 정통 레이싱 머신 감성",
+    "category": "희소성"
+   },
+   {
+    "t": 19.0,
+    "point": "개방감을 채워주는 320만원짜리 글라스 선루프 장착",
+    "category": "편의"
+   },
+   {
+    "t": 24.0,
+    "point": "총 4,000만원 상당의 추가 옵션이 적용된 풀옵션급 사양",
+    "category": "가격·조건"
+   },
+   {
+    "t": 29.0,
+    "point": "블랙 & 보르도 레드 투톤 가죽 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 32.0,
+    "point": "배기음을 살려주는 스포츠 배기 시스템 적용",
+    "category": "성능"
+   },
+   {
+    "t": 35.0,
+    "point": "감가 방어 필수 옵션인 스포츠 크로노 패키지 및 PDLS+ 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 41.0,
+    "point": "서라운드 뷰, 통풍 시트, 카본 패키지, BOSE 오디오 등 데일리 편의 사양 완비",
+    "category": "편의"
+   },
+   {
+    "t": 47.0,
+    "point": "4륜 구동(AWD)의 뛰어난 주행 안정성과 S 트림 450마력 출력",
+    "category": "성능"
+   },
+   {
+    "t": 53.0,
+    "point": "현재 매물 판매 중이며 상세 정보는 본문에 기재",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "본문 상세 정보 안내"
+   ],
+   "t": 54.0
+  },
+  "cta": {
+   "t": 55.0,
+   "text": "구매에 필요한 자세한 정보는 하단 본문에 적어두었습니다. 팔로우도 잊지 말아 주세요.",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면 도로 주행",
+    "보닛 엠블럼",
+    "전시장 실내 전면",
+    "전시장 실내 후면",
+    "실내 좌석/선루프",
+    "외관 후면 엠블럼",
+    "실내 센터페시아/버튼",
+    "스티어링 휠",
+    "헤드램프",
+    "센터 디스플레이",
+    "기어콘솔/도어",
+    "야외 전면/후면 주행 및 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "블랙 바탕 흰색 타이포 자막과 옵션명 영문 스티커, 노란색 가격 강조 포인트 일관 사용"
+  }
+ }
+}
