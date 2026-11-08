@@ -1,0 +1,848 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/SPljO_iVzS0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5995,
+  "candidatesTokenCount": 7097,
+  "totalTokenCount": 13149,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4832
+   }
+  ],
+  "thoughtsTokenCount": 57,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 53.6,
+   "aspect": "9:16",
+   "car": "Chery Tiggo 7 Pro Max",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 30.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 34.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 36.4,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 43.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 48.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.6,
+    "end": 53.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.4,
+    "text": "الحاجات اللي عجبتني / الحاجات اللي معجبتنيش",
+    "ko": "마음에 든 점들 / 마음에 안 든 점들",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "عجبتني",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "TIGGO 7 PRO MAX",
+    "ko": "티고 7 프로 맥스",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#4CE8C3",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.0,
+    "text": "الداخلية",
+    "ko": "실내",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.9,
+    "text": "SOFT TOUCH",
+    "ko": "소프트 터치 마감",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "text": "WIRELESS CHRGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "واصلها تبريد",
+    "ko": "냉각 기능 지원",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.5,
+    "text": "كهرباء 475L",
+    "ko": "전동 트렁크 475리터",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كهرباء",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "text": "Follow",
+    "ko": "팔로우",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E50914",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.5,
+    "text": "عزل الصوت",
+    "ko": "방음/차음",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.5,
+    "text": "8.0L - 8.7L",
+    "ko": "8.0L - 8.7L",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.0,
+    "text": "ADAS SYSTEM",
+    "ko": "ADAS 시스템 (미탑재)",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 47.5,
+    "text": "TURBO 1500cc 145HP 210NM",
+    "ko": "1.5 터보 145마력 210Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1500cc",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.6,
+    "type": "톡",
+    "event": "장단점 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "차량명 타이틀 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.1,
+    "type": "톡",
+    "event": "실내 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.6,
+    "type": "톡",
+    "event": "Soft Touch 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "애플 카플레이/360 카메라 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "Wireless Charger 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "딸깍",
+    "event": "쿨링 콘솔 아이스 효과 및 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "톡",
+    "event": "전동 트렁크 용량 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.2,
+    "type": "톡",
+    "event": "팔로우 버튼 스티커 등장 및 클릭",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "방음 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.8,
+    "type": "톡",
+    "event": "ADAS 시스템 금지 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.1,
+    "type": "쿵",
+    "event": "엔진 스펙 타이틀 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 2.4,
+    "what": "좋아요/싫어요 이모지 및 말풍선",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "영상 주제 제시",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "3D TIGGO 7 PRO MAX 타이틀 로고",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "확대 전환",
+    "purpose": "차종 소개",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "what": "360도 카메라/카플레이/안드로이드오토 아이콘",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "지원 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.5,
+    "what": "번개 아이콘 및 전동 트렁크 버튼 표시",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 45.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전동 트렁크 강조",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "what": "유튜브/인스타 팔로우 클릭 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구독 유도",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.5,
+    "what": "ADAS 금지 마크 스티커",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "ADAS 미탑재 단점 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر وتعال أقولك من الحاجات اللي عجبتني للحاجات اللي معجبتنيش في التيجو 7 برو ماكس",
+    "ko": "저는 나사르입니다. 티고 7 프로 맥스에서 마음에 들었던 점과 마음에 안 들었던 점들을 알려드리겠습니다."
+   },
+   {
+    "start": 4.6,
+    "end": 9.3,
+    "text": "أكتر حاجة عجبتني الداخلية، عندك سقف بانوراما، الكراسي هتفكرك بطنطا عشان محتضناك",
+    "ko": "가장 마음에 든 건 실내입니다. 파노라마 선루프가 있고 시트는 몸을 푹 감싸 안아줍니다."
+   },
+   {
+    "start": 9.4,
+    "end": 14.0,
+    "text": "التابلوه بتاعها شكله حلو جداً بسوفت تاتش، فتيس كريستال وعليه نمر",
+    "ko": "대시보드는 소프트 터치로 마감되어 아주 예쁘고, 크리스탈 기어 노브에는 호랑이 문양이 있습니다."
+   },
+   {
+    "start": 14.1,
+    "end": 18.5,
+    "text": "عندك أمبينت لايت شكله جميل جداً بالليل، آبل كاربلاي وأندرويد أوتو وكاميرات 360 وشحن وايرلس",
+    "ko": "야간에 예쁜 앰비언트 라이트, 애플 카플레이, 안드로이드 오토, 360도 카메라, 무선 충전기가 있습니다."
+   },
+   {
+    "start": 18.6,
+    "end": 22.8,
+    "text": "مساحة تخزين هنا وواحدة كمان كبيرة جداً هنا واصلها تبريد",
+    "ko": "이쪽에 수납공간이 있고, 센터콘솔 안쪽에는 냉각 기능이 들어간 큰 수납공간이 있습니다."
+   },
+   {
+    "start": 22.9,
+    "end": 26.8,
+    "text": "تاني حاجة المساحات، مساحة الرأس كويسة خصوصاً للطوال والرجلين نوعاً ما",
+    "ko": "두 번째는 공간입니다. 헤드룸은 키 큰 사람에게도 넉넉하고 레그룸도 괜찮습니다."
+   },
+   {
+    "start": 26.9,
+    "end": 30.5,
+    "text": "والشنطة كهرباء و475 لتر، متنساش تعمل فولو وهقولك الحاجة التالتة",
+    "ko": "트렁크는 전동식에 475리터입니다. 팔로우 잊지 마세요, 세 번째 장점 말씀드릴게요."
+   },
+   {
+    "start": 30.6,
+    "end": 34.6,
+    "text": "عزل الصوت، الإزاز الأمامي دبل وده حسن العزل جداً خصوصاً لحد 120",
+    "ko": "방음입니다. 앞유리와 전면 창문이 이중접합이라 120km/h까지 방음이 아주 훌륭합니다."
+   },
+   {
+    "start": 34.7,
+    "end": 40.0,
+    "text": "واستهلاك البنزين بيجيب معاك في حتة الـ 8، أقل حاجة بسيطة أو أعلى حاجة بسيطة حسب سواقتك",
+    "ko": "연비는 100km당 8리터 안팎으로, 운전 습관에 따라 약간 낮거나 높게 나옵니다."
+   },
+   {
+    "start": 40.1,
+    "end": 43.8,
+    "text": "ومفيهاش ADAS سيستم، أنا عمري ما اقتنعت بيه بصراحة بس الناس بتحبه",
+    "ko": "단점으로 ADAS 시스템이 없습니다. 전 솔직히 별로 안 좋아하지만 사람들이 좋아하죠."
+   },
+   {
+    "start": 43.9,
+    "end": 48.5,
+    "text": "آخر حاجة الموتور 1500cc تيربو 145 حصان و210 نيوتن، أداءها عادي",
+    "ko": "마지막으로 엔진은 1.5리터 터보 145마력 210Nm 토크로 성능은 평범합니다."
+   },
+   {
+    "start": 48.6,
+    "end": 53.6,
+    "text": "خلاصة العربية شكلها حلو جداً، فيها أوبشنز كتير، اقتصادية نوعاً ما بس مش جراية",
+    "ko": "총평하자면 디자인 예쁘고 옵션 많고 꽤 경제적이지만, 달리기용 차는 아닙니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "티고 7 프로 맥스 장단점 정리 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 4.6,
+    "end": 22.8,
+    "speed": "빠름",
+    "summary": "실내 감성 및 편의사양(루프, 크리스탈 기어봉, 냉각 콘솔 등)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 22.9,
+    "end": 30.5,
+    "speed": "빠름",
+    "summary": "뒷좌석 레그룸 및 전동 트렁크 공간 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 30.6,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "이중접합 차음유리와 고속 방음 성능"
+   },
+   {
+    "stage": "사양",
+    "start": 34.7,
+    "end": 48.5,
+    "speed": "빠름",
+    "summary": "연비, ADAS 미탑재 단점, 1.5T 엔진 성능"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 48.6,
+    "end": 53.6,
+    "speed": "보통",
+    "summary": "장단점 요약 총평"
+   }
+  ],
+  "rules": [
+   "말하는 옵션 명칭에 맞춰 큼직한 3D/2D 그래픽 스티커와 효과음을 동기화하여 시각적 직관성을 높임",
+   "실내 주요 편의 기능(기어노브, 무선충전, 냉각 콘솔 등)을 손으로 직접 가리키거나 시연하며 템포 빠르게 전환",
+   "중간(트렁크 파트)에 팔로우 버튼 애니메이션을 배치하여 자연스러운 참여 유도",
+   "스펙이나 수치(엔진, 연비, 용량)는 대비가 강한 굵은 텍스트로 화면 중앙에 크게 강조"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.0,
+    "end": 7.0,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.9,
+    "feature": "크리스탈 기어 노브",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "feature": "360도 서라운드 뷰 & 카플레이",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "360 Camera 및 카플레이 로고 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "feature": "스마트폰 무선 충전",
+    "shown_how": "글자 카드",
+    "icon_desc": "Wireless Charger 텍스트 및 번개 그래픽",
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.8,
+    "feature": "냉각 센터 콘솔 박스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "얼음 및 냉기 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.8,
+    "feature": "스마트 전동식 트렁크",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "트렁크 닫힘 버튼 원형 하이라이트",
+    "x_pct": 48.0,
+    "y_pct": 25.0,
+    "size_w_pct": 10.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.5,
+    "feature": "이중접합 차음유리",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 차량 전면에서 손짓하며 티고 7 프로 맥스의 마음에 든 점과 안 든 점을 짚어주겠다고 시작",
+   "type": "질문",
+   "text": "الحاجات اللي عجبتني للحاجات اللي معجبتنيش في التيجو 7 برو ماكس",
+   "ko": "티고 7 프로 맥스에서 마음에 든 점과 마음에 안 든 점들"
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "포근한 시트 착좌감과 파노라마 선루프",
+    "category": "편의"
+   },
+   {
+    "t": 10.0,
+    "point": "소프트 터치 마감과 호랑이 문양 크리스탈 기어봉",
+    "category": "디자인"
+   },
+   {
+    "t": 15.0,
+    "point": "360 카메라, 무선 카플레이, 무선 충전 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 21.0,
+    "point": "냉각 기능이 적용된 넉넉한 센터 콘솔 수납",
+    "category": "편의"
+   },
+   {
+    "t": 24.0,
+    "point": "키 큰 성인에게도 여유로운 2열 공간과 475L 전동 트렁크",
+    "category": "공간"
+   },
+   {
+    "t": 32.0,
+    "point": "120km/h까지 정숙성을 유지해주는 전면 이중접합 차음유리",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "100km당 약 8L 수준의 준수한 복합 연비",
+    "category": "성능"
+   },
+   {
+    "t": 41.0,
+    "point": "아쉬운 점으로 ADAS 주행보조 시스템 미탑재",
+    "category": "안전"
+   },
+   {
+    "t": 45.0,
+    "point": "1.5L 터보 145마력 210Nm로 무난하고 일상적인 주행 성능",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 29.0,
+   "text": "Follow",
+   "ko": "팔로우하세요",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "트렁크",
+    "외관 측면",
+    "계기판",
+    "외관 전면"
+   ]
+  }
+ }
+}

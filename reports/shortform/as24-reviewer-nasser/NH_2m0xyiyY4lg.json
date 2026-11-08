@@ -1,0 +1,499 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/2m0xyiyY4lg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3798,
+  "candidatesTokenCount": 4863,
+  "totalTokenCount": 9055,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2635
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 394,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.8,
+   "aspect": "9:16",
+   "car": "BMW M4 Competition Convertible (G83) & 미공개 퀴즈 차량(Citroen Ami 추정)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 6.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 9.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 14.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 19.1,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 24.7,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.7,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.1,
+    "text": "STOCK 530hp",
+    "ko": "순정 530마력",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 6.6,
+    "text": "STAGE 2 750hp",
+    "ko": "스테이지 2 750마력",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FF2222",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "text": "7,500,000",
+    "ko": "750만 EGP",
+    "kind": "가격",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#66FF99",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "text": "AHMED EL WAKIL",
+    "ko": "아메드 엘 와킬",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.8,
+    "text": "45 Km/h",
+    "ko": "시속 45km",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 24.3,
+    "text": "8 hp",
+    "ko": "8마력",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.4,
+    "type": "휙",
+    "event": "덮개 천을 당겨 벗길 때",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "띵",
+    "event": "STOCK 530hp 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.2,
+    "type": "띵",
+    "event": "STAGE 2 750hp 자막 변경",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "돈 소리",
+    "event": "7,500,000 가격 자막 및 지폐 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "M4 배기음 가속 사운드 (후포폭 및 팝앤뱅)",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "톡",
+    "event": "Ahmed El Wakil 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "띵",
+    "event": "최고속도 카운트다운 완료",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.9,
+    "type": "띵",
+    "event": "8hp 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.8,
+    "type": "딸깍",
+    "event": "Follow 버튼이 Following으로 클릭 전환될 때",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 12.8,
+     "what": "배기음 시연 구간에 음악 볼륨 일시 뮤트"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 6.8,
+    "end": 8.8,
+    "what": "공중에 흩날리는 지폐 이펙트",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "위에서 비처럼 내림",
+    "purpose": "차량 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 18.5,
+    "what": "자동차 리뷰어 Ahmed El Wakil 인물 누끼 사진",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 20.0,
+    "y_pct": 55.0,
+    "entrance": "커버 뒤에서 튀어나옴",
+    "purpose": "유명 리뷰어의 평가 언급 강조",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "what": "인스타그램 팔로우(Follow -> Following) 버튼 UI",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 26.0,
+    "y_pct": 19.0,
+    "entrance": "페이드",
+    "purpose": "팔로우 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "انا ناصر والفزورة اللي فاتت",
+    "ko": "저는 나사르이고, 지난번 퀴즈는"
+   },
+   {
+    "start": 2.2,
+    "end": 6.7,
+    "text": "M4 Competition، العادية 530 حصان، دي Stage 2 بـ 750 حصان",
+    "ko": "M4 컴페티션이었습니다. 순정은 530마력이지만, 이 차는 스테이지 2라 750마력입니다."
+   },
+   {
+    "start": 6.7,
+    "end": 9.9,
+    "text": "وتمنها 7 مليون ونص، كده الحصان واقف بكام؟",
+    "ko": "가격은 750만 파운드인데, 그럼 1마력당 얼마일까요?"
+   },
+   {
+    "start": 9.9,
+    "end": 14.8,
+    "text": "وكابورليه وأريح كراسي بتنزل على سبورت كار، والصوت؟",
+    "ko": "컨버터블에 스포츠카 중 가장 편한 시트를 갖췄죠. 그리고 배기음은?"
+   },
+   {
+    "start": 14.8,
+    "end": 18.9,
+    "text": "فزورة النهاردة، أحمد الوكيل نفسه قال عليها أقسى عربية صورها في حياته",
+    "ko": "오늘의 퀴즈, 아메드 엘 와킬조차 평생 촬영한 차 중 가장 거칠다고 평했죠."
+   },
+   {
+    "start": 18.9,
+    "end": 22.2,
+    "text": "وما فيش مشاكل مع الرادار لأن التوب سبيد 45 كيلو",
+    "ko": "과속 카메라 걱정은 전혀 없습니다. 최고 속도가 45km니까요."
+   },
+   {
+    "start": 22.2,
+    "end": 24.8,
+    "text": "وبقوة جبارة 8 حصان، أقوى من أي غسالة أوتوماتيك",
+    "ko": "무려 8마력의 무시무시한 힘으로, 웬만한 전자동 세탁기보다 셉니다."
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "text": "ما تنساش تعمل فولو عشان تعرف الفزورة دي، وما تفوتكش الفوازير الجديدة طول رمضان",
+    "ko": "이 퀴즈 정답을 알고 라마단 내내 새 퀴즈를 놓치지 않으려면 팔로우 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "화려한 커버를 벗기며 지난 퀴즈 정답 차량 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 2.2,
+    "end": 6.7,
+    "speed": "빠름",
+    "summary": "M4 컴페티션 순정 대비 스테이지 2 튜닝 마력 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 6.7,
+    "end": 9.9,
+    "speed": "빠름",
+    "summary": "차량 가격 공개 및 마력당 가격 유저 참여 질문"
+   },
+   {
+    "stage": "기능",
+    "start": 9.9,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "오픈탑 작동, 시트 편의성 설명 및 강렬한 배기음 청음"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.8,
+    "end": 24.7,
+    "speed": "빠름",
+    "summary": "커버에 싸인 새로운 초소형 퀴즈 차량의 코믹한 스펙 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.7,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "라마단 특집 퀴즈 연속 시청을 위한 팔로우 요청 CTA"
+   }
+  ],
+  "rules": [
+   "커버를 벗기는 드라마틱한 언베일링 액션으로 첫 2초 시선 집중",
+   "스펙 숫자가 올라가는 역동적인 롤링/타자 텍스트 모션으로 속도감 부여",
+   "가격 언급 시 지폐 그래픽과 사운드(캐시 레지스터)를 연계해 직관적 전달",
+   "배기음을 들려줄 때는 배경음악을 완전히 끄고 실차 사운드에 집중",
+   "고성능 차(750마력)와 초소형 미니카(8마력)의 극단적 스펙 대비를 통한 유머러스한 구성",
+   "버튼 애니메이션과 제스처를 결합해 직관적인 구독/팔로우 전환 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.5,
+    "end": 6.6,
+    "feature": "스테이지 2 파워트레인 튜닝 (750마력)",
+    "shown_how": "글자 카드",
+    "icon_desc": "Stock 530hp -> Stage 2 750hp 텍스트 전환",
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "타자",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 14.8,
+    "feature": "컨버터블 루프 오픈 & 가변 배기음",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "화려한 오리엔탈 패턴의 차량 커버를 힘차게 벗기며 검은색 BMW M4 컴페티션을 공개하는 순간",
+   "type": "행동",
+   "text": "انا ناصر والفزورة اللي فاتت M4 Competition",
+   "ko": "저는 나사르이고, 지난 퀴즈의 정답은 M4 컴페티션이었습니다!"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "순정 530마력에서 스테이지 2 튜닝을 통해 750마력으로 업그레이드됨",
+    "category": "성능"
+   },
+   {
+    "t": 7.0,
+    "point": "차량 가격은 750만 이집트 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.5,
+    "point": "오픈 에어링이 가능한 카브리올레이며 스포츠카 중 시트가 가장 안락함",
+    "category": "편의"
+   },
+   {
+    "t": 13.0,
+    "point": "강렬하고 스포티한 팝앤뱅 배기음 시연",
+    "category": "성능"
+   },
+   {
+    "t": 19.5,
+    "point": "다음 퀴즈 차는 최고속도 45km/h, 출력 8마력의 초소형 전기/마이크로카",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 25.5,
+   "text": "ما تنساش تعمل فولو",
+   "ko": "팔로우 잊지 마세요",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 후면",
+    "기타"
+   ]
+  }
+ }
+}

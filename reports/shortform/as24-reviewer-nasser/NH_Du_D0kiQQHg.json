@@ -1,0 +1,898 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Du_D0kiQQHg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6546,
+  "candidatesTokenCount": 8019,
+  "totalTokenCount": 15304,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5383
+   }
+  ],
+  "thoughtsTokenCount": 739,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.6,
+   "aspect": "9:16",
+   "car": "Toyota Granvia Premium",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 19.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 24.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 41.2,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 46.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 54.5,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 59.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "text": "GRANVIA PREMIUM",
+    "ko": "그란비아 프리미엄",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "GRANVIA",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "text": "-20°C ثلاجة",
+    "ko": "-20도 냉장고",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 7.0,
+    "color": "#4DEEEA",
+    "background": "외곽선",
+    "bg_color": "#002B49",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "-20°C",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.0,
+    "text": "هنا",
+    "ko": "여기",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.5,
+    "text": "VIP",
+    "ko": "VIP",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFD700",
+    "background": "외곽선",
+    "bg_color": "#5C4033",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VIP",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 49.5,
+    "text": "V6 3500cc",
+    "ko": "V6 3500cc",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#E5A93C",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "V6",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.0,
+    "text": "أقوى",
+    "ko": "더 강력함",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 8.0,
+    "color": "#FFD700",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.5,
+    "text": "↑ 190MM +20%",
+    "ko": "지상고 190mm +20%",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "+20%",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 58.0,
+    "text": "1/1 في مصر",
+    "ko": "이집트 단 1대",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#C8102E",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1/1",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 59.5,
+    "text": "CHILLOUT AUC",
+    "ko": "칠아웃 AUC 지점",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E31E24",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "AUC",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.4,
+    "type": "휙",
+    "event": "그란비아 프리미엄 타이틀 및 일본 국기 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "띵",
+    "event": "콘솔 냉장고 3D 네온 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스티어링 휠 경적 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.9,
+    "type": "딸깍",
+    "event": "슬라이딩 도어 전동 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.2,
+    "type": "딸깍",
+    "event": "접이식 테이블 팝업 버튼 작동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "휙",
+    "event": "천장 모니터 접혀 내려옴",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "띵",
+    "event": "VIP 반짝이는 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "쿵",
+    "event": "V6 3500cc 엔진 스펙 골드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.0,
+    "type": "휙",
+    "event": "더 강력함(أقوى) 근육 이모티콘 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "휙",
+    "event": "지상고 수치 화살표 그래픽 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.2,
+    "type": "톡",
+    "event": "1/1 한정판 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.2,
+    "type": "띵",
+    "event": "칠아웃 위치 핀 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 고급스러운",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "리듬감 있는 베이스 비트 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "what": "일본 국기 및 토요타 엠블럼, Granvia Premium 텍스트 배너",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "차종 및 제조국 소개",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "what": "-20°C 냉장고 네온 3D 입체 텍스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "냉장고 냉각 온도 강조",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.0,
+    "what": "도어 조작 버튼 지목 화살표와 텍스트",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 75.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "자동 도어 버튼 안내",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.5,
+    "what": "빛나는 황금색 VIP 텍스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "VIP 좌석 사양 강조",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 49.5,
+    "what": "V6 3500cc 금색 뱃지와 사막을 달리는 랜드크루저 이미지",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "밀려옴",
+    "purpose": "동일 파워트레인 공유 설명",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.0,
+    "what": "근육 이모지와 أقوى(더 강력함) 텍스트",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 70.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "경쟁 밴(V-Class) 대비 강점 표현",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.5,
+    "what": "190mm 지상고 상승 화살표 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 75.0,
+    "y_pct": 72.0,
+    "entrance": "밀려옴",
+    "purpose": "높은 지상고 수치 전달",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 58.0,
+    "what": "이집트 국기와 1/1 한정판 뱃지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 28.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "이집트 내 유일 매물 희소성",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 59.5,
+    "what": "Chillout AUC 위치 핀 3D 마커",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر، ودي أفخم ڤان بتنزل في اليابان: تويوتا جرانڤيا بريميوم.",
+    "ko": "저는 나사르입니다. 이것은 일본에서 출시되는 가장 럭셔리한 밴인 토요타 그란비아 프리미엄입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 9.8,
+    "text": "والفخامة من جوة: عندك أخشاب في كل حتة، بيلت-إن نافيجيشن، وتلاجة لسالب عشرين عشان المشروبات الساقعة.",
+    "ko": "실내의 럭셔리함: 곳곳에 우드 트림, 빌트인 내비게이션, 시원한 음료를 위한 영하 20도 냉장고가 있습니다."
+   },
+   {
+    "start": 9.8,
+    "end": 14.5,
+    "text": "دريكسيون مالتي فانكشن، ولو دوست عالزرار ده هتتحكم في البيبان عشان تريح نفسك.",
+    "ko": "다기능 스티어링 휠, 그리고 이 버튼을 누르면 문을 자동으로 조작하여 편안함을 줍니다."
+   },
+   {
+    "start": 14.5,
+    "end": 20.0,
+    "text": "ومن جوة المساحة واسعة جداً بكراسي فخمة فيها تسخين، ليج إكستنشن، وكاب هولدر.",
+    "ko": "내부는 열선, 레그 서포트 익스텐션, 컵홀더가 있는 고급 시트로 매우 넓습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 24.8,
+    "text": "ولو دوست هنا بيطلعلك ترابيزة بتتحكم في ارتفاعها تقدر تاكل أو تشتغل عليها.",
+    "ko": "여기를 누르면 높이 조절이 가능한 테이블이 나와 식사하거나 업무를 볼 수 있습니다."
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "text": "وعشان ما فيش حاجة تفوتك، بتنزلك شاشة تقدر تتفرج فيها على ماتشات، أفلام، مسلسلات، أنا، اللي إنت عايزه.",
+    "ko": "놓치는 것이 없도록 모니터가 내려와 축구 경기, 영화, 드라마 등 원하는 것을 볼 수 있습니다."
+   },
+   {
+    "start": 29.8,
+    "end": 33.5,
+    "text": "ومن أهم مميزاتها عن الـ V هي سهولة الدخول والخروج، وبالمناسبة كل الكراسي VIP.",
+    "ko": "V클래스 대비 가장 큰 장점은 승하차의 용이성이며, 모든 좌석이 VIP 사양입니다."
+   },
+   {
+    "start": 33.5,
+    "end": 41.2,
+    "text": "عندك ستار لايتس شكلهم خطير ولايت بار عشان القراية ودايناميك أمبينت لايت، وبدل الستارة عندك اتنين، شقة مش عربية!",
+    "ko": "멋진 스타라이트 천장 조명과 독서등 라이트 바, 다이내믹 앰비언트 라이트, 커튼도 두 겹이라 차가 아니라 아파트 수준입니다!"
+   },
+   {
+    "start": 41.2,
+    "end": 46.5,
+    "text": "تصميم فخم من لكزس، جريلز عملاقة كلها من الكروم عشان تهوي على الموتور اللي محتاج تركز فيه.",
+    "ko": "렉서스풍의 럭셔리한 디자인, 엔진 열을 식혀주는 거대한 크롬 그릴이 돋보입니다."
+   },
+   {
+    "start": 46.5,
+    "end": 50.5,
+    "text": "V6 3500cc بتاع اللاندكروزر، عنوان الاعتمادية في العالم.",
+    "ko": "랜드크루저에 들어가는 V6 3500cc 엔진으로, 전 세계 신뢰성의 대명사입니다."
+   },
+   {
+    "start": 50.5,
+    "end": 54.5,
+    "text": "وكدة تبقى أقوى من الـ V-Class وأعلى منها بقرب العشرين في المية.",
+    "ko": "따라서 V-클래스보다 강력하며 지상고도 약 20% 더 높습니다."
+   },
+   {
+    "start": 54.5,
+    "end": 59.6,
+    "text": "دي الوحيدة في مصر، هتلاقيها في أوتو ستاد بنزينة شيل أوت AUC، بيبيعوا بيوت على شكل عربيات!",
+    "ko": "이집트 단 1대뿐인 모델로, 오토스타드 칠아웃 AUC 주유소 지점에서 만나보실 수 있습니다. 바퀴 달린 집을 팝니다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "일본에서 가장 럭셔리한 밴 토요타 그란비아 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 14.5,
+    "speed": "빠름",
+    "summary": "1열 우드트림, 영하 20도 냉장고, 전동 슬라이딩 도어 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 14.5,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "2열 VIP 리클라이닝 시트, 팝업 테이블 및 천장 엔터테인먼트 스크린 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 29.8,
+    "end": 41.2,
+    "speed": "보통",
+    "summary": "스타라이트 천장, 앰비언트 라이트, 이중 암막 커튼 편의사양"
+   },
+   {
+    "stage": "사양",
+    "start": 41.2,
+    "end": 54.5,
+    "speed": "빠름",
+    "summary": "외관 크롬 그릴, 랜드크루저 V6 3500cc 엔진 및 지상고 우위 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 54.5,
+    "end": 59.6,
+    "speed": "보통",
+    "summary": "이집트 유일 1대 매물 강조 및 전시장(Auto Stad) 위치 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 과장되고 에너지 넘치는 제스처와 속도감 있는 구어체 나레이션",
+   "옵션을 설명할 때 직접 버튼을 누르고 당기는 즉각적인 물리적 시연 병행",
+   "영하 20도 냉장고나 VIP 좌석처럼 핵심 세일즈 포인트마다 3D 네온 및 팝업 효과 그래픽 활용",
+   "경쟁 차종(벤츠 V-Class)을 직접 언급하며 엔진 및 지상고 스펙 비교 우위 제시",
+   "화면 전환마다 컷 템포에 맞춘 직관적인 휙/띵 등의 짧은 사운드 이펙트 배치"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "feature": "콘솔 내장 영하 20도 냉장고",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "-20°C ثلاجة 문구가 적힌 네온 큐브 홀로그램",
+    "x_pct": 25.0,
+    "y_pct": 35.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "feature": "운전석 원터치 전동 슬라이딩 도어 버튼",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "버튼을 가리키는 빨간색 화살표와 텍스트",
+    "x_pct": 75.0,
+    "y_pct": 28.0,
+    "size_w_pct": 20.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "feature": "전동식 레그 서포트 익스텐션 및 컵홀더",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손으로 암레스트 컵홀더를 열고 시트 각도 시연",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.8,
+    "feature": "팝업 및 높낮이 조절식 비즈니스 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "바닥 수납함에서 올라와 펼쳐지는 테이블 작동",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "feature": "천장 전동 폴딩 엔터테인먼트 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "루프 콘솔에서 내려오는 대형 모니터 및 리모컨 조작",
+    "x_pct": 40.0,
+    "y_pct": 40.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.5,
+    "feature": "스타라이트 롤스로이스 스타일 은하수 천장 및 라이트바",
+    "shown_how": "확대",
+    "icon_desc": "손가락으로 루프 천장의 은하수 조명과 LED 바 지목",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "feature": "다이내믹 앰비언트 무드램프",
+    "shown_how": "확대",
+    "icon_desc": "우드 트림 아래 점등된 멀티컬러 앰비언트 라이트 라인",
+    "x_pct": 40.0,
+    "y_pct": 70.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 41.2,
+    "feature": "이중 측면 프라이버시 커튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "진행자가 양쪽 이중 직물 커튼을 걷어 보임",
+    "x_pct": 60.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 매장 앞에서 활기차게 인사하며 일본 최고의 럭셔리 밴이라고 선언",
+   "type": "희귀차",
+   "text": "أنا ناصر، ودي أفخم ڤان بتنزل في اليابان",
+   "ko": "저는 나사르입니다. 이것은 일본에서 출시되는 가장 럭셔리한 밴입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "일본 현지 최고급 럭셔리 밴 토요타 그란비아 프리미엄",
+    "category": "희소성"
+   },
+   {
+    "t": 5.5,
+    "point": "실내 전체 리얼 우드 트림 마감 및 내비게이션",
+    "category": "디자인"
+   },
+   {
+    "t": 7.5,
+    "point": "시원한 음료 보관을 위한 영하 20도 지원 콘솔 냉장고",
+    "category": "편의"
+   },
+   {
+    "t": 12.0,
+    "point": "운전석 원터치 버튼으로 슬라이딩 도어 전동 개폐 제어",
+    "category": "편의"
+   },
+   {
+    "t": 16.5,
+    "point": "열선, 레그 레스트, 컵홀더가 내장된 넓고 고급스러운 2열 좌석",
+    "category": "공간"
+   },
+   {
+    "t": 21.5,
+    "point": "식사 및 업무용 높낮이 조절 접이식 콘솔 테이블",
+    "category": "편의"
+   },
+   {
+    "t": 26.0,
+    "point": "미디어 및 경기 시청이 가능한 천장 전동 접이식 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 30.5,
+    "point": "벤츠 V클래스보다 뛰어난 승하차 편의성과 전 좌석 VIP 시트",
+    "category": "편의"
+   },
+   {
+    "t": 34.5,
+    "point": "스타라이트 은하수 루프 조명과 독서등, 다이내믹 앰비언트 라이트",
+    "category": "디자인"
+   },
+   {
+    "t": 39.5,
+    "point": "완벽한 차광을 제공하는 2열 이중 프라이버시 커튼",
+    "category": "편의"
+   },
+   {
+    "t": 42.5,
+    "point": "렉서스 감성의 대형 크롬 라디에이터 그릴 전면 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 47.5,
+    "point": "랜드크루저와 공유하는 내구성의 상징 V6 3500cc 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 52.5,
+    "point": "V클래스 대비 더 강력한 출력과 20% 더 높은 190mm 지상고",
+    "category": "성능"
+   },
+   {
+    "t": 55.5,
+    "point": "이집트 내 단 1대뿐인 매물로 오토스타드 칠아웃 AUC 지점에 전시",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 56.5,
+   "text": "هتلاقيها في أوتو ستاد بنزينة شيل أوت AUC",
+   "ko": "오토스타드 칠아웃 AUC 지점에서 만나보실 수 있습니다",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "옵션 작동",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 전면",
+    "외관 측면",
+    "외관 전면"
+   ]
+  }
+ }
+}

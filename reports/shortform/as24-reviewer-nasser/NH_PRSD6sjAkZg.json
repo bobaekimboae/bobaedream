@@ -1,0 +1,774 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/PRSD6sjAkZg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8534,
+  "candidatesTokenCount": 6215,
+  "totalTokenCount": 14749,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7371
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 80.5,
+   "aspect": "9:16",
+   "car": "BMW M3 Competition Facelift 2026",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.3,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.8,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 13.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 17.0,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 21.6,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 26.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 38.6,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 44.4,
+    "part": "실내 앞",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 46.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 48.2,
+    "part": "실내 앞",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 53.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 57.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 60.1,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.1,
+    "end": 61.7,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 61.7,
+    "end": 63.8,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.8,
+    "end": 68.2,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.2,
+    "end": 70.9,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.9,
+    "end": 76.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 76.7,
+    "end": 80.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 3.6,
+    "text": "M3",
+    "ko": "M3",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.8,
+    "text": "FACELIFT\n2026",
+    "ko": "페이스리프트 2026",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.6,
+    "text": "600M",
+    "ko": "600미터",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 11.5,
+    "text": "AERODYNAMICS",
+    "ko": "공기역학",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.0,
+    "text": "I6 530hp\n650Nm",
+    "ko": "직렬 6기통 530마력 650Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 33.0,
+    "text_height_pct": 15.0,
+    "color": "#E5A93B",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.0,
+    "text": "19\"",
+    "ko": "19인치",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 37.5,
+    "text": "CARBON\nCERAMIC",
+    "ko": "카본 세라믹",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "text": "DRIFT\nANALYZER",
+    "ko": "드리프트 분석기",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 113.0,
+    "end": 116.5,
+    "text": "C E V G\nS CLA",
+    "ko": "C, E, V, G, S, CLA 클래스",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 117.5,
+    "end": 120.0,
+    "text": "VITALI MALL\nGATE 4 AUC",
+    "ko": "비탈리 몰 게이트 4 AUC 앞",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "차량 전면 공개 전환 및 엠블럼 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "FACELIFT 2026 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "휙",
+    "event": "600M 거리 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "쿵",
+    "event": "AERODYNAMICS 공기역학 텍스트 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "쿵",
+    "event": "스펙 카드 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "M3 배기음 및 런치 배기 가스 분사",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "톡",
+    "event": "19인치 자막 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "톡",
+    "event": "카본 세라믹 자막 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "띵",
+    "event": "드리프트 분석기 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 117.5,
+    "type": "쿵",
+    "event": "위치 핀 3D 그래픽 및 주소 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너제틱하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 26.8,
+     "what": "엔진 배기음을 위해 음악 잠시 볼륨 다운"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 8.9,
+    "end": 11.5,
+    "what": "공기역학 시뮬레이션 자동차 그래픽 및 싫어요 이모지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "공기역학 강조",
+    "sure": true
+   },
+   {
+    "start": 117.2,
+    "end": 120.0,
+    "what": "지도 위치 핀 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 28.0,
+    "x_pct": 60.0,
+    "y_pct": 30.0,
+    "entrance": "밀려옴",
+    "purpose": "쇼룸 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "أنا ناصر وده سبب حب الناس في الـ بي إم دبليو، M3 Competition.",
+    "ko": "저는 나사르입니다. 사람들이 BMW M3 컴페티션을 사랑하는 이유를 보여드리죠."
+   },
+   {
+    "start": 3.7,
+    "end": 8.8,
+    "text": "دي الفيس ليفت الجديدة والوحيدة 26، عندك سبورت بونيت، ليزر لايتس تنور أكتر من نص كيلو.",
+    "ko": "새로운 2026 페이스리프트 모델입니다. 스포츠 보닛과 500m 넘게 비추는 레이저 라이트가 있죠."
+   },
+   {
+    "start": 8.8,
+    "end": 16.8,
+    "text": "وبي إم دبليو عندهم مبدأ: الإيرودايناميكس للضعفاء، دخل هوا للموتور وهو يتصرف، باجز باني جريلز وإير إنتيك خطير.",
+    "ko": "BMW의 철학은 '공기역학은 약자들을 위한 것, 엔진에 공기만 밀어 넣으면 알아서 달린다'입니다. 거대한 그릴과 흡기구 보세요."
+   },
+   {
+    "start": 16.8,
+    "end": 26.5,
+    "text": "وحواليه رول بار وتوين تيربو فتاكين، والموتور 6 سلندر 3000cc بيخرج 530 حصان و650 نيوتن.",
+    "ko": "스트럿바와 트윈터보가 장착되어 있으며, 6기통 3000cc 엔진으로 530마력에 650토크를 냅니다."
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "text": "سمفونية!",
+    "ko": "교향곡 같은 소리죠!"
+   },
+   {
+    "start": 29.8,
+    "end": 38.6,
+    "text": "وعشان تكمل الروشنة، عندك بلاك دريمز مقاس 19، وكاربون سيراميك بريكس عشان يمسكوا في الطريق.",
+    "ko": "멋을 더하기 위해 19인치 블랙 휠과 도로에 딱 붙게 해주는 카본 세라믹 브레이크가 들어갔습니다."
+   },
+   {
+    "start": 38.6,
+    "end": 48.0,
+    "text": "شخصياً ما بحبش كراسي الكاربون فايبر، أخيراً كومفورت سيتس بتسخين، ودبل سكرين بدريفت أنالايزر وهي إد أب ديسبلاي.",
+    "ko": "개인적으로 버킷시트를 안 좋아하는데, 열선 편의 시트와 드리프트 분석기 및 HUD가 탑재된 커브드 디스플레이가 있습니다."
+   },
+   {
+    "start": 48.0,
+    "end": 57.5,
+    "text": "وبادل شفترز عملاقة، M1 و M2، والدركسيون كاربون فايبر في ألكنتارا عشان يزود الجريب.",
+    "ko": "거대한 패들 시프트, M1/M2 버튼, 그립감을 높여주는 카본/알칸타라 스티어링 휠이 적용되었습니다."
+   },
+   {
+    "start": 57.5,
+    "end": 64.0,
+    "text": "ولتقليل الوزن عندك سقف كاربون فايبر، ليب سبويلر وسبورت ديفيوزر كاربون فايبر.",
+    "ko": "경량화를 위해 카본 파이버 루프와 립 스포일러, 스포츠 디퓨저가 장착되었습니다."
+   },
+   {
+    "start": 64.0,
+    "end": 80.5,
+    "text": "وتقدر تطلب عربيتك الإكزوتيك من دويتش أوتوموتيف في مول فيتالي أمام بوابة 4 بالجامعة الأمريكية.",
+    "ko": "도이치 오토모티브에서 다양한 수입차를 주문할 수 있습니다. 미국 대학교 4번 게이트 앞 비탈리 몰에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "M3 소개 및 차량 전면 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 16.8,
+    "speed": "빠름",
+    "summary": "외관 전면 디자인 및 그릴 특징 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 16.8,
+    "end": 26.5,
+    "speed": "보통",
+    "summary": "엔진룸 열고 출력 및 스펙 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 26.5,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "배기음 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 64.0,
+    "speed": "빠름",
+    "summary": "휠, 실내 스크린, 스티어링 휠 및 카본 익스테리어 파츠 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 64.0,
+    "end": 80.5,
+    "speed": "보통",
+    "summary": "수입 대행사 쇼룸 소개 및 위치 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 빠른 템포 말에 맞춰 카메라 앵글을 1~2초 단위로 전환한다.",
+   "핵심 기술 사양(마력, 휠 인치, 조명 도달 거리)은 눈에 띄는 볼드 텍스트 스티커로 즉각 띄운다.",
+   "배기음을 들려줄 때는 배경음악을 순식간에 낮춰 현장감을 극대화한다.",
+   "오프라인 매장 소개 시 3D 위치 핀 그래픽을 띄워 신뢰성과 시인성을 확보한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 7.3,
+    "end": 8.8,
+    "feature": "레이저 헤드라이트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "feature": "가변 배기 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 37.5,
+    "feature": "카본 세라믹 브레이크",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 75.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 46.8,
+    "feature": "드리프트 분석기 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 53.6,
+    "feature": "카본 알칸타라 M 스티어링 휠",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 BMW 앞을 가로막고 서 있다가 물러서며 엠3 컴페티션을 외치는 강렬한 등장",
+   "type": "행동",
+   "text": "أنا ناصر وده سبب حب الناس في الـ بي إم دبليو، M3 Competition.",
+   "ko": "저는 나사르입니다. 사람들이 BMW M3 컴페티션을 사랑하는 이유입니다."
+  },
+  "narration_points": [
+   {
+    "t": 4.0,
+    "point": "2026년형 페이스리프트 최신 모델 강조",
+    "category": "희소성"
+   },
+   {
+    "t": 7.5,
+    "point": "500미터 이상 비추는 레이저 라이트 탑재",
+    "category": "안전"
+   },
+   {
+    "t": 14.0,
+    "point": "거대한 공기 흡입구 및 벅스바니 스타일 그릴",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "3.0L 직렬 6기통 530마력 650토크 트윈터보 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 35.0,
+    "point": "강력한 제동을 위한 19인치 휠 및 카본 세라믹 브레이크",
+    "category": "성능"
+   },
+   {
+    "t": 40.0,
+    "point": "불편한 버킷 대신 편안한 열선 컴포트 시트 장착",
+    "category": "편의"
+   },
+   {
+    "t": 45.0,
+    "point": "드리프트 분석기 기능이 포함된 대형 와이드 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 58.0,
+    "point": "경량화를 위한 루프, 스포일러, 디퓨저 풀 카본 파이버 적용",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 77.0,
+   "text": "العنوان: فيتالي مول أمام بوابة 4 الجامعة الأمريكية",
+   "ko": "매장 위치: 미국대학교 4번 게이트 앞 비탈리 몰",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "엔진룸",
+    "외관 후면",
+    "휠",
+    "실내 앞",
+    "센터 화면",
+    "뒷좌석",
+    "외관 측면",
+    "외관 후면"
+   ]
+  }
+ }
+}

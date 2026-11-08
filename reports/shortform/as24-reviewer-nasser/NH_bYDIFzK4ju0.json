@@ -1,0 +1,630 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/bYDIFzK4ju0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6819,
+  "candidatesTokenCount": 5261,
+  "totalTokenCount": 12080,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5656
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 63.0,
+   "aspect": "9:16",
+   "car": "Maserati GranTurismo",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 38.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 51.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 56.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 63.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 7.5,
+    "end": 9.2,
+    "text": "540 hp",
+    "ko": "540 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 38.5,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "text": "550 Nm",
+    "ko": "550 Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 46.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.1,
+    "type": "휙",
+    "event": "카메라 줌아웃 및 차 전면 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "쿵",
+    "event": "보닛이 디지털 효과로 열림",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "540 hp 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "550 Nm 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "쿵",
+    "event": "문 닫히는 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "화면에서 배기/엔진 사운드 시연",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "딸깍",
+    "event": "카본 센터 콘솔 수납함 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "딸깍",
+    "event": "디지털 시계 화면 터치 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 51.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "쿼드 머플러 배기음 시연",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 56.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차가 도로에서 급가속 출발",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 51.5,
+     "what": "배기음 시연을 위해 음악 볼륨 감쇄"
+    },
+    {
+     "t": 56.5,
+     "what": "가속 사운드 강조 후 아웃트로"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "أنا ناصر ودي قطعة فنية حقيقية",
+    "ko": "저는 나사르이고, 이것은 진정한 예술 작품입니다."
+   },
+   {
+    "start": 2.1,
+    "end": 6.8,
+    "text": "مازيراتي جران توريزمو، ودي بتجمع ما بين الفخامة والأداء الرياضي في نفس الوقت",
+    "ko": "마세라티 그란투리스모입니다. 럭셔리함과 스포티한 성능을 동시에 갖췄죠."
+   },
+   {
+    "start": 6.8,
+    "end": 11.0,
+    "text": "وحطوا لك موتور 540 حصان و550 نيوتن أقوى من الـ V8 القديم",
+    "ko": "540마력, 550Nm 토크의 엔진을 얹어 구형 V8보다 더 강력합니다."
+   },
+   {
+    "start": 11.0,
+    "end": 15.8,
+    "text": "الانتيرير بتاعها اتطور جداً، ومازيراتي بكومفورت سيتس هيتد وفنتيليتد",
+    "ko": "실내도 크게 발전했습니다. 통풍과 열선이 들어간 편안한 마세라티 시트,"
+   },
+   {
+    "start": 15.8,
+    "end": 17.6,
+    "text": "علم إيطاليا، أفخم مواد في العالم",
+    "ko": "이탈리아 국기 마크와 세계 최고급 소재들,"
+   },
+   {
+    "start": 17.6,
+    "end": 21.0,
+    "text": "الشاشة الجديدة بآبل كاربلاي وأندرويد أوتو، ودرفت بيرفورمانس",
+    "ko": "새 디스플레이에는 애플 카플레이, 안드로이드 오토와 드리프트 퍼포먼스 기능이 탑재됐고,"
+   },
+   {
+    "start": 21.0,
+    "end": 24.0,
+    "text": "شاحن وايرلس، كونسول كاربون فايبر ومساحة تخزين",
+    "ko": "무선 충전기, 카본 파이버 콘솔과 수납공간이 있습니다."
+   },
+   {
+    "start": 24.0,
+    "end": 28.5,
+    "text": "والدرايفر فيو: أجمل دركسيون من مازيراتي، درايف مود سيلكتور، بادل شفترز عملاقة",
+    "ko": "운전자 뷰를 보면 마세라티 최고의 스티어링 휠, 드라이브 모드 셀렉터, 거대한 패들 쉬프트,"
+   },
+   {
+    "start": 28.5,
+    "end": 31.8,
+    "text": "ديجيتال ديسبلاي، هيد اب ديسبلاي، رير فيو كاميرا",
+    "ko": "디지털 계기판, 헤드업 디스플레이, 룸미러 후방 카메라가 적용되었죠."
+   },
+   {
+    "start": 31.8,
+    "end": 34.7,
+    "text": "وعندك مازيراتي كلوك، كومباس، بريك تو باور ريشيو، وجي ميتر",
+    "ko": "마세라티 시계, 나침반, 브레이크 대 출력 비율, G-미터까지 지원합니다."
+   },
+   {
+    "start": 34.7,
+    "end": 38.8,
+    "text": "والقعدة ورا كويسة، تاخد اتنين مرتاحين، بمخارج شواحن، كب هولدر، فتحات تكييف",
+    "ko": "뒷좌석도 꽤 넓어 두 명이 편히 탈 수 있고, 충전 단자, 컵홀더, 에어컨 송풍구가 있습니다."
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "text": "وعشان الموتور يتنفس، الهواء بيخش من هنا، والزيادة بيخرج من الفتحة دي، وبيمشي على الكبوت عشان يزود الداون فورس",
+    "ko": "엔진 호흡을 위해 공기가 이쪽으로 들어가 잉여 공기는 이 구멍으로 빠져나와 보닛 위를 흐르며 다운포스를 높여줍니다."
+   },
+   {
+    "start": 44.5,
+    "end": 47.5,
+    "text": "ومازيراتي يعني أجمل جنوط، وأبديتد بريكس",
+    "ko": "마세라티다운 아름다운 휠과 업그레이드된 브레이크 시스템,"
+   },
+   {
+    "start": 47.5,
+    "end": 51.5,
+    "text": "ومازيراتي يعني ديلي، فعندك شنطة واسعة، وكمان كهربا، والأهم بكتير: كواد إكزوست",
+    "ko": "데일리 카로도 쓸 수 있는 넓은 전동 트렁크, 그리고 무엇보다 쿼드 머플러가 있죠."
+   },
+   {
+    "start": 51.5,
+    "end": 56.5,
+    "text": "كل ده وصفر لمية تحت الأربع ثواني",
+    "ko": "이 모든 걸 갖추고도 제로백은 4초 미만입니다."
+   },
+   {
+    "start": 56.5,
+    "end": 63.0,
+    "text": "أنا هروح إزاي؟ هروح... خد!",
+    "ko": "난 이제 어떻게 집에 가지? 야 차 세워! 날 두고 가냐!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "보통",
+    "summary": "리뷰어 소개 및 차량에 대한 감탄 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.1,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "마세라티 그란투리스모 모델 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 6.8,
+    "end": 11.0,
+    "speed": "빠름",
+    "summary": "엔진 성능(540마력, 550Nm) 및 구형 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 11.0,
+    "end": 38.8,
+    "speed": "빠름",
+    "summary": "실내 가죽 시트, 인포테인먼트, 스티어링 휠, 디지털 시계 및 뒷좌석 편의사양 리뷰"
+   },
+   {
+    "stage": "기능",
+    "start": 38.8,
+    "end": 51.5,
+    "speed": "빠름",
+    "summary": "공기역학 후드, 휠 및 브레이크, 전동 트렁크 및 쿼드 배기 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 51.5,
+    "end": 56.5,
+    "speed": "보통",
+    "summary": "배기 사운드 시연 및 제로백 4초 미만 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 56.5,
+    "end": 63.0,
+    "speed": "빠름",
+    "summary": "차가 홀로 가속해 떠나자 리뷰어가 뛰어가는 코믹 엔딩"
+   }
+  ],
+  "rules": [
+   "진행자의 제스처나 손짓에 맞춰 그래픽이나 소리가 정밀하게 매칭됨",
+   "스펙 정보(마력, 토크)는 굵고 큰 흰색 텍스트로 화면 중앙에 팝업",
+   "외관, 인테리어, 세부 기능, 배기음, 가속까지 쇼츠 템포에 맞춘 초고속 연속 컷 전환",
+   "마지막에는 차가 떠나고 혼자 남겨지는 위트 있는 유머 씬으로 마무리"
+  ],
+  "option_highlights": [
+   {
+    "start": 12.3,
+    "end": 15.8,
+    "feature": "통풍 및 열선 컴포트 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.0,
+    "feature": "터치스크린 및 드리프트 퍼포먼스 모드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 24.0,
+    "feature": "카본 센터 콘솔 및 무선 충전기",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.7,
+    "feature": "디지털 다기능 시계 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 55.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 50.5,
+    "feature": "전동 스마트 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 45.0,
+    "y_pct": 40.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "사막 도로 위에서 선글라스를 낀 리뷰어가 옷을 매만지며 걸어나오고 뒤에 마세라티가 서 있음",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر ودي قطعة فنية حقيقية",
+   "ko": "저는 나사르이고, 이것은 진정한 예술 작품입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.5,
+    "point": "럭셔리함과 스포티함을 동시에 만족하는 그란투리스모",
+    "category": "디자인"
+   },
+   {
+    "t": 8.0,
+    "point": "구형 V8보다 강력해진 540마력 550Nm 신형 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 14.0,
+    "point": "통풍과 열선을 지원하는 최고급 가죽 컴포트 시트",
+    "category": "편의"
+   },
+   {
+    "t": 18.5,
+    "point": "애플 카플레이 및 퍼포먼스 전용 기능 탑재 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 26.0,
+    "point": "대형 패들 시프트와 드라이브 모드 셀렉터 스티어링 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 32.5,
+    "point": "G-미터와 브레이크 압력 표시가 가능한 디지털 스마트 시계",
+    "category": "편의"
+   },
+   {
+    "t": 36.0,
+    "point": "2인이 편안히 탑승 가능한 독립 공조 뒷좌석 공간",
+    "category": "공간"
+   },
+   {
+    "t": 41.0,
+    "point": "공기역학 다운포스를 극대화하는 보닛 에어 덕트",
+    "category": "성능"
+   },
+   {
+    "t": 49.0,
+    "point": "데일리로 손색없는 넓은 전동식 트렁크",
+    "category": "공간"
+   },
+   {
+    "t": 53.0,
+    "point": "웅장한 사운드의 쿼드 배기 파이프",
+    "category": "성능"
+   },
+   {
+    "t": 55.0,
+    "point": "정지 상태에서 100km/h까지 4초 미만 주파",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "엔진룸",
+    "외관 측면",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 전면",
+    "휠",
+    "트렁크",
+    "외관 후면"
+   ]
+  }
+ }
+}

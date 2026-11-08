@@ -1,0 +1,756 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/GB8KO3i3ZdU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8896,
+  "candidatesTokenCount": 7361,
+  "totalTokenCount": 16548,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7733
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 291,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 84.7,
+   "aspect": "9:16",
+   "car": "Avatr 12 REEV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 20.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 23.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.5,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.3,
+    "end": 31.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 37.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 42.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.1,
+    "end": 50.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 54.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 59.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 106.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.8,
+    "end": 115.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 115.6,
+    "end": 119.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 119.8,
+    "end": 124.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.2,
+    "end": 2.6,
+    "text": "دي هي أقوى منافس",
+    "ko": "이것이 가장 강력한 라이벌입니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "أقوى منافس",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 5.6,
+    "text": "AVATR 12 REEV",
+    "ko": "아바타 12 REEV",
+    "kind": "제목",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AVATR",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 10.8,
+    "text": "RANGE +1000km",
+    "ko": "주행거리 +1000km",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#222222",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+1000km",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.2,
+    "text": "320HP 400NM",
+    "ko": "320마력 400토크",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1E1E1E",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "320HP",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "text": "350L",
+    "ko": "350리터",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "350L",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.2,
+    "text": "DOWN FORCE",
+    "ko": "다운포스",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "DOWN FORCE",
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 50.5,
+    "text": "ZERO GRAVITY MODE",
+    "ko": "무중력 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FF6633",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZERO GRAVITY",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "BMW i5 차량 사진 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.1,
+    "type": "톡",
+    "event": "벤츠 EQE 차량 사진 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "쿵",
+    "event": "AVATR 12 로고 타이틀 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "휙",
+    "event": "엔진 그래픽 날아와 안착",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "띵",
+    "event": "주행거리 1000km 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.1,
+    "type": "쿵",
+    "event": "출력 320HP 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "띵",
+    "event": "센서 스펙 리스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.2,
+    "type": "딸깍",
+    "event": "전동 트렁크 버튼 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.3,
+    "type": "딸깍",
+    "event": "도어 수납함 전자식 버튼 누름",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 46.8,
+    "type": "딸깍",
+    "event": "시트 측면 제로 그래비티 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 111.5,
+    "type": "휙",
+    "event": "루프 천장 스크린 터치",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "인트로 비트 시작"
+    },
+    {
+     "t": 3.0,
+     "what": "타이틀 붐 사운드 후 메인 그루브 진행"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.1,
+    "end": 2.7,
+    "what": "BMW i5 및 Mercedes EQE 사진 팝업",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 45.0,
+    "y_pct": 78.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "경쟁 모델 시각화",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.8,
+    "what": "엔진, 52kWh 배터리팩, 1000km 주행거리 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "REEV 파워트레인 구조 및 장점 설명",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "what": "320HP / 400NM 전광판 스타일 스펙 카드",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "성능 수치 강조",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 20.2,
+    "what": "3 라이다, 3 레이더, 11 카메라, 12 센서 스펙 보드",
+    "is_3d": true,
+    "size_w_pct": 42.0,
+    "x_pct": 60.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "첨단 ADAS 센서 구성 강조",
+    "sure": true
+   },
+   {
+    "start": 121.5,
+    "end": 124.5,
+    "what": "Zed Auto 위치 안내 핀 및 주소 텍스트 보드",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "전시장 위치 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "دي أقوى منافس لـ BMW i5 ومرسيدس EQE",
+    "ko": "이것은 BMW i5와 벤츠 EQE의 가장 강력한 경쟁자입니다."
+   },
+   {
+    "start": 3.0,
+    "end": 5.8,
+    "text": "أفاتار 12 ريف",
+    "ko": "아바타 12 REEV입니다."
+   },
+   {
+    "start": 6.0,
+    "end": 11.0,
+    "text": "وعشان دي ريف، فيها موتور بنزين بيشحن البطارية الكهربا وبيوصل الرينج لأكتر من 1000 كم",
+    "ko": "REEV 모델이라 가솔린 엔진이 배터리를 충전해주며, 주행거리가 1000km 이상 나옵니다."
+   },
+   {
+    "start": 11.2,
+    "end": 15.5,
+    "text": "وبتطلع 320 حصان و400 نيوتن متر على دفع خلفي",
+    "ko": "후륜구동으로 최고출력 320마력, 최대토크 400Nm를 발휘합니다."
+   },
+   {
+    "start": 15.6,
+    "end": 20.5,
+    "text": "وفيها 3 لايدار و3 رادار و11 كاميرا و12 سينسور أذكى من ناس كتير تعرفها",
+    "ko": "라이다 3개, 레이더 3개, 카메라 11개, 센서 12개가 탑재되어 아주 스마트합니다."
+   },
+   {
+    "start": 20.8,
+    "end": 23.5,
+    "text": "وشنطة 350 لتر وأكيد كهربا",
+    "ko": "트렁크는 350리터이며 당연히 전동식입니다."
+   },
+   {
+    "start": 23.8,
+    "end": 26.6,
+    "text": "سبويلر عشان يزود الداون فورس واللوجو بينور",
+    "ko": "다운포스를 높여주는 스포일러와 빛나는 로고가 적용되었습니다."
+   },
+   {
+    "start": 46.5,
+    "end": 50.8,
+    "text": "ولو يومك طويل وعايز تنام، بتدوس هنا وهيفتحلك زيرو جرافيتي مود",
+    "ko": "피곤해서 자고 싶다면 여기를 눌러 제로 그래비티 모드를 실행할 수 있습니다."
+   },
+   {
+    "start": 110.5,
+    "end": 115.0,
+    "text": "وبثيتر سكرين تقدر تتفرج فيها على أفلام أو مسلسلات",
+    "ko": "시어터 스크린으로 영화나 드라마를 시청할 수 있습니다."
+   },
+   {
+    "start": 116.5,
+    "end": 120.0,
+    "text": "فيها إير سسبنشن بيوطي ويعلي العربية",
+    "ko": "에어 서스펜션이 차고를 높이고 낮춰줍니다."
+   },
+   {
+    "start": 120.5,
+    "end": 124.7,
+    "text": "وهتلاقيهم في ZED AUTO محور جمال عبد الناصر الشيخ زايد",
+    "ko": "셰이크 자이드 가말 압델 나세르 축의 ZED AUTO에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "BMW i5, EQE 라이벌 선언 및 모델명 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 5.8,
+    "end": 20.4,
+    "speed": "빠름",
+    "summary": "REEV 시스템, 1000km 주행거리, 출력, 첨단 센서 스펙 나열"
+   },
+   {
+    "stage": "기능",
+    "start": 20.4,
+    "end": 115.6,
+    "speed": "빠름",
+    "summary": "트렁크, 무선충전, 디지털 룸미러, 제로 그래비티 시트, 뒷좌석 엔터테인먼트 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 115.6,
+    "end": 120.5,
+    "speed": "보통",
+    "summary": "전동 도어 및 에어 서스펜션 작동"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 120.5,
+    "end": 124.7,
+    "speed": "보통",
+    "summary": "ZED AUTO 전시장 위치 및 방문 안내"
+   }
+  ],
+  "rules": [
+   "말하는 스펙마다 3D/2D 그래픽 보드를 차량 위에 실시간 증강현실 느낌으로 배치",
+   "기능 설명 시 버튼을 직접 누르고 작동하는 과정을 즉시 보여줌",
+   "스마트폰 숏폼 리듬에 맞춰 1~2초 단위로 타이트하게 컷을 전환",
+   "운전석뿐 아니라 2열 VIP 편의 옵션(모니터, 리클라이닝)을 상세히 다룸"
+  ],
+  "option_highlights": [
+   {
+    "start": 23.8,
+    "end": 26.0,
+    "feature": "전동 가변 리어 스포일러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "다운포스 화살표 그래픽",
+    "x_pct": 70.0,
+    "y_pct": 78.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.0,
+    "feature": "원터치 전자식 도어 포켓",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "버튼 클릭 토글 애니메이션",
+    "x_pct": 25.0,
+    "y_pct": 30.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.5,
+    "feature": "듀얼 무선 충전 패드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "2 Wireless 충전 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 22.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 36.8,
+    "feature": "디지털 룸미러 및 실내 셀피 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락 지칭 및 화면 터치",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.8,
+    "feature": "제로 그래비티 릴렉세이션 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "ZERO GRAVITY MODE 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 110.5,
+    "end": 115.0,
+    "feature": "천장 전동 폴딩 시어터 스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "팝콘 아이콘 및 영화/드라마 텍스트",
+    "x_pct": 30.0,
+    "y_pct": 60.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 116.5,
+    "end": 120.0,
+    "feature": "에어 서스펜션 차고 조절",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "차고 조절 화살표",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "BMW i5와 벤츠 EQE의 강력한 라이벌이라며 차량 전면에서 소개 시작",
+   "type": "숫자·성능",
+   "text": "دي أقوى منافس لـ BMW i5 ومرسيدس EQE",
+   "ko": "이것은 BMW i5와 벤츠 EQE의 가장 강력한 경쟁자입니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "BMW i5와 메르세데스 벤츠 EQE를 정조준하는 강력한 경쟁 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 7.0,
+    "point": "가솔린 발전 엔진 탑재 REEV 방식으로 1000km 이상 주행 가능",
+    "category": "성능"
+   },
+   {
+    "t": 12.0,
+    "point": "후륜구동 320마력, 400Nm의 강력한 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 16.5,
+    "point": "3개 라이다 및 11개 카메라 등 동급 최고 수준의 ADAS 센서 탑재",
+    "category": "안전"
+   },
+   {
+    "t": 22.0,
+    "point": "350L 용량의 전동식 파워 트렁크 지원",
+    "category": "공간"
+   },
+   {
+    "t": 47.0,
+    "point": "피로를 풀어주는 1열 원터치 제로 그래비티 무중력 시트",
+    "category": "편의"
+   },
+   {
+    "t": 111.0,
+    "point": "뒷좌석 탑승객을 위한 대형 천장형 시어터 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 117.0,
+    "point": "노면 충격을 흡수하고 차고를 조절하는 에어 서스펜션 장착",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 121.0,
+   "text": "هتلاقيهم في ZED AUTO الشيخ زايد خلف مول العرب",
+   "ko": "몰 오브 아라비아 뒤편 셰이크 자이드 ZED AUTO에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 전면",
+    "트렁크",
+    "외관 후면",
+    "실내 앞",
+    "옵션 작동",
+    "센터 화면",
+    "계기판",
+    "뒷좌석",
+    "휠",
+    "외관 전면"
+   ]
+  }
+ }
+}
