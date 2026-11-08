@@ -7,7 +7,7 @@ JSON 한 덩어리로 받는다. 결과 모양은 2026-11-08 NL·BE 200편 분�
   python3 scripts/shortform/as24_analyze.py <목록.txt> <출력폴더> [모델] [최대편수]
 목록.txt 한 줄 = "국가 유튜브ID" (예: "DE dQw4w9WgXcQ"). 이미 결과 파일이 있으면 건너뛴다.
 """
-import json, os, sys, time, urllib.request, urllib.error
+import json, os, subprocess, sys, time, urllib.request, urllib.error
 
 LIST, OUT = sys.argv[1], sys.argv[2]
 MODEL = sys.argv[3] if len(sys.argv) > 3 and sys.argv[3] else "gemini-3.8-flash"
@@ -54,6 +54,27 @@ def call(vid):
 
 
 os.makedirs(OUT, exist_ok=True)
+SAVE_EVERY = int(os.environ.get("SAVE_EVERY", "10"))  # 10편마다 저장소에 올려 진행 상황을 밖에서 볼 수 있게 한다
+
+
+def save(msg):
+    """깃허브 액션에서만: 지금까지 결과를 커밋·푸시(실패해도 분석은 계속)"""
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    br = os.environ.get("GITHUB_REF_NAME", "")
+    sh = lambda *a: subprocess.run(list(a), capture_output=True, text=True)
+    sh("git", "config", "user.name", "as24-analyze")
+    sh("git", "config", "user.email", "actions@users.noreply.github.com")
+    sh("git", "add", OUT)
+    if sh("git", "diff", "--cached", "--quiet").returncode == 0:
+        return
+    sh("git", "commit", "-qm", msg)
+    for _ in range(3):
+        sh("git", "pull", "--rebase", "-q", "origin", br)
+        if sh("git", "push", "-q", "origin", f"HEAD:{br}").returncode == 0:
+            print(f"saved: {msg}", flush=True)
+            return
+        time.sleep(5)
 jobs = [l.split() for l in open(LIST, encoding="utf-8") if l.strip() and not l.startswith("#")]
 done = fail = 0
 tokens = 0
@@ -74,6 +95,8 @@ for country, vid in jobs:
                       open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
             done += 1
             print(f"ok {country} {vid} tokens={usage.get('totalTokenCount')}", flush=True)
+            if done % SAVE_EVERY == 0:
+                save(f"as24 분석 중간 저장 {os.path.basename(OUT)} {done}편 (토큰 {tokens})")
             break
         except urllib.error.HTTPError as e:
             msg = e.read().decode(errors="replace")[:300]
@@ -89,3 +112,4 @@ for country, vid in jobs:
     else:
         fail += 1
 print(f"끝: 성공 {done} · 실패 {fail} · 토큰 합계 {tokens}")
+save(f"as24 분석 끝 {os.path.basename(OUT)} 성공 {done} 실패 {fail} (토큰 {tokens})")
