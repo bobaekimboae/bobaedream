@@ -1,0 +1,979 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/9mhyP1pb3w8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8709,
+  "candidatesTokenCount": 7914,
+  "totalTokenCount": 16623,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7546
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 83.0,
+   "aspect": "9:16",
+   "car": "XPeng G9",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 6.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 14.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.8,
+    "part": "실내 앞",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 24.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 33.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 53.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 57.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 101.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 101.9,
+    "end": 104.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.3,
+    "end": 107.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.8,
+    "end": 116.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 116.7,
+    "end": 118.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 118.8,
+    "end": 123.0,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 3.0,
+    "text": "SOUND SYSTEM",
+    "ko": "사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "حتى الإزاز",
+    "ko": "유리까지",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#29B6F6",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.5,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "text": "SCREEN CENTRAL PASSENGER",
+    "ko": "중앙 및 조수석 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.8,
+    "text": "22 DYNAUDIO",
+    "ko": "22 다인오디오",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.0,
+    "text": "عازل للشمس",
+    "ko": "자외선 차단",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2E7D32",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E65100",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.5,
+    "text": "LEG EXTENSION",
+    "ko": "레그 익스텐션",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "text": "مساحتها كويسة",
+    "ko": "넓은 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2E7D32",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.5,
+    "text": "مساج",
+    "ko": "마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0288D1",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.5,
+    "text": "HIP EXTENSION",
+    "ko": "힙 익스텐션",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -15,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 57.0,
+    "text": "WLTP 570 KM",
+    "ko": "WLTP 570km",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 60.0,
+    "text": "12 CAMERA 12 SENSOR",
+    "ko": "12개 카메라 12개 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 61.5,
+    "text": "5 RADAR XPILOT",
+    "ko": "5개 레이더 XPILOT",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 101.9,
+    "end": 103.5,
+    "text": "ADAS SYSTEM",
+    "ko": "ADAS 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 116.8,
+    "end": 118.8,
+    "text": "TEST DRIVE",
+    "ko": "시승",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.9,
+    "type": "휙",
+    "event": "독일 국기 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "덴마크 국기 및 사운드 시스템 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "프랑스 국기 및 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "딸깍",
+    "event": "무선 충전기 텍스트 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "소셜미디어/앱 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.2,
+    "type": "띵",
+    "event": "다인오디오 스피커 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "휙",
+    "event": "자외선 차단 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.0,
+    "type": "톡",
+    "event": "열선 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "휙",
+    "event": "레그 익스텐션 작동 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "톡",
+    "event": "마사지 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "딸깍",
+    "event": "음소거 버튼 누름 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.0,
+    "type": "띵",
+    "event": "투자사 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "톡",
+    "event": "센서 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.0,
+    "type": "휙",
+    "event": "XPILOT 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합/팝 인스트루멘탈",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "what": "독일 국기 오버레이",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 70.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "독일제 서스펜션 강조",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.0,
+    "what": "덴마크 국기 오버레이",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "덴마크 사운드 시스템 강조",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.0,
+    "what": "인스타그램, 틱톡, 유튜브, 스포티파이 로고 아이콘",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 지원 앱 표시",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.8,
+    "what": "사운드 웨이브 그래픽",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "페이드",
+    "purpose": "돌비 3D 사운드 효과 시각화",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.5,
+    "what": "스피커 음소거 아이콘 및 점선 표시",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "독립 구역 오디오 음소거 버튼 설명",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 53.5,
+    "what": "샤오미, 폭스바겐, 알리바바 투자사 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "제조사 신뢰도 및 투자 배경 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أولاً العربية عفشتها ألماني والساوند سيستم دنماركي حتى الإزاز فرنسي",
+    "ko": "첫째로 이 차는 서스펜션이 독일제, 사운드 시스템은 덴마크제, 심지어 유리까지 프랑스제입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "أحسن حاجة من كل بلد XPENG G9",
+    "ko": "각국의 최고 부품만을 모았습니다. 샤오펑 G9입니다."
+   },
+   {
+    "start": 7.0,
+    "end": 14.0,
+    "text": "ديجيتال ديسبلاي ودريكسيون تسخين اتنين شاحن وايرلس وسنترال وباسنجر سكرين كبار جداً",
+    "ko": "디지털 디스플레이와 스티어링 휠 열선, 무선 충전기 2개와 매우 큰 중앙 및 조수석 화면이 있습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 20.9,
+    "text": "و22 سماعة من دايناوديو وكمان فيها دولبي تكنولوجي",
+    "ko": "다인오디오의 22개 스피커와 돌비 기술까지 들어갔습니다."
+   },
+   {
+    "start": 20.9,
+    "end": 28.7,
+    "text": "بانوراما عملاق وعازل للشمس والكراسي فيها تسخين وتبريد بليج إكستنشن وعندك ميك اب مود",
+    "ko": "거대한 파노라마 선루프와 자외선 차단, 통풍 및 열선 시트, 레그 익스텐션, 메이크업 모드 조명이 있습니다."
+   },
+   {
+    "start": 28.7,
+    "end": 36.8,
+    "text": "الكنبة مساحتها كويسة وكمان فيها مساج بهيب إكستنشن ومساحة تخزين وكاب هولدر وميوت للسماعات",
+    "ko": "뒷좌석 공간도 넉넉하며 힙 익스텐션 마사지와 수납함, 컵홀더, 구역별 음소거 기능이 있습니다."
+   },
+   {
+    "start": 54.0,
+    "end": 58.0,
+    "text": "ونمشي 570 كيلو WLTP",
+    "ko": "WLTP 기준 주행거리는 570km에 달합니다."
+   },
+   {
+    "start": 58.0,
+    "end": 64.0,
+    "text": "وفيهم 12 كاميرا و12 سنسور و5 رادارات متوصلين بالإكس بايلوت",
+    "ko": "12개 카메라와 12개 센서, 5개 레이더가 XPILOT과 연결되어 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.5,
+    "speed": "빠름",
+    "summary": "다국적 고급 부품 조합(독일·덴마크·프랑스) 소개로 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.5,
+    "end": 20.9,
+    "speed": "보통",
+    "summary": "운전석 디스플레이, 무선충전, 거대 듀얼 스크린 및 돌비 다인오디오 시스템 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 20.9,
+    "end": 36.8,
+    "speed": "보통",
+    "summary": "파노라마 루프, 열선/통풍/레그 익스텐션 시트, 메이크업 모드, 뒷좌석 안락기능 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 36.8,
+    "end": 64.0,
+    "speed": "빠름",
+    "summary": "주행거리(570km), 주행 보조 센서(카메라/센서/레이더) 및 투자 배경 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 64.0,
+    "end": 75.0,
+    "speed": "보통",
+    "summary": "모바일 앱 제어, 원격 점검(On-Air) 서비스 기능 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 75.0,
+    "end": 83.0,
+    "speed": "보통",
+    "summary": "전시장 위치, 전 차종 라인업 및 충전 솔루션 안내"
+   }
+  ],
+  "rules": [
+   "말하는 부품의 원산지 국기나 관련 키워드를 빠른 팝업 그래픽으로 직관적 매칭",
+   "화면 중앙에 큼직한 영문/아랍어 텍스트 스티커를 번갈아 배치해 시선 분산 방지",
+   "실제 작동 장면(시트 연장, 거울 조명, 스피커 팝업)을 직접 시연하며 설명",
+   "효과음(휙, 톡)을 그래픽 등장 시점에 정확히 맞춰 편집 리듬감 유지"
+  ],
+  "option_highlights": [
+   {
+    "start": 1.7,
+    "end": 3.0,
+    "feature": "다인오디오 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.5,
+    "feature": "듀얼 무선 충전 패드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 20.0,
+    "feature": "돌비 3D 팝업 스피커",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "사운드 웨이브 라인",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.5,
+    "feature": "조수석 레그 익스텐션",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 60.0,
+    "y_pct": 63.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.7,
+    "feature": "메이크업 뷰티 모드 미러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.5,
+    "feature": "뒷좌석 힙 익스텐션 및 마사지",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 70.0,
+    "y_pct": 77.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.5,
+    "feature": "좌석 독립 오디오 음소거",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "음소거 스피커 아이콘",
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 바퀴 서스펜션을 가리키며 '서스펜션은 독일제, 오디오는 덴마크제'라며 각국 국기를 띄움",
+   "type": "숫자·성능",
+   "text": "أولاً العربية عفشتها ألماني والساوند سيستم دنماركي حتى الإزاز فرنسي",
+   "ko": "첫째로 이 차는 서스펜션이 독일제, 사운드 시스템은 덴마크제, 심지어 유리까지 프랑스제입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "독일제 서스펜션, 덴마크제 사운드, 프랑스제 유리 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 9.5,
+    "point": "대형 중앙 스크린 및 조수석 엔터테인먼트 디스플레이 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 14.5,
+    "point": "다인오디오 22개 스피커 및 돌비 애트모스 3D 사운드",
+    "category": "편의"
+   },
+   {
+    "t": 24.5,
+    "point": "전좌석 열선/통풍 및 릴랙세이션 익스텐션 시트",
+    "category": "편의"
+   },
+   {
+    "t": 34.5,
+    "point": "개별 좌석 스피커 음소거 제어 기능",
+    "category": "편의"
+   },
+   {
+    "t": 54.0,
+    "point": "WLTP 기준 1회 충전 570km 주행 가능",
+    "category": "성능"
+   },
+   {
+    "t": 60.0,
+    "point": "12개 카메라와 센서, 5개 레이더 기반 XPILOT ADAS 시스템",
+    "category": "안전"
+   }
+  ],
+  "cta": {
+   "t": 70.0,
+   "text": "كلم التوكيل / الشيخ زايد الحي التاني ليجندا مول",
+   "ko": "대리점에 문의하세요 / 셰이크 자이드 2구역 레젠다 몰",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "휠",
+    "외관 측면",
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 후면",
+    "도로 주행"
+   ]
+  }
+ }
+}

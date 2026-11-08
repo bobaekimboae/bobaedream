@@ -1,0 +1,960 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/QixU_o6D-W4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8169,
+  "candidatesTokenCount": 8328,
+  "totalTokenCount": 16497,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7006
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 76.5,
+   "aspect": "9:16",
+   "car": "Xiaomi SU7",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 9.9,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.0,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 18.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 24.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 33.2,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 38.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 46.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 51.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 57.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 64.6,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.6,
+    "end": 68.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.7,
+    "end": 72.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 72.3,
+    "end": 76.5,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 6.0,
+    "end": 7.5,
+    "text": "لو تلفزيون البيت بالعافية عليه مسلسلات",
+    "ko": "집 TV로 드라마만 겨우 보고 있다면",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بالعافية",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 9.5,
+    "text": "تتفرج على ماتشاتك هنا",
+    "ko": "여기서 축구 경기 보세요",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.2,
+    "text": "3D من الآخر",
+    "ko": "완벽한 3D",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#00E676",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3D",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.0,
+    "text": "2 WIRELESS CHARGER",
+    "ko": "무선 충전기 2개",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.0,
+    "text": "SENSOR",
+    "ko": "센서",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.1,
+    "end": 22.5,
+    "text": "TWO TONE",
+    "ko": "투톤 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.6,
+    "end": 23.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FF9100",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 24.5,
+    "text": "مساعد للقيادة",
+    "ko": "주행 보조",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 5.5,
+    "color": "#FFB300",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 25.5,
+    "text": "DRIVE MODE",
+    "ko": "드라이브 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "text": "ثلاجة للمشروبات",
+    "ko": "음료 냉장고",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FF9100",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.0,
+    "text": "LEG EXTENSION",
+    "ko": "레그 익스텐션",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FF9100",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.1,
+    "end": 46.0,
+    "text": "مساج",
+    "ko": "마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 57.8,
+    "text": "ICE BOX",
+    "ko": "아이스 박스",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 6.0,
+    "color": "#81D4FA",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 104.0,
+    "end": 105.5,
+    "text": "كل شيء مدروس",
+    "ko": "모든 것이 계산된 설계",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2E7D32",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 113.0,
+    "end": 115.0,
+    "text": "السعر مفاجأة",
+    "ko": "놀라운 가격",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 114.5,
+    "end": 116.5,
+    "text": "70 شارع النزهة مصر الجديدة",
+    "ko": "노즈하 거리 70, 헬리오폴리스",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "쿵",
+    "event": "오프닝 훅 강조 비트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "휙",
+    "event": "샤오미 로고 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "톡",
+    "event": "자막 박스 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "띵",
+    "event": "무선충전 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "센서 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.6,
+    "type": "톡",
+    "event": "스티어링 열선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "냉장고 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "레그 익스텐션 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "톡",
+    "event": "시트 열선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "딸깍",
+    "event": "프렁크 오픈 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "톡",
+    "event": "아이스박스 얼음 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 113.0,
+    "type": "띵",
+    "event": "선물상자/가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "트랙 루프 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.8,
+    "end": 5.5,
+    "what": "Xiaomi SU7 공식 로고 배지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.5,
+    "what": "충전 번개 아이콘 2개",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 40.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.0,
+    "what": "음료 캔 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 55.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "냉장고 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 58.0,
+    "what": "얼음 큐브 뭉치 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 45.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "아이스박스 연출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "text": "ليه دي هي احسن عربية للرجالة؟ الشباب، الشيوخ، حتى الاطفال؟ شاومي واي يو سيفن",
+    "ko": "왜 이 차가 남성, 청년, 노인, 심지어 아이들에게까지 최고의 차일까요? 샤오미 SU7입니다."
+   },
+   {
+    "start": 5.8,
+    "end": 10.0,
+    "text": "لو تلفزيون البيت بالعافية عليه مسلسلات، تقدر تتفرج على ماتشاتك هنا",
+    "ko": "집 TV에서 드라마만 틀어져 있다면, 여기서 축구 경기를 볼 수 있습니다."
+   },
+   {
+    "start": 10.1,
+    "end": 14.5,
+    "text": "وشاشة ريوشة اكتر من متر بتقنية الهايبر فيجن سكرين، ثري دي من الاخر",
+    "ko": "그리고 1미터가 넘는 하이퍼 비전 스크린 기술이 들어간 멋진 디스플레이, 완벽한 3D입니다."
+   },
+   {
+    "start": 14.8,
+    "end": 18.5,
+    "text": "ولو متجوز من كل حاجة اتنين، شواحن وايرلس، كاب هولدرز ومساحات تخزين",
+    "ko": "기혼자라면 모든 게 2개씩, 무선 충전기 2개, 컵홀더, 수납공간까지."
+   },
+   {
+    "start": 18.7,
+    "end": 24.8,
+    "text": "وعشان انت السواق عندك سينسور عشان يراقب انتباهك، دركسيون تو تون وفيه تسخين، مساعد للقيادة ودرايف مود سيليكتور",
+    "ko": "운전자를 위한 주의 감지 센서, 열선 투톤 스티어링 휠, 주행 보조 및 드라이브 모드 셀렉터가 있습니다."
+   },
+   {
+    "start": 25.0,
+    "end": 31.5,
+    "text": "حتى لو مافيا، عندك درج تخبي فيه البيو بيو بتاعك، ثلاجة للمشروبات وشاشة للتحكم من شاومي او اس",
+    "ko": "마피아라 해도 총을 숨길 비밀 서랍이 있고, 음료 냉장고와 샤오미 OS 후석 컨트롤 화면이 있습니다."
+   },
+   {
+    "start": 33.2,
+    "end": 38.6,
+    "text": "النور داخل كويس من السقف البانوراما، والضهر بتاعك شبه بينام، والكنبة تسخين، دلع",
+    "ko": "파노라마 루프 덕에 채광이 좋고, 등받이도 푹 눕혀지며 시트 열선까지, 완벽한 럭셔리죠."
+   },
+   {
+    "start": 38.8,
+    "end": 46.8,
+    "text": "عشان المدام عندك مراية، تقدري تظبطي درجة اللون، ليج اكستنشن عشان تقعد مستريحة، والكرسي نفسه فيه تسخين وتبريد ومساج",
+    "ko": "사모님을 위해 톤 조절 거울, 편안한 레그 익스텐션, 그리고 통풍·열선·마사지 시트까지 지원합니다."
+   },
+   {
+    "start": 51.5,
+    "end": 57.8,
+    "text": "وعشان الضهر بقى على قده، بدوسة زرار بتقدر تفتح الفرانك الامامي، ويمشي ايس بوكس بالمرة",
+    "ko": "허리가 안 좋아도 버튼 하나로 전면 프렁크를 열 수 있고, 아이스박스로도 쓸 수 있죠."
+   },
+   {
+    "start": 58.0,
+    "end": 64.6,
+    "text": "وعشان اختراق الهواء، الجنط بتاعك عليه كفر، وللاختراق اكتر الهواء بيخش من فوق الفوانيس وبيخرج من الفتحة دي، كل شيء مدروس",
+    "ko": "공기역학을 위해 휠 커버가 덮여 있고 헤드램프 상단 공기 흡입구로 빠져나가니, 모든 게 계산된 설계입니다."
+   },
+   {
+    "start": 64.8,
+    "end": 71.0,
+    "text": "ولو هتديهالمراتك متخافش تاكل مطبات، لانها من تحت مضادة للرصاص",
+    "ko": "아내에게 차를 줘도 방지턱 걱정 없습니다. 하부가 방탄 수준으로 보호되니까요."
+   },
+   {
+    "start": 71.5,
+    "end": 76.5,
+    "text": "كل ده والسعر مفاجأة، وهتلاقيها في جير اب، 70 شارع النزهة مصر الجديدة",
+    "ko": "이 모든 구성에 가격도 놀랍습니다. 헬리오폴리스 노즈하가 70번지 기어업(Gear Up)에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "모든 연령대 남성에게 완벽한 차라는 강렬한 오프닝"
+   },
+   {
+    "stage": "기능",
+    "start": 5.8,
+    "end": 18.0,
+    "speed": "빠름",
+    "summary": "센터 스크린 엔터테인먼트, HUD 스크린, 듀얼 무선충전"
+   },
+   {
+    "stage": "기능",
+    "start": 18.0,
+    "end": 24.8,
+    "speed": "빠름",
+    "summary": "운전자 주의 센서, 투톤 열선 핸들, 주행 모드 버튼"
+   },
+   {
+    "stage": "기능",
+    "start": 24.8,
+    "end": 38.6,
+    "speed": "빠름",
+    "summary": "후석 냉장고, 샤오미 OS 화면, 파노라마 루프 및 후석 열선"
+   },
+   {
+    "stage": "기능",
+    "start": 38.6,
+    "end": 46.8,
+    "speed": "빠름",
+    "summary": "조수석 거울 조명, 레그 서포트, 마사지/통풍 시트"
+   },
+   {
+    "stage": "기능",
+    "start": 46.8,
+    "end": 64.6,
+    "speed": "빠름",
+    "summary": "기프트 박스 언박싱, 전동 프렁크, 에어로다이내믹 휠 및 덕트"
+   },
+   {
+    "stage": "기능",
+    "start": 64.6,
+    "end": 72.3,
+    "speed": "보통",
+    "summary": "하부 배터리 보호 플레이트 및 샤오미 소프트웨어 활성화 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 72.3,
+    "end": 76.5,
+    "speed": "빠름",
+    "summary": "놀라운 가격 예고 및 매장 방문 안내 (CTA)"
+   }
+  ],
+  "rules": [
+   "말의 템포가 매우 빠르며 거의 1~2초 단위로 새로운 시각적 포인트나 앵글 전환",
+   "기능이나 옵션을 언급하는 순간 알록달록한 아랍어/영어 키워드 스티커 팝업",
+   "화면 중앙이나 손가락이 가리키는 지점에 정확히 매칭되는 직관적 2D/3D 아이콘 활용",
+   "중간중간 밈(Godfather 마피아 밈 등)을 삽입하여 지루할 틈 없는 유머 코드 부여",
+   "빠른 컷 전환마다 톡/휙 소리의 짧은 효과음이 자막 팝업과 정확히 싱크됨"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.8,
+    "end": 9.5,
+    "feature": "센터 대형 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "센터 콘솔 스크린 터치 조작",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "feature": "듀얼 무선 충전 패드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "원형 번개 충전 마크 2개",
+    "x_pct": 40.0,
+    "y_pct": 30.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.0,
+    "feature": "운전자 모니터링 센서",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "눈동자/센서 원형 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.5,
+    "feature": "스티어링 휠 열선",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 열선 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.0,
+    "feature": "후석 음료 냉장고",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "음료수 캔 아이콘",
+    "x_pct": 55.0,
+    "y_pct": 35.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.0,
+    "feature": "조수석 전동 레그 익스텐션",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "발받침 부위 하이라이트 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.5,
+    "feature": "시트 마사지/통풍/열선",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 및 신체 마사지 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 57.5,
+    "feature": "전면 프렁크 (아이스박스 겸용)",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "얼음 큐브 뭉치 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 65.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "초록색 샤오미 전기차 앞에서 남녀노소 모두에게 최고의 차인 이유를 물으며 제스처를 취함",
+   "type": "질문",
+   "text": "ليه دي هي احسن عربية للرجالة؟",
+   "ko": "왜 이 차가 남성들에게 최고의 차일까요?"
+  },
+  "narration_points": [
+   {
+    "t": 6.5,
+    "point": "센터 대형 디스플레이로 경기 시청 가능",
+    "category": "편의"
+   },
+   {
+    "t": 11.0,
+    "point": "1미터가 넘는 대형 3D 하이퍼비전 스크린",
+    "category": "디자인"
+   },
+   {
+    "t": 15.5,
+    "point": "2개의 스마트폰 무선 충전 패드",
+    "category": "편의"
+   },
+   {
+    "t": 20.0,
+    "point": "운전자 주의 감지 센서 및 열선 스티어링 휠",
+    "category": "안전"
+   },
+   {
+    "t": 29.0,
+    "point": "후석 전용 음료 냉장고 및 샤오미 OS 제어 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "개방감 좋은 파노라마 글라스 루프 및 열선 시트",
+    "category": "공간"
+   },
+   {
+    "t": 41.5,
+    "point": "조수석 전동 레그 서포트 및 마사지/통풍 기능",
+    "category": "편의"
+   },
+   {
+    "t": 53.0,
+    "point": "버튼으로 열리는 전면 프렁크 수납함",
+    "category": "공간"
+   },
+   {
+    "t": 60.0,
+    "point": "공기저항을 줄여주는 에어로 커버 휠과 헤드램프 에어덕트",
+    "category": "성능"
+   },
+   {
+    "t": 67.0,
+    "point": "하부 방탄 수준의 강력한 배터리 보호 팩",
+    "category": "안전"
+   },
+   {
+    "t": 73.0,
+    "point": "놀라운 가격 혜택과 매장 위치 안내",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 74.0,
+   "text": "70 شارع النزهة مصر الجديدة - Gear Up",
+   "ko": "기어업(Gear Up) 헬리오폴리스 노즈하가 70번지 매장으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "센터 화면",
+    "계기판",
+    "실내 앞",
+    "스티어링 휠",
+    "뒷좌석",
+    "조수석",
+    "트렁크",
+    "휠",
+    "외관 전면"
+   ]
+  }
+ }
+}

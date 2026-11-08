@@ -1,0 +1,887 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/q35DSzHsTms",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7163,
+  "candidatesTokenCount": 7363,
+  "totalTokenCount": 14526,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6000
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 65.5,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz V-Class (V 250 / V 300 VIP Edition & Long)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.9,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.4,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 11.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 35.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 39.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.4,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 46.2,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 50.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 55.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 59.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 62.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.6,
+    "end": 65.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "text": "VVVIPs",
+    "ko": "VVVIP를 위한 차",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VVVIPs",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "VIP EDITION",
+    "ko": "VIP 에디션",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 6.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VIP",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 23.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 46.0,
+    "text": "Burmester",
+    "ko": "부메스터 오디오",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Burmester",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 50.8,
+    "text": "x10",
+    "ko": "10대 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 7.0,
+    "color": "#FF9900",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "x10",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 55.5,
+    "text": "TURBO 2000cc | 237hp | 500Nm",
+    "ko": "2000cc 터보 | 237마력 | 500Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFD700",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "237hp",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.8,
+    "text": "تقسيط ✓\nموافقة فورية ✓\nمصاريف إدارية ✗\nتأمين إجباري ✗",
+    "ko": "할부 가능 ✓ / 즉시 승인 ✓ / 관리비 면제 ✗ / 강제 보험 없음 ✗",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 22.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تقسيط",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 65.5,
+    "text": "شارع الثورة مصر الجديدة",
+    "ko": "헬리오폴리스 알싸우라 가",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0088FF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "شارع الثورة",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "띵",
+    "event": "VVVIPs 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "톡",
+    "event": "VIP EDITION 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "슬라이딩 전동도어 닫히는 비프음 및 모터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "휙",
+    "event": "열선 불꽃 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "딸깍",
+    "event": "중앙 접이식 테이블 펼치는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "띵",
+    "event": "부메스터 골드 로고 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "쿵",
+    "event": "엔진 스펙 박스 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 56.8,
+    "type": "톡",
+    "event": "할부 조건 체크 항목 순차 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.8,
+    "type": "띵",
+    "event": "위치 핀 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 고급스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "what": "금색 3D 텍스트 'VVVIPs'",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "타깃 고객 강조",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "what": "황금빛 별과 VIP EDITION 스티커",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "에디션 명시",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 23.5,
+    "what": "불꽃 이모지와 오렌지색 열선 하이라이트",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 45.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "열선 기능 시각화",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 50.8,
+    "what": "미니 밴 그래픽과 x10 텍스트",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "재고 수량 안내",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 55.5,
+    "what": "엔진 스펙 금색 테두리 카드",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "엔진 제원 안내",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.8,
+    "what": "금융 할부 혜택 목록 체크박스",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 75.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "금융 프로모션 강조",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 65.5,
+    "what": "파란색 맵 핀 아이콘과 전시장 주소 카드",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 60.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "أنا ناصر والعربية دي للـ VVVIPs",
+    "ko": "저는 나사르입니다, 그리고 이 차는 VVVIP들을 위한 차량입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 5.0,
+    "text": "دي الـ VIP Edition للبشوات",
+    "ko": "이것은 귀빈들을 위한 VIP 에디션입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 8.0,
+    "text": "عندك مخدات، الكراسي تسخين وتبريد ومساج بـ leg extension",
+    "ko": "헤드레스트 쿠션, 시트 열선/통풍 및 레그 익스텐션 마사지가 들어있고,"
+   },
+   {
+    "start": 8.0,
+    "end": 11.5,
+    "text": "فريم من الخشب، ترابيزة للأكل أو الشغل، وعندك مكان تسند عليه رجلك",
+    "ko": "우드 트림, 식사나 업무를 위한 테이블, 그리고 발을 올릴 수 있는 공간이 있습니다."
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "text": "عندك شحن وايرلس مكتوب عليه مرسيدس، مخارج شواحن",
+    "ko": "메르세데스가 새겨진 무선 충전기와 충전 포트들이 있습니다."
+   },
+   {
+    "start": 14.8,
+    "end": 18.8,
+    "text": "ولو عملت حفلة عندك كاب هولدر، كاب هول더، وواحد أروق هنا",
+    "ko": "파티를 열어도 될 정도로 컵홀더가 곳곳에 넉넉히 준비되어 있고,"
+   },
+   {
+    "start": 18.8,
+    "end": 21.8,
+    "text": "تقدر تنام فيها والباب بيتقفل كده",
+    "ko": "완전히 누워 잘 수 있으며 문은 이렇게 전동으로 닫힙니다."
+   },
+   {
+    "start": 21.8,
+    "end": 24.8,
+    "text": "من قدام الكراسي تسخين وعندك مسند للإيد بـ leg extension",
+    "ko": "앞좌석도 열선 시트와 레그 서포트 암레스트가 적용되었고,"
+   },
+   {
+    "start": 24.8,
+    "end": 27.8,
+    "text": "خشب أبنوس حقيقي وأمبرينت لايت شكله خطير",
+    "ko": "리얼 흑단 우드와 멋진 앰비언트 라이트가 들어갔습니다."
+   },
+   {
+    "start": 27.8,
+    "end": 30.6,
+    "text": "وعشان قد الشقة، المراية بتتقلب كاميرا",
+    "ko": "차가 집처럼 크기 때문에 룸미러는 디지털 카메라로 전환됩니다."
+   },
+   {
+    "start": 30.6,
+    "end": 32.8,
+    "text": "وعندك دبل سكرين بتتحكم فيهم من الشاشة",
+    "ko": "더블 스크린 패널을 터치패드로 제어할 수 있습니다."
+   },
+   {
+    "start": 32.8,
+    "end": 35.6,
+    "text": "ودي الـ Long، عندك بدل السقف البانوراما فيه اتنين",
+    "ko": "그리고 이건 롱바디 모델로, 파노라마 선루프가 2개나 장착되어 있습니다."
+   },
+   {
+    "start": 35.6,
+    "end": 39.5,
+    "text": "الكراسي بتاعتك فيها تسخين وتبريد وبتلف عشان لو عندك اجتماع",
+    "ko": "시트는 열선/통풍 및 회전이 가능해서 회의를 진행할 수 있고,"
+   },
+   {
+    "start": 39.5,
+    "end": 42.4,
+    "text": "ولو دوست هنا هيطلعلك ترابيزة تشتغل عليها",
+    "ko": "여기를 누르면 작업할 수 있는 테이블이 팝업됩니다."
+   },
+   {
+    "start": 42.4,
+    "end": 46.2,
+    "text": "واهتموا جداً من جوة إن التكييف يبقى واصل كويس، السماعات من بورمستر العالمية",
+    "ko": "실내 에어컨 송풍구도 잘 배치되었고 명품 부메스터 오디오가 장착되었습니다."
+   },
+   {
+    "start": 46.2,
+    "end": 49.0,
+    "text": "مخارج شواحن، حتى اللون البني موجود والماكياتو بيج كمان",
+    "ko": "충전 단자는 물론 브라운 컬러와 마키아토 베이지 인테리어도 있습니다."
+   },
+   {
+    "start": 49.0,
+    "end": 51.5,
+    "text": "أكتر من عشر عربيات V",
+    "ko": "10대 이상의 V클래스가 준비되어 있습니다."
+   },
+   {
+    "start": 51.5,
+    "end": 55.7,
+    "text": "والموتور 2000 تربو بيخرج 237 حصان و500 نيوتن متر",
+    "ko": "2.0 터보 엔진은 최고출력 237마력과 500Nm의 토크를 발휘합니다."
+   },
+   {
+    "start": 55.7,
+    "end": 59.9,
+    "text": "ويلز عندهم تقسيط مع كل البنوك، الموافقة فورية، من غير مصاريف إدارية ومن غير تأمين إجباري",
+    "ko": "Wheels에서는 전 은행 즉시 할부 승인, 수수료 및 강제 보험 면제 혜택을 제공합니다."
+   },
+   {
+    "start": 59.9,
+    "end": 62.6,
+    "text": "أنا فاهم إنك باشا ومش فارق معاك الفلوس، بس العروض حلوة",
+    "ko": "대표님이라 돈은 상관없으시겠지만 조건이 정말 좋습니다."
+   },
+   {
+    "start": 62.6,
+    "end": 65.5,
+    "text": "وهتلاقيهم كلهم في ويلز، شارع الثورة مصر الجديدة",
+    "ko": "헬리오폴리스 알싸우라 가의 Wheels 매장에서 모두 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "수많은 벤츠 V클래스 앞에서 VVVIP용 차량 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 21.8,
+    "speed": "빠름",
+    "summary": "VIP 에디션 뒷좌석 리클라이너, 테이블, 마사지 등 기능 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 21.8,
+    "end": 32.8,
+    "speed": "빠름",
+    "summary": "앞좌석 고급 내장재, 디지털 룸미러 및 디스플레이 제어 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 32.8,
+    "end": 50.8,
+    "speed": "빠름",
+    "summary": "V클래스 롱바디 버전의 회전 시트, 듀얼 선루프 및 오디오 사양 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 50.8,
+    "end": 55.7,
+    "speed": "보통",
+    "summary": "2.0 터보 엔진 출력 및 토크 스펙 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 55.7,
+    "end": 62.6,
+    "speed": "빠름",
+    "summary": "전액/무수수료 할부 조건 안내 및 프로모션 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 62.6,
+    "end": 65.5,
+    "speed": "보통",
+    "summary": "매장 위치(Wheels 지점) 안내 및 마무리"
+   }
+  ],
+  "rules": [
+   "진행자의 손동작과 동시에 옵션 작동 시연(테이블 펴기, 문 닫기, 시트 조작)을 1초 내외로 빠르게 전개",
+   "주요 스펙과 핵심 판매 포인트(할부 조건, 출력 등)는 화면 우측 또는 중앙에 굵은 금색 폰트 카드로 직관적 노출",
+   "시트의 열선, 사운드 브랜드 등 핵심 기능에 맞춰 시각 그래픽 효과음(휙, 띵)을 동기화하여 몰입도 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "feature": "VIP 리클라이너 시트(마사지/익스텐션)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.2,
+    "feature": "접이식 우드 트레이 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 55.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "feature": "메르세데스 무선 충전 패드",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.8,
+    "feature": "풀 플랫 베드 & 오토 슬라이딩 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 23.5,
+    "feature": "앞좌석 열선 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "주황색 시트 그래픽과 불꽃 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 32.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.0,
+    "feature": "디지털 카메라 룸미러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.5,
+    "feature": "듀얼 파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 39.5,
+    "feature": "회전식 2열 시트(의전/회의 모드)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.0,
+    "feature": "부메스터 프리미엄 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "Burmester 골드 필기체 로고",
+    "x_pct": 48.0,
+    "y_pct": 42.0,
+    "size_w_pct": 45.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전시장 앞에 나란히 늘어선 고급 벤츠 V클래스 행렬 앞에서 진행자가 VVVIP를 위한 차량이라며 소개 시작",
+   "type": "행동",
+   "text": "أنا ناصر والعربية دي للـ VVVIPs",
+   "ko": "저는 나사르입니다, 그리고 이 차는 VVVIP들을 위한 차량입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "VIP를 겨냥한 최고급 럭셔리 밴 에디션",
+    "category": "희소성"
+   },
+   {
+    "t": 6.5,
+    "point": "리클라이닝, 열선/통풍/마사지 및 레그 익스텐션 장착",
+    "category": "편의"
+   },
+   {
+    "t": 9.5,
+    "point": "고급 원목 접이식 업무용 테이블 내장",
+    "category": "편의"
+   },
+   {
+    "t": 20.0,
+    "point": "완전 취침 가능한 풀 플랫 좌석 구성",
+    "category": "공간"
+   },
+   {
+    "t": 28.5,
+    "point": "대형 차체 시야 확보를 위한 디지털 룸미러",
+    "category": "안전"
+   },
+   {
+    "t": 34.0,
+    "point": "개방감을 극대화한 더블 파노라마 선루프",
+    "category": "편의"
+   },
+   {
+    "t": 38.0,
+    "point": "회의 가능한 180도 회전 시트",
+    "category": "편의"
+   },
+   {
+    "t": 44.5,
+    "point": "부메스터 서라운드 오디오 시스템 장착",
+    "category": "편의"
+   },
+   {
+    "t": 52.5,
+    "point": "2.0 터보 가솔린 237마력, 500Nm 토크",
+    "category": "성능"
+   },
+   {
+    "t": 57.0,
+    "point": "전 은행 즉시 승인 및 관리비/강제보험 면제 금융 혜택",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 63.5,
+   "text": "شارع الثورة مصر الجديدة - Wheels",
+   "ko": "헬리오폴리스 알싸우라 가의 Wheels 쇼룸으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "실내 앞",
+    "뒷좌석",
+    "외관 전면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,617 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/v4A_2uQQGeI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3900,
+  "candidatesTokenCount": 5235,
+  "totalTokenCount": 9135,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2737
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.6,
+   "aspect": "9:16",
+   "car": "포르쉐 카이엔 GTS / 미공개 퀴즈 차량(포르쉐 911 추정)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 13.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 22.3,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.8,
+    "end": 4.2,
+    "text": "CHRONO PACKAGE",
+    "ko": "크로노 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "text": "SUN BLINDS",
+    "ko": "선 블라인드",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.3,
+    "text": "أُسطُورة",
+    "ko": "전설",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "1960-2026",
+    "ko": "1960-2026",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "text": "+20 MODLES",
+    "ko": "+20개 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -8.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.2,
+    "text": "8 MIL",
+    "ko": "800만",
+    "kind": "가격",
+    "y_pct": 38.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 8.0,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 25.5,
+    "text": "+30 MIL",
+    "ko": "+3000만",
+    "kind": "가격",
+    "y_pct": 38.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 8.0,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "text": "متوسط الدخل",
+    "ko": "중간 소득층",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -5.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.0,
+    "text": "70-80 MIL/YEAR",
+    "ko": "연 7000만-8000만",
+    "kind": "가격",
+    "y_pct": 48.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "휙",
+    "event": "차량 커버를 확 벗겨내는 동작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "톡",
+    "event": "CHRONO PACKAGE 자막 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "SUN BLINDS 자막 및 핑거 제스처 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "딸깍",
+    "event": "금연 표시 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "휙",
+    "event": "새 퀴즈 인트로 황금빛 모션 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.5,
+    "type": "띵",
+    "event": "+20 MODELS 3D 배지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "돈 소리",
+    "event": "8 MIL 금액 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "돈 소리",
+    "event": "+30 MIL 금액 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 13.9,
+     "what": "전반부 카이엔 GTS 소개 종료 후 야외 신규 퀴즈로 음악 전환"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 12.6,
+    "end": 13.8,
+    "what": "금연 금지 표지판 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 30.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "흡연 금지 강조",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "what": "클래식 포르쉐 차량 실루엣 흑백 사진 오버레이",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "페이드",
+    "purpose": "역사성 설명",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.2,
+    "what": "+20 MODELS 3D 원형 배지",
+    "is_3d": true,
+    "size_w_pct": 38.0,
+    "x_pct": 65.0,
+    "y_pct": 48.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "모델 가짓수 강조",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 30.2,
+    "what": "화이트 3D 인간 픽토그램 그래픽",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 30.0,
+    "y_pct": 38.0,
+    "entrance": "밀려옴",
+    "purpose": "중산층 비유 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "أنا ناصر، والفزورة اللي فاتت: بورش كايان GTS.",
+    "ko": "저는 나사르입니다. 지난번 수수께끼 정답은: 포르쉐 카이엔 GTS였습니다."
+   },
+   {
+    "start": 2.5,
+    "end": 7.4,
+    "text": "كرونو باكيدج ومن الجنب مش باين حاجة للسواق، بس لو جيت قدام هتبانلك الباسنجر سكرين.",
+    "ko": "크로노 패키지가 있고 운전석 쪽에서는 안 보이지만, 조수석 앞쪽으로 가면 승객용 화면이 보입니다."
+   },
+   {
+    "start": 7.4,
+    "end": 10.7,
+    "text": "عندك ستاير للخصوصية مهمة في مصر، خُد بالك.",
+    "ko": "프라이버시를 위한 선블라인드가 있습니다. 이집트에서는 꼭 필요하죠."
+   },
+   {
+    "start": 10.7,
+    "end": 13.9,
+    "text": "تحكم في التكييف وطفاية سجاير، وبطلها في رمضان، أنا واثق فيك.",
+    "ko": "공조 제어장치와 재떨이가 있습니다. 라마단엔 담배 끊으세요, 당신을 믿습니다."
+   },
+   {
+    "start": 13.9,
+    "end": 18.9,
+    "text": "فزورة النهاردة من أساطير عالم السيارات، بدأت في الستينات ومكملة لحد النهاردة، تاريخ!",
+    "ko": "오늘의 퀴즈 차량은 자동차 역사의 전설 중 하나로, 60년대에 시작해 지금까지 이어지고 있죠, 완전 역사 그 자체!"
+   },
+   {
+    "start": 18.9,
+    "end": 22.3,
+    "text": "في منها أكتر من 20 موديل، إنك تعرفهم أصعب من إنك تشتري.",
+    "ko": "20가지가 넘는 모델이 있어서 이름을 다 외우는 게 사는 것보다 어려울 정도입니다."
+   },
+   {
+    "start": 22.3,
+    "end": 25.5,
+    "text": "وبتبتدي من 8-9 مليون لحد أكتر من 30 مليون.",
+    "ko": "가격은 800~900만(파운드)부터 시작해서 3000만 이상까지 올라갑니다."
+   },
+   {
+    "start": 25.5,
+    "end": 30.6,
+    "text": "يعني لو إنت من متوسطي الدخل اللي بيعملوا 70-80 مليون جنيه في السنة، تقدر تجيب واحدة.",
+    "ko": "즉 연간 7000~8000만 파운드를 버는 보통 소득자(?)라면 한 대 사실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "이전 퀴즈 정답(포르쉐 카이엔 GTS) 차량 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 2.5,
+    "end": 13.9,
+    "speed": "빠름",
+    "summary": "카이엔 GTS 실내 디스플레이, 선블라인드, 뒷좌석 공조 및 위트 있는 멘트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 13.9,
+    "end": 22.3,
+    "speed": "보통",
+    "summary": "새로운 퀴즈 차량 천막 씌운 채 힌트 제공 (1960년대 시작, 20가지 이상 라인업)"
+   },
+   {
+    "stage": "가격",
+    "start": 22.3,
+    "end": 30.6,
+    "speed": "빠름",
+    "summary": "신규 퀴즈 차량의 가격대와 유머 섞인 소득 기준 제시"
+   }
+  ],
+  "rules": [
+   "전반부에 직전 퀴즈 정답 차의 핵심 옵션을 10여 초간 초고속으로 짚고 바로 본 퀴즈로 연결함",
+   "화면 속 차량 기능 설명 시 손가락 제스처와 영문 키워드 자막을 일치시킴",
+   "유머와 함께 3D 그래픽/금액 스티커/금지 아이콘을 화면에 띄워 몰입감을 높임",
+   "화려한 전통 패브릭 커버로 덮인 미공개 차량을 비추며 시청자의 댓글 참여를 유도함"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.5,
+    "end": 4.2,
+    "feature": "스포츠 크로노 패키지",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "대시보드 상단 아날로그 시계/스톱워치",
+    "x_pct": 52.0,
+    "y_pct": 32.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.4,
+    "feature": "조수석 전용 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "운전석 각도에서는 꺼져 보이지만 정면에서는 활성화되는 디스플레이",
+    "x_pct": 70.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.5,
+    "feature": "뒷좌석 전동 선블라인드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "창문에 올라와 있는 프라이버시 선블라인드",
+    "x_pct": 35.0,
+    "y_pct": 45.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.5,
+    "feature": "뒷좌석 공조 컨트롤러 및 재떨이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "뒷좌석 콘솔의 디지털 공조 화면과 하단 개폐식 재떨이",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전통 패브릭 천막을 벗기며 카이엔 GTS를 공개하고 자기소개",
+   "type": "행동",
+   "text": "أنا ناصر، والفزورة اللي فاتت: بورش كايان GTS.",
+   "ko": "저는 나사르입니다. 지난번 퀴즈 정답은: 포르쉐 카이엔 GTS였습니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "포르쉐 대시보드의 크로노 패키지 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 5.5,
+    "point": "운전자 시야에서는 차단되는 동승자 전용 프라이버시 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 8.5,
+    "point": "이집트 햇빛과 사생활 보호를 위한 뒷좌석 선블라인드",
+    "category": "편의"
+   },
+   {
+    "t": 11.5,
+    "point": "뒷좌석 개별 공조 제어 및 내장 재떨이",
+    "category": "편의"
+   },
+   {
+    "t": 16.0,
+    "point": "1960년대부터 이어진 유구한 역사와 20가지 이상의 다양한 파생 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 23.5,
+    "point": "800만 파운드에서 3000만 파운드를 호가하는 초고가 차량",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 14.0,
+   "text": "فزورة النهاردة",
+   "ko": "오늘의 퀴즈 차종 맞히기 (댓글 유도 형태)",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "계기판",
+    "센터 화면",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 전면",
+    "외관 측면"
+   ]
+  }
+ }
+}

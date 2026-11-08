@@ -1,0 +1,709 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/jQVrSe9uklQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6084,
+  "candidatesTokenCount": 5784,
+  "totalTokenCount": 11868,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4921
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.0,
+   "aspect": "9:16",
+   "car": "Cadillac Escalade Custom VIP Lounge",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 10.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 19.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 22.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 37.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 44.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 55.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 2.0,
+    "text": "COFFEE MACHINE",
+    "ko": "커피 머신",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 63.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.6,
+    "text": "مش ESCALADE عادية",
+    "ko": "평범한 에스컬레이드가 아닙니다",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.8,
+    "text": "TV",
+    "ko": "TV",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.3,
+    "text": "-20°C",
+    "ko": "-20°C",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 63.0,
+    "text_height_pct": 6.0,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "تحكم في الستاير",
+    "ko": "블라인드 전동 제어",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "text": "TOUCH COMMAND TABLET",
+    "ko": "터치 컨트롤 태블릿",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "커피머신 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "쿵",
+    "event": "에스컬레이드 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "휙",
+    "event": "외관 컷 전환 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "쿵",
+    "event": "TV 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "띵",
+    "event": "-20도 냉장고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "블라인드 제어 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "톡",
+    "event": "터치 태블릿 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "딸깍",
+    "event": "자동문 오픈 손잡이 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "휙",
+    "event": "브랜드 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 신남",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.4,
+    "end": 4.5,
+    "what": "캐딜락 에스컬레이드 로고 및 텍스트",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 10.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 강조",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.5,
+    "what": "Auto Stad Cadillac 텍스트 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 33.0,
+    "entrance": "페이드",
+    "purpose": "딜러사 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.3,
+    "what": "냉장고 눈송이 아이콘",
+    "is_3d": true,
+    "size_w_pct": 15.0,
+    "x_pct": 65.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "냉장 온도 강조",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 51.5,
+    "what": "페라리/람보르기니/롤스로이스 로고",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 5.0,
+    "y_pct": 7.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "취급 슈퍼카 안내",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.5,
+    "what": "Chillout AUC 위치 핀 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.0,
+    "y_pct": 7.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "دي عربية فيها مكنة قهوة وتقدر تلعب فيها بلايستيشن، لأن دي مش إسكاليد عادية",
+    "ko": "이 차에는 커피 머신이 있고 플레이스테이션 게임도 할 수 있습니다. 왜냐하면 평범한 에스컬레이드가 아니기 때문이죠."
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "دي هي كاديلاك إسكاليد من أوتو ستاد",
+    "ko": "바로 오토 스태드의 캐딜락 에스컬레이드입니다."
+   },
+   {
+    "start": 7.0,
+    "end": 11.5,
+    "text": "حرفياً عندك تلفزيون فيه نتفليكس ويوتيوب وكل اللي إنت عايزه، ثلاجة لسالب 20",
+    "ko": "말 그대로 넷플릭스와 유튜브 등 원하는 모든 게 다 있는 대형 TV와 영하 20도까지 내려가는 냉장고가 있습니다."
+   },
+   {
+    "start": 11.5,
+    "end": 16.5,
+    "text": "تحكم في التكييف، مساحات تخزين حتى الريموتات ليها مكان",
+    "ko": "공조 제어 장치와 수납공간, 심지어 리모컨 전용 수납함까지 마련되어 있습니다."
+   },
+   {
+    "start": 16.5,
+    "end": 23.5,
+    "text": "من الزراير دي بتقدر تتحكم في الستاير، عندك مخارج شواحن والأرض مبطنة عشان زيادة الراحة، حتى رجليك اهتموا بيها",
+    "ko": "이 버튼들로 전동 커튼을 조작하고, 충전 포트와 발의 안락함을 위한 고급 카펫까지 세심하게 신경 썼습니다."
+   },
+   {
+    "start": 23.5,
+    "end": 30.0,
+    "text": "عشان تكمل المود عندك ستارلايتس وتابلت تتحكم منه في العربية، وتحكمات في الكراسي اللي فيها تسخين وتبريد ومساج",
+    "ko": "분위기를 완성하는 은하수 무드등과 차량 제어 태블릿, 통풍·열선·마사지 기능이 포함된 시트 조절기가 있습니다."
+   },
+   {
+    "start": 30.0,
+    "end": 35.0,
+    "text": "وتقدر تنام عليهم، وأمبينت لايتس في كل حتة في العربية وكاب هولدرز لونها دهبي، أوتو ستاد أبدعوا في العربية دي",
+    "ko": "완전히 누울 수 있는 침대형 시트, 앰비언트 라이트와 골드 컵홀더까지, 오토 스태드가 완벽하게 개조했습니다."
+   },
+   {
+    "start": 35.0,
+    "end": 41.5,
+    "text": "شغل البلايستيشن واقفل الستاير هات مشروباتك وصحابك ويلا بينا، أو تشغل فيلم",
+    "ko": "플레이스테이션을 켜고 커튼을 닫은 뒤 음료와 친구들을 데리고 놀거나 영화를 감상하세요."
+   },
+   {
+    "start": 41.5,
+    "end": 47.5,
+    "text": "وعشان يسهلوا الخروج بتشد الأكرة بس والباب هيفتح لوحده",
+    "ko": "내릴 때도 편하게 손잡이만 살짝 당기면 전동문이 자동으로 열립니다."
+   },
+   {
+    "start": 47.5,
+    "end": 55.0,
+    "text": "فلو عايز إسكاليد عادية أو مش عادية، فيراري، لامبورجيني أو رولز رويس، أوتو ستاد هيجيبهالك وهتلاقيهم في Chillout AUC",
+    "ko": "일반 에스컬레이드든 특별 개조 모델이든, 페라리나 람보르기니, 롤스로이스까지 오토 스태드가 찾아드립니다. Chillout AUC 매장에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "차량 내 커피머신, PS5, 리클라이닝 시트 등 파격적인 VIP 개조 인테리어 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 7.0,
+    "speed": "보통",
+    "summary": "외관 공개 및 오토 스태드 튜닝 캐딜락 에스컬레이드 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.0,
+    "end": 35.0,
+    "speed": "빠름",
+    "summary": "대형 TV, 영하 냉장고, 전동 커튼, 스타라이트 천장, VIP 전동 리클라이닝 시트 등 풀옵션 리뷰"
+   },
+   {
+    "stage": "사양",
+    "start": 35.0,
+    "end": 47.7,
+    "speed": "보통",
+    "summary": "실제 게이밍 및 영화 감상 활용법, 전동 오토 도어 하차 편의성 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 47.7,
+    "end": 55.0,
+    "speed": "보통",
+    "summary": "슈퍼카/럭셔리카 구매 문의 및 오토스태드 전시장 방문 유도"
+   }
+  ],
+  "rules": [
+   "도입 3초 내에 차량에서 가장 파격적인 편의 장비(커피머신, PS5 콘솔)를 연속으로 보여주며 시청 유지율 확보",
+   "기능을 언급할 때 직관적인 3D/2D 키워드 그래픽(온도 아이콘, 텍스트)을 화면 해당 위치에 동기화",
+   "리뷰어가 직접 누워보거나 게임패드를 쥐고 팝콘을 먹는 등 실제 탑승자 시점의 롤플레잉 연출",
+   "각 옵션 소개 시 터치 조작 및 버튼 클릭을 클로즈업하여 직관성 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.8,
+    "end": 2.0,
+    "feature": "캡슐 커피 머신",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "COFFEE MACHINE 텍스트",
+    "x_pct": 63.0,
+    "y_pct": 39.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "feature": "대형 스마트 TV 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "TV 볼드 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 27.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.5,
+    "feature": "-20도 냉동/냉장고",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "눈송이 3D 그래픽과 -20°C 텍스트",
+    "x_pct": 63.0,
+    "y_pct": 67.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "feature": "전동 사이드 블라인드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "تحكم في الستاير 텍스트",
+    "x_pct": 68.0,
+    "y_pct": 33.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "feature": "롤스로이스 스타일 스타라이트 천장",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": null,
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.6,
+    "feature": "터치 커맨드 태블릿 컨트롤러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "TOUCH COMMAND TABLET 텍스트",
+    "x_pct": 47.0,
+    "y_pct": 27.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 31.0,
+    "feature": "VIP 리클라이닝 시트 (열선/통풍/마사지/풀플랫)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": null,
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 47.7,
+    "feature": "파워 전동 슬라이딩/스윙 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": null,
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "차 안에 설치된 캡슐 커피머신을 보여주고 바로 PS5 패드를 쥔 채 누워있는 VIP 시트 화면으로 전환",
+   "type": "행동",
+   "text": "دي عربية فيها مكنة قهوة وتقدر تلعب فيها بلايستيشن",
+   "ko": "이 차에는 커피 머신이 있고 안에서 플레이스테이션도 할 수 있습니다."
+  },
+  "narration_points": [
+   {
+    "t": 0.8,
+    "point": "차량 내 전용 커피머신 및 PS5 콘솔 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 7.5,
+    "point": "OTT 스트리밍 가능한 대형 스마트 TV 장착",
+    "category": "편의"
+   },
+   {
+    "t": 11.0,
+    "point": "영하 20도까지 지원하는 센터 콘솔 냉장고",
+    "category": "편의"
+   },
+   {
+    "t": 16.5,
+    "point": "원터치 전동 프라이버시 블라인드 제어",
+    "category": "편의"
+   },
+   {
+    "t": 22.5,
+    "point": "천장 은하수 스타라이트 조명 및 바닥 고급 카펫 마감",
+    "category": "디자인"
+   },
+   {
+    "t": 25.0,
+    "point": "모든 기능을 제어할 수 있는 터치스크린 태블릿",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "풀플랫 리클라이닝 및 열선/통풍/마사지 VIP 시트",
+    "category": "편의"
+   },
+   {
+    "t": 46.0,
+    "point": "손잡이 조작 한 번으로 스스로 열리는 오토 전동 도어",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 51.5,
+   "text": "وهتلاقيهم في Chillout AUC",
+   "ko": "칠아웃 AUC 지점에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "뒷좌석",
+    "외관 전면",
+    "옵션 작동",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 전면"
+   ]
+  }
+ }
+}
