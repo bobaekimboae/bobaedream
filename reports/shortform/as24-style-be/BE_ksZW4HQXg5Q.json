@@ -1,0 +1,681 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/ksZW4HQXg5Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5750,
+  "candidatesTokenCount": 5790,
+  "totalTokenCount": 12075,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4382
+   }
+  ],
+  "thoughtsTokenCount": 535,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.4,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz C 180d Avantgarde",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.1,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.4,
+    "end": 29.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 31.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 35.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 38.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.7,
+    "end": 42.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 48.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Dit is de Mercedes Benz C 180d avantgarde",
+    "ko": "이것은 메르세데스 벤츠 C 180d 아방가르드입니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Mercedes",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 3.7,
+    "text": "Mercedes Benz\nC Avantgarde 180d",
+    "ko": "메르세데스 벤츠 C 아방가르드 180d",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "text": "en wat die kost vertel ik je op het einde",
+    "ko": "가격은 마지막에 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "kost",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 12.3,
+    "text": "onder de motorkap ligt een 1.6l dieselmotor met 122 pk gekoppeld aan een soepele 8 trapsautomaat",
+    "ko": "보닛 아래에는 122마력 1.6L 디젤 엔진과 부드러운 8단 자동변속기가 탑재되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "1.6l",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 16.5,
+    "text": "maar het draait hier vooral om comfort je krijgt onder andere half leder interieur",
+    "ko": "하지만 여기선 무엇보다 안락함이 핵심입니다. 하프 레더 인테리어가 제공됩니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "comfort",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "text": "elektrische zetels zetelverwarming",
+    "ko": "전동 시트와 시트 열선",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "elektrische",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.8,
+    "text": "vierzone automatische airconditioning",
+    "ko": "4존 풀오토 에어컨",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "vierzone",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.1,
+    "text": "een groot infotainment scherm met Apple carplay en Android auto",
+    "ko": "애플 카플레이와 안드로이드 오토가 지원되는 대형 인포테인먼트 화면",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "infotainment",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.4,
+    "text": "ook is hij uitgerust met cruise control",
+    "ko": "또한 크루즈 컨트롤도 탑재되어 있으며",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "cruise",
+    "sure": true
+   },
+   {
+    "start": 27.4,
+    "end": 31.7,
+    "text": "een achteruitrijcamera en parkeersensoren voor en achter",
+    "ko": "후방 카메라와 전후방 주차 센서도 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "achteruitrijcamera",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 37.8,
+    "text": "deze c klasse komt uit 2022 heeft 58.850km op de teller en",
+    "ko": "이 C클래스는 2022년식에 주행거리 58,850km이며",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2022",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.7,
+    "text": "hij kost €26.990",
+    "ko": "가격은 26,990유로입니다",
+    "kind": "가격",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "€26.990",
+    "sure": true
+   },
+   {
+    "start": 40.7,
+    "end": 48.4,
+    "text": "Zou jij voor deze c klasse gaan? Je vindt hem in de showroom van Garage Mullens in Halen en op AutoScout24.be",
+    "ko": "이 C클래스 어떠신가요? Halen의 Garage Mullens 전시장과 AutoScout24.be에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Garage",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.7,
+    "type": "톡",
+    "event": "차량명 노란 배너 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "톡",
+    "event": "Garage Mullens 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "모던 비트/팝 인스트루멘털",
+   "bpm_est": 115,
+   "mood": "밝고 깔끔함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.7,
+    "end": 3.7,
+    "what": "차량 모델명 노란 배경 칩 배너",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 21.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 46.5,
+    "what": "Garage Mullens 딜러사 로고",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "딜러사 홍보",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.4,
+    "what": "AutoScout24 로고 칩",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Dit is de Mercedes Benz C 180d avantgarde",
+    "ko": "이것은 메르세데스 벤츠 C 180d 아방가르드입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "text": "en wat die kost vertel ik je op het einde.",
+    "ko": "가격이 얼마인지는 마지막에 알려드릴게요."
+   },
+   {
+    "start": 5.9,
+    "end": 12.3,
+    "text": "Onder de motorkap ligt een 1.6l dieselmotor met 122 pk gekoppeld aan een soepele 8-trapsautomaat.",
+    "ko": "보닛 아래에는 122마력 1.6L 디젤 엔진과 부드러운 8단 자동변속기가 탑재되어 있습니다."
+   },
+   {
+    "start": 12.3,
+    "end": 16.5,
+    "text": "Maar het draait hier vooral om comfort. Je krijgt onder andere half leder interieur,",
+    "ko": "하지만 여기선 무엇보다 안락함이 핵심입니다. 하프 레더 인테리어가 제공되며,"
+   },
+   {
+    "start": 16.5,
+    "end": 21.8,
+    "text": "elektrische zetels, zetelverwarming, vierzone automatische airconditioning,",
+    "ko": "전동 시트, 열선 시트, 4존 자동 에어컨,"
+   },
+   {
+    "start": 21.8,
+    "end": 27.4,
+    "text": "een groot infotainmentscherm met Apple CarPlay en Android Auto. Ook is hij uitgerust met cruisecontrol,",
+    "ko": "애플 카플레이 및 안드로이드 오토가 지원되는 대형 인포테인먼트 화면, 크루즈 컨트롤까지 갖추고 있습니다."
+   },
+   {
+    "start": 27.4,
+    "end": 31.7,
+    "text": "een achteruitrijcamera en parkeersensoren voor en achter.",
+    "ko": "후방 카메라와 전후방 주차 센서도 있습니다."
+   },
+   {
+    "start": 31.7,
+    "end": 37.8,
+    "text": "Deze C-klasse komt uit 2022, heeft 58.850 km op de teller en",
+    "ko": "이 C클래스는 2022년식에 주행거리 58,850km이며,"
+   },
+   {
+    "start": 37.8,
+    "end": 40.7,
+    "text": "hij kost €26.990.",
+    "ko": "가격은 26,990유로입니다."
+   },
+   {
+    "start": 40.7,
+    "end": 48.4,
+    "text": "Zou jij voor deze C-klasse gaan? Je vindt hem in de showroom van Garage Mullens in Halen en op AutoScout24.be.",
+    "ko": "이 C클래스 어떠신가요? 할렌의 Garage Mullens 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.9,
+    "speed": "보통",
+    "summary": "차량 소개 및 가격은 마지막에 공개한다는 호기심 유발"
+   },
+   {
+    "stage": "사양",
+    "start": 5.9,
+    "end": 12.3,
+    "speed": "보통",
+    "summary": "엔진 및 변속기 스펙 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 12.3,
+    "end": 31.7,
+    "speed": "보통",
+    "summary": "시트, 공조기, 디스플레이, 센서 등 실내외 편의 기능 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 31.7,
+    "end": 37.8,
+    "speed": "보통",
+    "summary": "연식 및 주행거리 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 37.8,
+    "end": 40.7,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.7,
+    "end": 48.4,
+    "speed": "보통",
+    "summary": "딜러사 위치 및 AutoScout24 플랫폼 구매 안내"
+   }
+  ],
+  "rules": [
+   "화면 하단 중앙에 한두 단어씩 싱크에 맞춰 노란색으로 강조되는 흰색 자막 배치",
+   "오프닝 1초 전후에 굵은 노란색 기울어진 상자 스티커로 차종명을 강하게 각인",
+   "가격 정보를 영상 후반부로 미루어 시청 지속 시간 유지 유도",
+   "설명하는 세부 옵션 부품(시트 스위치, 에어컨 송풍구, 센터 모니터 등)을 클로즈업 컷으로 빠르게 연속 연결",
+   "엔딩에는 입점 딜러사 로고와 오토스카우트24 플랫폼 로고를 차례로 띄우며 콜투액션 전달"
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게(산세리프)",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 2,
+    "box": "없음",
+    "box_color": null,
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.2,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFEA00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.2,
+    "count": 13,
+    "sure": true
+   },
+   {
+    "role": "제목",
+    "font": "아주 굵게(산세리프)",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEA00",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 6.5,
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 200,
+    "out_anim": "페이드",
+    "stay_sec": 3.0,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 3
+   }
+  ],
+  "end_card": {
+   "start_sec": 44.4,
+   "what": "딜러 연락",
+   "bg": "차 위에 겹침",
+   "sec": 4.0
+  },
+  "safe_zone_note": "자막이 y 68% 위치에 있어 틱톡/릴스의 하단 텍스트 및 UI와 겹치지 않는 안전 영역에 배치됨"
+ }
+}

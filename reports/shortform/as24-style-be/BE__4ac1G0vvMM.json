@@ -1,0 +1,668 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/_4ac1G0vvMM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5459,
+  "candidatesTokenCount": 5655,
+  "totalTokenCount": 11114,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4091
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.9,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf R 2.0 TSI 4Motion",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 13.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 32.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 37.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 44.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 4.5,
+    "text": "Volkswagen Golf R",
+    "ko": "폭스바겐 골프 R",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Golf R",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "text": "Volkswagen Golf R\n2.0 tsi 4motion",
+    "ko": "폭스바겐 골프 R 2.0 TSI 4모션",
+    "kind": "제목",
+    "y_pct": 32.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Golf R",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "text": "2.0 L",
+    "ko": "2.0 리터",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "text": "320 pk",
+    "ko": "320 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.5,
+    "text": "DSG-automaat",
+    "ko": "DSG 자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 66.0,
+    "text_height_pct": 3.2,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "DSG\nDirect-Shift Gearbox",
+    "ko": "DSG 직접 변속 기어박스",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 34.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 30.5,
+    "text": "4motion\nvierwielaandrijving",
+    "ko": "4모션 4륜구동",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.2,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.2,
+    "text": "2021",
+    "ko": "2021년식",
+    "kind": "키워드 스티커",
+    "y_pct": 17.0,
+    "x_center_pct": 51.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.2,
+    "end": 37.0,
+    "text": "89.000 km",
+    "ko": "89,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 40.0,
+    "text": "€31.900",
+    "ko": "31,900 유로",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.6,
+    "text": "SB Cars",
+    "ko": "SB Cars (딜러)",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 44.9,
+    "text": "AutoScout24\n.be",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "차종 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.7,
+    "type": "톡",
+    "event": "스펙 타이틀 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "톡",
+    "event": "2.0 L 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "320 pk 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "톡",
+    "event": "DSG 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "DSG 설명 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "톡",
+    "event": "4motion 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "톡",
+    "event": "연식 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.2,
+    "type": "톡",
+    "event": "주행거리 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.3,
+    "type": "톡",
+    "event": "가격 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.8,
+    "type": "톡",
+    "event": "딜러사 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.6,
+    "type": "톡",
+    "event": "오토스카우트24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/로파이 일렉트로닉",
+   "bpm_est": 115,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Wist je dat deze Volkswagen Golf R niet alleen sportief is maar ook supersnel schakelt?",
+    "ko": "이 폭스바겐 골프 R이 스포티할 뿐만 아니라 기어 변속도 엄청 빠르다는 걸 알고 계셨나요?"
+   },
+   {
+    "start": 4.8,
+    "end": 8.7,
+    "text": "Dit is de Volkswagen Golf R 2.0 tsi 4motion.",
+    "ko": "이 차는 폭스바겐 골프 R 2.0 TSI 4모션입니다."
+   },
+   {
+    "start": 8.7,
+    "end": 13.5,
+    "text": "Met zijn 2.0 liter turbobenzinemotor levert hij een vermogen van 320 pk.",
+    "ko": "2.0리터 터보 가솔린 엔진으로 320마력의 출력을 발휘합니다."
+   },
+   {
+    "start": 13.5,
+    "end": 17.0,
+    "text": "En waarom die zo snel schakelt? Dat komt door de DSG-automaat.",
+    "ko": "변속이 왜 이렇게 빠를까요? 바로 DSG 자동변속기 덕분입니다."
+   },
+   {
+    "start": 17.0,
+    "end": 26.5,
+    "text": "DSG staat voor Direct-Shift Gearbox. Het is een automatische versnellingsbak met een dubbele koppeling, waardoor de volgende versnelling al voorbereid wordt terwijl je nog in de andere rijdt.",
+    "ko": "DSG는 Direct-Shift Gearbox의 약자입니다. 듀얼 클러치 방식의 자동변속기로, 현재 기어로 주행하는 동안 다음 기어가 이미 준비됩니다."
+   },
+   {
+    "start": 26.5,
+    "end": 32.8,
+    "text": "En dankzij de 4motion vierwielaandrijving wordt het vermogen verdeeld over de vier wielen voor extra grip wanneer dat nodig is.",
+    "ko": "그리고 4모션 사륜구동 덕분에 필요한 순간 4개 바퀴로 출력이 분배되어 접지력을 극대화합니다."
+   },
+   {
+    "start": 32.8,
+    "end": 39.8,
+    "text": "Hij komt uit 2021, heeft 89.000km gereden en hij kost €31.900.",
+    "ko": "2021년식, 주행거리 89,000km이며 가격은 31,900유로입니다."
+   },
+   {
+    "start": 39.8,
+    "end": 44.9,
+    "text": "Je vindt hem in de showroom van SB Cars en op AutoScout24.be.",
+    "ko": "SB Cars 쇼룸 및 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "스포티함과 초고속 변속 강조 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "정식 모델명 명시"
+   },
+   {
+    "stage": "사양",
+    "start": 8.7,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "배기량 및 출력 사양 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 13.5,
+    "end": 32.8,
+    "speed": "보통",
+    "summary": "DSG 듀얼클러치 원리 및 4Motion 4륜구동 특징 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 32.8,
+    "end": 40.0,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 판매 가격 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 40.0,
+    "end": 44.9,
+    "speed": "보통",
+    "summary": "전시 딜러사 및 오토스카우트24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "호스트가 설명하는 주요 수치 및 고유 기술 용어마다 노란색 브러시/박스 형태의 그래픽 칩을 팝업 효과음과 함께 띄운다.",
+   "하단 실시간 대사 자막은 단어 단위로 흰색에서 노란색으로 강조되는 노래방 스타일을 사용한다.",
+   "핵심 기술 설명(DSG 변속 원리 등) 시 실내 조작부 및 실내 컷을 집중 배치한다.",
+   "영상 말미에 연식 -> 주행거리 -> 가격 순으로 핵심 스펙을 연속 노출하여 구매 결정 정보를 요약한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게 고딕(Sans-serif)",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.2,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 5,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFE500",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 22,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 고딕(Sans-serif)",
+    "letter_case": "혼합",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFE500",
+    "box_corner_px_at_1080": 12,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 4.5,
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFE500",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.0,
+    "count": 9,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게 고딕",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFE500",
+    "box_corner_px_at_1080": 16,
+    "box_padding_pct": 4.0,
+    "text_height_pct": 5.0,
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFE500",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.7,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 80,
+    "loud_vs_voice": "비슷",
+    "count": 11
+   },
+   {
+    "event": "가격 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 80,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 42.6,
+   "what": "앱 안내",
+   "bg": "차 위에 겹침",
+   "sec": 2.3
+  },
+  "safe_zone_note": "키워드 및 가격 칩은 화면 상단 15~35%에 위치하여 플랫폼 UI 간섭을 완전히 피하며, 자막은 화면 65~75% 사이에 배치되어 하단 기본 UI와 겹치지 않음."
+ }
+}

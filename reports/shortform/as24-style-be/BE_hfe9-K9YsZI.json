@@ -1,0 +1,619 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/hfe9-K9YsZI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3840,
+  "candidatesTokenCount": 5206,
+  "totalTokenCount": 9046,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2472
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.2,
+   "aspect": "9:16",
+   "car": "Citroën C3 EV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 11.7,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 13.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 27.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "Deze volledig elektrische Citroën",
+    "ko": "이 완전 전기 시트로엥",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "elektrische",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.8,
+    "text": "C3 vind je op AutoScout24.be",
+    "ko": "C3는 AutoScout24.be에서 찾을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "Hij komt uit 2025",
+    "ko": "2025년식이며",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2025",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "heeft iets meer dan 10.000km gereden",
+    "ko": "주행거리는 10,000km가 조금 넘었고",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "10.000km",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "text": "en zit bomvol leuke snufjes",
+    "ko": "멋진 기능들이 가득 차 있습니다",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "snufjes",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 11.7,
+    "text": "digital cockpit",
+    "ko": "디지털 콕핏",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "digital",
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 13.5,
+    "text": "Apple CarPlay en Android Auto",
+    "ko": "애플 카플레이 및 안드로이드 오토",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "auto",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "cruise control",
+    "ko": "크루즈 컨트롤",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "control",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "text": "inductieladen voor smartphones",
+    "ko": "스마트폰 무선 충전",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "smartphones",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "text": "supermooi interieur en",
+    "ko": "매우 멋진 인테리어와",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "interieur",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.3,
+    "text": "getinte ramen",
+    "ko": "틴팅된 윈도우",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ramen",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.0,
+    "text": "En hij kost €19.850 €19.000",
+    "ko": "가격은 19,850유로에서 19,000유로입니다",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€19.000",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "Je vindt hem op AutoScout24.be",
+    "ko": "AutoScout24.be에서 만나보세요",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.2,
+    "text": "en in de showroom van Garage De Pril",
+    "ko": "Garage De Pril 쇼룸에서도 확인하실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "그림자",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Garage",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "AutoScout24 매물 카드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "톡",
+    "event": "원래 가격 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.6,
+    "type": "돈 소리",
+    "event": "할인가 노란 칩 등장 및 취소선 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.7,
+    "end": 5.2,
+    "what": "AutoScout24 매물 리스팅 카드 UI",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 28.0,
+    "y_pct": 26.0,
+    "entrance": "위에서 슬라이드 다운",
+    "purpose": "플랫폼 매물 정보 노출",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.0,
+    "what": "가격 할인 칩 그래픽 (€19.850 취소선 + €19.000)",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 58.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "할인 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 24.8,
+    "what": "AutoScout24 노란색 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 60.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "Deze volledig elektrische Citroën C3 vind je op AutoScout24.be",
+    "ko": "이 완전 전기 시트로엥 C3는 AutoScout24.be에서 찾을 수 있습니다"
+   },
+   {
+    "start": 4.8,
+    "end": 10.7,
+    "text": "Hij komt uit 2025, heeft iets meer dan 10.000km gereden en zit bomvol leuke snufjes",
+    "ko": "2025년식 모델로 주행거리는 1만km 남짓이며 유용한 옵션들로 가득합니다"
+   },
+   {
+    "start": 10.7,
+    "end": 19.3,
+    "text": "digital cockpit, Apple CarPlay en Android Auto, cruise control, inductieladen voor smartphones, supermooi interieur en getinte ramen",
+    "ko": "디지털 콕핏, 애플 카플레이 및 안드로이드 오토, 크루즈 컨트롤, 스마트폰 무선 충전 패드, 세련된 실내와 틴팅 글라스까지 갖췄습니다"
+   },
+   {
+    "start": 19.3,
+    "end": 22.0,
+    "text": "En hij kost negentienduizend achthonderdvijftig... negentienduizend euro.",
+    "ko": "가격은 19,850유로에서 할인된 19,000유로입니다."
+   },
+   {
+    "start": 22.0,
+    "end": 27.2,
+    "text": "Je vindt hem op AutoScout24.be en in de showroom van Garage De Pril.",
+    "ko": "AutoScout24.be와 Garage De Pril 쇼룸에서 바로 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "전기 시트로엥 C3 소개 및 플랫폼 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 4.8,
+    "end": 10.7,
+    "speed": "보통",
+    "summary": "연식과 주행거리 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 10.7,
+    "end": 19.3,
+    "speed": "빠름",
+    "summary": "콕핏, 카플레이, 무선충전 등 편의사양 퀵 쇼케이스"
+   },
+   {
+    "stage": "가격",
+    "start": 19.3,
+    "end": 22.0,
+    "speed": "보통",
+    "summary": "할인 가격 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 22.0,
+    "end": 27.2,
+    "speed": "보통",
+    "summary": "웹사이트 및 딜러 쇼룸 위치 안내 엔딩"
+   }
+  ],
+  "rules": [
+   "자막은 화면 중앙 하단(y=64%)에 위치하며 흰색 볼드 산세리프에 핵심 키워드는 밝은 노란색으로 강조한다.",
+   "핵심 키워드가 언급될 때마다 단어 단위로 팝업 애니메이션 효과를 준다.",
+   "옵션 나열 구간에서는 빠른 화면 전환과 함께 해당 옵션의 클로즈업 뷰를 1~2초 내로 짧게 보여준다.",
+   "플랫폼 그래픽 카드와 가격 칩 등장 시 부드러운 스우시(휙) 또는 톡 효과음을 동기화한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": null,
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.2,
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFFF00",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.8,
+    "count": 14,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "대문자",
+    "text_color": "#000000",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFFF00",
+    "box_corner_px_at_1080": 12,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 4.5,
+    "y_pct": 40.0,
+    "x_center_pct": 58.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFFF00",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 200,
+    "out_anim": "페이드",
+    "stay_sec": 2.2,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "휙",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 250,
+    "loud_vs_voice": "더 작음",
+    "count": 2
+   },
+   {
+    "event": "가격 등장",
+    "sound": "돈 소리",
+    "offset_ms_vs_visual": 50,
+    "length_ms": 400,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 24.5,
+   "what": "딜러 연락",
+   "bg": "차 위에 겹침",
+   "sec": 2.7
+  },
+  "safe_zone_note": "자막이 y 64% 부근에 위치하여 인스타그램 릴스 및 유튜브 쇼츠의 하단 캡션 오버레이 영역(하단 20~30%)과 겹치지 않게 안전 배치됨"
+ }
+}

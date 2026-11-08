@@ -1,0 +1,472 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/IQjXxcKpwUk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3373,
+  "candidatesTokenCount": 4752,
+  "totalTokenCount": 8499,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2005
+   }
+  ],
+  "thoughtsTokenCount": 374,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 22.7,
+   "aspect": "9:16",
+   "car": "Citroën C3 EV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 8.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 14.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 16.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 22.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Deze Citroën C3 komt uit 2025",
+    "ko": "이 시트로엥 C3는 2025년식이며",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Citroën C3, 2025",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 5.6,
+    "text": "en hij is volledig elektrisch.",
+    "ko": "완전 전기차입니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "volledig elektrisch",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 8.4,
+    "text": "Denk je nu, hoe zit het nu met die batterij?",
+    "ko": "지금 배터리 상태는 어떨까 생각하시나요?",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "batterij",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.3,
+    "text": "Bij Garage De Pril checken ze de capaciteit van de batterij.",
+    "ko": "드 프릴 정비소에서 배터리 용량을 측정합니다.",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "capaciteit, batterij",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 16.1,
+    "text": "En bij Garage De Pril krijg je een accucertificaat met accugarantie.",
+    "ko": "그리고 드 프릴 정비소에서는 배터리 인증서와 배터리 보증을 받으실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "accucertificaat, garantie",
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 22.7,
+    "text": "Deze volledig elektrische Citroën C3 vind je op AutoScout24.be",
+    "ko": "이 100% 전기 시트로엥 C3는 AutoScout24.be에서 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Citroën C3, AutoScout24.be",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "매물 카드 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "띵",
+    "event": "배터리 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "매물 카드 스티커 재등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "휙",
+    "event": "오토스카우트24 로고 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 인스트루멘털",
+   "bpm_est": 115,
+   "mood": "경쾌하고 산뜻함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "what": "AutoScout24 차량 매물 카드 팝업",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 58.0,
+    "y_pct": 24.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 가격 및 매물 기본정보 안내",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.6,
+    "what": "3D 배터리 충전 아이콘 그래픽",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 62.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "완전 전기차 특징 강조",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 19.5,
+    "what": "AutoScout24 차량 매물 카드 팝업",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 정보 및 구매 안내 리마인드",
+    "sure": true
+   },
+   {
+    "start": 19.6,
+    "end": 22.7,
+    "what": "AutoScout24 로고 그래픽 타이틀",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 52.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔드카드 로고",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "Deze Citroën C3 komt uit 2025",
+    "ko": "이 시트로엥 C3는 2025년식 모델이며"
+   },
+   {
+    "start": 3.4,
+    "end": 5.6,
+    "text": "en hij is volledig elektrisch.",
+    "ko": "완전 전기차입니다."
+   },
+   {
+    "start": 5.7,
+    "end": 8.4,
+    "text": "Denk je nu, hoe zit het nu met die batterij?",
+    "ko": "배터리 상태가 걱정되시나요?"
+   },
+   {
+    "start": 8.5,
+    "end": 11.3,
+    "text": "Bij Garage De Pril checken ze de capaciteit van de batterij.",
+    "ko": "드 프릴 정비소에서 배터리 잔여 수명과 용량을 직접 검측합니다."
+   },
+   {
+    "start": 11.4,
+    "end": 16.1,
+    "text": "En bij Garage De Pril krijg je een accucertificaat met accugarantie.",
+    "ko": "드 프릴 정비소에서는 배터리 인증서와 함께 배터리 보증서까지 제공됩니다."
+   },
+   {
+    "start": 16.2,
+    "end": 22.7,
+    "text": "Deze volledig elektrische Citroën C3 vind je op autoscout24.be.",
+    "ko": "이 100% 전기 시트로엥 C3는 autoscout24.be에서 찾아보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.6,
+    "speed": "보통",
+    "summary": "2025년식 신형 전기차 시트로엥 C3 소개 및 가격 카드 노출"
+   },
+   {
+    "stage": "기능",
+    "start": 5.7,
+    "end": 11.3,
+    "speed": "보통",
+    "summary": "전기차 배터리 건강 상태 검측 프로세스 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 11.4,
+    "end": 16.1,
+    "speed": "보통",
+    "summary": "배터리 인증서 및 배터리 보증 정책 제시로 신뢰도 확보"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 16.2,
+    "end": 22.7,
+    "speed": "보통",
+    "summary": "AutoScout24 웹사이트 검색 유도 및 브랜드 로고 엔딩"
+   }
+  ],
+  "rules": [
+   "화면 중앙 상단에 마스킹 테이프로 고정된 듯한 AutoScout24 매물 카드를 팝업 SFX와 함께 띄워 즉각적인 가격과 스펙 정보 전달",
+   "발화 텍스트는 1~3단어 단위로 끊어 싱크를 맞추며 키워드 단어는 형광 노랑 텍스트로 전환하여 가독성 강화",
+   "중고 전기차 구매자의 가장 큰 불안 요소인 '배터리 상태'를 질문형으로 짚고 바로 진단기기와 인증서 실물로 해소",
+   "엔딩 3초 전 매물 카드를 다시 상기시킨 후 오토스카우트24 대표 로고가 형광 브러시 백그라운드와 함께 큼직하게 팝업되며 마무리"
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": null,
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0,
+    "text_height_pct": 4.5,
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#D5FE33",
+    "in_anim": "바로",
+    "in_ms": 50,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 6,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFFFFF",
+    "box_corner_px_at_1080": 24,
+    "box_padding_pct": 4,
+    "text_height_pct": 3.0,
+    "y_pct": 24.0,
+    "x_center_pct": 55.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 200,
+    "out_anim": "페이드",
+    "stay_sec": 3.4,
+    "count": 2,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#D5FE33",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 6,
+    "text_height_pct": 10.0,
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 250,
+    "out_anim": "페이드",
+    "stay_sec": 3.0,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 2
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "휙",
+    "offset_ms_vs_visual": 50,
+    "length_ms": 180,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 19.6,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 3.1
+  },
+  "safe_zone_note": "자막이 화면 하단 72% 영역에 위치하여 틱톡/릴스의 캡션 및 하단 UI를 간신히 피하며, 우측 매물 카드는 우측 상단/중앙 사이 빈 공간(55~60%)에 배치되어 상호작용 아이콘(좋아요/댓글)과 겹치지 않도록 설계됨."
+ }
+}

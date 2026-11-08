@@ -1,0 +1,304 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/KrQhTiRJt40",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2199,
+  "candidatesTokenCount": 2489,
+  "totalTokenCount": 4688,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 831
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.7,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf R (MK8)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 4.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 32.0,
+    "tilt_deg": -5,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.7,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 34.0,
+    "tilt_deg": 6,
+    "entrance": "바로",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 잠금/도난경보 신호음 (비프 2회)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "비트 드롭 및 스티어링 휠 로고 가리기 컷 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.1,
+    "type": "톡",
+    "event": "후면 엠블럼 가린 채 포즈 컷 전환 비트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "톡",
+    "event": "전면 그릴 로고 가린 채 전신 컷 전환 비트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.9,
+    "type": "톡",
+    "event": "스티어링 휠 클로즈업 컷 전환 비트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "쿵",
+    "event": "휠 캡 로고 클로즈업 및 엔드 로고 등장 비트",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Trap / Hip-Hop Beat",
+   "bpm_est": 130,
+   "mood": "리드미컬하고 궁금증을 유발하는 분위기",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "도입부 효과음 및 잔잔한 베이스 비트 시작"
+    },
+    {
+     "t": 2.2,
+     "what": "강한 베이스 드롭과 함께 본격적인 트랩 비트 전개"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "진행자가 차 키를 들고 '브랜드를 맞춰보세요' 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 2.2,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "로고가 위치한 스티어링 휠, 후면 엠블럼, 전면 그릴을 손과 몸으로 가린 채 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.4,
+    "end": 9.7,
+    "speed": "보통",
+    "summary": "휠 캡 엠블럼을 가린 채 AutoScout24 로고와 함께 정답 댓글 유도"
+   }
+  ],
+  "rules": [
+   "말소리 없이 강력한 비트 음악과 자동차 경보음 효과음만으로 몰입감을 유도한다.",
+   "자동차 브랜드 로고가 위치한 부위(핸들, 그릴, 후면, 휠캡)를 의도적으로 손과 몸으로 가려 시청자의 댓글 참여(퀴즈)를 유도한다.",
+   "음악의 주요 킥/스네어 박자에 정확히 맞춰 화면 컷 전환을 구성한다.",
+   "오토스카우트24의 시그니처 옐로우 박스 텍스트 배너를 기울인 형태로 인트로와 아웃트로에 배치한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "제목",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 4,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 6.8,
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFDF00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 2.2,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 산세리프",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 4,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 6.5,
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFDF00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 2.3,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": false,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "실제 차 소리",
+    "sound": "실제 소리",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 1200,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   },
+   {
+    "event": "컷 전환",
+    "sound": "쿵",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 400,
+    "loud_vs_voice": "더 큼",
+    "count": 2
+   },
+   {
+    "event": "컷 전환",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 200,
+    "loud_vs_voice": "비슷",
+    "count": 3
+   }
+  ],
+  "end_card": {
+   "start_sec": 7.4,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.3
+  },
+  "safe_zone_note": "제목 텍스트 및 로고 배너가 화면 중앙(y: 35~67%)에 집중 배치되어 상하단 인터페이스 및 우측 액션 버튼에 전혀 간섭받지 않음"
+ }
+}

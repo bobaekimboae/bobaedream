@@ -1,0 +1,418 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/57oZQTsKOis",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4016,
+  "candidatesTokenCount": 4135,
+  "totalTokenCount": 8798,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2648
+   }
+  ],
+  "thoughtsTokenCount": 647,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.0,
+   "aspect": "9:16",
+   "car": "Kia ProCeed GT-Line",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 18.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 22.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 30.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "Opzoek naar je volgende auto?",
+    "ko": "다음 차를 찾고 계신가요?",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "붓질 모양",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Opzoek",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "Op zoek naar je volgende auto? Dan moet je deze zeker even zien.",
+    "ko": "다음 차를 찾고 계신가요? 그럼 이건 꼭 보셔야 합니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "zoek",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#111111",
+    "background": "붓질 모양",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 8.0,
+    "color": "#111111",
+    "background": "붓질 모양",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Auto",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "첫 훅 스티커 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.6,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.1,
+    "type": "휙",
+    "event": "스마트폰 화면 그래픽 슬라이드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "톡",
+    "event": "마무리 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Funky Pop / Upbeat Groove",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "what": "질감 있는 노란색 찢어진 종이 배너 및 타이틀 텍스트",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "스케일 업(톡 튀어나옴)",
+    "purpose": "시청자 주의 집중 훅",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "what": "AutoScout24 노란색 브랜드 스티커 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 22.8,
+    "what": "AutoScout24 스마트폰 앱 검색/매물 화면 모크업 UI",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 25.0,
+    "y_pct": 50.0,
+    "entrance": "왼쪽에서 슬라이드 인",
+    "purpose": "앱 기능 및 다양한 매물 비교 시연",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "what": "AutoScout24 최종 브랜드 스티커 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 45.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최종 CTA 브랜드 각인",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "Op zoek naar je volgende auto? Dan moet je deze zeker even zien.",
+    "ko": "다음 차를 찾고 계신가요? 그럼 이건 꼭 확인해보셔야 합니다."
+   },
+   {
+    "start": 3.6,
+    "end": 7.8,
+    "text": "Maar dit is nog één van de vele auto's die je kunt ontdekken op AutoScout24.be.",
+    "ko": "하지만 이것은 AutoScout24.be에서 찾을 수 있는 수많은 차량 중 하나일 뿐입니다."
+   },
+   {
+    "start": 7.8,
+    "end": 13.5,
+    "text": "Deze Kia ProCeed GT-Line combineert een sportieve look met het comfort dat je elke dag wilt.",
+    "ko": "이 기아 프로씨드 GT라인은 스포티한 외관과 일상에서 원하는 편안함을 결합했습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 18.0,
+    "text": "Of je nu op zoek bent naar je eerste auto, naar een gezinsauto of naar een sportieve wagen.",
+    "ko": "첫 차를 찾든, 패밀리카를 찾든, 아니면 스포티한 차를 찾든 말이죠."
+   },
+   {
+    "start": 18.0,
+    "end": 22.8,
+    "text": "Op AutoScout24 vergelijk je makkelijk verschillende prijzen, uitvoeringen en modellen.",
+    "ko": "AutoScout24에서는 다양한 가격, 트림, 모델을 쉽게 비교할 수 있습니다."
+   },
+   {
+    "start": 22.8,
+    "end": 25.8,
+    "text": "Zo vind je de auto die echt bij jou past.",
+    "ko": "이렇게 나에게 딱 맞는 차를 찾을 수 있습니다."
+   },
+   {
+    "start": 25.8,
+    "end": 29.8,
+    "text": "Jouw volgende auto vind je op AutoScout24.be.",
+    "ko": "당신의 다음 차는 AutoScout24.be에서 찾으세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.6,
+    "speed": "빠름",
+    "summary": "다음 차를 찾는지 질문하며 특정 모델 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.6,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "기아 프로씨드 GT-Line의 디자인과 일상 편의성 강조"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 13.5,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "스마트폰 UI 모크업을 보여주며 다양한 차종과 가격 비교 기능 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 22.8,
+    "end": 30.0,
+    "speed": "보통",
+    "summary": "전시장 쇼룸을 배경으로 플랫폼 도메인 강조하며 CTA 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 카메라를 응시하며 걸어 다니는 다이내믹한 워킹 호스트 포맷 활용",
+   "화면 중앙 상단에 노란색 찢어진 종이 질감의 키워드 스티커를 배치해 시선 고정",
+   "자막은 1~2줄 단위로 실시간 발화 단어를 노란색 볼드 하이라이트로 전환",
+   "앱 서비스 설명 시 화면 좌측에 실제 스마트폰 UI 모크업을 플로팅하여 신뢰도 상승",
+   "브랜드 시그니처 컬러인 밝은 노란색(#FFDF00)을 스티커와 하이라이트에 일관되게 적용"
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 6,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0,
+    "text_height_pct": 3.8,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFE600",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 14,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 4,
+    "box_padding_pct": 4.0,
+    "text_height_pct": 5.5,
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFDF00",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "작아짐",
+    "stay_sec": 2.5,
+    "count": 3,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 3
+   },
+   {
+    "event": "그래픽 등장",
+    "sound": "휙",
+    "offset_ms_vs_visual": 20,
+    "length_ms": 200,
+    "loud_vs_voice": "더 작음",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 26.5,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 3.5
+  },
+  "safe_zone_note": "스티커와 주요 타이틀은 상단 25~35%에 배치하여 쇼츠 상단 UI 간섭을 피했고, 말 자막은 하단 65~72%에 위치시켜 하단 설명글 및 댓글창 세이프존을 확보함."
+ }
+}

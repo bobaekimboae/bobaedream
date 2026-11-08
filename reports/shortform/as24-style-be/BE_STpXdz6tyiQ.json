@@ -1,0 +1,676 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/STpXdz6tyiQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3278,
+  "candidatesTokenCount": 6585,
+  "totalTokenCount": 10660,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1910
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "thoughtsTokenCount": 797,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.8,
+   "aspect": "9:16",
+   "car": "Alfa Romeo Giulia Quadrifoglio",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 6.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 11.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 12.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.7,
+    "end": 15.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 20.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "Luxe optie",
+    "ko": "고급 옵션",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 33.0,
+    "text_height_pct": 4.5,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Deze Alfa Romeo Giulia Quadrifoglio is uitgevoerd met",
+    "ko": "이 알파로메오 줄리아 콰드리폴리오는 장착되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Alfa Romeo, Giulia, uitgevoerd",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 4.7,
+    "text": "Carbon",
+    "ko": "카본",
+    "kind": "키워드 스티커",
+    "y_pct": 29.5,
+    "x_center_pct": 68.0,
+    "text_height_pct": 3.6,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 5.5,
+    "text": "Carbon",
+    "ko": "카본",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 3.5,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.5,
+    "text": "Carbon",
+    "ko": "카본",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 3.6,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 7.3,
+    "text": "Carbon",
+    "ko": "카본",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 3.4,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.6,
+    "text": "Carbon",
+    "ko": "카본",
+    "kind": "키워드 스티커",
+    "y_pct": 59.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 3.5,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 10.6,
+    "text": "2017",
+    "ko": "2017년식",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 46.0,
+    "tilt_deg": -4,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.6,
+    "text": "43.000 km",
+    "ko": "43,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 62.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.3,
+    "text": "€57.990",
+    "ko": "57,990 유로",
+    "kind": "가격",
+    "y_pct": 19.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 5.0,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 64.0,
+    "tilt_deg": -4,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.0,
+    "text": "Je vindt hem",
+    "ko": "이 차량은 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "text": "SB Cars",
+    "ko": "SB Cars",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 6.5,
+    "color": "#1A1A1A",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 58.0,
+    "tilt_deg": -4,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "Luxe optie 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "톡",
+    "event": "Carbon 스티커 1 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "톡",
+    "event": "Carbon 스티커 2 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.7,
+    "type": "톡",
+    "event": "Carbon 스티커 3 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.7,
+    "type": "톡",
+    "event": "Carbon 스티커 4 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "Carbon 스티커 5 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.6,
+    "type": "톡",
+    "event": "2017 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "톡",
+    "event": "43.000 km 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "톡",
+    "event": "€57.990 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "SB Cars 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "what": "AutoScout24 브러시 그래픽 로고",
+    "is_3d": false,
+    "size_w_pct": 58.0,
+    "x_pct": 46.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 및 플랫폼 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Deze Alfa Romeo Giulia Quadrifoglio is uitgevoerd met...",
+    "ko": "이 알파로메오 줄리아 콰드리폴리오는 다음 사양으로 갖춰져 있습니다..."
+   },
+   {
+    "start": 3.8,
+    "end": 9.2,
+    "text": "Carbon, carbon, carbon, carbon, carbon, carbon, carbon, carbon.",
+    "ko": "카본, 카본, 카본, 카본, 카본, 카본, 카본, 카본."
+   },
+   {
+    "start": 9.5,
+    "end": 10.7,
+    "text": "Hij komt uit 2017,",
+    "ko": "2017년식이고,"
+   },
+   {
+    "start": 10.8,
+    "end": 12.6,
+    "text": "heeft 43.000 km gereden.",
+    "ko": "주행거리는 43,000km 입니다."
+   },
+   {
+    "start": 12.7,
+    "end": 15.4,
+    "text": "Hij kost €57.990.",
+    "ko": "가격은 57,990유로입니다."
+   },
+   {
+    "start": 15.8,
+    "end": 20.8,
+    "text": "Je vindt hem in de showroom van SB Cars en op AutoScout24.be.",
+    "ko": "SB Cars 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "진행자가 걸어나오며 차량(줄리아 콰드리폴리오)과 핵심 옵션 테마 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 9.5,
+    "speed": "빠름",
+    "summary": "빠른 컷 전환과 반복되는 카본 파츠 지목('Carbon' 연발 몽타주)"
+   },
+   {
+    "stage": "사양",
+    "start": 9.5,
+    "end": 12.7,
+    "speed": "보통",
+    "summary": "연식(2017)과 주행거리(43,000km) 전달"
+   },
+   {
+    "stage": "가격",
+    "start": 12.7,
+    "end": 15.5,
+    "speed": "보통",
+    "summary": "차량 전면에서 가격 57,990유로 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 15.5,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "판매 딜러(SB Cars) 및 오토스카우트24 플랫폼 유입 안내"
+   }
+  ],
+  "rules": [
+   "핵심 키워드와 스펙은 노란색 붓질(Brush stroke) 텍스처 배경 칩에 굵은 검은색 산세리프 폰트로 띄운다.",
+   "새로운 정보 칩이 화면에 팝업될 때마다 통통 튀는 효과음(톡/팝 소리)을 정확히 일치시켜 리듬감을 형성한다.",
+   "주요 포인트(카본 옵션)를 빠른 컷 전환과 동일 단어 연발 몽타주로 위트 있게 각인시킨다.",
+   "음성 대사는 화면 하단(Y 60~75%)에 흰색 텍스트로 표기하되 중요 단어는 노란색으로 강조한다.",
+   "최종 안내는 판매처 쇼룸 이름과 플랫폼(AutoScout24) 로고 칩을 차례로 띄우며 마무리한다."
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "보통 고딕(산세리프)",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 3,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 2.8,
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFDF00",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 3.0,
+    "count": 3,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 고딕(산세리프)",
+    "letter_case": "문장형",
+    "text_color": "#1A1A1A",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 6,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 4.0,
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 2,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.0,
+    "count": 8,
+    "sure": true
+   },
+   {
+    "role": "가격 칩",
+    "font": "아주 굵게 고딕(산세리프)",
+    "letter_case": "대문자",
+    "text_color": "#1A1A1A",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 5.0,
+    "y_pct": 19.0,
+    "x_center_pct": 58.0,
+    "max_lines": 1,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.5,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 고딕(산세리프)",
+    "letter_case": "혼합",
+    "text_color": "#1A1A1A",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFDF00",
+    "box_corner_px_at_1080": 10,
+    "box_padding_pct": 4.0,
+    "text_height_pct": 6.5,
+    "y_pct": 70.0,
+    "x_center_pct": 46.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 200,
+    "out_anim": "바로",
+    "stay_sec": 2.0,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 11
+   }
+  ],
+  "end_card": {
+   "start_sec": 18.8,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.0
+  },
+  "safe_zone_note": "오토스카우트 시그니처 옐로우 브러시 칩은 중앙 및 상단/중하단에 배치되어 쇼츠 UI 버튼(좋아요/댓글/공유 등 우측 영역)과 겹치지 않도록 안전 영역 내에 잘 들어와 있음."
+ }
+}

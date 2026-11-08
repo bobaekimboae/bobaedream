@@ -1,0 +1,834 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/BLDutpOrGPI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4455,
+  "candidatesTokenCount": 6985,
+  "totalTokenCount": 11440,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3087
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.6,
+   "aspect": "9:16",
+   "car": "BMW 1 Series M Coupe (E82)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 15.0,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 25.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 30.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "Raad het merk",
+    "ko": "브랜드와",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "het merk",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.1,
+    "text": "en het model",
+    "ko": "모델명을",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "het model",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 2.9,
+    "text": "van de auto die achter me staat",
+    "ko": "내 뒤에 서 있는 자동차의",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.6,
+    "text": "Deze compacte coupe",
+    "ko": "이 콤팩트 쿠페는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "coupe",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.3,
+    "text": "ziet er misschien bescheiden uit,",
+    "ko": "어쩌면 얌전해 보일지 모르지만,",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "bescheiden",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "text": "maar vergis je niet.",
+    "ko": "착각하지 마세요.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "text": "Hij is gemaakt voor",
+    "ko": "이 차는 오직",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "text": "pure performance",
+    "ko": "순수한 퍼포먼스를 위해 만들어졌습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.2,
+    "text": "Onder de motorkap",
+    "ko": "보닛 아래에는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "motorkap",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "3L 6-in-lijn",
+    "ko": "3리터 직렬 6기통",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.0,
+    "text": "1",
+    "ko": "1",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.0,
+    "text": "2",
+    "ko": "2",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 17.5,
+    "text": "340 pk",
+    "ko": "340마력",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 4.5,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.9,
+    "text": "achterwielaandrijving",
+    "ko": "후륜구동",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.6,
+    "text": "zesversnellingsbak",
+    "ko": "6단 수동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.3,
+    "text": "100",
+    "ko": "100",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 5.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.1,
+    "text": "4,9 seconden",
+    "ko": "4.9초",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "bijzonder model",
+    "ko": "특별한 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 3.8,
+    "color": "#1C1C1E",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "sportdivisie",
+    "ko": "스포츠 디비전",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#1C1C1E",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.6,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "제목 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "pure performance 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "3L 6-in-lijn 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "숫자 1 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.0,
+    "type": "톡",
+    "event": "숫자 2 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.1,
+    "type": "톡",
+    "event": "340 pk 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "achterwielaandrijving 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.5,
+    "type": "톡",
+    "event": "zesversnellingsbak 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "100 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "톡",
+    "event": "4,9 seconden 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "톡",
+    "event": "bijzonder model 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "독일 국기 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 인스트루멘탈",
+   "bpm_est": 115,
+   "mood": "경쾌하고 호기심 자극",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "what": "독일 국기 이모지 스티커",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 77.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "독일 브랜드 힌트 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "Raad het merk en het model van de auto die achter me staat.",
+    "ko": "제 뒤에 있는 이 차의 브랜드와 모델명을 맞춰보세요."
+   },
+   {
+    "start": 3.4,
+    "end": 7.4,
+    "text": "Deze compacte coupe ziet er misschien bescheiden uit, maar vergis je niet.",
+    "ko": "이 콤팩트 쿠페는 평범해 보일 수 있지만, 방심하지 마세요."
+   },
+   {
+    "start": 7.5,
+    "end": 9.9,
+    "text": "Hij is gemaakt voor pure performance.",
+    "ko": "오직 강력한 주행 성능을 위해 만들어졌습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 15.0,
+    "text": "Onder de motorkap ligt een 3 liter 6-in-lijn met niet maar 1, maar 2 turbo's.",
+    "ko": "보닛 아래에는 3리터 직렬 6기통 트윈터보 엔진이 자리 잡고 있죠."
+   },
+   {
+    "start": 15.1,
+    "end": 17.5,
+    "text": "Goed voor maar liefst 340 pk.",
+    "ko": "무려 340마력을 발휘합니다."
+   },
+   {
+    "start": 17.5,
+    "end": 21.6,
+    "text": "Met achterwielaandrijving, een handgeschakelde zesversnellingsbak,",
+    "ko": "후륜구동과 6단 수동변속기를 갖췄고,"
+   },
+   {
+    "start": 21.6,
+    "end": 25.1,
+    "text": "en een sprint van 0 naar 100 in 4,9 seconden.",
+    "ko": "정지 상태에서 100km/h까지 단 4.9초 만에 주파합니다."
+   },
+   {
+    "start": 25.1,
+    "end": 30.5,
+    "text": "En nog een laatste hint: dit is een bijzonder model uit de sportdivisie van een Duits automerk.",
+    "ko": "마지막 힌트: 한 독일 자동차 브랜드의 모터스포츠 전담 부서에서 만든 특별한 모델입니다."
+   },
+   {
+    "start": 30.5,
+    "end": 33.6,
+    "text": "Heb jij het al geraden? Laat het weten in de reacties.",
+    "ko": "벌써 눈치채셨나요? 댓글로 정답을 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.9,
+    "speed": "보통",
+    "summary": "차량 퀴즈 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.9,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "외관과 성능 콘셉트 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 9.9,
+    "end": 25.1,
+    "speed": "빠름",
+    "summary": "엔진, 출력, 변속기, 제로백 스펙 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 25.1,
+    "end": 30.5,
+    "speed": "보통",
+    "summary": "독일 고성능 디비전 힌트 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 30.5,
+    "end": 33.6,
+    "speed": "보통",
+    "summary": "댓글 유도 및 브랜드 로고 아웃트로"
+   }
+  ],
+  "rules": [
+   "진행자가 퀴즈를 내는 구두 설명과 동기화하여 핵심 사양 단어를 노란색 칩으로 팝업 표시",
+   "정보 칩이 나타날 때마다 경쾌하고 일관된 '톡' 효과음을 100% 매칭",
+   "화면 중앙 하단에는 자막을 깔끔하게 흰색/노란 하이라이트로 표기하고 중요 키워드는 노란색 붓질 느낌 직사각형 칩으로 시각화",
+   "엔진 스펙, 마력, 가속 성능 등 숫자가 등장하는 타이밍에 컷을 빠르게 전환하여 다이내믹한 템포 유지"
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "그림자",
+    "outline_px_at_1080": 2,
+    "box": "없음",
+    "box_color": null,
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.2,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 5,
+    "highlight": "말하는 낱말 색 바꿈",
+    "highlight_color": "#FFD700",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 9,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#1C1C1E",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFD700",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 4.0,
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "max_lines": 1,
+    "words_per_line": 2,
+    "highlight": "없음",
+    "highlight_color": null,
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.8,
+    "count": 9,
+    "sure": true
+   },
+   {
+    "role": "제목",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFD700",
+    "box_corner_px_at_1080": 10,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 8.0,
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFD700",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.7,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#FFFFFF",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "직사각",
+    "box_color": "#FFD700",
+    "box_corner_px_at_1080": 12,
+    "box_padding_pct": 3.0,
+    "text_height_pct": 8.0,
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFD700",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 2.6,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 11
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 150,
+    "loud_vs_voice": "더 큼",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 31.0,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 2.6
+  },
+  "safe_zone_note": "쇼츠 UI(우측 상호작용 아이콘 및 하단 캡션 오버레이)를 피해 자막은 Y 65~68% 영역에 배치되었고 노란색 키워드 칩은 상하 가변 위치(15~75%)를 활용하여 주요 차량 디테일을 가리지 않음"
+ }
+}
