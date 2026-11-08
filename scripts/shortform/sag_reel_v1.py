@@ -973,8 +973,9 @@ def overlay(T, total, shots, shot, blk):
             cy = STYLE.get('cap_cy', 1248)
             paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
             return ov, False
-        if STYLE.get('cap_style') == 'plain':  # 오토스카우트 NL 말 자막: 바탕 없이 흰 굵은 글자+검정 외곽선, 강조어 1개만 색, 톡 등장
-            im = phrase_img_v12(cur[2], cap_keyword(cur[2], blk), False)
+        if STYLE.get('cap_style') == 'plain':  # 오토스카우트 NL 말 자막: 바탕 없이 흰 굵은 글자+검정 외곽선, 지금 말하는 낱말만 파랑(말 따라 이동), 톡 등장
+            act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
+            im = phrase_img_v12(cur[2], act, False)
             e = back((T - cur[0]) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1248)
