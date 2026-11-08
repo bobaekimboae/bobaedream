@@ -1,0 +1,561 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/MgOi2jnUtLg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3989,
+  "candidatesTokenCount": 4672,
+  "totalTokenCount": 8661,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2733
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.6,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG G63 매뉴팩처",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.1,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 24.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 30.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.9,
+    "end": 2.7,
+    "text": "이 소리가 바로\n지바겐의 상징이죠!",
+    "ko": "이 소리가 바로 지바겐의 상징이죠!",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.6,
+    "text": "주행거리 19,000km",
+    "ko": "주행거리 19,000km",
+    "kind": "말 자막",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "주행거리 19,000km\n2023년식",
+    "ko": "주행거리 19,000km 2023년식",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.0,
+    "text": "G63 AMG 매뉴팩처",
+    "ko": "G63 AMG 매뉴팩처",
+    "kind": "제목",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "외장 컬러\nOPALITE WHITE",
+    "ko": "외장 컬러 OPALITE WHITE",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FEE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "text": "사진보다\n실물이 훨씬 더 깔끔해요",
+    "ko": "사진보다 실물이 훨씬 더 깔끔해요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "실내컬러\nSADDLE BROWN",
+    "ko": "실내컬러 SADDLE BROWN",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FEE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "text": "역시 실물이 더 예쁘고\n관리지도 쉬워서\n질리지 않는 색상이에요",
+    "ko": "역시 실물이 더 예쁘고 관리지도 쉬워서 질리지 않는 색상이에요",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "그리고 통풍기능이 포함된\n멀티컨투어 시트",
+    "ko": "그리고 통풍기능이 포함된 멀티컨투어 시트",
+    "kind": "말 자막",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "지바겐에 이런 호사라니\n확실히 체감되는 옵션이죠",
+    "ko": "지바겐에 이런 호사라니 확실히 체감되는 옵션이죠",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.1,
+    "text": "물론,\n편한 차는 아닙니다",
+    "ko": "물론, 편한 차는 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 24.8,
+    "text": "하지만 불편해도 타고 싶은 차\n그게 바로 지바겐 아닐까요?",
+    "ko": "하지만 불편해도 타고 싶은 차 그게 바로 지바겐 아닐까요?",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 30.6,
+    "text": "★ 해당 차량은 판매중인 차량입니다\n\n이 차량에 대한 자세한 내용은\n프로필 피드에서 확인하실 수 있습니다.\n\n팔로우 하시고\n더 많은 차량을\n만나보세요\n감사합니다",
+    "ko": "★ 해당 차량은 판매중인 차량입니다...",
+    "kind": "안내",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "지바겐 특유의 문 닫히는 철컥 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/업비트",
+   "bpm_est": 125,
+   "mood": "경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 24.8,
+    "end": 30.6,
+    "what": "선글라스 낀 노란 스마일 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 38.0,
+    "entrance": "바로",
+    "purpose": "채널 엔딩 카드 캐릭터",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.9,
+    "end": 2.7,
+    "text": "이 소리가 바로 지바겐의 상징이죠!",
+    "ko": "이 소리가 바로 지바겐의 상징이죠!"
+   },
+   {
+    "start": 3.2,
+    "end": 7.8,
+    "text": "주행거리 만 구천 킬로미터, 이천이십삼년식 G63 AMG 매뉴팩처가 입고되었습니다.",
+    "ko": "주행거리 19,000km, 2023년식 G63 AMG 매뉴팩처가 입고되었습니다."
+   },
+   {
+    "start": 7.9,
+    "end": 11.0,
+    "text": "외장 컬러는 오팔라이트 화이트인데요, 사진보다 실물이 훨씬 더 깔끔해요.",
+    "ko": "외장 컬러는 오팔라이트 화이트인데요, 사진보다 실물이 훨씬 더 깔끔해요."
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "text": "실내는 새들 브라운으로 역시 실물이 더 예쁘고 관리도 쉬워서 질리지 않는 색상이에요.",
+    "ko": "실내는 새들 브라운으로 역시 실물이 더 예쁘고 관리도 쉬워서 질리지 않는 색상이에요."
+   },
+   {
+    "start": 15.6,
+    "end": 19.8,
+    "text": "그리고 통풍 기능이 포함된 멀티컨투어 시트, 지바겐에 이런 호사라니 확실히 체감되는 옵션이죠.",
+    "ko": "그리고 통풍 기능이 포함된 멀티컨투어 시트, 지바겐에 이런 호사라니 확실히 체감되는 옵션이죠."
+   },
+   {
+    "start": 19.8,
+    "end": 24.5,
+    "text": "물론 편한 차는 아닙니다. 하지만 불편해도 타고 싶은 차, 그게 바로 지바겐 아닐까요?",
+    "ko": "물론 편한 차는 아닙니다. 하지만 불편해도 타고 싶은 차, 그게 바로 지바겐 아닐까요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.6,
+    "speed": "보통",
+    "summary": "지바겐 도어 닫히는 시그니처 사운드로 청각적 훅"
+   },
+   {
+    "stage": "사양",
+    "start": 2.6,
+    "end": 7.8,
+    "speed": "보통",
+    "summary": "주행거리, 연식 및 모델명 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.8,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "외장(오팔라이트 화이트) 및 실내(새들 브라운) 컬러 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 15.6,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "통풍 멀티컨투어 시트 옵션 및 차량 총평"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.8,
+    "end": 30.6,
+    "speed": "보통",
+    "summary": "프로필 안내 및 팔로우 유도 엔딩"
+   }
+  ],
+  "rules": [
+   "도어 닫히는 특유의 기계음을 영상 도입부 훅으로 활용",
+   "화면 하단에 가독성 높은 흰색 굵은 폰트 자막 고정 배치",
+   "주요 스펙 및 옵션 컬러는 영문/노란색 강조 텍스트 병행",
+   "실차의 매력 포인트를 인정하면서 단점(승차감)도 솔직히 언급해 공감대 유도",
+   "영상 말미에 검은 배경의 판매 공지 화면을 일관되게 삽입"
+  ],
+  "option_highlights": [
+   {
+    "start": 15.6,
+    "end": 19.8,
+    "feature": "통풍 멀티컨투어 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로 컷",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "지바겐 도어를 세게 닫으며 나는 특유의 '철컥' 도어락 소리와 자막",
+   "type": "사운드(배기음 등)",
+   "text": "이 소리가 바로 지바겐의 상징이죠!"
+  },
+  "narration_points": [
+   {
+    "t": 0.9,
+    "point": "지바겐 도어 닫히는 특유의 시그니처 사운드 강조",
+    "category": "디자인"
+   },
+   {
+    "t": 3.4,
+    "point": "2023년식 19,000km 주행거리",
+    "category": "상태·이력"
+   },
+   {
+    "t": 8.0,
+    "point": "외장 오팔라이트 화이트 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 11.2,
+    "point": "실내 새들 브라운 컬러로 오염 관리 용이",
+    "category": "디자인"
+   },
+   {
+    "t": 15.6,
+    "point": "통풍 멀티컨투어 시트 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 20.0,
+    "point": "승차감은 불편해도 특유의 감성으로 타고 싶은 차",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "판매중 안내",
+    "프로필 피드 안내"
+   ],
+   "t": 24.8
+  },
+  "cta": {
+   "t": 24.8,
+   "text": "이 차량에 대한 자세한 내용은 프로필 피드에서 확인하실 수 있습니다. 팔로우 하시고 더 많은 차량을 만나보세요",
+   "method": "프로필 방문 및 팔로우"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "도어 닫기",
+    "계기판",
+    "실내 전체",
+    "외관 전면 풀샷",
+    "헤드램프/전면 디테일",
+    "운전석 시트",
+    "시트 및 센터콘솔",
+    "센터 모니터",
+    "외관 펜더/램프",
+    "외관 후측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "블랙 배경에 스마일 그래픽과 고정된 텍스트 양식으로 마무리되는 정형화된 엔딩 카드 사용"
+  }
+ }
+}

@@ -1,0 +1,1065 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/nsu2_qXPB9s",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5002,
+  "candidatesTokenCount": 8668,
+  "totalTokenCount": 15065,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3746
+   }
+  ],
+  "thoughtsTokenCount": 1395,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41.5,
+   "aspect": "9:16",
+   "car": "페라리 푸로산게 (Ferrari Purosangue)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 27.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 33.3,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 35.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 41.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "페라리에서",
+    "ko": "페라리에서",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 2.1,
+    "text": "가족들 타라고 만든 차,",
+    "ko": "가족들 타라고 만든 차,",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "text": "집 한 채라구요?",
+    "ko": "집 한 채라구요?",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -15,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "text": "페라리에서 처음으로 만든",
+    "ko": "페라리에서 처음으로 만든",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.7,
+    "text": "4도어, 4인승 모델",
+    "ko": "4도어, 4인승 모델",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 6.7,
+    "text": "PUROSANGUE",
+    "ko": "푸로산게",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 7.9,
+    "text": "2024년 12월",
+    "ko": "2024년 12월",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 8.7,
+    "text": "FMK 정식 출고",
+    "ko": "FMK 정식 출고",
+    "kind": "말 자막",
+    "y_pct": 86.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FF3B30",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "text": "이 차량은",
+    "ko": "이 차량은",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.0,
+    "text": "옵션만",
+    "ko": "옵션만",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.0,
+    "text": "신차 출고까지",
+    "ko": "신차 출고까지",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "거의 8억! (취등록세 포함)",
+    "ko": "거의 8억! (취등록세 포함)",
+    "kind": "가격",
+    "y_pct": 86.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE600",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "8억!",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "FUV지만",
+    "ko": "FUV지만",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "text": "자연흡기 V12",
+    "ko": "자연흡기 V12",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "text": "이 엔진 하나만으로도",
+    "ko": "이 엔진 하나만으로도",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.5,
+    "text": "옵션이 비싼 이유는",
+    "ko": "옵션이 비싼 이유는",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "text": "이 차량을 구성하는",
+    "ko": "이 차량을 구성하는",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.5,
+    "text": "주문 제작으로",
+    "ko": "주문 제작으로",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 23.5,
+    "text": "외장 컬러는",
+    "ko": "외장 컬러는",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.6,
+    "text": "GRIGIO TITANIO\n(12,700,000원)",
+    "ko": "그리지오 티타니오 (12,700,000원)",
+    "kind": "가격",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.0,
+    "text": "색 하나 바꾸는 것도",
+    "ko": "색 하나 바꾸는 것도",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.6,
+    "text": "옵션값이 확 올라갑니다",
+    "ko": "옵션값이 확 올라갑니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 28.5,
+    "text": "CREMA\n실내는",
+    "ko": "크레마 / 실내는",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.0,
+    "text": "시트, 대시보드,",
+    "ko": "시트, 대시보드,",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.7,
+    "text": "전부 가죽이라",
+    "ko": "전부 가죽이라",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 33.0,
+    "text": "FUV지만",
+    "ko": "FUV지만",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.5,
+    "text": "만드는 방식은",
+    "ko": "만드는 방식은",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 35.7,
+    "text": "이제, 가격이 이해 가시나요?",
+    "ko": "이제, 가격이 이해 가시나요?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 41.5,
+    "text": "★ 해당 차량은 판매중인 차량입니다\n이 차량에 대한 자세한 내용은\n프로필 피드에서 확인하실 수 있습니다.",
+    "ko": "해당 차량은 판매중인 차량 안내",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "판매중인 차량",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.1,
+    "type": "톡",
+    "event": "주택 그래픽 및 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.9,
+    "type": "톡",
+    "event": "PUROSANGUE 영문 자막 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "쿵",
+    "event": "엔진룸 사진 오버레이 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "톡",
+    "event": "외장 컬러 가격 자막 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 / 팝 비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌한 느낌",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "what": "주택(단독주택) 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "밀려옴",
+    "purpose": "가격 비유(집 한 채 가격 시각화)",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "what": "V12 엔진룸 오픈 사진 카드 오버레이",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "자연흡기 V12 엔진 시각 강조",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 41.5,
+    "what": "선글라스 낀 엄지척 스마일 이모티콘",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 안내 화면 비주얼",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "페라리에서 가족들 타라고 만든 차,",
+    "ko": "페라리에서 가족들 타라고 만든 차,"
+   },
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "text": "근데 가격은 집 한 채라구요?",
+    "ko": "근데 가격은 집 한 채라구요?"
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "페라리에서 처음으로 만든 4도어, 4인승 모델 푸로산게입니다.",
+    "ko": "페라리에서 처음으로 만든 4도어, 4인승 모델 푸로산게입니다."
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "text": "2024년 12월 FMK 정식 출고한 이 차량은",
+    "ko": "2024년 12월 FMK 정식 출고한 이 차량은"
+   },
+   {
+    "start": 8.7,
+    "end": 11.0,
+    "text": "옵션만 약 1억 8천만원,",
+    "ko": "옵션만 약 1억 8천만원,"
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "text": "신차 출고까지 거의 8억! 취등록세 포함이 들었습니다.",
+    "ko": "신차 출고까지 거의 8억! 취등록세 포함이 들었습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 17.6,
+    "text": "FUV지만 자연흡기 V12 이 엔진 하나만으로도 이미 쉬운 차는 아닙니다.",
+    "ko": "FUV지만 자연흡기 V12 이 엔진 하나만으로도 이미 쉬운 차는 아닙니다."
+   },
+   {
+    "start": 17.6,
+    "end": 22.4,
+    "text": "옵션이 비싼 이유는 단순합니다. 이 차량을 구성하는 대부분의 부품을 주문 제작으로 만들기 때문입니다.",
+    "ko": "옵션이 비싼 이유는 단순합니다. 이 차량을 구성하는 대부분의 부품을 주문 제작으로 만들기 때문입니다."
+   },
+   {
+    "start": 22.4,
+    "end": 24.6,
+    "text": "외장 컬러는 그리지오 티타니오,",
+    "ko": "외장 컬러는 그리지오 티타니오,"
+   },
+   {
+    "start": 24.6,
+    "end": 27.6,
+    "text": "색 하나 바꾸는 것도 공정이 달라져서 옵션값이 확 올라갑니다.",
+    "ko": "색 하나 바꾸는 것도 공정이 달라져서 옵션값이 확 올라갑니다."
+   },
+   {
+    "start": 27.6,
+    "end": 31.7,
+    "text": "실내는 크레마와 쿠오이오 투톤. 시트, 대시보드, 도어까지 전부 가죽이라 비쌀 수밖에 없겠네요.",
+    "ko": "실내는 크레마와 쿠오이오 투톤. 시트, 대시보드, 도어까지 전부 가죽이라 비쌀 수밖에 없겠네요."
+   },
+   {
+    "start": 31.7,
+    "end": 35.7,
+    "text": "FUV지만 만드는 방식은 슈퍼카 그대로입니다. 이제, 가격이 이해 가시나요?",
+    "ko": "FUV지만 만드는 방식은 슈퍼카 그대로입니다. 이제, 가격이 이해 가시나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "페라리 패밀리카인데 집 한 채 가격이라는 질문형 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 6.7,
+    "speed": "보통",
+    "summary": "페라리 최초 4도어 4인승 푸로산게 모델 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 6.7,
+    "end": 13.5,
+    "speed": "빠름",
+    "summary": "24년 12월식 정식출고, 옵션 1.8억 포함 총 출고가 8억 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 13.5,
+    "end": 17.6,
+    "speed": "보통",
+    "summary": "자연흡기 V12 엔진 탑재 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 17.6,
+    "end": 35.7,
+    "speed": "보통",
+    "summary": "주문제작 옵션, 1270만원 외장 컬러 및 가죽 투톤 인테리어 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 35.7,
+    "end": 41.5,
+    "speed": "느림",
+    "summary": "판매중 매물 알림 및 프로필 피드 유도 엔딩 카드"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시선 끄는 비유(집 한 채 가격)와 합성 그래픽으로 호기심을 유발한다.",
+   "핵심 스펙(출고가 8억, 옵션 1.8억, 색상 옵션가)을 큰 글씨와 색상 강조로 보여준다.",
+   "영상 후반부에 프로필 방문 유도 및 판매 중 차량 공지 엔딩 화면을 정적으로 길게 유지한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 4.5,
+    "end": 6.7,
+    "feature": "코치 도어 (수어사이드 도어)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "feature": "6.5L V12 자연흡기 엔진",
+    "shown_how": "화면 분할",
+    "icon_desc": "엔진룸 사진 카드",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.4,
+    "feature": "카본 사이드미러",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.6,
+    "feature": "외장 컬러 GRIGIO TITANIO (1,270만원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.7,
+    "feature": "CREMA & CUOIO 풀 레더 투톤 인테리어",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "실내 계기판을 비추며 '페라리에서 가족들 타라고 만든 차, 근데 가격은 집 한 채라구요?' 멘트와 주택 합성 등장",
+   "type": "질문",
+   "text": "페라리에서 가족들 타라고 만든 차, 근데 가격은 집 한 채라구요?"
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "페라리 최초의 4도어 4인승 FUV 푸로산게",
+    "category": "디자인"
+   },
+   {
+    "t": 7.5,
+    "point": "2024년 12월 FMK 정식 출고 차량",
+    "category": "상태·이력"
+   },
+   {
+    "t": 10.5,
+    "point": "옵션 가격만 약 1억 8천만원, 총 출고가 거의 8억 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 15.0,
+    "point": "V12 자연흡기 엔진 탑재 슈퍼 SUV",
+    "category": "성능"
+   },
+   {
+    "t": 20.5,
+    "point": "대부분의 파츠가 비싼 주문 제작 커스텀 방식",
+    "category": "희소성"
+   },
+   {
+    "t": 23.5,
+    "point": "1270만원 상당의 그리지오 티타니오 외장 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 29.0,
+    "point": "크레마 및 쿠오이오 투톤 올 레더 최고급 실내",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "판매중 안내",
+    "프로필 피드 확인 요청"
+   ],
+   "t": 35.7
+  },
+  "cta": {
+   "t": 35.7,
+   "text": "이 차량에 대한 자세한 내용은 프로필 피드에서 확인하실 수 있습니다. 팔로우 하시고 더 많은 차량을 만나보세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "실내 앞",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "외관 측면",
+    "외관 전면",
+    "실내 앞",
+    "뒷좌석"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색/포인트컬러 외곽선 자막과 깔끔한 엔딩 판매 카드를 사용하는 딜러 쇼츠 양식"
+  }
+ }
+}

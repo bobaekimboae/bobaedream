@@ -1,0 +1,751 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/U_IY15patcA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4003,
+  "candidatesTokenCount": 6321,
+  "totalTokenCount": 11465,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2747
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 1141,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.6,
+   "aspect": "9:16",
+   "car": "롤스로이스 컬리넌 시리즈 II 블랙배지",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.4,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 7.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.2,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 13.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 23.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 30.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "ILLUMINATED GRILLE",
+    "ko": "일루미네이티드 그릴",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.9,
+    "text": "수직 헤드라이트가 더해진",
+    "ko": "수직 헤드라이트가 더해진",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.2,
+    "text": "기하학적 수평 라인",
+    "ko": "기하학적 수평 라인",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.1,
+    "text": "CULLINAN SERIES II",
+    "ko": "컬리넌 시리즈 2",
+    "kind": "제목",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "2025년 정식 출고",
+    "ko": "2025년 정식 출고",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.5,
+    "text": "2025년 정식 출고\n주행거리 1,600km",
+    "ko": "2025년 정식 출고 주행거리 1,600km",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "text": "신차가 704,000,000 KRW",
+    "ko": "신차가 7억 4백만원",
+    "kind": "가격",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.2,
+    "text": "타 브랜드가\n잘 만들어진",
+    "ko": "타 브랜드가 잘 만들어진",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "text": "럭셔리라면\n롤스로이스는\n그 기준점 입니다",
+    "ko": "럭셔리라면 롤스로이스는 그 기준점 입니다",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.5,
+    "text": "강화된 디지털 인터페이스",
+    "ko": "강화된 디지털 인터페이스",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 13.9,
+    "text": "바뀐듯 그대로인 럭셔리함",
+    "ko": "바뀐듯 그대로인 럭셔리함",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "text": "화이트 & 만다린 시트는\n언제봐도 아름답네요",
+    "ko": "화이트 & 만다린 시트는 언제봐도 아름답네요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "블랙뱃지 만의\n정제된 주행 세팅까지",
+    "ko": "블랙뱃지만의 정제된 주행 세팅까지",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "text": "너무 편한데\n힘을 숨기지 않습니다",
+    "ko": "너무 편한데 힘을 숨기지 않습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "text": "슈팅스타 헤드라이너가 더해지니\n그야말로 도로 위의 라운지네요",
+    "ko": "슈팅스타 헤드라이너가 더해지니 그야말로 도로 위의 라운지네요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.6,
+    "text": "비교 대상이 아닌\n최종 도착지, 컬리넌 어떠신가요?",
+    "ko": "비교 대상이 아닌 최종 도착지, 컬리넌 어떠신가요?",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 30.6,
+    "text": "★ 해당 차량은 판매중인 차량입니다\n\n이 차량에 대한 자세한 내용은\n프로필 피드에서 확인하실 수 있습니다.",
+    "ko": "해당 차량 판매 안내 및 프로필 피드 확인 문구",
+    "kind": "기타",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/R&B 인스트루멘탈",
+   "bpm_est": 92,
+   "mood": "고급스럽고 차분한 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 24.6,
+    "end": 30.6,
+    "what": "선글라스 엄지척 이모티콘 그래픽 및 판매 안내 텍스트 카드",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 안내 및 팔로우 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "일루미네이티드 그릴, 수직 헤드라이트가 더해진 기하학적 수평 라인. 컬리넌 시리즈 2 입니다.",
+    "ko": "일루미네이티드 그릴, 수직 헤드라이트가 더해진 기하학적 수평 라인. 컬리넌 시리즈 2 입니다."
+   },
+   {
+    "start": 4.1,
+    "end": 7.8,
+    "text": "2025년 정식 출고, 주행거리 1,600km, 신차가 7억 4백만원.",
+    "ko": "2025년 정식 출고, 주행거리 1,600km, 신차가 7억 4백만원."
+   },
+   {
+    "start": 7.8,
+    "end": 11.2,
+    "text": "타 브랜드가 잘 만들어진 럭셔리라면 롤스로이스는 그 기준점입니다.",
+    "ko": "타 브랜드가 잘 만들어진 럭셔리라면 롤스로이스는 그 기준점입니다."
+   },
+   {
+    "start": 11.2,
+    "end": 13.9,
+    "text": "강화된 디지털 인터페이스, 바뀐 듯 그대로인 럭셔리함.",
+    "ko": "강화된 디지털 인터페이스, 바뀐 듯 그대로인 럭셔리함."
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "text": "화이트 & 만다린 시트는 언제봐도 아름답네요.",
+    "ko": "화이트 & 만다린 시트는 언제봐도 아름답네요."
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "text": "블랙뱃지만의 정제된 주행 세팅까지. 너무 편한데 힘을 숨기지 않습니다.",
+    "ko": "블랙뱃지만의 정제된 주행 세팅까지. 너무 편한데 힘을 숨기지 않습니다."
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "text": "슈팅스타 헤드라이너가 더해지니 그야말로 도로 위의 라운지네요.",
+    "ko": "슈팅스타 헤드라이너가 더해지니 그야말로 도로 위의 라운지네요."
+   },
+   {
+    "start": 22.3,
+    "end": 24.6,
+    "text": "비교 대상이 아닌 최종 도착지, 컬리넌 어떠신가요?",
+    "ko": "비교 대상이 아닌 최종 도착지, 컬리넌 어떠신가요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "보통",
+    "summary": "환호의 여신상과 컬리넌 시리즈 2 전면부 실물 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.1,
+    "end": 7.8,
+    "speed": "보통",
+    "summary": "연식(2025년), 주행거리(1,600km), 신차가(7억 4백만원) 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.8,
+    "end": 22.3,
+    "speed": "보통",
+    "summary": "디지털 인터페이스, 화이트&만다린 시트, 블랙뱃지 세팅, 슈팅스타 헤드라이너 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 22.3,
+    "end": 24.6,
+    "speed": "보통",
+    "summary": "최종 도착지 럭셔리 SUV로서의 총평 및 질문"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.6,
+    "end": 30.6,
+    "speed": "보통",
+    "summary": "판매 중 안내 및 프로필 피드 방문 유도"
+   }
+  ],
+  "rules": [
+   "자극적인 효과음 없이 차분한 비트와 AI 내레이션으로 초고가 럭셔리카의 무드를 극대화",
+   "화면 하단 중앙에 깔끔한 흰색 폰트 자막을 고정 배치하여 시인성 유지",
+   "스펙 정보(연식, 주행거리, 신차가)를 영상 초반부에 명확한 숫자로 노출",
+   "외관 디테일 -> 핵심 스펙 -> 실내 인테리어 및 감성 옵션 -> 외관 마무리 순의 정돈된 컷 구성",
+   "영상 말미에 블랙 화면 카드와 이모티콘을 활용해 프로필 피드 유입을 단독으로 안내"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "feature": "일루미네이티드 그릴 및 수직 헤드라이트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.2,
+    "feature": "360도 어라운드뷰 서라운드 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.5,
+    "feature": "디지털 인터페이스 계기판",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "feature": "화이트 & 만다린 투톤 가죽 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "feature": "슈팅스타 헤드라이너",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "블랙 환호의 여신상 클로즈업부터 전면 헤드라이트와 웅장한 컬리넌 풀샷 공개",
+   "type": "희귀차",
+   "text": "일루미네이티드 그릴, 수직 헤드라이트가 더해진 기하학적 수평 라인"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "시리즈 2의 일루미네이티드 그릴과 수직 헤드라이트 디자인 강조",
+    "category": "디자인"
+   },
+   {
+    "t": 4.1,
+    "point": "2025년 정식 출고, 주행거리 1,600km의 신차급 컨디션",
+    "category": "상태·이력"
+   },
+   {
+    "t": 6.5,
+    "point": "신차가 7억 4백만원의 초고가 럭셔리 SUV",
+    "category": "가격·조건"
+   },
+   {
+    "t": 11.2,
+    "point": "새로워진 디지털 인터페이스 계기판 적용",
+    "category": "편의"
+   },
+   {
+    "t": 13.9,
+    "point": "화이트 & 만다린 컬러 조합의 최고급 가죽 시트",
+    "category": "디자인"
+   },
+   {
+    "t": 15.6,
+    "point": "블랙뱃지 전용 파워트레인 및 주행 세팅",
+    "category": "성능"
+   },
+   {
+    "t": 19.3,
+    "point": "천장 슈팅스타 헤드라이너의 럭셔리 라운지 감성",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "가격",
+    "차량 스펙"
+   ],
+   "t": 6.5
+  },
+  "cta": {
+   "t": 24.6,
+   "text": "이 차량에 대한 자세한 내용은 프로필 피드에서 확인하실 수 있습니다 / 팔로우 하시고 더 많은 차량을 만나보세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "계기판",
+    "외관 후면",
+    "센터 화면",
+    "실내 앞",
+    "계기판",
+    "실내 앞",
+    "뒷좌석",
+    "외관 후면",
+    "실내 앞",
+    "뒷좌석",
+    "휠",
+    "외관 측면",
+    "그래픽"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 텍스트 자막 스타일과 엔딩 안내 문구 템플릿을 일관되게 적용"
+  }
+ }
+}

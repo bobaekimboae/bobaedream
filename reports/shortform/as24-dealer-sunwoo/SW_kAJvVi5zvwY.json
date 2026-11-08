@@ -1,0 +1,431 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/kAJvVi5zvwY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2434,
+  "candidatesTokenCount": 3445,
+  "totalTokenCount": 5879,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1178
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 13.0,
+   "aspect": "9:16",
+   "car": "포르쉐 911 992 GT3 투어링",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "911??",
+    "ko": "911??",
+    "kind": "제목",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 1.9,
+    "text": "911?? 아니고\n992",
+    "ko": "911?? 아니고 992",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "992",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 2.7,
+    "text": "거기에",
+    "ko": "거기에",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "text": "GT3 !!",
+    "ko": "GT3 !!",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FF4444",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.5,
+    "text": "심플한",
+    "ko": "심플한",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.6,
+    "text": "심플한 윙 디자인\n투어링!",
+    "ko": "심플한 윙 디자인 투어링!",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 7.7,
+    "text": "차는 신형이죠",
+    "ko": "차는 신형이죠",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "실눈 4점식!\n(원래 실눈이 더 쎕니다)",
+    "ko": "실눈 4점식! (원래 실눈이 더 쎕니다)",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "text": "이 차량에 대한\n자세한 내용은\n피드에서 보실 수\n있습니다.",
+    "ko": "이 차량에 대한 자세한 내용은 피드에서 보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "text": "감사합니다^^",
+    "ko": "감사합니다^^",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "테일램프 및 브레이크등 점등",
+    "level": "작음",
+    "sure": false
+   },
+   {
+    "t": 2.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 시동/배기음 및 가속음 시작",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "리어 가변 스포일러(윙) 전동 전개 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "헤드램프 4점식 DRL 점등 전자음",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스/일렉트로닉",
+   "bpm_est": 110,
+   "mood": "경쾌하고 긴장감 있는 숏폼 비트",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "what": "선글라스를 끼고 엄지척을 하는 3D 이모지 캐릭터",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "엔딩 인사 및 감사 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "뒷모습 퀴즈 형식 자막과 함께 배기음 스타트 (992 GT3 공개)"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 5.6,
+    "speed": "보통",
+    "summary": "GT3 투어링 전동 리어 윙 작동 모습 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 5.6,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "헤드램프 4점식 DRL 점등 디테일 시연"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 8.7,
+    "end": 10.6,
+    "speed": "보통",
+    "summary": "인스타그램 피드 상세 확인 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 10.6,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "이모티콘 감사 인사 엔딩"
+   }
+  ],
+  "rules": [
+   "음성 해설 없이 실제 차 작동음(배기음, 윙 작동, 라이트 점등)과 BGM에 맞춰 짧은 텍스트로 정보 전달",
+   "화면 중앙에 굵은 고딕 자막을 1~2줄 단위로 빠르게 전환하여 가독성 극대화",
+   "질문형 훅('911??')으로 호기심을 유발한 뒤 모델명('992 GT3 투어링')을 순차 강조",
+   "주요 포인트(투어링 전동 윙, 4점식 헤드램프)만 핵심 클로즈업하여 10초 내외로 압축"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.0,
+    "end": 5.6,
+    "feature": "가변 리어 윙 전개",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "리어 가변 스포일러 전동 모터음",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.7,
+    "feature": "4점식 LED 헤드라이트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "헤드램프 켜지는 효과",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정차된 검은색 포르쉐 뒷태와 함께 '911?? 아니고 992 거기에 GT3 !!' 텍스트 등장 및 배기음 폭발",
+   "type": "사운드(배기음 등)",
+   "text": "911?? 아니고 992 거기에 GT3 !!"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "포르쉐 911 최신 코드네임 992 GT3 차량 소개",
+    "category": "희소성"
+   },
+   {
+    "t": 4.5,
+    "point": "일반 GT3의 고정형 거대 윙 대신 깔끔한 가변식 투어링 윙 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 7.7,
+    "point": "포르쉐 최신 패밀리룩인 4점식 실눈 주간주행등(DRL)",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 8.7,
+   "text": "이 차량에 대한 자세한 내용은 피드에서 보실 수 있습니다.",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 후면",
+    "외관 전면",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "어두운 지하 전시장 조명을 활용해 차량 라이트와 포인트를 강조하는 일관된 쇼츠 연출"
+  }
+ }
+}
