@@ -1,0 +1,252 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/AIn4TI7aUZU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2353,
+  "candidatesTokenCount": 2151,
+  "totalTokenCount": 5251,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1093
+   }
+  ],
+  "thoughtsTokenCount": 747,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 11.5,
+   "aspect": "9:16",
+   "car": "BMW 5시리즈 (G60) 530i M 스포츠",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 8.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.5,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "G60 530i msp\n실내 인테리어로도 벤츠를 압도하는 BWM",
+    "ko": "G60 530i Msp 실내 인테리어로도 벤츠를 압도하는 BMW",
+    "kind": "제목",
+    "y_pct": 27.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "G60 530i msp",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Pop / R&B",
+   "bpm_est": 116,
+   "mood": "세련되고 감각적인 분위기",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 10.9,
+    "end": 11.5,
+    "what": "HIGHEND MOTORS 로고 화면",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 소개 및 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "주행 중 화려한 인터랙션 바 및 앰비언트 라이트 연출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 8.8,
+    "speed": "빠름",
+    "summary": "바워스앤윌킨스 스피커 커버 및 시트 등 디테일 감성 컷"
+   },
+   {
+    "stage": "기능",
+    "start": 8.8,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "야외 주차 상태의 G60 5시리즈 외관 풀 샷"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 10.9,
+    "end": 11.5,
+    "speed": "보통",
+    "summary": "HIGHEND MOTORS 브랜드 로고"
+   }
+  ],
+  "rules": [
+   "음악 비트에 맞춰 1초 안팎의 빠른 컷 전환으로 실내 하이라이트 디테일을 강조함",
+   "영상 초반 강렬한 야간/터널 앰비언트 라이트 조명 컷을 배치하여 시선 집중",
+   "내레이션이나 자막 설명 없이 감각적인 BGM과 비주얼 중심으로 차량 무드 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.9,
+    "end": 3.7,
+    "feature": "BMW 인터랙션 바 및 앰비언트 라이트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.0,
+    "feature": "바워스 앤 윌킨스 오디오 시스템 스피커 그릴",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 60.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "BMW G60 530i 주행 중 인터랙션 바의 다채로운 앰비언트 라이트가 터널 안에서 돋보이는 장면",
+   "type": "감탄·리액션",
+   "text": "실내 인테리어로도 벤츠를 압도하는 BWM"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "실내 인테리어로도 벤츠를 압도하는 BMW G60 530i Msp",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 10.9
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "도어 트림",
+    "뒷좌석",
+    "외관 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "마지막 장면에 깔끔한 영문 심볼 로고(HIGHEND MOTORS)를 배치하는 통일된 구성"
+  }
+ }
+}

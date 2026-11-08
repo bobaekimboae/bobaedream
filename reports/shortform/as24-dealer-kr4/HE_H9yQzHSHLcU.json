@@ -1,0 +1,591 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/H9yQzHSHLcU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3455,
+  "candidatesTokenCount": 5786,
+  "totalTokenCount": 9782,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2195
+   }
+  ],
+  "thoughtsTokenCount": 541,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24.8,
+   "aspect": "9:16",
+   "car": "스즈키 허슬러",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 5.4,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 16.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "캠핑 좋아하시는 분이라면",
+    "ko": "캠핑 좋아하시는 분이라면",
+    "kind": "말 자막",
+    "y_pct": 27.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.1,
+    "text": "이 차 다 알죠?",
+    "ko": "이 차 다 알죠?",
+    "kind": "말 자막",
+    "y_pct": 9.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.6,
+    "text": "모든 좌석이 풀플랫 되는",
+    "ko": "모든 좌석이 풀플랫 되는",
+    "kind": "말 자막",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "풀플랫",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 4.7,
+    "text": "미친 공간감",
+    "ko": "미친 공간감",
+    "kind": "키워드 스티커",
+    "y_pct": 28.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 5.6,
+    "text": "국산 경차와는 완전 다르죠",
+    "ko": "국산 경차와는 완전 다르죠",
+    "kind": "말 자막",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 7.4,
+    "text": "연비도 30 킬로 가까이 나와주는",
+    "ko": "연비도 30 킬로 가까이 나와주는",
+    "kind": "말 자막",
+    "y_pct": 27.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "text": "진짜 경차다운 연비의 차량입니다.",
+    "ko": "진짜 경차다운 연비의 차량입니다.",
+    "kind": "말 자막",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.8,
+    "text": "이 차로 차박하는",
+    "ko": "이 차로 차박하는",
+    "kind": "말 자막",
+    "y_pct": 9.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "text": "영상을 올리기만 하면",
+    "ko": "영상을 올리기만 하면",
+    "kind": "말 자막",
+    "y_pct": 9.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.2,
+    "text": "영상이 떡상하던 시절이 있었던",
+    "ko": "영상이 떡상하던 시절이 있었던",
+    "kind": "말 자막",
+    "y_pct": 30.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.2,
+    "end": 14.5,
+    "text": "감성 최강의 차량",
+    "ko": "감성 최강의 차량",
+    "kind": "말 자막",
+    "y_pct": 31.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.6,
+    "text": "하이엔드모터스 홈서비스로",
+    "ko": "하이엔드모터스 홈서비스로",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.7,
+    "text": "3일 타보세요",
+    "ko": "3일 타보세요",
+    "kind": "말 자막",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 17.5,
+    "text": "마음에 안들면",
+    "ko": "마음에 안들면",
+    "kind": "말 자막",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "text": "왕복 탁송비까지 저희가 다 내고",
+    "ko": "왕복 탁송비까지 저희가 다 내고",
+    "kind": "말 자막",
+    "y_pct": 26.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.4,
+    "text": "100% 환불해드립니다.",
+    "ko": "100% 환불해드립니다.",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 24.8,
+    "text": "지금 바로 아래 본문과\n고정댓글 연락처 확인하셔서\n문의주세요.",
+    "ko": "지금 바로 아래 본문과\n고정댓글 연락처 확인하셔서\n문의주세요.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.6,
+    "type": "쿵",
+    "event": "미친 공간감 강조 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 그루브한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "캠핑 좋아하시는 분이라면 이 차 다 알죠?",
+    "ko": "캠핑 좋아하시는 분이라면 이 차 다 알죠?"
+   },
+   {
+    "start": 2.1,
+    "end": 5.6,
+    "text": "모든 좌석이 풀플랫 되는 미친 공간감 국산 경차와는 완전 다르죠.",
+    "ko": "모든 좌석이 풀플랫 되는 미친 공간감 국산 경차와는 완전 다르죠."
+   },
+   {
+    "start": 5.6,
+    "end": 9.4,
+    "text": "연비도 30km 가까이 나와주는 진짜 경차다운 연비의 차량입니다.",
+    "ko": "연비도 30km 가까이 나와주는 진짜 경차다운 연비의 차량입니다."
+   },
+   {
+    "start": 9.4,
+    "end": 14.5,
+    "text": "이 차로 차박하는 영상을 올리기만 하면 영상이 떡상하던 시절이 있었던 감성 최강의 차량.",
+    "ko": "이 차로 차박하는 영상을 올리기만 하면 영상이 떡상하던 시절이 있었던 감성 최강의 차량."
+   },
+   {
+    "start": 14.5,
+    "end": 20.4,
+    "text": "하이엔드모터스 홈서비스로 3일 타보세요. 마음에 안 들면 왕복 탁송비까지 저희가 다 내고 100% 환불해드립니다.",
+    "ko": "하이엔드모터스 홈서비스로 3일 타보세요. 마음에 안 들면 왕복 탁송비까지 저희가 다 내고 100% 환불해드립니다."
+   },
+   {
+    "start": 20.4,
+    "end": 24.8,
+    "text": "지금 바로 아래 본문과 고정댓글 연락처 확인하셔서 문의주세요.",
+    "ko": "지금 바로 아래 본문과 고정댓글 연락처 확인하셔서 문의주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "보통",
+    "summary": "캠핑 애호가 타겟 질문으로 시선 유도"
+   },
+   {
+    "stage": "기능",
+    "start": 2.1,
+    "end": 5.6,
+    "speed": "보통",
+    "summary": "전 좌석 풀플랫 실내 공간감 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 5.6,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "복합연비 30km/L 수준의 경차다운 고연비 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 9.4,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "차박 감성 캠핑카로서의 인기 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 14.5,
+    "end": 20.4,
+    "speed": "보통",
+    "summary": "3일 타보기 홈서비스 및 100% 환불 조건 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 20.4,
+    "end": 24.8,
+    "speed": "보통",
+    "summary": "본문 및 고정댓글 문의 CTA"
+   }
+  ],
+  "rules": [
+   "턴테이블 스튜디오 촬영과 핸드헬드 실내 근접 촬영을 번갈아 배치",
+   "화이트 외곽선에 블랙 텍스트로 가독성 높은 자막 스타일 통일",
+   "핵심 키워드 등장 시 타격 효과음과 함께 폰트 크기 확대",
+   "영상 후반부에 3일 타보기 및 무료 환불 혜택을 강조하여 구매 전환 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.1,
+    "end": 5.4,
+    "feature": "전 좌석 풀플랫",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "턴테이블 위 스즈키 허슬러가 돌면서 '캠핑 좋아하시는 분이라면 이 차 다 알죠?' 질문",
+   "type": "질문",
+   "text": "캠핑 좋아하시는 분이라면 이 차 다 알죠?"
+  },
+  "narration_points": [
+   {
+    "t": 2.1,
+    "point": "모든 좌석이 풀플랫 되어 국산 경차와 비교불가한 공간감",
+    "category": "공간"
+   },
+   {
+    "t": 5.6,
+    "point": "리터당 30km에 육박하는 뛰어난 실연비",
+    "category": "성능"
+   },
+   {
+    "t": 9.4,
+    "point": "SNS 차박 영상으로 큰 인기를 얻은 감성 차량",
+    "category": "디자인"
+   },
+   {
+    "t": 14.5,
+    "point": "3일 타보고 불만족 시 왕복 탁송비 무료 및 100% 환불 보장",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "서비스 안내"
+   ],
+   "t": 14.5
+  },
+  "cta": {
+   "t": 20.4,
+   "text": "지금 바로 아래 본문과 고정댓글 연락처 확인하셔서 문의주세요.",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "트렁크",
+    "실내 앞",
+    "외관 후면",
+    "트렁크",
+    "뒷좌석",
+    "외관 후면",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "스튜디오 배경의 HIGHEND MOTORS 로고와 일관된 흰 외곽선 자막 폰트 유지"
+  }
+ }
+}

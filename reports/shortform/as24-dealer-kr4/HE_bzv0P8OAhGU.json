@@ -1,0 +1,347 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/bzv0P8OAhGU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2902,
+  "candidatesTokenCount": 3092,
+  "totalTokenCount": 6919,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1642
+   }
+  ],
+  "thoughtsTokenCount": 925,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.3,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 S클래스",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.3,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 16.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.3,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "이거 구매하실 때",
+    "ko": "이거 구매하실 때",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.1,
+    "text": "꼭 확인하십시오",
+    "ko": "꼭 확인하십시오",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.2,
+    "text": "리어액슬이 들어가고",
+    "ko": "리어액슬이 들어가고",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.1,
+    "text": "안 들어가고",
+    "ko": "안 들어가고",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.8,
+    "text": "어마무시하게 차이 납니다",
+    "ko": "어마무시하게 차이 납니다",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.0,
+    "text": "리어액슬 10도 입니다",
+    "ko": "리어액슬 10도 입니다",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "10도",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 7.7,
+    "text": "10도",
+    "ko": "10도",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.6,
+    "text": "제가 보여드릴게요",
+    "ko": "제가 보여드릴게요",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 16.0,
+    "end": 18.3,
+    "what": "HIGHEND MOTORS 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "이거 구매하실 때 꼭 확인하십시오",
+    "ko": "이거 구매하실 때 꼭 확인하십시오"
+   },
+   {
+    "start": 2.1,
+    "end": 5.8,
+    "text": "리어액슬이 들어가고 안 들어가고 차이는 어마무시하게 차이 납니다",
+    "ko": "리어액슬이 들어가고 안 들어가고 차이는 어마무시하게 차이 납니다"
+   },
+   {
+    "start": 5.8,
+    "end": 8.6,
+    "text": "리어액슬 10도 입니다 10도. 제가 보여드릴게요",
+    "ko": "리어액슬 10도 입니다 10도. 제가 보여드릴게요"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.1,
+    "speed": "빠름",
+    "summary": "구매 전 필수 확인 옵션 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 2.1,
+    "end": 8.3,
+    "speed": "보통",
+    "summary": "10도 리어 액슬의 중요성 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 8.3,
+    "end": 16.0,
+    "speed": "보통",
+    "summary": "차량 회전 시 뒷바퀴 조향(리어 액슬 10도) 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 16.0,
+    "end": 18.3,
+    "speed": "보통",
+    "summary": "하이드엔드 모터스 브랜드 로고 아웃트로"
+   }
+  ],
+  "rules": [
+   "딜러가 직접 바퀴를 가리키며 호기심을 유발하는 멘트로 시작",
+   "화면 중앙에 검은 글씨와 흰 테두리의 깔끔한 자막 배치",
+   "말과 함께 실제 작동 모습을 즉시 주행 시연으로 증명",
+   "영상 말미에 브랜드 로고를 삽입하여 신뢰도 확보"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.3,
+    "end": 16.0,
+    "feature": "리어 액슬 스티어링 (10도)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 100.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "딜러가 뒷바퀴를 가리키며 구매 시 꼭 확인해야 한다고 경고성 멘트 시작",
+   "type": "행동",
+   "text": "이거 구매하실 때 꼭 확인하십시오"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "S클래스 구매 시 필수 확인 옵션으로 리어액슬 강조",
+    "category": "성능"
+   },
+   {
+    "t": 6.0,
+    "point": "해당 매물에 리어액슬 10도 조향 옵션 적용 안내",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 16.5
+  },
+  "cta": {
+   "t": 16.5,
+   "text": "HIGHEND MOTORS",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "딜러",
+   "part_order": [
+    "사람",
+    "휠",
+    "외관 측면",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "마지막 로고 애니메이션으로 상사 브랜딩 통일"
+  }
+ }
+}

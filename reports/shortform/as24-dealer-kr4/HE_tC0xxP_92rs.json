@@ -1,0 +1,176 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/tC0xxP_92rs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2536,
+  "candidatesTokenCount": 1175,
+  "totalTokenCount": 3711,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1276
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.8,
+   "aspect": "9:16",
+   "car": "포르쉐 911 타르가 (992)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 8.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 스마트키 언락 비프음(삑삑)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 도어 열리는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "text": "어! 어, 잠깐만요! 어 잠깐만요!",
+    "ko": "어! 어, 잠깐만요! 어 잠깐만요!"
+   },
+   {
+    "start": 5.2,
+    "end": 6.6,
+    "text": "감사합니다",
+    "ko": "감사합니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "주차장에서 가방을 날치기당하려다 차 키만 꺼내주고 쿨하게 보내는 콩트 연출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "스마트키로 포르쉐 911을 언락하고 다가가는 모습"
+   }
+  ],
+  "rules": [
+   "자막이나 스티커 없이 숏폼 연출 콩트 상황극으로 시선 집중",
+   "후반부에 차량 리모컨 작동 소리와 함께 매물(포르쉐)을 노출시키는 반전 구조"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "feature": "스마트키 언락 및 도어 오픈",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "실제 작동",
+    "sfx_with": "언락 전자음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "주차장에서 걷는 여성의 가방을 뒤에서 남성이 낚아채려는 강도/날치기 상황 연출",
+   "type": "행동",
+   "text": "가방 날치기 상황극 반전"
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": true,
+   "how": "기타",
+   "items": [
+    "(주)하이엔드모터스 간판"
+   ],
+   "t": 8.7
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "기타",
+   "part_order": [
+    "사람",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "별도의 고정 그래픽 틀 없이 숏폼 바이럴 상황극 포맷 활용"
+  }
+ }
+}

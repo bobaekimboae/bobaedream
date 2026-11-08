@@ -1,0 +1,407 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/UkBbMJzRHlA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2718,
+  "candidatesTokenCount": 3818,
+  "totalTokenCount": 6536,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1458
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 16.3,
+   "aspect": "9:16",
+   "car": "제네시스 G90",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 8.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 11.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.3,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "1.3억 풀옵션 G90을\n7천만원 대에\n만날 수 있는 기회",
+    "ko": "1.3억 풀옵션 G90을 7천만원 대에 만날 수 있는 기회",
+    "kind": "제목",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "7천만원 대에",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.6,
+    "text": "실내 베이지 시트\n3,100만원 상당 추가 옵션\n[ 프레스티지 옵션 ]\n[ 파노라마 선루프 ]\n[ 다이아몬드 컷팅 휠 ]\n[ 멀티 챔버 서스펜션 ]\n[ 능동형 후륜 조향 ]",
+    "ko": "실내 베이지 시트, 3,100만원 상당 추가 옵션 상세 목록",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 24.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 8.7,
+    "text": "뒷 좌석\n에르고 릴렉싱 시트",
+    "ko": "뒷 좌석 에르고 릴렉싱 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.8,
+    "text": "뱅앤올룹슨\n사운드 시스템",
+    "ko": "뱅앤올룹슨 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 11.8,
+    "text": "파노라마\n선 루프",
+    "ko": "파노라마 선 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "text": "완전 무사고&풀옵션\nG90을 만날 수 있는\n기회!",
+    "ko": "완전 무사고&풀옵션 G90을 만날 수 있는 기회!",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "차분한 어쿠스틱 피아노/로파이",
+   "bpm_est": 90,
+   "mood": "고급스러움, 차분함, 감성적",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 14.5,
+    "what": "상단 HIGHEND MOTORS / GENESIS G90 고정 워터마크 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 6.0,
+    "entrance": "고정",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.3,
+    "what": "HIGHEND MOTORS 엔딩 로고 화면",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "1.3억 풀옵션을 7천만원대에 살 수 있다는 가격 파격성 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 1.7,
+    "end": 4.6,
+    "speed": "보통",
+    "summary": "실내 베이지 시트 및 3100만원 상당 주요 추가 옵션 나열"
+   },
+   {
+    "stage": "기능",
+    "start": 4.6,
+    "end": 11.8,
+    "speed": "보통",
+    "summary": "에르고 릴렉싱 시트 작동, 스피커, 선루프 등 럭셔리 옵션 디테일 컷"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.8,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "엠블럼 클로즈업과 함께 완전무사고 풀옵션 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 14.5,
+    "end": 16.3,
+    "speed": "보통",
+    "summary": "하이엔드 모터스 브랜드 로고 아웃트로"
+   }
+  ],
+  "rules": [
+   "음성 내레이션 없이 감성적인 피아노 배경음악과 깔끔한 중앙 텍스트만으로 고급스러운 분위기 연출",
+   "상단에 상사 브랜드 로고와 차종명을 전 구간 워터마크로 고정",
+   "화이트 계열 고딕 볼드 폰트에 그림자 효과를 주어 차량 인테리어와 대비를 확보"
+  ],
+  "option_highlights": [
+   {
+    "start": 1.7,
+    "end": 4.6,
+    "feature": "3,100만원 상당 추가 옵션",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 42.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 8.7,
+    "feature": "에르고 릴렉싱 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 58.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.8,
+    "feature": "뱅앤올룹슨 사운드 시스템",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 46.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 11.8,
+    "feature": "파노라마 선루프",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 44.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "외관 전면 샷과 함께 신차가 1.3억 풀옵션을 7천만원대에 살 수 있다는 텍스트 훅 제시 후 실내 컷 전환",
+   "type": "가격",
+   "text": "1.3억 풀옵션 G90을 7천만원 대에 만날 수 있는 기회"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "신차가 1.3억 상당의 G90을 7천만원대에 구매 가능",
+    "category": "가격·조건"
+   },
+   {
+    "t": 1.7,
+    "point": "실내 베이지 시트 및 3100만원 상당의 풀옵션 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 4.6,
+    "point": "뒷좌석 에르고 릴렉싱 시트 전동 조절 작동",
+    "category": "편의"
+   },
+   {
+    "t": 9.7,
+    "point": "뱅앤올룹슨 프리미엄 오디오 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 11.8,
+    "point": "완전 무사고 및 풀옵션 차량",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "실내 앞",
+    "옵션 작동",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단에 브랜드 로고 워터마크 배치 및 엔딩에 전용 로고 화면 배치"
+  }
+ }
+}

@@ -1,0 +1,507 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/67Hw7Ez2oCI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3446,
+  "candidatesTokenCount": 4237,
+  "totalTokenCount": 7683,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2186
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24.3,
+   "aspect": "9:16",
+   "car": "BMW 6시리즈 GT 620d",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 7.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.2,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.2,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 24.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "BMW 중에 넓고\n가성비 넘치는 차량",
+    "ko": "BMW 중에 넓고 가성비 넘치는 차량",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "구하시는 분들 주목",
+    "ko": "구하시는 분들 주목",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.4,
+    "text": "이 차 가져가서 일단 3일간\n직접 타 보세요",
+    "ko": "이 차 가져가서 일단 3일간 직접 타 보세요",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 7.6,
+    "text": "마음에 안 들면",
+    "ko": "마음에 안 들면",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 9.4,
+    "text": "100% 환불해 드립니다",
+    "ko": "100% 환불해 드립니다",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.2,
+    "text": "끝판왕 7시리즈의\n안락함을 담고",
+    "ko": "끝판왕 7시리즈의 안락함을 담고",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "text": "합리적인 가격에 연식과\n적산거리조차",
+    "ko": "합리적인 가격에 연식과 적산거리조차",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "신차급 6GT 620d 차량",
+    "ko": "신차급 6GT 620d 차량",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.2,
+    "text": "그냥 바로 구매각\n나오는 차량입니다",
+    "ko": "그냥 바로 구매각 나오는 차량입니다",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.3,
+    "text": "오직 하이엔드모터스\n팔로워 한정",
+    "ko": "오직 하이엔드모터스 팔로워 한정",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 24.3,
+    "text": "역대급 파격가로\n구매 가능합니다\n📞 051-501-3601\n📩 KAKAO ID : highendmotors",
+    "ko": "역대급 파격가로 구매 가능합니다 (연락처/카톡ID)",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "신스팝/업비트 인스트루멘탈",
+   "bpm_est": 118,
+   "mood": "트렌디하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "BMW 중에 넓고 가성비 넘치는 차량 구하시는 분들 주목!",
+    "ko": "BMW 중에 넓고 가성비 넘치는 차량 구하시는 분들 주목!"
+   },
+   {
+    "start": 3.7,
+    "end": 9.2,
+    "text": "이 차 가져가서 일단 3일간 직접 타 보세요. 마음에 안 들면 100% 환불해 드립니다.",
+    "ko": "이 차 가져가서 일단 3일간 직접 타 보세요. 마음에 안 들면 100% 환불해 드립니다."
+   },
+   {
+    "start": 9.4,
+    "end": 15.9,
+    "text": "끝판왕 7시리즈의 안락함을 담고 합리적인 가격에 연식과 적산거리조차 신차급 6GT 620d 차량,",
+    "ko": "끝판왕 7시리즈의 안락함을 담고 합리적인 가격에 연식과 적산거리조차 신차급 6GT 620d 차량,"
+   },
+   {
+    "start": 16.0,
+    "end": 17.8,
+    "text": "그냥 바로 구매각 나오는 차량입니다.",
+    "ko": "그냥 바로 구매각 나오는 차량입니다."
+   },
+   {
+    "start": 18.2,
+    "end": 24.0,
+    "text": "오직 하이엔드모터스 팔로워 한정, 영상을 보시고 연락 주시면 역대급 파격가로 구매 가능합니다.",
+    "ko": "오직 하이엔드모터스 팔로워 한정, 영상을 보시고 연락 주시면 역대급 파격가로 구매 가능합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "BMW 중 넓고 가성비 좋은 차량 소개 및 3일 타보고 불만족 시 100% 환불 제안 파격 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 9.4,
+    "end": 18.2,
+    "speed": "보통",
+    "summary": "7시리즈 안락함과 신차급 컨디션을 갖춘 6GT 620d 실내외 비주얼 쇼케이스"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 18.2,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "팔로워 한정 파격가 구매 안내 및 전화번호·카카오톡 ID 표시"
+   }
+  ],
+  "rules": [
+   "전체 자막을 화면 중앙 상단(약 36% 높이)에 두꺼운 검은 테두리의 흰색 고딕 폰트로 고정 배치",
+   "화면 전환은 컷 편집으로 간결하게 구성하고, 짐벌을 이용해 실내외를 매끄럽게 워크스루 촬영",
+   "마지막 클로징 구간에서 전화번호와 카카오톡 ID 정보를 박스 카드 형태로 중앙에 노출",
+   "AI 성우 내레이션에 맞춰 핵심 메시지를 간결하게 분할 표출"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 11.2,
+    "feature": "브라운 나파 가죽 퀼팅 시트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "feature": "M 스포츠 휠 & M 스포츠 브레이크",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "선루프와 실내가 개방된 모습 위로 'BMW 중에 넓고 가성비 넘치는 차량 구하시는 분들 주목' 멘트",
+   "type": "질문",
+   "text": "BMW 중에 넓고 가성비 넘치는 차량 구하시는 분들 주목! 3일간 타보고 마음에 안 들면 100% 환불"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "BMW 라인업 중 넓고 가성비 뛰어남",
+    "category": "공간"
+   },
+   {
+    "t": 5.0,
+    "point": "3일 타보고 불만족 시 100% 전액 환불 정책",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.0,
+    "point": "7시리즈급의 안락한 승차감",
+    "category": "편의"
+   },
+   {
+    "t": 12.0,
+    "point": "합리적 가격대 및 신차급 연식·적산거리",
+    "category": "상태·이력"
+   },
+   {
+    "t": 20.0,
+    "point": "채널 팔로워 한정 역대급 파격가 판매",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "하이엔드모터스",
+    "051-501-3601",
+    "highendmotors"
+   ],
+   "t": 21.0
+  },
+  "cta": {
+   "t": 21.0,
+   "text": "영상을 보시고 연락 주시면 역대급 파격가로 구매 가능합니다 (051-501-3601 / KAKAO ID : highendmotors)",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "실내 앞(선루프)",
+    "외관 측면",
+    "외관 전면",
+    "외관 후면",
+    "1열 시트",
+    "뒷좌석",
+    "운전석 및 대시보드",
+    "휠",
+    "센터페시아",
+    "전체 외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상사 로고(HIGHEND MOTORS) 배경 벽면 및 카카오톡/연락처 배너 스타일 고정"
+  }
+ }
+}
