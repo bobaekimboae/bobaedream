@@ -1,0 +1,436 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/gWzWokfjLaI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4461,
+  "candidatesTokenCount": 4067,
+  "totalTokenCount": 8919,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3201
+   }
+  ],
+  "thoughtsTokenCount": 391,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.0,
+   "aspect": "9:16",
+   "car": "페라리 F8 스파이더",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 21.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.3,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 31.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 35.0,
+    "text": "한국 1%만 경험한다는 페라리 F8 스파이더",
+    "ko": "한국 1%만 경험한다는 페라리 F8 스파이더",
+    "kind": "제목",
+    "y_pct": 9.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEB3B",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 100.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "페라리 F8 스파이더",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 35.0,
+    "text": "본 영상은 하단 링크에 금기사TV",
+    "ko": "본 영상은 하단 링크에 금기사TV",
+    "kind": "기타",
+    "y_pct": 86.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 100.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "금기사TV",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 4.0,
+    "text": "[하드탑 오픈]",
+    "ko": "[하드탑 오픈]",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#CCCCCC",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "text": "이 차량이 쥐색, 회색이라고도 하는데",
+    "ko": "이 차량이 쥐색, 회색이라고도 하는데",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.8,
+    "text": "내부가 실내가 좋아요 실내가 거기에다가",
+    "ko": "내부가 실내가 좋아요 실내가 거기에다가",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.0,
+    "text": "페라리 F8 차주분들이 가장 아쉬우신 게 배기",
+    "ko": "페라리 F8 차주분들이 가장 아쉬우신 게 배기",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 21.0,
+    "text": "배기가 제일 아쉬울 텐데 이거는 IPE 배기라고 해서 가장 만족도가 높고",
+    "ko": "배기가 제일 아쉬울 텐데 이거는 IPE 배기라고 해서 가장 만족도가 높고",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.0,
+    "text": "본영상에서",
+    "ko": "본영상에서",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "본영상에서",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "하드탑 오픈 전동 모터 구동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "시동 및 배기음 도입부",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "현장음 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "text": "이 차량이 쥐색, 회색이라고도 하는데",
+    "ko": "이 차량이 쥐색, 회색이라고도 하는데"
+   },
+   {
+    "start": 9.2,
+    "end": 12.8,
+    "text": "내부가 실내가 좋아요. 실내가. 거기에다가",
+    "ko": "내부가 실내가 좋아요. 실내가. 거기에다가"
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "text": "페라리 F8 차주분들이 가장 아쉬우신 게 배기.",
+    "ko": "페라리 F8 차주분들이 가장 아쉬우신 게 배기."
+   },
+   {
+    "start": 15.6,
+    "end": 20.8,
+    "text": "배기가 제일 아쉬울 텐데, 이거는 IPE 배기라고 해서 가장 만족도가 높고",
+    "ko": "배기가 제일 아쉬울 텐데, 이거는 IPE 배기라고 해서 가장 만족도가 높고"
+   },
+   {
+    "start": 20.8,
+    "end": 24.3,
+    "text": "인기가 제일 좋은 배기로 되어 있는 차량이에요.",
+    "ko": "인기가 제일 좋은 배기로 되어 있는 차량이에요."
+   },
+   {
+    "start": 24.3,
+    "end": 26.8,
+    "text": "그래서 배기음도 제가 자세히 한번 들려드리면",
+    "ko": "그래서 배기음도 제가 자세히 한번 들려드리면"
+   },
+   {
+    "start": 26.8,
+    "end": 31.0,
+    "text": "마이크 터져도 제 탓 아닌 거죠 PD님?",
+    "ko": "마이크 터져도 제 탓 아닌 거죠 PD님?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "페라리 F8 스파이더 하드탑 오픈 시연 장면"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "외관 컬러 및 오렌지 실내 인테리어 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 13.0,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "IPE 튜닝 배기 시스템 장착 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.3,
+    "end": 35.0,
+    "speed": "빠름",
+    "summary": "배기음 측정을 위한 마이크 설치 및 풀영상 유도 티저"
+   }
+  ],
+  "rules": [
+   "상단과 하단에 고정 블랙 레터박스를 두고 상단엔 영상 주제, 하단엔 풀영상 채널 링크를 상시 노출",
+   "하드탑 오픈 작동 모습을 인트로 훅으로 사용하여 시선 집중 유도",
+   "핵심 튜닝 포인트인 IPE 배기 장착을 클로즈업 샷과 함께 강조",
+   "배기음을 직접 들려주는 직전에 영상을 끊어 본편 유입(클리프행어)을 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "feature": "하드탑 컨버터블 루프 오픈",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 21.0,
+    "feature": "IPE 가변 배기 튜닝",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "페라리 F8 스파이더의 하드탑이 전동으로 열리는 화려한 작동 메커니즘",
+   "type": "행동",
+   "text": "한국 1%만 경험한다는 페라리 F8 스파이더"
+  },
+  "narration_points": [
+   {
+    "t": 7.0,
+    "point": "외관 그레이 컬러와 대조되는 오렌지 컬러 실내 인테리어 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 16.0,
+    "point": "순정의 아쉬움을 보완한 가장 인기 높은 IPE 가변 배기 장착",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 32.5,
+   "text": "본영상에서",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "옵션 작동",
+    "외관 전면",
+    "실내 앞",
+    "사람",
+    "외관 후면"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상하단 블랙 바에 고정 폰트의 제목 및 채널 배너 레이아웃 유지"
+  }
+ }
+}

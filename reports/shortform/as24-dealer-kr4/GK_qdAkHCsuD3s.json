@@ -1,0 +1,562 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/qdAkHCsuD3s",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4092,
+  "candidatesTokenCount": 4371,
+  "totalTokenCount": 8463,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2832
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.9,
+   "aspect": "9:16",
+   "car": "맥라렌 720S 쿠페",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 2.4,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 7.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 14.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 29.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.9,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 31.9,
+    "text": "맥라렌720S 쿠페\n쿠페에 비해 큰 이유",
+    "ko": "맥라렌720S 쿠페 쿠페에 비해 큰 이유",
+    "kind": "제목",
+    "y_pct": 7.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 95.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "쿠페에 비해 큰 이유",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "근데 쿠페에 비해서 큰 거 같아",
+    "ko": "근데 쿠페에 비해서 큰 거 같아",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "그 이유가 있죠 쿠페인데",
+    "ko": "그 이유가 있죠 쿠페인데",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.2,
+    "text": "왜 기냐? 그게 엔진 때문이다",
+    "ko": "왜 기냐? 그게 엔진 때문이다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.4,
+    "text": "엔진이 뒤에 탑재가 되어 있기 때문에",
+    "ko": "엔진이 뒤에 탑재가 되어 있기 때문에",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.0,
+    "text": "그만큼 실린더 기준점으로 해서",
+    "ko": "그만큼 실린더 기준점으로 해서",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.8,
+    "text": "엔진이 더 커지고",
+    "ko": "엔진이 더 커지고",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 18.0,
+    "text": "여유 공간을 더 찾고 이 슈퍼카들",
+    "ko": "여유 공간을 더 찾고 이 슈퍼카들",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 53.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.1,
+    "end": 21.0,
+    "text": "맥라렌들 기준점에서는 720S가",
+    "ko": "맥라렌들 기준점에서는 720S가",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 54.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.1,
+    "end": 23.3,
+    "text": "여유 공간이 더 좋아요",
+    "ko": "여유 공간이 더 좋아요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 25.5,
+    "text": "진짜 슈퍼카 자태잖아",
+    "ko": "진짜 슈퍼카 자태잖아",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 27.5,
+    "text": "이 자태를 뽐낼 수 있는 거는",
+    "ko": "이 자태를 뽐낼 수 있는 거는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "text": "당연 720S 쿠페다",
+    "ko": "당연 720S 쿠페다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "쿵",
+    "event": "화면 클로즈업 줌인 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.4,
+    "type": "쿵",
+    "event": "화면 풀샷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "쿵",
+    "event": "화면 클로즈업 줌인 마무리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 31.9,
+    "what": "상단 타이틀 바 및 하단 채널 로고 '금기사TV'",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 92.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "근데 쿠페에 비해서 큰 거 같아.",
+    "ko": "근데 쿠페에 비해서 큰 거 같아."
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "그 이유가 있죠 쿠페인데",
+    "ko": "그 이유가 있죠 쿠페인데"
+   },
+   {
+    "start": 4.6,
+    "end": 7.2,
+    "text": "왜 기냐? 그게 엔진 때문이다.",
+    "ko": "왜 기냐? 그게 엔진 때문이다."
+   },
+   {
+    "start": 7.3,
+    "end": 10.4,
+    "text": "엔진이 뒤에 탑재가 되어 있기 때문에",
+    "ko": "엔진이 뒤에 탑재가 되어 있기 때문에"
+   },
+   {
+    "start": 10.5,
+    "end": 13.0,
+    "text": "그만큼 실린더 기준점으로 해서",
+    "ko": "그만큼 실린더 기준점으로 해서"
+   },
+   {
+    "start": 13.1,
+    "end": 14.8,
+    "text": "엔진이 더 커지고",
+    "ko": "엔진이 더 커지고"
+   },
+   {
+    "start": 14.9,
+    "end": 18.0,
+    "text": "그만큼 공간적인 거에서도 여기도 여유 공간을 더 찾고",
+    "ko": "그만큼 공간적인 거에서도 여기도 여유 공간을 더 찾고"
+   },
+   {
+    "start": 18.1,
+    "end": 23.3,
+    "text": "이 슈퍼카들 맥라렌들 기준점에서는 720S가 여유 공간이 더 좋아요.",
+    "ko": "이 슈퍼카들 맥라렌들 기준점에서는 720S가 여유 공간이 더 좋아요."
+   },
+   {
+    "start": 23.4,
+    "end": 25.5,
+    "text": "진짜 슈퍼카 자태잖아.",
+    "ko": "진짜 슈퍼카 자태잖아."
+   },
+   {
+    "start": 25.6,
+    "end": 29.8,
+    "text": "이 자태를 뽐낼 수 있는 거는 당연 720S 쿠페다.",
+    "ko": "이 자태를 뽐낼 수 있는 거는 당연 720S 쿠페다."
+   },
+   {
+    "start": 29.9,
+    "end": 31.9,
+    "text": "음.",
+    "ko": "음."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "맥라렌 720S 쿠페가 일반 쿠페에 비해 큰 이유 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.6,
+    "end": 23.3,
+    "speed": "보통",
+    "summary": "미드십 후방 엔진 구조와 실내 여유 공간 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 23.4,
+    "end": 31.9,
+    "speed": "보통",
+    "summary": "슈퍼카 고유의 자태와 720S 쿠페의 매력 강조"
+   }
+  ],
+  "rules": [
+   "상단에 검은색 배경에 노란색 강조가 들어간 2줄 박스형 제목 고정",
+   "하단에 검은색 배경의 채널 로고 띠를 고정 배치하여 일관된 프레임 유지",
+   "화면 확대 전환 시 쿵 하는 저음 타격 효과음 활용"
+  ],
+  "option_highlights": [
+   {
+    "start": 7.3,
+    "end": 13.0,
+    "feature": "미드십 리어 엔진 배치",
+    "shown_how": "말로만",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": null,
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 23.3,
+    "feature": "실내 공간성",
+    "shown_how": "말로만",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": null,
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "촬영자가 일반 쿠페에 비해 큰 것 같다고 질문하며 따봉 포즈를 취하는 출연자 클로즈업",
+   "type": "질문",
+   "text": "근데 쿠페에 비해서 큰 거 같아"
+  },
+  "narration_points": [
+   {
+    "t": 7.3,
+    "point": "엔진이 뒤쪽에 탑재되어 차체가 길어짐",
+    "category": "성능"
+   },
+   {
+    "t": 18.2,
+    "point": "다른 맥라렌 모델들에 비해 실내 여유 공간이 넓음",
+    "category": "공간"
+   },
+   {
+    "t": 23.4,
+    "point": "슈퍼카다운 멋진 자태를 완성하는 쿠페 디자인",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상하단 블랙 레터박스 틀 안에 노란색 포인트 타이틀과 하단 '금기사TV' 로고를 항상 배치함"
+  }
+ }
+}

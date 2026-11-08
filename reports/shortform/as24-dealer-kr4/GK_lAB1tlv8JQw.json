@@ -1,0 +1,252 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/lAB1tlv8JQw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2993,
+  "candidatesTokenCount": 1659,
+  "totalTokenCount": 5170,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1733
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 518,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.0,
+   "aspect": "9:16",
+   "car": "벤틀리 콘티넨탈 GT",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 3.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 4.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.1,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 10.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.8,
+    "part": "사람",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.0,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 4.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 긁히는 마찰음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 열리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "딸깍",
+    "event": "카드 결제 단말기 터치/출력 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "기타",
+    "event": "영수증 연속 출력 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "긴장감, 코믹, 허탈함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.8,
+    "end": 2.5,
+    "text": "아 좁네.. 천천히..",
+    "ko": "아 좁네.. 천천히.."
+   },
+   {
+    "start": 2.8,
+    "end": 3.8,
+    "text": "어? 아이참!",
+    "ko": "어? 아이참!"
+   },
+   {
+    "start": 10.8,
+    "end": 12.8,
+    "text": "아... 어떡하냐...",
+    "ko": "아... 어떡하냐..."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "보통",
+    "summary": "좁은 골목길을 아슬아슬하게 지나가다 결국 긁히는 벤틀리"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.9,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "차에서 내려 흠집을 확인하고 절망하는 운전자"
+   },
+   {
+    "stage": "가격",
+    "start": 12.8,
+    "end": 20.0,
+    "speed": "빠름",
+    "summary": "수리점 결제 단말기에서 끝없이 출력되는 영수증과 엄청난 수리비 공개"
+   }
+  ],
+  "rules": [
+   "대사를 최소화하고 상황음과 극단적 클로즈업으로 긴장감과 몰입감을 유도함",
+   "수입차 수리비의 극단적인 비용을 끝없이 나오는 영수증으로 유머러스하게 과장 연출함",
+   "자막 없이 현장 오디오와 화면 연기만으로 스토리를 전달하는 숏드라마 형식"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "골목길에 빽빽하게 주차된 차 사이를 아슬아슬하게 통과하려는 벤틀리의 초근접 장면",
+   "type": "행동",
+   "text": "아 좁네 천천히"
+  },
+  "narration_points": [
+   {
+    "t": 17.5,
+    "point": "작은 범퍼 흠집에도 수리비 478만 원 발생",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "기타",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 후면",
+    "외관 전면"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "브랜드 자막 틀 없이 영화적 앵글과 컷 전환 위주의 연출"
+  }
+ }
+}

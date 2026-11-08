@@ -1,0 +1,366 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/-Q2yvx8Om88",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4551,
+  "candidatesTokenCount": 3569,
+  "totalTokenCount": 9065,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3291
+   }
+  ],
+  "thoughtsTokenCount": 945,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 36.5,
+   "aspect": "9:16",
+   "car": "롤스로이스 컬리넌 / 롤스로이스 레이스 / 맥라렌 720S / 맥라렌 765LT",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 20.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 36.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 36.5,
+    "text": "화가 날 때는 돈이 많은지 생각할 것",
+    "ko": "화가 날 때는 돈이 많은지 생각할 것",
+    "kind": "제목",
+    "y_pct": 8.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "돈이 많은지",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 6.5,
+    "text": "롤스로이스 컬리넌\n- ₩ 540,000,000",
+    "ko": "롤스로이스 컬리넌 - ₩ 540,000,000",
+    "kind": "가격",
+    "y_pct": 56.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "540,000,000",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.0,
+    "text": "롤스로이스 레이스 블랙배지\n- ₩ 370,000,000",
+    "ko": "롤스로이스 레이스 블랙배지 - ₩ 370,000,000",
+    "kind": "가격",
+    "y_pct": 60.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 7.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "370,000,000",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "text": "맥라렌 720s 스파이더\n- ₩ 300,000,000",
+    "ko": "맥라렌 720s 스파이더 - ₩ 300,000,000",
+    "kind": "가격",
+    "y_pct": 56.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 7.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "300,000,000",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 27.5,
+    "text": "맥라렌 765LT 스파이더\n- ₩ 700,000,000",
+    "ko": "맥라렌 765LT 스파이더 - ₩ 700,000,000",
+    "kind": "가격",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "700,000,000",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.3,
+    "type": "쿵",
+    "event": "컬리넌 가격 자막 등장 및 동작 정지",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.7,
+    "type": "쿵",
+    "event": "레이스 문 닫으려다 멈추며 가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.4,
+    "type": "딸깍",
+    "event": "실내 도어 자동 닫힘 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "롤스로이스 자동문 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.7,
+    "type": "쿵",
+    "event": "720S 보닛 세게 닫으려다 멈추며 가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "딸깍",
+    "event": "720S 앞 트렁크 살포시 눌러 닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.0,
+    "type": "쿵",
+    "event": "765LT 후드 내리치려다 멈추며 가격 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "딸깍",
+    "event": "765LT 후드 조심스럽게 누르는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "기타",
+    "event": "안도하며 끝나는 코믹 효과음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "코믹/힙합 비트",
+   "bpm_est": 110,
+   "mood": "긴장감 넘치고 익살스러운",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.5,
+    "speed": "빠름",
+    "summary": "롤스로이스 엠블럼을 내리치려다 5.4억 가격 보고 조심스러워짐"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.5,
+    "end": 14.7,
+    "speed": "보통",
+    "summary": "롤스로이스 레이스 문 쾅 닫으려다 3.7억 보고 전동 버튼 사용"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.7,
+    "end": 20.6,
+    "speed": "보통",
+    "summary": "맥라렌 720S 프렁크 세게 닫으려다 3억 보고 조심스럽게 체결"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 20.6,
+    "end": 36.5,
+    "speed": "느림",
+    "summary": "맥라렌 765LT 7억 후드를 극도로 조심스럽게 닫고 안도"
+   }
+  ],
+  "rules": [
+   "고가 슈퍼카/럭셔리카의 부품을 거칠게 다루려다 비싼 차량 가격표가 뜨며 멈칫하는 코믹 상황극 구조 반복",
+   "상단에 일관된 텍스트 바('화가 날 때는 돈이 많은지 생각할 것')를 고정 노출하여 쇼츠 컨셉 각인",
+   "가격이 팝업될 때 묵직한 타격음 SFX를 넣어 시각과 청각을 동기화",
+   "문이나 보닛을 쾅 닫지 않고 슈퍼카 매뉴얼대로 살포시 눌러 닫는 현실적인 디테일을 코믹하게 표현"
+  ],
+  "option_highlights": [
+   {
+    "start": 1.0,
+    "end": 7.0,
+    "feature": "스피릿 오브 엑스터시 전동 수납 기능",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.7,
+    "feature": "롤스로이스 자동 도어 클로징 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 45.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "스마트키로 롤스로이스 환희의 여신상을 접은 뒤 주먹으로 내리치려는 돌발 행동",
+   "type": "행동",
+   "text": "화가 날 때는 돈이 많은지 생각할 것"
+  },
+  "narration_points": [
+   {
+    "t": 3.5,
+    "point": "롤스로이스 컬리넌 5억 4천만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 9.8,
+    "point": "롤스로이스 레이스 블랙배지 3억 7천만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 16.8,
+    "point": "맥라렌 720s 스파이더 3억 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 23.2,
+    "point": "맥라렌 765LT 스파이더 7억 원",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 4.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "옵션 작동",
+    "외관 전면",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 검은색 바탕 흰/노랑 텍스트 바와 붉은색 강렬한 가격 폰트 스타일 유지"
+  }
+ }
+}

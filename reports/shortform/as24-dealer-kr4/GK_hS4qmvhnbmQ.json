@@ -1,0 +1,514 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/hS4qmvhnbmQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3733,
+  "candidatesTokenCount": 5052,
+  "totalTokenCount": 9406,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2473
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 621,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.4,
+   "aspect": "9:16",
+   "car": "제네시스 G80, 기아 K8, 포르쉐",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 16.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 27.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 27.4,
+    "text": "대한민국 검사가\n포르쉐 말고 제네시스 타는 이유",
+    "ko": "대한민국 검사가 포르쉐 말고 제네시스 타는 이유",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "포르쉐 말고 제네시스",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "text": "사실은 공직 분들은 눈치가 많이 보이지",
+    "ko": "사실은 공직 분들은 눈치가 많이 보이지",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 4.1,
+    "text": "정확히 얘기하면 검찰은 엄청 심해",
+    "ko": "정확히 얘기하면 검찰은 엄청 심해",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.0,
+    "text": "그때 이제 검사님들이랑 얘기할 때는",
+    "ko": "그때 이제 검사님들이랑 얘기할 때는",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.3,
+    "text": "일단 대한민국 검사는 외제차를 타지 않는다",
+    "ko": "일단 대한민국 검사는 외제차를 타지 않는다",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 10.1,
+    "text": "그리고 또 검사장님 의전차량이",
+    "ko": "그리고 또 검사장님 의전차량이",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.5,
+    "text": "K8이기 때문에",
+    "ko": "K8이기 때문에",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "text": "그것보다 좋은거 타는거 눈치가 보이고",
+    "ko": "그것보다 좋은거 타는거 눈치가 보이고",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.3,
+    "text": "조금 괜찮다 싶으면 G80?",
+    "ko": "조금 괜찮다 싶으면 G80?",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.5,
+    "text": "거기까지는 좀 괜찮은 분위기",
+    "ko": "거기까지는 좀 괜찮은 분위기",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.1,
+    "text": "웃긴게 본인은",
+    "ko": "웃긴게 본인은",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 21.6,
+    "text": "그랜저나 뭐 G80을 타시는데",
+    "ko": "그랜저나 뭐 G80을 타시는데",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.6,
+    "text": "사모님들이 막 이렇게 팔치고",
+    "ko": "사모님들이 막 이렇게 팔치고",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 24.8,
+    "text": "이런 차를 타거나",
+    "ko": "이런 차를 타거나",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.4,
+    "text": "이렇게 타는 차를 타고 오시는 경우는 종종 있지",
+    "ko": "이렇게 타는 차를 타고 오시는 경우는 종종 있지",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 22.1,
+    "type": "딸깍",
+    "event": "하단 구독 버튼 클릭 애니메이션 동작",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "로파이 비트",
+   "bpm_est": 85,
+   "mood": "차분함/토크 배경음악",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 21.6,
+    "what": "인스타그램 팔로우/채널 배너 (gold_jongsun)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 73.0,
+    "entrance": "바로",
+    "purpose": "SNS 홍보",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 27.4,
+    "what": "유튜브 구독/좋아요/알림설정 버튼 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 50.0,
+    "y_pct": 73.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구독 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "text": "사실은 공직 분들은 눈치가 많이 보이지",
+    "ko": "사실은 공직 분들은 눈치가 많이 보이지"
+   },
+   {
+    "start": 2.3,
+    "end": 4.1,
+    "text": "정확히 얘기하면 검찰은 엄청 심해",
+    "ko": "정확히 얘기하면 검찰은 엄청 심해"
+   },
+   {
+    "start": 4.1,
+    "end": 6.0,
+    "text": "그때 이제 검사님들이랑 얘기할 때는",
+    "ko": "그때 이제 검사님들이랑 얘기할 때는"
+   },
+   {
+    "start": 6.0,
+    "end": 8.3,
+    "text": "일단 대한민국 검사는 외제차를 타지 않는다",
+    "ko": "일단 대한민국 검사는 외제차를 타지 않는다"
+   },
+   {
+    "start": 8.3,
+    "end": 11.5,
+    "text": "그리고 또 검사장님 의전차량이 K8이기 때문에",
+    "ko": "그리고 또 검사장님 의전차량이 K8이기 때문에"
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "text": "그것보다 좋은거 타는거 눈치가 보이고",
+    "ko": "그것보다 좋은거 타는거 눈치가 보이고"
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "text": "조금 괜찮다 싶으면 G80? 거기까지는 좀 괜찮은 분위기",
+    "ko": "조금 괜찮다 싶으면 G80? 거기까지는 좀 괜찮은 분위기"
+   },
+   {
+    "start": 17.5,
+    "end": 21.6,
+    "text": "웃긴게 본인은 그랜저나 뭐 G80을 타시는데",
+    "ko": "웃긴게 본인은 그랜저나 뭐 G80을 타시는데"
+   },
+   {
+    "start": 21.6,
+    "end": 27.4,
+    "text": "사모님들이 막 이렇게 팔치고 이런 차를 타거나 이렇게 타는 차를 타고 오시는 경우는 종종 있지",
+    "ko": "사모님들이 막 이렇게 팔치고 이런 차를 타거나 이렇게 타는 차를 타고 오시는 경우는 종종 있지"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "보통",
+    "summary": "공직자 및 검찰 조직 내 차량 눈치 문화 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 4.1,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "검사장 의전차량(K8) 기준과 제네시스 G80 한계선 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 17.5,
+    "end": 27.4,
+    "speed": "보통",
+    "summary": "본인은 국산차를 타지만 배우자는 스포츠카를 타는 반전 썰 공유"
+   }
+  ],
+  "rules": [
+   "상단에 강렬한 호기심 유발 질문형 타이틀을 고정 노출",
+   "화면 하단에 화자 이름표와 말풍선 형태의 단색 자막 배치",
+   "화자 1인 클로즈업과 2인 대담 구도를 번갈아 교차 편집",
+   "영상 후반부에 구독 및 좋아요 전환 애니메이션 삽입"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "상단 텍스트 '대한민국 검사가 포르쉐 말고 제네시스 타는 이유'와 함께 검찰의 엄격한 눈치 문화를 언급",
+   "type": "질문",
+   "text": "대한민국 검사가 포르쉐 말고 제네시스 타는 이유"
+  },
+  "narration_points": [
+   {
+    "t": 6.5,
+    "point": "대한민국 검사는 외제차를 타지 않는 불문율이 있음",
+    "category": "상태·이력"
+   },
+   {
+    "t": 9.5,
+    "point": "검사장 의전차량이 기아 K8이라 그 이상 차급은 눈치 보임",
+    "category": "상태·이력"
+   },
+   {
+    "t": 14.5,
+    "point": "허용 가능한 마지노선 차량은 제네시스 G80",
+    "category": "상태·이력"
+   },
+   {
+    "t": 23.5,
+    "point": "검사 본인은 국산차를 타도 사모님은 스포츠카나 오픈카를 타고 오는 사례가 있음",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 1.0
+  },
+  "cta": {
+   "t": 22.1,
+   "text": "SUBSCRIBE / 좋아요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "기타",
+   "part_order": [
+    "사람"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 블랙박스 헤드라인과 하단 유튜브-금기사TV 브랜딩 바 고정"
+  }
+ }
+}

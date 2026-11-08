@@ -1,0 +1,388 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/eSnl3qRyKBQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6360,
+  "candidatesTokenCount": 3160,
+  "totalTokenCount": 10014,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5100
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 494,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 56.6,
+   "aspect": "9:16",
+   "car": "포르쉐 파나메라 GTS",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 9.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 20.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 29.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 38.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 44.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.9,
+    "end": 48.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 52.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.9,
+    "end": 56.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 56.6,
+    "text": "파나메라 GTS\n만땅 얼마일까?",
+    "ko": "파나메라 GTS\n만땅 얼마일까?",
+    "kind": "제목",
+    "y_pct": 10.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "만땅 얼마일까?",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "와 고급 휘발유 2,400원 시대로 보는구만",
+    "ko": "와 고급 휘발유 2,400원 시대로 보는구만",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.7,
+    "text": "고급 휘발유 62리터, 15만 원",
+    "ko": "고급 휘발유 62리터, 15만 원",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.7,
+    "text": "15만 원을 넣어도 만땅이 안 됩니다",
+    "ko": "15만 원을 넣어도 만땅이 안 됩니다",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "기타",
+   "bpm_est": null,
+   "mood": "잔잔한 배경음",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 56.6,
+    "what": "하단 채널 로고 금기사TV",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 89.0,
+    "entrance": "바로",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "와 고급 휘발유 2,400원 시대로 보는구만",
+    "ko": "와 고급 휘발유 2,400원 시대로 보는구만"
+   },
+   {
+    "start": 2.5,
+    "end": 9.5,
+    "text": "우선은 지금 진짜 아예 키로수도 안 찍히는 완전 말 그대로 엥꼬라고 하죠. 진짜 완전 그 상태입니다 지금.",
+    "ko": "우선은 지금 진짜 아예 키로수도 안 찍히는 완전 말 그대로 엥꼬라고 하죠. 진짜 완전 그 상태입니다 지금."
+   },
+   {
+    "start": 9.6,
+    "end": 12.8,
+    "text": "기름 얼마나 넣으실 거예요? 만땅 그래도 만땅 넣어야죠.",
+    "ko": "기름 얼마나 넣으실 거예요? 만땅 그래도 만땅 넣어야죠."
+   },
+   {
+    "start": 13.0,
+    "end": 19.5,
+    "text": "15만 원 넣는데 15만 원으로 다 채워지는지도 한번 보겠습니다. 저는 안 채워진다에 제 손목 걸겠습니다.",
+    "ko": "15만 원 넣는데 15만 원으로 다 채워지는지도 한번 보겠습니다. 저는 안 채워진다에 제 손목 걸겠습니다."
+   },
+   {
+    "start": 20.7,
+    "end": 28.5,
+    "text": "네 여러분, 과연 이 파나메라 4.0 GTS 15만 원으로 만땅을 넣을 수가 있을까? 저는 안 된다에 한 표입니다.",
+    "ko": "네 여러분, 과연 이 파나메라 4.0 GTS 15만 원으로 만땅을 넣을 수가 있을까? 저는 안 된다에 한 표입니다."
+   },
+   {
+    "start": 30.0,
+    "end": 32.7,
+    "text": "고급 휘발유 62리터, 15만 원.",
+    "ko": "고급 휘발유 62리터, 15만 원."
+   },
+   {
+    "start": 33.0,
+    "end": 37.5,
+    "text": "이게 지금 연료탱크가 몇 리터지? 연료탱크는 한번 확인을 해봐야 돼요.",
+    "ko": "이게 지금 연료탱크가 몇 리터지? 연료탱크는 한번 확인을 해봐야 돼요."
+   },
+   {
+    "start": 38.8,
+    "end": 44.5,
+    "text": "잠깐만, 연료탱크 용량이 90리터라는데? 15만 원 넣었는데 아직 많이 남았는데?",
+    "ko": "잠깐만, 연료탱크 용량이 90리터라는데? 15만 원 넣었는데 아직 많이 남았는데?"
+   },
+   {
+    "start": 46.0,
+    "end": 52.8,
+    "text": "와, 15만 원을 넣어도 만땅이 안 됩니다. 아직도 많이 남았네. 거의 한 두 칸 정도 차이가 나는 것 같은데?",
+    "ko": "와, 15만 원을 넣어도 만땅이 안 됩니다. 아직도 많이 남았네. 거의 한 두 칸 정도 차이가 나는 것 같은데?"
+   },
+   {
+    "start": 53.0,
+    "end": 56.6,
+    "text": "와 진짜 이거 어마무시하네 이거.",
+    "ko": "와 진짜 이거 어마무시하네 이거."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "연료 바닥 상태에서 주유소 진입 및 주제 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 9.5,
+    "end": 20.7,
+    "speed": "보통",
+    "summary": "15만 원으로 가득 찰지 내기 제안"
+   },
+   {
+    "stage": "기능",
+    "start": 20.7,
+    "end": 38.6,
+    "speed": "보통",
+    "summary": "주유 진행 및 15만 원(62L) 주유 영수증 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 38.6,
+    "end": 56.6,
+    "speed": "보통",
+    "summary": "연료탱크 90L 스펙 확인 및 계기판 잔여량 확인 후 리액션"
+   }
+  ],
+  "rules": [
+   "상단에 굵은 고딕체로 주제를 상시 노출하여 시청 지속을 유도함",
+   "하단 중앙에 검정 반투명 바 형태의 자막 박스를 일관되게 적용함",
+   "실험/챌린지 형태의 대화 구성을 통해 궁금증을 유발하고 계기판으로 결과를 보여줌"
+  ],
+  "option_highlights": [
+   {
+    "start": 48.7,
+    "end": 52.9,
+    "feature": "계기판 연료 게이지",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "차량 실내 주행 뷰와 함께 고급유 가격을 언급하며 주유소 진입",
+   "type": "질문",
+   "text": "파나메라 GTS 만땅 얼마일까?"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "고급 휘발유 리터당 2,400원 시대",
+    "category": "가격·조건"
+   },
+   {
+    "t": 13.5,
+    "point": "완전 바닥 상태에서 15만 원 주유 시 만땅 도달 여부 테스트",
+    "category": "성능"
+   },
+   {
+    "t": 30.5,
+    "point": "고급유 15만 원 주유 시 62리터 주입됨",
+    "category": "가격·조건"
+   },
+   {
+    "t": 40.0,
+    "point": "파나메라 GTS 연료탱크 용량은 90리터",
+    "category": "성능"
+   },
+   {
+    "t": 47.0,
+    "point": "15만 원을 넣어도 계기판 상 2칸 정도 부족하여 만땅 불가",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "딜러",
+   "part_order": [
+    "실내 앞",
+    "센터 화면",
+    "외관 후면",
+    "외관 측면",
+    "계기판"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 타이틀과 하단 금기사TV 로고 워터마크가 영상 내내 고정됨"
+  }
+ }
+}

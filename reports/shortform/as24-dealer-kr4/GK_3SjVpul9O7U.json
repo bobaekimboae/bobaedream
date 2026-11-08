@@ -1,0 +1,630 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/3SjVpul9O7U",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4354,
+  "candidatesTokenCount": 5065,
+  "totalTokenCount": 9419,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3094
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.4,
+   "aspect": "9:16",
+   "car": "슈퍼카 일반 (페라리/람보르기니 등)",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 26.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 33.4,
+    "text": "5천만원 슈퍼카\n구매하면 손해인 이유",
+    "ko": "5천만원 슈퍼카 구매하면 손해인 이유",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "5천만원 슈퍼카",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "text": "5천만원 있기가 있어요",
+    "ko": "5천만원 있기가 있어요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 2.5,
+    "text": "유튜브 느낌으로다가 일단 설명을 해 줄게요",
+    "ko": "유튜브 느낌으로다가 일단 설명을 해 줄게요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "진짜 사면 안 돼...",
+    "ko": "진짜 사면 안 돼...",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.5,
+    "text": "(ㅋㅋㅋㅋㅋ)",
+    "ko": "(ㅋㅋㅋㅋㅋ)",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.8,
+    "text": "왜 추천하지 않냐면",
+    "ko": "왜 추천하지 않냐면",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 8.5,
+    "text": "유지 보수에 관련된 이제 비용들이",
+    "ko": "유지 보수에 관련된 이제 비용들이",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.9,
+    "text": "본인들이 감당을 해야 됩니다",
+    "ko": "본인들이 감당을 해야 됩니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "앉아 보기만 할 거면",
+    "ko": "앉아 보기만 할 거면",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.0,
+    "text": "아 이거 이제 이렇게만 타야지",
+    "ko": "아 이거 이제 이렇게만 타야지",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "사실상 장식품",
+    "ko": "사실상 장식품",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.7,
+    "text": "근데 그걸 타고 운행하면서",
+    "ko": "근데 그걸 타고 운행하면서",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "text": "이렇게 해서 관리한다 생각을 한다고 하면",
+    "ko": "이렇게 해서 관리한다 생각을 한다고 하면",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "text": "아 쉽지 않아요",
+    "ko": "아 쉽지 않아요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.5,
+    "text": "일단 단종 모델들일 거고",
+    "ko": "일단 단종 모델들일 거고",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.8,
+    "text": "5천만원대이기 때문에",
+    "ko": "5천만원대이기 때문에",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "text": "신형 모델은 전혀 그렇게 나올 수가 없어요",
+    "ko": "신형 모델은 전혀 그렇게 나올 수가 없어요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "text": "악마의 유혹",
+    "ko": "악마의 유혹",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FF3333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.5,
+    "text": "5천만원 선입금에 나머지 풀 리스",
+    "ko": "5천만원 선입금에 나머지 풀 리스",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.0,
+    "text": "그렇게 하는 건 절대 그렇게 하면 안 되고요",
+    "ko": "그렇게 하는 건 절대 그렇게 하면 안 되고요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 15.0,
+    "type": "쿵",
+    "event": "사실상 장식품 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "쿵",
+    "event": "악마의 유혹 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "배경음악 비트",
+   "bpm_est": 110,
+   "mood": "유쾌함/토크형",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 33.4,
+    "what": "하단 채널 로고 '금기사TV'",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 85.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "5천만원 있기가 있어요. 유튜브 느낌으로다가 일단 설명을 해 줄게요. 진짜 사면 안 돼요.",
+    "ko": "5천만원 있기가 있어요. 유튜브 느낌으로다가 일단 설명을 해 줄게요. 진짜 사면 안 돼요."
+   },
+   {
+    "start": 4.5,
+    "end": 10.9,
+    "text": "왜 추천하지 않냐면 유지 보수에 관련된 이제 비용들이 본인들이 감당을 해야 됩니다.",
+    "ko": "왜 추천하지 않냐면 유지 보수에 관련된 이제 비용들이 본인들이 감당을 해야 됩니다."
+   },
+   {
+    "start": 10.9,
+    "end": 16.5,
+    "text": "그걸 감당을 한다 그냥 슈퍼카 딱 세워놓고 앉아 보기만 할 거면 집에 딱 세워놓고 아 이거 이렇게만 타야지 하면 사실상 장식품",
+    "ko": "그걸 감당을 한다 그냥 슈퍼카 딱 세워놓고 앉아 보기만 할 거면 집에 딱 세워놓고 아 이거 이렇게만 타야지 하면 사실상 장식품"
+   },
+   {
+    "start": 16.5,
+    "end": 26.5,
+    "text": "그냥 탈 수 있죠. 근데 그걸 타고 운행하면서 이렇게 해서 관리한다 생각한다 하면 아 쉽지 않아요. 일단 단종 모델들일 거고 5천만원대이기 때문에 신형 모델은 전혀 그렇게 나올 수가 없어요.",
+    "ko": "그냥 탈 수 있죠. 근데 그걸 타고 운행하면서 이렇게 해서 관리한다 생각한다 하면 아 쉽지 않아요. 일단 단종 모델들일 거고 5천만원대이기 때문에 신형 모델은 전혀 그렇게 나올 수가 없어요."
+   },
+   {
+    "start": 26.5,
+    "end": 33.4,
+    "text": "가능하다면 용기와 캐피탈 느낌으로 다가 5천만원 선입금에 나머지 풀 리스... 그렇게 하는 건 절대 그렇게 하면 안 되고요.",
+    "ko": "가능하다면 용기와 캐피탈 느낌으로 다가 5천만원 선입금에 나머지 풀 리스... 그렇게 하는 건 절대 그렇게 하면 안 되고요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "5천만원대 슈퍼카 사면 안 되는 이유 화두 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 26.5,
+    "speed": "보통",
+    "summary": "유지비 감당 불가 및 단종 모델 등의 현실적 문제 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 26.5,
+    "end": 33.4,
+    "speed": "보통",
+    "summary": "선입금+풀리스 유혹에 대한 경고"
+   }
+  ],
+  "rules": [
+   "상단에 일관된 옐로우/화이트 투톤 볼드 제목 텍스트 고정",
+   "화면 하단 채널 시그니처 로고(금기사TV) 항시 노출",
+   "말의 포인트가 되는 타이밍에 굵고 강렬한 키워드 스티커와 임팩트 효과음 매칭",
+   "인터뷰 앵글 2개(정면/측면)를 컷 전환하여 지루함 탈피"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "5천만원 슈퍼카 구매하면 손해인 이유 제목과 함께 '진짜 사면 안 돼요' 발언",
+   "type": "질문",
+   "text": "5천만원 슈퍼카 구매하면 손해인 이유"
+  },
+  "narration_points": [
+   {
+    "t": 6.5,
+    "point": "유지보수 비용 감당 어려움",
+    "category": "가격·조건"
+   },
+   {
+    "t": 15.0,
+    "point": "운행하지 않고 세워만 두면 사실상 장식품에 불과",
+    "category": "상태·이력"
+   },
+   {
+    "t": 22.5,
+    "point": "5천만원대 슈퍼카는 구형 단종 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 27.5,
+    "point": "선납금 5천에 풀리스 구매는 절대 금지",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "금기사TV"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "사람"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 노란색/흰색 메인 헤드라인 및 하단 금기사TV 로고 고정"
+  }
+ }
+}
