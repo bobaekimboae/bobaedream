@@ -168,7 +168,73 @@ def build_voice():
 
 
 # ── 2. 배경음악(코드로 만든 박자 → 저작권 문제 없음) ──
+SFX_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'public', 'assets', 'shortform', 'sfx')
+
+
+def _load_sfx(name, sr=48000):
+    import wave
+    with wave.open(os.path.join(SFX_DIR, name + '.wav')) as w:
+        return np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(float) / 32767
+
+
+def build_sfx_pack(total, sr=48000):
+    """효과음 팩 v1(2026-11-08, 오토스카우트24 쇼츠 분석 반영 · 규격화·절제):
+    - 키워드·숫자 스티커가 튀어나올 때마다 「톡」 1번(오토스카우트24 효과음의 64%, 때의 57%가 스티커 등장)
+    - 가격 스티커는 「톡」 대신 맑은 「띵」(계산대 소리·충격음은 쓰지 않음)
+    - 첫 화면 제목과 끝 명함이 나타날 때 「톡」
+    - 부위가 바뀌는 첫 컷에만 「휙」, 0.5초 안에 스티커 소리가 있으면 생략(소리 겹침 금지)
+    - 말 자막에는 넣지 않음. 크기는 모두 목소리보다 약간 작게(오토스카우트24 '보통' 87%)
+    효과음 파일은 일레븐랩스 효과음 생성으로 만든 자체 소리(public/assets/shortform/sfx). 다른 앱 효과음 파일은 쓰지 않는다"""
+    n = int(total * sr) + sr
+    out = np.zeros(n)
+    g = STYLE.get('sfx_gain', {})
+    snd = {k: _load_sfx(k) * g.get(k, d) for k, d in (('pop', .55), ('whoosh', .32), ('ding', .6), ('click', .4))}
+    hits = []
+
+    def put(t, name):
+        st = int(t * sr)
+        x = snd[name]
+        if 0 <= st < n:
+            m = min(len(x), n - st)
+            out[st:st + m] += x[:m]
+            hits.append((t, name))
+
+    put(0.05, 'pop')  # 첫 화면 제목
+    for b in BLOCKS:
+        for txt, pidx in b.get('stickers', []):
+            t = PHRASES[b['ph0'] + pidx][0] + 0.1
+            put(t, 'ding' if '만원' in txt else 'pop')
+    pops = [t for t, _ in hits]
+    prev = None
+    for bi, b in enumerate(BLOCKS):
+        if bi and b['sec'] != prev:
+            c = PHRASES[b['ph0']][0] - 0.18
+            if all(abs(c - t) > 0.5 for t in pops):
+                put(c, 'whoosh')
+        prev = b['sec']
+    put(BLOCKS[-1]['t1'] + 0.35, 'pop')  # 끝 명함
+    import wave
+    sting = globals().get('STING') or os.environ.get('SAG_STING')  # 블록 sting=True: 코드로 만든 짧은 주제 효과음
+    if sting and os.path.exists(sting):
+        with wave.open(sting) as w:
+            x = np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(float) / 32767
+            if w.getnchannels() == 2:
+                x = x.reshape(-1, 2).mean(1)
+        for b in BLOCKS:
+            if b.get('sting'):
+                st = max(0, int((b['t0'] - 0.15) * sr))
+                m = min(len(x), n - st)
+                out[st:st + m] += x[:m] * 0.6 / max(.01, STYLE.get('sfx_bus', .22) / .22)
+    out = np.clip(out, -1, 1)
+    st2 = (np.stack([out, out], 1) * 32767).astype(np.int16)
+    with wave.open(os.path.join(OUT, 'sfx.wav'), 'wb') as w:
+        w.setnchannels(2); w.setsampwidth(2); w.setframerate(sr); w.writeframes(st2.tobytes())
+    json.dump(hits, open(os.path.join(OUT, 'sfx_hits.json'), 'w'))
+
+
 def build_sfx(total, sr=48000):
+    if STYLE.get('sfx_pack'):
+        return build_sfx_pack(total, sr)
     """부위(섹션)가 바뀌는 컷에만 짧은 휙 소리. 컷마다 넣으면 산만하다는 편집 가이드에 따라 섹션 전환에만"""
     n = int(total * sr) + sr
     out = np.zeros(n)
@@ -491,11 +557,39 @@ def spec_card(a, b):
     return im
 
 
+ART_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'public', 'assets', 'shortform', 'sticker-art')
+
+
 def sticker(txt, size=72, tilt=-2.0, big=False):
+    """칠 스티커 + (MARKS 값이 .png 이면) 칠 오른쪽 끝에 걸친 그림 스티커.
+    그림 스티커는 보배드림이 만든 자체 그림(public/assets/shortform/sticker-art/)만 쓴다. 다른 앱(캡컷 등) 스티커 파일은 쓰지 않음"""
+    mark = globals().get('MARKS', {}).get(txt)
+    if not (isinstance(mark, str) and mark.endswith('.png')):
+        return _sticker_core(txt, size, tilt, big)
+    k = ('art', txt, size, tilt, big)
+    if k in _cache:
+        return _cache[k]
+    base = _sticker_core(txt, size, tilt, big, no_mark=True)
+    art = Image.open(os.path.join(ART_DIR, mark)).convert('RGBA')
+    ah = int(base.height * 1.12)  # 칠보다 조금 크게, 오른쪽 끝에 반쯤 걸치게(오토스카우트24 그림 스티커 배치)
+    art = art.resize((int(art.width * ah / art.height), ah), Image.LANCZOS).rotate(-tilt * 2.5, resample=Image.BICUBIC, expand=True)
+    ox = int(base.width - art.width * 0.42)
+    oy = int(base.height * 0.5 - art.height * 0.62)
+    W2, H2 = max(base.width, ox + art.width), base.height + max(0, -oy)
+    out = Image.new('RGBA', (W2, H2), (0, 0, 0, 0))
+    out.alpha_composite(base, (0, max(0, -oy)))
+    out.alpha_composite(art, (ox, max(0, oy)))
+    out.info['anchor_w'] = base.width  # 가운데 맞춤은 칠 기준
+    out.info['anchor_dy'] = max(0, -oy)
+    _cache[k] = out
+    return out
+
+
+def _sticker_core(txt, size=72, tilt=-2.0, big=False, no_mark=False):
     """키워드 스티커. 오토스카우트24 스티커를 확대해 본 칠 방식 그대로: 안은 단색으로 꽉 채우고(무늬·투명 없음),
     위·아래 가장자리는 잔물결, 양 끝은 붓이 끊긴 듯 들쭉날쭉, 한쪽 끝이 조금 더 높은 사다리꼴, 2~3도 기울임.
     글자는 굵기 Bold(ExtraBold보다 한 단계 가늘게), 상자 높이 = 글자 높이의 약 2.1배. 색만 보배드림 파랑 + 흰 글자"""
-    k = ('sticker', txt, size, tilt, big)
+    k = ('sticker', txt, size, tilt, big, no_mark)
     if k in _cache:
         return _cache[k]
     import math
@@ -506,7 +600,7 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     bb = fnt.getbbox(txt)
     tw, cap = bb[2] - bb[0], size * 0.74
     # 포인트 표시(MARKS, 설정 파일): '✓' = 글자 뒤 흰 체크(오토스카우트24 네덜란드식), 그 밖 = 색 이모지를 칠 오른쪽 끝에 걸치게
-    mark = globals().get('MARKS', {}).get(txt)
+    mark = None if no_mark else globals().get('MARKS', {}).get(txt)
     chk = cap * 0.95 if mark == '✓' else 0
     badge = cap * 1.42 if (mark and mark != '✓') else 0  # 이모지는 칠 안, 글자 뒤 흰 원 위에(파란 이모지도 보이게)
     tw_all = tw + (chk + cap * 0.42 if chk else 0) + (badge + cap * 0.38 if badge else 0)
@@ -515,7 +609,7 @@ def sticker(txt, size=72, tilt=-2.0, big=False):
     w, h = int(tw_all + px * 2), int(cap * hr)
     mw = STYLE.get('stk_maxw') and (min(.86, STYLE['stk_maxw'] + .16) if big else STYLE['stk_maxw'])
     if mw and w > W * mw and size > 40:  # 긴 이름은 글자를 줄여 가장자리·오른쪽 버튼 줄을 비움(큰 숫자는 86%까지)
-        return sticker(txt, int(size * W * mw / w), tilt, big)
+        return _sticker_core(txt, int(size * W * mw / w), tilt, big, no_mark)
     if not big and STYLE.get('stk_minw'):  # 오토스카우트24: 짧은 낱말도 칠은 화면 폭 절반가량(「Carbon」 55%)
         w = max(w, int(W * STYLE['stk_minw']))
     m = 30
@@ -663,6 +757,56 @@ def build_phrases():
         ph[1] = min(end, ph[0] + 7.0)
 
 
+CAP_BRIGHT = 0.0  # 자막 자리(y 1050~1220) 화면 평균 밝기 0~1, 그리기 직전에 잼
+
+
+def cap_keyword(text, blk):
+    """v1.2 강조어 1개: 숫자가 든 낱말 → 이 블록 스티커와 겹치는 낱말 → 없음"""
+    ws = text.strip(' ,.').split(' ')
+    for i, w in enumerate(ws):
+        if re.search(r'\d', w):
+            return i
+    keys = [re.sub(r'[^0-9A-Za-z가-힣]', '', k) for s, _ in blk.get('stickers', []) for k in s.split()]
+    for i, w in enumerate(ws):
+        n = re.sub(r'[^0-9A-Za-z가-힣]', '', w)
+        if len(n) >= 2 and any(n[:max(2, len(n) - 1)] in k or k in n for k in keys if len(k) >= 2):
+            return i
+    return -1
+
+
+def phrase_img_v12(text, kw=-1, boxed=False):
+    """규격 v1.2(노션 5-1·5-2): Pretendard ExtraBold 60 · 흰 글자 + 검정 외곽선 · 최대 2줄 · 강조어 1개 #FFD56A ·
+    자막 자리가 밝으면(평균 0.7 이상) 그 자막만 반투명 검정 상자"""
+    k = ('v12', text, kw, boxed)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(BLACK, 60)
+    text = text.strip(' ,.')
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 60 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    gap = fnt.getlength(' ')
+    lh, pad_x, pad_y = 78, 26, 10
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + pad_x * 2), lh * len(lines) + pad_y * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    if boxed:
+        d.rounded_rectangle((0, 0, im.width - 1, im.height - 1), 14, fill=(0, 0, 0, 150))
+    wi = 0
+    for li, line in enumerate(lines):
+        x = (im.width - fnt.getlength(line)) / 2
+        y = pad_y + lh * li + lh / 2
+        for w in line.split(' '):
+            col = (255, 213, 106) if wi == kw else (255, 255, 255)
+            d.text((x, y), w, font=fnt, fill=col, anchor='lm', stroke_width=0 if boxed else 6, stroke_fill=(0, 0, 0))
+            wi += 1
+            x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
 def phrase_img(text, act=-1):
     """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(세이프존 폭 810px을 넘으면 가운데 띄어쓰기에서 2줄)
     · 줄 높이 화면의 약 4.2% · 화면 아래 데드존(하단 약 450px)과 오른쪽 버튼 줄을 피한 고정 위치 · 문장부호 없음 · 숫자만 노랑"""
@@ -740,16 +884,17 @@ def overlay(T, total, shots, shot, blk):
             paste(ov, im, x, STYLE.get('price_y', STYLE['big_y']), out)  # 오토스카우트24: 가격은 화면 위쪽 30% 근처
             continue
         e = back(k / .28)
+        aw, ady = im.info.get('anchor_w', im.width), im.info.get('anchor_dy', 0)  # 그림 스티커가 붙어도 칠 기준으로 맞춤
         if big:
-            x, y = (W - im.width) / 2, STYLE['big_y']
+            x, y = (W - aw) / 2, STYLE['big_y'] - ady
         else:
             if STYLE.get('feat_pos') == 'as24':
                 # 오토스카우트24: 화면 가운데 근처(칠 중심 44~56%)에 두고 가장자리와 오른쪽 버튼 줄을 비움
                 cx = W * (.44, .5, .56)[(bi + si) % 3]
-                x = min(max(cx - im.width / 2, 72), W - 200 - im.width) if im.width < W - 272 else (W - im.width) / 2
+                x = min(max(cx - aw / 2, 72), W - 200 - im.width) if im.width < W - 272 else (W - aw) / 2
             else:
                 x = [SAFE_L, SAFE_R - im.width, STYLE.get('cap_cx', SAFE_CX) - im.width / 2][(bi + si) % 3]
-            y = STYLE['feat_y']
+            y = STYLE['feat_y'] - ady
         sc = max(.05, e)
         px_ = x + im.width * (1 - sc) / 2
         if STYLE.get('feat_pos') == 'as24':
@@ -761,9 +906,13 @@ def overlay(T, total, shots, shot, blk):
         if ph[0] <= T < ph[1]:
             cur = ph
     if cur:
+        k = min(1.0, (T - cur[0]) / 0.12)
+        if STYLE.get('cap_style') == 'v12':  # 자막 상자 y 1050~1220 가운데
+            im = phrase_img_v12(cur[2], cap_keyword(cur[2], blk), CAP_BRIGHT >= 0.7)
+            paste(ov, im, W / 2 - im.width / 2, 1135 - im.height / 2, k)
+            return ov, False
         act = max([j for j, st in enumerate(cur[3]) if st <= T] or [0])
         im = phrase_img(cur[2], act)
-        k = min(1.0, (T - cur[0]) / 0.12)
         paste(ov, im, STYLE.get('cap_cx', SAFE_CX) - im.width / 2, STYLE.get('cap_y', 1360), k)  # cap_cx=540 이면 화면 가운데 정렬
     return ov, False
 
@@ -856,6 +1005,8 @@ def main():
         img = vignette(grade(img))
         rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         blk = BLOCKS[sh['bi']]
+        global CAP_BRIGHT
+        CAP_BRIGHT = float(rgb[1050:1220, 140:940].mean()) / 255
         ov, is_end = overlay(T, total, shots, sh, blk)
         base = Image.fromarray(rgb).convert('RGBA')
         if is_end:
@@ -873,7 +1024,8 @@ def main():
     subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-i', os.path.join(OUT, 'video.mp4'), '-i', os.path.join(OUT, 'voice.wav'),
                     '-i', os.path.join(OUT, 'bgm.wav'), '-i', os.path.join(OUT, 'sfx.wav'), '-filter_complex',
                     f"[2:a]volume={STYLE.get('bgm_vol', 0.42)}[m];" '[1:a]asplit=2[v1][v2];[m][v1]sidechaincompress=threshold=0.03:ratio=8:attack=20:release=350[md];'
-                    '[3:a]volume=0.22[fx];[v2][md][fx]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
+                    f"[3:a]volume={STYLE.get('sfx_bus', 0.22)}[fx];"
+                    '[v2][md][fx]amix=inputs=3:normalize=0,loudnorm=I=-14:TP=-1.5:LRA=9[a]',
                     '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-ar', '48000', '-shortest',
                     '-movflags', '+faststart', final], check=True)
     meta = dict(total=round(total, 2), shots=len(shots), sec_per_cut=round(total / len(shots), 2),

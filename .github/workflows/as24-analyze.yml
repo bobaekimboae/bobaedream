@@ -1,0 +1,54 @@
+name: as24 shorts analyze (Gemini)
+
+# 오토스카우트24 쇼츠를 제미나이 유료 API로 분석한다.
+# 키는 저장소 Secrets 의 GEMINI_API_KEY 로만 받는다(코드·로그에 남기지 않음).
+# analysis/as24 브랜치에 목록(scripts/shortform/as24-jobs/*.txt)을 올리면 돈다.
+on:
+  push:
+    branches: [analysis/as24]
+    paths: ["scripts/shortform/as24-jobs/**"]
+  workflow_dispatch:
+    inputs:
+      model:
+        description: 제미나이 모델
+        default: gemini-3.8-flash
+      limit:
+        description: 목록 파일당 최대 편수
+        default: "300"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: as24-analyze
+  cancel-in-progress: false
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: analyze
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          MODEL: ${{ inputs.model || 'gemini-3.8-flash' }}
+          LIMIT: ${{ inputs.limit || '300' }}
+        run: |
+          for f in scripts/shortform/as24-jobs/*.txt; do
+            name=$(basename "$f" .txt)
+            python3 scripts/shortform/as24_analyze.py "$f" "reports/shortform/as24-$name" "$MODEL" "$LIMIT"
+          done
+      - name: save results
+        if: always()
+        run: |
+          git config user.name "as24-analyze"
+          git config user.email "actions@users.noreply.github.com"
+          git add reports/shortform || true
+          git diff --cached --quiet || git commit -m "as24 분석 결과 저장 (${{ github.run_id }})"
+          git push || true
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: as24-analysis
+          path: reports/shortform
