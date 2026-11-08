@@ -1,0 +1,894 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/3v2ZOgxDxx8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9265,
+  "candidatesTokenCount": 7456,
+  "totalTokenCount": 16721,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8102
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 89.2,
+   "aspect": "9:16",
+   "car": "Avatr 07 REEV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 11.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 18.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 22.3,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 34.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 45.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 52.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 57.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 60.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 63.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.3,
+    "end": 73.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 73.8,
+    "end": 81.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 81.8,
+    "end": 89.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.1,
+    "text": "لو عايز تبقى مميز",
+    "ko": "특별해지고 싶다면",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مميز",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.5,
+    "text": "وعربيتك مختلفة بجد",
+    "ko": "차량이 진짜 남다르길 바란다면",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.8,
+    "text": "خرافي",
+    "ko": "환상적",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 9.0,
+    "color": "#E6CA65",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "text": "ثماني الأضلاع",
+    "ko": "8각형",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#333333",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.2,
+    "text": "تبريد",
+    "ko": "통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#00FFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 43.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FF6600",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 49.5,
+    "text": "21\"",
+    "ko": "21인치",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 9.0,
+    "color": "#E066FF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 52.2,
+    "text": "متماسك على السرعات",
+    "ko": "고속에서도 안정적",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF007F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 60.5,
+    "text": "PARKING",
+    "ko": "주차",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FF80DF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 116.5,
+    "end": 118.0,
+    "text": "495HP",
+    "ko": "495마력",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 7.0,
+    "color": "#FF66FF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 118.2,
+    "end": 120.0,
+    "text": "930KM",
+    "ko": "930km",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 7.0,
+    "color": "#FF66FF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "쿵",
+    "event": "로고 및 차 등장 트랜지션",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "딸깍",
+    "event": "버튼으로 도어 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "톡",
+    "event": "애플 카플레이/안드로이드 오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "스크린 기능 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "휙",
+    "event": "제로 그래비티 모드 작동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "띵",
+    "event": "21인치 휠 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "띵",
+    "event": "원격 주차 폰 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 74.0,
+    "type": "쿵",
+    "event": "파워트레인 투시 그래픽 전환",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로닉",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 3.7,
+    "what": "차량 모델명 타이틀 (07 AVATR REEV)",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "차 소개",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "what": "애플 카플레이 & 안드로이드 오토 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.0,
+    "what": "36인치 4K 스크린 텍스트",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 80.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사양",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 31.5,
+    "what": "ZERO GRAVITY MODE 네온 텍스트",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 30.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "what": "에어 서스펜션 3D 투시 렌더링",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "사양",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 57.5,
+    "what": "스마트폰 원격 조작 인터페이스 합성",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 70.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "기능",
+    "sure": true
+   },
+   {
+    "start": 74.0,
+    "end": 76.5,
+    "what": "내연기관+배터리 시스템 X-ray 투시 효과",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "페이드",
+    "purpose": "사양",
+    "sure": true
+   },
+   {
+    "start": 82.0,
+    "end": 89.2,
+    "what": "보증 안내 및 딜러사 로고 (Kasrawy Group)",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "밀려옴",
+    "purpose": "가격",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "أنا ناصر، ولو عايز تبقى مميز وعربيتك مختلفة بجد.. أفاتار 07",
+    "ko": "저는 나사르입니다. 정말 특별하고 남다른 차를 원하신다면... 아바타 07!"
+   },
+   {
+    "start": 3.7,
+    "end": 6.9,
+    "text": "شالولك المراية وحطولك كاميرا عشان تراقب منها الطريق",
+    "ko": "사이드미러를 없애고 카메라를 달아 후방 시야를 확인할 수 있게 했습니다."
+   },
+   {
+    "start": 7.0,
+    "end": 11.5,
+    "text": "عندك مساحات تخزين في البيبان، الباب بيفتح بزرار، والساوند سيستم ميريديان خرافي",
+    "ko": "도어 수납공간이 있고, 버튼으로 문이 열리며, 메리디안 사운드 시스템은 환상적입니다."
+   },
+   {
+    "start": 11.6,
+    "end": 17.8,
+    "text": "عندك أوكتاجونال ستيرينج يعني ثماني الأضلاع، وتاتش سكرين فيها آبل كاربلاي وأندرويد أوتو وباقي تحكمات العربية",
+    "ko": "8각형 스티어링 휠과 카플레이, 안드로이드 오토 및 차량 제어가 가능한 터치스크린이 있습니다."
+   },
+   {
+    "start": 18.0,
+    "end": 22.0,
+    "text": "و36 بوصة بتقنية الـ 4K وتقدر تتحكم في الاختصارات بتاعتها",
+    "ko": "36인치 4K 스크린이 탑재되어 바로가기를 제어할 수 있습니다."
+   },
+   {
+    "start": 22.1,
+    "end": 25.5,
+    "text": "من الشاشة تقدر تفتح السقف البانوراما بتاعك للآخر",
+    "ko": "화면에서 파노라마 루프를 완전히 열 수 있습니다."
+   },
+   {
+    "start": 25.6,
+    "end": 33.5,
+    "text": "والكراسي بتاعتك تسخين وتبريد ومساج، وعندك ليج إكستنشن، ولو دوست هنا بيشغلك الزيرو جرافيتي مود وهتنام على شزلونج مريح جداً",
+    "ko": "시트는 열선, 통풍, 마사지 및 레그 서포트를 지원하며, 버튼을 누르면 무중력 모드로 편안하게 눕게 됩니다."
+   },
+   {
+    "start": 34.0,
+    "end": 41.5,
+    "text": "من الشاشة دي بتقدر تتحكم في العربية، زي إنك تفتح السقف البانوراما، ولو اللي قدام مزنق عليك تقدر تطلعه لقدام",
+    "ko": "이 뒷좌석 화면으로 파노라마 루프나 앞좌석 위치를 앞으로 조절할 수 있습니다."
+   },
+   {
+    "start": 41.8,
+    "end": 45.5,
+    "text": "الكنب بتاعك تسخين وكمان الضهر بينام.. فيها دلع",
+    "ko": "뒷좌석 시트 열선과 등받이 리클라이닝까지 갖춰 편안함을 극대화했습니다."
+   },
+   {
+    "start": 46.0,
+    "end": 51.9,
+    "text": "وبتنزل بألوان خطيرة، وجنط مقاس 21، وإير ساسبينشن ذكي جداً طري على الكومفورت ومتماسك على السرعات",
+    "ko": "매력적인 컬러와 21인치 휠, 컴포트에서는 부드럽고 고속에서는 단단한 스마트 에어 서스펜션이 들어갑니다."
+   },
+   {
+    "start": 52.0,
+    "end": 57.5,
+    "text": "ده غير إن موبايلك هو مفتاح العربية، زي إنك لو مزنوق في الركنة تقدر تخلي العربية تتحرك لوحدها وتخرجلك",
+    "ko": "스마트폰이 차 키 역할을 하며, 좁은 곳에 주차되어 있어도 차가 스스로 빠져나오게 할 수 있습니다."
+   },
+   {
+    "start": 57.8,
+    "end": 60.5,
+    "text": "وكمان بتقدر تركن نفسها بالكامل لو شاورتلها على الركنة",
+    "ko": "주차 구역을 지정해주면 완전 자동 주차도 가능합니다."
+   },
+   {
+    "start": 60.6,
+    "end": 73.5,
+    "text": "وسريعة، من صفر لمية في خمس ثواني ونص بس",
+    "ko": "그리고 빠릅니다. 제로백이 단 5.5초입니다."
+   },
+   {
+    "start": 74.0,
+    "end": 81.5,
+    "text": "وده بسبب موتور بنزين وبطاريتين كهربا بيطلعوا 495 حصان ورينج 930 كم، فعندك مميزات الكهربا من غير التوتر بتاع الشحن",
+    "ko": "가솔린 엔진과 듀얼 모터로 495마력과 930km 주행거리를 내어 충전 스트레스 없이 전기차의 장점을 누립니다."
+   },
+   {
+    "start": 82.0,
+    "end": 89.2,
+    "text": "وعندك ضمان 5 سنين على العربية و8 على البطارية من الكسراوي جروب",
+    "ko": "카스라위 그룹을 통해 차량 5년, 배터리 8년 보증을 제공합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "차량 소개 시작 및 독특한 존재감 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 22.3,
+    "speed": "빠름",
+    "summary": "디지털 사이드미러, 사운드, 스티어링 휠, 대형 스크린 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 22.3,
+    "end": 45.6,
+    "speed": "보통",
+    "summary": "무중력 시트, 뒷좌석 컨트롤러, 리클라이닝 등 럭셔리 실내 옵션"
+   },
+   {
+    "stage": "사양",
+    "start": 45.6,
+    "end": 52.0,
+    "speed": "빠름",
+    "summary": "21인치 휠 및 스마트 에어 서스펜션"
+   },
+   {
+    "stage": "기능",
+    "start": 52.0,
+    "end": 60.5,
+    "speed": "빠름",
+    "summary": "스마트폰 원격 출차 및 자동 주차 기능 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 60.5,
+    "end": 81.8,
+    "speed": "빠름",
+    "summary": "가속력(0-100km/h), 하이브리드 파워트레인 및 주행거리 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 81.8,
+    "end": 89.2,
+    "speed": "보통",
+    "summary": "공식 수입원 보증 기간 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 제스처나 말끝 타이밍에 맞춰 관련 옵션 부위를 클로즈업 컷 전환함",
+   "주요 스펙(인치, 마력, 주행거리)은 강조된 컬러의 볼드 텍스트 스티커로 즉시 노출함",
+   "스마트폰 원격 제어 및 X-ray 투시 효과 등 CG/그래픽을 적극 활용해 미래지향적 느낌을 연출함",
+   "사운드 효과(Whoosh, Pop, Click)를 자막 및 기능 전환 시점마다 촘촘하게 배치함"
+  ],
+  "option_highlights": [
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "feature": "디지털 사이드미러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "카메라 및 실내 모니터 화면",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.0,
+    "feature": "전자식 버튼 도어 오픈",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락으로 도어 버튼 클릭",
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "feature": "메리디안 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "Meridian 스피커 그릴 클로즈업",
+    "x_pct": 70.0,
+    "y_pct": 30.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.5,
+    "feature": "제로 그래비티 모드 (무중력 시트)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "시트 측면 버튼 클릭 후 자동 리클라이닝",
+    "x_pct": 30.0,
+    "y_pct": 55.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 40.5,
+    "feature": "2열 중앙 컨트롤 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "터치스크린으로 1열 시트 및 선루프 조작",
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "feature": "스마트 에어 서스펜션",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "서스펜션 구조 3D 투시 그래픽",
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 57.5,
+    "feature": "스마트폰 원격 출차",
+    "shown_how": "화면 분할",
+    "icon_desc": "스마트폰 앱 UI 합성 및 차가 움직이는 모습",
+    "x_pct": 70.0,
+    "y_pct": 25.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 60.5,
+    "feature": "자동 주차 시스템",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "주차 신호 그래픽 및 빈 공간 주차",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 차 앞에서 걸어 나오며 '특별하고 남다른 차를 원한다면'이라며 시청자의 이목을 끎",
+   "type": "질문",
+   "text": "أنا ناصر، ولو عايز تبقى مميز وعربيتك مختلفة بجد",
+   "ko": "저는 나사르입니다. 특별해지고 차량이 진짜 남다르길 바란다면"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "거울 대신 카메라와 모니터를 사용하는 디지털 사이드미러",
+    "category": "디자인"
+   },
+   {
+    "t": 10.0,
+    "point": "메리디안 프리미엄 사운드 시스템 및 버튼식 도어 개폐",
+    "category": "편의"
+   },
+   {
+    "t": 12.5,
+    "point": "8각형 스티어링 휠과 대형 인포테인먼트 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 19.0,
+    "point": "대시보드를 가로지르는 36인치 4K 통합 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 29.5,
+    "point": "버튼 하나로 편안하게 눕는 제로 그래비티 모드 시트",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "뒷좌석 중앙 터치스크린으로 차량 주요 기능 원격 제어",
+    "category": "편의"
+   },
+   {
+    "t": 48.5,
+    "point": "21인치 대형 휠과 컴포트/고속 주행에 맞춘 에어 서스펜션",
+    "category": "성능"
+   },
+   {
+    "t": 55.0,
+    "point": "스마트폰을 이용한 차량 원격 전진/후진 출차 및 자동 주차",
+    "category": "편의"
+   },
+   {
+    "t": 65.0,
+    "point": "제로백 5.5초의 가속 성능",
+    "category": "성능"
+   },
+   {
+    "t": 76.0,
+    "point": "가솔린+전기 듀얼 모터로 495마력, 주행거리 930km 확보",
+    "category": "성능"
+   },
+   {
+    "t": 83.0,
+    "point": "카스라위 그룹 공식 보증(차량 5년, 배터리 8년)",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "센터 화면",
+    "옵션 작동",
+    "실내 앞",
+    "계기판",
+    "옵션 작동",
+    "뒷좌석",
+    "휠",
+    "옵션 작동",
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "외관 전면",
+    "외관 측면"
+   ]
+  }
+ }
+}

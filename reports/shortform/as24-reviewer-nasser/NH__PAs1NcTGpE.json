@@ -1,0 +1,1223 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/_PAs1NcTGpE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 10165,
+  "candidatesTokenCount": 10399,
+  "totalTokenCount": 21250,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 9002
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 686,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 98.7,
+   "aspect": "9:16",
+   "car": "Rolls-Royce Cullinan Series II Black Badge",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 8.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 13.7,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 16.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 19.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 28.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 40.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 46.1,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.1,
+    "end": 53.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.7,
+    "end": 60.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 65.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 65.7,
+    "end": 75.8,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 75.8,
+    "end": 83.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 83.5,
+    "end": 88.3,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 88.3,
+    "end": 93.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 93.5,
+    "end": 98.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "CULLINAN",
+    "ko": "컬리넌",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 31.0,
+    "text": "SPIRIT SYSTEM",
+    "ko": "스피릿 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.5,
+    "color": "#52E7D7",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.3,
+    "text": "ELEANOR",
+    "ko": "엘리너 (음성 어시스턴트)",
+    "kind": "키워드 스티커",
+    "y_pct": 41.5,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.0,
+    "text": "HAND MADE CARBON FIBER",
+    "ko": "핸드메이드 카본 파이버",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 3.5,
+    "color": "#38D7D8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.0,
+    "text": "CUP HOLDER",
+    "ko": "컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 57.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.2,
+    "text": "SCREEN CONTROL DIAL",
+    "ko": "화면 조작 다이얼",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 3.8,
+    "color": "#38D7D8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.2,
+    "end": 40.8,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 3.8,
+    "color": "#38D7D8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.2,
+    "text": "4Y",
+    "ko": "4년 개발",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 59.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 53.5,
+    "text": "العزل علشان تتخيل",
+    "ko": "방음 효과를 체감해보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 64.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 55.4,
+    "text": "BLACK BADGE 2",
+    "ko": "블랙 배지 2",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.0,
+    "text": "DRLS",
+    "ko": "주간주행등",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 67.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 58.5,
+    "text": "PANTHEON GRILLES",
+    "ko": "판테온 그릴",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 60.5,
+    "text": "BLACK EMBLEM",
+    "ko": "블랙 엠블럼",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 61.0,
+    "end": 63.0,
+    "text": "TIFFANY BLUE",
+    "ko": "티파니 블루 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.0,
+    "color": "#38D7D8",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 65.7,
+    "text": "TIFFANY BLUE CALIPERS",
+    "ko": "티파니 블루 캘리퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 6.5,
+    "color": "#38D7D8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 66.0,
+    "end": 68.0,
+    "text": "علشان اليخت يقف",
+    "ko": "요트 같은 이 차를 멈추기 위해",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 26.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 70.0,
+    "end": 71.5,
+    "text": "23\"",
+    "ko": "23인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 44.0,
+    "text_height_pct": 8.0,
+    "color": "#38D7D8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 71.5,
+    "end": 73.5,
+    "text": "COMFORT",
+    "ko": "승차감",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 39.0,
+    "text_height_pct": 6.0,
+    "color": "#38D7D8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 81.0,
+    "end": 83.2,
+    "text": "1000$",
+    "ko": "1000달러 우산",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 8.0,
+    "color": "#5BEF85",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 83.5,
+    "end": 85.5,
+    "text": "SUICIDE DOORS",
+    "ko": "수이사이드 도어",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 6.0,
+    "color": "#38D7D8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 88.5,
+    "end": 91.0,
+    "text": "V12 6750 CC",
+    "ko": "V12 6,750cc",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 91.5,
+    "end": 93.5,
+    "text": "590 HP 900 NM",
+    "ko": "590마력 900Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 95.5,
+    "end": 98.7,
+    "text": "محور شرق الرحاب\nالتجمع الأول\nDOMO9 MALL",
+    "ko": "엘 레합 동부 축\n퍼스트 세틀먼트\nDOMO9 몰",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "롤스로이스 로고 및 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "딸깍",
+    "event": "미니 냉장고 도어 닫기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "딸깍",
+    "event": "미니바 컵 수납함 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "딸깍",
+    "event": "중앙 컨트롤 커버 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "딸깍",
+    "event": "컵홀더 전개 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.8,
+    "type": "딸깍",
+    "event": "피크닉 테이블 뒷면 모니터 버튼 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.2,
+    "type": "휙",
+    "event": "SPIRIT SYSTEM 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "띵",
+    "event": "ELEANOR 비서 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "톡",
+    "event": "HAND MADE CARBON FIBER 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "톡",
+    "event": "CUP HOLDER 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "톡",
+    "event": "DIAL 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 39.2,
+    "type": "톡",
+    "event": "WIRELESS CHARGER 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "딸깍",
+    "event": "자동문 닫힘 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "롤스로이스 문 닫히는 묵직한 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차창 밖 스마트폰 음악 소리가 창문 너머로 급격히 차단되는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.0,
+    "type": "쿵",
+    "event": "BLACK BADGE 2 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 66.0,
+    "type": "쿵",
+    "event": "브레이크 휠 그래픽 회전 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 70.0,
+    "type": "톡",
+    "event": "23인치 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 81.0,
+    "type": "돈 소리",
+    "event": "1000$ 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 85.5,
+    "type": "딸깍",
+    "event": "수이사이드 도어 닫힘 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 87.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 래치 체결 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 88.5,
+    "type": "쿵",
+    "event": "V12 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 95.5,
+    "type": "띵",
+    "event": "위치 핀 맵 마커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "세련되고 경쾌한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "롤스로이스 환희의 여신상 홀로그램 그래픽 및 CULLINAN 타이틀",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 25.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "차명 및 모델 안내",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.5,
+    "what": "환희의 여신상 실루엣 파티클(Eleanor 음성 비서)",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "음성비서 시스템 시각화",
+    "sure": true
+   },
+   {
+    "start": 66.0,
+    "end": 68.0,
+    "what": "회전하는 거대 휠/브레이크 디스크 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 25.0,
+    "y_pct": 20.0,
+    "entrance": "회전",
+    "purpose": "대형 브레이크 제동력 강조",
+    "sure": true
+   },
+   {
+    "start": 95.5,
+    "end": 98.7,
+    "what": "매장 위치 안내 맵 핀 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 10.0,
+    "y_pct": 60.0,
+    "entrance": "밀려옴",
+    "purpose": "딜러십 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "أنا ناصر وهقولك ليه دي أفخم عربيات في العالم",
+    "ko": "저는 나사르입니다. 왜 이 차가 세상에서 가장 럭셔리한지 알려드리겠습니다."
+   },
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "text": "رولز رويس كولينان سيريس تو",
+    "ko": "롤스로이스 컬리넌 시리즈 2입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "text": "عندك تلاجة فيها كاسات عشان المشروبات في المشاوير الطويلة",
+    "ko": "장거리 주행 시 음료를 즐길 수 있는 전용 잔이 구비된 냉장고가 있고,"
+   },
+   {
+    "start": 8.5,
+    "end": 13.5,
+    "text": "ميني بار بسيتينج رولز رويس يونيت للتحكم في الشاشة مكان للكاسات وتحتيها في كاب هولدرز",
+    "ko": "롤스로이스 세팅의 미니바, 스크린 조작 유닛, 글래스 보관함 및 그 아래 컵홀더가 있습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "عندك ستار لايتس على شكل نجوم السماء في انجلترا",
+    "ko": "영국의 밤하늘 별자리를 본뜬 스타라이트 헤드라이너가 적용되었고,"
+   },
+   {
+    "start": 16.0,
+    "end": 19.8,
+    "text": "عندك ستائر خلفية عشان متدخلكش نور زيادة وعازل زجاجي يفصلك عن الشنطة",
+    "ko": "직사광선을 막아주는 후면 커튼과 트렁크 공간을 격리하는 유리 차음벽이 있습니다."
+   },
+   {
+    "start": 19.8,
+    "end": 23.8,
+    "text": "عشان يزود العزل وميدخلكش تراب وستائر جانبية عشان الخصوصية",
+    "ko": "정숙성을 높이고 먼지 유입을 차단하며, 프라이버시를 위한 측면 커튼도 완비되어 있습니다."
+   },
+   {
+    "start": 23.8,
+    "end": 28.5,
+    "text": "ترابيزة من الكاربون فايبر ولو دوست هنا هيفتحلك شاشة تتفرج فيها على افلام",
+    "ko": "카본 파이버 소재 테이블과 버튼을 누르면 펼쳐지는 영화 감상용 모니터가 있습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 33.5,
+    "text": "عندك أذكی سبيريت سيستم عملته رولز رويس واسستنس اسمها إلينور عشان تتكلم مع العربية",
+    "ko": "롤스로이스 역사상 가장 스마트한 스피릿 시스템과 차량과 대화하는 비서 '엘리너'가 탑재되어 있고,"
+   },
+   {
+    "start": 33.5,
+    "end": 41.0,
+    "text": "الخامات بتاعتك ليها صوت، هاند ميد كاربون فايبر، اتنين كاب هولدرز، دايل للتحكم في الشاشة، شاحن وايرلس ومساحة تخزين",
+    "ko": "특유의 촉감과 질감을 가진 수제 카본 파이버, 듀얼 컵홀더, 화면 조작 다이얼, 무선 충전기와 수납공간이 있습니다."
+   },
+   {
+    "start": 41.0,
+    "end": 46.0,
+    "text": "مليانة تفاصيل الساعة دي اخدت أربع سنين في التصميم والديزاين ده مرسوم بالليزر",
+    "ko": "디테일도 풍부합니다. 이 아날로그 시계는 디자인에만 4년이 걸렸고 레이저로 각인되었습니다."
+   },
+   {
+    "start": 46.0,
+    "end": 53.5,
+    "text": "ولو دوست هنا الباب بتاعك هيقفل، عشان تتخيل العزل",
+    "ko": "여기 버튼을 누르면 문이 자동으로 닫히며, 완벽한 방음 성능을 직접 체감할 수 있습니다."
+   },
+   {
+    "start": 54.0,
+    "end": 60.5,
+    "text": "دي البلاك بادج وسيريس تو، فعندك الدي ار إل الجديدة، إلومينيتيد بانثيون جريلز وبلاك إمبلم مبيتسرقش",
+    "ko": "블랙 배지 시리즈 2 모델이라 새로운 DRL, 조명이 켜지는 판테온 그릴, 도난 방지 블랙 엠블럼이 들어갑니다."
+   },
+   {
+    "start": 60.5,
+    "end": 65.5,
+    "text": "دي الوحيدة في مصر بإنتيريور تيفاني بلو لايق مع الهاند ميد كوتش لاين حتى الكاليبرز لونها تيفاني",
+    "ko": "이집트에서 유일한 티파니 블루 인테리어로, 수제 코치라인 및 캘리퍼 색상까지 완벽히 조화를 이룹니다."
+   },
+   {
+    "start": 65.5,
+    "end": 75.5,
+    "text": "علشان اليخت يقف عندك أكبر ديسكات من رولز رويس وأكبر جنط عملته مقاس 23 انش وعشان الراحة عندك أدفانسد سيلف ليفيلينج ساسبينشن",
+    "ko": "이 거대한 요트를 세우기 위해 가장 큰 브레이크 디스크와 23인치 휠이 장착되었고, 승차감을 위한 셀프 레벨링 서스펜션도 포함됩니다."
+   },
+   {
+    "start": 75.5,
+    "end": 83.5,
+    "text": "مش هيحسسك بالطريق خالص، السجاد بتاعك نفس لون الإنتيريور ومن الصوف الحقيقي وعندك شماستين تمنهم داخل على ال 1000 دولار",
+    "ko": "노면 충격을 완전히 걸러주며, 실내와 색을 맞춘 천연 양모 매트와 1,000달러에 달하는 전용 우산 2개가 내장되어 있습니다."
+   },
+   {
+    "start": 83.5,
+    "end": 88.0,
+    "text": "وعشان تقفل السويسايد دورز كل اللي عليك بتدوس هنا",
+    "ko": "수이사이드 도어를 닫으려면 그저 이 버튼 하나만 누르면 됩니다."
+   },
+   {
+    "start": 88.0,
+    "end": 93.5,
+    "text": "والموتور في تويلف 6750 سي سي بيطلع 590 حصان و 900 نيوتن",
+    "ko": "엔진은 V12 6,750cc로 최고출력 590마력, 최대토크 900Nm를 발휘합니다."
+   },
+   {
+    "start": 93.5,
+    "end": 98.7,
+    "text": "وهتلاقيها في موتيكس أوتوموتيف محور شرق الرحاب التجمع الأول دومو 9 مول",
+    "ko": "이 차량은 모틱스 오토모티브(엘 레합 동부 축, 퍼스트 세틀먼트, دومو 9 몰)에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "빠름",
+    "summary": "자신을 소개하며 세상에서 가장 럭셔리한 SUV 롤스로이스 컬리넌 시리즈 2 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.6,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "뒷좌석 냉장고, 미니바, 스타라이트 천장, 방음 유리벽, 카본 테이블 및 스크린 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 28.5,
+    "end": 53.7,
+    "speed": "보통",
+    "summary": "스피릿 인포테인먼트, 엘리너 비서, 센터콘솔 수납, 4년 걸린 시계 및 자동문 방음 테스트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 53.7,
+    "end": 65.7,
+    "speed": "보통",
+    "summary": "블랙 배지 전면 디자인(DRL, 판테온 그릴) 및 이집트 유일의 티파니 블루 테마 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 65.7,
+    "end": 88.3,
+    "speed": "보통",
+    "summary": "대형 브레이크 디스크, 23인치 휠, 에어서스펜션, 양모 매트, 1000달러 전용 우산"
+   },
+   {
+    "stage": "사양",
+    "start": 88.3,
+    "end": 93.5,
+    "speed": "빠름",
+    "summary": "V12 6.75L 트윈터보 엔진 출력 및 토크 스펙 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 93.5,
+    "end": 98.7,
+    "speed": "보통",
+    "summary": "판매처(모틱스 오토모티브) 전시 매장 위치 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 옵션을 직접 조작(버튼 누르기, 뚜껑 열기)하며 시각적으로 증명한다",
+   "화려한 3D 타이틀과 세련된 민트/화이트 계열 텍스트 스티커로 고급스러운 차량 이미지를 극대화한다",
+   "창문 바깥 스마트폰 음악을 통해 차음 성능을 청각적으로 직관적이게 비교 시연한다",
+   "스펙(마력, 토크, 휠 크기, 우산 가격)을 큼직한 볼드 폰트로 띄워 정보 전달력을 높인다",
+   "마지막에 쇼룸 외관과 주소 그래픽을 함께 노출하여 실방문 유도 CTA를 완성한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "feature": "뒷좌석 전용 미니 냉장고 및 글래스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "feature": "수납식 컵홀더 및 제어 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 16.0,
+    "feature": "스타라이트 헤드라이너",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "feature": "트렁크 격벽 차음 글래스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 28.5,
+    "feature": "전동 피크닉 테이블 및 리어 엔터테인먼트 스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 53.5,
+    "feature": "버튼식 자동문 닫힘 및 도어 이중접합 방음 성능",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 75.5,
+    "feature": "셀프 레벨링 에어 서스펜션",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 80.0,
+    "end": 83.5,
+    "feature": "도어 내장형 1,000달러 롤스로이스 우산",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 84.0,
+    "end": 88.0,
+    "feature": "원터치 수이사이드 리어 도어 클로징",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자 나사르가 쇼룸 앞에서 걸어 나오며 '내가 왜 이 차가 세계 최고로 호화로운 차인지 말해주겠다'고 호언장담함",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر وهقولك ليه دي أفخم عربيات في العالم",
+   "ko": "저는 나사르입니다. 왜 이 차가 세상에서 가장 럭셔리한지 알려드리겠습니다."
+  },
+  "narration_points": [
+   {
+    "t": 5.5,
+    "point": "장거리 여행용 샴페인 잔과 미니 냉장고 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 14.5,
+    "point": "영국의 밤하늘을 수놓은 스타라이트 헤드라이너 조명",
+    "category": "디자인"
+   },
+   {
+    "t": 18.5,
+    "point": "트렁크 공간과 분리된 방음 유리벽으로 정숙성 극대화",
+    "category": "편의"
+   },
+   {
+    "t": 25.0,
+    "point": "원터치로 펼쳐지는 카본 피크닉 테이블 및 개별 엔터테인먼트 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 32.0,
+    "point": "롤스로이스 최신 스피릿 인포테인먼트와 음성 비서 엘리너",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "디자인에만 4년이 소요된 아날로그 시계와 레이저 각인 패널",
+    "category": "디자인"
+   },
+   {
+    "t": 50.0,
+    "point": "도어 클로징 시 스마트폰 소리가 거의 들리지 않는 압도적인 차음력",
+    "category": "성능"
+   },
+   {
+    "t": 57.0,
+    "point": "일루미네이티드 판테온 그릴과 도난 방지 블랙 배지 엠블럼",
+    "category": "디자인"
+   },
+   {
+    "t": 62.0,
+    "point": "이집트 내 유일한 티파니 블루 가죽 인테리어 및 코치라인 매칭",
+    "category": "희소성"
+   },
+   {
+    "t": 69.0,
+    "point": "롤스로이스 최대 구경 브레이크 디스크와 23인치 단조 휠",
+    "category": "성능"
+   },
+   {
+    "t": 73.0,
+    "point": "노면 충격을 완전히 흡수하는 첨단 셀프 레벨링 서스펜션",
+    "category": "성능"
+   },
+   {
+    "t": 78.0,
+    "point": "천연 양모 바닥 매트와 도어에 내장된 1,000달러 상당의 우산",
+    "category": "편의"
+   },
+   {
+    "t": 90.0,
+    "point": "V12 6.75L 엔진의 590마력, 900Nm 토크 성능",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 95.0,
+   "text": "وهتلاقيها في موتيكس أوتوموتيف محور شرق الرحاب التجمع الأول دومو 9 مول",
+   "ko": "모틱스 오토모티브(엘 레합 동부 축, 퍼스트 세틀먼트, دومو 9 몰)에서 확인하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "실내 앞",
+    "계기판",
+    "외관 전면",
+    "외관 측면",
+    "휠",
+    "외관 측면",
+    "엔진룸",
+    "외관 전면"
+   ]
+  }
+ }
+}

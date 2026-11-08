@@ -1,0 +1,1173 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/m2bIXdzaQKQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9166,
+  "candidatesTokenCount": 9823,
+  "totalTokenCount": 19867,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8003
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 878,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 88.0,
+   "aspect": "9:16",
+   "car": "Soueast S08 DM",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 11.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 14.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 29.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.7,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 38.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 43.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 52.4,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.4,
+    "end": 57.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 101.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 101.8,
+    "end": 109.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 109.5,
+    "end": 113.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 113.8,
+    "end": 120.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 120.6,
+    "end": 127.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "SOUEAST S08 DM",
+    "ko": "사우스이스트 S08 DM",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#7FD4FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 6.8,
+    "text": "X7 SEATS",
+    "ko": "7인승 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "2,500,000",
+    "ko": "250만 (이집트 파운드)",
+    "kind": "가격",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FEE65A",
+    "background": "상자",
+    "bg_color": "#1F7A3F",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.2,
+    "text": "4.8M",
+    "ko": "전장 4.8미터",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.2,
+    "end": 11.6,
+    "text": "نفس الابعاد",
+    "ko": "동일한 차체 크기",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 4.5,
+    "color": "#FEE65A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.0,
+    "text": "TIRE PRESSURE MONITOR",
+    "ko": "타이어 공기압 모니터",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#333333",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.7,
+    "text": "20''",
+    "ko": "20인치",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 23.5,
+    "text": "V2L",
+    "ko": "V2L 외부 전력 공급",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 6.5,
+    "color": "#7BD6B0",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 31.8,
+    "text": "TOUCH CONTROL",
+    "ko": "터치 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.0,
+    "text": "DIGITAL DISPLAY",
+    "ko": "디지털 클러스터",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "text": "-6",
+    "ko": "영하 6도",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "text": "+50",
+    "ko": "영상 50도",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 49.5,
+    "text": "3 ZONE",
+    "ko": "3존 독립 에어컨",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.5,
+    "color": "#7FD4FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 60.0,
+    "text": "مناسب جدا للأطفال",
+    "ko": "어린이에게 아주 적합함",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 65.5,
+    "end": 68.0,
+    "text": "685L",
+    "ko": "685리터 트렁크",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 69.8,
+    "end": 71.3,
+    "text": "1.5TD + 1 DHT",
+    "ko": "1.5L 터보 직분사 + 1단 DHT 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 71.3,
+    "end": 72.8,
+    "text": "342hp",
+    "ko": "342마력",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.5,
+    "color": "#7FD4FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 74.3,
+    "text": "525nm",
+    "ko": "525Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.5,
+    "color": "#7FD4FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 81.8,
+    "end": 84.0,
+    "text": "4 YEARS\n60,000KM",
+    "ko": "4년 / 6만km 무상 유지보수",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 84.0,
+    "end": 86.5,
+    "text": "8 YEARS\n160,000KM",
+    "ko": "8년 / 16만km 배터리 보증",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 86.5,
+    "end": 88.0,
+    "text": "MANEAST",
+    "ko": "공식 수입원 맨이스트",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.4,
+    "type": "쿵",
+    "event": "차량 모델명 3D 타이틀 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "톡",
+    "event": "7시트 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "돈 소리",
+    "event": "가격 자막 및 돈비 효과 발생",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "휙",
+    "event": "차량 전장 그래픽 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.3,
+    "type": "톡",
+    "event": "줄자 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "TPMS 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "20인치 휠 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.5,
+    "type": "휙",
+    "event": "V2L 어댑터 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "톡",
+    "event": "전기포트 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "톡",
+    "event": "TV 및 콘솔 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "전기 그릴 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "딸깍",
+    "event": "시동 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 회전 디스플레이 회전 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "띵",
+    "event": "무선충전 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "톡",
+    "event": "시트 열선/통풍 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "톡",
+    "event": "8가지 마사지 모드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.2,
+    "type": "휙",
+    "event": "냉장고 영하 6도 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.6,
+    "type": "휙",
+    "event": "온장고 영상 50도 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "톡",
+    "event": "3-Zone 공조 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.5,
+    "type": "딸깍",
+    "event": "2열 전동 폴딩 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.2,
+    "type": "딸깍",
+    "event": "전동 트렁크 버튼 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 65.5,
+    "type": "쿵",
+    "event": "685L 용량 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 71.2,
+    "type": "톡",
+    "event": "342마력 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 72.8,
+    "type": "톡",
+    "event": "525토크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 81.8,
+    "type": "톡",
+    "event": "유지보수 보증 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 84.0,
+    "type": "톡",
+    "event": "배터리 보증 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 86.5,
+    "type": "띵",
+    "event": "수입원 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "what": "차량명 3D 블루 네온 타이틀",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차 소개",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "what": "7개 시트 파란색 아이콘",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "what": "지폐가 비처럼 쏟아지는 그린 머니 그래픽",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "가격",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 11.5,
+    "what": "차량 전장 비교 및 줄자 측정 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사양",
+    "sure": true
+   },
+   {
+    "start": 19.2,
+    "end": 23.8,
+    "what": "V2L 플러그 및 연결 가전기기 아이콘(주전자, TV, 그릴)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 68.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능",
+    "sure": true
+   },
+   {
+    "start": 109.5,
+    "end": 113.8,
+    "what": "플러그인 하이브리드 시스템 구동계 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사양",
+    "sure": true
+   },
+   {
+    "start": 116.5,
+    "end": 120.0,
+    "what": "사헬-알렉산드리아-카이로 이동 경로 지도 그래픽",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "기능",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "أنا ناصر وبقولك ليه العربية دي صفقة بكل المقاييس",
+    "ko": "저는 나사르입니다. 왜 이 차가 모든 기준에서 완벽한 가성비 꿀매인지 알려드리겠습니다."
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "Soueast S08 DM",
+    "ko": "사우스이스트 S08 DM입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 7.7,
+    "text": "ده لو عايز 7 seats وتبقى مليانة أوبشنز ومش عايز تدفع أرنبين ونص في الأوروبي",
+    "ko": "풀옵션 7인승을 원하면서 유럽차처럼 250만 파운드씩 내고 싶지 않다면 최고의 선택이죠."
+   },
+   {
+    "start": 7.7,
+    "end": 11.5,
+    "text": "بالمناسبة هي أطول من التيغوان والكودياك وشبه نفس أبعاد السورينتو",
+    "ko": "참고로 티구안이나 코디악보다 길고 쏘렌토와 거의 같은 크기입니다."
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "text": "المفتاح دايما في جيبك عشان عندك keyless entry، blind spot assist",
+    "ko": "스마트키는 주머니에 두면 됩니다. 키리스 엔트리와 사각지대 어시스트가 있으니까요."
+   },
+   {
+    "start": 14.8,
+    "end": 18.7,
+    "text": "كاميرات 540، مراقب ضغط الكاوتشات، وجنط مقاس 20 لايق جدا مع حجم العربية",
+    "ko": "540도 카메라, 타이어 공기압 센서, 차체와 딱 어울리는 20인치 휠도 있습니다."
+   },
+   {
+    "start": 18.7,
+    "end": 23.9,
+    "text": "وكابل الـ V2L عشان وأنت قاعد مع صحابك تجيبوا كاتل، تلفزيون ببلايستيشن، شواية كهربا",
+    "ko": "V2L 케이블로 친구들과 놀 때 커피포트, TV와 플스, 전기 그릴까지 연결할 수 있죠."
+   },
+   {
+    "start": 23.9,
+    "end": 29.8,
+    "text": "أول ما بتدور الشاشة بتلف في ناحية السواق، فيها Apple CarPlay وAndroid Auto، شاحن وايرلس 50 واط",
+    "ko": "시동을 걸면 화면이 운전자 방향으로 회전하고, 카플레이/안드로이드 오토와 50W 고속 무선 충전을 지원합니다."
+   },
+   {
+    "start": 29.8,
+    "end": 32.7,
+    "text": "الدركسيون جلد بتحكمات تاتش وديجيتال ديسبلاي",
+    "ko": "터치 컨트롤이 들어간 가죽 스티어링 휠과 디지털 클러스터가 적용되었습니다."
+   },
+   {
+    "start": 32.7,
+    "end": 38.6,
+    "text": "وسقف بانوراما واصل كويس للكنبة، ومخدات في الكراسي اللي فيها تسخين وتبريد و8 وضعيات مساج",
+    "ko": "뒷좌석까지 넓게 열리는 파노라마 선루프, 시트 쿠션 및 통풍/열선과 8가지 마사지 기능까지 갖췄습니다."
+   },
+   {
+    "start": 38.6,
+    "end": 43.5,
+    "text": "لو فتحت دي هيبقى عندك تلاجة لحد سالب 6 وتسخين لحد زائد 50، كده تلاجة ومايكروويف",
+    "ko": "콘솔을 열면 영하 6도 냉장과 영상 50도 보온이 가능해 냉장고 겸 전자레인지 역할을 합니다."
+   },
+   {
+    "start": 43.5,
+    "end": 47.5,
+    "text": "تحكم في الكراسي كريستال، ترابيزة تاكل أو تشتغل عليها",
+    "ko": "크리스털 전동 시트 조절 버튼, 식사나 업무가 가능한 접이식 테이블도 있습니다."
+   },
+   {
+    "start": 47.5,
+    "end": 52.4,
+    "text": "التكييف تريبل زون وأداؤه هايل، مفيش أي نفق فتيس والمساحة كويسة زي ما أنت شايف",
+    "ko": "3존 독립 에어컨 성능도 훌륭하고, 센터 터널이 완전히 평평해 공간이 아주 쾌적합니다."
+   },
+   {
+    "start": 52.4,
+    "end": 57.5,
+    "text": "وعشان تخش الصف التالت بتدوس هنا وهيطلع لقدام أوتوماتيك",
+    "ko": "3열에 타려면 버튼만 누르면 2열 시트가 자동으로 앞으로 접혀 슬라이딩됩니다."
+   },
+   {
+    "start": 57.5,
+    "end": 101.8,
+    "text": "ومناسب جدا لو عندك أطفال، ولو حد كبير هيقعد طلع الصف التاني لقدام شوية",
+    "ko": "어린이에게 최적이며, 어른이 탈 때는 2열을 살짝 앞으로 당겨주면 충분합니다."
+   },
+   {
+    "start": 101.8,
+    "end": 109.5,
+    "text": "وعندك شنطة كهربا واسعة جدا، ولما تنزل الصف التالت بتبقى 685 لتر عشان لو شنطكوا كتير",
+    "ko": "넓은 전동 트렁크가 있고 3열을 접으면 685리터의 거대한 공간이 생겨 짐이 많아도 넉넉합니다."
+   },
+   {
+    "start": 109.5,
+    "end": 113.8,
+    "text": "وهي DM أو Plug-in Hybrid بتطلع 342 حصان و525 نيوتن، فـ أدائها حلو جدا",
+    "ko": "이 차는 PHEV로 342마력, 525Nm의 강력한 파워를 뿜어냅니다."
+   },
+   {
+    "start": 113.8,
+    "end": 120.6,
+    "text": "والأهم استهلاك البنزين، أنا رحت بيها من الساحل لإسكندرية للقاهرة باستهلاك أقل من 6 لتر",
+    "ko": "가장 놀라운 건 연비입니다. 사헬에서 알렉산드리아, 카이로까지 달리면서 100km당 6리터도 안 들었습니다."
+   },
+   {
+    "start": 120.6,
+    "end": 127.8,
+    "text": "وصيانة مجانية 4 سنين أو 60,000 كم، ضمان البطارية 8 سنين أو 160,000 كم من مان إيست",
+    "ko": "4년/6만km 무상 정비와 8년/16만km 배터리 보증을 맨이스트에서 제공합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "역대급 가성비 꿀매임을 예고하며 차량 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 11.5,
+    "speed": "보통",
+    "summary": "유럽 경쟁차 대비 가성비 및 차체 크기(쏘렌토급) 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 11.5,
+    "end": 23.9,
+    "speed": "빠름",
+    "summary": "키리스 엔트리, 20인치 휠, V2L 외부 전원 활용 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 23.9,
+    "end": 43.5,
+    "speed": "보통",
+    "summary": "회전 디스플레이, 무선충전, 마사지 시트, 온/냉장 콘솔 박스 시연"
+   },
+   {
+    "stage": "공간",
+    "start": 43.5,
+    "end": 68.0,
+    "speed": "보통",
+    "summary": "2열 테이블, 평평한 바닥, 원터치 3열 탑승 및 685L 트렁크 누워보기"
+   },
+   {
+    "stage": "사양",
+    "start": 68.0,
+    "end": 80.5,
+    "speed": "보통",
+    "summary": "PHEV 출력(342마력) 및 장거리 실연비(6L/100km 미만) 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 80.5,
+    "end": 88.0,
+    "speed": "보통",
+    "summary": "무상 점검 및 배터리 보증 혜택 안내와 공식 수입원 소개"
+   }
+  ],
+  "rules": [
+   "진행자의 신나는 댄스와 당당한 멘트로 훅을 걸고 3D 모션 그래픽으로 차명을 띄운다.",
+   "새로운 옵션을 소개할 때마다 그래픽 스티커와 톡/휙 효과음을 1:1로 정확히 동기화한다.",
+   "실제 사용 장면(테이블 위 햄버거, 트렁크 눕기, 가전 연결)을 직접 시연하여 공간감을 체감시킨다.",
+   "주요 스펙과 치수는 큼직한 숫자 타이포그래피로 중앙 우측에 배치해 가독성을 높인다."
+  ],
+  "option_highlights": [
+   {
+    "start": 19.0,
+    "end": 23.5,
+    "feature": "V2L 외부 전력 공급",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "주전자, TV, 그릴 아이콘이 차례로 떠오름",
+    "x_pct": 68.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.5,
+    "feature": "전동 회전 인포테인먼트 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "운전자 방향으로 모터 구동 회전",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 38.5,
+    "feature": "통풍/열선 및 마사지 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 및 눈송이 아이콘과 마사지 체어 아이콘",
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 43.5,
+    "feature": "냉장 및 온장 콘솔 박스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "영하 6도 푸른 냉기 및 영상 50도 붉은 열기 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 36.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 57.0,
+    "feature": "2열 원터치 전동 폴딩 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "버튼 터치 후 자동 폴딩되는 시트 움직임",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 춤추며 카메라를 향해 이 차가 왜 최고의 꿀매인지 소개",
+   "type": "행동",
+   "text": "أنا ناصر وبقولك ليه العربية دي صفقة بكل المقاييس",
+   "ko": "저는 나사르입니다. 왜 이 차가 모든 면에서 완벽한 가성비 꿀매인지 알려드리겠습니다."
+  },
+  "narration_points": [
+   {
+    "t": 5.5,
+    "point": "유럽산 경쟁 모델의 절반 가격인 250만 파운드 이하에 구매 가능한 7인승 풀옵션 SUV",
+    "category": "가격·조건"
+   },
+   {
+    "t": 9.0,
+    "point": "티구안이나 코디악보다 길고 쏘렌토와 맞먹는 4.8m급 대형 차체",
+    "category": "공간"
+   },
+   {
+    "t": 20.0,
+    "point": "캠핑 시 TV, 플레이스테이션, 전기 그릴까지 가동 가능한 V2L 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 25.0,
+    "point": "시동 시 운전자 방향으로 자동 회전하는 메인 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 41.0,
+    "point": "-6도 급속 냉장부터 +50도 보온까지 가능한 다기능 센터 콘솔",
+    "category": "편의"
+   },
+   {
+    "t": 71.0,
+    "point": "합산 출력 342마력, 525Nm를 발휘하는 1.5 터보 플러그인 하이브리드 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 78.0,
+    "point": "사헬에서 카이로까지 복합 주행 시 100km당 6L 미만의 극강 연비",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 86.5,
+   "text": "من مان إيست",
+   "ko": "공식 수입원 맨이스트에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "휠",
+    "외관 후면",
+    "센터 화면",
+    "계기판",
+    "실내 앞",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

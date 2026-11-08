@@ -1,0 +1,992 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/IVj7z-pWWbk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7707,
+  "candidatesTokenCount": 8365,
+  "totalTokenCount": 16072,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6544
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 71.8,
+   "aspect": "9:16",
+   "car": "Lamborghini Urus SE",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 16.5,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.3,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 26.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.6,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 41.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 46.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 54.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 59.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 105.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 105.8,
+    "end": 108.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 108.6,
+    "end": 111.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "text": "URUS SE LAMBORGHINI",
+    "ko": "람보르기니 우루스 SE",
+    "kind": "제목",
+    "y_pct": 40.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 8.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "URUS",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 5.9,
+    "text": "Italian touches",
+    "ko": "이탈리안 감성",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.5,
+    "text": "DRL",
+    "ko": "주간주행등 (DRL)",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.0,
+    "text": "TWIN TURBO V8",
+    "ko": "트윈 터보 V8",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V8",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 16.0,
+    "text": "789 HP / 950 NM",
+    "ko": "789 마력 / 950 Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 8.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "789 HP",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "text": "hybrid",
+    "ko": "하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "CARBON CERAMIC BRAKES",
+    "ko": "카본 세라믹 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.0,
+    "text": "IPB",
+    "ko": "IPB 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.6,
+    "text": "23\"",
+    "ko": "23인치",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 8.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.8,
+    "text": "تبريد",
+    "ko": "통풍 (쿨링)",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#00FFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.0,
+    "text": "CARBON FIBRE PACKAGE",
+    "ko": "카본 파이버 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#E74C3C",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.0,
+    "text": "DRIVE MODES",
+    "ko": "주행 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 4.0,
+    "color": "#E74C3C",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.0,
+    "text": "GEARS",
+    "ko": "기어 변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#E74C3C",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "text": "EV SELECTOR",
+    "ko": "EV 셀렉터",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.0,
+    "color": "#E74C3C",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.5,
+    "text": "الكراسي",
+    "ko": "시트 조절 화면",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 52.0,
+    "text": "دركسيون الأحلام",
+    "ko": "꿈의 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.0,
+    "text": "HEAD UP DISPLAY",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 54.8,
+    "text": "BANG & OLUFSEN",
+    "ko": "뱅앤올룹슨 사운드",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.5,
+    "text": "الكنبة واسعة",
+    "ko": "넓은 뒷좌석 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E74C3C",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 109.0,
+    "end": 111.5,
+    "text": "FOLLOW",
+    "ko": "팔로우",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.4,
+    "type": "쿵",
+    "event": "황금 황소 엠블럼 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "쿵",
+    "event": "V8 화염 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "띵",
+    "event": "출력 스펙 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "우루스 SE 하이브리드 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 25.8,
+    "type": "쿵",
+    "event": "황금 황소 돌진 그래픽",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "띵",
+    "event": "IPB 브레이크 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 시동 및 배기 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "톡",
+    "event": "HUD 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 109.0,
+    "type": "띵",
+    "event": "FOLLOW 벨 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Trap / Hip Hop Beat",
+   "bpm_est": 120,
+   "mood": "에너지 넘치고 긴장감 있는 분위기",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 23.0,
+     "what": "배기음 청취를 위해 볼륨 급격히 줄임"
+    },
+    {
+     "t": 42.0,
+     "what": "시동 사운드를 위해 음악 일시 뮤트"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "what": "람보르기니 황금 황소 엠블럼 효과",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 5.9,
+    "what": "이탈리아 국기 펄럭임 효과",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 75.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 국가 강조",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.5,
+    "what": "불타는 황금 황소 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 35.0,
+    "y_pct": 60.0,
+    "entrance": "페이드",
+    "purpose": "엔진의 강력함 표현",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 26.5,
+    "what": "벽을 뚫고 나오는 3D 황소",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 70.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "장면 전환 임팩트",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.8,
+    "what": "시트 통풍 눈꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 냉각 옵션 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "أنا ناصر، ودي أجمد SUV في العالم",
+    "ko": "저는 나사르입니다. 이건 세계에서 가장 강력한 SUV입니다."
+   },
+   {
+    "start": 2.4,
+    "end": 5.0,
+    "text": "لامبورجيني أوروس SE",
+    "ko": "람보르기니 우루스 SE."
+   },
+   {
+    "start": 5.0,
+    "end": 10.8,
+    "text": "لمسات إيطالية، عندك Verde Gea سبيشال كولر، الـ DRLs الجديدة، وتنفس عملاق للموتور",
+    "ko": "이탈리안 터치, 베르데 제아 특별 색상, 새로운 DRL과 거대한 엔진 흡기구."
+   },
+   {
+    "start": 10.9,
+    "end": 16.5,
+    "text": "توين تيربو V8 بيطلع 789 حصان و 950 نيوتن، طيارة حربية",
+    "ko": "V8 트윈터보로 789마력과 950Nm을 뿜어냅니다. 전투기 수준이죠."
+   },
+   {
+    "start": 16.5,
+    "end": 22.0,
+    "text": "وعشان اختراق الهواء عندك سبويلر خلفي وتحتيه ليب سبويلر عشان يزود الثبات، ومع إنها بقت هايبرد الصوت بقى أعلى",
+    "ko": "공기역학을 위한 리어 스포일러와 다운포스를 높여주는 립 스포일러가 있고, 하이브리드가 되었음에도 사운드는 더 커졌습니다."
+   },
+   {
+    "start": 26.5,
+    "end": 30.6,
+    "text": "وعشان الثور يقف عندك كاربون سيراميك بريكس، IPB سيستم، وبلاك ريمز مقاس 23",
+    "ko": "이 황소를 멈추기 위해 카본 세라믹 브레이크, IPB 시스템, 23인치 블랙 휠이 장착되어 있습니다."
+   },
+   {
+    "start": 30.6,
+    "end": 35.8,
+    "text": "الداخلية بلون روسو بيرجندي وبتيجي بالطلب، الكراسي فيها تسخين وتبريد ومساج",
+    "ko": "실내는 오더 색상인 로소 버건디 컬러이며 시트 열선, 통풍, 마사지가 지원됩니다."
+   },
+   {
+    "start": 35.8,
+    "end": 41.5,
+    "text": "والإنتيرير بتاعها كاربون فايبر باكيدج، درايف مودز، الجيرز، والـ EV سيلكتور",
+    "ko": "실내 카본 파이버 패키지, 드라이브 모드, 기어 레버, EV 셀렉터가 있습니다."
+   },
+   {
+    "start": 46.5,
+    "end": 50.0,
+    "text": "عندك شاشة للتكييف والكراسي، وواحدة أساسية فيها آبل كاربلاي وأندرويد أوتو",
+    "ko": "공조와 시트를 위한 스크린과 애플 카플레이, 안드로이드 오토가 지원되는 메인 스크린이 있습니다."
+   },
+   {
+    "start": 50.0,
+    "end": 55.0,
+    "text": "دركسيون الأحلام، شيفترز ميتال، هيد أب ديسبلاي، وبانج آند أولوفسن ساوند سيستم",
+    "ko": "꿈의 스티어링 휠, 메탈 패들 쉬프터, 헤드업 디스플레이, 뱅앤올룹슨 오디오."
+   },
+   {
+    "start": 55.0,
+    "end": 60.0,
+    "text": "بانوراما، السقف ألكنتارا، الكنبة واسعة، قول لي إكزوتيك واحدة تطلعوا فيها 5؟",
+    "ko": "파노라마 루프, 알칸타라 천장, 넓은 뒷좌석. 5명이 탈 수 있는 이런 이국적인 차가 또 있을까요?"
+   },
+   {
+    "start": 100.0,
+    "end": 108.6,
+    "text": "استوردها مع جولدشتيرن، خبرة في استيراد العربيات... في ماكان مول وصلة دهشور الشيخ زا이드",
+    "ko": "자동차 수입 전문가 골드스턴에서 만나보세요. 셰이크 자이드 다흐슈르 연결로 마칸 몰에 있습니다."
+   },
+   {
+    "start": 108.6,
+    "end": 111.8,
+    "text": "ما تنساش تعمل فولو عشان ما تفوتكش كل العربيات الجامدة",
+    "ko": "멋진 차들을 놓치지 않으려면 팔로우 잊지 마세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "자신을 소개하며 세계 최강의 SUV 람보르기니 우루스 SE 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.8,
+    "end": 16.5,
+    "speed": "빠름",
+    "summary": "전면 디자인, 독점 외장 컬러, V8 트윈터보 엔진 출력 수치 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 16.5,
+    "end": 30.6,
+    "speed": "빠름",
+    "summary": "리어 스포일러, 배기 사운드 시연, 대형 브레이크 및 23인치 휠"
+   },
+   {
+    "stage": "차 소개",
+    "start": 30.6,
+    "end": 60.0,
+    "speed": "빠름",
+    "summary": "로소 버건디 실내 가죽, 마사지/통풍 시트, 디스플레이, 오디오, 2열 거주성 리뷰"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 60.0,
+    "end": 108.6,
+    "speed": "보통",
+    "summary": "차량 직수입 업체 골드스턴 매장 위치 및 서비스 홍보"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 108.6,
+    "end": 111.8,
+    "speed": "빠름",
+    "summary": "운전석 창문을 통해 시청자에게 채널 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "진행자의 신체 제스처나 손가락 지점에 맞춰 정확히 3D 그래픽이나 텍스트를 띄운다.",
+   "숫자 스펙(마력, 토크, 휠 크기)은 굵고 거대한 노란색 볼드 폰트로 각인시킨다.",
+   "배기음이나 시동을 걸 때는 배경음악을 완전히 줄이거나 꺼서 배기 사운드에 집중시킨다.",
+   "카본, 기어 레버, 시트 등 시연하는 부위를 손가락으로 가리킬 때 3D 네온 텍스트가 튀어나오게 연출한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 10.9,
+    "end": 14.5,
+    "feature": "V8 트윈터보 하이브리드 파워트레인",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "보닛 위로 타오르는 불꽃 속 황금 람보르기니 황소",
+    "x_pct": 35.0,
+    "y_pct": 60.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.0,
+    "feature": "IPB (통합 파워 브레이크) 시스템",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "빨간색 원형 브레이크 경고등 스타일 IPB 심볼",
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 35.8,
+    "feature": "시트 쿨링/통풍 기능",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "네온 블루 눈꽃 모양 통풍 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "feature": "주행 모드 및 EV 셀렉터 레버",
+    "shown_how": "글자 카드",
+    "icon_desc": "붉은빛 3D 텍스트가 실제 기어 셀렉터 박스 위에 부착됨",
+    "x_pct": 60.0,
+    "y_pct": 60.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 46.5,
+    "feature": "엔진 스타트 & 배기음",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "후면 배기구에서 뿜어져 나오는 실제 사운드 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 향해 걸어나오며 손짓과 함께 '세계에서 가장 강력한 SUV'라고 외치고 황금 황소 로고가 등장함",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر، ودي أجمد SUV في العالم",
+   "ko": "저는 나사르입니다. 이건 세계에서 가장 강력한 SUV입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "람보르기니 우루스 SE 신형 모델 소개",
+    "category": "디자인"
+   },
+   {
+    "t": 6.5,
+    "point": "베르데 제아 전용 외장 컬러 및 신규 DRL 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 11.5,
+    "point": "789마력, 950Nm의 V8 트윈터보 엔진 성능",
+    "category": "성능"
+   },
+   {
+    "t": 17.0,
+    "point": "다운포스를 강화하는 듀얼 리어 스포일러 구조",
+    "category": "디자인"
+   },
+   {
+    "t": 22.5,
+    "point": "하이브리드화 되었음에도 여전히 강력한 배기음",
+    "category": "성능"
+   },
+   {
+    "t": 27.0,
+    "point": "카본 세라믹 브레이크와 23인치 대형 휠 장착",
+    "category": "성능"
+   },
+   {
+    "t": 32.0,
+    "point": "로소 버건디 맞춤 가죽 시트 및 열선/통풍/마사지 기능",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "실내 카본 패키지와 EV 전용 주행 모드 레버",
+    "category": "편의"
+   },
+   {
+    "t": 51.0,
+    "point": "메탈 패들 쉬프터와 B&O 3D 사운드 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 56.5,
+    "point": "5명이 넉넉히 탈 수 있는 여유로운 뒷좌석 공간",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 109.0,
+   "text": "ما تنساش تعمل فولو عشان ما تفوتكش كل العربيات الجامدة",
+   "ko": "더 멋진 차들을 놓치지 않으려면 팔로우를 잊지 마세요!",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "엔진룸",
+    "외관 후면",
+    "휠",
+    "실내 앞",
+    "센터 화면",
+    "외관 후면",
+    "실내 앞",
+    "뒷좌석",
+    "전시장",
+    "외관 전면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,934 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/brWV8FQNz4k",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 10639,
+  "candidatesTokenCount": 7953,
+  "totalTokenCount": 19476,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 9476
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 884,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 104.5,
+   "aspect": "9:16",
+   "car": "Maextro S800",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 9.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 21.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.4,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 32.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 39.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 45.3,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.3,
+    "end": 49.3,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 53.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 59.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 63.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.8,
+    "end": 67.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.4,
+    "end": 73.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 73.8,
+    "end": 78.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 78.8,
+    "end": 81.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 81.7,
+    "end": 85.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 85.3,
+    "end": 89.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 89.6,
+    "end": 93.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 93.6,
+    "end": 97.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 97.5,
+    "end": 104.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.1,
+    "end": 5.8,
+    "text": "S800",
+    "ko": "S800",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "text": "PROJECTOR",
+    "ko": "프로젝터",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.8,
+    "text": "PRIVACY",
+    "ko": "프라이버시",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 38.4,
+    "text": "2 CUP HOLDERS",
+    "ko": "컵홀더 2개",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 41.5,
+    "text": "2 WIRELESS CHARGER",
+    "ko": "무선충전기 2개",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.5,
+    "text": "ZERO GRAVITY MODE",
+    "ko": "무중력 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#F39C12",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.1,
+    "end": 62.5,
+    "text": "HUAWEI",
+    "ko": "화웨이",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 131.5,
+    "end": 133.5,
+    "text": "852 HP / 718 NM",
+    "ko": "852마력 / 718Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#E5A93B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 134.5,
+    "end": 137.2,
+    "text": "1000 KM RANGE",
+    "ko": "주행거리 1,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#27AE60",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 142.5,
+    "end": 144.5,
+    "text": "HOTLINE 17916",
+    "ko": "핫라인 17916",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#2980B9",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.8,
+    "type": "쿵",
+    "event": "차량 모델명 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "딸깍",
+    "event": "도어 핸들 팝업 작동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스크린 블라인드 하강 모터음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "띵",
+    "event": "PROJECTOR 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "휙",
+    "event": "도어 제스처 센서 인식 및 유리 틴팅 변화",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "딸깍",
+    "event": "비밀 수납함 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "띵",
+    "event": "지문 인식 서랍 열림 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "딸깍",
+    "event": "암레스트 콘솔 개폐음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.8,
+    "type": "띵",
+    "event": "제로 그래비티 버튼 누름 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 66.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "브레이크 밟고 자동 도어 닫힘 쿵",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 114.5,
+    "type": "딸깍",
+    "event": "드라이브 모드 다이얼 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 117.5,
+    "type": "딸깍",
+    "event": "폴더블 폰 무선 충전 거치대 펼침음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 121.0,
+    "type": "딸깍",
+    "event": "셀피 카메라 셔터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 131.8,
+    "type": "쿵",
+    "event": "마력/토크 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 134.8,
+    "type": "쿵",
+    "event": "주행거리 1000km 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "웅장하고 고급스러운 트랩 비트",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.8,
+    "end": 5.8,
+    "what": "S800 3D 엠블럼 로고 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "확대 전환",
+    "purpose": "차명 각인",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.5,
+    "what": "Absolute Cinema 밈 이미지 스티커",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "재미/시네마 감성 강조",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "what": "사생활 보호 눈 가림 아이콘 및 문구",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "프라이버시 글래스 기능 설명",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.5,
+    "what": "ZERO GRAVITY MODE 골드 텍스트 엠블럼",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무중력 시트 모드 알림",
+    "sure": true
+   },
+   {
+    "start": 131.5,
+    "end": 133.8,
+    "what": "852 HP / 718 NM 출력 수치 입체 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "성능 수치 전달",
+    "sure": true
+   },
+   {
+    "start": 134.5,
+    "end": 137.2,
+    "what": "1000 KM RANGE 및 차량 하부 배터리/엔진 X-ray 그래픽",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "주행거리 및 파워트레인 구조 시각화",
+    "sure": true
+   },
+   {
+    "start": 138.5,
+    "end": 141.5,
+    "what": "1 of 1 및 QN AUTOMOTIVE 딜러 로고",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "이집트 내 단 1대 희소성 및 구매처 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "أنا ناصر وبيقولوا دي الخطر اللي جاي على المايباخ",
+    "ko": "전 나세르입니다. 마이바흐를 위협할 차가 왔다고들 하죠."
+   },
+   {
+    "start": 2.2,
+    "end": 5.9,
+    "text": "وأنا نصر الله، ودي ماكسترو S800",
+    "ko": "전 나스룰라입니다. 이 차는 마익스트로 S800입니다."
+   },
+   {
+    "start": 6.0,
+    "end": 9.8,
+    "text": "وعلشان تدخل العربية كل اللي عليك تمد إيدك ناحية الأكرة وتسحبها",
+    "ko": "차에 타려면 손잡이 쪽에 손을 갖다 대고 당기기만 하면 됩니다."
+   },
+   {
+    "start": 10.0,
+    "end": 21.8,
+    "text": "لما بتدوس هنا بيمنعلك أي إضاءة... وبشغلك بروجكتور سينما حرفياً",
+    "ko": "여길 누르면 빛을 차단하고 스크린이 내려와 프로젝터가 켜집니다. 말 그대로 극장입니다."
+   },
+   {
+    "start": 22.0,
+    "end": 27.5,
+    "text": "لو مش عايز حد برة يشوفك ماشي إيدك على الباب والفاميه بتاعك بيقفل... وتقدر ترفع الستاير",
+    "ko": "밖에서 안을 못 보게 하려면 도어에 손을 스치면 유리가 어두워지고 블라인드도 올릴 수 있습니다."
+   },
+   {
+    "start": 27.6,
+    "end": 32.5,
+    "text": "كريستال للتحكم في الكراسي مكان تخزين سري وشاشة تقدر تتحكم فيها في العربية",
+    "ko": "크리스탈 시트 컨트롤러, 비밀 수납공간, 차량을 제어하는 컨트롤 스크린까지 있습니다."
+   },
+   {
+    "start": 32.6,
+    "end": 41.8,
+    "text": "وببصمة صباعك لو دوست هنا هيفتحلك الخزنة بتاعتك... وعندك 2 كاب هولدرز و2 شاحن وايرلس",
+    "ko": "지문으로 누르면 금고가 열리고, 냉온 컵홀더 2개와 2개의 무선 충전기가 있습니다."
+   },
+   {
+    "start": 42.0,
+    "end": 49.3,
+    "text": "عندك ترابيزة فيها مراية... مساحة تخزين وتلاجة علشان العصير",
+    "ko": "거울이 달린 접이식 테이블과 수납공간, 음료를 위한 냉장고가 있습니다."
+   },
+   {
+    "start": 49.4,
+    "end": 59.8,
+    "text": "وكراسيها مريحة جداً فيها تسخين وتبريد ومساج... ولو دوست هنا هيشغلك الزيرو جرافيتي مود",
+    "ko": "통풍·열선·마사지와 다리 받침이 있고, 여길 누르면 제로 그래비티 모드가 켜집니다."
+   },
+   {
+    "start": 60.0,
+    "end": 63.8,
+    "text": "وعندك 43 سماعة من هواوي يسمعوك الصوت في قلبك مش في ودانك",
+    "ko": "화웨이의 43개 스피커가 귀가 아닌 심장까지 울려 퍼지게 합니다."
+   },
+   {
+    "start": 64.0,
+    "end": 73.8,
+    "text": "ومهتمين باللي قدام برضو... بتدوس على الفرامل الباب بيقفل، شاشات ودركسيون تسخين",
+    "ko": "앞좌석도 브레이크를 밟으면 문이 닫히고, HUD와 계기판, 열선 핸들이 탑재됐습니다."
+   },
+   {
+    "start": 74.0,
+    "end": 81.7,
+    "text": "درايف مود سيلكتور و2 شاحن سوبر تشارج وكاميرا سيلفي",
+    "ko": "드라이브 모드 다이얼과 슈퍼 무선 충전기, 셀카 카메라까지 있습니다."
+   },
+   {
+    "start": 82.0,
+    "end": 89.6,
+    "text": "وعلشان أطول من 5 متر عندك رير ويل ستيرينج وإير سسبنشن للمطبات",
+    "ko": "전장이 5m가 넘어 후륜 조향과 방지턱 충격을 줄이는 에어 서스펜션이 들어갔습니다."
+   },
+   {
+    "start": 89.7,
+    "end": 97.4,
+    "text": "بتطلع 852 حصان و718 نيوتن، ورينج 1000 كم مع موتور 1500 بيشحن البطارية",
+    "ko": "852마력 718Nm를 내며, 1500cc 발전 엔진으로 주행거리 1,000km를 달립니다."
+   },
+   {
+    "start": 97.5,
+    "end": 104.5,
+    "text": "وهي الوحيدة في مصر 1 of 1 من QN Automotive واتصل على 17916",
+    "ko": "이집트 단 1대뿐인 차로 QN 오토모티브에서 만나볼 수 있습니다. 17916으로 전화하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.0,
+    "speed": "빠름",
+    "summary": "마이바흐의 대항마로 소개하며 Maextro S800 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 6.0,
+    "end": 63.8,
+    "speed": "빠름",
+    "summary": "도어핸들, 프로젝터 스크린, 전자식 틴팅, 지문 금고, 냉장고, 무중력 시트, 화웨이 사운드 등 뒷좌석 풀옵션 리뷰"
+   },
+   {
+    "stage": "기능",
+    "start": 63.8,
+    "end": 81.7,
+    "speed": "빠름",
+    "summary": "자동문 닫힘, 디스플레이, 셀피 카메라, 폴더블 충전기 등 앞좌석 편의사양 리뷰"
+   },
+   {
+    "stage": "사양",
+    "start": 81.7,
+    "end": 97.4,
+    "speed": "빠름",
+    "summary": "후륜 조향, 에어 서스펜션, 852마력 출력 및 1000km 주행거리 사양 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 97.5,
+    "end": 104.5,
+    "speed": "보통",
+    "summary": "이집트 1대 한정 희소성 안내 및 QN Automotive 핫라인 번호 CTA"
+   }
+  ],
+  "rules": [
+   "진행자 두 명이 번갈아 가며 한 문장씩 속도감 있게 대사를 주고받아 몰입감을 높임",
+   "화려한 럭셔리 기능(프로젝터 스크린, 무중력 시트, 자동 도어 등)을 즉각 시연하며 시각적 충격을 줌",
+   "기능 작동과 동시에 3D 모션 그래픽과 명확한 SFX 효과음을 얹어 고급스러움과 기술적 면모 강조",
+   "시청자의 구매 욕구를 자극하도록 '1 of 1' 희소성을 마지막에 강조하고 직통 핫라인 번호 삽입"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.0,
+    "end": 21.0,
+    "feature": "뒷좌석 대형 전동 롤스크린 & 프로젝터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "PROJECTOR 볼드 텍스트 및 시네마 밈 스티커",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.0,
+    "feature": "제스처 컨트롤 스마트 프라이버시 글래스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "눈 모양 가림 사각 아이콘",
+    "x_pct": 35.0,
+    "y_pct": 35.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.5,
+    "feature": "지문 인식 시크릿 금고/서랍",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "녹색 지문 스캐너 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 59.5,
+    "feature": "제로 그래비티(무중력) 릴랙스 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "ZERO GRAVITY MODE 금빛 엠블럼",
+    "x_pct": 35.0,
+    "y_pct": 25.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 67.2,
+    "feature": "브레이크 페달 연동 자동 도어 클로징",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 82.0,
+    "end": 85.0,
+    "feature": "후륜 조향 시스템 (Rear Axle Steering)",
+    "shown_how": "글자 카드",
+    "icon_desc": "REAR AXLE STEERING 영문 타이포그래피",
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 134.5,
+    "end": 137.2,
+    "feature": "1,000km 주행거리 EREV 파워트레인",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차체 투시도 배터리/엔진 X-ray 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "마이바흐를 위협할 새로운 끝판왕이라며 활기차게 차 옆에서 등장하는 두 명의 리뷰어",
+   "type": "희귀차",
+   "text": "أنا ناصر وبيقولوا دي الخطر اللي جاي على المايباخ",
+   "ko": "전 나세르입니다. 마이바흐를 위협할 차가 왔다고들 하죠."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "마이바흐를 정조준한 플래그십 럭셔리 세단",
+    "category": "디자인"
+   },
+   {
+    "t": 15.0,
+    "point": "영화관을 방불케 하는 대형 프로젝터 스크린 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 23.0,
+    "point": "손짓 한 번으로 어두워지는 스마트 프라이버시 글래스",
+    "category": "편의"
+   },
+   {
+    "t": 34.0,
+    "point": "귀중품 보관을 위한 지문 인식 시크릿 금고",
+    "category": "편의"
+   },
+   {
+    "t": 55.0,
+    "point": "원터치로 작동하는 극상의 편안함 제로 그래비티 모드",
+    "category": "편의"
+   },
+   {
+    "t": 61.0,
+    "point": "심장까지 울리는 화웨이 43스피커 프리미엄 사운드 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 83.0,
+    "point": "대형 차체의 회전 반경을 줄여주는 후륜 조향 장치",
+    "category": "성능"
+   },
+   {
+    "t": 86.0,
+    "point": "노면 충격을 흡수해 극강의 승차감을 제공하는 에어 서스펜션",
+    "category": "성능"
+   },
+   {
+    "t": 92.0,
+    "point": "852마력 718Nm의 압도적 출력과 1,000km 장거리 주행거리",
+    "category": "성능"
+   },
+   {
+    "t": 99.0,
+    "point": "이집트에 단 1대뿐인 초희귀 독점 수입 모델",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 142.5,
+   "text": "واتصل على 17916",
+   "ko": "예약 및 문의는 핫라인 17916으로 전화하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "도어 핸들",
+    "뒷좌석",
+    "시트 옵션",
+    "실내 앞",
+    "스티어링 휠",
+    "센터페시아",
+    "외관 측면",
+    "휠",
+    "외관 전면"
+   ]
+  }
+ }
+}

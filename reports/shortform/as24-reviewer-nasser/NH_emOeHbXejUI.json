@@ -1,0 +1,896 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/emOeHbXejUI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7182,
+  "candidatesTokenCount": 7792,
+  "totalTokenCount": 15612,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6019
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 638,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 67.0,
+   "aspect": "9:16",
+   "car": "Soueast S08 vs Volkswagen Tiguan",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 14.2,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 16.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.4,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 32.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 37.7,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 42.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 48.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 52.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.1,
+    "end": 56.4,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.4,
+    "end": 59.9,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 67.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 3.8,
+    "text": "SOUEAST S08 vs VW TIGUAN",
+    "ko": "사우스 S08 대 폭스바겐 티구안",
+    "kind": "제목",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "vs",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.5,
+    "text": "تبريد",
+    "ko": "통풍/냉각",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 4.5,
+    "color": "#38B6FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 6.8,
+    "text": "MEMORY",
+    "ko": "메모리 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDE59",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "text": "8 وضعيات",
+    "ko": "8가지 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.0,
+    "text": "عندك شاشة بتلف للاتجاهين",
+    "ko": "양방향 회전형 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.8,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "text": "MEDIA CONTROL KNOB",
+    "ko": "미디어 컨트롤 노브",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.8,
+    "text": "DRIVE MODE SELECTOR",
+    "ko": "주행 모드 셀렉터",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.4,
+    "text": "HEAD UP DISPLAY",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 47.5,
+    "text": "362 HP / 525 NM",
+    "ko": "362마력 / 525Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E50914",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 51.5,
+    "text": "1400 CC / 150 HP / 250 NM",
+    "ko": "1400cc / 150마력 / 250Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0072CE",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 62.0,
+    "text": "هتلاقي الاثنين في كل الفروع",
+    "ko": "모든 지점에서 두 차량 모두 구매 가능",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#009933",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 67.0,
+    "text": "15208",
+    "ko": "15208 (대표 번호)",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E50914",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.6,
+    "type": "휙",
+    "event": "타이틀 로고 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.2,
+    "type": "띵",
+    "event": "통풍/냉각 쿨링 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.6,
+    "type": "띵",
+    "event": "메모리 시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "톡",
+    "event": "마사지 8가지 모드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "휙",
+    "event": "회전 디스플레이 아이콘 및 회전 시연",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "띵",
+    "event": "무선 충전기 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.3,
+    "type": "딸깍",
+    "event": "콘솔 냉장고 덮개 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "딸깍",
+    "event": "티구안 다기능 다이얼 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "띵",
+    "event": "헤드업 디스플레이 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "띵",
+    "event": "크리스털 도어 시트 버튼 조명 연출",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 29.2,
+    "type": "딸깍",
+    "event": "접이식 테이블 펼치기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "돈 소리",
+    "event": "가격 차이 그래픽(지폐 이펙트) 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.2,
+    "type": "쿵",
+    "event": "사우스 S08 스펙 수치 임팩트 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 48.7,
+    "type": "쿵",
+    "event": "티구안 파워트레인 스펙 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 55.4,
+    "type": "딸깍",
+    "event": "트렁크 2열 시트 원터치 폴딩 레버 당김",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.2,
+    "type": "띵",
+    "event": "지점 안내 체크마크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 64.2,
+    "type": "띵",
+    "event": "전화상담 핫라인 번호 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 3.8,
+    "what": "차량 엠블럼 및 비교 로고 CG",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 대진 소개",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "what": "시트 통풍 냉각 파란색 영역 및 눈송이 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 35.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "시트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "what": "마사지 체어 일러스트 및 물결 이펙트",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 42.0,
+    "y_pct": 46.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "마사지 기능 설명",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.0,
+    "what": "회전 화살표 순환 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "페이드",
+    "purpose": "회전 스크린 표시",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.5,
+    "what": "날아다니는 지폐 및 가격 차이 네온 텍스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가성비 격차 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "أنا ناصر، وتعال نقارن السويست الـ S08 بالفولكس فاجن تيجوان.",
+    "ko": "저는 나사르입니다. 사우스 S08과 폭스바겐 티구안을 비교해 봅시다."
+   },
+   {
+    "start": 3.8,
+    "end": 9.9,
+    "text": "كراسي التيجوان فيها تسخين وتبريد ومساج وميموري، وفي السويست المساج أقوى وليه 8 وضعيات وسبايع.",
+    "ko": "티구안 시트는 열선, 통풍, 마사지, 메모리가 있고, 사우스는 8가지 모드로 마사지가 더 강력하고 훌륭합니다."
+   },
+   {
+    "start": 9.9,
+    "end": 17.6,
+    "text": "الـ 08 من جوه، عندك شاشة بتلف للاتجاهين، فيها أبل كاربلاي وأندرويد أوتو، شاحن وايرلس 50 واط، وعندك تلاجة.",
+    "ko": "S08 실내는 양방향 회전 스크린에 카플레이, 안드로이드 오토, 50W 무선 충전기, 콘솔 냉장고까지 갖췄습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 25.4,
+    "text": "التيجوان فيها نوب للتحكم في الميديا أو درايف مود سيلكتور، مساحة تخزين، شاشة كبيرة، وزيادة هيد اب ديسبلاي.",
+    "ko": "티구안은 미디어 컨트롤 겸 주행 모드 노브, 수납공간, 대형 화면, 그리고 HUD가 추가되어 있습니다."
+   },
+   {
+    "start": 25.4,
+    "end": 32.0,
+    "text": "في الـ 08 الكنبة واسعة، عندك كريستال وتصميم خشب على البيبان، ترابيزة، وشاشة للتحكم في التكييف.",
+    "ko": "S08은 뒷좌석이 넓고, 도어에 크리스털과 우드 트림, 간이 테이블, 후석 공조 액정까지 있습니다."
+   },
+   {
+    "start": 32.0,
+    "end": 37.7,
+    "text": "والتيجوان مش ضيقة، ألكنتارا على البيبان، مساحات تخزين، والبانوراما واصل كويس في الاثنين.",
+    "ko": "티구안도 좁지 않으며 도어 알칸타라, 수납공간이 있고 파노라마 선루프는 둘 다 훌륭합니다."
+   },
+   {
+    "start": 37.7,
+    "end": 42.6,
+    "text": "والـ 08 فيها صف تالت للأطفال، وما تقوليش قارنها بالتيرون، فرق السعر أوريدي كبير.",
+    "ko": "S08은 어린이용 3열 시트도 있습니다. 테라몬트랑 비교하라고 하지 마세요, 가격 차이가 이미 큽니다."
+   },
+   {
+    "start": 42.6,
+    "end": 48.0,
+    "text": "السويست 342 حصان، 525 نيوتن، فعامل السرعة واستهلاك البنزين لصالح الـ 08.",
+    "ko": "사우스는 362마력 525Nm로 속도와 연비 효율 모두 S08의 압승입니다."
+   },
+   {
+    "start": 48.0,
+    "end": 52.1,
+    "text": "موتور التيجوان 1400 تربو، 150 حصان، و250 نيوتن.",
+    "ko": "티구안 엔진은 1400cc 터보, 150마력, 250Nm입니다."
+   },
+   {
+    "start": 52.1,
+    "end": 59.9,
+    "text": "شنطة التيجوان كهربا ومساحتها كويسة، والـ 08 شنطتها كهربا وأوسع وأنت منزل الصف التالت.",
+    "ko": "티구안 전동 트렁크도 공간이 좋지만, S08도 전동에 3열을 접으면 훨씬 더 넓습니다."
+   },
+   {
+    "start": 59.9,
+    "end": 67.0,
+    "text": "هتلاقي الاثنين في كل فروع محمد فهمي، ده فرع المهندسين أجدد فرع ليهم، كلمهم على 15208.",
+    "ko": "모하메드 파흐미 전 지점에서 두 차를 만나보실 수 있습니다. 모한디신 신규 지점에 오시거나 15208로 문의하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "사우스 S08 vs 폭스바겐 티구안 정면 비교 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 3.8,
+    "end": 9.9,
+    "speed": "빠름",
+    "summary": "앞좌석 시트 기능(통풍, 열선, 마사지 등) 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 9.9,
+    "end": 25.4,
+    "speed": "빠름",
+    "summary": "1열 인테리어 및 편의 옵션(회전 스크린, 냉장고, HUD 등) 비교"
+   },
+   {
+    "stage": "공간",
+    "start": 25.4,
+    "end": 42.6,
+    "speed": "빠름",
+    "summary": "2열 편의성 및 3열 좌석 유무 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 42.6,
+    "end": 52.1,
+    "speed": "빠름",
+    "summary": "파워트레인(마력, 토크) 성능 수치 비교"
+   },
+   {
+    "stage": "공간",
+    "start": 52.1,
+    "end": 59.9,
+    "speed": "빠름",
+    "summary": "트렁크 적재 공간 직접 누워서 시연 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 59.9,
+    "end": 67.0,
+    "speed": "보통",
+    "summary": "매장 지점 소개 및 상담 연락처 안내"
+   }
+  ],
+  "rules": [
+   "두 차량의 핵심 포인트를 번갈아 1대1로 신속하게 교차 편집하여 지루함을 배제함",
+   "주요 스펙과 기능마다 눈에 띄는 3D/2D 그래픽과 효과음을 일치시켜 집중도를 높임",
+   "리뷰어가 직접 누워보거나 만져보며 공간감과 조작 편의성을 직관적으로 체감시킴",
+   "후반부에 성능 수치를 명확한 자막 카드와 쿵 소리로 강조하여 임팩트를 부여함"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.5,
+    "end": 6.5,
+    "feature": "통풍 및 메모리 시트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "시트 표면에 덧씌워진 파란색 냉각 효과 그래픽 및 눈송이 아이콘",
+    "x_pct": 35.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "feature": "회전형 센터 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "화면을 터치하여 가로/세로로 회전시키는 3D 회전 마크",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "휙",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 16.0,
+    "feature": "50W 무선 충전 패드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "노란색 번개 무선충전 심볼과 영문 텍스트 카드",
+    "x_pct": 65.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 16.1,
+    "end": 17.5,
+    "feature": "콘솔 내장형 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "센터 콘솔 덮개를 열어 안쪽 냉각 공간을 직접 개폐",
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.8,
+    "feature": "통합 미디어 및 드라이브 모드 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "디스플레이 내장 원형 노브를 돌려 기능 전환 시연",
+    "x_pct": 80.0,
+    "y_pct": 33.0,
+    "size_w_pct": 36.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "feature": "2열 접이식 간이 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "앞좌석 등받이에서 트레이 테이블을 직접 펼치는 동작",
+    "x_pct": 60.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 두 차량 사이에 서서 중국산 가성비 SUV(S08)와 독일 베스트셀러(티구안)의 정면 비교를 선언",
+   "type": "질문",
+   "text": "تعال نقارن السويست الـ S08 بالفولكس فاجن تيجوان",
+   "ko": "사우스 S08과 폭스바겐 티구안을 비교해 봅시다"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "티구안 시트 통풍/열선/메모리/마사지 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 8.0,
+    "point": "사우스 S08은 8가지 모드로 더 강한 마사지 지원",
+    "category": "편의"
+   },
+   {
+    "t": 11.0,
+    "point": "S08은 양방향 회전 스크린 및 50W 고속 무선충전, 내장 냉장고 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 18.5,
+    "point": "티구안은 스마트 컨트롤 다이얼 및 대형 디스플레이, HUD 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 26.0,
+    "point": "S08 2열은 크리스털 버튼, 접이식 트레이, 후석 공조 디스플레이 지원",
+    "category": "편의"
+   },
+   {
+    "t": 38.0,
+    "point": "S08은 3열 시트를 갖춘 다인승 구조 제공",
+    "category": "공간"
+   },
+   {
+    "t": 44.0,
+    "point": "S08은 362마력 525Nm의 강력한 동력 성능과 우수한 연비",
+    "category": "성능"
+   },
+   {
+    "t": 49.0,
+    "point": "티구안은 1.4 터보 150마력 250Nm 사양",
+    "category": "성능"
+   },
+   {
+    "t": 54.0,
+    "point": "두 차량 모두 전동 트렁크 적용, S08은 3열 폴딩 시 성인이 누울 만큼 광활함",
+    "category": "공간"
+   },
+   {
+    "t": 62.0,
+    "point": "모하메드 파흐미 전 지점(모한디신 등) 입고 및 대표 번호 안내",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 64.0,
+   "text": "كلمهم على 15208 واسأل على العروض",
+   "ko": "15208로 전화하셔서 프로모션 혜택을 문의하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 전면",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}
