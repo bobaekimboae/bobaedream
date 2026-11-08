@@ -1,0 +1,444 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/pgygaERTkZk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4533,
+  "candidatesTokenCount": 4340,
+  "totalTokenCount": 9280,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3273
+   }
+  ],
+  "thoughtsTokenCount": 407,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.4,
+   "aspect": "9:16",
+   "car": "애스턴마틴 밴티지 V12 파이널 에디션",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 35.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 35.4,
+    "text": "12기통 사운드 입벌어짐\n이어폰 끼고 들으세요",
+    "ko": "12기통 사운드 입벌어짐 이어폰 끼고 들으세요",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 88.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "이어폰 끼고 들으세요",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "애스턴마틴 너무 탐나는데요?",
+    "ko": "애스턴마틴 너무 탐나는데요?",
+    "kind": "말 자막",
+    "y_pct": 56.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 6.2,
+    "text": "그렇죠 애스턴마틴 벤티지 12기통 파이널 에디션",
+    "ko": "그렇죠 애스턴마틴 밴티지 12기통 파이널 에디션",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 28.5,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "text": "사실상 이건 너무 보기가\n쉽지 않은 모델입니다",
+    "ko": "사실상 이건 너무 보기가 쉽지 않은 모델입니다",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 35.0,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "엑셀링 한번 해봐",
+    "ko": "엑셀링 한번 해봐",
+    "kind": "말 자막",
+    "y_pct": 51.5,
+    "x_center_pct": 23.5,
+    "text_height_pct": 2.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.3,
+    "text": "야 너 이렇게 소극적이야?",
+    "ko": "야 너 이렇게 소극적이야?",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 24.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 21.6,
+    "text": "아뇨 ㅠㅠ",
+    "ko": "아뇨 ㅠㅠ",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 21.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.5,
+    "text": "아직 좀 부족한데..",
+    "ko": "아직 좀 부족한데..",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 24.5,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.2,
+    "text": "(소리 줄이세요)",
+    "ko": "(소리 줄이세요)",
+    "kind": "키워드 스티커",
+    "y_pct": 61.0,
+    "x_center_pct": 34.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 14.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "첫 번째 가벼운 배기음 엑셀링",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "두 번째 가벼운 배기음 엑셀링",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "띵",
+    "event": "물음표 자막 등장 효과음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "중간 강도 배기음 엑셀링",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "추가 배기음 엑셀링",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "강한 풀 엑셀링 고RPM 12기통 배기음 및 백파이어 폭발음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "현장음 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 35.4,
+    "what": "하단 채널 브랜딩 로고(금기사TV)",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 24.0,
+    "y_pct": 89.0,
+    "entrance": "고정",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 18.5,
+    "what": "물음표 이모티콘 텍스트",
+    "is_3d": false,
+    "size_w_pct": 14.0,
+    "x_pct": 21.0,
+    "y_pct": 52.5,
+    "entrance": "바로",
+    "purpose": "리액션 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "애스턴마틴 별로 안 좋아하는데 뒤에 건 너무 탐나네요.",
+    "ko": "애스턴마틴 별로 안 좋아하는데 뒤에 건 너무 탐나네요."
+   },
+   {
+    "start": 3.3,
+    "end": 6.7,
+    "text": "그렇죠. 애스턴마틴 밴티지 12기통 파이널 에디션.",
+    "ko": "그렇죠. 애스턴마틴 밴티지 12기통 파이널 에디션."
+   },
+   {
+    "start": 6.8,
+    "end": 10.3,
+    "text": "사실상 이건 너무 보기가... 쉽지 않은 모델입니다.",
+    "ko": "사실상 이건 너무 보기가... 쉽지 않은 모델입니다."
+   },
+   {
+    "start": 10.8,
+    "end": 12.8,
+    "text": "엑셀링 한번 해봐 봐. 머플러 여기 있죠?",
+    "ko": "엑셀링 한번 해봐 봐. 머플러 여기 있죠?"
+   },
+   {
+    "start": 18.2,
+    "end": 20.3,
+    "text": "야 너 이렇게 소극적이야? 너 일 안하고 싶어?",
+    "ko": "야 너 이렇게 소극적이야? 너 일 안하고 싶어?"
+   },
+   {
+    "start": 20.5,
+    "end": 21.8,
+    "text": "아뇨 ㅠㅠ",
+    "ko": "아뇨 ㅠㅠ"
+   },
+   {
+    "start": 23.8,
+    "end": 25.5,
+    "text": "잠깐 기다려봐. 내가 이건...",
+    "ko": "잠깐 기다려봐. 내가 이건..."
+   },
+   {
+    "start": 26.2,
+    "end": 28.3,
+    "text": "아직 좀 부족한데... 죽이잖아.",
+    "ko": "아직 좀 부족한데... 죽이잖아."
+   },
+   {
+    "start": 28.5,
+    "end": 31.9,
+    "text": "이야... 이... 한번만 더 깊게 놔봐.",
+    "ko": "이야... 이... 한번만 더 깊게 놔봐."
+   },
+   {
+    "start": 34.0,
+    "end": 35.4,
+    "text": "이야...",
+    "ko": "이야..."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.2,
+    "speed": "보통",
+    "summary": "라이브 댓글 질문 확인 및 상단 이어폰 권장 문구"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.2,
+    "end": 10.8,
+    "speed": "보통",
+    "summary": "애스턴마틴 밴티지 V12 파이널 에디션 희소성 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 10.8,
+    "end": 35.4,
+    "speed": "보통",
+    "summary": "머플러 배기음 시연 및 점진적인 엑셀링 후 폭발적인 12기통 사운드 감상"
+   }
+  ],
+  "rules": [
+   "상단에 호기심 유발 및 이어폰 청취를 권장하는 눈에 띄는 노란색 타이틀 배치",
+   "하단에 고정 채널 로고(금기사TV)를 일관되게 노출",
+   "배경음악을 완전히 제거하여 슈퍼카 12기통 배기 사운드 원음을 극대화 전달",
+   "약한 엑셀링에 대한 유머러스한 티키타카로 빌드업 후 강력한 후반부 배기음 클라이맥스 연출"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.8,
+    "end": 35.4,
+    "feature": "12기통 스포츠 가변 배기음",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 53.0,
+    "y_pct": 52.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "상단 12기통 사운드 안내 배너와 함께 시청자 댓글에 응답하는 장면",
+   "type": "사운드(배기음 등)",
+   "text": "12기통 사운드 입벌어짐 이어폰 끼고 들으세요"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "애스턴마틴 밴티지 12기통 파이널 에디션으로 국내에서 매우 보기 드문 희귀 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 32.5,
+    "point": "압도적인 12기통 자연흡기급 거친 배기음 사운드",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 후면"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 굵은 노란색/흰색 강조 타이틀과 하단 금기사TV 고정 로고를 유지하는 정형화된 쇼츠 틀"
+  }
+ }
+}

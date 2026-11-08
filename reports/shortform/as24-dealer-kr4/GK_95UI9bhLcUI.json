@@ -1,0 +1,540 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/95UI9bhLcUI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3808,
+  "candidatesTokenCount": 4094,
+  "totalTokenCount": 7902,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2548
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.5,
+   "aspect": "9:16",
+   "car": "벤츠 G63 AMG",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.7,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.3,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 27.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 27.5,
+    "text": "벤츠 G63 AMG\n와 내부 살짝 봤는데 이정도라고?",
+    "ko": "벤츠 G63 AMG\n와 내부 살짝 봤는데 이정도라고?",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 98.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "이정도라고?",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 27.5,
+    "text": "더 많은 내용은 본편에서\n금기사TV",
+    "ko": "더 많은 내용은 본편에서\n금기사TV",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "금기사TV",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "여기 이랬던 이랬던 인테리어가 어떻게 바뀌는지",
+    "ko": "여기 이랬던 이랬던 인테리어가 어떻게 바뀌는지",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 54.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.7,
+    "text": "그리고 이랬던 천장이 어떻게 바뀌는지",
+    "ko": "그리고 이랬던 천장이 어떻게 바뀌는지",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "이거 AMG 머플러에서 어떻게 바뀌는지",
+    "ko": "이거 AMG 머플러에서 어떻게 바뀌는지",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.7,
+    "text": "이랬던 2열 시트가 어떻게 바뀌는지",
+    "ko": "이랬던 2열 시트가 어떻게 바뀌는지",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 15.5,
+    "text": "바로 인테리어입니다 죽이죠",
+    "ko": "바로 인테리어입니다 죽이죠",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.7,
+    "text": "알칸타라 재질로 하고",
+    "ko": "알칸타라 재질로 하고",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.0,
+    "text": "지금 이런 시트도 작업이 이렇게 됐어요",
+    "ko": "지금 이런 시트도 작업이 이렇게 됐어요",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.5,
+    "text": "보시면 은하수로다가",
+    "ko": "보시면 은하수로다가",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 27.5,
+    "text": "이렇게 작업이 되어 있습니다",
+    "ko": "이렇게 작업이 되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 1.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 9.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문 열리는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "현장음 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 27.5,
+    "what": "금기사TV 채널 아이콘 배지",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 20.0,
+    "y_pct": 66.5,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "여기 이랬던 이랬던 인테리어가 어떻게 바뀌는지",
+    "ko": "여기 이랬던 이랬던 인테리어가 어떻게 바뀌는지"
+   },
+   {
+    "start": 1.4,
+    "end": 2.7,
+    "text": "그리고 이랬던 천장이 어떻게 바뀌는지",
+    "ko": "그리고 이랬던 천장이 어떻게 바뀌는지"
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "이거 AMG 머플러에서 어떻게 바뀌는지",
+    "ko": "이거 AMG 머플러에서 어떻게 바뀌는지"
+   },
+   {
+    "start": 4.5,
+    "end": 8.7,
+    "text": "이랬던 2열 시트가 어떻게 바뀌는지",
+    "ko": "이랬던 2열 시트가 어떻게 바뀌는지"
+   },
+   {
+    "start": 8.7,
+    "end": 15.5,
+    "text": "바로 인테리어입니다 죽이죠",
+    "ko": "바로 인테리어입니다 죽이죠"
+   },
+   {
+    "start": 15.5,
+    "end": 18.7,
+    "text": "알칸타라 재질로 하고",
+    "ko": "알칸타라 재질로 하고"
+   },
+   {
+    "start": 18.7,
+    "end": 21.0,
+    "text": "지금 이런 시트도 작업이 이렇게 됐어요",
+    "ko": "지금 이런 시트도 작업이 이렇게 됐어요"
+   },
+   {
+    "start": 21.0,
+    "end": 26.5,
+    "text": "보시면 은하수로다가",
+    "ko": "보시면 은하수로다가"
+   },
+   {
+    "start": 26.5,
+    "end": 27.5,
+    "text": "이렇게 작업이 되어 있습니다",
+    "ko": "이렇게 작업이 되어 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "튜닝 전 순정 실내 및 머플러 상태 비포(Before) 연속 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.7,
+    "end": 27.5,
+    "speed": "보통",
+    "summary": "민트색 가죽, 알칸타라, 스타라이트 은하수 천장으로 변신한 애프터(After) 튜닝 내역 소개"
+   }
+  ],
+  "rules": [
+   "상단에 고정된 검정 박스 형태의 강력한 텍스트 훅 제목 배치",
+   "하단에는 본편 유도를 위한 채널명 및 안내 고정 배치",
+   "비포/애프터 구조로 전반부에는 순정 상태를 빠르게 보여주고 후반부에 극적인 튜닝 결과물 공개"
+  ],
+  "option_highlights": [
+   {
+    "start": 9.5,
+    "end": 15.5,
+    "feature": "민트색 커스텀 인테리어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.7,
+    "feature": "알칸타라 천장 트리밍",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.0,
+    "feature": "AMG 로고 퀼팅 커스텀 시트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 27.5,
+    "feature": "롤스로이스 스타일 스타라이트 은하수 무드등",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "순정 인테리어와 천장을 가리키며 '어떻게 바뀌는지' 호기심을 유발하는 빠른 컷 편집",
+   "type": "질문",
+   "text": "이랬던 인테리어가 어떻게 바뀌는지"
+  },
+  "narration_points": [
+   {
+    "t": 10.0,
+    "point": "민트색(티파니 블루 느낌) 풀 커스텀 가죽 인테리어 시공",
+    "category": "디자인"
+   },
+   {
+    "t": 16.5,
+    "point": "천장 마감재 알칸타라 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 19.5,
+    "point": "커스텀 퀼팅 및 AMG 로고 시트 시공",
+    "category": "디자인"
+   },
+   {
+    "t": 23.0,
+    "point": "천장 은하수(롤스로이스식 엠비언트) 무드등 시공",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "금기사TV"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "더 많은 내용은 본편에서 금기사TV",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "실내 앞",
+    "실내 앞 천장",
+    "외관 측면 머플러",
+    "뒷좌석",
+    "튜닝 후 실내 전체",
+    "튜닝 후 시트",
+    "튜닝 후 천장 은하수"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 블랙 바 타이틀 + 하단 금기사TV 고정 브랜딩 레이아웃"
+  }
+ }
+}

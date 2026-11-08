@@ -1,0 +1,153 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/4cmpCuLjyYA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1992,
+  "candidatesTokenCount": 1195,
+  "totalTokenCount": 3942,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 732
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 755,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 8.6,
+   "aspect": "9:16",
+   "car": "페라리 로마 / 람보르기니 우루스",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 8.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "람보르기니 우루스 진입 배기음",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "피아노 연주곡",
+   "bpm_est": 70,
+   "mood": "쓸쓸함, 코믹, 아련함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 2.5,
+     "what": "여성의 대사 이후 애잔한 피아노 멜로디 강조"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.2,
+    "text": "와 이게 페라리구나! 너무 예쁘다! 오빠, 나 우루스가 나은 것 같애.",
+    "ko": "와 이게 페라리구나! 너무 예쁘다! 오빠, 나 우루스가 나은 것 같애."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "보통",
+    "summary": "페라리를 칭찬하던 여성이 뒤이어 들어오는 노란색 우루스에 시선을 뺏김"
+   },
+   {
+    "stage": "기능",
+    "start": 2.8,
+    "end": 8.6,
+    "speed": "느림",
+    "summary": "남성이 허탈한 표정을 짓다 자신의 페라리 엠블럼을 애처롭게 쳐다보고 입맞춤"
+   }
+  ],
+  "rules": [
+   "자막 없이 인물의 대사와 행동 상황극으로 스토리를 전달",
+   "상황의 반전 순간에 애잔한 배경음악을 깔아 코믹한 연출 극대화",
+   "클로즈업 컷 전환을 통해 인물의 감정과 슈퍼카 엠블럼을 대비시킴"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "페라리 앞에서 대화하던 중 노란색 람보르기니 우루스가 등장하며 여성이 마음을 바꿈",
+   "type": "행동",
+   "text": "와 이게 페라리구나! 너무 예쁘다! 오빠, 나 우루스가 나은 것 같애."
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "기타",
+   "part_order": [
+    "사람",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "별도의 고정 브랜딩 요소 없이 숏폼 바이럴 상황극 형식으로 편집됨"
+  }
+ }
+}

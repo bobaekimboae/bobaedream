@@ -1,0 +1,533 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/M-dnV_IG0P4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5088,
+  "candidatesTokenCount": 4571,
+  "totalTokenCount": 9659,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3828
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42.6,
+   "aspect": "9:16",
+   "car": "슈퍼카 전반(맥라렌, 아우디 R8, 페라리 488, 람보르기니 우라칸 등)",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.9,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.3,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 42.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 42.6,
+    "text": "2억 언더 슈퍼카\n감가가 적다고?",
+    "ko": "2억 언더 슈퍼카 감가가 적다고?",
+    "kind": "제목",
+    "y_pct": 11.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "감가가 적다고?",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "text": "시청자 질문 (2년 동안 재밌게 타다 팔 수 있는 감가 적은 차)",
+    "ko": "시청자 질문",
+    "kind": "기타",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.7,
+    "text": "사실 감가 적은 기준의 가격대가 있어요",
+    "ko": "사실 감가 적은 기준의 가격대가 있어요",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.0,
+    "text": "감가 적은 가격대 차량들 과연 뭘까요?",
+    "ko": "감가 적은 가격대 차량들 과연 뭘까요?",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.1,
+    "end": 13.8,
+    "text": "바로 2억 미만 차량들입니다",
+    "ko": "바로 2억 미만 차량들입니다",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 17.5,
+    "text": "2억 언더로 있는 차들은\n진짜 감가를 다 맞은 거예요",
+    "ko": "2억 언더로 있는 차들은 진짜 감가를 다 맞은 거예요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "다 맞은 거예요",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.9,
+    "text": "지금 맥라렌 같은 경우도 그렇고요",
+    "ko": "지금 맥라렌 같은 경우도 그렇고요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.3,
+    "text": "그리고 R8",
+    "ko": "그리고 R8",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.6,
+    "text": "페라리 488 GTB도 있고요",
+    "ko": "페라리 488 GTB도 있고요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.7,
+    "end": 26.8,
+    "text": "람보르기니에서는 우라칸 LP 610",
+    "ko": "람보르기니에서는 우라칸 LP 610",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 30.5,
+    "text": "아마 2억 언더에 있는 차들은\n감가가 덜 된다라고 보시는 게 더 좋을 것 같습니다",
+    "ko": "아마 2억 언더에 있는 차들은 감가가 덜 된다라고 보시는 게 더 좋을 것 같습니다",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 36.6,
+    "text": "그래서 그 모델로 해서 보시는 걸 추천합니다",
+    "ko": "그래서 그 모델로 해서 보시는 걸 추천합니다",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.7,
+    "end": 42.6,
+    "text": "그만큼 더 이상 감가를 안 하기 위해\n차주들이 온갖 디펜스를 할 거야",
+    "ko": "차주들이 온갖 디펜스를 할 거야",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "온갖 디펜스를 할 거야",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 16.5,
+    "type": "쾅",
+    "event": "감가를 다 맞은 거예요 강조 글자 및 충격 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "휙",
+    "event": "맥라렌 이미지 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "휙",
+    "event": "아우디 R8 이미지 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.3,
+    "type": "휙",
+    "event": "페라리 488 GTB 이미지 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.6,
+    "type": "휙",
+    "event": "람보르기니 우라칸 이미지 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "토크 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 42.6,
+    "what": "하단 채널 로고 배너 (금기사TV)",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 96.0,
+    "entrance": "바로",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 26.8,
+    "what": "추천 2억 언더 슈퍼카 사진 슬라이드",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "entrance": "밀기",
+    "purpose": "차량 예시 시각화",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.3,
+    "text": "금기사님 코인으로 좀 벌어서 세컨카 알아보고 있는데 감가 적은 걸로 2년 동안 재밌게 타다 팔 수 있는 게 뭐가 있나요?",
+    "ko": "금기사님 코인으로 좀 벌어서 세컨카 알아보고 있는데 감가 적은 걸로 2년 동안 재밌게 타다 팔 수 있는 게 뭐가 있나요?"
+   },
+   {
+    "start": 6.4,
+    "end": 10.9,
+    "text": "사실 감가 적은 기준의 가격대가 있어요. 감가 적은 가격대 차량들 과연 뭘까요?",
+    "ko": "사실 감가 적은 기준의 가격대가 있어요. 감가 적은 가격대 차량들 과연 뭘까요?"
+   },
+   {
+    "start": 11.0,
+    "end": 17.5,
+    "text": "바로 2억 미만 차량들입니다. 2억 언더로 있는 차들은 진짜 감가를 다 맞은 거예요.",
+    "ko": "바로 2억 미만 차량들입니다. 2억 언더로 있는 차들은 진짜 감가를 다 맞은 거예요."
+   },
+   {
+    "start": 17.6,
+    "end": 26.8,
+    "text": "아는 차들 예를 들어 지금 맥라렌 같은 경우도 그렇고요. 그리고 아우디 R8, 페라리 488 GTB도 있고요, 람보에서는 우라칸 LP 610.",
+    "ko": "아는 차들 예를 들어 지금 맥라렌 같은 경우도 그렇고요. 그리고 아우디 R8, 페라리 488 GTB도 있고요, 람보에서는 우라칸 LP 610."
+   },
+   {
+    "start": 26.9,
+    "end": 36.6,
+    "text": "아마 2억 언더에 있는 차들은 감가가 덜 된다라고 보시는 게 더 좋을 것 같습니다. 2억 언더 기준점에 감가를 덜 되는 기준점을 본다고 했을 때 모델들이 아마 이렇게 나열됐을 거예요. 그래서 그 모델로 해서 보시는 걸 추천합니다.",
+    "ko": "아마 2억 언더에 있는 차들은 감가가 덜 된다라고 보시는 게 더 좋을 것 같습니다. 2억 언더 기준점에 감가를 덜 되는 기준점을 본다고 했을 때 모델들이 아마 이렇게 나열됐을 거예요. 그래서 그 모델로 해서 보시는 걸 추천합니다."
+   },
+   {
+    "start": 36.7,
+    "end": 42.6,
+    "text": "그만큼 더 이상 감가를 안 하기 위해 차주들이 온갖 디펜스를 할 거야.",
+    "ko": "그만큼 더 이상 감가를 안 하기 위해 차주들이 온갖 디펜스를 할 거야."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.3,
+    "speed": "보통",
+    "summary": "시청자의 2억대 감가 적은 슈퍼카 질문 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.4,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "감가가 덜 되는 가격대인 '2억 언더' 기준 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 17.6,
+    "end": 26.8,
+    "speed": "빠름",
+    "summary": "해당하는 대표 모델 나열 (맥라렌, R8, 488 GTB, 우라칸 LP610)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 26.9,
+    "end": 42.6,
+    "speed": "보통",
+    "summary": "차주들의 가격 방어로 인한 감가 방어 원리 설명 및 마무리"
+   }
+  ],
+  "rules": [
+   "라이브 스트리밍 중 시청자 Q&A 클립을 세로형 쇼츠로 재가공",
+   "화면 상단에 고정된 텍스트 타이틀 바를 배치해 주제 강조",
+   "화면 하단에 채널 고정 브랜딩 로고 삽입",
+   "언급되는 차종이 나올 때마다 화면 전환 스위시 효과음과 함께 차 사진 팝업",
+   "핵심 키워드 등장 시 폰트 색상(노란색/빨간색) 또는 크기로 강조"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "상단에 '2억 언더 슈퍼카 감가가 적다고?' 타이틀과 함께 질문 댓글 낭독",
+   "type": "질문",
+   "text": "2억 언더 슈퍼카 감가가 적다고?"
+  },
+  "narration_points": [
+   {
+    "t": 11.5,
+    "point": "슈퍼카 중 감가가 덜 되는 기준선은 2억 미만(2억 언더)",
+    "category": "가격·조건"
+   },
+   {
+    "t": 15.0,
+    "point": "2억 미만 슈퍼카는 이미 초기 감가를 거의 다 맞은 상태",
+    "category": "가격·조건"
+   },
+   {
+    "t": 18.0,
+    "point": "추천 모델: 맥라렌, 아우디 R8, 페라리 488 GTB, 우라칸 LP610",
+    "category": "희소성"
+   },
+   {
+    "t": 39.0,
+    "point": "차주들이 더 이상의 감가를 막기 위해 가격 방어를 강하게 함",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "금기사TV"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 42.6,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "딜러",
+   "part_order": [],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 타이틀 박스와 하단 '금기사TV' 워터마크 고정 레이아웃 사용"
+  }
+ }
+}

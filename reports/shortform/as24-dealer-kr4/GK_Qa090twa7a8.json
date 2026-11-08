@@ -1,0 +1,689 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/Qa090twa7a8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5173,
+  "candidatesTokenCount": 5640,
+  "totalTokenCount": 10813,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3913
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 42.6,
+   "aspect": "9:16",
+   "car": "맥라렌 650S / 570S 스파이더",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 24.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 29.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 42.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 42.6,
+    "text": "1억대 오픈카를 추천한다면\n맥라렌은 어때요?",
+    "ko": "1억대 오픈카를 추천한다면 맥라렌은 어때요?",
+    "kind": "제목",
+    "y_pct": 8.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "맥라렌은 어때요?",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "가격대 대비로 한다고 하면",
+    "ko": "가격대 대비로 한다고 하면",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "사실 맥라렌 계열입니다",
+    "ko": "사실 맥라렌 계열입니다",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.9,
+    "text": "지금 뒤에 보면",
+    "ko": "지금 뒤에 보면",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.3,
+    "text": "650S 스파이더가 있고",
+    "ko": "650S 스파이더가 있고",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.2,
+    "text": "근데 그 위로 한다고 하면",
+    "ko": "근데 그 위로 한다고 하면",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "text": "570S 스파이더가 있습니다",
+    "ko": "570S 스파이더가 있습니다",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "그건 하드탑 모델이고요",
+    "ko": "그건 하드탑 모델이고요",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "text": "그리고 슈퍼카 베이스의\n문이 위로 열리는 베이스라서",
+    "ko": "그리고 슈퍼카 베이스의 문이 위로 열리는 베이스라서",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "text": "이 부분에서는 많은 과거에는\n맥라렌은 잘 안 팔린다 했지만",
+    "ko": "이 부분에서는 많은 과거에는 맥라렌은 잘 안 팔린다 했지만",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.8,
+    "text": "접근성이 너무 가까워졌기 때문에",
+    "ko": "접근성이 너무 가까워졌기 때문에",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.5,
+    "text": "금액대가 1억대에 형성되어 있어요",
+    "ko": "금액대가 1억대에 형성되어 있어요",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "text": "이게 개인적으로는",
+    "ko": "이게 개인적으로는",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "뭐 잔고장, 맥라렌의 특유의 뭐 떨림",
+    "ko": "뭐 잔고장, 맥라렌의 특유의 뭐 떨림",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.5,
+    "text": "잔고장 + 특유의 떨림 = 맥라렌?",
+    "ko": "잔고장 + 특유의 떨림 = 맥라렌?",
+    "kind": "키워드 스티커",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FF3B30",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.6,
+    "text": "뭐 이런 것들에 베이스를 감안을 하고\n타시는 분들이라고 생각이 드네요",
+    "ko": "뭐 이런 것들에 베이스를 감안을 하고 타시는 분들이라고 생각이 드네요",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.0,
+    "text": "잔고장이라고 하기에는",
+    "ko": "잔고장이라고 하기에는",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.5,
+    "text": "개선된 차들이 되게 많고",
+    "ko": "개선된 차들이 되게 많고",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "text": "그리고 요즘은 해결책도 너무 많아서",
+    "ko": "그리고 요즘은 해결책도 너무 많아서",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.6,
+    "text": "해결책도 많아져서\n금기사는 맥라렌 추천",
+    "ko": "해결책도 많아져서 금기사는 맥라렌 추천",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFD60A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "톡",
+    "event": "맥라렌 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "띵",
+    "event": "잔고장 + 특유의 떨림 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트 힙합",
+   "bpm_est": 95,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.7,
+    "end": 3.2,
+    "what": "맥라렌 로고 이미지 카드",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 42.6,
+    "what": "금기사TV 채널 워터마크 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 89.0,
+    "entrance": "고정",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "가격대 대비로 한다고 하면",
+    "ko": "가격대 대비로 한다고 하면"
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "사실 맥라렌 계열입니다",
+    "ko": "사실 맥라렌 계열입니다"
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "지금 뒤에 보면 650S 스파이더가 있고",
+    "ko": "지금 뒤에 보면 650S 스파이더가 있고"
+   },
+   {
+    "start": 7.3,
+    "end": 11.2,
+    "text": "근데 그 위로 한다고 하면 570S 스파이더가 있습니다",
+    "ko": "근데 그 위로 한다고 하면 570S 스파이더가 있습니다"
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "그건 하드탑 모델이고요",
+    "ko": "그건 하드탑 모델이고요"
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "text": "그리고 슈퍼카 베이스의 문이 위로 열리는 베이스라서",
+    "ko": "그리고 슈퍼카 베이스의 문이 위로 열리는 베이스라서"
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "text": "이 부분에서는 많은 과거에는 맥라렌은 잘 안 팔린다 했지만",
+    "ko": "이 부분에서는 많은 과거에는 맥라렌은 잘 안 팔린다 했지만"
+   },
+   {
+    "start": 19.3,
+    "end": 24.5,
+    "text": "접근성이 너무 가까워졌기 때문에 금액대가 1억대에 형성되어 있어요",
+    "ko": "접근성이 너무 가까워졌기 때문에 금액대가 1억대에 형성되어 있어요"
+   },
+   {
+    "start": 25.5,
+    "end": 34.6,
+    "text": "이게 개인적으로는 뭐 잔고장, 맥라렌의 특유의 뭐 떨림 뭐 이런 것들에 베이스를 감안을 하고 타시는 분들이라고 생각이 드네요",
+    "ko": "이게 개인적으로는 뭐 잔고장, 맥라렌의 특유의 뭐 떨림 뭐 이런 것들에 베이스를 감안을 하고 타시는 분들이라고 생각이 드네요"
+   },
+   {
+    "start": 34.6,
+    "end": 42.6,
+    "text": "잔고장이라고 하기에는 개선된 차들이 되게 많고 그리고 요즘은 해결책도 너무 많아서 맥라렌도 괜찮",
+    "ko": "잔고장이라고 하기에는 개선된 차들이 되게 많고 그리고 요즘은 해결책도 너무 많아서 맥라렌도 괜찮"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "1억대 오픈카 추천으로 맥라렌 제안"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "650S, 570S 스파이더 모델 특징 및 버터플라이 도어 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 15.6,
+    "end": 24.5,
+    "speed": "보통",
+    "summary": "과거 대비 감가로 1억대에 형성된 접근성 설명"
+   },
+   {
+    "stage": "팁",
+    "start": 24.5,
+    "end": 42.6,
+    "speed": "보통",
+    "summary": "고질병/잔고장 우려에 대한 해결책과 추천 이유"
+   }
+  ],
+  "rules": [
+   "상단에 고정된 질문형 제목 바 배치",
+   "화면 하단 채널 로고 항시 고정 노출",
+   "딜러의 인터뷰 토크 사이사이에 모델 외관 자료화면 교차 편집",
+   "핵심 키워드는 빨간색/노란색 강조 텍스트로 임팩트 부여"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.9,
+    "end": 14.8,
+    "feature": "버터플라이 도어 (다이히드럴 도어)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로 컷",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "1억대 오픈카 추천 질문과 맥라렌 로고 등장",
+   "type": "질문",
+   "text": "1억대 오픈카를 추천한다면 맥라렌은 어때요?"
+  },
+  "narration_points": [
+   {
+    "t": 6.0,
+    "point": "1억대 오픈카 후보로 650S 및 570S 스파이더 추천",
+    "category": "희소성"
+   },
+   {
+    "t": 11.5,
+    "point": "하드탑 오픈카 및 위로 열리는 슈퍼카 도어 특징",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "과거 대비 감가로 인해 1억대 진입 가능해진 높은 가성비",
+    "category": "가격·조건"
+   },
+   {
+    "t": 37.0,
+    "point": "잔고장 이슈는 현재 개선 차량과 해결책이 많음",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "금기사TV"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "실내 인물",
+    "외관 전면",
+    "도어 작동",
+    "외관 측면"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 노란색/흰색 헤드라인 자막바와 하단 금기사TV 로고 고정"
+  }
+ }
+}

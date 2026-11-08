@@ -1,0 +1,488 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/ADvEAk-JC_U",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3808,
+  "candidatesTokenCount": 4631,
+  "totalTokenCount": 8663,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2548
+   }
+  ],
+  "thoughtsTokenCount": 224,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.6,
+   "aspect": "9:16",
+   "car": "페라리 488 스파이더",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.4,
+    "end": 19.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 27.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 27.6,
+    "text": "2억대 오픈카가 가능한 페라리 488 스파이더",
+    "ko": "2억대 오픈카가 가능한 페라리 488 스파이더",
+    "kind": "제목",
+    "y_pct": 7.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFF00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "페라리 488 스파이더",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "페라리 같은 경우는",
+    "ko": "페라리 같은 경우는",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 4.5,
+    "text": "488 스파이더 개인적으로는 좋아하는 모델이기도 하고",
+    "ko": "488 스파이더 개인적으로는 좋아하는 모델이기도 하고",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 9.3,
+    "text": "그리고 488 스파이더 보면 베이스가 슈퍼카에 대한 라인도 쫙 빠져져 있지만",
+    "ko": "그리고 488 스파이더 보면 베이스가 슈퍼카에 대한 라인도 쫙 빠져져 있지만",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 14.1,
+    "text": "그 차가 사실 일반적으로 사람들 보면 그 차가 신형 모델 같아",
+    "ko": "그 차가 사실 일반적으로 사람들 보면 그 차가 신형 모델 같아",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.6,
+    "text": "구형 모델처럼 보이지도 않는 근데 아쉽지만",
+    "ko": "구형 모델처럼 보이지도 않는 근데 아쉽지만",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 22.8,
+    "text": "지금 296GTS SF90 모델들이 점점 나오다 보니까",
+    "ko": "지금 296GTS SF90 모델들이 점점 나오다 보니까",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.2,
+    "text": "페라리 계열에서도 약간 뒤로 빠졌죠 근데 가격대는",
+    "ko": "페라리 계열에서도 약간 뒤로 빠졌죠 근데 가격대는",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.6,
+    "text": "2억 중반",
+    "ko": "2억 중반",
+    "kind": "가격",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#3366FF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2억 중반",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.4,
+    "type": "톡",
+    "event": "488 스파이더 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "296 GTS 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "톡",
+    "event": "SF90 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.3,
+    "type": "쿵",
+    "event": "2억 중반 자막 강조 팝업",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 27.6,
+    "what": "채널 로고 '금기사TV'",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 86.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 4.8,
+    "what": "페라리 488 스파이더 공식 이미지 카드",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 47.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 이미지 제공",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "페라리 같은 경우는 488 스파이더 개인적으로는 좋아하는 모델이기도 하고",
+    "ko": "페라리 같은 경우는 488 스파이더 개인적으로는 좋아하는 모델이기도 하고"
+   },
+   {
+    "start": 4.5,
+    "end": 9.3,
+    "text": "그리고 488 스파이더 보면 베이스가 슈퍼카에 대한 라인도 쫙 빠져져 있지만",
+    "ko": "그리고 488 스파이더 보면 베이스가 슈퍼카에 대한 라인도 쫙 빠져져 있지만"
+   },
+   {
+    "start": 9.3,
+    "end": 14.1,
+    "text": "그 차가 사실 일반적으로 사람들 보면 그 차가 신형 모델 같아",
+    "ko": "그 차가 사실 일반적으로 사람들 보면 그 차가 신형 모델 같아"
+   },
+   {
+    "start": 14.1,
+    "end": 17.6,
+    "text": "구형 모델처럼 보이지도 않는 근데 아쉽지만",
+    "ko": "구형 모델처럼 보이지도 않는 근데 아쉽지만"
+   },
+   {
+    "start": 17.6,
+    "end": 22.8,
+    "text": "지금 296GTS SF90 모델들이 점점 나오다 보니까",
+    "ko": "지금 296GTS SF90 모델들이 점점 나오다 보니까"
+   },
+   {
+    "start": 22.8,
+    "end": 26.2,
+    "text": "페라리 계열에서도 약간 뒤로 빠졌죠 근데 가격대는",
+    "ko": "페라리 계열에서도 약간 뒤로 빠졌죠 근데 가격대는"
+   },
+   {
+    "start": 26.2,
+    "end": 27.6,
+    "text": "2억 중반",
+    "ko": "2억 중반"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "2억대 오픈카 페라리 488 스파이더 언급 및 추천"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 17.4,
+    "speed": "보통",
+    "summary": "하드탑 오픈 작동 모습과 신형처럼 보이는 세련된 디자인 장점 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 17.4,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "후속 신형 모델 출시로 인한 라인업상 위치 변화 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 25.5,
+    "end": 27.6,
+    "speed": "빠름",
+    "summary": "중고차 가격 2억 중반대 제시하며 임팩트 있게 마무리"
+   }
+  ],
+  "rules": [
+   "화면 상단에 노란색/흰색 볼드 타이틀 고정 배치",
+   "화면 하단에 채널 로고 워터마크 고정",
+   "자막이 바뀔 때 단어와 문맥에 맞추어 이미지 팝업 및 효과음 동기화",
+   "화자 토크 중간에 차량 공식 홍보 영상 및 하드탑 작동 B-roll 삽입",
+   "영상 말미에 핵심 구매 포인트(가격)를 강한 시각/음향 효과로 강조"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.8,
+    "end": 12.2,
+    "feature": "하드탑 오픈 기능",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "상단에 '2억대 오픈카가 가능한 페라리 488 스파이더' 텍스트와 함께 화자가 제스처를 취하며 설명",
+   "type": "가격",
+   "text": "2억대 오픈카가 가능한 페라리 488 스파이더"
+  },
+  "narration_points": [
+   {
+    "t": 6.0,
+    "point": "슈퍼카다운 날렵한 외관 라인",
+    "category": "디자인"
+   },
+   {
+    "t": 11.5,
+    "point": "구형 모델처럼 보이지 않고 신형 같은 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 18.0,
+    "point": "296GTS, SF90 등 후속 모델 출현으로 인한 감가",
+    "category": "희소성"
+   },
+   {
+    "t": 26.5,
+    "point": "현재 중고 가격대 2억 중반대 형성",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "채널명(금기사TV)"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "사람",
+    "옵션 작동",
+    "사람"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 검정 바 타이틀 및 하단 금기사TV 로고 폰트 고정"
+  }
+ }
+}

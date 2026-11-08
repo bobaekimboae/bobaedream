@@ -1,0 +1,388 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/Mh4nty629Xg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3535,
+  "candidatesTokenCount": 2954,
+  "totalTokenCount": 6489,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2275
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24.9,
+   "aspect": "9:16",
+   "car": "페라리 296 GTS",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 7.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 24.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 24.9,
+    "text": "페라리 296 GTS\n이게 인생이지 ㅋㅋㅋㅋㅋ",
+    "ko": "페라리 296 GTS\n이게 인생이지 ㅋㅋㅋㅋㅋ",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "이게 인생이지 ㅋㅋㅋㅋㅋ",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "이게 인생이지~!",
+    "ko": "이게 인생이지~!",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.4,
+    "text": "으히히호우~",
+    "ko": "으히히호우~",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.3,
+    "text": "한 손 커피 들고 있는데",
+    "ko": "한 손 커피 들고 있는데",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "으아",
+    "ko": "으아",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.7,
+    "text": "우와 (대박)",
+    "ko": "우와 (대박)",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.0,
+    "text": "으와아아 (제발)",
+    "ko": "으와아아 (제발)",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 21.0,
+    "text": "살려주ㅓ......",
+    "ko": "살려주ㅓ......",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 24.8,
+    "text": "우오 (살았다)",
+    "ko": "우오 (살았다)",
+    "kind": "말 자막",
+    "y_pct": 64.2,
+    "x_center_pct": 52.8,
+    "text_height_pct": 2.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1E",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "페라리 296 GTS 가속 배기음 및 코너링 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "급가속 엔진 배기음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "스릴",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 24.9,
+    "what": "금기사TV 채널 로고 배너",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 7.8,
+    "what": "동승자 얼굴 PIP 인셋 화면",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 77.0,
+    "y_pct": 40.0,
+    "entrance": "바로",
+    "purpose": "리액션 표시",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 24.9,
+    "what": "전방 도로 주행 PIP 인셋 화면",
+    "is_3d": false,
+    "size_w_pct": 38.0,
+    "x_pct": 77.0,
+    "y_pct": 40.0,
+    "entrance": "바로",
+    "purpose": "주행 상황 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "이게 인생이지~!",
+    "ko": "이게 인생이지~!"
+   },
+   {
+    "start": 4.1,
+    "end": 6.4,
+    "text": "으히히호우~",
+    "ko": "으히히호우~"
+   },
+   {
+    "start": 8.0,
+    "end": 10.3,
+    "text": "한 손 커피 들고 있는데",
+    "ko": "한 손 커피 들고 있는데"
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "으아",
+    "ko": "으아"
+   },
+   {
+    "start": 15.6,
+    "end": 16.7,
+    "text": "우와",
+    "ko": "우와"
+   },
+   {
+    "start": 16.8,
+    "end": 18.0,
+    "text": "으와아아",
+    "ko": "으와아아"
+   },
+   {
+    "start": 18.2,
+    "end": 21.0,
+    "text": "살려줘",
+    "ko": "살려줘"
+   },
+   {
+    "start": 23.4,
+    "end": 24.8,
+    "text": "우오",
+    "ko": "우오"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.8,
+    "speed": "빠름",
+    "summary": "페라리 296 GTS 와인딩 주행 1인칭 시점과 여유로운 환호"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.8,
+    "end": 24.9,
+    "speed": "빠름",
+    "summary": "커피를 든 채 급가속하는 슈퍼카의 엄청난 G포스에 비명을 지르는 동승자 리액션"
+   }
+  ],
+  "rules": [
+   "중앙 16:9 가로 영상을 세로 영상 규격 중앙에 배치하고 상단엔 메인 타이틀, 하단엔 채널 로고 고정",
+   "주행 뷰와 탑승자 리액션 뷰를 메인 화면과 우측 상단 PIP로 교차 전환",
+   "화면 중앙 하단에 붉은색 네임태그와 어두운 반투명 박스 자막바 일관 사용"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "페라리 296 GTS 오픈탑 와인딩 주행 화면과 강렬한 배기음 및 감탄 리액션",
+   "type": "사운드(배기음 등)",
+   "text": "페라리 296 GTS 이게 인생이지 ㅋㅋㅋㅋㅋ"
+  },
+  "narration_points": [
+   {
+    "t": 12.0,
+    "point": "한 손에 커피를 들고 버티기 힘들 정도의 폭발적인 가속력과 코너링 G포스",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "금기사TV 채널명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "없음",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "기타",
+   "part_order": [
+    "실내 앞",
+    "사람"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 노랑/흰색 볼드 타이틀과 하단 '금기사TV' 화이트 로고, 붉은색 화자 태그의 일관된 템플릿 유지"
+  }
+ }
+}
