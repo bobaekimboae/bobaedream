@@ -1,0 +1,707 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/QoX4KRaXRHY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7366,
+  "candidatesTokenCount": 5509,
+  "totalTokenCount": 12875,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6203
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 68.5,
+   "aspect": "9:16",
+   "car": "Cadillac Escalade",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 18.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 22.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 24.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 28.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 39.0,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.3,
+    "end": 49.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.7,
+    "end": 55.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 64.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.1,
+    "end": 68.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "بقولك ايه...",
+    "ko": "있잖아...",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بقولك",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.5,
+    "text": "فيه ناس جايه تاخد",
+    "ko": "사람들이 차를 가지러 오고 있어",
+    "kind": "말 자막",
+    "y_pct": 24.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.2,
+    "text": "معتززز",
+    "ko": "모아타즈으으!",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.0,
+    "text": "7 راكب VIP",
+    "ko": "7인승 VIP",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.0,
+    "color": "#D4AF37",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VIP",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.7,
+    "text": "360 CAMERA",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "360",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 64.0,
+    "text": "2026",
+    "ko": "2026년형",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 64.8,
+    "end": 67.5,
+    "text": "12,500,000",
+    "ko": "12,500,000",
+    "kind": "가격",
+    "y_pct": 42.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 7.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "12,500,000",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "오프닝 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "쿵",
+    "event": "손님이 갑자기 나타나 이름 부름",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 14.0,
+    "type": "띵",
+    "event": "7인승 VIP 텍스트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "쿵",
+    "event": "총알 그래픽 및 총성 연출",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 26.9,
+    "type": "띵",
+    "event": "360도 카메라 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "쿵",
+    "event": "트렁크에서 총 쏘는 시늉 SFX",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "쿵",
+    "event": "트렁크 안에 갇힌 사람 발견 코믹 SFX",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "딸깍",
+    "event": "터치스크린 문 닫힘 터치 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "톡",
+    "event": "냉장고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "톡",
+    "event": "앱 아이콘들 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.0,
+    "type": "휙",
+    "event": "놀라서 뛰쳐나가는 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 64.9,
+    "type": "돈 소리",
+    "event": "가격 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "긴박하면서도 코믹함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 7.3,
+     "what": "긴장감 넘치는 비트 전환"
+    },
+    {
+     "t": 59.8,
+     "what": "스튜디오 쇼룸 브금으로 마무리"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 14.0,
+    "end": 16.5,
+    "what": "VIP 별빛 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 30.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "좌석 등급 강조",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "what": "권총과 총알 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 18.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스토리텔링 코믹 연출",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.0,
+    "what": "얼음 3D 큐브와 냉장고 텍스트",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "냉장고 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.5,
+    "what": "카플레이, 알렉사, 유튜브 등 앱 아이콘",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "بقولك ايه فيه ناس جايه تاخد الكاديلاك بس خطر",
+    "ko": "있잖아, 캐딜락 가지러 오는 사람들이 있는데 위험한 놈들이야."
+   },
+   {
+    "start": 7.3,
+    "end": 9.5,
+    "text": "معتززز! كنت لسه بقول قد ايه انتو عيلة طيبة",
+    "ko": "모아타즈! 너네 집안이 얼마나 착한지 막 말하려던 참이었어!"
+   },
+   {
+    "start": 13.9,
+    "end": 17.5,
+    "text": "سبعة راكب VIP تاخدك انت وخمسة من صحابك",
+    "ko": "7인승 VIP 좌석이라 너랑 친구 5명까지 탈 수 있어."
+   },
+   {
+    "start": 24.6,
+    "end": 28.5,
+    "text": "بص في الكاميرا اللي قدامك أو الكاميرا اللي وراك أو كل الكاميرات 360",
+    "ko": "앞 카메라, 뒤 카메라, 아니면 360도 전방위 카메라를 봐."
+   },
+   {
+    "start": 39.0,
+    "end": 42.5,
+    "text": "والباب بتاعك بيقفل من الشاشة وسوبر كروز يعني بتسوق نفسها",
+    "ko": "문도 스크린 터치로 닫히고 슈퍼 크루즈 기능으로 자율주행까지 돼."
+   },
+   {
+    "start": 43.5,
+    "end": 46.8,
+    "text": "سماعة جنب ودنك وتلاجة للمشروبات وفرش نبيتي",
+    "ko": "헤드레스트 스피커, 음료 냉장고, 그리고 와인색 가죽 시트까지."
+   },
+   {
+    "start": 59.8,
+    "end": 64.0,
+    "text": "53 شارع عباس العقاد معرض فور ماتيك والعربية دي 2026",
+    "ko": "아바스 엘 아카드 53번지 4MATIC 전시장, 이 차는 2026년형이야."
+   },
+   {
+    "start": 64.1,
+    "end": 68.5,
+    "text": "وفيه ال 2025 من اول 12 مليون ونص وتقدر تستوردها بأحسن سعر",
+    "ko": "2025년형은 1,250만 파운드부터 시작하고 최고 가격으로 수입 가능해."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.9,
+    "speed": "빠름",
+    "summary": "마피아 손님이 들이닥치는 코믹 콩트로 긴장감 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 9.9,
+    "end": 13.7,
+    "speed": "보통",
+    "summary": "캐딜락 에스컬레이드 외관 및 구매 목적 대화"
+   },
+   {
+    "stage": "기능",
+    "start": 13.7,
+    "end": 28.7,
+    "speed": "빠름",
+    "summary": "7인승 VIP 시트, 카메라 시스템 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 28.7,
+    "end": 39.0,
+    "speed": "보통",
+    "summary": "트렁크 공간 및 코믹 연출"
+   },
+   {
+    "stage": "사양",
+    "start": 39.0,
+    "end": 55.4,
+    "speed": "빠름",
+    "summary": "도어 스크린 제어, 슈퍼 크루즈, 냉장고, 와이드 디스플레이 소개"
+   },
+   {
+    "stage": "훅",
+    "start": 55.4,
+    "end": 59.8,
+    "speed": "빠름",
+    "summary": "코믹 결말과 경찰 호출 소동"
+   },
+   {
+    "stage": "가격",
+    "start": 59.8,
+    "end": 68.5,
+    "speed": "보통",
+    "summary": "매장 위치 안내 및 2025/2026년형 가격 정보"
+   }
+  ],
+  "rules": [
+   "마피아 콩트와 차의 고급·안전 옵션을 결합해 유머러스하게 구성한다",
+   "옵션이 언급되는 순간에 맞춰 볼드한 3D 텍스트와 전용 그래픽을 즉각 띄운다",
+   "화면 전환마다 쿵/톡 효과음을 적극 배치해 영상의 리듬감을 유지한다",
+   "마지막에는 전시장 전경과 함께 차량 연식 및 가격을 명확히 제시한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.9,
+    "end": 17.0,
+    "feature": "VIP 7인승 독립 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "황금빛 VIP 텍스트 및 별 그래픽",
+    "x_pct": 28.0,
+    "y_pct": 60.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 28.7,
+    "feature": "360도 서라운드 뷰 카메라",
+    "shown_how": "화면 분할",
+    "icon_desc": "360 CAMERA 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.3,
+    "feature": "디스플레이 터치 자동 도어 닫힘",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "스크린 속 자동차 그래픽 터치",
+    "x_pct": 55.0,
+    "y_pct": 45.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 46.0,
+    "feature": "센터 콘솔 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "얼음 큐브 및 냉장고 아랍어 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 49.7,
+    "end": 53.5,
+    "feature": "파노라마 커브드 디스플레이 & 앱 지원",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "카플레이, 알렉사, 유튜브 앱 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "위험한 사람들이 차를 찾으러 올 거라며 직원이 다른 직원에게 경고함",
+   "type": "행동",
+   "text": "بقولك ايه فيه ناس جايه تاخد الكاديلاك بس خطر",
+   "ko": "있잖아, 캐딜락 가지러 오는 사람들이 있는데 엄청 위험한 놈들이야"
+  },
+  "narration_points": [
+   {
+    "t": 14.5,
+    "point": "VIP를 위한 안락한 7인승 공간 구성",
+    "category": "공간"
+   },
+   {
+    "t": 25.5,
+    "point": "전방위 360도 카메라 모니터링 지원",
+    "category": "안전"
+   },
+   {
+    "t": 32.5,
+    "point": "사람이 누울 정도로 광활한 트렁크 용량",
+    "category": "공간"
+   },
+   {
+    "t": 39.5,
+    "point": "디스플레이 터치로 문을 닫는 전자식 도어 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "핸즈프리 주행을 지원하는 슈퍼 크루즈 기능 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 44.0,
+    "point": "시원한 음료 보관이 가능한 센터콘솔 냉장고",
+    "category": "편의"
+   },
+   {
+    "t": 50.5,
+    "point": "유튜브 및 다양한 커넥티비티를 지원하는 대형 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 64.5,
+    "point": "2025년형 1,250만 EGP부터 수입 가능",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 60.0,
+   "text": "53 شارع عباس العقاد - معرض 4MATIC",
+   "ko": "아바스 엘 아카드 53번지 - 4MATIC 전시장으로 방문하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "전시장 카운터",
+    "외관 전면",
+    "뒷좌석",
+    "실내 운전석",
+    "센터 화면",
+    "트렁크",
+    "센터 콘솔 및 실내 디테일",
+    "외관 전면"
+   ]
+  }
+ }
+}

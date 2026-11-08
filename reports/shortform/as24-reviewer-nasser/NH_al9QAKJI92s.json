@@ -1,0 +1,892 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/al9QAKJI92s",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6074,
+  "candidatesTokenCount": 7233,
+  "totalTokenCount": 13307,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4911
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 54.0,
+   "aspect": "9:16",
+   "car": "Porsche 911, Cayenne GTS, Macan, Macan EV, Boxster",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 37.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.7,
+    "end": 44.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 47.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.6,
+    "end": 54.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 2.7,
+    "text": "أنا هقولك",
+    "ko": "내가 알려줄게요",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.7,
+    "text": "بدل ما تشتري",
+    "ko": "사는 대신에",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "وتخسر ملايين كل سنة",
+    "ko": "매년 수백만을 잃는 대신",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 3.5,
+    "color": "#FF2222",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.0,
+    "text": "وممكن تعلى كمان!",
+    "ko": "가격이 더 오를 수도 있어요!",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 85.0,
+    "text_height_pct": 3.5,
+    "color": "#A0FFA0",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "عشان داخلين ع الساحل",
+    "ko": "해안으로 떠나니까",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.6,
+    "text": "ولازم عربية حلوة",
+    "ko": "멋진 차가 필요하죠",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDD55",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.5,
+    "text": "هو أحسن سعر ليها",
+    "ko": "가장 합리적인 가격",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "text": "للناس المهمين اللي بيحبوا السواقة",
+    "ko": "운전을 사랑하는 VIP를 위한",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.7,
+    "text": "فخمة مريحة وعالية",
+    "ko": "고급스럽고 편안하며 높은",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.9,
+    "text": "صوتها حلو",
+    "ko": "배기음이 멋진",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.9,
+    "text": "أصغر وبنص السعر",
+    "ko": "더 작고 절반 가격",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.5,
+    "text": "أكبر تجميعة Macan",
+    "ko": "가장 많은 마칸 보유",
+    "kind": "키워드 스티커",
+    "y_pct": 8.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.8,
+    "text": "MODERN INTERIOR",
+    "ko": "모던한 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.0,
+    "text": "لأي شاب",
+    "ko": "어떤 젊은이든",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.0,
+    "text": "كل العربيات دي وكيل",
+    "ko": "모든 차량 정식 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 7.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "지구본 및 자막 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "페라리 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "휙",
+    "event": "포르쉐 로고 효과와 함께 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "톡",
+    "event": "911 엠블럼 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.7,
+    "type": "돈 소리",
+    "event": "가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "휙",
+    "event": "카이엔 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "카이엔 배기음 배기 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "마칸 배기음 가속음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "휙",
+    "event": "컬러 팔레트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "띵",
+    "event": "위치 핀 맵 마커 표시",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "what": "페라리 엠블럼",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 대상 브랜드 표시",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.0,
+    "what": "포르쉐 로고 및 연기 효과",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 10.5,
+    "what": "PORSCHE 911 로고",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "모델명 소개",
+    "sure": true
+   },
+   {
+    "start": 12.7,
+    "end": 14.8,
+    "what": "PORSCHE Cayenne 로고",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "모델명 소개",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "what": "PORSCHE Electric Macan 로고",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전기차 모델명 소개",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 44.5,
+    "what": "PORSCHE Boxster 로고",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "모델명 소개",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.0,
+    "what": "위치 핀 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "هو ليه بورش هو أحسن براند في العالم؟ أنا هقولك",
+    "ko": "왜 포르쉐가 전 세계 최고의 브랜드일까요? 제가 알려드릴게요."
+   },
+   {
+    "start": 2.7,
+    "end": 5.0,
+    "text": "بدل ما تشتري فيراري وتخسر ملايين كل سنة",
+    "ko": "매년 수백만 원 감가되는 페라리를 사는 대신,"
+   },
+   {
+    "start": 5.0,
+    "end": 7.0,
+    "text": "اشتري بورش بتمسك سعرها وممكن تغلى كمان",
+    "ko": "가격을 유지하고 심지어 오르기도 하는 포르쉐를 사세요."
+   },
+   {
+    "start": 7.0,
+    "end": 10.6,
+    "text": "أولاً الـ 911 عشان داخلين على الساحل ولازم عربية حلوة",
+    "ko": "첫 번째, 해안가 드라이브 시즌에 맞춰 꼭 필요한 911."
+   },
+   {
+    "start": 10.6,
+    "end": 12.6,
+    "text": "والكاريرا هو أحسن سعر ليها",
+    "ko": "카레라가 가장 합리적인 가격입니다."
+   },
+   {
+    "start": 12.6,
+    "end": 14.8,
+    "text": "والكايان للناس المهمين اللي بيحبوا السواقة",
+    "ko": "그리고 운전을 즐기는 VIP들을 위한 카이엔."
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "text": "عشان فخمة مريحة وعالية",
+    "ko": "고급스럽고 편안하며 시야가 높으니까요."
+   },
+   {
+    "start": 16.7,
+    "end": 19.9,
+    "text": "كمان GTS فسريعة وصوتها حلو",
+    "ko": "게다가 GTS라 빠르고 배기음도 멋집니다."
+   },
+   {
+    "start": 19.9,
+    "end": 22.9,
+    "text": "ولو عايز حاجة أصغر وبنص السعر",
+    "ko": "좀 더 작고 반값 수준을 원한다면,"
+   },
+   {
+    "start": 22.9,
+    "end": 24.5,
+    "text": "بورش ماكان، أكبر تجميعة بورش ماكان هنا",
+    "ko": "포르쉐 마칸, 여기에 가장 많은 마칸이 모여 있습니다."
+   },
+   {
+    "start": 24.5,
+    "end": 27.8,
+    "text": "وفي منها الـ T، البنزين السبورت",
+    "ko": "스포티한 가솔린 버전인 T 모델도 있고,"
+   },
+   {
+    "start": 27.8,
+    "end": 30.6,
+    "text": "ولو بتحب التميز في منها الكهربا كمان",
+    "ko": "특별함을 원한다면 순수 전기 모델도 있습니다."
+   },
+   {
+    "start": 30.6,
+    "end": 32.8,
+    "text": "الاتنين عائليين بس دي الانتيريور مودرن أكتر",
+    "ko": "둘 다 패밀리카로 좋지만, 전기차 쪽 인테리어가 더 모던합니다."
+   },
+   {
+    "start": 32.8,
+    "end": 40.7,
+    "text": "وفي منها كل الألوان: الناردو جراي، والجراي الغامق، والأزرق البيبسي، والأبيض البيرل، والسيلفر، كله موجود",
+    "ko": "나르도 그레이, 다크 그레이, 펩시 블루, 펄 화이트, 실버 등 모든 컬러가 준비되어 있습니다."
+   },
+   {
+    "start": 40.7,
+    "end": 44.7,
+    "text": "أحسن عربية لأي شاب: بورش بوكستر. حفلات، خروجات، مراسي",
+    "ko": "젊은 층을 위한 최고의 차: 포르쉐 박스터. 파티, 나들이, 휴양지 마라시까지."
+   },
+   {
+    "start": 44.7,
+    "end": 47.6,
+    "text": "والحق الأحمر وإنت شاب عشان مش هيليق عليك بعدين",
+    "ko": "나이 들면 안 어울리니 젊을 때 빨간색을 타세요."
+   },
+   {
+    "start": 47.6,
+    "end": 54.0,
+    "text": "كل العربيات دي وكيل... بلاتينيوم أوتو، وصلة دهشور الشيخ زايد",
+    "ko": "이 모든 차는 정식 출고 차량입니다. 플래티넘 오토, 셰이크 자이드 다흐슈르 연결로."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.0,
+    "speed": "빠름",
+    "summary": "포르쉐가 최고인 이유 질문 및 페라리 대비 잔존가치 우위 언급"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.0,
+    "end": 12.6,
+    "speed": "빠름",
+    "summary": "해안가 드라이브용 포르쉐 911 카레라 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 12.6,
+    "end": 19.9,
+    "speed": "빠름",
+    "summary": "고급스러움과 배기음을 갖춘 카이엔 GTS 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 19.9,
+    "end": 40.7,
+    "speed": "빠름",
+    "summary": "가성비 마칸 라인업(내연기관 T, 마칸 EV 및 다양한 컬러 전시) 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 40.7,
+    "end": 47.6,
+    "speed": "빠름",
+    "summary": "젊은 층을 위한 레드 포르쉐 박스터 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 47.6,
+    "end": 54.0,
+    "speed": "보통",
+    "summary": "정식 수입 차량 강조 및 매장(플래티넘 오토) 위치 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 활기차게 걸어오며 강한 질문으로 시선을 집중시킨다.",
+   "각 차종(911, 카이엔, 마칸, 박스터)으로 넘어갈 때마다 상단에 3D 엠블럼 로고를 띄워 직관적인 전환 효과를 준다.",
+   "실제 차량의 배기 사운드 시연을 1~2초간 컷인하여 현장감과 매력을 극대화한다.",
+   "차량의 컬러 라인업을 보여줄 때는 빠른 컷 전환(1초 내외)으로 시각적 지루함을 방지한다.",
+   "마지막에는 쇼룸 전체 배경과 위치 마커를 띄우며 명확한 방문 CTA로 마무리한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 16.7,
+    "end": 19.9,
+    "feature": "GTS 스포츠 배기 사운드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "배기음 배기 사운드",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.8,
+    "feature": "마칸 T 스포츠 배기음",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "엔진 후열 가속음",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.8,
+    "feature": "마칸 EV 모던 인테리어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 75.0,
+    "y_pct": 40.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "포르쉐 매장 앞에서 호기심을 유발하는 질문과 함께 페라리 감가 이야기를 던지는 도입부",
+   "type": "질문",
+   "text": "هو ليه بورش هو أحسن براند في العالم؟",
+   "ko": "포르쉐가 왜 전 세계 최고의 브랜드일까요?"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "페라리는 매년 감가가 심하지만 포르쉐는 가격 방어가 뛰어나거나 가격이 오름",
+    "category": "가격·조건"
+   },
+   {
+    "t": 7.5,
+    "point": "해안가 바캉스용으로 제격이며 카레라가 가장 합리적인 가격대임",
+    "category": "가격·조건"
+   },
+   {
+    "t": 13.5,
+    "point": "카이엔 GTS는 편안하면서도 강력한 주행성과 멋진 배기음을 제공함",
+    "category": "성능"
+   },
+   {
+    "t": 20.5,
+    "point": "마칸은 절반 가격대로 접근성이 좋으며 내연기관 T와 전기차 EV 버전이 있음",
+    "category": "희소성"
+   },
+   {
+    "t": 41.5,
+    "point": "포르쉐 박스터 레드는 젊은 시절 파티와 휴양지에서 타기에 가장 어울리는 차량임",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 48.0,
+   "text": "لو عايز أي بورش أي موديل أي لون هتلاقيها في بلاتينوم أوتو",
+   "ko": "어떤 모델, 어떤 색상의 포르쉐든 원하신다면 플래티넘 오토를 찾아주세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "전시장 전경 및 사람",
+    "포르쉐 911 전면 및 후면",
+    "카이엔 전면, 실내, 후면 배기구",
+    "마칸 전면 및 후면",
+    "마칸 EV 실내 및 컬러별 전면",
+    "박스터 실내 전시장 및 외관 측면",
+    "전시장 앞 풀 샷"
+   ]
+  }
+ }
+}

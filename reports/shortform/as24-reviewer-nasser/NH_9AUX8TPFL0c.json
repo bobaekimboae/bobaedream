@@ -1,0 +1,1076 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/9AUX8TPFL0c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8890,
+  "candidatesTokenCount": 9407,
+  "totalTokenCount": 18297,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7727
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 84.0,
+   "aspect": "9:16",
+   "car": "Rox Adamas (Polestones 01)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 20.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.2,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 30.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 39.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.7,
+    "end": 44.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 49.6,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.6,
+    "end": 53.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 102.3,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 102.3,
+    "end": 109.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 109.8,
+    "end": 119.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 119.5,
+    "end": 124.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 2.2,
+    "text": "ESCALADE",
+    "ko": "에스컬레이드",
+    "kind": "키워드 스티커",
+    "y_pct": 21.5,
+    "x_center_pct": 26.2,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ESCALADE",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.8,
+    "text": "15 MIL",
+    "ko": "1,500만 파운드",
+    "kind": "가격",
+    "y_pct": 31.2,
+    "x_center_pct": 82.5,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF6B00",
+    "bg_width_pct": 28.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "15 MIL",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 6.1,
+    "text": "ROX ADAMAS",
+    "ko": "록스 아다마스",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 10.0,
+    "text": "CAMERA",
+    "ko": "카메라 룸미러",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CAMERA",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.1,
+    "text": "2 CHARGER WIRELESS",
+    "ko": "듀얼 무선 충전",
+    "kind": "키워드 스티커",
+    "y_pct": 41.5,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 15.5,
+    "text": "سريع",
+    "ko": "고속",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 63.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#5271FF",
+    "bg_width_pct": 25.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "تبريد",
+    "ko": "통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 44.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#00E5FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.0,
+    "text": "14 SOUND SYSTEM",
+    "ko": "14개 스피커 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": -12.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 26.8,
+    "text": "TV",
+    "ko": "후석 모니터",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 67.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.3,
+    "text": "التحكم",
+    "ko": "공조 제어",
+    "kind": "키워드 스티커",
+    "y_pct": 41.5,
+    "x_center_pct": 53.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "ثلاجة ميكروويف",
+    "ko": "냉장고 겸 온장고",
+    "kind": "키워드 스티커",
+    "y_pct": 59.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.3,
+    "text": "LEG REST",
+    "ko": "레그 레스트",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 34.2,
+    "text": "CUP HOLDERS",
+    "ko": "컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 35.5,
+    "text": "التحكم في الكراسي",
+    "ko": "시트 조절",
+    "kind": "키워드 스티커",
+    "y_pct": 46.5,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FF6B00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.5,
+    "text": "SHIATSU",
+    "ko": "지압 마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 43.5,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 49.6,
+    "text": "21\"",
+    "ko": "21인치",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.5,
+    "text": "SOFT CLOSE",
+    "ko": "고스트 도어 클로징",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 60.0,
+    "text": "158,000 NM",
+    "ko": "158,000 Nm 루프 강성",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 62.2,
+    "text": "16T",
+    "ko": "16톤 견딤",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 65.0,
+    "end": 67.2,
+    "text": "1200 KM",
+    "ko": "주행거리 1,200km",
+    "kind": "키워드 스티커",
+    "y_pct": 46.5,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 67.2,
+    "end": 69.8,
+    "text": "470 HP / 740 NM",
+    "ko": "470마력 740토크",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1F1F1F",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 74.0,
+    "end": 75.8,
+    "text": "TANK",
+    "ko": "수조 탱크",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "ESCALADE 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.1,
+    "type": "돈 소리",
+    "event": "15 MIL 가격 스티커 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.1,
+    "type": "딸깍",
+    "event": "카메라 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "앱 아이콘들 연속 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "띵",
+    "event": "무선충전 번개 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "톡",
+    "event": "사운드시스템 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.4,
+    "type": "톡",
+    "event": "TV 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "냉장고 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "톡",
+    "event": "레그레스트 펼침 및 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "휙",
+    "event": "페라리 푸로산게 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.5,
+    "type": "띵",
+    "event": "휠 반짝임 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "쿵",
+    "event": "천장에 뒤집힌 차량 쿵 떨어지는 연출",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 60.5,
+    "type": "쿵",
+    "event": "코끼리 4마리 그래픽 올라감",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 67.2,
+    "type": "휙",
+    "event": "스펙 사양 박스 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 71.0,
+    "type": "딸깍",
+    "event": "캠핑 테이블 펼치는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.1,
+    "end": 3.8,
+    "what": "15 MIL 가격 태그",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 82.5,
+    "y_pct": 31.2,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 강조",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "what": "앱 아이콘 모음 (틱톡, 유튜브, 안드로이드오토, 카플레이)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 60.0,
+    "y_pct": 23.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.5,
+    "what": "페라리 푸로산게 차량 사진",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 52.0,
+    "y_pct": 20.0,
+    "entrance": "위에서 페이드",
+    "purpose": "동일 디자이너 설명",
+    "sure": true
+   },
+   {
+    "start": 56.2,
+    "end": 62.0,
+    "what": "뒤집힌 차 및 지붕 위 코끼리 4마리 그래픽",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "쿵 떨어짐",
+    "purpose": "루프 강성 및 안전도 시각화",
+    "sure": true
+   },
+   {
+    "start": 63.5,
+    "end": 66.0,
+    "what": "하이브리드 모터 및 엔진 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "파워트레인 구조 전달",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "text": "انا ناصر ولو نفسك في اسكاليد ومعكش 15 مليون جنيه بص على دي روكس اداماس",
+    "ko": "저는 나사르입니다. 에스컬레이드가 사고 싶은데 1,500만 파운드가 없다면, 이걸 보세요. 록스 아다마스!"
+   },
+   {
+    "start": 6.1,
+    "end": 24.5,
+    "text": "خد نفس وعد معايا من جوه عندك فتحة سقف المراية كاميرا الشاشة سريعة جدا فيها ابل كاربلاي واندرويد اوتو يوتيوب وتيك توك اتنين شاحن وايرلس وسريع جدا والكراسي تسخين وتبريد ومساج ومخدات",
+    "ko": "숨 들이쉬고 실내부터 세어보시죠. 썬루프, 카메라 룸미러, 반응 빠른 스크린엔 카플레이, 안드로이드 오토, 유튜브, 틱톡 지원. 고속 듀얼 무선충전기, 시트는 열선/통풍/마사지와 베개까지."
+   },
+   {
+    "start": 24.6,
+    "end": 39.5,
+    "text": "وعشان تتسلوا في الطريق حطولك تلفزيون والتحكم في التكييف ثلاجة وميكروويف مخرج شاحن مسند لليد وليج ريست وكاب هولدرز وتحكم في الكراسي ومساج شياتسو",
+    "ko": "이동 중 지루하지 않게 천장 TV와 후석 에어컨 조절기, 냉장고 겸 온장고, 충전포트, 암레스트, 레그레스트, 컵홀더, 시트 컨트롤러, 지압 마사지까지 들어있습니다."
+   },
+   {
+    "start": 39.6,
+    "end": 55.5,
+    "text": "مصمم العربية دي هو اللي عمل الفيراري بوروسانجوي عشان كده طلعت قمر كده والجنط 21 انش وعتب كهرباء وسوفت كلوز",
+    "ko": "이 차 디자이너가 바로 페라리 푸로산게를 만든 사람입니다. 그래서 이렇게 예쁘죠. 21인치 휠, 전동 사이드스텝, 소프트 클로징 도어까지 들어갔습니다."
+   },
+   {
+    "start": 55.6,
+    "end": 70.0,
+    "text": "والعربية لو اتقلبت بتستحمل ضغط 158 الف نيوتن يعني 16 طن او 4 فيل افريقي وبتقنية ريف بتمشيك 1200 كم وبقوة 470 حصان",
+    "ko": "전복 시 158,000Nm, 즉 16톤이나 아프리카 코끼리 4마리 무게를 버팁니다. 주행거리 연장형 하이브리드로 1,200km 주행에 470마력입니다."
+   },
+   {
+    "start": 70.1,
+    "end": 84.0,
+    "text": "وعشان الكامبنج ترابيزة وتانك للمية واضاءة وتحكم في درجة حرارة الحنفية واستوك كبير جدا واصل في الشيخ زايد",
+    "ko": "캠핑을 위한 테이블, 물탱크, 조명, 수온 조절 수전까지 있습니다. 셰이크 자이드 전시장에 대량 입고되어 있습니다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.0,
+    "speed": "빠름",
+    "summary": "에스컬레이드 대안 제시 및 차량 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 6.0,
+    "end": 24.5,
+    "speed": "빠름",
+    "summary": "운전석 및 1열 첨단 편의옵션 나열"
+   },
+   {
+    "stage": "기능",
+    "start": 24.5,
+    "end": 39.5,
+    "speed": "빠름",
+    "summary": "2열 VIP 시트 및 엔터테인먼트, 냉온장고 옵션"
+   },
+   {
+    "stage": "차 소개",
+    "start": 39.5,
+    "end": 55.5,
+    "speed": "빠름",
+    "summary": "외관 디자인(페라리 디자이너) 및 외장 옵션"
+   },
+   {
+    "stage": "사양",
+    "start": 55.5,
+    "end": 70.0,
+    "speed": "빠름",
+    "summary": "루프 전복 강성 및 주행거리, 파워트레인 스펙"
+   },
+   {
+    "stage": "기능",
+    "start": 70.0,
+    "end": 79.5,
+    "speed": "빠름",
+    "summary": "트렁크 캠핑 키트(주방, 물탱크 등)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 79.5,
+    "end": 84.0,
+    "speed": "빠름",
+    "summary": "전시장 재고 안내 및 방문 유도"
+   }
+  ],
+  "rules": [
+   "리뷰어가 빠르게 옵션을 말할 때마다 해당 부품을 화면 가득 보여주고 굵은 텍스트/아이콘을 팝업시킴",
+   "안전도나 파워트레인 같은 눈에 보이지 않는 스펙은 3D/합성 그래픽(뒤집힌 차, 코끼리)으로 시각적 충격을 줌",
+   "화면 전환 템포를 1~2초 내외로 매우 빠르게 유지하여 지루할 틈을 주지 않음",
+   "기능 설명 시 실제 손동작(버튼 누르기, 룸미러 만지기, 테이블 펼치기)과 동기화함"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "feature": "카메라 룸미러 (디지털 룸미러)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "카메라 일러스트 아이콘",
+    "x_pct": 52.0,
+    "y_pct": 31.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.1,
+    "feature": "듀얼 고속 무선충전기",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "번개 모양 무선충전 아이콘",
+    "x_pct": 65.0,
+    "y_pct": 41.5,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 19.0,
+    "feature": "통풍/열선/마사지 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "얼음 및 시트 온도 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 44.5,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.0,
+    "feature": "후석 접이식 천장 TV 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "TV 글자 및 디스플레이 그래픽",
+    "x_pct": 67.0,
+    "y_pct": 36.5,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.5,
+    "feature": "후석 냉장고 및 온장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "얼음 및 햄버거/음료수 스티커",
+    "x_pct": 78.0,
+    "y_pct": 59.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.5,
+    "feature": "전동 레그레스트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "LEG REST 영문 자막",
+    "x_pct": 68.0,
+    "y_pct": 34.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 52.8,
+    "feature": "전동 사이드스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "체크 아이콘 및 탑승 편리 자막",
+    "x_pct": 75.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.5,
+    "feature": "소프트 클로징 도어 (압축 도어)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "SOFT CLOSE 영문 텍스트 박스",
+    "x_pct": 52.0,
+    "y_pct": 37.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 70.0,
+    "end": 79.0,
+    "feature": "트렁크 빌트인 캠핑 키트 (조리대, 수전, 온수 조절)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "온도계, 물방울, TANK 자막",
+    "x_pct": 52.0,
+    "y_pct": 36.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 에스컬레이드를 사고 싶은데 1,500만 파운드가 없다면 이 차를 보라며 강한 제스처로 시작함",
+   "type": "가격",
+   "text": "لو نفسك في اسكاليد ومعكش 15 مليون جنيه",
+   "ko": "에스컬레이드가 사고 싶은데 1,500만 파운드가 없다면"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "비싼 캐딜락 에스컬레이드의 압도적인 가성비 대안",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.5,
+    "point": "안드로이드오토, 유튜브, 틱톡까지 되는 초고속 인포테인먼트 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 16.0,
+    "point": "열선, 통풍, 지압 마사지 및 베개까지 포함된 최고급 시트",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "후석 승객을 위한 전용 TV, 냉장고 및 전자레인지/온장고 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 41.0,
+    "point": "페라리 푸로산게를 빚어낸 거장 디자이너의 익스테리어 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 58.0,
+    "point": "16톤(코끼리 4마리) 하중을 견뎌내는 158,000Nm급 루프 전복 강성",
+    "category": "안전"
+   },
+   {
+    "t": 65.0,
+    "point": "EREV 기술로 합산 1,200km 주행거리 및 470마력의 강력한 출력",
+    "category": "성능"
+   },
+   {
+    "t": 72.0,
+    "point": "트렁크에 내장된 수전, 온수 조절기, 접이식 식탁 등 완벽한 캠핑 패키지",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 81.0,
+   "text": "Exotic One وصلة دهشور الشيخ زايد",
+   "ko": "셰이크 자이드 다슈르 지선 Exotic One 매장으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "뒷좌석",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "트렁크"
+   ]
+  }
+ }
+}

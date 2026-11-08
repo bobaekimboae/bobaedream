@@ -1,0 +1,777 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Hu0SR1c6a3I",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7724,
+  "candidatesTokenCount": 6363,
+  "totalTokenCount": 14719,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6561
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 632,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 72.8,
+   "aspect": "9:16",
+   "car": "Cobalt R30 (보트)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 13.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 25.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 36.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 40.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 49.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 56.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 64.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 67.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.5,
+    "end": 72.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "COBALT R30",
+    "ko": "코발트 R30",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.5,
+    "text": "60 YEARS OF EXPERIENCE",
+    "ko": "60년의 역사",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 5.5,
+    "color": "#F1A827",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "text": "harman/kardon",
+    "ko": "하만카돈",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.0,
+    "color": "#F3841D",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "text": "TOWER SPEAKERS",
+    "ko": "타워 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.0,
+    "text": "ICE BOX",
+    "ko": "아이스 박스",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 5.0,
+    "color": "#5FB3E4",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "text": "V8 VOLVO",
+    "ko": "볼보 V8 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#F1B786",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 40.5,
+    "text": "430hp",
+    "ko": "430마력",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 68.0,
+    "end": 71.5,
+    "text": "MOTO XPERTS\nMIVIDA BUSINESS PARK\nB5",
+    "ko": "모토 엑스퍼트\n미비다 비즈니스 파크 B5",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.5,
+    "color": "#F1A827",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "휙",
+    "event": "카운트다운 및 타이틀 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "띵",
+    "event": "60년 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "톡",
+    "event": "12인 탑승 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "딸깍",
+    "event": "하만카돈 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "톡",
+    "event": "스피커 번호 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "쿵",
+    "event": "아이스박스 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "보트 고속 주행 엔진 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "클랙슨(경적) 소리 시연",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 61.5,
+    "type": "딸깍",
+    "event": "가변 배기 토글스위치 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 64.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "가변 배기 사운드 및 질주음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 신나는",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 36.5,
+     "what": "주행씬에서 비트와 엔진 사운드 강조"
+    },
+    {
+     "t": 63.5,
+     "what": "배기 사운드 전환 시 음악 일시 감소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.0,
+    "end": 2.5,
+    "what": "숫자 3 카운트다운",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "집중 유도",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.5,
+    "what": "12 숫자 및 사람 픽토그램 12개",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "정원 안내",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "what": "타워 스피커 넘버링 1, 2, 3, 4",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스피커 수 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "text": "أنا ناصر والعربيات إدمان، موتو إكسبرت عندهم مراكب",
+    "ko": "저는 나사르이고 차를 사랑하죠, 모토 엑스퍼트에 보트도 들어왔습니다"
+   },
+   {
+    "start": 3.5,
+    "end": 5.0,
+    "text": "Cobalt R30",
+    "ko": "코발트 R30입니다"
+   },
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "text": "أولاً كوبالت هي شركة أمريكية متخصصة في المراكب الفخمة بخبرة 60 سنة",
+    "ko": "먼저 코발트는 60년 역사의 고급 보트 전문 미국 브랜드입니다"
+   },
+   {
+    "start": 8.5,
+    "end": 13.5,
+    "text": "ويشيل 12 واحد، منهم اتنين قاعدين هنا ويقدروا يناموا أو يسندوا ضهرهم",
+    "ko": "12명이 탈 수 있고, 뒤쪽에 두 명이 누워 쉬거나 기댈 수 있는 선베드가 있죠"
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "text": "وهنا تاخد خمسة وعندهم اتنين، أربعة، ستة كاب هولدرز وهارمان كاردون ساوند سيستم",
+    "ko": "여긴 5명 자리와 컵홀더 6개, 하만카돈 오디오가 갖춰져 있습니다"
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "وعندك أربعة تاور سبيكرز يعملولك حفلة",
+    "ko": "파티를 열 수 있는 4개의 타워 스피커도 상단에 달려있죠"
+   },
+   {
+    "start": 20.0,
+    "end": 23.5,
+    "text": "وعندك حوض بحنفية وباسكت للزبالة وقمة في البراكتيكاليتي",
+    "ko": "수전이 달린 싱크볼과 쓰레기통까지 실용성이 극대화되어 있습니다"
+   },
+   {
+    "start": 23.5,
+    "end": 26.5,
+    "text": "عندك مساحة تخزين وواحدة كمان واتنين يقعدوا هنا",
+    "ko": "바닥과 시트 밑 수납공간이 있고 여기도 둘이 앉을 수 있죠"
+   },
+   {
+    "start": 26.5,
+    "end": 30.5,
+    "text": "ولو شديت دي لورا ورفعت دي لفوق هيبقى عندك آيس بوكس",
+    "ko": "시트를 밀고 열면 아이스박스가 숨겨져 있습니다"
+   },
+   {
+    "start": 30.5,
+    "end": 36.5,
+    "text": "والمفاجأة الكبرى لو فتحت الباب ده عندك حمام ومراية ومساحة تخزين وحنفية كمان وشباك فاتح ع البحر",
+    "ko": "가장 놀라운 건 문을 열면 나오는 화장실! 거울, 수납함, 수전, 바다를 보는 창문까지 있습니다"
+   },
+   {
+    "start": 36.5,
+    "end": 40.5,
+    "text": "والموتور V8 من فولفو بيطلع 430 حصان",
+    "ko": "엔진은 볼보 V8으로 430마력을 뿜어냅니다"
+   },
+   {
+    "start": 40.5,
+    "end": 49.5,
+    "text": "ودي الكوكبيت، تقدر تقف وتقدر تقعد، تحكم في الدركسيون، شاحن وايرلس، شاشات وجي بي اس",
+    "ko": "조종석은 입식/좌식 겸용 시트, 조향 조절, 무선충전기, 계기판과 GPS 듀얼 스크린이 있습니다"
+   },
+   {
+    "start": 49.5,
+    "end": 56.5,
+    "text": "ودي القعدة الأساسية تاخد ستة مرتاحين مع مساند وترابيزة وآيس بوكس بدرين",
+    "ko": "뱃머리 라운지는 6명이 여유롭게 앉고 팔걸이, 테이블, 배수구 있는 아이스박스가 있습니다"
+   },
+   {
+    "start": 56.5,
+    "end": 60.0,
+    "text": "وعندك باب وكمان تلاجة كبيرة هنا",
+    "ko": "안쪽 통로에는 냉장고까지 빌트인되어 있죠"
+   },
+   {
+    "start": 60.0,
+    "end": 64.0,
+    "text": "وعشان متعدل، لو دوست هنا هيشغلك الإكزوست",
+    "ko": "튜닝된 사양이라 이 버튼을 누르면 배기음 모드가 켜집니다"
+   },
+   {
+    "start": 64.0,
+    "end": 67.5,
+    "text": "وأيوه فيه إكزوست!",
+    "ko": "네, 진짜 가변 배기음이 터집니다!"
+   },
+   {
+    "start": 67.5,
+    "end": 72.8,
+    "text": "والعنوان: موتو إكسبرتس، ميفيدا بيزنس بارك التجمع، في الـ B5",
+    "ko": "위치는 모토 엑스퍼트, 미비다 비즈니스 파크 타감모아 B5동입니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "선착장에서 모토 엑스퍼트의 럭셔리 보트 Cobalt R30 소개 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 8.5,
+    "speed": "보통",
+    "summary": "코발트 브랜드 역사 및 외관 엠블럼 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 8.5,
+    "end": 36.5,
+    "speed": "빠름",
+    "summary": "후면 선베드, 하만카돈 스피커, 타워 스피커, 싱크대, 아이스박스, 기내 화장실 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 36.5,
+    "end": 40.5,
+    "speed": "빠름",
+    "summary": "바다 위 항주 및 볼보 V8 430마력 엔진 스펙 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 40.5,
+    "end": 64.0,
+    "speed": "빠름",
+    "summary": "조종석 듀얼 스크린, 전면 라운지 좌석, 전용 냉장고, 가변 배기 스위치 시연"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 64.0,
+    "end": 72.8,
+    "speed": "보통",
+    "summary": "가변 배기 항주 사운드 감상 및 쇼룸 위치 안내 엔딩"
+   }
+  ],
+  "rules": [
+   "리뷰어가 선착장과 선상 공간을 직접 이동하며 부품을 만지고 열어보는 역동적인 원테이크 느낌의 컷 전환",
+   "스펙(엔진 출력, 승차 인원, 스피커 수)을 강조할 때 볼드한 텍스트와 직관적 픽토그램을 화면 상단/중앙에 팝업",
+   "기능 설명 중간에 실제 해상 고속 질주 및 가변 배기 사운드를 넣어 시각적·청각적 긴장감 부여",
+   "마지막은 선미 플랫폼에 편안하게 앉아 쇼룸 위치를 안내하며 여유로운 감성 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "feature": "리클라이닝 선베드 등받이 조작",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "feature": "타워 스피커 4구",
+    "shown_how": "글자 카드",
+    "icon_desc": "상단 스피커 번호 1~4와 TOWER SPEAKERS 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 42.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.5,
+    "feature": "선상 싱크대 수전",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.5,
+    "feature": "시트 하부 빌트인 아이스박스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "ICE BOX 3D 텍스트 카드",
+    "x_pct": 42.0,
+    "y_pct": 72.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 36.5,
+    "feature": "선내 화장실 및 거울/창문",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "feature": "조종석 플립업 볼스터 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 60.0,
+    "feature": "선상 빌트인 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 64.0,
+    "feature": "가변 배기 시스템 토글",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "청명한 바다와 도크 위에서 흥겹게 춤추며 보트 라인업이 입고되었음을 알리는 인트로",
+   "type": "행동",
+   "text": "أنا ناصر والعربيات إدمان، موتو إكسبرت عندهم مراكب",
+   "ko": "저는 나사르입니다. 모토 엑스퍼트에 보트가 들어왔습니다!"
+  },
+  "narration_points": [
+   {
+    "t": 6.0,
+    "point": "60년 전통의 미국 럭셔리 보트 제조사 코발트",
+    "category": "희소성"
+   },
+   {
+    "t": 9.0,
+    "point": "최대 12명 탑승 가능한 넉넉한 공간 구성",
+    "category": "공간"
+   },
+   {
+    "t": 16.5,
+    "point": "하만카돈 오디오 및 4개 타워 스피커 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 32.0,
+    "point": "수전, 거울, 바다 전망 창문이 있는 전용 선내 화장실",
+    "category": "편의"
+   },
+   {
+    "t": 37.5,
+    "point": "최고출력 430마력의 볼보 V8 고성능 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 58.5,
+    "point": "선상 냉장고 및 배수 아이스박스 구비",
+    "category": "편의"
+   },
+   {
+    "t": 61.5,
+    "point": "강렬한 배기음을 켜고 끌 수 있는 가변 배기 튜닝",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 68.0,
+   "text": "موتو إكسبرتس، ميفيدا بيزنس بارك التجمع، في الـ B5",
+   "ko": "모토 엑스퍼트, 미비다 비즈니스 파크 B5에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "뒷좌석",
+    "옵션 작동",
+    "실내 앞",
+    "외관 측면",
+    "실내 앞",
+    "외관 측면",
+    "외관 후면"
+   ]
+  }
+ }
+}

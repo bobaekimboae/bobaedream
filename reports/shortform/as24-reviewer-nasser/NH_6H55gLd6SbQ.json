@@ -1,0 +1,1051 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/6H55gLd6SbQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6620,
+  "candidatesTokenCount": 8773,
+  "totalTokenCount": 15393,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5457
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.1,
+   "aspect": "9:16",
+   "car": "Sea-Doo GTX Limited & RXP / RXT / Spark",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.9,
+    "end": 17.6,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 22.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 24.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 25.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 37.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 39.4,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.4,
+    "end": 42.6,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 44.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.9,
+    "end": 48.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 50.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.9,
+    "end": 53.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 60.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "SEA-DOO GTX LIMITED",
+    "ko": "씨두 GTX 리미티드",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "1 2 3",
+    "ko": "1 2 3 (3인승)",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 14.0,
+    "color": "#EED8A1",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "270KG",
+    "ko": "270kg 탑승 하중",
+    "kind": "키워드 스티커",
+    "y_pct": 17.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#F3DE97",
+    "background": "외곽선",
+    "bg_color": "#1C355E",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "text": "مش لازم فورمة الساحل",
+    "ko": "해변 몸매 준비 안 해도 돼",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.0,
+    "color": "#F29727",
+    "background": "상자",
+    "bg_color": "#1C3D5A",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.4,
+    "text": "1600cc TURBO",
+    "ko": "1600cc 터보",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 11.5,
+    "text": "SUPER CHARGED",
+    "ko": "슈퍼차저",
+    "kind": "키워드 스티커",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.8,
+    "text": "325hp",
+    "ko": "325마력",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.8,
+    "text": "1/6 WEIGHT",
+    "ko": "체중 대비 1/6 무게비",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 16.0,
+    "color": "#ECCB77",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.0,
+    "text": "HYDRAULIC STEERING",
+    "ko": "유압식 스티어링",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F3AC3B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.0,
+    "text": "الثبات",
+    "ko": "안정성",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#F3AC3B",
+    "background": "상자",
+    "bg_color": "#204364",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.2,
+    "text": "التحكم",
+    "ko": "제어력",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 5.0,
+    "color": "#F3AC3B",
+    "background": "상자",
+    "bg_color": "#204364",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.9,
+    "text": "SEA-DOO RXP SPORT",
+    "ko": "씨두 RXP 스포츠",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.9,
+    "end": 48.9,
+    "text": "SEA-DOO GTX COMFORT",
+    "ko": "씨두 GTX 컴포트",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 50.9,
+    "text": "SEA-DOO RXT SPORT + COMFORT",
+    "ko": "씨두 RXT 스포츠 + 컴포트",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.8,
+    "text": "SEA-DOO SPARK",
+    "ko": "씨두 스파크",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 10.0,
+    "color": "#F3AC3B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.0,
+    "text": "MOTO XPERTS\nMIVIDA\nBUSINESS PARK\nB5",
+    "ko": "모토 엑스퍼츠 미비다 비즈니스 파크 B5",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 25.0,
+    "color": "#D3BA8D",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "쿵",
+    "event": "GTX Limited 타이틀 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "톡",
+    "event": "시트 숫자 1 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "시트 숫자 2 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "톡",
+    "event": "시트 숫자 3 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "띵",
+    "event": "270KG 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "톡",
+    "event": "아놀드 슈워제네거 밈 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "쿵",
+    "event": "1600cc 터보 자막과 주행 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.4,
+    "type": "휙",
+    "event": "SUPER CHARGED 자막 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "휙",
+    "event": "325hp 자막 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "띵",
+    "event": "1/6 무게비 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "휙",
+    "event": "HYDRAULIC STEERING 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "톡",
+    "event": "안정성 화살표 아이콘 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "스티어링 휠 아이콘 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.1,
+    "type": "딸깍",
+    "event": "팝업 클리트 당겨 올리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "딸깍",
+    "event": "보딩 스텝 접이식 작동 시연",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "딸깍",
+    "event": "스마트폰 방수 포켓 래치 개폐",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "쿵",
+    "event": "라인업 요약 RXP 타이틀 컷",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.9,
+    "type": "쿵",
+    "event": "GTX COMFORT 타이틀 컷",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.9,
+    "type": "쿵",
+    "event": "RXT SPORT+COMFORT 타이틀 컷",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "휙",
+    "event": "SPARK 제트스키 점프 밈 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 트로피컬 업비트",
+   "bpm_est": 118,
+   "mood": "활기차고 여름 휴양지 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "what": "Sea-Doo GTX LIMITED 로고 타이틀",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 14.5,
+    "entrance": "쿵 소리와 함께 팝업",
+    "purpose": "모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "what": "3D 입체 숫자 1, 2, 3 트래킹 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 53.0,
+    "entrance": "손가락 지목에 맞춰 팝업",
+    "purpose": "3인승 시트 확인",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "what": "근육질 보디빌더 밈 이미지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 30.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "유머러스한 강조",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.8,
+    "what": "3D 닻(Anchor) 및 1/6 무게비 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "entrance": "회전하며 팝업",
+    "purpose": "경량화 및 출력비 강조",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.8,
+    "what": "공중 회전하는 제트스키 스티커",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 20.0,
+    "y_pct": 20.0,
+    "entrance": "공중 회전 애니메이션",
+    "purpose": "프리스타일 성능 표현",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "أنا ناصر، وهي دي ريفيوهات الساحل! Sea-Doo GTX Limited",
+    "ko": "저는 나사르입니다. 이번엔 해변 특집 리뷰! 씨두 GTX 리미티드입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 8.7,
+    "text": "في الكرسي عندك 1، 2، 3 لحد 270 كيلو فمش لازم فورمة الساحل",
+    "ko": "시트에는 1, 2, 3명, 최대 270kg까지 탈 수 있어서 해변 몸매 만들 필요 없습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "text": "وموتور 1600 تربو سوبر تشارج بيطلع 325 حصان",
+    "ko": "1600cc 터보 슈퍼차저 엔진으로 325마력을 뿜어냅니다."
+   },
+   {
+    "start": 12.8,
+    "end": 15.9,
+    "text": "ودي قوة الـ 340 بس بسدس وزنه",
+    "ko": "340 모델급의 강력한 힘이지만 무게는 1/6에 불과하죠."
+   },
+   {
+    "start": 15.9,
+    "end": 18.8,
+    "text": "وعشان ما تطيرش من مكانك حطولك ستيكي رابر، وعندك تحكم في الـ sensitivity بتاعت الهيدروليك ستيرينج",
+    "ko": "튕겨나가지 않게 미끄럼 방지 고무 패드가 있고, 유압식 스티어링 감도 조절도 가능합니다."
+   },
+   {
+    "start": 18.8,
+    "end": 22.0,
+    "text": "اللي بتحسن الثبات والتحكم في الجت",
+    "ko": "제트스키의 안정감과 핸들링을 극대화해 주죠."
+   },
+   {
+    "start": 22.0,
+    "end": 26.9,
+    "text": "وعندك مكان للأكسسوارات أو تقف عليها، بوب آب كليتس، وبوردينج ستيب عشان تقف عليه بسهولة",
+    "ko": "액세서리를 달거나 설 수 있는 공간, 팝업 클리트, 쉽게 올라탈 수 있는 보딩 스텝까지 완비되었습니다."
+   },
+   {
+    "start": 26.9,
+    "end": 32.5,
+    "text": "وعندك مساحة تخزين ووتر بروف عشان موبايلك مخرج شاحن، وواحدة كبيرة تشيل 14 لتر",
+    "ko": "휴대폰 충전 포트가 있는 방수 수납함과 14리터 대용량 보관함도 갖췄습니다."
+   },
+   {
+    "start": 32.5,
+    "end": 34.7,
+    "text": "تشيل فوطة عصير أو تهرب فيها لو عايز",
+    "ko": "수건, 음료를 넣거나 원하면 숨어도 될 정도죠."
+   },
+   {
+    "start": 34.7,
+    "end": 39.4,
+    "text": "وده الـ RXP أعلى نسخة في السبورت بوش من الكاربون فايبر بيفتح عشان التخزين",
+    "ko": "그리고 이건 카본 파이버 후드가 열려 수납이 가능한 최상위 스포츠 버전 RXP입니다."
+   },
+   {
+    "start": 39.4,
+    "end": 44.8,
+    "text": "وبالتك باكيدج عندك أكبر تاتش سكرين بتنزل على الجيت سكي في العالم وساوند سيستم صوته خطير",
+    "ko": "테크 패키지로 세계 제트스키 중 가장 큰 터치스크린과 환상적인 사운드 시스템이 들어갑니다."
+   },
+   {
+    "start": 44.8,
+    "end": 50.9,
+    "text": "وبكده الـ RXP يبقى أعلى نسخة في السبورت، والـ GTX أعلى نسخة في الكومفورت، والـ RXT خد الحلو من هنا على الحلو من هنا",
+    "ko": "정리하자면 RXP는 스포츠 최강, GTX는 편안함 최강, RXT는 둘의 장점을 합친 모델입니다."
+   },
+   {
+    "start": 50.9,
+    "end": 53.8,
+    "text": "والأقرب لقلبي السبارك لو ليك في الفري ستايل والحركات",
+    "ko": "프리스타일과 묘기를 좋아한다면 제 최애 모델 스파크(Spark)입니다."
+   },
+   {
+    "start": 53.8,
+    "end": 60.1,
+    "text": "من الآخر أي جيت سكي هتحتاجه هتلاقيه في موتو إكسبرتس ميفيدا بيزنس بارك التجمع في الـ B5",
+    "ko": "결론적으로 어떤 제트스키든 모토 엑스퍼츠(뉴카이로 미비다 비즈니스 파크 B5)에서 찾으실 수 있습니다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "에메랄드빛 바다 배경 인트로 및 씨두 GTX 리미티드 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 15.9,
+    "speed": "빠름",
+    "summary": "3인승 270kg 하중 설명 및 1600cc 터보 325마력 주행 출력 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 15.9,
+    "end": 34.7,
+    "speed": "빠름",
+    "summary": "유압 핸들, 발판 패드, 팝업 클리트, 스텝, 방수 충전 수납함 디테일 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 34.7,
+    "end": 53.8,
+    "speed": "빠름",
+    "summary": "RXP 카본 후드 및 터치스크린, GTX, RXT, 스파크 4종 라인업 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.8,
+    "end": 60.1,
+    "speed": "보통",
+    "summary": "해변 위에서 전 라인업 보여주며 전시장 위치 안내 (CTA)"
+   }
+  ],
+  "rules": [
+   "호스트의 빠른 랩 스타일 아랍어 멘트와 속도감 있는 점프컷 연결",
+   "화면 공간에 맞춰 핵심 수치(270KG, 1600cc, 325hp)를 크고 굵은 볼드 폰트로 팝업",
+   "기능 설명 시 손가락 포인팅 제스처와 물건 직접 조작(클리트, 래치)을 클로즈업으로 즉시 확인",
+   "중간중간 적절한 밈(보디빌더, 점프 모션) 스티커를 활용해 지루하지 않게 환기",
+   "엔딩에서 전체 모델 비교 그래픽을 순차 컷 전환으로 일목요연하게 정리"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "feature": "3인승 시트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "시트 위치별 1, 2, 3 골드 3D 숫자",
+    "x_pct": 65.0,
+    "y_pct": 53.0,
+    "size_w_pct": 45.0,
+    "follows_object": true,
+    "entrance": "손가락 지목에 맞춰 팝업",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 15.9,
+    "end": 17.6,
+    "feature": "풋웰 미끄럼 방지 고무 패드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "발이 닿는 측면 스티키 러버 손으로 쓸어내림",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "손가락 터치",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.0,
+    "feature": "유압식 스티어링 감도 조절 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "핸들 중앙 하단 감도 조절 다이얼 조작",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "손가락 회전",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 24.8,
+    "feature": "팝업 계류 클리트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "매립형 클리트를 손으로 위로 당겨 팝업",
+    "x_pct": 55.0,
+    "y_pct": 35.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "손으로 당김",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 25.5,
+    "feature": "접이식 보딩 스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "선체 후면 하단 발판을 물속으로 내림",
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "손으로 내림",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "feature": "스마트폰 방수 포켓 및 USB 충전 포트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "투명 방수 케이스 래치 개폐 및 충전 단자 포인팅",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "손으로 개폐",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 39.4,
+    "feature": "카본 파이버 프론트 후드 수납함",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "전면 카본 후드가 위로 열리는 모습",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "후드 오픈",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 39.4,
+    "end": 42.6,
+    "feature": "대형 풀컬러 터치스크린 디스플레이",
+    "shown_how": "확대",
+    "icon_desc": "핸들 중앙 대형 디지털 계기판 화면 포인팅",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "손가락 지목",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 44.8,
+    "feature": "프리미엄 방수 오디오 사운드 시스템",
+    "shown_how": "확대",
+    "icon_desc": "스피커 유닛 클로즈업",
+    "x_pct": 48.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "손가락 지목",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "맑은 바다에서 물을 튀기며 걸어 나오는 호스트와 Sea-Doo GTX LIMITED 타이틀",
+   "type": "행동",
+   "text": "أنا ناصر، وهي دي ريفيوهات الساحل! Sea-Doo GTX Limited",
+   "ko": "저는 나사르입니다. 해변 특집 리뷰, 씨두 GTX 리미티드입니다!"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "최대 270kg 하중을 견디는 3인용 시트",
+    "category": "편의"
+   },
+   {
+    "t": 9.0,
+    "point": "1600cc 터보 슈퍼차저로 325마력 발휘",
+    "category": "성능"
+   },
+   {
+    "t": 16.5,
+    "point": "미끄럼 방지 고무 및 감도 조절 유압 스티어링 탑재",
+    "category": "안전"
+   },
+   {
+    "t": 24.0,
+    "point": "접이식 클리트와 쉽게 탑승 가능한 리어 보딩 스텝 장착",
+    "category": "편의"
+   },
+   {
+    "t": 27.5,
+    "point": "방수 스마트폰 전용 수납칸과 14L 전면 대용량 트렁크",
+    "category": "공간"
+   },
+   {
+    "t": 35.0,
+    "point": "RXP의 카본 파이버 후드 및 동급 최대 터치스크린과 스피커 시스템",
+    "category": "디자인"
+   },
+   {
+    "t": 45.0,
+    "point": "RXP(스포츠), GTX(편안함), RXT(하이브리드), 스파크(프리스타일) 용도별 라인업 정리",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 55.0,
+   "text": "هتلاقيه في موتو إكسبرتس ميفيدا بيزنس بارك التجمع في الـ B5",
+   "ko": "뉴카이로 미비다 비즈니스 파크 B5동 모토 엑스퍼츠 매장에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 측면",
+    "옵션 작동",
+    "실내 앞",
+    "외관 후면",
+    "트렁크",
+    "센터 화면",
+    "외관 전면"
+   ]
+  }
+ }
+}

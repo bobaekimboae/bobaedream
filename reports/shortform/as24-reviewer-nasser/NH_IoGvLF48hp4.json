@@ -1,0 +1,966 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/IoGvLF48hp4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6992,
+  "candidatesTokenCount": 7941,
+  "totalTokenCount": 14933,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5829
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 65.0,
+   "aspect": "9:16",
+   "car": "Peugeot 408 Facelift",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 27.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 37.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 44.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 53.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 59.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.0,
+    "end": 65.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "PEUGEOT 408 FACELIFT",
+    "ko": "푸조 408 페이스리프트",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "text": "على شكل مخالب",
+    "ko": "발톱 모양으로",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "شكلها بقى",
+    "ko": "디자인이 이제",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 3.8,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.8,
+    "text": "أجمل جنط 18\"",
+    "ko": "가장 아름다운 18인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.2,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.0,
+    "text": "عندك sensor",
+    "ko": "센서 장착",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.5,
+    "text": "SPORT",
+    "ko": "스포츠 스티어링",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "text": "وشاشة للاختصارات",
+    "ko": "바로가기 화면",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.2,
+    "end": 39.8,
+    "text": "تسخين ومساج",
+    "ko": "열선 및 마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.0,
+    "text": "19cm",
+    "ko": "19cm 지상고",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.0,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 58.8,
+    "text": "536L",
+    "ko": "536리터",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 61.5,
+    "end": 64.5,
+    "text": "19949",
+    "ko": "19949",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "차량 로고 및 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "발톱 모양 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전면 그릴 조명 점등",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.0,
+    "type": "톡",
+    "event": "18인치 휠 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "리어 라이트 점등",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "톡",
+    "event": "센서 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.2,
+    "type": "톡",
+    "event": "컵홀더 아이콘 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "톡",
+    "event": "무선충전 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "톡",
+    "event": "엔진 스펙 카드 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.5,
+    "type": "휙",
+    "event": "지상고 측정 라인 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "쿵",
+    "event": "536L 용량 자막 쿵",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 61.5,
+    "type": "띵",
+    "event": "전화번호 및 전화 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "푸조 로고 및 차명 배너",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 소개",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.0,
+    "what": "전면 카메라 분석 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 75.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전 주행 카메라 강조",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.0,
+    "what": "애플 카플레이 및 안드로이드 오토 2D/3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 45.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스마트폰 연동 강조",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "what": "컵홀더 및 무선충전 뱃지 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "편의사양 강조",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.5,
+    "what": "엔진 스펙 플로팅 카드 (1600 Turbo / 215HP / 300NM)",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "파워트레인 수치 전달",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.0,
+    "what": "지상고 측정 녹색 눈금자 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 28.0,
+    "y_pct": 65.0,
+    "entrance": "밀려옴",
+    "purpose": "지상고 강조",
+    "sure": true
+   },
+   {
+    "start": 61.5,
+    "end": 64.5,
+    "what": "녹색 전화기 아이콘 및 전화번호",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "문의 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "أنا ناصر ودي عربية بيعشقها الشباب",
+    "ko": "저는 나사르입니다. 젊은 층이 열광하는 차를 소개합니다."
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "بيجو 408 فيس ليفت",
+    "ko": "푸조 408 페이스리프트입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 10.3,
+    "text": "الـ DRLs كانت على شكل أنياب، دلوقتي بقت على شكل مخالب والجريلز بقت بتنور",
+    "ko": "주간주행등이 송곳니 모양에서 발톱 모양으로 바뀌었고, 그릴에 조명이 들어옵니다."
+   },
+   {
+    "start": 10.3,
+    "end": 16.5,
+    "text": "شكلها بقى مستقبلي أكتر، عندك كاميرا بتحلل الطريق متوصلة بالـ LED Matrix",
+    "ko": "더 미래지향적이며, 전방 도로를 분석하는 카메라와 LED 매트릭스가 연동됩니다."
+   },
+   {
+    "start": 16.5,
+    "end": 21.0,
+    "text": "وعشان تبقى مميز الصبح، اللون بتاعك فلير جرين، وأجمل جنط مقاس 18",
+    "ko": "낮에도 돋보이는 플레어 그린 색상과 멋진 18인치 휠이 들어갑니다."
+   },
+   {
+    "start": 21.0,
+    "end": 26.8,
+    "text": "وعندك كلمة بيجو بتنور و 3D تيل لايتس، نفسي أشوف العربية دي بالليل",
+    "ko": "푸조 레터링 조명과 3D 리어 램프가 장착되어 밤에 보면 환상적입니다."
+   },
+   {
+    "start": 26.8,
+    "end": 31.0,
+    "text": "عندك سنسور لمراقبة انتباهك، و 3D كلاستر وحسنوا الأنيميشن",
+    "ko": "운전자 주의 감지 센서와 그래픽이 개선된 3D 계기판이 적용되었습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 37.0,
+    "text": "دريكسيون سبورت وتسخين، شاشة أبل كاربلاي وأندرويد أوتو وشاشة للاختصارات",
+    "ko": "스포츠 열선 스티어링 휠, 카플레이/안드로이드 오토 및 i-Toggle 단축 화면이 있습니다."
+   },
+   {
+    "start": 37.0,
+    "end": 42.0,
+    "text": "سقف بانوراما والكراسي تسخين ومساج، واتنين كب هولدر وشاحن وايرلس",
+    "ko": "파노라마 루프, 열선 및 마사지 시트, 컵홀더 2개와 무선 충전기가 있습니다."
+   },
+   {
+    "start": 42.0,
+    "end": 46.0,
+    "text": "الكنبة شيك جدا ومساحة الرجلين هايلة عكس مساحة الرأس",
+    "ko": "2열은 레그룸이 아주 훌륭하지만 헤드룸은 패스트백 형태라 살짝 아쉽습니다."
+   },
+   {
+    "start": 46.0,
+    "end": 51.0,
+    "text": "والموتور 1600 تربو بيطلع 215 حصان و 300 نيوتن",
+    "ko": "1.6 터보 엔진은 215마력, 300Nm 토크를 발휘합니다."
+   },
+   {
+    "start": 51.0,
+    "end": 55.0,
+    "text": "شكل الفاست باك المميز، وارتفاع 19 سم ينفع لمصر",
+    "ko": "패스트백 디자인에 19cm 지상고로 이집트 도로 환경에 적합합니다."
+   },
+   {
+    "start": 55.0,
+    "end": 59.0,
+    "text": "وشنتة كهربا 536 لتر، قمر وعملية",
+    "ko": "전동 트렁크 용량은 536리터로 매우 실용적이고 예쁩니다."
+   },
+   {
+    "start": 59.0,
+    "end": 65.0,
+    "text": "أي عربية بيجو في فروع الموزع المعتمد المتحدة القصراوي، واتصل على 19949",
+    "ko": "푸조 전 차종은 공식 딜러 Kasrawy 매장에서 만나보시고 19949로 문의하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "젊은 층이 사랑하는 신차 푸조 408 페이스리프트 도입"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 26.8,
+    "speed": "빠름",
+    "summary": "발톱형 DRL, 조명 그릴, 18인치 휠, 플레어 그린 색상 및 3D 테일램프 외관"
+   },
+   {
+    "stage": "기능",
+    "start": 26.8,
+    "end": 46.0,
+    "speed": "보통",
+    "summary": "3D 클러스터, 스포츠 핸들, 카플레이, 마사지 시트 및 2열 공간 점검"
+   },
+   {
+    "stage": "사양",
+    "start": 46.0,
+    "end": 59.0,
+    "speed": "빠름",
+    "summary": "1.6 터보 출력, 19cm 지상고, 536L 전동 트렁크 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 59.0,
+    "end": 65.0,
+    "speed": "보통",
+    "summary": "공식 딜러 전시장 안내 및 콜센터 문의 유도"
+   }
+  ],
+  "rules": [
+   "자막은 흰색 박스 바탕의 굵은 고딕 또는 굵은 외곽선으로 짧은 단어 단위로 팝업",
+   "엔진 스펙, 트렁크 용량, 지상고 등 주요 수치는 큼직한 그래픽 카드로 시각화",
+   "실내 편의 사양 언급 시 스마트폰 연동, 충전 아이콘 등을 직관적으로 띄움",
+   "단점(2열 헤드룸)도 솔직하게 지적하여 리뷰의 신뢰도 확보",
+   "마지막에는 공식 딜러 매장 전경과 대표 전화번호 스티커를 크게 띄우며 마무리"
+  ],
+  "option_highlights": [
+   {
+    "start": 7.5,
+    "end": 10.0,
+    "feature": "일루미네이티드 그릴 및 엠블럼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "그릴 라이트 조명 연출",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "feature": "매트릭스 LED 연동 주행 카메라",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "카메라 렌즈 아이콘 스티커",
+    "x_pct": 75.0,
+    "y_pct": 18.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.0,
+    "feature": "운전자 주의 모니터링 센서",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "센서 가리키는 손가락 및 텍스트",
+    "x_pct": 70.0,
+    "y_pct": 35.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.0,
+    "feature": "애플 카플레이 & 안드로이드 오토",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "카플레이 및 안드로이드 오토 3D 앱 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 30.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.0,
+    "feature": "i-Toggle 단축 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "터치 조작 시연",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.0,
+    "feature": "시트 열선 및 마사지 기능",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 및 마사지 아이콘 스티커",
+    "x_pct": 70.0,
+    "y_pct": 38.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.0,
+    "feature": "무선 스마트폰 충전 패드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "무선충전 번개 아이콘",
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 55.5,
+    "end": 58.8,
+    "feature": "스마트 전동 트렁크 및 대용량 적재공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "버튼 누르고 열린 트렁크에 걸터앉음",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 선글라스를 끼고 팔을 교차하며 젊은 층이 사랑하는 신차를 소개함",
+   "type": "행동",
+   "text": "أنا ناصر ودي عربية بيعشقها الشباب",
+   "ko": "저는 나사르입니다. 젊은 층이 열광하는 차를 소개합니다."
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "송곳니 형태에서 사자 발톱 형태로 변경된 신형 DRL",
+    "category": "디자인"
+   },
+   {
+    "t": 8.0,
+    "point": "조명이 들어오는 발광형 프론트 그릴과 신형 푸조 엠블럼",
+    "category": "디자인"
+   },
+   {
+    "t": 12.5,
+    "point": "노면을 분석하여 최적의 시야를 제공하는 매트릭스 LED 카메라",
+    "category": "안전"
+   },
+   {
+    "t": 17.0,
+    "point": "독특한 플레어 그린 외장 색상과 18인치 투톤 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "빛나는 푸조 레터링과 입체적인 3D 리어 콤비네이션 램프",
+    "category": "디자인"
+   },
+   {
+    "t": 28.0,
+    "point": "운전자 시선 분산 감지 센서 및 그래픽이 개선된 3D 클러스터",
+    "category": "안전"
+   },
+   {
+    "t": 32.0,
+    "point": "카플레이/안드로이드 오토 및 커스텀 가능한 i-Toggle 화면",
+    "category": "편의"
+   },
+   {
+    "t": 38.5,
+    "point": "파노라마 선루프와 마사지·열선 시트 기능",
+    "category": "편의"
+   },
+   {
+    "t": 42.5,
+    "point": "넉넉한 2열 레그룸 대비 쿠페형 라인으로 좁아진 헤드룸",
+    "category": "공간"
+   },
+   {
+    "t": 47.0,
+    "point": "1.6 터보 가솔린 엔진의 215마력, 300Nm 동력 성능",
+    "category": "성능"
+   },
+   {
+    "t": 53.0,
+    "point": "이집트 도로 방지턱에 유리한 19cm 지상고",
+    "category": "성능"
+   },
+   {
+    "t": 56.5,
+    "point": "536리터 전동식 테일게이트 트렁크 공간",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 61.5,
+   "text": "19949",
+   "ko": "19949로 문의하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "휠",
+    "외관 후면",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 전면",
+    "외관 측면",
+    "트렁크"
+   ]
+  }
+ }
+}

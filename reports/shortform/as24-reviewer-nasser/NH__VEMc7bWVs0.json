@@ -1,0 +1,994 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/_VEMc7bWVs0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5724,
+  "candidatesTokenCount": 8498,
+  "totalTokenCount": 14222,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4561
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "폭스바겐 그룹 및 포르쉐 전문 정비 센터 (VAG, Porsche)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.6,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.6,
+    "end": 14.9,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 18.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.8,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.8,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 26.9,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 30.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 36.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 39.7,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.7,
+    "end": 41.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 45.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.7,
+    "end": 4.6,
+    "text": "أنا عارف إن التوكيل غالي جداً",
+    "ko": "공식 서비스 센터가 매우 비싸다는 걸 압니다",
+    "kind": "말 자막",
+    "y_pct": 28.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF8C00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "غالي جداً",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "بتبقي مضروبة",
+    "ko": "가품 부품일 수 있습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 58.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF2B2B",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مضروبة",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "text": "زيوت فلاتر",
+    "ko": "오일 및 필터류",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFB800",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "فلاتر",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "text": "تيل وطنابير",
+    "ko": "브레이크 패드 및 디스크",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFA500",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "وطنابير",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.9,
+    "text": "حتي مياه التبريد",
+    "ko": "심지어 냉각수까지",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00A3FF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مياه التبريد",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.5,
+    "text": "عندهم كل الصيانات",
+    "ko": "모든 정비 서비스 완비",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFC000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الصيانات",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "text": "10000 KM",
+    "ko": "10,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KM",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.5,
+    "text": "1M KM",
+    "ko": "100만 km",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1M",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "أقسام كتير",
+    "ko": "다양한 정비 부서",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كتير",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.0,
+    "text": "الميكانيكا والكشف",
+    "ko": "엔진 정비 및 정밀 점검",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "والكشف",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 22.8,
+    "text": "كل صيانات التكييف",
+    "ko": "에어컨 전담 정비",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00BCD4",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "التكييف",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.0,
+    "text": "العفشة",
+    "ko": "하체 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFD700",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "العفشة",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.0,
+    "text": "العربية أو الجنط",
+    "ko": "도장 복원 또는 휠 복원",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00A8FF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أو الجنط",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.6,
+    "text": "معالجة بالتلميع",
+    "ko": "광택 및 스크래치 복원",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFC107",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بالتلميع",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "text": "120,000KM",
+    "ko": "12만 km",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KM",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.0,
+    "text": "طقم كاتينة",
+    "ko": "타이밍 벨트 세트",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF6B6B",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كاتينة",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.3,
+    "text": "زيت الماتور",
+    "ko": "엔진 오일",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF9800",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الماتور",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 45.8,
+    "text": "خصم -10%",
+    "ko": "공임비 10% 할인",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E50914",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "-10%",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.0,
+    "text": "القطامية \n أبو رواش",
+    "ko": "카타미야점 / 아부 라와시점",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أبو رواش",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.8,
+    "text": "01099520---",
+    "ko": "문의 전화번호",
+    "kind": "가격",
+    "y_pct": 35.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E50914",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "01099520",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "휙",
+    "event": "원형 궤도 자동차 브랜드 로고들 회전 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "쿵",
+    "event": "화재/연기 특수효과 및 폐차장 부품 장면 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "톡",
+    "event": "체코 서비스 센터 현판 가리키는 모션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "띵",
+    "event": "오일 및 필터 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "띵",
+    "event": "브레이크 패드 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "띵",
+    "event": "냉각수 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.5,
+    "type": "톡",
+    "event": "정비 스패너 아이콘 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "딸깍",
+    "event": "10000 KM 자막 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "딸깍",
+    "event": "1M KM 자막 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "톡",
+    "event": "에어컨 아이콘 및 정비 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 임팩트 렌치 휠 너트 푸는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "톡",
+    "event": "페인트 부스 컬러 팔레트 바 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "띵",
+    "event": "Q3 12만키로 점검 소모품 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "돈 소리",
+    "event": "10% 할인 엠블럼 스티커 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "띵",
+    "event": "전화번호 바 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 인스트루멘탈",
+   "bpm_est": 110,
+   "mood": "활기차고 전문적인",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "what": "폭스바겐, 스코다, 세아트, 아우디, 쿠프라 3D 로고 궤도 회전",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 55.0,
+    "entrance": "회전하며 떠오름",
+    "purpose": "정비 가능 브랜드 시각화",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "what": "부품 브레이크/서스펜션 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 58.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가품/불량 부품 경고",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "what": "브레이크 캘리퍼 및 스프링 3D 일러스트",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "정품 부품 설명",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 18.5,
+    "what": "정비 스패너 공구 3D 마크",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전체 정비 가능 안내",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "what": "에어컨 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 75.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "에어컨 정비 강조",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.0,
+    "what": "서스펜션 부품 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 55.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하체 부품 점검 안내",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 26.9,
+    "what": "브랜드 로고에 X 표시",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 65.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "폭스바겐 계열이 아닌 차도 가능함을 표시",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 45.8,
+    "what": "10% 할인 톱니 배지",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "할인 프로모션 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "لو عربيتك من مجموعة في دابليو سيات سكودا كوبرا واودي وبورش كمان",
+    "ko": "만약 당신의 차가 폭스바겐 그룹, 세아트, 스코다, 쿠프라, 아우디나 포르쉐라면"
+   },
+   {
+    "start": 3.0,
+    "end": 6.8,
+    "text": "أنا عارف إن التوكيل غالي جداً ولو مش غالية بتبقي قطع الغيار مضروبة",
+    "ko": "공식 서비스 센터는 너무 비싸고, 싸면 가품 부품일까 봐 걱정되실 겁니다"
+   },
+   {
+    "start": 6.8,
+    "end": 11.5,
+    "text": "أنا بتعامل مع المركز التشيكي لأن كل قطع الغيار أصلية وبسعر مناسب عشان هو اللي بيستوردها لنفسه",
+    "ko": "저는 체코 서비스 센터를 이용합니다. 직접 수입하기 때문에 모든 부품이 정품이고 가격도 합리적입니다"
+   },
+   {
+    "start": 11.5,
+    "end": 15.0,
+    "text": "زيوت، فلاتر، تيل وطنابير، حتى مية التبريد كلو أصلي",
+    "ko": "오일, 필터, 브레이크 패드와 디스크, 냉각수까지 모두 정품입니다"
+   },
+   {
+    "start": 15.0,
+    "end": 18.5,
+    "text": "وعندهم كل الصيانات من أول الـ 10000 كيلو لحد المليون كيلو",
+    "ko": "1만 km 정기 점검부터 100만 km까지 모든 정비를 다룹니다"
+   },
+   {
+    "start": 18.5,
+    "end": 26.0,
+    "text": "وأقسام كتير زي الميكانيكا، الكشف، صيانات التكييف، العفشة، وكهرباء العربية",
+    "ko": "메카닉, 정밀 진단, 에어컨 정비, 하체 서스펜션, 전장 계통 점검 부서까지 다양합니다"
+   },
+   {
+    "start": 26.0,
+    "end": 31.0,
+    "text": "ولو مش من مجموعة فولكس فاجن تقدر تغير لون عربيتك أو الجنط، وفيه PDR ومعالجة بالتلميع",
+    "ko": "폭스바겐 그룹 차량이 아니어도 도장 변경, 휠 도색, PDR 덴트 복원 및 광택 작업이 가능합니다"
+   },
+   {
+    "start": 31.0,
+    "end": 36.5,
+    "text": "ودي Q3 بتعمل صيانة الـ 120 ألف كم بتغير طلمبة مية، زيت الفتيس، زيت الماتور، وطقم كاتينة",
+    "ko": "이 아우디 Q3는 12만 km 정비 중이며 워터펌프, 미션오일, 엔진오일, 타이밍 벨트를 교체합니다"
+   },
+   {
+    "start": 36.5,
+    "end": 40.0,
+    "text": "ودي سيات ليون غيرت التلاجة القديمة بواحدة جديدة الصيف دخل",
+    "ko": "이 세아트 레온은 여름을 대비해 에어컨 에바포레이터를 신품으로 교체했습니다"
+   },
+   {
+    "start": 40.0,
+    "end": 46.0,
+    "text": "ولو مركب الاستيكر بتاع المركز التشيكي بتاخد خصم 10% على المصنعية ولو عطلت في أي حتة بيجولك لحد عندك",
+    "ko": "체코 센터 스티커를 부착하면 공임 10% 할인을 받고, 어디서든 고장 시 출장 서비스를 제공합니다"
+   },
+   {
+    "start": 46.0,
+    "end": 50.8,
+    "text": "والمركز التشيكي عندهم فرعين كبار واحد في القطامية وواحد في أبو رواش وده الرقم بتاعهم",
+    "ko": "카타미야와 아부 라와시 두 곳의 대형 지점이 있으며, 여기로 연락하시면 됩니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "폭스바겐 그룹 차주들을 겨냥한 3D 로고 효과와 공감 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 11.5,
+    "speed": "보통",
+    "summary": "공식 서비스의 비싼 가격과 사설 가품 불안감 해결책 제시 (정품 직수입 센터)"
+   },
+   {
+    "stage": "기능",
+    "start": 11.5,
+    "end": 26.0,
+    "speed": "빠름",
+    "summary": "순정 소모품 라인업 및 전문 정비 부서 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 26.0,
+    "end": 40.0,
+    "speed": "보통",
+    "summary": "판금 도색/광택 및 실제 정비 중인 아우디 Q3, 세아트 레온 작업 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 40.0,
+    "end": 46.0,
+    "speed": "보통",
+    "summary": "스티커 부착 시 공임 10% 할인 혜택 및 긴급 출동 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 46.0,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "지점 위치(카타미야/아부 라와시) 및 예약 전화번호 표시"
+   }
+  ],
+  "rules": [
+   "진행자의 손짓이나 내레이션에 맞춰 3D 아이콘과 키워드 배지를 즉시 띄워 시각적 직관성을 극대화한다.",
+   "정비 부품, 소모품, 서비스 종류별로 명확한 색상 테두리 스티커 자막을 활용한다.",
+   "실제 정비 중인 차량들의 보닛 및 하부를 밀착 촬영하여 전문적인 정비소 분위기를 신뢰감 있게 전달한다.",
+   "영상 말미에 할인 혜택 배지, 지점 위치, 연락처 바를 순차적으로 제시해 전환율을 높인다."
+  ],
+  "option_highlights": [
+   {
+    "start": 0.2,
+    "end": 2.5,
+    "feature": "지원 차종 라인업",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "회전하는 VW, Skoda, Seat, Audi, Cupra 3D 엠블럼",
+    "x_pct": 35.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "회전하며 떠오름",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.8,
+    "feature": "정품 소모품 지원",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "순정 오일통 및 브레이크 로터 부품",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "feature": "에어컨 전문 정비 장비",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "에어컨 가스 주입 장비",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 30.5,
+    "feature": "도장 및 외장 복원(PDR)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도장 부스 내 마스킹 차량",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정비소 앞에서 진행자가 손을 뻗자 지원 브랜드들의 3D 엠블럼이 원형으로 떠오르며 대상을 부름",
+   "type": "질문",
+   "text": "لو عربيتك من مجموعة في دابليو سيات سكودا كوبرا واودي وبورش كمان",
+   "ko": "만약 당신의 차가 폭스바겐, 세아트, 스코다, 쿠프라, 아우디나 포르쉐라면?"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "폭스바겐 계열(VW, 아우디, 세아트, 스코다, 쿠프라) 및 포르쉐 정비 전문",
+    "category": "조건"
+   },
+   {
+    "t": 8.0,
+    "point": "직접 수입하여 정품 보장 및 합리적인 부품 가격",
+    "category": "가격·조건"
+   },
+   {
+    "t": 16.0,
+    "point": "1만 km부터 100만 km까지 전 주기 정기 점검 커버",
+    "category": "상태"
+   },
+   {
+    "t": 20.0,
+    "point": "엔진, 하체 서스펜션, 전장 및 에어컨 시스템 전문 분과 운영",
+    "category": "기능"
+   },
+   {
+    "t": 28.0,
+    "point": "타사 브랜드 차량도 도장, 휠 복원, PDR 덴트 복원 가능",
+    "category": "편의"
+   },
+   {
+    "t": 42.0,
+    "point": "센터 스티커 부착 시 공임 10% 할인 및 어디든 출장 지원",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 48.8,
+   "text": "01099520---",
+   "ko": "전화 문의 및 예약",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 측면",
+    "엔진룸",
+    "휠",
+    "외관 후면"
+   ]
+  }
+ }
+}

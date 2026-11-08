@@ -1,0 +1,767 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Xr850Jenteo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5180,
+  "candidatesTokenCount": 6370,
+  "totalTokenCount": 11550,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4017
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.8,
+   "aspect": "9:16",
+   "car": "Mercedes E-Class, Porsche Macan, Lotus Emira, Avatr 12, Audi A4 외",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 21.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 36.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 41.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 43.8,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "لو جاي من بره مصر وعربيتك مش معاك",
+    "ko": "만약 해외에서 이집트로 왔는데 차가 없다면",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF8A00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "وعربيتك مش معاك",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "وعندك ميعاد مهم او طالعه قويه",
+    "ko": "중요한 약속이 있거나 특별한 외출이 있다면",
+    "kind": "말 자막",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF8A00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "او طالعه قويه",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.8,
+    "text": "تقدر تاجر عربيه لاي مناسبة",
+    "ko": "어떤 행사든 차량을 렌트할 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDF00",
+    "background": "상자",
+    "bg_color": "#635002",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 8.9,
+    "text": "ميتينجز للشغل",
+    "ko": "비즈니스 미팅",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 28.5,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF9900",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 26.8,
+    "text": "تبريد",
+    "ko": "통풍/냉방",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#28A8EA",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 33.3,
+    "text": "وتقدر تطلبهم",
+    "ko": "그리고 부를 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#E55C00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 35.8,
+    "text": "كل العربيات متأمن عليها",
+    "ko": "모든 차량 보험 적용 완료",
+    "kind": "말 자막",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#E55C00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 41.8,
+    "text": "3 محور محمد نجيب\nالتجمع الاول\nCloud Nine",
+    "ko": "모하메드 나기브 축 3번지, 뉴카이로 퍼스트 세틀먼트, 클라우드 나인 앞",
+    "kind": "제목",
+    "y_pct": 27.5,
+    "x_center_pct": 70.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#00A2C7",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "차량 부재 경고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.0,
+    "type": "딸깍",
+    "event": "시계 아이콘 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.0,
+    "type": "쿵",
+    "event": "SOLO CAR 대형 로고 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.9,
+    "type": "휙",
+    "event": "Mercedes 네온 텍스트 및 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "톡",
+    "event": "비즈니스 미팅 아이콘 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "휙",
+    "event": "Porsche 로고 및 Macan 네온 글자 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.2,
+    "type": "휙",
+    "event": "Lotus 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.8,
+    "type": "휙",
+    "event": "AVATR 12 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.2,
+    "type": "띵",
+    "event": "VIP 스파클 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.0,
+    "type": "딸깍",
+    "event": "뒷좌석 천장 TV 디스플레이 수동 개폐",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.6,
+    "type": "휙",
+    "event": "시트 쿨링 그래픽 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "휙",
+    "event": "Audi 링 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "기사 포함/미포함 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.4,
+    "type": "톡",
+    "event": "보험 적용 자동차 일러스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.3,
+    "type": "톡",
+    "event": "차량 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.9,
+    "type": "띵",
+    "event": "위치 핀 그래픽 및 주소 패널 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 신나는",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 38.6,
+     "what": "화면 흑백 전환과 함께 음악 사운드 일시적 필터 효과"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 1.7,
+    "what": "차량에 빨간 X 표시 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 39.0,
+    "y_pct": 13.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "상황 설명 시각화",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.7,
+    "what": "원형 시계 그래픽",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 46.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "약속 시간 시각화",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.8,
+    "what": "SOLO CAR 노란색 네온 로고",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 8.9,
+    "what": "메르세데스 벤츠 로고 및 MERCEDES 텍스트",
+    "is_3d": true,
+    "size_w_pct": 48.0,
+    "x_pct": 32.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.0,
+    "what": "포르쉐 엠블럼 및 Macan 텍스트",
+    "is_3d": true,
+    "size_w_pct": 42.0,
+    "x_pct": 28.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 16.5,
+    "what": "로터스 엠블럼 및 LOTUS 텍스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 29.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 21.6,
+    "what": "AVATR 12 로고",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 32.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 22.8,
+    "what": "VIP 반짝이 텍스트",
+    "is_3d": true,
+    "size_w_pct": 38.0,
+    "x_pct": 48.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "고급스러움 강조",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "what": "아우디 4링 로고",
+    "is_3d": true,
+    "size_w_pct": 32.0,
+    "x_pct": 35.0,
+    "y_pct": 39.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 41.8,
+    "what": "위치 안내 3D 지도 핀 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 45.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "لو جاي من بره مصر وعربيتك مش معاك وعندك ميعاد مهم او طالعه قويه",
+    "ko": "만약 해외에서 이집트로 왔는데 차가 없고, 중요한 약속이나 멋진 외출 일정이 있다면"
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "مع سولو كار تقدر تاجر عربيه لاي مناسبة",
+    "ko": "SOLO CAR와 함께라면 어떤 상황이든 원하는 차를 렌트할 수 있습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 8.9,
+    "text": "المرسيدس للمناسبات وميتينجز الشغل",
+    "ko": "행사와 비즈니스 미팅에는 벤츠,"
+   },
+   {
+    "start": 8.9,
+    "end": 12.0,
+    "text": "وبورش ماكان لو بتحب العربيات العالية او عندك مشوار سفر",
+    "ko": "높은 차를 선호하거나 장거리 여행을 떠난다면 포르쉐 마칸,"
+   },
+   {
+    "start": 12.0,
+    "end": 16.5,
+    "text": "واللوتس لو عايز تشد الانتباه او السوبر كار بتاعتك بره مصر ومش عايز تشحنها",
+    "ko": "주목을 받고 싶거나 해외에 있는 슈퍼카를 굳이 배편으로 보내기 싫다면 로터스,"
+   },
+   {
+    "start": 16.5,
+    "end": 21.6,
+    "text": "وافاتار 12 رويال اديشن لو عندك فرح، استقبال حد مهم، او عايز تجرب الكهرباء قبل ما تشتري",
+    "ko": "결혼식이나 VIP 의전, 구매 전 전기차를 직접 체험해보고 싶다면 아바타 12 로열 에디션!"
+   },
+   {
+    "start": 21.6,
+    "end": 27.0,
+    "text": "وعشان الـ VIPs عندهم تلفزيون ورا، اتفرجوا عليه طول الطريق، والكنبة بتاعتهم تسخين وتبريد ومساج",
+    "ko": "VIP를 위해 뒷좌석에는 이동 내내 볼 수 있는 TV가 있고, 시트에는 열선·통풍·마사지 기능까지 갖춰져 있습니다."
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "text": "ولو عايز عربية لاكجري وبسعر يوم خرافي، اجر اودي A4",
+    "ko": "합리적인 일일 대여료의 럭셔리 세단을 찾는다면 아우디 A4를 빌려보세요."
+   },
+   {
+    "start": 29.8,
+    "end": 36.1,
+    "text": "وتقدر تطلبهم بسواق او من غير سواق، وكل العربيات دي متأمن عليها بالكامل عشان تبقى انت في امان وهما في امان",
+    "ko": "기사 포함 또는 자가운전 모두 가능하며, 모든 차량은 완전 자차 보험 가입으로 안심할 수 있습니다."
+   },
+   {
+    "start": 36.1,
+    "end": 39.0,
+    "text": "وعربيات مالتي براند كمان، فمن اول السني لحد الكاديلاك",
+    "ko": "다양한 멀티 브랜드 라인업으로 닛산 써니부터 캐딜락까지 준비되어 있습니다."
+   },
+   {
+    "start": 39.0,
+    "end": 43.8,
+    "text": "والعنوان: 3 محور محمد نجيب، التجمع الاول، قدام Cloud Nine",
+    "ko": "위치는 퍼스트 세틀먼트 모하메드 나기브 축 3번지, 클라우드 나인 맞은편입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "입국자 및 급한 차량 필요 상황 질문 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 21.6,
+    "speed": "빠름",
+    "summary": "벤츠, 포르쉐, 로터스, 아바타 12 등 용도별 라인업 순차 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 21.6,
+    "end": 27.0,
+    "speed": "보통",
+    "summary": "아바타 12 뒷좌석 TV 스크린 및 시트 통풍/마사지 기능 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 27.0,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "가성비 럭셔리 카 아우디 A4 추천"
+   },
+   {
+    "stage": "사양",
+    "start": 29.8,
+    "end": 39.0,
+    "speed": "빠름",
+    "summary": "기사 포함 여부 선택, 전차종 보험 완비, 엔트리~고급 라인업 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.0,
+    "end": 43.8,
+    "speed": "보통",
+    "summary": "매장 위치 안내(도로 뷰) 및 CTA"
+   }
+  ],
+  "rules": [
+   "진행자가 매장 차고를 직접 걸어 다니며 차량을 한 대씩 짚어주는 워크스루 방식 사용",
+   "각 차량이 화면에 들어올 때마다 브랜드 엠블럼과 3D 텍스트 로고를 매치해 즉각적인 인지 유도",
+   "단순 차종 나열이 아니라 '비즈니스', '장거리', '하차감', '의전' 등 사용 상황별로 매칭하는 스토리텔링",
+   "실내 특화 편의 사양(모니터, 시트 통풍)은 직접 시연과 직관적인 3D 그래픽을 동시에 띄워 강조",
+   "끝부분에 매장 외부 주차장 및 실제 주변 도로 뷰를 보여주며 명확한 위치 정보 제공"
+  ],
+  "option_highlights": [
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "feature": "뒷좌석 천장 폴딩 TV 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "TV 글자가 적힌 화면 스크린",
+    "x_pct": 52.0,
+    "y_pct": 46.0,
+    "size_w_pct": 32.0,
+    "follows_object": true,
+    "entrance": "딸깍 펼쳐짐",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 26.8,
+    "feature": "시트 통풍/냉방 기능",
+    "shown_how": "글자 카드",
+    "icon_desc": "눈꽃 모양과 푸른색 시트 쿨링 그래픽",
+    "x_pct": 46.0,
+    "y_pct": 89.0,
+    "size_w_pct": 42.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "선글라스를 낀 남성이 차고를 걸어나오며 손짓으로 상황(차가 없는 경우)을 질문함",
+   "type": "질문",
+   "text": "لو جاي من بره مصر وعربيتك مش معاك",
+   "ko": "해외에서 이집트로 왔는데 차가 없다면?"
+  },
+  "narration_points": [
+   {
+    "t": 7.0,
+    "point": "비즈니스 미팅과 중요 행사용 메르세데스 벤츠 세단",
+    "category": "디자인"
+   },
+   {
+    "t": 9.5,
+    "point": "높은 차체와 장거리 주행을 위한 포르쉐 마칸",
+    "category": "성능"
+   },
+   {
+    "t": 12.5,
+    "point": "시선 집중과 하차감을 극대화하는 로터스 스포츠카",
+    "category": "희소성"
+   },
+   {
+    "t": 17.0,
+    "point": "결혼식, 의전, 전기차 체험용 아바타 12 로열 에디션",
+    "category": "편의"
+   },
+   {
+    "t": 23.0,
+    "point": "뒷좌석 전용 TV 엔터테인먼트 모니터 내장",
+    "category": "편의"
+   },
+   {
+    "t": 25.5,
+    "point": "열선, 통풍, 마사지 기능이 포함된 최고급 VIP 뒷좌석 시트",
+    "category": "편의"
+   },
+   {
+    "t": 27.5,
+    "point": "부담 없는 일일 대여료로 즐기는 럭셔리 아우디 A4",
+    "category": "가격·조건"
+   },
+   {
+    "t": 31.0,
+    "point": "전속 운전기사 동반 또는 직접 운전 선택 가능",
+    "category": "편의"
+   },
+   {
+    "t": 33.5,
+    "point": "전 차종 완전 자차 보험 가입으로 안심 이용",
+    "category": "안전"
+   },
+   {
+    "t": 37.0,
+    "point": "경제적인 준중형 닛산 써니부터 캐딜락까지 다양한 차종 보유",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 40.0,
+   "text": "العنوان: 3 محور محمد نجيب، التجمع الاول، قدام Cloud Nine",
+   "ko": "주소: 뉴카이로 퍼스트 세틀먼트 모하메드 나기브 축 3번지 (클라우드 나인 맞은편)",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 전면",
+    "기타"
+   ]
+  }
+ }
+}
