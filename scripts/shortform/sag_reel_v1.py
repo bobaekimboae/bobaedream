@@ -927,6 +927,99 @@ def phrase_img_nl(text, kw=-1):
     return im
 
 
+def cap_keyword_any(text, blk):
+    """강조어를 꼭 하나 고른다(네덜란드식: 영상당 칩 11.7개 = 거의 모든 구절): 숫자 → 스티커 겹침 → 가장 긴 낱말"""
+    i = cap_keyword(text, blk)
+    if i >= 0:
+        return i
+    ws = text.strip(' ,.').split(' ')
+    return max(range(len(ws)), key=lambda j: len(re.sub(r'[^0-9A-Za-z가-힣]', '', ws[j])))
+
+
+def _outline_text(d, xy, t, fnt, fill, stroke):
+    d.text(xy, t, font=fnt, fill=fill, anchor='lm', stroke_width=stroke, stroke_fill=(0, 0, 0))
+
+
+def phrase_img_nl2(text, kw=-1):
+    """네덜란드식 v2(2026-11-09 실측 40편): 바탕 없음 · 흰 굵은 글자 + 검정 외곽선 · 높이 63% ·
+    강조어 칩은 말 자막 줄 안(실측 칩 y 59~62%)에 거의 모든 구절마다 1개 · 칩 색은 보배드림 파랑(2026-11-08 사용자 결정)"""
+    k = ('nl2', text, kw)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(BLACK, 62)
+    text = text.strip(' ,.')
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 70 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    gap = fnt.getlength(' ')
+    lh, pad_x, pad_y = 88, 30, 16
+    tw = max(fnt.getlength(l) for l in lines) + 30
+    im = Image.new('RGBA', (int(tw + pad_x * 2), lh * len(lines) + pad_y * 2), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    wi = 0
+    for li, line in enumerate(lines):
+        x = (im.width - fnt.getlength(line)) / 2
+        y = pad_y + lh * li + lh / 2
+        for w in line.split(' '):
+            if wi == kw:
+                d.rounded_rectangle((x - 10, y - 38, x + fnt.getlength(w) + 10, y + 40), 8, fill=BLUE + (255,))
+                d.text((x, y), w, font=fnt, fill=(255, 255, 255), anchor='lm')
+            else:
+                _outline_text(d, (x, y), w, fnt, (255, 255, 255), 5)
+            wi += 1
+            x += fnt.getlength(w) + gap
+    _cache[k] = im
+    return im
+
+
+def phrase_img_be2(text):
+    """벨기에식 v2(2026-11-09 실측 40편 + 제미나이 80편): 바탕 없음 · 흰 굵은 글자 + 옅은 그림자(말 자막 배경 1위 '그림자') · 외곽선 없음 · 높이 68% · 바로 등장"""
+    k = ('be2', text)
+    if k in _cache:
+        return _cache[k]
+    from PIL import ImageFilter
+    fnt = ImageFont.truetype(BLACK, 60)
+    text = text.strip(' ,.')
+    lines = [text]
+    if fnt.getlength(text) > SAFE_W - 60 and ' ' in text:
+        sp = [i for i, c in enumerate(text) if c == ' ']
+        cut = min(sp, key=lambda i: abs(i - len(text) / 2))
+        lines = [text[:cut], text[cut + 1:]]
+    lh = 80
+    tw = max(fnt.getlength(l) for l in lines)
+    im = Image.new('RGBA', (int(tw + 80), lh * len(lines) + 40), (0, 0, 0, 0))
+    sh = Image.new('RGBA', im.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(sh)
+    for i, l in enumerate(lines):
+        sd.text((im.width / 2 + 2, 20 + lh * i + lh / 2 + 4), l, font=fnt, fill=(0, 0, 0, 200), anchor='mm', stroke_width=3, stroke_fill=(0, 0, 0, 200))
+    im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(6)))
+    d = ImageDraw.Draw(im)
+    for i, l in enumerate(lines):
+        d.text((im.width / 2, 20 + lh * i + lh / 2), l, font=fnt, fill=(255, 255, 255), anchor='mm')
+    _cache[k] = im
+    return im
+
+
+def kw_chip_be2(word):
+    """벨기에식 키워드 칩(제미나이 80편: 키워드 스티커 214개, y 64% = 말 자막 바로 위, 톡 튀어나옴, 말과 동시):
+    칩 색은 보배드림 파랑 + 흰 글자(원본 노랑 #FFE600 + 검정 글자 자리)"""
+    k = ('be2chip', word)
+    if k in _cache:
+        return _cache[k]
+    fnt = ImageFont.truetype(BLACK, 54)
+    w = word.strip(' ,.')
+    tw = fnt.getlength(w)
+    im = Image.new('RGBA', (int(tw + 52), 84), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((0, 0, im.width - 1, im.height - 1), 10, fill=BLUE + (255,))
+    d.text((im.width / 2, 42), w, font=fnt, fill=(255, 255, 255), anchor='mm')
+    im = im.rotate(-2.0, resample=Image.BICUBIC, expand=True)
+    _cache[k] = im
+    return im
+
+
 def phrase_img(text, act=-1):
     """자막 규칙(검색 정리): 프리텐다드 SemiBold 64px · 흰 글자 · 반투명 검정 바탕 · 1줄(세이프존 폭 810px을 넘으면 가운데 띄어쓰기에서 2줄)
     · 줄 높이 화면의 약 4.2% · 화면 아래 데드존(하단 약 450px)과 오른쪽 버튼 줄을 피한 고정 위치 · 문장부호 없음 · 숫자만 노랑"""
@@ -1040,6 +1133,28 @@ def overlay(T, total, shots, shot, blk):
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1248)
             paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
+            return ov, False
+        if STYLE.get('cap_style') == 'nl2':  # 네덜란드식 v2: 외곽선 흰 글자, 강조어 칩(파랑) 줄 안, 톡 등장, 높이 63%
+            im = phrase_img_nl2(cur[2], cap_keyword_any(cur[2], blk))
+            e = back((T - cur[0]) / 0.16)
+            sc = max(.05, 0.82 + 0.18 * e)
+            cy = STYLE.get('cap_cy', 1210)
+            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
+            return ov, False
+        if STYLE.get('cap_style') == 'be2':  # 벨기에식 v2: 그림자 흰 글자 바로 등장(높이 68%) + 강조어 있으면 바로 위(64%)에 파랑 칩 톡
+            im = phrase_img_be2(cur[2])
+            cy = STYLE.get('cap_cy', 1305)
+            paste(ov, im, W / 2 - im.width / 2, cy - im.height / 2, min(1, (T - cur[0]) / .04))
+            kw = cap_keyword(cur[2], blk)
+            if kw >= 0:
+                ws = cur[2].strip(' ,.').split(' ')
+                kt = cur[3][kw] if kw < len(cur[3]) else cur[0]
+                if T >= kt:
+                    ch = kw_chip_be2(ws[kw])
+                    e = back((T - kt) / 0.2)
+                    sc = max(.05, e)
+                    top = cy - im.height / 2 - ch.height + 6
+                    paste(ov, ch, W / 2 - ch.width * sc / 2, top + ch.height * (1 - sc) / 2, min(1, (T - kt) / .06), sc)
             return ov, False
         if STYLE.get('cap_style') == 'be':  # 벨기에: 바로 등장, 강조어만 노랑 형광펜
             im = phrase_img_be(cur[2], cap_keyword(cur[2], blk))
