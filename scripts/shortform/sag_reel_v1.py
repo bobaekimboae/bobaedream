@@ -777,7 +777,7 @@ def cap_keyword(text, blk):
 def phrase_img_v12(text, kw=-1, boxed=False):
     """규격 v1.2(노션 5-1·5-2): Pretendard ExtraBold 60 · 흰 글자 + 검정 외곽선 · 최대 2줄 · 강조어 1개 #FFD56A ·
     자막 자리가 밝으면(평균 0.7 이상) 그 자막만 반투명 검정 상자"""
-    k = ('v12', text, kw, boxed)
+    k = ('v12', text, kw, boxed, tuple(STYLE.get('cap_kw_col', (255, 213, 106))))
     if k in _cache:
         return _cache[k]
     fnt = ImageFont.truetype(BLACK, 60)
@@ -799,7 +799,7 @@ def phrase_img_v12(text, kw=-1, boxed=False):
         x = (im.width - fnt.getlength(line)) / 2
         y = pad_y + lh * li + lh / 2
         for w in line.split(' '):
-            col = (255, 213, 106) if wi == kw else (255, 255, 255)
+            col = tuple(STYLE.get('cap_kw_col', (255, 213, 106))) if wi == kw else (255, 255, 255)
             d.text((x, y), w, font=fnt, fill=col, anchor='lm', stroke_width=0 if boxed else 6, stroke_fill=(0, 0, 0))
             wi += 1
             x += fnt.getlength(w) + gap
@@ -968,6 +968,13 @@ def overlay(T, total, shots, shot, blk):
             return ov, False
         if STYLE.get('cap_style') == 'nl':  # 오토스카우트 NL·BE: 검정 상자 + 톡 튀어나옴, 높이 65%
             im = phrase_img_nl(cur[2], cap_keyword(cur[2], blk))
+            e = back((T - cur[0]) / 0.16)
+            sc = max(.05, 0.82 + 0.18 * e)
+            cy = STYLE.get('cap_cy', 1248)
+            paste(ov, im, W / 2 - im.width * sc / 2, cy - im.height * sc / 2, min(1, (T - cur[0]) / .06), sc)
+            return ov, False
+        if STYLE.get('cap_style') == 'plain':  # 오토스카우트 NL 말 자막: 바탕 없이 흰 굵은 글자+검정 외곽선, 강조어 1개만 색, 톡 등장
+            im = phrase_img_v12(cur[2], cap_keyword(cur[2], blk), False)
             e = back((T - cur[0]) / 0.16)
             sc = max(.05, 0.82 + 0.18 * e)
             cy = STYLE.get('cap_cy', 1248)
