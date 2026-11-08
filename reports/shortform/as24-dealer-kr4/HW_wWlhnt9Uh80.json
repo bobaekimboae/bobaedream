@@ -1,0 +1,817 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/wWlhnt9Uh80",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6625,
+  "candidatesTokenCount": 6867,
+  "totalTokenCount": 13492,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5365
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.7,
+   "aspect": "9:16",
+   "car": "기아 카니발 / 테슬라 모델 3",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 34.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 50.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 56.6,
+    "part": "사람",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 58.7,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "아.. 주차 자리가 없노;;",
+    "ko": "아.. 주차 자리가 없네;;",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 2.6,
+    "text": "!!!",
+    "ko": "!!!",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.1,
+    "text": "와...",
+    "ko": "와...",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 37.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "여보세요~?",
+    "ko": "여보세요~?",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.4,
+    "text": "수입차 차주 : 예",
+    "ko": "수입차 차주 : 예",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.0,
+    "text": "선생님 !! 아무리 급하셔도..",
+    "ko": "선생님 !! 아무리 급하셔도..",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 9.9,
+    "text": "주차를 요렇게 하시면 안되죠;;",
+    "ko": "주차를 요렇게 하시면 안 되죠;;",
+    "kind": "말 자막",
+    "y_pct": 47.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.4,
+    "text": "지금 3대나 차지하셨거든요;;",
+    "ko": "지금 3대나 차지하셨거든요;;",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.0,
+    "text": "요것좀 얼른 와서 빼주시면 안될까요?",
+    "ko": "이것 좀 얼른 와서 빼주시면 안 될까요?",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.5,
+    "text": "(하.. 마 사람 바빠죽겠는데)",
+    "ko": "(하.. 이 사람 바빠 죽겠는데)",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.6,
+    "text": "(오라가라야 - -)",
+    "ko": "(오라 가라야 - -)",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.5,
+    "text": "(당신 뭐야 !!)",
+    "ko": "(당신 뭐야 !!)",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.0,
+    "text": "아니 그게 아니고 - -",
+    "ko": "아니 그게 아니고 - -",
+    "kind": "말 자막",
+    "y_pct": 49.5,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.1,
+    "end": 20.3,
+    "text": "아니 지금 차 자리를 3대나 차지했잖아요 - -",
+    "ko": "아니 지금 차 자리를 3대나 차지했잖아요 - -",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "text": "여기 주차 자리 없는거 몰라요??",
+    "ko": "여기 주차 자리 없는 거 몰라요??",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.3,
+    "text": "(아니긴 뭐가 아니야 - -)",
+    "ko": "(아니긴 뭐가 아니야 - -)",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.8,
+    "text": "(어데 전화와서 빼라 마라야 - -)",
+    "ko": "(어디서 전화 와서 빼라 마라야 - -)",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "text": "(빡침) (!!!)",
+    "ko": "(빡침) (!!!)",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.8,
+    "text": "와.. 이.. 씨..",
+    "ko": "와.. 이.. 씨..",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.8,
+    "text": "너는 진짜 평생 차 못뺀다 - - 딱 봐라 - -",
+    "ko": "너는 진짜 평생 차 못 뺀다 - - 딱 봐라 - -",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 34.8,
+    "text": "잠시 후..",
+    "ko": "잠시 후..",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.5,
+    "text": "(수입차 차주 등장)",
+    "ko": "(수입차 차주 등장)",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.5,
+    "text": "보소 !! 빨리 차 빼소 - - 어데 뭐 되도안한 국산차 가지고 시비주차를 해놓고 있어 - -",
+    "ko": "보소 !! 빨리 차 빼소 - - 어디서 뭐 되지도 않는 국산차 가지고 시비주차를 해놓고 있어 - -",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 45.6,
+    "text": "(네?!!) (되도 안한 국산차요??) (아.. 마 사람 바빠 죽겠는데 - -) (오라가라 뭔데요?)",
+    "ko": "(네?!!) (되지도 않는 국산차요??) (아.. 이 사람 바빠 죽겠는데 - -) (오라 가라 뭔데요?)",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "text": "내 차를 막고 있잖아 어째나가노 !!",
+    "ko": "내 차를 막고 있잖아 어떻게 나가냐고 !!",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.1,
+    "end": 50.8,
+    "text": "(그 수입차 타시는 분께서) (잘~~ 함 빠져나가 보이소 ^^)",
+    "ko": "(그 수입차 타시는 분께서) (잘~~ 한번 빠져나가 보세요 ^^)",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.3,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 54.0,
+    "text": "뭐?!! 빨리 차 빼 빨리 !!",
+    "ko": "뭐?!! 빨리 차 빼 빨리 !!",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 54.1,
+    "end": 56.6,
+    "text": "하.. 야이toRL야 (야이..toRL..?) (수리남이다 toRL야 ^^)",
+    "ko": "하.. 야 이 새끼야 (야 이.. 새끼야..?) (수리남이다 새끼야 ^^)",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.8,
+    "type": "쿵",
+    "event": "주차 빌런 발견 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "띵",
+    "event": "전화 끊김 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "카니발 후진 주차 후진음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "기타",
+   "bpm_est": 0,
+   "mood": "긴장감",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 56.6,
+    "what": "상단 한우카 로고 및 연락처 배너",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 5.0,
+    "entrance": "바로",
+    "purpose": "채널 브랜딩 및 문의처 안내",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 58.7,
+    "what": "엔딩 로고 화면",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "아 씨 주차 자리가 없노",
+    "ko": "아 씨 주차 자리가 없네"
+   },
+   {
+    "start": 1.8,
+    "end": 3.5,
+    "text": "뭐이고 이거 와 씨",
+    "ko": "뭐야 이거 와 씨"
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "여보세요?",
+    "ko": "여보세요?"
+   },
+   {
+    "start": 5.4,
+    "end": 6.4,
+    "text": "예",
+    "ko": "예"
+   },
+   {
+    "start": 6.4,
+    "end": 13.0,
+    "text": "선생님 아무리 급하셔도 주차를 요렇게 하시면 안되죠 지금 3대나 차지하셨거든요 요것좀 얼른 와서 빼주시면 안될까요?",
+    "ko": "선생님 아무리 급하셔도 주차를 요렇게 하시면 안 되죠 지금 3대나 차지하셨거든요 이것 좀 얼른 와서 빼주시면 안 될까요?"
+   },
+   {
+    "start": 13.1,
+    "end": 16.5,
+    "text": "아 마 사람 바빠 죽겠는데 오라가라야 당신 뭐야",
+    "ko": "아 이 사람 바빠 죽겠는데 오라 가라야 당신 뭐야"
+   },
+   {
+    "start": 16.6,
+    "end": 22.0,
+    "text": "네? 아니 그게 아니고 아니 지금 차 자리를 3대나 차지했잖아요 여기 주차 자리 없는거 몰라요?",
+    "ko": "네? 아니 그게 아니고 아니 지금 차 자리를 3대나 차지했잖아요 여기 주차 자리 없는 거 몰라요?"
+   },
+   {
+    "start": 22.1,
+    "end": 24.8,
+    "text": "아니긴 뭐가 아니야 어데 전화와서 빼라 마라야 뚝",
+    "ko": "아니긴 뭐가 아니야 어디서 전화 와서 빼라 마라야 (통화 종료)"
+   },
+   {
+    "start": 24.9,
+    "end": 29.8,
+    "text": "여보세 뚝 와 이 씨 너는 진짜 평생 차 못뺀다 딱 봐라",
+    "ko": "여보세 (끊김) 와 이 씨 너는 진짜 평생 차 못 뺀다 딱 봐라"
+   },
+   {
+    "start": 36.5,
+    "end": 40.5,
+    "text": "보소 빨리 차 빼소 어데 뭐 되도안한 국산차 가지고 시비주차를 해놓고 있어",
+    "ko": "보소 빨리 차 빼소 어디서 뭐 되지도 않는 국산차 가지고 시비주차를 해놓고 있어"
+   },
+   {
+    "start": 40.6,
+    "end": 45.6,
+    "text": "네? 되도 안한 국산차요? 아 마 사람 바빠 죽겠는데 오라가라 뭔데요?",
+    "ko": "네? 되지도 않는 국산차요? 아 이 사람 바빠 죽겠는데 오라 가라 뭔데요?"
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "text": "내 차를 막고 있잖아 어째 나가노",
+    "ko": "내 차를 막고 있잖아 어떻게 나가냐고"
+   },
+   {
+    "start": 48.1,
+    "end": 50.8,
+    "text": "그 수입차 타시는 분께서 잘~ 한번 빠져나가 보이소",
+    "ko": "그 수입차 타시는 분께서 잘~ 한번 빠져나가 보세요"
+   },
+   {
+    "start": 51.0,
+    "end": 54.0,
+    "text": "뭐? 빨리 차 빼 빨리 싫은데",
+    "ko": "뭐? 빨리 차 빼 빨리 싫은데"
+   },
+   {
+    "start": 54.1,
+    "end": 56.6,
+    "text": "아 야 이 새끼야 니 지금 어디야 야 이 새끼 수리남이다 이 새끼야",
+    "ko": "아 야 이 새끼야 너 지금 어디야 야 이 새끼 수리남이다 이 새끼야"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "보통",
+    "summary": "주차 공간 3칸을 가로막은 무개념 주차 발견"
+   },
+   {
+    "stage": "기능",
+    "start": 4.1,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "차주에게 전화했으나 적반하장으로 끊어버림"
+   },
+   {
+    "stage": "차 소개",
+    "start": 29.8,
+    "end": 34.8,
+    "speed": "보통",
+    "summary": "카니발로 완벽히 입구를 가로막아 주차 복수"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 34.8,
+    "end": 58.7,
+    "speed": "빠름",
+    "summary": "가해 차주가 나타나 항의하자 사이다 통화 복수 후 종료"
+   }
+  ],
+  "rules": [
+   "상황극/스케치 코미디 형식으로 바이럴을 유도하는 쇼츠 편집",
+   "화면 상단에 상시 연락처 및 로고를 고정 배치하여 인지도 확보",
+   "화자 전환 시 텍스트 괄호 및 스타일로 발화자 구분"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "주차 자리를 찾는 중 3칸을 가로로 차지한 무개념 주차 차량 발견",
+   "type": "행동",
+   "text": "아.. 주차 자리가 없노;;"
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "한우카",
+    "010-3696-2227",
+    "카카오톡 900928L",
+    "www.한우카.com"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "24시간 문의 010-3696-2227 / 900928L",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단에 한우카 로고 및 24시간 연락처 상시 노출"
+  }
+ }
+}

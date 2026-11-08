@@ -1,0 +1,807 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/SX7EdfZLpDw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6367,
+  "candidatesTokenCount": 6543,
+  "totalTokenCount": 12910,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5107
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "포르쉐 마칸 / 벤츠 E클래스",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 21.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 27.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 31.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 36.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 37.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 38.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 39.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.7,
+    "end": 40.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 45.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.9,
+    "end": 48.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 50.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 52.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.6,
+    "end": 54.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "text": "아이씨 안비키나 !",
+    "ko": "아이씨 안 비키나!",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "text": "저 포르쉐네??",
+    "ko": "저 포르쉐네??",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.8,
+    "text": "아 그래봤자 마칸\n제일 싼 거 아이가",
+    "ko": "아 그래봤자 마칸 제일 싼 거 아니야",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 9.3,
+    "text": "아이씨 안비키나 !\n벤츠따리가",
+    "ko": "아이씨 안 비키나! 벤츠 따위가",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "text": "그래도 뭐 옵션 좀\n높은 거 사긴 샀네",
+    "ko": "그래도 뭐 옵션 좀 높은 거 사긴 샀네",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.8,
+    "text": "아 먼저 좀 갑시다 좀 !\n바쁘다고요",
+    "ko": "아 먼저 좀 갑시다 좀! 바쁘다고요",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.9,
+    "text": "아 내가 먼저 좀 갑시다\n바쁘다 !",
+    "ko": "아 내가 먼저 좀 갑시다 바쁘다!",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.5,
+    "text": "말 깠나 지금 !\n니 일로 와 봐 !",
+    "ko": "말 깠나 지금! 너 이리 와 봐!",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.5,
+    "text": "뭐 ?? 일로 와봐라 ??\n이 새R끼가 죽을라고",
+    "ko": "뭐?? 이리 와봐라?? 이 자식이 죽으려고",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.7,
+    "text": "(아..씨.. 생각보다\n무섭게 생겼는데..)\n\n(하...그냥 비킬 걸\n그랬나..)",
+    "ko": "(아 씨.. 생각보다 무섭게 생겼는데..) (하... 그냥 비킬 걸 그랬나..)",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.6,
+    "text": "(아..씨..생각보다\n덩치가 너무 큰데..)\n\n(하..씨 일단 인상 쓰자)",
+    "ko": "(아 씨.. 생각보다 덩치가 너무 큰데..) (하 씨 일단 인상 쓰자)",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 37.8,
+    "text": "ㅁ...뭐...! 왔다 왜 !",
+    "ko": "뭐, 왔다 왜!",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 38.8,
+    "text": "ㅁ..뭐..뭐 !!",
+    "ko": "뭐.. 뭐!!",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 39.7,
+    "text": "ㅇ...왜..왜 !!",
+    "ko": "왜.. 왜!!",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.7,
+    "end": 40.8,
+    "text": "ㅁ..! 뭐... 뭐 뭐 !!",
+    "ko": "뭐... 뭐 뭐!!",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 45.8,
+    "text": "에이 서로 조금씩만\n빼면 되겠구만\n\n왜 싸워요 자꾸\n빨리 갈 길 갑시다 !",
+    "ko": "에이 서로 조금씩만 빼면 되겠구만 왜 싸워요 자꾸 빨리 갈 길 갑시다!",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "text": "그래 뭐 서로 바쁜데\n고마 살짝씩만 좀 빼서 갑시다",
+    "ko": "그래 뭐 서로 바쁜데 그냥 살짝씩만 좀 빼서 갑시다",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 50.0,
+    "text": "그랍시다 !\n내 먼저 뺄게요 !",
+    "ko": "그럽시다! 내가 먼저 뺄게요!",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 52.5,
+    "text": "와씨..다행이다 진짜\n큰일날 뻔 했노..와...",
+    "ko": "와 씨.. 다행이다 진짜 큰일 날 뻔했네.. 와...",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.6,
+    "end": 54.8,
+    "text": "와..싸우면 바로 지겠던데..\n\n와...살았다...",
+    "ko": "와.. 싸우면 바로 지겠던데.. 와... 살았다...",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 11.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "경적 빵빵 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫는 쾅 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "띵",
+    "event": "상대방 덩치 보고 놀라는 당황 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.6,
+    "type": "쿵",
+    "event": "중재자 등장하는 쾅 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "코믹 배경음",
+   "bpm_est": 110,
+   "mood": "긴장감 넘치면서도 코믹함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 54.8,
+    "what": "상단 좌측 한우카 원형 로고",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 12.0,
+    "y_pct": 6.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.0,
+    "what": "한우카 엔딩 로고 및 웹사이트 주소",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "text": "아이씨 안비키나!",
+    "ko": "아이씨 안 비키나!"
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "text": "저 포르쉐네?",
+    "ko": "저 포르쉐네?"
+   },
+   {
+    "start": 5.1,
+    "end": 6.8,
+    "text": "아 그래봤자 저 마칸 제일 싼 거 아이가",
+    "ko": "아 그래봤자 저 마칸 제일 싼 거 아니야"
+   },
+   {
+    "start": 6.9,
+    "end": 9.3,
+    "text": "아이씨 안비키나 벤츠따리가 아이씨",
+    "ko": "아이씨 안 비키나 벤츠 따위가 아이씨"
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "text": "그래도 뭐 옵션 좀 높은 거 사긴 샀노",
+    "ko": "그래도 뭐 옵션 좀 높은 거 사긴 샀네"
+   },
+   {
+    "start": 12.5,
+    "end": 14.8,
+    "text": "아 먼저 좀 갑시다 좀! 바쁘다고요",
+    "ko": "아 먼저 좀 갑시다 좀! 바쁘다고요"
+   },
+   {
+    "start": 15.0,
+    "end": 16.9,
+    "text": "아 내가 먼저 좀 갑시다! 바쁘다!",
+    "ko": "아 내가 먼저 좀 갑시다! 바쁘다!"
+   },
+   {
+    "start": 17.0,
+    "end": 19.5,
+    "text": "어? 말 깠나 지금? 니 일로 와봐!",
+    "ko": "어? 반말했어 지금? 너 이리 와봐!"
+   },
+   {
+    "start": 21.6,
+    "end": 24.5,
+    "text": "뭐? 일로 와봐라? 이 새끼가 죽으려고",
+    "ko": "뭐? 이리 와봐라? 이 자식이 죽으려고"
+   },
+   {
+    "start": 28.0,
+    "end": 31.7,
+    "text": "아씨 생각보다 무섭게 생겼는데... 하씨 그냥 비킬 걸 그랬나",
+    "ko": "아 씨 생각보다 무섭게 생겼는데... 하 씨 그냥 비킬 걸 그랬나"
+   },
+   {
+    "start": 33.5,
+    "end": 36.6,
+    "text": "아씨 생각보다 덩치가 너무 큰데... 아씨 일단 인상 쓰자",
+    "ko": "아 씨 생각보다 덩치가 너무 큰데... 아 씨 일단 인상 쓰자"
+   },
+   {
+    "start": 36.8,
+    "end": 40.8,
+    "text": "뭐 뭐 왔다 왜! 뭐 뭐 왜! 왜 왜! 뭐 뭐 뭐!",
+    "ko": "뭐 뭐 왔다 왜! 뭐 뭐 왜! 왜 왜! 뭐 뭐 뭐!"
+   },
+   {
+    "start": 43.1,
+    "end": 45.8,
+    "text": "에이 서로 조금씩만 빼면 되겠구만 왜 싸워요 자꾸. 빨리 갈 길 갑시다!",
+    "ko": "에이 서로 조금씩만 빼면 되겠구만 왜 싸워요 자꾸. 빨리 갈 길 갑시다!"
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "text": "그래 뭐 서로 바쁜데 고마 살짝씩만 좀 빼서 갑시다",
+    "ko": "그래 뭐 서로 바쁜데 그냥 살짝씩만 좀 빼서 갑시다"
+   },
+   {
+    "start": 48.2,
+    "end": 50.0,
+    "text": "그랍시다! 내 먼저 뺄게요!",
+    "ko": "그럽시다! 내가 먼저 뺄게요!"
+   },
+   {
+    "start": 50.1,
+    "end": 52.5,
+    "text": "와씨 다행이다 진짜 큰일날 뻔했노 와씨",
+    "ko": "와 씨 다행이다 진짜 큰일 날 뻔했네 와 씨"
+   },
+   {
+    "start": 52.6,
+    "end": 54.8,
+    "text": "와 싸우면 바로 지겠던데... 와 살았다 씨",
+    "ko": "와 싸우면 바로 지겠던데... 와 살았다 씨"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 11.0,
+    "speed": "빠름",
+    "summary": "골목길에서 마주친 두 차량(벤츠 vs 포르쉐) 운전자의 신경전"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.0,
+    "end": 26.0,
+    "speed": "보통",
+    "summary": "창문을 내리고 시비가 붙어 차에서 내림"
+   },
+   {
+    "stage": "기능",
+    "start": 26.0,
+    "end": 41.0,
+    "speed": "보통",
+    "summary": "서로의 외모와 덩치를 보고 쫄아서 헛기침만 하는 대치 상황"
+   },
+   {
+    "stage": "사양",
+    "start": 41.0,
+    "end": 50.0,
+    "speed": "보통",
+    "summary": "행인의 중재로 쿨한 척 양보 합의"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.0,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "차에 타서 안도하는 속마음 및 한우카 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "골목길 운전자 간의 갈등 상황극 콩트를 통해 재미와 공감을 유도",
+   "화면 중앙에 굵은 고딕체의 흰색 텍스트와 검은 테두리 자막 배치",
+   "캐릭터의 속마음 독백 대사는 괄호()로 표기하여 상황의 코믹함 강조",
+   "영상 좌상단에 채널 로고 워터마크 상시 노출 및 마지막 웹사이트 안내 엔딩 카드 삽입"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "골목길에서 마주보고 멈춰선 흰색 포르쉐 마칸과 벤츠 세단, 운전자의 짜증 섞인 반응",
+   "type": "행동",
+   "text": "아이씨 안비키나 !"
+  },
+  "narration_points": [
+   {
+    "t": 5.5,
+    "point": "포르쉐 마칸 엔트리 트림 언급",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.0,
+    "point": "벤츠 옵션 사양 언급",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "위치"
+   ],
+   "t": 55.5
+  },
+  "cta": {
+   "t": 55.5,
+   "text": "www.한우카.com",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "기타",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "사람"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "좌상단에 상시 배치된 한우카 로고와 검정 테두리 흰색 자막 스타일 유지"
+  }
+ }
+}

@@ -1,0 +1,1027 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/31M3LPNI2FU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6643,
+  "candidatesTokenCount": 8433,
+  "totalTokenCount": 15076,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5383
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.9,
+   "aspect": "9:16",
+   "car": "BMW X3",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 17.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 27.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 33.3,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 44.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 55.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.8,
+    "part": "사람",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 59.9,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.4,
+    "text": "어 이거 문열때 소리가 빈깡통 같은데...;;",
+    "ko": "어 이거 문열때 소리가 빈깡통 같은데...;;",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.6,
+    "text": "예...? 이거 문 무거운편일텐데..",
+    "ko": "예...? 이거 문 무거운편일텐데..",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.2,
+    "text": "일단 이거 50 깎고",
+    "ko": "일단 이거 50 깎고",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 6.8,
+    "text": "예...?",
+    "ko": "예...?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 8.0,
+    "text": "함 가서 봐야지",
+    "ko": "함 가서 봐야지",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.1,
+    "text": "이거 클락션 소리가 좀 많이 이상한데 이거...",
+    "ko": "이거 클락션 소리가 좀 많이 이상한데 이거...",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.5,
+    "text": "어... 저는.. 괜찮은 거 같은데...",
+    "ko": "어... 저는.. 괜찮은 거 같은데...",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 14.8,
+    "text": "에이 이건 소리가 좀 별론데",
+    "ko": "에이 이건 소리가 좀 별론데",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.3,
+    "text": "이거는 한 50만 원 깎아야 겠네요;;",
+    "ko": "이거는 한 50만 원 깎아야 겠네요;;",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.4,
+    "end": 17.5,
+    "text": "예...? 아 이걸로요?",
+    "ko": "예...? 아 이걸로요?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.3,
+    "text": "아 요거는 그렇고..",
+    "ko": "아 요거는 그렇고..",
+    "kind": "말 자막",
+    "y_pct": 61.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.0,
+    "text": "요거는 색깔이 또 검정색이네;;",
+    "ko": "요거는 색깔이 또 검정색이네;;",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 24.6,
+    "text": "요런 거는 때도 많이 타고 별로 인기도 없고 이건 100만 원 정도 깎아야 되겠고 이건",
+    "ko": "요런 거는 때도 많이 타고 별로 인기도 없고 이건 100만 원 정도 깎아야 되겠고 이건",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.7,
+    "end": 26.1,
+    "text": "검정색 인기.. 많은데요...?",
+    "ko": "검정색 인기.. 많은데요...?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.6,
+    "text": "아~~ 됐고",
+    "ko": "아~~ 됐고",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.7,
+    "end": 29.5,
+    "text": "에! 번호가 4444네요..?!",
+    "ko": "에! 번호가 4444네요..?!",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.7,
+    "end": 31.9,
+    "text": "요거는 100만 원 무조건 깎아야 됩니다",
+    "ko": "요거는 100만 원 무조건 깎아야 됩니다",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.2,
+    "text": "에이 이거 골든넘버인데..?",
+    "ko": "에이 이거 골든넘버인데..?",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 37.0,
+    "text": "요 차는 전체적으로 문제가 좀 많은 거 같은데...",
+    "ko": "요 차는 전체적으로 문제가 좀 많은 거 같은데...",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.2,
+    "end": 38.6,
+    "text": "요거 처음에 얼마라 했죠 요거??",
+    "ko": "요거 처음에 얼마라 했죠 요거??",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.7,
+    "end": 39.8,
+    "text": "이거 2,200만 원이요 !",
+    "ko": "이거 2,200만 원이요 !",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.5,
+    "text": "그러면 한 1,800만 원 딱 ! 하면 되겠네 !",
+    "ko": "그러면 한 1,800만 원 딱 ! 하면 되겠네 !",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 43.6,
+    "text": "좋습니다 ! 거래하러 가시죠 !",
+    "ko": "좋습니다 ! 거래하러 가시죠 !",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 43.7,
+    "end": 44.7,
+    "text": "가입시다 !!",
+    "ko": "가입시다 !!",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.3,
+    "end": 47.0,
+    "text": "야 !! 중혁아 !! 야이씨 ㅋㅋㅋ",
+    "ko": "야 !! 중혁아 !! 야이씨 ㅋㅋㅋ",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 49.3,
+    "text": "니 차 이거 2,200만 원에 사기로 했다며? ㅋㅋㅋ",
+    "ko": "니 차 이거 2,200만 원에 사기로 했다며? ㅋㅋㅋ",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 49.4,
+    "end": 51.0,
+    "text": "요거 내가 1,800만 원에 거래하기로 했디? ㅎㅎㅎ",
+    "ko": "요거 내가 1,800만 원에 거래하기로 했디? ㅎㅎㅎ",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 51.1,
+    "end": 52.0,
+    "text": "어...?!",
+    "ko": "어...?!",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 52.1,
+    "end": 53.6,
+    "text": "이거 니가 차... 사는게.. 아니고...",
+    "ko": "이거 니가 차... 사는게.. 아니고...",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 53.7,
+    "end": 54.8,
+    "text": "파는.. 거가...?",
+    "ko": "파는.. 거가...?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 54.9,
+    "end": 55.7,
+    "text": "니 차 사러온 딜러가...?",
+    "ko": "니 차 사러온 딜러가...?",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 55.8,
+    "end": 56.7,
+    "text": "아.. 진짜가..",
+    "ko": "아.. 진짜가..",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "클랙슨 누르는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.3,
+    "type": "쿵",
+    "event": "반전 상황 충격 효과음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "코믹 배경음악",
+   "bpm_est": 110,
+   "mood": "익살스럽고 유쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 50.3,
+     "what": "통화 반전에서 음악 멈춤"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 57.8,
+    "what": "좌상단 채널 로고 (한우카)",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 12.0,
+    "y_pct": 6.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 59.9,
+    "what": "엔딩 로고 및 웹사이트 주소",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.5,
+    "end": 2.4,
+    "text": "어 이거 문열 때 소리가 좀 빈 깡통 같은데",
+    "ko": "어 이거 문열 때 소리가 좀 빈 깡통 같은데"
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "text": "예? 이거 문 무거운 편일 텐데",
+    "ko": "예? 이거 문 무거운 편일 텐데"
+   },
+   {
+    "start": 4.7,
+    "end": 6.1,
+    "text": "일단 이거 한 50 깎고",
+    "ko": "일단 이거 한 50 깎고"
+   },
+   {
+    "start": 6.2,
+    "end": 6.7,
+    "text": "예?",
+    "ko": "예?"
+   },
+   {
+    "start": 6.8,
+    "end": 8.1,
+    "text": "함 가서 함 봐야지",
+    "ko": "함 가서 함 봐야지"
+   },
+   {
+    "start": 9.8,
+    "end": 12.0,
+    "text": "어 이거 클락션 소리가 좀 많이 이상한데 이거",
+    "ko": "어 이거 클락션 소리가 좀 많이 이상한데 이거"
+   },
+   {
+    "start": 12.1,
+    "end": 13.4,
+    "text": "어 저는 괜찮은 거 같은데",
+    "ko": "어 저는 괜찮은 거 같은데"
+   },
+   {
+    "start": 13.5,
+    "end": 16.2,
+    "text": "에이 이건 소리가 좀 별론데 이거는 한 50만 원 깎아야겠네요 이거는",
+    "ko": "에이 이건 소리가 좀 별론데 이거는 한 50만 원 깎아야겠네요 이거는"
+   },
+   {
+    "start": 16.3,
+    "end": 17.5,
+    "text": "아 이걸로요?",
+    "ko": "아 이걸로요?"
+   },
+   {
+    "start": 17.6,
+    "end": 20.8,
+    "text": "아 요거는 그렇고 요거는 색깔이 또 검정색이네",
+    "ko": "아 요거는 그렇고 요거는 색깔이 또 검정색이네"
+   },
+   {
+    "start": 20.9,
+    "end": 24.5,
+    "text": "요런 거는 때도 많이 타고 별로 인기도 없고 이건 100만 원 정도 깎아야 되겠고 이거는",
+    "ko": "요런 거는 때도 많이 타고 별로 인기도 없고 이건 100만 원 정도 깎아야 되겠고 이거는"
+   },
+   {
+    "start": 24.6,
+    "end": 26.0,
+    "text": "검정색 인기 많은데요?",
+    "ko": "검정색 인기 많은데요?"
+   },
+   {
+    "start": 26.1,
+    "end": 27.5,
+    "text": "아이 안 됐고",
+    "ko": "아이 안 됐고"
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "text": "에 번호가 4444네요?",
+    "ko": "에 번호가 4444네요?"
+   },
+   {
+    "start": 29.6,
+    "end": 31.8,
+    "text": "아 요거는 100만 원 무조건 깎아야 됩니다 요거는",
+    "ko": "아 요거는 100만 원 무조건 깎아야 됩니다 요거는"
+   },
+   {
+    "start": 31.9,
+    "end": 33.2,
+    "text": "에이 이거 골든 넘버인데요?",
+    "ko": "에이 이거 골든 넘버인데요?"
+   },
+   {
+    "start": 33.3,
+    "end": 34.5,
+    "text": "아이 100만 깎아야",
+    "ko": "아이 100만 깎아야"
+   },
+   {
+    "start": 34.6,
+    "end": 38.4,
+    "text": "그러면 요 차는 전체적으로 문제가 좀 많은 거 같은데 처음에 얼마라 했죠 요거?",
+    "ko": "그러면 요 차는 전체적으로 문제가 좀 많은 거 같은데 처음에 얼마라 했죠 요거?"
+   },
+   {
+    "start": 38.5,
+    "end": 39.7,
+    "text": "2,200만 원이요",
+    "ko": "2,200만 원이요"
+   },
+   {
+    "start": 39.8,
+    "end": 41.5,
+    "text": "에이 그러면 한 1,800만 원 딱 하면 되겠네",
+    "ko": "에이 그러면 한 1,800만 원 딱 하면 되겠네"
+   },
+   {
+    "start": 41.6,
+    "end": 43.6,
+    "text": "아 좋습니다 거래하러 가시죠",
+    "ko": "아 좋습니다 거래하러 가시죠"
+   },
+   {
+    "start": 43.7,
+    "end": 44.7,
+    "text": "가입시다 가입시다",
+    "ko": "가입시다 가입시다"
+   },
+   {
+    "start": 45.0,
+    "end": 46.9,
+    "text": "야 중혁아 야이씨",
+    "ko": "야 중혁아 야이씨"
+   },
+   {
+    "start": 47.0,
+    "end": 49.3,
+    "text": "니 차 이거 2,200에 사기로 했다며",
+    "ko": "니 차 이거 2,200에 사기로 했다며"
+   },
+   {
+    "start": 49.4,
+    "end": 50.8,
+    "text": "요거 내가 1,800만 원에 거래하기로 했디",
+    "ko": "요거 내가 1,800만 원에 거래하기로 했디"
+   },
+   {
+    "start": 50.9,
+    "end": 52.0,
+    "text": "어?",
+    "ko": "어?"
+   },
+   {
+    "start": 52.1,
+    "end": 53.4,
+    "text": "진짜가 이거 니가 차 사는 게 아니고",
+    "ko": "진짜가 이거 니가 차 사는 게 아니고"
+   },
+   {
+    "start": 53.5,
+    "end": 54.7,
+    "text": "파는 거가?",
+    "ko": "파는 거가?"
+   },
+   {
+    "start": 54.8,
+    "end": 55.7,
+    "text": "니 차 사러 온 딜러가?",
+    "ko": "니 차 사러 온 딜러가?"
+   },
+   {
+    "start": 55.8,
+    "end": 57.5,
+    "text": "아 진짜가 아 씨",
+    "ko": "아 진짜가 아 씨"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "차 문 소리를 트집잡으며 50만원 감가 시도"
+   },
+   {
+    "stage": "기능",
+    "start": 6.8,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "경적 소리 트집으로 추가 50만원 감가"
+   },
+   {
+    "stage": "사양",
+    "start": 17.5,
+    "end": 33.3,
+    "speed": "보통",
+    "summary": "검정 색상과 번호판 숫자 4444로 억지 감가"
+   },
+   {
+    "stage": "가격",
+    "start": 33.3,
+    "end": 44.7,
+    "speed": "보통",
+    "summary": "2,200만 원 차를 1,800만 원에 깎고 딜러가 흔쾌히 수락"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 44.7,
+    "end": 59.9,
+    "speed": "빠름",
+    "summary": "친구 차를 사는 게 아니라 파는 상황이었음을 깨닫는 반전 결말"
+   }
+  ],
+  "rules": [
+   "상황극 콩트 형식으로 구매자와 중고차 딜러 간의 억지 감가 대화 연출",
+   "중앙 하단에 검은 외곽선의 굵은 흰색 고딕 폰트로 전체 대사를 빠짐없이 자막 처리",
+   "좌측 상단에 브랜드 로고를 영상 내내 상시 노출",
+   "반전 결말 부분에서 음악이 급정지하고 줌인 연출로 극적 재미 유발"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "차 문을 열며 소리가 빈 깡통 같다며 50만원을 깎는 억지 감가 행동",
+   "type": "행동",
+   "text": "어 이거 문열때 소리가 빈깡통 같은데...;;"
+  },
+  "narration_points": [
+   {
+    "t": 4.8,
+    "point": "문 여는 소리가 가볍다며 50만 원 감가",
+    "category": "상태·이력"
+   },
+   {
+    "t": 14.9,
+    "point": "클랙슨 소리가 별로라며 50만 원 감가",
+    "category": "상태·이력"
+   },
+   {
+    "t": 22.0,
+    "point": "검정색은 때 타고 인기 없다며 100만 원 감가",
+    "category": "디자인"
+   },
+   {
+    "t": 29.7,
+    "point": "차량 번호가 4444 죽을 사 자라며 100만 원 감가",
+    "category": "희소성"
+   },
+   {
+    "t": 40.0,
+    "point": "총 400만 원 감가하여 1,800만 원에 매입 합의",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "웹사이트"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 58.0,
+   "text": "www.한우카.com",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 측면",
+    "실내 앞",
+    "외관 후면",
+    "사람"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "한우카 로고 좌상단 고정 및 엔딩 로고 배너 사용"
+  }
+ }
+}

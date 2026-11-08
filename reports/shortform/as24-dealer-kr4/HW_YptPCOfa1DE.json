@@ -1,0 +1,538 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/YptPCOfa1DE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6097,
+  "candidatesTokenCount": 4317,
+  "totalTokenCount": 11119,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4837
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 705,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 53.6,
+   "aspect": "9:16",
+   "car": "쉐보레 올 뉴 말리부",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 4.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 40.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 50.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.7,
+    "end": 51.9,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.9,
+    "end": 53.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "(아 여기 자리있네 아..다행이다 ㅠ)",
+    "ko": "(아 여기 자리있네 아..다행이다 ㅠ)",
+    "kind": "말 자막",
+    "y_pct": 43.5,
+    "x_center_pct": 49.8,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.0,
+    "text": "여기 대면 안돼 !!",
+    "ko": "여기 대면 안돼 !!",
+    "kind": "말 자막",
+    "y_pct": 89.2,
+    "x_center_pct": 48.7,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.8,
+    "text": "왜요 ㅡㅡ",
+    "ko": "왜요 ㅡㅡ",
+    "kind": "말 자막",
+    "y_pct": 63.8,
+    "x_center_pct": 27.5,
+    "text_height_pct": 5.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.3,
+    "text": "여기 자리 있잖아요 ㅡㅡ",
+    "ko": "여기 자리 있잖아요 ㅡㅡ",
+    "kind": "말 자막",
+    "y_pct": 69.8,
+    "x_center_pct": 47.9,
+    "text_height_pct": 5.4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.5,
+    "text": "아니 내자리가 어딨어요 ㅡㅡ",
+    "ko": "아니 내자리가 어딨어요 ㅡㅡ",
+    "kind": "말 자막",
+    "y_pct": 71.0,
+    "x_center_pct": 49.3,
+    "text_height_pct": 4.3,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "text": "아니;;무슨 여기서 주무세요..?",
+    "ko": "아니;;무슨 여기서 주무세요..?",
+    "kind": "말 자막",
+    "y_pct": 68.5,
+    "x_center_pct": 49.2,
+    "text_height_pct": 4.1,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.6,
+    "text": "여기는 차대는 자리 입니다 아저씨^^",
+    "ko": "여기는 차대는 자리 입니다 아저씨^^",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 48.9,
+    "text_height_pct": 7.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.3,
+    "text": "여기 내자리라니까 !!!",
+    "ko": "여기 내자리라니까 !!!",
+    "kind": "말 자막",
+    "y_pct": 69.8,
+    "x_center_pct": 49.0,
+    "text_height_pct": 4.9,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.8,
+    "text": "내 여기 전세냈다 !!!",
+    "ko": "내 여기 전세냈다 !!!",
+    "kind": "말 자막",
+    "y_pct": 89.1,
+    "x_center_pct": 49.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.6,
+    "text": "여기 내 건물 !! 내 주차장이라니까 !!!!",
+    "ko": "여기 내 건물 !! 내 주차장이라니까 !!!!",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 49.2,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 50.7,
+    "end": 51.9,
+    "text": "이러면 안됩니다 ! 양심있게 행동합시다 !",
+    "ko": "이러면 안됩니다 ! 양심있게 행동합시다 !",
+    "kind": "제목",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 18.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "쿵",
+    "event": "'여기 대면 안돼' 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "쿵",
+    "event": "'그래! 내 여기 전세냈다!' 소리칠 때",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "쿵",
+    "event": "충격받은 운전자 리액션 자막 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "딸깍",
+    "event": "전화 걸거나 받는 신호음",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "효과음/코믹 BGM",
+   "bpm_est": 110,
+   "mood": "코믹하고 능청스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "what": "(???) 자막",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "바로",
+    "purpose": "당황한 표정 강조",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 27.5,
+    "what": "(!!!) 느낌표 자막",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "바로",
+    "purpose": "충격 표현",
+    "sure": true
+   },
+   {
+    "start": 51.9,
+    "end": 53.6,
+    "what": "한우카 채널 로고 및 웹사이트 주소",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "아 여기 자리 있네. 아 다행이다. 야 아저씨! 여기 대면 안 돼!",
+    "ko": "아 여기 자리 있네. 아 다행이다. 야 아저씨! 여기 대면 안 돼!"
+   },
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "text": "여기 대면 안 돼요! 왜요? 여기 자리 있잖아요.",
+    "ko": "여기 대면 안 돼요! 왜요? 여기 자리 있잖아요."
+   },
+   {
+    "start": 4.5,
+    "end": 8.5,
+    "text": "여기 내 자리에요. 아니 내 자리가 어딨어요, 주차 자리인데.",
+    "ko": "여기 내 자리에요. 아니 내 자리가 어딨어요, 주차 자리인데."
+   },
+   {
+    "start": 8.5,
+    "end": 12.5,
+    "text": "아니 내 자리라니까? 아니 무슨 여기서 주무세요? 여기는 차 대는 자리입니다 아저씨.",
+    "ko": "아니 내 자리라니까? 아니 무슨 여기서 주무세요? 여기는 차 대는 자리입니다 아저씨."
+   },
+   {
+    "start": 12.5,
+    "end": 16.0,
+    "text": "말도 안 되는 소리 하네 참교육 함 가야겠네. 이 아저씨가 장난하나!",
+    "ko": "말도 안 되는 소리 하네 참교육 함 가야겠네. 이 아저씨가 장난하나!"
+   },
+   {
+    "start": 16.0,
+    "end": 19.5,
+    "text": "여기 내 자리라니까! 내 자리가 어딨어요 무슨. 여기 전세 냈어요?",
+    "ko": "여기 내 자리라니까! 내 자리가 어딨어요 무슨. 여기 전세 냈어요?"
+   },
+   {
+    "start": 19.5,
+    "end": 24.0,
+    "text": "그래! 내 여기 전세 냈다! 에이 말도 안 되는 소리. 무슨 전세를 어떻게 내요.",
+    "ko": "그래! 내 여기 전세 냈다! 에이 말도 안 되는 소리. 무슨 전세를 어떻게 내요."
+   },
+   {
+    "start": 24.0,
+    "end": 26.5,
+    "text": "여기 내 건물! 내 주차장이라니까!",
+    "ko": "여기 내 건물! 내 주차장이라니까!"
+   },
+   {
+    "start": 26.5,
+    "end": 31.0,
+    "text": "아 여기 건물... 아... 여기 건물 주차장이셨구나.",
+    "ko": "아 여기 건물... 아... 여기 건물 주차장이셨구나."
+   },
+   {
+    "start": 31.0,
+    "end": 34.5,
+    "text": "사람 말을 못 믿어 이 젊은 사람이! 아 죄송합니다.",
+    "ko": "사람 말을 못 믿어 이 젊은 사람이! 아 죄송합니다."
+   },
+   {
+    "start": 34.5,
+    "end": 37.5,
+    "text": "얼른 가! 네 아 가겠습니다 죄송합니다!",
+    "ko": "얼른 가! 네 아 가겠습니다 죄송합니다!"
+   },
+   {
+    "start": 37.5,
+    "end": 41.0,
+    "text": "아 진짜 전세 낸 기고 쪽팔리게 아...",
+    "ko": "아 진짜 전세 낸 기고 쪽팔리게 아..."
+   },
+   {
+    "start": 41.0,
+    "end": 43.5,
+    "text": "가겠습니다 죄송합니다. 그래 가!",
+    "ko": "가겠습니다 죄송합니다. 그래 가!"
+   },
+   {
+    "start": 43.5,
+    "end": 47.0,
+    "text": "응 구란뎅 ㅋㅋㅋㅋㅋㅋ. 여보세요? 응 여보!",
+    "ko": "응 구란뎅 ㅋㅋㅋㅋㅋㅋ. 여보세요? 응 여보!"
+   },
+   {
+    "start": 47.0,
+    "end": 50.7,
+    "text": "빨리 와 내 자리 맡아놨어. 어 빨리 와 빨리 와.",
+    "ko": "빨리 와 내 자리 맡아놨어. 어 빨리 와 빨리 와."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "주차하려는 차에 다가가 대면 안 된다고 실랑이 시작"
+   },
+   {
+    "stage": "기타",
+    "start": 4.8,
+    "end": 26.5,
+    "speed": "보통",
+    "summary": "자기 자리이자 자기 건물 주차장이라고 우기는 보행자와 운전자의 말다툼"
+   },
+   {
+    "stage": "기타",
+    "start": 26.5,
+    "end": 43.5,
+    "speed": "보통",
+    "summary": "건물주라는 말에 당황하여 사과하고 차를 빼는 운전자"
+   },
+   {
+    "stage": "기타",
+    "start": 43.5,
+    "end": 50.7,
+    "speed": "빠름",
+    "summary": "사실 아내 주차 자리 맡아주려고 거짓말 친 보행자의 반전"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.7,
+    "end": 53.6,
+    "speed": "보통",
+    "summary": "공익 문구 및 한우카 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "갈등 유발 상황극을 통해 주차 자리 맡기 민폐 행동을 풍자",
+   "화자 전환에 따라 큼직하고 두꺼운 텍스트 자막으로 직관적 전달",
+   "마지막 반전 연출 후 공익적 메시지와 채널 엔딩 로고로 마무리"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "지하주차장에서 주차하려는 운전자에게 다가가 '여기 대면 안 돼!'라고 소리침",
+   "type": "행동",
+   "text": "여기 대면 안돼 !!"
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": true,
+   "how": "명함 화면",
+   "items": [
+    "상사명",
+    "홈페이지"
+   ],
+   "t": 52.0
+  },
+  "cta": {
+   "t": 52.0,
+   "text": "www.한우카.com",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "기타",
+   "part_order": [
+    "외관 후면",
+    "외관 측면",
+    "실내 앞"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "마지막 한우카 시그니처 엠블럼과 웹사이트 로고 엔딩 적용"
+  }
+ }
+}

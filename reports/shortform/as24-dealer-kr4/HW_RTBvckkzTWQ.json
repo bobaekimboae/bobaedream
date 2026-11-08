@@ -1,0 +1,971 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/RTBvckkzTWQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6644,
+  "candidatesTokenCount": 7976,
+  "totalTokenCount": 14870,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5384
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 250,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.6,
+   "aspect": "9:16",
+   "car": "포르쉐 마칸",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 6.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 9.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 14.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 16.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 23.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 37.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 41.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 49.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 52.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 54.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 57.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 59.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "위치 진짜 헬이네... 아...",
+    "ko": "위치 진짜 헬이네... 아...",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "text": "이러니까 배달이 안잡혔구나",
+    "ko": "이러니까 배달이 안잡혔구나",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.4,
+    "text": "와...멀다..",
+    "ko": "와...멀다..",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 6.4,
+    "text": "치킨 시키신 분 맞으시죠?",
+    "ko": "치킨 시키신 분 맞으시죠?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.9,
+    "text": "아 네 왜 이렇게 늦게 왔어요",
+    "ko": "아 네 왜 이렇게 늦게 왔어요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.2,
+    "text": "아 치킨 다 식어겠네 아..",
+    "ko": "아 치킨 다 식어겠네 아..",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.3,
+    "text": "배달 예상시간보다 20분이나 빨리 왔는..",
+    "ko": "배달 예상시간보다 20분이나 빨리 왔는..",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "text": "아 됐고!",
+    "ko": "아 됐고!",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.7,
+    "text": "젓가락은 왜 2개에요",
+    "ko": "젓가락은 왜 2개에요",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.9,
+    "text": "배달 요청사항에 없어가지고 제가 혹시나해서 더 챙겨온..",
+    "ko": "배달 요청사항에 없어가지고 제가 혹시나해서 더 챙겨온..",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.2,
+    "text": "하..센스 없게",
+    "ko": "하..센스 없게",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.8,
+    "text": "아씨 4개는 줘야지 !",
+    "ko": "아씨 4개는 줘야지 !",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.4,
+    "text": "아 이러니까 배달이나 하지",
+    "ko": "아 이러니까 배달이나 하지",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.4,
+    "end": 22.5,
+    "text": "하이바는 왜 또 안썼노",
+    "ko": "하이바는 왜 또 안썼노",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 23.6,
+    "text": "돈이 없나 그지가 이거 아",
+    "ko": "돈이 없나 그지가 이거 아",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 25.6,
+    "text": "아니 뭐 제가 잘못한 거라도 있습니까",
+    "ko": "아니 뭐 제가 잘못한 거라도 있습니까",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.7,
+    "end": 26.6,
+    "text": "아씨...",
+    "ko": "아씨...",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "text": "젓가락이나 더 들고 오이소!",
+    "ko": "젓가락이나 더 들고 오이소!",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "text": "아 예 사다드릴게요 더",
+    "ko": "아 예 사다드릴게요 더",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 33.7,
+    "text": "아씨 별점 테러해뿌라 ㅈ나 짜증나게",
+    "ko": "아씨 별점 테러해뿌라 ㅈ나 짜증나게",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.8,
+    "text": "아 술이 없노 아 씨",
+    "ko": "아 술이 없노 아 씨",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.3,
+    "text": "또 술 사러 가야겠네",
+    "ko": "또 술 사러 가야겠네",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.0,
+    "text": "어..?!",
+    "ko": "어..?!",
+    "kind": "말 자막",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.1,
+    "end": 42.1,
+    "text": "이 동네 이래 비싼 차가 있나 와...",
+    "ko": "이 동네 이래 비싼 차가 있나 와...",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 42.2,
+    "end": 44.0,
+    "text": "우와... 포르쉐 아이가 이거!!",
+    "ko": "우와... 포르쉐 아이가 이거!!",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.1,
+    "end": 45.7,
+    "text": "와... 차 좋네 이거",
+    "ko": "와... 차 좋네 이거",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 47.1,
+    "text": "와.. 난 월세도 밀렸는데",
+    "ko": "와.. 난 월세도 밀렸는데",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.2,
+    "end": 48.3,
+    "text": "이런 건 얼마짜리고..",
+    "ko": "이런 건 얼마짜리고..",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.3,
+    "end": 49.6,
+    "text": "누가 타는기고 이런건..",
+    "ko": "누가 타는기고 이런건..",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.0,
+    "text": "어 ! 고객님 ! 젓가락 받아 가셔야죠",
+    "ko": "어 ! 고객님 ! 젓가락 받아 가셔야죠",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "사무실 문 열리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "딸깍",
+    "event": "냉장고 문 열고 닫는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.3,
+    "type": "딸깍",
+    "event": "차 문 손잡이 당기는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "포르쉐 주행 및 배기음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "톡",
+    "event": "엔딩 로고 애니메이션 효과음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "BGM / 드라마틱",
+   "bpm_est": 115,
+   "mood": "코믹하고 긴장감 넘침",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 57.7,
+    "what": "한우카 채널 워터마크 로고",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 10.0,
+    "y_pct": 6.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 59.6,
+    "what": "한우카 공식 엔딩 로고 화면",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "위치 진짜 헬이네 아... 이러니까 배달이 안 잡혔구나.",
+    "ko": "위치 진짜 헬이네 아... 이러니까 배달이 안 잡혔구나."
+   },
+   {
+    "start": 3.0,
+    "end": 6.4,
+    "text": "와 멀다... 아 안녕하세요? 치킨 시키신 분 맞으시죠?",
+    "ko": "와 멀다... 아 안녕하세요? 치킨 시키신 분 맞으시죠?"
+   },
+   {
+    "start": 6.4,
+    "end": 9.2,
+    "text": "아 네 왜 이렇게 늦게 왔어요? 아 치킨 다 식었겠네 아...",
+    "ko": "아 네 왜 이렇게 늦게 왔어요? 아 치킨 다 식었겠네 아..."
+   },
+   {
+    "start": 9.2,
+    "end": 11.4,
+    "text": "예? 어? 배달 예상 시간보다 20분이나 빨리 왔는데...",
+    "ko": "예? 어? 배달 예상 시간보다 20분이나 빨리 왔는데..."
+   },
+   {
+    "start": 11.4,
+    "end": 14.7,
+    "text": "아 됐고 아 씨... 젓가락은 왜 두 개예요?",
+    "ko": "아 됐고 아 씨... 젓가락은 왜 두 개예요?"
+   },
+   {
+    "start": 14.7,
+    "end": 16.9,
+    "text": "어? 배달 요청 사항에 없어 가지고 제가 혹시나 해서 더 챙겨온...",
+    "ko": "어? 배달 요청 사항에 없어 가지고 제가 혹시나 해서 더 챙겨온..."
+   },
+   {
+    "start": 16.9,
+    "end": 23.6,
+    "text": "하 센스 없게 아 씨 4개는 줘야지! 아 이러니까 배달이나 하지. 하이바는 왜 또 안 썼노? 돈이 없나? 거지이가 이거 아...",
+    "ko": "하 센스 없게 아 씨 4개는 줘야지! 아 이러니까 배달이나 하지. 하이바는 왜 또 안 썼노? 돈이 없나? 거지이가 이거 아..."
+   },
+   {
+    "start": 23.6,
+    "end": 25.6,
+    "text": "예? 아니 뭐 제가 잘못한 거라도 있습니까?",
+    "ko": "예? 아니 뭐 제가 잘못한 거라도 있습니까?"
+   },
+   {
+    "start": 25.6,
+    "end": 28.5,
+    "text": "아씨 됐고! 젓가락이나 더 들고 오이소!",
+    "ko": "아씨 됐고! 젓가락이나 더 들고 오이소!"
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "text": "아 예, 사다 드릴게요 더.",
+    "ko": "아 예, 사다 드릴게요 더."
+   },
+   {
+    "start": 30.7,
+    "end": 33.7,
+    "text": "아씨 별점 테러해뿌라, 존나 짜증 나게.",
+    "ko": "아씨 별점 테러해뿌라, 존나 짜증 나게."
+   },
+   {
+    "start": 34.5,
+    "end": 37.8,
+    "text": "아 술이 없노 아씨. 또 술 사러 가야겠네.",
+    "ko": "아 술이 없노 아씨. 또 술 사러 가야겠네."
+   },
+   {
+    "start": 39.0,
+    "end": 44.0,
+    "text": "어?! 이 동네에 이래 비싼 차가 있나, 와... 와 포르쉐 아이가 이거!!",
+    "ko": "어?! 이 동네에 이래 비싼 차가 있나, 와... 와 포르쉐 아이가 이거!!"
+   },
+   {
+    "start": 44.1,
+    "end": 49.6,
+    "text": "와 차 좋네 이거. 와 난 월세도 밀렸는데, 이런 건 얼마짜리고... 누가 타는 기고 이런 건...",
+    "ko": "와 차 좋네 이거. 와 난 월세도 밀렸는데, 이런 건 얼마짜리고... 누가 타는 기고 이런 건..."
+   },
+   {
+    "start": 51.0,
+    "end": 53.0,
+    "text": "어! 고객님! 젓가락 받아 가셔야죠.",
+    "ko": "어! 고객님! 젓가락 받아 가셔야죠."
+   },
+   {
+    "start": 53.1,
+    "end": 55.0,
+    "text": "누가 거지이고?",
+    "ko": "누가 거지이고?"
+   },
+   {
+    "start": 55.1,
+    "end": 56.5,
+    "text": "아 예, 주이소.",
+    "ko": "아 예, 주이소."
+   },
+   {
+    "start": 56.6,
+    "end": 57.7,
+    "text": "개쪽팔리네 진짜...",
+    "ko": "개쪽팔리네 진짜..."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.4,
+    "speed": "빠름",
+    "summary": "배달원이 치킨 배달을 완료하는 발단"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.4,
+    "end": 30.7,
+    "speed": "보통",
+    "summary": "손님의 일방적인 갑질과 배달원에 대한 무시"
+   },
+   {
+    "stage": "기능",
+    "start": 30.7,
+    "end": 49.6,
+    "speed": "보통",
+    "summary": "술 사러 나온 손님이 주차장에서 고급 포르쉐를 보고 감탄함"
+   },
+   {
+    "stage": "가격",
+    "start": 49.6,
+    "end": 57.7,
+    "speed": "빠름",
+    "summary": "배달원이 포르쉐를 타고 나타나 손님에게 젓가락을 건네며 사이다 반전"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 57.7,
+    "end": 59.6,
+    "speed": "보통",
+    "summary": "한우카 채널 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "배달원과 갑질 손님 간의 상황극 스케치를 통해 시청자의 몰입과 카타르시스를 유도한다",
+   "화면 중앙 하단에 굵은 고딕체의 흰색 텍스트와 검은 테두리 자막을 통일감 있게 배치한다",
+   "좌측 상단에 상시 채널 브랜드 로고를 고정 노출하여 인지도를 높인다",
+   "극적 반전 후 채널 공식 인트로/아웃트로 로고 모션을 마지막에 짧게 삽입한다"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "배달원이 주차장 램프를 걸어 올라가며 험난한 배달지에 대해 한탄하는 모습",
+   "type": "행동",
+   "text": "위치 진짜 헬이네... 아..."
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "좌측 상단 한우카 원형 로고와 엔딩 전면 로고 일관성 유지"
+  }
+ }
+}

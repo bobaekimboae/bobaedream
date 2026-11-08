@@ -1,0 +1,636 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/plM70oLMf-I",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5256,
+  "candidatesTokenCount": 5337,
+  "totalTokenCount": 10898,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3996
+   }
+  ],
+  "thoughtsTokenCount": 305,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.3,
+   "aspect": "9:16",
+   "car": "기아 쏘울",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 30.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 37.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 41.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.3,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "어 !!",
+    "ko": "어 !!",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.0,
+    "text": "내 Sㅓ울샀다",
+    "ko": "내 서울 샀다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.2,
+    "text": "서울을 샀다고?!",
+    "ko": "서울을 샀다고?!",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 5.0,
+    "text": "아니 ;;\nSㅓ울 샀다고\nSㅓ울 !",
+    "ko": "아니 서울 샀다고 서울!",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.0,
+    "text": "그니까 !!\n서울에 !!",
+    "ko": "그니까 서울에!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "와 ...니 부자네\n얼마하덤데??",
+    "ko": "와 너 부자네 얼마 하던데?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "text": "뭐라하노 !!\n무슨 부자 !!\n\n여 450만 원밖에 안한다",
+    "ko": "뭐라 하노! 무슨 부자! 여기 450만 원밖에 안 한다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.5,
+    "text": "어..?! 450만 원이라고..?",
+    "ko": "어?! 450만 원이라고?",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.5,
+    "text": "에이씨 ㅋㅋㅋ 야 ㅋㅋㅋ\n\n개도 한 마리 못자겠다 ㅋㅋㅋ",
+    "ko": "개도 한 마리 못 자겠다",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "뭐라노 ㅋㅋ 사람\n두명도 충분히 잘 수 있다 ㅋㅋ",
+    "ko": "사람 두 명도 충분히 잘 수 있다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.5,
+    "text": "와이씨..진짜..?\n야..그..내...내한테..\n팔면..안되나..?",
+    "ko": "와 진짜? 나한테 팔면 안 되나?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.5,
+    "text": "아 안된다 ㅡ ㅡ\n방금 샀는데 ㅡ ㅡ",
+    "ko": "안 된다 방금 샀는데",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "text": "아 내 600만 원 줄게 !!\n아 안된다 ㅡ ㅡ",
+    "ko": "내 600만 원 줄게",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.0,
+    "text": "그럼 내 700만 원 줄게 !!\n제발 팔아라 내한테 ㅠㅠ",
+    "ko": "그럼 나 700만 원 줄게 제발 나한테 팔아라",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.5,
+    "text": "그럼 입금 먼저해라\n입금 !!",
+    "ko": "그럼 입금 먼저 해라",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "입금\n어 지금 바로 할게 !",
+    "ko": "입금 지금 바로 할게!",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.5,
+    "text": "야 !! 입금했다\n700만 원 ㅎㅎ\n어 !! 그럼 가자 !!",
+    "ko": "입금했다 700만 원 가자",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 37.0,
+    "text": "야 !! 여기 쏘울 !!\n잘타래이 ㅎㅎ",
+    "ko": "야 여기 쏘울 잘 타라",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "text": "서...서울이..아니고..\nㅅ...소..쏘울이었네...",
+    "ko": "서울이 아니고 쏘울이었네",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "코믹 대화",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 41.5,
+    "what": "채널 로고(한우카)",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 12.0,
+    "y_pct": 5.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.3,
+    "what": "엔딩 로고 및 웹사이트 주소",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "야. 어? 내 서울 샀다.",
+    "ko": "야. 어? 나 서울 샀다."
+   },
+   {
+    "start": 1.5,
+    "end": 3.0,
+    "text": "서울을 샀다고? 뭔데 집 샀나?",
+    "ko": "서울을 샀다고? 뭔데 집 샀냐?"
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "아니, 서울 샀다고 서울!",
+    "ko": "아니 서울 샀다고 서울!"
+   },
+   {
+    "start": 4.5,
+    "end": 8.0,
+    "text": "그니까 서울에! 와 너 부자네 얼마 하던데?",
+    "ko": "그니까 서울에! 와 너 부자네 얼마 하던데?"
+   },
+   {
+    "start": 8.0,
+    "end": 11.0,
+    "text": "뭐라 하노, 무슨 부자. 여 450만 원밖에 안 한다.",
+    "ko": "뭐라 하냐 무슨 부자. 여기 450만 원밖에 안 한다."
+   },
+   {
+    "start": 11.0,
+    "end": 14.5,
+    "text": "어? 450만 원이라고? 에이씨 야 개도 한 마리 못 자겠다.",
+    "ko": "어? 450만 원이라고? 개도 한 마리 못 자겠다."
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "뭐라 하노 사람 두 명도 충분히 잘 수 있다.",
+    "ko": "사람 두 명도 충분히 잘 수 있다."
+   },
+   {
+    "start": 16.5,
+    "end": 19.5,
+    "text": "와 씨 진짜? 야 그 내... 내한테 팔면 안 되나?",
+    "ko": "진짜? 나한테 팔면 안 되냐?"
+   },
+   {
+    "start": 19.5,
+    "end": 21.0,
+    "text": "아 안 된다 방금 샀는데.",
+    "ko": "안 된다 방금 샀는데."
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "text": "아 내 600만 원 줄게! 아 안 된다. 아 씨 그럼 내 700만 원 줄게 제발 팔아라 내한테.",
+    "ko": "내가 600만 원 줄게! 안 된다. 그럼 700만 원 줄게 제발 팔아라 나한테."
+   },
+   {
+    "start": 24.5,
+    "end": 28.0,
+    "text": "그럼 입금 먼저 해라 입금. 입금? 어 지금 바로 할게. 잠시만.",
+    "ko": "그럼 입금 먼저 해라. 지금 바로 할게."
+   },
+   {
+    "start": 30.0,
+    "end": 34.0,
+    "text": "야 입금했다 700만 원! 어 그럼 가자. 어 가자 아싸!",
+    "ko": "입금했다 700만 원! 가자!"
+   },
+   {
+    "start": 34.0,
+    "end": 37.0,
+    "text": "야 여기 쏘울, 잘 타래이!",
+    "ko": "여기 쏘울, 잘 타라!"
+   },
+   {
+    "start": 37.0,
+    "end": 41.5,
+    "text": "어? 야... 아 씨 서울이 아니고 쏘울이었네 씨...",
+    "ko": "서울이 아니고 쏘울이었네..."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "서울을 샀다는 말장난으로 호기심 유발"
+   },
+   {
+    "stage": "기능",
+    "start": 4.0,
+    "end": 29.0,
+    "speed": "빠름",
+    "summary": "450만원짜리 서울(쏘울)에 차익을 얹어 700만원에 사겠다는 콩트"
+   },
+   {
+    "stage": "가격",
+    "start": 29.0,
+    "end": 33.5,
+    "speed": "빠름",
+    "summary": "700만원 송금 완료"
+   },
+   {
+    "stage": "차 소개",
+    "start": 33.5,
+    "end": 41.5,
+    "speed": "보통",
+    "summary": "부동산 서울이 아니라 기아 쏘울 차량임을 밝히는 반전 엔딩"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 41.5,
+    "end": 43.3,
+    "speed": "보통",
+    "summary": "한우카 채널 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "배경음악 없이 인물 간의 빠른 티키타카 대사 위주로 구성",
+   "화면 중앙에 굵은 검은 테두리의 흰색 손글씨풍 볼드 폰트 자막 사용",
+   "언어유희(서울 vs 쏘울)를 활용한 콩트 형식의 중고차 홍보"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "한 남자가 다가오며 '나 서울 샀다'라고 황당한 말을 던짐",
+   "type": "질문",
+   "text": "내 서울 샀다"
+  },
+  "narration_points": [
+   {
+    "t": 10.0,
+    "point": "중고차 가격 450만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 15.5,
+    "point": "사람 두 명도 충분히 누워 잘 수 있는 실내 공간",
+    "category": "공간"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 42.0
+  },
+  "cta": {
+   "t": 42.0,
+   "text": "www.한우카.com",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "사람",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "좌측 상단 한우카 원형 로고 고정 노출 및 엔딩 브랜딩 카드 통일"
+  }
+ }
+}

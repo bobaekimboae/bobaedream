@@ -1,0 +1,331 @@
+{
+ "country": "HW",
+ "kind": "dealer",
+ "url": "https://youtu.be/gPeHAYBSuFM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2272,
+  "candidatesTokenCount": 2824,
+  "totalTokenCount": 5734,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1012
+   }
+  ],
+  "thoughtsTokenCount": 638,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 11.8,
+   "aspect": "9:16",
+   "car": "BMW M",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 2.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 3.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 9.4,
+    "text": "남자 차 많이 타본 여자 특",
+    "ko": "남자 차 많이 타본 여자 특",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "text": "또 시작이네",
+    "ko": "또 시작이네",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.8,
+    "text": "좋은 중고차로 보답하겠습니다!",
+    "ko": "좋은 중고차로 보답하겠습니다!",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.8,
+    "text": "www.한우카.com\n010 3696 2227",
+    "ko": "www.한우카.com 010 3696 2227",
+    "kind": "기타",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "딸깍",
+    "event": "기어 노브 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "쿵",
+    "event": "흑백 전환 및 비트 드롭 시작",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합",
+   "bpm_est": 92,
+   "mood": "유머러스하고 긴장감 넘침",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 6.8,
+     "what": "Dr. Dre - The Next Episode 비트 전환"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 9.4,
+    "what": "우측 상단 딜러 로고 및 전화번호(010 3696 2227)",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 82.0,
+    "y_pct": 6.5,
+    "entrance": "고정",
+    "purpose": "상호 및 연락처 노출",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.8,
+    "what": "엔딩 한우카 원형 엠블럼 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "엔딩 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 6.8,
+    "end": 8.5,
+    "text": "또 시작이네",
+    "ko": "또 시작이네"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.4,
+    "speed": "빠름",
+    "summary": "운전석 남성과 조수석 여성의 미묘한 분위기 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 2.4,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "스포츠 모드/기어 변속 조작과 여성의 눈치챔"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "급가속을 예상하고 손잡이와 안전벨트를 단단히 붙잡는 코믹 리액션"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 9.4,
+    "end": 11.8,
+    "speed": "보통",
+    "summary": "한우카 로고 및 웹사이트/연락처 엔딩 카드"
+   }
+  ],
+  "rules": [
+   "공감형 유머 상황극(밈)을 통해 시청 지속 시간을 극대화함",
+   "화면 상단에 볼드한 고정 텍스트로 상황 주제를 명시함",
+   "클라이맥스 순간에 흑백 필터와 힙합 비트를 삽입해 코믹 효과 강조",
+   "영상 말미에 브랜드 로고와 연락처를 명확히 노출하여 중고차 상사 브랜딩"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.4,
+    "end": 3.8,
+    "feature": "BMW 전자식 M 기어노브 조작",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 55.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "클로즈업",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "차 안 남녀의 상황극 시작과 BMW 기어노브 조작 화면",
+   "type": "행동",
+   "text": "남자 차 많이 타본 여자 특"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "BMW M 기어 변속 시 급가속을 직감하는 상황 묘사",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "전화",
+    "웹사이트"
+   ],
+   "t": 9.5
+  },
+  "cta": {
+   "t": 9.5,
+   "text": "www.한우카.com 010 3696 2227",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "딜러",
+   "part_order": [
+    "실내 앞",
+    "옵션 작동",
+    "사람"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "우측 상단 상호 로고와 엔딩 카드 워터마크가 일관되게 적용됨"
+  }
+ }
+}
