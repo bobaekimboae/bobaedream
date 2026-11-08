@@ -1,0 +1,556 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/sqpTIpv2HhA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4081,
+  "candidatesTokenCount": 4483,
+  "totalTokenCount": 8564,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2821
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.5,
+   "aspect": "9:16",
+   "car": "벤츠 S클래스",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 30.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "본인이 리뷰한 차들 중에",
+    "ko": "본인이 리뷰한 차들 중에",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "Q. 가장 만족도 좋은 차량은?",
+    "ko": "Q. 가장 만족도 좋은 차량은?",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.8,
+    "text": "만족도 있는 차 너무 많죠",
+    "ko": "만족도 있는 차 너무 많죠",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.7,
+    "text": "가성비로 봤을 때는",
+    "ko": "가성비로 봤을 때는",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "벤츠 S 클래스",
+    "ko": "벤츠 S 클래스",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.7,
+    "text": "모든 사람들이 돌고 돌아",
+    "ko": "모든 사람들이 돌고 돌아",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.3,
+    "text": "그냥 S클래스를 선택하시는 것 같아요",
+    "ko": "그냥 S클래스를 선택하시는 것 같아요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 13.8,
+    "text": "왜냐하면 가격이 싸지도 않고",
+    "ko": "왜냐하면 가격이 싸지도 않고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 14.8,
+    "text": "너무 비싸지도 않고",
+    "ko": "너무 비싸지도 않고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.5,
+    "text": "중간 지점에서 포지셔닝을",
+    "ko": "중간 지점에서 포지셔닝을",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 17.5,
+    "text": "정말 잘하고 있잖아요",
+    "ko": "정말 잘하고 있잖아요",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.9,
+    "text": "부자들 기준입니다",
+    "ko": "부자들 기준입니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.3,
+    "text": "결과적으로 차를 좋아하고",
+    "ko": "결과적으로 차를 좋아하고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.4,
+    "end": 23.3,
+    "text": "돈이 많아야 차를 좋아하죠",
+    "ko": "돈이 많아야 차를 좋아하죠",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "text": "결국에는 S클래스를 선택한다라고",
+    "ko": "결국에는 S클래스를 선택한다라고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 30.5,
+    "text": "저는 알고 있습니다",
+    "ko": "저는 알고 있습니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.8,
+    "type": "쿵",
+    "event": "벤츠 S클래스 텍스트 강조 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "토크 및 인터뷰에 적합한 리드미컬하고 차분한 비트",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 30.5,
+    "what": "상단 타이틀 바 '차를 많이 타본 티가 나네 성명준이 추천하는 차량?'",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "바로",
+    "purpose": "주제 고정",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 30.5,
+    "what": "하단 채널 로고 '금기사TV'",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.3,
+    "text": "본인이 리뷰한 차들 중에 차가 제일 만족도가 있던 차는?",
+    "ko": "본인이 리뷰한 차들 중에 차가 제일 만족도가 있던 차는?"
+   },
+   {
+    "start": 3.4,
+    "end": 8.7,
+    "text": "아 만족도 있는 차 너무 많죠. 사실 너무 많은데 가성비로 봤을 때는 돌고 돌아선 결국 벤츠 S 클래스이지 않을까.",
+    "ko": "아 만족도 있는 차 너무 많죠. 사실 너무 많은데 가성비로 봤을 때는 돌고 돌아선 결국 벤츠 S 클래스이지 않을까."
+   },
+   {
+    "start": 8.8,
+    "end": 17.5,
+    "text": "모든 사람들이 돌고 돌아 그냥 S클래스를 선택하시는 것 같아요. 왜냐하면 가격이 싸지도 않고 너무 비싸지도 않고 중간 지점에서 포지셔닝을 정말 잘하고 있잖아요.",
+    "ko": "모든 사람들이 돌고 돌아 그냥 S클래스를 선택하시는 것 같아요. 왜냐하면 가격이 싸지도 않고 너무 비싸지도 않고 중간 지점에서 포지셔닝을 정말 잘하고 있잖아요."
+   },
+   {
+    "start": 17.6,
+    "end": 30.5,
+    "text": "부자들 기준입니다. 결과적으로 차를 좋아하고 돈이 많은 사람들이 차를 좋아하잖아요. 돈이 많아야 차를 좋아하죠. 막 사려면 돈이 많아야 하기 때문에 돈이 많으신 분들은 결국에는 S클래스를 선택한다라고 저는 알고 있습니다.",
+    "ko": "부자들 기준입니다. 결과적으로 차를 좋아하고 돈이 많은 사람들이 차를 좋아하잖아요. 돈이 많아야 차를 좋아하죠. 막 사려면 돈이 많아야 하기 때문에 돈이 많으신 분들은 결국에는 S클래스를 선택한다라고 저는 알고 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.3,
+    "speed": "보통",
+    "summary": "질문: 리뷰한 차량 중 가장 만족도가 높은 차량은?"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "결국 돌고 돌아 벤츠 S클래스 추천"
+   },
+   {
+    "stage": "기능",
+    "start": 8.8,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "S클래스의 포지셔닝 및 장점 소개(자료화면 교차)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 17.6,
+    "end": 30.5,
+    "speed": "보통",
+    "summary": "돈 많은 부자들의 현실적인 선택 이유 마무리 토크"
+   }
+  ],
+  "rules": [
+   "상단에 호기심을 유발하는 질문/주제 바를 고정 배치",
+   "인터뷰 도중 언급되는 핵심 차량(벤츠 S클래스)의 공식/고화질 인서트 영상을 중간에 삽입하여 지루함 탈피",
+   "핵심 키워드는 굵고 큰 노란색/흰색 자막과 임팩트 효과음으로 강조"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "성명준에게 가장 만족도 높았던 차가 무엇인지 질문하며 시작",
+   "type": "질문",
+   "text": "본인이 리뷰한 차들 중에 차가 제일 만족도가 있던 차는?"
+  },
+  "narration_points": [
+   {
+    "t": 6.8,
+    "point": "가성비와 만족도 면에서 결국 벤츠 S클래스가 최고",
+    "category": "가격·조건"
+   },
+   {
+    "t": 13.5,
+    "point": "너무 비싸지도 싸지도 않은 최고급 대형 세단의 절묘한 포지셔닝",
+    "category": "가격·조건"
+   },
+   {
+    "t": 27.0,
+    "point": "결국 여유 있는 사람들은 최종적으로 S클래스를 선택함",
+    "category": "기타"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "기타",
+   "part_order": [
+    "사람",
+    "외관 후면",
+    "외관 전면",
+    "외관 측면",
+    "실내 앞",
+    "뒷좌석",
+    "사람"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 검은색 바탕 흰/노랑 텍스트 제목 틀, 하단 금기사TV 로고 고정"
+  }
+ }
+}

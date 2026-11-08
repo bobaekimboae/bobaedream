@@ -1,0 +1,491 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/d_MtfaaAhD8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4718,
+  "candidatesTokenCount": 4538,
+  "totalTokenCount": 9256,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3458
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "람보르기니 우라칸 에보 스파이더",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 17.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 38.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "우라칸 에보 스파이더 이래도 안넘어와?",
+    "ko": "우라칸 에보 스파이더 이래도 안넘어와?",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "이래도 안넘어와?",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.0,
+    "text": "(진실의 눈썹)",
+    "ko": "(진실의 눈썹)",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.0,
+    "text": "오... 너무",
+    "ko": "오... 너무",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.5,
+    "text": "계약하세요",
+    "ko": "계약하세요",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FF4444",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "스타트 버튼만 한 번 눌러보세요",
+    "ko": "스타트 버튼만 한 번 눌러보세요",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "갈께요!",
+    "ko": "갈께요!",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "text": "3억 7천",
+    "ko": "3억 7천",
+    "kind": "가격",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "text": "370,000,000 ₩",
+    "ko": "370,000,000 ₩",
+    "kind": "가격",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 10.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "시동 배기음 폭발",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 33.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "드라이브 모드 변경 후 배기음 변화",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": 0,
+   "mood": "없음",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 38.0,
+    "what": "채널 로고 '금기사TV'",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "오 너무",
+    "ko": "오 너무"
+   },
+   {
+    "start": 2.5,
+    "end": 3.5,
+    "text": "한 번 더",
+    "ko": "한 번 더"
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "계약하세요 라고 손잡이 열어주는 거에요",
+    "ko": "계약하세요 라고 손잡이 열어주는 거에요"
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "text": "스타트 버튼만 한 번 눌러보세요",
+    "ko": "스타트 버튼만 한 번 눌러보세요"
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "갈게요",
+    "ko": "갈게요"
+   },
+   {
+    "start": 16.8,
+    "end": 18.0,
+    "text": "이거 얼만데요?",
+    "ko": "이거 얼만데요?"
+   },
+   {
+    "start": 18.0,
+    "end": 19.5,
+    "text": "3억 7천",
+    "ko": "3억 7천"
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "text": "3억 7천 어때요? 3억 7천",
+    "ko": "3억 7천 어때요? 3억 7천"
+   },
+   {
+    "start": 23.0,
+    "end": 25.5,
+    "text": "내리기 싫긴 하네, 내리기 싫긴 하다",
+    "ko": "내리기 싫긴 하네, 내리기 싫긴 하다"
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "text": "소리가 줄어들 거예요",
+    "ko": "소리가 줄어들 거예요"
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "text": "줄어들죠? 점점 줄어들죠? 더 줄어듭니다",
+    "ko": "줄어들죠? 점점 줄어들죠? 더 줄어듭니다"
+   },
+   {
+    "start": 30.8,
+    "end": 35.0,
+    "text": "이 상태에서 드라이브 모드를 요런 느낌으로 하면 소리가 더 커지고",
+    "ko": "이 상태에서 드라이브 모드를 요런 느낌으로 하면 소리가 더 커지고"
+   },
+   {
+    "start": 35.5,
+    "end": 38.0,
+    "text": "밟아보세요. 웅 한번 눌러보세요",
+    "ko": "밟아보세요. 웅 한번 눌러보세요"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "우라칸 배기음과 탑승자의 놀란 반응"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 17.0,
+    "speed": "보통",
+    "summary": "도어캐치 및 시동 스타트 버튼 작동과 배기음 체험"
+   },
+   {
+    "stage": "가격",
+    "start": 17.0,
+    "end": 23.0,
+    "speed": "보통",
+    "summary": "차량 가격 3억 7천 공개 및 반응"
+   },
+   {
+    "stage": "기능",
+    "start": 23.0,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "아이들링 소음 감소 설명 및 드라이브 모드 변경에 따른 배기음 변화 시연"
+   }
+  ],
+  "rules": [
+   "상단에 일정한 폰트와 볼드 디자인의 고정 제목 자막 유지",
+   "하단에 채널 로고 고정 노출",
+   "배경음악을 배제하고 배기음과 대화 현장감 강조",
+   "인물들의 자연스러운 리액션과 현장 티키타카를 빠른 컷으로 구성",
+   "핵심 가격이나 멘트는 화면 중앙 볼드 자막으로 임팩트 부여"
+  ],
+  "option_highlights": [
+   {
+    "start": 3.7,
+    "end": 7.0,
+    "feature": "팝업 도어 핸들",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 14.0,
+    "feature": "엔진 스타트 버튼 & 가변 배기",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 35.0,
+    "feature": "스티어링 휠 ANIMA 드라이브 모드 셀렉터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "우라칸 운전석에 앉은 여성 게스트의 놀란 표정과 굉음 배기음",
+   "type": "감탄·리액션",
+   "text": "우라칸 에보 스파이더 이래도 안넘어와?"
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "스마트키 인식 시 자동으로 나오는 도어 손잡이",
+    "category": "편의"
+   },
+   {
+    "t": 10.0,
+    "point": "시동 버튼 조작 및 강력한 엔진 사운드",
+    "category": "성능"
+   },
+   {
+    "t": 18.0,
+    "point": "차량 판매 가격 3억 7천만원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 32.0,
+    "point": "드라이브 모드에 따른 배기음 변화",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "실내 앞",
+    "외관 측면",
+    "실내 앞",
+    "외관 측면"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 블랙 바 기반 굵은 제목과 하단 고정 로고 채널 템플릿 유지"
+  }
+ }
+}

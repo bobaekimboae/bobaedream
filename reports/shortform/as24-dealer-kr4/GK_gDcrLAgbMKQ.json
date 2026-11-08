@@ -1,0 +1,516 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/gDcrLAgbMKQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4892,
+  "candidatesTokenCount": 3859,
+  "totalTokenCount": 8751,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3632
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.0,
+   "aspect": "9:16",
+   "car": "슈퍼카 (애스턴마틴/슈퍼레제라 등)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 9.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 25.5,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 36.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 40.0,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 40.0,
+    "text": "20살이 큰손이 슈퍼카 2대 현금박치기를?",
+    "ko": "20살이 큰손이 슈퍼카 2대 현금박치기를?",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "20살이 큰손이",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.5,
+    "text": "설마...?",
+    "ko": "설마...?",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 15.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.8,
+    "text": "사러 오시면 당연히 좋죠",
+    "ko": "사러 오시면 당연히 좋죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "이게 된다고?\n진심으로?",
+    "ko": "이게 된다고? 진심으로?",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.0,
+    "text": "20살?",
+    "ko": "20살?",
+    "kind": "말 자막",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 17.5,
+    "text": "슈퍼레제라 탑니다",
+    "ko": "슈퍼레제라 탑니다",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 25.5,
+    "text": "목소리 나와도 되신다고 하면 가능합니다",
+    "ko": "목소리 나와도 되신다고 하면 가능합니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "text": "라이브로 진짜 이게 되나요?",
+    "ko": "라이브로 진짜 이게 되나요?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "text": "라이브로 계약을 한다고?",
+    "ko": "라이브로 계약을 한다고?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.8,
+    "text": "갑자기 숫자를 왜...?",
+    "ko": "갑자기 숫자를 왜...?",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "쿵",
+    "event": "설마 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.0,
+    "type": "쿵",
+    "event": "화면 전환 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "쿵",
+    "event": "배기음 체험 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "배경음",
+   "bpm_est": 110,
+   "mood": "긴장감 넘치고 흥미진진함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 40.0,
+    "what": "하단 채널 안내 문구 및 채널명 금기사TV",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "바로",
+    "purpose": "채널 홍보",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 25.5,
+    "what": "배기를 체험 스티커",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 80.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "키워드 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "text": "기사님 슈퍼카 사러 갈게요 지금요",
+    "ko": "기사님 슈퍼카 사러 갈게요 지금요"
+   },
+   {
+    "start": 7.8,
+    "end": 9.8,
+    "text": "사러 오시면 당연히 좋죠",
+    "ko": "사러 오시면 당연히 좋죠"
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "이게 된다고? 진심으로?",
+    "ko": "이게 된다고? 진심으로?"
+   },
+   {
+    "start": 12.5,
+    "end": 14.8,
+    "text": "공육년생 어 20살?",
+    "ko": "06년생 어 20살?"
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "슈퍼레제라 탑니다 슈퍼레제라",
+    "ko": "슈퍼레제라 탑니다 슈퍼레제라"
+   },
+   {
+    "start": 17.8,
+    "end": 19.5,
+    "text": "지금 전화해도 되나요?",
+    "ko": "지금 전화해도 되나요?"
+   },
+   {
+    "start": 19.8,
+    "end": 25.5,
+    "text": "어 뭐 공개적으로 가능하시다면 목소리 나와도 되신다고 하면 가능합니다",
+    "ko": "어 뭐 공개적으로 가능하시다면 목소리 나와도 되신다고 하면 가능합니다"
+   },
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "text": "라이브로 진짜 이게 되나요?",
+    "ko": "라이브로 진짜 이게 되나요?"
+   },
+   {
+    "start": 28.8,
+    "end": 30.5,
+    "text": "라이브로 계약을 한다고?",
+    "ko": "라이브로 계약을 한다고?"
+   },
+   {
+    "start": 30.8,
+    "end": 32.5,
+    "text": "혹시 좋아하는 숫자 있어요?",
+    "ko": "혹시 좋아하는 숫자 있어요?"
+   },
+   {
+    "start": 32.6,
+    "end": 36.8,
+    "text": "저 저는 9 좋아하기도 하고요 그리고 3도 좋아합니다",
+    "ko": "저 저는 9 좋아하기도 하고요 그리고 3도 좋아합니다"
+   },
+   {
+    "start": 37.0,
+    "end": 40.0,
+    "text": "390만 원 어때 이게 뭐예요?",
+    "ko": "390만 원 어때 이게 뭐예요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "보통",
+    "summary": "20살이 슈퍼카 2대 현금 구매 시도 도입부"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.1,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "라이브 방송 중 시청자의 슈퍼카 구매 문의 및 나이 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 17.5,
+    "end": 30.6,
+    "speed": "보통",
+    "summary": "라이브 즉석 전화 연결 및 계약 진행 의사 타진"
+   },
+   {
+    "stage": "가격",
+    "start": 30.6,
+    "end": 40.0,
+    "speed": "보통",
+    "summary": "좋아하는 숫자를 물어보며 계약 금액 제안"
+   }
+  ],
+  "rules": [
+   "라이브 스트리밍 녹화본의 핵심 하이라이트만을 잘라 빠른 템포로 구성",
+   "화면 상단에는 고정된 자극적인 질문형 헤드라인 배치",
+   "화면 하단에는 본편 유도를 위한 채널명 고정 배너 노출",
+   "실시간 채팅창 반응을 화면 중앙에 오버레이하여 현장감 강조"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "스트리머가 고개를 숙이고 있고 '20살이 큰손이 슈퍼카 2대 현금박치기를?' 타이틀이 뜸",
+   "type": "질문",
+   "text": "20살이 큰손이 슈퍼카 2대 현금박치기를?"
+  },
+  "narration_points": [
+   {
+    "t": 11.5,
+    "point": "06년생 20살 고객의 슈퍼카 즉시 구매 의사",
+    "category": "가격·조건"
+   },
+   {
+    "t": 15.5,
+    "point": "슈퍼레제라 차종 언급",
+    "category": "희소성"
+   },
+   {
+    "t": 37.5,
+    "point": "좋아하는 숫자를 조합한 즉석 할인/금액 제시",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "금기사TV"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "아래 영상에서 금기사TV",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "딜러",
+   "part_order": [
+    "사람",
+    "계기판",
+    "센터 화면",
+    "트렁크"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 노란색/흰색 볼드 타이틀과 하단 금기사TV 링크 고정 레이아웃 사용"
+  }
+ }
+}

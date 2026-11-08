@@ -1,0 +1,397 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/JBjiUCxxkpE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2716,
+  "candidatesTokenCount": 3539,
+  "totalTokenCount": 7047,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1456
+   }
+  ],
+  "thoughtsTokenCount": 792,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.6,
+   "aspect": "9:16",
+   "car": "BMW M4, 페라리 엔초",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 14.2,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 15.6,
+    "text": "M4 vs 엔초\nM뽕 찬 사람의 픽은?",
+    "ko": "M4 vs 엔초 M뽕 찬 사람의 픽은?",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "M뽕 찬 사람의 픽은?",
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 2.0,
+    "text": "아니 이거는",
+    "ko": "아니 이거는",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.1,
+    "text": "엔초 페라리랑 M4랑",
+    "ko": "엔초 페라리랑 M4랑",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.2,
+    "text": "선 넘지 또 M뽕",
+    "ko": "선 넘지 또 M뽕",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.5,
+    "text": "M뽕이 있는데;;",
+    "ko": "M뽕이 있는데;;",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FF4D4D",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "text": "M뽕이랑 엔초랑은 좀 아니잖아",
+    "ko": "M뽕이랑 엔초랑은 좀 아니잖아",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.3,
+    "end": 12.8,
+    "text": "M은 의리인데",
+    "ko": "M은 의리인데",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 13.8,
+    "text": "의리!",
+    "ko": "의리!",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 14.8,
+    "text": "??",
+    "ko": "??",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#66B2FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 15.6,
+    "text": "의리 실종",
+    "ko": "의리 실종",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 13.7,
+    "type": "딸깍",
+    "event": "마우스 클릭으로 엔초 선택",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.9,
+    "type": "띵",
+    "event": "선택 후 '??' 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "유머러스",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 15.6,
+    "what": "채널 로고 '금기사TV'",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 86.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "아니 이건",
+    "ko": "아니 이건"
+   },
+   {
+    "start": 2.0,
+    "end": 4.1,
+    "text": "엔초 페라리랑 M4랑 이거는",
+    "ko": "엔초 페라리랑 M4랑 이거는"
+   },
+   {
+    "start": 4.1,
+    "end": 6.2,
+    "text": "선 넘지 또 M뽕",
+    "ko": "선 넘지 또 M뽕"
+   },
+   {
+    "start": 6.2,
+    "end": 8.5,
+    "text": "M뽕이 있는데",
+    "ko": "M뽕이 있는데"
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "text": "M뽕이랑 엔초랑은 좀 아니잖아",
+    "ko": "M뽕이랑 엔초랑은 좀 아니잖아"
+   },
+   {
+    "start": 11.2,
+    "end": 13.8,
+    "text": "M은 의리인데 의리 의리 의리",
+    "ko": "M은 의리인데 의리 의리 의리"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "M4와 엔초 페라리의 이상형 월드컵 대진 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 11.2,
+    "speed": "보통",
+    "summary": "BMW M을 좋아하지만 엔초 앞에서는 고민되는 심정 토로"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 11.2,
+    "end": 15.6,
+    "speed": "빠름",
+    "summary": "의리를 외치더니 결국 엔초 페라리를 선택하고 웃음"
+   }
+  ],
+  "rules": [
+   "상단에 영상 핵심 질문을 굵은 텍스트로 고정 배치",
+   "화면 분할(월드컵 PC화면)과 화자 원샷을 교차 편집하여 리액션 강조",
+   "반전 선택 순간에 물음표 자막과 클릭 효과음으로 유머 극대화",
+   "하단에 채널 로고 텍스트 상시 노출"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "BMW M4 대 페라리 엔초 월드컵 화면과 M 마니아의 고뇌 시작",
+   "type": "질문",
+   "text": "M4 vs 엔초 M뽕 찬 사람의 픽은?"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "엔초 페라리와 M4의 밸런스 붕괴 대진",
+    "category": "희소성"
+   },
+   {
+    "t": 14.0,
+    "point": "결국 의리 버리고 엔초 페라리 선택",
+    "category": "희소성"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "딜러",
+   "part_order": [],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 검정 여백에 제목, 하단에 금기사TV 로고 고정"
+  }
+ }
+}

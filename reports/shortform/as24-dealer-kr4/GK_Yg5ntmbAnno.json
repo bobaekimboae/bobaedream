@@ -1,0 +1,774 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/Yg5ntmbAnno",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4072,
+  "candidatesTokenCount": 6161,
+  "totalTokenCount": 10233,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2812
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 30.5,
+   "aspect": "9:16",
+   "car": "레인지로버 이보크 / 레인지로버",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "part": "사람",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 30.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 30.5,
+    "text": "배우 이지훈 레인지로버만 고집하는 이유?",
+    "ko": "배우 이지훈 레인지로버만 고집하는 이유?",
+    "kind": "제목",
+    "y_pct": 10.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 100.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "배우 이지훈",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 30.5,
+    "text": "ㅋㅋㅋㅋㅋㅋㅋ 금기사TV",
+    "ko": "ㅋㅋㅋㅋㅋㅋㅋ 금기사TV",
+    "kind": "제목",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 100.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "금기사TV",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "나는 정말 레인지로버를 좋아하거든",
+    "ko": "나는 정말 레인지로버를 좋아하거든",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 1.7,
+    "text": "레인지로버 러버",
+    "ko": "레인지로버 러버",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFA500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "첫 차도 레인지로버에서 나온 이보크라는 차였어",
+    "ko": "첫 차도 레인지로버에서 나온 이보크라는 차였어",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 5.4,
+    "text": "이보크 오~",
+    "ko": "이보크 오~",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "text": "그러고 나서 레인지로버 이보크를 타고 나서",
+    "ko": "그러고 나서 레인지로버 이보크를 타고 나서",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.7,
+    "text": "잘 맞는다",
+    "ko": "잘 맞는다",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "text": "난 승차감이 일단 너무 좋아",
+    "ko": "난 승차감이 일단 너무 좋아",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.3,
+    "text": "안락한 승차감",
+    "ko": "안락한 승차감",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "text": "오래 탔더라고 생각이 들고",
+    "ko": "오래 탔더라고 생각이 들고",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.1,
+    "text": "이 차를 팔고 좀",
+    "ko": "이 차를 팔고 좀",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 16.0,
+    "text": "리스?",
+    "ko": "리스?",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "차도 너무 오래돼서 바꾸고 싶고",
+    "ko": "차도 너무 오래돼서 바꾸고 싶고",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.4,
+    "text": "뒤에 앉은 벤틀리도 있고",
+    "ko": "뒤에 앉은 벤틀리도 있고",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.0,
+    "text": "아이 나는 / 너 벤틀리 잘 어울려",
+    "ko": "아이 나는 / 너 벤틀리 잘 어울려",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "아냐 안 어울려 / 아 너 애스턴 마틴도 잘 어울려",
+    "ko": "아냐 안 어울려 / 아 너 애스턴 마틴도 잘 어울려",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 23.5,
+    "text": "철벽방어",
+    "ko": "철벽방어",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.0,
+    "text": "넌 애스턴마틴을 타는 게 좋을 것 같아",
+    "ko": "넌 애스턴마틴을 타는 게 좋을 것 같아",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.6,
+    "text": "나는 죽어도 레인지로버야",
+    "ko": "나는 죽어도 레인지로버야",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.0,
+    "text": "여기는 없어",
+    "ko": "여기는 없어",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.5,
+    "text": "공 격",
+    "ko": "공 격",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.5,
+    "text": "아니야 너 잘 어울리는 거 있어 / 아니야 없어",
+    "ko": "아니야 너 잘 어울리는 거 있어 / 아니야 없어",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 29.8,
+    "text": "방 어",
+    "ko": "방 어",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#4A90E2",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.5,
+    "text": "아니야 있어 / 뭔데",
+    "ko": "아니야 있어 / 뭔데",
+    "kind": "말 자막",
+    "y_pct": 62.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "쿵",
+    "event": "레인지로버 러버 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "띵",
+    "event": "안락한 승차감 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.3,
+    "type": "쿵",
+    "event": "철벽방어 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "쿵",
+    "event": "공격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.6,
+    "type": "쿵",
+    "event": "방어 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": "토크 중심",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "what": "레인지로버 이보크 사진",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 49.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 이미지 제시",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.8,
+    "what": "벤틀리 로고 이미지",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 40.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "나는 정말 레인지로버를 좋아하거든",
+    "ko": "나는 정말 레인지로버를 좋아하거든"
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "text": "첫 차도 레인지로버에서 나온 이보크라는 차였어. 이보크? 오~",
+    "ko": "첫 차도 레인지로버에서 나온 이보크라는 차였어. 이보크? 오~"
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "text": "그러고 나서 레인지로버 이보크를 타고 나서",
+    "ko": "그러고 나서 레인지로버 이보크를 타고 나서"
+   },
+   {
+    "start": 7.3,
+    "end": 10.6,
+    "text": "잘 맞는다 난 승차감이 일단 너무 좋아",
+    "ko": "잘 맞는다 난 승차감이 일단 너무 좋아"
+   },
+   {
+    "start": 10.6,
+    "end": 13.5,
+    "text": "오래 탔더라고 생각이 들고",
+    "ko": "오래 탔더라고 생각이 들고"
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "text": "이 차를 팔고 좀 리스? 차도 너무 오래돼서 바꾸고 싶고",
+    "ko": "이 차를 팔고 좀 리스? 차도 너무 오래돼서 바꾸고 싶고"
+   },
+   {
+    "start": 17.5,
+    "end": 20.3,
+    "text": "뒤에 앉은 벤틀리도 있고 아이 나는 너 벤틀리 잘 어울려",
+    "ko": "뒤에 앉은 벤틀리도 있고 아이 나는 너 벤틀리 잘 어울려"
+   },
+   {
+    "start": 20.3,
+    "end": 22.8,
+    "text": "아냐 안 어울려. 아 너 애스턴 마틴도 잘 어울려",
+    "ko": "아냐 안 어울려. 아 너 애스턴 마틴도 잘 어울려"
+   },
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "text": "넌 애스턴마틴을 타는 게 좋을 것 같아 나는 죽어도 레인지로버야",
+    "ko": "넌 애스턴마틴을 타는 게 좋을 것 같아 나는 죽어도 레인지로버야"
+   },
+   {
+    "start": 26.6,
+    "end": 30.5,
+    "text": "여기는 없어 아니야 너 잘 어울리는 거 있어 아니야 없어 아니야 있어 뭔데",
+    "ko": "여기는 없어 아니야 너 잘 어울리는 거 있어 아니야 없어 아니야 있어 뭔데"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "레인지로버만 고집하는 배우 이지훈 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 10.6,
+    "speed": "보통",
+    "summary": "첫 차 이보크와 안락한 승차감 극찬"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.6,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "차량 교체 고민과 타 차종(벤틀리, 애스턴마틴) 추천 거절"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 22.8,
+    "end": 30.5,
+    "speed": "빠름",
+    "summary": "오직 레인지로버만 타겠다는 티키타카"
+   }
+  ],
+  "rules": [
+   "상단에 호기심을 유발하는 질문형 타이틀과 하단에 채널명을 고정 배치",
+   "화면 중앙에 16:9 가로 영상을 레터박스 형태로 배치",
+   "대화에서 핵심 단어가 나올 때 팝업 효과음과 함께 텍스트 스티커 강조"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "배우 이지훈이 레인지로버만 고집하는 이유를 묻는 자막과 함께 토크 시작",
+   "type": "질문",
+   "text": "배우 이지훈 레인지로버만 고집하는 이유?"
+  },
+  "narration_points": [
+   {
+    "t": 8.7,
+    "point": "레인지로버 특유의 안락한 승차감",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "금기사TV"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "사람"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상하단 검은 여백에 노란색/흰색 포인트 타이틀 자막 고정"
+  }
+ }
+}

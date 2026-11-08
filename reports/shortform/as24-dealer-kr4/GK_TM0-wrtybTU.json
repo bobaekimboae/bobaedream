@@ -1,0 +1,622 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/TM0-wrtybTU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4434,
+  "candidatesTokenCount": 5845,
+  "totalTokenCount": 11083,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3174
+   }
+  ],
+  "thoughtsTokenCount": 804,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.1,
+   "aspect": "9:16",
+   "car": "페라리 푸로산게",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 12.3,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 21.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 26.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.7,
+    "end": 35.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 35.1,
+    "text": "페라리 푸로산게 주유비\n그만 좀 올라가 ㅠㅠㅠ",
+    "ko": "페라리 푸로산게 주유비 그만 좀 올라가 ㅠㅠㅠ",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "주유비",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "페라리 푸로산게\n기름값 얼마냐?",
+    "ko": "페라리 푸로산게 기름값 얼마냐?",
+    "kind": "제목",
+    "y_pct": 46.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "기름값 얼마냐?",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 35.1,
+    "text": "금기사TV",
+    "ko": "금기사TV",
+    "kind": "키워드 스티커",
+    "y_pct": 85.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 5.1,
+    "text": "(다급)\n돈이 너무 올라가잖아",
+    "ko": "(다급) 돈이 너무 올라가잖아",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.9,
+    "text": "잠깐만 ㅠㅠ",
+    "ko": "잠깐만 ㅠㅠ",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.5,
+    "text": "고객 서비스라고 해도",
+    "ko": "고객 서비스라고 해도",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.3,
+    "text": "ㅋㅋㅋㅋㅋㅋ",
+    "ko": "ㅋㅋㅋㅋㅋㅋ",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.2,
+    "text": "2천",
+    "ko": "2천",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "2596원의 고급유",
+    "ko": "2596원의 고급유",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "text": "그만 올라가",
+    "ko": "그만 올라가",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.8,
+    "text": "원통",
+    "ko": "원통",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 18.5,
+    "text": "살려줘",
+    "ko": "살려줘",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.6,
+    "text": "아니 나 진짜 돈 그만 쓰고 싶은데",
+    "ko": "아니 나 진짜 돈 그만 쓰고 싶은데",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.0,
+    "text": "50l 도착",
+    "ko": "50l 도착",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.1,
+    "text": "13만 원 됐습니다",
+    "ko": "13만 원 됐습니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.2,
+    "end": 26.7,
+    "text": "멈출 기미가 안보임;;",
+    "ko": "멈출 기미가 안보임;;",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.2,
+    "text": "그러니까",
+    "ko": "그러니까",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.3,
+    "end": 31.0,
+    "text": "이게 차를 사는 것도 사는 건데\n유지가 확실히;;",
+    "ko": "이게 차를 사는 것도 사는 건데 유지가 확실히;;",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.3,
+    "end": 34.9,
+    "text": "이거\n이건 받아야 되지 않을까",
+    "ko": "이거 이건 받아야 되지 않을까",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 14.9,
+    "type": "쿵",
+    "event": "'원통' 글자 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "예능 코믹 BGM",
+   "bpm_est": 118,
+   "mood": "익살스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "푸로산게 풀로 채우면 얼마나 올까요?",
+    "ko": "푸로산게 풀로 채우면 얼마나 올까요?"
+   },
+   {
+    "start": 2.9,
+    "end": 5.1,
+    "text": "잠깐만 돈이 너무 올라가잖아",
+    "ko": "잠깐만 돈이 너무 올라가잖아"
+   },
+   {
+    "start": 5.4,
+    "end": 6.9,
+    "text": "잠깐만",
+    "ko": "잠깐만"
+   },
+   {
+    "start": 7.0,
+    "end": 10.2,
+    "text": "고객 서비스라고 해도 지금 기름이 없어서 넣는데 지금",
+    "ko": "고객 서비스라고 해도 지금 기름이 없어서 넣는데 지금"
+   },
+   {
+    "start": 10.3,
+    "end": 13.0,
+    "text": "2천 2596원의 고급유",
+    "ko": "2천 2596원의 고급유"
+   },
+   {
+    "start": 13.0,
+    "end": 14.8,
+    "text": "그만 올라가",
+    "ko": "그만 올라가"
+   },
+   {
+    "start": 16.9,
+    "end": 18.5,
+    "text": "살려줘",
+    "ko": "살려줘"
+   },
+   {
+    "start": 18.8,
+    "end": 21.6,
+    "text": "아니 나 진짜 돈 그만 쓰고 싶은데",
+    "ko": "아니 나 진짜 돈 그만 쓰고 싶은데"
+   },
+   {
+    "start": 21.7,
+    "end": 23.0,
+    "text": "50L 도착",
+    "ko": "50L 도착"
+   },
+   {
+    "start": 23.0,
+    "end": 25.1,
+    "text": "13만 원 됐습니다",
+    "ko": "13만 원 됐습니다"
+   },
+   {
+    "start": 27.2,
+    "end": 30.5,
+    "text": "그러니까 이게 차를 사는 것도 사는 건데 유지가 확실히",
+    "ko": "그러니까 이게 차를 사는 것도 사는 건데 유지가 확실히"
+   },
+   {
+    "start": 30.8,
+    "end": 34.9,
+    "text": "이거 이건 받아야 되지 않을까",
+    "ko": "이거 이건 받아야 되지 않을까"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "페라리 푸로산게 만땅 주유비 질문"
+   },
+   {
+    "stage": "기능",
+    "start": 2.2,
+    "end": 12.3,
+    "speed": "보통",
+    "summary": "주유기 금액이 빠르게 올라가는 모습 촬영"
+   },
+   {
+    "stage": "차 소개",
+    "start": 12.3,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "운전석에서 주유 금액 폭증에 좌절하는 리액션"
+   },
+   {
+    "stage": "가격",
+    "start": 21.6,
+    "end": 26.7,
+    "speed": "보통",
+    "summary": "50리터 14만 원 돌파 주유기 화면"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 26.7,
+    "end": 35.1,
+    "speed": "보통",
+    "summary": "슈퍼카 유지비의 무서움을 토로하며 마무리"
+   }
+  ],
+  "rules": [
+   "16:9 가로 촬영 영상을 상하 블랙바로 감싸 쇼츠 규격(9:16)으로 맞추고 상단엔 메인 주제, 하단엔 채널명을 상시 고정",
+   "주유기 금액 계량기와 운전자의 절규 리액션을 교차 편집해 예능감과 공감 유도",
+   "핵심 감정 강조 시점에 쿵 효과음과 함께 굵은 고딕 자막 스티커를 삽입"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "페라리 푸로산게 풀로 채우면 얼마나 나올까 하는 질문과 함께 주유기 금액이 치솟는 장면",
+   "type": "질문",
+   "text": "페라리 푸로산게 기름값 얼마냐?"
+  },
+  "narration_points": [
+   {
+    "t": 11.2,
+    "point": "고급휘발유 리터당 2,596원 주유 중",
+    "category": "가격·조건"
+   },
+   {
+    "t": 23.0,
+    "point": "50리터 주유 시 13~14만 원 돌파",
+    "category": "가격·조건"
+   },
+   {
+    "t": 28.5,
+    "point": "슈퍼카는 차 값뿐만 아니라 유지비 부담이 상당함",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "없음",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "기타",
+   "person_role": "딜러",
+   "part_order": [
+    "실내 앞",
+    "외관 전면",
+    "기타",
+    "사람"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단에 노란색/흰색 메인 카피 타이틀바와 하단 금기사TV 로고를 고정 배치"
+  }
+ }
+}

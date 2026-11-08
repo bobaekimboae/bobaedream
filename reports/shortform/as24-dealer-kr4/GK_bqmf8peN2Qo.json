@@ -1,0 +1,335 @@
+{
+ "country": "GK",
+ "kind": "dealer",
+ "url": "https://youtu.be/bqmf8peN2Qo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6907,
+  "candidatesTokenCount": 3369,
+  "totalTokenCount": 10614,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5647
+   }
+  ],
+  "thoughtsTokenCount": 338,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 62.8,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 24.1,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 53.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 62.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 62.8,
+    "text": "슈퍼카 탁송기사 월 수입이 대기업 간부급인데?",
+    "ko": "슈퍼카 탁송기사 월 수입이 대기업 간부급인데?",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 100.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "월 수입이 대기업 간부급인데?",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.2,
+    "text": "캐리어 기사 수입은 어느 정도인지?",
+    "ko": "캐리어 기사 수입은 어느 정도인지?",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 2.2,
+    "color": "#333333",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 37.0,
+    "text": "한달 20일 근무 기준 약 매출 1천만원",
+    "ko": "한달 20일 근무 기준 약 매출 1천만원",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "약 매출 1천만원",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 53.0,
+    "text": "순수익 약 700만원정도",
+    "ko": "순수익 약 700만원정도",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "순수익 약 700만원정도",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 17.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "탁송 트럭 후방 리프트 도어 닫히는 기계 작동음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "배경음악 없음(현장음 위주)",
+   "bpm_est": 0,
+   "mood": "현장감 있는 대화",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 62.8,
+    "what": "상단 타이틀 배너 및 하단 채널 로고(금기사TV)",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "사이드미러 접고서 오 느낌 이상해. 이렇게 들어가는구나",
+    "ko": "사이드미러 접고서 오 느낌 이상해. 이렇게 들어가는구나"
+   },
+   {
+    "start": 3.9,
+    "end": 7.3,
+    "text": "이제 이 줄을 잡으시고 이 줄을 잡고? 이제 끝났나요 이렇게?",
+    "ko": "이제 이 줄을 잡으시고 이 줄을 잡고? 이제 끝났나요 이렇게?"
+   },
+   {
+    "start": 7.4,
+    "end": 10.2,
+    "text": "아니요 끝난 건 아니고 이제 내려갑니다",
+    "ko": "아니요 끝난 건 아니고 이제 내려갑니다"
+   },
+   {
+    "start": 10.3,
+    "end": 15.0,
+    "text": "잡고 뒤로 누우세요. 누우라고요? 누우라고? 누우라고?",
+    "ko": "잡고 뒤로 누우세요. 누우라고요? 누우라고? 누우라고?"
+   },
+   {
+    "start": 15.1,
+    "end": 21.0,
+    "text": "어떻게 누워? 줄에게 모든 걸 맡기세요",
+    "ko": "어떻게 누워? 줄에게 모든 걸 맡기세요"
+   },
+   {
+    "start": 21.1,
+    "end": 24.3,
+    "text": "이거 군대 때 그거 뭐야 레펠 같은 느낌?",
+    "ko": "이거 군대 때 그거 뭐야 레펠 같은 느낌?"
+   },
+   {
+    "start": 24.4,
+    "end": 26.8,
+    "text": "하루에 얼마씩 정도 벌어요?",
+    "ko": "하루에 얼마씩 정도 벌어요?"
+   },
+   {
+    "start": 26.9,
+    "end": 33.0,
+    "text": "보통 하루에 30~50만 원을 평균으로 이렇게 수입이 잡혀있어요",
+    "ko": "보통 하루에 30~50만 원을 평균으로 이렇게 수입이 잡혀있어요"
+   },
+   {
+    "start": 33.1,
+    "end": 39.8,
+    "text": "30~50만원? 보통 20일 일을 한다고 했을 때 50만 원 치고 20일 하면 1천만 원?",
+    "ko": "30~50만원? 보통 20일 일을 한다고 했을 때 50만 원 치고 20일 하면 1천만 원?"
+   },
+   {
+    "start": 39.9,
+    "end": 48.9,
+    "text": "그렇죠. 거기서 이제 기름값 빼고 차 보험료를 1년 단위로 끊지만 달로 나누면 지출 비용이 있으니까 그런 걸 빼면",
+    "ko": "그렇죠. 거기서 이제 기름값 빼고 차 보험료를 1년 단위로 끊지만 달로 나누면 지출 비용이 있으니까 그런 걸 빼면"
+   },
+   {
+    "start": 49.0,
+    "end": 53.6,
+    "text": "한 월 700에서 순수익이 그 정도 수입이 잡히는 것 같아요",
+    "ko": "한 월 700에서 순수익이 그 정도 수입이 잡히는 것 같아요"
+   },
+   {
+    "start": 53.7,
+    "end": 62.8,
+    "text": "한번 가봅시다 한번! 안전하게 한번 모시겠습니다. 람보르기니 우루스 가지고 서울까지 지금 386km를 가겠습니다",
+    "ko": "한번 가봅시다 한번! 안전하게 한번 모시겠습니다. 람보르기니 우루스 가지고 서울까지 지금 386km를 가겠습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 24.1,
+    "speed": "빠름",
+    "summary": "슈퍼카 특수 탁송 트럭 리프트 탑승 및 레펠 체험"
+   },
+   {
+    "stage": "기능",
+    "start": 24.1,
+    "end": 53.8,
+    "speed": "보통",
+    "summary": "탁송 기사의 일일 수입 및 월 순수익 인터뷰 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.8,
+    "end": 62.8,
+    "speed": "보통",
+    "summary": "서울까지 람보르기니 우루스 장거리 탁송 출발"
+   }
+  ],
+  "rules": [
+   "상하단 레터박스에 큰 제목과 채널 브랜딩 로고를 상시 고정 배치",
+   "흥미를 끄는 현장 체험 장면을 전반부에 배치한 뒤 본론인 수입 인터뷰로 전환",
+   "핵심 금액(매출 1천만원, 순수익 700만원)은 별도 텍스트 카드로 시각화 강조"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.7,
+    "end": 22.0,
+    "feature": "특수 캐리어 전동 리프트 및 안전로프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "특수 탁송 트럭에 실린 람보르기니 우루스 뒷모습과 감탄하는 출연자",
+   "type": "행동",
+   "text": "사이드미러를 접고서 오 느낌 이상해"
+  },
+  "narration_points": [
+   {
+    "t": 27.5,
+    "point": "슈퍼카 캐리어 기사 일평균 수입 30~50만원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 49.5,
+    "point": "유류비 및 보험료 공제 후 월 순수익 약 700만원",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 0.0,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "기타",
+   "part_order": [
+    "외관 후면",
+    "실내 앞"
+   ],
+   "phone_or_camera": "모름",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 노랑/흰색 제목 배너와 하단 '금기사TV' 로고 프레임 고정"
+  }
+ }
+}
