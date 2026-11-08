@@ -1,0 +1,1102 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/EegrCvk6-wc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7544,
+  "candidatesTokenCount": 9295,
+  "totalTokenCount": 17433,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6381
+   }
+  ],
+  "thoughtsTokenCount": 594,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 70.6,
+   "aspect": "9:16",
+   "car": "Various Exotic Cars (Platinum Auto)",
+   "format": "투어",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 9.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "휙",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.2,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "휙",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "휙",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 36.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 41.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 44.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 48.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "휙",
+    "sure": true
+   },
+   {
+    "start": 51.7,
+    "end": 53.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 56.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 59.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.2,
+    "end": 62.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "휙",
+    "sure": true
+   },
+   {
+    "start": 62.1,
+    "end": 66.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 70.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "휙",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.7,
+    "end": 5.8,
+    "text": "18,500,000 / G63 \"2026\"",
+    "ko": "1850만 / G63 2026",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "18,500,000",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.2,
+    "text": "625hp / BMW M8 COMP",
+    "ko": "625마력 / BMW M8 컴페티션",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "625hp",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.3,
+    "text": "14,500,000 / VOGUE",
+    "ko": "1450만 / 보그",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "14,500,000",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.8,
+    "text": "15,500,000 / VOGUE \"7 SEATS\"",
+    "ko": "1550만 / 보그 7인승",
+    "kind": "가격",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "15,500,000",
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 18.4,
+    "text": "11,750,000 / PORSCHE 911",
+    "ko": "1175만 / 포르쉐 911",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "11,750,000",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.0,
+    "text": "10,500,000 / CARRERA \"2024\"",
+    "ko": "1050만 / 카레라 2024",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "10,500,000",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 25.5,
+    "text": "1,200,000 / JET SKI \"SEA-DOO\"",
+    "ko": "120만 / 제트스키 씨두",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1,200,000",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.8,
+    "text": "10,500,000 / PANAMERA GTS",
+    "ko": "1050만 / 파나메라 GTS",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "10,500,000",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 33.2,
+    "text": "7,800,000 / 850I \"2021\"",
+    "ko": "780만 / 850i 2021",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7,800,000",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 36.7,
+    "text": "8,500,000 / CAYENNE",
+    "ko": "850만 / 카이엔",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "8,500,000",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 41.3,
+    "text": "4,850,000 / VELAR \"2023\"",
+    "ko": "485만 / 벨라 2023",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4,850,000",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 44.7,
+    "text": "2024 / VELAR",
+    "ko": "2024 벨라",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 45.2,
+    "end": 47.9,
+    "text": "6,000,000 / V CLASS",
+    "ko": "600만 / V클래스",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6,000,000",
+    "sure": true
+   },
+   {
+    "start": 49.2,
+    "end": 51.6,
+    "text": "5,350,000 / MACAN T",
+    "ko": "535만 / 마칸 T",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5,350,000",
+    "sure": true
+   },
+   {
+    "start": 51.9,
+    "end": 53.7,
+    "text": "2,800,000 / CLA 200",
+    "ko": "280만 / CLA 200",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,800,000",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.0,
+    "text": "4,750,000 / GLC 200",
+    "ko": "475만 / GLC 200",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4,750,000",
+    "sure": true
+   },
+   {
+    "start": 56.3,
+    "end": 59.1,
+    "text": "2,500,000 / IX3 \"2024\"",
+    "ko": "250만 / iX3 2024",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2,500,000",
+    "sure": true
+   },
+   {
+    "start": 59.5,
+    "end": 62.0,
+    "text": "11,300,000 / CAYENNE GTS",
+    "ko": "1130만 / 카이엔 GTS",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "11,300,000",
+    "sure": true
+   },
+   {
+    "start": 62.4,
+    "end": 66.7,
+    "text": "1,700,000 / SEA-DOO \"RXT-X\"",
+    "ko": "170만 / 씨두 RXT-X",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1,700,000",
+    "sure": true
+   },
+   {
+    "start": 67.0,
+    "end": 70.6,
+    "text": "وصلة دهشور / الشيخ زايد",
+    "ko": "와슬렛 다슈르 / 셰이크 자이드",
+    "kind": "키워드 스티커",
+    "y_pct": 7.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "톡",
+    "event": "G63 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "톡",
+    "event": "BMW M8 마력 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.9,
+    "type": "휙",
+    "event": "야외 보그 차량으로 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.4,
+    "type": "톡",
+    "event": "Vogue 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.4,
+    "type": "톡",
+    "event": "7인승 보그 실내 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "톡",
+    "event": "포르쉐 911 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "톡",
+    "event": "카레라 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "휙",
+    "event": "씨두 제트스키 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.6,
+    "type": "톡",
+    "event": "제트스키 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.4,
+    "type": "톡",
+    "event": "파나메라 GTS 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "휙",
+    "event": "실내 쇼룸 850i 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.1,
+    "type": "톡",
+    "event": "BMW 850i 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "톡",
+    "event": "카이엔 쿠페 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "톡",
+    "event": "벨라 2023 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.7,
+    "type": "톡",
+    "event": "신형 벨라 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.1,
+    "type": "톡",
+    "event": "V-Class 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "휙",
+    "event": "마칸 T 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.1,
+    "type": "톡",
+    "event": "마칸 T 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.8,
+    "type": "톡",
+    "event": "CLA 200 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.0,
+    "type": "톡",
+    "event": "GLC 200 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.2,
+    "type": "톡",
+    "event": "iX3 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.2,
+    "type": "휙",
+    "event": "카이엔 GTS 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.5,
+    "type": "톡",
+    "event": "카이엔 GTS 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.3,
+    "type": "톡",
+    "event": "씨두 RXT-X 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 66.8,
+    "type": "휙",
+    "event": "엔딩 GT3 RS 야외 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 67.0,
+    "type": "톡",
+    "event": "위치 핀 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.7,
+    "end": 5.8,
+    "what": "Platinum Auto 로고 및 네온 가격 프레임",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 및 모델 안내",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 9.2,
+    "what": "625hp 마력 수치 및 모델 그래픽",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "성능 사양 안내",
+    "sure": true
+   },
+   {
+    "start": 67.0,
+    "end": 70.6,
+    "what": "위치 핀 및 매장 위치 배너",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 8.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "أنا ناصر، ودي أقوى عربيات في وصلة دهشور",
+    "ko": "저는 나사르입니다, 다슈르 지점에서 가장 강력한 차들을 소개합니다."
+   },
+   {
+    "start": 2.6,
+    "end": 5.9,
+    "text": "G63 26 ب 18 مليون ونصف",
+    "ko": "G63 26년형은 1850만 파운드입니다."
+   },
+   {
+    "start": 5.9,
+    "end": 8.9,
+    "text": "M8 كومبتيشن 625 حصان",
+    "ko": "M8 컴페티션 625마력 모델입니다."
+   },
+   {
+    "start": 8.9,
+    "end": 12.3,
+    "text": "بي إم موجود ومرسيدس موجود والفوغ بتبتدي من 14 مليون ونص",
+    "ko": "BMW도 있고 벤츠도 있습니다. 보그는 1450만부터 시작합니다."
+   },
+   {
+    "start": 12.3,
+    "end": 14.8,
+    "text": "دي اللونج سبع كراسي وب 15 و 500",
+    "ko": "이건 롱바디 7인승이며 1550만입니다."
+   },
+   {
+    "start": 14.8,
+    "end": 18.5,
+    "text": "911 الفيس ليفت الجديد ب 11 و 750",
+    "ko": "신형 911 페이스리프트는 1175만입니다."
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "كاريرا 24 ب 10 مليون و 500",
+    "ko": "카레라 24년식은 1050만입니다."
+   },
+   {
+    "start": 21.0,
+    "end": 26.2,
+    "text": "وعشان تدلع البحر، جيت سكي سي دو بمليون و200 الحقوا في الشتا عشان هيغلى في الصيف",
+    "ko": "바다를 즐기기 위한 씨두 제트스키는 120만입니다. 여름엔 비싸지니 겨울에 장만하세요."
+   },
+   {
+    "start": 26.2,
+    "end": 29.8,
+    "text": "باناميرا GTS موديل 22 ب 10 مليون ونص",
+    "ko": "파나메라 GTS 22년식은 1050만입니다."
+   },
+   {
+    "start": 29.8,
+    "end": 33.3,
+    "text": "850i موديل 21 ب 7 مليون و800",
+    "ko": "850i 21년식은 780만입니다."
+   },
+   {
+    "start": 33.3,
+    "end": 36.8,
+    "text": "بورش كايين كوب ب 8 مليون و 500 وكل البورشات وكيل",
+    "ko": "포르쉐 카이엔 쿠페는 850만이며, 모든 포르쉐는 공식 딜러 차량입니다."
+   },
+   {
+    "start": 36.8,
+    "end": 41.6,
+    "text": "فيلار 23 زيرو ب 4 و 850، دي آخر واحدة في الشكل القديم الأكثر مبيعاً",
+    "ko": "벨라 23년식 신차 485만, 베스트셀러였던 구형 디자인의 마지막 매물입니다."
+   },
+   {
+    "start": 41.6,
+    "end": 44.8,
+    "text": "والشكل الجديد موجود 24 وزيرو بس أنا بحب القديم أكتر",
+    "ko": "24년식 신형 디자인 신차도 있지만 전 구형이 더 마음에 드네요."
+   },
+   {
+    "start": 44.8,
+    "end": 48.0,
+    "text": "والفان الفخمة V-Class من أول 6 مليون جنيه",
+    "ko": "럭셔리 밴 V클래스는 600만 파운드부터 시작합니다."
+   },
+   {
+    "start": 48.0,
+    "end": 51.7,
+    "text": "وماكان T 25 و 26 من أول 5 مليون و350",
+    "ko": "마칸 T 25/26년식은 535만부터 시작합니다."
+   },
+   {
+    "start": 51.7,
+    "end": 53.8,
+    "text": "و CLA 200 ب 2 و800",
+    "ko": "CLA 200은 280만입니다."
+   },
+   {
+    "start": 53.8,
+    "end": 56.1,
+    "text": "و GLC 200 ب 4 و 750",
+    "ko": "GLC 200은 475만입니다."
+   },
+   {
+    "start": 56.1,
+    "end": 59.2,
+    "text": "iX3 موديل 24 زيرو ب 2 مليون ونص",
+    "ko": "iX3 24년식 신차는 250만입니다."
+   },
+   {
+    "start": 59.2,
+    "end": 62.1,
+    "text": "كايين GTS 25 ب 11 و300",
+    "ko": "카이엔 GTS 25년식은 1130만입니다."
+   },
+   {
+    "start": 62.1,
+    "end": 66.8,
+    "text": "ولو عايز روقانة زياده سي دو 325 حصان بمليون و700",
+    "ko": "더 짜릿한 걸 원하시면 325마력 씨두 제트스키가 170만입니다."
+   },
+   {
+    "start": 66.8,
+    "end": 70.6,
+    "text": "كل العربيات دي في بلاتينيوم أوتو، وصلة دهشور، الشيخ زايد",
+    "ko": "이 모든 차량은 셰이크 자이드 와슬렛 다슈르의 플래티넘 오토에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.6,
+    "speed": "빠름",
+    "summary": "다슈르 매장의 최고급 슈퍼카들을 둘러보겠다는 빠른 인트로 도입"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.6,
+    "end": 21.0,
+    "speed": "빠름",
+    "summary": "G63, M8, 보그, 보그 7인승, 911 페이스리프트, 카레라 연속 소개 및 가격 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 21.0,
+    "end": 26.2,
+    "speed": "보통",
+    "summary": "씨두 제트스키 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 26.2,
+    "end": 66.8,
+    "speed": "빠름",
+    "summary": "파나메라, 850i, 카이엔, 벨라, V-Class, 마칸, CLA, GLC, iX3, 고출력 제트스키 릴레이 가격 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 66.8,
+    "end": 70.6,
+    "speed": "보통",
+    "summary": "포르쉐 911 GT3 RS 앞 매장 위치 안내 및 마무리"
+   }
+  ],
+  "rules": [
+   "매 2~3초마다 새로운 럭셔리 차량으로 화면을 전환하여 시청자의 집중도를 극대화함",
+   "화면 상단 중앙에 모델명과 정확한 가격/마력을 굵은 네온 그린 텍스트와 팝업 효과음으로 표시함",
+   "대사를 속도감 있게 랩하듯 이어가며 자투리 시간 없이 방대한 매물을 1분 안에 압축 전달함",
+   "자동차 외에도 제트스키와 같은 부유층 취향 저격 탈것을 중간과 후반에 배치해 환기함",
+   "마지막에는 플래그십 차량(GT3 RS)과 지도 핀 그래픽을 띄우며 전시장 방문을 유도함"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.9,
+    "end": 9.2,
+    "feature": "BMW M8 컴페티션 출력",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.8,
+    "feature": "레인지로버 보그 7인승 공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 62.1,
+    "end": 66.7,
+    "feature": "씨두 RXT-X 325마력 엔진",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 30.0,
+    "y_pct": 42.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 대형 SUV 두 대 사이에 서서 다슈르에서 가장 강력한 차들을 소개하겠다고 선언함",
+   "type": "희귀차",
+   "text": "أنا ناصر، ودي أقوى عربيات في وصلة دهشور",
+   "ko": "저는 나사르입니다, 다슈르 지점에서 가장 강력한 차들을 소개합니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "2026년형 벤츠 G63 가격 1,850만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 6.5,
+    "point": "BMW M8 컴페티션 625마력 사양",
+    "category": "성능"
+   },
+   {
+    "t": 10.5,
+    "point": "레인지로버 보그 기본형 1,450만 파운드부터 시작",
+    "category": "가격·조건"
+   },
+   {
+    "t": 13.0,
+    "point": "레인지로버 보그 롱바디 7인승 모델 1,550만 파운드",
+    "category": "공간"
+   },
+   {
+    "t": 15.5,
+    "point": "포르쉐 911 페이스리프트 신형 1,175만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 19.0,
+    "point": "2024년식 포르쉐 카레라 1,050만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 22.0,
+    "point": "씨두 제트스키 여름 전 겨울 구매 추천 (120만 파운드)",
+    "category": "가격·조건"
+   },
+   {
+    "t": 34.0,
+    "point": "전시된 모든 포르쉐는 공식 딜러 정식 출고 차량임",
+    "category": "상태"
+   },
+   {
+    "t": 38.0,
+    "point": "레인지로버 벨라 베스트셀러 구형 마지막 0km 신차 매물",
+    "category": "희소성"
+   },
+   {
+    "t": 42.0,
+    "point": "2024년형 신형 벨라도 신차로 입고 완료",
+    "category": "디자인"
+   },
+   {
+    "t": 46.0,
+    "point": "벤츠 V-Class 럭셔리 밴 600만 파운드부터",
+    "category": "가격·조건"
+   },
+   {
+    "t": 57.0,
+    "point": "BMW 순수전기 iX3 신차 250만 파운드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 63.5,
+    "point": "씨두 325마력 고성능 모델 170만 파운드",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 67.5,
+   "text": "كل العربيات دي في بلاتينيوم أوتو، وصلة دهشور، الشيخ زايد",
+   "ko": "이 모든 차량은 셰이크 자이드 와슬렛 다슈르 플래티넘 오토에서 만나실 수 있습니다.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "뒷좌석",
+    "외관 측면",
+    "외관 전면"
+   ]
+  }
+ }
+}

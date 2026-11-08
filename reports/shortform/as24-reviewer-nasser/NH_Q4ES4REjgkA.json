@@ -1,0 +1,984 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Q4ES4REjgkA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6525,
+  "candidatesTokenCount": 8205,
+  "totalTokenCount": 15418,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5362
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 688,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.0,
+   "aspect": "9:16",
+   "car": "현대 아반떼 N 라인 (Hyundai Avante N Line)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 12.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 19.3,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 34.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 46.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 50.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.7,
+    "end": 54.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 58.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.3,
+    "end": 1.7,
+    "text": "مش بتحب العربيات الصيني",
+    "ko": "중국차를 안 좋아하고",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الصيني",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.5,
+    "text": "معكش فلوس الألماني",
+    "ko": "독일차 살 돈은 없다면",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الألماني",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "text": "عربية كوري",
+    "ko": "한국차를 가져왔습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كوري",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "text": "قطع غيارها في كل حتة",
+    "ko": "부품도 어디서나 구할 수 있고",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "HYUNDAI AVANTE",
+    "ko": "현대 아반떼",
+    "kind": "제목",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#8EC5FC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AVANTE",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 11.8,
+    "text": "استيراد كوريا مواصفة اعلى",
+    "ko": "한국 직수입 최고 사양",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "اعلى",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.9,
+    "text": "سقف",
+    "ko": "선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.1,
+    "text": "CAMERAS 360",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "360",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.5,
+    "text": "BLIND SPOT",
+    "ko": "사각지대 모니터",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.5,
+    "text": "تسخين الكنبة",
+    "ko": "2열 열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 37.8,
+    "text": "DRL الجديدة",
+    "ko": "신형 주간주행등 DRL",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DRL",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.5,
+    "text": "CALIPERS مقاس 18",
+    "ko": "캘리퍼 & 18인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "18",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 45.8,
+    "text": "TURBO 1500cc 201 HP",
+    "ko": "1500cc 터보 201마력",
+    "kind": "사양",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "201 HP",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 49.5,
+    "text": "8 AIRBAG نظام ADAS",
+    "ko": "8 에어백 & ADAS 시스템",
+    "kind": "사양",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "8",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.4,
+    "type": "톡",
+    "event": "중국 국기 및 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.9,
+    "type": "돈 소리",
+    "event": "독일 국기 및 돈 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "톡",
+    "event": "한국 국기 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "휙",
+    "event": "현대 아반떼 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.1,
+    "type": "톡",
+    "event": "한국 수입 배지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "휙",
+    "event": "통풍/열선 그래픽 하이라이트",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.1,
+    "type": "띵",
+    "event": "360 카메라 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.6,
+    "type": "톡",
+    "event": "2열 열선 시트 불꽃 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.8,
+    "type": "띵",
+    "event": "팔로우 네온 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.2,
+    "type": "톡",
+    "event": "브레이크 캘리퍼 강조 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.2,
+    "type": "쿵",
+    "event": "터보 마력 수치 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 47.3,
+    "type": "휙",
+    "event": "에어백 방패 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/트랩 비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.3,
+    "end": 1.7,
+    "what": "중국 국기 3D 볼",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 75.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "키워드 시각화",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.5,
+    "what": "돈뭉치 및 독일 국기",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격/원산지 비유",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "what": "한국 태극기 3D 볼",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 40.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "원산지 강조",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 16.0,
+    "what": "열선 시트 열기 그래픽 오버레이",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "entrance": "페이드",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.0,
+    "what": "360도 카메라 아이콘 스티커",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "what": "불꽃 열선 시트 스티커",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 68.0,
+    "y_pct": 41.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.0,
+    "what": "FOLLOW 네온 사인 스티커",
+    "is_3d": true,
+    "size_w_pct": 32.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구독 유도",
+    "sure": true
+   },
+   {
+    "start": 55.5,
+    "end": 58.0,
+    "what": "위치 핀 네온 그래픽 및 지점 리스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "لو مش بتحب العربيات الصيني",
+    "ko": "중국차를 별로 안 좋아하는데"
+   },
+   {
+    "start": 1.8,
+    "end": 3.7,
+    "text": "ومعاكش فلوس الألماني عادي كلنا",
+    "ko": "독일차 살 돈은 없으시다고요? 다들 그렇잖아요"
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "جبتلك عربية كوري قطع غيارها في كل حتة ومن براند بتحبه كمان",
+    "ko": "부품도 사방에 있고 여러분이 사랑하는 브랜드의 한국차를 가져왔습니다"
+   },
+   {
+    "start": 6.8,
+    "end": 8.8,
+    "text": "دي هيونداي افانتي من القبطان",
+    "ko": "엘 콥탄의 현대 아반떼입니다"
+   },
+   {
+    "start": 8.8,
+    "end": 12.0,
+    "text": "افانتي مش النترا عشان دي استيراد كوريا ومواصفة اعلى كمان",
+    "ko": "엘란트라가 아니라 한국 직수입이라 옵션이 더 높은 아반떼죠"
+   },
+   {
+    "start": 12.0,
+    "end": 14.1,
+    "text": "ومليانة عندك فتحة سقف",
+    "ko": "옵션도 꽉 찼습니다, 선루프에"
+   },
+   {
+    "start": 14.1,
+    "end": 16.3,
+    "text": "الكراسي بتاعتك تسخين وتبريد لوجو ان لاين",
+    "ko": "시트는 열선 및 통풍, N 라인 로고까지"
+   },
+   {
+    "start": 16.3,
+    "end": 19.3,
+    "text": "شاحن وايرلس ابل كاربلاي اندرويد اوتو كاميرات 360",
+    "ko": "무선충전, 애플 카플레이, 안드로이드 오토, 360도 서라운드 뷰"
+   },
+   {
+    "start": 19.3,
+    "end": 22.0,
+    "text": "باديل شيفتيرز ديجيتال ديسبلاي ببلايند سبوت كاميرا",
+    "ko": "패들 시프트, 사각지대 카메라가 연동되는 디지털 계기판"
+   },
+   {
+    "start": 22.0,
+    "end": 24.8,
+    "text": "دريكسيون مالتي فانكشن بكروز كونترول ودرايف مود سيليكت",
+    "ko": "크루즈 컨트롤과 드라이브 모드가 포함된 다기능 스티어링 휠"
+   },
+   {
+    "start": 24.8,
+    "end": 28.0,
+    "text": "والمفاجأة ان الكنبة اللي ورا تسخين والمساحة ورا كويسة",
+    "ko": "그리고 놀랍게도 2열 뒷좌석 열선에 넓은 레그룸"
+   },
+   {
+    "start": 28.0,
+    "end": 30.7,
+    "text": "وبمخرجين تايب سي عشان التطور يعني",
+    "ko": "요즘 트렌드에 맞춘 Type-C 충전 포트 2개까지"
+   },
+   {
+    "start": 30.7,
+    "end": 34.8,
+    "text": "والشنطة مساحتها كويسة ولو شديت دي الكراسي بتاعتك هتنزل",
+    "ko": "트렁크 공간도 넉넉하고 이걸 당기면 시트 폴딩도 되죠"
+   },
+   {
+    "start": 34.8,
+    "end": 38.6,
+    "text": "ما تنساش تعمل فولو لو سمحت والوش رياضي عندك دي ار ال الجديدة",
+    "ko": "팔로우 잊지 마시고요! 스포티한 전면부엔 신형 DRL과"
+   },
+   {
+    "start": 38.6,
+    "end": 42.5,
+    "text": "فينتس للتهوية ريد كاليبرز وجنط خطير مقاس 18",
+    "ko": "공기흡입구, 레드 캘리퍼와 멋진 18인치 휠"
+   },
+   {
+    "start": 42.5,
+    "end": 46.8,
+    "text": "والموتور 1500 تربو 201 حصان وخد بالك الحصان ده يفرق",
+    "ko": "엔진은 1.5 터보 201마력, 1마력 차이도 엄청납니다"
+   },
+   {
+    "start": 46.8,
+    "end": 50.7,
+    "text": "وفي الأمان عندك 8 ايرباج نظام اداس كامل",
+    "ko": "안전 사양은 8 에어백과 풀 ADAS 시스템"
+   },
+   {
+    "start": 50.7,
+    "end": 54.0,
+    "text": "وهتلاقي موديلات 25 و26 باختلاف الاسعار",
+    "ko": "2025년형, 2026년형 다양한 가격대로 준비되어 있습니다"
+   },
+   {
+    "start": 54.0,
+    "end": 58.0,
+    "text": "في كل فروع القبطان مدينة نصر التجمع وصلة دهشور الشيخ زايد",
+    "ko": "엘 콥탄 전 지점: 나스르 시티, 타가모아, 와슬렛 다흐슈르, 셰이크 자이드"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "중국차는 싫고 독일차는 비쌀 때의 솔루션 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 12.0,
+    "speed": "빠름",
+    "summary": "한국 직수입 현대 아반떼 N라인 정체성 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 12.0,
+    "end": 30.7,
+    "speed": "빠름",
+    "summary": "1열/2열 실내 편의 사양 및 디스플레이, 열선/통풍 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 30.7,
+    "end": 50.7,
+    "speed": "빠름",
+    "summary": "트렁크 폴딩, 전면 디자인, 18인치 휠, 1.5T 201마력, 8에어백/ADAS"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 50.7,
+    "end": 58.0,
+    "speed": "빠름",
+    "summary": "연식별 라인업 및 상사 전 지점 위치 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 카메라를 정면 응시하며 쉴 새 없이 빠르게 옵션을 나열함",
+   "소개하는 기능 단어마다 관련 3D 스티커 및 텍스트 캡션이 박자에 맞춰 즉각 팝업됨",
+   "실제 손가락으로 해당 부품(버튼, 통풍구, 레버, 휠)을 가리키거나 만지며 신뢰도 부여",
+   "트렁크 내부를 보여주는 찰나의 순간에 '팔로우' 콜투액션을 자연스럽게 배치함",
+   "엔딩에 재고 차량들을 파노라마처럼 배경에 깔고 전 지점 위치를 그래픽 카드로 일목요연하게 표시"
+  ],
+  "option_highlights": [
+   {
+    "start": 12.1,
+    "end": 14.0,
+    "feature": "선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.2,
+    "feature": "통풍 및 열선 시트",
+    "shown_how": "화면 분할",
+    "icon_desc": "시트 모양 열기 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 19.2,
+    "feature": "360도 서라운드 뷰 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "360 CCTV 카메라 3D 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.0,
+    "feature": "사각지대 뷰 계기판 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "계기판 클러스터 내부 카메라 화면",
+    "x_pct": 30.0,
+    "y_pct": 50.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "feature": "2열 열선 시트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "불꽃 모양 시트 열선 아이콘",
+    "x_pct": 68.0,
+    "y_pct": 41.0,
+    "size_w_pct": 22.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.5,
+    "feature": "2열 Type-C 충전 포트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "Type-C 포트 플로팅 아이콘",
+    "x_pct": 30.0,
+    "y_pct": 70.0,
+    "size_w_pct": 15.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.0,
+    "feature": "18인치 휠 및 레드 캘리퍼",
+    "shown_how": "글자 카드",
+    "icon_desc": "캘리퍼 발광 하이라이트 효과",
+    "x_pct": 65.0,
+    "y_pct": 48.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "중국차는 싫고 독일차는 돈이 부족한 사람들을 부르며 카메라를 향해 성큼성큼 다가오는 호스트",
+   "type": "질문",
+   "text": "لو مش بتحب العربيات الصيني ومعاكش فلوس الألماني",
+   "ko": "중국차는 싫고 독일차 살 돈은 없다면?"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "유지보수와 부품 수급이 쉬운 한국산 차량 추천",
+    "category": "가격·조건"
+   },
+   {
+    "t": 9.5,
+    "point": "이집트 내수용 엘란트라보다 높은 스펙의 한국 직수입 아반떼",
+    "category": "희소성"
+   },
+   {
+    "t": 14.5,
+    "point": "선루프, 1열 통풍/열선 및 N라인 전용 가죽 버킷시트",
+    "category": "편의"
+   },
+   {
+    "t": 17.5,
+    "point": "360도 카메라, 스마트폰 무선충전, 안드로이드 오토/카플레이",
+    "category": "편의"
+   },
+   {
+    "t": 20.5,
+    "point": "사각지대 모니터 연동 디지털 클러스터와 패들 시프트",
+    "category": "편의"
+   },
+   {
+    "t": 25.5,
+    "point": "동급에서 드문 2열 뒷좌석 열선 시트 및 Type-C 포트",
+    "category": "편의"
+   },
+   {
+    "t": 32.0,
+    "point": "원터치 뒷좌석 폴딩이 가능한 넓은 트렁크",
+    "category": "공간"
+   },
+   {
+    "t": 37.0,
+    "point": "스포티한 신형 DRL, 전용 범퍼 및 레드 캘리퍼 18인치 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 43.5,
+    "point": "1.5리터 터보 201마력의 고성능 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 48.0,
+    "point": "8개의 에어백과 통합 능동 안전 ADAS 시스템",
+    "category": "안전"
+   },
+   {
+    "t": 52.0,
+    "point": "2025년형 및 2026년형 즉시 출고 가능 라인업 보유",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 34.0,
+   "text": "ما تنساش تعمل فولو لو سمحت",
+   "ko": "팔로우 잊지 말고 꼭 눌러주세요",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "딜러",
+   "part_order": [
+    "사람 전신",
+    "외관 전면 후드",
+    "외관 후면 엠블럼",
+    "실내 선루프",
+    "1열 시트",
+    "센터페시아 화면",
+    "계기판 및 스티어링 휠",
+    "2열 시트 및 레그룸",
+    "2열 에어벤트 및 충전구",
+    "트렁크 내부",
+    "외관 전면 헤드램프 및 범퍼",
+    "18인치 휠/캘리퍼",
+    "외관 전측면 전경",
+    "1열 운전석 안전사양",
+    "전시장 주차장 차량 라인업"
+   ]
+  }
+ }
+}

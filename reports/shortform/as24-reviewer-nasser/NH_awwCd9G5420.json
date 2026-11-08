@@ -1,0 +1,1182 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/awwCd9G5420",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6342,
+  "candidatesTokenCount": 9619,
+  "totalTokenCount": 15961,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5179
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "Chery Tiggo 9 PHEV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.3,
+    "part": "센터 화면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.9,
+    "part": "센터 화면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 22.3,
+    "part": "실내 앞",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 26.2,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.5,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "part": "뒷좌석",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.3,
+    "part": "트렁크",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 38.6,
+    "part": "트렁크",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 39.8,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 41.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 42.8,
+    "part": "외관 전면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 44.4,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 46.1,
+    "part": "외관 후면",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.1,
+    "end": 48.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 53.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 57.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "30 CM",
+    "ko": "30 cm 지상고",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 34.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "30 CM",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "4m",
+    "ko": "전장 4m 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4m",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "<2,000,000",
+    "ko": "2백만 이하",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.0,
+    "color": "#2EE369",
+    "background": "상자",
+    "bg_color": "#0F461F",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "<2,000,000",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.6,
+    "text": "9 TIGGO",
+    "ko": "티고 9",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 18.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "9 TIGGO",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "SONY",
+    "ko": "소니 사운드",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SONY",
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 14.0,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIRELESS",
+    "sure": true
+   },
+   {
+    "start": 15.4,
+    "end": 17.5,
+    "text": "AIRBAGS",
+    "ko": "에어백",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AIRBAGS",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "text": "أنظمة فرامل",
+    "ko": "제동 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#202020",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أنظمة",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.6,
+    "text": "صف ثالث",
+    "ko": "3열 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "صف ثالث",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 41.7,
+    "text": "360° CAMERA",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "360°",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.4,
+    "text": "جميل",
+    "ko": "예쁨",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#B4B61C",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "جميل",
+    "sure": true
+   },
+   {
+    "start": 43.3,
+    "end": 44.5,
+    "text": "20\"",
+    "ko": "20인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 26.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20\"",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 48.8,
+    "text": "بطارية كهرباء",
+    "ko": "전기 배터리",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#38A2BE",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بطارية",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 51.0,
+    "text": "RANGE:\n+1000KM",
+    "ko": "주행거리 1000km+",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+1000KM",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.5,
+    "text": "5-7L/\n100KM",
+    "ko": "연비 5~7L / 100km",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5-7L",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "줄자 그래픽 및 30cm 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "4m 치수 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "돈 소리",
+    "event": "2백만 이하 돈비 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "쿵",
+    "event": "3D TIGGO 9 타이틀 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "띵",
+    "event": "소니 스피커 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "애플 카플레이 및 안드로이드 오토 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.4,
+    "type": "띵",
+    "event": "무선충전 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.5,
+    "type": "쿵",
+    "event": "에어백 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "띵",
+    "event": "브레이크 시스템 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "딸깍",
+    "event": "안전벨트 착용 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "딸깍",
+    "event": "컵홀더 오픈 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.6,
+    "type": "쿵",
+    "event": "3열 시트 텍스트 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "딸깍",
+    "event": "팝아웃 도어핸들 팝업 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "띵",
+    "event": "360 카메라 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.1,
+    "type": "띵",
+    "event": "휠 예쁨 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.2,
+    "type": "휙",
+    "event": "하이브리드 배터리 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.3,
+    "type": "띵",
+    "event": "주행거리 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "띵",
+    "event": "연비 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "what": "지상고 측정 화살표와 줄자 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 33.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "지상고 수치 강조",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "what": "차량 전장 측정 가로선 그래픽",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 49.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전장 길이 강조",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "what": "화면 상단에서 떨어지는 돈비 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "가격 가성비 표현",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.6,
+    "what": "차량 뒤에 배치된 거대한 3D TIGGO 9 로고",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 타이틀 강조",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.3,
+    "what": "애플 카플레이 및 안드로이드 오토 앱 아이콘",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "폰 커넥티비티 지원 표시",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 48.8,
+    "what": "차량 투시도 및 하이브리드 배터리팩 그래픽",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 40.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "PHEV 파워트레인 원리 설명",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 53.5,
+    "what": "배경 건물 위에 오버레이된 네온 그리드 모션",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "테크니컬 스펙 분위기 연출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "بارتفاع قرب ال 30 سم وبطول أكثر من 4 م",
+    "ko": "약 30cm에 가까운 지상고와 4m가 넘는 전장"
+   },
+   {
+    "start": 2.2,
+    "end": 5.6,
+    "text": "تحت ال 2 مليون دي أكثر 7 راكب عجبتني شيري تيجو 9",
+    "ko": "2백만 이하에서 제가 가장 마음에 든 7인승, 체리 티고 9입니다"
+   },
+   {
+    "start": 5.6,
+    "end": 11.0,
+    "text": "وتشطيب سوبر لوكس عندك ساوند سيستم من سوني خامات العربية فخمة جدا",
+    "ko": "슈퍼 럭셔리 마감, 소니 사운드 시스템에 고급스러운 소재들까지"
+   },
+   {
+    "start": 11.0,
+    "end": 14.5,
+    "text": "وايرلس أبل كاربلاي وأندرويد أوتو وشاحن وايرلس سريع",
+    "ko": "무선 애플 카플레이, 안드로이드 오토에 고속 무선 충전까지"
+   },
+   {
+    "start": 14.5,
+    "end": 18.0,
+    "text": "وعشان الأمان أهم حاجة عندك إيرباجز وأنظمة فرامل",
+    "ko": "그리고 안전이 가장 중요하니까, 에어백과 제동 시스템들"
+   },
+   {
+    "start": 18.0,
+    "end": 23.0,
+    "text": "ما بتمشيش غير لما تركب الحزام في الكرسي اللي فيه تسخين وتبريد وليج إكستنشن ودلع",
+    "ko": "통풍, 열선, 레그 익스텐션까지 들어간 시트는 안전벨트를 매야만 움직입니다"
+   },
+   {
+    "start": 23.0,
+    "end": 26.2,
+    "text": "وعشان النور يخش عندك سقف بانوراما عملاق",
+    "ko": "채광을 위해 거대한 파노라마 선루프도 있습니다"
+   },
+   {
+    "start": 26.2,
+    "end": 31.0,
+    "text": "تقدر تظبط الكرسي براحتك وستائر عشان الخصوصية",
+    "ko": "원하는 대로 시트를 조절하고 프라이버시를 위한 선쉐이드까지"
+   },
+   {
+    "start": 31.0,
+    "end": 36.3,
+    "text": "وفيها مساحات أكثر من 2000 لتر عشان لو طردوك من البيت تقدر تعيش فيها",
+    "ko": "2000리터가 넘는 적재공간으로 집에서 쫓겨나도 여기서 살 수 있습니다"
+   },
+   {
+    "start": 36.3,
+    "end": 39.0,
+    "text": "ففيها صف ثالث وتشيل 7 فرقة كورة يد",
+    "ko": "3열 시트가 있어 핸드볼 한 팀인 7명이 탈 수 있습니다"
+   },
+   {
+    "start": 39.0,
+    "end": 44.5,
+    "text": "أوكر بوب أوت وبلايند سبوت وكاميرات 360 وجنط جميل مقاس 20",
+    "ko": "팝업 도어핸들, 사각지대 감지, 360도 카메라와 예쁜 20인치 휠"
+   },
+   {
+    "start": 44.5,
+    "end": 48.9,
+    "text": "وبلاج إن هايبريد يعني بطارية كهرباء بتحسن الأداء وتوفر في البنزين",
+    "ko": "플러그인 하이브리드로 성능을 높이고 기름값을 아껴줍니다"
+   },
+   {
+    "start": 48.9,
+    "end": 53.6,
+    "text": "وخلاها توصل لأكثر من 1000 كيلو رينج واستهلاك البنزين من 5 ل 7 لتر في ال 100 كيلو",
+    "ko": "총 1000km 이상의 주행거리와 100km당 5~7리터의 연비를 자랑합니다"
+   },
+   {
+    "start": 53.6,
+    "end": 57.0,
+    "text": "وبكده تيجو 9 أحسن عربية تتحرك وتعيش فيها",
+    "ko": "이렇듯 티고 9은 타고 다니며 살기에도 최고의 차입니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "지상고, 길이 측정 및 200만 가격 이하 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 5.7,
+    "speed": "보통",
+    "summary": "티고 9 3D 그래픽 타이틀 등장"
+   },
+   {
+    "stage": "기능",
+    "start": 5.7,
+    "end": 14.5,
+    "speed": "빠름",
+    "summary": "실내 내장재, 오디오, 디스플레이, 무선충전"
+   },
+   {
+    "stage": "기능",
+    "start": 14.5,
+    "end": 23.0,
+    "speed": "빠름",
+    "summary": "안전사양, 시트 편의기능(열선/통풍/레그서포트)"
+   },
+   {
+    "stage": "기능",
+    "start": 23.0,
+    "end": 31.0,
+    "speed": "빠름",
+    "summary": "선루프, 2열 조절, 컵홀더, 선쉐이드"
+   },
+   {
+    "stage": "기능",
+    "start": 31.0,
+    "end": 38.6,
+    "speed": "보통",
+    "summary": "트렁크 폴딩 공간, 침대 연출, 3열 7인승 공간"
+   },
+   {
+    "stage": "사양",
+    "start": 38.6,
+    "end": 44.5,
+    "speed": "빠름",
+    "summary": "도어핸들, 360카메라, 20인치 휠 외관 디테일"
+   },
+   {
+    "stage": "사양",
+    "start": 44.5,
+    "end": 53.6,
+    "speed": "보통",
+    "summary": "PHEV 배터리, 1000km 주행거리, 연비 스펙"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.6,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "총평 및 마무리"
+   }
+  ],
+  "rules": [
+   "말하는 모든 주요 단어 및 옵션 명칭에 모션 그래픽/자막 스티커를 정확한 타이밍에 팝업시킴",
+   "주요 포인트 등장마다 싱크된 효과음(톡, 띵, 딸깍 등)을 빠짐없이 배치하여 집중도 유지",
+   "설명하는 옵션을 리뷰어가 직접 터치하거나 시연하며 화면에 직관적으로 보여줌",
+   "적재공간을 설명할 때 실제로 이불을 덮고 눕는 과장된 액션으로 실용성을 유머러스하게 어필함",
+   "성능/수치 스펙은 네온 그리드 배경 그래픽과 대비되는 볼드 텍스트로 가독성을 극대화함"
+  ],
+  "option_highlights": [
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "feature": "소니 프리미엄 오디오",
+    "shown_how": "글자 카드",
+    "icon_desc": "SONY 텍스트 라벨",
+    "x_pct": 50.0,
+    "y_pct": 43.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.3,
+    "feature": "무선 폰 프로젝션",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "애플 카플레이 및 안드로이드 오토 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 14.0,
+    "feature": "무선 스마트폰 충전",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "와이파이 형태 충전 신호 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 39.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 16.5,
+    "feature": "에어백 시스템",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "에어백 탑승자 실루엣 아이콘",
+    "x_pct": 55.0,
+    "y_pct": 39.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "feature": "브레이크 안전 시스템",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "빨간색 캘리퍼 브레이크 디스크 그래픽",
+    "x_pct": 52.0,
+    "y_pct": 43.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 22.3,
+    "feature": "통풍/열선/레그 익스텐션 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "시트 표면 및 익스텐션 손으로 터치",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.2,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "광각으로 천장 파노라마 뷰 비춤",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "feature": "2열 수납 컵홀더",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "암레스트 누르면 튀어나오는 컵홀더",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "feature": "도어 선쉐이드(블라인드)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "창문 선쉐이드 펼치는 손동작",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.3,
+    "feature": "풀 플랫 2000L 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "차박용 매트와 이불 깔고 눕는 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 39.8,
+    "feature": "플러시 팝아웃 도어핸들",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락으로 터치하여 도어핸들 팝업",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 41.7,
+    "feature": "360도 서라운드 뷰 카메라",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "사이드미러 부착 카메라 아이콘",
+    "x_pct": 60.0,
+    "y_pct": 39.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.8,
+    "feature": "PHEV 파워트레인",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차량 엑스레이 배터리 배치 모식도",
+    "x_pct": 40.0,
+    "y_pct": 40.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "차량 하부에 줄자를 직접 대어 30cm 지상고를 보여준 뒤 전장 4m와 2백만 이하 돈비 그래픽으로 호기심 유발",
+   "type": "숫자·성능",
+   "text": "بارتفاع قرب ال 30 سم وبطول أكثر من 4 م تحت ال 2 مليون",
+   "ko": "약 30cm 지상고, 4m가 넘는 전장에 2백만 파운드 이하의 가격"
+  },
+  "narration_points": [
+   {
+    "t": 0.1,
+    "point": "지상고 약 30cm, 전장 4m 초과 대형 차체",
+    "category": "공간"
+   },
+   {
+    "t": 2.2,
+    "point": "200만 파운드 이하 최강의 7인승 SUV",
+    "category": "가격·조건"
+   },
+   {
+    "t": 7.7,
+    "point": "소니 고급 오디오 시스템 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 11.2,
+    "point": "무선 카플레이 및 고속 무선충전 지원",
+    "category": "편의"
+   },
+   {
+    "t": 15.5,
+    "point": "안전벨트 착용 연동 및 첨단 제동·에어백 안전",
+    "category": "안전"
+   },
+   {
+    "t": 19.5,
+    "point": "시트 통풍, 열선, 레그 익스텐션 편의성",
+    "category": "편의"
+   },
+   {
+    "t": 24.0,
+    "point": "대형 파노라마 선루프의 개방감",
+    "category": "디자인"
+   },
+   {
+    "t": 32.0,
+    "point": "폴딩 시 2000리터가 넘는 실내 차박 공간",
+    "category": "공간"
+   },
+   {
+    "t": 36.5,
+    "point": "3열 7인승 탑승 공간 확보",
+    "category": "공간"
+   },
+   {
+    "t": 39.0,
+    "point": "팝업 도어핸들 및 360도 어라운드뷰",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "마이바흐 스타일의 20인치 고급 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 45.0,
+    "point": "PHEV 하이브리드 파워트레인의 고효율",
+    "category": "성능"
+   },
+   {
+    "t": 50.0,
+    "point": "1000km 이상의 항속거리와 5-7L 연비",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "실내 앞",
+    "센터 화면",
+    "뒷좌석",
+    "트렁크",
+    "외관 측면",
+    "휠",
+    "외관 후면",
+    "외관 전면"
+   ]
+  }
+ }
+}

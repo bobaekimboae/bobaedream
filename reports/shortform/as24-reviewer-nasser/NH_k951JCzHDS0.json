@@ -1,0 +1,956 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/k951JCzHDS0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6909,
+  "candidatesTokenCount": 8157,
+  "totalTokenCount": 15066,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5746
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 63.8,
+   "aspect": "9:16",
+   "car": "Peugeot 408 / 3008 / 5008 / 2008",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.6,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.9,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 17.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 19.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 30.8,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 34.4,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.4,
+    "end": 36.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.8,
+    "end": 45.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 46.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.9,
+    "end": 49.3,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 50.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.8,
+    "end": 52.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.1,
+    "end": 54.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 63.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "150,000",
+    "ko": "15만 파운드 할인",
+    "kind": "가격",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "150,000",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.4,
+    "text": "408",
+    "ko": "푸조 408",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "408",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.4,
+    "text": "SPORT",
+    "ko": "스포츠 스티어링",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPORT",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "text": "PANEL",
+    "ko": "컨트롤 패널",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PANEL",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.7,
+    "text": "CUP HOLDER",
+    "ko": "컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -30,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CUP HOLDER",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.8,
+    "text": "3008",
+    "ko": "푸조 3008",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3008",
+    "sure": true
+   },
+   {
+    "start": 28.3,
+    "end": 30.7,
+    "text": "DOUBLE SCREEN",
+    "ko": "더블 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DOUBLE SCREEN",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.6,
+    "text": "5008",
+    "ko": "푸조 5008",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5008",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.6,
+    "text": "2000L+",
+    "ko": "2000리터 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2000L+",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.0,
+    "text": "2008",
+    "ko": "푸조 2008",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2008",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 52.8,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIRELESS CHARGER",
+    "sure": true
+   },
+   {
+    "start": 52.9,
+    "end": 54.0,
+    "text": "DRIVE MODE SELECTOR",
+    "ko": "주행 모드 셀렉터",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DRIVE MODE SELECTOR",
+    "sure": true
+   },
+   {
+    "start": 55.6,
+    "end": 57.5,
+    "text": "19949",
+    "ko": "전화 문의 19949",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#004080",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19949",
+    "sure": true
+   },
+   {
+    "start": 60.0,
+    "end": 63.8,
+    "text": "TEST DRIVE",
+    "ko": "시승 안내",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TEST DRIVE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "돈 소리",
+    "event": "150,000 할인 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "쿵",
+    "event": "푸조 로고 및 408 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "휙",
+    "event": "SPORT 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "띵",
+    "event": "CarPlay 및 Android Auto 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "톡",
+    "event": "PANEL 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "톡",
+    "event": "CUP HOLDER 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.6,
+    "type": "쿵",
+    "event": "3008 모델명 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "띵",
+    "event": "열선/통풍/마사지 시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "휙",
+    "event": "DOUBLE SCREEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "띵",
+    "event": "뒷좌석 열선 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.1,
+    "type": "쿵",
+    "event": "5008 모델명 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "톡",
+    "event": "3열 7인승 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.6,
+    "type": "쿵",
+    "event": "2000L+ 적재공간 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.6,
+    "type": "쿵",
+    "event": "2008 모델명 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.7,
+    "type": "띵",
+    "event": "고객센터 전화번호 19949 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.1,
+    "type": "쿵",
+    "event": "TEST DRIVE 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.4,
+    "end": 7.4,
+    "what": "푸조 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 및 차종 강조",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "what": "Apple CarPlay & Android Auto 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "연결 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "what": "시트 통풍 눈꽃 아이콘 및 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "페이드",
+    "purpose": "시트 기능 설명",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.4,
+    "what": "뒷좌석 시트 열선 화염 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "뒷좌석 열선 시연",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.5,
+    "what": "3열 7인승 탑승객 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "다인승 패밀리카 강조",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 63.8,
+    "what": "테스트 드라이브 핸들 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 37.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시승 권유 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "بعد ما بقى عليهم خصم 150,000 جنيه",
+    "ko": "15만 파운드 할인이 들어간 이후,"
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "text": "تعالى اقولك ايه اكتر عربية مناسبة ليك من بيجو",
+    "ko": "푸조 중에서 어떤 차가 당신에게 가장 잘 맞는지 알려드릴게요."
+   },
+   {
+    "start": 5.4,
+    "end": 7.5,
+    "text": "لو انت شاب او عندك عيلة صغيرة اكيد الـ 408",
+    "ko": "젊은 청년이거나 작은 가족이라면 당연히 408입니다."
+   },
+   {
+    "start": 7.5,
+    "end": 17.7,
+    "text": "الرياضية مكملة جوا عندك دريكسيون سبورتيف ببدل شيفترز، ديجيتال ديسبلاي، ابل كاربلاي واندرويد اوتو، كنترول بانل وتحكم في التكييف زي اللامبورجيني، شاحن وايرلس وكاب هولدر",
+    "ko": "실내도 스포티함이 이어집니다. 패들 시프트가 달린 스포츠 핸들, 디지털 디스플레이, 카플레이/안드로이드 오토, 람보르기니 스타일의 공조 패널, 무선 충전기와 컵홀더까지."
+   },
+   {
+    "start": 17.7,
+    "end": 20.0,
+    "text": "مساحتها متوسطة، بس لو عايز اكتر",
+    "ko": "공간은 보통이지만, 더 넓은 걸 원한다면?"
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "text": "يبقى اكيد الـ 3008، اكتر حجم مناسب فيهم",
+    "ko": "그렇다면 당연히 3008, 가장 적당한 크기입니다."
+   },
+   {
+    "start": 22.8,
+    "end": 34.4,
+    "text": "اوسع وفخمة جداً من جوا، الكراسي فيها تسخين وتبريد ومساج، تابلوه شيك جداً بامبينت لايت ودبل سكرين فيها ابل كاربلاي واندرويد اوتو، نفس الفخامة مكملة ورا والكنب بتاعك تسخين",
+    "ko": "실내가 훨씬 넓고 고급스러우며 시트에는 열선, 통풍, 마사지가 있고, 앰비언트 라이트와 더블 스크린, 뒷좌석에도 동일한 고급스러움과 열선 시트가 들어갑니다."
+   },
+   {
+    "start": 34.4,
+    "end": 36.6,
+    "text": "بس لو عيلتك اكبر كمان، تقدر تاخد الـ 5008",
+    "ko": "하지만 가족이 더 많다면, 5008을 선택할 수 있습니다."
+   },
+   {
+    "start": 36.6,
+    "end": 42.8,
+    "text": "هي اكبر واحدة فيهم، فيها 3 صفوف وتشيل 7 ركاب، والمساحات بقى اكتر من 2000 لتر لما تنزل الكراسي",
+    "ko": "가장 큰 모델로 3열에 7명이 탈 수 있고, 시트를 접으면 트렁크 공간이 2000리터가 넘습니다."
+   },
+   {
+    "start": 42.8,
+    "end": 45.8,
+    "text": "ولو انتي بنت رايحة الشغل، النادي، الجامعة، عندك الـ 2008",
+    "ko": "출퇴근이나 등교, 여가용을 찾는 여성분이라면 2008이 있습니다."
+   },
+   {
+    "start": 45.8,
+    "end": 53.9,
+    "text": "عندك كل حاجة من جوا: ابل كاربلاي، اندرويد اوتو، ديجيتال ديسبلاي، نفس الدريكسيون الروش، تحكم في التكييف حلو جداً، شاحن وايرلس ودرايف مود سيلكتور",
+    "ko": "실내에 필요한 모든 게 있습니다: 카플레이, 안드로이드 오토, 멋진 스티어링 휠, 터치 공조 제어, 무선 충전기, 드라이브 모드 셀렉터까지."
+   },
+   {
+    "start": 53.9,
+    "end": 57.5,
+    "text": "تقدر تزورهم في كل الفروع او تتصل على 19949",
+    "ko": "전국 지점을 방문하시거나 19949로 전화 문의하세요."
+   },
+   {
+    "start": 57.5,
+    "end": 63.8,
+    "text": "ولو عايز تجرب اي عربية من عربيات بيجو، في تست درايف مع الموزع المعتمد المتحدة القصراوي الويك اند الجاي",
+    "ko": "푸조 차량을 직접 타보고 싶다면 다음 주말 공식 딜러사 엘 카스라위에서 시승해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "15만 파운드 파격 할인 소식과 함께 나에게 맞는 푸조 차량 찾기 제안"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 19.8,
+    "speed": "빠름",
+    "summary": "푸조 408: 젊은 층과 소가족을 위한 스포티한 세단 특징 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 19.8,
+    "end": 34.4,
+    "speed": "보통",
+    "summary": "푸조 3008: 프리미엄 감성과 편의사양(통풍/마사지)을 갖춘 중형 SUV"
+   },
+   {
+    "stage": "차 소개",
+    "start": 34.4,
+    "end": 42.8,
+    "speed": "빠름",
+    "summary": "푸조 5008: 대가족을 위한 7인승 및 2000L 이상 대용량 트렁크"
+   },
+   {
+    "stage": "차 소개",
+    "start": 42.8,
+    "end": 53.9,
+    "speed": "빠름",
+    "summary": "푸조 2008: 도심 주행 및 여성 운전자를 위한 컴팩트 SUV"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.9,
+    "end": 63.8,
+    "speed": "보통",
+    "summary": "지점 안내, 대표 전화번호(19949), 주말 시승 이벤트 안내"
+   }
+  ],
+  "rules": [
+   "타깃 고객층(청년, 중간 가족, 대가족, 여성)별로 4대 차량을 빠르게 1대씩 순차 비교 제시",
+   "차량 모델명이 바뀔 때마다 전면 외관 샷과 모델명 텍스트/로고를 중앙에 배치하여 명확히 구분",
+   "실내 옵션을 직접 손으로 가리키거나 시트에 앉아 눕는 액션을 취해 공간감을 생생하게 체감시킴",
+   "주요 편의 기능(열선, 통풍, 모니터, 7인승)은 그래픽 아이콘과 짧은 영문 키워드로 팝업 연출",
+   "마지막에 공식 딜러 전시장을 배경으로 고객센터 번호와 시승 이벤트 CTA를 강조하며 마무리"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.9,
+    "end": 16.3,
+    "feature": "토글 스위치형 공조 컨트롤 패널",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.6,
+    "feature": "시트 열선·통풍 및 마사지",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 표면에 통풍(눈꽃) 및 열선 그래픽 합성",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 35.0,
+    "follows_object": true,
+    "entrance": "페이드",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 28.3,
+    "end": 30.8,
+    "feature": "파노라믹 듀얼 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "더블 스크린 텍스트 스티커",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.4,
+    "feature": "뒷좌석 열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 방석 위에 불꽃 모양 열선 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 52.0,
+    "size_w_pct": 25.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.5,
+    "feature": "3열 7인승 시트 구성",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "3열 7인승 탑승객 숫자 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.8,
+    "feature": "2열/3열 폴딩 대용량 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "바닥에 누워 광활한 적재 공간 체감",
+    "x_pct": 50.0,
+    "y_pct": 46.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 향해 다가오며 15만 파운드 할인 혜택을 손짓과 큰 자막으로 강조",
+   "type": "가격",
+   "text": "بعد ما بقى عليهم خصم 150,000 جنيه",
+   "ko": "15만 파운드 할인이 들어간 이후,"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "푸조 전 라인업 최대 150,000 EGP 할인 적용",
+    "category": "가격·조건"
+   },
+   {
+    "t": 6.0,
+    "point": "젊은 층이나 소가족에 어울리는 스포티한 408 세단",
+    "category": "디자인"
+   },
+   {
+    "t": 9.5,
+    "point": "패들시프트 스포츠 스티어링과 람보르기니 스타일 공조 패널",
+    "category": "편의"
+   },
+   {
+    "t": 21.0,
+    "point": "가장 대중적이고 고급스러운 패밀리 SUV 푸조 3008",
+    "category": "공간"
+   },
+   {
+    "t": 24.8,
+    "point": "앞좌석 마사지/통풍/열선 및 뒷좌석 열선 시트 제공",
+    "category": "편의"
+   },
+   {
+    "t": 35.5,
+    "point": "대가족을 위한 3열 7인승 대형 SUV 푸조 5008",
+    "category": "공간"
+   },
+   {
+    "t": 41.0,
+    "point": "시트 폴딩 시 2,000리터가 넘는 트렁크 적재 공간",
+    "category": "공간"
+   },
+   {
+    "t": 44.5,
+    "point": "출퇴근 및 여성 운전자에게 딱 맞는 컴팩트 SUV 푸조 2008",
+    "category": "디자인"
+   },
+   {
+    "t": 58.0,
+    "point": "공식 딜러 전시장 방문 문의 및 주말 시승 프로그램 운영",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 55.6,
+   "text": "تقدر تزورهم في كل الفروع او تتصل على 19949 وتجرب تست درايف",
+   "ko": "지점 방문 또는 19949로 전화하여 주말 시승에 참여하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "전시장 앞 인트로",
+    "408 외관 전면",
+    "408 운전석 및 대시보드",
+    "408 2열 좌석",
+    "3008 외관 전면",
+    "3008 1열 시트 및 디스플레이",
+    "3008 2열 시트",
+    "5008 외관 전면",
+    "5008 3열 시트",
+    "5008 풀플랫 트렁크",
+    "2008 외관 전면",
+    "2008 실내 앞",
+    "전시장 전경 아웃트로"
+   ]
+  }
+ }
+}

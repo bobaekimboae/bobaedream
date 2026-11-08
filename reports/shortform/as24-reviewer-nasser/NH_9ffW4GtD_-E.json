@@ -1,0 +1,701 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/9ffW4GtD_-E",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8531,
+  "candidatesTokenCount": 5480,
+  "totalTokenCount": 14011,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7368
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 80.5,
+   "aspect": "9:16",
+   "car": "다양한 슈퍼카/럭셔리카 (Tesla Cybertruck, Mercedes G63 AMG, Porsche Cayenne, Cayenne S, Cayenne GTS, Mercedes-AMG GT63 S E-Performance, Range Rover Sport SVR)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 22.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 27.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 33.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 39.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 52.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 60.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.1,
+    "end": 66.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.7,
+    "end": 72.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 80.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 6.8,
+    "end": 8.8,
+    "text": "7,000,000",
+    "ko": "7,000,000 EGP",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.2,
+    "text": "17,500,000",
+    "ko": "17,500,000 EGP",
+    "kind": "가격",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.0,
+    "text": "8,400,000",
+    "ko": "8,400,000 EGP",
+    "kind": "가격",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.0,
+    "text": "8,250,000",
+    "ko": "8,250,000 EGP",
+    "kind": "가격",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.8,
+    "text": "6,250,000",
+    "ko": "6,250,000 EGP",
+    "kind": "가격",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 47.8,
+    "text": "630hp",
+    "ko": "630마력",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.0,
+    "text": "840hp",
+    "ko": "840마력",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.5,
+    "color": "#FFAA00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 51.5,
+    "text": "CARBON CERAMIC",
+    "ko": "카본 세라믹",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 52.8,
+    "text": "CARBON FIBER",
+    "ko": "카본 파이버",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 117.5,
+    "end": 120.5,
+    "text": "TOP 90 MALL",
+    "ko": "탑 90 몰",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2060FF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.9,
+    "type": "쿵",
+    "event": "잠에서 깨어나는 만화 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "띵",
+    "event": "가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "띵",
+    "event": "G바겐 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "띵",
+    "event": "카이엔 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "휙",
+    "event": "천 벗기는 스와이프 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "띵",
+    "event": "카이엔 S 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.3,
+    "type": "휙",
+    "event": "차량 커버 벗김",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.5,
+    "type": "띵",
+    "event": "카이엔 GTS 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "쿵",
+    "event": "840hp 불꽃 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 107.5,
+    "type": "딸깍",
+    "event": "수표 서명 완료 및 넘김",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "유쾌하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 6.8,
+     "what": "차량 쇼케이스 시작되며 메인 비트 시작"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "what": "꿈 풍선 만화 이펙트",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "상황 연출",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 2.8,
+    "what": "느낌표 이펙트",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 45.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "놀람 강조",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.8,
+    "what": "SHIFT 네온 로고 및 가격 HUD",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 표시",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.2,
+    "what": "SHIFT 네온 로고 및 가격 HUD",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 표시",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.0,
+    "what": "포르쉐 로고 및 Cayenne 348hp 네온 텍스트",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종/스펙 안내",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 50.2,
+    "what": "불타는 브레이크 로터 그래픽",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 55.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "성능 강조",
+    "sure": true
+   },
+   {
+    "start": 117.5,
+    "end": 120.5,
+    "what": "지도 핀 아이콘 및 위치 안내 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시장 위치 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 2.0,
+    "end": 6.5,
+    "text": "انت نايم يا بيه؟ جايب دفتر الشيكات وعايز اركب اغلى عربية عندك!",
+    "ko": "선생님 자고 있나요? 수표책 들고 왔으니 제일 비싼 차로 태워줘요!"
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "text": "تسلا سايبرترك بسبعة مليون جنيه!",
+    "ko": "테슬라 사이버트럭, 7백만 파운드입니다!"
+   },
+   {
+    "start": 16.5,
+    "end": 19.5,
+    "text": "جي 63 بسبعتاشر مليون وخمسمية!",
+    "ko": "G63은 1,750만 파운드입니다!"
+   },
+   {
+    "start": 41.5,
+    "end": 45.0,
+    "text": "مرسيدس بنز AMG GT 63 S E-Performance",
+    "ko": "메르세데스-벤츠 AMG GT 63 S E-퍼포먼스입니다!"
+   },
+   {
+    "start": 47.5,
+    "end": 52.5,
+    "text": "دي 840 حصان وكاربون سيراميك بريكس وفول كاربون فايبر",
+    "ko": "이 차는 840마력에 카본 세라믹 브레이크, 풀 카본 파이버 사양입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "낮잠 자는 딜러와 수표책을 들고 온 부자 손님의 콩트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 16.5,
+    "speed": "보통",
+    "summary": "테슬라 사이버트럭 소개 및 실내 탑승"
+   },
+   {
+    "stage": "차 소개",
+    "start": 16.5,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "벤츠 G63 AMG 외관 및 실내 투어"
+   },
+   {
+    "stage": "차 소개",
+    "start": 22.8,
+    "end": 40.0,
+    "speed": "빠름",
+    "summary": "포르쉐 카이엔 라인업(카이엔, 카이엔 S, 카이엔 GTS) 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 40.0,
+    "end": 60.0,
+    "speed": "보통",
+    "summary": "AMG GT 63 S E-퍼포먼스 상세 스펙 및 옵션(카본, 마사지 등) 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 60.0,
+    "end": 66.7,
+    "speed": "보통",
+    "summary": "레인지로버 스포츠 SVR 3종 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 66.7,
+    "end": 80.5,
+    "speed": "빠름",
+    "summary": "실제 계약 체결 콩트 및 쇼룸(Shift Automotive) 위치 안내"
+   }
+  ],
+  "rules": [
+   "손님과 딜러의 콩트 티키타카로 지루함을 없애고 시작함",
+   "새로운 차를 공개할 때 가격 및 스펙을 3D 네온 HUD 그래픽과 효과음으로 강조함",
+   "손님이 '더 빠르거나 낮은 차'를 요구할 때마다 다음 차량으로 자연스럽게 전환함",
+   "차량의 핵심 성능 수치(마력, 카본 파이버 등)는 텍스트 스티커와 불꽃 그래픽으로 시각화함"
+  ],
+  "option_highlights": [
+   {
+    "start": 47.9,
+    "end": 51.5,
+    "feature": "카본 세라믹 브레이크",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "불타는 브레이크 캘리퍼와 로터 그래픽",
+    "x_pct": 55.0,
+    "y_pct": 35.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 57.0,
+    "feature": "마사지 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "금빛 월계수 잎과 'راحة(편안함)' 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 60.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "소파에서 핸들을 잡고 운전하는 꿈을 꾸며 낮잠 자는 딜러와 수표책을 든 손님",
+   "type": "행동",
+   "text": "انت نايم يا بيه؟",
+   "ko": "선생님 자고 있나요?"
+  },
+  "narration_points": [
+   {
+    "t": 7.5,
+    "point": "테슬라 사이버트럭 7백만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 17.0,
+    "point": "벤츠 G63 AMG 1,750만 EGP",
+    "category": "가격·조건"
+   },
+   {
+    "t": 24.0,
+    "point": "포르쉐 카이엔 기본형 348마력 840만 EGP",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "포르쉐 카이엔 S 368마력 825만 EGP",
+    "category": "성능"
+   },
+   {
+    "t": 35.0,
+    "point": "포르쉐 카이엔 GTS 493마력 625만 EGP",
+    "category": "성능"
+   },
+   {
+    "t": 48.0,
+    "point": "AMG GT63 S E-퍼포먼스 840마력, 카본 세라믹 브레이크 적용",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 118.0,
+   "text": "TOP 90 MALL - SHIFT AUTOMOTIVE",
+   "ko": "탑 90 몰 쉬프트 오토모티브 매장 방문",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면"
+   ]
+  }
+ }
+}

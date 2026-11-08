@@ -1,0 +1,841 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/7yVn3MfxzMU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7639,
+  "candidatesTokenCount": 7544,
+  "totalTokenCount": 15999,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6476
+   }
+  ],
+  "thoughtsTokenCount": 816,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 71.5,
+   "aspect": "9:16",
+   "car": "Porsche 911 (992) GT3 RS Weissach Package",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 26.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 28.7,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 36.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 39.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.2,
+    "end": 44.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.8,
+    "end": 53.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 62.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 64.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.6,
+    "end": 66.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 68.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.2,
+    "end": 71.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 16.5,
+    "end": 18.2,
+    "text": "CARBON CERAMIC",
+    "ko": "카본 세라믹 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 35.8,
+    "text": "518hp / 4000cc / 6 Cylinders",
+    "ko": "518마력 / 4,000cc / 6기통",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 3.8,
+    "color": "#F4B840",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.8,
+    "text": "DRS DRAG REDUCTION SYSTEM",
+    "ko": "DRS 가변 리어윙 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 51.5,
+    "text": "DOWN FORCE 800KG",
+    "ko": "다운포스 800kg",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#F4B840",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 69.8,
+    "end": 71.5,
+    "text": "وصلة دهشور",
+    "ko": "와슬렛 다흐슈르 지점",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "휙",
+    "event": "차량 소개 로고 및 엠블럼 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "차량 전면 비주얼 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "휙",
+    "event": "펜더 다운포스 화살표 그래픽 애니메이션",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "띵",
+    "event": "CARBON CERAMIC 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "띵",
+    "event": "엔진 출력 수치 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "휙",
+    "event": "타코미터 9000RPM 회전 그래픽",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "GT3 RS 고회전 배기음 가속 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "휙",
+    "event": "DRS 텍스트 팝업 및 윙 개폐 작동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.2,
+    "type": "쿵",
+    "event": "DOWN FORCE 800KG 그래픽 강조",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 57.8,
+    "type": "딸깍",
+    "event": "동승석 히든 컵홀더 원터치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 69.8,
+    "type": "띵",
+    "event": "위치 핀 맵 마커 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/트랩 비트",
+   "bpm_est": 120,
+   "mood": "긴장감 넘치고 스포티함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 37.0,
+     "what": "배기음 리얼 사운드 재생 시 음악 잠시 볼륨 축소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 4.0,
+    "what": "포르쉐 슈투트가르트 엠블럼 및 PORSCHE GT3 RS WEISSACH 타이틀 그래픽",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "entrance": "페이드",
+    "purpose": "차종 및 패키지 명칭 소개",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.5,
+    "what": "프론트 펜더 휠 하우스 공기 흐름 및 다운포스 유도 노란색 화살표",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "공기역학 원리 시각화",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 28.5,
+    "what": "라디에이터 통과 뜨거운 공기 배출 궤적 빨간색 에어로 스트림",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "보닛 및 루프 핀의 공기역학적 열 배출 경로 설명",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 36.5,
+    "what": "9000RPM 타코미터 그래픽 게이지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최대 회전수 시각적 강조",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "what": "거대한 리어 스포일러에 가해지는 800KG 다운포스 화살표",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최고속도 다운포스 수치 강조",
+    "sure": true
+   },
+   {
+    "start": 69.5,
+    "end": 71.5,
+    "what": "전시장 위치 핀 GPS 아이콘 및 안내판",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "쇼룸 오프라인 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر، ودي أهم عربية بتعملها بورش، GT3 RS فايساخ باكدج.",
+    "ko": "저는 나사르입니다. 이건 포르쉐가 만든 가장 중요한 차, GT3 RS 바이작 패키지입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 11.5,
+    "text": "عشان الهواء أهم حاجة، اللي بيخش من هنا يروح يبرد الردياتير، ويزود داون فورس على وش العربية، واللوجو بتاعك قلبوه ستيكر عشان يوفروا 20 جرام.",
+    "ko": "공기역학이 핵심인데, 여기로 들어간 공기는 라디에이터를 식히고 전면 다운포스를 높여주죠. 엠블럼도 20g 줄이려고 스티커로 붙였습니다."
+   },
+   {
+    "start": 11.8,
+    "end": 18.5,
+    "text": "الهواء المضغوط فوق الكاوتش بيخرج من الفتحات دي ويثبت وش العربية، جنط مفرغ لتخفيف الوزن، وكاربون سيراميك بريكس عشان يوقفوا الطيارة دي.",
+    "ko": "타이어 위의 압축 공기는 이 에어덕트로 빠져나가 차체 앞머리를 눌러주고, 경량화된 휠과 이 비행기 같은 차를 멈추기 위한 카본 세라믹 브레이크가 들어갔죠."
+   },
+   {
+    "start": 19.0,
+    "end": 24.0,
+    "text": "والبليد دي، والهواء اللي خارج من هنا بيمشي على جنب العربية، ويخش من الفتحة دي عشان يثبت ضهر العربية.",
+    "ko": "이 사이드 블레이드와 배출된 공기는 측면을 타고 흘러 리어 펜더 흡기구로 들어가 차량 후면을 접지시킵니다."
+   },
+   {
+    "start": 24.1,
+    "end": 31.8,
+    "text": "والهواء السخن اللي خارج من الردياتير بيمشي على السقف الكاربون فايبر ويتشتت بالقطعة دي عشان الهواء البارد بس اللي يخش من هنا ويروح يبرد الموتور.",
+    "ko": "라디에이터를 거친 뜨거운 공기는 카본 파이버 루프를 지나 이 핀으로 흩어져 분리되고, 차가운 공기만 엔진 룸으로 유입되어 냉각을 돕습니다."
+   },
+   {
+    "start": 32.0,
+    "end": 36.8,
+    "text": "والموتور 4 لتر فلات 6 بيطلع 518 حصان، وبيرزع لـ 9000 RPM.",
+    "ko": "엔진은 4.0리터 수평대향 6기통에 518마력을 내뿜고 9,000 RPM까지 회전합니다."
+   },
+   {
+    "start": 40.0,
+    "end": 44.5,
+    "text": "هواء الكاوتش بيخرج من الفتحة دي عشان يزود الداون فورس، مع ديفيوزر، وداك تيل عشان يزودوا التبريد.",
+    "ko": "후륜 휠 하우스 공기는 이 덕트로 배출되어 다운포스를 더하고, 디퓨저와 덕테일 스포일러가 냉각을 돕습니다."
+   },
+   {
+    "start": 44.5,
+    "end": 51.5,
+    "text": "وأكبر وينج، وكمان أكتيف، وبيزود داون فورس 800 كيلو على التوب سبيد، يعني 10 ناصر فوق العربية!",
+    "ko": "역대 가장 거대한 액티브 윙은 최고속도에서 800kg의 다운포스를 만들어냅니다. 나사르 10명이 차 위에 올라탄 셈이죠!"
+   },
+   {
+    "start": 51.8,
+    "end": 54.8,
+    "text": "ولو دوست هنا هيفتح لك الفلابس تزود لك الداون فورس.",
+    "ko": "그리고 화면에서 여기를 누르면 하부 플랩이 열려 다운포스를 극대화합니다."
+   },
+   {
+    "start": 55.0,
+    "end": 62.5,
+    "text": "عندك كاربون بوكيت سيتس مش مريحة خالص، ستيكر الفايساخ باكدج، كب هولدر مستخبي، كاربون فايبر على الداشبورد، آبل كاربلاي وأندرويد أوتو.",
+    "ko": "편안함이라곤 전혀 없는 카본 버킷 시트, 바이작 패키지 자수, 숨겨진 컵홀더, 대시보드의 카본 파이버, 애플 카플레이와 안드로이드 오토가 있습니다."
+   },
+   {
+    "start": 62.5,
+    "end": 68.0,
+    "text": "ستوب ووتش للتراكات، ديجيتال ديسبلاي خطير، دركسيون ربنا يكتبهولنا، تراك كونترولز، وبادل شفترز خطيرة.",
+    "ko": "트랙용 스톱워치, 멋진 디지털 디스플레이, 완벽한 스티어링 휠, 트랙 다이얼 컨트롤과 감탄 나오는 패들 시프터까지 갖췄죠."
+   },
+   {
+    "start": 68.2,
+    "end": 71.5,
+    "text": "والوحش ده في بلاتينوم أوتو، وصلة دهشور، الشيخ زايد.",
+    "ko": "이 괴물 같은 차는 플래티넘 오토 셰이크 자이드 와슬렛 다흐슈르 지점에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "포르쉐 끝판왕 GT3 RS 바이작 패키지 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 31.8,
+    "speed": "빠름",
+    "summary": "전면, 펜더, 측면, 루프 등 정밀한 에어로다이내믹스 요소 집중 리뷰"
+   },
+   {
+    "stage": "사양",
+    "start": 32.0,
+    "end": 39.8,
+    "speed": "보통",
+    "summary": "4.0 자연흡기 플랫6 엔진 스펙 및 배기음 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 39.8,
+    "end": 54.8,
+    "speed": "빠름",
+    "summary": "후면 액티브 DRS 윙, 800kg 다운포스 및 언더바디 플랩 작동"
+   },
+   {
+    "stage": "차 소개",
+    "start": 55.0,
+    "end": 68.0,
+    "speed": "빠름",
+    "summary": "카본 버킷시트, 트랙 모드 제어 다이얼, 스티어링 및 실내 편의사양"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 68.2,
+    "end": 71.5,
+    "speed": "보통",
+    "summary": "슈퍼카 쇼룸 플래티넘 오토 매장 위치 안내"
+   }
+  ],
+  "rules": [
+   "공기 흐름의 방향(보닛 배출, 펜더 덕트, 루프 핀)을 손으로 직접 가리키며 그래픽 효과와 결합해 시각적으로 설명한다.",
+   "핵심 성능 수치(518마력, 9000RPM, 800KG 다운포스)는 큰 볼드 텍스트 그래픽과 사운드 효과로 전달력을 높인다.",
+   "차량의 고회전 배기 사운드 클립(37~39초) 구간에서는 배경 음악을 줄이고 순수 배기음을 온전히 들려준다.",
+   "800kg이라는 다운포스 수치를 '나사르 10명이 차 위에 올라탄 무게'라는 유머러스한 비유로 체감시킨다."
+  ],
+  "option_highlights": [
+   {
+    "start": 7.0,
+    "end": 11.5,
+    "feature": "경량화 스티커 포르쉐 크레스트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "feature": "프론트 펜더 휠 하우스 루버 덕트",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "노란색 다운포스 화살표",
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 18.0,
+    "feature": "PCCB 카본 세라믹 브레이크",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 36.0,
+    "y_pct": 20.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "feature": "루프 카본 에어로 핀",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "빨간색 열기 유도선",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.0,
+    "feature": "DRS 가변 액티브 리어 윙",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "DRS 볼드 텍스트",
+    "x_pct": 38.0,
+    "y_pct": 48.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 54.8,
+    "feature": "언더바디 액티브 에어로 플랩",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.8,
+    "feature": "히든 팝업 컵홀더",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 64.5,
+    "end": 67.5,
+    "feature": "스티어링 휠 주행 모드 및 서스펜션 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 양팔을 교차하며 걸어나오며 포르쉐 911 GT3 RS 바이작 패키지 타이틀과 함께 차량 등장",
+   "type": "희귀차",
+   "text": "أنا ناصر، ودي أهم عربية بتعملها بورش، GT3 RS فايساخ باكدج.",
+   "ko": "저는 나사르입니다. 이건 포르쉐가 만드는 가장 중요한 차, GT3 RS 바이작 패키지입니다."
+  },
+  "narration_points": [
+   {
+    "t": 6.5,
+    "point": "전면 라디에이터 냉각 및 보닛 배출 공기로 다운포스 생성",
+    "category": "디자인"
+   },
+   {
+    "t": 10.5,
+    "point": "20g 경량화를 위해 엠블럼을 금속 대신 스티커로 제작",
+    "category": "성능"
+   },
+   {
+    "t": 13.0,
+    "point": "앞바퀴 펜더 루버 덕트로 휠 하우스 공기압 감소 및 다운포스 확보",
+    "category": "성능"
+   },
+   {
+    "t": 16.5,
+    "point": "경량 센터락 휠과 카본 세라믹 브레이크 적용",
+    "category": "성능"
+   },
+   {
+    "t": 26.5,
+    "point": "루프 카본 핀이 라디에이터의 뜨거운 공기를 측면으로 분산시켜 엔진 흡기 보호",
+    "category": "성능"
+   },
+   {
+    "t": 34.0,
+    "point": "4.0L 자연흡기 수평대향 6기통 518마력 및 9000 RPM 고회전 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 46.5,
+    "point": "F1 기술이 적용된 DRS 액티브 리어 윙",
+    "category": "기능"
+   },
+   {
+    "t": 49.5,
+    "point": "최고 속도에서 성인 10명 무게에 달하는 800kg 다운포스 발생",
+    "category": "성능"
+   },
+   {
+    "t": 53.0,
+    "point": "실내 디스플레이 조작으로 전면 언더바디 플랩 개폐 제어",
+    "category": "기능"
+   },
+   {
+    "t": 56.0,
+    "point": "바이작 패키지 전용 카본 풀 버킷 시트",
+    "category": "편의"
+   },
+   {
+    "t": 65.5,
+    "point": "스티어링 휠 다이얼로 디퍼렌셜, 댐퍼 감쇠력 및 트랙션 미세 조정 가능",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 68.5,
+   "text": "والوحش ده في بلاتينوم أوتو، وصلة دهشور، الشيخ زايد",
+   "ko": "이 괴물은 플래티넘 오토 셰이크 자이드 와슬렛 다흐슈르 지점에서 만나보실 수 있습니다.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "엔진룸",
+    "외관 후면",
+    "센터 화면",
+    "실내 앞",
+    "계기판",
+    "외관 전면"
+   ]
+  }
+ }
+}
