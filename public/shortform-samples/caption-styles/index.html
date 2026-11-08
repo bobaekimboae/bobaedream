@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>숏폼 자막 시안</title>
+<meta name="description" content="오토스카우트24 네덜란드·벨기에·독일 방식 말 자막 시안 3종(같은 밴티지 영상)">
+<style>
+  :root { --bg: #f4f4f4; --card: #fff; --ink: #222; --sub: #595959; --line: #e8e8e8; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 -apple-system, BlinkMacSystemFont, "Pretendard Variable", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+  main { max-width: 1120px; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { margin: 0 0 4px; font-size: 22px; line-height: 30px; }
+  p.lead { margin: 0 0 20px; color: var(--sub); }
+  .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .card { background: var(--card); border-radius: 12px; padding: 12px; }
+  .card video { width: 100%; aspect-ratio: 9 / 16; display: block; background: #000; border-radius: 10px; }
+  h2 { margin: 12px 4px 4px; font-size: 17px; line-height: 24px; }
+  ul { margin: 0; padding: 0 4px 0 20px; color: var(--sub); font-size: 14px; }
+  @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } .card { max-width: 380px; width: 100%; margin: 0 auto; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>숏폼 자막 시안 3종</h1>
+  <p class="lead">같은 애스턴마틴 밴티지 영상 · 같은 목소리 · 같은 컷에 말 자막만 오토스카우트24 나라별 방식으로 바꿨어요. 부위 라벨은 보배드림 파랑.</p>
+  <div class="grid">
+    <div class="card">
+      <video src="vantage-nl.mp4" poster="poster-nl.jpg" controls playsinline preload="metadata"></video>
+      <h2>A · 네덜란드식</h2>
+      <ul><li>굵은 흰 글자 + 검정 외곽선</li><li>말하는 낱말을 따라 노랑 이동</li><li>톡 튀어나옴 · 화면 높이 55%</li></ul>
+    </div>
+    <div class="card">
+      <video src="vantage-be.mp4" poster="poster-be.jpg" controls playsinline preload="metadata"></video>
+      <h2>B · 벨기에식</h2>
+      <ul><li>굵은 흰 글자 + 얇은 외곽선</li><li>강조어 1개만 노랑 형광펜 칠</li><li>바로 나타남 · 화면 높이 68%</li></ul>
+    </div>
+    <div class="card">
+      <video src="vantage-de.mp4" poster="poster-de.jpg" controls playsinline preload="metadata"></video>
+      <h2>C · 독일식</h2>
+      <ul><li>흰 글자 + 부드러운 그림자만</li><li>강조 없음 · 살짝 페이드</li><li>부위 라벨은 납작한 상자 · 화면 높이 61%</li></ul>
+    </div>
+  </div>
+</main>
+</body>
+</html>
