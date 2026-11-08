@@ -1,0 +1,449 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/l9RIzrJPsWU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3361,
+  "candidatesTokenCount": 3423,
+  "totalTokenCount": 6784,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2101
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.4,
+   "aspect": "9:16",
+   "car": "BMW 3시리즈 (F30 320d)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.3,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.4,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "F30 320d",
+    "ko": "F30 320d",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "국산 소형차 가격에 BMW 3시리즈를 탈 수 있다면",
+    "ko": "국산 소형차 가격에 BMW 3시리즈를 탈 수 있다면",
+    "kind": "말 자막",
+    "y_pct": 21.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#942023",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "text": "어떨까요?",
+    "ko": "어떨까요?",
+    "kind": "말 자막",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.3,
+    "text": "주행거리 단 3만km대",
+    "ko": "주행거리 단 3만km대",
+    "kind": "말 자막",
+    "y_pct": 37.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "text": "완전 신차급 컨디션",
+    "ko": "완전 신차급 컨디션",
+    "kind": "말 자막",
+    "y_pct": 37.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.8,
+    "text": "정확한 핸들링과\n탄탄한 주행감",
+    "ko": "정확한 핸들링과\n탄탄한 주행감",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.7,
+    "text": "BMW만의 드라이빙 감성이\n그대로 살아있습니다",
+    "ko": "BMW만의 드라이빙 감성이\n그대로 살아있습니다",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.5,
+    "text": "지금이 가장 좋은 기회",
+    "ko": "지금이 가장 좋은 기회",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "R&B Pop / Chill Lofi Pop",
+   "bpm_est": 95,
+   "mood": "감성적이고 세련된",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 21.6,
+    "end": 23.4,
+    "what": "하이드엔드 모터스 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 27.5,
+    "y_pct": 45.0,
+    "entrance": "바로",
+    "purpose": "채널/상사 브랜딩 엔딩 카드",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "국산 소형차 가격에 BMW 3시리즈를 탈 수 있다면",
+    "ko": "국산 소형차 가격에 BMW 3시리즈를 탈 수 있다면"
+   },
+   {
+    "start": 3.7,
+    "end": 4.9,
+    "text": "어떨까요?",
+    "ko": "어떨까요?"
+   },
+   {
+    "start": 4.9,
+    "end": 7.3,
+    "text": "주행거리 단 3만km대",
+    "ko": "주행거리 단 3만km대"
+   },
+   {
+    "start": 7.3,
+    "end": 9.9,
+    "text": "완전 신차급 컨디션",
+    "ko": "완전 신차급 컨디션"
+   },
+   {
+    "start": 9.9,
+    "end": 12.8,
+    "text": "정확한 핸들링과 탄탄한 주행감",
+    "ko": "정확한 핸들링과 탄탄한 주행감"
+   },
+   {
+    "start": 12.8,
+    "end": 16.7,
+    "text": "BMW만의 드라이빙 감성이 그대로 살아있습니다",
+    "ko": "BMW만의 드라이빙 감성이 그대로 살아있습니다"
+   },
+   {
+    "start": 16.7,
+    "end": 19.5,
+    "text": "지금이 가장 좋은 기회",
+    "ko": "지금이 가장 좋은 기회"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "보통",
+    "summary": "국산 소형차 가격으로 구매 가능한 BMW 320d 매물 소개 시작"
+   },
+   {
+    "stage": "사양",
+    "start": 4.9,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "주행거리 3만km대 및 신차급 컨디션 외관/계기판 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 9.9,
+    "end": 16.7,
+    "speed": "보통",
+    "summary": "실내 인테리어 및 주행 성능 감성 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 16.7,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "차량 후면 주행 영상 및 지금이 기회임을 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 21.6,
+    "end": 23.4,
+    "speed": "보통",
+    "summary": "하이드엔드 모터스 엔딩 로고 화면"
+   }
+  ],
+  "rules": [
+   "도입부에 빨간 띠 상단 제목과 타이핑 텍스트로 가격 경쟁력 훅 제시",
+   "본문 자막은 흰색 두꺼운 외곽선에 검은 글씨를 중앙에 배치",
+   "AI 차분한 여성 내레이션에 맞춰 핵심 장점(주행거리, 컨디션, 주행감) 순차 나열",
+   "마지막 컷에 상사 로고 엔딩 카드를 넣어 브랜딩 마무리"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.9,
+    "end": 7.3,
+    "feature": "36,870km 실주행거리 계기판",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "F30 320d 차량 전면 모습과 함께 '국산 소형차 가격에 BMW 3시리즈를 탈 수 있다면' 텍스트 타이핑 등장",
+   "type": "가격",
+   "text": "국산 소형차 가격에 BMW 3시리즈를 탈 수 있다면 어떨까요?"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "국산 소형차 가격으로 구매 가능한 가성비 매물",
+    "category": "가격·조건"
+   },
+   {
+    "t": 4.9,
+    "point": "주행거리 단 3만km대",
+    "category": "상태·이력"
+   },
+   {
+    "t": 7.3,
+    "point": "완전 신차급 컨디션 유지",
+    "category": "상태·이력"
+   },
+   {
+    "t": 9.9,
+    "point": "정확한 핸들링과 탄탄한 주행감",
+    "category": "성능"
+   },
+   {
+    "t": 12.8,
+    "point": "BMW 특유의 드라이빙 감성 유지",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "명함 화면",
+   "items": [
+    "상사명"
+   ],
+   "t": 21.6
+  },
+  "cta": {
+   "t": 16.7,
+   "text": "지금이 가장 좋은 기회",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "계기판",
+    "휠",
+    "실내 앞",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 버건디 띠 타이틀바와 하단 HIGHEND MOTORS 번호판 및 로고 엔딩 일관되게 사용"
+  }
+ }
+}

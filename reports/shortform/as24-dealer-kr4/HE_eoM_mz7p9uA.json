@@ -1,0 +1,450 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/eoM_mz7p9uA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3186,
+  "candidatesTokenCount": 4188,
+  "totalTokenCount": 8079,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1926
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 705,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 21.7,
+   "aspect": "9:16",
+   "car": "테슬라 모델 X",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 15.6,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 21.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 21.7,
+    "text": "국내최초\nFSD 혹사시키기",
+    "ko": "국내최초 FSD 혹사시키기",
+    "kind": "제목",
+    "y_pct": 10.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "지금 이제부터가 이제 어쩔거야",
+    "ko": "지금 이제부터가 이제 어쩔 거야",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.6,
+    "text": "이거는 사람도 헷갈린다",
+    "ko": "이거는 사람도 헷갈린다",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FF4081",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.1,
+    "text": "어 지금 이 상황 판단",
+    "ko": "어 지금 이 상황 판단",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.4,
+    "text": "어떻게 할거야 이제",
+    "ko": "어떻게 할 거야 이제",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "text": "어 차선 변경하려고?",
+    "ko": "어 차선 변경하려고?",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.4,
+    "text": "지금",
+    "ko": "지금",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.2,
+    "text": "지금?",
+    "ko": "지금?",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.5,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "지금 차선 변경하게 차",
+    "ko": "지금 차선 변경하게 차",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "text": "아니야 아니야 아니야",
+    "ko": "아니야 아니야 아니야",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FF4081",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 18.7,
+    "text": "오호호호호호호 ㅎ",
+    "ko": "오호호호호호호 ㅎ",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.7,
+    "text": "와하하",
+    "ko": "와하하",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 7.4,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "방향지시등 깜빡이 작동음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "없음",
+   "bpm_est": null,
+   "mood": null,
+   "ducks_under_voice": null,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 21.7,
+    "what": "하단 브랜드 로고 HIGHEND MOTORS",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "지금 이제부터가 이제 어쩔거야",
+    "ko": "지금 이제부터가 이제 어쩔 거야"
+   },
+   {
+    "start": 2.1,
+    "end": 4.6,
+    "text": "이거는 사람도 헷갈린다",
+    "ko": "이거는 사람도 헷갈린다"
+   },
+   {
+    "start": 4.8,
+    "end": 6.1,
+    "text": "어 지금 이 상황 판단",
+    "ko": "어 지금 이 상황 판단"
+   },
+   {
+    "start": 6.1,
+    "end": 7.4,
+    "text": "어떻게 할거야 이제",
+    "ko": "어떻게 할 거야 이제"
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "text": "어 차선 변경하려고? 지금?",
+    "ko": "어 차선 변경하려고? 지금?"
+   },
+   {
+    "start": 10.0,
+    "end": 13.0,
+    "text": "지금? 지금 차선 변경하게 차 오는데",
+    "ko": "지금? 지금 차선 변경하게 차 오는데"
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "text": "아니야 아니야 아니야 이러지 마",
+    "ko": "아니야 아니야 아니야 이러지 마"
+   },
+   {
+    "start": 16.0,
+    "end": 21.7,
+    "text": "오호호호호호호 와하하 와우",
+    "ko": "오호호호호호호 와하하 와우"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "보통",
+    "summary": "복잡한 골목길에서 테슬라 FSD가 어떻게 반응할지 긴장감 유발"
+   },
+   {
+    "stage": "기능",
+    "start": 4.6,
+    "end": 15.6,
+    "speed": "빠름",
+    "summary": "마주 오는 차량 앞에서 요크 스티어링 휠이 스스로 회전하며 회피 기동"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 15.6,
+    "end": 21.7,
+    "speed": "보통",
+    "summary": "성공적인 자율주행 통과 후 탑승자들의 감탄 리액션"
+   }
+  ],
+  "rules": [
+   "상단에 '국내최초 FSD 혹사시키기' 고정 헤더를 배치해 주제를 직관적으로 전달",
+   "화자별 대화를 노란색과 분홍색 텍스트로 구분하여 가독성 강화",
+   "핵심 긴박한 순간에 '지금?' 큰 폰트 스티커 자막을 띄워 시선 집중",
+   "클라이맥스 자율주행 조향 순간에 스티어링 휠 쪽으로 줌인 컷 전환하여 몰입도 극대화",
+   "하단에 브랜드 로고(HIGHEND MOTORS)를 지속적으로 노출"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 21.7,
+    "feature": "테슬라 FSD(Full Self-Driving)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "'국내최초 FSD 혹사시키기' 헤더와 함께 좁은 골목길 난코스에서 자율주행 판단을 지켜보는 상황 제시",
+   "type": "감탄·리액션",
+   "text": "이거는 사람도 헷갈린다"
+  },
+  "narration_points": [
+   {
+    "t": 2.1,
+    "point": "사람도 헷갈릴 만큼 좁고 복잡한 골목길 주행 상황",
+    "category": "성능"
+   },
+   {
+    "t": 11.2,
+    "point": "맞은편에 승합차가 다가오는 상황에서 자율 차선 변경 및 회피 시도",
+    "category": "안전"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "기타",
+   "part_order": [
+    "실내 앞",
+    "옵션 작동",
+    "실내 앞"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 블랙바 헤더 타이틀과 하단 로고(HIGHEND MOTORS)가 고정 배치된 일관된 레이아웃"
+  }
+ }
+}

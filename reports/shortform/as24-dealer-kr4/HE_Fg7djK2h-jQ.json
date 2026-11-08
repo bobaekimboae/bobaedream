@@ -1,0 +1,569 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/Fg7djK2h-jQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4818,
+  "candidatesTokenCount": 5530,
+  "totalTokenCount": 10850,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3558
+   }
+  ],
+  "thoughtsTokenCount": 502,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 39.8,
+   "aspect": "9:16",
+   "car": "렉서스 UX300h",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 21.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 32.8,
+    "part": "센터 화면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 37.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.0,
+    "text": "오늘은 렉서스의",
+    "ko": "오늘은 렉서스의",
+    "kind": "말 자막",
+    "y_pct": 33.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "렉서스",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.6,
+    "text": "5세대 하이브리드\n시스템이 탑재된",
+    "ko": "5세대 하이브리드 시스템이 탑재된",
+    "kind": "말 자막",
+    "y_pct": 34.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 62.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5세대",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "UX300H",
+    "ko": "UX300H",
+    "kind": "키워드 스티커",
+    "y_pct": 44.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.8,
+    "text": "가지고 나왔습니다!",
+    "ko": "가지고 나왔습니다!",
+    "kind": "말 자막",
+    "y_pct": 49.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 11.5,
+    "text": "고속주행이 16km/L가\n나오는데",
+    "ko": "고속주행이 16km/L가 나오는데",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "16km/L",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "시내주행이\n19km/L가\n나온다고 합니다",
+    "ko": "시내주행이 19km/L가 나온다고 합니다",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19km/L",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "이게 수치대로\n나오는지",
+    "ko": "이게 수치대로 나오는지",
+    "kind": "말 자막",
+    "y_pct": 41.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "수치대로",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 19.8,
+    "text": "테스트 주행을\n해보겠습니다!",
+    "ko": "테스트 주행을 해보겠습니다!",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 58.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "테스트 주행",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.5,
+    "text": "한번 가보시죠~!",
+    "ko": "한번 가보시죠~!",
+    "kind": "말 자막",
+    "y_pct": 44.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.0,
+    "text": "연비 설정 리셋중...",
+    "ko": "연비 설정 리셋중...",
+    "kind": "상황 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 25.5,
+    "text": "Test..",
+    "ko": "Test..",
+    "kind": "상황 자막",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "실제로는 20km/L\n정도 나왔습니다",
+    "ko": "실제로는 20km/L 정도 나왔습니다",
+    "kind": "상황 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20km/L",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.8,
+    "text": "연비 잘 나오네요!",
+    "ko": "연비 잘 나오네요!",
+    "kind": "상황 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "휙",
+    "event": "차량 이미지 전환 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "쿵",
+    "event": "차량 모델명 자막 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "띵",
+    "event": "이상치 연비 및 물음표 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.8,
+    "end": 7.0,
+    "what": "렉서스 UX300h 차량 사진 오버레이",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "차량 실물 이미지 소개",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "what": "화면 연비 수치 강조 빨간 원",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 27.0,
+    "y_pct": 18.0,
+    "entrance": "바로",
+    "purpose": "비정상적으로 높게 나온 순간 연비 표시",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 32.8,
+    "what": "물음표 느낌표 스티커 (!?)",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 62.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "황당한 수치에 대한 리액션 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "자 오늘은 렉서스의 5세대 하이브리드 시스템이 탑재된",
+    "ko": "자 오늘은 렉서스의 5세대 하이브리드 시스템이 탑재된"
+   },
+   {
+    "start": 4.8,
+    "end": 8.8,
+    "text": "UX 300h 모델을 가지고 나왔습니다.",
+    "ko": "UX 300h 모델을 가지고 나왔습니다."
+   },
+   {
+    "start": 9.0,
+    "end": 14.8,
+    "text": "요게 고속주행이 16km 때가 나오는데, 시내주행이 19km가 나온다고 하네요.",
+    "ko": "요게 고속주행이 16km 때가 나오는데, 시내주행이 19km가 나온다고 하네요."
+   },
+   {
+    "start": 15.0,
+    "end": 21.0,
+    "text": "이게 우리가 이제 그 수치대로 나오는지 테스트 주행을 해볼 예정입니다. 한번 가보시죠.",
+    "ko": "이게 우리가 이제 그 수치대로 나오는지 테스트 주행을 해볼 예정입니다. 한번 가보시죠."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.8,
+    "speed": "보통",
+    "summary": "렉서스 5세대 하이브리드 UX 300h 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 8.8,
+    "end": 21.5,
+    "speed": "보통",
+    "summary": "공인 시내/고속 연비 설명 및 실연비 테스트 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 21.5,
+    "end": 37.8,
+    "speed": "빠름",
+    "summary": "연비 리셋 후 도심 주행 및 실측 연비 확인(20.3km/L 달성)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 37.8,
+    "end": 39.8,
+    "speed": "보통",
+    "summary": "하이엔드 모터스 브랜드 로고 아웃트로"
+   }
+  ],
+  "rules": [
+   "상단 틸트된 블랙/화이트 아웃라인 볼드 자막으로 멘트 동기화",
+   "핵심 키워드 자막 등장 시 톡 효과음 삽입",
+   "화면 중심부에 집중되도록 강조 그래픽(빨간 원, 스티커) 활용",
+   "실제 운전석 1인칭 및 디스플레이 실측 화면을 빠른 템포로 교차 편집"
+  ],
+  "option_highlights": [
+   {
+    "start": 21.5,
+    "end": 32.8,
+    "feature": "중앙 인포테인먼트 운행 정보 및 연비 모니터링",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 37.8,
+    "feature": "디지털 계기판 주행 연비 표시",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "운전석에 앉은 화자가 렉서스 5세대 하이브리드 차량을 소개하며 시작",
+   "type": "행동",
+   "text": "오늘은 렉서스의 5세대 하이브리드 시스템이 탑재된"
+  },
+  "narration_points": [
+   {
+    "t": 2.5,
+    "point": "렉서스 5세대 하이브리드 시스템 탑재 UX 300h",
+    "category": "성능"
+   },
+   {
+    "t": 10.0,
+    "point": "고속주행 공인연비 약 16km/L",
+    "category": "성능"
+   },
+   {
+    "t": 13.0,
+    "point": "시내주행 공인연비 19km/L",
+    "category": "성능"
+   },
+   {
+    "t": 33.5,
+    "point": "실제 시내 주행 실측 연비 약 20km/L 기록",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 38.0
+  },
+  "cta": {
+   "t": 38.0,
+   "text": "HIGHEND MOTORS",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "딜러",
+   "part_order": [
+    "사람",
+    "센터 화면",
+    "계기판",
+    "실내 앞",
+    "센터 화면",
+    "계기판"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "블랙/화이트 테두리 볼드 자막과 마지막 하이엔드 모터스 로고 통일"
+  }
+ }
+}

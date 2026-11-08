@@ -1,0 +1,226 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/kpJdQ3Iv2mo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2621,
+  "candidatesTokenCount": 1878,
+  "totalTokenCount": 4499,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1361
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.8,
+   "aspect": "9:16",
+   "car": "현대 디 올 뉴 그랜저 하이브리드",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 7.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 12.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "GRANDEUR\n4천만원대로 구매가능한 풀옵션 하이브리드",
+    "ko": "그랜저 4천만원대로 구매가능한 풀옵션 하이브리드",
+    "kind": "제목",
+    "y_pct": 30.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "R&B/Pop",
+   "bpm_est": 105,
+   "mood": "트렌디하고 감각적인",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "what": "HIGHEND MOTORS 엔딩 로고 화면",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.4,
+    "speed": "보통",
+    "summary": "선루프와 실내 전경 및 4천만원대 풀옵션 하이브리드 텍스트 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.4,
+    "end": 9.7,
+    "speed": "보통",
+    "summary": "화이트 시트 및 캘리그래피 실내 디테일"
+   },
+   {
+    "stage": "기능",
+    "start": 9.7,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "외관 후면 디자인 및 번호판 가드 브랜딩"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.8,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "하이엔드 모터스 로고 클로징"
+   }
+  ],
+  "rules": [
+   "음악 비트에 맞춰 실내외 감성적인 컷 전환",
+   "음성 내레이션 없이 음악과 영상미로 차량 상태 전달",
+   "상단에 깔끔한 세리프/산세리프 혼합 타이틀로 핵심 가격과 트림 제시",
+   "마지막 컷에 깔끔한 화이트 배경의 딜러사 로고 엔딩 배치"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.7,
+    "feature": "캘리그래피 트림 레터링 & 보스 사운드",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "파노라마 선루프가 열린 화이트 실내와 '4천만원대로 구매가능한 풀옵션 하이브리드' 텍스트",
+   "type": "가격",
+   "text": "GRANDEUR 4천만원대로 구매가능한 풀옵션 하이브리드"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "4천만원대로 구매가능한 그랜저 풀옵션 하이브리드",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 13.0
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "실내 앞",
+    "실내 앞",
+    "실내 앞",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 번호판 플레이트와 엔딩 로고 화면에 HIGHEND MOTORS 브랜딩 적용"
+  }
+ }
+}

@@ -1,0 +1,414 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/n2GA19YtGzA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2902,
+  "candidatesTokenCount": 3892,
+  "totalTokenCount": 7917,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1642
+   }
+  ],
+  "thoughtsTokenCount": 1123,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.5,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 GLB (GLB 250)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 8.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 13.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 16.7,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 13.5,
+    "text": "스포티지보다 더 크다!\nGLC 팀킬하는 GLB",
+    "ko": "스포티지보다 더 크다! GLC 팀킬하는 GLB",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "이 차의 체급 대비 실내 공간이나",
+    "ko": "이 차의 체급 대비 실내 공간이나",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "체급 대비 정말 잘빠진 실내!\n이런 것들이 상당히 너무",
+    "ko": "체급 대비 정말 잘빠진 실내! 이런 것들이 상당히 너무",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.5,
+    "text": "우수하게 잘 뽑혀서 패밀리 카로도 손색이 없을 것 같아요",
+    "ko": "우수하게 잘 뽑혀서 패밀리 카로도 손색이 없을 것 같아요",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 8.8,
+    "text": "패밀리 카로도\n손색없는\nGLB 250",
+    "ko": "패밀리 카로도 손색없는 GLB 250",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 14.0,
+    "color": "#111111",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.2,
+    "text": "비교를 하자면 굳이 GLC랑 비교를 해도",
+    "ko": "비교를 하자면 굳이 GLC랑 비교를 해도",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "text": "GLC 뺨을 그냥 막",
+    "ko": "GLC 뺨을 그냥 막",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "text": "GLC 딱 대",
+    "ko": "GLC 딱 대",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 16.7,
+    "text": "그라믄 안돼",
+    "ko": "그라믄 안돼",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 13.8,
+    "type": "쿵",
+    "event": "영화 장면 뺨 때리는 타격음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 13.5,
+    "what": "상단 벤츠 GLC 차량 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 11.0,
+    "entrance": "바로",
+    "purpose": "비교 대상 차량(GLC) 시각화",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 16.7,
+    "what": "중앙 벤츠 GLC 차량 누끼 이미지와 밈 자막",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 46.0,
+    "entrance": "바로",
+    "purpose": "밈 연출을 통한 유머러스한 마무리",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.5,
+    "what": "HIGHEND MOTORS 엔딩 로고",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "채널 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "text": "이 차의 체급 대비 실내 공간이나 이런 것들이 상당히 너무 우수하게 잘 뽑혀서 패밀리 카로도 손색이 없을 것 같아요.",
+    "ko": "이 차의 체급 대비 실내 공간이나 이런 것들이 상당히 너무 우수하게 잘 뽑혀서 패밀리 카로도 손색이 없을 것 같아요."
+   },
+   {
+    "start": 8.8,
+    "end": 13.5,
+    "text": "비교를 하자면 굳이 GLC랑 비교를 해도 GLC 뺨을 그냥 막 후려 갈길...",
+    "ko": "비교를 하자면 굳이 GLC랑 비교를 해도 GLC 뺨을 그냥 막 후려 갈길..."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "GLC를 팀킬하는 체급 대비 넓은 GLB 실내 공간 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 8.8,
+    "speed": "보통",
+    "summary": "패밀리카로 손색없는 공간성과 공식 주행 B-roll 전환"
+   },
+   {
+    "stage": "사양",
+    "start": 8.8,
+    "end": 13.5,
+    "speed": "빠름",
+    "summary": "상위 등급인 GLC와 비교해도 압도적이라는 점 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 13.5,
+    "end": 18.5,
+    "speed": "빠름",
+    "summary": "영화 뺨 때리는 밈 클립 삽입 및 엔딩 로고"
+   }
+  ],
+  "rules": [
+   "상단에 상시 고정되는 노란색 볼드 제목 자막으로 영상 주제를 명확히 제시",
+   "리뷰어가 직접 뒷좌석에 앉아 레그룸과 공간감을 몸소 보여주는 촬영 구도 활용",
+   "설명 중 분위기 전환을 위해 완성도 높은 브랜드 공식 광고 컷(B-roll)을 짧게 교차 편집",
+   "과장된 표현에 어울리는 한국 영화/예능 밈 클립과 효과음을 인서트하여 재미 요소 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "feature": "뒷좌석 레그룸 및 파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "스포티지보다 크고 상위 차급인 GLC를 팀킬한다는 파격적인 카피와 함께 뒷좌석 공간을 칭찬하는 리뷰어",
+   "type": "숫자·성능",
+   "text": "스포티지보다 더 크다! GLC 팀킬하는 GLB"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "체급 대비 실내 공간이 우수하여 패밀리카로 손색이 없음",
+    "category": "공간"
+   },
+   {
+    "t": 9.5,
+    "point": "상위 모델인 GLC와 견주어도 공간감 면에서 전혀 밀리지 않음",
+    "category": "공간"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 17.5
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "뒷좌석",
+    "외관 전면",
+    "뒷좌석"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 일관된 헤드라인 자막 폰트와 엔딩 로고(HIGHEND MOTORS) 활용"
+  }
+ }
+}

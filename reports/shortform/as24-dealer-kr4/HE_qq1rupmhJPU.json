@@ -1,0 +1,458 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/qq1rupmhJPU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3548,
+  "candidatesTokenCount": 4163,
+  "totalTokenCount": 7711,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2288
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24.2,
+   "aspect": "9:16",
+   "car": "현대 투싼 하이브리드",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 17.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 23.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 24.2,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "투싼 하이브리드 모델입니다",
+    "ko": "투싼 하이브리드 모델입니다",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "시내 주행이 16.9정도",
+    "ko": "시내 주행이 16.9정도",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.3,
+    "text": "거의 17에 가깝게 나오는데",
+    "ko": "거의 17에 가깝게 나오는데",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.7,
+    "text": "실제로 시내연비가 얼마나 나오는지",
+    "ko": "실제로 시내연비가 얼마나 나오는지",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.6,
+    "text": "테스트해 보도록 하겠습니다",
+    "ko": "테스트해 보도록 하겠습니다",
+    "kind": "말 자막",
+    "y_pct": 51.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "-연비 리셋 중-",
+    "ko": "-연비 리셋 중-",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.1,
+    "end": 22.3,
+    "text": "실제로는 연비 20.5로 측정되었습니다",
+    "ko": "실제로는 연비 20.5로 측정되었습니다",
+    "kind": "말 자막",
+    "y_pct": 51.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 23.6,
+    "text": "연비 엄청 잘 나오네요!",
+    "ko": "연비 엄청 잘 나오네요!",
+    "kind": "말 자막",
+    "y_pct": 51.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.3,
+    "type": "톡",
+    "event": "투싼 사진 인서트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.7,
+    "type": "딸깍",
+    "event": "터치스크린 버튼 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "띵",
+    "event": "물음표 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝",
+   "bpm_est": 110,
+   "mood": "경쾌하고 리드미컬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.2,
+    "end": 1.7,
+    "what": "투싼 하이브리드 전면 이미지",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 72.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 시각 안내",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.9,
+    "what": "계기판 거리/연비 강조 빨간 원",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 28.0,
+    "y_pct": 39.0,
+    "entrance": "바로",
+    "purpose": "순간 999km/L 강조",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.9,
+    "what": "빨간색 3D 물음표 기호",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 69.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "의문/재미 유발",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "투싼 하이브리드 모델입니다.",
+    "ko": "투싼 하이브리드 모델입니다."
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "이제 시내 주행이 16.9 정도",
+    "ko": "이제 시내 주행이 16.9 정도"
+   },
+   {
+    "start": 4.6,
+    "end": 6.3,
+    "text": "거의 17에 가깝게 나오는데",
+    "ko": "거의 17에 가깝게 나오는데"
+   },
+   {
+    "start": 6.4,
+    "end": 8.7,
+    "text": "실제로 시내 연비가 얼마나 나오는지",
+    "ko": "실제로 시내 연비가 얼마나 나오는지"
+   },
+   {
+    "start": 8.8,
+    "end": 10.6,
+    "text": "한 번 테스트해보도록 하겠습니다.",
+    "ko": "한 번 테스트해보도록 하겠습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.6,
+    "speed": "보통",
+    "summary": "투싼 하이브리드 공인연비 소개 및 실제 시내연비 측정 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 10.6,
+    "end": 19.9,
+    "speed": "빠름",
+    "summary": "연비 리셋 및 주행 시작, 초기 999km/L 해프닝"
+   },
+   {
+    "stage": "사양",
+    "start": 19.9,
+    "end": 23.6,
+    "speed": "보통",
+    "summary": "실제 주행 결과 20.5km/L 측정 확인 및 감탄"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 23.6,
+    "end": 24.2,
+    "speed": "빠름",
+    "summary": "하이엔드 모터스 로고 아웃트로"
+   }
+  ],
+  "rules": [
+   "진행자의 설명과 테스트 목표를 명확히 제시한 후 주행 화면으로 전개",
+   "화면 중앙에 검은 외곽선의 굵은 고딕 자막을 일관되게 사용",
+   "연비 수치 강조를 위해 빨간 동그라미 및 물음표 그래픽 스티커 활용",
+   "엔딩에 채널 로고 아웃트로 배치"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.8,
+    "end": 13.5,
+    "feature": "하이브리드 연비 리셋 및 에너지 흐름도",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 23.6,
+    "feature": "디지털 계기판 연비 표시",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "빨간 타원 및 물음표",
+    "x_pct": 28.0,
+    "y_pct": 39.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "운전석에 앉은 딜러가 투싼 하이브리드 공인연비를 언급하며 실제 연비를 검증하겠다고 말함",
+   "type": "질문",
+   "text": "투싼 하이브리드 모델입니다 이제 시내 주행이 16.9 정도..."
+  },
+  "narration_points": [
+   {
+    "t": 2.2,
+    "point": "투싼 하이브리드 공인 시내연비 약 16.9km/L",
+    "category": "성능"
+   },
+   {
+    "t": 20.5,
+    "point": "실제 주행 측정 연비 20.5km/L 달성",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 23.8
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "딜러",
+   "part_order": [
+    "실내 앞",
+    "센터 화면",
+    "실내 앞",
+    "계기판"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하얀 바탕의 HIGHEND MOTORS 로고 엔딩 카드를 사용함"
+  }
+ }
+}
