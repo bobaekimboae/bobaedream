@@ -1,0 +1,1216 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/F3yX_Ik7vW0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5452,
+  "candidatesTokenCount": 9760,
+  "totalTokenCount": 15212,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4289
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.7,
+   "aspect": "9:16",
+   "car": "Changan Eado",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.7,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.3,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 47.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.6,
+    "end": 4.8,
+    "text": "EADO",
+    "ko": "이도",
+    "kind": "제목",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "text": "TIRE PRESSURE MONITOR",
+    "ko": "타이어 공기압 모니터링",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 26.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.5,
+    "text": "500 LITER",
+    "ko": "500 리터",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0088FF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.5,
+    "text": "CAMERA خلفية",
+    "ko": "후방 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "CRUISE CONTROL",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.6,
+    "text": "DOUBLE SCREEN",
+    "ko": "더블 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.8,
+    "text": "ELECTRIC",
+    "ko": "전동 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 4.5,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.5,
+    "text": "مساحتها كويسة",
+    "ko": "공간이 좋습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 4.0,
+    "color": "#00C853",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.0,
+    "text": "مخرج للتكييف",
+    "ko": "에어컨 송풍구",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 4.0,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.2,
+    "end": 29.8,
+    "text": "OPTION مهم في الفئة دي",
+    "ko": "이 세그먼트에서 중요한 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 3.8,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.0,
+    "text": "وبالنسبة للأمان",
+    "ko": "안전 사양에 관해서는",
+    "kind": "제목",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.0,
+    "text": "4 AIRBAGS",
+    "ko": "에어백 4개",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.3,
+    "text": "ABS EBD ESP",
+    "ko": "ABS EBD ESP",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 5.5,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 38.0,
+    "text": "109 HP 152 NM 1500 CC",
+    "ko": "109마력 152토크 1500cc",
+    "kind": "사양",
+    "y_pct": 38.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 20.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0088FF",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.2,
+    "end": 38.5,
+    "text": "الإعتمادية",
+    "ko": "내구성/신뢰성",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0088FF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.0,
+    "text": "DCT",
+    "ko": "DCT",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.0,
+    "text": "7 SPEED",
+    "ko": "7단",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 42.0,
+    "text": "WET الاعتمادية",
+    "ko": "습식 신뢰성",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 47.0,
+    "text": "الضمان خمس سنين 150.000 km",
+    "ko": "보증 5년 또는 15만 km",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0088FF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.3,
+    "type": "쿵",
+    "event": "리뷰어 모션 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.6,
+    "type": "휙",
+    "event": "EADO 로고 전환 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "톡",
+    "event": "TPMS 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "톡",
+    "event": "사이드미러 열선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "휙",
+    "event": "트렁크 씬 전환 및 500L 배지 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 14.0,
+    "type": "톡",
+    "event": "후방 카메라 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "크루즈 컨트롤 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "휙",
+    "event": "더블 스크린 텍스트 및 앱 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "톡",
+    "event": "전동시트 번개 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "톡",
+    "event": "헤드룸 체크 눈금 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.8,
+    "type": "톡",
+    "event": "에어컨 눈송이 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.2,
+    "type": "띵",
+    "event": "옵션 알림 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "쿵",
+    "event": "안전 방패 홀로그램 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "4 에어백 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "톡",
+    "event": "ABS EBD ESP 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.8,
+    "type": "휙",
+    "event": "엔진 스펙 블루 보드 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "톡",
+    "event": "DCT 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "톡",
+    "event": "7 SPEED 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "톡",
+    "event": "WET 습식 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "톡",
+    "event": "5년 15만km 보증 엠블럼 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 118,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.6,
+    "end": 4.8,
+    "what": "창안 로고 및 EADO 텍스트",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "확대 회전",
+    "purpose": "차명 소개",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "what": "TPMS 경고등 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 68.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.0,
+    "what": "열선 불꽃 아이콘",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 25.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.5,
+    "what": "500리터 트렁크 용량 카드",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "적재 공간 안내",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.5,
+    "what": "후방 카메라 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 70.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "what": "속도계 크루즈 컨트롤 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 30.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.6,
+    "what": "애플 카플레이 및 안드로이드 오토 아이콘",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 35.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.8,
+    "what": "전동시트 번개 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 47.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.5,
+    "what": "헤드룸 체크 눈금 바",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 43.0,
+    "y_pct": 48.0,
+    "entrance": "밀려옴",
+    "purpose": "공간감 시각화",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.0,
+    "what": "에어컨 눈송이 아이콘",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 46.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 33.3,
+    "what": "안전 방패 홀로그램 그리드",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 48.0,
+    "y_pct": 40.0,
+    "entrance": "페이드",
+    "purpose": "안전 사양 소개",
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 38.0,
+    "what": "엔진 제원 블루 사이니지 보드",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 성능 안내",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 47.0,
+    "what": "보증 보증서 3D 배지",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 68.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "보증 혜택 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "أنا ناصر ولو ميزانيتك في حتة ال900,000 اتفرج",
+    "ko": "저는 나사르입니다. 예산이 90만 파운드대라면 주목하세요."
+   },
+   {
+    "start": 2.6,
+    "end": 4.8,
+    "text": "شانجان إيدو",
+    "ko": "창안 이도입니다."
+   },
+   {
+    "start": 4.9,
+    "end": 6.8,
+    "text": "عندك مراقب ضغط الكاوتشات وجنط سبور",
+    "ko": "타이어 공기압 감지 시스템과 스포츠 휠이 들어가 있고,"
+   },
+   {
+    "start": 6.9,
+    "end": 9.1,
+    "text": "المراية كهربا وتسخين عشان الشبورة وكيلس إنتري",
+    "ko": "안개를 대비한 전동 열선 사이드미러와 키리스 엔트리,"
+   },
+   {
+    "start": 9.2,
+    "end": 11.7,
+    "text": "وشنطة 500 لتر عشان الشنط والسفريات",
+    "ko": "여행 짐을 싣기 충분한 500리터 트렁크 공간도 있습니다."
+   },
+   {
+    "start": 11.8,
+    "end": 15.5,
+    "text": "أنوار العربية كلها ليد وعندك سنسورز وكاميرا خلفية بس مافيش من قدام",
+    "ko": "전체 LED 램프에 센서와 후방 카메라가 있지만 전방 카메라는 없습니다."
+   },
+   {
+    "start": 15.6,
+    "end": 19.5,
+    "text": "عندك دركسيون جلد، كروز كنترول، تحكم في الميديا وستارت إنجن",
+    "ko": "가죽 스티어링 휠, 크루즈 컨트롤, 미디어 조작 버튼, 엔진 스타트 버튼이 있고요."
+   },
+   {
+    "start": 19.6,
+    "end": 23.2,
+    "text": "وعندك شاشتين متصلين فيهم آبل كاربلاي وأندرويد أوتو وفتحة سقف عشان تدخلك نور",
+    "ko": "애플 카플레이와 안드로이드 오토를 지원하는 듀얼 스크린과 채광용 선루프,"
+   },
+   {
+    "start": 23.3,
+    "end": 26.5,
+    "text": "وكرسي السواق بس اللي كهربا والكنبة مساحتها كويسة إلى حد كبير",
+    "ko": "운전석만 전동 시트가 적용되었고, 2열 뒷좌석 공간은 꽤 넉넉합니다."
+   },
+   {
+    "start": 26.6,
+    "end": 29.8,
+    "text": "وعندك مخرج للتكييف وده أوبشن مهم في الفئة دي من العربيات",
+    "ko": "뒷좌석 송풍구도 있는데, 이 급의 차급에서는 정말 중요한 옵션이죠."
+   },
+   {
+    "start": 29.9,
+    "end": 33.3,
+    "text": "وبالنسبة للأمان عندك 4 إيرباج، ABS، EBD وESP",
+    "ko": "안전 사양으로는 4개의 에어백, ABS, EBD, ESP가 들어갑니다."
+   },
+   {
+    "start": 33.4,
+    "end": 38.5,
+    "text": "وبتخرج 109 حصان و152 نيوتن من موتور 1500 تنفس طبيعي عشان الاعتمادية",
+    "ko": "내구성을 위해 1500cc 자연흡기 엔진으로 109마력, 152Nm 토크를 발휘하며,"
+   },
+   {
+    "start": 38.6,
+    "end": 42.0,
+    "text": "متوصل بفتيس DCT سبع سرعات WET عشان الاعتمادية برضه",
+    "ko": "신뢰성을 위해 7단 습식 DCT 변속기와 맞물려 있습니다."
+   },
+   {
+    "start": 42.1,
+    "end": 46.5,
+    "text": "والضمان خمس سنين أو 150,000 كيلو عشان الاعتمادية، بهزر معاك عشان تطمن بس",
+    "ko": "보증은 5년 또는 15만 km라 안심하실 수 있습니다."
+   },
+   {
+    "start": 46.6,
+    "end": 47.7,
+    "text": "عشان تطمن بس",
+    "ko": "안심하시라고 드리는 말씀입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.6,
+    "speed": "빠름",
+    "summary": "예산 90만 파운드대 추천 멘트로 시청자 이목 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.6,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "차량 전면 및 모델명(창안 이도) 3D 그래픽 인트로"
+   },
+   {
+    "stage": "기능",
+    "start": 4.8,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "외관 옵션, 트렁크, 실내 인포테인먼트, 2열 공간 숏컷 순차 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 29.8,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "안전 옵션(에어백/ESP) 및 엔진·7단 DCT 파워트레인 제원 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 42.0,
+    "end": 47.7,
+    "speed": "보통",
+    "summary": "5년 15만 km 보증 기간 설명 및 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 옵션 부위를 가리키면 해당 위치 근처에 3D 팝업 그래픽을 띄운다.",
+   "트렁크 공간을 설명할 때 리뷰어가 트렁크 안에 직접 누워 위트 있게 표현한다.",
+   "스펙 숫자는 반투명 파란색 전광판 형태의 대형 3D 그래픽 보드로 일목요연하게 표시한다.",
+   "장점뿐만 아니라 '전방 센서 부재', '운전석만 전동 시트' 등 아쉬운 점도 솔직하게 짚어준다.",
+   "화면 전환마다 묵직하거나 경쾌한 타격감의 SFX(쿵, 휙, 톡)를 맞춰 넣어 리듬감을 유지한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "feature": "타이어 공기압 모니터링",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "노란색 느낌표 타이어 TPMS 경고등",
+    "x_pct": 68.0,
+    "y_pct": 12.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.0,
+    "feature": "사이드미러 열선",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "불꽃 열기 모양의 아랍어 열선 아이콘",
+    "x_pct": 25.0,
+    "y_pct": 18.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.5,
+    "feature": "500리터 트렁크",
+    "shown_how": "글자 카드",
+    "icon_desc": "파란색 원형 '500 LITER' 뱃지",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.5,
+    "feature": "후방 카메라",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "빨간색 원형 링과 후방 카메라 장치 3D 모델",
+    "x_pct": 70.0,
+    "y_pct": 25.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "feature": "크루즈 컨트롤",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "속도계 바늘 계측기 모양 그래픽",
+    "x_pct": 30.0,
+    "y_pct": 32.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.6,
+    "feature": "카플레이/안드로이드 오토",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "애플 카플레이 및 안드로이드 오토 사각 로고",
+    "x_pct": 35.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 24.8,
+    "feature": "운전석 전동 시트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "노란색 번개 마크와 ELECTRIC 3D 입체 텍스트",
+    "x_pct": 47.0,
+    "y_pct": 42.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.0,
+    "feature": "2열 에어컨 송풍구",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "하늘색 눈송이 얼음 결정 아이콘",
+    "x_pct": 46.0,
+    "y_pct": 35.0,
+    "size_w_pct": 22.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 41.0,
+    "feature": "7단 습식 DCT",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "기어 노브 위에 떠 있는 DCT 7 SPEED 입체 글자",
+    "x_pct": 48.0,
+    "y_pct": 43.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 보며 90만 파운드 예산이 있다면 주목하라고 호기롭게 외친 후 로고 트랜지션",
+   "type": "가격",
+   "text": "أنا ناصر ولو ميزانيتك في حتة ال900,000 اتفرج",
+   "ko": "저는 나사르입니다. 예산이 90만 파운드대라면 주목하세요."
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "90만 파운드대 예산으로 살 수 있는 가성비 세단 추천",
+    "category": "가격·조건"
+   },
+   {
+    "t": 5.2,
+    "point": "TPMS와 스포티한 휠 디자인 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 7.5,
+    "point": "열선 전동 사이드미러 및 스마트키 지원",
+    "category": "편의"
+   },
+   {
+    "t": 10.0,
+    "point": "500리터의 넉넉한 트렁크 수납공간",
+    "category": "공간"
+   },
+   {
+    "t": 13.0,
+    "point": "Full LED 램프와 후방 카메라 탑재 (전방 카메라는 없음)",
+    "category": "편의"
+   },
+   {
+    "t": 17.0,
+    "point": "크루즈 컨트롤과 가죽 스티어링 휠",
+    "category": "편의"
+   },
+   {
+    "t": 20.5,
+    "point": "듀얼 스크린 및 카플레이/안드로이드 오토 연동",
+    "category": "편의"
+   },
+   {
+    "t": 24.0,
+    "point": "운전석 전동 조절 시트 지원",
+    "category": "편의"
+   },
+   {
+    "t": 26.0,
+    "point": "여유로운 2열 헤드룸 및 레그룸 공간",
+    "category": "공간"
+   },
+   {
+    "t": 27.5,
+    "point": "동급에서 중요한 2열 에어컨 송풍구 장착",
+    "category": "편의"
+   },
+   {
+    "t": 31.5,
+    "point": "4 에어백과 ABS, EBD, ESP 기본 안전 장비",
+    "category": "안전"
+   },
+   {
+    "t": 35.0,
+    "point": "내구성을 고려한 1.5L 자연흡기 109마력 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 39.5,
+    "point": "7단 습식 DCT 변속기 조합",
+    "category": "성능"
+   },
+   {
+    "t": 43.5,
+    "point": "5년 또는 15만 km 보증 제공",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "트렁크",
+    "외관 후면",
+    "실내 앞",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면"
+   ]
+  }
+ }
+}

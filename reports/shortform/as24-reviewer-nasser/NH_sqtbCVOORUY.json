@@ -1,0 +1,1040 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/sqtbCVOORUY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6254,
+  "candidatesTokenCount": 8964,
+  "totalTokenCount": 15218,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5091
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.4,
+   "aspect": "9:16",
+   "car": "BAIC X7",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 10.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.9,
+    "end": 22.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 33.2,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 37.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 44.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 49.7,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.7,
+    "end": 55.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "وسط ما العربيات عمالة تغلي",
+    "ko": "차 가격이 계속 치솟는 가운데",
+    "kind": "말 자막",
+    "y_pct": 14.5,
+    "x_center_pct": 52.3,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "text": "BAIC X7",
+    "ko": "베이징자동차 X7",
+    "kind": "제목",
+    "y_pct": 21.5,
+    "x_center_pct": 49.1,
+    "text_height_pct": 7.4,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BAIC",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.1,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 41.2,
+    "x_center_pct": 73.2,
+    "text_height_pct": 4.1,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 8.5,
+    "text": "تبريد",
+    "ko": "통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 42.1,
+    "x_center_pct": 73.5,
+    "text_height_pct": 4.3,
+    "color": "#00E5FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.3,
+    "text": "مساج",
+    "ko": "마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 43.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.8,
+    "text": "LEG EXTENSION",
+    "ko": "레그 서포트 확장",
+    "kind": "키워드 스티커",
+    "y_pct": 65.2,
+    "x_center_pct": 29.5,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0055AA",
+    "bg_width_pct": 28.0,
+    "tilt_deg": -15,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 15.9,
+    "text": "1500 CC TURBO / 180 HP / 305 NM",
+    "ko": "1500cc 터보 / 180마력 / 305Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 69.5,
+    "text_height_pct": 14.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#003366",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 17.5,
+    "text": "العيلة",
+    "ko": "패밀리카",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 24.5,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "text": "مساحتها كويسة",
+    "ko": "넓은 레그룸 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 42.5,
+    "x_center_pct": 62.0,
+    "text_height_pct": 3.5,
+    "color": "#00FF66",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.1,
+    "end": 22.0,
+    "text": "نفق فتيس",
+    "ko": "센터 터널 없음",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 77.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 22.8,
+    "text": "يقعدوا مرتاحين",
+    "ko": "편안하게 탑승",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#0088FF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.8,
+    "text": "DCT PERFORMANCE",
+    "ko": "DCT 퍼포먼스 미션",
+    "kind": "키워드 스티커",
+    "y_pct": 28.5,
+    "x_center_pct": 49.5,
+    "text_height_pct": 6.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#002244",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.5,
+    "text": "DIGITAL DISPLAY",
+    "ko": "디지털 클러스터",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.0,
+    "text": "TOUCH SCREEN",
+    "ko": "터치 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 24.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#003366",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 34.6,
+    "text": "6 AIRBAGS",
+    "ko": "에어백 6개",
+    "kind": "키워드 스티커",
+    "y_pct": 46.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#330011",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 35.8,
+    "text": "CRUISE CONTROL",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 69.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#330011",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.9,
+    "end": 37.7,
+    "text": "FULL ADAS",
+    "ko": "풀 ADAS 주행보조",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 71.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#330011",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 41.5,
+    "text": "CASH -150.000",
+    "ko": "현금 구매 시 -15만 할인",
+    "kind": "가격",
+    "y_pct": 28.0,
+    "x_center_pct": 69.5,
+    "text_height_pct": 7.5,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 44.7,
+    "text": "50% قسط / 2 YEARS",
+    "ko": "선납 50% / 2년 무이자 할부",
+    "kind": "가격",
+    "y_pct": 25.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 49.7,
+    "text": "30% -300.000",
+    "ko": "선납 30% 시 -30만 할인",
+    "kind": "가격",
+    "y_pct": 25.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 9.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 53.0,
+    "text": "NASSER 10",
+    "ko": "할인코드 NASSER 10",
+    "kind": "제목",
+    "y_pct": 29.5,
+    "x_center_pct": 66.5,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0055AA",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 55.4,
+    "text": "19383 / Ellithy.com",
+    "ko": "문의 19383 / Ellithy.com",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 9.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0077CC",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.1,
+    "type": "돈 소리",
+    "event": "달러 아이콘 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "쿵",
+    "event": "차량 모델명 BAIC X7 타이틀 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "톡",
+    "event": "열선 시트 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.2,
+    "type": "휙",
+    "event": "통풍 시트 눈꽃 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.6,
+    "type": "띵",
+    "event": "마사지 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "쿵",
+    "event": "엔진 사양 그래픽 블록 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 20.1,
+    "type": "톡",
+    "event": "평평한 바닥 금지 표시 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 23.0,
+    "type": "딸깍",
+    "event": "기어 노브 DCT 퍼포먼스 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.3,
+    "type": "휙",
+    "event": "6 에어백 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "돈 소리",
+    "event": "현금 할인 금액 -150,000 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 47.8,
+    "type": "돈 소리",
+    "event": "할부 할인 금액 -300,000 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/업비트 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 역동적인 프로모션 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.8,
+    "end": 2.0,
+    "what": "회전하는 3D 달러 동전 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 52.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 인상 화두 강조",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "what": "BAIC X7 네온 로고 카드",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 49.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 소개",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.1,
+    "what": "시트 등받이에 붙은 불꽃 열선 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 73.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "열선 시트 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 8.5,
+    "what": "시트 등받이에 붙은 눈꽃 통풍 아이콘",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 73.5,
+    "y_pct": 41.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍 시트 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.3,
+    "what": "시트 등받이에 붙은 마사지 사람 아이콘",
+    "is_3d": false,
+    "size_w_pct": 26.0,
+    "x_pct": 74.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "마사지 시트 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.8,
+    "what": "1500 CC / TURBO / 180 HP 엔진 스펙 카드",
+    "is_3d": true,
+    "size_w_pct": 48.0,
+    "x_pct": 68.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 성능 스펙 요약",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "what": "바닥 센터터널 없음 금지 서클 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 77.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "평평한 2열 플로어 강조",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 37.6,
+    "what": "6 AIRBAGS / CRUISE / FULL ADAS 카드",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 70.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전 사양 요약",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "what": "현금 할인 -150,000 파운드 배너",
+    "is_3d": true,
+    "size_w_pct": 52.0,
+    "x_pct": 68.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "현금 프로모션 혜택 전달",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 49.7,
+    "what": "할부 할인 -300,000 파운드 배너",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 58.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "장기 할부 프로모션 혜택 전달",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "وسط ما العربيات عمالة تغلي والدنيا بتولع",
+    "ko": "차 가격이 계속 치솟고 시장이 뜨거운 가운데"
+   },
+   {
+    "start": 2.6,
+    "end": 5.8,
+    "text": "جبتلك عربية ما غليتش عائلية ومليانة اوبشن بايك اكس سيفن",
+    "ko": "가격이 오르지 않은 패밀리카이자 옵션이 가득한 베이징 X7을 가져왔습니다"
+   },
+   {
+    "start": 5.9,
+    "end": 11.5,
+    "text": "كراسيها تسخين علشان البرد وتبريد عشان الحر ومساج عشان الضهر حتى رجليك ليها مسند",
+    "ko": "시트에는 추울 때 열선, 더울 때 통풍, 허리 마사지에 다리 받침대까지 있습니다"
+   },
+   {
+    "start": 11.8,
+    "end": 15.8,
+    "text": "موتور 1500 تربو 180 حصان و 305 نيوتن عشان تنجز في الوقت",
+    "ko": "1500cc 터보 엔진, 180마력 305Nm 토크로 시원하게 달립니다"
+   },
+   {
+    "start": 15.9,
+    "end": 22.8,
+    "text": "ومن ورا الكنبة عائلية عندك بانوراما واصل لورا الكنبة مساحتها كويسة من غير نفق فتيس عشان ولادك يقعدوا مرتاحين",
+    "ko": "뒷좌석은 패밀리형으로 파노라마 선루프가 뒤까지 이어지고, 센터터널이 없어 아이들이 편하게 앉을 수 있습니다"
+   },
+   {
+    "start": 22.9,
+    "end": 25.0,
+    "text": "والفتيس دي سي تي عشان الاداء وويت عشان يعيش",
+    "ko": "변속기는 반응성이 좋은 웻 듀얼클러치(DCT)가 들어갔습니다"
+   },
+   {
+    "start": 25.1,
+    "end": 33.2,
+    "text": "وعندك ديجيتال ديسبلاي متصلة بتاتش سكرين فيها ابل كاربلاي وايزي كونكشن شاشة للتكييف والكراسي وكاميرات 360 شاحن وايرلس عشان تحس بالتطور",
+    "ko": "디지털 계기판과 터치스크린이 연결되어 카플레이와 무선충전, 360도 카메라, 공조 제어 화면까지 갖췄습니다"
+   },
+   {
+    "start": 33.3,
+    "end": 37.7,
+    "text": "وفيها ستة ايرباج كروز كنترول وفل اداس عشان سلامتكم",
+    "ko": "안전을 위해 6개 에어백, 크루즈 컨트롤, 풀 ADAS 주행보조 시스템이 탑재되었습니다"
+   },
+   {
+    "start": 37.8,
+    "end": 44.8,
+    "text": "لو اشتريت العربية دي كاش هتاخد خصم 150 الف عن الرسمي ولو خدتها قسط ودفعت 50% هتقسط على سنتين من غير فوائد",
+    "ko": "현금 구매 시 정가 대비 15만 할인, 50% 선납 시 2년 무이자 할부가 가능합니다"
+   },
+   {
+    "start": 44.9,
+    "end": 49.7,
+    "text": "ولو خدتها قسط على خمس سنين بمقدم 30% هتاخد خصم 300 الف جنيه عن الرسمي",
+    "ko": "선납 30%로 5년 할부 진행 시 무려 30만 파운드 할인이 들어갑니다"
+   },
+   {
+    "start": 49.8,
+    "end": 55.4,
+    "text": "وفي كود خصم ناصر عشرة والعربية دي بكل الألوان موجودة في كل فروع الليثي",
+    "ko": "할인코드 NASSER10도 있으며 모든 색상이 엘리시(Ellithy) 전 지점에 입고되어 있습니다",
+    "sure": true
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "차값 폭등 시기에 가격 안 오른 패밀리카 소개 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.6,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "차량 전면 외관 및 차명 BAIC X7 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 5.9,
+    "end": 11.7,
+    "speed": "빠름",
+    "summary": "1열 시트 옵션(열선/통풍/마사지/레그서포트) 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 11.8,
+    "end": 15.8,
+    "speed": "빠름",
+    "summary": "엔진 마력 및 토크 제원 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 15.9,
+    "end": 37.7,
+    "speed": "빠름",
+    "summary": "2열 편의성, 파노라마 루프, 인포테인먼트 디스플레이, ADAS 안전옵션 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 37.8,
+    "end": 49.7,
+    "speed": "보통",
+    "summary": "현금 구매 할인 및 무이자/장기 할부 프로모션 혜택 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 49.8,
+    "end": 55.4,
+    "speed": "빠름",
+    "summary": "프로모션 코드 및 딜러사 연락처 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 신체 액션과 그래픽 스티커가 동시에 터지며 시선을 고정시킴",
+   "좌석 시트 옵션을 설명할 때 시트 위에 증강현실처럼 직관적인 그래픽 아이콘을 합성",
+   "스펙 수치(마력, 토크)와 할인 금액은 거대한 3D/볼드 타이포그래피로 팝업 처리",
+   "설명 구간마다 1~2초 간격으로 빠른 컷 전환과 강한 모션 효과음을 동반"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.9,
+    "end": 7.1,
+    "feature": "열선 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "불꽃 실루엣과 아랍어 열선 텍스트",
+    "x_pct": 73.2,
+    "y_pct": 41.2,
+    "size_w_pct": 25.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 8.5,
+    "feature": "통풍 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "눈꽃 모양과 푸른색 아랍어 통풍 텍스트",
+    "x_pct": 73.5,
+    "y_pct": 42.1,
+    "size_w_pct": 28.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.3,
+    "feature": "마사지 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "마사지 체어 아이콘과 아랍어 마사지 텍스트",
+    "x_pct": 74.0,
+    "y_pct": 43.5,
+    "size_w_pct": 26.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.8,
+    "feature": "레그 서포트 확장",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "LEG EXTENSION 블루 사각 라벨",
+    "x_pct": 29.5,
+    "y_pct": 65.2,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손으로 루프 글라스를 가리키며 틸트업 촬영",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "feature": "플랫 2열 플로어",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "센터터널 금지 표시 빨간색 원형 스티커",
+    "x_pct": 77.0,
+    "y_pct": 53.0,
+    "size_w_pct": 30.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 31.0,
+    "feature": "듀얼 통합 디스플레이 및 공조 터치스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "화면을 직접 손으로 쓸어넘기고 누르는 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 주차장에서 뒤로 달리며 손짓하다가 신차 옆으로 순간이동하듯 등장해 가격 인상 이슈를 던짐",
+   "type": "가격",
+   "text": "وسط ما العربيات عمالة تغلي",
+   "ko": "차 가격이 계속 치솟는 가운데 가격 안 오른 패밀리카"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "가격 인상 없이 옵션이 꽉 찬 패밀리 SUV",
+    "category": "가격·조건"
+   },
+   {
+    "t": 6.5,
+    "point": "열선, 통풍, 마사지 및 레그 익스텐션 시트 장착",
+    "category": "편의"
+   },
+   {
+    "t": 12.5,
+    "point": "1500cc 터보 180마력 305토크의 경쾌한 출력",
+    "category": "성능"
+   },
+   {
+    "t": 17.5,
+    "point": "개방감 좋은 파노라마 선루프와 센터터널 없는 평평한 2열 공간",
+    "category": "공간"
+   },
+   {
+    "t": 23.5,
+    "point": "내구성과 반응성을 챙긴 습식 DCT 변속기 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 27.0,
+    "point": "디지털 통합 스크린, 360도 어라운드 뷰, 스마트폰 무선충전 지원",
+    "category": "편의"
+   },
+   {
+    "t": 34.0,
+    "point": "에어백 6개와 풀 ADAS 주행보조 시스템 기본 탑재",
+    "category": "안전"
+   },
+   {
+    "t": 39.0,
+    "point": "현금 구매 15만 파운드 즉시 할인 및 2년 무이자 할부 혜택",
+    "category": "가격·조건"
+   },
+   {
+    "t": 46.5,
+    "point": "30% 선수금 납부 시 최대 30만 파운드 파격 할인 제공",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 53.0,
+   "text": "NASSER 10 / 19383 / Ellithy.com",
+   "ko": "할인코드 NASSER 10을 사용하시고 19383 또는 매장으로 문의하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "옵션 작동",
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "센터 화면",
+    "실내 앞",
+    "외관 전면",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

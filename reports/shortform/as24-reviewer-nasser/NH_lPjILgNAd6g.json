@@ -1,0 +1,1039 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/lPjILgNAd6g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7990,
+  "candidatesTokenCount": 10524,
+  "totalTokenCount": 19426,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6827
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 912,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 75.6,
+   "aspect": "9:16",
+   "car": "Exeed ES REEV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 8.7,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 21.6,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 26.2,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 30.7,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 34.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.9,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 40.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 43.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 47.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 49.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.6,
+    "end": 52.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 53.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 56.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 59.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 63.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.8,
+    "end": 65.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 65.4,
+    "end": 68.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.9,
+    "end": 71.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 71.3,
+    "end": 75.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "text": "EXEED ES",
+    "ko": "엑시드 ES",
+    "kind": "제목",
+    "y_pct": 21.5,
+    "x_center_pct": 53.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF2233",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EXEED",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "text": "REEV",
+    "ko": "주행거리 연장형 전기차 (REEV)",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 46.5,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E5252A",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REEV",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.2,
+    "text": "+1000 KM",
+    "ko": "+1000km 주행거리",
+    "kind": "키워드 스티커",
+    "y_pct": 8.5,
+    "x_center_pct": 74.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E5252A",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+1000",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.5,
+    "text": "45/5M KM",
+    "ko": "5분에 45km 충전",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 57.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E5252A",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "45/5M",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 21.0,
+    "text": "GUINNESS WORLD RECORDS RECORD HOLDER",
+    "ko": "기네스 세계 신기록 보유",
+    "kind": "키워드 스티커",
+    "y_pct": 11.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GUINNESS",
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 26.0,
+    "text": "CAMERA 540",
+    "ko": "540도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#EE3344",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "540",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "text": "LITER 396",
+    "ko": "396리터 트렁크",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#EE2233",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "396",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.6,
+    "text": "COMFORT DUAL / FLAGSHIP TRIPLE",
+    "ko": "컴포트 듀얼존 / 플래그십 트리플존 에어컨",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1F8EDB",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DUAL",
+    "sure": true
+   },
+   {
+    "start": 44.2,
+    "end": 46.5,
+    "text": "AMBIENT LIGHT",
+    "ko": "앰비언트 라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#24CEE8",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "LIGHT",
+    "sure": true
+   },
+   {
+    "start": 56.2,
+    "end": 58.5,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIRELESS",
+    "sure": true
+   },
+   {
+    "start": 71.5,
+    "end": 75.0,
+    "text": "7 YEARS 200,000KM",
+    "ko": "7년 또는 200,000km 보증",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7 YEARS",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "쿵",
+    "event": "차량 모델명 EXEED ES 3D 그래픽 타이틀 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "REEV 상자 라벨 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "휙",
+    "event": "+1000 KM 주행거리 그래픽 배지 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.4,
+    "type": "띵",
+    "event": "배터리 충전 아이콘 및 45/5M 숫자 라벨 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "쿵",
+    "event": "기네스 세계기록 엠블럼 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 액티브 스포일러 작동음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "톡",
+    "event": "CAMERA 540 그래픽 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "톡",
+    "event": "396 LITER 용량 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.3,
+    "type": "톡",
+    "event": "COMFORT DUAL 에어컨 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "시트 열선 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "톡",
+    "event": "시트 통풍 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.7,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "이중접합유리 노크 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.2,
+    "type": "톡",
+    "event": "무선충전 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 71.4,
+    "type": "쿵",
+    "event": "7년 보증 그래픽 및 엠블럼 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 15.6,
+     "what": "기네스 기록 트랙 주행 장면에서 비트 고조"
+    },
+    {
+     "t": 65.4,
+     "what": "후반 출력 및 보증 안내 파트에서 템포 정리"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "what": "EXEED ES 3D 네온 텍스트",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 53.0,
+    "y_pct": 21.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 각인",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 8.5,
+    "what": "차량 파워트레인 X-Ray 3D 모델 및 배터리/엔진 내부 구조",
+    "is_3d": true,
+    "size_w_pct": 85.0,
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "entrance": "페이드",
+    "purpose": "REEV 구동계 구조 시각화",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.5,
+    "what": "배터리 충전 게이지 애니메이션 및 지도 이동 점선 경로",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 57.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "충전 속도 직관적 체감",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 21.5,
+    "what": "기네스 세계 기록 공식 로고 메달",
+    "is_3d": true,
+    "size_w_pct": 32.0,
+    "x_pct": 50.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기네스 기록 인증 강조",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.0,
+    "what": "액티브 리어 스포일러 네온 하이라이트",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 52.0,
+    "y_pct": 23.0,
+    "entrance": "밀려옴",
+    "purpose": "스포일러 위치 강조",
+    "sure": true
+   },
+   {
+    "start": 71.4,
+    "end": 75.5,
+    "what": "보증을 상징하는 두 손과 톱니바퀴 그래픽 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "워런티 혜택 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "أنا ناصر وهقولك ليه العربية دي مميزة",
+    "ko": "저는 나사르입니다. 왜 이 차가 특별한지 알려드릴게요."
+   },
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "text": "Exeed ES REEV",
+    "ko": "엑시드 ES REEV입니다."
+   },
+   {
+    "start": 4.6,
+    "end": 8.7,
+    "text": "مبدئياً الـ REEV موتور بنزين بيشحن بطارية كهرباء عشان يديك شوية مميزات",
+    "ko": "우선 REEV는 가솔린 엔진이 전기 배터리를 충전해서 여러 장점을 제공합니다."
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "text": "الرينج بتاعها بقى أكتر من 1000 كيلو بس الجامد فعلاً",
+    "ko": "주행거리는 1,000km가 넘고, 진짜 대단한 건"
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "text": "إنها بتشحن 45 كيلو في 5 دقايق ده من 6 أكتوبر لمدينة نصر",
+    "ko": "단 5분 충전으로 45km를 달리는데, 10월 6일 도시에서 나스르 시티까지 갈 수 있는 거리입니다."
+   },
+   {
+    "start": 15.6,
+    "end": 21.6,
+    "text": "دخلت موسوعة جينيس للأرقام القياسية كأكثر عربية عملت حركة وسط عربيات متحركة في 30 ثانية",
+    "ko": "30초 동안 주행 중인 차량들 사이에서 슬라롬 묘기를 가장 많이 성공한 차로 기네스북에 올랐습니다."
+   },
+   {
+    "start": 21.6,
+    "end": 23.9,
+    "text": "في الفئة الأعلى بيبقى عندك أكتيف سبويلر",
+    "ko": "상위 트림에는 전동 액티브 스포일러가 들어가고,"
+   },
+   {
+    "start": 23.9,
+    "end": 26.2,
+    "text": "وكاميرات 540 عشان يساعدوك في السواقة",
+    "ko": "운전을 돕는 540도 어라운드 뷰 카메라와"
+   },
+   {
+    "start": 26.2,
+    "end": 28.5,
+    "text": "وشنطة كهرباء 396 لتر",
+    "ko": "396리터 전동 트렁크가 적용되었습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "text": "أنت هتحسها ضيقة في الأول بس هي غويطة جداً",
+    "ko": "처음엔 좁아 보일 수 있지만 깊이가 매우 깊습니다."
+   },
+   {
+    "start": 30.7,
+    "end": 34.6,
+    "text": "تصميم الكنبة فخم جداً وعندك سقف بانوراما خلفي ده غير الأمامي",
+    "ko": "시트 디자인이 고급스럽고 전면 외에 후석 파노라마 루프도 있습니다."
+   },
+   {
+    "start": 34.6,
+    "end": 37.9,
+    "text": "والكنبة بتاخد تلاتة مرتاحين عشان ما عندكوش نفق فتيس",
+    "ko": "변속기 터널 턱이 없어 3명이 아주 편하게 탈 수 있습니다."
+   },
+   {
+    "start": 37.9,
+    "end": 40.8,
+    "text": "التكييف بتاعك Dual Zone في الكومفورت و Triple Zone في الفلاجشيب",
+    "ko": "에어컨은 컴포트 트림에서 듀얼존, 플래그십에서 트리플존입니다."
+   },
+   {
+    "start": 40.8,
+    "end": 43.8,
+    "text": "الكراسي بتاعتك فيها تسخين وتبريد والفلاجشيب فيها مساج",
+    "ko": "시트는 열선 및 통풍을 지원하며 플래그십에는 마사지 기능도 탑재됩니다."
+   },
+   {
+    "start": 43.8,
+    "end": 47.1,
+    "text": "Ambient Light شكلهم خطير سوفت تاتش على كل التابلوه",
+    "ko": "앰비언트 라이트가 멋지고 대시보드 전체가 소프트 터치 소재입니다."
+   },
+   {
+    "start": 47.1,
+    "end": 49.6,
+    "text": "تاتش سكرين فيها Apple CarPlay و Android Auto",
+    "ko": "터치스크린은 애플 카플레이와 안드로이드 오토를 지원합니다."
+   },
+   {
+    "start": 49.6,
+    "end": 52.0,
+    "text": "Digital Display وسينسور عشان يراقب انتباهك",
+    "ko": "디지털 디스플레이와 운전자 주의 경고 센서가 달려 있습니다."
+   },
+   {
+    "start": 52.0,
+    "end": 53.6,
+    "text": "دريكسيون جلده وملمسه خطير",
+    "ko": "가죽 스티어링 휠 그립감이 훌륭하며,"
+   },
+   {
+    "start": 53.6,
+    "end": 56.1,
+    "text": "الإزاز دبل عشان العزل والبيبان فريملس",
+    "ko": "차음을 위해 이중접합유리가 들어가고 프레임리스 도어입니다."
+   },
+   {
+    "start": 56.1,
+    "end": 59.8,
+    "text": "عندك شاحن وايرلس واصله تبريد ومخرجين شواحن USB و Type-C",
+    "ko": "냉각 기능이 있는 무선 충전기와 USB, Type-C 포트가 있습니다."
+   },
+   {
+    "start": 59.8,
+    "end": 63.8,
+    "text": "مساحة التخزين واصلها تبريد وتحت الكفر عندك كوب هولدرز ومساحة تخزين",
+    "ko": "센터 콘솔 수납공간에도 냉각 기능이 들어가고 컵홀더와 추가 수납이 있습니다."
+   },
+   {
+    "start": 63.8,
+    "end": 65.4,
+    "text": "واحدة كبيرة تحت",
+    "ko": "아래쪽에 아주 넓은 수납공간도 있습니다."
+   },
+   {
+    "start": 65.4,
+    "end": 68.9,
+    "text": "وبتنزل بفئتين واحدة 462 حصان والتانية 261 حصان",
+    "ko": "트림은 두 가지로, 하나는 462마력이고 다른 하나는 261마력입니다."
+   },
+   {
+    "start": 68.9,
+    "end": 71.3,
+    "text": "بس الميزة في الأضعف إنها دفع خلفي",
+    "ko": "하지만 하위 트림의 장점은 후륜구동(RWD)이라는 점입니다."
+   },
+   {
+    "start": 71.3,
+    "end": 75.6,
+    "text": "وضمان العربية سبع سنين أو 200,000 كيلو يشمل البطارية",
+    "ko": "보증은 배터리를 포함해 7년 또는 200,000km입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "빠름",
+    "summary": "진행자 인사 및 엑시드 ES 모델 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.6,
+    "end": 21.6,
+    "speed": "빠름",
+    "summary": "REEV 구동계 원리, 1000km 주행거리, 고속 충전, 기네스 기록 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 21.6,
+    "end": 30.7,
+    "speed": "보통",
+    "summary": "외관 옵션(스포일러, 540 카메라) 및 트렁크 용량과 깊이 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 30.7,
+    "end": 44.0,
+    "speed": "빠름",
+    "summary": "후석 공간, 듀얼 루프, 평평한 바닥, 트림별 에어컨 및 시트 옵션"
+   },
+   {
+    "stage": "기능",
+    "start": 44.0,
+    "end": 65.4,
+    "speed": "빠름",
+    "summary": "대시보드 실내 편의사양, 스크린, 차음유리, 냉각 수납함 및 충전 포트"
+   },
+   {
+    "stage": "사양",
+    "start": 65.4,
+    "end": 75.6,
+    "speed": "보통",
+    "summary": "트림별 마력/구동방식 및 7년/20만km 보증 안내"
+   }
+  ],
+  "rules": [
+   "말하는 부위나 옵션마다 화면 위에 큼직한 3D 그래픽/아이콘 배지를 정확히 동기화해 띄운다.",
+   "숫자 스펙(1000km, 5분 충전, 396L, 마력 등)은 강렬한 레드/화이트 박스 스티커로 강조한다.",
+   "트렁크 깊이나 수납함 크기 등 공간을 설명할 때 몸을 직접 넣어 직관적으로 체감시킨다.",
+   "옵션(열선, 통풍, 마사지 등)은 화면에 각각의 아이콘과 함께 짧은 효과음(톡)을 주어 리듬감을 형성한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 4.8,
+    "end": 8.5,
+    "feature": "주행거리 연장형 전기차(REEV) 시스템",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차량 섀시와 배터리팩, 가솔린 발전 엔진 투시 X-ray 3D 모델",
+    "x_pct": 45.0,
+    "y_pct": 55.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.0,
+    "feature": "전동 액티브 리어 스포일러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "민트색 하이라이트 오버레이와 전동 날개 상승",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.2,
+    "feature": "540도 어라운드 뷰 카메라",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "CCTV 카메라 모양 아이콘과 CAMERA 540 라벨",
+    "x_pct": 45.0,
+    "y_pct": 39.0,
+    "size_w_pct": 38.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.8,
+    "feature": "시트 열선/통풍/마사지",
+    "shown_how": "글자 카드",
+    "icon_desc": "불꽃 열선 아이콘과 아랍어 텍스트(تسخين, تبريد, مساج)",
+    "x_pct": 25.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.5,
+    "feature": "앰비언트 라이트 슬라이더",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "RGB 컬러 그라데이션 슬라이더 바",
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 47.2,
+    "end": 49.5,
+    "feature": "애플 카플레이 및 안드로이드 오토",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "초록색 카플레이 아이콘과 파란색 안드로이드 오토 삼각 로고",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 32.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 56.2,
+    "end": 58.5,
+    "feature": "냉각 무선 충전 패드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "와이파이 전파 형태의 WIRELESS CHARGER 아이콘",
+    "x_pct": 38.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외에서 나사르가 옷깃을 여미며 엑시드 ES 앞에서 왜 이 차가 특별한지 바로 밝히겠다고 선언함",
+   "type": "행동",
+   "text": "أنا ناصر وهقولك ليه العربية دي مميزة",
+   "ko": "저는 나사르입니다. 왜 이 차가 특별한지 알려드릴게요."
+  },
+  "narration_points": [
+   {
+    "t": 4.6,
+    "point": "엔진이 배터리를 충전하는 REEV 하이브리드 시스템 적용",
+    "category": "성능"
+   },
+   {
+    "t": 8.7,
+    "point": "총 주행거리 1,000km 이상 가능",
+    "category": "성능"
+   },
+   {
+    "t": 11.2,
+    "point": "단 5분 충전으로 45km 주행거리 확보",
+    "category": "성능"
+   },
+   {
+    "t": 15.6,
+    "point": "30초 내 주행 차량 사이 슬라롬 동작으로 기네스 신기록 달성",
+    "category": "희소성"
+   },
+   {
+    "t": 21.6,
+    "point": "전동 가변 스포일러 및 540도 어라운드 뷰 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 26.2,
+    "point": "396리터 깊숙한 전동 트렁크 공간",
+    "category": "공간"
+   },
+   {
+    "t": 30.7,
+    "point": "고급 후석 시트와 앞뒤 듀얼 파노라믹 루프",
+    "category": "디자인"
+   },
+   {
+    "t": 34.6,
+    "point": "변속기 턱이 없어 여유로운 3인 후석 공간",
+    "category": "공간"
+   },
+   {
+    "t": 37.9,
+    "point": "트림에 따라 듀얼존 또는 트리플존 독립 에어컨 지원",
+    "category": "편의"
+   },
+   {
+    "t": 40.8,
+    "point": "시트 열선, 통풍 및 상위 트림 마사지 기능",
+    "category": "편의"
+   },
+   {
+    "t": 43.8,
+    "point": "소프트 터치 대시보드 및 앰비언트 라이트 감성",
+    "category": "디자인"
+   },
+   {
+    "t": 47.1,
+    "point": "무선 스마트폰 프로젝션(카플레이/안드로이드오토) 지원",
+    "category": "편의"
+   },
+   {
+    "t": 53.6,
+    "point": "이중접합 차음유리 및 프레임리스 도어",
+    "category": "안전"
+   },
+   {
+    "t": 56.1,
+    "point": "냉각 기능이 들어간 무선 충전 패드와 수납함",
+    "category": "편의"
+   },
+   {
+    "t": 65.4,
+    "point": "462마력 사륜 및 261마력 후륜 두 가지 트림 제공",
+    "category": "성능"
+   },
+   {
+    "t": 71.3,
+    "point": "배터리 포함 7년 또는 20만km 넉넉한 보증",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "엔진룸",
+    "외관 측면",
+    "도로 주행 트랙",
+    "외관 후면",
+    "트렁크",
+    "뒷좌석",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "외관 전면"
+   ]
+  }
+ }
+}

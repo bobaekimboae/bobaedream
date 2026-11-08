@@ -1,0 +1,966 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/ppBVBB00-Pg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9442,
+  "candidatesTokenCount": 8305,
+  "totalTokenCount": 17747,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 8279
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 91.0,
+   "aspect": "9:16",
+   "car": "Cadillac Escalade",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 28.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 33.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 35.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 42.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 44.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.9,
+    "end": 51.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 51.7,
+    "end": 56.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 58.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 100.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.9,
+    "end": 104.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.0,
+    "end": 108.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 108.6,
+    "end": 118.0,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 118.0,
+    "end": 131.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.6,
+    "end": 4.5,
+    "text": "ESCALADE",
+    "ko": "에스컬레이드",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FF2B2B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "text": "بيسهل عليك الدخول",
+    "ko": "승차를 쉽게 해줍니다",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#28A745",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "تسخين / مساج",
+    "ko": "열선 / 마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FF9900",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "text": "SPEAKERS",
+    "ko": "스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.5,
+    "text": "55''",
+    "ko": "55인치",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 7.0,
+    "color": "#333333",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.5,
+    "text": "SUPER CRUISE",
+    "ko": "슈퍼 크루즈",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.5,
+    "text": "360 CAMERAS",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 41.5,
+    "text": "5M",
+    "ko": "5미터",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 85.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 49.5,
+    "text": "22''",
+    "ko": "22인치",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 119.0,
+    "end": 121.5,
+    "text": "V8 6200 CC 420 HP",
+    "ko": "V8 6200cc 420마력",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FF2B2B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "캐딜락 로고 및 타이틀 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "딸깍",
+    "event": "화면에서 도어 닫기 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 자동 닫힘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 열림 및 전동 사이드스텝 전개",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.2,
+    "type": "딸깍",
+    "event": "크리스탈 다이얼 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "띵",
+    "event": "헤드레스트 스피커 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "55인치 디스플레이 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "딸깍",
+    "event": "에어 서스펜션 조작 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "휙",
+    "event": "에어 서스펜션 3D 그래픽 투시",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "휙",
+    "event": "휠 회전 트랜지션",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 101.5,
+    "type": "딸깍",
+    "event": "2열 전동 폴딩 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 102.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "2열 시트 자동 폴딩 작동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 114.5,
+    "type": "딸깍",
+    "event": "트렁크 3열 전동 폴딩 스위치 누름",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "역동적이고 웅장함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "what": "캐딜락 엠블럼 로고 및 ESCALADE 텍스트",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "위에서 떨어짐",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.0,
+    "what": "스피커 음파 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "헤드레스트 내장 스피커 강조",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.5,
+    "what": "얼음 및 냉장 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 55.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "센터콘솔 쿨링 박스 강조",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "what": "앱 아이콘들 (CarPlay, Android Auto, YouTube 등)",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 60.0,
+    "y_pct": 65.0,
+    "entrance": "타자",
+    "purpose": "인포테인먼트 지원 기능 안내",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 32.5,
+    "what": "에어 서스펜션 작동 X-ray 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 65.0,
+    "entrance": "페이드",
+    "purpose": "에어 서스펜션 차고 조절 시각화",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.5,
+    "what": "요트 아이콘 및 5M 길이 측정선",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "밀려옴",
+    "purpose": "5미터가 넘는 거대한 전장 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "أنا ناصر وده التريند اللي عمره ما بيخلص",
+    "ko": "저는 나사르이고, 이것은 절대 끝나지 않는 트렌드입니다."
+   },
+   {
+    "start": 2.5,
+    "end": 4.8,
+    "text": "كاديلاك إسكاليد النسخة الخليجي",
+    "ko": "캐딜락 에스컬레이드 걸프(GCC) 스펙 모델입니다."
+   },
+   {
+    "start": 4.8,
+    "end": 8.7,
+    "text": "بشدة صباع الباب بتاعك بيقفل لوحده من غير ما تلمس أي حاجة",
+    "ko": "손가락 하나만 까딱하면 아무것도 만지지 않아도 문이 저절로 닫힙니다."
+   },
+   {
+    "start": 8.7,
+    "end": 12.0,
+    "text": "بلمسة واحدة الباب بيفتح والعتب بينزل عشان يسهل عليك الدخول",
+    "ko": "한 번의 터치로 문이 열리고 발판이 내려와 탑승을 쉽게 해줍니다."
+   },
+   {
+    "start": 12.0,
+    "end": 17.8,
+    "text": "شاشة للبيبان والتكييف والكراسي اللي فيهم تسخين وتبريد ومساج وسماعات جنب ودانك",
+    "ko": "도어, 에어컨, 시트를 제어하는 화면이 있고 열선, 통풍, 마사지 및 귀 옆 스피커가 있습니다."
+   },
+   {
+    "start": 17.8,
+    "end": 20.8,
+    "text": "وفيها تلاجة للمية والمشروبات عشان تحافظ عليهم ساقعين",
+    "ko": "음료를 시원하게 보관할 수 있는 냉장고도 있습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 28.1,
+    "text": "وشاشة زي اللي عندك في البيت 55 بوصة",
+    "ko": "집에 있는 TV 같은 55인치 디스플레이가 탑재되어 있습니다."
+   },
+   {
+    "start": 28.1,
+    "end": 33.2,
+    "text": "بتتحكم في الإير سسبنشن وارتفاع العربية حسب الطريق",
+    "ko": "도로 상황에 맞춰 에어 서스펜션과 차고 높이를 조절할 수 있습니다."
+   },
+   {
+    "start": 33.2,
+    "end": 37.8,
+    "text": "عندك سوبر كروز وكاميرات 360 والمراية قالباها كاميرا",
+    "ko": "슈퍼 크루즈, 360도 카메라, 디지털 룸미러가 장착되어 있습니다."
+   },
+   {
+    "start": 37.8,
+    "end": 42.4,
+    "text": "عشان يساعدوك في سواقة اليخت اللي طوله معدي الـ 5 متر",
+    "ko": "5미터가 넘는 이 도로 위의 요트를 쉽게 운전할 수 있도록 돕습니다."
+   },
+   {
+    "start": 42.4,
+    "end": 47.0,
+    "text": "10 عدسات عشان ينورولك الطريق",
+    "ko": "길을 환하게 밝혀주는 10개의 헤드램프 렌즈가 있습니다."
+   },
+   {
+    "start": 47.0,
+    "end": 51.7,
+    "text": "وبجنط خطير مقاس 22 وكاوتش ألينزا من بريدجستون",
+    "ko": "22인치의 멋진 휠과 브리지스톤 알렌자 타이어가 장착되어 있습니다."
+   },
+   {
+    "start": 51.7,
+    "end": 100.9,
+    "text": "بانوراما واصل لورا كويس وشاشات ترفيه وفياش 120 فولت",
+    "ko": "뒤쪽까지 시원하게 뚫린 파노라마 선루프, 엔터테인먼트 화면, 120V 콘센트가 있습니다."
+   },
+   {
+    "start": 100.9,
+    "end": 108.6,
+    "text": "وبتدوس على الزرار ده بيطبقلك الكرسي عشان تخش الصف التالت",
+    "ko": "이 버튼을 누르면 시트가 접혀 3열로 편하게 탑승할 수 있습니다."
+   },
+   {
+    "start": 108.6,
+    "end": 118.0,
+    "text": "سب ووفر ومساحة كويسة في الشنطة وتقدر تنزل الصف التالت والتاني",
+    "ko": "서브우퍼와 넓은 트렁크 공간이 있고, 3열과 2열 시트를 전동으로 접을 수 있습니다."
+   },
+   {
+    "start": 118.0,
+    "end": 123.0,
+    "text": "موتور 8 سلندر 6200 سي سي بيطلع 420 حصان",
+    "ko": "V8 6,200cc 엔진으로 420마력을 발휘합니다."
+   },
+   {
+    "start": 123.0,
+    "end": 131.0,
+    "text": "العربيات دي خليجي وموجودة في بكر أوتو وصلة دهشور الشيخ زايد",
+    "ko": "이 차는 걸프 사양이며 셰이크 자이드 다흐슈르 연결로의 바크르 오토에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "리뷰어 소개 및 신형 에스컬레이드 전면 등장"
+   },
+   {
+    "stage": "기능",
+    "start": 4.8,
+    "end": 42.4,
+    "speed": "빠름",
+    "summary": "자동문, 디스플레이, 마사지 시트, 에어 서스펜션, 슈퍼 크루즈 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 42.4,
+    "end": 51.7,
+    "speed": "보통",
+    "summary": "외관 디자인, 헤드램프 렌즈, 22인치 휠 및 타이어"
+   },
+   {
+    "stage": "기능",
+    "start": 51.7,
+    "end": 118.0,
+    "speed": "빠름",
+    "summary": "2열/3열 편의사양, 폴딩 시트 메커니즘, 트렁크 수납공간"
+   },
+   {
+    "stage": "사양",
+    "start": 118.0,
+    "end": 123.0,
+    "speed": "빠름",
+    "summary": "V8 6.2L 420마력 파워트레인 스펙 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 123.0,
+    "end": 131.0,
+    "speed": "보통",
+    "summary": "GCC 스펙 강조 및 딜러십 매장 위치 안내"
+   }
+  ],
+  "rules": [
+   "말하는 기능과 옵션에 맞춰 1~2초 간격으로 매우 빠른 컷 전환을 진행함",
+   "내부 부품 작동(에어 서스펜션 등)을 보여줄 때 투시 형태의 3D 그래픽을 활용함",
+   "화면 조작 및 버튼 클릭 순간에 직관적인 사운드 이펙트(딸깍, 띵)를 정확히 일치시킴",
+   "숫자 정보(55인치, 22인치, 5M, 420마력 등)는 큼직한 3D 타이포그래피로 화면 중앙에 배치함"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.8,
+    "end": 8.7,
+    "feature": "전동 파워 도어 (소프트 클로징)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.0,
+    "feature": "전동 사이드스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 20.0,
+    "y_pct": 80.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.8,
+    "feature": "마사지 및 스피커 내장 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "시트 표면 위 마사지/열선 텍스트 및 헤드레스트 음파 아이콘",
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.8,
+    "feature": "센터 콘솔 냉장고",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "얼음 및 냉기 회전 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 28.0,
+    "feature": "55인치 필러 투 필러 커브드 디스플레이",
+    "shown_how": "확대",
+    "icon_desc": "55'' 크기 텍스트 및 앱 아이콘 오버레이",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.0,
+    "feature": "어댑티브 에어 서스펜션",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차체 휠 하우스 내부 서스펜션 작동 X-ray 투시 그래픽",
+    "x_pct": 65.0,
+    "y_pct": 65.0,
+    "size_w_pct": 35.0,
+    "follows_object": true,
+    "entrance": "페이드",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.8,
+    "feature": "디지털 리어뷰 미러 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "카메라 렌즈 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 20.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 100.9,
+    "end": 104.0,
+    "feature": "원터치 2열 전동 텀블 폴딩 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 113.5,
+    "end": 117.5,
+    "feature": "3열 파워 폴딩 플랫 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 역동적인 포즈로 인사하며 웅장한 캐딜락 에스컬레이드 전면을 비춤",
+   "type": "행동",
+   "text": "أنا ناصر وده التريند اللي عمره ما بيخلص",
+   "ko": "저는 나사르이고, 이것은 절대 끝나지 않는 트렌드입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "중동 기후에 최적화된 걸프(GCC) 스펙 신형 캐딜락 에스컬레이드 소개",
+    "category": "희소성"
+   },
+   {
+    "t": 6.0,
+    "point": "터치 하나로 스스로 닫히는 파워 도어 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 10.0,
+    "point": "도어 개방 시 자동으로 내려오는 승하차용 전동 발판",
+    "category": "편의"
+   },
+   {
+    "t": 15.0,
+    "point": "마사지, 통풍, 열선 및 헤드레스트 스피커가 내장된 최고급 시트",
+    "category": "편의"
+   },
+   {
+    "t": 19.0,
+    "point": "음료를 차갑게 유지할 수 있는 센터 콘솔 내장 냉장고",
+    "category": "편의"
+   },
+   {
+    "t": 22.0,
+    "point": "전면을 가득 채우는 55인치 초대형 파노라믹 디스플레이",
+    "category": "디자인"
+   },
+   {
+    "t": 30.0,
+    "point": "노면 상황에 따라 차고를 조절하는 에어 서스펜션 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 34.0,
+    "point": "슈퍼 크루즈 주행 보조 및 360도 서라운드 뷰 지원",
+    "category": "안전"
+   },
+   {
+    "t": 41.0,
+    "point": "전장 5미터가 넘는 거대한 요트급 차체 사이즈",
+    "category": "디자인"
+   },
+   {
+    "t": 46.0,
+    "point": "길을 완벽하게 밝혀주는 10구 버티컬 LED 헤드램프",
+    "category": "디자인"
+   },
+   {
+    "t": 48.0,
+    "point": "22인치 대구경 전용 휠과 브리지스톤 알렌자 타이어",
+    "category": "성능"
+   },
+   {
+    "t": 102.0,
+    "point": "3열 탑승을 원터치로 돕는 2열 전동 폴딩 메커니즘",
+    "category": "공간"
+   },
+   {
+    "t": 115.0,
+    "point": "버튼 하나로 완벽하게 평탄화되는 3열 전동 시트와 서브우퍼 트렁크 공간",
+    "category": "공간"
+   },
+   {
+    "t": 120.0,
+    "point": "V8 6,200cc 가솔린 자연흡기 420마력 강력한 파워트레인",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 128.0,
+   "text": "في بكر أوتو وصلة دهشور الشيخ زايد",
+   "ko": "셰이크 자이드 다흐슈르 연결로에 위치한 바크르 오토 매장에서 만나보세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "옵션 작동",
+    "센터 화면",
+    "실내 앞",
+    "외관 측면",
+    "외관 전면",
+    "휠",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

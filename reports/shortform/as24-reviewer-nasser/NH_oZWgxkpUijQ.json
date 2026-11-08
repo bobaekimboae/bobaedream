@@ -1,0 +1,1059 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/oZWgxkpUijQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7357,
+  "candidatesTokenCount": 8672,
+  "totalTokenCount": 16029,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6194
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 69.2,
+   "aspect": "9:16",
+   "car": "Ferrari Roma",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "확대 전환",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 14.2,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 14.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 17.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 29.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.7,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 37.1,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 38.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 41.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 44.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 51.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.7,
+    "end": 54.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.3,
+    "end": 56.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 100.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.9,
+    "end": 104.2,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.2,
+    "end": 109.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "text": "Ferrari Roma",
+    "ko": "페라리 로마",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "SLIM LEDS",
+    "ko": "슬림 LED",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.2,
+    "end": 9.3,
+    "text": "SHARK NOSE",
+    "ko": "샤크 노즈",
+    "kind": "키워드 스티커",
+    "y_pct": 33.2,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C1C1C",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.0,
+    "text": "TWIN TURBO",
+    "ko": "트윈 터보",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#FEE45B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.0,
+    "text": "V8",
+    "ko": "V8",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.2,
+    "text": "3900CC",
+    "ko": "3900CC",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 19.3,
+    "text": "612 HP",
+    "ko": "612 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 43.0,
+    "text_height_pct": 6.0,
+    "color": "#E7DF71",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.0,
+    "text": "720 NM",
+    "ko": "720 Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 43.0,
+    "text_height_pct": 6.0,
+    "color": "#E7DF71",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 25.5,
+    "text": "DOUBLE WISHBONE",
+    "ko": "더블 위시본",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#F3F7AA",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.4,
+    "text": "CARBON CERAMIC",
+    "ko": "카본 세라믹 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.2,
+    "color": "#C3DF6A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 32.7,
+    "text": "STAR RIMS",
+    "ko": "스타 림 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#C3DF6A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 34.6,
+    "text": "ACTIVE SPOILER",
+    "ko": "액티브 스포일러",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.0,
+    "text": "DOWN FORCE",
+    "ko": "다운포스",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 4.0,
+    "color": "#E4E396",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.1,
+    "text": "DNA TAIL LIGHT",
+    "ko": "DNA 테일램프",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 3.8,
+    "color": "#F5E994",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 51.7,
+    "text": "PASSENGER SCREEN",
+    "ko": "동승석 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#D7F497",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 60.0,
+    "text": "DRIVING MANETTINO",
+    "ko": "주행 모드 마네티노 다이얼",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#E9E57A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 102.5,
+    "end": 104.2,
+    "text": "CARBON PADDLE SHIFTERS",
+    "ko": "카본 패들 시프트",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 4.5,
+    "color": "#D3EB9B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "차량 전면 샷 전환 및 로마 로고 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "SLIM LEDS 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.2,
+    "type": "휙",
+    "event": "상어 그래픽 및 SHARK NOSE 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "톡",
+    "event": "TWIN TURBO 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "V8 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "3900CC 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 가속 사운드 리얼 플레이",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "띵",
+    "event": "페라리 말 그래픽과 마력 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.4,
+    "type": "휙",
+    "event": "서스펜션 3D X-ray 그래픽 오버레이",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "쿵",
+    "event": "허리 척추 그래픽 깜빡이며 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "CARBON CERAMIC 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "톡",
+    "event": "ACTIVE SPOILER 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "휙",
+    "event": "시트 열선 불꽃 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "딸깍",
+    "event": "마네티노 그래픽 및 스티어링 버튼 조작",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 15.0,
+     "what": "배기음 연출 동안 음악 잠시 감소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 4.1,
+    "what": "이탈리아 국기 컬러 라인 및 Ferrari Roma 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "페이드",
+    "purpose": "차명 타이틀 표시",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "what": "상어 머리 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 18.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "샤크 노즈 디자인 비유",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 21.0,
+    "what": "달리는 흰색 페라리 말 실루엣",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 15.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "출력/성능 강조",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.5,
+    "what": "서스펜션 구조 3D 와이어프레임 렌더링",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 55.0,
+    "y_pct": 40.0,
+    "entrance": "페이드",
+    "purpose": "더블 위시본 구조 시각화",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.0,
+    "what": "빨간색 척추 뼈 엑스레이 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 65.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "승차감이 편안해 허리가 안 아프다는 코믹한 표현",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.5,
+    "what": "불타는 열선 시트 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 40.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "열선 시트 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 105.0,
+    "end": 109.0,
+    "what": "노란색 지도 위치 핀 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "أنا ناصر وصدقني أنت محتاج فيراري، فيراري روما",
+    "ko": "전 나사르입니다. 믿으세요, 당신에겐 페라리가 필요합니다. 페라리 로마!"
+   },
+   {
+    "start": 4.0,
+    "end": 10.5,
+    "text": "مافيهاش زاوية وحشة، عندك عضلات قوية جداً، سليم ليدز، فيري شارب نوز وتهوية عملاقة للموتور",
+    "ko": "어느 각도에서 봐도 못생긴 구석이 없죠. 근육질 라인, 슬림 LED, 날렵한 샤크 노즈와 대형 엔진 흡기구."
+   },
+   {
+    "start": 10.6,
+    "end": 14.5,
+    "text": "اللي بيتنفس من توين تيربو V8، 3900 سي سي فيراري",
+    "ko": "3.9리터 V8 트윈터보 페라리 엔진이 숨 쉬고 있습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 21.0,
+    "text": "بتطلع 612 حصان و 720 نيوتن يعني حصان سريع",
+    "ko": "612마력과 720Nm의 토크를 뿜어내는 빠른 말이죠."
+   },
+   {
+    "start": 21.0,
+    "end": 28.5,
+    "text": "وعشان هي تورر، السسبنشن المالتي لينك الخلفي والدبل ويشبون الأمامي بيدولك أحسن تماسك وتوجيه للعربية من غير ما يكسروا ضهرك",
+    "ko": "그랜드 투어러답게 멀티링크 후륜과 더블 위시본 전륜 서스펜션이 허리를 부수지 않으면서도 최고의 접지력과 핸들링을 선사합니다."
+   },
+   {
+    "start": 29.5,
+    "end": 33.0,
+    "text": "وعشان الوحش يقف، عندك كاربون سيراميك من بريمبو والستار ريمز المشهورين من فيراري",
+    "ko": "이 야수를 멈추기 위해 브렘보 카본 세라믹 브레이크와 페라리의 상징 스타 림 휠이 들어갔습니다."
+   },
+   {
+    "start": 33.0,
+    "end": 37.0,
+    "text": "عندك أكتيف سبويلر عشان يزود الداونفورس ودي إن إيه الجديد بتاع فيراري في التيل لايتس",
+    "ko": "다운포스를 높여주는 액티브 스포일러와 페라리의 새로운 시그니처 테일램프가 적용되었습니다."
+   },
+   {
+    "start": 45.0,
+    "end": 50.0,
+    "text": "صاحبك اللي مش بتحبه قعده ورا، بس مدامك تقعد قدام في كراسي التسخين والتبريد",
+    "ko": "별로 안 좋아하는 친구는 뒷자리에 태우고, 아내분은 통풍과 열선이 있는 조수석에 앉히세요."
+   },
+   {
+    "start": 50.0,
+    "end": 55.0,
+    "text": "وقدامها شاشة عشان تشوفك وأنت طاير على 300 وتاتش سكرين فيها أبل كاربلاي",
+    "ko": "300km/h로 날아갈 때 볼 수 있는 동승석 화면과 애플 카플레이가 지원되는 터치스크린도 있죠."
+   },
+   {
+    "start": 56.0,
+    "end": 104.0,
+    "text": "فيراري بتعمل أجمل ستيرنج بالدرايفنج مانيتينو وبكاربون بادل شيفترز",
+    "ko": "페라리는 마네티노 다이얼과 카본 패들 시프트가 달린 최고의 스티어링 휠을 만듭니다."
+   },
+   {
+    "start": 104.2,
+    "end": 109.0,
+    "text": "وهتلاقيها في شيفت أوتوموتيف التجمع الخامس التسعين الجنوبي مول توب ناينتي",
+    "ko": "쉬프트 오토모티브(뉴카이로 제5정착지 남부 90번가 탑90몰)에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "에너지 넘치는 인사와 함께 페라리 로마 차량 전면 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.1,
+    "end": 10.6,
+    "speed": "빠름",
+    "summary": "전면 디자인 특징(슬림 LED, 샤크 노즈, 흡기구)"
+   },
+   {
+    "stage": "사양",
+    "start": 10.6,
+    "end": 21.0,
+    "speed": "빠름",
+    "summary": "V8 트윈터보 엔진룸, 배기음 감상, 마력 및 토크 제원"
+   },
+   {
+    "stage": "기능",
+    "start": 21.0,
+    "end": 37.0,
+    "speed": "보통",
+    "summary": "서스펜션 구조, 브레이크 휠, 리어 스포일러 및 램프"
+   },
+   {
+    "stage": "기능",
+    "start": 37.0,
+    "end": 104.2,
+    "speed": "빠름",
+    "summary": "트렁크, 실내 조수석 스크린, 센터 디스플레이, 마네티노 핸들"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 104.2,
+    "end": 109.2,
+    "speed": "보통",
+    "summary": "쇼룸 위치 안내 및 방문 유도"
+   }
+  ],
+  "rules": [
+   "자막 키워드는 볼드한 영문 텍스트와 3D 그래픽/아이콘을 결합해 시각적 집중도를 높인다.",
+   "엔진 스펙 소개 직후 실제 우렁찬 배기 사운드를 인서트하여 몰입감을 준다.",
+   "서스펜션이나 열선 등 보이지 않는 기능은 엑스레이 CG나 만화적 스티커를 활용해 유머러스하게 전달한다.",
+   "차량 부위 설명 시 손가락으로 가리키거나 만지며 카메라가 타이트하게 이동한다.",
+   "마지막 컷은 딜러십 매장 전경과 위치 핀 그래픽을 매칭해 매장 방문 CTA로 마무리한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "feature": "슬림 헤드램프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 39.5,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 14.2,
+    "feature": "V8 트윈터보 엔진",
+    "shown_how": "글자 카드",
+    "icon_desc": "3D 메탈릭 TWIN TURBO 텍스트",
+    "x_pct": 52.0,
+    "y_pct": 30.0,
+    "size_w_pct": 40.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.5,
+    "feature": "더블 위시본 서스펜션",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차량 휠 하우스 내부 서스펜션 구조 3D 그래픽",
+    "x_pct": 55.0,
+    "y_pct": 35.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.7,
+    "feature": "카본 세라믹 브레이크 & 스타 림",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": null,
+    "x_pct": 48.0,
+    "y_pct": 18.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 36.0,
+    "feature": "액티브 리어 스포일러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "노란색 화살표 다운포스 인디케이터",
+    "x_pct": 30.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 49.5,
+    "feature": "통풍 및 열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 모양 열선 시트 스티커",
+    "x_pct": 40.0,
+    "y_pct": 55.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 51.7,
+    "feature": "동승석 패신저 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": "대시보드 위 PASSENGER SCREEN 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 28.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 60.0,
+    "feature": "마네티노 드라이브 모드 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "원형 다이얼 모드 인디케이터 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 38.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 102.0,
+    "end": 104.2,
+    "feature": "카본 패들 시프트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "패들 가리키는 텍스트 카드",
+    "x_pct": 38.0,
+    "y_pct": 43.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "페라리 유니폼을 입은 진행자가 손동작과 함께 당신에게 페라리가 필요하다고 외치며 로마 차량을 공개",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر وصدقني أنت محتاج فيراري",
+   "ko": "전 나사르입니다. 당신에겐 페라리가 꼭 필요해요!"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "샤크 노즈와 슬림 헤드라이트의 공격적인 전면부 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 11.5,
+    "point": "3.9리터 V8 트윈터보 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 18.5,
+    "point": "최고출력 612마력 및 최대토크 720Nm의 고성능",
+    "category": "성능"
+   },
+   {
+    "t": 22.0,
+    "point": "멀티링크 및 더블 위시본 조합으로 승차감과 핸들링 양립",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "브렘보 카본 세라믹 브레이크와 시그니처 스타 림",
+    "category": "성능"
+   },
+   {
+    "t": 33.5,
+    "point": "고속 주행 안정성을 위한 액티브 리어 스포일러",
+    "category": "성능"
+   },
+   {
+    "t": 47.0,
+    "point": "앞좌석 통풍 및 열선 시트 제공",
+    "category": "편의"
+   },
+   {
+    "t": 50.5,
+    "point": "속도 등 주행정보를 보여주는 조수석 전용 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 58.0,
+    "point": "스티어링 휠에 집약된 마네티노 주행모드 셀렉터",
+    "category": "기능"
+   }
+  ],
+  "cta": {
+   "t": 104.5,
+   "text": "وهتلاقيها في شيفت أوتوموتيف",
+   "ko": "쉬프트 오토모티브 매장에 방문하여 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "엔진룸",
+    "외관 후면",
+    "외관 전면",
+    "휠",
+    "외관 후면",
+    "옵션 작동",
+    "트렁크",
+    "뒷좌석",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "외관 전면"
+   ]
+  }
+ }
+}

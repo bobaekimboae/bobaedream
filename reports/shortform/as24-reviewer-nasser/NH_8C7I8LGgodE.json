@@ -1,0 +1,1160 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/8C7I8LGgodE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8350,
+  "candidatesTokenCount": 9550,
+  "totalTokenCount": 17900,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7187
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 79.5,
+   "aspect": "9:16",
+   "car": "BAIC U5 Plus vs Kaiyi E5 vs MG 5",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 14.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 26.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 33.7,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 39.9,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 44.3,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.3,
+    "end": 46.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.9,
+    "end": 50.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 54.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 56.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.9,
+    "end": 59.1,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.1,
+    "end": 62.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.9,
+    "end": 68.3,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.3,
+    "end": 70.3,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.3,
+    "end": 74.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 74.0,
+    "end": 79.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.1,
+    "end": 3.7,
+    "text": "1,000,000",
+    "ko": "100만",
+    "kind": "가격",
+    "y_pct": 28.5,
+    "x_center_pct": 60.5,
+    "text_height_pct": 7.5,
+    "color": "#2ECC71",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.4,
+    "text": "اقدمهم فالسوق",
+    "ko": "시장에서 가장 오래된 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 14.2,
+    "x_center_pct": 43.1,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 7.9,
+    "text": "شبابي ورياضية",
+    "ko": "젊고 스포티한 스타일",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E65100",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.9,
+    "text": "المنافس الشرس",
+    "ko": "강력한 경쟁자",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#B71C1C",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "text": "MULTI FUNCTION",
+    "ko": "다기능 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 26.5,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2A2A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.8,
+    "text": "شكلها احلي",
+    "ko": "디자인이 더 예쁨",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 6.0,
+    "color": "#E65100",
+    "background": "상자",
+    "bg_color": "#FFF3E0",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 54.8,
+    "text": "فتحات تكييف",
+    "ko": "에어컨 송풍구",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0288D1",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 56.9,
+    "text": "16\"",
+    "ko": "16인치",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 42.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 58.5,
+    "text": "احلي",
+    "ko": "더 예쁨",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 5.5,
+    "color": "#D32F2F",
+    "background": "상자",
+    "bg_color": "#FFFDE7",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 59.1,
+    "text": "16\"",
+    "ko": "16인치",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 7.0,
+    "color": "#FF2A2A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 59.2,
+    "end": 60.5,
+    "text": "17\"",
+    "ko": "17인치",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2A2A",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 62.9,
+    "text": "MULTI-LINK SUSP.",
+    "ko": "멀티링크 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#E91E63",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 63.5,
+    "end": 65.5,
+    "text": "430 LITER",
+    "ko": "430리터",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 9.0,
+    "color": "#FFA000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 65.8,
+    "end": 68.3,
+    "text": "455 LITER",
+    "ko": "455리터",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 9.0,
+    "color": "#E65100",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 68.5,
+    "end": 70.3,
+    "text": "512 LITER",
+    "ko": "512리터",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 9.5,
+    "color": "#E65100",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 72.8,
+    "text": "50%",
+    "ko": "선납금 50%",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 12.0,
+    "color": "#D32F2F",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 72.9,
+    "end": 74.0,
+    "text": "18 شهر",
+    "ko": "18개월 무이자",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 12.0,
+    "color": "#B71C1C",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 75.5,
+    "end": 79.5,
+    "text": "اجورا مول الشيخ زايد",
+    "ko": "아고라 몰 셰이크 자이드 지점",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.1,
+    "type": "돈 소리",
+    "event": "100만 EGP 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "톡",
+    "event": "MG 5 플래그 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "톡",
+    "event": "Kaiyi E5 태그 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "BAIC U5 Plus 태그 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "톡",
+    "event": "애플 카플레이 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "안드로이드 오토 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "휙",
+    "event": "멀티펑션 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "띵",
+    "event": "예쁜 시트 텍스트 및 별 스티커",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "쿵",
+    "event": "BAIC 엔진 제원 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "쿵",
+    "event": "Kaiyi 터보 엔진 제원 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.2,
+    "type": "쿵",
+    "event": "MG 5 엔진 제원 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.8,
+    "type": "톡",
+    "event": "후석 송풍구 눈꽃 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "톡",
+    "event": "16인치 휠 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 57.0,
+    "type": "띵",
+    "event": "MG 휠 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 59.2,
+    "type": "톡",
+    "event": "17인치 휠 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 60.5,
+    "type": "휙",
+    "event": "멀티링크 서스펜션 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 63.5,
+    "type": "톡",
+    "event": "트렁크 430L 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 65.8,
+    "type": "톡",
+    "event": "트렁크 455L 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 68.5,
+    "type": "톡",
+    "event": "트렁크 512L 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 71.0,
+    "type": "톡",
+    "event": "할부 50% 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 72.9,
+    "type": "톡",
+    "event": "18개월 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 95,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.1,
+    "end": 3.7,
+    "what": "1,000,000 녹색 3D 화폐 뱃지",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 58.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 조건 강조",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "what": "Apple CarPlay / Android Auto 2D 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 표시",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.7,
+    "what": "BAIC 엔진 스펙 보드 (1500cc 111hp 142nm)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 55.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 비교",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 39.5,
+    "what": "Kaiyi E5 엔진 스펙 보드 (1500T 156hp 230nm)",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 52.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 비교",
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 44.0,
+    "what": "MG 5 엔진 스펙 보드 (1500cc 120hp 150nm)",
+    "is_3d": false,
+    "size_w_pct": 48.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 비교",
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 54.8,
+    "what": "후석 에어컨 송풍구 눈꽃 그래픽",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 26.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "편의사양 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "text": "انا ناصر ولو عايز عربية تحت المليون جنيه جبتلك مقارنة التلات خمسات",
+    "ko": "저는 나사르입니다. 100만 파운드 이하의 차를 원하신다면 '3개의 5' 비교를 준비했습니다."
+   },
+   {
+    "start": 4.0,
+    "end": 5.4,
+    "text": "اقدمهم في السوق الـ MG 5",
+    "ko": "시장에서 가장 오래된 MG 5,"
+   },
+   {
+    "start": 5.5,
+    "end": 7.8,
+    "text": "اكتر واحدة شبابي ورياضية كايي E5",
+    "ko": "가장 젊고 스포티한 카이이 E5,"
+   },
+   {
+    "start": 7.9,
+    "end": 9.9,
+    "text": "والمنافس الشرس البايك U5",
+    "ko": "그리고 강력한 라이벌 베이징 U5 플러스입니다."
+   },
+   {
+    "start": 10.0,
+    "end": 12.5,
+    "text": "الـ MG من جوة عندك فتحة سقف والكراسي بتاعتك جلد",
+    "ko": "MG 실내에는 썬루프와 가죽 시트가 적용되어 있습니다."
+   },
+   {
+    "start": 12.6,
+    "end": 14.7,
+    "text": "تاتش سكرين فيها ابل كاربلاي واندرويد اوتو",
+    "ko": "터치스크린은 애플 카플레이와 안드로이드 오토를 지원합니다."
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "text": "الدريكسيون مالتي فانكشن وعدادات انالوج",
+    "ko": "멀티펑션 스티어링 휠과 아날로그 계기판이 들어갑니다."
+   },
+   {
+    "start": 16.6,
+    "end": 19.8,
+    "text": "في البايك العدادات ديجيتال والشاشة بتاعتك متصلة",
+    "ko": "BAIC의 경우 디지털 계기판과 일체형 와이드 디스플레이가 장착되었습니다."
+   },
+   {
+    "start": 19.9,
+    "end": 21.8,
+    "text": "والكراسي بتاعتك شكلها احلى عندك سوفت تاتش اكتر",
+    "ko": "시트 디자인이 더 고급스럽고 부드러운 소재 마감이 많습니다."
+   },
+   {
+    "start": 21.9,
+    "end": 24.0,
+    "text": "بس كرسي الكايي رياضي اكتر",
+    "ko": "하지만 Kaiyi 시트가 훨씬 스포티합니다."
+   },
+   {
+    "start": 24.1,
+    "end": 28.9,
+    "text": "ونفس الكلام بيمشي على الكونسول والزيادة عندك شاحن وايرلس واستيتش احمر على الدريكسيون الجلد",
+    "ko": "콘솔도 마찬가지이며 무선 충전기와 가죽 핸들의 레드 스티치가 추가됩니다."
+   },
+   {
+    "start": 29.0,
+    "end": 33.6,
+    "text": "موتور البايك 1500 تنفس طبيعي 111 حصان و142 نيوتن",
+    "ko": "BAIC의 엔진은 1.5 자연흡기 111마력 142토크입니다."
+   },
+   {
+    "start": 33.7,
+    "end": 39.8,
+    "text": "انما الكايي 1500 تربو 156 حصان و230 نيوتن فعامل القوة لصالح الـ E5",
+    "ko": "반면 Kaiyi는 1.5 터보 156마력 230토크로 힘은 E5의 압승입니다."
+   },
+   {
+    "start": 39.9,
+    "end": 44.2,
+    "text": "الـ MG اقوى 1500 تنفس طبيعي 120 حصان و150 نيوتن",
+    "ko": "MG는 1.5 자연흡기 중 더 강력한 120마력 150토크를 냅니다."
+   },
+   {
+    "start": 44.3,
+    "end": 46.8,
+    "text": "نبدا بالـ MG هي اصغر كنبة ومش واصلها التكييف ورا",
+    "ko": "MG부터 보면 뒷좌석이 가장 좁고 후석 에어컨 송풍구가 없습니다."
+   },
+   {
+    "start": 46.9,
+    "end": 50.0,
+    "text": "والبايك اوسعهم كمساحات للرجلين وفيها اصغر نفق فتيس",
+    "ko": "BAIC는 다리 공간이 가장 넓고 센터 터널이 가장 낮습니다."
+   },
+   {
+    "start": 50.1,
+    "end": 54.7,
+    "text": "كنبة الكايي هي الاريح والوحيدة بمسند للايد وبرضه الوحيدة اللي واصلها فتحات تكييف",
+    "ko": "Kaiyi의 뒷좌석이 가장 안락하며 유일하게 팔걸이와 후석 송풍구를 갖췄습니다."
+   },
+   {
+    "start": 54.8,
+    "end": 56.8,
+    "text": "البايك بتنزل بجنط تو تون 16",
+    "ko": "BAIC는 16인치 투톤 휠이 장착됩니다."
+   },
+   {
+    "start": 56.9,
+    "end": 59.0,
+    "text": "بتاع الـ MG احلى بس 16 برضه",
+    "ko": "MG 휠이 더 예쁘지만 마찬가지로 16인치입니다."
+   },
+   {
+    "start": 59.1,
+    "end": 62.8,
+    "text": "بس الكايي 17 وهي الوحيدة بعفشة مالتي لينك فهتلاقيها اثبت عالسرعات",
+    "ko": "하지만 Kaiyi는 17인치 휠에 유일한 멀티링크 서스펜션으로 고속 안정감이 뛰어납니다."
+   },
+   {
+    "start": 62.9,
+    "end": 65.5,
+    "text": "بس البايك هي اصغر شنطة 430 لتر",
+    "ko": "트렁크는 BAIC가 430리터로 가장 작고,"
+   },
+   {
+    "start": 65.6,
+    "end": 68.2,
+    "text": "الكايي اكبر 455 لتر",
+    "ko": "Kaiyi는 455리터로 더 큽니다."
+   },
+   {
+    "start": 68.3,
+    "end": 70.3,
+    "text": "واكبرهم الـ MG 5 بـ 512 لتر",
+    "ko": "가장 큰 것은 MG 5의 512리터입니다."
+   },
+   {
+    "start": 70.4,
+    "end": 74.5,
+    "text": "والتلاتة عليهم عرض لما بتدفع 50% بتقسط على 18 شهر من غير فوايد",
+    "ko": "세 모델 모두 50% 납부 시 18개월 무이자 할부 프로모션이 적용됩니다."
+   },
+   {
+    "start": 74.6,
+    "end": 79.5,
+    "text": "اي عربية انت عايزها هتلاقيها في AMG الغلبان وده اجدد فرع في اجورا مول الشيخ زايد",
+    "ko": "원하시는 모든 차는 AMG 엘갈반에서 만나보실 수 있으며, 여기는 아고라 몰 셰이크 자이드 신규 지점입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.9,
+    "speed": "빠름",
+    "summary": "100만 EGP 이하 준중형 세단 3종 비교 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.0,
+    "end": 9.9,
+    "speed": "빠름",
+    "summary": "비교 차량 외관 및 특징(MG5, Kaiyi E5, BAIC U5 Plus)"
+   },
+   {
+    "stage": "기능",
+    "start": 10.0,
+    "end": 28.9,
+    "speed": "빠름",
+    "summary": "실내 디스플레이, 시트, 인테리어 사양 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 29.0,
+    "end": 44.2,
+    "speed": "보통",
+    "summary": "3종 차량 엔진 출력 및 토크 스펙 보드 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 44.3,
+    "end": 62.8,
+    "speed": "빠름",
+    "summary": "뒷좌석 거주성, 송풍구, 휠 사이즈 및 서스펜션 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 62.9,
+    "end": 70.3,
+    "speed": "빠름",
+    "summary": "트렁크 적재 용량 비교"
+   },
+   {
+    "stage": "가격",
+    "start": 70.4,
+    "end": 74.5,
+    "speed": "빠름",
+    "summary": "50% 선납 18개월 무이자 할부 프로모션 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 74.6,
+    "end": 79.5,
+    "speed": "보통",
+    "summary": "전시장 지점 위치 안내 및 방문 유도"
+   }
+  ],
+  "rules": [
+   "비교 대상 3개 모델(MG5, Kaiyi E5, BAIC U5)을 각 파트별로 1:1:1 직관적 비교",
+   "스펙 수치(마력, 토크, 휠 인치, 트렁크 용량)는 볼드한 그래픽 카드로 화면에 크게 배치",
+   "핵심 옵션 포인트(카플레이, 송풍구, 멀티링크) 등장 시 효과음(톡, 쿵, 띵)을 동기화",
+   "화면 하단 자막 대신 중앙/상단에 핵심 키워드 스티커를 역동적으로 팝업",
+   "마지막에 명확한 무이자 할부 금융 조건과 전시장 지점 정보를 제시"
+  ],
+  "option_highlights": [
+   {
+    "start": 12.6,
+    "end": 14.8,
+    "feature": "애플 카플레이 및 안드로이드 오토",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "CarPlay와 Android Auto 앱 로고 아이콘",
+    "x_pct": 45.0,
+    "y_pct": 30.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "feature": "멀티펑션 스티어링 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "붉은색 3D 텍스트 배너",
+    "x_pct": 55.0,
+    "y_pct": 26.5,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.8,
+    "feature": "스마트폰 무선 충전기",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "센터 콘솔 트레이 손가락 지칭",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 54.8,
+    "feature": "후석 에어컨 송풍구",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "푸른색 눈꽃 3D 심볼 및 텍스트 박스",
+    "x_pct": 25.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 62.8,
+    "feature": "멀티링크 독립 서스펜션",
+    "shown_how": "글자 카드",
+    "icon_desc": "휠 옆 핑크색 3D 영문 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 건물 앞 나란히 주차된 세 대의 세단 앞에 서서 100만 파운드 이하 차량 3종 비교를 선언하며 1,000,000 그래픽 등장",
+   "type": "가격",
+   "text": "لو عايز عربية تحت المليون جنيه جبتلك مقارنة التلات خمسات",
+   "ko": "100만 파운드 이하의 차를 원하신다면 '3개의 5' 비교를 준비했습니다."
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "MG 5는 시장에서 가장 오래 검증된 베스트셀러 모델임",
+    "category": "희소성"
+   },
+   {
+    "t": 6.5,
+    "point": "Kaiyi E5는 가장 젊고 스포티한 디자인을 강조함",
+    "category": "디자인"
+   },
+   {
+    "t": 8.5,
+    "point": "BAIC U5 Plus는 강력한 가성비 대항마임",
+    "category": "디자인"
+   },
+   {
+    "t": 17.0,
+    "point": "BAIC는 디지털 계기판과 와이드 연결형 디스플레이 채택",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "Kaiyi E5는 유일하게 1.5 터보 156마력으로 가장 강력함",
+    "category": "성능"
+   },
+   {
+    "t": 48.0,
+    "point": "BAIC는 2열 레그룸이 가장 넓고 바닥 터널이 낮음",
+    "category": "공간"
+   },
+   {
+    "t": 53.0,
+    "point": "Kaiyi는 유일하게 2열 암레스트와 전용 에어벤트를 기본 제공함",
+    "category": "편의"
+   },
+   {
+    "t": 61.0,
+    "point": "Kaiyi E5는 17인치 휠과 멀티링크 후륜 서스펜션으로 주행 안정성이 뛰어남",
+    "category": "성능"
+   },
+   {
+    "t": 69.0,
+    "point": "트렁크 용량은 MG 5가 512리터로 가장 넓음",
+    "category": "공간"
+   },
+   {
+    "t": 72.0,
+    "point": "50% 선납 시 18개월 무이자 분할 납부 가능 프로모션",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 75.0,
+   "text": "اي عربية انت عايزها هتلاقيها في AMG الغلبان وده اجدد فرع في اجورا مول الشيخ زايد",
+   "ko": "원하는 차량은 AMG 엘갈반 아고라 몰 셰이크 자이드 지점에서 확인하세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "옵션 작동",
+    "엔진룸",
+    "뒷좌석",
+    "휠",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

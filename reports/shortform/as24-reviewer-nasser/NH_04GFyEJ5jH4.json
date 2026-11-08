@@ -1,0 +1,835 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/04GFyEJ5jH4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6342,
+  "candidatesTokenCount": 6656,
+  "totalTokenCount": 12998,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5179
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "Zero Tech Scooter",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.8,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 33.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 38.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.9,
+    "end": 41.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 44.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 46.2,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 49.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 52.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 57.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.0,
+    "end": 3.7,
+    "text": "ZERO TECH ELECTRONICS",
+    "ko": "제로테크 전자",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "text": "سريع",
+    "ko": "빠름",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "4 SPEED",
+    "ko": "4단 속도",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "BRAKE DISCS",
+    "ko": "브레이크 디스크",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "text": "ABS",
+    "ko": "ABS",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "text": "RANGE 45 >> 65 KM",
+    "ko": "주행거리 45 >> 65 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.5,
+    "text": "EXTENSION كرسي",
+    "ko": "시트 확장",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#00A896",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 47.5,
+    "text": "29 KG",
+    "ko": "29 KG",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#00A896",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 57.0,
+    "text": "SCOOTER 18M | MOTOR 3Y",
+    "ko": "스쿠터 18개월 / 모터 3년",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "화면 전환 스우시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "톡",
+    "event": "3D 스쿠터 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.5,
+    "type": "띵",
+    "event": "속도계 게이지 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "딸깍",
+    "event": "비밀번호 HUD 인터페이스 그래픽",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "띵",
+    "event": "NFC 카드 태그 성공 사운드",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "쿵",
+    "event": "전기 번개 아이콘 및 가속",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "딸깍",
+    "event": "ABS 및 브레이크 디스크 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 킥보드 전자 경적 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "배터리 충전 게이지 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "띵",
+    "event": "시트 익스텐션 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "톡",
+    "event": "29KG 무게 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/업비트",
+   "bpm_est": 120,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "what": "ZERO TECH ELECTRONICS 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.8,
+    "what": "전동 킥보드 3D 렌더링 모델",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 시각화",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 6.8,
+    "what": "속도계 게이지 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "페이드",
+    "purpose": "최고속도 안내",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.8,
+    "what": "디지털 비밀번호 잠금 해제 HUD",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 안내",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "what": "NFC 카드 체크 아이콘",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 30.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 안내",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 15.6,
+    "what": "번개 일러스트 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "강조",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 33.5,
+    "what": "배터리 충전 게이지 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배터리 스펙 강조",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 52.8,
+    "what": "이집트 국기와 AOI 제조사 로고",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "국산 제조 신뢰도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "أنا ناصر وبقولك ليه إنت محتاج واحد من دول في حياتك، زيرو تك سكوتر.",
+    "ko": "저는 나사르입니다. 왜 이 제품 중 하나가 필요한지 알려드리죠. 제로테크 스쿠터입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 8.7,
+    "text": "مبدئياً سريع، ليه أربع سرعات من أول المشي لحد السريع اللي بيوصل لحد 55 كيلو.",
+    "ko": "우선 빠릅니다. 도보 모드부터 최고 55km/h까지 4단계 속도를 지원합니다."
+   },
+   {
+    "start": 8.7,
+    "end": 13.5,
+    "text": "تقدر تعمله باسوورد من وحدة التحكم، والشاشة والسكوتر بيشتغلوا بكارت الـ NFC.",
+    "ko": "컨트롤러에서 비밀번호를 설정할 수 있고, 계기판과 스쿠터는 NFC 카드로 작동합니다."
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "text": "ودي دواسة البنزين أو في حالتنا دي الكهربا.",
+    "ko": "그리고 이것이 엑셀 페달, 아니 전동 레버입니다."
+   },
+   {
+    "start": 16.5,
+    "end": 22.0,
+    "text": "عندك ديسكات فرامل فيها ABS وجنط سبورت مقاس 10 ودبل سي سسبنشن عشان الطرق الغير مستوية.",
+    "ko": "ABS가 장착된 디스크 브레이크, 10인치 스포츠 휠, 비포장도로를 위한 듀얼 서스펜션이 들어갔습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 28.5,
+    "text": "نزلت بيه السلم أظن مافيش حاجة مش مستوية أكتر من كده، وعندك تو مودز كومفورت وسبورت.",
+    "ko": "계단도 타고 내려왔으니 이보다 더 험할 순 없겠죠. 컴포트와 스포츠 2가지 주행 모드를 지원합니다."
+   },
+   {
+    "start": 28.5,
+    "end": 33.5,
+    "text": "والرينج بتاعه من 45 لـ 65 كيلو وده هايل جداً لسكان الكومباوندات.",
+    "ko": "주행 거리는 45~65km로 주거 단지 거주자들에게 정말 훌륭합니다."
+   },
+   {
+    "start": 33.5,
+    "end": 41.5,
+    "text": "تقدر تروح بيه المسجد أو السوبرماركت وعندك مكان تعلق عليه شنط، وتروح بيه النادي.",
+    "ko": "모스크나 마트에 갈 때 가방을 걸 수도 있고, 스포츠 클럽에도 갈 수 있죠."
+   },
+   {
+    "start": 41.5,
+    "end": 45.0,
+    "text": "ولو بتتعب من الوقفة تقدر تركبله إكستنشن كرسي علشان تريح ضهرك.",
+    "ko": "서 있기 힘들다면 허리를 편안하게 해 줄 시트 익스텐션을 장착할 수 있습니다."
+   },
+   {
+    "start": 45.0,
+    "end": 49.0,
+    "text": "ده غير إنه بيتني ووزنه 29 كيلو بس فتقدر تخزنه في العربية بسهولة.",
+    "ko": "게다가 접이식이고 무게도 29kg에 불과해 트렁크에 쉽게 보관할 수 있습니다."
+   },
+   {
+    "start": 49.0,
+    "end": 57.0,
+    "text": "سكوتر زيرو تك صناعة مصرية بالكامل في مصنع الإلكترونيات، مع ضمان 18 شهر و3 سنين على الموتور.",
+    "ko": "제로테크 스쿠터는 아랍산업화기구 전자 공장에서 전량 이집트산으로 생산되며, 스쿠터 18개월 및 모터 3년 보증을 제공합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "이 스쿠터가 필요한 이유 어필 및 브랜드 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "최고 속도 55km/h 및 4가지 주행 모드 주행 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 8.7,
+    "end": 28.5,
+    "speed": "빠름",
+    "summary": "보안 패스워드, NFC 태그, 서스펜션(계단 주행) 및 모드 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 28.5,
+    "end": 45.0,
+    "speed": "보통",
+    "summary": "주행 거리, 일상 활용성 및 장착 가능한 시트 옵션"
+   },
+   {
+    "stage": "사양",
+    "start": 45.0,
+    "end": 49.0,
+    "speed": "보통",
+    "summary": "폴딩 및 트렁크 적재(무게 29kg)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 49.0,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "이집트 생산 안내 및 워런티 보증 조건 제시"
+   }
+  ],
+  "rules": [
+   "진행자의 신체 액션과 그래픽 스티커가 박자에 맞춰 역동적으로 동기화됨",
+   "스펙을 설명할 때 3D 그래픽 및 인터랙티브 UI(비밀번호, NFC) 오버레이 적극 사용",
+   "스쿠터의 실사용 테스트를 위해 직접 계단을 타고 내려가는 극한 상황 시연",
+   "각 활용처(모스크, 마켓, 클럽)에 맞는 3D/2D 이모지 그래픽을 머리 위에 띄워 시각화"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "feature": "비밀번호 잠금",
+    "shown_how": "글자 카드",
+    "icon_desc": "디지털 키패드 및 잠금 아이콘 HUD",
+    "x_pct": 25.0,
+    "y_pct": 35.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "feature": "NFC 카드 시동",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "초록색 체크와 NFC 카드 아이콘",
+    "x_pct": 30.0,
+    "y_pct": 30.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.7,
+    "feature": "ABS 디스크 브레이크",
+    "shown_how": "글자 카드",
+    "icon_desc": "ABS 및 브레이크 디스크 타이포그래피",
+    "x_pct": 20.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 24.3,
+    "feature": "듀얼 서스펜션 (계단 주행)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "충격 흡수 스프링 클로즈업 및 계단 다운힐 주행",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 44.7,
+    "feature": "탈부착 시트 익스텐션",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "EXTENSION كرسي 텍스트 및 안장 장착",
+    "x_pct": 65.0,
+    "y_pct": 42.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 49.0,
+    "feature": "폴딩 및 트렁크 적재",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "접어서 자동차 트렁크에 싣는 모습과 29KG 표시",
+    "x_pct": 60.0,
+    "y_pct": 60.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 스쿠터 두 대를 배경으로 걸어 나오며 활기차게 오프닝 멘트 시작",
+   "type": "행동",
+   "text": "أنا ناصر وبقولك ليه إنت محتاج واحد من دول في حياتك",
+   "ko": "저는 나사르입니다. 왜 여러분의 삶에 이 제품 중 하나가 필요한지 알려드리죠."
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "최고 속도 55km/h 지원 및 4단계 속도 조절",
+    "category": "성능"
+   },
+   {
+    "t": 10.0,
+    "point": "컨트롤러 패스워드 설정 및 NFC 태그 카드 시동 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 17.5,
+    "point": "ABS 디스크 브레이크와 10인치 휠 장착",
+    "category": "안전"
+   },
+   {
+    "t": 20.0,
+    "point": "험로 주행을 위한 듀얼 서스펜션 적용으로 계단 주행 가능",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "1회 충전 시 45~65km 롱레인지 주행 거리",
+    "category": "성능"
+   },
+   {
+    "t": 37.0,
+    "point": "쇼핑백 걸이 제공 및 일상 이동 편의성",
+    "category": "편의"
+   },
+   {
+    "t": 42.5,
+    "point": "장거리 피로 완화를 위한 시트(안장) 익스텐션 옵션",
+    "category": "편의"
+   },
+   {
+    "t": 46.5,
+    "point": "29kg 무게로 손쉽게 폴딩하여 차량 트렁크에 보관 가능",
+    "category": "공간"
+   },
+   {
+    "t": 53.0,
+    "point": "이집트 자체 제조 제품이며 스쿠터 18개월, 모터 3년 보증 지원",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "계기판",
+    "휠",
+    "옵션 작동",
+    "트렁크"
+   ]
+  }
+ }
+}

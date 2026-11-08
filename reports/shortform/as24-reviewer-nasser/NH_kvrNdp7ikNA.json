@@ -1,0 +1,1194 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/kvrNdp7ikNA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6721,
+  "candidatesTokenCount": 10232,
+  "totalTokenCount": 18003,
+  "cachedContentTokenCount": 4923,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5558
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 852
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4071
+   }
+  ],
+  "thoughtsTokenCount": 1050,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.2,
+   "aspect": "9:16",
+   "car": "Deepal G318 (디팔 G318)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 23.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 25.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 38.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 46.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 50.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 54.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 61.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "text": "Deepal G318",
+    "ko": "디팔 G318",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "G318",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.5,
+    "text": "20\"",
+    "ko": "20인치",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 12.0,
+    "color": "#39FF14",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "حماية خارجية",
+    "ko": "외부 보호 가드",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 80.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "تعدي بني آدم",
+    "ko": "사람도 지나갈 수 있는 지상고",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#F3C64D",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.0,
+    "text": "تبريد",
+    "ko": "시트 통풍/냉각",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 7.0,
+    "color": "#5DADE2",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.5,
+    "text": "6 DRIVE MODE",
+    "ko": "6가지 주행 모드",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#39FF14",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.5,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.5,
+    "text": "CAMERA 360",
+    "ko": "360도 어라운드 뷰",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.5,
+    "text": "CRUISE CONTROL",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.0,
+    "text": "x16 DEEPAL",
+    "ko": "디팔 16개 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "16",
+    "sure": true
+   },
+   {
+    "start": 47.8,
+    "end": 49.8,
+    "text": "ثقة بنزين / أداء كهرباء",
+    "ko": "가솔린의 신뢰성 / 전기의 퍼포먼스",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 5.0,
+    "color": "#39FF14",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.0,
+    "text": "50%",
+    "ko": "선납금 50%",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 7.5,
+    "color": "#39FF14",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 54.5,
+    "text": "1.5 YRS",
+    "ko": "1.5년 무이자 할부",
+    "kind": "가격",
+    "y_pct": 36.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#39FF14",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.5,
+    "text": "15545",
+    "ko": "문의 전화 15545",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 61.0,
+    "text": "10 فروع",
+    "ko": "10개 지점",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "10",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "쿵",
+    "event": "차량 모델명 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "사이드미러 열선 화염 효과 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "띵",
+    "event": "20인치 휠 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.2,
+    "type": "톡",
+    "event": "전면 하부 보호 쉴드 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.1,
+    "type": "쿵",
+    "event": "지상고 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "톡",
+    "event": "시트 쿨링 그래픽 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "톡",
+    "event": "드라이브 모드 셀렉터 조작 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "톡",
+    "event": "무선충전 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.1,
+    "type": "띵",
+    "event": "360도 카메라 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.1,
+    "type": "톡",
+    "event": "크루즈 컨트롤 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.1,
+    "type": "쿵",
+    "event": "16개 스피커 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "이중접합 유리 손가락으로 두드리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.5,
+    "type": "돈 소리",
+    "event": "50% 프로모션 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.1,
+    "type": "돈 소리",
+    "event": "1.5년 할부 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.6,
+    "type": "띵",
+    "event": "대표 문의 전화번호 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적인",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.6,
+    "end": 4.5,
+    "what": "Deepal G318 모델명 엠블럼 타이틀 카드",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 52.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차 소개",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.8,
+    "what": "사이드미러 발열 애니메이션 불꽃 그래픽",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 52.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.4,
+    "what": "형광 그린 20인치 휠 규격 숫자 그래픽",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 42.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "what": "그린 실드 보호 아이콘 및 텍스트",
+    "is_3d": false,
+    "size_w_pct": 22.0,
+    "x_pct": 60.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 21.4,
+    "end": 23.0,
+    "what": "눈꽃 모양 통풍 시트 아이콘 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 40.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 25.8,
+    "what": "사막·진흙·물·얼음 주행 모드 이모지 아이콘 세트",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "entrance": "페이드",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 49.8,
+    "what": "REEV 파워트레인 작동 원리 그래픽과 주유기/전기 아이콘",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 75.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "성능 강조",
+    "sure": true
+   },
+   {
+    "start": 50.2,
+    "end": 54.5,
+    "what": "50% 선납 및 1.5년 무이자 할부 대형 배너 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "프로모션 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "أنا ناصر، ولو عايز عربية متطورة، بوكسي وشكلها هجومي",
+    "ko": "저는 나사르입니다. 최첨단에 각지고 공격적인 디자인의 차를 찾으신다면"
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "Deepal G318",
+    "ko": "디팔 G318입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "عندك سبوت لايتس عشان التخييم، أماكن للإكسسوارات",
+    "ko": "캠핑을 위한 루프 스포트라이트와 액세서리 장착 공간이 있고,"
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "text": "بلايند سبوت وكمان تسخين عشان الشبورة",
+    "ko": "사각지대 감지 및 안개 대비 열선 미러가 탑재되어 있습니다."
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "text": "وجنط سبورت مقاس 20",
+    "ko": "그리고 20인치 스포츠 휠이 들어갑니다."
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "text": "ولو بتخاف على العربية من الصخور والمطبات عندك تصفيح سفلي",
+    "ko": "바위나 험로로부터 차를 보호하고 싶다면 하부 언더커버가 있고,"
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "text": "وفيبر للحماية الخارجية وزاوية دخول تعدي بني آدم",
+    "ko": "외부 보호 가드와 사람이 지나갈 정도의 넉넉한 진입각을 갖췄습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "text": "عشان تشيل الشنط والأدوات عندك روف راك وسقف بانوراما",
+    "ko": "짐을 실을 수 있는 루프랙과 파노라마 선루프도 있죠."
+   },
+   {
+    "start": 21.0,
+    "end": 23.2,
+    "text": "الكراسي بتاعتك فيها تبريد وعندك 6 درايفينج مود",
+    "ko": "시트에는 통풍 냉각 기능이 있고 6가지 드라이빙 모드를 지원합니다."
+   },
+   {
+    "start": 23.2,
+    "end": 25.8,
+    "text": "على حسب الطريق، رملة، طين، ماية، ثلج",
+    "ko": "도로 상태에 맞춰 모래, 진흙, 도하, 눈길 등을 선택할 수 있습니다."
+   },
+   {
+    "start": 25.8,
+    "end": 27.8,
+    "text": "شاحن وايرلس ومساحة تخزين",
+    "ko": "무선 충전기와 수납공간,"
+   },
+   {
+    "start": 27.8,
+    "end": 31.0,
+    "text": "عندك كاميرات 360، أبل كاربلاي وأندرويد أوتو وسبوتيفاي",
+    "ko": "360도 카메라, 애플 카플레이, 안드로이드 오토, 스포티파이가 지원되며,"
+   },
+   {
+    "start": 31.0,
+    "end": 33.5,
+    "text": "ديجيتال ديسبلاي، دريكسيون جلد وكروز كنترول",
+    "ko": "디지털 계기판, 가죽 스티어링 휠, 크루즈 컨트롤이 탑재되어 있습니다."
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "text": "وكرسي السواق فيه مساج",
+    "ko": "운전석 시트에는 마사지 기능까지 있습니다."
+   },
+   {
+    "start": 35.5,
+    "end": 38.8,
+    "text": "في الساوند سيستم عندك 16 سماعة من ديبال ومخرج تايب سي في الباب الشمال",
+    "ko": "사운드 시스템은 16개 디팔 스피커와 운전석 도어의 타입 C 단자가 있고,"
+   },
+   {
+    "start": 38.8,
+    "end": 40.5,
+    "text": "ويو إس بي في اليمين",
+    "ko": "조수석 도어에는 USB 단자가 있습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 43.0,
+    "text": "والإزاز كله دبل عشان يزودلك عزل الصوت",
+    "ko": "차음성을 높이기 위해 전체 유리가 이중접합 유리로 되어 있습니다."
+   },
+   {
+    "start": 43.0,
+    "end": 46.8,
+    "text": "ده غير الكنبة نفسها سواء مساحات الراس أو الرجلين تاخد تلاتة مرتاحين",
+    "ko": "뒷좌석 또한 헤드룸과 레그룸이 여유로워 세 명이 편안하게 탑승합니다."
+   },
+   {
+    "start": 46.8,
+    "end": 50.0,
+    "text": "وبتقنية الريف يعني ثقة البنزين وأداء الكهرباء، الحلو من كله",
+    "ko": "REEV 기술로 가솔린의 신뢰성과 전기의 주행감을 모두 누릴 수 있습니다."
+   },
+   {
+    "start": 50.0,
+    "end": 54.5,
+    "text": "وعليها عرض، مقدم 50% وتقسيط على سنة ونص من غير فوايد",
+    "ko": "지금 특별 혜택으로 선수금 50% 납입 시 1년 6개월 무이자 할부가 가능합니다."
+   },
+   {
+    "start": 54.5,
+    "end": 57.0,
+    "text": "وده عرض مش وهمي، كل موديلات ديبال هتلاقيها في AMG الغلبان",
+    "ko": "진짜 프로모션이며, 디팔의 전 모델을 AMG 엘갈반에서 만나보실 수 있습니다."
+   },
+   {
+    "start": 57.0,
+    "end": 61.2,
+    "text": "تقدر تتصل على 15545 أو تزورهم في واحد من الـ 10 فروع",
+    "ko": "15545로 전화하시거나 10개 지점 중 가까운 곳을 방문해 보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "각지고 공격적인 디자인의 최신 SUV Deepal G318 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.5,
+    "end": 17.5,
+    "speed": "빠름",
+    "summary": "루프 조명, 사이드미러 열선, 20인치 휠, 언더커버 및 지상고 특징"
+   },
+   {
+    "stage": "기능",
+    "start": 17.5,
+    "end": 46.8,
+    "speed": "빠름",
+    "summary": "선루프, 통풍시트, 6가지 주행모드, 인포테인먼트, 마사지, 16스피커, 이중접합유리, 뒷좌석 공간"
+   },
+   {
+    "stage": "차 소개",
+    "start": 46.8,
+    "end": 50.0,
+    "speed": "보통",
+    "summary": "REEV (가솔린 발전형 전기차) 시스템의 장점 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 50.0,
+    "end": 54.5,
+    "speed": "보통",
+    "summary": "선수금 50%, 1.5년 무이자 할부 특별 프로모션"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 54.5,
+    "end": 61.2,
+    "speed": "보통",
+    "summary": "딜러사 AMG ElGhalban 문의처(15545) 및 10개 매장 방문 CTA"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 특이한 포즈(차량 하부에 누워 언더커버 확인, 선루프로 상체 내밀기 등)를 취해 시청자의 시선을 즉시 사로잡는다.",
+   "새로운 옵션을 소개할 때마다 텍스트 스티커 또는 3D 그래픽과 효과음(톡/띵)을 동기화하여 지루할 틈 없이 전달한다.",
+   "실제 이중접합 유리를 손가락으로 두드려 소리를 들려주는 등 청각적 증명을 병행한다.",
+   "영상 후반부에 선수금 및 무이자 할부 조건을 대형 숫자로 각인시켜 실질적인 구매 유도를 극대화한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "feature": "캠핑용 루프 서치라이트 및 액세서리 마운트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "feature": "사이드미러 열선 및 사각지대 경보",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "사이드미러에 나타나는 주황색 불꽃 열선 아이콘",
+    "x_pct": 52.0,
+    "y_pct": 25.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "feature": "20인치 스포츠 알로이 휠",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "형광 그린 3D 폰트의 '20\"' 텍스트",
+    "x_pct": 42.0,
+    "y_pct": 52.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.0,
+    "feature": "하부 풀 언더커버 플레이트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "feature": "오프로드 범퍼 보호 가드 및 높은 접근각",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "녹색 방패 보안 실드 아이콘",
+    "x_pct": 60.0,
+    "y_pct": 25.0,
+    "size_w_pct": 22.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.0,
+    "feature": "루프랙 및 파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.2,
+    "feature": "앞좌석 통풍/냉각 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "파란색 눈꽃 및 아랍어 'تبريد' 텍스트",
+    "x_pct": 40.0,
+    "y_pct": 52.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 25.8,
+    "feature": "터치스크린 6가지 오프로드 드라이브 모드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "모래, 진흙, 물방울, 눈꽃 4종 지형 이모지 아이콘",
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.8,
+    "feature": "스마트폰 무선 충전 패드 및 수납함",
+    "shown_how": "글자 카드",
+    "icon_desc": "와이파이 전파 모양 무선충전 심볼과 영문 텍스트",
+    "x_pct": 72.0,
+    "y_pct": 38.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.0,
+    "feature": "360도 어라운드 뷰 및 인포테인먼트 앱 연동",
+    "shown_how": "글자 카드",
+    "icon_desc": "CAMERA 360 볼드 텍스트 그래픽",
+    "x_pct": 60.0,
+    "y_pct": 18.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "feature": "운전석 마사지 시트",
+    "shown_how": "말로만",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 38.8,
+    "feature": "디팔 프리미엄 16 스피커 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "x16 DEEPAL 영문 텍스트 그래픽",
+    "x_pct": 65.0,
+    "y_pct": 39.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.0,
+    "feature": "이중접합 차음 유리",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 선글라스를 끼고 다가오며 '각지고 공격적인 최신 SUV를 찾는다면'이라며 차량을 소개하기 시작함",
+   "type": "행동",
+   "text": "أنا ناصر، ولو عايز عربية متطورة، بوكسي وشكلها هجومي",
+   "ko": "저는 나사르입니다. 각지고 공격적인 디자인의 최첨단 자동차를 찾으신다면"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "각진 박스형 외관과 공격적인 인상의 최신 SUV",
+    "category": "디자인"
+   },
+   {
+    "t": 5.0,
+    "point": "캠핑을 위한 루프 스포트라이트와 외부 액세서리 마운트 제공",
+    "category": "편의"
+   },
+   {
+    "t": 8.0,
+    "point": "사각지대 감지 경보 및 안개 대비 사이드미러 열선 기능",
+    "category": "안전"
+   },
+   {
+    "t": 10.5,
+    "point": "20인치 대구경 스포츠 휠 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 13.0,
+    "point": "비포장 험로 주행 시 충격을 방지하는 차체 하부 풀 언더커버",
+    "category": "안전"
+   },
+   {
+    "t": 16.0,
+    "point": "사람이 지나갈 정도로 높은 최저지상고와 접근각",
+    "category": "성능"
+   },
+   {
+    "t": 19.5,
+    "point": "짐 적재용 루프랙과 개방감을 주는 파노라마 선루프",
+    "category": "편의"
+   },
+   {
+    "t": 22.0,
+    "point": "앞좌석 통풍 시트 기능 지원",
+    "category": "편의"
+   },
+   {
+    "t": 24.5,
+    "point": "모래, 진흙, 눈길 등 6가지 주행 모드 제공",
+    "category": "성능"
+   },
+   {
+    "t": 27.0,
+    "point": "스마트폰 무선 충전 패드 및 수납함 구성",
+    "category": "편의"
+   },
+   {
+    "t": 29.5,
+    "point": "360도 서라운드 뷰, 카플레이, 안드로이드 오토, 스포티파이 지원",
+    "category": "편의"
+   },
+   {
+    "t": 32.5,
+    "point": "풀 디지털 계기판과 가죽 스티어링 휠, 크루즈 컨트롤",
+    "category": "편의"
+   },
+   {
+    "t": 34.5,
+    "point": "장거리 주행 시 피로를 덜어주는 운전석 마사지 기능",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "16개 스피커 사운드 시스템 및 도어 트림 충전 포트",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "정숙성을 극대화한 전면/측면 이중접합 차음 유리",
+    "category": "편의"
+   },
+   {
+    "t": 44.5,
+    "point": "성인 3명이 편하게 탈 수 있는 넉넉한 2열 헤드룸과 레그룸",
+    "category": "공간"
+   },
+   {
+    "t": 48.5,
+    "point": "주행거리 연장형 전기차(REEV) 파워트레인 적용",
+    "category": "성능"
+   },
+   {
+    "t": 52.0,
+    "point": "선납금 50% 납입 시 1.5년 무이자 할부 혜택",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 57.0,
+   "text": "تقدر تتصل على 15545 أو تزورهم في واحد من الـ 10 فروع",
+   "ko": "15545로 전화 문의하시거나 전국 10개 매장을 방문하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 루프 조명",
+    "사이드미러",
+    "휠",
+    "외관 하부 언더커버",
+    "외관 전면 범퍼",
+    "선루프/루프랙",
+    "앞좌석 시트",
+    "센터 화면",
+    "센터콘솔 무선충전",
+    "계기판/스티어링 휠",
+    "도어트림 스피커",
+    "측면 유리창",
+    "뒷좌석",
+    "외관 충전구",
+    "외관 전면 풀샷"
+   ]
+  }
+ }
+}

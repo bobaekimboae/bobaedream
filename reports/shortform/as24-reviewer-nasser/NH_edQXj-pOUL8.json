@@ -1,0 +1,560 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/edQXj-pOUL8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4798,
+  "candidatesTokenCount": 5629,
+  "totalTokenCount": 11426,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3635
+   }
+  ],
+  "thoughtsTokenCount": 999,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.0,
+   "aspect": "9:16",
+   "car": "Chery Tiggo 7 Pro",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 4.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 7.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.7,
+    "end": 28.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 33.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 36.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 40.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.9,
+    "end": 7.5,
+    "text": "مدة المسابقة\n1 ------ 30\nنوفمبر",
+    "ko": "대회 기간: 11월 1일 ~ 30일",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 18.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C75BC",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مدة المسابقة",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 12.8,
+    "text": "مشتريات\nتحويلات\nدفع الفواتير",
+    "ko": "쇼핑 / 계좌이체 / 공과금 납부",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 20.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#00A859",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 15.6,
+    "text": "هتكسب من ناحيتين",
+    "ko": "양쪽 모두에서 혜택을 받습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C75BC",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.6,
+    "text": "مقدم / رسوم / 18 شهر حد اقصى",
+    "ko": "선수금 없음 / 수수료 없음 / 최대 18개월",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 20.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "18",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 24.5,
+    "text": "تقدر تسترد معامله قديمه وتحولها لتقسيط",
+    "ko": "이전 결제 내역을 불러와 할부로 전환 가능",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.5,
+    "text": "نزل ابلكيشن myfawry",
+    "ko": "myFawry 앱 다운로드",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 18.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#00A859",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 39.8,
+    "text": "ولو عايز تشوف العربيه\nCAIRO FESTIVAL CITY",
+    "ko": "차량을 직접 보고 싶다면\n카이로 페스티벌 시티",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 16.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CAIRO FESTIVAL CITY",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.0,
+    "type": "쿵",
+    "event": "Chery Tiggo 7 Pro 로고 및 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "톡",
+    "event": "이벤트 기간 그래픽 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "띵",
+    "event": "결제 항목 1번(مشتريات) 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.3,
+    "type": "띵",
+    "event": "결제 항목 2번(تحويلات) 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "띵",
+    "event": "결제 항목 3번(دفع الفواتير) 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "톡",
+    "event": "선물 상자 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.9,
+    "type": "휙",
+    "event": "선수금·수수료 0 표시 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.1,
+    "type": "톡",
+    "event": "앱 다운로드 유도 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "톡",
+    "event": "카이로 페스티벌 시티 위치 핀 드롭",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 댄스",
+   "bpm_est": 124,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "what": "Chery 3D 로고와 Tiggo 7 Pro 글자 및 폭죽 파티클",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "확대 전환",
+    "purpose": "경품 차량 모델명 소개",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.6,
+    "what": "3D 선물 상자와 반짝이 파티클",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 52.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "이중 혜택 강조",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 39.8,
+    "what": "빨간색 3D 위치 핀 마커 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시 장소 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "شايف الكارت ده؟ هيكسبك عربية.",
+    "ko": "이 카드 보이시죠? 당신에게 자동차를 안겨줄 겁니다."
+   },
+   {
+    "start": 2.0,
+    "end": 4.8,
+    "text": "ماي فوري عاملين سحب مع جي بي اوتو على شيري تيجو 7 برو.",
+    "ko": "myFawry가 GB Auto와 함께 Chery Tiggo 7 Pro 경품 추첨을 진행합니다."
+   },
+   {
+    "start": 4.8,
+    "end": 7.6,
+    "text": "مدة المسابقة من يوم 1 لحد 30 نوفمبر ومتطلباتها سهلة جدا.",
+    "ko": "대회 기간은 11월 1일부터 30일까지이며 참여 조건은 아주 간단합니다."
+   },
+   {
+    "start": 7.6,
+    "end": 12.8,
+    "text": "أي معاملات باليلو كارد بتاعك، سواء كانت مشتريات، تحويلات، دفع فواتير، بتدخلك السحب.",
+    "ko": "옐로우 카드로 결제하는 쇼핑, 이체, 공과금 납부 등 모든 거래가 자동 응모됩니다."
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "text": "ويا بقى لو قسطت بالكارت الأصفر، هتكسب من ناحيتين.",
+    "ko": "게다가 노란색 카드로 할부 결제하면 두 가지 혜택을 동시에 누립니다."
+   },
+   {
+    "start": 15.6,
+    "end": 20.8,
+    "text": "أكتر معاملة بتكسب نقط وعليها عروض زي الدبل زيرو، يعني من غير مقدم ولا رسوم ولحد 18 شهر من أي براند.",
+    "ko": "포인트 적립뿐 아니라 더블 제로(무선수금·무수수료), 어떤 브랜드든 최대 18개월 할부 혜택까지 있습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 24.7,
+    "text": "ده انت تقدر تسترد معاملة قديمة وتحولها لتقسيط، مفيش اكتر من كده.",
+    "ko": "이전 결제 내역까지 다시 불러와 할부로 전환할 수도 있습니다."
+   },
+   {
+    "start": 24.7,
+    "end": 28.7,
+    "text": "نزل ابلكيشن ماي فوري دلوقتي وقدم على الكارت الاصفر وماي فوري تقسيط.",
+    "ko": "지금 바로 myFawry 앱을 다운받고 옐로우 카드와 할부 서비스를 신청하세요."
+   },
+   {
+    "start": 28.7,
+    "end": 33.6,
+    "text": "تقدر تستلمه من أي بوث بتوع ماي فوري في المولات او واحد من ال 350 فرع بتوع فوري بلس.",
+    "ko": "쇼핑몰 내 myFawry 부스나 350여 개 Fawry+ 지점 어디서든 수령 가능합니다."
+   },
+   {
+    "start": 33.6,
+    "end": 36.6,
+    "text": "متنساش ان العرض طول شهر 11 عشان تخش السحب على العربية.",
+    "ko": "11월 한 달 내내 진행되는 차량 추첨 기회를 놓치지 마세요."
+   },
+   {
+    "start": 36.6,
+    "end": 40.0,
+    "text": "ولو عايز تشوف العربية هتلاقيها في البوث بتاع كايرو فيستيفال سيتي.",
+    "ko": "차량을 직접 보고 싶다면 카이로 페스티벌 시티 부스에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "카드 한 장으로 신차를 탈 수 있다는 강렬한 도입"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "Chery Tiggo 7 Pro 경품 이벤트 주최사 및 차종 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 4.8,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "이벤트 기간 및 응모 조건(쇼핑, 이체, 납부) 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 12.8,
+    "end": 24.7,
+    "speed": "빠름",
+    "summary": "무선수금/무수수료/18개월 할부 및 결제 내역 할부 전환 혜택"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 24.7,
+    "end": 36.6,
+    "speed": "보통",
+    "summary": "앱 다운로드 권유 및 카드 수령처(부스, Fawry+ 매장) 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 36.6,
+    "end": 40.0,
+    "speed": "보통",
+    "summary": "카이로 페스티벌 시티 실물 차량 전시 장소 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 제스처나 말의 타이밍에 맞춰 3D 아이콘 및 스티커가 즉각 튀어나오도록 연출함",
+   "브랜드 시그니처 색상(노란색, 파란색, 초록색)을 자막 그래픽 배경색으로 통일하여 직관성 확보",
+   "스폰서 차량의 외관·실내·트렁크를 자연스럽게 이동하며 보여주는 워크스루 동선 구성"
+  ],
+  "option_highlights": [
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "feature": "무선수금·무수수료 18개월 할부 조건",
+    "shown_how": "글자 카드",
+    "icon_desc": "금지 표시와 함께 'مقدم', 'رسوم' 배너 및 18개월 카드",
+    "x_pct": 55.0,
+    "y_pct": 22.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.7,
+    "feature": "과거 결제내역 할부 전환 기능",
+    "shown_how": "글자 카드",
+    "icon_desc": "회전 화살표와 텍스트 박스",
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 노란 카드를 가리키며 이 카드로 차를 받을 수 있다고 말하고 체리 티고 7 프로를 비춤",
+   "type": "경품·이벤트",
+   "text": "شايف الكارت ده؟ هيكسبك عربية",
+   "ko": "이 카드 보이시죠? 당신에게 자동차를 안겨줄 겁니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "myFawry와 GB Auto가 Chery Tiggo 7 Pro 경품 추첨 진행",
+    "category": "가격·조건"
+   },
+   {
+    "t": 18.5,
+    "point": "선수금·수수료 없이 최대 18개월 무이자 수준 할부 지원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 38.0,
+    "point": "카이로 페스티벌 시티 부스에서 실물 차량 확인 가능",
+    "category": "상태"
+   }
+  ],
+  "cta": {
+   "t": 25.0,
+   "text": "نزل ابلكيشن myfawry دلوقتي وقدم على الكارت الاصفر",
+   "ko": "지금 바로 myFawry 앱을 다운로드하고 옐로우 카드를 신청하세요",
+   "method": "링크"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 측면",
+    "트렁크",
+    "실내 앞",
+    "외관 측면",
+    "외관 전면"
+   ]
+  }
+ }
+}
