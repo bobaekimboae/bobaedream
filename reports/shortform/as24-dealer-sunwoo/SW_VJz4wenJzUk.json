@@ -1,0 +1,913 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/VJz4wenJzUk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8273,
+  "candidatesTokenCount": 8240,
+  "totalTokenCount": 16513,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7017
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 78.0,
+   "aspect": "9:16",
+   "car": "롤스로이스 스펙터 (Rolls-Royce Spectre)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 15.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 23.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 36.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 40.5,
+    "part": "옵션 작동",
+    "camera": "손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 49.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 53.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 56.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.8,
+    "end": 59.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 64.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.3,
+    "end": 68.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.7,
+    "end": 72.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 78.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "전기차 끝판왕",
+    "ko": "전기차 끝판왕",
+    "kind": "키워드 스티커",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "끝판왕",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.8,
+    "text": "공차중량 2,945kg\n585마력(430kW)",
+    "ko": "공차중량 2,945kg 585마력",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "585마력",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.9,
+    "text": "Luxury Grand Tourer\n대체 불가능! (가격)",
+    "ko": "대체 불가능한 럭셔리 그랜드 투어러",
+    "kind": "말 자막",
+    "y_pct": 76.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.5,
+    "text": "ROLLS ROYCE\nSPECTRE",
+    "ko": "롤스로이스 스펙터",
+    "kind": "제목",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#4CE8DC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPECTRE",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 15.6,
+    "text": "AERO 상단 투톤 외장페인트\n₩46,000,000",
+    "ko": "AERO 상단 투톤 외장페인트 4600만원",
+    "kind": "가격",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩46,000,000",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 19.3,
+    "text": "민첩해진 S.O.E",
+    "ko": "민첩해진 환희의 여신상",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 23.5,
+    "text": "전면 옵션만 6천만원 이상.. ㄷㄷ\n₩21,000,000",
+    "ko": "전면 옵션만 6천만원 이상",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩21,000,000",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 29.5,
+    "text": "슈팅스타 헤드라이너✨\n= 기본 적용!",
+    "ko": "슈팅스타 헤드라이너 기본 적용",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "기본 적용!",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.3,
+    "text": "Starlight Door\n₩28,000,000",
+    "ko": "스타라이트 도어 2800만원",
+    "kind": "가격",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩28,000,000",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.6,
+    "text": "Bespoke Audio\n₩24,000,000",
+    "ko": "비스포크 오디오 2400만원",
+    "kind": "가격",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩24,000,000",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 40.5,
+    "text": "우산은 기본입니다 ㅎㅎ..\n문짝에서 5천만원 이상 추가..",
+    "ko": "우산은 기본, 문짝 옵션만 5천만원 이상",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 44.5,
+    "text": "만다린 / 테일러드 퍼플 / 화이트\n비스포크 오더 인테리어",
+    "ko": "만다린 퍼플 화이트 비스포크 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFC000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "인테리어",
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 49.3,
+    "text": "시트 디자인 관련 옵션만\n총 ₩58,000,000",
+    "ko": "시트 디자인 관련 옵션만 총 5800만원",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩58,000,000",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 53.6,
+    "text": "추가 옵션 가격\n총 ₩222,000,000",
+    "ko": "추가 옵션 가격 총 2억 2200만원",
+    "kind": "가격",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FF0000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "₩222,000,000",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.8,
+    "text": "옵션 포함 출고가격\n844,000,000",
+    "ko": "출고가격 8억 4400만원",
+    "kind": "가격",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2020",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "844,000,000",
+    "sure": true
+   },
+   {
+    "start": 65.0,
+    "end": 68.7,
+    "text": "공차중량\n스펙터 >> 컬리넌",
+    "ko": "공차중량 스펙터가 컬리넌보다 무거움",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#4CE8DC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 70.5,
+    "end": 74.0,
+    "text": "캡션 or 프로필 게시물!",
+    "ko": "캡션이나 프로필 게시물 확인",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 74.5,
+    "end": 77.5,
+    "text": "팔로우!",
+    "ko": "팔로우 요청",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "팔로우!",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.0,
+    "type": "휙",
+    "event": "차명 로고 타이틀 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "돈 소리",
+    "event": "외장페인트 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.2,
+    "type": "돈 소리",
+    "event": "여신상 옵션 가격 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "돈 소리",
+    "event": "도어 옵션 가격 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "돈 소리",
+    "event": "오디오 옵션 가격 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 우산 꺼내는 소리 (딸깍)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "돈 소리",
+    "event": "시트 옵션 가격 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "쿵",
+    "event": "총 추가 옵션 가격 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 55.2,
+    "type": "쿵",
+    "event": "총 출고 가격 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "고급스러움, 리드미컬",
+   "ducks_under_voice": "일부",
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 19.3,
+    "end": 23.5,
+    "what": "화살표 스티커",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 60.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "여신상 옵션 위치 지목",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "전기차 끝판왕 공차중량 약 3톤의 출력은 585마력",
+    "ko": "전기차 끝판왕 공차중량 약 3톤의 출력은 585마력"
+   },
+   {
+    "start": 3.8,
+    "end": 8.5,
+    "text": "대체 불가능한 럭셔리 그랜드 투어러. 안녕하세요. 롤스로이스 스펙터 입고되었습니다.",
+    "ko": "대체 불가능한 럭셔리 그랜드 투어러. 안녕하세요. 롤스로이스 스펙터 입고되었습니다."
+   },
+   {
+    "start": 8.5,
+    "end": 15.6,
+    "text": "화이트 바디 베이스 블랙 투톤 외장 페인트 순정 옵션 적용된 모델로 페인트 가격만 4,600만 원 하는 이 차량.",
+    "ko": "화이트 바디 베이스 블랙 투톤 외장 페인트 순정 옵션 적용된 모델로 페인트 가격만 4,600만 원 하는 이 차량."
+   },
+   {
+    "start": 15.6,
+    "end": 23.5,
+    "text": "변경 디자인의 스피릿 오브 엑스터시, 발광 옵션이 추가된 이 여신상은 옵션가 2,100만 원. 총 앞모습에서만 약 6천만 원 이상이 추가되었습니다.",
+    "ko": "변경 디자인의 스피릿 오브 엑스터시, 발광 옵션이 추가된 이 여신상은 옵션가 2,100만 원. 총 앞모습에서만 약 6천만 원 이상이 추가되었습니다."
+   },
+   {
+    "start": 23.5,
+    "end": 29.8,
+    "text": "롤스로이스의 시그니처 슈팅스타 헤드라이너가 기본으로 적용되는 스펙터지만 실내도 억 소리 나는 옵션이 한가득입니다.",
+    "ko": "롤스로이스의 시그니처 슈팅스타 헤드라이너가 기본으로 적용되는 스펙터지만 실내도 억 소리 나는 옵션이 한가득입니다."
+   },
+   {
+    "start": 29.8,
+    "end": 36.6,
+    "text": "우선 신형부터 선택 가능한 스타라이트 도어 2,800만 원, 크롬 커버가 두드러지는 비스포크 오디오 2,400만 원.",
+    "ko": "우선 신형부터 선택 가능한 스타라이트 도어 2,800만 원, 크롬 커버가 두드러지는 비스포크 오디오 2,400만 원."
+   },
+   {
+    "start": 36.6,
+    "end": 40.5,
+    "text": "아직 실내는 들어가지도 않았는데 문짝에서 5천만 원 추가되시겠습니다.",
+    "ko": "아직 실내는 들어가지도 않았는데 문짝에서 5천만 원 추가되시겠습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 49.3,
+    "text": "만다린, 테일러드 퍼플 그리고 화이트 쓰리톤 조합의 비스포크 오더 인테리어. 시트에 적용된 확장형 파이핑, 거기에 스티칭 디테일까지 5천만 원이 넘는 옵션이네요.",
+    "ko": "만다린, 테일러드 퍼플 그리고 화이트 쓰리톤 조합의 비스포크 오더 인테리어. 시트에 적용된 확장형 파이핑, 거기에 스티칭 디테일까지 5천만 원이 넘는 옵션이네요."
+   },
+   {
+    "start": 49.3,
+    "end": 57.0,
+    "text": "럭셔리 스펙으로만 추가된 옵션이 2억 2,200만 원! 국내 신차 출고 가격은 8억 4,400만 원에 달합니다.",
+    "ko": "럭셔리 스펙으로만 추가된 옵션이 2억 2,200만 원! 국내 신차 출고 가격은 8억 4,400만 원에 달합니다."
+   },
+   {
+    "start": 57.0,
+    "end": 64.3,
+    "text": "일반 전기차와는 또 다르게 한층 더 정숙한 스펙터, 이동 수단이라고 보기에는 너무 아쉽습니다. 마치 도로 위의 현대미술!",
+    "ko": "일반 전기차와는 또 다르게 한층 더 정숙한 스펙터, 이동 수단이라고 보기에는 너무 아쉽습니다. 마치 도로 위의 현대미술!"
+   },
+   {
+    "start": 64.3,
+    "end": 68.7,
+    "text": "컬리넌보다 무거운 공차 중량이지만 대용량 배터리로 약 400km 이상 주행 가능한",
+    "ko": "컬리넌보다 무거운 공차 중량이지만 대용량 배터리로 약 400km 이상 주행 가능한"
+   },
+   {
+    "start": 68.7,
+    "end": 78.0,
+    "text": "이 차량에 대한 자세한 정보는 캡션 또는 프로필 게시물을 확인해 주세요. 더 많은 차량을 만나보시려면 팔로우 부탁드립니다.",
+    "ko": "이 차량에 대한 자세한 정보는 캡션 또는 프로필 게시물을 확인해 주세요. 더 많은 차량을 만나보시려면 팔로우 부탁드립니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.5,
+    "speed": "빠름",
+    "summary": "차량의 엄청난 스펙 및 롤스로이스 스펙터 입고 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 8.5,
+    "end": 23.5,
+    "speed": "보통",
+    "summary": "외관의 초고가 옵션들(투톤 페인트, 발광 환희의 여신상 등)"
+   },
+   {
+    "stage": "기능",
+    "start": 23.5,
+    "end": 49.3,
+    "speed": "보통",
+    "summary": "스타라이트 도어, 비스포크 오디오, 우산, 시트 인테리어 옵션"
+   },
+   {
+    "stage": "가격",
+    "start": 49.3,
+    "end": 57.0,
+    "speed": "빠름",
+    "summary": "총 추가 옵션가 및 신차 출고 가격 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 57.0,
+    "end": 68.7,
+    "speed": "보통",
+    "summary": "정숙성, 배터리, 주행 거리 등 스펙터의 완성도 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 68.7,
+    "end": 78.0,
+    "speed": "보통",
+    "summary": "게시물 확인 및 팔로우 CTA"
+   }
+  ],
+  "rules": [
+   "초고가 럭셔리 카에 맞게 각 옵션별 단품 가격을 텍스트로 명시하여 충격 효과 유도",
+   "가격이 표시될 때마다 현금/돈 소리 SFX를 배치해 시각과 청각을 동기화",
+   "외관 -> 도어 트림 -> 시트/인테리어 -> 총 옵션 가격 -> 총 출고 가격 순으로 점진적 구성",
+   "화려한 색상 조합과 디테일 클로즈업 샷을 적절히 배치하여 매물의 시각적 가치를 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.5,
+    "end": 15.6,
+    "feature": "AERO 상단 투톤 외장 페인트",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 23.5,
+    "feature": "발광 스피릿 오브 엑스터시 (환희의 여신상)",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "화살표 스티커",
+    "x_pct": 60.0,
+    "y_pct": 18.0,
+    "size_w_pct": 10.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 29.8,
+    "feature": "슈팅스타 헤드라이너",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 33.3,
+    "feature": "스타라이트 도어",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 36.6,
+    "feature": "비스포크 오디오",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 88.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 40.5,
+    "feature": "도어 수납 우산",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 49.3,
+    "feature": "비스포크 인테리어 및 파이핑/스티칭",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "돈 소리",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전기차 끝판왕, 공차중량 약 3톤에 585마력 롤스로이스 스펙터 전면부 공개",
+   "type": "숫자·성능",
+   "text": "전기차 끝판왕 공차중량 2,945kg 585마력"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "공차중량 2,945kg, 출력 585마력의 전기차 끝판왕",
+    "category": "성능"
+   },
+   {
+    "t": 9.5,
+    "point": "외장 투톤 페인트 옵션 가격만 4,600만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 17.0,
+    "point": "조명 들어오는 발광 여신상 옵션 2,100만 원",
+    "category": "디자인"
+   },
+   {
+    "t": 25.0,
+    "point": "시그니처 슈팅스타 헤드라이너 기본 적용",
+    "category": "편의"
+   },
+   {
+    "t": 31.0,
+    "point": "스타라이트 도어 2,800만 원, 비스포크 오디오 2,400만 원",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "만다린/퍼플/화이트 비스포크 시트 및 스티칭 옵션 5,800만 원",
+    "category": "디자인"
+   },
+   {
+    "t": 51.0,
+    "point": "총 추가 옵션가 2억 2,200만 원, 출고가 8억 4,400만 원",
+    "category": "가격·조건"
+   },
+   {
+    "t": 65.0,
+    "point": "대용량 배터리로 주행거리 400km 이상 가능",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 70.5,
+   "text": "이 차량에 대한 자세한 정보는 캡션 or 프로필 게시물 확인, 팔로우 부탁드립니다",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "외관 보닛",
+    "보닛 엠블럼",
+    "헤드라이너",
+    "도어 트림",
+    "우산 시연",
+    "시트",
+    "측면 전경",
+    "휠",
+    "엔진룸(프렁크 커버)"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검정 외곽선의 깔끔한 볼드 고딕 폰트와 형광/노랑 강조색 사용"
+  }
+ }
+}

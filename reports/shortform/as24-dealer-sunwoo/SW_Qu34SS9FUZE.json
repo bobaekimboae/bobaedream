@@ -1,0 +1,1142 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Qu34SS9FUZE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8720,
+  "candidatesTokenCount": 9761,
+  "totalTokenCount": 18481,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7464
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 83.1,
+   "aspect": "9:16",
+   "car": "벤틀리 컨티넨탈 GT W12 퍼스트 에디션 3세대",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 27.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 32.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 41.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 45.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 47.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 50.1,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 54.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 58.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 100.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.8,
+    "end": 106.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.6,
+    "end": 109.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 109.8,
+    "end": 113.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 113.6,
+    "end": 117.4,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 117.4,
+    "end": 122.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "슈퍼카 시장",
+    "ko": "슈퍼카 시장",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "기술의 발전",
+    "ko": "기술의 발전",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "환경규제",
+    "ko": "환경규제",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.4,
+    "text": "고배기량 개체수\n↓↓↓",
+    "ko": "고배기량 개체수 감소",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "text": "신형 4세대\n= 4.0 V8 PHEV",
+    "ko": "신형 4세대 = 4.0 V8 PHEV",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "text": "정통 + 감성 원하시는 분?",
+    "ko": "정통 + 감성 원하시는 분?",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "W12 TWIN TURBO\n묵직한 질감",
+    "ko": "W12 트윈터보 묵직한 질감",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FF0000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 17.5,
+    "text": "Continental GT W12\nFirst Edition",
+    "ko": "컨티넨탈 GT W12 퍼스트 에디션",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.6,
+    "text": "근-본 W12",
+    "ko": "근-본 W12",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 23.5,
+    "text": "근-본 W12\n= V8 대비 고출력",
+    "ko": "근-본 W12 V8 대비 고출력",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 27.6,
+    "text": "근-본 W12\n= V8 대비 고출력\n= 저속에서도 충만한 힘",
+    "ko": "근-본 W12 저속에서도 충만한 힘",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.0,
+    "text": "블랙 바디 +\n블랙 인테리어",
+    "ko": "블랙 바디 + 블랙 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "text": "현역 3세대",
+    "ko": "현역 3세대",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.8,
+    "text": "소장가치 O",
+    "ko": "소장가치 O",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 41.2,
+    "text": "12기통 3세대 = 직수입\n해외 출고차량 = 마이너스 옵션 다수",
+    "ko": "직수입 차량 특징 설명",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 45.4,
+    "text": "빈틈없이 풀 옵션!",
+    "ko": "빈틈없이 풀 옵션!",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 47.0,
+    "text": "빈틈없이 풀 옵션!\nB&O Audio System",
+    "ko": "뱅앤올룹슨 오디오",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.2,
+    "text": "빈틈없이 풀 옵션!\nACC(Touring Spec.)",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 50.1,
+    "text": "빈틈없이 풀 옵션!\nRotating Display",
+    "ko": "로테이팅 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 50.1,
+    "end": 54.7,
+    "text": "개인적으로 Naim 보다 B&O가 더..ㅎ",
+    "ko": "개인적으로 네임보다 뱅앤올룹슨 선호",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 58.7,
+    "text": "보증불가 + \n12기통 수리비 이슈",
+    "ko": "보증불가 및 12기통 수리비 이슈",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 60.8,
+    "text": "합리적인 가격",
+    "ko": "합리적인 가격",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 100.8,
+    "end": 103.5,
+    "text": "고출력, 고성능\n= 수리비 ↑↑↑",
+    "ko": "고출력 고성능 수리비 부담",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 103.5,
+    "end": 106.6,
+    "text": "누유, 누수 X",
+    "ko": "누유 누수 없음",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 106.6,
+    "end": 109.8,
+    "text": "누유, 누수 X\n(성능보증보험 적용 가능)",
+    "ko": "성능보증보험 적용 가능",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 109.8,
+    "end": 113.6,
+    "text": "완전무사고 + 보험이력 X\n전체 PPF (중요)",
+    "ko": "완전무사고 및 전체 PPF 시공",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 113.6,
+    "end": 117.4,
+    "text": "현금조건(VAT.100%)",
+    "ko": "현금조건 100% 세금계산서",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 117.4,
+    "end": 119.2,
+    "text": "All-Black",
+    "ko": "올 블랙",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 119.2,
+    "end": 122.5,
+    "text": "이 차량의 더 자세한 내용?\n캡션에서 확인 부탁드립니다!",
+    "ko": "캡션 안내 문구",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "자막 변경",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "자막 변경",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "톡",
+    "event": "자막 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "선글라스 이모지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "톡",
+    "event": "차량명 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "딸깍",
+    "event": "마우스 클릭 아이콘 연출",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.8,
+    "type": "딸깍",
+    "event": "헤드레스트 클릭 연출",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 92,
+   "mood": "세련되고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "what": "도트 선글라스 이모지",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 78.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "유머 강조",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.6,
+    "what": "클릭 마우스 커서 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 52.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "포인트 강조",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "what": "클릭 마우스 커서 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 52.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "헤드레스트 각인 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "슈퍼카 시장도 기술의 발전과 규제로 인하여 고배기량 차량들이 모습을 감추고 있는 시대.",
+    "ko": "슈퍼카 시장도 기술의 발전과 규제로 인하여 고배기량 차량들이 모습을 감추고 있는 시대."
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "text": "벤틀리도 신형 모델은 V8 하이브리드로 넘어갔죠.",
+    "ko": "벤틀리도 신형 모델은 V8 하이브리드로 넘어갔죠."
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "text": "하지만 정통의 감성을 포기할 수 없는 분들께 추천드립니다.",
+    "ko": "하지만 정통의 감성을 포기할 수 없는 분들께 추천드립니다."
+   },
+   {
+    "start": 12.8,
+    "end": 17.5,
+    "text": "묵직한 질감, W12 트윈터보 컨티넨탈 GT 퍼스트 에디션 입고되었습니다.",
+    "ko": "묵직한 질감, W12 트윈터보 컨티넨탈 GT 퍼스트 에디션 입고되었습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 20.6,
+    "text": "애초에 GT는 12기통이 근본이죠.",
+    "ko": "애초에 GT는 12기통이 근본이죠."
+   },
+   {
+    "start": 20.6,
+    "end": 27.6,
+    "text": "고출력인 것도 사실이지만 V8에 비해 힘이 남아돈다는 표현이 더 마음에 듭니다.",
+    "ko": "고출력인 것도 사실이지만 V8에 비해 힘이 남아돈다는 표현이 더 마음에 듭니다."
+   },
+   {
+    "start": 27.6,
+    "end": 31.0,
+    "text": "매끈한 블랙 바디에 각인된 퍼스트 에디션 로고, 실내도 블랙으로 포스가 확실히 남다르네요.",
+    "ko": "매끈한 블랙 바디에 각인된 퍼스트 에디션 로고, 실내도 블랙으로 포스가 확실히 남다르네요."
+   },
+   {
+    "start": 31.0,
+    "end": 35.8,
+    "text": "아직 현역 모델이지만 소장 가치도 훌륭하다고 보여지네요.",
+    "ko": "아직 현역 모델이지만 소장 가치도 훌륭하다고 보여지네요."
+   },
+   {
+    "start": 35.8,
+    "end": 41.2,
+    "text": "정식 출고 차량과 다르게 마이너스 옵션이 많은 직수입으로 출고된 12기통 벤틀리.",
+    "ko": "정식 출고 차량과 다르게 마이너스 옵션이 많은 직수입으로 출고된 12기통 벤틀리."
+   },
+   {
+    "start": 41.2,
+    "end": 45.4,
+    "text": "이 차는 퍼스트 에디션답게 빈틈없이 다 들어갔습니다. 알아보시겠나요?",
+    "ko": "이 차는 퍼스트 에디션답게 빈틈없이 다 들어갔습니다. 알아보시겠나요?"
+   },
+   {
+    "start": 45.4,
+    "end": 50.1,
+    "text": "뱅앤올룹슨 오디오, 어댑티브 크루즈 컨트롤, 그리고 로테이팅 디스플레이.",
+    "ko": "뱅앤올룹슨 오디오, 어댑티브 크루즈 컨트롤, 그리고 로테이팅 디스플레이."
+   },
+   {
+    "start": 50.1,
+    "end": 54.7,
+    "text": "그 외에도 정식 출고 차량과 비교해도 손색없는 옵션 구성.",
+    "ko": "그 외에도 정식 출고 차량과 비교해도 손색없는 옵션 구성."
+   },
+   {
+    "start": 54.7,
+    "end": 60.8,
+    "text": "보증 불가 등의 문제로 저평가 되어 있지만 오히려 합리적인 가격으로 구매 가능합니다.",
+    "ko": "보증 불가 등의 문제로 저평가 되어 있지만 오히려 합리적인 가격으로 구매 가능합니다."
+   },
+   {
+    "start": 100.8,
+    "end": 106.6,
+    "text": "당연한 얘기지만 고성능, 고출력일수록 수리비 부담이 커지는데,",
+    "ko": "당연한 얘기지만 고성능, 고출력일수록 수리비 부담이 커지는데,"
+   },
+   {
+    "start": 106.6,
+    "end": 109.8,
+    "text": "이 차량 입고 당시 누유, 누수 체크 완벽하게 마치고 들어왔습니다.",
+    "ko": "이 차량 입고 당시 누유, 누수 체크 완벽하게 마치고 들어왔습니다."
+   },
+   {
+    "start": 109.8,
+    "end": 113.6,
+    "text": "완전 무사고에 전체 PPF 시공되어 있고,",
+    "ko": "완전 무사고에 전체 PPF 시공되어 있고,"
+   },
+   {
+    "start": 113.6,
+    "end": 117.4,
+    "text": "이제 달릴 일만 남은 GT는 현금 조건 판매 차량이며,",
+    "ko": "이제 달릴 일만 남은 GT는 현금 조건 판매 차량이며,"
+   },
+   {
+    "start": 117.4,
+    "end": 122.5,
+    "text": "실제로 보면 세 배 더 예쁩니다. 캡션에서 더 자세한 내용을 확인해 주세요.",
+    "ko": "실제로 보면 세 배 더 예쁩니다. 캡션에서 더 자세한 내용을 확인해 주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "다운사이징 시대에 정통 12기통 감성 강조"
+   },
+   {
+    "stage": "차 소개",
+    "start": 14.8,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "입고 소식 및 W12 엔진의 매력, 블랙 바디 디자인 소개"
+   },
+   {
+    "stage": "옵션 작동",
+    "start": 35.8,
+    "end": 54.7,
+    "speed": "보통",
+    "summary": "직수입차이지만 빠짐없는 풀옵션(로테이팅 디스플레이 등) 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 54.7,
+    "end": 109.8,
+    "speed": "보통",
+    "summary": "직수입 감가로 인한 합리적 가격 및 차량 점검 완료 상태 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 109.8,
+    "end": 122.5,
+    "speed": "보통",
+    "summary": "완전문사고, 전체 PPF, 현금 조건 안내 및 캡션 확인 유도"
+   }
+  ],
+  "rules": [
+   "자막은 하단 중앙(Y 70% 전후)에 검은색 볼드 폰트에 흰색 외곽선 또는 노란색 포인트 강조 형식 유지",
+   "화면 포인트(휀더 엠블럼, 헤드레스트 각인)에 픽셀 마우스 클릭 커서 그래픽과 딸깍 사운드 결합",
+   "음성은 차분하고 정돈된 AI 남성 내레이션 사용",
+   "실제 매물 촬영 영상을 부드러운 핸드헬드/슬로우 무빙으로 전환"
+  ],
+  "option_highlights": [
+   {
+    "start": 25.5,
+    "end": 27.6,
+    "feature": "퍼스트 에디션 엠블럼",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 커서 클릭 이펙트",
+    "x_pct": 52.0,
+    "y_pct": 32.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.0,
+    "feature": "퍼스트 에디션 헤드레스트 자수",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "손가락 커서 클릭 이펙트",
+    "x_pct": 52.0,
+    "y_pct": 43.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 47.0,
+    "feature": "뱅앤올룹슨 오디오",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.2,
+    "feature": "ACC (어댑티브 크루즈 컨트롤)",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 50.1,
+    "feature": "로테이팅 디스플레이",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정면에서 접근하는 블랙 벤틀리와 함께 슈퍼카 시장의 환경규제/다운사이징 화두 제시",
+   "type": "질문",
+   "text": "슈퍼카 시장도 환경규제로 고배기량이 사라지는 시대"
+  },
+  "narration_points": [
+   {
+    "t": 13.0,
+    "point": "W12 6.0 트윈터보 퍼스트 에디션",
+    "category": "성능"
+   },
+   {
+    "t": 28.0,
+    "point": "올 블랙 바디와 블랙 인테리어 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 41.5,
+    "point": "직수입 모델이지만 누락 없는 풀옵션 사양",
+    "category": "편의"
+   },
+   {
+    "t": 58.0,
+    "point": "보증 불가 감가로 인한 합리적 판매 가격",
+    "category": "가격·조건"
+   },
+   {
+    "t": 107.0,
+    "point": "누유/누수 없음 점검 완료 및 성능보증보험 가능",
+    "category": "상태·이력"
+   },
+   {
+    "t": 110.5,
+    "point": "완전무사고, 보험이력 없음, 전체 PPF 시공",
+    "category": "상태·이력"
+   },
+   {
+    "t": 115.0,
+    "point": "현금 조건(세금계산서 100%)",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명(실내 벽면 SEOUL AUTO 네온)"
+   ],
+   "t": 56.0
+  },
+  "cta": {
+   "t": 119.5,
+   "text": "캡션에서 더 자세한 내용을 확인해 주세요!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "휠",
+    "실내 앞",
+    "옵션 작동",
+    "전시장 실내 외관",
+    "도로 외관",
+    "센터 화면",
+    "계기판",
+    "실내 센터콘솔"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "깔끔한 고딕 볼드 폰트와 클릭 효과음/커서 그래픽을 고정적으로 사용하는 채널 양식"
+  }
+ }
+}

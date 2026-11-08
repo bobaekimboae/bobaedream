@@ -1,0 +1,784 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/gaAb7WMm1gg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6803,
+  "candidatesTokenCount": 6507,
+  "totalTokenCount": 13310,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5547
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.1,
+   "aspect": "9:16",
+   "car": "페라리 로마 (Ferrari Roma)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 28.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 31.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 35.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 38.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 43.1,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 49.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 52.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.1,
+    "end": 55.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 60.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "보기 드문",
+    "ko": "보기 드문",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "뒷자리는",
+    "ko": "뒷자리는",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "text": "짐 칸이라고",
+    "ko": "짐 칸이라고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 5.0,
+    "text": "3.8L V8",
+    "ko": "3.8L V8",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "620hp",
+    "ko": "620마력",
+    "kind": "키워드 스티커",
+    "y_pct": 24.5,
+    "x_center_pct": 78.0,
+    "text_height_pct": 3.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "0-100km/h = 3.4s",
+    "ko": "제로백 3.4초",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 69.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.4,
+    "text": "1,570kg\n세단급 승차감!",
+    "ko": "1,570kg 세단급 승차감!",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.8,
+    "text": "Ferrari\nROMA",
+    "ko": "페라리 로마",
+    "kind": "제목",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "이거 사실 랩핑입니다..",
+    "ko": "이거 사실 랩핑입니다..",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.0,
+    "text": "메인 인테리어\nGrigio Chiaro\n+Azzurro",
+    "ko": "메인 인테리어 그리지오 키아로 + 아쭈로",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.8,
+    "text": "통풍 시트가 들어간 페라리!",
+    "ko": "통풍 시트가 들어간 페라리!",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.5,
+    "text": "두 번 강조..\n데일리 페라리!",
+    "ko": "두 번 강조 데일리 페라리!",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 43.0,
+    "text": "보증기간 잔존\n2023. 08 최초등록",
+    "ko": "보증기간 잔존 2023년 8월 최초등록",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 60.1,
+    "text": "더 많은 차량은?\n프로필에서 보실 수 있습니다^^\n팔로우 = ❤️",
+    "ko": "더 많은 차량은 프로필에서 보실 수 있습니다 팔로우",
+    "kind": "제목",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "엔진 팝업 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "휙",
+    "event": "620hp 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "제로백 수치 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "쿵",
+    "event": "FERRARI ROMA 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "원색 블루로마 사진 오버레이",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.3,
+    "type": "딸깍",
+    "event": "화면 손가락 터치 그래픽 모션",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 긴장감 있는 비트",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 6.8,
+    "what": "원형 엔진룸 컷아웃 및 페라리 엠블럼 뱃지",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "확대 전환",
+    "purpose": "엔진 스펙 강조",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 20.8,
+    "what": "원색(블루 로마) 원형 사진",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "원래 도색 색상 안내",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.8,
+    "what": "터치하는 손가락 픽토그램",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 45.0,
+    "y_pct": 43.0,
+    "entrance": "페이드",
+    "purpose": "통풍시트 터치 시연 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "보기 드문 4인승 페라리, 뒷자리는 사실 짐칸이라고 볼 수 있죠.",
+    "ko": "보기 드문 4인승 페라리, 뒷자리는 사실 짐칸이라고 볼 수 있죠."
+   },
+   {
+    "start": 3.0,
+    "end": 6.8,
+    "text": "3.8리터 8기통, 620마력에 제로백은 3.4초.",
+    "ko": "3.8리터 8기통, 620마력에 제로백은 3.4초."
+   },
+   {
+    "start": 6.8,
+    "end": 11.5,
+    "text": "가벼운 바디에 데일리카로 손색없는 승차감! 안녕하세요 페라리 로마 입고되었습니다.",
+    "ko": "가벼운 바디에 데일리카로 손색없는 승차감! 안녕하세요 페라리 로마 입고되었습니다."
+   },
+   {
+    "start": 11.5,
+    "end": 16.0,
+    "text": "페라리라고 하면 빨간색이지만 사실 랩핑입니다. 근데 티가 하나도 안 나네요. 정말 감쪽같죠?",
+    "ko": "페라리라고 하면 빨간색이지만 사실 랩핑입니다. 근데 티가 하나도 안 나네요. 정말 감쪽같죠?"
+   },
+   {
+    "start": 16.0,
+    "end": 20.8,
+    "text": "원색은 블루 로마 스페셜 컬러입니다. 이 차 실내를 보면 납득이 가는 오리지널 페인트!",
+    "ko": "원색은 블루 로마 스페셜 컬러입니다. 이 차 실내를 보면 납득이 가는 오리지널 페인트!"
+   },
+   {
+    "start": 20.8,
+    "end": 28.5,
+    "text": "창백한 화이트 계열 그리지오 치아로 베이스에 베이비 아주로 투톤 컬러 블록, 포인트는 베이비 블루 파이핑입니다. 가히 테일러메이드급 인테리어라고 할 수 있죠.",
+    "ko": "창백한 화이트 계열 그리지오 치아로 베이스에 베이비 아주로 투톤 컬러 블록, 포인트는 베이비 블루 파이핑입니다. 가히 테일러메이드급 인테리어라고 할 수 있죠."
+   },
+   {
+    "start": 28.5,
+    "end": 32.0,
+    "text": "페라리는 이렇게 이용자의 개성을 모두 반영해 준답니다.",
+    "ko": "페라리는 이렇게 이용자의 개성을 모두 반영해 준답니다."
+   },
+   {
+    "start": 32.0,
+    "end": 36.0,
+    "text": "카본 LED 핸들에 패신저 디스플레이, 필수 옵션은 모두 포함된 구성.",
+    "ko": "카본 LED 핸들에 패신저 디스플레이, 필수 옵션은 모두 포함된 구성."
+   },
+   {
+    "start": 36.0,
+    "end": 43.0,
+    "text": "데일리가 되는 이 페라리는 2023년 8월 정식 출고되어 아직 보증 기간이 남아있다는 사실.",
+    "ko": "데일리가 되는 이 페라리는 2023년 8월 정식 출고되어 아직 보증 기간이 남아있다는 사실."
+   },
+   {
+    "start": 43.0,
+    "end": 49.5,
+    "text": "누유 걱정 없이 안심하고 인수 가능합니다. 당연히 사고 하나 없는 차량. 운용리스 승계 조건으로 취등록세는 절약하면서,",
+    "ko": "누유 걱정 없이 안심하고 인수 가능합니다. 당연히 사고 하나 없는 차량. 운용리스 승계 조건으로 취등록세는 절약하면서,"
+   },
+   {
+    "start": 49.5,
+    "end": 56.0,
+    "text": "만기 시에는 금융리스로 전환도 가능하기 때문에 추후 판매 시에도 유리한 조건이라고 생각합니다.",
+    "ko": "만기 시에는 금융리스로 전환도 가능하기 때문에 추후 판매 시에도 유리한 조건이라고 생각합니다."
+   },
+   {
+    "start": 56.0,
+    "end": 60.1,
+    "text": "이 페라리가 궁금하시다면 DM 주세요. 가장 빠른 답변을 약속드립니다.",
+    "ko": "이 페라리가 궁금하시다면 DM 주세요. 가장 빠른 답변을 약속드립니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "4인승 페라리 뒷자리 소개로 호기심 유발"
+   },
+   {
+    "stage": "사양",
+    "start": 3.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "엔진, 출력, 제로백 스펙 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.8,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "입고 소식 및 랩핑 아래 오리지널 도색(블루 로마) 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 20.8,
+    "end": 36.0,
+    "speed": "보통",
+    "summary": "테일러메이드급 실내 투톤 가죽 및 주요 옵션(통풍, LED핸들, 패신저 디스플레이) 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 36.0,
+    "end": 52.0,
+    "speed": "보통",
+    "summary": "23년식 보증 잔존 무사고 상태 및 운용리스 승계 조건 혜택 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 52.0,
+    "end": 60.1,
+    "speed": "보통",
+    "summary": "DM 문의 안내 및 프로필 팔로우 CTA"
+   }
+  ],
+  "rules": [
+   "초반 3초에 독특한 포인트(4인승 페라리, 뒷좌석)를 훅으로 던지고 바로 엔진 스펙 그래픽을 띄움",
+   "외관 랩핑 사실과 원래 스페셜 오더 페인트 색상을 원형 그래픽으로 시각적 대비 제공",
+   "화려한 실내 옵션과 고급 인테리어 가죽 조합 디테일을 클로즈업 샷으로 강조",
+   "차량 구매 조건(운용리스 승계, 취등록세 면제, 금융리스 전환)을 후반부에 정리하여 실구매자 타겟팅",
+   "마지막에 DM 유도 및 프로필 링크 팔로우 유도 문구 고정"
+  ],
+  "option_highlights": [
+   {
+    "start": 28.6,
+    "end": 31.8,
+    "feature": "통풍 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "화면상 터치 아이콘 및 손가락 포인터",
+    "x_pct": 50.0,
+    "y_pct": 43.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.6,
+    "feature": "카본 LED 스티어링 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "LEDS 옵션코드 텍스트 카드",
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 35.6,
+    "feature": "패신저 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": "PDIS 옵션코드 텍스트 카드",
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야간 도심 골목에서 붉은색 페라리 로마가 서행하는 장면과 함께 '보기 드문 4인승 페라리' 나레이션",
+   "type": "희귀차",
+   "text": "보기 드문 4인승 페라리"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "보기 드문 4인승 페라리 뒷자리 공간",
+    "category": "공간"
+   },
+   {
+    "t": 3.5,
+    "point": "3.8L V8 620마력 제로백 3.4초 성능",
+    "category": "성능"
+   },
+   {
+    "t": 7.5,
+    "point": "1,570kg 가벼운 공차중량과 세단급 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 12.5,
+    "point": "레드 컬러 랩핑 차량이며 원색은 블루 로마",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "그리지오 치아로 및 아주로 투톤 테일러메이드급 실내",
+    "category": "디자인"
+   },
+   {
+    "t": 29.5,
+    "point": "통풍 시트 적용",
+    "category": "편의"
+   },
+   {
+    "t": 33.0,
+    "point": "카본 LED 핸들 및 패신저 디스플레이 장착",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "2023년 8월 최초등록 보증기간 잔존 무사고 준신차",
+    "category": "상태·이력"
+   },
+   {
+    "t": 45.0,
+    "point": "취등록세 절약 가능한 운용리스 승계 조건",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 50.0
+  },
+  "cta": {
+   "t": 54.0,
+   "text": "이 페라리가 궁금하시다면 DM 주세요 / 프로필에서 확인",
+   "method": "DM"
+  },
+  "shooting": {
+   "location": "도로 주행",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "센터 화면",
+    "외관 측면",
+    "휠",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색/흰색 굵은 외곽선 폰트 자막과 스펙 오버레이 그래픽 템플릿 사용"
+  }
+ }
+}

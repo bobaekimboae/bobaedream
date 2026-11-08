@@ -1,0 +1,915 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Mtmv4QRbye8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6267,
+  "candidatesTokenCount": 7756,
+  "totalTokenCount": 14245,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5011
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 222,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.4,
+   "aspect": "9:16",
+   "car": "롤스로이스 레이스 (Rolls-Royce Wraith)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 7.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 16.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 32.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.6,
+    "end": 45.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 50.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.4,
+    "end": 55.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "많고 많은",
+    "ko": "많고 많은",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "text": "근본을",
+    "ko": "근본을",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "역시 이 차죠?",
+    "ko": "역시 이 차죠?",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "럭셔리 쿠페의 왕",
+    "ko": "럭셔리 쿠페의 왕",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "6.6L V12",
+    "ko": "6.6L V12",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 7.8,
+    "text": "\"근-본\"",
+    "ko": "\"근-본\"",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.9,
+    "text": "Rolls-Royce Wraith",
+    "ko": "롤스로이스 레이스",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 13.5,
+    "text": "레이스의 루프라인은 진짜 못따라온다...",
+    "ko": "레이스의 루프라인은 진짜 못따라온다...",
+    "kind": "제목",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.3,
+    "text": "21' 5-Spoke Wheel",
+    "ko": "21인치 5스포크 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 91.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "text": "버건디 원-톤 시트",
+    "ko": "버건디 원-톤 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 90.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "text": "+블랙 포인트 투-톤",
+    "ko": "+블랙 포인트 투-톤",
+    "kind": "키워드 스티커",
+    "y_pct": 91.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 32.2,
+    "text": "★★★ (AFTER)",
+    "ko": "스타라이트 (출고 후 시공)",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.5,
+    "text": "ACC, LCA 등 편의사양 ↓",
+    "ko": "ACC, LCA 등 편의사양 부족",
+    "kind": "키워드 스티커",
+    "y_pct": 92.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.0,
+    "text": "'MAGIC CARPET RIDE'",
+    "ko": "매직 카펫 라이드",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.5,
+    "text": "현역이면서도 클래식!",
+    "ko": "현역이면서도 클래식!",
+    "kind": "키워드 스티커",
+    "y_pct": 91.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.0,
+    "text": "EV Coupe Spectre도 판매중..",
+    "ko": "전기 쿠페 스펙터도 판매중",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#00FFCC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.5,
+    "text": "신형 S63-E = 299,000,000원!",
+    "ko": "신형 S63-E = 299,000,000원!",
+    "kind": "가격",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 48.6,
+    "end": 50.5,
+    "text": "감성 끝판왕",
+    "ko": "감성 끝판왕",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 52.5,
+    "text": "연락 주세요!",
+    "ko": "연락 주세요!",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 52.6,
+    "end": 53.9,
+    "text": "팔로우도 부탁드립니다ㅎㅎ",
+    "ko": "팔로우도 부탁드립니다ㅎㅎ",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 55.4,
+    "text": "다양한 차량들을 소개합니다",
+    "ko": "다양한 차량들을 소개합니다",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "딸깍",
+    "event": "마우스 클릭 커서 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "딸깍",
+    "event": "엔진 팝업 그래픽 클릭 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "딸깍",
+    "event": "보닛 투톤 랩핑 부위 마우스 클릭 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.1,
+    "type": "딸깍",
+    "event": "휀더 부위 마우스 클릭 표시",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "고급스럽고 묵직함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.5,
+    "end": 2.5,
+    "what": "마우스 커서 클릭 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18,
+    "x_pct": 82,
+    "y_pct": 55,
+    "entrance": "바로",
+    "purpose": "휠/차체 강조",
+    "sure": true
+   },
+   {
+    "start": 4.2,
+    "end": 7.4,
+    "what": "롤스로이스 V12 엔진 팝업 그래픽 및 마우스 포인터",
+    "is_3d": false,
+    "size_w_pct": 70,
+    "x_pct": 50,
+    "y_pct": 25,
+    "entrance": "톡 튀어나옴",
+    "purpose": "V12 엔진 사양 시각화",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.5,
+    "what": "보닛 투톤 랩핑 지목 마우스 포인터 2개",
+    "is_3d": false,
+    "size_w_pct": 16,
+    "x_pct": 52,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무광 투톤 랩핑 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.4,
+    "what": "롤스로이스 스펙터(Spectre) 차량 사진 팝업",
+    "is_3d": false,
+    "size_w_pct": 45,
+    "x_pct": 52,
+    "y_pct": 75,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전기차 후속 모델 언급 시각자료",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "많고 많은 쿠페 중에 근본을 꼽으라고 하면 역시 이 차죠?",
+    "ko": "많고 많은 쿠페 중에 근본을 꼽으라고 하면 역시 이 차죠?"
+   },
+   {
+    "start": 3.7,
+    "end": 7.7,
+    "text": "내연기관 럭셔리 쿠페의 왕, 6.6L V12 근본 엔진.",
+    "ko": "내연기관 럭셔리 쿠페의 왕, 6.6L V12 근본 엔진."
+   },
+   {
+    "start": 7.7,
+    "end": 9.9,
+    "text": "안녕하세요, 롤스로이스 레이스 입고되었습니다.",
+    "ko": "안녕하세요, 롤스로이스 레이스 입고되었습니다."
+   },
+   {
+    "start": 9.9,
+    "end": 14.0,
+    "text": "우아하게 떨어지는 루프라인 옆에서 보면 공도의 요트 같다는 말이 나오네요.",
+    "ko": "우아하게 떨어지는 루프라인 옆에서 보면 공도의 요트 같다는 말이 나오네요."
+   },
+   {
+    "start": 14.0,
+    "end": 18.0,
+    "text": "블랙 바디에 무광 느낌의 투톤 랩핑, 완전 찰떡 아닌가요?",
+    "ko": "블랙 바디에 무광 느낌의 투톤 랩핑, 완전 찰떡 아닌가요?"
+   },
+   {
+    "start": 18.0,
+    "end": 20.8,
+    "text": "적정선의 드레스업은 언제나 옳습니다.",
+    "ko": "적정선의 드레스업은 언제나 옳습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 24.8,
+    "text": "순정 옵션인 21인치 휠도 투박하지 않으면서 너무 잘 어울립니다.",
+    "ko": "순정 옵션인 21인치 휠도 투박하지 않으면서 너무 잘 어울립니다."
+   },
+   {
+    "start": 24.8,
+    "end": 28.6,
+    "text": "실내는 버건디 색상의 원톤 시트에 블랙 포인트가 들어가고요.",
+    "ko": "실내는 버건디 색상의 원톤 시트에 블랙 포인트가 들어가고요."
+   },
+   {
+    "start": 28.6,
+    "end": 32.5,
+    "text": "스타라이트는 출고 후 시공되었지만 위화감 없이 너무 잘 어우러집니다.",
+    "ko": "스타라이트는 출고 후 시공되었지만 위화감 없이 너무 잘 어우러집니다."
+   },
+   {
+    "start": 32.5,
+    "end": 38.6,
+    "text": "요즘 나오는 차들 만큼의 편의성은 없지만 바다 위를 떠다니는 것 같은 롤스로이스의 승차감은 여전합니다.",
+    "ko": "요즘 나오는 차들 만큼의 편의성은 없지만 바다 위를 떠다니는 것 같은 롤스로이스의 승차감은 여전합니다."
+   },
+   {
+    "start": 38.6,
+    "end": 41.6,
+    "text": "아직은 현역이지만 클래식으로 봐도 무방합니다.",
+    "ko": "아직은 현역이지만 클래식으로 봐도 무방합니다."
+   },
+   {
+    "start": 41.6,
+    "end": 45.8,
+    "text": "롤스로이스에서 더 이상 내연기관 쿠페는 생산하지 않기 때문이죠.",
+    "ko": "롤스로이스에서 더 이상 내연기관 쿠페는 생산하지 않기 때문이죠."
+   },
+   {
+    "start": 45.8,
+    "end": 50.8,
+    "text": "벤츠 신차 가격보다 저렴하면서 롤스로이스의 감성을 느껴보고 싶으시다면",
+    "ko": "벤츠 신차 가격보다 저렴하면서 롤스로이스의 감성을 느껴보고 싶으시다면"
+   },
+   {
+    "start": 50.8,
+    "end": 55.4,
+    "text": "언제든 연락 주세요! 물론 팔로우도 잊지 마시고요. 다양한 차량들을 소개해 드립니다.",
+    "ko": "언제든 연락 주세요! 물론 팔로우도 잊지 마시고요. 다양한 차량들을 소개해 드립니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.7,
+    "speed": "빠름",
+    "summary": "럭셔리 쿠페의 근본 Rolls-Royce Wraith 강조 및 엔진 팝업"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.7,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "차량 입고 인사, 루프라인 실루엣 및 무광 투톤 랩핑 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 20.8,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "21인치 휠, 버건디/블랙 인테리어 및 스타라이트 헤드라이너"
+   },
+   {
+    "stage": "사양",
+    "start": 32.5,
+    "end": 45.8,
+    "speed": "보통",
+    "summary": "승차감(매직 카펫 라이드), 단종된 마지막 내연기관 V12 쿠페 희소성"
+   },
+   {
+    "stage": "가격",
+    "start": 45.8,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "신형 벤츠 S63-E(2.99억) 가격 비교로 가성비·감성 어필"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.8,
+    "end": 55.4,
+    "speed": "보통",
+    "summary": "문의 유도 및 팔로우 CTA"
+   }
+  ],
+  "rules": [
+   "도입부에서 마우스 커서 클릭 효과음과 그래픽 팝업으로 시청자의 시선을 즉시 고정함",
+   "외관 투톤 랩핑, 휠, 버건디 시트, 스타라이트 등 매물의 핵심 커스텀 요소를 차례대로 짚어줌",
+   "단점(편의사양 부족)을 솔직히 인정하되 롤스로이스 고유의 승차감과 V12 마지막 내연기관이라는 희소성으로 승화",
+   "타사 신차 가격(벤츠 S63 E 2억 9900만원)과 직관적으로 비교해 중고 롤스로이스의 가성비와 하차감을 극대화",
+   "노란색 굵은 폰트 자막과 마우스 커서 스티커를 일관되게 활용하여 직관적인 정보 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.2,
+    "end": 7.4,
+    "feature": "6.6L V12 트윈터보 엔진",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "원형 V12 엔진 그래픽 팝업",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 16.5,
+    "feature": "무광 투톤 랩핑",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "픽셀 스타일 마우스 커서 포인터 2개",
+    "x_pct": 52.0,
+    "y_pct": 35.0,
+    "size_w_pct": 16.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.6,
+    "feature": "순정 21인치 5스포크 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 91.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 32.5,
+    "feature": "스타라이트 헤드라이너(은하수 무드등)",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "지하 주차장에 서 있는 롤스로이스 레이스의 전·후면을 보여주며 쿠페의 '근본'을 묻는 멘트",
+   "type": "질문",
+   "text": "많고 많은 쿠페 중에 근본을 꼽으라고 하면 역시 이 차죠?"
+  },
+  "narration_points": [
+   {
+    "t": 5.4,
+    "point": "6.6L V12 대배기량 근본 내연기관 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 11.0,
+    "point": "공도의 요트 같은 우아한 패스트백 루프라인",
+    "category": "디자인"
+   },
+   {
+    "t": 15.0,
+    "point": "블랙 바디 위에 시공된 감각적인 무광 투톤 랩핑",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "스포티하고 웅장한 순정 21인치 5스포크 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 26.0,
+    "point": "버건디 원톤 시트와 블랙 포인트 가죽 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 30.0,
+    "point": "출고 후 추가 시공된 화려한 스타라이트 천장",
+    "category": "편의"
+   },
+   {
+    "t": 36.0,
+    "point": "바다 위를 떠다니는 듯한 매직 카펫 라이드 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 43.0,
+    "point": "전기차 스펙터 전환으로 단종된 마지막 V12 쿠페의 희소성",
+    "category": "희소성"
+   },
+   {
+    "t": 47.0,
+    "point": "신형 벤츠 S63-E(약 3억원) 신차가보다 저렴한 가격대",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "가격 비교 자막",
+    "연락 유도 자막"
+   ],
+   "t": "51.0"
+  },
+  "cta": {
+   "t": 51.0,
+   "text": "언제든 연락 주세요! 팔로우도 부탁드립니다ㅎㅎ",
+   "method": "DM"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "외관 측면",
+    "보닛/엠블럼",
+    "주행/도로 측면",
+    "휠",
+    "실내 시트",
+    "실내 도어트림",
+    "천장 스타라이트",
+    "외관 전면/후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단/중앙 볼드 폰트와 마우스 커서 인터랙션 스티커, AI 나레이션 구성"
+  }
+ }
+}
