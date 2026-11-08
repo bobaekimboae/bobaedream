@@ -1,0 +1,557 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/X7wqY-u-oro",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2710,
+  "candidatesTokenCount": 4093,
+  "totalTokenCount": 6803,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1450
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.6,
+   "aspect": "9:16",
+   "car": "링컨 노틸러스",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 2.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 12.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "48인치 디스",
+    "ko": "48인치 디스",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.6,
+    "text": "버튼식 기어",
+    "ko": "버튼식 기어",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 2.6,
+    "text": "넓은",
+    "ko": "넓은",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.5,
+    "text": "넓은 실내와 음향무드로\n압도하는",
+    "ko": "넓은 실내와 음향무드로 압도하는",
+    "kind": "말 자막",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.4,
+    "text": "링컨의 기함이 있습니다",
+    "ko": "링컨의 기함이 있습니다",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "바로 노틸러스입니다.",
+    "ko": "바로 노틸러스입니다.",
+    "kind": "말 자막",
+    "y_pct": 32.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "매우 독특하게\n고급스러운 이 차량",
+    "ko": "매우 독특하게 고급스러운 이 차량",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "text": "승차감이 좋아",
+    "ko": "승차감이 좋아",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.0,
+    "text": "미국산 레인지로버라는",
+    "ko": "미국산 레인지로버라는",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.3,
+    "text": "별명도 있는데요,",
+    "ko": "별명도 있는데요,",
+    "kind": "말 자막",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.1,
+    "text": "이 차량 하이엔드모터스에서\n만나 보세요",
+    "ko": "이 차량 하이엔드모터스에서 만나 보세요",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 차분한",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 14.1,
+    "end": 15.6,
+    "what": "하이엔드 모터스 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "48인치 디스플레이",
+    "ko": "48인치 디스플레이"
+   },
+   {
+    "start": 0.8,
+    "end": 1.6,
+    "text": "버튼식 기어",
+    "ko": "버튼식 기어"
+   },
+   {
+    "start": 1.6,
+    "end": 4.5,
+    "text": "넓은 실내와 음향무드로 압도하는",
+    "ko": "넓은 실내와 음향무드로 압도하는"
+   },
+   {
+    "start": 4.5,
+    "end": 5.4,
+    "text": "링컨의 기함이 있습니다",
+    "ko": "링컨의 기함이 있습니다"
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "바로 노틸러스입니다.",
+    "ko": "바로 노틸러스입니다."
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "매우 독특하게 고급스러운 이 차량",
+    "ko": "매우 독특하게 고급스러운 이 차량"
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "text": "승차감이 좋아",
+    "ko": "승차감이 좋아"
+   },
+   {
+    "start": 9.7,
+    "end": 12.3,
+    "text": "미국산 레인지로버라는 별명도 있는데요,",
+    "ko": "미국산 레인지로버라는 별명도 있는데요,"
+   },
+   {
+    "start": 12.3,
+    "end": 14.1,
+    "text": "이 차량 하이엔드모터스에서 만나 보세요",
+    "ko": "이 차량 하이엔드모터스에서 만나 보세요"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.6,
+    "speed": "빠름",
+    "summary": "48인치 디스플레이, 버튼식 기어 등 핵심 특징 빠른 컷 나열"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.6,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "링컨 노틸러스 소개 및 외관 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 6.8,
+    "end": 12.3,
+    "speed": "보통",
+    "summary": "고급스러운 실내 및 승차감 특징 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.3,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "업체 방문 유도 및 로고 엔딩"
+   }
+  ],
+  "rules": [
+   "초반 2~3초에 주요 실내 특장점을 빠른 컷 전환으로 보여줘 시선 집중",
+   "화면 중앙에 검은색 외곽선이 적용된 굵은 흰색 고딕 자막 사용",
+   "내레이션 호흡에 맞춰 1~2초 간격으로 타이트하게 컷 전환",
+   "엔딩에 깔끔한 흰색 바탕 로고 컷으로 브랜드 각인"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "feature": "48인치 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.6,
+    "feature": "피아노 건반식 기어(버튼식 기어)",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 2.6,
+    "feature": "파노라마 선루프 및 2열 공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 3.7,
+    "feature": "레벨 울티마 3D 오디오 시스템",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": null,
+    "y_pct": null,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "48인치 와이드 디스플레이와 버튼식 기어, 파노라마 선루프를 빠른 컷으로 보여줌",
+   "type": "숫자·성능",
+   "text": "48인치 디스플레이, 버튼식 기어"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "48인치 대형 디스플레이 적용",
+    "category": "편의"
+   },
+   {
+    "t": 0.8,
+    "point": "피아노 건반식 버튼형 기어",
+    "category": "디자인"
+   },
+   {
+    "t": 2.6,
+    "point": "넓은 실내 공간과 프리미엄 사운드 시스템",
+    "category": "공간"
+   },
+   {
+    "t": 8.7,
+    "point": "레인지로버급의 뛰어난 승차감",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 12.3
+  },
+  "cta": {
+   "t": 12.3,
+   "text": "이 차량 하이엔드모터스에서 만나 보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "실내 앞",
+    "옵션 작동",
+    "뒷좌석",
+    "실내 앞",
+    "외관 전면",
+    "센터 화면",
+    "뒷좌석",
+    "외관 후면",
+    "외관 전면"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "중앙 텍스트 배치 및 엔딩 전용 로고 화면 사용"
+  }
+ }
+}

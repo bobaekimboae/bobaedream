@@ -1,0 +1,277 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/KfMEh5DRg3M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2445,
+  "candidatesTokenCount": 2401,
+  "totalTokenCount": 5695,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1185
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 849,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 13.0,
+   "aspect": "9:16",
+   "car": "토요타 알파드",
+   "format": "비교",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 11.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "레인지로버보다 알파드가 훨씬 좋은 이유",
+    "ko": "레인지로버보다 알파드가 훨씬 좋은 이유",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "알파드가",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.5,
+    "text": "PVM(Panoramic View Monitor)",
+    "ko": "파노라믹 뷰 모니터 (서라운드 뷰)",
+    "kind": "제목",
+    "y_pct": 6.8,
+    "x_center_pct": 39.5,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 11.8,
+    "text": "알파드PVM",
+    "ko": "알파드 PVM",
+    "kind": "키워드 스티커",
+    "y_pct": 37.5,
+    "x_center_pct": 14.5,
+    "text_height_pct": 2.6,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 11.8,
+    "text": "레인지로버 PVM",
+    "ko": "레인지로버 PVM",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 2.6,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 8.5,
+    "type": "띵",
+    "event": "레인지로버 PVM 오류 강조 빨간 느낌표 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 7.5,
+    "end": 11.8,
+    "what": "빨간색 강조 원형 테두리",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 53.0,
+    "y_pct": 49.0,
+    "entrance": "바로",
+    "purpose": "레인지로버 궤적 왜곡/오류 강조",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 11.8,
+    "what": "빨간색 경고 느낌표 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 57.0,
+    "y_pct": 39.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "문제점 부각",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "보통",
+    "summary": "알파드가 레인지로버보다 나은 이유를 제시하며 시선 집중"
+   },
+   {
+    "stage": "기능",
+    "start": 2.8,
+    "end": 6.5,
+    "speed": "보통",
+    "summary": "알파드의 PVM 화면 및 조향 연동 궤적 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 6.5,
+    "end": 11.8,
+    "speed": "보통",
+    "summary": "알파드와 레인지로버의 360도 어라운드뷰 궤적 처리 성능 직접 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 11.8,
+    "end": 13.0,
+    "speed": "빠름",
+    "summary": "하이엔드 모터스 브랜드 로고 표출"
+   }
+  ],
+  "rules": [
+   "자극적인 상위 차종(레인지로버)과의 직접 비교로 시청 유지율 확보",
+   "상하 2분할 화면을 활용해 실차 주행과 디스플레이 작동을 동시에 노출",
+   "문제 부위에 빨간색 원과 경고 아이콘 효과음(띵)을 매칭하여 즉각적 시각 전달",
+   "엔딩에 화이트 바탕의 브랜드 로고를 삽입하여 깔끔한 아이덴티티 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.8,
+    "end": 11.8,
+    "feature": "PVM (파노라믹 뷰 모니터)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "상단에 다가오는 알파드 외관과 하단에 3D PVM 그래픽 작동을 보여주며 도발적인 비교 문구 제시",
+   "type": "질문",
+   "text": "레인지로버보다 알파드가 훨씬 좋은 이유"
+  },
+  "narration_points": [
+   {
+    "t": 0.0,
+    "point": "레인지로버보다 알파드의 PVM 궤적 표시 성능이 뛰어남",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "명함 화면",
+   "items": [
+    "상사명"
+   ],
+   "t": 11.8
+  },
+  "cta": {
+   "t": 11.8,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "센터 화면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상하 분할 레이아웃과 고딕 폰트, 엔딩 시그니처 로고 활용"
+  }
+ }
+}

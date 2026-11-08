@@ -1,0 +1,689 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/T5gk13_gYCA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4168,
+  "candidatesTokenCount": 5703,
+  "totalTokenCount": 9871,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2908
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.9,
+   "aspect": "9:16",
+   "car": "토요타 FJ 크루저",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 14.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 18.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.6,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 25.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 28.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "여러분!",
+    "ko": "여러분!",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.7,
+    "text": "요즘 삼전 주식처럼 구매해 놓으면",
+    "ko": "요즘 삼전 주식처럼 구매해 놓으면",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "무조건 가격이 오르는 차가 왔습니다",
+    "ko": "무조건 가격이 오르는 차가 왔습니다",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "이미 미국에서 7000만원대 이상의 가격에 팔리고 있고",
+    "ko": "이미 미국에서 7000만원대 이상의 가격에 팔리고 있고",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "더 오를 일만 남은",
+    "ko": "더 오를 일만 남은",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.4,
+    "text": "도요타 FJ 크루저의 마지막",
+    "ko": "도요타 FJ 크루저의 마지막",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.3,
+    "text": "생산분량으로 우리나라에 딱 100대만",
+    "ko": "생산분량으로 우리나라에 딱 100대만",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.6,
+    "text": "정식 수입되었던 존재감 미친 오프로드 끝판왕 차입니다",
+    "ko": "정식 수입되었던 존재감 미친 오프로드 끝판왕 차입니다",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 88.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.6,
+    "end": 16.5,
+    "text": "이 차 앞에서는 랭글러",
+    "ko": "이 차 앞에서는 랭글러",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "text": "디펜더",
+    "ko": "디펜더",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "text": "지바겐 그냥 웃습니다",
+    "ko": "지바겐 그냥 웃습니다",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.6,
+    "text": "이 차야 말로 중동 석유 부자 왕자님들의 필수 차량",
+    "ko": "이 차야 말로 중동 석유 부자 왕자님들의 필수 차량",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.3,
+    "text": "사막의 롤스로이스라 불리는 도요타 랜드크루저(프라도)",
+    "ko": "사막의 롤스로이스라 불리는 도요타 랜드크루저(프라도)",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 88.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.7,
+    "text": "베이스 차량이기 때문이죠",
+    "ko": "베이스 차량이기 때문이죠",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.7,
+    "end": 27.6,
+    "text": "전국적으로 아마 최저 마일리지",
+    "ko": "전국적으로 아마 최저 마일리지",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "text": "최고의 상태인 차량일 겁니다",
+    "ko": "최고의 상태인 차량일 겁니다",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.9,
+    "text": "하이엔드모터스 홈서비스로 만나보세요",
+    "ko": "하이엔드모터스 홈서비스로 만나보세요",
+    "kind": "말 자막",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 7.4,
+    "type": "휙",
+    "event": "화면 전환 및 불꽃 그래픽 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "랭글러 이미지 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "톡",
+    "event": "지바겐 이미지 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "긴박함/트렌디",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 31.9,
+    "what": "상단 연락처 자막 배너",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 28.0,
+    "y_pct": 7.0,
+    "entrance": "고정",
+    "purpose": "연락처 안내",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.5,
+    "what": "불꽃 이펙트 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 30.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "시선 유도",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.7,
+    "what": "랭글러 비교 차량 이미지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 설명",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.7,
+    "what": "지바겐 비교 차량 이미지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 48.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "여러분! 요즘 삼전 주식처럼 구매해 놓으면 무조건 가격이 오르는 차가 왔습니다.",
+    "ko": "여러분! 요즘 삼전 주식처럼 구매해 놓으면 무조건 가격이 오르는 차가 왔습니다."
+   },
+   {
+    "start": 4.5,
+    "end": 8.7,
+    "text": "이미 미국에서 7000만원대 이상의 가격에 팔리고 있고 더 오를 일만 남은",
+    "ko": "이미 미국에서 7000만원대 이상의 가격에 팔리고 있고 더 오를 일만 남은"
+   },
+   {
+    "start": 8.7,
+    "end": 14.6,
+    "text": "도요타 FJ 크루저의 마지막 생산분량으로 우리나라에 딱 100대만 정식 수입되었던 존재감 미친 오프로드 끝판왕 차입니다.",
+    "ko": "도요타 FJ 크루저의 마지막 생산분량으로 우리나라에 딱 100대만 정식 수입되었던 존재감 미친 오프로드 끝판왕 차입니다."
+   },
+   {
+    "start": 14.6,
+    "end": 18.7,
+    "text": "이 차 앞에서는 랭글러 디펜더 지바겐 그냥 웃습니다.",
+    "ko": "이 차 앞에서는 랭글러 디펜더 지바겐 그냥 웃습니다."
+   },
+   {
+    "start": 18.7,
+    "end": 25.7,
+    "text": "이 차야 말로 중동 석유 부자 왕자님들의 필수 차량 사막의 롤스로이스라 불리는 도요타 랜드크루저(프라도) 베이스 차량이기 때문이죠.",
+    "ko": "이 차야 말로 중동 석유 부자 왕자님들의 필수 차량 사막의 롤스로이스라 불리는 도요타 랜드크루저(프라도) 베이스 차량이기 때문이죠."
+   },
+   {
+    "start": 25.7,
+    "end": 29.5,
+    "text": "전국적으로 아마 최저 마일리지 최고의 상태인 차량일 겁니다.",
+    "ko": "전국적으로 아마 최저 마일리지 최고의 상태인 차량일 겁니다."
+   },
+   {
+    "start": 29.5,
+    "end": 31.9,
+    "text": "하이엔드모터스 홈서비스로 만나보세요.",
+    "ko": "하이엔드모터스 홈서비스로 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "주식처럼 가격이 오르는 차 소개로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 14.6,
+    "speed": "보통",
+    "summary": "해외 시세 및 국내 100대 한정 정식 수입 FJ 크루저 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 14.6,
+    "end": 25.7,
+    "speed": "보통",
+    "summary": "타사 오프로더 대비 장점 및 랜드크루저 프라도 베이스 설명"
+   },
+   {
+    "stage": "상태 및 조건",
+    "start": 25.7,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "전국 최저 마일리지 및 최고 상태 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 29.5,
+    "end": 31.9,
+    "speed": "보통",
+    "summary": "홈서비스 구매 유도"
+   }
+  ],
+  "rules": [
+   "좌측 상단에 노란색 포인트의 차량 상담 문의 번호(1899-1886)를 전 구간 고정 노출한다.",
+   "상단 중앙 흰 배경 영역에 검은색 글씨와 흰 외곽선 자막을 배치해 가독성을 높인다.",
+   "턴테이블을 활용한 360도 외관 회전 컷으로 차량의 전체적인 실루엣을 강조한다.",
+   "비교 차종 언급 시 그래픽 이미지를 우측에 순차 팝업하여 직관적으로 전달한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 10.4,
+    "end": 14.6,
+    "feature": "코치 도어(수어사이드 도어) 오픈 구조",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.6,
+    "feature": "최저 마일리지(계기판)",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "턴테이블 위에서 도어가 열린 채 회전하는 FJ 크루저와 '구매해 놓으면 무조건 가격이 오른다'는 내레이션",
+   "type": "가격",
+   "text": "요즘 삼전 주식처럼 구매해 놓으면 무조건 가격이 오르는 차가 왔습니다"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "미국 시장 7000만원대 이상 시세 형성 및 가격 상승세",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.4,
+    "point": "국내 딱 100대 정식 수입된 마지막 생산분량",
+    "category": "희소성"
+   },
+   {
+    "t": 14.6,
+    "point": "랭글러, 디펜더, 지바겐을 압도하는 오프로드 존재감",
+    "category": "성능"
+   },
+   {
+    "t": 21.6,
+    "point": "사막의 롤스로이스 랜드크루저 프라도 베이스 차체",
+    "category": "성능"
+   },
+   {
+    "t": 25.7,
+    "point": "전국 최저 수준의 짧은 주행거리와 최상급 상태",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명: 하이엔드모터스",
+    "전화: 1899-1886"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 29.5,
+   "text": "하이엔드모터스 홈서비스로 만나보세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 측면",
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "외관 측면",
+    "사막 주행 자료화면",
+    "실내 센터페시아",
+    "계기판",
+    "도어 트림",
+    "외관 전면"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "스튜디오 백월의 HIGHEND MOTORS 로고와 일관된 상단 상담문의 배너 템플릿 유지"
+  }
+ }
+}

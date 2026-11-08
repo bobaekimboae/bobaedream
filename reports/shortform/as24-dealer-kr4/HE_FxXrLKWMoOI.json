@@ -1,0 +1,363 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/FxXrLKWMoOI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2626,
+  "candidatesTokenCount": 2915,
+  "totalTokenCount": 5541,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1366
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.8,
+   "aspect": "9:16",
+   "car": "기아 PV5 패신저 플러스",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 9.4,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 12.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "PV5 패신저는 무조건\n\"플러스\"로 사야되는 이유!!",
+    "ko": "PV5 패신저는 무조건 \"플러스\"로 사야되는 이유!!",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "무조건",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "패신저의 플러스 등급",
+    "ko": "패신저의 플러스 등급",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.6,
+    "text": "패신저의 플러스 등급은\n무조건 필수다!",
+    "ko": "패신저의 플러스 등급은 무조건 필수다!",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "무조건 필수다!",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 5.8,
+    "text": "(스타렉스 시절)\n추가 옵션이 있었거든요",
+    "ko": "(스타렉스 시절) 추가 옵션이 있었거든요",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.8,
+    "text": "이 쪽창(쪽문)을 넣으려면",
+    "ko": "이 쪽창(쪽문)을 넣으려면",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.4,
+    "text": "그런 느낌이 좀 나네요",
+    "ko": "그런 느낌이 좀 나네요",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "text": "짜잔~",
+    "ko": "짜잔~",
+    "kind": "키워드 스티커",
+    "y_pct": 59.0,
+    "x_center_pct": 67.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#333333",
+    "bg_width_pct": 20.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "기아 PV5를\n패신저 '플러스'로\n출고해야 하는\n더 자세한 정보는\n\n아래 ▶관련동영상 클릭!",
+    "ko": "기아 PV5를 패신저 '플러스'로 출고해야 하는 더 자세한 정보는 아래 ▶관련동영상 클릭!",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 30.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 9.4,
+    "type": "딸깍",
+    "event": "창문 열리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "띵",
+    "event": "짜잔 스티커 등장 및 손인사",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝/업비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 8.8,
+    "what": "그랜드 스타렉스 차량 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 70.0,
+    "y_pct": 32.0,
+    "entrance": "바로",
+    "purpose": "과거 차량 쪽창 옵션 비교 예시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "플러스 등급, 패신저의 플러스 등급은 무조건 필수다!",
+    "ko": "플러스 등급, 패신저의 플러스 등급은 무조건 필수다!"
+   },
+   {
+    "start": 4.6,
+    "end": 9.4,
+    "text": "추가 옵션이 있었거든요. 이 쪽창을 넣으려면. 약간 그런 느낌이 좀 나네요.",
+    "ko": "추가 옵션이 있었거든요. 이 쪽창을 넣으려면. 약간 그런 느낌이 좀 나네요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.0,
+    "speed": "빠름",
+    "summary": "PV5 플러스 등급을 사야 하는 이유 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 1.0,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "실내에서 2열 쪽창(플러시 글래스) 옵션의 중요성 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 9.4,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "외부에서 전동 쪽창이 열리며 손인사 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.8,
+    "end": 14.8,
+    "speed": "느림",
+    "summary": "풀영상 유도 CTA 안내 화면"
+   }
+  ],
+  "rules": [
+   "제목 자막을 상단에 굵은 고딕과 하이라이트 컬러로 배치",
+   "화자가 말하는 키워드를 흰색 박스 자막으로 중앙에 강하게 노출",
+   "과거 유사 옵션 차량(스타렉스)을 누끼 이미지로 띄워 직관적 비교",
+   "실제 작동 시연 후 위트 있는 제스처와 효과음으로 마무리",
+   "영상 말미에 관련 동영상 클릭을 유도하는 검은색 엔드스크린 삽입"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.8,
+    "end": 12.8,
+    "feature": "2열 플러시 글래스 (쪽창)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "창문 열리는 모터음 및 딸깍 소리",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "PV5 전면부 컷과 함께 '패신저는 무조건 플러스로 사야되는 이유' 문구 제시 후 딜러가 무조건 필수라고 강력 주장",
+   "type": "행동",
+   "text": "PV5 패신저는 무조건 \"플러스\"로 사야되는 이유!!"
+  },
+  "narration_points": [
+   {
+    "t": 2.2,
+    "point": "패신저 모델에서 플러스 등급 선택은 필수",
+    "category": "편의"
+   },
+   {
+    "t": 6.0,
+    "point": "과거 스타렉스처럼 2열 환기용 쪽창(플러시 글래스) 옵션 적용",
+    "category": "편의"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 0.5
+  },
+  "cta": {
+   "t": 12.8,
+   "text": "아래 ▶관련동영상 클릭!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동"
+   ],
+   "phone_or_camera": "카메라",
+   "stabilized": "고정"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 사각 박스 자막과 검은색 풀영상 유도 엔딩 템플릿 사용"
+  }
+ }
+}

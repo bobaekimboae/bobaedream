@@ -1,0 +1,761 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/R9Ro9FL_80k",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3810,
+  "candidatesTokenCount": 7299,
+  "totalTokenCount": 12346,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2550
+   }
+  ],
+  "thoughtsTokenCount": 1237,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 28.5,
+   "aspect": "9:16",
+   "car": "BMW 6시리즈 GT 파이널 에디션",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 4.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 5.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.7,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "우리나라 사람들이",
+    "ko": "우리나라 사람들이",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.1,
+    "text": "BMW 중 가장 좋아하는 6GT",
+    "ko": "BMW 중 가장 좋아하는 6GT",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 4.5,
+    "text": "그것도 '파이널 에디션'입니다",
+    "ko": "그것도 '파이널 에디션'입니다",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.9,
+    "text": "게다가 진짜 마지막 생산한",
+    "ko": "게다가 진짜 마지막 생산한",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 7.1,
+    "text": "24년 12월식",
+    "ko": "24년 12월식",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.7,
+    "text": "일반 6GT랑 완전 다릅니다",
+    "ko": "일반 6GT랑 완전 다릅니다",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "text": "블랙포인트 익스테리어",
+    "ko": "블랙포인트 익스테리어",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.0,
+    "text": "소프트 클로징",
+    "ko": "소프트 클로징",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.1,
+    "text": "마지막이라고 아낌없이\n옵션 다 넣어준 차입니다",
+    "ko": "마지막이라고 아낌없이\n옵션 다 넣어준 차입니다",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.2,
+    "text": "화이트 베이지 시트와",
+    "ko": "화이트 베이지 시트와",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.2,
+    "end": 16.0,
+    "text": "7시리즈에 버금가는 실내공간",
+    "ko": "7시리즈에 버금가는 실내공간",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.7,
+    "text": "2만km대 완전 신차급 차량",
+    "ko": "2만km대 완전 신차급 차량",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 20.3,
+    "text": "하이엔드모터스 홈 서비스로\n3일 타보세요",
+    "ko": "하이엔드모터스 홈 서비스로\n3일 타보세요",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.3,
+    "text": "마음에 안 들면\n왕복 탁송비까지 저희가 다 내고",
+    "ko": "마음에 안 들면\n왕복 탁송비까지 저희가 다 내고",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.3,
+    "text": "100% 환불해드립니다",
+    "ko": "100% 환불해드립니다",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 27.2,
+    "text": "지금 바로 아래 본문과\n고정 댓글 연락처 확인하셔서",
+    "ko": "지금 바로 아래 본문과\n고정 댓글 연락처 확인하셔서",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.5,
+    "text": "문의주세요",
+    "ko": "문의주세요",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 10.3,
+    "type": "딸깍",
+    "event": "소프트 클로징 도어 체결 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉",
+   "bpm_est": 120,
+   "mood": "세련되고 경쾌한",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.1,
+    "text": "우리나라 사람들이 BMW 중 가장 좋아하는 6GT",
+    "ko": "우리나라 사람들이 BMW 중 가장 좋아하는 6GT"
+   },
+   {
+    "start": 3.1,
+    "end": 4.5,
+    "text": "그것도 파이널 에디션입니다",
+    "ko": "그것도 파이널 에디션입니다"
+   },
+   {
+    "start": 4.5,
+    "end": 7.1,
+    "text": "게다가 진짜 마지막 생산한 24년 12월식",
+    "ko": "게다가 진짜 마지막 생산한 24년 12월식"
+   },
+   {
+    "start": 7.1,
+    "end": 8.7,
+    "text": "일반 6GT랑 완전 다릅니다",
+    "ko": "일반 6GT랑 완전 다릅니다"
+   },
+   {
+    "start": 8.7,
+    "end": 11.0,
+    "text": "블랙포인트 익스테리어 소프트 클로징",
+    "ko": "블랙포인트 익스테리어 소프트 클로징"
+   },
+   {
+    "start": 11.0,
+    "end": 13.1,
+    "text": "마지막이라고 아낌없이 옵션 다 넣어준 차입니다",
+    "ko": "마지막이라고 아낌없이 옵션 다 넣어준 차입니다"
+   },
+   {
+    "start": 13.1,
+    "end": 16.0,
+    "text": "화이트 베이지 시트와 7시리즈에 버금가는 실내공간",
+    "ko": "화이트 베이지 시트와 7시리즈에 버금가는 실내공간"
+   },
+   {
+    "start": 16.0,
+    "end": 17.7,
+    "text": "2만km대 완전 신차급 차량",
+    "ko": "2만km대 완전 신차급 차량"
+   },
+   {
+    "start": 17.7,
+    "end": 20.3,
+    "text": "하이엔드모터스 홈 서비스로 3일 타보세요",
+    "ko": "하이엔드모터스 홈 서비스로 3일 타보세요"
+   },
+   {
+    "start": 20.3,
+    "end": 24.3,
+    "text": "마음에 안 들면 왕복 탁송비까지 저희가 다 내고 100% 환불해드립니다",
+    "ko": "마음에 안 들면 왕복 탁송비까지 저희가 다 내고 100% 환불해드립니다"
+   },
+   {
+    "start": 24.3,
+    "end": 28.5,
+    "text": "지금 바로 아래 본문과 고정 댓글 연락처 확인하셔서 문의주세요",
+    "ko": "지금 바로 아래 본문과 고정 댓글 연락처 확인하셔서 문의주세요"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "한국인이 가장 선호하는 6GT 파이널 에디션 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.5,
+    "end": 7.1,
+    "speed": "빠름",
+    "summary": "마지막 생산 24년 12월식 연식 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.1,
+    "end": 16.0,
+    "speed": "보통",
+    "summary": "블랙포인트, 고스트도어, 화이트 시트, 실내공간 등 풀옵션 사양 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 16.0,
+    "end": 17.7,
+    "speed": "빠름",
+    "summary": "2만km대 신차급 주행거리 강조"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 17.7,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "하이엔드모터스 3일 홈서비스 및 100% 전액 환불 혜택 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.3,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "본문 및 고정댓글 문의 유도 (CTA)"
+   }
+  ],
+  "rules": [
+   "배경이 깔끔한 스튜디오 턴테이블 부스에서 차량을 회전시키며 촬영",
+   "화면 상단(약 21%)에 흰색 볼드체 자막을 고정하여 가독성 유지",
+   "AI 음성 나레이션 박자에 맞춰 핵심 내외관 옵션을 1~2초 단위의 빠른 컷 전환으로 보여줌",
+   "환불 보장 홈서비스 조건을 명시하여 온라인 구매 신뢰도 증대"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "feature": "블랙포인트 익스테리어",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.0,
+    "feature": "소프트 클로징",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.1,
+    "feature": "바워스 앤 윌킨스 오디오 시스템",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.1,
+    "feature": "화이트 베이지 가죽 시트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전동 스포일러가 돋보이는 6GT 후면과 스튜디오 턴테이블 회전 샷을 보여주며 한국인 최고 인기 차량 언급",
+   "type": "희귀차",
+   "text": "우리나라 사람들이 BMW 중 가장 좋아하는 6GT"
+  },
+  "narration_points": [
+   {
+    "t": 1.2,
+    "point": "한국인이 가장 선호하는 BMW 6시리즈 GT 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 3.1,
+    "point": "가장 마지막 생산된 24년 12월식 파이널 에디션",
+    "category": "희소성"
+   },
+   {
+    "t": 8.7,
+    "point": "블랙포인트 익스테리어 디자인 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 9.8,
+    "point": "소프트 클로징 등 풍부한 옵션 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 13.1,
+    "point": "화이트 베이지 시트 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 14.2,
+    "point": "7시리즈급의 넓은 실내 공간",
+    "category": "공간"
+   },
+   {
+    "t": 16.0,
+    "point": "2만km대 주행한 신차급 상태",
+    "category": "상태·이력"
+   },
+   {
+    "t": 17.7,
+    "point": "3일 타보기 홈서비스 및 100% 환불 보장",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명"
+   ],
+   "t": 17.7
+  },
+  "cta": {
+   "t": 24.3,
+   "text": "지금 바로 아래 본문과 고정 댓글 연락처 확인하셔서 문의주세요",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "없음",
+   "part_order": [
+    "외관 후면",
+    "외관 측면",
+    "외관 후면",
+    "실내 앞",
+    "외관 후면",
+    "계기판",
+    "외관 전면",
+    "옵션 작동",
+    "실내 앞",
+    "뒷좌석",
+    "휠",
+    "트렁크",
+    "외관 측면",
+    "실내 앞",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "스튜디오 내 'HIGHEND MOTORS' 벽면 로고 노출 및 검정 배경의 깔끔한 브랜드 룩 유지"
+  }
+ }
+}

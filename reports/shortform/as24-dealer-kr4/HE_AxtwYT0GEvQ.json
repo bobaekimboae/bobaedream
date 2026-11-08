@@ -1,0 +1,321 @@
+{
+ "country": "HE",
+ "kind": "dealer",
+ "url": "https://youtu.be/AxtwYT0GEvQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2895,
+  "candidatesTokenCount": 2870,
+  "totalTokenCount": 6257,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1635
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1260
+   }
+  ],
+  "thoughtsTokenCount": 492,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 17.7,
+   "aspect": "9:16",
+   "car": "제네시스 G90(RS4)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 2.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 7.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 8.9,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 9.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 16.2,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 17.7,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "25년 APEC 정상회의 의전차량",
+    "ko": "25년 APEC 정상회의 의전차량",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.4,
+    "text": "벤츠도 캐딜락도 아닌",
+    "ko": "벤츠도 캐딜락도 아닌",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.5,
+    "text": "제네시스입니다",
+    "ko": "제네시스입니다",
+    "kind": "말 자막",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "text": "G90(RS4) 6천만원대에\n'하이엔드모터스'에서\n만나보세요!!",
+    "ko": "G90(RS4) 6천만원대에 '하이엔드모터스'에서 만나보세요!!",
+    "kind": "가격",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "6천만원대",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "웅장한 오케스트라 / 클래식",
+   "bpm_est": 85,
+   "mood": "웅장하고 고급스러운 분위기",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 16.2,
+    "end": 17.7,
+    "what": "하이엔드 모터스 로고 및 심볼",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "엔딩 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "APEC 정상회도 의전차량 이슈와 타사 의전차량 비교로 주목 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 11.5,
+    "speed": "빠름",
+    "summary": "제네시스 엠블럼, 실내 레이아웃, 스티어링 휠, 전동 커튼 옵션 및 3분할 외관 노출"
+   },
+   {
+    "stage": "가격",
+    "start": 11.5,
+    "end": 16.2,
+    "speed": "보통",
+    "summary": "가을 단풍 배경 실매물 후면 샷과 함께 6천만원대 가격 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 16.2,
+    "end": 17.7,
+    "speed": "보통",
+    "summary": "하이엔드모터스 엔딩 로고 카드"
+   }
+  ],
+  "rules": [
+   "도입부에 국가 정상 의전차량 이슈를 끌어와 차량의 고급감과 위상을 강조함",
+   "음성 해설 없이 클래식 오케스트라 BGM과 직관적인 텍스트 자막으로만 전개",
+   "주요 포인트(엠블럼, 실내 인테리어, 전동 선셰이드 작동)를 빠른 컷 전환으로 보여줌",
+   "외관을 3분할 화면으로 압축해 한눈에 보여주는 편집 기법 활용",
+   "단풍 배경의 실외 주차장에서 실매물의 후면 디자인과 함께 파격적인 가격대를 노출해 문의 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.9,
+    "end": 9.9,
+    "feature": "2열 전동식 도어 커튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "APEC 정상회의 의전차량 소개 및 김정은 벤츠 리무진 하차 영상",
+   "type": "희귀차",
+   "text": "25년 APEC 정상회의 의전차량"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "2025 APEC 정상회의 의전차량으로 선정",
+    "category": "희소성"
+   },
+   {
+    "t": 3.0,
+    "point": "벤츠나 캐딜락이 아닌 국산 플래그십 제네시스",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "G90(RS4) 6천만원대 구매 가능",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "상사명",
+    "가격"
+   ],
+   "t": 11.5
+  },
+  "cta": {
+   "t": 11.5,
+   "text": "G90(RS4) 6천만원대에 '하이엔드모터스'에서 만나보세요!!",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "옵션 작동",
+    "외관 측면",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "상단 타이틀 박스 및 화이트 엔딩 로고 카드 구성"
+  }
+ }
+}
