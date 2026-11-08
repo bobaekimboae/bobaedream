@@ -1,0 +1,525 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Ai-ZAFbtATw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3084,
+  "candidatesTokenCount": 4156,
+  "totalTokenCount": 7240,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1828
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.4,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스 SE & 페라리 푸로산게",
+   "format": "비교",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 6.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.2,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.4,
+    "end": 17.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 20.4,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "라고 할 때 내놓은",
+    "ko": "라고 할 때 내놓은",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.5,
+    "text": "LAMBORGHINI URUS SE",
+    "ko": "람보르기니 우루스 SE",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SE",
+    "sure": true
+   },
+   {
+    "start": 3.6,
+    "end": 6.5,
+    "text": "에다가 전기모터를 추가한",
+    "ko": "에다가 전기모터를 추가한",
+    "kind": "말 자막",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "text": "은 확실히 미래 지향적이죠",
+    "ko": "은 확실히 미래 지향적이죠",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.7,
+    "text": "PHEV",
+    "ko": "플러그인 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "text": "EV 모드로",
+    "ko": "EV 모드로",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.4,
+    "text": "V8 엔진",
+    "ko": "V8 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.0,
+    "text": "내연기관 감성",
+    "ko": "내연기관 감성",
+    "kind": "말 자막",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 15.6,
+    "text": "여러분은",
+    "ko": "여러분은",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.7,
+    "text": "FUV\nVS\nSUV",
+    "ko": "FUV vs SUV",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.4,
+    "text": "팔로우 하시고\n더 많은 슈퍼카 영상을\n만나보세요",
+    "ko": "팔로우 하시고 더 많은 슈퍼카 영상을 만나보세요",
+    "kind": "제목",
+    "y_pct": 46.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 12.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "람보르기니 우루스 실제 배기음/가속 사운드 재생",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 웅장함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 12.2,
+     "what": "엔진 배기음 강조를 위해 음악 볼륨 감소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 11.8,
+    "end": 15.0,
+    "what": "스피커 및 음파 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 70.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배기음 사운드 시각적 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "라고 할 때 내놓은 SUV를 내놓은 제작사가 있습니다. 이름하여",
+    "ko": "라고 할 때 내놓은 SUV를 내놓은 제작사가 있습니다. 이름하여"
+   },
+   {
+    "start": 2.7,
+    "end": 6.5,
+    "text": "람보르기니 우루스에다가 전기모터를 추가한",
+    "ko": "람보르기니 우루스에다가 전기모터를 추가한"
+   },
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "text": "은 확실히 미래 지향적이죠.",
+    "ko": "은 확실히 미래 지향적이죠."
+   },
+   {
+    "start": 7.8,
+    "end": 10.4,
+    "text": "PHEV다운 EV 모드로 시작하지만 V8이 튀어나올 땐",
+    "ko": "PHEV다운 EV 모드로 시작하지만 V8이 튀어나올 땐"
+   },
+   {
+    "start": 10.4,
+    "end": 12.2,
+    "text": "내연기관 감성이 살아있습니다.",
+    "ko": "내연기관 감성이 살아있습니다."
+   },
+   {
+    "start": 15.0,
+    "end": 17.7,
+    "text": "여러분은 FUV와 SUV 중 어떤 차가 더 마음에 드시나요?",
+    "ko": "여러분은 FUV와 SUV 중 어떤 차가 더 마음에 드시나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "람보르기니 엠블럼과 휠을 보여주며 인트로 멘트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.7,
+    "end": 6.5,
+    "speed": "보통",
+    "summary": "우루스 SE 모델명 소개 및 전면 샷"
+   },
+   {
+    "stage": "기능",
+    "start": 6.5,
+    "end": 12.0,
+    "speed": "빠름",
+    "summary": "하이브리드 PHEV 충전구, 실내 디스플레이, V8 엔진 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 12.0,
+    "end": 15.4,
+    "speed": "보통",
+    "summary": "실제 배기음 사운드 시연"
+   },
+   {
+    "stage": "비교",
+    "start": 15.4,
+    "end": 17.7,
+    "speed": "보통",
+    "summary": "페라리 푸로산게(FUV)와 우루스(SUV) 비교 질문"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 17.7,
+    "end": 20.4,
+    "speed": "보통",
+    "summary": "팔로우 유도 엔딩 카드"
+   }
+  ],
+  "rules": [
+   "배기음 구간에서는 배경 음악을 줄이고 그래픽 스티커(스피커)로 사운드 집중 유도",
+   "화면 분할(2분할)을 활용하여 실내/스티어링휠 또는 비교 차량을 한 화면에 연출",
+   "자막에 핵심 모델명과 스펙(PHEV, V8 등)을 굵은 고딕 텍스트로 강조"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "feature": "하이브리드 충전 디스플레이 및 커스텀 스티어링 휠",
+    "shown_how": "화면 분할",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.7,
+    "feature": "PHEV 충전 포트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "그린 컬러의 람보르기니 우루스 외관과 황소 엠블럼을 클로즈업하며 궁금증 유발 멘트",
+   "type": "희귀차",
+   "text": "라고 할 때 SUV를 내놓은 제작사가 있습니다"
+  },
+  "narration_points": [
+   {
+    "t": 3.6,
+    "point": "우루스에 전기모터를 추가한 PHEV 모델 우루스 SE 소개",
+    "category": "성능"
+   },
+   {
+    "t": 6.5,
+    "point": "미래지향적인 하이브리드 인터페이스",
+    "category": "편의"
+   },
+   {
+    "t": 8.7,
+    "point": "EV 모드로 주행 가능하며 V8 엔진 개입 시 내연기관 감성 유지",
+    "category": "성능"
+   },
+   {
+    "t": 15.4,
+    "point": "페라리 푸로산게(FUV)와 우루스(SUV) 라이벌 비교",
+    "category": "디자인"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 17.8,
+   "text": "팔로우 하시고 더 많은 슈퍼카 영상을 만나보세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "휠",
+    "외관 전면",
+    "센터 화면",
+    "외관 측면",
+    "계기판",
+    "엔진룸",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "블랙 배경에 심플한 흰색 텍스트 엔딩 카드 및 배기음 강조 스피커 그래픽 활용"
+  }
+ }
+}

@@ -1,0 +1,675 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/pIxzJOL0OnQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3542,
+  "candidatesTokenCount": 5149,
+  "totalTokenCount": 8691,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2286
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.1,
+   "aspect": "9:16",
+   "car": "볼보 XC40 B4 Inscription",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 14.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.6,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 25.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "오늘도 차를 구하러 떠나봅니다",
+    "ko": "오늘도 차를 구하러 떠나봅니다",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.0,
+    "text": "오! 저 친구가 좋겠어요",
+    "ko": "오! 저 친구가 좋겠어요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.1,
+    "end": 4.5,
+    "text": "VOLVO XC40 B4 Inscription",
+    "ko": "볼보 XC40 B4 인스크립션",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "튼튼한 준중형 SUV.. 최고죠",
+    "ko": "튼튼한 준중형 SUV.. 최고죠",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "빠르게 점검 해볼게요",
+    "ko": "빠르게 점검 해볼게요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "text": "진단기검사 이상 없어요",
+    "ko": "진단기검사 이상 없어요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.0,
+    "text": "아쉬운대로 공기압 넣을게요",
+    "ko": "아쉬운대로 공기압 넣을게요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.8,
+    "text": "성능점검 이상 없어요",
+    "ko": "성능점검 이상 없어요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "text": "원만한 매입이 가능할 것 같아요",
+    "ko": "원만한 매입이 가능할 것 같아요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.6,
+    "text": "그런데\n문제가\n있어요",
+    "ko": "그런데 문제가 있어요",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.6,
+    "text": "휠이 긁혀있어요",
+    "ko": "휠이 긁혀있어요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 17.9,
+    "text": "이건 너무 밤티에요",
+    "ko": "이건 너무 밤티에요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.9,
+    "end": 19.3,
+    "text": "때도 한번 벗겨야 할 것 같아요",
+    "ko": "때도 한번 벗겨야 할 것 같아요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.0,
+    "text": "깨끗하게 만들어서 팔아봐야죠",
+    "ko": "깨끗하게 만들어서 팔아봐야죠",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "빠르게 상품화를 마친 뒤",
+    "ko": "빠르게 상품화를 마친 뒤",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "달라진 모습을 보여드릴게요",
+    "ko": "달라진 모습을 보여드릴게요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.1,
+    "text": "조금만 기다려주세요",
+    "ko": "조금만 기다려주세요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 14.5,
+    "type": "쿵",
+    "event": "그런데 문제가 있어요 전체 화면 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "재즈 팝",
+   "bpm_est": 115,
+   "mood": "경쾌하고 유쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "오늘도 차를 구하러 떠나봅니다",
+    "ko": "오늘도 차를 구하러 떠나봅니다"
+   },
+   {
+    "start": 1.8,
+    "end": 3.0,
+    "text": "오! 저 친구가 좋겠어요",
+    "ko": "오! 저 친구가 좋겠어요"
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "튼튼한 준중형 SUV.. 최고죠",
+    "ko": "튼튼한 준중형 SUV.. 최고죠"
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "빠르게 점검 해볼게요",
+    "ko": "빠르게 점검 해볼게요"
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "text": "진단기검사 이상 없어요",
+    "ko": "진단기검사 이상 없어요"
+   },
+   {
+    "start": 9.4,
+    "end": 11.0,
+    "text": "아쉬운대로 공기압 넣을게요",
+    "ko": "아쉬운대로 공기압 넣을게요"
+   },
+   {
+    "start": 11.0,
+    "end": 12.8,
+    "text": "성능점검 이상 없어요",
+    "ko": "성능점검 이상 없어요"
+   },
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "text": "원만한 매입이 가능할 것 같아요",
+    "ko": "원만한 매입이 가능할 것 같아요"
+   },
+   {
+    "start": 15.6,
+    "end": 16.6,
+    "text": "휠이 긁혀있어요",
+    "ko": "휠이 긁혀있어요"
+   },
+   {
+    "start": 16.6,
+    "end": 17.9,
+    "text": "이건 너무 밤티에요",
+    "ko": "이건 너무 밤티에요"
+   },
+   {
+    "start": 17.9,
+    "end": 19.3,
+    "text": "때도 한번 벗겨야 할 것 같아요",
+    "ko": "때도 한번 벗겨야 할 것 같아요"
+   },
+   {
+    "start": 19.3,
+    "end": 21.0,
+    "text": "깨끗하게 만들어서 팔아봐야죠",
+    "ko": "깨끗하게 만들어서 팔아봐야죠"
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "빠르게 상품화를 마친 뒤",
+    "ko": "빠르게 상품화를 마친 뒤"
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "달라진 모습을 보여드릴게요",
+    "ko": "달라진 모습을 보여드릴게요"
+   },
+   {
+    "start": 24.3,
+    "end": 25.1,
+    "text": "조금만 기다려주세요",
+    "ko": "조금만 기다려주세요"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "보통",
+    "summary": "차량 매입하러 이동하는 도입부"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 6.7,
+    "speed": "보통",
+    "summary": "볼보 XC40 B4 인스크립션 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 6.7,
+    "end": 14.5,
+    "speed": "빠름",
+    "summary": "정비소 진단기 및 성능 점검 진행 과정"
+   },
+   {
+    "stage": "기능",
+    "start": 14.5,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "휠 스크래치 및 외관 오염 문제점 지적 및 상품화 계획"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 21.0,
+    "end": 25.1,
+    "speed": "보통",
+    "summary": "상품화 후 복귀 예고 및 마무리"
+   }
+  ],
+  "rules": [
+   "진단 및 점검 과정을 1~2초 내외의 빠른 컷 전환으로 리드미컬하게 보여줌",
+   "화면 하단 중앙에 일관된 고딕 폰트의 흰색 글자+검은색 외곽선 자막 유지",
+   "반전 구간에 검은 바탕의 중앙 텍스트 화면과 효과음으로 긴장감 부여",
+   "친근하고 부드러운 톤의 AI 내레이션을 활용한 브이로그 형식의 매입기 구성"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "feature": "진단기 점검",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "도로 주행 중 앞차를 따라가며 '오늘도 차를 구하러 떠나봅니다' 내레이션",
+   "type": "행동",
+   "text": "오늘도 차를 구하러 떠나봅니다"
+  },
+  "narration_points": [
+   {
+    "t": 4.6,
+    "point": "튼튼한 준중형 SUV 볼보 XC40",
+    "category": "안전"
+   },
+   {
+    "t": 8.0,
+    "point": "진단기 및 성능점검 이상 없음",
+    "category": "상태·이력"
+   },
+   {
+    "t": 15.6,
+    "point": "휠 긁힘과 외관 때가 있어 상품화 작업 필요",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 24.3,
+   "text": "조금만 기다려주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 후면",
+    "실내 앞",
+    "외관 후면",
+    "휠",
+    "외관 전면",
+    "계기판"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색+블랙 아웃라인 단일 자막과 정갈한 컷편집"
+  }
+ }
+}

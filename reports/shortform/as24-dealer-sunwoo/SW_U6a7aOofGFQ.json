@@ -1,0 +1,458 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/U6a7aOofGFQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3080,
+  "candidatesTokenCount": 3395,
+  "totalTokenCount": 6475,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1824
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.0,
+   "aspect": "9:16",
+   "car": "페라리 푸로산게",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "내레이션",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.3,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "text": "이 차는",
+    "ko": "이 차는",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.2,
+    "text": "SUV가",
+    "ko": "SUV가",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 3.7,
+    "text": "아닙니다",
+    "ko": "아닙니다",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.0,
+    "text": "4도어",
+    "ko": "4도어",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.1,
+    "text": "어김없이",
+    "ko": "어김없이",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.5,
+    "text": "엔진은",
+    "ko": "엔진은",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.3,
+    "text": "자연흡기",
+    "ko": "자연흡기",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 10.9,
+    "text": "콕핏",
+    "ko": "콕핏",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "FERRARI",
+    "ko": "FERRARI",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "text": "FUV\nFerrari Utility Vehicle",
+    "ko": "FUV Ferrari Utility Vehicle",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "이 차량에 대한\n더 자세한 설명은\n프로필 피드를 참고하세요",
+    "ko": "이 차량에 대한 더 자세한 설명은 프로필 피드를 참고하세요",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 긴장감 있음",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.8,
+    "end": 3.7,
+    "text": "이 차는 SUV가 아닙니다",
+    "ko": "이 차는 SUV가 아닙니다"
+   },
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "text": "4도어, 높은 차체 어김없이 SUV 같은데요",
+    "ko": "4도어, 높은 차체 어김없이 SUV 같은데요"
+   },
+   {
+    "start": 7.4,
+    "end": 10.9,
+    "text": "근데 엔진은 V12 자연흡기, 운전자 중심의 콕핏",
+    "ko": "근데 엔진은 V12 자연흡기, 운전자 중심의 콕핏"
+   },
+   {
+    "start": 10.9,
+    "end": 15.6,
+    "text": "그래서 페라리에서는 페라리 유틸리티 비히클, 즉 FUV라는 명칭을 붙였습니다",
+    "ko": "그래서 페라리에서는 페라리 유틸리티 비히클, 즉 FUV라는 명칭을 붙였습니다"
+   },
+   {
+    "start": 15.6,
+    "end": 18.0,
+    "text": "그래서 SUV라 부르지 않는 것이죠",
+    "ko": "그래서 SUV라 부르지 않는 것이죠"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "'이 차는 SUV가 아닙니다' 도발적 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "외관 및 코치도어 특징 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 7.4,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "V12 엔진과 콕핏, FUV 개념 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 15.6,
+    "end": 20.0,
+    "speed": "보통",
+    "summary": "프로필 피드 안내 클로징"
+   }
+  ],
+  "rules": [
+   "단어 위주의 볼드 폰트 자막을 화면 중앙에 짧고 굵게 배치함",
+   "상반된 문맥으로 호기심을 유발하는 나레이션 훅 사용",
+   "차량 엠블럼과 주요 포인트(도어, 엔진룸, 휠)를 빠르게 전환하여 집중도 유지"
+  ],
+  "option_highlights": [
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "feature": "코치도어 (수어사이드 도어)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.3,
+    "feature": "V12 자연흡기 엔진",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "정차된 페라리 푸로산게와 함께 '이 차는 SUV가 아닙니다' 멘트",
+   "type": "질문",
+   "text": "이 차는 SUV가 아닙니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "SUV의 형태를 띠고 있으나 공식 명칭은 FUV",
+    "category": "디자인"
+   },
+   {
+    "t": 7.5,
+    "point": "V12 자연흡기 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 12.0,
+    "point": "페라리 유틸리티 비히클(FUV) 정의",
+    "category": "희소성"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 17.5,
+   "text": "더 자세한 설명은 프로필 피드를 참고하세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 측면",
+    "엔진룸",
+    "실내 앞",
+    "휠",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "블랙 박스 바탕의 흰색 단어 자막 스타일 일관 사용"
+  }
+ }
+}

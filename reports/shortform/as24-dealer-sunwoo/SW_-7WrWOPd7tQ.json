@@ -1,0 +1,301 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/-7WrWOPd7tQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1983,
+  "candidatesTokenCount": 2690,
+  "totalTokenCount": 4673,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 727
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 7.4,
+   "aspect": "9:16",
+   "car": "벤틀리 컨티넨탈 GT (4세대 신형 vs 3세대)",
+   "format": "비교",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "4억원이 넘어가는",
+    "ko": "4억원이 넘어가는",
+    "kind": "말 자막",
+    "y_pct": 79.2,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.1,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": "4억원",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "벤틀리 컨티넨탈 GT",
+    "ko": "벤틀리 컨티넨탈 GT",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.1,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.0,
+    "text": "4세대 신형 라이트와",
+    "ko": "4세대 신형 라이트와",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.1,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": "4세대",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.4,
+    "text": "합리적으로 감가된 금액대의",
+    "ko": "합리적으로 감가된 금액대의",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.2,
+    "text": "3세대 라이트",
+    "ko": "3세대 라이트",
+    "kind": "말 자막",
+    "y_pct": 81.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.1,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": "3세대",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.4,
+    "text": "어떤게 더 마음에 드시나요?",
+    "ko": "어떤게 더 마음에 드시나요?",
+    "kind": "말 자막",
+    "y_pct": 81.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "비트/앰비언트",
+   "bpm_est": 110,
+   "mood": "세련되고 차분함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "4억원이 넘어가는",
+    "ko": "4억원이 넘어가는"
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "벤틀리 컨티넨탈 GT",
+    "ko": "벤틀리 컨티넨탈 GT"
+   },
+   {
+    "start": 2.7,
+    "end": 4.0,
+    "text": "4세대 신형 라이트와",
+    "ko": "4세대 신형 라이트와"
+   },
+   {
+    "start": 4.0,
+    "end": 5.4,
+    "text": "합리적으로 감가된 금액대의",
+    "ko": "합리적으로 감가된 금액대의"
+   },
+   {
+    "start": 5.4,
+    "end": 6.2,
+    "text": "3세대 라이트",
+    "ko": "3세대 라이트"
+   },
+   {
+    "start": 6.2,
+    "end": 7.4,
+    "text": "어떤게 더 마음에 드시나요?",
+    "ko": "어떤게 더 마음에 드시나요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "보통",
+    "summary": "4억대 4세대 벤틀리 컨티넨탈 GT 신형 라이트 클로즈업"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 7.4,
+    "speed": "보통",
+    "summary": "감가된 3세대 모델의 헤드라이트를 보여주며 선호도 질문"
+   }
+  ],
+  "rules": [
+   "헤드라이트 디자인 디테일을 극단적으로 클로즈업해 시각적 매력을 강조",
+   "신형(고가)과 구형(감가 가성비)을 짧은 호흡으로 비교 제시하여 댓글 반응 유도",
+   "기울어진 폰트와 특정 단어 색상 강조(주황색/골드 톤)로 가독성과 집중도 향상"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "feature": "4세대 싱글 타원 헤드라이트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 7.4,
+    "feature": "3세대 트윈 원형 헤드라이트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "4억원이 넘어가는 신형 벤틀리 헤드라이트를 클로즈업하며 가격 언급",
+   "type": "가격",
+   "text": "4억원이 넘어가는 벤틀리 컨티넨탈 GT"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "4억원이 넘어가는 벤틀리 신형 4세대 GT 라이트 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 4.5,
+    "point": "감가되어 가격 대비 메리트 있는 3세대 모델 라이트 비교",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 6.2,
+   "text": "어떤게 더 마음에 드시나요?",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면 (헤드라이트)"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "검은색 외곽선에 흰색/주황색 이탤릭 볼드 자막 스타일 적용"
+  }
+ }
+}

@@ -1,0 +1,510 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/mqvVB53IFx0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2897,
+  "candidatesTokenCount": 4798,
+  "totalTokenCount": 8202,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1641
+   }
+  ],
+  "thoughtsTokenCount": 507,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 18.4,
+   "aspect": "9:16",
+   "car": "벤틀리 컨티넨탈 GTC W12",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 8.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.1,
+    "part": "계기판",
+    "camera": "확대 전환",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 12.2,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 14.4,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.4,
+    "end": 16.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.6,
+    "text": "여러분",
+    "ko": "여러분",
+    "kind": "말 자막",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.6,
+    "end": 1.2,
+    "text": "놀라지 마세요",
+    "ko": "놀라지 마세요",
+    "kind": "말 자막",
+    "y_pct": 27.2,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 1.8,
+    "text": "이 벤틀리는",
+    "ko": "이 벤틀리는",
+    "kind": "말 자막",
+    "y_pct": 19.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 2.7,
+    "text": "뚜껑이 열립니다",
+    "ko": "뚜껑이 열립니다",
+    "kind": "말 자막",
+    "y_pct": 14.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "BENTLEY CONTINENTAL GTC W12",
+    "ko": "벤틀리 컨티넨탈 GTC W12",
+    "kind": "제목",
+    "y_pct": 16.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.2,
+    "text": "실내가",
+    "ko": "실내가",
+    "kind": "말 자막",
+    "y_pct": 13.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.5,
+    "text": "예쁠수가 있나요?",
+    "ko": "예쁠수가 있나요?",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.8,
+    "text": "넘사벽",
+    "ko": "넘사벽",
+    "kind": "키워드 스티커",
+    "y_pct": 24.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.2,
+    "text": "6,000cc / W12 엔진!",
+    "ko": "6,000cc / W12 엔진!",
+    "kind": "키워드 스티커",
+    "y_pct": 49.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.4,
+    "text": "디자인\n감성\n하차감",
+    "ko": "디자인 감성 하차감",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 85.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 18.4,
+    "text": "이 차량에 대한\n자세한 정보는\n캡션을 참조해주세요",
+    "ko": "이 차량에 대한 자세한 정보는 캡션을 참조해주세요",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 11.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "캡션",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "딸깍",
+    "event": "차량 모델명 텍스트 타이핑 효과 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "휙",
+    "event": "흑백 전환 및 화면 회전 트랜지션",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "리드미컬하고 세련됨",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "여러분 놀라지 마세요. 이 벤틀리는 뚜껑이 열립니다.",
+    "ko": "여러분 놀라지 마세요. 이 벤틀리는 뚜껑이 열립니다."
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "자동차 실내가 이렇게 예쁠 수가 있나요?",
+    "ko": "자동차 실내가 이렇게 예쁠 수가 있나요?"
+   },
+   {
+    "start": 6.8,
+    "end": 8.4,
+    "text": "벤틀리 디자인은 정말 넘사벽이네요.",
+    "ko": "벤틀리 디자인은 정말 넘사벽이네요."
+   },
+   {
+    "start": 8.4,
+    "end": 10.6,
+    "text": "거기에 오픈까지 가능하다니 뚜껑 까나 보러 가 볼까요?",
+    "ko": "거기에 오픈까지 가능하다니 뚜껑 까나 보러 가 볼까요?"
+   },
+   {
+    "start": 10.6,
+    "end": 12.2,
+    "text": "더해서 12기통 엔진까지!",
+    "ko": "더해서 12기통 엔진까지!"
+   },
+   {
+    "start": 12.2,
+    "end": 14.8,
+    "text": "디자인, 감성, 하차감 모두 만족시키는 차.",
+    "ko": "디자인, 감성, 하차감 모두 만족시키는 차."
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "text": "벤틀리 어떠세요?",
+    "ko": "벤틀리 어떠세요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "컨버터블 오픈 기능 강조 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.7,
+    "end": 10.1,
+    "speed": "빠름",
+    "summary": "차명 소개 및 화려한 실내 인테리어 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 10.1,
+    "end": 12.2,
+    "speed": "빠름",
+    "summary": "6000cc W12 대배기량 엔진 스펙 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 12.2,
+    "end": 14.4,
+    "speed": "빠름",
+    "summary": "디자인, 감성, 하차감 3단 화면 분할 어필"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 14.4,
+    "end": 18.4,
+    "speed": "보통",
+    "summary": "차량 평가 질문 및 캡션 참조 유도"
+   }
+  ],
+  "rules": [
+   "초반 3초 안에 '뚜껑이 열리는 벤틀리'라는 반전 훅으로 시선 집중",
+   "모델명 등장 시 타자 사운드와 타이핑 애니메이션 자막 적용",
+   "실내 디자인, 엔진 스펙, 감성 포인트를 2초 내외 짧은 컷으로 전환",
+   "12초대 3단 세로 분할 화면으로 핵심 매력(디자인, 감성, 하차감)을 동시 연출",
+   "영상 말미에 '자세한 정보는 캡션 참조' CTA 텍스트로 본문 클릭 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "feature": "소프트탑 컨버터블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 12.2,
+    "feature": "6.0L W12 트윈터보 엔진",
+    "shown_how": "화면 분할",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 주차장에 정차된 흰색 벤틀리 컨버터블을 보여주며 '이 벤틀리는 뚜껑이 열립니다' 멘트",
+   "type": "희귀차",
+   "text": "여러분 놀라지 마세요 이 벤틀리는 뚜껑이 열립니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "오픈 에어링이 가능한 컨버터블 모델",
+    "category": "편의"
+   },
+   {
+    "t": 5.5,
+    "point": "고급스럽고 아름다운 가죽 실내 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 11.0,
+    "point": "6,000cc W12 12기통 고성능 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 13.0,
+    "point": "디자인, 감성, 하차감을 완벽히 만족시키는 럭셔리카",
+    "category": "희소성"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 16.0,
+   "text": "이 차량에 대한 자세한 정보는 캡션을 참조해주세요",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 측면",
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "스티어링 휠",
+    "사이드 벤트 엠블럼 및 엔진룸",
+    "외관 및 실내 3분할",
+    "외관 전측면 주행/서행",
+    "외관 전측면 원경"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "캡컷 템플릿",
+   "consistent_brand": "명조/고딕 계열 자막과 감성적인 컷 전환을 활용한 딜러 매물 쇼츠"
+  }
+ }
+}
