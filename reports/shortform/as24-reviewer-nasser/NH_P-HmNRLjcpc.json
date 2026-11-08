@@ -1,0 +1,957 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/P-HmNRLjcpc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7183,
+  "candidatesTokenCount": 7906,
+  "totalTokenCount": 15844,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6020
+   }
+  ],
+  "thoughtsTokenCount": 755,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 66.8,
+   "aspect": "9:16",
+   "car": "Ford Mustang Dark Horse",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.2,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.4,
+    "part": "엔진룸",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.2,
+    "part": "엔진룸",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 19.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 25.6,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.6,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.4,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.4,
+    "end": 33.0,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.9,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.9,
+    "end": 36.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.1,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.1,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.1,
+    "end": 48.4,
+    "part": "실내 앞",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.4,
+    "end": 51.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.7,
+    "end": 59.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 63.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.8,
+    "end": 66.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 5.9,
+    "end": 7.3,
+    "text": "STRIP BAR",
+    "ko": "스트럿 바",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.9,
+    "text": "AIR INTAKES",
+    "ko": "흡기구",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.7,
+    "text": "احتراق الماتور",
+    "ko": "엔진 연소",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#CC0000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.6,
+    "text": "V8 5000CC 500hp",
+    "ko": "V8 5000cc 500마력",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 7.0,
+    "color": "#FFCC00",
+    "background": "칠",
+    "bg_color": "#332200",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 39.4,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FF9900",
+    "background": "외곽선",
+    "bg_color": "#FF3300",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.5,
+    "color": "#FF9900",
+    "background": "외곽선",
+    "bg_color": "#FF3300",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 45.4,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 4.0,
+    "color": "#CCCCCC",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.9,
+    "end": 45.9,
+    "text": "HAND BRAKE",
+    "ko": "핸드 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 51.2,
+    "text": "هيغلى في السعر",
+    "ko": "가격이 상승할 것",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFDD44",
+    "background": "외곽선",
+    "bg_color": "#006600",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 54.0,
+    "text": "DRIFT BRAKE",
+    "ko": "드리프트 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2222",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.8,
+    "text": "5 Mil",
+    "ko": "500만 EGP",
+    "kind": "가격",
+    "y_pct": 36.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 8.0,
+    "color": "#FFDD55",
+    "background": "외곽선",
+    "bg_color": "#008833",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.1,
+    "end": 62.5,
+    "text": "20+ سنة خبرة",
+    "ko": "20년 이상의 경력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.5,
+    "color": "#FF0000",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.1,
+    "type": "쿵",
+    "event": "다크 호스 엠블럼 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "보닛 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.9,
+    "type": "톡",
+    "event": "STRIP BAR 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "AIR INTAKES 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "휙",
+    "event": "연소 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "쿵",
+    "event": "V8 스펙 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "후면 배기음 레브 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 37.3,
+    "type": "휙",
+    "event": "시트 열선 그래픽 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "휙",
+    "event": "스티어링 휠 열선 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "톡",
+    "event": "카플레이/안드로이드 오토 아이콘",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "톡",
+    "event": "무선충전/핸드브레이크 자막",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 52.8,
+    "type": "딸깍",
+    "event": "드리프트 브레이크 레버 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.5,
+    "type": "쿵",
+    "event": "가격 5 Mil 연기와 함께 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "에너지 넘치고 긴박함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 16.0,
+     "what": "엔진 배기음 사운드를 위해 음악 일시 중지"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "what": "다크 호스 입체 말 로고 및 Dark Horse 타이틀",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 70.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "차명 강조",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.6,
+    "what": "보닛 위로 솟아오르는 화염/연소 그래픽",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 52.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "엔진 연소 강조",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 44.4,
+    "what": "애플 카플레이 및 안드로이드 오토 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 표시",
+    "sure": true
+   },
+   {
+    "start": 57.2,
+    "end": 59.8,
+    "what": "5 Mil 가격 녹색 스모크 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 75.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시작 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 62.0,
+    "end": 63.8,
+    "what": "테슬라, BYD 등 수입 가능 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 25.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "수입 서비스 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "أنا ناصر وده وحش أمريكاني",
+    "ko": "저는 나사르이고, 이것은 미국의 괴물입니다."
+   },
+   {
+    "start": 2.1,
+    "end": 4.0,
+    "text": "فورد موستنج دارك هورس",
+    "ko": "포드 머스탱 다크 호스입니다."
+   },
+   {
+    "start": 4.1,
+    "end": 7.3,
+    "text": "وعشان الماتور ما يطيرش من فرط القوة عندك ستريب بار ماسك بدي العربية",
+    "ko": "과도한 출력으로 엔진이 튀어나가지 않도록 차체를 잡아주는 스트럿 바가 있고,"
+   },
+   {
+    "start": 7.4,
+    "end": 11.1,
+    "text": "إير إنتيكس عملاقة بيخشلهم الهواء من الفتحات دي",
+    "ko": "이 흡기구들을 통해 공기가 들어가는 거대한 에어 인테이크가 있습니다."
+   },
+   {
+    "start": 11.2,
+    "end": 15.7,
+    "text": "عشان تزود احتراق الماتور الـ 5000 سي سي 8 سلندر الـ 500 حصان",
+    "ko": "5000cc 8기통 500마력 엔진의 연소 효율을 높여줍니다."
+   },
+   {
+    "start": 19.8,
+    "end": 25.5,
+    "text": "وبتنزل بكاوتشات بريللي بي زيرو عشان تزود الجريب عشان من فرط القوة الجنط بيلف أسرع من الكاوتشات",
+    "ko": "피렐리 P제로 타이어가 장착되어 접지력을 높여주는데, 엄청난 힘으로 휠이 타이어보다 빠르게 돌 정도이기 때문입니다."
+   },
+   {
+    "start": 25.6,
+    "end": 31.3,
+    "text": "وعشان الماتور يتنفس الهواء السخن بيخرج من هنا والهواء الساقع بيخش من الجريلز العملاقة عشان التبريد والفتحات دي",
+    "ko": "엔진의 숨통을 위해 뜨거운 공기는 여기서 빠져나가고 차가운 공기는 대형 그릴로 들어가 냉각을 돕습니다."
+   },
+   {
+    "start": 31.4,
+    "end": 36.5,
+    "text": "بتخرج الهواء من هنا عشان يبرد الديسكات العملاقة والفرامل البريمبو عشان يوقفوا الحصان",
+    "ko": "이 덕트로 공기가 빠져나가 거대한 디스크와 브렘보 브레이크를 냉각시켜 이 말을 멈춰 세웁니다."
+   },
+   {
+    "start": 36.6,
+    "end": 41.5,
+    "text": "ومع إنها عنيفة بس مريحة، الكراسي بتاعتك فيها تسخين ومريحة جدا بالمناسبة الدريكسيون تسخين",
+    "ko": "강렬하지만 안락하기도 합니다. 시트 열선이 있고 매우 편안하며, 스티어링 휠에도 열선이 있습니다."
+   },
+   {
+    "start": 41.6,
+    "end": 46.0,
+    "text": "ديجيتال ديسبلاي بدبل سكرين فيها آبل كاربلاي وأندرويد أوتو، شحن وايرلس وهاند بريك",
+    "ko": "애플 카플레이와 안드로이드 오토가 지원되는 듀얼 디지털 디스플레이, 무선 충전, 핸드브레이크가 탑재되어 있습니다."
+   },
+   {
+    "start": 46.1,
+    "end": 48.3,
+    "text": "دي عربية رقم 6943",
+    "ko": "이 차량은 6943번째 한정 생산 모델입니다."
+   },
+   {
+    "start": 48.4,
+    "end": 53.6,
+    "text": "عشان ده إصدار محدود وهيغلى في السعر، ولو حبيت تتجنن هتدوس هنا ودي هتتحول معاك لدريفت بريك",
+    "ko": "한정판이라 가치가 오를 것이며, 미치고 싶다면 여길 눌러 드리프트 브레이크로 전환할 수 있습니다."
+   },
+   {
+    "start": 53.7,
+    "end": 59.8,
+    "text": "وهتلاقيها في عربيتي أحسن شركة استيراد عربيات أمريكاني في مصر ويقدروا يجبولك موستنج من أول 5 مليون جنيه",
+    "ko": "이집트 최고의 미국차 수입 업체인 3arabity에서 만나보실 수 있으며 5백만 EGP부터 머스탱을 수입할 수 있습니다."
+   },
+   {
+    "start": 59.9,
+    "end": 63.8,
+    "text": "وعندهم خبرة أكثر من 20 سنة في استيراد العربيات من أمريكا وأوروبا والصين وكوريا",
+    "ko": "미국, 유럽, 중국, 한국에서 차량 수입 20년 이상의 경력을 보유하고 있습니다."
+   },
+   {
+    "start": 63.9,
+    "end": 66.8,
+    "text": "عربيتي - استوردها بنفسك",
+    "ko": "3arabity - 직접 수입하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "다크 호스 전면 모습과 함께 미국의 괴물 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.1,
+    "end": 15.8,
+    "speed": "빠름",
+    "summary": "엔진룸 공개, 스트럿바, 듀얼 흡기, 5.0 V8 500마력 제원 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 15.8,
+    "end": 19.8,
+    "speed": "느림",
+    "summary": "후면 배기 사운드 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 19.8,
+    "end": 36.6,
+    "speed": "빠름",
+    "summary": "피렐리 P제로 타이어, 브렘보 브레이크, 보닛 및 휠 쿨링 덕트 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 36.6,
+    "end": 53.7,
+    "speed": "빠름",
+    "summary": "실내 편의 사양(시트/핸들 열선, 듀얼 스크린, 전자식 드리프트 핸드브레이크) 및 한정판 시리얼 넘버 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 53.7,
+    "end": 59.9,
+    "speed": "보통",
+    "summary": "수입 업체(3arabity) 소개 및 500만 EGP 시작가 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 59.9,
+    "end": 66.8,
+    "speed": "보통",
+    "summary": "업체 경력 홍보 및 연락처 CTA 화면"
+   }
+  ],
+  "rules": [
+   "진행자의 빠른 설명 템포에 맞춰 화면을 1~2초 단위로 신속하게 전환한다.",
+   "핵심 스펙(마력, 배기량, 부품명, 가격)은 굵직한 3D 타이포그래피나 스티커로 직관성을 높인다.",
+   "엔진 배기음을 들려줄 때는 배경음악을 끄고 순수 엔진음만 강렬하게 전달한다.",
+   "실내 기능(열선, 카플레이, 드리프트 브레이크)은 3D 그래픽과 직접 손으로 조작하는 모습을 연계한다.",
+   "영상 후반부에 수입 대행사 브랜딩 및 연락처 카드를 넣어 비즈니스 문의를 직접 유도한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 5.9,
+    "end": 7.3,
+    "feature": "스트럿 타워 바",
+    "shown_how": "글자 카드",
+    "icon_desc": "STRIP BAR 텍스트 스티커",
+    "x_pct": 46.0,
+    "y_pct": 36.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.9,
+    "feature": "듀얼 에어 인테이크",
+    "shown_how": "글자 카드",
+    "icon_desc": "AIR INTAKES 텍스트 스티커",
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "feature": "브렘보 브레이크 & 쿨링 덕트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락으로 캘리퍼와 덕트 가리킴",
+    "x_pct": 75.0,
+    "y_pct": 50.0,
+    "size_w_pct": 20.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 39.4,
+    "feature": "시트 열선",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "불타는 화염 그래픽과 تسخين 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.0,
+    "feature": "스티어링 휠 열선",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "불타는 효과의 تسخين 텍스트",
+    "x_pct": 62.0,
+    "y_pct": 19.0,
+    "size_w_pct": 32.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.5,
+    "feature": "무선 애플 카플레이 & 안드로이드 오토",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "카플레이/안드로이드 오토 앱 로고",
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.7,
+    "feature": "전자식 드리프트 브레이크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "핸드브레이크 레버를 직접 당기며 조작",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 향해 걸어나오며 미국산 괴물 포드 머스탱 다크 호스를 소개함",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر وده وحش أمريكاني فورد موستنج دارك هورس",
+   "ko": "저는 나사르이고, 이것은 미국의 괴물 포드 머스탱 다크 호스입니다."
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "강력한 엔진 출력을 버텨주는 스트럿 타워 바 장착",
+    "category": "성능"
+   },
+   {
+    "t": 8.0,
+    "point": "흡기 효율을 극대화한 듀얼 에어 인테이크 시스템",
+    "category": "성능"
+   },
+   {
+    "t": 13.0,
+    "point": "5.0L 8기통 500마력 고출력 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 16.5,
+    "point": "가변 배기 시스템의 박력 있는 배기음",
+    "category": "성능"
+   },
+   {
+    "t": 21.0,
+    "point": "접지력 확보를 위한 피렐리 P제로 타이어 장착",
+    "category": "성능"
+   },
+   {
+    "t": 27.0,
+    "point": "엔진룸 열기 배출을 위한 보닛 후드 덕트 및 냉각 그릴",
+    "category": "디자인"
+   },
+   {
+    "t": 33.0,
+    "point": "고성능 브렘보 브레이크 캘리퍼와 전용 쿨링 덕트",
+    "category": "성능"
+   },
+   {
+    "t": 38.0,
+    "point": "스포츠 시트 및 스티어링 휠 열선 기능 지원",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "듀얼 디지털 디스플레이와 스마트폰 프로젝션(카플레이/안드로이드)",
+    "category": "편의"
+   },
+   {
+    "t": 47.0,
+    "point": "대시보드에 고유 넘버가 각인된 한정판 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 52.0,
+    "point": "버튼으로 활성화되는 전자식 드리프트 브레이크",
+    "category": "성능"
+   },
+   {
+    "t": 58.0,
+    "point": "머스탱 직수입 가격 500만 EGP부터 시작",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 64.0,
+   "text": "ORDER & IMPORT YOUR OWN MUSTANG DARK HORSE CALL US NOW",
+   "ko": "지금 바로 전화하여 나만의 머스탱 다크 호스를 주문 및 수입하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "엔진룸",
+    "외관 전면",
+    "외관 후면",
+    "휠",
+    "외관 전면",
+    "휠",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "옵션 작동",
+    "외관 전면",
+    "사람"
+   ]
+  }
+ }
+}

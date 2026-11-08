@@ -1,0 +1,905 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/5mdOUcE3tGk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8073,
+  "candidatesTokenCount": 7630,
+  "totalTokenCount": 16123,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6910
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 420,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 75.3,
+   "aspect": "9:16",
+   "car": "Land Rover Range Rover P400 vs Range Rover SV",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 9.7,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.7,
+    "end": 17.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 30.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.4,
+    "end": 49.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 54.0,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 58.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 102.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 102.7,
+    "end": 106.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.3,
+    "end": 108.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 108.5,
+    "end": 111.4,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 111.4,
+    "end": 115.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 3.7,
+    "text": "P400",
+    "ko": "P400",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 71.0,
+    "text_height_pct": 6.5,
+    "color": "#E5A823",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.7,
+    "text": "SV",
+    "ko": "SV",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 8.0,
+    "color": "#D4AF37",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 58.0,
+    "text": "I6 TURBO / 400hp / 550Nm",
+    "ko": "I6 터보 / 400마력 / 550Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#D4AF37",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 102.7,
+    "text": "V8 TWIN TURBO / 615hp / 750Nm",
+    "ko": "V8 트윈터보 / 615마력 / 750Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 14.0,
+    "color": "#D4AF37",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 103.2,
+    "end": 106.3,
+    "text": "23''",
+    "ko": "23인치",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 106.5,
+    "end": 108.5,
+    "text": "+25cm",
+    "ko": "+25cm (롱휠베이스)",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 112.5,
+    "end": 115.3,
+    "text": "محور 26 يوليو 6 أكتوبر",
+    "ko": "10월 6일시 7월 26일 축",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E31B23",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.9,
+    "type": "쿵",
+    "event": "P400 3D 골드 글자 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.3,
+    "type": "쿵",
+    "event": "SV 3D 골드 엠블럼 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "딸깍",
+    "event": "뒷좌석 터치패드 버튼 누름",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동식 조수석 이동 및 레그레스트 전개 모터음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "딸깍",
+    "event": "테이블 전개 터치 버튼 누름",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 비즈니스 테이블 전개 모터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.3,
+    "type": "딸깍",
+    "event": "전동식 선블라인드 도어 버튼 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.1,
+    "type": "딸깍",
+    "event": "냉장고 오픈 버튼 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "딸깍",
+    "event": "전동 컵홀더 열림 버튼 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "딸깍",
+    "event": "디지털 룸미러 카메라 레버 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "딸깍",
+    "event": "듀얼 글로브박스 상단 버튼 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "딸깍",
+    "event": "센터콘솔 쿨링박스 버튼 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 51.0,
+    "type": "딸깍",
+    "event": "트렁크 벤치 시트 전개",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 54.6,
+    "type": "쿵",
+    "event": "P400 엔진 제원 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.5,
+    "type": "쿵",
+    "event": "SV 엔진 제원 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 103.2,
+    "type": "휙",
+    "event": "23인치 휠 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 106.6,
+    "type": "휙",
+    "event": "+25cm 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 109.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 사이드스텝 전개 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 112.5,
+    "type": "띵",
+    "event": "위치 핀 마커 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/트랩 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 고급스러운 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.8,
+    "end": 3.7,
+    "what": "3D 골드 텍스트 'P400'",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 71.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 트림 표시",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.7,
+    "what": "3D 골드 엠블럼 'SV'",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 32.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최고급 트림 표시",
+    "sure": true
+   },
+   {
+    "start": 54.5,
+    "end": 58.0,
+    "what": "3D 입체 골드 엔진 스펙 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "출력/토크 정보 제공",
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 102.7,
+    "what": "3D 입체 골드 V8 엔진 스펙 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 52.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "출력/토크 정보 제공",
+    "sure": true
+   },
+   {
+    "start": 103.2,
+    "end": 106.3,
+    "what": "화이트 3D 볼드 텍스트 23''",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 75.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "휠 사이즈 표기",
+    "sure": true
+   },
+   {
+    "start": 106.5,
+    "end": 108.5,
+    "what": "차량 전장 차이 +25cm 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 28.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "롱휠베이스 차이 시각화",
+    "sure": true
+   },
+   {
+    "start": 112.5,
+    "end": 115.3,
+    "what": "3D 지도 핀 마커 및 도로명 박스",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 40.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "دي أهم الاختلافات ما بين الـ P400 الوكيل والـ Vogue SV",
+    "ko": "정식 수입 P400과 보그 SV의 가장 결정적인 차이점들입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 9.7,
+    "text": "وعشان المهم بيركب ورا، الاتنين فيهم الشاشة واحدة اتنين ميريديان ساوند سيستم والكنبة تسخين وتبريد",
+    "ko": "VIP는 뒤에 타는 만큼 둘 다 듀얼 모니터, 메르디안 사운드 시스템, 통풍/열선 시트가 기본입니다."
+   },
+   {
+    "start": 9.7,
+    "end": 16.0,
+    "text": "والـ SV فيها مساج، ولو دوست هنا بيطلعلك الكرسي اللي قدامك، ينزلك ليج ريست وتفردلك الليج اكستنشن",
+    "ko": "하지만 SV는 마사지 기능에 터치 한 번으로 앞좌석이 밀리며 다리 받침대와 레그 익스텐션이 전개됩니다."
+   },
+   {
+    "start": 17.0,
+    "end": 23.3,
+    "text": "ولو دوست هنا هيفتحلك ترابيزة تقدر تاكل عليها أو تخلص صفقاتك وإنت رافع الستاير بتاعتك عشان الخصوصية",
+    "ko": "여기를 누르면 전동 테이블이 나와 식사나 계약을 할 수 있고, 사생활 보호를 위한 전동 커튼도 있습니다."
+   },
+   {
+    "start": 23.3,
+    "end": 26.8,
+    "text": "وفي الـ P400 لو عايز ترتاح تقدر ترجع الكرسي لورا",
+    "ko": "P400에서도 편히 쉬고 싶으면 뒷좌석을 뒤로 눕힐 수 있습니다."
+   },
+   {
+    "start": 26.8,
+    "end": 33.7,
+    "text": "وعشان دي البيزنس كلاس، لو دوست هنا هيفتحلك تلاجة بكاسات، وعشان تثبتهم بتدوس هنا وهيفتحلك كب هولدرز",
+    "ko": "SV는 비즈니스 클래스답게 전용 샴페인 글라스 냉장고와 전동 컵홀더가 열립니다."
+   },
+   {
+    "start": 33.7,
+    "end": 43.4,
+    "text": "الاتنين فولي لودد، المراية بتتقلب كاميرا، هيد اب وديجيتال ديسبلاي، مساحة تخزين، الكراسي تسخين وتبريد ومساج وثلاجة",
+    "ko": "앞좌석도 둘 다 풀옵션으로 디지털 룸미러, HUD, 디스플레이, 냉장고, 통풍/열선/마사지가 들어갑니다."
+   },
+   {
+    "start": 43.4,
+    "end": 49.8,
+    "text": "بس الـ SV بتزيد فخامة بخشب على الكونسول، على الدريكسيون، السقف من الجلد وتصميم الكراسي مختلف",
+    "ko": "하지만 SV는 콘솔과 스티어링 휠의 우드 트림, 가죽 헤드라이닝, 차별화된 시트 패턴으로 훨씬 럭셔리합니다."
+   },
+   {
+    "start": 49.8,
+    "end": 54.0,
+    "text": "بس الـ SV فيها مكان تقعد فيه إنت وأصحابك وتشربوا اللي أنتم عايزينه",
+    "ko": "게다가 SV 트렁크에는 친구들과 앉아 음료를 즐길 수 있는 테일게이트 이벤트 시트가 있습니다."
+   },
+   {
+    "start": 54.0,
+    "end": 102.7,
+    "text": "الـ P400 إنلاين 6 تيربو 400 حصان، والـ SV توين تيربو V8 615 حصان و 750 نيوتن",
+    "ko": "P400은 직렬 6기통 터보 400마력이고, SV는 V8 트윈터보 615마력에 750Nm의 토크를 뿜어냅니다."
+   },
+   {
+    "start": 102.7,
+    "end": 111.4,
+    "text": "وعشان دي أعلى حاجة بتنزل بأكبر جنط 23 إنش، وأطول بـ 25 سم، ولما بتفتح الباب بينزلك عتب",
+    "ko": "최상위 모델답게 23인치 대형 휠에 25cm 더 긴 롱바디, 문을 열면 내려오는 전동 사이드스텝이 적용됩니다."
+   },
+   {
+    "start": 111.4,
+    "end": 115.3,
+    "text": "وهتلاقي الاتنين في GT1 محور 26 يوليو أمام جاليريا 40",
+    "ko": "이 두 차량 모두 갤러리아 40 맞은편 26일 축 GT1 모터스에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "P400과 최고급 SV 전면 비교 인트로"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 33.7,
+    "speed": "빠름",
+    "summary": "뒷좌석 편의사양 비교 (비즈니스 시트, 테이블, 냉장고)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 33.7,
+    "end": 49.8,
+    "speed": "보통",
+    "summary": "1열 옵션 및 최고급 SV 실내 마감/가죽 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 49.8,
+    "end": 54.0,
+    "speed": "보통",
+    "summary": "SV 트렁크 테일게이트 시트 옵션 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 54.0,
+    "end": 111.4,
+    "speed": "빠름",
+    "summary": "파워트레인 출력 스펙 비교, 23인치 휠 및 전장 길이 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 111.4,
+    "end": 115.3,
+    "speed": "보통",
+    "summary": "GT1 Motors 매장 위치 안내 및 마무리"
+   }
+  ],
+  "rules": [
+   "말의 템포에 맞춰 실제 작동하는 버튼과 움직이는 기믹을 1초 내외로 빠르게 교차 편집",
+   "엔진 스펙, 휠 인치, 롱바디 전장 수치는 금빛 3D 굵은 텍스트로 화면 중앙에 강하게 강조",
+   "화면 전환마다 딸깍거리는 조작음과 모터 작동 효과음을 살려 몰입감 극대화",
+   "두 차량의 차이점을 '기본 모델 vs 최고급 SV' 구도로 명확히 대조"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.6,
+    "end": 8.0,
+    "feature": "후석 듀얼 엔터테인먼트 스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 15.7,
+    "feature": "이그제큐티브 릴랙세이션 시트 & 레그레스트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 60.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.9,
+    "feature": "전동 전개식 센터 콘솔 비즈니스 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 55.0,
+    "y_pct": 55.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.3,
+    "feature": "전동 사이드 선블라인드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.6,
+    "feature": "전용 글라스 포함 샴페인 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.7,
+    "feature": "전동 개폐 컵홀더",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.0,
+    "feature": "디지털 클리어사이트 룸미러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.5,
+    "feature": "듀얼 전자식 글로브박스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 54.0,
+    "feature": "테일게이트 이벤트 스위트 (트렁크 시트)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 109.0,
+    "end": 111.4,
+    "feature": "전동 전개식 사이드스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전시장 앞에 나란히 서 있는 레인지로버 P400과 SV 사이에 서서 비교를 예고하는 장면",
+   "type": "행동",
+   "text": "دي أهم الاختلافات ما بين الـ P400 الوكيل والـ Vogue SV",
+   "ko": "정식 수입 P400과 보그 SV의 가장 중요한 차이점들을 알려드립니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.7,
+    "point": "두 차량 모두 뒷좌석 듀얼 모니터, 메르디안 오디오, 열선/통풍 시트 기본 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 9.7,
+    "point": "SV 모델은 뒷좌석 마사지와 원터치 전동 레그레스트 침대 모드 지원",
+    "category": "편의"
+   },
+   {
+    "t": 17.0,
+    "point": "SV 센터콘솔에서 전동으로 펼쳐지는 비즈니스 테이블 및 프라이버시 커튼",
+    "category": "편의"
+   },
+   {
+    "t": 27.0,
+    "point": "SV 2열 중앙의 전용 유리잔 포함 냉장고와 전동 컵홀더",
+    "category": "편의"
+   },
+   {
+    "t": 43.4,
+    "point": "SV 실내의 고급 우드 마감, 가죽 루프라이닝 및 전용 시트 패턴",
+    "category": "디자인"
+   },
+   {
+    "t": 50.0,
+    "point": "SV 트렁크 하단에서 펼쳐지는 야외용 테일게이트 시트",
+    "category": "편의"
+   },
+   {
+    "t": 54.5,
+    "point": "P400은 I6 터보 400마력, SV는 V8 트윈터보 615마력 750Nm",
+    "category": "성능"
+   },
+   {
+    "t": 103.0,
+    "point": "SV의 23인치 대형 휠, 25cm 긴 롱휠베이스(LWB), 전동 사이드스텝",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 112.5,
+   "text": "GT1 محور 26 يوليو أمام جاليريا 40",
+   "ko": "갤러리아 40 맞은편 26일 축 GT1 모터스를 방문하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "실내 앞",
+    "트렁크",
+    "엔진룸",
+    "외관 전면",
+    "휠",
+    "외관 측면",
+    "외관 전면"
+   ]
+  }
+ }
+}

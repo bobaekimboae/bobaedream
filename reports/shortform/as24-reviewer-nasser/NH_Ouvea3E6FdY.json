@@ -1,0 +1,1032 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Ouvea3E6FdY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8350,
+  "candidatesTokenCount": 9542,
+  "totalTokenCount": 18520,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7187
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 628,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 79.2,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG GLC 43 Coupe",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.7,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 19.3,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 30.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 41.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 44.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 46.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 48.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 56.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.7,
+    "end": 64.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 66.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 72.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 74.3,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 74.3,
+    "end": 79.2,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "GLC 43",
+    "ko": "GLC 43",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.0,
+    "text": "أسرع",
+    "ko": "더 빠르고",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.0,
+    "text": "أقوى",
+    "ko": "더 강하고",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 7.8,
+    "text": "أغلى بسنة",
+    "ko": "약간 더 비싼",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 12.5,
+    "text": "DRIVE MODES / SELECTOR CONTROLS",
+    "ko": "드라이브 모드 / 셀렉터 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2222",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 6.0,
+    "color": "#FFA500",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.5,
+    "text": "MBUX",
+    "ko": "MBUX",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 30.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.5,
+    "color": "#FFA500",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "text": "Burmester",
+    "ko": "부메스터",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.5,
+    "text": "A/C 4 ZONE",
+    "ko": "4존 공조시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.5,
+    "text": "416hp / 500Nm / HANDMADE",
+    "ko": "416마력 / 500Nm / 수제작",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.2,
+    "text": "4MATIC",
+    "ko": "4MATIC",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.0,
+    "text": "0-100 4.7s",
+    "ko": "제로백 4.7초",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 54.0,
+    "text": "360 CAMERA",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 101.0,
+    "end": 103.5,
+    "text": "21\"",
+    "ko": "21인치",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 73.0,
+    "end": 74.3,
+    "text": "+500 KG",
+    "ko": "500kg 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#FF2222",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "GLC 43 타이틀 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "톡",
+    "event": "أسرع 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.0,
+    "type": "톡",
+    "event": "أقوى 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "돈 소리",
+    "event": "أغلى بسنة 텍스트와 돈 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "딸깍",
+    "event": "스티어링 휠 주행모드 다이얼 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "휙",
+    "event": "열선 시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.0,
+    "type": "휙",
+    "event": "뒷좌석 열선 시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "AMG 배기음 및 배기 플랩 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 44.2,
+    "type": "딸깍",
+    "event": "기어 시프터 조작 사운드",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 49.0,
+    "type": "휙",
+    "event": "0-100 가속 스펙 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.0,
+    "type": "띵",
+    "event": "360도 카메라 그래픽 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 73.0,
+    "type": "쿵",
+    "event": "+500 KG 트렁크 용량 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "에너제틱하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 42.0,
+     "what": "AMG 배기음을 들려주기 위해 음악 볼륨 일시 감소"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "GLC 43 대형 텍스트 및 AMG 원형 로고",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "팝업",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 7.8,
+    "what": "달러 지폐 날아가는 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 42.0,
+    "y_pct": 25.0,
+    "entrance": "팝업",
+    "purpose": "가격 인상 표현",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.0,
+    "what": "불꽃 열선 시트 오버레이 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 60.0,
+    "y_pct": 50.0,
+    "entrance": "페이드",
+    "purpose": "시트 열선 기능 시각화",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.0,
+    "what": "유튜브, 스포티파이, 구글 로고 아이콘",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 75.0,
+    "y_pct": 65.0,
+    "entrance": "팝업",
+    "purpose": "인포테인먼트 지원 앱 표시",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.5,
+    "what": "4MATIC 4륜 구동 샤시 다이어그램 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 78.0,
+    "y_pct": 55.0,
+    "entrance": "팝업",
+    "purpose": "4륜 구동 방식 시각화",
+    "sure": true
+   },
+   {
+    "start": 75.0,
+    "end": 79.0,
+    "what": "Niche 전시장 위치 핀 및 주소 텍스트",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "팝업",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "أنا ناصر، ودي GLC واخدة منشطات. GLC 43 AMG.",
+    "ko": "저는 나사르입니다. 이번 차는 도핑을 한 GLC, 바로 GLC 43 AMG입니다."
+   },
+   {
+    "start": 4.8,
+    "end": 8.0,
+    "text": "انسى الـ GLC القديمة، دي أسرع، وأقوى، وأغلى بسنة.",
+    "ko": "구형 GLC는 잊으세요. 더 빠르고 강하며 조금 더 비쌉니다."
+   },
+   {
+    "start": 8.0,
+    "end": 14.8,
+    "text": "واهتموا بيها من جوة، تقدر تتحكم في أوضاع العربية، والتراكشن بتاعك، والساسبنشن حسب السواقة.",
+    "ko": "실내도 신경을 많이 썼습니다. 드라이브 모드, 트랙션, 서스펜션을 주행 성향에 맞게 조절할 수 있죠."
+   },
+   {
+    "start": 14.8,
+    "end": 26.0,
+    "text": "ودريكسيون بقى رياضي جداً، وهيد أب ديسبلاي، وسقف بانوراما، وكراسي تسخين وتبريد، وكاربون فايبر تريم، ووايرلس كاربلاي وأندرويد أوتو، وMBUX.",
+    "ko": "스포티한 스티어링 휠, HUD, 파노라마 선루프, 통풍/열선 시트, 카본 트림, 무선 카플레이/안드로이드 오토, MBUX까지 탑재되어 있습니다."
+   },
+   {
+    "start": 26.0,
+    "end": 35.0,
+    "text": "وما نسيوش الكنبة على فكرة، الكنبة تسخين، برومستر ساوند سيستم، وتكييف 4 زون.",
+    "ko": "뒷좌석도 놓치지 않았습니다. 열선 시트, 부메스터 사운드 시스템, 4존 풀오토 에어컨이 들어갔습니다."
+   },
+   {
+    "start": 35.0,
+    "end": 44.0,
+    "text": "وأقوى 2000 تيربو بتعمله مرسيدس، بيطلع 416 حصان و500 نيوتن، وبيتجمع هاندميد.",
+    "ko": "메르세데스가 만든 가장 강력한 2.0 터보 엔진으로 416마력, 500토크를 내며 수제작으로 완성됩니다."
+   },
+   {
+    "start": 44.0,
+    "end": 51.0,
+    "text": "متوصل بـ 9 سرعات أوتوماتيك، و4MATIC يعني دفع كلي، ومن 0 لـ 100 في 4.7 ثواني.",
+    "ko": "9단 자동변속기와 4MATIC 4륜구동이 맞물려 제로백 4.7초를 자랑합니다."
+   },
+   {
+    "start": 51.0,
+    "end": 66.8,
+    "text": "هتلاقيهم في Niche بكاميرات 360، وفرامل عملاقة مقاس 21 وريد كاليبرز، ورير أكسل عشان تلف معاك بسهولة.",
+    "ko": "360도 카메라, 21인치 휠과 대형 브레이크, 레드 캘리퍼, 그리고 회두성을 높여주는 후륜 조향까지 Niche에서 만나보실 수 있습니다."
+   },
+   {
+    "start": 66.8,
+    "end": 74.5,
+    "text": "ومن ورا عندك إيروكيت وكواد إكزوست وشنطة تشيل معاك لحد نص طن.",
+    "ko": "후면에는 에어로 킷과 쿼드 머플러, 최대 0.5톤까지 실을 수 있는 넉넉한 트렁크가 있습니다."
+   },
+   {
+    "start": 74.5,
+    "end": 79.2,
+    "text": "وأكبر ستوك في مصر هتلاقيه في Niche بنزينة وطنية الرحاب التجمع الخامس.",
+    "ko": "이집트 최대 재고를 보유한 Niche 오토모티브, 뉴카이로 5번 거주구 와타니야 알-레합 주유소에서 확인하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "도핑한 GLC라 부르며 GLC 43 AMG를 전시장 앞에서 강렬하게 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 8.0,
+    "speed": "빠름",
+    "summary": "구형 대비 더 빠르고 강력해진 신형 특징 압축 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 8.0,
+    "end": 26.0,
+    "speed": "빠름",
+    "summary": "1열 인테리어 및 스티어링 휠 다이얼, 편의옵션, 디스플레이 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 26.0,
+    "end": 35.0,
+    "speed": "보통",
+    "summary": "뒷좌석 열선, 부메스터 오디오, 4존 공조 등 2열 편의사양 리뷰"
+   },
+   {
+    "stage": "사양",
+    "start": 35.0,
+    "end": 51.0,
+    "speed": "빠름",
+    "summary": "엔진룸 개방, 416마력 엔진 및 9단 변속기, 배기음, 제로백 제원 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 51.0,
+    "end": 74.5,
+    "speed": "빠름",
+    "summary": "외관 360 카메라, 21인치 휠/브레이크, 리어 액슬, 후면 에어로킷 및 트렁크 적재공간 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 74.5,
+    "end": 79.2,
+    "speed": "보통",
+    "summary": "Niche 전시장의 매장 위치 안내 및 재고 안내"
+   }
+  ],
+  "rules": [
+   "핵심 키워드와 숫자는 굵은 고딕 텍스트와 3D/2D 그래픽을 결합해 시각적으로 즉각 인지되게 팝업한다.",
+   "시트 열선, 4륜구동, 트렁크 용량 등은 직관적인 일러스트 오버레이로 재미있게 표현한다.",
+   "배기음을 강조할 때는 음악 볼륨을 일시적으로 낮춰 순수 사운드를 전달한다.",
+   "호스트가 트렁크에 직접 눕거나 다이얼을 직접 돌리는 등 실감 나는 동작으로 스펙을 시연한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 8.7,
+    "end": 12.8,
+    "feature": "AMG 스티어링 휠 주행모드 다이얼 컨트롤",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "스티어링 휠에 부착된 원형 디지털 다이얼을 손가락으로 누르고 돌리는 모습",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 50.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.0,
+    "feature": "1열 열선 및 통풍 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 등받이에 타오르는 오렌지색 불꽃 아이콘과 아랍어 열선 문구",
+    "x_pct": 60.0,
+    "y_pct": 50.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 26.0,
+    "feature": "MBUX 인포테인먼트 & 스마트폰 미러링",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "화면 위에 유튜브, 스포티파이, 구글 로고 아이콘이 떠오름",
+    "x_pct": 75.0,
+    "y_pct": 65.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 30.5,
+    "feature": "뒷좌석 도어 열선 조작 및 부메스터 사운드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도어 트림의 열선 버튼과 부메스터 스피커 그릴을 손가락으로 직접 가리킴",
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "feature": "뒷좌석 독립 4존 공조 컨트롤",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "2열 중앙 송풍구 하단 디지털 공조 디스플레이와 4ZONE 텍스트 오버레이",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.5,
+    "feature": "360도 서라운드 뷰 전면 카메라",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "전면 삼각별 엠블럼 하단 카메라 렌즈에 360 CAMERA 원형 엠블럼 효과 적용",
+    "x_pct": 48.0,
+    "y_pct": 42.0,
+    "size_w_pct": 35.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 64.0,
+    "feature": "21인치 AMG 휠 & 대형 타공 브레이크 디스크",
+    "shown_how": "확대",
+    "icon_desc": "21인치 멀티스포크 휠과 레드 캘리퍼, 타공 로터를 손으로 가리키며 클로즈업",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 66.8,
+    "feature": "리어 액슬 스티어링 (후륜 조향)",
+    "shown_how": "말로만",
+    "icon_desc": "뒷바퀴를 가리키며 코너링과 회전을 돕는 후륜 조향 시스템 설명",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 72.8,
+    "end": 74.3,
+    "feature": "500kg 이상 적재 가능한 대용량 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "리뷰어가 트렁크 안으로 직접 들어가 누워 공간의 크기를 증명",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전시장 앞에 나란히 선 벤츠 GLC AMG 앞에서 리뷰어가 도핑한 차라고 외치며 빠른 걸음으로 다가옴",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر، ودي GLC واخدة منشطات.",
+   "ko": "저는 나사르입니다. 이건 도핑 테스트 걸릴 정도로 강력해진 GLC입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "구형 모델보다 훨씬 강력하고 빨라진 신형 GLC 43 AMG",
+    "category": "성능"
+   },
+   {
+    "t": 10.0,
+    "point": "스티어링 휠 다이얼로 서스펜션과 트랙션, 주행 모드를 즉각 조작 가능",
+    "category": "편의"
+   },
+   {
+    "t": 18.0,
+    "point": "파노라마 루프, 열선/통풍 시트 및 MBUX 최신 엔터테인먼트 기능 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 28.0,
+    "point": "2열 탑승객을 위한 전용 열선 시트와 부메스터 프리미엄 사운드 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "메르세데스 2.0 터보 엔진 중 가장 강력한 416마력 핸드메이드 AMG 엔진",
+    "category": "성능"
+   },
+   {
+    "t": 46.0,
+    "point": "9단 자동변속기와 4MATIC 사륜구동 결합으로 0-100km/h 가속 4.7초",
+    "category": "성능"
+   },
+   {
+    "t": 58.0,
+    "point": "21인치 전용 휠과 대구경 타공 브레이크, 레드 캘리퍼 장착",
+    "category": "디자인"
+   },
+   {
+    "t": 65.0,
+    "point": "회전 반경을 줄여주고 기민한 핸들링을 돕는 리어 액슬 스티어링",
+    "category": "성능"
+   },
+   {
+    "t": 73.0,
+    "point": "성인이 누울 수 있을 만큼 넓은 500kg급 적재 트렁크 공간",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 76.0,
+   "text": "بنزينة وطنية الرحاب التجمع الخامس - Niche",
+   "ko": "뉴카이로 5번 거주구 와타니야 알-레합 주유소 내 Niche 전시장 방문",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "뒷좌석",
+    "엔진룸",
+    "외관 후면",
+    "옵션 작동",
+    "외관 전면",
+    "휠",
+    "외관 후면",
+    "트렁크",
+    "전시장 내부"
+   ]
+  }
+ }
+}

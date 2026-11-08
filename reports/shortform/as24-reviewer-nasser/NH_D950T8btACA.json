@@ -1,0 +1,805 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/D950T8btACA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7081,
+  "candidatesTokenCount": 6544,
+  "totalTokenCount": 14144,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5918
+   }
+  ],
+  "thoughtsTokenCount": 519,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 65.6,
+   "aspect": "9:16",
+   "car": "Cadillac Escalade IQ",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 15.3,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 27.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 32.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 34.0,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 45.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.7,
+    "end": 49.9,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.9,
+    "end": 56.1,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 60.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 65.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.2,
+    "text": "عربية عندك",
+    "ko": "가장 비싼 차 있나요",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.5,
+    "text": "يختين جداد",
+    "ko": "새 요트 두 대",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 5.7,
+    "text": "حرفيا يختين",
+    "ko": "진짜 요트 두 척",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.6,
+    "text": "2/2",
+    "ko": "2/2 (이집트 단 2대)",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "الباب بتاعك",
+    "ko": "당신의 문",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFEE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 13.0,
+    "text": "HEAD UP DISPLAY",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 14.8,
+    "text": "SUPER CRUISE",
+    "ko": "슈퍼 크루즈",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 30.5,
+    "text": "38 سماعة",
+    "ko": "38개 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 6.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.4,
+    "text": "24\"",
+    "ko": "24인치",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.1,
+    "text": "NIGHT VISION",
+    "ko": "나이트 비전",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF44",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 58.3,
+    "text": "AIR SUSPENSION",
+    "ko": "에어 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 60.1,
+    "text": "REAR AXLE",
+    "ko": "리어 액슬 조향",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "사무실 문 열리고 고객 질문 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "쿵",
+    "event": "2/2 희귀 수량 스티커 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 파워 도어 소프트 클로징 작동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.1,
+    "type": "띵",
+    "event": "뒷좌석 회장님 칭호 강조 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "딸깍",
+    "event": "뒷좌석 콘솔 화면에서 도어 닫기 스와이프 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.7,
+    "type": "쿵",
+    "event": "38개 스피커 강조 텍스트 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "쿵",
+    "event": "24인치 휠 그래픽 표시",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 39.8,
+    "type": "띵",
+    "event": "나이트 비전 조준경 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전면 프렁크 슬라이딩 플로어 전동 인출 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.8,
+    "end": 7.6,
+    "what": "이집트 국기와 2/2 한정 수량 배지",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 24.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "희소성 강조",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.2,
+    "what": "반짝이 별 효과 스티커",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 60.0,
+    "y_pct": 48.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "럭셔리 VIP 느낌 연출",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.2,
+    "what": "눈 결정 쿨링 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 68.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 통풍 기능 표시",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.4,
+    "what": "귀 모양 일러스트",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 18.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "고급 오디오 청취 경험 표현",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.5,
+    "what": "초록색 나이트 비전 조준경 타겟 아이콘",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 75.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "야간 투시 기능 부각",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "ناصر عاوز أغلى عربية عندك",
+    "ko": "나사르, 여기서 제일 비싼 차 보고 싶어요."
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "لسه جايب يختين جداد لازم تشوفهم",
+    "ko": "방금 요트 두 대를 가져왔는데 꼭 봐야 해."
+   },
+   {
+    "start": 4.5,
+    "end": 7.7,
+    "text": "حرفياً يختين IQ Sport الوحيدين في مصر",
+    "ko": "진짜 요트 같은 IQ 스포츠, 이집트에서 단 둘뿐이지."
+   },
+   {
+    "start": 7.7,
+    "end": 15.2,
+    "text": "الباب بيقفل لوحده شاشة للمرافق وشاشة هنا وHUD ومراية كاميرا وسوبر كروز",
+    "ko": "문은 저절로 닫히고 조수석 화면, 중앙 화면, HUD, 디지털 룸미러, 슈퍼크루즈까지 있어."
+   },
+   {
+    "start": 15.2,
+    "end": 24.5,
+    "text": "تسخين وتبريد ومساج ترابيزة للشغل شاشة وبتقفل الباب من هنا",
+    "ko": "열선 통풍 마사지에 업무용 테이블, 후석 디스플레이, 여기서 문도 닫아."
+   },
+   {
+    "start": 24.5,
+    "end": 27.5,
+    "text": "طب ما أنا ممكن أقفله لنفسي وليه تتعب نفسك وأنت باشا",
+    "ko": "내가 직접 닫아도 되는데? 회장님이 왜 고생해."
+   },
+   {
+    "start": 27.5,
+    "end": 32.1,
+    "text": "صف تالت و38 سماعة AKG عشان ودان الباشا",
+    "ko": "3열 좌석과 회장님 귀를 위한 38개 AKG 스피커까지."
+   },
+   {
+    "start": 32.1,
+    "end": 39.5,
+    "text": "Air Suspension جنط 24 والوش المرعب بينور بالليل",
+    "ko": "에어 서스펜션, 24인치 휠, 밤에 빛나는 압도적인 전면부."
+   },
+   {
+    "start": 39.5,
+    "end": 45.7,
+    "text": "وعندك Night Vision ده ينفعك بالجبال والطرق بالليل",
+    "ko": "그리고 나이트 비전, 산길이나 야간 주행에 아주 유용하지."
+   },
+   {
+    "start": 45.7,
+    "end": 49.9,
+    "text": "شنطة تخطف فيها 10 بني آدمين تشيل 15 بالميت",
+    "ko": "트렁크엔 10명은 납치하겠어. 못해도 15명은 타겠는데."
+   },
+   {
+    "start": 49.9,
+    "end": 56.1,
+    "text": "وشنطة قدام بفيشة للأدوات وبتطلعلك لبرة عشان ضهر الباشا",
+    "ko": "앞쪽 프렁크엔 전원 콘센트에 허리 안 아프게 슬라이딩으로 나와."
+   },
+   {
+    "start": 56.1,
+    "end": 60.5,
+    "text": "Air Suspension عشان تعلي العربية وRear Axle",
+    "ko": "차고 조절 에어 서스펜션에 후륜 조향 리어 액슬까지 있지."
+   },
+   {
+    "start": 60.5,
+    "end": 65.6,
+    "text": "وطريقة الدفع كاش بس كبار عملاء المصباح هكتبلك شيك حالا",
+    "ko": "결제는요? 무조건 현금, VIP 전용이야. 지금 당장 수표 써줄게요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "가장 비싼 차 요청 및 요트 같은 차 예고"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 7.7,
+    "speed": "빠름",
+    "summary": "이집트 단 2대인 캐딜락 에스컬레이드 IQ 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.7,
+    "end": 15.3,
+    "speed": "빠름",
+    "summary": "운전석/조수석 대시보드 화면 및 자율주행 사양 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 15.3,
+    "end": 32.1,
+    "speed": "보통",
+    "summary": "VIP 후석 편의사양, 터치 도어 클로징 및 3열 오디오"
+   },
+   {
+    "stage": "사양",
+    "start": 32.1,
+    "end": 45.7,
+    "speed": "빠름",
+    "summary": "24인치 휠, 일루미네이션 그릴, 나이트 비전 카메라 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 45.7,
+    "end": 60.5,
+    "speed": "보통",
+    "summary": "거대한 트렁크, 전동식 전면 프렁크, 에어 서스펜션 및 리어 액슬"
+   },
+   {
+    "stage": "가격",
+    "start": 60.5,
+    "end": 65.6,
+    "speed": "빠름",
+    "summary": "현금 결제 안내 및 즉시 계약 성사 유도"
+   }
+  ],
+  "rules": [
+   "손님이 질문하고 딜러가 재치 있게 차를 안내하는 콩트 대화형 스토리텔링을 유지한다.",
+   "핵심 옵션이 언급될 때마다 영문 대문자 자막과 알맞은 그래픽 스티커를 정확한 타이밍에 띄운다.",
+   "부위별 시연(도어 자동 닫힘, 프렁크 인출)을 1인칭 손동작과 함께 직관적으로 보여준다."
+  ],
+  "option_highlights": [
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "feature": "자동 소프트 클로징 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 13.5,
+    "feature": "필러 투 필러 55인치 곡면 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.2,
+    "feature": "슈퍼 크루즈",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 48.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 25.5,
+    "feature": "후석 터치스크린 도어 전동 개폐",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 45.5,
+    "feature": "나이트 비전 열화상 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "녹색 조준경 아이콘",
+    "x_pct": 75.0,
+    "y_pct": 20.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 55.5,
+    "feature": "전동 파워 슬라이딩 프렁크 (eTrunk)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.5,
+    "feature": "에어 서스펜션 및 4륜 후륜 조향",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "사무실로 들어와 딜러에게 제일 비싼 차를 보여달라고 요구하는 손님",
+   "type": "질문",
+   "text": "ناصر عاوز أغلى عربية عندك",
+   "ko": "나사르, 여기서 제일 비싼 차를 보여줘"
+  },
+  "narration_points": [
+   {
+    "t": 6.0,
+    "point": "이집트에 단 2대 들어온 캐딜락 에스컬레이드 IQ 스포츠 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 11.0,
+    "point": "조수석 전용 스크린과 대형 디스플레이, 슈퍼크루즈 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 19.0,
+    "point": "뒷좌석 열선, 통풍, 마사지 기능과 워크 테이블",
+    "category": "편의"
+   },
+   {
+    "t": 24.0,
+    "point": "후석 센터 디스플레이 제어로 자동 닫히는 전동 도어",
+    "category": "편의"
+   },
+   {
+    "t": 30.0,
+    "point": "최고급 사운드를 선사하는 38개 AKG 오디오 스피커",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "압도적인 존재감의 24인치 초대형 알로이 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 41.0,
+    "point": "야간 야외 및 도로 주행 시 보행자를 감지하는 나이트 비전 시스템",
+    "category": "안전"
+   },
+   {
+    "t": 53.0,
+    "point": "허리 부담 없이 짐을 뺄 수 있는 슬라이딩 프렁크 및 전원 아웃렛",
+    "category": "공간"
+   },
+   {
+    "t": 58.0,
+    "point": "차고 조절 에어 서스펜션과 회전반경을 줄이는 리어 액슬 조향",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 62.0,
+   "text": "كبار عملاء المصباح",
+   "ko": "알 메스바 VIP 고객 전용",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "딜러",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "실내 앞",
+    "뒷좌석",
+    "휠",
+    "외관 전면",
+    "센터 화면",
+    "트렁크",
+    "엔진룸",
+    "외관 측면",
+    "사람"
+   ]
+  }
+ }
+}
