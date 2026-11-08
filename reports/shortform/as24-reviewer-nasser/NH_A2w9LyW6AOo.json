@@ -1,0 +1,1096 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/A2w9LyW6AOo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7808,
+  "candidatesTokenCount": 9211,
+  "totalTokenCount": 17931,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6645
+   }
+  ],
+  "thoughtsTokenCount": 912,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 74.0,
+   "aspect": "9:16",
+   "car": "아우디 A6 (신형)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.7,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 18.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 21.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 36.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 40.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 43.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 50.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 53.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 57.8,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 61.8,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 61.8,
+    "end": 64.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.7,
+    "end": 67.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.5,
+    "end": 74.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.5,
+    "end": 2.4,
+    "text": "E CLASS / M5",
+    "ko": "E클래스 / 5시리즈",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "Audi A6 City East Cairo",
+    "ko": "아우디 A6 시티 이스트 카이로",
+    "kind": "제목",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 7.0,
+    "text": "فخامة العربية عليت جداً",
+    "ko": "차량의 고급감이 크게 높아짐",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 11.5,
+    "text": "FUNCTIONAL VENT",
+    "ko": "실제 기능 에어덕트",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "text": "SPIDER RIMS",
+    "ko": "스파이더 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#E60000",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.5,
+    "text": "\"21",
+    "ko": "21인치",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.2,
+    "text": "لو شايل حاجة في إيدك",
+    "ko": "양손에 짐을 들었을 때",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.2,
+    "end": 24.2,
+    "text": "NEW PLATFORM",
+    "ko": "신규 플랫폼",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FF2B2B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 25.8,
+    "text": "المساحات زادت جدا",
+    "ko": "공간이 대폭 넓어짐",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E60000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.8,
+    "text": "BLIND SPOT",
+    "ko": "사각지대 경고",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.2,
+    "end": 31.8,
+    "text": "حسب الشمس",
+    "ko": "햇빛에 맞춰 조절",
+    "kind": "키워드 스티커",
+    "y_pct": 76.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF6B00",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.2,
+    "text": "BUILT IN GPS / WIRELESS",
+    "ko": "내장 내비게이션 / 무선 충전",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.5,
+    "text": "تسخين / مساج",
+    "ko": "열선 / 마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "text": "PASSENGER SCREEN",
+    "ko": "동승석 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 51.5,
+    "text": "4 ZONE",
+    "ko": "4존 풀오토 에어컨",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FF2B2B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.5,
+    "text": "TURBO 2000cc / 196 HP / 340 NM",
+    "ko": "2.0 터보 / 196마력 / 340토크",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E60000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 62.0,
+    "text": "SOFT CLOSE",
+    "ko": "소프트 클로징 도어",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.5,
+    "type": "톡",
+    "event": "경쟁 모델 자동차 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.4,
+    "type": "휙",
+    "event": "타이틀 슬라이드 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.5,
+    "type": "띵",
+    "event": "FUNCTIONAL VENT 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "딸깍",
+    "event": "SPIDER RIMS 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "띵",
+    "event": "킥 모션 프로젝션 아이콘 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "딸깍",
+    "event": "전동 트렁크 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.2,
+    "type": "쿵",
+    "event": "NEW PLATFORM 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "띵",
+    "event": "BLIND SPOT 화살표 스티커",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "딸깍",
+    "event": "파노라마 루프 조절 버튼 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.5,
+    "type": "휙",
+    "event": "시트 열선/마사지 그래픽 오버레이",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "띵",
+    "event": "조수석 화면 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.5,
+    "type": "쿵",
+    "event": "4 ZONE 공조기 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "쿵",
+    "event": "엔진 스펙 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 체결음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "에너지 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.5,
+    "end": 2.4,
+    "what": "E클래스 및 5시리즈 미니어처 렌더링",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 대상 시각화",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "아우디 엠블럼 및 A6 텍스트 로고",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "밀려옴",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.5,
+    "what": "트렁크 킥 센서 바닥 프로젝션 아이콘",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 48.0,
+    "y_pct": 82.0,
+    "entrance": "페이드",
+    "purpose": "모션 센서 작동 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 22.2,
+    "end": 24.5,
+    "what": "빨간색 플랫폼 바 그래픽",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "밀려옴",
+    "purpose": "차체 전장·전폭 확대 강조",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.8,
+    "what": "열선 불꽃 및 마사지 근육 아이콘",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 30.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 편의기능 강조",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 50.5,
+    "what": "뱅앤올룹슨(B&O) 오디오 로고",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 65.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사운드 시스템 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 68.5,
+    "end": 73.5,
+    "what": "전시장 위치 핀 및 지점명 목록 카드",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 28.0,
+    "entrance": "밀려옴",
+    "purpose": "지점 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "أنا ناصر، ودي رد أودي على الـ E-Class والـ 5 Series",
+    "ko": "저는 나사르입니다. 벤츠 E클래스와 BMW 5시리즈에 맞서는 아우디의 해답입니다."
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "text": "A6 الشكل الجديد",
+    "ko": "완전히 새로워진 A6입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "وفخامة العربية عليت جداً، عندك خطوط قوية على الكبوت",
+    "ko": "차량의 고급감이 엄청나게 올라갔고, 보닛에 강렬한 캐릭터 라인이 있습니다."
+   },
+   {
+    "start": 7.3,
+    "end": 11.2,
+    "text": "بلاك دجريلز الجديدة، إتش دي ماتريكس، وفانكشنال فينت",
+    "ko": "새로운 블랙 그릴, HD 매트릭스 라이트, 실제 기능하는 에어 벤트까지 갖췄습니다."
+   },
+   {
+    "start": 11.2,
+    "end": 14.7,
+    "text": "سبايدر ريمز مقاس 21 وريد كاليبرز",
+    "ko": "21인치 스파이더 휠과 레드 캘리퍼가 들어갔습니다."
+   },
+   {
+    "start": 14.7,
+    "end": 18.2,
+    "text": "ورا عندك أنيميشن شكله خطير ولايت بار مكمل لآخر العربية",
+    "ko": "후면에는 멋진 라이트 애니메이션과 차체 끝까지 이어지는 라이트바가 있습니다."
+   },
+   {
+    "start": 18.2,
+    "end": 21.6,
+    "text": "ولو دوست هنا هيفتحلك الشنطة عشان لو شايل حاجة في إيدك",
+    "ko": "여기를 밟거나 누르면 양손에 짐을 들었을 때도 트렁크가 열립니다."
+   },
+   {
+    "start": 21.6,
+    "end": 25.5,
+    "text": "على بلاتفورم جديد بقت أطول وأعرض، فالمساحات زادت جداً",
+    "ko": "새 플랫폼 덕분에 더 길고 넓어져 실내 공간이 대폭 늘어났습니다."
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "text": "وعندك بلايند سبوت، ودريكسيون إس لاين فيه تسخين",
+    "ko": "사각지대 경고와 열선이 들어간 S라인 스티어링 휠이 적용되었습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 31.5,
+    "text": "ولو دوست هنا هتتحكم في شيدز البانوراما حسب الشمس",
+    "ko": "여기를 누르면 햇빛에 따라 파노라마 선루프 차광을 조절할 수 있습니다."
+   },
+   {
+    "start": 31.5,
+    "end": 36.5,
+    "text": "عندك هيد اب وديجيتال ديسبلاي، وسكرين كبيرة جداً فيها كاربلاي وأندرويد أوتو وشاحن وايرلس",
+    "ko": "HUD와 디지털 계기판, 대형 화면에 카플레이, 안드로이드 오토, 무선 충전까지 지원합니다."
+   },
+   {
+    "start": 36.5,
+    "end": 40.0,
+    "text": "وكراسي الإس لاين فيهم تسخين وتبريد ومساج",
+    "ko": "S라인 시트에는 열선, 통풍, 마사지 기능이 포함됩니다."
+   },
+   {
+    "start": 40.0,
+    "end": 43.8,
+    "text": "وباسنجر سكرين عشان اللي جنبك يتسلى في الطريق",
+    "ko": "동승석 스크린도 있어 옆자리 사람도 주행 중 지루하지 않습니다."
+   },
+   {
+    "start": 43.8,
+    "end": 50.0,
+    "text": "وما نسيوش اللي قاعد ورا، عندك كنبة تسخين وسقف شامواه وتكييف فور زون",
+    "ko": "뒷좌석도 놓치지 않았습니다. 뒷좌석 열선, 스웨이드 헤드라이너, 4존 공조기가 들어갑니다."
+   },
+   {
+    "start": 50.0,
+    "end": 53.6,
+    "text": "وعشان الخصوصية مهمة، عندك إزاز فاميه وستاير",
+    "ko": "프라이버시를 위해 틴팅 글래스와 전동 선쉐이드도 제공됩니다."
+   },
+   {
+    "start": 53.6,
+    "end": 57.8,
+    "text": "والموتور 2000 تيربو 196 حصان و 340 نيوتن",
+    "ko": "엔진은 2.0 터보로 196마력과 340Nm 토크를 발휘합니다."
+   },
+   {
+    "start": 57.8,
+    "end": 61.8,
+    "text": "وللفخامة والهدوء، خلو الأبواب سوفت كلوز",
+    "ko": "정숙성과 고급스러움을 위해 소프트 클로징 도어가 적용되었습니다."
+   },
+   {
+    "start": 61.8,
+    "end": 67.5,
+    "text": "وغيرت الفكر، عربية التوكيل أعلى من الجراي ماركت، وأي أودي هتلاقيها في أودي سيتي إيست كايرو",
+    "ko": "이제 공식 정식 수입 차량이 직수입보다 조건이 훨씬 낫습니다. 모든 아우디는 아우디 시티 이스트 카이로에서 만나보실 수 있습니다."
+   },
+   {
+    "start": 67.5,
+    "end": 74.0,
+    "text": "ده لوكيشن التجمع، وفيه زايد ومصر الجديدة ومدينة نصر والمنصورة وإسكندرية، روح لهم في أي وقت",
+    "ko": "여기는 뉴카이로 전시장이며, 자이드, 헬리오폴리스, 나스르시티, 만수라, 알렉산드리아에도 있으니 언제든 방문해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "E클래스·5시리즈 대항마로 신형 아우디 A6 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 21.6,
+    "speed": "빠름",
+    "summary": "전면 디자인, 헤드라이트, 21인치 휠, 테일램프, 트렁크 편의기능 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 21.6,
+    "end": 53.6,
+    "speed": "빠름",
+    "summary": "신규 플랫폼 차체, 운전석 및 동승석 디스플레이, 시트 마사지/열선, 뒷좌석 옵션"
+   },
+   {
+    "stage": "사양",
+    "start": 53.6,
+    "end": 61.8,
+    "speed": "보통",
+    "summary": "2.0 터보 엔진 성능 및 소프트 클로징 도어"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 61.8,
+    "end": 74.0,
+    "speed": "보통",
+    "summary": "정식 수입 장점 강조 및 아우디 시티 이스트 카이로 등 전국 전시장 위치 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 직접 설명하고 주요 포인트마다 손짓으로 대상을 지목함",
+   "소개하는 기능이나 부품 위치에 굵은 영문/아랍어 텍스트와 다이내믹 그래픽(불꽃, 근육, 화살표)을 밀착 배치",
+   "화면 전환마다 경쾌한 효과음(쿵, 띵, 톡)을 결합하여 짧은 호흡 유지",
+   "실제 작동 장면(트렁크 킥 모션, 선루프 차광 터치, 소프트 도어 닫힘)을 1초 내외로 시연해 현실감 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.0,
+    "end": 11.5,
+    "feature": "기능성 에어 벤트",
+    "shown_how": "글자 카드",
+    "icon_desc": "FUNCTIONAL VENT 영문 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 78.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "feature": "21인치 스파이더 휠 & 레드 캘리퍼",
+    "shown_how": "글자 카드",
+    "icon_desc": "SPIDER RIMS 및 21인치 인치수 카드",
+    "x_pct": 68.0,
+    "y_pct": 28.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "feature": "핸즈프리 전동 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "바닥에 비치는 발 모션 인식 홀로그램",
+    "x_pct": 48.0,
+    "y_pct": 82.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.5,
+    "feature": "사각지대 경고등",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "미러 지점 가리키는 사선 화살표와 텍스트",
+    "x_pct": 45.0,
+    "y_pct": 65.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.5,
+    "feature": "스마트 파노라마 선루프 조절",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "천장 터치 버튼과 햇빛 아이콘",
+    "x_pct": 28.0,
+    "y_pct": 76.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 40.0,
+    "feature": "시트 열선·통풍·마사지",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 형상 열선 아이콘 및 근육 형상 마사지 아이콘",
+    "x_pct": 25.0,
+    "y_pct": 55.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.8,
+    "feature": "동승석 전용 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": "PASSENGER SCREEN 강조 자막",
+    "x_pct": 55.0,
+    "y_pct": 32.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.5,
+    "feature": "4존 독립 공조 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "4 ZONE 빨간색 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 61.5,
+    "feature": "소프트 클로징 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "문틈을 가리키는 SOFT CLOSE 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 70.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 양손 주먹을 맞부딪치며 벤츠 E클래스와 BMW 5시리즈에 대한 아우디의 응답이라 외치고 신형 A6가 등장함",
+   "type": "행동",
+   "text": "أنا ناصر، ودي رد أودي على الـ E-Class والـ 5 Series",
+   "ko": "저는 나사르입니다. E클래스와 5시리즈에 대한 아우디의 맞불입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "E클래스 및 5시리즈의 직접적 경쟁 모델로 등장한 신형 A6",
+    "category": "디자인"
+   },
+   {
+    "t": 8.0,
+    "point": "블랙 그릴과 HD 매트릭스 LED, 실제 작동하는 에어 벤트",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "21인치 스파이더 휠과 고성능 레드 캘리퍼 장착",
+    "category": "디자인"
+   },
+   {
+    "t": 19.5,
+    "point": "양손에 짐이 있어도 열 수 있는 킥 모션 스마트 트렁크",
+    "category": "편의"
+   },
+   {
+    "t": 23.0,
+    "point": "새로운 플랫폼으로 전장과 전폭이 늘어나 대폭 넓어진 실내 공간",
+    "category": "공간"
+   },
+   {
+    "t": 29.5,
+    "point": "햇빛에 맞춰 농도를 조절할 수 있는 스마트 파노라마 루프",
+    "category": "편의"
+   },
+   {
+    "t": 38.0,
+    "point": "S라인 시트의 열선, 통풍 및 마사지 기능 지원",
+    "category": "편의"
+   },
+   {
+    "t": 42.0,
+    "point": "동승자를 위한 독립 패신저 스크린 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 49.0,
+    "point": "뒷좌석 열선, 4존 독립 에어컨, 뱅앤올룹슨 프리미엄 사운드",
+    "category": "편의"
+   },
+   {
+    "t": 55.0,
+    "point": "2.0 터보 196마력 340Nm 토크의 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 60.0,
+    "point": "정숙성과 럭셔리를 완성하는 고스트 도어(소프트 클로징)",
+    "category": "편의"
+   },
+   {
+    "t": 63.0,
+    "point": "그레이 마켓 직수입보다 혜택과 조건이 우수한 공식 딜러십 보증 차량",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 72.0,
+   "text": "روح لهم في أي وقت",
+   "ko": "언제든 가까운 전시장에 방문해 보세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "전면 전체",
+    "보닛 라인",
+    "그릴 및 헤드램프",
+    "휠",
+    "후면 테일램프",
+    "트렁크",
+    "측면 프로필",
+    "운전석",
+    "선루프",
+    "센터페시아 스크린",
+    "앞좌석 시트",
+    "동승석 스크린",
+    "뒷좌석",
+    "엔진룸",
+    "도어 패널",
+    "전시장 전경"
+   ]
+  }
+ }
+}

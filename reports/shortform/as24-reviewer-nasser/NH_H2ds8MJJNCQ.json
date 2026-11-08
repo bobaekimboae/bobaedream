@@ -1,0 +1,904 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/H2ds8MJJNCQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7983,
+  "candidatesTokenCount": 7709,
+  "totalTokenCount": 15692,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6820
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 74.8,
+   "aspect": "9:16",
+   "car": "M-Hero 917 (Dongfeng Mengshi M-Hero 917)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 12.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.7,
+    "part": "기타",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.6,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 27.6,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 35.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 43.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 48.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.3,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.3,
+    "end": 52.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 54.8,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 56.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 100.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.0,
+    "end": 102.5,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 102.5,
+    "end": 106.3,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.3,
+    "end": 109.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 109.8,
+    "end": 114.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "1 2 3 4 5 6",
+    "ko": "1 2 3 4 5 6 볼트 카운트",
+    "kind": "키워드 스티커",
+    "y_pct": 52,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "text": "20%",
+    "ko": "20%",
+    "kind": "키워드 스티커",
+    "y_pct": 36,
+    "x_center_pct": 18,
+    "text_height_pct": 7,
+    "color": "#7CE083",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20%",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 30.5,
+    "text": "80%",
+    "ko": "80%",
+    "kind": "키워드 스티커",
+    "y_pct": 36,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#7CE083",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "80%",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "text": "19 MIN",
+    "ko": "19분",
+    "kind": "키워드 스티커",
+    "y_pct": 43,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#7CE083",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19 MIN",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "4 1/2 h",
+    "ko": "4시간 반",
+    "kind": "키워드 스티커",
+    "y_pct": 43,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#7CE083",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4 1/2 h",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.5,
+    "text": "678 hp",
+    "ko": "678마력",
+    "kind": "키워드 스티커",
+    "y_pct": 41,
+    "x_center_pct": 48,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "678 hp",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.0,
+    "text": "848 Nm",
+    "ko": "848토크",
+    "kind": "키워드 스티커",
+    "y_pct": 46,
+    "x_center_pct": 48,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "848 Nm",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 42.8,
+    "text": "0-100\n5.2s",
+    "ko": "제로백 5.2초",
+    "kind": "키워드 스티커",
+    "y_pct": 39,
+    "x_center_pct": 32,
+    "text_height_pct": 8,
+    "color": "#E32B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5.2s",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.5,
+    "text": "RANGE:\n+1100KM",
+    "ko": "주행거리 1100km 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 21,
+    "x_center_pct": 32,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+1100KM",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 56.6,
+    "text": "DIGITAL\nCLOCK",
+    "ko": "디지털 시계",
+    "kind": "키워드 스티커",
+    "y_pct": 44,
+    "x_center_pct": 75,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DIGITAL",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 58.0,
+    "text": "WIRELESS\nCHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 47,
+    "x_center_pct": 75,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CHARGER",
+    "sure": true
+   },
+   {
+    "start": 67.5,
+    "end": 69.8,
+    "text": "DYNAUDIO\nx16",
+    "ko": "다인오디오 16개 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "x16",
+    "sure": true
+   },
+   {
+    "start": 70.0,
+    "end": 74.5,
+    "text": "CLOVE MALL\n5th Settlement",
+    "ko": "클로브 몰 뉴 카이로 제5정착지",
+    "kind": "키워드 스티커",
+    "y_pct": 40,
+    "x_center_pct": 36,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CLOVE MALL",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "전투기 등장 및 차량 로고 그래픽 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "쿵",
+    "event": "폭발 효과 그래픽 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "띵",
+    "event": "전면 헤드라이트 터치할 때 불 들어오는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "쿵",
+    "event": "하부 언더커버 손으로 칠 때 금속음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "휠 볼트 숫자 그래픽 카운트업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 사이드스텝 닫히는 모터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트 클로징 도어 잠기는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "띵",
+    "event": "충전시간 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "휙",
+    "event": "BMW X6 비교 그래픽 날아올 때",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "휙",
+    "event": "제로백 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "띵",
+    "event": "내비게이션 이동 경로 핀 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "딸깍",
+    "event": "루프 컨트롤 토글 스위치 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.5,
+    "type": "딸깍",
+    "event": "센터 콘솔 컵홀더 및 냉장고 커버 오픈",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 65.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "권총 모양 내부 도어핸들 조작 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "긴장감 넘치고 역동적인",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 2.2,
+     "what": "웅장한 군사 테마 효과음과 비트 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 5.0,
+    "what": "전투기 5대 비행 및 M-Hero 917 3D 입체 텍스트",
+    "is_3d": true,
+    "size_w_pct": 70,
+    "x_pct": 50,
+    "y_pct": 35,
+    "entrance": "밀려옴",
+    "purpose": "차량의 군용차 컨셉 강조",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 5.3,
+    "what": "화염 폭발 트랜지션",
+    "is_3d": false,
+    "size_w_pct": 100,
+    "x_pct": 50,
+    "y_pct": 50,
+    "entrance": "톡 튀어나옴",
+    "purpose": "장면 전환",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 35.0,
+    "what": "배터리 충전 게이지 및 번개 아이콘",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 50,
+    "y_pct": 20,
+    "entrance": "톡 튀어나옴",
+    "purpose": "충전 스펙 전달",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.5,
+    "what": "경쟁 모델 BMW X6 슬라이드 오버레이",
+    "is_3d": false,
+    "size_w_pct": 45,
+    "x_pct": 30,
+    "y_pct": 20,
+    "entrance": "밀려옴",
+    "purpose": "성능 비교 강조",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 47.5,
+    "what": "카이로-샤름엘셰이크 주행 경로 지도 인포그래픽",
+    "is_3d": false,
+    "size_w_pct": 80,
+    "x_pct": 50,
+    "y_pct": 25,
+    "entrance": "톡 튀어나옴",
+    "purpose": "주행 가능 거리 직관적 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "أنا ناصر، ودي عربية حربية نزلت السوق! M-Hero 917 by Z-Volt",
+    "ko": "저는 나사르입니다. 시장에 군용차가 출시되었습니다! 지볼트의 M-Hero 917입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 12.0,
+    "text": "وش العربية عنيف، الكابوت معضل، الخطوط مسحوبة جداً، LEDs على شكل مسدس، وتصفيح من قدام ومكمل تحت العربية",
+    "ko": "전면부가 사납고, 보닛 근육질에 라인이 날렵하며, 권총 모양 LED와 하부 전면부터 이어진 언더커버가 있습니다."
+   },
+   {
+    "start": 12.8,
+    "end": 21.5,
+    "text": "الجنط خطير بـ 6 مسامير عشان يمسك في العربية، Air Suspension بيعلي ويوطي العربية عشان الراحة، وRear Axle عشان تلف في أضيق الملفات",
+    "ko": "차체를 꽉 잡아주는 6볼트 휠, 승차감과 높낮이를 조절하는 에어 서스펜션, 좁은 곳도 쉽게 도는 후륜 조향이 들어갔습니다."
+   },
+   {
+    "start": 21.6,
+    "end": 27.5,
+    "text": "الإزاز دبل عشان يحسنلك العزل، وعتبة عشان يسهلك الدخول، ولو حد نايم جوة البيبان Soft Close",
+    "ko": "이중접합 차음 유리와 승차를 돕는 전동 발판, 안에서 자는 사람을 배려한 소프트 클로징 도어가 있습니다."
+   },
+   {
+    "start": 27.6,
+    "end": 35.5,
+    "text": "وسرعة الشحن: من 20 لـ 80% في 19 دقيقة على الشحن السريع، ومن 20 لـ 100% في أقل من 4 ساعات ونص على الشحن البطيء",
+    "ko": "충전 속도는 급속 시 20%에서 80%까지 19분, 완속 시 20%에서 100%까지 4시간 반도 안 걸립니다."
+   },
+   {
+    "start": 36.0,
+    "end": 42.8,
+    "text": "وده تحفة! كل ده وأسرع من X6، 678 حصان و848 نيوتن، ومن صفر لـ 100 في 5.2 ثانية",
+    "ko": "대단합니다! 이 스펙에 X6보다 빠르며 678마력, 848토크, 제로백은 5.2초입니다."
+   },
+   {
+    "start": 43.1,
+    "end": 47.8,
+    "text": "والرينج بتاعها WLTC 1100 كم، يعني تروح شرم الشيخ وترجع في شحنة واحدة!",
+    "ko": "WLTC 기준 주행거리는 1100km로, 샤름엘셰이크를 왕복할 수 있습니다!"
+   },
+   {
+    "start": 48.0,
+    "end": 60.0,
+    "text": "وفيها كل حاجة: سقف بانوراما، زراير ولا الطيارات، المراية كاميرا، شاشة كبيرة وسريعة، Digital Clock، شاحن وايرلس، مساحة تخزين، وتلاجة",
+    "ko": "모든 게 있습니다: 파노라마 루프, 전투기 조종석 버튼, 디지털 룸미러, 대화면 스크린, 디지털 시계, 무선충전, 수납공간, 냉장고까지."
+   },
+   {
+    "start": 60.5,
+    "end": 69.8,
+    "text": "HUD وديجيتال ديسبلاي، دريكسيون فخم، والمقبض على شكل مسدس، والكنبة مساحتها هائلة وفيها 16 سماعة Dynaudio",
+    "ko": "HUD와 디지털 계기판, 고급 핸들, 권총 모양 도어 핸들, 넓은 뒷좌석과 16개의 다인오디오 스피커가 있습니다."
+   },
+   {
+    "start": 70.0,
+    "end": 74.8,
+    "text": "وتقدر تاخد دي أو تستورد عربيتك بنفسك من Z-Volt، كلوف مول التجمع الخامس",
+    "ko": "이 차를 구매하거나 직수입하고 싶다면 제5정착지 클로브 몰에 위치한 Z-Volt로 오세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "전투기 연출과 함께 군용차 컨셉 차량 등장 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.0,
+    "end": 12.8,
+    "speed": "빠름",
+    "summary": "외관 전면 디자인 및 하부 보강 플레이트 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 12.8,
+    "end": 27.5,
+    "speed": "보통",
+    "summary": "휠, 에어 서스펜션, 후륜 조향, 전동 발판, 소프트 도어 클로징 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 27.5,
+    "end": 47.8,
+    "speed": "빠름",
+    "summary": "충전 속도, 출력, 제로백, 주행거리 인포그래픽 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 47.8,
+    "end": 69.8,
+    "speed": "빠름",
+    "summary": "실내 편의 장비, 디스플레이, 냉장고, 도어 캐치, 사운드 시스템 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 69.8,
+    "end": 74.8,
+    "speed": "보통",
+    "summary": "수입 딜러사 쇼룸 위치 안내 및 방문 권유"
+   }
+  ],
+  "rules": [
+   "진행자의 모션(터치, 제스처)에 맞춰 즉각적인 CG/스티커 효과음 삽입",
+   "스펙 수치는 눈에 잘 띄는 대형 볼드 타이포그래피와 그래픽 아이콘으로 직관화",
+   "차량의 특수 옵션(발판 작동, 소프트 클로징, 도어 핸들 조작)은 실제 물리 작동음과 함께 클로즈업 촬영"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.0,
+    "end": 19.3,
+    "feature": "에어 서스펜션 차고 조절",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 70,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.6,
+    "feature": "후륜 조향(리어 액슬)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 30,
+    "y_pct": 75,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 24.5,
+    "feature": "전동 사이드 스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50,
+    "y_pct": 75,
+    "size_w_pct": 50,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "feature": "소프트 도어 클로징",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 60,
+    "y_pct": 60,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 60.0,
+    "feature": "센터 콘솔 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50,
+    "y_pct": 60,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 66.5,
+    "feature": "권총 모양 실내 도어핸들",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 65,
+    "y_pct": 60,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라 앞에서 활기차게 인사한 후 비행기 CG와 웅장한 쿵 소리와 함께 거대한 SUV를 보여줌",
+   "type": "희귀차",
+   "text": "أنا ناصر، ودي عربية حربية نزلت السوق!",
+   "ko": "저는 나사르입니다. 시장에 군용차가 출시되었습니다!"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "시장에 상용 출시된 군용차 스타일의 강력한 전기 오프로더 M-Hero 917",
+    "category": "희소성"
+   },
+   {
+    "t": 11.0,
+    "point": "오프로드 주행을 완벽히 보호하는 전면 및 하부 일체형 언더커버 보강",
+    "category": "안전"
+   },
+   {
+    "t": 17.5,
+    "point": "승차감과 험로 주파력을 위해 지상고를 자유자재로 바꾸는 에어 서스펜션",
+    "category": "성능"
+   },
+   {
+    "t": 20.5,
+    "point": "거대한 차체를 좁은 골목에서도 민첩하게 회전시키는 후륜 조향 시스템",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "급속 충전 19분 만에 20%에서 80%까지 충전 가능한 고속 충전 성능",
+    "category": "성능"
+   },
+   {
+    "t": 38.5,
+    "point": "678마력 848토크의 슈퍼카급 출력으로 5.2초 만에 시속 100km 도달",
+    "category": "성능"
+   },
+   {
+    "t": 45.0,
+    "point": "1회 충전으로 1100km 주행 가능하여 카이로-샤름엘셰이크 무충전 왕복 가능",
+    "category": "성능"
+   },
+   {
+    "t": 58.5,
+    "point": "센터 콘솔 무선충전기 패드와 쿨링 냉장고 내장",
+    "category": "편의"
+   },
+   {
+    "t": 68.0,
+    "point": "실내 전 좌석을 감싸는 16개 프리미엄 다인오디오 스피커 탑재",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 70.0,
+   "text": "Z-Volt Clove Mall 5th Settlement",
+   "ko": "Z-Volt 뉴 카이로 제5정착지 클로브 몰 매장 방문 권유",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "기타",
+    "휠",
+    "기타",
+    "외관 측면",
+    "옵션 작동",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "뒷좌석",
+    "사람"
+   ]
+  }
+ }
+}

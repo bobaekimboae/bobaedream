@@ -1,0 +1,918 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/aTIKwAmdHK8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7449,
+  "candidatesTokenCount": 7544,
+  "totalTokenCount": 15622,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6286
+   }
+  ],
+  "thoughtsTokenCount": 629,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 70.0,
+   "aspect": "9:16",
+   "car": "Mercedes GLC 260 L / C260 L / Range Rover Evoque L / VS680",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 8.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 10.9,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.4,
+    "end": 17.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.3,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 43.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 46.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 48.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 51.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 52.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.6,
+    "end": 58.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 64.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.6,
+    "end": 70.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.7,
+    "text": "أكتر عربيات مميزة في مصر",
+    "ko": "이집트에서 가장 특별한 벤츠들",
+    "kind": "키워드 스티커",
+    "y_pct": 10.5,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مميزة",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.5,
+    "text": "GLC260 L",
+    "ko": "GLC260 L",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "L",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.2,
+    "text": "L LONG",
+    "ko": "L = 롱바디",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LONG",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.2,
+    "text": "أرخص GLC",
+    "ko": "더 저렴한 GLC",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أرخص",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.2,
+    "text": "C260 LONG",
+    "ko": "C260 롱바디",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LONG",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.2,
+    "text": "MILD HYBRID 2000cc",
+    "ko": "마일드 하이브리드 2000cc 감성",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2000cc",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.6,
+    "text": "LAND ROVER EVOQUE",
+    "ko": "랜드로버 이보크 L",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EVOQUE",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.5,
+    "text": "EVOQUE VS GLC",
+    "ko": "이보크 vs GLC",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VS",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.0,
+    "text": "أغلى 500,000",
+    "ko": "50만 파운드 차이",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1C8044",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "500,000",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.0,
+    "text": "VS 680",
+    "ko": "벤츠 VS 680",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VS",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "이집트 국기 및 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "휙",
+    "event": "실내 컷 전환 및 차명 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "띵",
+    "event": "LONG 텍스트 확대 강조",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "돈 소리",
+    "event": "돈다발 아이콘 및 أرخص(더 저렴함) 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "휙",
+    "event": "C260 세단 텍스트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "딸깍",
+    "event": "암레스트 터치스크린 조작 시연",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "휙",
+    "event": "마일드 하이브리드 그래픽 아이콘 회전",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "쿵",
+    "event": "이보크 등장 시 연기 및 타이틀 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "휙",
+    "event": "통풍/열선 불꽃 및 얼음 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "쿵",
+    "event": "EVOQUE VS GLC 비교 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "돈 소리",
+    "event": "500,000 가격 차이 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 49.0,
+    "type": "쿵",
+    "event": "VS680 밴 엠블럼 및 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "톡",
+    "event": "마사지 및 열선 시트 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.5,
+    "type": "띵",
+    "event": "차량 브랜드 로고 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "도입부 빠른 템포 비트 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.5,
+    "end": 2.7,
+    "what": "이집트 국기 스티커",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 65.0,
+    "y_pct": 5.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "지역 특정 강조",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.2,
+    "what": "돈뭉치 아이콘 및 가격 절약 표시",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가성비 강조",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.2,
+    "what": "마일드 하이브리드 충전/순환 2D 다이어그램",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "구동계 설명",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.5,
+    "what": "열선 및 통풍 시트 불꽃/얼음 텍스트 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 30.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 옵션 직관 전달",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.0,
+    "what": "녹색 돈 그래픽 상자 (+500,000)",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 차이 강조",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 58.5,
+    "what": "열선/마사지 시트 그래픽 배지",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 40.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "VIP 시트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 62.0,
+    "end": 64.5,
+    "what": "BMW, Mercedes, Land Rover 로고 나열",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "취급 브랜드 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "أنا ناصر ودي أكتر عربيات مرسيدس مميزة في مصر",
+    "ko": "저는 나사르입니다. 이건 이집트에서 가장 특별한 메르세데스 차량들입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 5.0,
+    "text": "GLC260 L وL يعني Long",
+    "ko": "GLC 260 L입니다. L은 롱바디를 뜻하죠."
+   },
+   {
+    "start": 5.1,
+    "end": 8.3,
+    "text": "فبقت بقرب حجم الـ GLE وأرخص من الـ GLC",
+    "ko": "GLE에 버금가는 크기이면서 일반 GLC보다 저렴합니다."
+   },
+   {
+    "start": 8.4,
+    "end": 11.0,
+    "text": "وMild Hybrid فاستهلاك بنزين واستجابة أحسن بكتير",
+    "ko": "마일드 하이브리드라 연비와 응답성이 훨씬 뛰어납니다."
+   },
+   {
+    "start": 11.1,
+    "end": 14.5,
+    "text": "ولو VIP بس عايز Sedan؟ C260 Long",
+    "ko": "VIP인데 세단을 원하신다면? C260 롱바디입니다."
+   },
+   {
+    "start": 14.6,
+    "end": 17.2,
+    "text": "يعني شاسيه أطول فمساحات الرجلين أحسن",
+    "ko": "더 긴 섀시로 뒷좌석 무릎 공간이 훨씬 쾌적하며,"
+   },
+   {
+    "start": 17.3,
+    "end": 21.0,
+    "text": "وتقدر تتحكم في الكرسي اللي قدامك حتى مسند اليد غيروا شكله",
+    "ko": "앞좌석 시트 조절과 새로운 암레스트 콘솔까지 갖췄습니다."
+   },
+   {
+    "start": 21.1,
+    "end": 24.5,
+    "text": "والسقف البانوراما بقى على حتتين وMild Hybrid بإحساس الـ 2000cc",
+    "ko": "듀얼 파노라마 루프와 2000cc급 힘을 내는 마일드 하이브리드입니다."
+   },
+   {
+    "start": 24.6,
+    "end": 28.5,
+    "text": "ولو بنت VIP؟ Range Rover Evoque L",
+    "ko": "VIP 여성 오너라면? 레인지로버 이보크 L입니다."
+   },
+   {
+    "start": 28.6,
+    "end": 33.6,
+    "text": "والكنب والكراسي اللي قدام تسخين وتبريد خدي بالك العادية تسخين بس",
+    "ko": "앞뒤 전 좌석 통풍과 열선을 지원하죠. 기본형은 열선만 있습니다."
+   },
+   {
+    "start": 33.7,
+    "end": 38.5,
+    "text": "والمفاجأة موتور 2000cc Mild Hybrid أداء خرافي",
+    "ko": "놀라운 2000cc 마일드 하이브리드 엔진으로 압도적인 주행 성능을 냅니다."
+   },
+   {
+    "start": 38.6,
+    "end": 44.0,
+    "text": "فلو بتقارن الإيفوك بالـ GLC العادية الاتنين 2000 تربو بس دي Mild Hybrid",
+    "ko": "이보크와 일반 GLC를 비교하면 둘 다 2.0 터보지만 이건 마일드 하이브리드입니다."
+   },
+   {
+    "start": 44.1,
+    "end": 48.8,
+    "text": "فأوفر بنزين وأرخص بنص مليون كمان والمساحات أوسع بكتير",
+    "ko": "연비도 좋고 50만 파운드 더 저렴하며 공간도 훨씬 넓습니다."
+   },
+   {
+    "start": 48.9,
+    "end": 52.5,
+    "text": "والـ VS680 غير أي V عندك تلفزيون لايتهاوس",
+    "ko": "VS680은 다른 V클래스와 다릅니다. 대형 TV와 라이트하우스 루프,"
+   },
+   {
+    "start": 52.6,
+    "end": 58.6,
+    "text": "والكراسي اللي ورا تسخين وتبريد ومساج وشاشة للتحكم",
+    "ko": "뒷좌석 시트 열선, 통풍, 마사지 및 전용 컨트롤 스크린이 들어갑니다."
+   },
+   {
+    "start": 58.7,
+    "end": 64.5,
+    "text": "فلو عايز عربية من دول أو أي مواصفة HOR يقدر يجيبهالك استلام فوري",
+    "ko": "이 차량들이나 원하는 옵션을 HOR 전시장에서 즉시 출고로 만나보실 수 있습니다."
+   },
+   {
+    "start": 64.6,
+    "end": 70.0,
+    "text": "فاتحين في دبي وفرعهم الجديد في مصر على طريق دمياط المنصورة الزراعي",
+    "ko": "두바이 지점과 이집트 다미에타-만수라 농업도로의 신규 지점에서 운영 중입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "진행자 인사 및 이집트 최고급 벤츠 라인업 예고"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 11.0,
+    "speed": "빠름",
+    "summary": "GLC 260 L 롱바디 소개 및 가성비/연비 장점 어필"
+   },
+   {
+    "stage": "차 소개",
+    "start": 11.0,
+    "end": 24.5,
+    "speed": "빠름",
+    "summary": "C260 L 세단 소개 (뒷좌석 레그룸, 시트 리모컨, 하이브리드)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 24.5,
+    "end": 38.5,
+    "speed": "빠름",
+    "summary": "레인지로버 이보크 L 소개 (전 좌석 통풍/열선, 2.0 하이브리드)"
+   },
+   {
+    "stage": "비교",
+    "start": 38.5,
+    "end": 48.8,
+    "speed": "빠름",
+    "summary": "이보크 L vs 벤츠 GLC 가격 및 연비 비교"
+   },
+   {
+    "stage": "차 소개",
+    "start": 48.8,
+    "end": 58.6,
+    "speed": "빠름",
+    "summary": "초호화 의전 밴 VS680 소개 (TV, 롤스로이스형 루프, 마사지 시트)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 58.6,
+    "end": 70.0,
+    "speed": "보통",
+    "summary": "HOR 모터스 즉시 출고 안내 및 두바이/이집트 전시장 위치 소개"
+   }
+  ],
+  "rules": [
+   "호스트의 빠른 랩 스타일 아랍어 멘트와 매 문장마다 바뀌는 컷 전환",
+   "차량 모델명과 핵심 키워드(L, LONG, أرخص 등)는 중앙 상단에 큰 굵은 글씨로 즉각 팝업",
+   "화려한 3D 아이콘과 이모지(돈다발, 불꽃, 얼음)를 기능 소개 부위에 정확히 매핑",
+   "실내 탑승 장면에서는 뒷좌석 편의 기능(버튼 조작, 스크린, 암레스트)을 직접 시연"
+  ],
+  "option_highlights": [
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "feature": "뒷좌석 조수석 시트 조절 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 80.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.2,
+    "feature": "VIP 뒷좌석 터치 암레스트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 60.0,
+    "y_pct": 65.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.9,
+    "feature": "분할형 파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.5,
+    "feature": "전좌석 통풍 및 열선 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "불꽃 및 얼음 그래픽 카드",
+    "x_pct": 25.0,
+    "y_pct": 65.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.5,
+    "feature": "스타라이트 천장 조명 & TV",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 58.5,
+    "feature": "의전 시트 마사지/열선 조절 터치스크린",
+    "shown_how": "글자 카드",
+    "icon_desc": "마사지 및 열선 그래픽 배지",
+    "x_pct": 40.0,
+    "y_pct": 60.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "화이트 트랙수트를 입은 나사르가 벤츠 보닛을 짚으며 이집트에서 가장 특별한 벤츠를 소개한다고 빠르게 외침",
+   "type": "희귀차",
+   "text": "أنا ناصر ودي أكتر عربيات مرسيدس مميزة في مصر",
+   "ko": "저는 나사르입니다. 이건 이집트에서 가장 특별한 벤츠 차량들입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.5,
+    "point": "GLC 260 L은 롱바디로 GLE급 크기면서 GLC보다 저렴함",
+    "category": "가격·조건"
+   },
+   {
+    "t": 9.5,
+    "point": "마일드 하이브리드 엔진으로 뛰어난 연비와 주행 반응성 제공",
+    "category": "성능"
+   },
+   {
+    "t": 15.0,
+    "point": "C260 L 세단은 섀시가 길어져 압도적인 뒷좌석 공간과 VIP 전용 버튼 제공",
+    "category": "공간"
+   },
+   {
+    "t": 30.0,
+    "point": "이보크 L은 기본형과 달리 전 좌석 열선 및 통풍 시트 기본 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 44.0,
+    "point": "이보크 L이 일반 GLC보다 50만 파운드 저렴하고 공간도 훨씬 넓음",
+    "category": "가격·조건"
+   },
+   {
+    "t": 53.0,
+    "point": "VS680 리무진 밴은 천장 스타라이트와 마사지 시트, 전용 TV 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 62.0,
+    "point": "HOR 쇼룸에서 벤츠, BMW, 랜드로버 전 모델 즉시 출고 가능",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 65.0,
+   "text": "فاتحين في دبي وفرعهم الجديد في مصر على طريق دمياط المنصورة الزراعي",
+   "ko": "두바이 본점 및 이집트 다미에타-만수라 신규 전시장에 방문하세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 측면",
+    "엔진룸",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 전면"
+   ]
+  }
+ }
+}

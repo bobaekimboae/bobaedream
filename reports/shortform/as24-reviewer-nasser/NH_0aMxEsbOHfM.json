@@ -1,0 +1,735 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/0aMxEsbOHfM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5729,
+  "candidatesTokenCount": 5997,
+  "totalTokenCount": 12164,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4566
+   }
+  ],
+  "thoughtsTokenCount": 438,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.5,
+   "aspect": "9:16",
+   "car": "KGM 토레스 & 액티언 하이브리드",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 11.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 13.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 21.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.6,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 25.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 35.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 38.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.7,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.7,
+    "end": 46.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 50.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "لو نفسك في عربية",
+    "ko": "만약 차를 원하신다면",
+    "kind": "말 자막",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "عربية",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.6,
+    "text": "تجربة مختلفة تماماً",
+    "ko": "완전히 다른 경험",
+    "kind": "키워드 스티커",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مختلفة",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.9,
+    "text": "OFFROAD PACKAGE",
+    "ko": "오프로드 패키지",
+    "kind": "제목",
+    "y_pct": 32,
+    "x_center_pct": 70,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF2B2B",
+    "bg_width_pct": 55,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "OFFROAD",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 10.9,
+    "text": "ACTYON HYBRID",
+    "ko": "액티언 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 40,
+    "x_center_pct": 25,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E60000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ACTYON",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.0,
+    "text": "FULL OPTIONS",
+    "ko": "풀 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 28,
+    "x_center_pct": 50,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FULL",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.0,
+    "text": "ADAS 24",
+    "ko": "ADAS 24개 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 48,
+    "x_center_pct": 45,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF0000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ADAS",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "text": "ضمان 5 سنين",
+    "ko": "5년 보증",
+    "kind": "키워드 스티커",
+    "y_pct": 38,
+    "x_center_pct": 45,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#E5A800",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5 سنين",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "text": "ECU ELECTRONIC CONTROL UNIT",
+    "ko": "ECU 전자 제어 장치",
+    "kind": "키워드 스티커",
+    "y_pct": 42,
+    "x_center_pct": 70,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": "ECU",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "휙",
+    "event": "첫 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.2,
+    "type": "쿵",
+    "event": "태극기 및 KAB 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "쿵",
+    "event": "레드 토레스 오프로드 컷 연기와 함께 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "띵",
+    "event": "액티언 하이브리드 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "풀옵션 스티커 애니메이션",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.2,
+    "type": "딸깍",
+    "event": "하이브리드 엠블럼 가리키기",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "쿵",
+    "event": "차량 무게 300kg 증가 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.6,
+    "type": "띵",
+    "event": "5년 보증 골드 뱃지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "톡",
+    "event": "KGM 전용 진단기 기기 보여주기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "띵",
+    "event": "위치 핀 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.1,
+    "end": 2.5,
+    "what": "태극기 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25,
+    "x_pct": 30,
+    "y_pct": 15,
+    "entrance": "톡 튀어나옴",
+    "purpose": "한국 직수입 강조",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.5,
+    "what": "오렌지색 연기 특수효과",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 80,
+    "y_pct": 35,
+    "entrance": "페이드",
+    "purpose": "오프로드 강렬함 연출",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.0,
+    "what": "무게추 아이콘",
+    "is_3d": true,
+    "size_w_pct": 20,
+    "x_pct": 25,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "중량감 및 차체 강성 전달",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.5,
+    "what": "5년 워런티 3D 금색 뱃지",
+    "is_3d": true,
+    "size_w_pct": 30,
+    "x_pct": 45,
+    "y_pct": 25,
+    "entrance": "톡 튀어나옴",
+    "purpose": "품질 보증 신뢰도",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 50.0,
+    "what": "위치 마커 핀",
+    "is_3d": true,
+    "size_w_pct": 18,
+    "x_pct": 30,
+    "y_pct": 15,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "لو نفسك في عربية كوري، البنك الكوري بيقدملك تجربة مختلفة تماماً",
+    "ko": "한국차를 원하신다면 코리아오토뱅크(KAB)가 완전히 색다른 경험을 선사합니다."
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "عشان تقدر تعمل عربيتك بنفسك وعلى كيف كيفك",
+    "ko": "여러분이 원하는 대로 나만의 차를 직접 맞출 수 있습니다."
+   },
+   {
+    "start": 6.7,
+    "end": 9.0,
+    "text": "وحاجات سبيشال أوردر وأوف رود باكيدج كمان",
+    "ko": "스페셜 오더 사양과 오프로드 패키지까지 준비되어 있죠."
+   },
+   {
+    "start": 9.0,
+    "end": 13.0,
+    "text": "وعربيات حصرية زي الأكتيون الهايبرد، بقالها أكتر من سنة وفول أوبشن",
+    "ko": "풀옵션의 액티언 하이브리드 같은 독점 차량도 보유하고 있습니다."
+   },
+   {
+    "start": 13.0,
+    "end": 16.5,
+    "text": "والتوريس الهايبرد وبلاك إديشن كمان والوحيدين في مصر اللي بينزلوها",
+    "ko": "이집트에서 유일하게 토레스 하이브리드 블랙 에디션까지 수입합니다."
+   },
+   {
+    "start": 16.5,
+    "end": 21.6,
+    "text": "العربية بقت أتقل بقرب 300 كيلو والأداس بقى 24 نظام حتى الجلود بقت طبيعية",
+    "ko": "약 300kg 더 견고해졌고 ADAS 시스템은 24가지, 가죽 시트도 천연가죽입니다."
+   },
+   {
+    "start": 21.6,
+    "end": 27.0,
+    "text": "وده لأن البنك الكوري وكيل KGM في كوريا نفسها، فهتختار لون العربية وفرشها براحتك",
+    "ko": "KAB가 한국 현지 KGM 공식 에이전트이기 때문에 외관 색상과 실내 색상을 자유롭게 선택할 수 있습니다."
+   },
+   {
+    "start": 27.0,
+    "end": 32.8,
+    "text": "والبنك الكوري بيديلك ضمان 5 سنين على العربية، عشان عندهم مركز خدمة متصل بمصنع KGM في كوريا",
+    "ko": "한국 KGM 본사 공장과 직접 연결된 서비스센터가 있어 5년 보증을 제공합니다."
+   },
+   {
+    "start": 32.8,
+    "end": 38.8,
+    "text": "وعشان دي المواصفة الكورية، الأوبشنز والسوفت وير مختلفين، فلو حاجة باظت هترجع العربية كوري",
+    "ko": "한국 내수형 사양이라 옵션과 소프트웨어가 달라 고장 시에도 문제없도록 지원합니다."
+   },
+   {
+    "start": 38.8,
+    "end": 43.0,
+    "text": "يا تيجي البنك الكوري، عندهم جهاز من KGM للفحص والتكويد موجود هنا بس",
+    "ko": "KAB에 오시면 전용 KGM 진단·코딩 장비가 이곳에만 단독 구비되어 있습니다."
+   },
+   {
+    "start": 43.0,
+    "end": 46.8,
+    "text": "ويكودلك أصعب الحاجات زي الرادار والـ ECU unit بتاعة العربية",
+    "ko": "레이더와 ECU 같은 까다로운 시스템까지 완벽히 코딩 세팅해 드립니다."
+   },
+   {
+    "start": 46.8,
+    "end": 50.5,
+    "text": "والعنوان: محطة فيول أب، دائري المريوطية، قبل ماونتن فيو",
+    "ko": "위치: 마운틴뷰 전, 마리우티야 순환로 퓨얼업 주유소 구내."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "한국 직수입차 독점 공급 KAB 쇼룸 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 16.5,
+    "speed": "빠름",
+    "summary": "토레스 오프로드 에디션, 액티언 하이브리드, 토레스 블랙 에디션 실물 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 16.5,
+    "end": 21.6,
+    "speed": "빠름",
+    "summary": "무게 증가 및 차체 강성, 24개 ADAS, 고급 천연가죽 시트 실내 확인"
+   },
+   {
+    "stage": "기능",
+    "start": 21.6,
+    "end": 32.8,
+    "speed": "보통",
+    "summary": "한국 본사 직결 보증 5년 및 커스텀 컬러 주문 장점 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 32.8,
+    "end": 46.8,
+    "speed": "보통",
+    "summary": "KGM 전용 진단 코딩기 시연 및 ECU/레이더 세팅 능력 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 46.8,
+    "end": 50.5,
+    "speed": "빠름",
+    "summary": "전시장 위치 안내 및 CTA"
+   }
+  ],
+  "rules": [
+   "매 문장 키워드마다 눈에 띄는 3D 이모지와 그래픽 스티커를 박자에 맞춰 띄운다.",
+   "핵심 모델명 및 사양(ADAS 24, 5 YEAR WARRANTY 등)은 굵은 고대비 텍스트로 시각화한다.",
+   "딜러십의 공식 직수입 전문성을 입증하기 위해 전용 하드웨어 진단기를 직접 들고 시연한다.",
+   "마지막 3초에는 전시장 전경과 함께 지도 핀 그래픽을 띄워 위치 정보를 명확히 남긴다."
+  ],
+  "option_highlights": [
+   {
+    "start": 6.8,
+    "end": 8.9,
+    "feature": "오프로드 패키지",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "루프랙 바 및 연기 이펙트",
+    "x_pct": 60,
+    "y_pct": 30,
+    "size_w_pct": 45,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "feature": "하이브리드 파워트레인",
+    "shown_how": "확대",
+    "icon_desc": "KGM HYBRID 엠블럼 클로즈업",
+    "x_pct": 45,
+    "y_pct": 65,
+    "size_w_pct": 35,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.5,
+    "feature": "24개 기능 ADAS 첨단 주행 보조",
+    "shown_how": "글자 카드",
+    "icon_desc": "붉은색 ADAS 24 영문 그래픽",
+    "x_pct": 45,
+    "y_pct": 50,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.5,
+    "feature": "5년 무상 보증 프로그램",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "5 YEAR WARRANTY 황금 엠블럼",
+    "x_pct": 45,
+    "y_pct": 25,
+    "size_w_pct": 30,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.5,
+    "feature": "KGM 전용 진단 및 코딩 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "핸드헬드 진단 스캐너 실물",
+    "x_pct": 55,
+    "y_pct": 60,
+    "size_w_pct": 40,
+    "follows_object": true,
+    "entrance": "밀려옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 KAB 매장 앞에 서서 한국 수입차를 원한다면 완전히 다른 경험을 제공한다고 외치며 시작",
+   "type": "질문",
+   "text": "لو نفسك في عربية كوري، البنك الكوري بيقدملك تجربة مختلفة تماماً",
+   "ko": "한국차를 원하신다면 코리아오토뱅크가 완전히 다른 경험을 선사합니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "KAB(코리아오토뱅크)에서 한국 직수입차 커스텀 주문 가능",
+    "category": "가격·조건"
+   },
+   {
+    "t": 7.5,
+    "point": "토레스 전용 오프로드 패키지 커스텀 사양 보유",
+    "category": "디자인"
+   },
+   {
+    "t": 10.0,
+    "point": "이집트 최초 액티언 하이브리드 풀옵션 독점 보유",
+    "category": "희소성"
+   },
+   {
+    "t": 14.0,
+    "point": "토레스 하이브리드 블랙 에디션 수입",
+    "category": "희소성"
+   },
+   {
+    "t": 18.0,
+    "point": "300kg 중량 강화 및 24개 통합 ADAS 시스템 적용",
+    "category": "안전"
+   },
+   {
+    "t": 28.0,
+    "point": "한국 본사 전산 직결 공식 서비스센터 기반 5년 보증 제공",
+    "category": "가격·조건"
+   },
+   {
+    "t": 41.0,
+    "point": "KGM 전용 진단기로 레이더 및 ECU 코딩 완벽 지원",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 47.0,
+   "text": "محطة فيول أب، دائري المريوطية، قبل ماونتن فيو",
+   "ko": "마리우티야 순환로 퓨얼업 주유소 KAB 전시장으로 방문하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "전시장 전경",
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "뒷좌석",
+    "실내 앞",
+    "옵션 작동",
+    "외관 전면"
+   ]
+  }
+ }
+}

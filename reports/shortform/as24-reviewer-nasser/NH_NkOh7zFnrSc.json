@@ -1,0 +1,830 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/NkOh7zFnrSc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6617,
+  "candidatesTokenCount": 7163,
+  "totalTokenCount": 15230,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5454
+   }
+  ],
+  "thoughtsTokenCount": 1450,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.0,
+   "aspect": "9:16",
+   "car": "Forthing T5 EVO",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.4,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 33.1,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 36.2,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 37.4,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 39.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.0,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 56.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 59.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.5,
+    "end": 2.0,
+    "text": "بتصميم رياضي",
+    "ko": "스포티한 디자인으로",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#E62117",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بتصميم",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 16.3,
+    "text": "DCT WET",
+    "ko": "습식 DCT",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 4.5,
+    "color": "#0070F3",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DCT",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 25.7,
+    "text": "CRUISE CONTROL",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CRUISE",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.0,
+    "text": "+ سنة تأمين",
+    "ko": "+ 1년 보험",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#E62117",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "تأمين",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.6,
+    "type": "휙",
+    "event": "깃발 및 스포티 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.5,
+    "type": "쿵",
+    "event": "T5 EVO 엠블럼 로고 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.7,
+    "type": "휙",
+    "event": "TURBO 1500cc 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "195hp 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.4,
+    "type": "톡",
+    "event": "285Nm 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "톡",
+    "event": "DCT WET 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "톡",
+    "event": "CRUISE CONTROL 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "띵",
+    "event": "사이드미러 사각지대 아이콘 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "쿵",
+    "event": "5년 보증 엠블럼 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.8,
+    "type": "쿵",
+    "event": "서비스 패키지 스패너 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.3,
+    "end": 2.5,
+    "what": "포씽 사자/호랑이 엠블럼 및 T5 EVO 크롬 텍스트",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 12.0,
+    "y_pct": 8.0,
+    "entrance": "확대 전환",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 14.3,
+    "what": "엔진 스펙 카드 (TURBO 1500cc, 195hp, 285Nm)",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 28.0,
+    "y_pct": 32.0,
+    "entrance": "밀려옴",
+    "purpose": "스펙 안내",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 50.8,
+    "what": "사이드미러 사각지대 센서 노란색 원형 강조 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 36.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 51.3,
+    "end": 53.6,
+    "what": "5 Years Warranty 150,000KM 골드 실드 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 22.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "보증 안내",
+    "sure": true
+   },
+   {
+    "start": 53.7,
+    "end": 56.0,
+    "what": "Service Package 3년 / 50,000KM 스패너/기어 그래픽",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 18.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "정비 패키지 안내",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 59.0,
+    "what": "AVM 로고 및 대표전화 19413 엔드카드",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 10.0,
+    "y_pct": 25.0,
+    "entrance": "바로",
+    "purpose": "상담 및 프로모션 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "أنا ناصر وبتصميم رياضي جداً Forthing T5 EVO",
+    "ko": "저는 나사르입니다. 아주 스포티한 디자인의 포씽 T5 EVO입니다."
+   },
+   {
+    "start": 2.6,
+    "end": 5.3,
+    "text": "زي ما بقولك رياضية جداً عندك بلاك ريمز",
+    "ko": "말씀드린 대로 아주 스포티하죠. 블랙 휠이 들어가 있고요."
+   },
+   {
+    "start": 5.4,
+    "end": 7.3,
+    "text": "DRLs الجديدة والكبوت مسحوب جداً",
+    "ko": "새로운 DRL과 길게 뻗은 보닛 라인,"
+   },
+   {
+    "start": 7.4,
+    "end": 10.0,
+    "text": "وفتحات تهوية كبيرة للموتور",
+    "ko": "그리고 엔진을 위한 커다란 흡기구가 있습니다."
+   },
+   {
+    "start": 10.1,
+    "end": 14.4,
+    "text": "وموتور 1500 تيربو 195 حصان و285 نيوتن متوصلين بـ",
+    "ko": "1500cc 터보 엔진으로 195마력과 285Nm를 발휘하며,"
+   },
+   {
+    "start": 14.5,
+    "end": 16.4,
+    "text": "فتيس DCT مبلل عشان عمره يزيد",
+    "ko": "내구성을 높인 습식 DCT 변속기가 맞물립니다."
+   },
+   {
+    "start": 16.5,
+    "end": 18.6,
+    "text": "وجوه عندك سقف بانوراما",
+    "ko": "실내에는 파노라마 선루프가 있고,"
+   },
+   {
+    "start": 18.7,
+    "end": 20.2,
+    "text": "الكراسي بتاعتك كهربا",
+    "ko": "전동 시트가 적용되었습니다."
+   },
+   {
+    "start": 20.3,
+    "end": 23.8,
+    "text": "سوفت تاتش ع التابلوه ودبل سكرين فيها آبل كاربلاي وأندرويد أوتو",
+    "ko": "대시보드는 소프트 터치 마감에 애플 카플레이와 안드로이드 오토를 지원하는 더블 스크린,"
+   },
+   {
+    "start": 23.9,
+    "end": 25.7,
+    "text": "دريكسيون مالتي فانكشن بأدابتف كروز كنترول",
+    "ko": "어댑티브 크루즈 컨트롤이 들어간 멀티펑션 스티어링 휠,"
+   },
+   {
+    "start": 25.8,
+    "end": 28.4,
+    "text": "تحكم في التكييف ومخرج شاحن واتنين كاب هولدرز",
+    "ko": "공조 제어 장치와 충전 포트, 두 개의 컵홀더가 있습니다."
+   },
+   {
+    "start": 28.5,
+    "end": 30.1,
+    "text": "من ورا البانوراما مكمل وعندك مسند للإيد",
+    "ko": "뒷좌석까지 선루프가 이어지며 암레스트가 있고,"
+   },
+   {
+    "start": 30.2,
+    "end": 33.0,
+    "text": "وتقدر تتحكم في الكرسي اللي قدامك مكان للأكياس",
+    "ko": "앞좌석을 조절하는 워크인 스위치와 쇼핑백 걸이,"
+   },
+   {
+    "start": 33.1,
+    "end": 36.1,
+    "text": "فتحات تكييف ومخرج شاحن واحد ومش تايب سي كمان",
+    "ko": "에어컨 송풍구와 충전 포트(Type-C는 아님)가 들어갑니다."
+   },
+   {
+    "start": 36.2,
+    "end": 37.4,
+    "text": "ومش تايب سي كمان",
+    "ko": "C타입이 아닌 점은 아쉽네요."
+   },
+   {
+    "start": 37.5,
+    "end": 39.4,
+    "text": "برا كل المقاييس هي أحلى شكل في الفئة",
+    "ko": "전체적으로 동급 세그먼트 중 가장 예쁜 디자인입니다."
+   },
+   {
+    "start": 39.5,
+    "end": 41.4,
+    "text": "عندك لايت بار شكله خطير لمسات رياضية",
+    "ko": "멋진 일체형 리어 라이트바와 스포티한 디테일,"
+   },
+   {
+    "start": 41.5,
+    "end": 44.4,
+    "text": "أربع فتحات إكزوست حقيقيين بس ملهمش صوت بس الشنطة كهربا",
+    "ko": "진짜 4구 배기구가 있지만 배기음은 조용하며, 전동 트렁크가 적용됩니다."
+   },
+   {
+    "start": 44.5,
+    "end": 48.0,
+    "text": "وتشيل معاك وكمان كراسيها بتنزل وتقدر تغطيها",
+    "ko": "적재공간이 넓고 2열 폴딩과 러기지 스크린도 갖췄습니다."
+   },
+   {
+    "start": 48.1,
+    "end": 50.9,
+    "text": "ولكل الشركات نقلت البلايند سبوت من هنا لهنا عبقرية",
+    "ko": "사각지대 경고등을 거울 바깥쪽으로 옮긴 건 정말 똑똑한 발상이죠."
+   },
+   {
+    "start": 51.0,
+    "end": 53.6,
+    "text": "وبضمان خمس سنين أو 150 ألف كيلو",
+    "ko": "5년 또는 15만 km 보증에,"
+   },
+   {
+    "start": 53.7,
+    "end": 56.0,
+    "text": "وسيرفيس باكيدج تلات سنين أو 50 ألف كيلو",
+    "ko": "3년 또는 5만 km 무상 정비 패키지를 제공합니다."
+   },
+   {
+    "start": 56.1,
+    "end": 59.0,
+    "text": "اتصلوا على 19413 زائد سنة تأمين",
+    "ko": "19413으로 문의하세요, 1년 보험도 추가 제공됩니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "스포티한 신차 포씽 T5 EVO 인트로"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 10.0,
+    "speed": "빠름",
+    "summary": "전면 디자인, 휠, 그릴, DRL 특징 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 10.0,
+    "end": 16.5,
+    "speed": "빠름",
+    "summary": "1.5T 엔진 출력, 토크, 습식 DCT 제원 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 16.5,
+    "end": 37.4,
+    "speed": "빠름",
+    "summary": "선루프, 듀얼 스크린, 크루즈 컨트롤, 2열 편의장치"
+   },
+   {
+    "stage": "차 소개",
+    "start": 37.4,
+    "end": 44.4,
+    "speed": "빠름",
+    "summary": "후면 라이트바, 리얼 쿼드 머플러, 전동 트렁크"
+   },
+   {
+    "stage": "기능",
+    "start": 44.4,
+    "end": 51.0,
+    "speed": "빠름",
+    "summary": "트렁크 폴딩 및 사이드미러 사각지대 인디케이터 장점"
+   },
+   {
+    "stage": "가격",
+    "start": 51.0,
+    "end": 56.1,
+    "speed": "빠름",
+    "summary": "5년 15만km 보증 및 3년 정비 패키지 혜택 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 56.1,
+    "end": 59.0,
+    "speed": "보통",
+    "summary": "AVM 대표번호 및 보험 혜택 안내 CTA"
+   }
+  ],
+  "rules": [
+   "진행자가 화면에 직접 등장해 차량 부위를 손으로 가리키며 핵심 포인트를 빠르게 짚는다",
+   "스펙 수치(마력, 토크, 엔진 배기량)는 3D 느낌의 큼직한 폰트 카드와 효과음으로 시각화한다",
+   "변속기, 크루즈 컨트롤 등 핵심 옵션은 화면상 조작 부위 근처에 볼드 텍스트 스티커를 직관적으로 띄운다",
+   "장점뿐 아니라 'USB Type-C 부재'나 '배기음 없는 리얼 머플러'처럼 솔직한 평을 유쾌하게 언급한다",
+   "영상 말미에 제조사/딜러사의 보증 기간과 서비스 혜택을 3D 배지 그래픽으로 명확하게 전달한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 14.7,
+    "end": 16.4,
+    "feature": "습식 DCT 변속기",
+    "shown_how": "글자 카드",
+    "icon_desc": "기어 노브 상단에 띄운 'DCT WET' 영문 3D 텍스트",
+    "x_pct": 58.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.6,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음 (천장을 손으로 가리키며 개방감 강조)",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.2,
+    "feature": "전동 파워 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음 (시트 측면 전동 스위치 조작)",
+    "x_pct": 35.0,
+    "y_pct": 65.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 25.7,
+    "feature": "어댑티브 크루즈 컨트롤",
+    "shown_how": "글자 카드",
+    "icon_desc": "스티어링 휠 스포크에 올린 'CRUISE CONTROL' 글자",
+    "x_pct": 60.0,
+    "y_pct": 28.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.0,
+    "feature": "동승석 워크인 디바이스 스위치",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음 (2열에서 조수석 측면 버튼 조작)",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "feature": "스마트 파워 전동 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음 (전동으로 열리는 테일게이트 시연)",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 48.4,
+    "end": 50.9,
+    "feature": "사이드미러 사각지대 경고 시스템(BSD)",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "미러 끝단 경고등 위치를 노란색 원형 그래픽으로 하이라이트",
+    "x_pct": 36.0,
+    "y_pct": 68.0,
+    "size_w_pct": 15.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 체커기와 T5 EVO 엠블럼 그래픽 사이로 걸어나오며 스포티한 차체를 자신감 있게 소개함",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر وبتصميم رياضي جداً Forthing T5 EVO",
+   "ko": "저는 나사르입니다. 매우 스포티한 디자인의 포씽 T5 EVO입니다!"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "스포티한 블랙 휠 및 역동적인 DRL 전면 스타일링",
+    "category": "디자인"
+   },
+   {
+    "t": 10.5,
+    "point": "1.5 터보 엔진으로 최고출력 195마력과 285Nm 발휘",
+    "category": "성능"
+   },
+   {
+    "t": 14.8,
+    "point": "내구성 개선을 위한 습식 듀얼 클러치(DCT WET) 변속기 장착",
+    "category": "성능"
+   },
+   {
+    "t": 17.5,
+    "point": "개방감 높은 파노라마 선루프와 운전석 전동 시트",
+    "category": "편의"
+   },
+   {
+    "t": 21.0,
+    "point": "애플 카플레이와 안드로이드 오토가 연동되는 듀얼 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 24.5,
+    "point": "스티어링 휠 어댑티브 크루즈 컨트롤 시스템",
+    "category": "안전"
+   },
+   {
+    "t": 31.0,
+    "point": "뒷좌석에서 앞좌석을 조절하는 워크인 스위치 및 편의 사양",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "실제 작동하는 쿼드 머플러 팁과 스포티한 리어 라인",
+    "category": "디자인"
+   },
+   {
+    "t": 45.0,
+    "point": "전동 테일게이트 및 2열 폴딩 가능한 넓은 적재 공간",
+    "category": "공간"
+   },
+   {
+    "t": 48.5,
+    "point": "시인성을 높인 사이드미러 외곽 사각지대 경고등",
+    "category": "안전"
+   },
+   {
+    "t": 52.0,
+    "point": "5년 15만 km 품질 보증 및 3년 5만 km 정비 패키지 제공",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 56.5,
+   "text": "19413",
+   "ko": "대표번호 19413으로 전화 상담 문의",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "휠",
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "뒷좌석",
+    "외관 후면",
+    "트렁크",
+    "외관 측면",
+    "외관 전면"
+   ]
+  }
+ }
+}

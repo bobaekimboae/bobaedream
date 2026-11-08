@@ -1,0 +1,646 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/nsP1ksYXLjc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6803,
+  "candidatesTokenCount": 5189,
+  "totalTokenCount": 11992,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5640
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.5,
+   "aspect": "9:16",
+   "car": "Porsche 911 / Macan / Range Rover Evoque / Mercedes EQA / Xiaomi SU7 / BMW i5 / Mercedes-Maybach",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 12.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 18.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 23.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 30.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 40.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.7,
+    "end": 45.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 48.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 54.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 61.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.7,
+    "end": 4.6,
+    "text": "عندي ليك صفقة نااار",
+    "ko": "너한테 대박 거래 하나 줄게",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "نااار",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.1,
+    "text": "12.000.000",
+    "ko": "12,000,000",
+    "kind": "가격",
+    "y_pct": 43.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#2EE35C",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.4,
+    "text": "22.000.000",
+    "ko": "22,000,000",
+    "kind": "가격",
+    "y_pct": 43.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#2EE35C",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.4,
+    "end": 33.5,
+    "text": "+ 2.000.000",
+    "ko": "200만 이상",
+    "kind": "가격",
+    "y_pct": 43.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#2EE35C",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "쿵",
+    "event": "대박 거래 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "띵",
+    "event": "포르쉐 로고 및 911 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "박스터 팝업 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "돈 소리",
+    "event": "1200만 가격 표시 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "돈 소리",
+    "event": "2200만 가격 표시 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "띵",
+    "event": "마칸 로고 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "띵",
+    "event": "레인지로버 이보크 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "톡",
+    "event": "옥탄 95 표기 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.1,
+    "type": "띵",
+    "event": "벤츠 EQA 로고 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.3,
+    "type": "띵",
+    "event": "샤오미 마크 및 SU7 스펙 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "샤오미 가속 급출발 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 41.6,
+    "type": "띵",
+    "event": "BMW i5 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.9,
+    "type": "톡",
+    "event": "마이바흐 로고 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트 / 코미디 배경음",
+   "bpm_est": 110,
+   "mood": "경쾌하고 유머러스함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.4,
+    "end": 7.6,
+    "what": "포르쉐 엠블럼 및 911 타이틀",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 52.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 표기",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.7,
+    "what": "박스터 이미지 및 텍스트 스티커",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 비교",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "what": "마칸 T 및 포르쉐 엠블럼",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 표기",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 22.5,
+    "what": "랜드로버 이보크 엠블럼",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 표기",
+    "sure": true
+   },
+   {
+    "start": 30.9,
+    "end": 33.8,
+    "what": "벤츠 삼각별 및 EQA 타이틀",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 표기",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.6,
+    "what": "샤오미 로고 및 YU7 690HP",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 안내",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "what": "BMW 엠블럼 및 i5",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 16.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 표기",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "الريموت ده مش شغال ليه؟",
+    "ko": "이 리모컨 왜 안 되지?"
+   },
+   {
+    "start": 2.0,
+    "end": 4.6,
+    "text": "أخيراً جيت، عندي ليك صفقة نار",
+    "ko": "드디어 왔네! 너한테 대박 거래 하나 줄게."
+   },
+   {
+    "start": 4.6,
+    "end": 7.7,
+    "text": "إيه رأيك أديلك البوكستر وتديني الـ 911؟",
+    "ko": "내가 박스터 줄 테니 911로 바꿀래?"
+   },
+   {
+    "start": 7.7,
+    "end": 12.6,
+    "text": "بكام دي؟ بـ 12؟ طب علشان خاطري أنا؟ بـ 22",
+    "ko": "이거 얼마야? 1200만? 그럼 날 봐서? 2200만."
+   },
+   {
+    "start": 12.6,
+    "end": 18.7,
+    "text": "فرجني على الماكان.. ماكان وكيل؟",
+    "ko": "마칸 좀 보여줘.. 공식 수입 마칸 맞아?"
+   },
+   {
+    "start": 18.7,
+    "end": 23.6,
+    "text": "تعالى أفرجك الإيفوك.. تحفة بس حريمي أوي",
+    "ko": "이보크 구경해봐.. 멋진데 너무 여성 취향이잖아."
+   },
+   {
+    "start": 23.6,
+    "end": 30.5,
+    "text": "بنزين إيه ده؟ بنزين 95.. خنقوني!",
+    "ko": "이건 무슨 기름 넣어? 95 옥탄.. 기름값에 숨 막히네!"
+   },
+   {
+    "start": 30.5,
+    "end": 34.6,
+    "text": "طب ما تيجي أكهربك؟ EQA.. في حتة الـ 2 وحاجة بسيطة",
+    "ko": "그럼 전기차 타볼래? EQA, 200만 언저리야."
+   },
+   {
+    "start": 34.6,
+    "end": 40.7,
+    "text": "ماعندكش الفيراري الكهربا؟ شاومي 690 حصان.. يلا بينا!",
+    "ko": "전기 페라리는 없어? 샤오미 690마력.. 바로 타보자!"
+   },
+   {
+    "start": 40.7,
+    "end": 48.8,
+    "text": "الألماني ألماني برضه، BMW i5 بروتوكول أوروبي",
+    "ko": "그래도 독일차가 최고지, BMW i5 유럽 규격 모델이야."
+   },
+   {
+    "start": 48.8,
+    "end": 54.8,
+    "text": "تعالى أقولك حاجة في المايباخ",
+    "ko": "마이바흐 안에서 얘기 좀 하자."
+   },
+   {
+    "start": 54.8,
+    "end": 61.5,
+    "text": "كل العربيات دي هتلاقيها عند إسلام عبد العزيز",
+    "ko": "이 모든 차들은 이슬람 압델아지즈 매장에 다 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "빠름",
+    "summary": "사무실 장난감 차 리모컨 상황극 후 대박 거래 제안"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.6,
+    "end": 12.6,
+    "speed": "빠름",
+    "summary": "포르쉐 911과 박스터 교환 협상 및 실내 가격 확인"
+   },
+   {
+    "stage": "차 소개",
+    "start": 12.6,
+    "end": 23.6,
+    "speed": "빠름",
+    "summary": "포르쉐 마칸 및 레인지로버 이보크 둘러보기"
+   },
+   {
+    "stage": "기능",
+    "start": 23.6,
+    "end": 40.7,
+    "speed": "빠름",
+    "summary": "유류비 고민에 벤츠 EQA 및 샤오미 SU7 전기차 시승 가속 체감"
+   },
+   {
+    "stage": "차 소개",
+    "start": 40.7,
+    "end": 54.8,
+    "speed": "빠름",
+    "summary": "BMW i5 전기차 및 벤츠 마이바흐 뒷좌석 탑승"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 54.8,
+    "end": 61.5,
+    "speed": "보통",
+    "summary": "쇼룸 앞 소개 및 매장 위치 안내 마무리"
+   }
+  ],
+  "rules": [
+   "딜러와 고객 간의 상황극 핑퐁 대화로 끊임없이 컷을 전환한다.",
+   "새로운 차량으로 넘어갈 때마다 상단에 브랜드 로고와 모델명을 팝업 스티커로 표시한다.",
+   "금액이나 스펙 언급 시 사운드 효과와 함께 굵은 글씨 그래픽을 띄운다.",
+   "정적인 설명 대신 실제 탑승하여 가속 반응을 보여주는 역동적 시승 컷을 중간에 삽입한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 24.1,
+    "end": 26.5,
+    "feature": "센터 듀얼 터치 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.6,
+    "feature": "샤오미 690마력 출력 스펙",
+    "shown_how": "글자 카드",
+    "icon_desc": "샤오미 로고와 690 HP 문구 카드",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 53.5,
+    "feature": "마이바흐 럭셔리 뒷좌석 콘솔 및 파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "사무실 책상에서 장난감 차 조종기를 누르다 딜러가 들어오자 대박 딜이 있다고 외치는 상황극",
+   "type": "행동",
+   "text": "الريموت ده مش شغال ليه؟ أخيراً جيت، عندي ليك صفقة نار",
+   "ko": "이 리모컨 왜 안 돼? 드디어 왔네, 대박 거래 제안할게"
+  },
+  "narration_points": [
+   {
+    "t": 5.0,
+    "point": "포르쉐 911 카브리올레와 박스터 차액 거래 제안",
+    "category": "가격·조건"
+   },
+   {
+    "t": 14.5,
+    "point": "2026년형 공식 수입 포르쉐 마칸 T 소개",
+    "category": "상태"
+   },
+   {
+    "t": 19.5,
+    "point": "레인지로버 이보크의 세련된 디자인 언급",
+    "category": "디자인"
+   },
+   {
+    "t": 27.0,
+    "point": "옥탄가 95 휘발유 유지비 부담 호소",
+    "category": "성능"
+   },
+   {
+    "t": 32.0,
+    "point": "가성비 좋은 벤츠 EQA 전기차 추천",
+    "category": "가격·조건"
+   },
+   {
+    "t": 36.0,
+    "point": "690마력의 폭발적 성능을 가진 샤오미 SU7 소개 및 급가속 시승",
+    "category": "성능"
+   },
+   {
+    "t": 43.0,
+    "point": "유럽 충전 프로토콜 규격의 BMW i5 소개",
+    "category": "편의"
+   },
+   {
+    "t": 50.0,
+    "point": "최고급 럭셔리 세단 메르세데스 마이바흐 승차감 체험",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 57.0,
+   "text": "تقاطع السادات مع مصطفى كامل قدام Fuel Up",
+   "ko": "사다트-무스타파 카멜 교차로 맞은편 퓨얼업 매장으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "뒷좌석",
+    "외관 전면"
+   ]
+  }
+ }
+}

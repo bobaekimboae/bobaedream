@@ -1,0 +1,616 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/qgWBRlYs2w8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5632,
+  "candidatesTokenCount": 5198,
+  "totalTokenCount": 11623,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4469
+   }
+  ],
+  "thoughtsTokenCount": 793,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.0,
+   "aspect": "9:16",
+   "car": "Chery Arrizo 5 (SEENX 광고 차량)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 9.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 14.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 23.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 27.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 39.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 43.6,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 48.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "حتى ال PAID ADs الناس بتجريهم",
+    "ko": "유료 광고마저도 사람들은 넘겨버립니다",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00E080",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PAID ADs",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 14.5,
+    "text": "تقدر تغير الإعلان / تقدر تستخدم كذا واحد",
+    "ko": "광고를 바꿀 수도 있고 여러 개를 쓸 수도 있습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D4AF37",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "밀려옴",
+    "highlight_word": "تغير الإعلان",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.5,
+    "text": "مولات / مطارات / High End",
+    "ko": "쇼핑몰 / 공항 / 고급 상권",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 8.0,
+    "color": "#FFD700",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مولات",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.5,
+    "text": "8 ساعات",
+    "ko": "하루 8시간 운행",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "8 ساعات",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.2,
+    "text": "الأسعار أقل بكثير",
+    "ko": "비용은 훨씬 저렴합니다",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أقل بكثير",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.5,
+    "text": "حركة / REACH / تأثير",
+    "ko": "이동성 / 도달률 / 영향력",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#00A859",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REACH",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "인스타그램 광고 프레임 및 달러 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.3,
+    "type": "쿵",
+    "event": "SEENX 네온 로고와 차량 전체 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "휙",
+    "event": "옥외 빌보드 비교 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "딸깍",
+    "event": "황금색 옵션 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "몰 글자 및 비행기 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "띵",
+    "event": "시계 그래픽과 8시간 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.2,
+    "type": "돈 소리",
+    "event": "지폐 쏟아지는 배경 그래픽 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 31.2,
+    "type": "휙",
+    "event": "리치 및 임팩트 화살표 아이콘 순차 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "띵",
+    "event": "뒷좌석 QR 코드 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "what": "3D 달러 사인 및 SNS 프레임",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "페이드 광고 스킵 문제 제기",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "what": "SEENX 네온 로고 타이틀",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.4,
+    "what": "고정식 옥외 광고판과 비추천 이모지",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 35.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "기존 광고 대비 단점 부각",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "what": "착륙하는 3D 비행기 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 80.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "공항 등 타겟 공간 강조",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 27.5,
+    "what": "회전하는 대형 아날로그 시계판",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 60.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "하루 노출 시간 강조",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 39.5,
+    "what": "떠오르는 대형 3D QR 코드",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "승객 인터랙션 QR 마케팅 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "حتى الـ Paid Ads الناس بتجريهم، لحد ما جات SEENX",
+    "ko": "온라인 유료 광고마저 사람들은 넘겨버리죠, SEENX가 나오기 전까지는요."
+   },
+   {
+    "start": 2.5,
+    "end": 5.0,
+    "text": "أول شبكة إعلانات متحركة في مصر",
+    "ko": "이집트 최초의 이동형 옥외 광고 네트워크입니다."
+   },
+   {
+    "start": 5.0,
+    "end": 9.5,
+    "text": "وبدل ما تبقى يافطة مملة في مكان واحد، بقت شاشة ديجيتال وفينيل بيتحركوا في كل حتة",
+    "ko": "한 곳에만 있는 지루한 간판 대신, 디지털 스크린과 래핑이 도시 곳곳을 누빕니다."
+   },
+   {
+    "start": 9.5,
+    "end": 14.5,
+    "text": "والميزة إنك مش متكتف في حاجة، تقدر تغير الإعلان أو تستخدم كذا واحد أو تستهدف منطقة معينة في ثانية",
+    "ko": "장점은 제약이 없다는 점입니다. 광고를 언제든 바꾸거나, 여러 개를 돌리거나, 특정 지역만 타겟팅할 수도 있죠."
+   },
+   {
+    "start": 14.5,
+    "end": 18.5,
+    "text": "وهم موجودين في أهم المناطق في القاهرة، وكمان طالعين الساحل",
+    "ko": "카이로 중심부는 물론 사헬(북부 해안) 휴양지까지 커버합니다."
+   },
+   {
+    "start": 18.5,
+    "end": 23.5,
+    "text": "وبتدخل أهم الأماكن: مولات، مطارات، أماكن زحمة، وكل الأماكن الـ High-End",
+    "ko": "쇼핑몰, 공항, 번화가, 고급 상권 등 핵심 지역 어디든 들어갑니다."
+   },
+   {
+    "start": 23.5,
+    "end": 27.5,
+    "text": "والعربيات بتشتغل 8 ساعات في اليوم في أوقات مختلفة، فإعلانك اللي بيروح للناس",
+    "ko": "차량들은 하루 8시간씩 다양한 시간대에 운행되어 광고가 직접 사람들을 찾아갑니다."
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "والمفاجأة الأسعار أقل بكتير من أي يافطة ديجيتال ثابتة",
+    "ko": "놀라운 건 가격이 고정형 디지털 빌보드보다 훨씬 저렴하다는 것입니다."
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "مع إن الحركة أكتر، Reach أعلى، وتأثير أقوى، وهوريك حاجة جوة",
+    "ko": "이동량이 많아 도달률과 파급력이 훨씬 크죠. 차 안도 보여드릴게요."
+   },
+   {
+    "start": 34.0,
+    "end": 39.5,
+    "text": "وعشان دي عربيات زي أوبر وكريم، حطوا للناس QR Codes وفلايرز وبروشور عشان يتفرجوا عليهم في الطريق",
+    "ko": "우버나 카림 같은 차량이라 내부 탑승객을 위해 QR코드와 리플릿도 비치되어 이동 중에 보게 됩니다."
+   },
+   {
+    "start": 39.5,
+    "end": 44.0,
+    "text": "والتنفيذ سريع جداً، تصميم الفينيل بيتعمل فوراً وبتبعت الإعلان يتعرض على الشاشة",
+    "ko": "진행도 매우 빠릅니다. 래핑 필름 시공 후 스크린에 광고를 바로 송출할 수 있습니다."
+   },
+   {
+    "start": 44.0,
+    "end": 48.0,
+    "text": "فـ SEENX هو الماركتنج الجديد، وأسطولهم بيكبر يوم عن يوم",
+    "ko": "SEENX는 마케팅의 새로운 기준이며, 보유 차량도 나날이 늘어나고 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.5,
+    "speed": "빠름",
+    "summary": "기존 온라인 유료 광고의 한계 지적 및 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.5,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "차량 루프탑 디지털 스크린과 외장 래핑 광고 서비스 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 9.5,
+    "end": 27.5,
+    "speed": "빠름",
+    "summary": "실시간 타겟팅, 운행 지역(카이로/사헬), 하루 8시간 노출"
+   },
+   {
+    "stage": "가격",
+    "start": 27.5,
+    "end": 34.0,
+    "speed": "빠름",
+    "summary": "고정 옥외광고 대비 저렴한 비용과 높은 도달률 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 34.0,
+    "end": 44.0,
+    "speed": "보통",
+    "summary": "승객용 실내 QR 코드 브로슈어 및 신속한 집행 프로세스"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 44.0,
+    "end": 48.0,
+    "speed": "보통",
+    "summary": "플랫폼 성장세 강조 및 마무리 인사"
+   }
+  ],
+  "rules": [
+   "자극적인 질문이나 문제 제기(기존 광고 한계)로 2초 내에 즉각적인 주의를 끔",
+   "화면 전환마다 3D 오브젝트(달러, 시계, 비행기, QR)를 적극 활용해 시각적 지루함 제거",
+   "말의 핵심 명사와 숫자는 굵은 자막 스티커로 즉각 팝업 처리",
+   "외부(루프탑 스크린)와 내부(승객용 QR 마케팅)를 번갈아 보여주며 입체적 혜택 전달",
+   "비트감 있는 BGM에 맞춰 컷을 신속하게 전환"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.5,
+    "end": 9.2,
+    "feature": "루프탑 디지털 광고 스크린 및 도어 래핑",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "차량 루프에 장착된 풀컬러 LED 광고 스크린",
+    "x_pct": 30.0,
+    "y_pct": 35.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 39.0,
+    "feature": "앞좌석 등받이 승객용 QR 코드 및 브로슈어 포켓",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "등받이 오거나이저 위에 떠오르는 홀로그램 3D QR 코드",
+    "x_pct": 65.0,
+    "y_pct": 35.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "SNS 광고 피드 화면에서 돈을 날리는 그래픽과 함께 사람들이 유료 광고도 넘겨버린다는 문제 제기",
+   "type": "질문",
+   "text": "حتى ال PAID ADs الناس بتجريهم",
+   "ko": "유료 광고마저 사람들은 넘겨버립니다"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "이집트 최초의 차량 탑재형 이동식 옥외 광고 네트워크",
+    "category": "희소성"
+   },
+   {
+    "t": 8.0,
+    "point": "고정식 간판과 달리 차체 래핑과 디지털 화면으로 도시 전역 순회",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "광고 소재 즉시 교체 및 특정 지역 맞춤 타겟팅 가능",
+    "category": "편의"
+   },
+   {
+    "t": 16.0,
+    "point": "카이로 주요 거점 및 사헬 고급 휴양지 진입",
+    "category": "공간"
+   },
+   {
+    "t": 25.0,
+    "point": "차량당 하루 8시간 집중 운행으로 압도적인 노출량 확보",
+    "category": "성능"
+   },
+   {
+    "t": 28.5,
+    "point": "기존 대형 디지털 빌보드 대비 합리적이고 저렴한 비용",
+    "category": "가격·조건"
+   },
+   {
+    "t": 36.0,
+    "point": "승차 공유 승객을 타겟팅한 차량 내부 전단지 및 QR코드 마케팅 지원",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 41.5,
+   "text": "ADVERTISE NOW CALL 01044709162",
+   "ko": "지금 광고를 문의하세요: 01044709162",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 측면",
+    "외관 후면",
+    "옵션 작동",
+    "외관 측면",
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "외관 측면"
+   ]
+  }
+ }
+}

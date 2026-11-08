@@ -1,0 +1,790 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/xhB2IGAQY4w",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8355,
+  "candidatesTokenCount": 6727,
+  "totalTokenCount": 15999,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7192
+   }
+  ],
+  "thoughtsTokenCount": 917,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 79.4,
+   "aspect": "9:16",
+   "car": "Nissan Patrol Nismo",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 16.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 22.4,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 32.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 35.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 37.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.3,
+    "end": 41.2,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 44.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 46.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 50.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.7,
+    "end": 53.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.6,
+    "end": 55.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.6,
+    "end": 58.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 62.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.6,
+    "end": 10.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.3,
+    "end": 73.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 73.8,
+    "end": 79.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 74.0,
+    "end": 79.4,
+    "text": "وصلة دهشور الشيخ زايد",
+    "ko": "와슬렛 다흐슈르 셰이크 자예드",
+    "kind": "키워드 스티커",
+    "y_pct": 20.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FF2B2B",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 76.5,
+    "end": 79.4,
+    "text": "16029",
+    "ko": "16029",
+    "kind": "키워드 스티커",
+    "y_pct": 11.5,
+    "x_center_pct": 54.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#1F59B2",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "쿵",
+    "event": "PATROL NISMO 그래픽 로고 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "휙",
+    "event": "후면 스포일러 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차 문 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.7,
+    "type": "딸깍",
+    "event": "쿨러 박스 콘솔 뚜껑 열기",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "딸깍",
+    "event": "디지털 룸미러 스위치 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.8,
+    "type": "휙",
+    "event": "GT-R 차량 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 64.2,
+    "type": "쿵",
+    "event": "V6 엔진 텍스트 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 65.1,
+    "type": "톡",
+    "event": "495hp 출력 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 66.8,
+    "type": "톡",
+    "event": "700Nm 토크 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 74.0,
+    "type": "톡",
+    "event": "매장 위치 핀 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 76.5,
+    "type": "톡",
+    "event": "전화번호 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "웅장하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 62.6,
+     "what": "엔진 스펙 공개 구간에서 비트 강조"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "what": "PATROL NISMO 네온 텍스트",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 소개",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 64.8,
+    "what": "닛산 GT-R 차량 그래픽",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "밀려옴",
+    "purpose": "엔진 계보 설명",
+    "sure": true
+   },
+   {
+    "start": 64.2,
+    "end": 70.3,
+    "what": "V6 텍스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 53.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 형식 강조",
+    "sure": true
+   },
+   {
+    "start": 65.1,
+    "end": 70.3,
+    "what": "495hp 출력 배너",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 32.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "마력 수치 강조",
+    "sure": true
+   },
+   {
+    "start": 66.8,
+    "end": 70.3,
+    "what": "700Nm 토크 배너",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 75.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "토크 수치 강조",
+    "sure": true
+   },
+   {
+    "start": 74.0,
+    "end": 79.4,
+    "what": "매장 위치 핀 아이콘 및 텍스트",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 52.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 76.5,
+    "end": 79.4,
+    "what": "전화기 아이콘 및 대표번호 16029",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 53.0,
+    "y_pct": 11.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "문의 전화 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "أنا ناصر، ودي الوحيدة اللي غلبت اللاند كروزر: نيسان باترول نيسمو.",
+    "ko": "저는 나사르입니다. 그리고 이것이 랜드크루저를 꺾은 유일한 차, 닛산 패트롤 니즈모입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 11.8,
+    "text": "كلنا عارفين الباترول بس دي النيسمو، سسبنشن أحسن وسرعة أعلى وموتور أكبر بيتنفس من الجريلز العملاقة دي وكبروا السبليتر الأمامي.",
+    "ko": "패트롤은 다들 아시겠지만 이건 니즈모입니다. 더 나은 서스펜션, 더 높은 속도, 거대한 그릴을 통해 숨 쉬는 더 큰 엔진과 확장된 프론트 스플리터를 갖췄습니다."
+   },
+   {
+    "start": 11.8,
+    "end": 17.0,
+    "text": "وطولوا السبويلر الخلفي عشان يزود الثبات يقلل الدراج ويحسنلك استهلاك البنزين، قال يعني هيفرق معاك.",
+    "ko": "후면 스포일러를 길게 늘려 안정성을 높이고 공기저항을 줄여 연비를 개선했습니다. 과연 연비에 신경 쓸지는 모르겠지만요."
+   },
+   {
+    "start": 17.0,
+    "end": 24.6,
+    "text": "وعشان يزودوا السرعة والثبات، الجنط بتاعك بقى أخف بأكتر من 20%، إير سسبنشن متأقلم مع الطريق، وبادي كيت معضل جداً.",
+    "ko": "속도와 안정성을 높이기 위해 휠은 20% 이상 가벼워졌고, 노면에 적응하는 에어 서스펜션과 매우 근육질인 바디킷이 적용되었습니다."
+   },
+   {
+    "start": 24.6,
+    "end": 32.8,
+    "text": "أول ما بتركب بتشم ريحة الخامات، عندك بانوراما كبير، كاميرا للخروجات، كراسي نيسمو جلد وألكانتارا فيها تسخين وتبريد ومساج.",
+    "ko": "탑승하자마자 고급 소재의 향이 느껴집니다. 대형 파노라마 선루프, 룸미러 카메라, 열선/통풍/마사지 기능이 포함된 니즈모 가죽 및 알칸타라 시트가 있습니다."
+   },
+   {
+    "start": 32.8,
+    "end": 37.0,
+    "text": "كونسول ورا المراكب ترانسميشن بيانو ديزاين، شاحن وايرلس، وكولر عشان المشروبات.",
+    "ko": "피아노 블랙 마감의 콘솔과 변속 버튼, 무선 충전기, 음료를 위한 냉장 쿨러 박스까지 갖춰져 있습니다."
+   },
+   {
+    "start": 37.0,
+    "end": 44.7,
+    "text": "عندك دريكسيون نيسمو رياضي جداً وفيه تسخين، باديل شفترز، دبل سكرين فيها آبل كاربلاي وأندرويد أوتو وبلاي ستور وجوجل.",
+    "ko": "열선이 지원되는 매우 스포티한 니즈모 스티어링 휠, 패들 시프트, 애플 카플레이, 안드로이드 오토, 플레이스토어와 구글을 지원하는 듀얼 스크린이 탑재되었습니다."
+   },
+   {
+    "start": 44.7,
+    "end": 49.3,
+    "text": "المراية بتتقلب كاميرا، ودرايف مودز: رملة، ماية، نار، طين، حلبة سباق، ومن ورا...",
+    "ko": "룸미러는 카메라로 전환되며 드라이브 모드는 모래, 물, 바위, 진흙, 트랙 모드를 지원합니다. 그리고 뒷좌석은..."
+   },
+   {
+    "start": 49.3,
+    "end": 56.0,
+    "text": "عندك شاشات للترفيه، الكراسي بتتحرك وتقدر تظبط الضهر براحتك، كاب هولدرز، شاشة للتحكم في التكييف.",
+    "ko": "엔터테인먼트 스크린이 있고, 시트 각도를 편하게 조절할 수 있으며, 컵홀더와 에어컨 제어 스크린이 마련되어 있습니다."
+   },
+   {
+    "start": 56.0,
+    "end": 62.6,
+    "text": "وعامة الباترول من أوسع العربيات اللي أنت ممكن تركبها، وفيها صف تالت بكلبس ساوند سيستم، وما تنساش تعمل فولو عشان بتنسى كل مرة.",
+    "ko": "패트롤은 탈 수 있는 가장 넓은 차 중 하나입니다. 3열 좌석과 클립쉬 사운드 시스템도 갖췄죠. 매번 잊으시니 팔로우 잊지 마세요."
+   },
+   {
+    "start": 62.6,
+    "end": 70.3,
+    "text": "وبموتور الـ GT-R، V6 توين تيربو بيطلع 495 حصان و700 نيوتن متر، يعني أكتر من الباترول العادية بـ 70 حصان.",
+    "ko": "GT-R 엔진 기반의 V6 트윈 터보로 최고출력 495마력, 최대토크 700Nm를 발휘하며 일반 패트롤보다 70마력 더 강력합니다."
+   },
+   {
+    "start": 70.3,
+    "end": 73.8,
+    "text": "وده عشان غيروا الإكزوست سيستم، المابينج مختلف، وخدوا الأويل بمب من الـ GT-R.",
+    "ko": "배기 시스템 교체, 전용 맵핑 적용, 그리고 GT-R에서 가져온 오일 펌프 덕분입니다."
+   },
+   {
+    "start": 73.8,
+    "end": 79.4,
+    "text": "وهتلاقيها في فرع اللاكجري للربطان: وصلة دهشور الشيخ زايد، واتصل على 16029.",
+    "ko": "엘 콥탄 럭셔리 지점에서 만나보실 수 있습니다: 셰이크 자예드 와슬렛 다흐슈르, 문의 전화는 16029입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "랜드크루저를 이긴 유일한 차량 소개 및 차명 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 24.6,
+    "speed": "보통",
+    "summary": "외관 에어로 파츠, 대형 그릴, 경량 휠 및 서스펜션 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 24.6,
+    "end": 49.3,
+    "speed": "빠름",
+    "summary": "실내 가죽/알칸타라 시트, 쿨박스, 듀얼 스크린, 디지털 룸미러, 주행모드 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 49.3,
+    "end": 62.6,
+    "speed": "보통",
+    "summary": "뒷좌석 모니터, 3열 공간, 클립쉬 오디오 소개 및 팔로우 유도"
+   },
+   {
+    "stage": "사양",
+    "start": 62.6,
+    "end": 73.8,
+    "speed": "빠름",
+    "summary": "GT-R 파생 V6 트윈터보 엔진 출력/토크 및 튜닝 포인트"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 73.8,
+    "end": 79.4,
+    "speed": "보통",
+    "summary": "전시장 위치 및 대표번호 안내 CTA"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 손동작과 제스처로 시선을 집중시키며 리뷰를 진행한다.",
+   "핵심 제원(출력, 토크)은 3D 텍스트 배너로 차량 상단에 직관적으로 띄운다.",
+   "옵션을 설명할 때 손가락으로 해당 부품(시트, 스위치, 쿨박스 등)을 직접 터치하거나 작동한다.",
+   "마지막에는 전시장의 위치 핀 그래픽과 콜센터 번호 스티커를 띄워 매장 방문을 유도한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 9.2,
+    "end": 11.8,
+    "feature": "프론트 스플리터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 16.0,
+    "feature": "리어 스포일러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 45.0,
+    "y_pct": 30.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.6,
+    "feature": "경량 단조 휠",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 60.0,
+    "y_pct": 55.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 32.8,
+    "feature": "니즈모 알칸타라/가죽 마사지 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 37.0,
+    "feature": "센터 콘솔 냉장고(쿨박스)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 40.0,
+    "y_pct": 60.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 44.7,
+    "feature": "듀얼 인포테인먼트 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 46.5,
+    "feature": "디지털 룸미러 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 50.7,
+    "feature": "뒷좌석 엔터테인먼트 스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 선글라스를 끼고 걸어나오며 랜드크루저를 이긴 유일한 차라고 강한 후킹 멘트를 날림",
+   "type": "행동",
+   "text": "أنا ناصر، ودي الوحيدة اللي غلبت اللاند كروزر",
+   "ko": "저는 나사르입니다. 그리고 이것이 랜드크루저를 꺾은 유일한 차입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "토요타 랜드크루저의 대항마 닛산 패트롤 니즈모 소개",
+    "category": "희소성"
+   },
+   {
+    "t": 6.5,
+    "point": "대형 전면 그릴과 커진 프론트 스플리터로 냉각 성능 극대화",
+    "category": "디자인"
+   },
+   {
+    "t": 13.0,
+    "point": "연장된 리어 스포일러로 다운포스 증가 및 공기저항 감소",
+    "category": "디자인"
+   },
+   {
+    "t": 18.5,
+    "point": "20% 경량화된 전용 휠과 어댑티브 에어 서스펜션 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "열선, 통풍, 마사지가 포함된 전용 니즈모 알칸타라 시트",
+    "category": "편의"
+   },
+   {
+    "t": 36.0,
+    "point": "센터콘솔 쿨러 박스 및 스마트폰 무선 충전 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "구글 및 안드로이드/카플레이를 지원하는 듀얼 대형 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 45.5,
+    "point": "원터치 카메라 뷰 전환 디지털 룸미러",
+    "category": "편의"
+   },
+   {
+    "t": 53.0,
+    "point": "뒷좌석 독립 모니터 및 2열 전동 조절 시트, 독립 공조기",
+    "category": "공간"
+   },
+   {
+    "t": 60.0,
+    "point": "여유로운 3열 탑승 공간과 클립쉬 프리미엄 사운드 시스템",
+    "category": "공간"
+   },
+   {
+    "t": 65.0,
+    "point": "닛산 GT-R 기반 V6 트윈터보 엔진으로 495마력, 700Nm 발휘",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 76.0,
+   "text": "وصلة دهشور الشيخ زايد، واتصل على 16029",
+   "ko": "셰이크 자예드 와슬렛 다흐슈르 지점을 방문하시거나 16029로 문의하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "휠",
+    "외관 측면",
+    "실내 앞",
+    "옵션 작동",
+    "센터 화면",
+    "뒷좌석",
+    "외관 전면",
+    "외관 후면",
+    "사람"
+   ]
+  }
+ }
+}
