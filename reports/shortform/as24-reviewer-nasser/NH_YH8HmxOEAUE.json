@@ -1,0 +1,1235 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/YH8HmxOEAUE",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8983,
+  "candidatesTokenCount": 10717,
+  "totalTokenCount": 20552,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7820
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 852,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 86.1,
+   "aspect": "9:16",
+   "car": "Ferrari Purosangue",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.9,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "part": "엔진룸",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 21.3,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 25.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 30.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 32.5,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 36.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.1,
+    "end": 39.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.3,
+    "end": 42.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 48.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 55.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 57.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 101.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 101.5,
+    "end": 104.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.0,
+    "end": 107.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.5,
+    "end": 110.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 110.0,
+    "end": 112.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 112.0,
+    "end": 116.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 116.0,
+    "end": 123.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 123.5,
+    "end": 86.1,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 6.5,
+    "end": 8.0,
+    "text": "AIR VENTS",
+    "ko": "에어 덕트",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AIR VENTS",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.0,
+    "text": "DRAG FORCE",
+    "ko": "항력 감소",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DRAG FORCE",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "DOWN FORCE+",
+    "ko": "다운포스 증가",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DOWN FORCE+",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 17.0,
+    "text": "6500cc V12",
+    "ko": "6500cc V12",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFF333",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -15.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V12",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "text": "725 HP\n715 NM",
+    "ko": "725마력 715토크",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "725 HP",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.0,
+    "text": "CARBON CERAMIC\nBRAKES",
+    "ko": "카본 세라믹 브레이크",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CARBON CERAMIC",
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 30.5,
+    "text": "CALIPERS",
+    "ko": "캘리퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CALIPERS",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.5,
+    "text": "SPECIAL RIMS",
+    "ko": "스페셜 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPECIAL RIMS",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "text": "HISTORICAL PAINT",
+    "ko": "히스토리컬 페인트",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HISTORICAL PAINT",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.0,
+    "text": "HAND PAINTED\nFERRARI SHIELD",
+    "ko": "핸드페인팅 페라리 쉴드",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HAND PAINTED",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "text": "LAUNCH CONTROL\nSUSPENSION",
+    "ko": "런치 컨트롤 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LAUNCH CONTROL",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 47.0,
+    "text": "WIRELESS\nCHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIRELESS",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.5,
+    "text": "KNOB",
+    "ko": "공조기 노브",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KNOB",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.5,
+    "text": "HIDDEN\nCUP HOLDER",
+    "ko": "히든 컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HIDDEN",
+    "sure": true
+   },
+   {
+    "start": 49.2,
+    "end": 51.5,
+    "text": "IROKO BROWN\nINTERIOR",
+    "ko": "이로코 브라운 가죽 실내",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "IROKO BROWN",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 57.0,
+    "text": "PASSENGER\nSCREEN",
+    "ko": "조수석 전용 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PASSENGER",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.0,
+    "text": "KNOB",
+    "ko": "컨트롤 노브",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KNOB",
+    "sure": true
+   },
+   {
+    "start": 59.0,
+    "end": 60.5,
+    "text": "CUP HOLDER",
+    "ko": "컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CUP HOLDER",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 62.0,
+    "text": "TRANSMISSION",
+    "ko": "변속기 스위치",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "TRANSMISSION",
+    "sure": true
+   },
+   {
+    "start": 64.0,
+    "end": 65.5,
+    "text": "HEAD UP DISPLAY",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "HEAD UP",
+    "sure": true
+   },
+   {
+    "start": 67.0,
+    "end": 68.5,
+    "text": "FERRARI MANETTINO",
+    "ko": "페라리 마네티노 다이얼",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MANETTINO",
+    "sure": true
+   },
+   {
+    "start": 70.0,
+    "end": 72.0,
+    "text": "PADDLE SHIFTERS",
+    "ko": "대형 패들 시프트",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PADDLE SHIFTERS",
+    "sure": true
+   },
+   {
+    "start": 72.0,
+    "end": 75.0,
+    "text": "BATMAN SPEC",
+    "ko": "배트맨 스펙",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BATMAN",
+    "sure": true
+   },
+   {
+    "start": 76.0,
+    "end": 80.0,
+    "text": "GOLDEN MILLER\nEXOTIC",
+    "ko": "골든 밀러 수입차",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFF333",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GOLDEN MILLER",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "페라리 로고 등장과 엔진 배기음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "톡",
+    "event": "AIR VENTS 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "휙",
+    "event": "DRAG FORCE 그래픽 및 공기흐름 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "휙",
+    "event": "DOWN FORCE+ 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.2,
+    "type": "쿵",
+    "event": "보닛 들어올릴 때 V12 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "페라리 푸로산게 V12 배기음 가속 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "톡",
+    "event": "CARBON CERAMIC BRAKES 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "띵",
+    "event": "서스펜션 애니메이션 및 다운 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "딸깍",
+    "event": "전동 도어 닫힘 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "톡",
+    "event": "공조 노브 누를 때 튀어나오는 모션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "톡",
+    "event": "센터 콘솔 노브 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.5,
+    "type": "딸깍",
+    "event": "시프트 토글 스위치 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 72.0,
+    "type": "쿵",
+    "event": "배트맨 로고 박쥐 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 21.5,
+     "what": "엔진 배기 사운드 극대화를 위해 배경음악 음소거"
+    },
+    {
+     "t": 25.5,
+     "what": "리뷰 이어지며 비트 재개"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "what": "황금 페라리 말 엠블럼 홀로그램",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 18.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 10.0,
+    "what": "에어벤트 공기흐름 노란색 궤적",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "에어로다이내믹스 원리 설명",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "what": "보닛 사이 공기배출 화살표 궤적",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 45.0,
+    "y_pct": 65.0,
+    "entrance": "밀려옴",
+    "purpose": "다운포스 생성 경로 시각화",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "what": "차고 조절 쇼바/서스펜션 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "런치 컨트롤 시 차고 하강 시연",
+    "sure": true
+   },
+   {
+    "start": 72.0,
+    "end": 75.0,
+    "what": "배트맨 박쥐 문양 그래픽 배경",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "배트맨 스펙 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر، ودي أكتر عربية مميزة عملتها فيراري: فيراري بوروسانجوي",
+    "ko": "저는 나사르입니다. 이번에 페라리가 만든 가장 특별한 차, 페라리 푸로산게입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 14.5,
+    "text": "مختلفة جداً من قدام، ده مش فانوس، دول Air Vents، والهوا بيعدي يقلل الـ Drag، ومن هنا يزود الـ Downforce",
+    "ko": "전면부가 아주 색다릅니다. 이건 헤드램프가 아니라 에어 벤트예요. 공기가 흘러 항력을 줄이고, 이쪽 구멍으로 다운포스를 만듭니다."
+   },
+   {
+    "start": 14.5,
+    "end": 21.3,
+    "text": "والموتور V12 6500cc بيطلع 725 حصان و715 نيوتن",
+    "ko": "엔진은 6,500cc 자연흡기 V12로 최고출력 725마력, 715Nm 토크를 냅니다."
+   },
+   {
+    "start": 21.3,
+    "end": 25.5,
+    "text": "بوروسانجوي!",
+    "ko": "푸로산게 배기음 들어보시죠!"
+   },
+   {
+    "start": 25.5,
+    "end": 39.3,
+    "text": "كاربون سيراميك بريكس، كاليبرز بنفس الخياطة، ولون كانا دي فوتشيل أوباکو، والشيلد هاند بينتد تمنه كليتين",
+    "ko": "카본 세라믹 브레이크에 스티치와 맞춘 캘리퍼, 전용 무광 그레이 페인트와 수작업 페인팅 쉴드까지 들어갔습니다."
+   },
+   {
+    "start": 39.3,
+    "end": 42.0,
+    "text": "وأول ما تجيبها على الـ Launch Control السيسبنشن بيوطى",
+    "ko": "런치 컨트롤을 켜면 서스펜션이 자동으로 낮아집니다."
+   },
+   {
+    "start": 42.0,
+    "end": 51.5,
+    "text": "وعشان تقفل الباب بتدوس هنا، شاحن وايرلس، نوب للتحكم، كوب هولدر مستخبي، وفرش إيروكو براون",
+    "ko": "버튼으로 전동 도어를 닫고, 무선 충전기와 팝업 노브, 히든 컵홀더, 이로코 브라운 가죽 실내가 반겨줍니다."
+   },
+   {
+    "start": 51.5,
+    "end": 64.0,
+    "text": "كاربون فايبر مطعم بالنحاس، شاشة للراكب، وكونسول فيراري الجديد، اللي عمل العربية دي فنان",
+    "ko": "구리가 섞인 카본 트림과 동승석 화면, 새로운 센터 콘솔까지, 이걸 디자인한 사람은 진정한 예술가입니다."
+   },
+   {
+    "start": 64.0,
+    "end": 72.0,
+    "text": "هيد اب ديسبلاي، أحسن طارة بتتحكم منها بـ 80% من العربية، وبادل شيفترز عملاقة",
+    "ko": "헤드업 디스플레이와 차량 기능의 80%를 조작하는 스티어링 휠, 거대한 패들 시프트가 있습니다."
+   },
+   {
+    "start": 72.0,
+    "end": 76.0,
+    "text": "باتمان سبيك ده الوحيد في مصر",
+    "ko": "이 배트맨 스펙 푸로산게는 이집트에서 단 한 대뿐입니다."
+   },
+   {
+    "start": 76.0,
+    "end": 86.1,
+    "text": "هتلاقوه في جولدن ميلر، متخصصين في استيراد العربيات الإكزوتيك، وأهم حاجة الكاش!",
+    "ko": "슈퍼카 수입 전문 골든 밀러에서 만나보실 수 있습니다. 가장 중요한 건 역시 현금이죠!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "진행자 자기소개 및 이집트에 들어온 희귀 페라리 푸로산게 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 14.5,
+    "speed": "빠름",
+    "summary": "전면 에어로다이내믹스(에어벤트 덕트 및 다운포스 구조) 해설"
+   },
+   {
+    "stage": "사양",
+    "start": 14.5,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "6.5L V12 엔진 스펙 및 후면 리얼 배기 사운드 청음"
+   },
+   {
+    "stage": "기능",
+    "start": 25.5,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "브레이크, 스페셜 외장 컬러, 핸드페인티드 쉴드, 런치컨트롤 차고 조절"
+   },
+   {
+    "stage": "기능",
+    "start": 42.0,
+    "end": 72.0,
+    "speed": "빠름",
+    "summary": "실내 코치도어, 팝업 노브, 구리 카본, 스티어링 휠 버튼 조작 등 실내 디테일"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 72.0,
+    "end": 86.1,
+    "speed": "보통",
+    "summary": "배트맨 스펙 희소성 언급 및 딜러사(골든 밀러) 소개, 엔딩 멘트"
+   }
+  ],
+  "rules": [
+   "말하는 기능이나 부품의 이름을 영문 대문자 볼드 노란색 키워드로 화면 중앙에 팝업 노출",
+   "공기 흐름이나 서스펜션 작동은 CG 화살표 및 3D 그래픽을 합성해 즉각적으로 직관적 이해 유도",
+   "배기음을 들려주는 구간(0:21~0:25)에서는 배경음악을 완전히 줄여 실제 사운드에 몰입하게 함",
+   "설명하는 세부 부품(버튼, 컵홀더, 레버 등)을 직접 손가락으로 누르고 가리키는 동작을 필수 삽입"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.5,
+    "end": 8.0,
+    "feature": "프론트 에어 덕트",
+    "shown_how": "글자 카드",
+    "icon_desc": "AIR VENTS 글자 및 노란색 공기흐름 애니메이션",
+    "x_pct": 50.0,
+    "y_pct": 33.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "feature": "V12 자연흡기 엔진",
+    "shown_how": "글자 카드",
+    "icon_desc": "6500cc V12 기울어진 텍스트 카드",
+    "x_pct": 50.0,
+    "y_pct": 36.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.0,
+    "feature": "카본 세라믹 브레이크",
+    "shown_how": "글자 카드",
+    "icon_desc": "CARBON CERAMIC BRAKES 영문 스티커",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.0,
+    "feature": "핸드페인티드 페라리 쉴드",
+    "shown_how": "확대",
+    "icon_desc": "HAND PAINTED FERRARI SHIELD 텍스트와 펜더 엠블럼 클로즈업",
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 41.5,
+    "feature": "런치 컨트롤 서스펜션 로워링",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "노란색 코일오버 서스펜션 스프링 3D 모델",
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.5,
+    "feature": "뒷좌석 전동 도어 닫힘 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "B필러 안쪽 버튼 손으로 직접 누르고 문 닫힘 확인",
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "feature": "팝업 공조 조작 다이얼(노브)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "KNOB 텍스트와 함께 중앙 콘솔 다이얼을 누르면 솟아오름",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.5,
+    "feature": "히든 컵홀더",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락으로 커버를 눌러 컵홀더 공간이 열림",
+    "x_pct": 50.0,
+    "y_pct": 42.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 57.0,
+    "feature": "조수석 전용 인포테인먼트 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "PASSENGER SCREEN 글자와 함께 속도/회전수 표시 화면",
+    "x_pct": 50.0,
+    "y_pct": 36.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 62.0,
+    "feature": "게이트 타입 전자식 기어 셀렉터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "클래식 수동 변속기 게이트를 형상화한 토글 조작",
+    "x_pct": 50.0,
+    "y_pct": 42.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 67.0,
+    "end": 69.0,
+    "feature": "스티어링 마네티노 주행모드 다이얼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "FERRARI MANETTINO 다이얼을 엄지로 직접 돌림",
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "화려한 대저택 앞 무광 그레이 페라리 푸로산게 앞에서 리뷰어가 팔을 뻗으며 자신감 넘치게 오프닝을 엶",
+   "type": "희귀차",
+   "text": "أنا ناصر، ودي أكتر عربية مميزة عملتها فيراري: فيراري بوروسانجوي",
+   "ko": "저는 나사르입니다. 이번에 페라리가 만든 가장 특별한 차, 페라리 푸로산게입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "페라리 역사상 가장 독특하고 특별한 차 푸로산게 소개",
+    "category": "희소성"
+   },
+   {
+    "t": 6.0,
+    "point": "헤드램프 자리가 아닌 에어로다이내믹을 위한 공기 흡입구 구조",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "보닛 상부 에어 덕트를 통해 차체를 눌러주는 다운포스 생성",
+    "category": "성능"
+   },
+   {
+    "t": 16.0,
+    "point": "6.5L V12 대배기량 자연흡기 엔진, 725마력의 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 28.0,
+    "point": "카본 세라믹 브레이크와 인테리어 스티치 색상 일치 캘리퍼",
+    "category": "디자인"
+   },
+   {
+    "t": 33.0,
+    "point": "Canna di Fucile Opaco 무광 히스토리컬 컬러 페인트 옵션",
+    "category": "디자인"
+   },
+   {
+    "t": 37.0,
+    "point": "신장 두 개 가격에 달하는 고가의 수작업 도색 펜더 쉴드",
+    "category": "가격·조건"
+   },
+   {
+    "t": 40.0,
+    "point": "런치 컨트롤 시 자세를 낮추는 전자제어 서스펜션 시스템",
+    "category": "성능"
+   },
+   {
+    "t": 43.0,
+    "point": "뒷좌석 코치도어를 버튼 하나로 닫는 전동 클로징 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 47.0,
+    "point": "터치식으로 팝업되는 뒷좌석 전용 공조 컨트롤 노브",
+    "category": "편의"
+   },
+   {
+    "t": 50.0,
+    "point": "고급스러운 이탈리아 감성의 이로코 브라운 가죽 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 53.0,
+    "point": "시트 색상과 조화를 이루는 구리 원사를 엮은 카본 트림",
+    "category": "디자인"
+   },
+   {
+    "t": 56.0,
+    "point": "동승자 전용 주행 정보 및 미디어 스크린 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 66.0,
+    "point": "차량 기능의 80%를 스티어링 휠에서 원터치로 조작 가능",
+    "category": "편의"
+   },
+   {
+    "t": 74.0,
+    "point": "이집트에서 단 1대뿐인 주문 제작 '배트맨 스펙'",
+    "category": "희소성"
+   },
+   {
+    "t": 78.0,
+    "point": "익조틱 카 전문 수입 매장 골든 밀러 보유 차량 안내",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 84.0,
+   "text": "ما تنساش تعملي فولو عشان يتقابل تاني",
+   "ko": "다시 만날 수 있도록 팔로우 누르는 것 잊지 마세요!",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "엔진룸",
+    "외관 후면",
+    "휠",
+    "외관 측면",
+    "뒷좌석",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "기타"
+   ]
+  }
+ }
+}

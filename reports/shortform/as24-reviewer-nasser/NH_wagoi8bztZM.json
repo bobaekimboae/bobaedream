@@ -1,0 +1,1308 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/wagoi8bztZM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6905,
+  "candidatesTokenCount": 13123,
+  "totalTokenCount": 20802,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5742
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 774,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 63.7,
+   "aspect": "9:16",
+   "car": "Lynk & Co 08",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 5.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 7.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 11.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.2,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.3,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 27.6,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 33.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.6,
+    "end": 36.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 38.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.4,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 48.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.7,
+    "end": 55.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 58.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.9,
+    "end": 63.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "ناصر",
+    "ko": "나세르",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.6,
+    "text": "ومش فاهم ازاي",
+    "ko": "이해가 안 가네요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 2.8,
+    "text": "دي بسعر",
+    "ko": "이 가격에",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.8,
+    "text": "08 LYNK&CO",
+    "ko": "링크앤코 08",
+    "kind": "제목",
+    "y_pct": 38.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 9.0,
+    "color": "#C4C4C4",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.2,
+    "text": "فتحات تهوية",
+    "ko": "통풍구",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.3,
+    "text": "18.5 CM",
+    "ko": "18.5 cm",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "text": "BLIND SPOT",
+    "ko": "사각지대 감지",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.0,
+    "text": "19\"",
+    "ko": "19인치",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.8,
+    "text": "LYNK&CO PLUGIN HYBRID 345 HP 580 NM",
+    "ko": "링크앤코 플러그인 하이브리드 345마력 580Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 14.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.2,
+    "text": "RANGE 1400 CLTC KM",
+    "ko": "주행거리 1400km (CLTC)",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.2,
+    "text": "273 L",
+    "ko": "트렁크 용량",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.6,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 31.7,
+    "text": "مساج",
+    "ko": "마사지",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.6,
+    "text": "AMBIENT LIGHT",
+    "ko": "앰비언트 라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 35.8,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 39.8,
+    "text": "DIGITAL DISPLAY",
+    "ko": "디지털 계기판",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 40.8,
+    "text": "SENSOR",
+    "ko": "운전자 감지 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.0,
+    "text": "تسخين",
+    "ko": "스티어링 휠 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 57.5,
+    "text": "كل الألوان",
+    "ko": "전 색상 보유",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 63.6,
+    "text": "امتداد شارع الصاعقة\nطريق اوتوستراد\nمساكن شيراتون",
+    "ko": "알 사카 거리 연장선 / 오토스트라드 도로 / 쉐라톤 주택단지",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "톡",
+    "event": "이름 자막 및 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.7,
+    "type": "휙",
+    "event": "티구안·스포티지 자동차 이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "쿵",
+    "event": "Lynk & Co 로고 및 차 전환 인트로 샷",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "딸깍",
+    "event": "헤드라이트 점등 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "휙",
+    "event": "최저지상고 18.5 cm 화살표 그래픽 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.9,
+    "type": "띵",
+    "event": "블라인드 스팟 아이콘 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.6,
+    "type": "톡",
+    "event": "19인치 휠 수치 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.8,
+    "type": "휙",
+    "event": "스펙 네온 프레임 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.3,
+    "type": "휙",
+    "event": "주행거리 스펙 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "톡",
+    "event": "트렁크 리터 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "열선 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "휙",
+    "event": "앰비언트 라이트 컬러 슬라이더 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "톡",
+    "event": "무선충전 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.2,
+    "type": "딸깍",
+    "event": "카메라 셔터 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.2,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.9,
+    "type": "띵",
+    "event": "센서 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "톡",
+    "event": "핸들 열선 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "음성 명령으로 창문 내려가는 모터 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.5,
+    "type": "딸깍",
+    "event": "화면 터치로 글로브박스 잠금 해제 딸깍 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.8,
+    "type": "돈 소리",
+    "event": "글로브박스 귀중품 보관 설명 시 달러($$$) 스티커 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.6,
+    "type": "톡",
+    "event": "매장 위치 핀 아이콘 및 주소 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "what": "반짝이 별 효과 이모티콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "소개 강조",
+    "sure": true
+   },
+   {
+    "start": 1.6,
+    "end": 2.8,
+    "what": "폭스바겐 티구안 & 기아 스포티지 차량 컷아웃 이미지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.3,
+    "what": "최저지상고 화살표 및 수치 표시 카드",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 75.0,
+    "y_pct": 72.0,
+    "entrance": "밀려옴",
+    "purpose": "차고 수치 전달",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "what": "사각지대 경고등 자동차 2D 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 52.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 19.8,
+    "what": "네온 프레임 스펙 박스 (345 HP / 580 NM)",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 72.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 스펙 시각화",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.2,
+    "what": "주행거리 안내 네온 보드 카드 (1400 KM)",
+    "is_3d": false,
+    "size_w_pct": 36.0,
+    "x_pct": 28.0,
+    "y_pct": 46.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 정보 안내",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 30.2,
+    "what": "스피커 사운드 파형 아이콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "헤드레스트 스피커 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "what": "시트 발열 열선 일러스트",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 48.0,
+    "y_pct": 62.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "열선 시트 시각화",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.6,
+    "what": "RGB 앰비언트 라이트 컬러 팔레트 슬라이더 바",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 60.0,
+    "y_pct": 78.0,
+    "entrance": "밀려옴",
+    "purpose": "무드램프 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.0,
+    "what": "카메라 아이콘",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "실내 셀피 카메라 위치 지목",
+    "sure": true
+   },
+   {
+    "start": 37.1,
+    "end": 38.6,
+    "what": "애플 카플레이 및 안드로이드 오토 앱 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스마트폰 연동 편의 기능 안내",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.0,
+    "what": "스티어링 휠 열선 불꽃 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 26.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "핸들 열선 옵션 표시",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 51.5,
+    "what": "초록색 달러 기호($$$) 그래픽",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 55.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "귀중품 보관 안전성 강조",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 63.6,
+    "what": "빨간색 지도 위치 핀 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 48.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "أنا ناصر ومش فاهم إزاي دي بسعر تيجوان وسبورتاج؟",
+    "ko": "저는 나세르입니다. 어떻게 이 차가 티구안, 스포티지 가격대인지 이해가 안 가네요?"
+   },
+   {
+    "start": 3.0,
+    "end": 5.0,
+    "text": "لينك آند كو 08",
+    "ko": "링크앤코 08입니다."
+   },
+   {
+    "start": 5.1,
+    "end": 7.8,
+    "text": "من قدام عندك كريستال DRLs، ده الهيدلايت",
+    "ko": "전면부에는 크리스털 주간주행등과 헤드라이트가 있고,"
+   },
+   {
+    "start": 7.9,
+    "end": 11.3,
+    "text": "فتحات تهوية للموتور وجراوند كليرنس 18.5 سم",
+    "ko": "엔진 냉각 통풍구와 최저지상고 18.5cm를 갖췄습니다."
+   },
+   {
+    "start": 11.4,
+    "end": 13.5,
+    "text": "عندك مرايات فريملس وبلايند سبوت اسيست",
+    "ko": "프레임리스 사이드 미러와 사각지대 어시스트,"
+   },
+   {
+    "start": 13.5,
+    "end": 16.1,
+    "text": "TPMS وجنط تو تون مقاس 19",
+    "ko": "공기압 경보장치와 19인치 투톤 휠이 장착됩니다."
+   },
+   {
+    "start": 16.2,
+    "end": 20.0,
+    "text": "وبلاجن هايبرد بتطلع 345 حصان و 580 نيوتن",
+    "ko": "플러그인 하이브리드로 최고출력 345마력, 최대토크 580Nm을 발휘하며,"
+   },
+   {
+    "start": 20.0,
+    "end": 23.5,
+    "text": "والرينج بتاعها 1400 كم CLTC وبروتوكول شحن أوروبي",
+    "ko": "CLTC 기준 복합 주행거리는 1,400km에 유럽식 충전 규격을 지원합니다."
+   },
+   {
+    "start": 23.6,
+    "end": 26.3,
+    "text": "وترنك سبيس 545 لتر",
+    "ko": "트렁크 공간은 기본 545리터이며,"
+   },
+   {
+    "start": 26.3,
+    "end": 27.6,
+    "text": "وكمان الكراسي بتنزل",
+    "ko": "시트 폴딩도 지원됩니다."
+   },
+   {
+    "start": 27.6,
+    "end": 31.6,
+    "text": "عندك سقف بانوراما، وسماعات في الهيدريست، والكراسي فيها تسخين وتبريد ومساج",
+    "ko": "파노라마 루프와 헤드레스트 내장 스피커, 통풍·열선·마사지 시트가 적용되었고,"
+   },
+   {
+    "start": 31.7,
+    "end": 33.6,
+    "text": "و أمبينت لايت شكله خطير جداً",
+    "ko": "앰비언트 라이트 연출도 대단히 멋집니다."
+   },
+   {
+    "start": 33.6,
+    "end": 36.0,
+    "text": "شاحن وايرلس، كاب هولدرز، ومساحة تخزين",
+    "ko": "무선 충전기와 컵홀더, 수납공간이 있고,"
+   },
+   {
+    "start": 36.0,
+    "end": 38.6,
+    "text": "عندك كاميرا سيلفي، وأبل كاربلاي وأندرويد أوتو",
+    "ko": "실내 셀피 카메라와 애플 카플레이, 안드로이드 오토 지원,"
+   },
+   {
+    "start": 38.6,
+    "end": 42.3,
+    "text": "ديجيتال ديسبلاي، سنسور عشان يراقب انتباهك، دريكسيون تسخين",
+    "ko": "디지털 클러스터와 운전자 주의 경고 센서, 핸들 열선까지 갖췄습니다."
+   },
+   {
+    "start": 42.4,
+    "end": 47.9,
+    "text": "ولو دوست هنا.. Hello, open my window. (Okay, opening the front left window)",
+    "ko": "그리고 여기 버튼을 누르고 말하면.. '내 창문 열어줘' (네, 운전석 창문을 엽니다)"
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "text": "وتقدر تعمل باسوورد للجلوف بوكس عشان لو معاك حاجة غالية جوة العربية",
+    "ko": "차 안에 귀중품을 둘 때를 대비해 글로브박스에 비밀번호를 설정할 수도 있습니다."
+   },
+   {
+    "start": 51.5,
+    "end": 53.7,
+    "text": "وعندك كنبة كويسة وأجود أنواع الخامات",
+    "ko": "뒷좌석 공간도 넉넉하고 최고급 마감재를 사용했으며,"
+   },
+   {
+    "start": 53.7,
+    "end": 55.7,
+    "text": "حتى الساوند سيستم من هارمن كاردون",
+    "ko": "사운드 시스템까지 하만카돈 제품입니다."
+   },
+   {
+    "start": 55.7,
+    "end": 58.9,
+    "text": "وفي منها كل الألوان الداخلية والخارجية وكلهم استلام فوري",
+    "ko": "내외장 모든 컬러가 준비되어 있으며 전량 즉시 출고 가능합니다."
+   },
+   {
+    "start": 59.0,
+    "end": 63.6,
+    "text": "وهتلاقيهم في ويلز بالـ Z، امتداد شارع الصاعقة، طريق أوتوستراد، مساكن شيراتون",
+    "ko": "WHEELZ(Z로 끝나는 휠즈) 매장으로 오시면 됩니다. 알 사카 거리 연장선, 오토스트라드 도로, 쉐라톤 주택단지입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "진행자 자기소개 및 티구안·스포티지 가격대 비교 충격 질문"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 5.0,
+    "speed": "보통",
+    "summary": "Lynk & Co 08 차량명 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 5.0,
+    "end": 23.5,
+    "speed": "빠름",
+    "summary": "외관 전면 램프, 지상고, 휠, PHEV 출력 및 복합 주행거리 사양 요약"
+   },
+   {
+    "stage": "기능",
+    "start": 23.5,
+    "end": 55.7,
+    "speed": "빠름",
+    "summary": "트렁크, 시트(열선/통풍/마사지/스피커), 음성 제어 창문, 글로브박스 잠금, 하만카돈 오디오"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 55.7,
+    "end": 63.7,
+    "speed": "보통",
+    "summary": "야외 주차장 전 색상 보유 즉시 출고 안내 및 WHEELZ 딜러십 위치 소개"
+   }
+  ],
+  "rules": [
+   "진행자의 손동작과 시선이 닿는 부위에 정확히 일치하는 모션 그래픽과 텍스트를 배치한다.",
+   "각 기능 옵션마다 고유의 사운드 이펙트(톡, 띵, 셔터음, 딸깍)를 1:1로 매칭하여 청각적 몰입감을 극대화한다.",
+   "차량의 핵심 성능 수치(마력, 토크, 주행거리)는 네온 박스 스타일의 큰 그래픽으로 한눈에 보이게 강조한다.",
+   "차량 음성인식 명령을 직접 시연하고 차량 반응 음성을 그대로 삽입해 신뢰도와 흥미를 유발한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 5.1,
+    "end": 7.8,
+    "feature": "크리스털 주간주행등 및 LED 헤드라이트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.3,
+    "feature": "최저지상고 측정(18.5cm)",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "상향 화살표 및 수치 카드",
+    "x_pct": 75.0,
+    "y_pct": 72.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "feature": "사각지대 감지(BLIND SPOT)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "두 대의 차량과 사각지대 레이더 파형",
+    "x_pct": 52.0,
+    "y_pct": 30.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 30.2,
+    "feature": "헤드레스트 내장 스피커",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "소리 방출 스피커 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "size_w_pct": 10.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.7,
+    "feature": "열선/통풍/마사지 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "주황색 열선 효과와 글자 태그",
+    "x_pct": 48.0,
+    "y_pct": 60.0,
+    "size_w_pct": 28.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.6,
+    "feature": "앰비언트 라이트",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "슬라이더 색상 조절 바",
+    "x_pct": 60.0,
+    "y_pct": 78.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.0,
+    "feature": "실내 셀피 카메라",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "노란색 카메라 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "size_w_pct": 10.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 42.0,
+    "feature": "스티어링 휠 열선",
+    "shown_how": "글자 카드",
+    "icon_desc": "불타는 열선 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 26.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 47.9,
+    "feature": "음성 제어 창문 개폐",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.5,
+    "feature": "비밀번호 보호 글로브박스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "화면 비밀번호 입력 터치 및 달러 기호",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "돈 소리",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 자신을 소개하며 '이 차가 어떻게 티구안, 스포티지와 같은 가격대인지 믿을 수 없다'며 강한 비교 질문으로 시작",
+   "type": "가격",
+   "text": "أنا ناصر ومش فاهم إزاي دي بسعر تيجوان وسبورتاج؟",
+   "ko": "저는 나세르입니다. 어떻게 이 차가 티구안, 스포티지 가격대인지 이해가 안 가네요?"
+  },
+  "narration_points": [
+   {
+    "t": 1.6,
+    "point": "티구안, 스포티지와 동급 가격대의 높은 가성비",
+    "category": "가격·조건"
+   },
+   {
+    "t": 6.0,
+    "point": "크리스털 디자인 DRL 및 헤드램프 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 10.0,
+    "point": "18.5cm의 넉넉한 최저지상고 확보",
+    "category": "성능"
+   },
+   {
+    "t": 12.0,
+    "point": "프레임리스 사이드미러 및 사각지대 어시스트 탑재",
+    "category": "안전"
+   },
+   {
+    "t": 17.5,
+    "point": "합산 출력 345마력, 최대토크 580Nm의 강력한 PHEV 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 21.0,
+    "point": "최대 1,400km 주행 가능 및 유럽 규격 충전 포트 지원",
+    "category": "성능"
+   },
+   {
+    "t": 25.0,
+    "point": "545L의 넓은 기본 트렁크 공간 및 2열 폴딩 지원",
+    "category": "공간"
+   },
+   {
+    "t": 29.0,
+    "point": "헤드레스트 스피커와 시트 열선/통풍/마사지 지원",
+    "category": "편의"
+   },
+   {
+    "t": 44.0,
+    "point": "자연어 음성 인식으로 창문 개폐 제어 가능",
+    "category": "편의"
+   },
+   {
+    "t": 49.0,
+    "point": "디스플레이 비밀번호 설정으로 보호되는 글로브박스",
+    "category": "편의"
+   },
+   {
+    "t": 54.5,
+    "point": "하만카돈 프리미엄 오디오 시스템 기본 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 57.5,
+    "point": "다양한 내외장 컬러 즉시 출고 가능",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 60.5,
+   "text": "هتلاقيهم في ويلز بالـ Z، امتداد شارع الصاعقة، مساكن شيراتون",
+   "ko": "쉐라톤 주택단지 알 사카 거리 연장선 WHEELZ 전시장으로 방문하세요.",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 측면",
+    "휠",
+    "외관 전면",
+    "외관 측면",
+    "트렁크",
+    "실내 앞",
+    "옵션 작동",
+    "계기판",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 전면",
+    "사람"
+   ]
+  }
+ }
+}

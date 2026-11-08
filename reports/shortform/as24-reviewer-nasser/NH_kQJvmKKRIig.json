@@ -1,0 +1,887 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/kQJvmKKRIig",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6815,
+  "candidatesTokenCount": 7567,
+  "totalTokenCount": 14939,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5652
+   }
+  ],
+  "thoughtsTokenCount": 557,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 62.4,
+   "aspect": "9:16",
+   "car": "Masterkey Automotive 종합 매물 (캐딜락 에스컬레이드, 포르쉐 카이엔, 벤츠 라인업 등)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.6,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 34.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 37.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 40.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.4,
+    "end": 43.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.7,
+    "end": 46.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 49.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 53.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 57.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 62.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "لو هتشتري عربية قريب الفيديو ده ليك",
+    "ko": "조만간 차를 살 계획이라면 이 영상을 보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.9,
+    "text": "CADILLAC ESCALADE 14,500,000",
+    "ko": "캐딜락 에스컬레이드 14,500,000",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 34.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 9.8,
+    "text": "ESCALADE V 18,888,888",
+    "ko": "에스컬레이드 V 18,888,888",
+    "kind": "가격",
+    "y_pct": 23.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "text": "Cayenne S 9,700,000",
+    "ko": "카이엔 S 9,700,000",
+    "kind": "가격",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 16.7,
+    "text": "GLE 53 8,300,000",
+    "ko": "GLE 53 8,300,000",
+    "kind": "가격",
+    "y_pct": 25.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.9,
+    "text": "GLC 300 5,900,000",
+    "ko": "GLC 300 5,900,000",
+    "kind": "가격",
+    "y_pct": 33.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.6,
+    "text": "MERCEDES GLC 43 7,600,000",
+    "ko": "메르세데스 GLC 43 7,600,000",
+    "kind": "가격",
+    "y_pct": 26.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.6,
+    "end": 24.8,
+    "text": "EXCLUSIVE E200 6,000,000",
+    "ko": "익스클루시브 E200 6,000,000",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.7,
+    "text": "MERCEDES A35 4,600,000",
+    "ko": "메르세데스 A35 4,600,000",
+    "kind": "가격",
+    "y_pct": 24.0,
+    "x_center_pct": 64.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.0,
+    "text": "MERCEDES C200 4,200,000",
+    "ko": "메르세데스 C200 4,200,000",
+    "kind": "가격",
+    "y_pct": 31.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 34.8,
+    "text": "MERCEDES C180 3,500,000",
+    "ko": "메르세데스 C180 3,500,000",
+    "kind": "가격",
+    "y_pct": 26.0,
+    "x_center_pct": 64.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 37.4,
+    "text": "CUPRA FORMENTOR 2,150,000",
+    "ko": "쿠프라 포르멘토르 2,150,000",
+    "kind": "가격",
+    "y_pct": 31.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.4,
+    "end": 40.4,
+    "text": "CUPRA TERRAMAR 2,200,000",
+    "ko": "쿠프라 테라마르 2,200,000",
+    "kind": "가격",
+    "y_pct": 23.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.4,
+    "end": 43.7,
+    "text": "SEAT IBIZA FR 1,390,000",
+    "ko": "세아트 이비자 FR 1,390,000",
+    "kind": "가격",
+    "y_pct": 33.0,
+    "x_center_pct": 44.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.7,
+    "end": 46.2,
+    "text": "SUZUKI SWIFT 875,000",
+    "ko": "스즈키 스위프트 875,000",
+    "kind": "가격",
+    "y_pct": 24.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.5,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 49.8,
+    "text": "TOYOTA COROLLA 1,550,000",
+    "ko": "도요타 코롤라 1,550,000",
+    "kind": "가격",
+    "y_pct": 38.0,
+    "x_center_pct": 26.0,
+    "text_height_pct": 6.0,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "휙",
+    "event": "인트로 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.0,
+    "type": "톡",
+    "event": "캐딜락 에스컬레이드 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.9,
+    "type": "톡",
+    "event": "에스컬레이드 V 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "톡",
+    "event": "포르쉐 카이엔 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "톡",
+    "event": "GLE 53 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.7,
+    "type": "톡",
+    "event": "GLC 300 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "톡",
+    "event": "GLC 43 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.6,
+    "type": "톡",
+    "event": "E200 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "톡",
+    "event": "A35 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.7,
+    "type": "톡",
+    "event": "C200 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "톡",
+    "event": "C180 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.8,
+    "type": "톡",
+    "event": "쿠프라 포르멘토르 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.4,
+    "type": "톡",
+    "event": "쿠프라 테라마르 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.4,
+    "type": "톡",
+    "event": "세아트 이비자 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.7,
+    "type": "톡",
+    "event": "스즈키 스위프트 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.2,
+    "type": "톡",
+    "event": "코롤라 가격 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "고압 세차건 분사 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 15.2,
+    "end": 16.7,
+    "what": "BMW X6 비교 이미지 오버레이",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 52.0,
+    "y_pct": 23.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "경쟁 차종 비교 안내",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.8,
+    "what": "탁송 배송 집 아이콘 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 60.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "집 앞 배송 서비스 안내",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.5,
+    "what": "SOUEAST, MG, NISSAN 브랜드 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "취급 브랜드 안내",
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 62.4,
+    "what": "위치 핀 마커 및 매장 주소 카드 (Sky Mall, محور مصطفى كامل)",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "쇼룸 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "لو هتشتري عربية قريب الفيديو ده ليك",
+    "ko": "조만간 차를 살 계획이라면 이 영상은 당신을 위한 것입니다."
+   },
+   {
+    "start": 2.0,
+    "end": 3.9,
+    "text": "كاديلاك إسكاليد ب 14.5",
+    "ko": "캐딜락 에스컬레이드는 1,450만 EGP입니다."
+   },
+   {
+    "start": 3.9,
+    "end": 9.8,
+    "text": "والـ V بـ 18 مليون و 888 ألف و 888 جنيه",
+    "ko": "그리고 에스컬레이드 V는 18,888,888 파운드입니다."
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "text": "بورش كايين إس بـ 9 مليون و 700",
+    "ko": "포르쉐 카이엔 S는 970만 파운드이고 이 색상은 밖에서 찾기 힘듭니다."
+   },
+   {
+    "start": 12.8,
+    "end": 16.7,
+    "text": "و GLE 53 بـ 8 مليون و 300",
+    "ko": "GLE 53은 830만 파운드이며 X6의 가장 강력한 경쟁자입니다."
+   },
+   {
+    "start": 16.7,
+    "end": 19.9,
+    "text": "GLC 300 بـ 5 مليون و 900",
+    "ko": "GLC 300은 590만 파운드입니다."
+   },
+   {
+    "start": 19.9,
+    "end": 22.6,
+    "text": "الـ 43 بـ 7 مليون و 600",
+    "ko": "특별한 걸 원하신다면 43 AMG는 760만 파운드입니다."
+   },
+   {
+    "start": 22.6,
+    "end": 24.8,
+    "text": "و E200 إكسكلوسيف بـ 6 مليون جنيه",
+    "ko": "E200 익스클루시브는 600만 파운드입니다."
+   },
+   {
+    "start": 24.8,
+    "end": 28.7,
+    "text": "ولو شاب وبتحب الجري A35 بـ 4 مليون و 600 زيرو",
+    "ko": "달리는 걸 좋아하는 젊은 층이라면 A35 신차 460만 파운드입니다."
+   },
+   {
+    "start": 28.7,
+    "end": 32.0,
+    "text": "معشوقة الجماهير C200 بـ 4 مليون و 200",
+    "ko": "모두의 사랑 C200은 420만 파운드입니다."
+   },
+   {
+    "start": 32.0,
+    "end": 34.8,
+    "text": "والـ 180 بـ 3 مليون و 500",
+    "ko": "C180은 350만 파운드로 예산에 맞춰 드립니다."
+   },
+   {
+    "start": 34.8,
+    "end": 37.4,
+    "text": "الفورمنتور بـ 2 مليون و 150",
+    "ko": "포르멘토르는 215만 파운드입니다."
+   },
+   {
+    "start": 37.4,
+    "end": 40.4,
+    "text": "والتيرامار بـ 2 مليون و 200 وعليها خصم كبير",
+    "ko": "테라마르는 220만 파운드에 정가 대비 큰 할인이 들어갑니다."
+   },
+   {
+    "start": 40.4,
+    "end": 43.7,
+    "text": "وعشان البنات إيبيزا FR بـ مليون و 390",
+    "ko": "여성분들을 위한 이비자 FR은 139만 파운드입니다."
+   },
+   {
+    "start": 43.7,
+    "end": 46.2,
+    "text": "سوزوكي سويفت بـ 875 ألف",
+    "ko": "스즈키 스위프트는 87만 5천 파운드입니다."
+   },
+   {
+    "start": 46.2,
+    "end": 49.8,
+    "text": "كورولا بـ مليون و 550 والونش بيجبهملك لحد البيت",
+    "ko": "코롤라는 155만 파운드이며 집 앞까지 탁송해 드립니다."
+   },
+   {
+    "start": 49.8,
+    "end": 53.5,
+    "text": "وعربيات تانية من ساوإيست وإم جي ونيسان",
+    "ko": "그 외에도 소우이스트, MG, 닛산 차량들도 준비되어 있습니다."
+   },
+   {
+    "start": 53.5,
+    "end": 57.8,
+    "text": "وعندهم مغسلة متحركة بيقدروا يجولك في أي حتة",
+    "ko": "뉴 카이로 어디든 찾아가는 이동식 출장 세차 서비스도 있습니다."
+   },
+   {
+    "start": 57.8,
+    "end": 62.4,
+    "text": "والعنوان ماستر كي التجمع الأول محور مصطفى كامل سكاي مول مستنيكم",
+    "ko": "주소는 마스터키, 퍼스트 세틀먼트 무스타파 카멜 축 스카이몰입니다. 기다릴게요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.0,
+    "speed": "빠름",
+    "summary": "차 살 사람들을 위한 쇼룸 재고 및 가격 안내 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.0,
+    "end": 49.8,
+    "speed": "빠름",
+    "summary": "에스컬레이드부터 스위프트까지 가격과 타깃층을 빠르게 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 49.8,
+    "end": 57.8,
+    "speed": "빠름",
+    "summary": "기타 입고 브랜드 소개 및 방문 세차 밴 서비스 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 57.8,
+    "end": 62.4,
+    "speed": "보통",
+    "summary": "매장 위치(스카이몰) 안내 및 방문 유도"
+   }
+  ],
+  "rules": [
+   "차량 1대당 2~3초 내외로 가격과 모델명을 상단에 굵은 네온 그린 3D 텍스트로 고정 표시",
+   "화면 전환마다 컷 편집과 함께 짧은 효과음을 넣어 지루함을 최소화",
+   "다양한 가격대(87만 파운드부터 1,880만 파운드까지)를 순차/분류별로 나열하여 폭넓은 시청자 타깃 커버",
+   "마지막에 출장 세차 서비스와 오프라인 매장 위치 그래픽 핀을 띄워 신뢰도 및 행동 유도 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 53.5,
+    "end": 57.8,
+    "feature": "이동식 출장 세차 서비스 밴",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "고압 세척기 장비를 탑재한 전용 밴과 고압수 분사 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "고압 세차건 분사 소리",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 쇼룸 야외 주차장 전경에서 시청자를 가리키며 차 살 계획이 있다면 집중하라고 외침",
+   "type": "질문",
+   "text": "لو هتشتري عربية قريب الفيديو ده ليك",
+   "ko": "조만간 차를 사실 계획이라면 이 영상은 당신을 위한 영상입니다"
+  },
+  "narration_points": [
+   {
+    "t": 2.0,
+    "point": "캐딜락 에스컬레이드 일반 모델과 고성능 V 모델 가격 공개",
+    "category": "가격·조건"
+   },
+   {
+    "t": 9.8,
+    "point": "포르쉐 카이엔 S의 희귀한 레드 컬러 강조",
+    "category": "희소성"
+   },
+   {
+    "t": 12.8,
+    "point": "GLE 53 AMG를 BMW X6의 최강 라이벌로 지목",
+    "category": "성능"
+   },
+   {
+    "t": 24.8,
+    "point": "젊은 층을 위한 스포티 해치백 A35 AMG 신차 추천",
+    "category": "성능"
+   },
+   {
+    "t": 37.4,
+    "point": "쿠프라 테라마르에 적용되는 대규모 프로모션 할인 언급",
+    "category": "가격·조건"
+   },
+   {
+    "t": 46.2,
+    "point": "코롤라 구매 시 집 앞까지 무료 탁송 혜택 제공",
+    "category": "편의"
+   },
+   {
+    "t": 53.5,
+    "point": "뉴 카이로 전 지역 방문 이동식 세차 밴 서비스 운영",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 58.0,
+   "text": "مستنيكم في ماستر كي سكاي مول",
+   "ko": "마스터키 스카이몰 쇼룸에서 여러분을 기다립니다",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 전면",
+    "외관 측면",
+    "외관 전면",
+    "외관 측면",
+    "기타",
+    "외관 측면"
+   ]
+  }
+ }
+}

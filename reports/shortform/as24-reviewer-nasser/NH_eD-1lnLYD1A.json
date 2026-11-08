@@ -1,0 +1,1162 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/eD-1lnLYD1A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6354,
+  "candidatesTokenCount": 9860,
+  "totalTokenCount": 16214,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5191
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "BYD Sealion 05 (DM-i)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 24.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 28.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 30.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 37.9,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.9,
+    "end": 40.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 44.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 47.9,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 49.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.6,
+    "end": 51.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.8,
+    "end": 57.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.7,
+    "end": 4.2,
+    "text": "BYD SEALION 5",
+    "ko": "BYD 실라이언 5",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.0,
+    "text": "لو عايز حجم",
+    "ko": "만약 큰 크기를 원한다면",
+    "kind": "말 자막",
+    "y_pct": 14.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 8.0,
+    "text": "وعايز توفر",
+    "ko": "비용을 절약하고 싶다면",
+    "kind": "말 자막",
+    "y_pct": 25.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 10.5,
+    "text": "هتديلك كل\nاللي هتحتاجة",
+    "ko": "필요한 모든 것을 줄 것입니다",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "text": "لاسرتك الجميلة",
+    "ko": "당신의 아름다운 가족을 위해",
+    "kind": "말 자막",
+    "y_pct": 29.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.0,
+    "text": "واسعة\nمريحة",
+    "ko": "넓고 편안한",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 13.5,
+    "text": "علشان الأولاد\nيبقوا مرتاحين",
+    "ko": "아이들이 편안하도록",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.0,
+    "text": "خامات\nتقفيل",
+    "ko": "내장재와 마감 품질",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "text": "فلوسك\nهتتقدر",
+    "ko": "돈값을 톡톡히 하는",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.5,
+    "text": "كل مميزات\nالكهرباء",
+    "ko": "전기차의 모든 장점",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "text": "من غير\nانها تفصل",
+    "ko": "방전 걱정 없이",
+    "kind": "말 자막",
+    "y_pct": 48.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "DMI\nبطارية / موتور بنزين",
+    "ko": "DMI / 배터리 / 가솔린 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "1000\nKM",
+    "ko": "1000 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.8,
+    "text": "موفر\nجداً",
+    "ko": "매우 경제적",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.0,
+    "text": "5L/100KM",
+    "ko": "100km당 5리터",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "وجعانين\nدلوقتي",
+    "ko": "지금 배가 고프다면",
+    "kind": "말 자막",
+    "y_pct": 20.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.0,
+    "text": "مشترك",
+    "ko": "멀티탭",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "text": "AIRFRYER",
+    "ko": "에어프라이어",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "text": "عربية البيبي / حاجة السفر / المدرسة",
+    "ko": "유모차 / 여행 짐 / 등교 용품",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 45.0,
+    "text": "17CM",
+    "ko": "지상고 17cm",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 46.5,
+    "text": "360\nCAMERAS",
+    "ko": "360도 서라운드 뷰",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.5,
+    "text": "ADAPTIVE\nCRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 51.5,
+    "text": "6\nSPEAKERS",
+    "ko": "스피커 6개",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.8,
+    "end": 53.5,
+    "text": "7\nAIRBAG",
+    "ko": "에어백 7개",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 55.5,
+    "text": "تشتري ؟؟!!",
+    "ko": "사시겠습니까??!!",
+    "kind": "말 자막",
+    "y_pct": 22.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "쿵",
+    "event": "차량 모델명 타이틀 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "돈 소리",
+    "event": "1M 절약 그래픽 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.4,
+    "type": "톡",
+    "event": "실내 공간 측정 눈금 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.6,
+    "type": "톡",
+    "event": "품질 텍스트 및 별 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "전기 플러그 금지 표시 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "띵",
+    "event": "1000KM 그래픽 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.6,
+    "type": "딸깍",
+    "event": "V2L 충전구 어댑터 꽂는 순간",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "톡",
+    "event": "트렁크 짐 카테고리 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "톡",
+    "event": "지상고 17cm 눈금자 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "띵",
+    "event": "360 카메라 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "톡",
+    "event": "어댑티브 크루즈 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 51.8,
+    "type": "쿵",
+    "event": "7 에어백 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.7,
+    "end": 4.2,
+    "what": "BYD SEALION 5 메탈릭 텍스트 로고",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 표기",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "what": "경쟁 모델(티구안, 스포티지) 미니어처 차량 일러스트 및 1M EGP 절약 스티커",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비교 및 가격 경쟁력 강조",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.0,
+    "what": "실내 시트 폭 점선 눈금자 및 체크 아이콘",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 55.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "넓은 레그룸 강조",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "what": "DMI 구동계 말풍선 (배터리 및 가솔린 엔진 아이콘)",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플러그인 하이브리드 파워트레인 원리 설명",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.7,
+    "what": "V2L 멀티탭 및 에어프라이어 작동 아이콘",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "야외 가전 활용성 시연",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 44.5,
+    "what": "범퍼 하단 지상고 17CM 실측 눈금자",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 35.0,
+    "y_pct": 68.0,
+    "entrance": "밀려옴",
+    "purpose": "방지턱 통과 유리함 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "لو بابا أو ماما وعايز عربية للبيت هي دي",
+    "ko": "만약 당신이 아빠나 엄마이고 가족을 위한 패밀리카를 찾고 있다면 바로 이 차입니다."
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "text": "BYD Sealion 5",
+    "ko": "BYD 실라이언 5."
+   },
+   {
+    "start": 4.5,
+    "end": 8.0,
+    "text": "لو عايز حجم التيجوان والسبورتاج وعايز توفر مليون جنيه دي اختيار هايل",
+    "ko": "티구안이나 스포티지 크기를 원하면서 100만 파운드를 아끼고 싶다면 훌륭한 선택입니다."
+   },
+   {
+    "start": 8.0,
+    "end": 11.0,
+    "text": "عشان هتديلك كل اللي هتحتاجه لأسرتك الجميلة، يلا بينا!",
+    "ko": "화목한 가족에게 필요한 모든 것을 제공해주니까요, 함께 보시죠!"
+   },
+   {
+    "start": 11.0,
+    "end": 13.5,
+    "text": "كنبة واسعة ومريحة علشان الأولاد يبقوا مرتاحين",
+    "ko": "아이들이 편안하게 탈 수 있는 넓고 안락한 뒷좌석 시트,"
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "خامات وتقفيل كويس ففلوسك هتتقدر",
+    "ko": "좋은 마감과 소재로 지불한 돈이 아깝지 않습니다."
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "بعدين مش كهربا، دي DM-i، فكل مميزات الكهرباء من غير ستريس إنها تفصل",
+    "ko": "순수 전기차가 아닌 DM-i 모델이라, 방전 스트레스 없이 전기차의 모든 장점을 누립니다."
+   },
+   {
+    "start": 20.0,
+    "end": 24.0,
+    "text": "DM-i يعني مع البطارية في موتور بنزين بيدولك في الشحنة 1000 كم يا بلاش",
+    "ko": "DM-i는 배터리와 가솔린 엔진이 함께 작동해 한 번 충전/주유로 무려 1000km를 달립니다."
+   },
+   {
+    "start": 24.0,
+    "end": 28.0,
+    "text": "واستهلاك البنزين موفر جداً في حتة الـ 5 لتر للـ 100 كم",
+    "ko": "연비 또한 100km당 5리터 수준으로 극강의 효율을 자랑합니다."
+   },
+   {
+    "start": 28.0,
+    "end": 30.5,
+    "text": "طب لو قفشت مع الولاد وجعانين دلوقتي؟",
+    "ko": "만약 드라이브 중 아이들이 배고프다고 보챈다면?"
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "عندك مشترك هتوصليه بالعربية وتشغلي بوتاجاز، ايرفراير، اعتبري نفسك في المطبخ",
+    "ko": "차량에 V2L 멀티탭을 꽂아 인덕션이나 에어프라이어를 바로 사용할 수 있습니다."
+   },
+   {
+    "start": 34.0,
+    "end": 38.0,
+    "text": "وعندك شنطة تشيل عربية البيبي، حاجة السفر، المدرسة، اللي إنتِ عايزاه",
+    "ko": "유모차, 여행 가방, 등교 용품 등 원하는 짐을 다 싣는 넓은 트렁크,"
+   },
+   {
+    "start": 38.0,
+    "end": 42.0,
+    "text": "وبكل بساطة كراسي العربية مع العفشة بتاعتها مريحين جداً لو مشاويرك طويلة",
+    "ko": "편안한 시트와 서스펜션 세팅 덕분에 장거리 주행도 아주 편안하죠."
+   },
+   {
+    "start": 42.0,
+    "end": 45.0,
+    "text": "وارتفاع 17 سم فهتدوسي على المطبات براحتك",
+    "ko": "17cm의 최저지상고로 과속방지턱도 거침없이 넘습니다."
+   },
+   {
+    "start": 45.0,
+    "end": 49.5,
+    "text": "ده غير الكاميرات الـ 360 والأبل كاربلاي والأندرويد أوتو والأدابتيف كروز كنترول",
+    "ko": "360도 카메라, 애플 카플레이, 안드로이드 오토, 어댑티브 크루즈 컨트롤에 더해,"
+   },
+   {
+    "start": 49.5,
+    "end": 52.0,
+    "text": "6 سبيكرز والسقف بانوراما",
+    "ko": "6개의 스피커와 광활한 파노라마 선루프,"
+   },
+   {
+    "start": 52.0,
+    "end": 54.5,
+    "text": "و 7 ايرباج وأنظمة أمان كاملة",
+    "ko": "7개의 에어백과 완벽한 안전 시스템까지 갖췄습니다."
+   },
+   {
+    "start": 54.5,
+    "end": 57.0,
+    "text": "إيه رأيك؟ تشتري؟",
+    "ko": "어떠신가요? 구매하시겠습니까?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "패밀리카 타깃 제안 및 모델명 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 10.8,
+    "speed": "빠름",
+    "summary": "경쟁 차급 대비 100만 파운드 절약 가성비 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 10.8,
+    "end": 28.1,
+    "speed": "빠름",
+    "summary": "실내 거주성, 하이브리드 파워트레인 장점(1000km 주행, 5L 연비)"
+   },
+   {
+    "stage": "기능",
+    "start": 28.1,
+    "end": 54.0,
+    "speed": "빠름",
+    "summary": "V2L 야외 전력 공급, 트렁크, 지상고 및 주행보조/편의사양 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 54.0,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "구매 의사 질문(CTA) 및 주행 퇴장"
+   }
+  ],
+  "rules": [
+   "진행자의 신속한 걸음걸이와 화면 전환으로 지루할 틈 없는 템포 유지",
+   "스펙을 수치(1000km, 5L, 17cm, 7 Airbag) 그래픽 카드로 시각화하여 전달력 극대화",
+   "가정용 멀티탭(V2L)을 충전구에 꽂는 직접적 시연을 통해 패밀리 라이프스타일 기능 강조",
+   "경쟁 차종(스포티지, 티구안)과의 실질적인 금액 차이를 그래픽으로 직관적 비교",
+   "키워드 등장 시마다 '톡' 또는 '띵' 효과음을 매칭하여 몰입감 향상"
+  ],
+  "option_highlights": [
+   {
+    "start": 11.4,
+    "end": 13.0,
+    "feature": "뒷좌석 레그룸 폭",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "시트 폭을 측정하는 점선 그래픽 가이드",
+    "x_pct": 55.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "feature": "DM-i 플러그인 하이브리드 시스템",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "배터리와 가솔린 엔진을 잇는 파워트레인 다이어그램",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.7,
+    "feature": "V2L 외부 전력 공급 기능",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "외부 멀티탭을 차량 충전구에 직접 꽂아 보여줌",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.5,
+    "feature": "최저지상고 17cm",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "프론트 범퍼 하단 지상고 치수 눈금자 스티커",
+    "x_pct": 35.0,
+    "y_pct": 68.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 47.5,
+    "feature": "360도 어라운드 뷰 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "터치스크린 화면 조작 및 3D 뷰 회전",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.5,
+    "feature": "어댑티브 크루즈 컨트롤 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "스티어링 휠 좌측 ACC 조작 버튼 클로즈업",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.0,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "천장을 향해 손을 뻗으며 개방감 시연",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "카메라를 향해 걸어오며 부모들을 위한 최고의 패밀리카라고 선언 후 차량 전면 공개",
+   "type": "질문",
+   "text": "لو بابا أو ماما وعايز عربية للبيت هي دي",
+   "ko": "아빠나 엄마인데 집에서 탈 패밀리카를 찾으신다면 바로 이겁니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "가족용 패밀리카로 최적의 크기와 편의성 제공",
+    "category": "공간"
+   },
+   {
+    "t": 5.5,
+    "point": "스포티지·티구안 급 크기지만 100만 파운드 절감 가능한 가격 경쟁력",
+    "category": "가격·조건"
+   },
+   {
+    "t": 11.5,
+    "point": "아이들이 편하게 탈 수 있는 넓은 2열 레그룸",
+    "category": "공간"
+   },
+   {
+    "t": 14.0,
+    "point": "가격 대비 우수한 내장재 마감 품질",
+    "category": "디자인"
+   },
+   {
+    "t": 17.5,
+    "point": "방전 스트레스 없이 전기차 장점을 누리는 DM-i 플러그인 하이브리드",
+    "category": "성능"
+   },
+   {
+    "t": 22.5,
+    "point": "완충/주유 시 복합 주행거리 1,000km 달성",
+    "category": "성능"
+   },
+   {
+    "t": 26.0,
+    "point": "100km당 5리터(20km/L)에 달하는 높은 연비",
+    "category": "성능"
+   },
+   {
+    "t": 31.0,
+    "point": "야외에서 멀티탭과 조리 가전을 사용할 수 있는 V2L 기능",
+    "category": "편의"
+   },
+   {
+    "t": 35.5,
+    "point": "유모차와 캠핑 장비를 넉넉하게 싣는 적재 공간",
+    "category": "공간"
+   },
+   {
+    "t": 43.0,
+    "point": "17cm의 높은 지상고로 험로와 방지턱을 편안하게 극복",
+    "category": "성능"
+   },
+   {
+    "t": 46.0,
+    "point": "360도 카메라, 스마트폰 미러링, 주행보조 시스템 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 52.0,
+    "point": "7개 에어백 탑재로 완성된 패밀리 안전 시스템",
+    "category": "안전"
+   }
+  ],
+  "cta": {
+   "t": 54.5,
+   "text": "إيه رأيك؟ تشتري؟",
+   "ko": "어떻게 생각하시나요? 구매하시겠습니까?",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "뒷좌석",
+    "실내 앞",
+    "외관 후면",
+    "외관 충전구(V2L)",
+    "트렁크",
+    "휠",
+    "외관 전면 하단",
+    "센터 화면",
+    "계기판",
+    "선루프",
+    "운전석 윈도우 주행 컷"
+   ]
+  }
+ }
+}

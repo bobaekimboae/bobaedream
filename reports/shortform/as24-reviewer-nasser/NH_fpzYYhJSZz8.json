@@ -1,0 +1,1031 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/fpzYYhJSZz8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8548,
+  "candidatesTokenCount": 8363,
+  "totalTokenCount": 16911,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7385
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 81.0,
+   "aspect": "9:16",
+   "car": "Mercedes-Maybach S 580",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 11.2,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 15.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.3,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 21.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 28.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 30.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 33.2,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 38.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 44.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.3,
+    "end": 50.0,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 57.7,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 104.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.0,
+    "end": 109.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 109.2,
+    "end": 112.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 112.0,
+    "end": 114.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 114.0,
+    "end": 116.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 116.5,
+    "end": 121.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.7,
+    "end": 5.8,
+    "text": "S580 MAYBACH",
+    "ko": "S580 마이바흐",
+    "kind": "키워드 스티커",
+    "y_pct": 32,
+    "x_center_pct": 80,
+    "text_height_pct": 4.5,
+    "color": "#D4AF37",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.1,
+    "text": "شاشات للترفيه",
+    "ko": "엔터테인먼트 스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 28,
+    "x_center_pct": 80,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "تاكل",
+    "ko": "식사",
+    "kind": "키워드 스티커",
+    "y_pct": 32,
+    "x_center_pct": 75,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#333333",
+    "bg_width_pct": 35,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.5,
+    "text": "تشتغل عليها",
+    "ko": "업무용",
+    "kind": "키워드 스티커",
+    "y_pct": 41,
+    "x_center_pct": 80,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#333333",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.1,
+    "end": 16.5,
+    "text": "!! أنا هاكل",
+    "ko": "난 밥 먹을래!!",
+    "kind": "키워드 스티커",
+    "y_pct": 38,
+    "x_center_pct": 82,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#1C39BB",
+    "bg_width_pct": null,
+    "tilt_deg": -8,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.0,
+    "text": "تبريد",
+    "ko": "통풍(냉각)",
+    "kind": "키워드 스티커",
+    "y_pct": 48,
+    "x_center_pct": 85,
+    "text_height_pct": 5.0,
+    "color": "#00BFFF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.0,
+    "text": "زيادة الأمان",
+    "ko": "안전성 강화",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 35,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1E90FF",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.0,
+    "text": "BELT BAG",
+    "ko": "벨트백",
+    "kind": "키워드 스티커",
+    "y_pct": 68,
+    "x_center_pct": 60,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "text": "الستاير الجانبية",
+    "ko": "측면 전동 선블라인드",
+    "kind": "키워드 스티커",
+    "y_pct": 44,
+    "x_center_pct": 75,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "text": "لو المساحة مش عاجباك",
+    "ko": "공간이 맘에 안 든다면",
+    "kind": "키워드 스티커",
+    "y_pct": 72,
+    "x_center_pct": 25,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#CC0000",
+    "bg_width_pct": 45,
+    "tilt_deg": -90,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "text": "ثلاجة",
+    "ko": "냉장고",
+    "kind": "키워드 스티커",
+    "y_pct": 42,
+    "x_center_pct": 50,
+    "text_height_pct": 6.0,
+    "color": "#00BFFF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "text": "TABLET للتحكم",
+    "ko": "제어용 태블릿",
+    "kind": "키워드 스티커",
+    "y_pct": 14,
+    "x_center_pct": 40,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.5,
+    "text": "مكان للكاسات",
+    "ko": "샴페인 잔 홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 68,
+    "x_center_pct": 80,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#800020",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.5,
+    "text": "CUP HOLDERS",
+    "ko": "컵 홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 38,
+    "x_center_pct": 48,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 38.2,
+    "text": "4 ZONE",
+    "ko": "4구역 독립 에어컨",
+    "kind": "키워드 스티커",
+    "y_pct": 33,
+    "x_center_pct": 20,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.5,
+    "text": "64 AMBIENT LIGHT",
+    "ko": "64색 앰비언트 라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 25,
+    "x_center_pct": 75,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 50.0,
+    "text": "متفاعلين مع درجة الحرارة",
+    "ko": "온도 연동 반응형",
+    "kind": "키워드 스티커",
+    "y_pct": 47,
+    "x_center_pct": 75,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#008080",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 52.0,
+    "text": "TWO TONE RIMS 21",
+    "ko": "투톤 21인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 32,
+    "x_center_pct": 65,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 55.5,
+    "end": 58.0,
+    "text": "REAR AXLE STEERING",
+    "ko": "리어 액슬 스티어링 (후륜 조향)",
+    "kind": "키워드 스티커",
+    "y_pct": 23,
+    "x_center_pct": 50,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 59.5,
+    "end": 64.0,
+    "text": "V8 TWIN TURBO 500 HP 700 NM",
+    "ko": "V8 트윈터보 500마력 700Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 48,
+    "x_center_pct": 50,
+    "text_height_pct": 6.5,
+    "color": "#FFD700",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "쿵",
+    "event": "인트로 비트 드롭 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "S580 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 도어 닫힘 모터 및 닫히는 쾅 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "톡",
+    "event": "모니터 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "센터 테이블 수납장 열리는 딸깍 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "식사 스티커 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "휙",
+    "event": "시트 통풍 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "딸깍",
+    "event": "안전벨트 체결 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "선블라인드 전동 모터 구동음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "냉장고 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "딸깍",
+    "event": "센터 콘솔 커버 오픈",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "딸깍",
+    "event": "글러브박스 오픈 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.0,
+    "type": "휙",
+    "event": "후륜 조향 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 100.0,
+    "type": "쿵",
+    "event": "엔진 스펙 타이틀 팝업 비트",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 105,
+   "mood": "리드미컬하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 7.3,
+    "end": 8.8,
+    "what": "전동 도어 닫힘 방향 점선 화살표",
+    "is_3d": false,
+    "size_w_pct": 25,
+    "x_pct": 35,
+    "y_pct": 48,
+    "entrance": "밀려옴",
+    "purpose": "옵션 작동 표시",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "what": "부드러운 헤드레스트 베개 강조 프레임",
+    "is_3d": false,
+    "size_w_pct": 28,
+    "x_pct": 72,
+    "y_pct": 28,
+    "entrance": "톡 튀어나옴",
+    "purpose": "특징 강조",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "what": "넓은 레그룸 공간 표시 양방향 화살표",
+    "is_3d": false,
+    "size_w_pct": 45,
+    "x_pct": 52,
+    "y_pct": 45,
+    "entrance": "밀려옴",
+    "purpose": "공간감 강조",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 52.5,
+    "what": "21인치 휠 강조 골드빛 그래픽 효과",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 42,
+    "entrance": "페이드",
+    "purpose": "휠 디자인 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "أنا ناصر، ولو فاكر مرسيدس عربياتها فخمة، لازم تشوف دي!",
+    "ko": "저는 나사르입니다. 벤츠가 럭셔리하다고 생각하셨다면 이건 꼭 보셔야 합니다!"
+   },
+   {
+    "start": 3.0,
+    "end": 5.8,
+    "text": "S580 مايباخ.",
+    "ko": "S580 마이바흐입니다."
+   },
+   {
+    "start": 5.8,
+    "end": 8.9,
+    "text": "أول لما بتركب بتدوس هنا، والباب بتاعك هيقفل.",
+    "ko": "탑승 후 여기를 누르면 문이 자동으로 닫힙니다."
+   },
+   {
+    "start": 8.9,
+    "end": 11.2,
+    "text": "وهيبقى عندك شاشات للترفيه عشان تتسلى.",
+    "ko": "그리고 지루하지 않게 엔터테인먼트 스크린도 제공됩니다."
+   },
+   {
+    "start": 11.2,
+    "end": 16.0,
+    "text": "ولو رفعت دي، هيبقى عندك ترابيزة تاكل أو تشتغل عليها.. أنا هاكل!",
+    "ko": "여기를 열면 식사하거나 일할 수 있는 테이블이 나옵니다.. 난 먹을래요!"
+   },
+   {
+    "start": 16.0,
+    "end": 20.0,
+    "text": "مبدئياً دي مايباخ، فأكيد أريح كراسي وفيها تسخين وتبريد ومساج.. وزيادة الأمان الحزام فيه إيرباج.",
+    "ko": "기본적으로 마이바흐라 최고로 편한 시트에 열선, 통풍, 마사지가 있고 안전을 위해 벨트백 에어백도 있습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 28.5,
+    "text": "لو دوست هنا هتتحكم في الستاير الجانبية والخلفية وفتحة السقف.. ولو المساحة مش عاجباك، دوس هنا وهيبقى عندك مساحة ولا ريسبشن البيت!",
+    "ko": "버튼으로 측면/후면 블라인드와 선루프를 조절하고, 공간이 부족하면 여기 눌러서 거실만큼 넓힐 수 있죠!"
+   },
+   {
+    "start": 28.5,
+    "end": 38.0,
+    "text": "عندك تلاجة للمشروبات، تابلت للتحكم، مكان للكاسات مع تسخين وتبريد، وتكييف 4 زون.",
+    "ko": "음료 냉장고, 컨트롤 태블릿, 보온/보냉 컵홀더, 4존 풀오토 에어컨이 탑재되어 있습니다."
+   },
+   {
+    "start": 38.0,
+    "end": 50.0,
+    "text": "سقف بانوراما جلد وفيه ستيتش، وتحت التابلوه مكان للـ Scent، وأمبرينت لايت 64 لون متفاعلين مع الحرارة.",
+    "ko": "스티치 가죽 파노라마 루프에 향수 디퓨저, 온도에 반응하는 64색 앰비언트 라이트까지 적용됐습니다."
+   },
+   {
+    "start": 50.0,
+    "end": 57.7,
+    "text": "تو تون ريمز 21 إنش، وعزل صوت ممتاز، وعشان تلف بأضيق الملفات عندك رير أكسل ستيرنج.",
+    "ko": "21인치 투톤 휠, 완벽한 방음, 그리고 좁은 길 유턴을 위한 후륜 조향 장치도 있습니다."
+   },
+   {
+    "start": 57.7,
+    "end": 64.0,
+    "text": "وعشان تزق اليخت ده، محتاج موتور V8 توين تيربو بيطلع 500 حصان و 700 نيوتن.",
+    "ko": "이 호화 요트를 밀어붙이기 위해 500마력 700Nm 토크의 V8 트윈터보 엔진이 들어갔습니다."
+   },
+   {
+    "start": 64.0,
+    "end": 81.0,
+    "text": "والعنوان معرض رونيكس.. وعندهم عربيات تانية كتير استلام فوري أو تستورد عربيتك معاهم.",
+    "ko": "위치는 로넥스 전시장입니다. 즉시 출고나 수입 대행 가능한 다양한 차량들이 준비되어 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "벤츠 끝판왕 럭셔리카 예고"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.0,
+    "end": 5.8,
+    "speed": "보통",
+    "summary": "메르세데스-마이바흐 S580 명명"
+   },
+   {
+    "stage": "기능",
+    "start": 5.8,
+    "end": 38.0,
+    "speed": "빠름",
+    "summary": "뒷좌석 자동 도어, 테이블, 통풍/마사지, 태블릿, 냉장고 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 38.0,
+    "end": 64.0,
+    "speed": "빠름",
+    "summary": "실내 가죽/앰비언트, 21인치 휠, 후륜조향, V8 엔진 제원"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 64.0,
+    "end": 81.0,
+    "speed": "보통",
+    "summary": "전시장 위치 및 다른 수입차 재고 소개 및 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 작동 버튼을 누르고 그에 따른 차체의 반응(문 닫힘, 테이블 펼쳐짐 등)을 실제 소리와 함께 동기화하여 보여줌",
+   "화면 우측 또는 중앙에 굵직한 아랍어 키워드 스티커를 팝업 효과음과 함께 띄워 직관성 극대화",
+   "스펙 수치(500마력, 700Nm, 21인치)는 화면 정중앙에 큰 폰트로 박아 몰입감 형성"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.5,
+    "end": 8.8,
+    "feature": "뒷좌석 전동 도어 닫힘",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 35,
+    "y_pct": 48,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 도어 모터음",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 15.0,
+    "feature": "접이식 비즈니스 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50,
+    "y_pct": 50,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.0,
+    "feature": "벨트백(안전벨트 에어백)",
+    "shown_how": "글자 카드",
+    "icon_desc": "BELT BAG 영문 텍스트",
+    "x_pct": 60,
+    "y_pct": 68,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 24.5,
+    "feature": "전동 선블라인드 및 선루프 조절",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 75,
+    "y_pct": 44,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "모터 구동음",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 28.5,
+    "feature": "쇼퍼 패키지 (VIP석 다리 뻗기)",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "양방향 확장 화살표",
+    "x_pct": 52,
+    "y_pct": 45,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.0,
+    "feature": "뒷좌석 냉장고",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "얼음 그래픽과 함께 ثلاجة(냉장고) 문구",
+    "x_pct": 50,
+    "y_pct": 42,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "feature": "중앙 컨트롤 태블릿",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 40,
+    "y_pct": 14,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.5,
+    "feature": "보온/보냉 컵홀더",
+    "shown_how": "글자 카드",
+    "icon_desc": "CUP HOLDERS 텍스트와 파란 조명",
+    "x_pct": 48,
+    "y_pct": 38,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.5,
+    "feature": "온도 감응형 64색 앰비언트 라이트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "온도계 아이콘과 설명 상자",
+    "x_pct": 75,
+    "y_pct": 47,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 55.5,
+    "end": 57.5,
+    "feature": "리어 액슬 스티어링 (후륜 조향)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "REAR AXLE STEERING 텍스트",
+    "x_pct": 50,
+    "y_pct": 23,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 흥미를 유발하며 '벤츠가 럭셔리하다고 생각했다면 이건 꼭 봐야 한다'고 외침",
+   "type": "질문",
+   "text": "أنا ناصر، ولو فاكر مرسيدس عربياتها فخمة، لازم تشوف دي!",
+   "ko": "저는 나사르입니다. 벤츠가 럭셔리하다고 생각하셨다면 이건 꼭 보셔야 합니다!"
+  },
+  "narration_points": [
+   {
+    "t": 7.0,
+    "point": "버튼 하나로 자동 개폐되는 전동식 뒷좌석 도어",
+    "category": "편의"
+   },
+   {
+    "t": 12.0,
+    "point": "비즈니스 업무와 식사가 가능한 접이식 테이블",
+    "category": "편의"
+   },
+   {
+    "t": 17.0,
+    "point": "열선, 통풍, 마사지 기능과 안전을 위한 벨트백 내장",
+    "category": "안전"
+   },
+   {
+    "t": 27.0,
+    "point": "앞좌석을 밀어 넓은 공간을 확보하는 쇼퍼 모드",
+    "category": "공간"
+   },
+   {
+    "t": 30.0,
+    "point": "시원한 음료를 위한 리어 센터 콘솔 전용 냉장고",
+    "category": "편의"
+   },
+   {
+    "t": 48.0,
+    "point": "실내 온도 설정에 따라 색상이 반응하는 인터랙티브 앰비언트 라이트",
+    "category": "디자인"
+   },
+   {
+    "t": 56.0,
+    "point": "긴 차체의 회전 반경을 줄여주는 후륜 조향 시스템",
+    "category": "성능"
+   },
+   {
+    "t": 61.0,
+    "point": "500마력과 700Nm 토크를 발휘하는 V8 트윈터보 엔진",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 65.0,
+   "text": "معرض رونكس التجمع الأول",
+   "ko": "뉴카이로 로넥스 전시장 방문 및 문의",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "실내 앞",
+    "센터 화면",
+    "휠",
+    "엔진룸",
+    "외관 전면"
+   ]
+  }
+ }
+}
