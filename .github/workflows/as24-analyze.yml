@@ -5,7 +5,7 @@ name: as24 shorts analyze (Gemini)
 # analysis/as24 브랜치에 목록(scripts/shortform/as24-jobs/*.txt)을 올리면 돈다.
 on:
   push:
-    branches: [analysis/as24]
+    branches: [analysis/as24, analysis/as24-de]
     paths: ["scripts/shortform/as24-jobs/**"]
   workflow_dispatch:
     inputs:
@@ -20,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: as24-analyze
+  group: as24-analyze-${{ github.ref_name }}
   cancel-in-progress: false
 
 jobs:
@@ -29,6 +29,24 @@ jobs:
     timeout-minutes: 300
     steps:
       - uses: actions/checkout@v4
+      - name: list channel shorts
+        run: |
+          # *.channels 한 줄 = "국가 @핸들 최대편수" → 같은 이름 .txt 로 쇼츠 ID 목록을 만든다
+          pip install -q yt-dlp
+          mkdir -p reports/shortform
+          for f in scripts/shortform/as24-jobs/*.channels; do
+            [ -e "$f" ] || continue
+            out="${f%.channels}.txt"; [ -s "$out" ] && continue
+            : > "$out.tmp"
+            while read -r c h n; do
+              [ -z "$c" ] && continue; case "$c" in \#*) continue;; esac
+              got=$(yt-dlp --flat-playlist --print id --playlist-end "${n:-100}" "https://www.youtube.com/$h/shorts" 2>>reports/shortform/as24-list-errors.log || true)
+              echo "$c $h $(echo "$got" | grep -c .)" >> reports/shortform/as24-lists.log
+              echo "$got" | grep . | sed "s/^/$c /" >> "$out.tmp" || true
+            done < "$f"
+            awk '!s[$2]++' "$out.tmp" > "$out"; rm -f "$out.tmp"
+          done
+          cat reports/shortform/as24-lists.log || true
       - name: analyze
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -44,9 +62,9 @@ jobs:
         run: |
           git config user.name "as24-analyze"
           git config user.email "actions@users.noreply.github.com"
-          git add reports/shortform || true
+          git add reports/shortform scripts/shortform/as24-jobs || true
           git diff --cached --quiet || git commit -m "as24 분석 결과 저장 (${{ github.run_id }})"
-          git push || true
+          for i in 1 2 3; do git pull --rebase -q origin "${GITHUB_REF_NAME}" && git push && break; sleep 5; done || true
       - uses: actions/upload-artifact@v4
         if: always()
         with:
