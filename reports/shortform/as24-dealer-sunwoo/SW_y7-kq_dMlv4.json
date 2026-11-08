@@ -1,0 +1,227 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/y7-kq_dMlv4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2440,
+  "candidatesTokenCount": 1954,
+  "totalTokenCount": 5072,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1184
+   }
+  ],
+  "thoughtsTokenCount": 678,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 13.8,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 S클래스 브라부스 B50 튜닝",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 3.9,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 5.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 7.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 고급스러운",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.4,
+    "speed": "보통",
+    "summary": "지하주차장에서 화이트 브라부스 S클래스 외관 전측면 쇼케이스"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.4,
+    "end": 7.7,
+    "speed": "보통",
+    "summary": "3단 분할 엠블럼 클로즈업, 브라부스 디스크 휠 및 외관 전경 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.7,
+    "end": 13.8,
+    "speed": "보통",
+    "summary": "앰비언트 라이트가 점등된 레드 다이아몬드 퀼팅 실내 및 VIP 뒷좌석 엔터테인먼트 모니터 쇼케이스"
+   }
+  ],
+  "rules": [
+   "자막이나 목소리 설명 없이 트렌디한 비트 배경음악에 맞춰 차량 비주얼만 감각적으로 전달",
+   "외관 엠블럼 부위를 3분할 컷으로 구성해 튜닝 파츠 강조",
+   "비트의 주요 드롭/박자에 맞춰 컷 전환",
+   "외관에서 휠, 엠블럼을 거쳐 화려한 레드 인테리어와 뒷좌석 모니터 순서로 시각적 매력 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.4,
+    "end": 3.9,
+    "feature": "브라부스 B50 엠블럼 및 튜닝 패키지",
+    "shown_how": "화면 분할",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 5.1,
+    "feature": "브라부스 모노블록 디스크 휠",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 45.0,
+    "y_pct": 60.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 10.9,
+    "feature": "액티브 앰비언트 라이트 및 레드 다이아몬드 퀼팅 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.8,
+    "feature": "뒷좌석 엔터테인먼트 듀얼 디스플레이",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "화이트 브라부스 S클래스가 서서히 모습을 드러내고 3분할 엠블럼 컷으로 시선 집중",
+   "type": "희귀차",
+   "text": null
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "엠블럼 3분할",
+    "휠",
+    "외관 전측면",
+    "실내 앞 센터페시아",
+    "운전석 시트",
+    "뒷좌석 엔터테인먼트"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "자막이나 브랜딩 요소 없이 비주얼 중심의 시네마틱 릴스/쇼츠 스타일"
+  }
+ }
+}

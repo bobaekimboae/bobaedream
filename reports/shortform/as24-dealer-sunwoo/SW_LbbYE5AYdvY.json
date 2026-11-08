@@ -1,0 +1,254 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/LbbYE5AYdvY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2997,
+  "candidatesTokenCount": 1800,
+  "totalTokenCount": 4797,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1741
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 19.8,
+   "aspect": "9:16",
+   "car": "페라리 SF90 스파이더",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "en"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 4.6,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 11.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "페이드",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 15.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 19.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 3.9,
+    "text": "SF90 SPIDER",
+    "ko": "SF90 스파이더",
+    "kind": "제목",
+    "y_pct": 69.5,
+    "x_center_pct": 49.3,
+    "text_height_pct": 5.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.5,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "출발 및 가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도로 주행 가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "주행 배기음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 / 팝 트랩",
+   "bpm_est": 125,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 4.7,
+     "what": "주행 사운드 비중 증가"
+    },
+    {
+     "t": 7.4,
+     "what": "비트 재시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 7.4,
+    "end": 10.9,
+    "what": "춤추는 2D 캐릭터 애니메이션 스티커",
+    "is_3d": false,
+    "size_w_pct": 36.2,
+    "x_pct": 52.8,
+    "y_pct": 65.4,
+    "entrance": "바로",
+    "purpose": "재미 및 시선 집중",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.9,
+    "speed": "보통",
+    "summary": "차량 후면 로우 앵글 발진 및 모델명 텍스트 노출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.9,
+    "end": 19.8,
+    "speed": "빠름",
+    "summary": "주행 휠 샷, 하드탑 오픈 시연, 실내 핸들 및 주행 영상 교차 편집"
+   }
+  ],
+  "rules": [
+   "배기음과 트렌디한 숏폼 음원을 믹싱하여 역동성 강조",
+   "음악 비트에 맞춘 빠른 컷 전환과 암전(블랙 아웃) 트랜지션 활용",
+   "탑 오픈 시연 시 스티커 애니메이션을 합성해 위트 연출"
+  ],
+  "option_highlights": [
+   {
+    "start": 7.4,
+    "end": 10.9,
+    "feature": "하드탑 오픈/클로즈 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 61.5,
+    "y_pct": 47.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": false,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "빨간색 페라리 SF90 스파이더가 우렁찬 배기음과 함께 출발하는 로우 앵글 샷",
+   "type": "사운드(배기음 등)",
+   "text": "SF90 SPIDER"
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 후면",
+    "외관 측면",
+    "옵션 작동",
+    "외관 전면",
+    "실내 앞",
+    "외관 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "심플한 타이포그래피와 음원 기반의 릴스/쇼츠 감성 연출"
+  }
+ }
+}

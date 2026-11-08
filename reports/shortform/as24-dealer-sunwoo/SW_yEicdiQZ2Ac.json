@@ -1,0 +1,353 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/yEicdiQZ2Ac",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3539,
+  "candidatesTokenCount": 3245,
+  "totalTokenCount": 7704,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2283
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 920,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 25.3,
+   "aspect": "9:16",
+   "car": "슈퍼카 모임 (페라리 SF90, 람보르기니 아벤타도르, 포르쉐 GT3 등)",
+   "format": "기타",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 10.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 15.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.4,
+    "end": 17.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 25.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "카스팟팅 하러 갑니다...",
+    "ko": "카스팟팅 하러 갑니다...",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 4.5,
+    "text": "시작부터 SF90스파이더 발견",
+    "ko": "시작부터 SF90스파이더 발견",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 8.0,
+    "text": "걸출한 아벤타도르..S",
+    "ko": "걸출한 아벤타도르..S",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.2,
+    "end": 10.6,
+    "text": "아벤 동호회였나..?",
+    "ko": "아벤 동호회였나..?",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 15.4,
+    "text": "아벤 333",
+    "ko": "아벤 333",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "오 GT3 아시는구나!",
+    "ko": "오 GT3 아시는구나!",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 21.5,
+    "text": "작지만 강력한...",
+    "ko": "작지만 강력한...",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.3,
+    "text": "요것은 992 GT3...",
+    "ko": "요것은 992 GT3...",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "람보르기니 아벤타도르 가속 배기음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "아벤타도르 로드스터 가속 및 백파이어 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "아벤타도르 주행 배기음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "포르쉐 992 GT3 자연흡기 배기음",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 90,
+   "mood": "여유롭고 트렌디한",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "터널 주행 중 페라리 SF90 스파이더 포착"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 15.4,
+    "speed": "빠름",
+    "summary": "휴게소에서 출발하는 람보르기니 아벤타도르 연속 스팟팅 및 배기음"
+   },
+   {
+    "stage": "차 소개",
+    "start": 15.4,
+    "end": 25.3,
+    "speed": "보통",
+    "summary": "포르쉐 991 GT3 RS, 박스터, 992 GT3 주행 모습 및 사운드 스팟팅"
+   }
+  ],
+  "rules": [
+   "자막은 화면 하단 77% 높이에 얇은 흰색 고딕체와 검정 그림자로 일관되게 배치",
+   "별도 음성 내레이션 없이 현장 실제 배기 사운드와 배경 음악을 중심으로 전개",
+   "새로운 슈퍼카가 등장하고 가속할 때마다 컷을 전환하여 현장감 강조"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "터널 속을 달리는 빨간색 페라리 SF90 스파이더의 뒷모습과 카스팟팅 예고",
+   "type": "희귀차",
+   "text": "카스팟팅 하러 갑니다... 시작부터 SF90스파이더 발견"
+  },
+  "narration_points": [
+   {
+    "t": 2.0,
+    "point": "터널에서 마주친 페라리 SF90 스파이더",
+    "category": "희소성"
+   },
+   {
+    "t": 6.0,
+    "point": "휴게소에서 울려퍼지는 람보르기니 아벤타도르의 배기음",
+    "category": "성능"
+   },
+   {
+    "t": 16.0,
+    "point": "출차하는 포르쉐 991 GT3 RS 포착",
+    "category": "디자인"
+   },
+   {
+    "t": 22.5,
+    "point": "출차하는 포르쉐 992 GT3 사운드",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 후면",
+    "외관 측면",
+    "외관 후면",
+    "외관 측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 중앙 단문 흰색 자막을 일관되게 사용하며 현장 사운드 중심 구성"
+  }
+ }
+}

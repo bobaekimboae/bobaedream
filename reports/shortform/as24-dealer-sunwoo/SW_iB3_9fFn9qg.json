@@ -1,0 +1,201 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/iB3_9fFn9qg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2619,
+  "candidatesTokenCount": 1622,
+  "totalTokenCount": 4699,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1363
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 458,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.0,
+   "aspect": "9:16",
+   "car": "메르세데스-벤츠 S클래스 (W223)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 8.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [],
+  "music": {
+   "genre": "재즈 팝/스윙",
+   "bpm_est": 115,
+   "mood": "경쾌하고 고급스러운 분위기",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 11.2,
+     "what": "비트 드롭 및 브라스 브레이크"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "보통",
+    "summary": "지하주차장 조명 아래 벤츠 S클래스 외관 풀샷 등장"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "휠, 1열 인테리어, 스티어링 휠, 센터페시아 디스플레이, 2열 VIP 시트 차례로 쇼케이스"
+   }
+  ],
+  "rules": [
+   "자막이나 인위적인 효과음 없이 배경음악의 박자에 맞춰 주요 내외관 디테일 컷 전환",
+   "화려한 앰비언트 라이트와 베이지 인테리어가 돋보이도록 부드러운 카메라 무빙 사용",
+   "외관 전면에서 휠, 1열, 인포테인먼트, 2열 VIP 시트로 이어지는 체계적인 쇼케이스 구성"
+  ],
+  "option_highlights": [
+   {
+    "start": 3.8,
+    "end": 5.7,
+    "feature": "앰비언트 라이트 및 베이지 인테리어",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.9,
+    "feature": "대형 센터 터치 디스플레이",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.0,
+    "feature": "독립식 VIP 뒷좌석 시트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "지하주차장 조명 아래 번쩍이는 블랙 바디의 벤츠 S클래스 외관 전면부 풀샷",
+   "type": "기타",
+   "text": ""
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "휠",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "뒷좌석"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "별도의 로고나 텍스트 없이 차량 비주얼과 음악 박자감 위주의 깔끔한 릴스/쇼츠 스타일"
+  }
+ }
+}

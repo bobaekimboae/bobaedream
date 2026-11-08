@@ -1,0 +1,222 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/Pg6IEAOdN60",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2817,
+  "candidatesTokenCount": 1790,
+  "totalTokenCount": 5024,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1561
+   }
+  ],
+  "thoughtsTokenCount": 417,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 17.5,
+   "aspect": "9:16",
+   "car": "BMW 5시리즈 (G60)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.4,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "쿵",
+    "event": "화면 줌인 및 비트 드롭 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 125,
+   "mood": "트렌디하고 묵직한",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 2.8,
+     "what": "베이스 드롭 및 메인 비트 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "지하주차장에서 헤드라이트와 아이코닉 글로우 그릴을 켜고 주행해 다가오는 차량 전면"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 8.4,
+    "speed": "보통",
+    "summary": "3분할 화면으로 후면, 스티어링 휠 실내, 전면 디자인 동시 노출"
+   },
+   {
+    "stage": "기능",
+    "start": 8.4,
+    "end": 12.0,
+    "speed": "보통",
+    "summary": "신형 스티어링 휠과 인터랙션 앰비언트 라이트 바 클로즈업"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.0,
+    "end": 17.5,
+    "speed": "보통",
+    "summary": "3분할 화면을 통한 아이코닉 글로우 그릴 및 LED 헤드라이트 디테일 샷"
+   }
+  ],
+  "rules": [
+   "음악 비트에 맞춰 화면 줌인 및 분할 화면으로 트랜지션 전환",
+   "별도 자막이나 음성 없이 감각적인 BGM과 비주얼 컷 전환 위주로 구성",
+   "신형 모델의 핵심 매력 포인트(아이코닉 글로우, 인터랙션 바)를 클로즈업 및 분할 화면으로 강조"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "feature": "아이코닉 글로우 키드니 그릴",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 60,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.0,
+    "feature": "인터랙션 앰비언트 라이트 바",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 80,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 17.5,
+    "feature": "LED 헤드라이트 및 조명 그릴",
+    "shown_how": "화면 분할",
+    "icon_desc": null,
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 100,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "초점이 흐린 상태에서 선명해지며 라이트를 켜고 천천히 진입하는 BMW 신형 차량",
+   "type": "행동",
+   "text": null
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "계기판",
+    "옵션 작동"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "캡컷 템플릿",
+   "consistent_brand": "로고나 브랜드 틀 없이 감성적인 비트 매칭 숏폼 템플릿 사용"
+  }
+ }
+}

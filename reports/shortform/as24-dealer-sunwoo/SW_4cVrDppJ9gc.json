@@ -1,0 +1,243 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/4cVrDppJ9gc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2710,
+  "candidatesTokenCount": 1628,
+  "totalTokenCount": 4338,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1454
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.0,
+   "aspect": "9:16",
+   "car": "BMW X7 MANSORY",
+   "format": "기타",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 2.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 3.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.4,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.0,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "딸깍",
+    "event": "카메라 셔터음 및 촬영 결과물 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "딸깍",
+    "event": "카메라 셔터음 및 촬영 결과물 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "딸깍",
+    "event": "카메라 셔터음 및 촬영 결과물 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "딸깍",
+    "event": "카메라 셔터음 및 촬영 결과물 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "딸깍",
+    "event": "카메라 셔터음 및 촬영 결과물 전환",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "리드미컬하고 감각적인",
+   "ducks_under_voice": false,
+   "changes": [
+    {
+     "t": 13.0,
+     "what": "셔터 연출 후 리듬 비트 드롭 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "삼각대에 거치된 카메라 셔터 소리와 함께 촬영된 BMW X7 튜닝카 사진 교차 전환"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 13.0,
+    "speed": "빠름",
+    "summary": "렌즈 줌 조작 비하인드 컷과 화각별 차량 사진 연속 셔터 비트 연출"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 13.0,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "최종 완성 사진과 함께 비트 진행"
+   }
+  ],
+  "rules": [
+   "카메라 장비 촬영 화면(BTS)과 실제 촬영된 결과물 사진을 교차 컷 편집",
+   "카메라 셔터음 SFX 타이밍에 정확히 맞춰 완성된 스틸 사진 노출",
+   "렌즈 화각(17mm~70mm)을 줌인하는 손동작을 보여준 뒤 단계별 압축 효과 사진 연출"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.8,
+    "end": 2.4,
+    "feature": "MANSORY 바디킷 튜닝",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "삼각대에 올려진 카메라 셔터 소리와 함께 전면의 BMW X7 Mansory 차량 사진이 박자에 맞춰 나타남",
+   "type": "사운드(배기음 등)",
+   "text": null
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "기타",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "손"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "자막이나 텍스트 없이 촬영 비하인드와 사진 교차 편집 스타일"
+  }
+ }
+}
