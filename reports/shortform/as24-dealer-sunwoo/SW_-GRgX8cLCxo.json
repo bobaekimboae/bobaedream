@@ -1,0 +1,1021 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/-GRgX8cLCxo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4618,
+  "candidatesTokenCount": 8626,
+  "totalTokenCount": 14058,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3362
+   }
+  ],
+  "thoughtsTokenCount": 814,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 36.8,
+   "aspect": "9:16",
+   "car": "포르쉐 타이칸 4 크로스 투리스모",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.7,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 20.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 31.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 36.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "왜건입니다",
+    "ko": "왜건입니다",
+    "kind": "말 자막",
+    "y_pct": 91.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 1.7,
+    "text": "WAGON!",
+    "ko": "웨건!",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#FF3300",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "KOREA DISCOUNT",
+    "ko": "코리아 디스카운트",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.7,
+    "text": "지금 이 TAYCAN",
+    "ko": "지금 이 타이칸",
+    "kind": "말 자막",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.4,
+    "text": "Cross Turismo\n크로스투리스모",
+    "ko": "크로스투리스모",
+    "kind": "제목",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.0,
+    "text": "생각이 달라질거에요",
+    "ko": "생각이 달라질 거예요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 6.9,
+    "text": "화이트 메탈릭!",
+    "ko": "화이트 메탈릭!",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 7.8,
+    "text": "₩5,900,000\n블랙 / 보르도 레더 인테리어",
+    "ko": "590만원 블랙 / 보르도 가죽 실내",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.7,
+    "text": "이름이 길다... 😓",
+    "ko": "이름이 길다...",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "text": "₩7,000,000\n21\" exclusive design wheel\n+ Aeroblade",
+    "ko": "700만원 21인치 휠",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 11.0,
+    "text": "₩3,300,000\nHD 매트릭스 LED 헤드라이트",
+    "ko": "330만원 HD 매트릭스 LED 헤드라이트",
+    "kind": "가격",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.0,
+    "text": "So beautiful",
+    "ko": "정말 아름답다",
+    "kind": "키워드 스티커",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FF99CC",
+    "background": "외곽선",
+    "bg_color": "#FF0066",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "폴딩시 거의 1,200L",
+    "ko": "폴딩시 거의 1,200L",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "₩500,000\n18-way 전동식\n어댑티브 스포츠 시트",
+    "ko": "50만원 18방향 전동 스포츠 시트",
+    "kind": "가격",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "text": "₩700,000\nPORSCHE CREST!",
+    "ko": "70만원 포르쉐 크레스트",
+    "kind": "가격",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 20.0,
+    "text": "하나하나",
+    "ko": "하나하나",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 20.8,
+    "text": "추가될 때 마다",
+    "ko": "추가될 때마다",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.0,
+    "text": "2025.10 출고",
+    "ko": "2025년 10월 출고",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.5,
+    "text": "신차가는\n₩170,200,000",
+    "ko": "신차가는 1억 7020만원",
+    "kind": "가격",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "text": "3,000km",
+    "ko": "3,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 27.5,
+    "text": "거의 신차..?",
+    "ko": "거의 신차..?",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "개인명의 현금차량",
+    "ko": "개인명의 현금차량",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.7,
+    "text": "KOREA DISCOUNT\n-₩30,000,000",
+    "ko": "코리아 디스카운트 -3000만원",
+    "kind": "가격",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.7,
+    "end": 34.5,
+    "text": "소개된 차량의 자세한 내용은 캡션을 참고해주세요",
+    "ko": "소개된 차량의 자세한 내용은 캡션을 참고해주세요",
+    "kind": "말 자막",
+    "y_pct": 87.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.8,
+    "text": "더 많은 차량을 팔로우하시고 만나보세요\n소개된 차량의 자세한 내용은 캡션을 참고해주세요",
+    "ko": "더 많은 차량을 팔로우하시고 만나보세요",
+    "kind": "말 자막",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 90.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.1,
+    "type": "쿵",
+    "event": "WAGON 불꽃 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.4,
+    "type": "톡",
+    "event": "Cross Turismo 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.9,
+    "type": "띵",
+    "event": "레더 인테리어 옵션 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "띵",
+    "event": "21인치 휠 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.7,
+    "type": "띵",
+    "event": "LED 헤드라이트 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "띵",
+    "event": "스포츠 시트 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "띵",
+    "event": "포르쉐 크레스트 옵션 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.0,
+    "type": "돈 소리",
+    "event": "신차가 1억 7천만원 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "돈 소리",
+    "event": "3천만원 할인 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 110,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.1,
+    "end": 1.7,
+    "what": "불꽃 이펙트 + WAGON 텍스트",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "웨건 강조 훅",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "what": "헤드라이트 눈물 그래픽 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "흘러내림",
+    "purpose": "왜건 무덤 한국 슬픔 표현",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "what": "따봉 이모지 스티커",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "트렁크 공간 칭찬",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "와 왜건입니다 왜건!",
+    "ko": "와 왜건입니다 왜건!"
+   },
+   {
+    "start": 1.7,
+    "end": 3.5,
+    "text": "왜건 무덤인 한국이지만",
+    "ko": "왜건 무덤인 한국이지만"
+   },
+   {
+    "start": 3.5,
+    "end": 5.9,
+    "text": "지금 이 타이칸 4 크로스 투리스모를 본다면 생각이 달라질 거예요.",
+    "ko": "지금 이 타이칸 4 크로스 투리스모를 본다면 생각이 달라질 거예요."
+   },
+   {
+    "start": 5.9,
+    "end": 7.8,
+    "text": "화이트 바디에 보르도 레드 시트",
+    "ko": "화이트 바디에 보르도 레드 시트"
+   },
+   {
+    "start": 7.8,
+    "end": 9.7,
+    "text": "블랙 글로시 에어로 블레이드 휠",
+    "ko": "블랙 글로시 에어로 블레이드 휠"
+   },
+   {
+    "start": 9.7,
+    "end": 12.0,
+    "text": "매트릭스 HD LED 헤드라이트까지 너무 예쁘지 않나요?",
+    "ko": "매트릭스 HD LED 헤드라이트까지 너무 예쁘지 않나요?"
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "왜건답게 실용적인 트렁크 용량까지",
+    "ko": "왜건답게 실용적인 트렁크 용량까지"
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "디테일한 포지션 조작 가능한 어댑티브 스포츠 시트",
+    "ko": "디테일한 포지션 조작 가능한 어댑티브 스포츠 시트"
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "text": "헤드레스트의 포르쉐 로고는 빠지면 섭섭합니다.",
+    "ko": "헤드레스트의 포르쉐 로고는 빠지면 섭섭합니다."
+   },
+   {
+    "start": 18.9,
+    "end": 21.0,
+    "text": "옵션 하나하나 추가될 때마다 올라가는 신차가",
+    "ko": "옵션 하나하나 추가될 때마다 올라가는 신차가"
+   },
+   {
+    "start": 21.0,
+    "end": 24.5,
+    "text": "25년 10월 출고 차량이고 신차가는 1억 7천만원입니다.",
+    "ko": "25년 10월 출고 차량이고 신차가는 1억 7천만원입니다."
+   },
+   {
+    "start": 24.5,
+    "end": 27.5,
+    "text": "주행거리는 단 3,000km, 거의 신차라고 할 수 있죠.",
+    "ko": "주행거리는 단 3,000km, 거의 신차라고 할 수 있죠."
+   },
+   {
+    "start": 27.5,
+    "end": 31.7,
+    "text": "개인명의의 현금 차량이고요, 3천만원 이상 할인되어 판매 중입니다.",
+    "ko": "개인명의의 현금 차량이고요, 3천만원 이상 할인되어 판매 중입니다."
+   },
+   {
+    "start": 31.7,
+    "end": 36.8,
+    "text": "소개된 차량의 자세한 내용은 캡션을 참고해주세요. 더 많은 차량을 팔로우하시고 만나보세요.",
+    "ko": "소개된 차량의 자세한 내용은 캡션을 참고해주세요. 더 많은 차량을 팔로우하시고 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "한국은 왜건 무덤이지만 매력적인 타이칸 크로스투리스모 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 12.0,
+    "speed": "빠름",
+    "summary": "외관 색상, 실내 시트 컬러, 휠, HD LED 헤드라이트 옵션 나열"
+   },
+   {
+    "stage": "기능",
+    "start": 12.0,
+    "end": 18.9,
+    "speed": "빠름",
+    "summary": "트렁크 1200L, 18-way 전동시트, 포르쉐 크레스트 옵션"
+   },
+   {
+    "stage": "가격",
+    "start": 18.9,
+    "end": 31.7,
+    "speed": "보통",
+    "summary": "신차가 1억 7,020만원 vs 3천만원 이상 할인된 판매 조건 및 스펙(3,000km)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 31.7,
+    "end": 36.8,
+    "speed": "보통",
+    "summary": "상세 내용 캡션 확인 및 채널 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "개별 옵션을 비출 때마다 옵션 정품 가격을 굵은 노란색 폰트(₩ 표기)로 상단/하단에 띄워 가성비 및 고급감을 직관적으로 각인",
+   "옵션 자막 전환마다 '띵' 효과음을 삽입하여 시청자의 청각적 집중도 유지",
+   "신차가격과 할인 폭 공개 시 동전/돈 효과음과 볼드 자막을 결합하여 매물 메리트 극대화",
+   "영상 말미에 본문 캡션(설명란) 확인과 팔로우를 유도하는 텍스트/보이스 CTA 배치"
+  ],
+  "option_highlights": [
+   {
+    "start": 6.0,
+    "end": 7.8,
+    "feature": "블랙/보르도 레더 인테리어 (590만원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.7,
+    "feature": "21인치 익스클루시브 디자인 휠 + 에어로블레이드 (700만원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 12.0,
+    "feature": "HD 매트릭스 LED 헤드라이트 (330만원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 78.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "feature": "트렁크 폴딩 1,200L 적재공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "따봉 이모지",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "feature": "18-way 전동식 어댑티브 스포츠 시트 (50만원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.9,
+    "feature": "헤드레스트 포르쉐 크레스트 (70만원)",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "지하주차장 흰색 타이칸 크로스투리스모가 서 있고, '와! 웨건입니다 웨건!', 불꽃 그래픽과 눈물 그래픽 노출",
+   "type": "감탄·리액션",
+   "text": "와 왜건입니다 왜건! 왜건 무덤인 한국이지만"
+  },
+  "narration_points": [
+   {
+    "t": 1.7,
+    "point": "한국은 왜건 무덤이지만 타이칸 크로스투리스모는 디자인이 뛰어남",
+    "category": "디자인"
+   },
+   {
+    "t": 6.9,
+    "point": "590만원 상당의 블랙/보르도 투톤 가죽 인테리어 옵션",
+    "category": "디자인"
+   },
+   {
+    "t": 8.7,
+    "point": "700만원 상당 21인치 익스클루시브 에어로블레이드 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 9.7,
+    "point": "330만원 상당 HD 매트릭스 LED 헤드라이트",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "폴딩 시 1,200L까지 확장 가능한 넓은 트렁크 용량",
+    "category": "공간"
+   },
+   {
+    "t": 14.5,
+    "point": "50만원 상당 18방향 전동 어댑티브 스포츠 시트",
+    "category": "편의"
+   },
+   {
+    "t": 16.5,
+    "point": "70만원 상당 헤드레스트 포르쉐 크레스트 각인",
+    "category": "디자인"
+   },
+   {
+    "t": 23.0,
+    "point": "신차가격 1억 7,020만원 상당",
+    "category": "가격·조건"
+   },
+   {
+    "t": 24.5,
+    "point": "주행거리 단 3,000km의 신차급 상태",
+    "category": "상태·이력"
+   },
+   {
+    "t": 27.5,
+    "point": "개인명의 현금차량 및 신차가 대비 3,000만원 이상 할인 판매",
+    "category": "가격·조건"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "번호판 위치의 MANSORY 로고 번호판 가드"
+   ],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 31.7,
+   "text": "소개된 차량의 자세한 내용은 캡션을 참고해주세요. 더 많은 차량을 팔로우하시고 만나보세요.",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면 원경",
+    "외관 전면 근접",
+    "외관 후면",
+    "실내 앞좌석/핸들",
+    "휠",
+    "헤드라이트",
+    "트렁크 개방",
+    "시트 조작부",
+    "헤드레스트 크레스트",
+    "외관 측후면",
+    "계기판/핸들",
+    "외관 보닛/헤드라이트",
+    "외관 후면 턴시그널"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "노란색(옵션가격/수치)과 흰색(설명/나레이션) 볼드 폰트, 외곽선 및 효과음 타이밍이 일관되게 정돈됨"
+  }
+ }
+}

@@ -1,0 +1,804 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/1tpHfgo0SJI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4710,
+  "candidatesTokenCount": 7955,
+  "totalTokenCount": 13474,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3454
+   }
+  ],
+  "thoughtsTokenCount": 809,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.3,
+   "aspect": "9:16",
+   "car": "애스턴마틴 V12 밴티지 파이널 에디션",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.4,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 24.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 32.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.3,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.3,
+    "end": 38.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "안녕하세요 밴티지입니다.",
+    "ko": "안녕하세요 밴티지입니다.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 3.7,
+    "text": "GT카로 오해들 하시는데, 퓨어 스포츠카 맞습니다.",
+    "ko": "GT카로 오해들 하시는데, 퓨어 스포츠카 맞습니다.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "text": "거기에 이 차는 그냥 밴티지가 아니에요.",
+    "ko": "거기에 이 차는 그냥 밴티지가 아니에요.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "text": "V12 파이널 에디션. 무려 한정판 모델입니다.",
+    "ko": "V12 파이널 에디션. 무려 한정판 모델입니다.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "한정판",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "text": "정식 출고된 이 차는 일반 밴티지의 두 배 가격이죠?",
+    "ko": "정식 출고된 이 차는 일반 밴티지의 두 배 가격이죠?",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.5,
+    "text": "새틴 실버 페인트에 추가된 풀 카본 파츠들 한번 보고 가세요.",
+    "ko": "새틴 실버 페인트에 추가된 풀 카본 파츠들 한번 보고 가세요.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "text": "외장 실내 할 것 없이 그냥 죄다 카본이에요.",
+    "ko": "외장 실내 할 것 없이 그냥 죄다 카본이에요.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "큼지막한 리어윙까지 에어로 킷을 한가득 적용했습니다.",
+    "ko": "큼지막한 리어윙까지 에어로 킷을 한가득 적용했습니다.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "text": "블랙 포지드 휠까지 그야말로 멋이 흐릅니다.",
+    "ko": "블랙 포지드 휠까지 그야말로 멋이 흐릅니다.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "text": "실내도 화려합니다. 전투기 콕핏 같아요.",
+    "ko": "실내도 화려합니다. 전투기 콕핏 같아요.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "text": "카본 버킷 시트에 네이비 레드 화이트 조합, 럭셔리 영국 감성 가득합니다.",
+    "ko": "카본 버킷 시트에 네이비 레드 화이트 조합, 럭셔리 영국 감성 가득합니다.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.0,
+    "text": "기어 조작 버튼이 이렇게 멋질 수가 없어요.",
+    "ko": "기어 조작 버튼이 이렇게 멋질 수가 없어요.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 33.5,
+    "text": "소장 가치와 수요층이 분명합니다.",
+    "ko": "소장 가치와 수요층이 분명합니다.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.0,
+    "text": "소개된 차량의 자세한 내용은 캡션을 참고해주세요.",
+    "ko": "소개된 차량의 자세한 내용은 캡션을 참고해주세요.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 38.3,
+    "text": "더 많은 차량을 팔로우하시고 만나보세요.",
+    "ko": "더 많은 차량을 팔로우하시고 만나보세요.",
+    "kind": "말 자막",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.2,
+    "type": "톡",
+    "event": "V12 Final Edition 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.1,
+    "type": "쿵",
+    "event": "한정판 모델 강조 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "휙",
+    "event": "X 2 배수 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 묵직한",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "what": "V12 Final Edition 타이틀 및 333대 한정판 인포그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "한정판 모델 스펙 강조",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.2,
+    "what": "X 2 VANTAGE 가격 비교 텍스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격대 강조",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "what": "Satin aluminite silver 풀 카본 파츠 자막",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "entrance": "페이드",
+    "purpose": "외장 컬러 및 파츠 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.4,
+    "text": "안녕하세요 밴티지입니다.",
+    "ko": "안녕하세요 밴티지입니다."
+   },
+   {
+    "start": 1.4,
+    "end": 3.7,
+    "text": "GT카로 오해들 하시는데, 퓨어 스포츠카 맞습니다.",
+    "ko": "GT카로 오해들 하시는데, 퓨어 스포츠카 맞습니다."
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "text": "거기에 이 차는 그냥 밴티지가 아니에요.",
+    "ko": "거기에 이 차는 그냥 밴티지가 아니에요."
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "text": "V12 파이널 에디션. 무려 한정판 모델입니다.",
+    "ko": "V12 파이널 에디션. 무려 한정판 모델입니다."
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "text": "정식 출고된 이 차는 일반 밴티지의 두 배 가격이죠?",
+    "ko": "정식 출고된 이 차는 일반 밴티지의 두 배 가격이죠?"
+   },
+   {
+    "start": 11.2,
+    "end": 14.5,
+    "text": "새틴 실버 페인트에 추가된 풀 카본 파츠들 한번 보고 가세요.",
+    "ko": "새틴 실버 페인트에 추가된 풀 카본 파츠들 한번 보고 가세요."
+   },
+   {
+    "start": 14.5,
+    "end": 17.5,
+    "text": "외장 실내 할 것 없이 그냥 죄다 카본이에요.",
+    "ko": "외장 실내 할 것 없이 그냥 죄다 카본이에요."
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "큼지막한 리어윙까지 에어로 킷을 한가득 적용했습니다.",
+    "ko": "큼지막한 리어윙까지 에어로 킷을 한가득 적용했습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "text": "블랙 포지드 휠까지 그야말로 멋이 흐릅니다.",
+    "ko": "블랙 포지드 휠까지 그야말로 멋이 흐릅니다."
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "text": "실내도 화려합니다. 전투기 콕핏 같아요.",
+    "ko": "실내도 화려합니다. 전투기 콕핏 같아요."
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "text": "카본 버킷 시트에 네이비 레드 화이트 조합, 럭셔리 영국 감성 가득합니다.",
+    "ko": "카본 버킷 시트에 네이비 레드 화이트 조합, 럭셔리 영국 감성 가득합니다."
+   },
+   {
+    "start": 28.5,
+    "end": 31.0,
+    "text": "기어 조작 버튼이 이렇게 멋질 수가 없어요.",
+    "ko": "기어 조작 버튼이 이렇게 멋질 수가 없어요."
+   },
+   {
+    "start": 31.0,
+    "end": 33.5,
+    "text": "소장 가치와 수요층이 분명합니다.",
+    "ko": "소장 가치와 수요층이 분명합니다."
+   },
+   {
+    "start": 33.5,
+    "end": 36.0,
+    "text": "소개된 차량의 자세한 내용은 캡션을 참고해주세요.",
+    "ko": "소개된 차량의 자세한 내용은 캡션을 참고해주세요."
+   },
+   {
+    "start": 36.0,
+    "end": 38.3,
+    "text": "더 많은 차량을 팔로우하시고 만나보세요.",
+    "ko": "더 많은 차량을 팔로우하시고 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "GT카 편견 깨기 및 퓨어 스포츠카 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 11.2,
+    "speed": "보통",
+    "summary": "V12 파이널 에디션 333대 한정판 및 가격대 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 11.2,
+    "end": 22.8,
+    "speed": "빠름",
+    "summary": "외관 풀 카본 파츠, 리어윙, 블랙 단조 휠 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 22.8,
+    "end": 33.5,
+    "speed": "보통",
+    "summary": "실내 카본 버킷 시트 및 기어 조작부, 소장 가치 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 33.5,
+    "end": 38.3,
+    "speed": "보통",
+    "summary": "빌드 플레이트 확인 및 캡션 확인/팔로우 유도 CTA"
+   }
+  ],
+  "rules": [
+   "자막은 하단 중앙에 깔끔한 흰색 글씨와 검은 외곽선으로 가독성 유지",
+   "중요한 키워드(V12, 한정판, 가격 배수)는 별도 컬러 강조 폰트 사용",
+   "사람 얼굴 없이 짐벌 무빙으로 차량 디테일 파츠를 끊임없이 보여줌",
+   "AI TTS 내레이션으로 일정한 톤과 발음 유지",
+   "차량의 희소성과 옵션 디테일을 빠르게 짚어주며 소장 가치를 극대화함"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "feature": "V12 5.2 트윈터보 엔진 및 한정판 엠블럼",
+    "shown_how": "화면 분할",
+    "icon_desc": "엔진룸 사진 PIP 오버레이",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 19.9,
+    "feature": "풀 카본 파츠 (미러, 루프, 에어로킷, 리어윙)",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 22.4,
+    "feature": "블랙 포지드 휠 & 카본 세라믹 브레이크",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 28.5,
+    "feature": "카본 버킷 시트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 35.3,
+    "end": 38.3,
+    "feature": "333대 한정판 시리얼 넘버 도어 실 플레이트",
+    "shown_how": "확대",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": null,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전면 풀샷과 함께 'GT카로 오해들 하시는데 퓨어 스포츠카 맞습니다' 멘트로 호기심 유발",
+   "type": "질문",
+   "text": "GT카로 오해들 하시는데, 퓨어 스포츠카 맞습니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.4,
+    "point": "GT카가 아닌 퓨어 스포츠카",
+    "category": "성능"
+   },
+   {
+    "t": 5.9,
+    "point": "전 세계 333대 V12 파이널 에디션 한정판",
+    "category": "희소성"
+   },
+   {
+    "t": 8.7,
+    "point": "일반 밴티지 2배 가격대의 정식 출고 차량",
+    "category": "가격·조건"
+   },
+   {
+    "t": 11.2,
+    "point": "새틴 실버 외장과 풀 카본 익스테리어 파츠",
+    "category": "디자인"
+   },
+   {
+    "t": 17.5,
+    "point": "대형 리어윙 및 에어로 킷 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 20.0,
+    "point": "블랙 포지드 경량 휠 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 25.5,
+    "point": "네이비/레드/화이트 조화의 카본 버킷 시트",
+    "category": "편의"
+   },
+   {
+    "t": 31.0,
+    "point": "높은 소장 가치와 확실한 수요층",
+    "category": "희소성"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 34.0,
+   "text": "소개된 차량의 자세한 내용은 캡션을 참고해주세요 / 팔로우하시고 만나보세요",
+   "method": "댓글"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "외관 후면",
+    "계기판",
+    "외관 전면",
+    "외관 측면",
+    "실내 앞",
+    "외관 후면",
+    "휠",
+    "실내 앞",
+    "센터 화면",
+    "엔진룸",
+    "실내 앞"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 고정 볼드 자막 스타일 및 옐로우 포인트 텍스트 활용"
+  }
+ }
+}

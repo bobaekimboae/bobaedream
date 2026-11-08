@@ -1,0 +1,768 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/uF-3PEpvxnw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5905,
+  "candidatesTokenCount": 6313,
+  "totalTokenCount": 12582,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4649
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "thoughtsTokenCount": 364,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.8,
+   "aspect": "9:16",
+   "car": "BMW X7 (40i D.P.E)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.1,
+    "end": 31.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.7,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.7,
+    "end": 39.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 44.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 47.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 51.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "사륜구동 7인승 대형 SUV",
+    "ko": "사륜구동 7인승 대형 SUV",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "text": "BMW X7이 좋은 이유 세가지",
+    "ko": "BMW X7이 좋은 이유 세가지",
+    "kind": "제목",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "X7",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "첫번째 편합니다",
+    "ko": "첫번째 편합니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "text": "BMW 특유의 전동식 스티어링 세팅으로 빠른 응답성이 장점이죠",
+    "ko": "BMW 특유의 전동식 스티어링 세팅으로 빠른 응답성이 장점이죠",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 13.5,
+    "text": "확실히 가볍고 주행할 때 스트레스가 적다는 얘기가 많습니다",
+    "ko": "확실히 가볍고 주행할 때 스트레스가 적다는 얘기가 많습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "text": "두번째 무난합니다",
+    "ko": "두번째 무난합니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.8,
+    "text": "화려하고 다양한 기능도 좋지만 운전의 본질은 편안함이 아닐까요?",
+    "ko": "화려하고 다양한 기능도 좋지만 운전의 본질은 편안함이 아닐까요?",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "text": "튀지 않는 Arctic Grey 페인트와",
+    "ko": "튀지 않는 Arctic Grey 페인트와",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "text": "Merino black 인테리어 거기에",
+    "ko": "Merino black 인테리어 거기에",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "text": "직관적인 물리식 버튼 배치로 운전자의 편의성을 강조합니다",
+    "ko": "직관적인 물리식 버튼 배치로 운전자의 편의성을 강조합니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.8,
+    "text": "세번째 현실적입니다",
+    "ko": "세번째 현실적입니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 33.7,
+    "text": "G바디 플랫폼 베이스로 국내 많은 출고 대수 덕분에 부품 수급 용이 정비 데이터 다수 보유",
+    "ko": "G바디 플랫폼 베이스로 국내 많은 출고 대수 덕분에 부품 수급 용이 정비 데이터 다수 보유",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 36.7,
+    "text": "물론 그런 이유들보다 고장이 잘 안 납니다",
+    "ko": "물론 그런 이유들보다 고장이 잘 안 납니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.7,
+    "end": 40.0,
+    "text": "그 흔한 에어서스 전자계통 이슈가 거의 없습니다",
+    "ko": "그 흔한 에어서스 전자계통 이슈가 거의 없습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 44.7,
+    "text": "마일드 하이브리드 시스템으로 사이즈 대비 생각보다 준수한 연비는 덤입니다",
+    "ko": "마일드 하이브리드 시스템으로 사이즈 대비 생각보다 준수한 연비는 덤입니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 47.9,
+    "text": "영상 속 차량의 구매에 필요한 정보는 캡션을 참고해주세요!",
+    "ko": "영상 속 차량의 구매에 필요한 정보는 캡션을 참고해주세요!",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 51.5,
+    "text": "다양한 차량들을 소개받고 싶으시다면? 지금! 팔로우 부탁드립니다",
+    "ko": "다양한 차량들을 소개받고 싶으시다면? 지금! 팔로우 부탁드립니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "쿵",
+    "event": "BMW 로고 및 타이틀 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 시트 폴딩 버튼 누를 때 딸깍 및 모터 구동음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "세련됨, 묵직함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "what": "BMW 엠블럼 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 브랜드 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "사륜구동 7인승 대형 SUV",
+    "ko": "사륜구동 7인승 대형 SUV"
+   },
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "text": "BMW X7이 좋은 이유 세가지",
+    "ko": "BMW X7이 좋은 이유 세가지"
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "첫번째 편합니다",
+    "ko": "첫번째 편합니다"
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "text": "BMW 특유의 전동식 스티어링 세팅으로 빠른 응답성이 장점이죠",
+    "ko": "BMW 특유의 전동식 스티어링 세팅으로 빠른 응답성이 장점이죠"
+   },
+   {
+    "start": 9.8,
+    "end": 13.5,
+    "text": "확실히 가볍고 주행할 때 스트레스가 적다는 얘기가 많습니다",
+    "ko": "확실히 가볍고 주행할 때 스트레스가 적다는 얘기가 많습니다"
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "text": "두번째 무난합니다",
+    "ko": "두번째 무난합니다"
+   },
+   {
+    "start": 15.5,
+    "end": 18.8,
+    "text": "화려하고 다양한 기능도 좋지만 운전의 본질은 편안함이 아닐까요?",
+    "ko": "화려하고 다양한 기능도 좋지만 운전의 본질은 편안함이 아닐까요?"
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "text": "튀지 않는 아틱 그레이 페인트와",
+    "ko": "튀지 않는 아틱 그레이 페인트와"
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "text": "메리노 블랙 인테리어 거기에",
+    "ko": "메리노 블랙 인테리어 거기에"
+   },
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "text": "직관적인 물리식 버튼 배치로 운전자의 편의성을 강조합니다",
+    "ko": "직관적인 물리식 버튼 배치로 운전자의 편의성을 강조합니다"
+   },
+   {
+    "start": 26.6,
+    "end": 28.8,
+    "text": "세번째 현실적입니다",
+    "ko": "세번째 현실적입니다"
+   },
+   {
+    "start": 28.8,
+    "end": 33.7,
+    "text": "G바디 플랫폼 베이스로 국내 많은 출고 대수 덕분에 부품 수급 용이, 정비 데이터 다수 보유",
+    "ko": "G바디 플랫폼 베이스로 국내 많은 출고 대수 덕분에 부품 수급 용이, 정비 데이터 다수 보유"
+   },
+   {
+    "start": 33.7,
+    "end": 36.7,
+    "text": "물론 그런 이유들보다 고장이 잘 안 납니다",
+    "ko": "물론 그런 이유들보다 고장이 잘 안 납니다"
+   },
+   {
+    "start": 36.7,
+    "end": 40.0,
+    "text": "그 흔한 에어서스 전자계통 이슈가 거의 없습니다",
+    "ko": "그 흔한 에어서스 전자계통 이슈가 거의 없습니다"
+   },
+   {
+    "start": 40.0,
+    "end": 44.7,
+    "text": "마일드 하이브리드 시스템으로 사이즈 대비 생각보다 준수한 연비는 덤입니다",
+    "ko": "마일드 하이브리드 시스템으로 사이즈 대비 생각보다 준수한 연비는 덤입니다"
+   },
+   {
+    "start": 44.7,
+    "end": 47.9,
+    "text": "영상 속 차량의 구매에 필요한 정보는 캡션을 참고해주세요!",
+    "ko": "영상 속 차량의 구매에 필요한 정보는 캡션을 참고해주세요!"
+   },
+   {
+    "start": 47.9,
+    "end": 51.5,
+    "text": "다양한 차량들을 소개받고 싶으시다면? 지금! 팔로우 부탁드립니다",
+    "ko": "다양한 차량들을 소개받고 싶으시다면? 지금! 팔로우 부탁드립니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "BMW X7이 좋은 이유 3가지 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "이유 1: 편안한 조향감과 가벼운 주행 스트레스"
+   },
+   {
+    "stage": "차 소개",
+    "start": 13.5,
+    "end": 26.6,
+    "speed": "보통",
+    "summary": "이유 2: 튀지 않는 외관색상과 직관적인 버튼 배치"
+   },
+   {
+    "stage": "기능",
+    "start": 26.6,
+    "end": 44.7,
+    "speed": "보통",
+    "summary": "이유 3: 잔고장 없고 유지보수 용이한 현실적인 플랫폼"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 44.7,
+    "end": 51.8,
+    "speed": "보통",
+    "summary": "구매 정보 캡션 안내 및 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "도입부에 3가지 장점을 짚어주는 리스티클(Top 3) 형식으로 시청 지속 시간을 확보",
+   "화면 중앙 하단에 굵은 고딕체의 흰색 자막을 1~2줄씩 싱크에 맞춰 노출",
+   "포인트 전환마다 '첫번째/두번째/세번째' 키워드로 명확한 구조감 부여",
+   "실제 차량 조작 모습(전동 시트 폴딩 버튼)을 시연하여 설득력 향상",
+   "마지막 컷에서 구매 문의는 캡션 확인을 유도하고 채널 팔로우 CTA로 마무리"
+  ],
+  "option_highlights": [
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "feature": "전동식 2열/3열 폴딩 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 100.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 버튼 조작음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 주차장을 주행하는 BMW X7과 헤드라이트 컷 위에 BMW 엠블럼 등장",
+   "type": "질문",
+   "text": "사륜구동 7인승 대형 SUV, BMW X7이 좋은 이유 세가지"
+  },
+  "narration_points": [
+   {
+    "t": 6.8,
+    "point": "전동식 스티어링 세팅으로 가볍고 빠른 응답성, 적은 운전 스트레스",
+    "category": "성능"
+   },
+   {
+    "t": 18.8,
+    "point": "튀지 않는 아틱 그레이 컬러와 메리노 블랙 시트의 무난함",
+    "category": "디자인"
+   },
+   {
+    "t": 22.8,
+    "point": "직관적인 원터치 트렁크 확장 물리식 버튼 배치",
+    "category": "편의"
+   },
+   {
+    "t": 28.8,
+    "point": "G바디 CLAR 플랫폼 기반으로 부품 수급 및 정비 용이",
+    "category": "상태·이력"
+   },
+   {
+    "t": 33.7,
+    "point": "에어서스 및 전자계통 잔고장이 적음",
+    "category": "상태·이력"
+   },
+   {
+    "t": 40.0,
+    "point": "48V 마일드 하이브리드로 대형 차체 대비 준수한 복합연비(약 8km/L)",
+    "category": "성능"
+   }
+  ],
+  "dealer_info": {
+   "shown": true,
+   "how": "자막",
+   "items": [
+    "캡션 참고"
+   ],
+   "t": 44.7
+  },
+  "cta": {
+   "t": 47.9,
+   "text": "지금! 팔로우 부탁드립니다 / 구매에 필요한 정보는 캡션을 참고해주세요!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 측면",
+    "외관 후면",
+    "뒷좌석",
+    "트렁크",
+    "휠",
+    "외관 전면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색 고딕 자막과 Mansory 번호판 가리개 사용"
+  }
+ }
+}

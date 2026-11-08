@@ -1,0 +1,914 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/bibgpoWAjtg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4721,
+  "candidatesTokenCount": 7268,
+  "totalTokenCount": 11989,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3465
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.6,
+   "aspect": "9:16",
+   "car": "람보르기니 우루스 S (Lamborghini Urus S)",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 4.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 5.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.4,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.6,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 20.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 32.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 38.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "랩핑인줄",
+    "ko": "랩핑인 줄",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "text": "순정",
+    "ko": "순정",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.6,
+    "text": "심지어",
+    "ko": "심지어",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 3.7,
+    "text": "24,000,000원짜리\n(정확히 24,540,909원..!)",
+    "ko": "24,000,000원짜리",
+    "kind": "가격",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.6,
+    "text": "옵션 컬러라니",
+    "ko": "옵션 컬러라니",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 5.7,
+    "text": "Verde Viper",
+    "ko": "베르데 바이퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#50E44B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.0,
+    "text": "판매합니다\n(Arancio Leonis INTC.)",
+    "ko": "판매합니다",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.0,
+    "text": "하드코어한",
+    "ko": "하드코어한",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "text": "엔진이지만",
+    "ko": "엔진이지만",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.6,
+    "text": "부드러운 승차감 완성!",
+    "ko": "부드러운 승차감 완성!",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.6,
+    "end": 12.8,
+    "text": "중에서",
+    "ko": "중에서",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 13.8,
+    "text": "손색 없는",
+    "ko": "손색 없는",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 14.8,
+    "text": "모델입니다",
+    "ko": "모델입니다",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.5,
+    "text": "국내에서도",
+    "ko": "국내에서도",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.2,
+    "text": "인기가 넘치는",
+    "ko": "인기가 넘치는",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.3,
+    "text": "좋은 매물",
+    "ko": "좋은 매물",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.0,
+    "text": "참 힘들죠",
+    "ko": "참 힘들죠",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.0,
+    "text": "SE는",
+    "ko": "SE는",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "추가한 대신",
+    "ko": "추가한 대신",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.6,
+    "text": "무게와 가격도...",
+    "ko": "무게와 가격도...",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.0,
+    "text": "역시 차는 내연기관이죠",
+    "ko": "역시 차는 내연기관이죠",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.6,
+    "text": "두 마리 토끼를",
+    "ko": "두 마리 토끼를",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "text": "다 잡은 우루스 S",
+    "ko": "다 잡은 우루스 S",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "text": "시공으로",
+    "ko": "시공으로",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 32.7,
+    "text": "완전무사고에 서비스센터\n보증도 남아있으니\n(~2026.08)",
+    "ko": "완전 무사고 및 보증 잔여",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 35.0,
+    "text": "시동만 걸고",
+    "ko": "시동만 걸고",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 36.8,
+    "text": "다양한 차량을\n소개받고 싶으시다면?",
+    "ko": "다양한 차량을 소개받고 싶으시다면?",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.6,
+    "text": "지금 팔로우 부탁드립니다!",
+    "ko": "지금 팔로우 부탁드립니다!",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 빠른 템포",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "랩핑인줄 알았는데, 순정 페인트더라고요.",
+    "ko": "랩핑인 줄 알았는데, 순정 페인트더라고요."
+   },
+   {
+    "start": 1.7,
+    "end": 4.6,
+    "text": "심지어 2,400만 원짜리 옵션 컬러라니.",
+    "ko": "심지어 2,400만 원짜리 옵션 컬러라니."
+   },
+   {
+    "start": 4.6,
+    "end": 7.0,
+    "text": "애드 퍼스넘 베르데 바이퍼 우루스 S 판매합니다.",
+    "ko": "애드 퍼스넘 베르데 바이퍼 우루스 S 판매합니다."
+   },
+   {
+    "start": 7.0,
+    "end": 9.4,
+    "text": "하드코어한 퍼포먼테와 동일한 엔진이지만,",
+    "ko": "하드코어한 퍼포먼테와 동일한 엔진이지만,"
+   },
+   {
+    "start": 9.4,
+    "end": 11.6,
+    "text": "에어 서스펜션으로 부드러운 승차감 완성!",
+    "ko": "에어 서스펜션으로 부드러운 승차감 완성!"
+   },
+   {
+    "start": 11.6,
+    "end": 14.8,
+    "text": "람보르기니 중에서 데일리카로 손색없는 몇 안 되는 모델입니다.",
+    "ko": "람보르기니 중에서 데일리카로 손색없는 몇 안 되는 모델입니다."
+   },
+   {
+    "start": 14.8,
+    "end": 20.0,
+    "text": "국내에서도 인기 모델이지만 해외에서도 인기가 넘치는 우루스는 좋은 매물 찾기가 참 힘들죠.",
+    "ko": "국내에서도 인기 모델이지만 해외에서도 인기가 넘치는 우루스는 좋은 매물 찾기가 참 힘들죠."
+   },
+   {
+    "start": 20.0,
+    "end": 23.6,
+    "text": "최신형 SE는 배터리를 추가한 대신 무게와 가격도...",
+    "ko": "최신형 SE는 배터리를 추가한 대신 무게와 가격도..."
+   },
+   {
+    "start": 23.6,
+    "end": 28.5,
+    "text": "역시 차는 내연기관이죠. 666마력으로 감성과 멋 두 마리 토끼를 다 잡은 우루스 S.",
+    "ko": "역시 차는 내연기관이죠. 666마력으로 감성과 멋 두 마리 토끼를 다 잡은 우루스 S."
+   },
+   {
+    "start": 28.5,
+    "end": 32.7,
+    "text": "전체 PPF 시공으로 가성비도 좋고요. 완전 무사고에 서비스센터 보증도 남아있으니,",
+    "ko": "전체 PPF 시공으로 가성비도 좋고요. 완전 무사고에 서비스센터 보증도 남아있으니,"
+   },
+   {
+    "start": 32.7,
+    "end": 35.0,
+    "text": "시동만 걸고 바로 달리시면 됩니다.",
+    "ko": "시동만 걸고 바로 달리시면 됩니다."
+   },
+   {
+    "start": 35.0,
+    "end": 38.6,
+    "text": "다양한 차량을 소개받고 싶으시다면 지금 팔로우 부탁드립니다!",
+    "ko": "다양한 차량을 소개받고 싶으시다면 지금 팔로우 부탁드립니다!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.7,
+    "speed": "빠름",
+    "summary": "2400만원짜리 희귀 외장 옵션 컬러 소개로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.7,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "퍼포만테와 동일한 파워트레인 및 에어서스 승차감, 실내 안내"
+   },
+   {
+    "stage": "사양",
+    "start": 14.8,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "우루스 S의 내연기관 매력 및 666마력 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 28.5,
+    "end": 35.0,
+    "speed": "보통",
+    "summary": "전체 PPF 시공, 무사고, 제조사 보증 잔여 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 35.0,
+    "end": 38.6,
+    "speed": "빠름",
+    "summary": "시동 버튼 클로즈업 및 팔로우 유도 CTA"
+   }
+  ],
+  "rules": [
+   "자막은 하단 중앙에 일관된 폰트와 크기로 단문 단위 전환",
+   "화려한 그래픽이나 효과음을 배제하고 정갈한 컷 전환과 차량 비주얼에 집중",
+   "스마트폰 짐벌 워크스루 느낌의 부드러운 차량 디테일 샷 연결"
+  ],
+  "option_highlights": [
+   {
+    "start": 2.6,
+    "end": 5.7,
+    "feature": "애드 퍼스넘 Verde Viper 외장 컬러",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 80.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.0,
+    "feature": "Arancio Leonis 인테리어 컬러",
+    "shown_how": "글자 카드",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.6,
+    "feature": "에어 서스펜션",
+    "shown_how": "말로만",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 79.5,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "feature": "전체 PPF 시공",
+    "shown_how": "말로만",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 79.5,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "연두색 람보르기니 우루스의 외관을 보여주며 2400만원짜리 순정 옵션 페인트라는 멘트",
+   "type": "가격",
+   "text": "랩핑인줄 알았는데 순정 페인트더라고요. 심지어 2400만원짜리 옵션 컬러라니"
+  },
+  "narration_points": [
+   {
+    "t": 2.6,
+    "point": "2,400만 원 상당의 애드 퍼스넘 Verde Viper 컬러",
+    "category": "디자인"
+   },
+   {
+    "t": 6.0,
+    "point": "Arancio Leonis 오렌지 투톤 인테리어",
+    "category": "디자인"
+   },
+   {
+    "t": 9.4,
+    "point": "하드코어 엔진에 에어서스펜션 탑재로 부드러운 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 12.8,
+    "point": "데일리 슈퍼 SUV로 손색없는 활용도",
+    "category": "편의"
+   },
+   {
+    "t": 25.0,
+    "point": "순수 내연기관 666마력",
+    "category": "성능"
+   },
+   {
+    "t": 28.5,
+    "point": "전체 PPF 시공",
+    "category": "상태·이력"
+   },
+   {
+    "t": 31.0,
+    "point": "완전무사고 및 2026년 8월까지 제조사 보증 잔여",
+    "category": "상태·이력"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": 36.8,
+   "text": "지금 팔로우 부탁드립니다!",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "계기판",
+    "엔진룸",
+    "휠",
+    "실내 앞",
+    "뒷좌석",
+    "계기판",
+    "외관 후면",
+    "외관 측면",
+    "외관 전면",
+    "옵션 작동"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색 본문 자막에 괄호로 부가 옵션 스펙 표기"
+  }
+ }
+}
