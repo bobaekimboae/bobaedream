@@ -1,0 +1,468 @@
+{
+ "country": "BE",
+ "kind": "style",
+ "url": "https://youtu.be/cIsMGm3jhOs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2738,
+  "candidatesTokenCount": 3968,
+  "totalTokenCount": 6706,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1368
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1370
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.6,
+   "aspect": "9:16",
+   "car": "기타 (AutoScout24 앱 소개/거리 인터뷰)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.7,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.7,
+    "text": "Wat is Belangrijker",
+    "ko": "무엇이 더 중요할까요",
+    "kind": "제목",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": "없음",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.7,
+    "text": "Meer PK'S",
+    "ko": "더 많은 마력(PK)",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#4CAF50",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "없음",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "✓ Veel pk's\n✓ Veel veiligheidsopties",
+    "ko": "✓ 많은 마력\n✓ 많은 안전 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "없음",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "text": "✓ Meer opties",
+    "ko": "✓ 더 많은 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "없음",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.8,
+    "text": "✓ Veel pk's",
+    "ko": "✓ 많은 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "없음",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.6,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "끝 화면",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "없음",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "Meer PK's 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "Veel pk's / veiligheidsopties 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "Meer opties 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "톡",
+    "event": "Veel pk's 칩 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "휙",
+    "event": "스마트폰 UI 목업 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 칩 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/전자음악",
+   "bpm_est": 120,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 11.8,
+    "end": 13.7,
+    "what": "스마트폰 화면 앱 UI 목업 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "아래서 톡 올라옴",
+    "purpose": "앱 필터 기능 시각적 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "Wij zijn vandaag in Genk en wij vroegen aan de mensen wat ze belangrijker vinden: meer pk of meer opties?",
+    "ko": "우리는 오늘 헹크에 나와 시민들에게 더 중요한 것이 마력인지, 옵션인지 물어보았습니다."
+   },
+   {
+    "start": 5.0,
+    "end": 8.6,
+    "text": "Allebei. Dat is een moeilijke. Veel pk's en veel veiligheidsopties.",
+    "ko": "둘 다요. 어렵네요. 많은 마력과 많은 안전 옵션이요."
+   },
+   {
+    "start": 8.7,
+    "end": 9.7,
+    "text": "Meer opties.",
+    "ko": "옵션이 더 중요해요."
+   },
+   {
+    "start": 9.8,
+    "end": 11.7,
+    "text": "Veel pk. Veel pk's.",
+    "ko": "많은 마력이요. 마력이요."
+   },
+   {
+    "start": 11.8,
+    "end": 15.6,
+    "text": "Filter wat jij belangrijk vindt op de AutoScout24 app.",
+    "ko": "AutoScout24 앱에서 당신에게 중요한 조건을 필터링해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "보통",
+    "summary": "질문 제시: 마력 vs 옵션 중 무엇이 중요한가"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.9,
+    "end": 11.7,
+    "speed": "빠름",
+    "summary": "거리 시민들의 응답 인터뷰"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 11.8,
+    "end": 13.7,
+    "speed": "보통",
+    "summary": "앱 내 필터 검색 기능 시연 그래픽"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 13.7,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "호스트 클로징 및 AutoScout24 브랜드 강조"
+   }
+  ],
+  "rules": [
+   "인터뷰이의 답변 요약은 화면 상단 15~20% 위치에 둥근 모서리 칩 형태로 팝업 표시한다.",
+   "새로운 답변 칩이 나타날 때마다 짧고 명확한 '톡' 효과음을 동기화한다.",
+   "질문 및 브랜드 로고는 시그니처 옐로우(#FFEB3B) 배경 박스로 강조한다.",
+   "앱의 해결책(필터 기능)을 스마트폰 프레임 목업으로 직관적으로 보여준다."
+  ],
+  "caption_styles": [
+   {
+    "role": "말 자막",
+    "font": "굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#FFFFFF",
+    "outline": "검정 외곽선",
+    "outline_px_at_1080": 4,
+    "box": "없음",
+    "box_color": "",
+    "box_corner_px_at_1080": 0,
+    "box_padding_pct": 0.0,
+    "text_height_pct": 3.0,
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 4,
+    "highlight": "핵심 낱말 박스",
+    "highlight_color": "#FFEB3B",
+    "in_anim": "페이드",
+    "in_ms": 100,
+    "out_anim": "바로",
+    "stay_sec": 1.5,
+    "count": 8,
+    "sure": true
+   },
+   {
+    "role": "키워드 칩",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "둥근 알약",
+    "box_color": "#FFEB3B",
+    "box_corner_px_at_1080": 24,
+    "box_padding_pct": 1.5,
+    "text_height_pct": 3.8,
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 3,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.8,
+    "count": 4,
+    "sure": true
+   },
+   {
+    "role": "제목",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "문장형",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEB3B",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 2.0,
+    "text_height_pct": 5.5,
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 2,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "바로",
+    "in_ms": 0,
+    "out_anim": "바로",
+    "stay_sec": 4.5,
+    "count": 1,
+    "sure": true
+   },
+   {
+    "role": "끝 화면",
+    "font": "아주 굵게 세리프 없음",
+    "letter_case": "혼합",
+    "text_color": "#111111",
+    "outline": "없음",
+    "outline_px_at_1080": 0,
+    "box": "붓질 모양",
+    "box_color": "#FFEB3B",
+    "box_corner_px_at_1080": 8,
+    "box_padding_pct": 2.5,
+    "text_height_pct": 7.5,
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "max_lines": 2,
+    "words_per_line": 1,
+    "highlight": "없음",
+    "highlight_color": "",
+    "in_anim": "톡 튀어나옴(커졌다 작아짐)",
+    "in_ms": 150,
+    "out_anim": "바로",
+    "stay_sec": 1.8,
+    "count": 1,
+    "sure": true
+   }
+  ],
+  "chip_rules": {
+   "one_at_a_time": true,
+   "chip_vs_speech_same_time": true,
+   "chip_when": "말하는 낱말과 동시",
+   "chip_offset_ms": 0
+  },
+  "sfx_rules": [
+   {
+    "event": "칩 등장",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 4
+   },
+   {
+    "event": "로고·끝 화면",
+    "sound": "톡",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 120,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   },
+   {
+    "event": "컷 전환",
+    "sound": "휙",
+    "offset_ms_vs_visual": 0,
+    "length_ms": 200,
+    "loud_vs_voice": "비슷",
+    "count": 1
+   }
+  ],
+  "end_card": {
+   "start_sec": 13.8,
+   "what": "로고",
+   "bg": "차 위에 겹침",
+   "sec": 1.8
+  },
+  "safe_zone_note": "핵심 칩 그래픽은 화면 상단(15~20%)에 배치하여 플랫폼 우측 인터랙션 버튼 및 하단 정보 영역과의 간섭을 완전히 피함."
+ }
+}
