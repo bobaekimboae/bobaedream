@@ -1,0 +1,778 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/x6mq2DHwpms",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 9093,
+  "candidatesTokenCount": 6180,
+  "totalTokenCount": 15273,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7930
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 87.0,
+   "aspect": "9:16",
+   "car": "Rox 01 (Polestones 01)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.7,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 13.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 23.3,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 29.5,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 40.5,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 45.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 50.4,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.4,
+    "end": 55.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 59.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.9,
+    "end": 63.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.5,
+    "end": 68.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.7,
+    "end": 70.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 76.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 76.5,
+    "end": 81.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 81.0,
+    "end": 87.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "أنا ناصر",
+    "ko": "저는 나사르입니다",
+    "kind": "말 자막",
+    "y_pct": 68,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "ناصر",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "والعربية دي",
+    "ko": "그리고 이 차는",
+    "kind": "말 자막",
+    "y_pct": 68,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "جايه من الصين سواقة",
+    "ko": "중국에서 직접 운전해서 왔습니다",
+    "kind": "말 자막",
+    "y_pct": 68,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "الصين",
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.5,
+    "text": "هتشد دول",
+    "ko": "이걸 당기면",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.5,
+    "text": "وهيبقى عندك ترابيزة",
+    "ko": "테이블이 생겨서",
+    "kind": "말 자막",
+    "y_pct": 52,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "ترابيزة",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "مطبخ صغير",
+    "ko": "미니 주방",
+    "kind": "키워드 스티커",
+    "y_pct": 72,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.2,
+    "text": "التخييم",
+    "ko": "캠핑",
+    "kind": "키워드 스티커",
+    "y_pct": 20,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#E6B800",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.0,
+    "text": "دفع كلي",
+    "ko": "AWD (전륜구동/사륜구동)",
+    "kind": "키워드 스티커",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0088CC",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "휙",
+    "event": "차량 전면 그래픽 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "쿵",
+    "event": "25,000 km 텍스트 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "딸깍",
+    "event": "트렁크 간이 테이블 펼치는 순간",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.5,
+    "type": "딸깍",
+    "event": "트렁크 주방 조리대 펼치는 순간",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "휙",
+    "event": "20인치 휠 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.8,
+    "type": "쿵",
+    "event": "루프탑 텐트 그래픽 팝업",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 32.3,
+    "type": "쿵",
+    "event": "사륜구동 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "사막 모래 위 드리프트 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "띵",
+    "event": "듀얼 모터 스펙 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.2,
+    "type": "딸깍",
+    "event": "시트 열선/통풍 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 104.5,
+    "type": "톡",
+    "event": "중앙 모니터 터치",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스 기반 트랩 비트",
+   "bpm_est": 118,
+   "mood": "역동적이고 모험적인 느낌",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 33.8,
+     "what": "드리프트 액션 씬에서 비트 강조"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "what": "ROX 01 엠블럼 로고",
+    "is_3d": false,
+    "size_w_pct": 25,
+    "x_pct": 50,
+    "y_pct": 18,
+    "entrance": "확대",
+    "purpose": "차명 소개",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.8,
+    "what": "25,000Km 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 15,
+    "entrance": "위에서 떨어짐",
+    "purpose": "주행거리 강조",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.2,
+    "what": "차량 루프에 설치된 텐트 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45,
+    "x_pct": 60,
+    "y_pct": 28,
+    "entrance": "톡 튀어나옴",
+    "purpose": "캠핑 기능 시각화",
+    "sure": true
+   },
+   {
+    "start": 32.3,
+    "end": 34.0,
+    "what": "사륜 구동(4WD) 섀시 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35,
+    "x_pct": 20,
+    "y_pct": 25,
+    "entrance": "페이드",
+    "purpose": "AWD 구동 방식 강조",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 45.8,
+    "what": "엔진 2개 3D 모델 및 스펙 박스",
+    "is_3d": true,
+    "size_w_pct": 40,
+    "x_pct": 50,
+    "y_pct": 30,
+    "entrance": "밀려옴",
+    "purpose": "마력 및 토크 정보 제공",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "أنا ناصر والعربية دي جايه من الصين سواقة Rox 01",
+    "ko": "저는 나사르이고, 이 차 Rox 01은 중국에서 직접 운전해서 왔습니다."
+   },
+   {
+    "start": 3.7,
+    "end": 10.7,
+    "text": "العربية دي في اختبار هتمشي 25,000 كيلو ابتدت من الصين وجت سواقة لمصر وهتوصل لخمس دول بعدها",
+    "ko": "이 차는 테스트 중이며 25,000km를 달릴 예정입니다. 중국에서 시작해 이집트까지 운전해 왔고 이후 5개국을 더 갑니다."
+   },
+   {
+    "start": 10.7,
+    "end": 26.2,
+    "text": "ولو عايز تاكل هتشد دول وهيبقى عندك ترابيزة تاكل عليها ولو عايز تعمل الاكل هتنزل دي وهيبقى عندك مطبخ صغير بتانك للمياه متوصل بحنفية",
+    "ko": "식사하고 싶다면 여길 당겨 테이블을 만들고, 요리하려면 여길 내려서 물탱크와 수도꼭지가 연결된 미니 주방을 쓸 수 있습니다."
+   },
+   {
+    "start": 26.2,
+    "end": 33.8,
+    "text": "Black rims مقاس 20 off-road tires ولو غاوي camping تقدر تركب خيمة",
+    "ko": "20인치 블랙 휠, 오프로드 타이어가 적용되었고 캠핑을 좋아하면 텐트를 올릴 수 있습니다."
+   },
+   {
+    "start": 33.8,
+    "end": 40.5,
+    "text": "ودفع كلي فأدائها في الصحراء",
+    "ko": "사륜구동이라 사막에서의 성능도 대단합니다."
+   },
+   {
+    "start": 40.5,
+    "end": 50.4,
+    "text": "وفيها موتورين 470 حصان و 740 نيوتن وبيدولك 1115 كيلو رينج منهم 880 من موتور بنزين 1500cc تربو كل وظيفته إنه يشحن البطاريات",
+    "ko": "2개 모터로 470마력 740Nm을 내며 총 1115km 주행이 가능합니다. 그 중 880km는 배터리 충전 전용 1500cc 터보 엔진으로 달립니다."
+   },
+   {
+    "start": 50.4,
+    "end": 55.7,
+    "text": "ولمساعدتك في السواقة عندك sensors، كاميرات، lidars حتى الأنوار بتلف مع اتجاه الدريكسيون",
+    "ko": "주행 보조를 위해 센서, 카메라, 라이다가 탑재되어 있고 헤드라이트도 스티어링 방향에 따라 회전합니다."
+   },
+   {
+    "start": 55.7,
+    "end": 70.8,
+    "text": "ومن جوه عندك فتحة سقف والكراسي تسخين وتبريد ومساج واثنين cup holder واثنين شاحن وايرلس و ambient light 256 لون",
+    "ko": "실내에는 썬루프, 열선/통풍/마사지 시트, 컵홀더 2개, 무선 충전기 2개, 256색 앰비언트 라이트가 있습니다."
+   },
+   {
+    "start": 70.8,
+    "end": 87.0,
+    "text": "والصف الثاني البانوراما واصلاله كويس عنده شاشة للترفيه... وفيها صف ثالث وتشيل 7 مستريحين",
+    "ko": "2열도 파노라마 뷰가 좋고 엔터테인먼트 스크린이 있으며, 3열까지 있어 7명이 편안하게 탈 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "중국에서 직접 몰고 온 차라는 인트로"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 10.7,
+    "speed": "보통",
+    "summary": "25,000km 대장정 루트 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 10.7,
+    "end": 26.2,
+    "speed": "빠름",
+    "summary": "트렁크 간이 주방, 온수 기능, 외부 전원"
+   },
+   {
+    "stage": "사양",
+    "start": 26.2,
+    "end": 55.7,
+    "speed": "빠름",
+    "summary": "오프로드 성능, 휠, 모터 및 주행가능거리 스펙, 센서"
+   },
+   {
+    "stage": "기능",
+    "start": 55.7,
+    "end": 87.0,
+    "speed": "빠름",
+    "summary": "1열, 2열, 3열 실내 편의사양 및 7인승 공간 투어"
+   }
+  ],
+  "rules": [
+   "핵심 키워드와 숫자는 3D 텍스트와 볼드 자막으로 화면 중앙이나 차량 위에 오버레이함",
+   "옵션을 설명할 때는 직접 손으로 조작하거나 열어보는 모습을 클로즈업해 직관성을 높임",
+   "중간에 사막 주행 드리프트 장면을 삽입해 지루함을 없애고 오프로더 성능을 강조함",
+   "스펙 정보(마력, 토크, 거리)는 수치가 적힌 전용 그래픽 박스를 띄워 전달력을 강화함"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.7,
+    "end": 14.5,
+    "feature": "테일게이트 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50,
+    "y_pct": 55,
+    "size_w_pct": 70,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 23.3,
+    "feature": "빌트인 캠핑 주방 및 온수기",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 80,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.2,
+    "feature": "V2L 외부 전원 공급",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 45,
+    "y_pct": 50,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.2,
+    "feature": "루프탑 텐트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차량 지붕에 펼쳐지는 3D 노란색 텐트",
+    "x_pct": 60,
+    "y_pct": 28,
+    "size_w_pct": 45,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   },
+   {
+    "start": 57.5,
+    "end": 59.9,
+    "feature": "시트 열선/통풍/마사지",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 및 마사지 그래픽 스티커",
+    "x_pct": 50,
+    "y_pct": 65,
+    "size_w_pct": 30,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 104.5,
+    "end": 106.8,
+    "feature": "15.7인치 센터 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": "15인치 애플 카플레이 스티커",
+    "x_pct": 50,
+    "y_pct": 35,
+    "size_w_pct": 30,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 113.0,
+    "end": 115.0,
+    "feature": "2열 천장 접이식 스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50,
+    "y_pct": 45,
+    "size_w_pct": 50,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 해변가에서 걸어나오며 중국에서부터 직접 운전해 온 차라고 소개",
+   "type": "숫자·성능",
+   "text": "أنا ناصر والعربية دي جايه من الصين سواقة",
+   "ko": "저는 나사르이고, 이 차는 중국에서 직접 운전해서 왔습니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "중국에서 이집트까지 장거리 주행 검증을 위해 직접 운전해 옴",
+    "category": "희소성"
+   },
+   {
+    "t": 13.0,
+    "point": "트렁크 도어에 내장된 테이블 및 조리용 미니 키친과 온수 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 27.0,
+    "point": "20인치 오프로드 타이어 및 루프탑 텐트 장착 가능",
+    "category": "디자인"
+   },
+   {
+    "t": 42.0,
+    "point": "470마력 듀얼모터와 주행거리 연장용(EREV) 1.5 터보 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 52.0,
+    "point": "라이다 및 센서 기반 주행 보조와 조향 연동 라이트",
+    "category": "안전"
+   },
+   {
+    "t": 62.0,
+    "point": "1열 안마/통풍 시트 및 256색 앰비언트 라이트",
+    "category": "편의"
+   },
+   {
+    "t": 84.0,
+    "point": "3열까지 넉넉하게 탑승 가능한 7인승 대형 SUV 공간",
+    "category": "공간"
+   }
+  ],
+  "cta": {
+   "t": 87.0,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 측면",
+    "트렁크",
+    "옵션 작동",
+    "휠",
+    "외관 전면",
+    "기타",
+    "외관 전면",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "뒷좌석"
+   ]
+  }
+ }
+}

@@ -1,0 +1,959 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/q09y2Rw_FnU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6625,
+  "candidatesTokenCount": 7883,
+  "totalTokenCount": 14508,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5462
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.0,
+   "aspect": "9:16",
+   "car": "Kia Sportage 2026",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 8.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 42.4,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 48.9,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.9,
+    "end": 60.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "العربية دي بقى شكلها أحلى بكتير من القديمة",
+    "ko": "이 차는 이전 모델보다 훨씬 멋져졌습니다",
+    "kind": "말 자막",
+    "y_pct": 85,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.8,
+    "text": "KIA SPORTAGE 2026",
+    "ko": "기아 스포티지 2026",
+    "kind": "키워드 스티커",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#4A90E2",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.8,
+    "text": "Turbo 1600 CC",
+    "ko": "1600cc 터보",
+    "kind": "키워드 스티커",
+    "y_pct": 25,
+    "x_center_pct": 45,
+    "text_height_pct": 6,
+    "color": "#00D2FF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "text": "180 HP",
+    "ko": "180 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 20,
+    "x_center_pct": 45,
+    "text_height_pct": 6,
+    "color": "#00D2FF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.9,
+    "text": "256 NM",
+    "ko": "256 Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 20,
+    "x_center_pct": 45,
+    "text_height_pct": 6,
+    "color": "#00D2FF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 10.0,
+    "text": "7 سرعات",
+    "ko": "7단 변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 55,
+    "text_height_pct": 6,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": -15,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.0,
+    "text": "Paddle shifters",
+    "ko": "패들 시프트",
+    "kind": "키워드 스티커",
+    "y_pct": 35,
+    "x_center_pct": 55,
+    "text_height_pct": 5,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 18,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FF6B00",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.0,
+    "text": "Cruise control",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 45,
+    "x_center_pct": 35,
+    "text_height_pct": 5,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "text": "19\"",
+    "ko": "19인치",
+    "kind": "키워드 스티커",
+    "y_pct": 30,
+    "x_center_pct": 35,
+    "text_height_pct": 7,
+    "color": "#00D2FF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.8,
+    "text": "360 cameras\nBlind spot Assist",
+    "ko": "360도 카메라 / 사각지대 어시스트",
+    "kind": "키워드 스티커",
+    "y_pct": 35,
+    "x_center_pct": 60,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.0,
+    "text": "مخارج شواحن",
+    "ko": "충전 단자 포트",
+    "kind": "키워드 스티커",
+    "y_pct": 42,
+    "x_center_pct": 45,
+    "text_height_pct": 5,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 30.8,
+    "text": "Cup Holders",
+    "ko": "컵 홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 65,
+    "x_center_pct": 65,
+    "text_height_pct": 5,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 32.8,
+    "text": "تسخين\nتبريد",
+    "ko": "열선 / 통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 48,
+    "x_center_pct": 65,
+    "text_height_pct": 5,
+    "color": "#FF6B00",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 40.5,
+    "text": "مخارج شواحن\nمكان للأكياس\nتحكم في التكييف",
+    "ko": "충전 포트 / 가방 걸이 / 후석 에어컨 조절",
+    "kind": "키워드 스티커",
+    "y_pct": 40,
+    "x_center_pct": 35,
+    "text_height_pct": 4,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 42.8,
+    "text": "أكيد القاعدة واسعة",
+    "ko": "확실히 실내 공간이 넓습니다",
+    "kind": "말 자막",
+    "y_pct": 90,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 52.8,
+    "text": "1800000\nمناسبة ليك",
+    "ko": "1,800,000 이상이면 당신에게 딱입니다",
+    "kind": "가격",
+    "y_pct": 35,
+    "x_center_pct": 65,
+    "text_height_pct": 6,
+    "color": "#00FF66",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.5,
+    "text": "ضمان\n5 سنين\n100,000 KM",
+    "ko": "보증 5년 또는 100,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 25,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#00D2FF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 60.0,
+    "text": "الموزع الرسمي\nالقطامية\nالعجوزة\nالشيخ زايد\nالنزهة",
+    "ko": "공식 딜러 매장 지점 안내",
+    "kind": "키워드 스티커",
+    "y_pct": 30,
+    "x_center_pct": 65,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "쿵",
+    "event": "KIA 로고 및 차명 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "톡",
+    "event": "엔진 스펙 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "마력 수치 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "톡",
+    "event": "토크 수치 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "딸깍",
+    "event": "전자식 변속 다이얼 조작 연출",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "휙",
+    "event": "스티어링 휠 열선 불꽃 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "19인치 휠 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.5,
+    "type": "띵",
+    "event": "360 카메라 및 안전경고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "휙",
+    "event": "시트 통풍/열선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.0,
+    "type": "돈 소리",
+    "event": "차량 가격 숫자 카운팅 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "what": "Kia Sportage 로고 3D 효과",
+    "is_3d": true,
+    "size_w_pct": 60,
+    "x_pct": 50,
+    "y_pct": 25,
+    "entrance": "확대",
+    "purpose": "차명 강조",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 8.8,
+    "what": "엔진 스펙(1600cc, 180HP, 256NM) 플로팅 텍스트",
+    "is_3d": true,
+    "size_w_pct": 40,
+    "x_pct": 45,
+    "y_pct": 25,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 안내",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "what": "열선 불꽃 스티커 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35,
+    "x_pct": 50,
+    "y_pct": 18,
+    "entrance": "톡 튀어나옴",
+    "purpose": "열선 핸들 강조",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.5,
+    "what": "360 카메라 아이콘 및 사각지대 경고 삼각형",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 60,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전 옵션 안내",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 53.0,
+    "what": "가격 수치 및 상승 화살표 그래픽",
+    "is_3d": true,
+    "size_w_pct": 50,
+    "x_pct": 65,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시작 가격 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "العربية دي بقى شكلها أحلى بكتير من القديمة",
+    "ko": "이 차는 이제 이전 세대보다 훨씬 멋져졌습니다"
+   },
+   {
+    "start": 2.8,
+    "end": 4.8,
+    "text": "كيا سبورتاج 2026",
+    "ko": "기아 스포티지 2026입니다"
+   },
+   {
+    "start": 4.8,
+    "end": 8.9,
+    "text": "والموتور 1600 تيربو 180 حصان و256 نيوتن",
+    "ko": "엔진은 1600cc 터보로 180마력에 256Nm 토크를 발휘합니다"
+   },
+   {
+    "start": 8.9,
+    "end": 14.0,
+    "text": "وفتيس سبع سرعات بالباديل شيفترز دريكسيون تو تون وفيه تسخين بالكروز كنترول والدرايف مود سيلكت",
+    "ko": "7단 변속기에 패들 시프트, 투톤 열선 핸들, 크루즈 컨트롤과 드라이브 모드 셀렉트가 들어갔습니다"
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "text": "تصميم الفوانيس بقى أجمل بكتير بأربع فتحات عدسية عشان ينوروا لك الطريق",
+    "ko": "라이트 디자인도 길을 환하게 비춰주는 4구 프로젝션 램프로 훨씬 예뻐졌고"
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "text": "جنط خطير مقاس 19",
+    "ko": "멋진 19인치 휠이 들어갔습니다"
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "text": "كاميرات 360 ببلايند سبوت اسيست",
+    "ko": "360도 카메라와 후측방 사각지대 어시스트까지 탑재됐죠"
+   },
+   {
+    "start": 22.8,
+    "end": 26.5,
+    "text": "عندك ديجيتال ديسبلاي متوصل بالشاشة اللي فيها ابل كاربلاي واندرويد اوتو والقبلة فمفيش مبرر متصليش",
+    "ko": "애플 카플레이와 안드로이드 오토, 키블라(나침반)를 지원하는 디스플레이가 연결되어 있어 기도 못 드릴 핑계도 없습니다"
+   },
+   {
+    "start": 26.5,
+    "end": 30.5,
+    "text": "مخارج شواحن بشاحن وايرلس كاب هولدرز",
+    "ko": "무선 충전 패드와 충전 단자, 컵홀더가 있고"
+   },
+   {
+    "start": 30.5,
+    "end": 33.0,
+    "text": "تحكم في الكراسي اللي فيها تسخين وتبريد",
+    "ko": "통풍과 열선 기능이 들어간 전동 시트 조절이 가능합니다"
+   },
+   {
+    "start": 33.0,
+    "end": 42.0,
+    "text": "والكنبة ورا قمة في العملية عندك مكان للجواكت ولو مزنوق الكراسي بتتحرك مخارج شواحن مكان للأكياس تحكم في التكييف مكان للموبايل",
+    "ko": "뒷좌석은 실용성의 극치입니다. 옷걸이 홈, 시트 조절 기능, 충전 포트, 쇼핑백 걸이, 에어컨 조절기, 스마트폰 포켓까지 있습니다"
+   },
+   {
+    "start": 42.0,
+    "end": 43.5,
+    "text": "وسبورتاج فأكيد القاعدة واسعة",
+    "ko": "스포티지인 만큼 실내 공간도 당연히 널찍합니다"
+   },
+   {
+    "start": 43.5,
+    "end": 48.9,
+    "text": "وكيا برضو فأكيد الشنطة كهربا وكمان واسعة ولما بتشد دول الكراسي بتنزل ولو عايز تغطي حاجتك بتشد الرف ده",
+    "ko": "기아이니 전동 트렁크에 공간도 넉넉하고, 레버를 당기면 시트가 폴딩되며 가림막으로 짐을 가릴 수도 있습니다"
+   },
+   {
+    "start": 48.9,
+    "end": 53.0,
+    "text": "فلو معاك من مليون و800 فيما فوق العربية دي مناسبة ليك",
+    "ko": "180만 이집트 파운드 이상의 예산이 있다면 이 차가 제격입니다"
+   },
+   {
+    "start": 53.0,
+    "end": 56.0,
+    "text": "وعشان تطمن الضمان خمس سنين أو 100,000 كم",
+    "ko": "안심할 수 있게 5년 또는 10만 km 보증이 제공됩니다"
+   },
+   {
+    "start": 56.0,
+    "end": 60.0,
+    "text": "وهتلاقيها في الموزع الرسمي الليثي دفر على القطامية وفي العجوزة وزايد والنزهة",
+    "ko": "공식 딜러 엘리시 카타미야, 아구자, 자이드, 누즈하 지점에서 만나보실 수 있습니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "이전 세대보다 훨씬 예뻐진 신형 스포티지 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.5,
+    "end": 8.9,
+    "speed": "빠름",
+    "summary": "1.6 터보 엔진 마력 및 토크 제원 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 8.9,
+    "end": 22.8,
+    "speed": "빠름",
+    "summary": "변속기, 휠 디자인, 라이트, 서라운드 뷰 등 외관 및 주행 옵션"
+   },
+   {
+    "stage": "기능",
+    "start": 22.8,
+    "end": 42.4,
+    "speed": "빠름",
+    "summary": "인포테인먼트, 편의사양, 통풍시트 및 뒷좌석 실용적 기능"
+   },
+   {
+    "stage": "기능",
+    "start": 42.4,
+    "end": 48.9,
+    "speed": "빠름",
+    "summary": "전동 트렁크 공간 및 폴딩 편의성"
+   },
+   {
+    "stage": "가격",
+    "start": 48.9,
+    "end": 53.0,
+    "speed": "보통",
+    "summary": "180만 파운드대 시작 가격 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 53.0,
+    "end": 60.0,
+    "speed": "보통",
+    "summary": "보증 기간 안내 및 전시장 방문 유도"
+   }
+  ],
+  "rules": [
+   "옵션이나 수치를 언급할 때마다 입체적인 텍스트 스티커와 효과음을 동기화하여 시각적 직관성을 높임",
+   "리뷰어가 차를 직접 만지며 기능을 동작시키는 손동작에 맞춰 컷을 빠르게 전환함",
+   "외관 -> 운전석 -> 뒷좌석 -> 트렁크 순서로 차량 동선을 따라 자연스럽게 구성함",
+   "마지막에 명확한 구매 권장 예산과 보증 정보를 제공하여 구매 고려자에게 실질적 정보 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.9,
+    "end": 9.9,
+    "feature": "다이얼식 기어 변속기",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "다이얼 회전 그래픽 텍스트",
+    "x_pct": 55,
+    "y_pct": 50,
+    "size_w_pct": 25,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "feature": "열선 스티어링 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "불꽃 이모지 및 아랍어 텍스트",
+    "x_pct": 50,
+    "y_pct": 18,
+    "size_w_pct": 35,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.0,
+    "feature": "19인치 알로이 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "19인치 강조 네온 텍스트",
+    "x_pct": 35,
+    "y_pct": 30,
+    "size_w_pct": 25,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "feature": "360도 서라운드 뷰 및 사각지대 경고",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "카메라 아이콘 및 삼각형 위험 경고등",
+    "x_pct": 60,
+    "y_pct": 35,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.8,
+    "feature": "통풍 및 열선 시트",
+    "shown_how": "글자 카드",
+    "icon_desc": "열선/통풍 듀얼 컬러 텍스트",
+    "x_pct": 65,
+    "y_pct": 48,
+    "size_w_pct": 30,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 48.5,
+    "feature": "전동식 스마트 트렁크 및 2열 원터치 폴딩",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "레버 조작 및 커버 전개 시연",
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 전시장 앞 신형 기아 스포티지를 배경으로 힘차게 걸어나오며 이전 세대보다 훨씬 예뻐졌다고 강조",
+   "type": "감탄·리액션",
+   "text": "العربية دي بقى شكلها أحلى بكتير من القديمة",
+   "ko": "이 차는 이전 모델보다 훨씬 멋져졌습니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "이전 세대 대비 대폭 향상된 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 5.5,
+    "point": "1.6 터보 180마력 256Nm 동력성능",
+    "category": "성능"
+   },
+   {
+    "t": 14.5,
+    "point": "4구 렌즈 램프와 19인치 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 21.0,
+    "point": "360도 카메라와 사각지대 보조",
+    "category": "안전"
+   },
+   {
+    "t": 31.0,
+    "point": "앞좌석 통풍 및 열선 시트 적용",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "뒷좌석 충전 포트 및 공간 활용성 극대화",
+    "category": "공간"
+   },
+   {
+    "t": 44.0,
+    "point": "전동 트렁크 및 간편한 시트 폴딩",
+    "category": "공간"
+   },
+   {
+    "t": 50.0,
+    "point": "180만 파운드 이상 예산 보유자 추천",
+    "category": "가격·조건"
+   },
+   {
+    "t": 54.0,
+    "point": "5년 또는 10만 km 공식 보증",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 56.0,
+   "text": "الموزع الرسمي الليثي",
+   "ko": "공식 딜러 엘리시 쇼룸 방문",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 변속기",
+    "핸들",
+    "외관 라이트",
+    "휠",
+    "사이드미러",
+    "센터 화면",
+    "콘솔",
+    "앞좌석",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

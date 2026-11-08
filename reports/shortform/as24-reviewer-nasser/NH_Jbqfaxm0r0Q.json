@@ -1,0 +1,698 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Jbqfaxm0r0Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4900,
+  "candidatesTokenCount": 5548,
+  "totalTokenCount": 11275,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3737
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 827,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41.7,
+   "aspect": "9:16",
+   "car": "없음 (자동차 구매 및 관리론)",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 4.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 21.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 32.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 38.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 38.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 41.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "أصل العربيات دي",
+    "ko": "원래 차라는 건 말이야",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.1,
+    "text": "زي الجواز بظبط",
+    "ko": "결혼이랑 똑같아",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "text": "العربيه لو انت وهي مولفتوش على بعض",
+    "ko": "차와 네가 서로 맞지 않고",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 4.8,
+    "text": "زي الست",
+    "ko": "여자처럼",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.2,
+    "text": "اه ولو معملتلكش كل حاجه",
+    "ko": "맞아, 그리고 다 맞춰주지 않으면",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.2,
+    "end": 8.3,
+    "text": "الجوازه دي هتبوظ",
+    "ko": "그 결혼은 깨지는 거고",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.3,
+    "end": 9.8,
+    "text": "هتبيعها وتقعدوا تشتموا في بعض",
+    "ko": "팔아치우고 서로 욕이나 하게 돼",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "text": "أنا دايماً بس بضيف نقطه واحده بس",
+    "ko": "난 항상 딱 한 가지 포인트를 더해",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.3,
+    "text": "الوكيل",
+    "ko": "공식 딜러(수입사)",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 16.0,
+    "text": "العربيات عندنا في مصر مثلث",
+    "ko": "이집트에서 차는 삼각형이야",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "الوكيل لازم يبقى قوي",
+    "ko": "딜러가 탄탄해야 하고",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "العربيه ذات نفسها لازم تبقى عربيه محترمه",
+    "ko": "차 자체도 훌륭한 차여야 하며",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.0,
+    "text": "وانت كعميل تهتم بالعربيه",
+    "ko": "고객인 너도 차를 아껴줘야 해",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "صح حصل",
+    "ko": "맞아, 그렇지",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "وكيل قوي وعربيه قويه وانت شخص",
+    "ko": "딜러 좋고 차도 좋은데 네가",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 25.5,
+    "text": "بتعامل العربيه معامله زباله",
+    "ko": "차를 험하게 막 다룬다면",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.0,
+    "text": "في كل الحالات هتبوظ",
+    "ko": "어차피 차는 망가지게 돼 있어",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 27.6,
+    "text": "100%",
+    "ko": "100% 맞는 말이지",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "text": "وكيل قوي عربيه ضعيفه معلش",
+    "ko": "딜러는 강한데 차가 부실하면, 미안하지만",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 32.0,
+    "text": "اسمك لا يكفي ان العربيه تنجح بس",
+    "ko": "브랜드 이름만으로 차가 성공할 수 없어",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 35.0,
+    "text": "لازم تكون العربيه بتقدم حاجات",
+    "ko": "차 자체가 제대로 된 가치를 줘야 해",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "text": "وللأسف برضو عربيه قويه جدا.. وكيلها ضعيف العربيه دي هتفشل",
+    "ko": "반대로 차가 아무리 좋아도 딜러망이 약하면 결국 실패해",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.0,
+    "text": "تبعد",
+    "ko": "손절해야지",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.7,
+    "text": "طبعاً وكيل ضعيف انت العربيه فشلت",
+    "ko": "당연하지, 딜러가 약하면 차는 끝난 거야",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "없음 (스튜디오 팟캐스트 토크 음성 중심)",
+   "bpm_est": null,
+   "mood": "진지함 및 토론",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "أصل العربيات دي زي الجواز بظبط، العربية لو انت وهي مولفتوش على بعض",
+    "ko": "원래 차라는 건 결혼이랑 똑같아. 너와 차가 서로 궁합이 안 맞으면"
+   },
+   {
+    "start": 4.1,
+    "end": 4.8,
+    "text": "زي الست",
+    "ko": "아내처럼 말이지"
+   },
+   {
+    "start": 4.8,
+    "end": 9.8,
+    "text": "اه ولو معملتلكش كل حاجه خلاص الجوازه دي هتبوظ وهتبيعها وتقعدوا تشتموا في بعض",
+    "ko": "맞아. 원하는 걸 다 못 채워주면 그 결혼은 깨지고 차 팔고 서로 욕하게 되지"
+   },
+   {
+    "start": 9.8,
+    "end": 14.1,
+    "text": "حلو، أنا دايماً بس بضيف نقطه واحده بس: الوكيل",
+    "ko": "좋아, 난 항상 거기에 딱 한 가지를 더해: 바로 공식 딜러(에이전트)야"
+   },
+   {
+    "start": 14.1,
+    "end": 21.0,
+    "text": "العربيات عندنا في مصر مثلث: الوكيل لازم يبقى قوي، العربيه ذات نفسها لازم تبقى عربيه محترمه، وانت كعميل تهتم بالعربيه",
+    "ko": "이집트에서 차는 삼각관계야. 딜러가 강력해야 하고, 차 자체가 훌륭해야 하고, 고객도 관리를 잘해야 해"
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "صح، حصل",
+    "ko": "맞는 말이지"
+   },
+   {
+    "start": 22.0,
+    "end": 27.0,
+    "text": "وكيل قوي وعربيه قويه وانت شخص بتعامل العربيه معامله زباله ما العربيه هتبوظ في كل الحالات",
+    "ko": "딜러 탄탄하고 차 좋아도 차주가 막 대하면 어차피 망가져"
+   },
+   {
+    "start": 27.0,
+    "end": 32.0,
+    "text": "100%. وكيل قوي عربيه ضعيفه، معلش اسمك لا يكفي ان العربيه تنجح بس",
+    "ko": "100% 맞아. 딜러만 세고 차가 별로면 브랜드 이름값만으론 성공 못 해"
+   },
+   {
+    "start": 32.0,
+    "end": 35.0,
+    "text": "صح، لازم تكون العربيه بتقدم حاجات",
+    "ko": "맞아, 차가 실질적인 매력을 줘야 해"
+   },
+   {
+    "start": 35.0,
+    "end": 41.7,
+    "text": "وللأسف برضو عربيه قويه جدا وكيلها ضعيف العربيه دي هتفشل. تبعد! طبعاً وكيل ضعيف العربيه فشلت",
+    "ko": "반대로 차가 아무리 좋아도 딜러가 부실하면 실패해. 피해야지! 딜러 약하면 끝장이지"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.8,
+    "speed": "보통",
+    "summary": "차 구매와 소유를 '결혼'에 비유하며 흥미 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 9.8,
+    "end": 21.0,
+    "speed": "보통",
+    "summary": "이집트 차 시장의 핵심 3요소 (딜러, 차량 완성도, 차주의 관리)"
+   },
+   {
+    "stage": "기능",
+    "start": 21.0,
+    "end": 41.7,
+    "speed": "보통",
+    "summary": "3요소 중 하나라도 빠졌을 때 차량이 실패하는 구체적 이유 토론"
+   }
+  ],
+  "rules": [
+   "말하는 사람에 맞춰 빠르게 화자별 앵글 컷 전환(멀티캠 팟캐스트 구성)",
+   "배경음악이나 과도한 효과음 없이 발화자의 자연스러운 음성과 대화에 집중",
+   "화면 하단 중앙에 깔끔한 흰색 볼드 자막으로 아랍어 구어체 싱크 배치"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "차를 사는 것은 결혼 생활과 똑같다는 비유로 대화를 시작",
+   "type": "감탄·리액션",
+   "text": "أصل العربيات دي زي الجواز بظبط",
+   "ko": "원래 차라는 건 결혼이랑 똑같아"
+  },
+  "narration_points": [
+   {
+    "t": 14.5,
+    "point": "이집트 자동차 성공의 3요소는 공식 딜러, 차량 품질, 차주의 올바른 관리이다",
+    "category": "상태"
+   },
+   {
+    "t": 35.5,
+    "point": "품질이 아무리 좋아도 사후지원(딜러망)이 부실한 차는 결국 실패한다",
+    "category": "상태"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람"
+   ]
+  }
+ }
+}

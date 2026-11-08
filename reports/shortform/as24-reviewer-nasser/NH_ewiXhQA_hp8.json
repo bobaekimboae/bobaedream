@@ -1,0 +1,702 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/ewiXhQA_hp8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6532,
+  "candidatesTokenCount": 5954,
+  "totalTokenCount": 12486,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5369
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.0,
+   "aspect": "9:16",
+   "car": "Audi RS5 Sportback",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 9.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 18.0,
+    "part": "엔진룸",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.9,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 27.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 37.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 41.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.9,
+    "end": 51.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 54.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 57.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 59.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.5,
+    "end": 4.0,
+    "text": "RS5",
+    "ko": "RS5",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FF0000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RS5",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 8.5,
+    "text": "5.9MIL",
+    "ko": "590만 EGP",
+    "kind": "가격",
+    "y_pct": 32.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 7.0,
+    "color": "#00FF66",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5.9MIL",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 8.5,
+    "text": "أرخص من M4 C63",
+    "ko": "M4, C63보다 저렴",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أرخص",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.0,
+    "text": "444hp / 600Nm",
+    "ko": "444마력 / 600Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 46.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#E50914",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "444hp",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.5,
+    "text": "20\"",
+    "ko": "20인치",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 44.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#E50914",
+    "bg_width_pct": 22.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "20\"",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.0,
+    "text": "شنطتها كبيرة",
+    "ko": "넓은 트렁크 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#E50914",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كبيرة",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.9,
+    "text": "RS MONITOR",
+    "ko": "RS 모니터",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RS",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.5,
+    "type": "휙",
+    "event": "RS5 자막 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "돈 소리",
+    "event": "5.9MIL 가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "톡",
+    "event": "M4, C63 텍스트/이미지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "쿵",
+    "event": "출력/토크 네온 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "톡",
+    "event": "20인치 휠 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "트렁크 네온 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "딸깍",
+    "event": "스티어링 휠 버튼 누름",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "휙",
+    "event": "RS Monitor 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "RS5 배기음 및 레브 사운드",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 51.5,
+     "what": "배기음을 들려주기 위해 배경음악 음량 줄임/정지"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.8,
+    "end": 8.5,
+    "what": "5.9MIL 네온 효과 텍스트 및 M4/C63 차량 사진",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 70.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 경쟁력 비교 강조",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.0,
+    "what": "엔진 커버 위 네온 출력/토크 수치 라벨",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 46.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 스펙 시각화",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.8,
+    "what": "람보르기니 / 벤틀리 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 70.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 제작 브랜드 신뢰성 강조",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.9,
+    "what": "RS MONITOR 텍스트 뱃지",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 48.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "화면 기능 명칭 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.5,
+    "text": "أنا ناصر وهقولك 7 أسباب يخلوك تشتري RS5 Sportback",
+    "ko": "저는 나사르입니다. 아우디 RS5 스포트백을 사야 하는 7가지 이유를 알려드릴게요."
+   },
+   {
+    "start": 4.0,
+    "end": 8.9,
+    "text": "أولاً السعر 5.9 مليون، أرخص من M4 و C63 وقرب ثمن 340",
+    "ko": "첫 번째는 가격입니다. 590만으로 M4나 C63보다 저렴하고 340 가격에 가깝죠."
+   },
+   {
+    "start": 9.0,
+    "end": 14.5,
+    "text": "وأودي مشهورة إن عندها واحدة من أجمل الـ LEDs في العالم، بس في الأغلب اللي ورا اللي هيبانوا لو بتجري مع حد على الطريق",
+    "ko": "아우디는 세계에서 가장 멋진 LED 라이트로 유명한데, 공도에서 질주하면 남들은 뒷모습만 보게 될 겁니다."
+   },
+   {
+    "start": 15.0,
+    "end": 20.8,
+    "text": "وV6 بيطلع 444 حصان و600 نيوتن متر، وأودي بيصمموا مواتير للامبورجيني وبنتلي",
+    "ko": "V6 엔진은 444마력에 600Nm를 내며, 아우디는 람보르기니와 벤틀리 엔진도 설계합니다."
+   },
+   {
+    "start": 21.0,
+    "end": 27.5,
+    "text": "وعشان توقف الصاروخ عندك ديسكات drilled مقاس 400 مللي، وبلاك ريمز مقاس 20 وريد كاليبرز عملاقة",
+    "ko": "이 로켓을 멈추기 위해 400mm 타공 디스크와 20인치 블랙 휠, 거대한 레드 캘리퍼가 장착되어 있습니다."
+   },
+   {
+    "start": 27.8,
+    "end": 36.8,
+    "text": "ومع إنها رياضية شنطتها كبيرة جداً عشان السفر والعيلة والكراسي بتنزل، والكنبة تاخد اتنين مستريحين وفيها تسخين وتكييف وكاب هولدر للمشروبات",
+    "ko": "스포츠카임에도 트렁크가 매우 넓어 여행과 가족에 적합하고 뒷좌석을 접을 수도 있습니다. 2명이 넉넉히 앉고 열선, 송풍구, 컵홀더도 갖췄죠."
+   },
+   {
+    "start": 37.0,
+    "end": 44.8,
+    "text": "دركسيون ألكانتارا وفيه تسخين وبادل شيفترز، وزرار RS Mode وHead-up Display وRS Monitor يجيبلك حالة العربية دلوقتي",
+    "ko": "알칸타라 열선 스티어링 휠, 패들 시프트, RS 모드 버튼, HUD, 현재 차량 상태를 보여주는 RS 모니터가 있습니다."
+   },
+   {
+    "start": 45.0,
+    "end": 50.8,
+    "text": "وبكملة الرياضية عندك RS seats بستيتش أحمر وفيها تسخين ومساج لو راجع من الشغل",
+    "ko": "스포티함을 완성하는 레드 스티치 RS 시트에는 열선뿐 아니라 퇴근길을 위한 마사지 기능도 탑재되어 있습니다."
+   },
+   {
+    "start": 51.0,
+    "end": 54.0,
+    "text": "وصوتها حلو",
+    "ko": "그리고 배기음도 끝내줍니다."
+   },
+   {
+    "start": 54.5,
+    "end": 59.0,
+    "text": "فلو عايز أي عربية بسعر أحسن بكتير من السوق... عربيتي، استوردها بنفسك",
+    "ko": "시세보다 훨씬 좋은 가격에 차를 원하신다면... Arabity, 직접 수입하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "RS5를 구매해야 하는 7가지 이유 제시"
+   },
+   {
+    "stage": "가격",
+    "start": 4.0,
+    "end": 9.0,
+    "speed": "빠름",
+    "summary": "경쟁 모델 대비 가성비 가격 강조"
+   },
+   {
+    "stage": "사양",
+    "start": 9.0,
+    "end": 27.8,
+    "speed": "빠름",
+    "summary": "LED 조명, V6 엔진 파워, 400mm 브레이크 및 20인치 휠"
+   },
+   {
+    "stage": "기능",
+    "start": 27.8,
+    "end": 51.0,
+    "speed": "보통",
+    "summary": "트렁크 실용성, 2열 편의사양, 알칸타라 핸들, RS 모니터, 마사지 시트"
+   },
+   {
+    "stage": "차 소개",
+    "start": 51.0,
+    "end": 54.0,
+    "speed": "보통",
+    "summary": "RS5 실제 배기 사운드 감상"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 54.0,
+    "end": 59.0,
+    "speed": "보통",
+    "summary": "수입 대행 연락처 및 CTA 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 출연하여 간결한 설명과 함께 차량 각 부위를 빠르게 전환하며 소개한다",
+   "스펙 수치(마력, 토크, 휠 크기)와 가격은 톡 튀어나오는 네온/레드 스티커로 시각화한다",
+   "엔진이나 배기음 시연 구간에서는 배경음악을 끄고 실제 사운드에 집중시킨다",
+   "마지막에는 직수입 대행 전화번호 리스트를 띄우며 명확한 콜투액션을 제시한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 9.0,
+    "end": 14.5,
+    "feature": "매트릭스 LED 헤드라이트 & 테일램프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "LED 라이트 웰컴 세레모니 및 점등",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 27.0,
+    "feature": "400mm 타공 디스크 & 20인치 휠 & 레드 캘리퍼",
+    "shown_how": "글자 카드",
+    "icon_desc": "20인치 텍스트 스티커",
+    "x_pct": 44.0,
+    "y_pct": 31.0,
+    "size_w_pct": 22.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 31.0,
+    "feature": "대용량 패스트백 트렁크 & 폴딩 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "진행자가 트렁크 안에 앉아 공간 시연",
+    "x_pct": 28.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 36.5,
+    "feature": "2열 열선 시트 및 에어컨 송풍구, 암레스트 컵홀더",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손으로 송풍구 조절 패널 및 컵홀더 조작",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 41.0,
+    "feature": "알칸타라 열선 스티어링 휠 & 패들 시프트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "스티어링 휠 패들시프트 및 RS 버튼 터치",
+    "x_pct": 60.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.9,
+    "feature": "RS 모드 클러스터 & RS 모니터",
+    "shown_how": "글자 카드",
+    "icon_desc": "RS MONITOR 텍스트 뱃지",
+    "x_pct": 48.0,
+    "y_pct": 33.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 50.8,
+    "feature": "RS 스포츠 시트 & 마사지 기능",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "진행자가 시트에 기대며 마사지 편안함 연기",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 당당하게 걸어오며 Audi RS5 Sportback을 사야 하는 7가지 이유를 제시한다",
+   "type": "숫자·성능",
+   "text": "أنا ناصر وهقولك 7 أسباب يخلوك تشتري RS5 Sportback",
+   "ko": "저는 나사르입니다. RS5 스포트백을 사야 하는 7가지 이유를 알려드릴게요."
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "590만 EGP로 M4나 C63보다 저렴한 경쟁력 있는 가격",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.0,
+    "point": "아우디 특유의 세련된 LED 라이트 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 15.5,
+    "point": "444마력 600Nm의 V6 트윈터보 엔진 파워",
+    "category": "성능"
+   },
+   {
+    "t": 22.0,
+    "point": "400mm 타공 브레이크 디스크와 20인치 블랙 휠",
+    "category": "성능"
+   },
+   {
+    "t": 28.5,
+    "point": "패밀리용으로도 충분한 거대한 트렁크와 뒷좌석 거주성",
+    "category": "공간"
+   },
+   {
+    "t": 37.5,
+    "point": "알칸타라 핸들, 패들 시프트, RS 전용 모니터 기능",
+    "category": "편의"
+   },
+   {
+    "t": 46.0,
+    "point": "레드 스티치 RS 버킷 시트 및 열선/마사지 기능 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 51.5,
+    "point": "강력하고 스포티한 RS5 순정 배기 사운드",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 56.0,
+   "text": "ORDER & IMPORT YOUR OWN AUDI RS5 - CALL US NOW",
+   "ko": "나만의 아우디 RS5를 주문 및 수입하세요 - 지금 전화주세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 후면",
+    "엔진룸",
+    "휠",
+    "트렁크",
+    "뒷좌석",
+    "실내 앞",
+    "센터 화면",
+    "외관 후면",
+    "외관 전면"
+   ]
+  }
+ }
+}

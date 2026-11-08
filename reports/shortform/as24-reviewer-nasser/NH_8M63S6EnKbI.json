@@ -1,0 +1,727 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/8M63S6EnKbI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8348,
+  "candidatesTokenCount": 5969,
+  "totalTokenCount": 14317,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7185
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 79.5,
+   "aspect": "9:16",
+   "car": "Land Rover Range Rover SV",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 4.9,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 17.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 33.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 36.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 42.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 46.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 56.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.6,
+    "end": 63.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.8,
+    "end": 68.0,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.0,
+    "end": 70.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.0,
+    "end": 75.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 75.8,
+    "end": 79.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 8.0,
+    "end": 9.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.5,
+    "color": "#FFAA00",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 63.0,
+    "end": 64.5,
+    "text": "+2000",
+    "ko": "+2000L",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "+2000",
+    "sure": true
+   },
+   {
+    "start": 65.0,
+    "end": 66.0,
+    "text": "V8",
+    "ko": "V8",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V8",
+    "sure": true
+   },
+   {
+    "start": 66.0,
+    "end": 67.0,
+    "text": "606hp",
+    "ko": "606마력",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "606hp",
+    "sure": true
+   },
+   {
+    "start": 67.0,
+    "end": 68.0,
+    "text": "750Nm",
+    "ko": "750Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "750Nm",
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 73.0,
+    "text": "23\"",
+    "ko": "23인치",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "23\"",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "차량 엠블럼 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "딸깍",
+    "event": "룸미러 카메라 레버 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.1,
+    "type": "톡",
+    "event": "열선 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "카플레이/알렉사 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.0,
+    "type": "톡",
+    "event": "유튜브/넷플릭스 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "딸깍",
+    "event": "뒷좌석 모니터 터치 조작음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "딸깍",
+    "event": "전동식 컵홀더 펼쳐지는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 58.0,
+    "type": "딸깍",
+    "event": "트렁크 차고 조절 버튼 누름",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 63.1,
+    "type": "쿵",
+    "event": "2000L 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 65.1,
+    "type": "쿵",
+    "event": "V8 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 71.0,
+    "type": "톡",
+    "event": "23인치 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 고급스러움",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 2.8,
+    "end": 4.0,
+    "what": "Land Rover & VRoom 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "what": "Apple CarPlay / Android Auto / Alexa 로고",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.5,
+    "what": "YouTube / Google / Netflix / Meridian 로고",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 강조",
+    "sure": true
+   },
+   {
+    "start": 76.5,
+    "end": 79.5,
+    "what": "위치 핀 및 매장 위치 텍스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "매장 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "أنا ناصر ودي أعلى رينج روفر ممكن تشتريها، فوج إس في.",
+    "ko": "저는 나사르입니다. 이건 살 수 있는 최고급 레인지로버인 보그 SV입니다."
+   },
+   {
+    "start": 4.1,
+    "end": 12.0,
+    "text": "كل حاجة موجودة، المراية بتتقلب كاميرا، هيد أب وديجيتال ديسبلاي، دركسيون تسخين وفريم من الخشب ومتل بادل شفترز.",
+    "ko": "모든 게 다 있습니다. 디지털 룸미러 카메라, 헤드업 디스플레이, 열선 우드 핸들 및 메탈 패들 시프트."
+   },
+   {
+    "start": 12.1,
+    "end": 20.8,
+    "text": "عندك بانوراما كبير جداً، هيدرست بيتحرك، مسند للايد والكراسي فيها تسخين وتبريد ومساج، سقف العربية معمول من الجلد وبدل الشماسة حطولك اتنين.",
+    "ko": "거대한 파노라마 루프, 조절식 헤드레스트, 열선/통풍/마사지 시트, 가죽 천장 마감, 그리고 듀얼 선바이저까지 적용되었습니다."
+   },
+   {
+    "start": 20.9,
+    "end": 30.8,
+    "text": "آبل كاربلاي وأندرويد أوتو وأليكسا، كونسول العربية كله من الخشب الحقيقي، مساحات تخزين متعددة، شاحن وايرلس، كب هولدر ومساحة سرية.",
+    "ko": "애플 카플레이, 안드로이드 오토, 알렉사 지원, 리얼 우드 콘솔, 넉넉한 수납공간, 무선 충전기, 컵홀더 및 비밀 수납공간."
+   },
+   {
+    "start": 30.9,
+    "end": 42.0,
+    "text": "من ورا عندك تحكم في السقف وستاير الإزاز، شاشات فيها يوتيوب ونتفلكس، ساوند سيستم ميريديان، ولو دوست هنا هتبقى في أقصى لحظات الراحة.",
+    "ko": "뒷좌석에서는 루프와 전동 블라인드 조절, 유튜브와 넷플릭스가 지원되는 디스플레이, 메리디안 사운드, 그리고 버튼 하나로 극상의 리클라이닝 모드 지원."
+   },
+   {
+    "start": 42.1,
+    "end": 50.0,
+    "text": "الكنبة فيها تسخين وتبريد ومساج، تحكم في التكييف وفيشة لابتوب وأروش كب هولدر هتشوفها في حياتك.",
+    "ko": "시트 열선/통풍/마사지, 공조 컨트롤러, 노트북 전원 단자, 그리고 가장 세련된 컵홀더까지."
+   },
+   {
+    "start": 50.1,
+    "end": 63.8,
+    "text": "عندك شنطة أكتر من 600 لتر، ومكان تقعد فيه مع أصحابك بكب هولدر وسماعات وأنوار، وبكبسة زرار توطي العربية عشان التحميل وبتقفل الكراسي لمساحة أكتر من 2000 لتر.",
+    "ko": "600리터가 넘는 트렁크 공간과 테일게이트 시팅, 컵홀더, 조명, 그리고 에어 서스펜션 차고 조절과 시트 폴딩으로 2000리터 이상의 공간 제공."
+   },
+   {
+    "start": 63.9,
+    "end": 75.8,
+    "text": "الإس في بتيجي V8 بقوة 606 حصان و750 نيوتن، وش العربية بسيط وفخم، جنوط بلاك 23 إنش وكليبرز بريمبو وإير سسبنشن.",
+    "ko": "SV는 606마력 750Nm의 V8 엔진 탑재, 심플하고 럭셔리한 전면부, 23인치 블랙 휠, 브렘보 캘리퍼, 에어 서스펜션 장착."
+   },
+   {
+    "start": 75.9,
+    "end": 79.5,
+    "text": "وهتلاقيها في في روم، مجمع البنوك، التجمع الخامس.",
+    "ko": "카이로 5번 복합단지 VRoom 쇼룸에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "차량 소개 시작 및 최고급 레인지로버 SV 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 4.1,
+    "end": 30.8,
+    "speed": "빠름",
+    "summary": "운전석 및 1열 다양한 첨단/럭셔리 편의 옵션 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 30.8,
+    "end": 49.8,
+    "speed": "보통",
+    "summary": "VIP 뒷좌석 리클라이닝, 엔터테인먼트, 전동 컵홀더 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 49.8,
+    "end": 63.8,
+    "speed": "빠름",
+    "summary": "트렁크 테일게이트 시트 활용 및 전동 시트 폴딩 기능 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 63.8,
+    "end": 75.8,
+    "speed": "빠름",
+    "summary": "V8 엔진 스펙 및 23인치 휠, 서스펜션 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 75.8,
+    "end": 79.5,
+    "speed": "보통",
+    "summary": "차량이 위치한 전시장 위치 안내 (CTA)"
+   }
+  ],
+  "rules": [
+   "진행자의 신속한 손동작과 실제 부품 작동을 연계하여 컷을 빠르게 전환",
+   "화려한 옵션이 시연될 때(리클라이닝, 전동 컵홀더 등) 효과음을 삽입해 집중도 유도",
+   "주요 스펙(V8, 마력, 트렁크 용량, 휠 인치)은 직관적인 볼드 텍스트 스티커로 강조",
+   "마지막 컷에 전시장 위치 그래픽 핀을 띄우며 자연스러운 쇼룸 방문 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.9,
+    "end": 6.8,
+    "feature": "디지털 룸미러",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.0,
+    "feature": "열선 스티어링 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "열선 텍스트 스티커",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 42.0,
+    "feature": "뒷좌석 전동 리클라이닝 모드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.8,
+    "feature": "전동식 센터 콘솔 컵홀더",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.5,
+    "feature": "트렁크 차고 조절 버튼 (에어 서스펜션)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "없음",
+    "x_pct": 70.0,
+    "y_pct": 70.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 걸어나오며 가장 비싸고 좋은 레인지로버 SV를 보여주겠다고 말함",
+   "type": "희귀차",
+   "text": "أنا ناصر ودي أعلى رينج روفر ممكن تشتريها",
+   "ko": "저는 나사르입니다. 이건 여러분이 살 수 있는 최고의 레인지로버입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "구매 가능한 최고급 등급 레인지로버 보그 SV",
+    "category": "희소성"
+   },
+   {
+    "t": 5.5,
+    "point": "디지털 룸미러 및 헤드업 디스플레이",
+    "category": "편의"
+   },
+   {
+    "t": 15.0,
+    "point": "시트 열선, 통풍 및 마사지 기능 지원",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "뒷좌석 원터치 VIP 릴렉스 모드 시트",
+    "category": "편의"
+   },
+   {
+    "t": 52.0,
+    "point": "야외 피크닉이 가능한 테일게이트 시팅 공간",
+    "category": "공간"
+   },
+   {
+    "t": 62.0,
+    "point": "2열 폴딩 시 2000리터가 넘는 적재 용량",
+    "category": "공간"
+   },
+   {
+    "t": 65.0,
+    "point": "606마력 750Nm 토크의 V8 엔진 성능",
+    "category": "성능"
+   },
+   {
+    "t": 71.0,
+    "point": "23인치 대구경 블랙 휠 및 에어 서스펜션",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 76.5,
+   "text": "وهتلاقيها في في روم، مجمع البنوك، التجمع الخامس",
+   "ko": "카이로 5번 복합단지 VRoom 매장에서 만나보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "뒷좌석",
+    "트렁크",
+    "엔진룸",
+    "휠",
+    "외관 전면"
+   ]
+  }
+ }
+}

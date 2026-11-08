@@ -1,0 +1,1211 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/NY8FdRLcK7Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6636,
+  "candidatesTokenCount": 10030,
+  "totalTokenCount": 16666,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5473
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.5,
+   "aspect": "9:16",
+   "car": "Kia K4",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 11.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 13.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.4,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.4,
+    "end": 17.6,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 27.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 30.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 32.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.3,
+    "end": 35.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.2,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.2,
+    "end": 42.1,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 48.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 52.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 60.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "text": "ناصر",
+    "ko": "나세르",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ناصر",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.8,
+    "text": "Grand cerato",
+    "ko": "그랜드 세라토",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.4,
+    "text": "وش العربية",
+    "ko": "차량 전면",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 7.3,
+    "text": "بقى رياضي",
+    "ko": "스포티해짐",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.4,
+    "text": "بانوار KIA",
+    "ko": "기아 라이트로",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.9,
+    "text": "18\"",
+    "ko": "18인치",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.9,
+    "text": "في حتة تانية",
+    "ko": "완전히 다른 차원으로",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF0000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 13.2,
+    "text": "ومدينك الاساسيات",
+    "ko": "기본 옵션도 풍부하게",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.3,
+    "end": 14.8,
+    "text": "دركسيون MultiFunction",
+    "ko": "다기능 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.3,
+    "text": "مثبت ومحدد سرعة",
+    "ko": "크루즈 컨트롤 및 속도 제한",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.8,
+    "text": "25 inch",
+    "ko": "25인치",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "text": "wireless charger",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#8000FF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.3,
+    "text": "Cup Holders",
+    "ko": "컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#8000FF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 26.8,
+    "text": "isofix",
+    "ko": "아이소픽스",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.3,
+    "text": "فتحات تكييف",
+    "ko": "에어컨 송풍구",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.3,
+    "end": 30.2,
+    "text": "مخارج شواحن",
+    "ko": "충전 포트",
+    "kind": "키워드 스티커",
+    "y_pct": 46.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.0,
+    "text": "أجمل section",
+    "ko": "가장 아름다운 부분",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#800000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.3,
+    "end": 40.2,
+    "text": "508 L",
+    "ko": "508리터",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.5,
+    "text": "1600 CC / 120 HP",
+    "ko": "1600cc / 120마력",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 52.5,
+    "text": "Turbo 1600 CC / 190 HP",
+    "ko": "터보 1600cc / 190마력",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 8.0,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 56.0,
+    "text": "ضمان 5 سنين / 100,000 KM",
+    "ko": "5년 또는 10만 km 보증",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF0000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.5,
+    "text": "19383",
+    "ko": "전화번호 19383",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF0000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.9,
+    "type": "쿵",
+    "event": "차량 전면 등장 트랜지션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "톡",
+    "event": "Grand Cerato 비교 팝업 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "휙",
+    "event": "18인치 휠 수치 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.3,
+    "type": "톡",
+    "event": "MultiFunction 핸들 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.9,
+    "type": "톡",
+    "event": "크루즈 컨트롤 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "휙",
+    "event": "25인치 디스플레이 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.0,
+    "type": "톡",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "무선 충전 패드 그래픽 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 25.4,
+    "type": "톡",
+    "event": "isofix 스티커 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 28.0,
+    "type": "휙",
+    "event": "에어컨 바람 그래픽 및 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "뒷좌석 암레스트 내리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 핸들 당겨 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.3,
+    "type": "쿵",
+    "event": "트렁크 508L 용량 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "트렁크 내부 폴딩 레버 당기는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "쿵",
+    "event": "1600cc 엔진 스펙 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.5,
+    "type": "쿵",
+    "event": "터보 엔진 스펙 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.0,
+    "type": "띵",
+    "event": "문의 전화번호 및 지점 리스트 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 스포티함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 1.9,
+    "what": "이름 스티커 및 별 반짝임 효과",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "리뷰어 소개",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.2,
+    "what": "기아 3D 로고",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 40.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.0,
+    "what": "그랜드 세라토 사진 팝업",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "이전 세대 모델 비교",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 9.9,
+    "what": "18인치 텍스트 스티커",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "휠 크기 강조",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.8,
+    "what": "25인치 텍스트 및 애플 카플레이/안드로이드 오토 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 사양",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "what": "번개 모양 무선 충전 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 40.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무선충전 안내",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.5,
+    "what": "바람 모양 2D 이펙트",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 40.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "에어벤트 시각화",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 48.0,
+    "what": "코롤라 및 아반떼 경쟁차량 썸네일",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "경쟁 모델 안내",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.5,
+    "what": "전화기 아이콘 및 전시장 지점 리스트",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구매 문의 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "أنا ناصر، وكيا راجعة السوق بقوة: كيا K4",
+    "ko": "저는 나세르입니다. 기아가 시장에 강력하게 돌아왔습니다: 기아 K4!"
+   },
+   {
+    "start": 3.3,
+    "end": 5.4,
+    "text": "انسى الجراند سيراتو خالص",
+    "ko": "그랜드 세라토는 완전히 잊으세요."
+   },
+   {
+    "start": 5.4,
+    "end": 11.9,
+    "text": "وش العربية بقى رياضي أكتر بكتير بأنوار كيا الجديدة، بلاك ريمز مقاس 18، نقلوا وش العربية في حتة تانية",
+    "ko": "전면 디자인은 새로운 기아 라이트와 함께 훨씬 스포티해졌고, 18인치 블랙 휠로 전면 인상을 완전히 다른 레벨로 끌어올렸습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 17.5,
+    "text": "ومديلك الأساسيات: عندك دركسيون مالتي فانكشن، درايف مود سيليكتور، مثبت ومحدد سرعة، وبادل شيفترز",
+    "ko": "기본기도 탄탄합니다. 다기능 스티어링 휠, 드라이브 모드 셀렉터, 크루즈 컨트롤 및 속도 제한, 패들 시프트가 들어갔습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 23.8,
+    "text": "شاشة 25 إنش فيها وايرلس أبل كاربلاي وأندرويد أوتو، شاحن وايرلس، كاب هولدرز، ده كل اللي هتحتاجه",
+    "ko": "무선 애플 카플레이와 안드로이드 오토를 지원하는 25인치 디스플레이, 무선 충전기, 컵홀더까지 필요한 건 다 있습니다."
+   },
+   {
+    "start": 23.9,
+    "end": 32.0,
+    "text": "ومن ورا عندك مكان للجواكت، الكنبة تو تون بـ Isofix عشان لو عندك أطفال، فتحات تكييف، مخارج شواحن، ومسند للإيد فيه كاب هولدرز",
+    "ko": "뒷좌석에는 옷걸이 공간, 아이를 위한 Isofix 투톤 시트, 에어벤트, 충전 포트, 컵홀더가 있는 팔걸이가 있습니다."
+   },
+   {
+    "start": 32.1,
+    "end": 37.8,
+    "text": "الباب بيفتح من هنا، خط الكتف قوي جداً، والأنوار بقت أجمل بكتير، ومن رأيي ده أجمل سيكشن في العربية",
+    "ko": "문은 여기서 열리고 어깨 라인이 아주 강렬하며, 리어 램프가 훨씬 예뻐져서 제 생각엔 이 차에서 가장 멋진 부분입니다."
+   },
+   {
+    "start": 37.9,
+    "end": 42.0,
+    "text": "والشنطة 508 لتر، ولو شديت دي الكراسي هتنزل",
+    "ko": "트렁크는 508리터이며, 이걸 당기면 시트가 폴딩됩니다."
+   },
+   {
+    "start": 42.1,
+    "end": 48.0,
+    "text": "ركز معايا: أول فئة موتور 1600 تنفس طبيعي 120 حصان، وبتنافس الكورولا والإلنترا أول فئة",
+    "ko": "집중하세요: 기본 트림은 1600cc 자연흡기 120마력 엔진으로 코롤라와 아반떼 기본형과 경쟁합니다."
+   },
+   {
+    "start": 48.1,
+    "end": 52.8,
+    "text": "والفئات الأعلى 1600 تربو 190 حصان وبتنافس العربيات الصيني الكتير",
+    "ko": "상위 트림은 1600cc 터보 190마력으로 다양한 중국차들과 경쟁합니다."
+   },
+   {
+    "start": 52.9,
+    "end": 56.5,
+    "text": "وعشان تطمن الضمان 5 سنين أو 100 ألف كيلو",
+    "ko": "안심할 수 있도록 보증 기간은 5년 또는 10만 km입니다."
+   },
+   {
+    "start": 56.6,
+    "end": 60.5,
+    "text": "وهتلاقيها في الموزع الرسمي الليثي، ده فرع القطامية، وفيه في العجوزة والشيخ زايد والنزهة",
+    "ko": "공식 딜러 엘리시에서 만나보실 수 있으며 여긴 카타미야 지점이고 아구자, 셰이크 자이드, 누즈하에도 있습니다."
+   },
+   {
+    "start": 0.0,
+    "end": 0.0,
+    "text": "",
+    "ko": ""
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "기아 K4 소개 및 세라토 대체 모델 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 11.9,
+    "speed": "빠름",
+    "summary": "외관 전면 디자인 및 18인치 휠 특징 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 11.9,
+    "end": 23.8,
+    "speed": "빠름",
+    "summary": "운전석 스티어링 휠, 25인치 대화면, 무선 충전 편의기능 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 23.8,
+    "end": 32.0,
+    "speed": "빠름",
+    "summary": "뒷좌석 거주성, Isofix, 송풍구, 암레스트 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 32.1,
+    "end": 42.0,
+    "speed": "빠름",
+    "summary": "측면 히든 도어 핸들, 후면 디자인 및 트렁크 공간 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 42.1,
+    "end": 52.8,
+    "speed": "빠름",
+    "summary": "1.6 자연흡기 및 1.6 터보 엔진 사양과 경쟁 모델 비교"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 52.8,
+    "end": 60.5,
+    "speed": "보통",
+    "summary": "보증 기간 안내 및 판매 대리점 위치, 문의 전화번호 CTA"
+   }
+  ],
+  "rules": [
+   "진행자의 손동작에 맞춰 굵은 텍스트 및 3D 렌더링 스티커를 즉각 팝업한다",
+   "스펙 수치(인치, 마력, 배기량, 용량)는 크고 붉은색 외곽선 볼드 폰트로 시각화한다",
+   "내부 편의 기능 시연 시 실제 손동작 조작과 함께 하단/중앙에 간결한 텍스트 카드를 띄운다",
+   "엔진 및 경쟁 차종 언급 시 경쟁 모델 실물 사진을 우측 상단에 인서트한다",
+   "빠른 말 속도에 맞춰 컷 전환을 1~2초 단위로 매우 타이트하게 편집한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.0,
+    "end": 9.9,
+    "feature": "18인치 블랙 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "붉은 3D 18인치 텍스트",
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.3,
+    "feature": "다기능 스티어링 휠 & 크루즈 컨트롤",
+    "shown_how": "글자 카드",
+    "icon_desc": "볼드 텍스트 오버레이",
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.8,
+    "feature": "25인치 디스플레이 (무선 카플레이/안드로이드)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "애플 카플레이 및 안드로이드 오토 앱 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "feature": "스마트폰 무선 충전",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "충전 패드 위 번개 아이콘",
+    "x_pct": 40.0,
+    "y_pct": 65.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 26.8,
+    "feature": "유아용 카시트 고정장치 (Isofix)",
+    "shown_how": "글자 카드",
+    "icon_desc": "시트 등받이에 부착된 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 22.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.5,
+    "feature": "2열 에어컨 송풍구",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "바람 모양 송출 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 33.3,
+    "feature": "C필러 히든 도어 핸들",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 38.3,
+    "end": 42.0,
+    "feature": "508L 트렁크 및 2열 폴딩 레버",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "508L 수치 텍스트",
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 걸어나오며 기아가 시장에 새로 내놓은 K4를 강렬하게 소개",
+   "type": "행동",
+   "text": "أنا ناصر وكيا راجعة السوق بقوة: كيا K4",
+   "ko": "저는 나세르입니다. 기아가 강력하게 돌아왔습니다: 기아 K4!"
+  },
+  "narration_points": [
+   {
+    "t": 3.3,
+    "point": "이전 세대인 그랜드 세라토를 대체하는 완전 신형 모델",
+    "category": "디자인"
+   },
+   {
+    "t": 6.0,
+    "point": "최신 기아 패밀리룩 전면 라이트와 스포티한 범퍼 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 8.5,
+    "point": "18인치 블랙 휠 적용으로 완성된 사이드 프로포션",
+    "category": "디자인"
+   },
+   {
+    "t": 14.0,
+    "point": "다기능 핸들 및 크루즈 컨트롤, 패들 시프트 등 기본 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 18.0,
+    "point": "무선 스마트폰 프로젝션을 지원하는 일체형 25인치 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 25.0,
+    "point": "Isofix 및 후석 송풍구, 충전 포트를 갖춘 넉넉한 2열 공간",
+    "category": "공간"
+   },
+   {
+    "t": 34.0,
+    "point": "강렬한 캐릭터 라인과 리어 램프가 돋보이는 후면부 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 38.5,
+    "point": "508리터의 넓은 트렁크 용량과 폴딩 기능",
+    "category": "공간"
+   },
+   {
+    "t": 43.0,
+    "point": "1.6 자연흡기(120마력) 기본형과 코롤라/아반떼 경쟁 구도",
+    "category": "성능"
+   },
+   {
+    "t": 49.0,
+    "point": "1.6 터보(190마력) 고출력 사양과 중국산 세단 경쟁 구도",
+    "category": "성능"
+   },
+   {
+    "t": 53.5,
+    "point": "5년 또는 10만 km 공식 보증 제공",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 57.0,
+   "text": "19383",
+   "ko": "전화 문의 (19383) 및 엘리시 전시장 방문 안내",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "휠",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "옵션 작동",
+    "뒷좌석",
+    "외관 측면",
+    "외관 후면",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}
