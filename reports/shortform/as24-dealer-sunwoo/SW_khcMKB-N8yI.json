@@ -1,0 +1,243 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/khcMKB-N8yI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2981,
+  "candidatesTokenCount": 1617,
+  "totalTokenCount": 4598,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1725
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 19.3,
+   "aspect": "9:16",
+   "car": "페라리 296 GTB",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.6,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 3.4,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.3,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 5.2,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.1,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 6.9,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 8.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 8.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 10.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.4,
+    "end": 14.3,
+    "part": "외관 후면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 15.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 19.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 130,
+   "mood": "스타일리시하고 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "블루 컬러의 페라리 전면 및 후면 엠블럼, 엔진룸 빠른 교차 컷"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 19.3,
+    "speed": "보통",
+    "summary": "비트에 맞춰 디테일 샷(휠, 엠블럼, 헤드라이트, 시트, 스티어링 휠) 및 전체 외관 쇼케이스"
+   }
+  ],
+  "rules": [
+   "자막이나 목소리 설명 없이 트렌디한 BGM의 비트에 맞춰 컷 전환을 진행함",
+   "전체 샷과 주요 디테일(엠블럼, 휠, 라이트, 실내)을 짧은 호흡으로 교차 편집하여 차량의 매력을 강조함"
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "지하주차장 내 블루 컬러 페라리 296 GTB 전면 풀샷 후 페라리 엠블럼과 엔진룸 디테일 클로즈업",
+   "type": "희귀차",
+   "text": ""
+  },
+  "narration_points": [],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": null
+  },
+  "cta": {
+   "t": null,
+   "text": "",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "전시장 실내",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "엔진룸",
+    "외관 전면",
+    "외관 후면",
+    "휠",
+    "실내 앞",
+    "외관 측면",
+    "외관 전면",
+    "외관 후면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "자막이나 로고 없이 차량 비주얼과 음악 박자감만으로 승부하는 릴스/쇼츠 스타일"
+  }
+ }
+}

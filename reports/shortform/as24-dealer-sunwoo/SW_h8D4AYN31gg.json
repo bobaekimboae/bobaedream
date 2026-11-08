@@ -1,0 +1,959 @@
+{
+ "country": "SW",
+ "kind": "dealer",
+ "url": "https://youtu.be/h8D4AYN31gg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5449,
+  "candidatesTokenCount": 8237,
+  "totalTokenCount": 13686,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4193
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1256
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.1,
+   "aspect": "9:16",
+   "car": "벤틀리 벤테이가 S",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "AI 음성",
+   "language": "ko"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "part": "외관 후측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.7,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 25.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 43.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 47.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "여러분",
+    "ko": "여러분",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "text": "소개합니다",
+    "ko": "소개합니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "text": "벤틀리 벤테이가 S",
+    "ko": "벤틀리 벤테이가 S",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "S",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.7,
+    "text": "벤테이가는 아는데 S는 뭘까요?",
+    "ko": "벤테이가는 아는데 S는 뭘까요?",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.7,
+    "end": 5.7,
+    "text": "이 차량으로 간단히",
+    "ko": "이 차량으로 간단히",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.8,
+    "text": "달라진 점 말씀드릴게요",
+    "ko": "달라진 점 말씀드릴게요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "강력한 550hp - V8 엔진",
+    "ko": "강력한 550hp - V8 엔진",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "550hp - V8",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.7,
+    "text": "기본 모델과 동일합니다",
+    "ko": "기본 모델과 동일합니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.8,
+    "text": "하지만 크롬 대신 선택된\n블랙 포인트들은",
+    "ko": "하지만 크롬 대신 선택된\n블랙 포인트들은",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "럭셔리함 보다는\n스포티함을 강조합니다",
+    "ko": "럭셔리함 보다는\n스포티함을 강조합니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "text": "무광 화이트 컬러와 조화롭죠",
+    "ko": "무광 화이트 컬러와 조화롭죠",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "S 전용 22\" 디자인 휠",
+    "ko": "S 전용 22\" 디자인 휠",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "text": "레드 캘리퍼",
+    "ko": "레드 캘리퍼",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 19.9,
+    "text": "스포티한 리어 스포일러",
+    "ko": "스포티한 리어 스포일러",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.0,
+    "text": "곳곳에 새겨진 \"S\" 뱃지까지",
+    "ko": "곳곳에 새겨진 \"S\" 뱃지까지",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "스포티한 드레스업 적용",
+    "ko": "스포티한 드레스업 적용",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.8,
+    "text": "강렬한 레드 인테리어 시트",
+    "ko": "강렬한 레드 인테리어 시트",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.0,
+    "text": "실내 베니어는 우드 트림 X\n카본파이버로 변경되었습니다",
+    "ko": "실내 베니어는 우드 트림 X\n카본파이버로 변경되었습니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 31.8,
+    "text": "직접 타보지 않고는 모를\n부드러우면서 단단한 주행감각",
+    "ko": "직접 타보지 않고는 모를\n부드러우면서 단단한 주행감각",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.6,
+    "text": "스포츠 배기 사운드까지\n확실히 다르다는걸 알 수 있습니다",
+    "ko": "스포츠 배기 사운드까지\n확실히 다르다는걸 알 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.6,
+    "text": "롤스로이스의 블랙 뱃지처럼\n영앤리치를 겨냥해서 만든듯한 느낌이네요",
+    "ko": "롤스로이스의 블랙 뱃지처럼\n영앤리치를 겨냥해서 만든듯한 느낌이네요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "text": "해당 차량은 판매중이며",
+    "ko": "해당 차량은 판매중이며",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 43.1,
+    "text": "자세한 정보 → \"캡션\" 확인!",
+    "ko": "자세한 정보 → \"캡션\" 확인!",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "\"캡션\"",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.5,
+    "text": "다양한 차량을 소개받고 싶으시다면\n→ \"팔로우\" 부탁드립니다",
+    "ko": "다양한 차량을 소개받고 싶으시다면\n→ \"팔로우\" 부탁드립니다",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "\"팔로우\"",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.7,
+    "type": "쿵",
+    "event": "S 로고 등장 타이밍",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스포츠 배기음 시연 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 묵직함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "what": "빨간색 S 배지 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "모델명 S 강조",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.0,
+    "what": "원형 카본 S 뱃지 확대 이미지",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "외관 뱃지 강조",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "what": "원형 레드 시트 디테일 인서트",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "시트 디테일 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "여러분 소개합니다",
+    "ko": "여러분 소개합니다"
+   },
+   {
+    "start": 1.7,
+    "end": 4.7,
+    "text": "벤틀리 벤테이가 S 벤테이가는 아는데 S는 뭘까요?",
+    "ko": "벤틀리 벤테이가 S 벤테이가는 아는데 S는 뭘까요?"
+   },
+   {
+    "start": 4.7,
+    "end": 6.8,
+    "text": "이 차량으로 간단히 달라진 점 말씀드릴게요",
+    "ko": "이 차량으로 간단히 달라진 점 말씀드릴게요"
+   },
+   {
+    "start": 6.8,
+    "end": 10.7,
+    "text": "우선 강력한 550마력 V8 엔진은 기본 모델과 동일합니다",
+    "ko": "우선 강력한 550마력 V8 엔진은 기본 모델과 동일합니다"
+   },
+   {
+    "start": 10.7,
+    "end": 16.0,
+    "text": "하지만 크롬 대신 선택된 블랙 포인트들은 럭셔리보다는 스포티함을 강조합니다 무광 화이트 컬러와 참 조화롭죠",
+    "ko": "하지만 크롬 대신 선택된 블랙 포인트들은 럭셔리보다는 스포티함을 강조합니다 무광 화이트 컬러와 참 조화롭죠"
+   },
+   {
+    "start": 16.0,
+    "end": 22.8,
+    "text": "S 전용 22인치 휠, 레드 캘리퍼, 스포티한 리어 스포일러, 곳곳에 새겨진 S 뱃지까지 스포티한 드레스업이 적용되었고",
+    "ko": "S 전용 22인치 휠, 레드 캘리퍼, 스포티한 리어 스포일러, 곳곳에 새겨진 S 뱃지까지 스포티한 드레스업이 적용되었고"
+   },
+   {
+    "start": 22.8,
+    "end": 28.0,
+    "text": "강렬한 레드 인테리어 시트 실내 베니어는 우드 트림이 아닌 카본 파이버로 변경되었습니다",
+    "ko": "강렬한 레드 인테리어 시트 실내 베니어는 우드 트림이 아닌 카본 파이버로 변경되었습니다"
+   },
+   {
+    "start": 28.0,
+    "end": 34.6,
+    "text": "거기에 직접 타보지 않고는 모를 부드러우면서 단단한 주행감각, 스포츠 배기 사운드까지 확실히 다르다는 걸 알 수 있습니다",
+    "ko": "거기에 직접 타보지 않고는 모를 부드러우면서 단단한 주행감각, 스포츠 배기 사운드까지 확실히 다르다는 걸 알 수 있습니다"
+   },
+   {
+    "start": 34.6,
+    "end": 38.6,
+    "text": "롤스로이스의 블랙 뱃지처럼 영앤리치를 겨냥해서 만든 듯한 느낌이네요",
+    "ko": "롤스로이스의 블랙 뱃지처럼 영앤리치를 겨냥해서 만든 듯한 느낌이네요"
+   },
+   {
+    "start": 38.6,
+    "end": 43.1,
+    "text": "해당 차량은 판매 중이며 캡션을 통해 자세한 정보를 확인하실 수 있습니다",
+    "ko": "해당 차량은 판매 중이며 캡션을 통해 자세한 정보를 확인하실 수 있습니다"
+   },
+   {
+    "start": 43.1,
+    "end": 46.5,
+    "text": "다양한 차량을 소개받고 싶으시다면 팔로우 부탁드립니다",
+    "ko": "다양한 차량을 소개받고 싶으시다면 팔로우 부탁드립니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.7,
+    "speed": "보통",
+    "summary": "벤틀리 벤테이가 S 소개 및 일반 모델과의 차이점 질문"
+   },
+   {
+    "stage": "사양",
+    "start": 4.7,
+    "end": 10.7,
+    "speed": "보통",
+    "summary": "엔진 스펙(550마력 V8) 및 기본형과 동일함 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 10.7,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "블랙 익스테리어, 22인치 휠, 레드 캘리퍼, 스포일러, 뱃지 등 외관 특징"
+   },
+   {
+    "stage": "기능",
+    "start": 22.8,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "레드 시트, 카본 트림 실내와 주행감각 및 배기 사운드 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 34.6,
+    "end": 47.1,
+    "speed": "보통",
+    "summary": "영앤리치 타깃 감상평 및 판매 중 캡션 확인/팔로우 유도 CTA"
+   }
+  ],
+  "rules": [
+   "자막은 하단 중앙에 일관된 폰트와 검정 외곽선 스타일로 배치",
+   "외관/실내 특정 디테일 설명 시 원형 확대 인서트 컷을 오버레이로 삽입",
+   "배기음 구간에서는 배경음악을 줄이고 실제 배기 사운드를 전면에 배치",
+   "마지막에는 매물 판매 안내와 함께 캡션 확인 및 팔로우 CTA 문구로 마무리"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "feature": "S 전용 22인치 휠",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.7,
+    "feature": "레드 캘리퍼",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.0,
+    "feature": "리어 스포일러 및 S 뱃지",
+    "shown_how": "화면 분할",
+    "icon_desc": "S 카본 뱃지 원형 인서트",
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.0,
+    "feature": "카본파이버 실내 베니어",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.6,
+    "feature": "스포츠 배기 사운드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 90.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 배기음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전진 주행하는 벤틀리 벤테이가 S 전경과 함께 모델명 소개 및 강렬한 S 로고 등장",
+   "type": "질문",
+   "text": "벤틀리 벤테이가 S, 벤테이가는 아는데 S는 뭘까요?"
+  },
+  "narration_points": [
+   {
+    "t": 6.8,
+    "point": "550마력 V8 엔진은 기본 모델과 동일",
+    "category": "성능"
+   },
+   {
+    "t": 10.7,
+    "point": "크롬 대신 블랙 포인트 적용 및 무광 화이트 컬러 조합",
+    "category": "디자인"
+   },
+   {
+    "t": 16.0,
+    "point": "S 전용 22인치 휠, 레드 캘리퍼, 리어 스포일러, S 뱃지 드레스업",
+    "category": "디자인"
+   },
+   {
+    "t": 22.8,
+    "point": "레드 시트 및 우드 대신 카본파이버 실내 베니어 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 28.0,
+    "point": "부드러우면서 단단한 주행감각과 스포츠 배기 사운드",
+    "category": "성능"
+   },
+   {
+    "t": 34.6,
+    "point": "롤스로이스 블랙배지처럼 영앤리치를 겨냥한 모델",
+    "category": "희소성"
+   }
+  ],
+  "dealer_info": {
+   "shown": false,
+   "how": "없음",
+   "items": [],
+   "t": 0.0
+  },
+  "cta": {
+   "t": 40.0,
+   "text": "자세한 정보 → \"캡션\" 확인! / 다양한 차량 소개 → \"팔로우\" 부탁드립니다",
+   "method": "기타"
+  },
+  "shooting": {
+   "location": "야외 주차장",
+   "person_role": "없음",
+   "part_order": [
+    "외관 전측면",
+    "외관 전면",
+    "외관 후측면",
+    "외관 후면",
+    "엔진룸",
+    "외관 후면",
+    "외관 전면",
+    "뒷좌석",
+    "외관 측면",
+    "휠",
+    "외관 후면",
+    "외관 측면",
+    "실내 앞",
+    "외관 측면",
+    "외관 후면(배기)",
+    "실내 앞",
+    "외관 전측면"
+   ],
+   "phone_or_camera": "폰",
+   "stabilized": "짐벌"
+  },
+  "editor_style": {
+   "made_with_guess": "직접 편집",
+   "consistent_brand": "하단 흰색/검은 외곽선 자막과 키워드 컬러 강조, 원형 픽처인픽처 오버레이 활용"
+  }
+ }
+}
