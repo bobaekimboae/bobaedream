@@ -5,7 +5,7 @@ name: as24 shorts analyze (Gemini)
 # analysis/as24 브랜치에 목록(scripts/shortform/as24-jobs/*.txt)을 올리면 돈다.
 on:
   push:
-    branches: [analysis/as24, analysis/as24-de]
+    branches: [analysis/as24, analysis/as24-de, analysis/refs]
     paths: ["scripts/shortform/as24-jobs/**"]
   workflow_dispatch:
     inputs:

@@ -37,6 +37,38 @@ PROMPT = """너는 숏폼 영상 편집 분석가다. 이 세로 쇼츠(오토�
 }
 효과음은 특히 꼼꼼히: 음악 박자와 구분되는 짧은 소리(톡·휙·띵 등)를 하나도 빠뜨리지 말고, 스티커·자막·컷과 같은 시각이면 그 사건을 event 에 적어라."""
 
+# 목록 파일 이름 앞부분으로 분석 종류를 고른다: reviewer-*.txt · dealer-*.txt · 그 밖 = as24
+CHANNEL = {
+    "as24": "오토스카우트24 공식 채널",
+    "reviewer": "이집트 자동차 리뷰어 나사르 헤시엔(Nasser Hessien) 채널, 주로 아랍어(이집트 방언)",
+    "dealer": "한국 서울오토갤러리 중고차 딜러가 자기 매물을 올린 채널, 한국어",
+}
+EXTRA = {
+    "reviewer": """
+아래 키도 같은 JSON 안에 반드시 넣어라(기능·옵션을 화면에 어떻게 보여 주는지가 이번 분석의 핵심이다).
+ "option_highlights": [{"start","end","feature": "기능·옵션 이름(한국어)","shown_how": "3D 아이콘|2D 아이콘|글자 카드|화살표·원 표시|확대|화면 분할|실제 작동 시연|말로만|기타",
+     "icon_desc": "아이콘이 무엇을 그렸나(예: 회전하는 3D 시트 아이콘)","x_pct","y_pct","size_w_pct","follows_object": 참/거짓,
+     "entrance","sfx_with": "같이 난 효과음","sure"}],
+ "hook": {"first_3s": "처음 3초에 보이고 들리는 것(한국어)","type": "가격|질문|숫자·성능|희귀차|감탄·리액션|행동|경품·이벤트|기타","text": "원문","ko": "한국어 뜻"},
+ "narration_points": [{"t","point": "말로 설명한 차량 포인트(한국어 한 줄)","category": "디자인|성능|편의|안전|공간|가격·조건|희소성|상태|기타"}],
+ "cta": {"t","text","ko","method": "댓글|구독|링크|전화|매장 방문|없음|기타"},
+ "shooting": {"location": "전시장|실외|도로 주행|스튜디오|기타","person_role": "리뷰어|딜러|없음","part_order": ["찍은 부위 순서(한국어)"]}""",
+    "dealer": """
+아래 키도 같은 JSON 안에 반드시 넣어라(한국 딜러가 직접 만든 매물 영상의 패턴을 뽑는 것이 핵심이다).
+ "option_highlights": [{"start","end","feature": "기능·옵션 이름(한국어)","shown_how": "3D 아이콘|2D 아이콘|글자 카드|화살표·원 표시|확대|화면 분할|실제 작동 시연|말로만|기타",
+     "icon_desc","x_pct","y_pct","size_w_pct","follows_object": 참/거짓,"entrance","sfx_with","sure"}],
+ "hook": {"first_3s": "처음 3초에 보이고 들리는 것","type": "가격|질문|숫자·성능|희귀차|감탄·리액션|행동|사운드(배기음 등)|기타","text"},
+ "narration_points": [{"t","point": "말·자막으로 설명한 차량 포인트 한 줄","category": "디자인|성능|편의|안전|공간|가격·조건|희소성|상태·이력|기타"}],
+ "dealer_info": {"shown": 참/거짓,"how": "자막|명함 화면|얼굴 출연|목소리|없음","items": ["상사명|이름|전화|위치|가격 등 보인 항목"],"t"},
+ "cta": {"t","text","method": "전화|문자|DM|댓글|매장 방문|없음|기타"},
+ "shooting": {"location": "전시장 실내|야외 주차장|도로 주행|스튜디오|기타","person_role": "딜러|없음|기타","part_order": ["찍은 부위 순서"],
+              "phone_or_camera": "폰|카메라|모름","stabilized": "짐벌|손|고정|모름"},
+ "editor_style": {"made_with_guess": "캡컷 템플릿|직접 편집|모름","consistent_brand": "로고·색·자막 틀이 정해져 있나 한 줄"}""",
+}
+KIND = os.path.basename(LIST).split("-")[0]
+KIND = KIND if KIND in EXTRA else "as24"
+PROMPT = PROMPT.replace("(오토스카우트24 공식 채널)", f"({CHANNEL[KIND]})").replace('"language": "nl|fr|de|en|기타"', '"language": "nl|fr|de|en|ar|ko|기타"') + EXTRA.get(KIND, "")
+
 
 def call(vid):
     body = {
@@ -90,7 +122,7 @@ for country, vid in jobs:
             text = res["candidates"][0]["content"]["parts"][0]["text"]
             usage = res.get("usageMetadata", {})
             tokens += usage.get("totalTokenCount", 0)
-            json.dump({"country": country, "url": f"https://youtu.be/{vid}", "model": MODEL,
+            json.dump({"country": country, "kind": KIND, "url": f"https://youtu.be/{vid}", "model": MODEL,
                        "usage": usage, "analysis": json.loads(text)},
                       open(path, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
             done += 1
