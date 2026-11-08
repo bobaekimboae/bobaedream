@@ -1,0 +1,35 @@
+name: ref shorts frames
+# 레퍼런스 쇼츠 장면표·대표 장면·컷·소리 수치를 만든다 (영상 파일은 저장하지 않음).
+on:
+  push:
+    branches: [analysis/frames]
+    paths: ["scripts/shortform/frames-jobs/**"]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ref-frames
+  cancel-in-progress: false
+jobs:
+  frames:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - name: tools
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+          pip install -q -U yt-dlp librosa
+      - name: run
+        run: |
+          git config user.name "frames-bot"; git config user.email "frames-bot@users.noreply.github.com"
+          for f in scripts/shortform/frames-jobs/*.txt; do
+            name=$(basename "$f" .txt); out="reports/shortform/frames-$name"
+            # 10편마다 저장
+            total=$(grep -c . "$f"); for start in $(seq 1 10 $total); do
+              sed -n "${start},$((start+9))p" "$f" > /tmp/part.txt
+              python3 scripts/shortform/ref_frames.py /tmp/part.txt "$out" || true
+              git add reports/shortform && git commit -qm "프레임 분석 $name ${start}~$((start+9))" || true
+              git pull -q --rebase origin analysis/frames || true; git push -q origin HEAD:analysis/frames || true
+            done
+          done
