@@ -1,0 +1,949 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/48mERvMahTc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6084,
+  "candidatesTokenCount": 8057,
+  "totalTokenCount": 14141,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4921
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.4,
+   "aspect": "9:16",
+   "car": "Cadillac Escalade",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.9,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 11.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.3,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.0,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 26.9,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 28.9,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 32.7,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 36.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.9,
+    "end": 44.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.9,
+    "end": 49.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.9,
+    "end": 55.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.4,
+    "end": 2.8,
+    "text": "بأقل سعر ممكن",
+    "ko": "최저 가격에",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بأقل سعر",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.9,
+    "text": "2023",
+    "ko": "2023",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.3,
+    "text": "2026",
+    "ko": "2026",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.8,
+    "text": "REAR EXECUTIVE SEATS",
+    "ko": "후석 이그제큐티브 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 26.5,
+    "x_center_pct": 58.0,
+    "text_height_pct": 3.2,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "SCREEN",
+    "ko": "스크린",
+    "kind": "키워드 스티커",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 28.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 5.5,
+    "color": "#FF6600",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.9,
+    "text": "تبريد",
+    "ko": "통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 77.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.5,
+    "color": "#33CCFF",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.5,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "text": "36x سماعة",
+    "ko": "36개 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 39.9,
+    "text": "24'",
+    "ko": "24인치",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 7.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.5,
+    "text": "V8 6200CC 420HP 620NM",
+    "ko": "V8 6200cc 420마력 620Nm",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 49.9,
+    "text": "وبأسعار مختلفة",
+    "ko": "다양한 가격대로",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#00FF66",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.5,
+    "text": "فرع التجمع\nالشيخ زايد\nشينزو آبي",
+    "ko": "타가모아 지점\n셰이크 자예드\n신조 아베",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.4,
+    "type": "돈 소리",
+    "event": "돈 다발 그래픽 및 최저가 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "톡",
+    "event": "REAR EXECUTIVE SEATS 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 핸들 당겨 전동 도어 닫히는 모터음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "톡",
+    "event": "SCREEN 텍스트 및 스크린 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "터치스크린으로 전동문 닫힘 작동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "톡",
+    "event": "불꽃 열선 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "톡",
+    "event": "눈꽃 통풍 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "톡",
+    "event": "스티어링 열선 텍스트 및 효과음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 33.0,
+    "type": "톡",
+    "event": "36개 스피커 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.5,
+    "type": "톡",
+    "event": "24인치 휠 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "쿵",
+    "event": "V8 엔진 스펙 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.7,
+    "type": "돈 소리",
+    "event": "돈 그래픽 및 다양한 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "띵",
+    "event": "위치 핀 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.4,
+    "end": 2.8,
+    "what": "돈 다발 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최저 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 9.3,
+    "end": 11.5,
+    "what": "상단 가리키는 빨간 화살표",
+    "is_3d": false,
+    "size_w_pct": 10.0,
+    "x_pct": 68.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "최고급 트림 강조",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.0,
+    "what": "공조 제어 눈꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 43.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "에어컨 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 28.5,
+    "what": "불꽃 아이콘 (시트 열선)",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 52.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 열선 강조",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.9,
+    "what": "눈꽃 아이콘 (시트 통풍)",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 25.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시트 통풍 강조",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 35.0,
+    "what": "스피커 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 20.0,
+    "y_pct": 27.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "오디오 시스템 강조",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 49.9,
+    "what": "돈 다발 날리는 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 다양성 어필",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 54.5,
+    "what": "빨간색 위치 핀 마커",
+    "is_3d": true,
+    "size_w_pct": 14.0,
+    "x_pct": 28.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "أنت ممكن تشتري كاديلاك إسكاليد بأقل سعر ممكن",
+    "ko": "당신은 캐딜락 에스컬레이드를 최저가로 구매할 수 있습니다."
+   },
+   {
+    "start": 2.8,
+    "end": 6.8,
+    "text": "سواء كانت الـ 23 بحب الشاشات بتاعتها والانترير بتاعها أهدى وطبعا أرخص",
+    "ko": "화면 구성이 단정하고 실내가 차분하며 가격이 저렴한 23년식이든,"
+   },
+   {
+    "start": 6.8,
+    "end": 9.3,
+    "text": "أو الـ 26 الشكل الجديد اللي مكسر الدنيا",
+    "ko": "세상을 뒤흔들고 있는 신형 26년식이든 말이죠."
+   },
+   {
+    "start": 9.3,
+    "end": 12.0,
+    "text": "ولو عايز أعلى حاجة ففي Rear Executive Seats دي بتاعة البشوات",
+    "ko": "최고를 원한다면 VIP들을 위한 '리어 이그제큐티브 시트'가 있습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "لو شديت الأكرة الباب بتاعك هيقفل",
+    "ko": "손잡이를 살짝 당기기만 해도 문이 자동으로 닫힙니다."
+   },
+   {
+    "start": 14.5,
+    "end": 20.8,
+    "text": "عندك شاشات عشان الترفيه ترابيزة تاكل أو تشتغل عليها أخشاب في كل حتة وتقدر تقفل الباب من الشاشة",
+    "ko": "엔터테인먼트용 스크린, 식사나 업무를 위한 테이블, 곳곳의 원목 트림, 그리고 스크린으로도 문을 닫을 수 있죠."
+   },
+   {
+    "start": 20.8,
+    "end": 26.0,
+    "text": "بس دي حديثة أكتر عندك شاشة بعرض العربية كلها شاشة للمرافق شاشة للتكييف والكراسي والبيبان",
+    "ko": "하지만 신형은 더 현대적입니다. 차체 전폭을 아우르는 디스플레이와 조수석 스크린, 공조·시트·도어 제어용 스크린까지 있죠."
+   },
+   {
+    "start": 26.0,
+    "end": 29.5,
+    "text": "تلاجة، الكراسي بتاعتك تسخين وتبريد ومساج ونايت فيجن عشان بالليل",
+    "ko": "냉장고, 열선·통풍·마사지 시트, 야간 주행용 나이트 비전,"
+   },
+   {
+    "start": 29.5,
+    "end": 32.7,
+    "text": "الدريكسيون بتاعك تسخين وباين إن هي جديدة",
+    "ko": "스티어링 휠 열선까지 완전 신차 느낌 그대로입니다."
+   },
+   {
+    "start": 32.7,
+    "end": 36.6,
+    "text": "و36 سماعة منهم اللي بيبقى محوط راسك عشان تحس إنك قاعد في سينما",
+    "ko": "그리고 머리를 감싸 영화관에 앉아있는 듯한 36개의 스피커가 탑재되어 있습니다."
+   },
+   {
+    "start": 36.6,
+    "end": 40.5,
+    "text": "العادية بجنط 22 دي الـ Sport Platinum بجنط 24 إنش",
+    "ko": "기본형은 22인치 휠이지만, 이 스포츠 플래티넘 모델은 24인치 휠이 들어갑니다."
+   },
+   {
+    "start": 40.5,
+    "end": 45.0,
+    "text": "عليهم موتور V8 6200cc 420 حصان و620 نيوتن",
+    "ko": "V8 6,200cc 엔진으로 420마력과 620Nm의 토크를 냅니다."
+   },
+   {
+    "start": 45.0,
+    "end": 49.9,
+    "text": "وبموديلات كتير من أول الـ 23 لحد الـ 26 وبأسعار مختلفة عشان تلاقي اللي يناسب ميزانيتك",
+    "ko": "23년식부터 26년식까지 다양한 모델과 가격대로 예산에 꼭 맞는 차량을 찾을 수 있습니다."
+   },
+   {
+    "start": 49.9,
+    "end": 55.4,
+    "text": "كل ده في مكان واحد بس القبطان، في فرع التجمع والشيخ زايد وشينزو آبي",
+    "ko": "이 모든 것이 한 곳, '엘 콥탄'에 있습니다. 타가모아, 셰이크 자예드, 신조 아베 지점에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "최저가 캐딜락 에스컬레이드 구매 가능 선언"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 9.3,
+    "speed": "빠름",
+    "summary": "2023년식 구형과 2026년식 페이스리프트 신형 비교 개요"
+   },
+   {
+    "stage": "기능",
+    "start": 9.3,
+    "end": 20.8,
+    "speed": "빠름",
+    "summary": "후석 이그제큐티브 시트 및 자동문, 후석 편의사양 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 20.8,
+    "end": 36.6,
+    "speed": "빠름",
+    "summary": "신형 대화면 디스플레이, 시트 옵션, 나이트 비전, 36 스피커 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 36.6,
+    "end": 45.0,
+    "speed": "빠름",
+    "summary": "24인치 휠 및 V8 6.2L 파워트레인 스펙 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 45.0,
+    "end": 49.9,
+    "speed": "빠름",
+    "summary": "연식별 라인업 보유 및 예산 맞춤 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 49.9,
+    "end": 55.4,
+    "speed": "빠름",
+    "summary": "상사 이름 '엘 콥탄' 및 지점 위치 안내"
+   }
+  ],
+  "rules": [
+   "말의 속도가 매우 빠르고 1~2초 단위로 빠르게 차량 내외관 부위를 컷 전환한다.",
+   "새로운 옵션을 소개할 때마다 화면 중앙이나 대상 주변에 2D/3D 아이콘과 키워드가 함께 '톡' 튀어나온다.",
+   "핵심 강조 단어(가격, 시트명, 휠 인치, 스펙)는 텍스트 색상을 노란색 또는 녹색으로 칠해 시선을 모은다.",
+   "도어 닫힘이나 버튼 작동 시 실제 차량의 전자 작동음과 모터 소리를 살려 현장감을 높인다."
+  ],
+  "option_highlights": [
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "feature": "전동 파워 도어 (손잡이 작동)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 30.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "feature": "후석 엔터테인먼트 모니터 및 폴딩 테이블",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "SCREEN 텍스트 스티커",
+    "x_pct": 50.0,
+    "y_pct": 19.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "feature": "터치스크린 도어 클로즈",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 40.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.0,
+    "feature": "필러 투 필러 커브드 디스플레이 & 보조 화면",
+    "shown_how": "확대",
+    "icon_desc": "공조기 눈꽃 아이콘",
+    "x_pct": 43.0,
+    "y_pct": 43.0,
+    "size_w_pct": 12.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 28.9,
+    "feature": "통풍/열선/마사지 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "불꽃 및 눈꽃 아이콘과 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 36.6,
+    "feature": "헤드레스트 내장 36스피커 AKG 사운드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "스피커 아이콘 및 36x 텍스트",
+    "x_pct": 35.0,
+    "y_pct": 28.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외 매장 앞에 도열된 에스컬레이드들 사이에서 리뷰어가 활기차게 걸어나오며 최저가 구매 가능을 외침",
+   "type": "가격",
+   "text": "أنت ممكن تشتري كاديلاك إسكاليد بأقل سعر ممكن",
+   "ko": "캐딜락 에스컬레이드를 최저가로 구매할 수 있습니다"
+  },
+  "narration_points": [
+   {
+    "t": 1.4,
+    "point": "최저 가격대로 구매 가능하다는 메리트 강조",
+    "category": "가격·조건"
+   },
+   {
+    "t": 4.5,
+    "point": "2023년식은 인테리어가 차분하고 가성비가 뛰어남",
+    "category": "가격·조건"
+   },
+   {
+    "t": 8.0,
+    "point": "2026년식 신형은 디자인이 압도적임",
+    "category": "디자인"
+   },
+   {
+    "t": 10.5,
+    "point": "VIP를 위한 최상위 후석 이그제큐티브 시트 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 13.0,
+    "point": "도어 핸들 살짝 당기거나 스크린 터치로 자동 닫히는 도어",
+    "category": "편의"
+   },
+   {
+    "t": 15.5,
+    "point": "후석 전용 디스플레이 및 접이식 테이블 구비",
+    "category": "편의"
+   },
+   {
+    "t": 22.5,
+    "point": "전폭을 가로지르는 초대형 일체형 스크린과 센터 컨트롤러",
+    "category": "편의"
+   },
+   {
+    "t": 27.5,
+    "point": "열선, 통풍, 마사지 기능 및 나이트 비전 야간 주행 보조",
+    "category": "안전"
+   },
+   {
+    "t": 34.0,
+    "point": "헤드레스트를 포함해 영화관처럼 사운드를 감싸는 36개 스피커",
+    "category": "편의"
+   },
+   {
+    "t": 38.5,
+    "point": "스포츠 플래티넘 트림의 거대한 24인치 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 42.0,
+    "point": "V8 6.2L 420마력 620Nm 대배기량 강력한 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 51.5,
+    "point": "엘 콥탄 모터스 3개 지점 안내",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 52.0,
+   "text": "فرع التجمع والشيخ زايد وشينزو آبي",
+   "ko": "타가모아, 셰이크 자예드, 신조 아베 지점으로 방문하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "실내 앞",
+    "외관 전면",
+    "뒷좌석",
+    "옵션 작동",
+    "센터 화면",
+    "뒷좌석",
+    "계기판",
+    "휠",
+    "외관 전면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,1119 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/X4fzQr8Djxg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6535,
+  "candidatesTokenCount": 9002,
+  "totalTokenCount": 16286,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5372
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 749,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.3,
+   "aspect": "9:16",
+   "car": "Lynk & Co 08",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 25.4,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.8,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 32.1,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 35.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 37.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 39.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 41.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 45.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 47.9,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 49.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.9,
+    "end": 53.4,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.4,
+    "end": 59.3,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "NASSER",
+    "ko": "나사르",
+    "kind": "제목",
+    "y_pct": 39.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "text": "قيمة مقابل سعر",
+    "ko": "가성비의 정의",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.3,
+    "text": "عربية صيني",
+    "ko": "중국차",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 73.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 11.5,
+    "text": "التطوير والابحاث",
+    "ko": "연구 및 개발",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#1976D2",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.5,
+    "text": "TURBO 1500cc",
+    "ko": "1500cc 터보",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEB3B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "580NM 345HP",
+    "ko": "580Nm 345마력",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFEB3B",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 37.6,
+    "text": "HD METRIX",
+    "ko": "HD 매트릭스",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.8,
+    "text": "x23 harman/kardon",
+    "ko": "23개 하만카돈 스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "text": "WIRELESS CHARGER",
+    "ko": "무선 충전기",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 47.9,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 66.0,
+    "text_height_pct": 5.0,
+    "color": "#FF9800",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.4,
+    "text": "تبريد",
+    "ko": "통풍/냉방",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.5,
+    "color": "#03A9F4",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.2,
+    "type": "톡",
+    "event": "이름 자막 박스 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.2,
+    "type": "돈 소리",
+    "event": "가성비 동전 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "휙",
+    "event": "차량 전면 샷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "중국 국기 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "띵",
+    "event": "Euro NCAP 별점 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "휙",
+    "event": "스웨덴 국기 펄럭임 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "쿵",
+    "event": "1500cc 터보 그래픽 및 도플갱어 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "띵",
+    "event": "마력 및 토크 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.8,
+    "type": "딸깍",
+    "event": "충전구 커버 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "번개 및 배터리 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "톡",
+    "event": "엔진 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "휙",
+    "event": "주유기 그래픽 불꽃 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "딸깍",
+    "event": "문 열림 전자 버튼 클릭",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "딸깍",
+    "event": "수동 도어 비상 레버 당김",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 버튼 누르고 열림음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "휙",
+    "event": "손으로 헤드램프 가리킬 때 시각 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 38.2,
+    "type": "톡",
+    "event": "하만카돈 오디오 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "띵",
+    "event": "카플레이/안드로이드오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "딸깍",
+    "event": "스마트폰 무선충전 패드 탭",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.8,
+    "type": "휙",
+    "event": "핸들 열선 불꽃 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "띵",
+    "event": "사이드미러 사각지대 경고 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.5,
+    "type": "톡",
+    "event": "통풍시트 눈꽃 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.8,
+    "type": "딸깍",
+    "event": "셀피 카메라 셔터 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "what": "NASSER 로고 배너",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 49.0,
+    "y_pct": 39.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "채널/리뷰어 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.8,
+    "what": "금화 동전 및 반짝이 효과",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 68.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가성비 강조",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.3,
+    "what": "중국 국기 깃발",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 70.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "제조국가 안내",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "what": "유로엔캡 5성 안전도 심볼",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "안전도 강조",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 11.5,
+    "what": "스웨덴 국기 펄럭임",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 65.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "볼보 협력 R&D 국가 안내",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.5,
+    "what": "번개 아이콘 스티커",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 74.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "배터리 완충 여부 언급",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.0,
+    "what": "엔진 3D 일러스트레이션",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 18.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 파워트레인 성능 안내",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "what": "주유기 노즐 및 불꽃 그래픽",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 75.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "연비 차이 안내",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 47.9,
+    "what": "불꽃 아이콘 스티커",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 66.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스티어링 휠 열선 강조",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 50.0,
+    "what": "사각지대 사운드/감지 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 70.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "블라인드 스팟 어시스트 표시",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.4,
+    "what": "눈 결정 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 68.0,
+    "y_pct": 55.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍시트 기능 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "أنا ناصر والعربية دي تعريف قيمة مقابل سعر",
+    "ko": "저는 나사르입니다. 이 차는 가성비 그 자체입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "text": "لينك آند كو 08",
+    "ko": "링크앤코 08."
+   },
+   {
+    "start": 4.1,
+    "end": 6.3,
+    "text": "لينك آند كو عربية صيني موجهة للسوق الأوروبي",
+    "ko": "링크앤코는 유럽 시장을 겨냥한 중국 브랜드 차입니다."
+   },
+   {
+    "start": 6.3,
+    "end": 8.7,
+    "text": "عشان الأمان واخدة خمس نجوم في اليورو إنكاب",
+    "ko": "안전을 위해 유로 NCAP에서 별 5개를 받았습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 11.5,
+    "text": "ومركز التطوير والأبحاث موجود في السويد يعني تعليم أجنبي",
+    "ko": "연구개발 센터가 스웨덴에 있어 유럽 엔지니어링이 적용됐죠."
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "text": "عليها موتور 1500 تيربو وبطارية بيخرجوا مع بعض",
+    "ko": "1500cc 터보 엔진과 배터리가 결합되어"
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "text": "345 حصان و 580 نيوتن",
+    "ko": "345마력과 580토크를 냅니다."
+   },
+   {
+    "start": 16.5,
+    "end": 19.5,
+    "text": "وبنظام البلاج إن هايبرد وسواء البطارية مشحونة أو لا",
+    "ko": "플러그인 하이브리드 방식으로 배터리 충전 여부와 상관없이,"
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "text": "أداء الموتور كويس جداً بس بتفرق في استهلاك البنزين",
+    "ko": "엔진 성능은 훌륭하지만 연비 차이는 있습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 25.4,
+    "text": "الكنبة واسعة ومريحة، مساحة الرجلين والراس كويسين جداً",
+    "ko": "뒷좌석은 넓고 안락하며 레그룸과 헤드룸도 충분합니다."
+   },
+   {
+    "start": 25.4,
+    "end": 27.8,
+    "text": "الباب بيفتح بزرار ولو الكهربا فصلت بتشد دي",
+    "ko": "문은 버튼으로 열리고, 방전되면 이 수동 레버를 당깁니다."
+   },
+   {
+    "start": 27.8,
+    "end": 32.1,
+    "text": "عندك شنطة كهربا واسعة جداً وسب ووفر عشان لو هتقعدوا فيها بالليل",
+    "ko": "넓은 전동 트렁크와 밤에 쉴 때 좋은 서브우퍼가 있습니다."
+   },
+   {
+    "start": 32.1,
+    "end": 35.1,
+    "text": "ومن قدام حلوة جداً، عندك لون برونزي يخطف الأنظار",
+    "ko": "앞모습도 눈길을 사로잡는 브론즈 컬러로 예쁩니다."
+   },
+   {
+    "start": 35.1,
+    "end": 37.6,
+    "text": "كريستال DRLs و HD Matrix ينورولك الطريق",
+    "ko": "크리스탈 DRL과 HD 매트릭스가 길을 환하게 밝힙니다."
+   },
+   {
+    "start": 37.6,
+    "end": 41.0,
+    "text": "23 سماعة من هارمن كاردون بينوروا",
+    "ko": "앰비언트 라이트가 연동되는 23개의 하만카돈 스피커."
+   },
+   {
+    "start": 41.0,
+    "end": 45.6,
+    "text": "أبل كاربلاي وأندرويد أوتو وشاحن وايرلس ومساحة تخزين وكاب هولدرز وواحدة كمان",
+    "ko": "애플 카플레이, 안드로이드 오토, 무선충전기, 콘솔 수납함과 컵홀더."
+   },
+   {
+    "start": 45.6,
+    "end": 47.9,
+    "text": "عندك سنسور عشان يراقب انتباهك والدريكسيون بتاعك تسخين",
+    "ko": "운전자 주의 모니터링 센서와 열선 스티어링 휠이 있고,"
+   },
+   {
+    "start": 47.9,
+    "end": 49.9,
+    "text": "المراية طايرة و Blind Spot Assist",
+    "ko": "플로팅 사이드미러와 사각지대 어시스트도 지원합니다."
+   },
+   {
+    "start": 49.9,
+    "end": 53.4,
+    "text": "فيها كل حاجة عندك سقف بانوراما، الكراسي بتاعتك تسخين وتبريد ومساج",
+    "ko": "파노라마 선루프에 열선/통풍/마사지 시트까지 다 들어갔습니다."
+   },
+   {
+    "start": 53.4,
+    "end": 59.3,
+    "text": "وعندك كاميرا سيلفي عشان تسجل الذكريات",
+    "ko": "추억을 남길 수 있는 실내 셀피 카메라까지 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "진행자 소개 및 '가성비의 정의' 슬로건과 함께 Lynk & Co 08 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.1,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "유럽 안전도 별5개, 스웨덴 R&D, 1.5 터보 PHEV 345마력 출력 및 연비 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 22.0,
+    "end": 32.1,
+    "speed": "보통",
+    "summary": "2열 거주 공간, 전자식 도어 버튼 및 비상 개폐, 전동 트렁크와 서브우퍼"
+   },
+   {
+    "stage": "기능",
+    "start": 32.1,
+    "end": 53.4,
+    "speed": "빠름",
+    "summary": "외관 조명, 23스피커 하만카돈, 무선충전/콘솔, 핸들열선, 사각지대 경고, 통풍/마사지 시트"
+   },
+   {
+    "stage": "기능",
+    "start": 53.4,
+    "end": 59.3,
+    "speed": "보통",
+    "summary": "실내 내장 셀피 카메라 작동 시연 및 단체 사진 촬영"
+   }
+  ],
+  "rules": [
+   "진행자의 과장된 리액션과 빠른 말속도에 맞춰 매 1~2초마다 시각 그래픽을 삽입",
+   "스펙 수치(1500cc, 345HP, 580NM)는 굵고 노란색 볼드 폰트로 중앙에 강렬하게 표시",
+   "주요 부품(엔진, 국기, 별점, 불꽃, 눈송이)은 톡 튀어나오는 팝업 모션과 명확한 효과음 동반",
+   "화면 속 직접 조작하는 손 동작(트렁크, 도어 버튼, 수납함 슬라이딩, 스크린 터치)을 클로즈업해 직관성 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "feature": "플러그인 하이브리드 충전구",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 52.0,
+    "y_pct": 47.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 25.4,
+    "end": 27.8,
+    "feature": "전자식 도어 버튼 및 비상 수동 레버",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 32.0,
+    "feature": "전동 트렁크 및 서브우퍼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 40.0,
+    "y_pct": 42.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.6,
+    "feature": "HD 매트릭스 LED 헤드라이트",
+    "shown_how": "글자 카드",
+    "icon_desc": "HD METRIX 굵은 텍스트",
+    "x_pct": 36.0,
+    "y_pct": 72.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.8,
+    "feature": "23개 하만카돈 스피커 및 앰비언트 라이트",
+    "shown_how": "글자 카드",
+    "icon_desc": "x23 harman/kardon 텍스트",
+    "x_pct": 72.0,
+    "y_pct": 42.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.0,
+    "feature": "스마트폰 무선 충전 패드",
+    "shown_how": "글자 카드",
+    "icon_desc": "WIRELESS CHARGER 텍스트",
+    "x_pct": 60.0,
+    "y_pct": 40.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 46.0,
+    "end": 47.9,
+    "feature": "스티어링 휠 열선",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "타오르는 불꽃 모양 그래픽",
+    "x_pct": 66.0,
+    "y_pct": 20.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 48.2,
+    "end": 49.9,
+    "feature": "사각지대 어시스트(BLIS)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "차량 사각지대 레이더 감지 파형 아이콘",
+    "x_pct": 70.0,
+    "y_pct": 40.0,
+    "size_w_pct": 18.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.4,
+    "feature": "시트 통풍/열선/마사지",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "파란색 눈꽃 결정 아이콘",
+    "x_pct": 68.0,
+    "y_pct": 55.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 59.3,
+    "feature": "실내 내장 셀피 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 48.0,
+    "y_pct": 40.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 자신을 소개하며 이 차가 바로 '진정한 가성비'라고 당당하게 선언함",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر والعربية دي تعريف قيمة مقابل سعر",
+   "ko": "저는 나사르입니다. 이 차는 가성비 그 자체입니다."
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "이 차는 진정한 가성비(Value for Money)의 정의임",
+    "category": "가격·조건"
+   },
+   {
+    "t": 5.0,
+    "point": "유럽 시장을 목표로 개발된 중국 브랜드 모델",
+    "category": "희소성"
+   },
+   {
+    "t": 7.5,
+    "point": "유로 NCAP 충돌 테스트 별 5개 최고 안전 등급 획득",
+    "category": "안전"
+   },
+   {
+    "t": 10.0,
+    "point": "스웨덴 볼보 R&D 센터에서 연구 개발 진행",
+    "category": "성능"
+   },
+   {
+    "t": 13.0,
+    "point": "1.5L 터보 가솔린과 배터리 결합으로 총 345마력, 580Nm 발휘",
+    "category": "성능"
+   },
+   {
+    "t": 18.0,
+    "point": "PHEV 파워트레인으로 배터리 잔량 무관하게 강력한 주행성능 제공",
+    "category": "성능"
+   },
+   {
+    "t": 23.5,
+    "point": "성인에게도 넉넉한 2열 헤드룸과 레그룸 공간",
+    "category": "공간"
+   },
+   {
+    "t": 26.5,
+    "point": "전자식 오픈 버튼과 비상시 수동 레버 탑재 도어",
+    "category": "편의"
+   },
+   {
+    "t": 30.0,
+    "point": "성인이 누울 정도로 넓은 전동식 트렁크 공간과 서브우퍼",
+    "category": "공간"
+   },
+   {
+    "t": 36.0,
+    "point": "시선을 끄는 브론즈 컬러와 크리스탈 DRL, HD 매트릭스 램프",
+    "category": "디자인"
+   },
+   {
+    "t": 39.0,
+    "point": "조명 연동 하만카돈 23스피커 프리미엄 사운드 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 43.0,
+    "point": "무선 스마트폰 충전 패드와 다단 컵홀더 및 대형 콘솔 박스",
+    "category": "편의"
+   },
+   {
+    "t": 47.0,
+    "point": "운전자 모니터링 카메라 및 열선 스티어링 휠",
+    "category": "안전"
+   },
+   {
+    "t": 49.0,
+    "point": "플로팅 타입 사이드미러 및 사각지대 경고 시스템",
+    "category": "안전"
+   },
+   {
+    "t": 51.5,
+    "point": "파노라마 루프 및 1열 열선, 통풍, 마사지 기능 시트",
+    "category": "편의"
+   },
+   {
+    "t": 55.0,
+    "point": "탑승객과 추억을 남길 수 있는 디스플레이 셀피 카메라 탑재",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": null,
+   "text": null,
+   "ko": null,
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "외관 측면",
+    "옵션 작동",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면",
+    "실내 앞",
+    "계기판",
+    "외관 측면",
+    "센터 화면"
+   ]
+  }
+ }
+}

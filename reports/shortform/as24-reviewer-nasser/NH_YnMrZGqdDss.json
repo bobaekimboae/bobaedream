@@ -1,0 +1,1034 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/YnMrZGqdDss",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6897,
+  "candidatesTokenCount": 8979,
+  "totalTokenCount": 15876,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5734
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 63.8,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLB 200",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 3.7,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.0,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 23.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.3,
+    "end": 36.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 40.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.0,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 55.7,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 63.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 5.9,
+    "end": 7.4,
+    "text": "ولو عايز 7 راكب",
+    "ko": "7인승을 원하고",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 20.0,
+    "text_height_pct": 3.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7 راكب",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.7,
+    "text": "وملكش في",
+    "ko": "취향이 아니라면",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 82.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF2B2B",
+    "bg_width_pct": 32.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "text": "GLB 200",
+    "ko": "GLB 200",
+    "kind": "제목",
+    "y_pct": 27.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#D5C9A4",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GLB 200",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "1500 CC\n163 HP",
+    "ko": "1500CC 163마력",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 7.0,
+    "color": "#FFD000",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1500 CC",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "فخورين إنهم",
+    "ko": "벤츠라는 자부심",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFBE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "text": "الرادار علي\nشكل مرسيدس",
+    "ko": "벤츠 로고 모양 레이더",
+    "kind": "키워드 스티커",
+    "y_pct": 28.5,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#FF3300",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 12.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تسخين",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.5,
+    "text": "مخارج تكييف",
+    "ko": "에어컨 송풍구",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#28BFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.0,
+    "text": "1 GLB",
+    "ko": "이집트 1호 GLB",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1 GLB",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 62.5,
+    "text": "الحي الثامن\n6 أكتوبر",
+    "ko": "6th of October 8지구",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF4B4B",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 62.5,
+    "end": 63.8,
+    "text": "01111765000",
+    "ko": "01111765000",
+    "kind": "키워드 스티커",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "화난 이모티콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "톡",
+    "event": "7인승 픽토그램 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.1,
+    "type": "휙",
+    "event": "한국 국기 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.9,
+    "type": "휙",
+    "event": "중국 국기 스티커 교체",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "쿵",
+    "event": "GLB 200 엠블럼 인트로 그래픽",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "1500cc 엔진 정보 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "띵",
+    "event": "163마력 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "띵",
+    "event": "레이더 센서 아이콘 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "열선 시트 불꽃 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.8,
+    "type": "띵",
+    "event": "무선충전 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "톡",
+    "event": "애플 카플레이 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.5,
+    "type": "톡",
+    "event": "안드로이드 오토 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "띵",
+    "event": "에어컨 눈꽃 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.8,
+    "type": "띵",
+    "event": "부메스터 사운드 로고 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 버튼 터치 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.8,
+    "type": "휙",
+    "event": "이집트 국기 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.5,
+    "type": "톡",
+    "event": "위치 핀 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.5,
+    "type": "띵",
+    "event": "전화기 아이콘 및 번호 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.7,
+    "end": 5.0,
+    "what": "화난 얼굴 3D 이모지",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 18.0,
+    "y_pct": 11.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "부부싸움 유머 강조",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.0,
+    "what": "7명 승객 실루엣 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 22.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "7인승 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 7.9,
+    "what": "펄럭이는 한국 국기 3D",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 15.0,
+    "y_pct": 22.0,
+    "entrance": "밀려옴",
+    "purpose": "국산/한국차 언급",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 8.7,
+    "what": "펄럭이는 중국 국기 3D",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 20.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "중국차 언급",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "what": "벤츠 3D 엠블럼 및 후광 로고",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 14.0,
+    "entrance": "페이드",
+    "purpose": "차량 브랜드 타이틀",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.0,
+    "what": "초록색 레이더 타겟 아이콘",
+    "is_3d": false,
+    "size_w_pct": 16.0,
+    "x_pct": 62.0,
+    "y_pct": 17.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "그릴 중앙 전방 레이더 안내",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "what": "불꽃 열선 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 28.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "열선 시트 옵션",
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 35.3,
+    "what": "무선충전 전파 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 55.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무선충전 패드 표시",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.5,
+    "what": "애플 카플레이 앱 아이콘",
+    "is_3d": false,
+    "size_w_pct": 16.0,
+    "x_pct": 28.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 연동 표시",
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.0,
+    "what": "안드로이드 오토 아이콘",
+    "is_3d": false,
+    "size_w_pct": 16.0,
+    "x_pct": 48.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 연동 표시",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.5,
+    "what": "눈꽃 송풍 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 18.0,
+    "x_pct": 72.0,
+    "y_pct": 31.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "2열 에어컨 송풍구 표시",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.0,
+    "what": "Burmester 오디오 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 60.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "프리미엄 사운드 시스템",
+    "sure": true
+   },
+   {
+    "start": 56.8,
+    "end": 60.0,
+    "what": "펄럭이는 대형 이집트 국기",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 35.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "이집트 최초 수입 강조",
+    "sure": true
+   },
+   {
+    "start": 60.5,
+    "end": 62.5,
+    "what": "빨간색 맵 핀 아이콘",
+    "is_3d": false,
+    "size_w_pct": 16.0,
+    "x_pct": 32.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "쇼룸 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 62.5,
+    "end": 63.8,
+    "what": "전화 수화기 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 30.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "문의 전화 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "مرسيدس حلت المشاكل العائلية، أنت بتتفرج على الماتش بتاعك، وهي بتتفرج على المسلسل، من غير أي خناق.",
+    "ko": "메르세데스가 가정불화를 해결했습니다. 당신은 축구 경기를 보고, 아내는 드라마를 보며 싸울 일이 전혀 없죠."
+   },
+   {
+    "start": 5.0,
+    "end": 10.9,
+    "text": "أنا ناصر، ولو عايز 7 راكب وملكش في الكوري ولا الصيني، جبتلك النجم: مرسيدس بنز GLB.",
+    "ko": "전 나사르입니다. 7인승을 원하지만 국산(한국)이나 중국차가 취향이 아니라면 삼각별, 메르세데스-벤츠 GLB를 가져왔습니다."
+   },
+   {
+    "start": 11.0,
+    "end": 15.0,
+    "text": "والموتور: 1500 تيربو مايلد هايبرد بيطلع 163 حصان.",
+    "ko": "엔진은 1500cc 터보 마일드 하이브리드로 163마력을 냅니다."
+   },
+   {
+    "start": 15.0,
+    "end": 20.0,
+    "text": "فخورين جداً إنهم مرسيدس، اللوجو في كل حتة: النجمة كتير جداً عالجريل، حتى الرادار على شكل مرسيدس.",
+    "ko": "벤츠라는 자부심이 대단해서 로고가 곳곳에 있습니다. 그릴에 별이 가득하고 레이더마저 벤츠 모양이죠."
+   },
+   {
+    "start": 20.0,
+    "end": 28.5,
+    "text": "وعالتيل لايتس، واللايت بار الجديد حسن شكلها من ورا، وكمان في الهيد لايتس، وعندك لايت بار والجريلز بقت بتنور عشان حضور بالليل، مرسيدس مرسيدس برضو.",
+    "ko": "테일램프와 신형 라이트바가 후면을 살렸고, 헤드램프와 라이트바, 그릴 조명까지 더해져 야간 존재감이 확실합니다. 역시 벤츠답죠."
+   },
+   {
+    "start": 28.5,
+    "end": 35.3,
+    "text": "سقف بانوراما، كراسي رياضية تو-تون فيهم تسخين ومساج، ليج إكستنشن، مساحة تخزين، 2 كاب هولدرز، وشحن وايرلس.",
+    "ko": "파노라마 선루프, 투톤 스포츠 시트엔 열선과 마사지, 레그 서포트 연장, 수납공간, 컵홀더 2개, 무선충전까지 지원합니다."
+   },
+   {
+    "start": 35.3,
+    "end": 40.5,
+    "text": "هيد-أب وديجيتال ديسبلاي بالمابس، تاتش سكرين فيها آبل كاربلاي وأندرويد أوتو، وشاشة للمرافق يتسلى بيها في الطريق عشان ميصدعكش وأنت ماشي.",
+    "ko": "헤드업 디스플레이와 내비가 뜨는 디지털 계기판, 카플레이와 안드로이드 오토 터치스크린, 그리고 조수석 화면까지 있어 운전 중 방해받지 않게 즐길 수 있죠."
+   },
+   {
+    "start": 40.5,
+    "end": 46.5,
+    "text": "أنت شايف السما كويس من ورا، والمساحات واسعة، وعندك مخارج تكييف وUSB-C،",
+    "ko": "뒷좌석 개방감이 훌륭하고 공간이 넉넉하며, 에어컨 송풍구와 C타입 포트도 있습니다."
+   },
+   {
+    "start": 46.5,
+    "end": 50.0,
+    "text": "والمفاجأة: عندك صف تالت للأطفال وبورميستر ساوند سيستم حكاية.",
+    "ko": "그리고 놀랍게도 어린이를 위한 3열 시트와 환상적인 부메스터 오디오가 들어갔습니다."
+   },
+   {
+    "start": 50.0,
+    "end": 56.5,
+    "text": "عندك شنطة كهربا مساحتها كويسة وأنت منزل الصف التالت، وعملاقة وأنت منزل الصف التاني.",
+    "ko": "전동 트렁크는 3열을 접으면 넉넉하고, 2열까지 접으면 거대한 공간이 나옵니다."
+   },
+   {
+    "start": 56.5,
+    "end": 63.8,
+    "text": "بالمناسبة دي أول مرسيدس GLB في مصر، وهتلاقيها في ويلر ديلرز، 6 أكتوبر الحي التامن، واتصل على الرقم ده.",
+    "ko": "참고로 이 차는 이집트 1호 메르세데스 GLB이며, 휠러 딜러스(6th of October 8지구)에서 만나보실 수 있습니다. 이 번호로 연락주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "빠름",
+    "summary": "조수석 듀얼 스크린으로 부부싸움 끝이라는 상황극 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.0,
+    "end": 10.9,
+    "speed": "빠름",
+    "summary": "진행자 소개 및 7인승 대안 Mercedes GLB 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 11.0,
+    "end": 15.0,
+    "speed": "보통",
+    "summary": "엔진룸 공개 및 1.5 터보 MHEV 스펙 안내"
+   },
+   {
+    "stage": "기능",
+    "start": 15.0,
+    "end": 56.5,
+    "speed": "빠름",
+    "summary": "외관 엠블럼·라이트, 1열 시트·조수석 스크린, 2열 및 3열 좌석, 트렁크 용량 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 56.5,
+    "end": 63.8,
+    "speed": "보통",
+    "summary": "이집트 1호차 강조 및 전시장 위치, 전화번호 CTA"
+   }
+  ],
+  "rules": [
+   "도입부에 실제 듀얼 인포테인먼트 분할 화면으로 부부 갈등 해결 상황극을 연출해 즉각적인 몰입 유도",
+   "옵션이나 수치를 말할 때 타이밍 맞춰 고유 컬러 3D/2D 그래픽 스티커와 효과음(톡, 띵)을 동기화",
+   "신체 접촉과 시연(손가락으로 가리키기, 시트 폴딩, 시트 앉아보기)을 활용해 공간감을 생생하게 체감시킴",
+   "영상 말미에 국가 최초 수입 타이틀과 국기 그래픽을 걸어 구매 욕구와 희소성 극대화"
+  ],
+  "option_highlights": [
+   {
+    "start": 1.0,
+    "end": 3.7,
+    "feature": "동승석 전용 디스플레이 분할 재생",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "feature": "1.5L 터보 마일드 하이브리드 파워트레인",
+    "shown_how": "글자 카드",
+    "icon_desc": "금색 3D 1500CC 및 출력 스펙 배너",
+    "x_pct": 35.0,
+    "y_pct": 24.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.0,
+    "feature": "라디에이터 그릴 전방 레이더",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "초록색 레이더 타겟 원형 아이콘",
+    "x_pct": 62.0,
+    "y_pct": 17.0,
+    "size_w_pct": 16.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "feature": "열선 및 마사지 스포츠 시트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "붉은 불꽃과 'تسخين' 텍스트 카드",
+    "x_pct": 28.0,
+    "y_pct": 32.0,
+    "size_w_pct": 22.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 33.8,
+    "end": 35.3,
+    "feature": "스마트폰 무선 충전 패드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "무선 충전 전파 와이파이 심볼",
+    "x_pct": 55.0,
+    "y_pct": 28.0,
+    "size_w_pct": 15.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 40.5,
+    "feature": "동승석 엔터테인먼트 스크린(게임 플레이)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "애플 카플레이 및 안드로이드 오토 로고",
+    "x_pct": 38.0,
+    "y_pct": 20.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.5,
+    "feature": "2열 전용 에어컨 송풍구",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "하늘색 눈꽃 아이콘과 텍스트 박스",
+    "x_pct": 72.0,
+    "y_pct": 31.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 50.0,
+    "feature": "부메스터 프리미엄 사운드 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "스피커 심볼과 Burmester 로고",
+    "x_pct": 60.0,
+    "y_pct": 35.0,
+    "size_w_pct": 32.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 50.0,
+    "end": 55.7,
+    "feature": "3열/2열 폴딩 대용량 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "전동 트렁크 버튼 터치 가이드 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 25.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "차 안에서 한쪽 화면은 축구 중계, 다른 쪽 화면은 드라마를 보며 부부싸움이 해결된다고 말함",
+   "type": "행동",
+   "text": "مرسيدس حلت المشاكل العائلية، أنت بتتفرج على الماتش بتاعك، وهي بتتفرج على المسلسل",
+   "ko": "메르세데스가 가정불화를 해결했습니다. 당신은 축구를 보고 아내는 드라마를 보죠"
+  },
+  "narration_points": [
+   {
+    "t": 1.5,
+    "point": "운전석과 조수석이 독립적으로 영상을 시청할 수 있는 인포테인먼트 시스템",
+    "category": "편의"
+   },
+   {
+    "t": 6.5,
+    "point": "한국차나 중국차가 아닌 유럽 프리미엄 브랜드의 7인승 대안",
+    "category": "공간"
+   },
+   {
+    "t": 12.0,
+    "point": "1500cc 가솔린 터보 마일드 하이브리드 엔진 (163마력)",
+    "category": "성능"
+   },
+   {
+    "t": 17.5,
+    "point": "그릴과 레이더 커버까지 삼각별 벤츠 로고가 곳곳에 적용된 디자인",
+    "category": "디자인"
+   },
+   {
+    "t": 22.0,
+    "point": "야간 존재감을 키워주는 신형 관통형 전·후면 라이트바",
+    "category": "디자인"
+   },
+   {
+    "t": 29.8,
+    "point": "열선, 마사지 기능 및 레그 서포트 연장이 포함된 투톤 스포츠 시트",
+    "category": "편의"
+   },
+   {
+    "t": 38.5,
+    "point": "동승자가 지루하지 않게 게임이나 미디어를 즐길 수 있는 패신저 스크린",
+    "category": "편의"
+   },
+   {
+    "t": 47.0,
+    "point": "어린이를 태우기 적합한 3열 시트 구성과 부메스터 고급 오디오",
+    "category": "공간"
+   },
+   {
+    "t": 53.0,
+    "point": "2열과 3열 시트를 접었을 때 생기는 거대한 플랫 적재 공간",
+    "category": "공간"
+   },
+   {
+    "t": 57.5,
+    "point": "이집트 국내 최초 1호 수입 메르세데스 GLB 매물",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 61.5,
+   "text": "وهتلاقيها في ويلر ديلرز، 6 أكتوبر الحي التامن، واتصل على الرقم ده 01111765000",
+   "ko": "휠러 딜러스 6th of October 8지구 전시장을 방문하시거나 01111765000으로 전화하세요.",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "실내 앞",
+    "센터 화면",
+    "외관 전면",
+    "엔진룸",
+    "외관 전면",
+    "외관 후면",
+    "실내 앞",
+    "계기판",
+    "센터 화면",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

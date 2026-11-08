@@ -1,0 +1,551 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/H9LmiILkuuQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8897,
+  "candidatesTokenCount": 4907,
+  "totalTokenCount": 13804,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7734
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 84.8,
+   "aspect": "9:16",
+   "car": "BMW E92 (2JZ 800HP) & Nissan Silvia (800-900HP)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 9.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 17.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 22.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 38.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 40.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.8,
+    "end": 51.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 59.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 10.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 65.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 65.2,
+    "end": 69.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 69.8,
+    "end": 84.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "مين الشاب الي راح من المركز السابع للأول في 7 شهور بس؟",
+    "ko": "단 7개월 만에 7위에서 1위로 올라선 청년은 누구일까요?",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "المركز الأول",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 5.6,
+    "text": "في واحدة من الأصعب الرياضات في العالم: الدريفت",
+    "ko": "세계에서 가장 어려운 모터스포츠 중 하나인 드리프트에서요",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#111111",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "الدريفت",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 14.2,
+    "text": "رمزي هو شاب مصري كان بيلعب على الـ Simulator",
+    "ko": "람지는 여가 시간에 시뮬레이터 게임을 즐기던 이집트 청년이었습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "Simulator",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 22.5,
+    "text": "راح اشترى عربية سيد أبو غريب BMW E92 وعليها موتور 2JZ 800 حصان",
+    "ko": "그는 800마력 2JZ 엔진이 올라간 세이드 아부 가립의 BMW E92를 샀습니다",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "800 حصان",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 28.5,
+    "text": "فسافر دبي واشترى نيسان سيلفيا 800-900 حصان",
+    "ko": "두바이로 가서 800~900마력 세팅의 닛산 실비아도 구매했죠",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "نيسان سيلفيا",
+    "sure": true
+   },
+   {
+    "start": 111.0,
+    "end": 115.5,
+    "text": "#1 تاندم / #1 اوفر اول كار بارك",
+    "ko": "탠덤 드리프트 1위 / 카파크 종합 1위",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.5,
+    "color": "#00E5FF",
+    "background": "칠",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "#1",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.3,
+    "type": "휙",
+    "event": "제목 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.7,
+    "type": "쿵",
+    "event": "화면 전환 및 드리프트 배기음 시작",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 5.9,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "드리프트 타이어 스킬음 및 가속 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 10.2,
+    "type": "톡",
+    "event": "시뮬레이터 3D 모델 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "딸깍",
+    "event": "BMW E92 사진 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "휙",
+    "event": "두바이 국기 및 닛산 실비아 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "인캠 주행 중 근접 탠덤 드리프트 사운드",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "쿵",
+    "event": "배틀 장면 임팩트 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 103.0,
+    "type": "띵",
+    "event": "포디움 1위 트로피 사진 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/트랩 비트",
+   "bpm_est": 125,
+   "mood": "긴박하고 에너지 넘치는",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 5.8,
+     "what": "드리프트 엔진음과 함께 비트 고조"
+    },
+    {
+     "t": 30.0,
+     "what": "실제 레이싱 사운드와 함께 배경음악 서브 유지"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "what": "드라이버 실루엣 물음표 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "페이드",
+    "purpose": "호기심 유발 및 인물 특정 유보",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 14.5,
+    "what": "레이싱 시뮬레이터 콕핏 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시뮬레이터 게이머 출신 배경 설명",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 22.5,
+    "what": "BMW E92 드리프트 튜닝카 사진 카드",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "첫 실차 머신 안내",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 28.5,
+    "what": "닛산 실비아 드리프트 머신 카드",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "두바이 영입 차량 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.7,
+    "text": "مين الشاب الي راح من المركز السابع للأول في سبع شهور بس؟ في واحدة من أصعب الرياضات في العالم: الدريفت.",
+    "ko": "세계에서 가장 어려운 모터스포츠 중 하나인 드리프트에서 단 7개월 만에 7위에서 1위로 도약한 청년은 누구일까요?"
+   },
+   {
+    "start": 9.5,
+    "end": 17.0,
+    "text": "رمزي هو شاب مصري كان بيلعب عالسيميليتور في وقت فراغه، وفي أول بطولة له أخد مركز أول، وساعتها حس إنه عايز يجرب على الحقيقة.",
+    "ko": "람지는 여가 시간에 시뮬레이터를 타던 평범한 이집트 청년이었는데 첫 대회에서 1등을 하더니 진짜 실차 레이스에 뛰어들 결심을 했습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 29.5,
+    "text": "فراح اشترى عربية سيد أبو غريب BMW E92 وعليها موتور 2JZ 800 حصان، وسافر دبي اشترى نيسان سيلفيا 800-900 حصان.",
+    "ko": "그래서 800마력 2JZ가 올라간 BMW E92를 샀고, 두바이까지 가서 800~900마력대의 닛산 실비아까지 사들였죠."
+   },
+   {
+    "start": 30.0,
+    "end": 52.0,
+    "text": "بعدها نزل أول سباق دولي في ليوا وكان سباق تاندم، وسافر عُمان ونافس بطل العالم في ريد بُل كار بارك ولعبوا One More Time من تقارب المستوى.",
+    "ko": "이후 리와 국제 탠덤 대회에 첫 출전했고, 오만 대회에서는 레드불 카파크 월드 챔피언과 박빙의 승부를 펼쳐 재대결(One More Time)까지 갔습니다."
+   },
+   {
+    "start": 53.0,
+    "end": 70.0,
+    "text": "ورجع مصر وأخد رابع، وفضل يتدرب عالسيم وعلى التراك لحد ما أخد مركز أول في بطولة Rev It Up ومركز تالت في الأردن، كل ده في 7 شهور.",
+    "ko": "이집트로 돌아와 4위를 기록한 뒤 시뮬레이터와 트랙에서 피나게 훈련해 Rev It Up 1위, 요르단 대회 3위를 거머쥐었습니다. 이 모든 게 단 7개월 만의 일입니다."
+   },
+   {
+    "start": 70.5,
+    "end": 84.8,
+    "text": "ودلوقتي واخد المركز الأول تاندم وأوفر أول، متنساش تعملي فولو ولرمزي.",
+    "ko": "현재는 이집트 탠덤 1위와 종합 1위를 달리고 있습니다. 저와 람지 계정을 꼭 팔로우해주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "7개월 만에 정상에 오른 무명 드라이버의 질문 훅과 화려한 드리프트 장면"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.8,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "시뮬레이터 출신 배경과 그가 구매한 800마력 BMW E92, 닛산 실비아 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 52.0,
+    "speed": "보통",
+    "summary": "리와 및 오만 국제 드리프트 대회에서의 치열한 배틀과 탠덤 주행 영상"
+   },
+   {
+    "stage": "사양",
+    "start": 53.0,
+    "end": 70.0,
+    "speed": "빠름",
+    "summary": "혹독한 트랙 훈련 과정과 이집트/요르단 포디움 석권 기록"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 70.0,
+    "end": 84.8,
+    "speed": "보통",
+    "summary": "현재 성적 랭킹 요약과 계정 팔로우 유도(CTA)"
+   }
+  ],
+  "rules": [
+   "호기심을 유발하는 드라마틱한 스토리텔링(게이머에서 챔피언으로) 질문으로 영상 시작",
+   "스튜디오 인물 멘트와 현장 배기음/타이어 스킬음 섞인 주행 클립을 빠르게 교차 편집",
+   "주요 차량 및 튜닝 마력 스펙 언급 시 상단/하단에 사진 카드와 볼드 자막 동시 표출",
+   "탠덤 드리프트의 긴박함을 온보드 액션캠 앵글로 강조하여 몰입감 유지",
+   "마지막 10초에 드라이버 유니폼 착용 인증 및 계정 팔로우 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 17.5,
+    "end": 22.8,
+    "feature": "2JZ 스왑 엔진 800마력 세팅",
+    "shown_how": "글자 카드",
+    "icon_desc": "차량 사진 및 800 HP 텍스트 카드",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 28.5,
+    "feature": "닛산 실비아 드리프트 전용 800-900마력 세팅",
+    "shown_how": "글자 카드",
+    "icon_desc": "두바이 국기 아이콘 및 실비아 배틀 차량 사진",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "드라이버 실루엣 물음표 그래픽과 함께 7개월 만에 7위에서 1위가 된 인물에 대한 질문을 던짐",
+   "type": "질문",
+   "text": "مين الشاب الي راح من المركز السابع للأول في سبع شهور بس؟",
+   "ko": "단 7개월 만에 7위에서 1위로 올라선 청년은 누구일까요?"
+  },
+  "narration_points": [
+   {
+    "t": 12.0,
+    "point": "시뮬레이터 첫 대회 우승 후 실제 모터스포츠에 입문",
+    "category": "희소성"
+   },
+   {
+    "t": 19.5,
+    "point": "2JZ 엔진을 올려 800마력을 발휘하는 드리프트 전용 BMW E92 세팅",
+    "category": "성능"
+   },
+   {
+    "t": 26.0,
+    "point": "두바이에서 공수한 800~900마력 닛산 실비아 레이스카",
+    "category": "성능"
+   },
+   {
+    "t": 45.0,
+    "point": "오만 대회에서 레드불 카파크 월드 챔피언과 One More Time 접전 달성",
+    "category": "성능"
+   },
+   {
+    "t": 68.0,
+    "point": "7개월 만에 Rev It Up 이집트 우승 및 요르단 3위 포디움 석권",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 82.0,
+   "text": "متنساش تعملي فولو ولرمزي",
+   "ko": "저와 람지 계정을 팔로우하는 것을 잊지 마세요",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "스튜디오",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 측면",
+    "실내 앞",
+    "엔진룸",
+    "사람"
+   ]
+  }
+ }
+}

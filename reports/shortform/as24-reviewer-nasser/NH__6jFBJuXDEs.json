@@ -1,0 +1,1004 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/_6jFBJuXDEs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5899,
+  "candidatesTokenCount": 8529,
+  "totalTokenCount": 15110,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4736
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 682,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 52.8,
+   "aspect": "9:16",
+   "car": "Ducati Diavel 1260 Lamborghini",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 21.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.6,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 39.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 48.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 52.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "text": "DIAVEL 1260",
+    "ko": "디아벨 1260",
+    "kind": "제목",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "1260",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 7.2,
+    "text": "SIAN $2,000,000",
+    "ko": "시안 $2,000,000",
+    "kind": "가격",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "$2,000,000",
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 10.9,
+    "text": "ELECTRUM GOLD",
+    "ko": "일렉트럼 골드 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#E6CA65",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.0,
+    "end": 12.8,
+    "text": "FULL CARBON BODYWORK",
+    "ko": "풀 카본 바디워크",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.5,
+    "text": "MONOBLOC CALIPERS",
+    "ko": "모노블록 캘리퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "1260cc",
+    "ko": "1260cc",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.6,
+    "end": 20.8,
+    "text": "162hp",
+    "ko": "162마력",
+    "kind": "키워드 스티커",
+    "y_pct": 51.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 4.5,
+    "color": "#E6CA65",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 21.8,
+    "text": "129Nm",
+    "ko": "129Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 4.0,
+    "color": "#E6CA65",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.5,
+    "text": "CRUISE CONTROL\nMEDIA CONTROL",
+    "ko": "크루즈 컨트롤 / 미디어 조작",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.5,
+    "text": "REDLINE 9000 RPM",
+    "ko": "레드라인 9000 RPM",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#FF2B2B",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.5,
+    "text": "اللي هيجري وراك بالفيراري هيشوف",
+    "ko": "페라리로 널 쫓아오는 자가 볼 광경",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بالفيراري",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.6,
+    "text": "240/45",
+    "ko": "240/45 타이어",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#E6CA65",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 36.8,
+    "text": "FORGED RIMS 17\"",
+    "ko": "17인치 단조 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "17\"",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 39.7,
+    "text": "FERRUCCIO LAMBORGHINI 1963",
+    "ko": "페루치오 람보르기니 1963",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 4.5,
+    "color": "#E6CA65",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1963",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 52.8,
+    "text": "عمر بن الخطاب\nمصر الجديدة",
+    "ko": "오마르 이븐 알카탑, 마스르 알자디다",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.3,
+    "type": "쿵",
+    "event": "람보르기니 로고 및 불꽃 효과 폭발",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "휙",
+    "event": "람보르기니 시안 3D 모델 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "톡",
+    "event": "ELECTRUM GOLD 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "톡",
+    "event": "FULL CARBON 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.6,
+    "type": "톡",
+    "event": "브렘보 캘리퍼 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "휙",
+    "event": "전투기 제트 엔진 비행 효과음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "띵",
+    "event": "엔진 3D 그래픽 및 제원 수치 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.2,
+    "type": "딸깍",
+    "event": "크루즈 컨트롤 버튼 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "톡",
+    "event": "레드라인 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스타트 버튼 누른 후 배기음 포효",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 34.8,
+    "type": "톡",
+    "event": "단조 휠 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.4,
+    "type": "휙",
+    "event": "페루치오 람보르기니 사진 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.6,
+    "type": "띵",
+    "event": "매장 위치 핀 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 110,
+   "mood": "에너지 넘치고 웅장함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 2.3,
+     "what": "불꽃 VFX 등장과 함께 베이스 드롭"
+    },
+    {
+     "t": 27.8,
+     "what": "엔진 배기음 강조를 위해 볼륨 낮아짐"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "what": "람보르기니 엠블럼과 화염 효과",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 콜라보 강조",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.3,
+    "what": "람보르기니 시안 3D 모델",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 55.0,
+    "y_pct": 20.0,
+    "entrance": "밀려옴",
+    "purpose": "모티브가 된 슈퍼카 시각화",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "what": "미 공군 전투기 비행 그래픽",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "압도적인 속도감 비유",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.8,
+    "what": "테스타스트레타 엔진 3D 와이어프레임",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 25.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔진 스펙 시각화",
+    "sure": true
+   },
+   {
+    "start": 37.3,
+    "end": 39.8,
+    "what": "페루치오 람보르기니 인물 사진",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "역사적 배경(1963년) 설명",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 52.8,
+    "what": "위치 핀 아이콘 및 쇼룸 위치 텍스트",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 38.0,
+    "y_pct": 18.0,
+    "entrance": "밀려옴",
+    "purpose": "매장 위치 안내(CTA)",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "لما تجمع دوكاتي مع لامبورجيني بتبقى دي النتيجة",
+    "ko": "두카티와 람보르기니를 합치면 이런 결과가 나옵니다."
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "Diavel 1260",
+    "ko": "디아벨 1260."
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "لامبورجيني عملت عربية اسمها سيان ب 2 مليون دولار",
+    "ko": "람보르기니는 200만 달러짜리 '시안'을 만들었고,"
+   },
+   {
+    "start": 7.3,
+    "end": 10.9,
+    "text": "دوكاتي عملتلها موتوسيكل نفس الكلر كومبو ونفس الجنط",
+    "ko": "두카티는 동일한 컬러 조합과 동일한 휠을 가진 바이크를 만들었습니다."
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "عندك وش من الكاربون فايبر، دي إن إيه دوكاتي في الدي آر إل",
+    "ko": "카본 파이버 프론트, 주간주행등(DRL)에는 두카티의 DNA,"
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "text": "موديفايد سسبنشن من أولينز وبرمبو بريكس",
+    "ko": "올린즈 서스펜션과 브렘보 브레이크가 들어갔죠."
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "عشان الطيارة دي تقف",
+    "ko": "이 비행기를 멈춰 세우기 위해서 말이죠."
+   },
+   {
+    "start": 17.5,
+    "end": 21.8,
+    "text": "موتور 1260 سي سي تيستاستريتا بيطلع 162 حصان و 129 نيوتن",
+    "ko": "1260cc 테스타스트레타 엔진은 162마력과 129Nm 토크를 뿜어냅니다."
+   },
+   {
+    "start": 21.8,
+    "end": 24.3,
+    "text": "عندك كروز كنترول وتحكم في الشاشة",
+    "ko": "크루즈 컨트롤과 계기판 조작 스위치,"
+   },
+   {
+    "start": 24.3,
+    "end": 27.6,
+    "text": "الريد لاين عند 9000 آر بي إم وشاشة للإشارات",
+    "ko": "레드라인은 9,000 RPM이며 방향지시 표시등이 있습니다."
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "text": "ولو دوست هنا...",
+    "ko": "그리고 여기를 누르면..."
+   },
+   {
+    "start": 29.8,
+    "end": 33.1,
+    "text": "اللي هيجري وراك بالفيراري هيشوف التيل لايتس دي",
+    "ko": "페라리로 쫓아오는 사람이 보게 될 테일램프입니다."
+   },
+   {
+    "start": 33.1,
+    "end": 36.8,
+    "text": "وطبعاً الكاوتش مش عادي مقاس 240 على فورجد ريمز مقاس 17",
+    "ko": "타이어도 보통이 아니죠. 17인치 단조 휠에 240 사이즈입니다."
+   },
+   {
+    "start": 36.8,
+    "end": 39.8,
+    "text": "ال 63 دي السنة اللي بدأت فيها لامبورجيني",
+    "ko": "63이라는 숫자는 람보르기니가 시작된 해(1963년)이고,"
+   },
+   {
+    "start": 39.8,
+    "end": 43.1,
+    "text": "والهيكساجون والواي شيب دي إن إيه بتوع لامبورجيني",
+    "ko": "육각형과 Y 형태의 디자인은 람보르기니의 시그니처 DNA입니다."
+   },
+   {
+    "start": 43.1,
+    "end": 48.0,
+    "text": "ولو عايز حد يطير معاك البارت ده بيتشال وهيحط رجله هنا",
+    "ko": "동승자와 함께 날아가고 싶다면 이 카본 커버를 떼고 여기에 발을 올리면 됩니다."
+   },
+   {
+    "start": 48.0,
+    "end": 52.8,
+    "text": "وطبعاً الوحش ده وغيره كتير في أوتو بوتيك، عمر بن الخطاب مصر الجديدة",
+    "ko": "이 괴물 같은 바이크는 오토 부티크 매장(오마르 이븐 알카탑, 헬리오폴리스)에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "두카티와 람보르기니의 만남 소개 및 불꽃 효과 타이틀 연출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 10.9,
+    "speed": "빠름",
+    "summary": "람보르기니 시안과의 컬러·휠 디자인 연계 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.9,
+    "end": 21.8,
+    "speed": "빠름",
+    "summary": "카본 파이버, 올린즈 서스펜션, 브렘보 브레이크 및 1260cc 엔진 스펙"
+   },
+   {
+    "stage": "기능",
+    "start": 21.8,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "핸들 스위치, 9000RPM 계기판 및 실제 우렁찬 시동 배기음"
+   },
+   {
+    "stage": "차 소개",
+    "start": 29.5,
+    "end": 48.0,
+    "speed": "빠름",
+    "summary": "240 폭 타이어, 단조 휠, '63' 데칼 의미 및 탈착식 탠덤 시트 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 48.0,
+    "end": 52.8,
+    "speed": "보통",
+    "summary": "전시장 위치 소개 및 방문 유도"
+   }
+  ],
+  "rules": [
+   "설명하는 주요 스펙(배기량, 마력, 타이어 사이즈 등)은 골드/레드 배색의 굵은 텍스트 그래픽으로 즉각 강조한다.",
+   "바이크의 유래(람보르기니 시안, 창립 연도)를 3D 자동차 및 역사적 인물 사진 그래픽으로 즉시 띄워 이해를 돕는다.",
+   "스타트 버튼을 누르는 순간 배경음악을 줄이고 리얼한 배기음 사운드를 극적으로 살린다.",
+   "마지막에 매장 핀 그래픽과 지명을 크게 노출하여 쇼룸 방문을 유도한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 4.6,
+    "end": 7.3,
+    "feature": "람보르기니 시안 에디션 컬러 매칭",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "공중에 떠 있는 람보르기니 시안 하이퍼카 3D 모델",
+    "x_pct": 55.0,
+    "y_pct": 20.0,
+    "size_w_pct": 65.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "feature": "일렉트럼 골드 단조 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "ELECTRUM GOLD 텍스트",
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "feature": "풀 카본 파이버 바디워크",
+    "shown_how": "글자 카드",
+    "icon_desc": "FULL CARBON BODYWORK 텍스트 및 손가락 가리킴",
+    "x_pct": 30.0,
+    "y_pct": 21.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "feature": "올린즈 서스펜션 & 브렘보 캘리퍼",
+    "shown_how": "글자 카드",
+    "icon_desc": "MONOBLOC CALIPERS 붉은색 텍스트 오버레이",
+    "x_pct": 60.0,
+    "y_pct": 73.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 21.8,
+    "feature": "1260cc 테스타스트레타 엔진",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "회전하는 황금색 3D 엔진 분해도와 출력 텍스트",
+    "x_pct": 25.0,
+    "y_pct": 45.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.6,
+    "feature": "핸들바 크루즈 & 미디어 컨트롤",
+    "shown_how": "글자 카드",
+    "icon_desc": "CRUISE CONTROL 및 MEDIA CONTROL 지시선 텍스트",
+    "x_pct": 55.0,
+    "y_pct": 28.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 26.6,
+    "feature": "9000RPM 디지털 계기판",
+    "shown_how": "글자 카드",
+    "icon_desc": "REDLINE 9000 RPM 붉은색 박스 자막",
+    "x_pct": 45.0,
+    "y_pct": 42.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 29.5,
+    "feature": "배기음 시동 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손가락으로 시동 버튼을 누르고 배기음을 들려줌",
+    "x_pct": 45.0,
+    "y_pct": 50.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 48.0,
+    "feature": "탈착식 카본 탠덤 시트 커버",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "시트 뒷부분 카본 커버를 두드리고 발판 위치를 가리킴",
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 나무 뒤에서 걸어 나오며 '두카티와 람보르기니가 만나면?'이라는 질문을 던지고 불꽃과 함께 바이크가 나타남",
+   "type": "희귀차",
+   "text": "لما تجمع دوكاتي مع لامبورجيني بتبقى دي النتيجة",
+   "ko": "두카티와 람보르기니를 합치면 이런 결과가 나옵니다"
+  },
+  "narration_points": [
+   {
+    "t": 4.8,
+    "point": "200만 달러 상당의 람보르기니 시안을 오마주한 컬러 및 휠 디자인 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 11.2,
+    "point": "바디 전체에 카본 파이버 소재 대거 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 13.8,
+    "point": "올린즈 조절식 서스펜션과 브렘보 모노블록 브레이크 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 17.8,
+    "point": "1260cc 테스타스트레타 엔진 장착(162마력, 129Nm)",
+    "category": "성능"
+   },
+   {
+    "t": 22.0,
+    "point": "크루즈 컨트롤 및 미디어 조작 버튼 지원",
+    "category": "편의"
+   },
+   {
+    "t": 33.2,
+    "point": "240mm 초광폭 리어 타이어와 17인치 단조 휠",
+    "category": "디자인"
+   },
+   {
+    "t": 37.5,
+    "point": "람보르기니 창립 연도인 1963년을 뜻하는 '63' 넘버링 데칼",
+    "category": "희소성"
+   },
+   {
+    "t": 44.0,
+    "point": "동승자 탑승을 위한 탈착식 카본 시트 커버와 풋페그",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 48.5,
+   "text": "في أوتو بوتيك، عمر بن الخطاب مصر الجديدة",
+   "ko": "오토 부티크 매장(오마르 이븐 알카탑, 헬리오폴리스)으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 측면 전체",
+    "휠",
+    "외관 전면 카본 및 헤드램프",
+    "앞 브레이크 및 캘리퍼",
+    "핸들바 스위치",
+    "계기판",
+    "테일램프 및 리어 타이어",
+    "사이드 데칼(63)",
+    "시트 및 연료탱크",
+    "탠덤 시트 커버 및 풋페그"
+   ]
+  }
+ }
+}

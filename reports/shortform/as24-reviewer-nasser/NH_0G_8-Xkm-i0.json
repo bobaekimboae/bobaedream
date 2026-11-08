@@ -1,0 +1,931 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/0G_8-Xkm-i0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6627,
+  "candidatesTokenCount": 8148,
+  "totalTokenCount": 15889,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5464
+   }
+  ],
+  "thoughtsTokenCount": 1114,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.3,
+   "aspect": "9:16",
+   "car": "Farizon V6E / F1E / H8E",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 28.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 32.2,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 36.5,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 39.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.2,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 48.0,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.5,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.5,
+    "end": 53.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 56.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 60.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 5.5,
+    "end": 8.8,
+    "text": "عربيات كهرباء توفر معاك 70% مصاريف التشغيل",
+    "ko": "유지비 70%를 절감해주는 전기 상용차",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "70%",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.2,
+    "text": "أول عربيات نقل في مصر",
+    "ko": "이집트 최초의 전기 화물 트럭",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.2,
+    "text": "CATL الأكبر في العالم",
+    "ko": "세계 최대 배터리 제조사 CATL",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CATL",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "FARIZON V6E",
+    "ko": "파리존 V6E 밴",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V6E",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.5,
+    "text": "1.5T",
+    "ko": "적재용량 1.5톤",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0088FF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1.5T",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.0,
+    "text": "FARIZON F1E",
+    "ko": "파리존 F1E 픽업",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "F1E",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.0,
+    "text": "الحمولة الكاملة 1.5T",
+    "ko": "최대 적재량 1.5톤",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1.5T",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.0,
+    "text": "RANGE 292 km",
+    "ko": "주행거리 292km",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#00A2FF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "292",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.5,
+    "text": "FARIZON H8E",
+    "ko": "파리존 H8E 트럭",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "H8E",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.5,
+    "text": "2.5T في المرة",
+    "ko": "회당 최대 2.5톤 적재",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0088FF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2.5T",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.5,
+    "text": "ضمان 5 سنين",
+    "ko": "기본 보증 5년",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 56.5,
+    "text": "الوكيل والموزع الحصري National Motors",
+    "ko": "공식 독점 수입 판매사 내셔널 모터스",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "National Motors",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.0,
+    "text": "القاهرة - الجيزة - الإسكندرية - سوهاج - قنا - أسيوط",
+    "ko": "카이로, 기자, 알렉산드리아, 소하그, 케나, 아시우트 지점",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#0055FF",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.6,
+    "type": "휙",
+    "event": "화면 전환 및 브랜드 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "띵",
+    "event": "70% 절감 그래픽 및 코인 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "휙",
+    "event": "이집트 국기 및 타이틀 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "CATL 배터리 내부 구조 투시 CG 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "휙",
+    "event": "FARIZON V6E 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.2,
+    "type": "톡",
+    "event": "에어백 2개 텍스트 스티커 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.8,
+    "type": "띵",
+    "event": "통풍/냉각 시트 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "딸깍",
+    "event": "터치스크린 조작 및 기어 다이얼 조작음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.2,
+    "type": "쿵",
+    "event": "픽업트럭 위로 뛰어오르는 순간",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "트럭 적재함 짐이 소로 바뀌는 CG 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "휙",
+    "event": "FARIZON H8E 대형 트럭 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.0,
+    "type": "띵",
+    "event": "후방 카메라 및 센서 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "휙",
+    "event": "냉동탑차 특장 개조 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.0,
+    "type": "띵",
+    "event": "지점 위치 핀 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 힙합 비트",
+   "bpm_est": 112,
+   "mood": "경쾌하고 역동적이며 전문적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.5,
+    "end": 6.5,
+    "what": "National Motors 및 Farizon 로고",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 9.2,
+    "what": "번개 아이콘 및 떨어지는 금화 코인 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 65.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "유지비 70% 절감 강조",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.5,
+    "what": "펄럭이는 이집트 국기",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 65.0,
+    "y_pct": 15.0,
+    "entrance": "밀려옴",
+    "purpose": "이집트 최초 전기 상용차 강조",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.2,
+    "what": "차체 내부 배터리/모터 투시 3D X-Ray 및 CATL 텍스트",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "CATL 글로벌 1위 배터리 탑재 설명",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.8,
+    "what": "시트 쿨링 눈꽃 아이콘 및 파란색 시트 하이라이트",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍 시트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "what": "적재함 위 실물 크기 젖소 CG 합성",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 60.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "다양한 화물 적재 가능 시각화 유머",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 60.0,
+    "what": "빨간색 대형 위치 핀 3D 마커",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전국 지점 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر، لو عندك شركة، مصنع، مخزن، مطعم أو حتى سوبر ماركت كبير ومحتاج عربيات للشحن...",
+    "ko": "저는 나사르입니다. 회사, 공장, 물류창고, 식당, 대형 슈퍼마켓을 운영하며 배송 차량이 필요하시다면..."
+   },
+   {
+    "start": 4.5,
+    "end": 9.5,
+    "text": "فاريزون لاين اب، جبتلك عربيات كهرباء توفر معاك لحد 70% من مصاريف التشغيل.",
+    "ko": "파리존 라인업! 운영비를 최대 70%까지 절감해주는 전기차들을 가져왔습니다."
+   },
+   {
+    "start": 9.5,
+    "end": 14.5,
+    "text": "دي أول عربيات نقل كهرباء في مصر، ببطاريات CATL الأكبر في العالم وببروتوكول أوروبي CCS2.",
+    "ko": "이집트 최초의 전기 화물차로, 세계 1위 CATL 배터리와 유럽 규격 CCS2를 채택했습니다."
+   },
+   {
+    "start": 14.5,
+    "end": 18.8,
+    "text": "أول وأهم واحدة: الـ V6E، تشيل وزن لحد طن ونصف.",
+    "ko": "첫 번째 모델은 V6E 밴으로, 최대 1.5톤까지 적재 가능합니다."
+   },
+   {
+    "start": 18.8,
+    "end": 23.8,
+    "text": "عندك 2 إيرباج، وكراسي تبريد، وشاشة تاتش، وكاميرا خلفية.",
+    "ko": "에어백 2개, 통풍 시트, 터치스크린, 후방 카메라가 탑재되어 있습니다."
+   },
+   {
+    "start": 23.8,
+    "end": 28.5,
+    "text": "والأخت البيك أب: الـ F1E، الحمولة الكاملة طن ونصف، والمدى بتاعها لحد 300 كم.",
+    "ko": "픽업 모델인 F1E는 최대 적재 1.5톤에 1회 충전 시 최대 약 300km를 주행합니다."
+   },
+   {
+    "start": 28.5,
+    "end": 32.2,
+    "text": "تقدر تنقل أغذية، حيوانات، بضاعة، شوف بقى اللي إنت عايزه.",
+    "ko": "식음료, 가축, 일반 화물 등 원하는 모든 것을 실어 나를 수 있죠."
+   },
+   {
+    "start": 32.2,
+    "end": 36.5,
+    "text": "والأخت الكبيرة: فاريزون H8E، تشيل لحد 2.5 طن في المرة.",
+    "ko": "가장 큰 모델인 H8E 트럭은 회당 최대 2.5톤 적재가 가능합니다."
+   },
+   {
+    "start": 36.5,
+    "end": 46.2,
+    "text": "عندك عداد ديجيتال، كروز كنترول، دركسيون خفيف، شاشة تاتش، كابينة مريحة تشيل 3، وسينسورز وكاميرا خلفية.",
+    "ko": "디지털 계기판, 크루즈 컨트롤, 가벼운 핸들링, 터치스크린, 3인승 편안한 캡, 주차 센서 및 후방 카메라가 제공됩니다."
+   },
+   {
+    "start": 46.2,
+    "end": 50.5,
+    "text": "ويقدروا يركبولك إضافات زي التلاجة أو الصندوق، حتى وحدات الشحن يقدروا يركبوهالك.",
+    "ko": "냉동탑이나 일반 카고 박스 등 맞춤 특장뿐 아니라 충전기 설치까지 지원합니다."
+   },
+   {
+    "start": 50.5,
+    "end": 56.5,
+    "text": "كلهم بضمان 5 سنين وإمكانية مد فترة الضمان، من الوكيل والموزع الحصري ناشيونال موتورز.",
+    "ko": "전 차종 5년 보증(연장 가능)이 제공되며 공식 독점 수입사인 내셔널 모터스를 통해 만나실 수 있습니다."
+   },
+   {
+    "start": 56.5,
+    "end": 60.3,
+    "text": "وهتلاقيهم في كل فروعنا: القاهرة، الجيزة، الإسكندرية، سوهاج، قنا، وأسيوط.",
+    "ko": "카이로, 기자, 알렉산드리아, 소하그, 케나, 아시우트 전 지점에서 만나보세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "사업자/물류 타깃 질문으로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 14.5,
+    "speed": "빠름",
+    "summary": "파리존 전기 상용차 라인업 소개 및 CATL 배터리/비용 70% 절감 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 14.5,
+    "end": 23.8,
+    "speed": "빠름",
+    "summary": "Farizon V6E 밴 적재량 및 내부 편의 사양 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 23.8,
+    "end": 32.2,
+    "speed": "빠름",
+    "summary": "Farizon F1E 픽업트럭 적재량, 주행거리 및 활용성 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 32.2,
+    "end": 46.2,
+    "speed": "빠름",
+    "summary": "Farizon H8E 중형 전기트럭 적재량 및 실내 편의사양 리뷰"
+   },
+   {
+    "stage": "사양",
+    "start": 46.2,
+    "end": 50.5,
+    "speed": "빠름",
+    "summary": "냉동탑차 등 특장 개조 및 충전 솔루션 지원 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 50.5,
+    "end": 60.3,
+    "speed": "빠름",
+    "summary": "5년 무상 보증, 독점 수입사 내셔널모터스 및 전국 지점 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 전면에 서서 각 차종의 핵심 제원(적재용량, 주행거리)을 큰 3D 글자 그래픽과 함께 빠르게 소개함",
+   "실내 탑승 및 적재함에 직접 눕거나 뛰어오르는 액션으로 공간감을 직관적으로 전달함",
+   "주요 스펙과 편의기능이 언급될 때마다 전용 효과음(띵, 휙)과 시각 그래픽을 일치시킴",
+   "화물 적재 시연에서 소(가축) CG를 유머러스하게 등장시켜 시청자 몰입도 유지"
+  ],
+  "option_highlights": [
+   {
+    "start": 11.5,
+    "end": 14.0,
+    "feature": "CATL 배터리 및 CCS2 충전 포트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차체 하부 배터리팩 3D 엑스레이 그래픽 및 충전기 노즐 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "feature": "적재 용량 1.5톤",
+    "shown_how": "글자 카드",
+    "icon_desc": "반투명 파란색 1.5T 3D 블록",
+    "x_pct": 60.0,
+    "y_pct": 32.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 20.8,
+    "feature": "통풍/냉각 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "눈꽃 모양 얼음 아이콘 및 좌석 시트 그래픽",
+    "x_pct": 60.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.5,
+    "feature": "후방 카메라 및 터치스크린",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "후진 기어 체결 시 디스플레이에 연동되는 후방 뷰 및 CAMERA 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "feature": "주행가능거리 292km",
+    "shown_how": "글자 카드",
+    "icon_desc": "RANGE 292 km 네온 텍스트",
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 46.0,
+    "feature": "주차 센서 및 후방 카메라",
+    "shown_how": "글자 카드",
+    "icon_desc": "CAMERA & SENSORS 전파 아이콘 그래픽",
+    "x_pct": 65.0,
+    "y_pct": 25.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "feature": "냉동탑차 특장 옵션",
+    "shown_how": "글자 카드",
+    "icon_desc": "냉기 효과가 감도는 파란색 특장 냉동고 그래픽",
+    "x_pct": 65.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 향해 걸어나오며 배송 차량이 필요한 비즈니스 오너들에게 직설적으로 말을 건넴",
+   "type": "질문",
+   "text": "لو عندك شركة، مصنع، مخزن، مطعم أو حتى سوبر ماركت ومحتاج عربيات للشحن...",
+   "ko": "회사, 공장, 창고, 식당, 슈퍼마켓을 하면서 배송 차량이 필요하시다면..."
+  },
+  "narration_points": [
+   {
+    "t": 6.0,
+    "point": "전기 상용차 도입 시 기존 유류비/운영비 대비 최대 70% 절감 가능",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.0,
+    "point": "이집트 최초 정식 전기 화물차이며 세계 최대 CATL 배터리 채택",
+    "category": "성능"
+   },
+   {
+    "t": 16.5,
+    "point": "파리존 V6E 밴은 1.5톤 적재 가능하며 냉각 시트 등 고급 옵션 탑재",
+    "category": "공간"
+   },
+   {
+    "t": 25.0,
+    "point": "파리존 F1E 전기 픽업은 1.5톤 적재에 1회 충전 약 300km 주행",
+    "category": "성능"
+   },
+   {
+    "t": 34.0,
+    "point": "파리존 H8E 대형 트럭은 2.5톤 적재 및 3인승 안락한 캡 제공",
+    "category": "공간"
+   },
+   {
+    "t": 47.0,
+    "point": "냉동탑, 카고 박스 등 다양한 맞춤형 특장 개조 및 완속/급속 충전기 지원",
+    "category": "편의"
+   },
+   {
+    "t": 51.0,
+    "point": "내셔널모터스 정식 독점 수입으로 기본 5년 무상 보증 및 보증 연장 지원",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 57.0,
+   "text": "وهتلاقيهم في كل فروعنا: القاهرة، الجيزة، الإسكندرية، سوهاج، قنا، وأسيوط",
+   "ko": "카이로, 기자, 알렉산드리아, 소하그, 케나, 아시우트 지점에 방문해보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "트렁크",
+    "실내 앞",
+    "센터 화면",
+    "외관 측면",
+    "트렁크",
+    "외관 전면",
+    "계기판",
+    "실내 앞",
+    "외관 전면"
+   ]
+  }
+ }
+}
