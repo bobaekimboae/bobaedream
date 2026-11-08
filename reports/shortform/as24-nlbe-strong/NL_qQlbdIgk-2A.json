@@ -1,0 +1,547 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/qQlbdIgk-2A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5296,
+  "candidatesTokenCount": 5693,
+  "totalTokenCount": 11710,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4554
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 721,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "Porsche 911 Turbo S Cabriolet",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.9,
+    "end": 21.6,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 25.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 39.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.4,
+    "end": 43.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 46.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "DE MEESTE MENSEN DENKEN",
+    "ko": "대부분의 사람들은 생각합니다",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DE MEESTE",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "text": "BIJNA €180.000 KOST",
+    "ko": "거의 18만 유로에 달한다고",
+    "kind": "말 자막",
+    "y_pct": 53.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€180.000",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.3,
+    "text": "VANWEGE ZIJN 581 PK",
+    "ko": "581마력의 출력 때문이라고요",
+    "kind": "말 자막",
+    "y_pct": 61.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "581 PK",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.0,
+    "text": "ECHTE REDEN",
+    "ko": "진짜 이유",
+    "kind": "키워드 스티커",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ECHTE REDEN",
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 12.0,
+    "text": "0 NAAR 100 KM/U IN MINDER DAN 3 SECONDEN",
+    "ko": "제로백 3초 미만 가속",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "0 NAAR 100 KM/U",
+    "sure": true
+   },
+   {
+    "start": 12.1,
+    "end": 14.1,
+    "text": "ECHTE WAARDE NOG ERGENS ANDERS",
+    "ko": "진짜 가치는 다른 곳에 있습니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ECHTE WAARDE",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.0,
+    "text": "ZIE JE DIE VASTE SPOILER",
+    "ko": "이 고정형 스포일러 보이시나요?",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VASTE SPOILER",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.5,
+    "text": "ORIGINELE AEROKIT VAN PORSCHE",
+    "ko": "포르쉐 순정 에어로킷 장착",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ORIGINELE AEROKIT",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 24.8,
+    "text": "EEN ZELDZAME OPTIE DIE LIEFHEBBERS ENORM WAARDEREN",
+    "ko": "마니아들이 매우 선호하는 희귀 옵션",
+    "kind": "말 자막",
+    "y_pct": 54.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZELDZAME OPTIE",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "text": "GRAFIETBLAUW",
+    "ko": "그라파이트 블루 컬러",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GRAFIETBLAUW",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "text": "SLECHTS 38.000 KM",
+    "ko": "단 38,000km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "38.000 KM",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 34.6,
+    "text": "BURMESTER AUDIO & CARBON INTERIEUR",
+    "ko": "부메스터 오디오 & 카본 인테리어",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BURMESTER AUDIO",
+    "sure": true
+   },
+   {
+    "start": 45.5,
+    "end": 47.0,
+    "text": "📍CARWORLDCLASSICS MAASTRICHT",
+    "ko": "마스트리히트 카월드 클래식스 매장",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MAASTRICHT",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "첫 자막 강조 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "가속 수치(0-100) 설명 시 가상 배기음 효과",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.2,
+    "type": "휙",
+    "event": "스포일러 클로즈업 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 47.8,
+    "type": "띵",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 118,
+   "mood": "세련되고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.8,
+    "end": 3.5,
+    "what": "PORSCHE 911 TURBO S CABRIO 노란색 박스 타이틀",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 강조",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 50.8,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 45.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 및 플랫폼 안내 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "De meeste mensen denken dat deze Porsche bijna €180.000 kost",
+    "ko": "대부분의 사람들은 이 포르쉐가 거의 18만 유로에 달하는 가격인 이유가"
+   },
+   {
+    "start": 3.7,
+    "end": 7.4,
+    "text": "vanwege zijn 581 pk, maar dat is niet de echte reden.",
+    "ko": "581마력의 고출력 때문이라고 생각하지만, 그것이 진짜 이유는 아닙니다."
+   },
+   {
+    "start": 7.4,
+    "end": 13.8,
+    "text": "Want hoewel je van 0 naar 100 in minder dan 3 seconden sprint, zit de echte waarde nog ergens anders.",
+    "ko": "제로백 3초 미만으로 달리긴 하지만, 진짜 가치는 다른 데에 숨겨져 있거든요."
+   },
+   {
+    "start": 13.8,
+    "end": 18.0,
+    "text": "Kijk eens goed naar die achterkant. Zie je die vaste spoiler?",
+    "ko": "후면부를 자세히 보세요. 저 고정식 스포일러가 보이시나요?"
+   },
+   {
+    "start": 18.0,
+    "end": 24.8,
+    "text": "Dat betekent dat deze uitgevoerd is met de originele Aerokit van Porsche. Een zeldzame optie die liefhebbers enorm waarderen.",
+    "ko": "포르쉐 순정 에어로킷이 장착되었다는 뜻인데, 마니아들이 매우 열광하는 희귀한 옵션입니다."
+   },
+   {
+    "start": 24.8,
+    "end": 34.6,
+    "text": "Maar hij wordt nog interessanter: hij is uitgevoerd in de kleur grafietblauw, slechts 38.000 km, Burmester audio en een carbon interieur.",
+    "ko": "하지만 더 매력적인 점들이 있습니다. 그라파이트 블루 컬러에 주행거리는 단 38,000km, 부메스터 오디오와 카본 인테리어까지 갖췄죠."
+   },
+   {
+    "start": 34.6,
+    "end": 39.4,
+    "text": "Dus deze Turbo S is niet alleen bijzonder snel, maar ook exclusief uitgevoerd.",
+    "ko": "따라서 이 터보 S는 특별히 빠를 뿐만 아니라 옵션 구성도 매우 독보적입니다."
+   },
+   {
+    "start": 39.4,
+    "end": 43.1,
+    "text": "Zou jij de Aerokit kiezen of juist de standaard Turbo S? Laat het weten in een reactie.",
+    "ko": "여러분은 에어로킷을 선택하시겠습니까, 아니면 순정 기본 터보 S를 타시겠습니까? 댓글로 남겨주세요."
+   },
+   {
+    "start": 43.1,
+    "end": 50.8,
+    "text": "Je vindt hem in de showroom van Carworld Classics Maastricht en natuurlijk op Autoscout24.nl.",
+    "ko": "마스트리히트의 Carworld Classics 쇼룸과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "18만 유로라는 고가의 진짜 이유가 단순 마력 때문이 아니라는 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.4,
+    "end": 25.5,
+    "speed": "보통",
+    "summary": "핵심 옵션인 포르쉐 순정 에어로킷(고정식 리어 윙)의 희소성 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 25.5,
+    "end": 39.4,
+    "speed": "빠름",
+    "summary": "그라파이트 블루 외장, 짧은 키로수, 카본 인테리어 및 오디오 옵션 강조"
+   },
+   {
+    "stage": "기타",
+    "start": 39.4,
+    "end": 43.1,
+    "speed": "보통",
+    "summary": "에어로킷 선호도 투표 댓글 유도"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 43.1,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "전시장 위치 및 AutoScout24 매물 등록 홍보"
+   }
+  ],
+  "rules": [
+   "호기심 유발 훅('대부분 가격이 ~때문이라 생각하지만 아닙니다')으로 초반 이탈 방지",
+   "말하는 핵심 단어(금액, 마력, 옵션명)만 볼드 옐로우/화이트 자막으로 1~2줄씩 빠르게 교체",
+   "가속 스펙(0-100km/h) 언급 구간에 짧은 배기 가속 효과음을 삽입하여 청각적 몰입도 강화",
+   "진행자가 직접 차량 주위를 돌며 시선을 손짓으로 유도해 자연스럽게 세부 옵션에 집중하게 함",
+   "영상 말미에 양자택일 질문(에어로킷 vs 순정)으로 댓글 참여를 적극 유도하고 플랫폼 로고 CTA로 마무리"
+  ]
+ }
+}

@@ -1,0 +1,705 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/subB4h_rR1g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4671,
+  "candidatesTokenCount": 5840,
+  "totalTokenCount": 10511,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3929
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 43.6,
+   "aspect": "9:16",
+   "car": "Fiat 124 Spider",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 7.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 12.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 40.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "DEZE",
+    "ko": "이",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 47.8,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DEZE",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 2.5,
+    "text": "FIAT 124 SPIDER",
+    "ko": "피아트 124 스파이더",
+    "kind": "말 자막",
+    "y_pct": 8.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FIAT 124 SPIDER",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "text": "EIGENLIJK EEN BIJZONDER",
+    "ko": "사실 특별한",
+    "kind": "말 자막",
+    "y_pct": 59.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BIJZONDER",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.2,
+    "text": "EN DE PRIJS",
+    "ko": "그리고 가격은",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PRIJS",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.2,
+    "text": "CABRIO",
+    "ko": "카브리올레의",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CABRIO",
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.3,
+    "text": "VERTEL IK JE",
+    "ko": "알려줄게",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERTEL",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.2,
+    "text": "VEEL MENSEN DENKEN",
+    "ko": "많은 사람들이 생각하길",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DENKEN",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 10.4,
+    "text": "VOLLEDIG DOOR",
+    "ko": "전적으로",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLLEDIG",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.3,
+    "text": "NIET HELEMAAL",
+    "ko": "완전히 그렇지는 않아",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "NIET",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 14.1,
+    "text": "HIJ DEELT NAMELIJK",
+    "ko": "사실 공유하고 있어",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DEELT",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.6,
+    "text": "MAZDA MX-5",
+    "ko": "마쓰다 MX-5와",
+    "kind": "키워드 스티커",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MAZDA",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "text": "POPULAIRSTE ROADSTERS TER",
+    "ko": "가장 인기 있는 로드스터 중 하나",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "POPULAIRSTE",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.8,
+    "text": "COMPLEET EIGEN KARAKTER",
+    "ko": "완전히 독자적인 개성",
+    "kind": "말 자막",
+    "y_pct": 68.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COMPLEET",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 24.8,
+    "text": "1.4 MULTIAIR TURBO 140 PK",
+    "ko": "1.4 멀티에어 터보 140마력",
+    "kind": "키워드 스티커",
+    "y_pct": 16.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MULTIAIR",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "text": "EEN SPORTIEVERE CABRIO",
+    "ko": "더 스포티한 카브리올레",
+    "kind": "말 자막",
+    "y_pct": 48.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SPORTIEVERE",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.8,
+    "text": "MET EEN ZACHTERE",
+    "ko": "더 부드러운 세팅으로",
+    "kind": "말 자막",
+    "y_pct": 56.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZACHTERE",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "2019",
+    "ko": "2019년식",
+    "kind": "키워드 스티커",
+    "y_pct": 53.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2019",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.6,
+    "text": "LUSSO AUTOMAAT",
+    "ko": "루쏘 오토매틱",
+    "kind": "키워드 스티커",
+    "y_pct": 44.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUSSO",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.0,
+    "text": "€21.950",
+    "ko": "21,950유로",
+    "kind": "가격",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€21.950",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 40.5,
+    "text": "OELERS AUTOMOTIVE",
+    "ko": "올러스 오토모티브",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OELERS",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.6,
+    "text": "AUTOSCOUT24.NL",
+    "ko": "오토스카우트24",
+    "kind": "앱 안내",
+    "y_pct": 49.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOSCOUT24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "FIAT 124 SPIDER 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "톡",
+    "event": "FIAT 텍스트 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "톡",
+    "event": "마쓰다 MX-5 이미지 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.5,
+    "type": "톡",
+    "event": "엔진 스펙 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "톡",
+    "event": "2019 연식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.0,
+    "type": "돈 소리",
+    "event": "차량 가격 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 락",
+   "bpm_est": 120,
+   "mood": "밝고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 9.5,
+    "end": 12.0,
+    "what": "FIAT 레드 텍스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.6,
+    "what": "Mazda MX-5 차량 이미지",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 35.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 공유 차량 시각화",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.6,
+    "what": "AutoScout24 로고 및 빛 효과",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 45.0,
+    "entrance": "확대 전환",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Wist je dat deze Fiat 124 Spider eigenlijk een bijzonder geheim heeft?",
+    "ko": "이 피아트 124 스파이더에 특별한 비밀이 있다는 걸 알고 계셨나요?"
+   },
+   {
+    "start": 3.7,
+    "end": 7.3,
+    "text": "En de prijs van deze mooie cabrio vertel ik je op het einde van deze video.",
+    "ko": "그리고 이 멋진 카브리올레의 가격은 영상 끝에서 알려드릴게요."
+   },
+   {
+    "start": 7.3,
+    "end": 12.3,
+    "text": "Veel mensen denken dat deze cabrio volledig door Fiat ontwikkeld is, maar dat klopt niet helemaal.",
+    "ko": "많은 사람들이 이 오픈카가 피아트에서 전적으로 개발되었다고 생각하지만, 완전히 맞지는 않습니다."
+   },
+   {
+    "start": 12.3,
+    "end": 18.5,
+    "text": "Hij deelt namelijk zijn basis met de Mazda MX-5, een van de populairste roadsters ter wereld.",
+    "ko": "사실 세계에서 가장 인기 있는 로드스터 중 하나인 마쓰다 MX-5와 뼈대를 공유합니다."
+   },
+   {
+    "start": 18.5,
+    "end": 24.8,
+    "text": "Maar toch heeft Fiat hem een compleet eigen karakter gegeven. Zo krijgt hij een 1.4 MultiAir Turbo met 140 pk.",
+    "ko": "하지만 피아트는 완전히 독자적인 개성을 부여했습니다. 140마력의 1.4 멀티에어 터보 엔진이 탑재되었죠."
+   },
+   {
+    "start": 24.8,
+    "end": 29.8,
+    "text": "Het is gewoon een sportievere cabrio met een zachtere en comfortabelere afstelling.",
+    "ko": "더 스포티하면서도 부드럽고 편안한 세팅을 갖춘 카브리올레입니다."
+   },
+   {
+    "start": 29.8,
+    "end": 34.6,
+    "text": "Hij komt uit 2019, heeft een Lusso automaat en de tofste opties vind je in de omschrijving.",
+    "ko": "2019년식 모델로 루쏘 오토매틱 사양이며, 가장 멋진 옵션들은 설명란에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 34.6,
+    "end": 40.5,
+    "text": "En hij kost €21.950 en je vindt hem in de showroom van Oelers Automotive.",
+    "ko": "가격은 21,950유로이며 오일러스 오토모티브 전시장에서 만나보실 수 있습니다."
+   },
+   {
+    "start": 40.5,
+    "end": 43.6,
+    "text": "En natuurlijk ook op autoscout24.nl.",
+    "ko": "물론 autoscout24.nl에서도 확인 가능합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.3,
+    "speed": "보통",
+    "summary": "차량 비밀과 마지막 가격 공개 예고"
+   },
+   {
+    "stage": "차 소개",
+    "start": 7.3,
+    "end": 18.5,
+    "speed": "빠름",
+    "summary": "마쓰다 MX-5 기반 플랫폼 공유 사실 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 18.5,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "1.4 터보 엔진 및 승차감 특징 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "연식 및 트림 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 34.6,
+    "end": 40.5,
+    "speed": "빠름",
+    "summary": "판매 가격 및 매장 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 40.5,
+    "end": 43.6,
+    "speed": "빠름",
+    "summary": "AutoScout24 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "진행자가 화면에 직접 등장하여 설명하는 진행형 리뷰 포맷",
+   "중요한 키워드(가격, 연식, 엔진 스펙 등)는 노란색 강조 폰트와 팝업 효과음으로 동시 노출",
+   "비밀 유발(훅)로 시작하여 영상 후반부에 가격을 공개하는 시청 지속 유도 구조",
+   "배경음악을 목소리에 맞춰 적절히 줄여 나레이션 전달력을 극대화"
+  ]
+ }
+}

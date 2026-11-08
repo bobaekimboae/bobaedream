@@ -1,0 +1,533 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/faacGtXIl6g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3828,
+  "candidatesTokenCount": 4222,
+  "totalTokenCount": 8415,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3086
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 365,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.6,
+   "aspect": "9:16",
+   "car": "Peugeot 2008",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.4,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 11.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.3,
+    "end": 14.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Leuke auto voor €14.000?",
+    "ko": "14,000유로로 살 수 있는 멋진 차?",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "€14.000?",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "Peugeot 2008",
+    "ko": "푸조 2008",
+    "kind": "키워드 스티커",
+    "y_pct": 20.5,
+    "x_center_pct": 51.5,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.3,
+    "text": "✔ compacte SUV",
+    "ko": "✔ 콤팩트 SUV",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.4,
+    "text": "1.2 benzinemotor",
+    "ko": "1.2 가솔린 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.5,
+    "text": "Cruise control",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 15.6,
+    "text": "Navigatie",
+    "ko": "내비게이션",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.5,
+    "text": "Camera",
+    "ko": "카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 76.5,
+    "x_center_pct": 44.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.5,
+    "text": "Parkeersensoren",
+    "ko": "주차 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 84.5,
+    "x_center_pct": 53.0,
+    "text_height_pct": 4.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.0,
+    "text": "€13.950",
+    "ko": "€13,950",
+    "kind": "가격",
+    "y_pct": 73.0,
+    "x_center_pct": 51.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 26.0,
+    "text": "2021",
+    "ko": "2021년식",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 51.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "81.500 KM",
+    "ko": "81,500 km",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 51.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "화면 전환 및 Peugeot 2008 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "compacte SUV 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "1.2 benzinemotor 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "Cruise control 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 14.7,
+    "type": "딸깍",
+    "event": "화면 터치 및 Navigatie 스티커",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "톡",
+    "event": "Camera 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "톡",
+    "event": "Parkeersensoren 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "돈 소리",
+    "event": "€13.950 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "톡",
+    "event": "2021 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "톡",
+    "event": "81.500 KM 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "어쿠스틱 팝 / 경쾌한 업비트 BGM",
+   "bpm_est": 118,
+   "mood": "밝고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 30.5,
+    "end": 33.6,
+    "what": "AutoScout24 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 47.0,
+    "y_pct": 21.0,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Leuke auto voor veertienduizend euro?",
+    "ko": "14,000유로에 살 수 있는 좋은 차요?"
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "Dit is de Peugeot 2008.",
+    "ko": "푸조 2008입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 8.4,
+    "text": "Een compacte SUV die er verrassend sportief uitziet.",
+    "ko": "놀라울 정도로 스포티해 보이는 콤팩트 SUV죠."
+   },
+   {
+    "start": 8.4,
+    "end": 11.4,
+    "text": "Met een 1.2 benzinemotor is hij ook nog eens erg zuinig.",
+    "ko": "1.2리터 가솔린 엔진으로 연비까지 아주 좋습니다."
+   },
+   {
+    "start": 11.4,
+    "end": 17.5,
+    "text": "Je krijgt opties zoals onder andere cruise control, navigatie en camera met parkeersensoren.",
+    "ko": "크루즈 컨트롤, 내비게이션, 주차 센서가 포함된 후방 카메라 같은 옵션들이 제공됩니다."
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "text": "En hij is ook nog eens heel praktisch en ideaal voor dagelijks gebruik.",
+    "ko": "그리고 매우 실용적이어서 일상적인 데일리 운전에 안성맞춤입니다."
+   },
+   {
+    "start": 20.8,
+    "end": 28.5,
+    "text": "Maar zou jij deze rijden voor €13.950? Hij komt uit 2021 en heeft 81.500 km gereden.",
+    "ko": "하지만 당신이라면 이 차를 13,950유로에 타시겠습니까? 2021년식에 주행거리는 81,500km입니다."
+   },
+   {
+    "start": 28.5,
+    "end": 33.6,
+    "text": "Je vindt deze auto bij CL Cars en op AutoScout24.be.",
+    "ko": "이 차량은 CL Cars와 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "보통",
+    "summary": "14,000유로 예산 질문으로 시청자 유입"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "푸조 2008 모델명 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.5,
+    "end": 11.4,
+    "speed": "빠름",
+    "summary": "외관 디자인 및 1.2 가솔린 엔진 연비 장점 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 11.4,
+    "end": 20.8,
+    "speed": "빠름",
+    "summary": "크루즈 컨트롤, 내비게이션, 카메라 등 실내 주요 편의 기능 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 20.8,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "실제 판매 가격(€13,950), 연식, 주행거리 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.5,
+    "end": 33.6,
+    "speed": "보통",
+    "summary": "판매 딜러샵 CL Cars 및 AutoScout24 플랫폼 유도 클로징"
+   }
+  ],
+  "rules": [
+   "진행자의 대사 템포에 맞춰 1~2초 간격으로 빠르게 시각 컷(외관·실내 옵션)을 전환한다.",
+   "핵심 단어(모델명, 엔진, 옵션, 가격 등)는 노란색 라벨 박스 스티커와 함께 가벼운 팝/효과음을 동반하여 강조한다.",
+   "중간(6~8초)에 3분할 화면을 활용해 한 화면에 여러 뷰(전면, 실내, 후면)를 동시에 압축 전달한다.",
+   "가격, 연식, 킬로수를 운전석 창문 너머 진행자의 제스처와 연계하여 리듬감 있게 순차 공개한다.",
+   "마지막 컷에서는 딜러 매장 전경과 함께 플랫폼 로고를 스티커로 노출하여 자연스럽게 구매 플랫폼으로 유도한다."
+  ]
+ }
+}

@@ -1,0 +1,588 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/dbeUrUWQR7Y",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4388,
+  "candidatesTokenCount": 4657,
+  "totalTokenCount": 10152,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3646
+   }
+  ],
+  "thoughtsTokenCount": 1107,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.5,
+   "aspect": "9:16",
+   "car": "Volkswagen ID.4 vs ID.7",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 19.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.1,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.7,
+    "end": 30.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.9,
+    "end": 35.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 40.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Volkswagen ID.4 VS ID.7",
+    "ko": "폭스바겐 ID.4 대 ID.7",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VS",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.5,
+    "text": "Aerodynamisch design",
+    "ko": "공기역학적 디자인",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 10.7,
+    "text": "80 kWh batterij",
+    "ko": "80 kWh 배터리",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 42.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.5,
+    "text": "618 km",
+    "ko": "주행거리 618 km",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.8,
+    "text": "286 pk",
+    "ko": "출력 286마력",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.8,
+    "text": "€38.990",
+    "ko": "38,990 유로",
+    "kind": "가격",
+    "y_pct": 11.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "hogere instap",
+    "ko": "높은 지상고 및 탑승 높이",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.7,
+    "text": "77 kWh",
+    "ko": "77 kWh 배터리",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "547 km",
+    "ko": "주행거리 547 km",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 32.9,
+    "text": "286 pk",
+    "ko": "출력 286마력",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 35.8,
+    "text": "€34.900",
+    "ko": "34,900 유로",
+    "kind": "가격",
+    "y_pct": 11.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.7,
+    "type": "톡",
+    "event": "스티커 등장 (Aerodynamisch design)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.4,
+    "type": "톡",
+    "event": "스티커 등장 (80 kWh batterij)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "스티커 등장 (618 km)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "톡",
+    "event": "스티커 등장 (286 pk)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "가격 스티커 등장 (€38.990)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "스티커 등장 (hogere instap)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.0,
+    "type": "톡",
+    "event": "스티커 등장 (77 kWh)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "스티커 등장 (547 km)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "톡",
+    "event": "스티커 등장 (286 pk)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "톡",
+    "event": "가격 스티커 등장 (€34.900)",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 전자음악 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 5.7,
+    "end": 7.5,
+    "what": "3단 분할 화면 (전면, 실내, 후면)",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 0.0,
+    "y_pct": 0.0,
+    "entrance": "바로",
+    "purpose": "차량 내외관 종합 제시",
+    "sure": true
+   },
+   {
+    "start": 36.8,
+    "end": 38.4,
+    "what": "Falcon Automotive 딜러 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 10.0,
+    "entrance": "페이드",
+    "purpose": "딜러십 안내",
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 40.5,
+    "what": "AutoScout24 로고 및 웹사이트",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "De Volkswagen ID.4 versus de Volkswagen ID.7.",
+    "ko": "폭스바겐 ID.4 대 폭스바겐 ID.7 비교입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 7.5,
+    "text": "De ID.7 is sportiever en aerodynamischer in zijn design.",
+    "ko": "ID.7은 더 스포티하고 공기역학적인 디자인을 갖췄습니다."
+   },
+   {
+    "start": 7.5,
+    "end": 10.7,
+    "text": "De ID.7 is uitgevoerd met een 80 kWh batterij.",
+    "ko": "ID.7은 80 kWh 용량의 배터리를 탑재했습니다."
+   },
+   {
+    "start": 10.7,
+    "end": 13.5,
+    "text": "Heeft een rijbereik van 618 km.",
+    "ko": "주행거리는 최대 618 km에 달합니다."
+   },
+   {
+    "start": 13.5,
+    "end": 16.8,
+    "text": "En hij heeft ook 286 pk.",
+    "ko": "그리고 최고출력 286마력을 발휘합니다."
+   },
+   {
+    "start": 16.8,
+    "end": 19.8,
+    "text": "En hij kost €38.990.",
+    "ko": "가격은 38,990 유로입니다."
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "text": "De ID.4 heeft een hogere instap en zit hoger.",
+    "ko": "ID.4는 타고 내리기 편하며 시트 포지션이 높습니다."
+   },
+   {
+    "start": 22.8,
+    "end": 25.1,
+    "text": "Hij is ook ideaal voor gezinnen.",
+    "ko": "패밀리카로도 안성맞춤입니다."
+   },
+   {
+    "start": 25.1,
+    "end": 27.7,
+    "text": "De ID.4 heeft een batterij van 77 kWh.",
+    "ko": "ID.4는 77 kWh 배터리가 장착되어 있습니다."
+   },
+   {
+    "start": 27.7,
+    "end": 30.5,
+    "text": "En een rijbereik tot 547 km.",
+    "ko": "최대 주행거리는 547 km입니다."
+   },
+   {
+    "start": 30.5,
+    "end": 32.9,
+    "text": "En hij heeft 286 pk.",
+    "ko": "최고출력은 286마력입니다."
+   },
+   {
+    "start": 32.9,
+    "end": 35.8,
+    "text": "De ID.4 kost €34.900.",
+    "ko": "ID.4의 가격은 34,900 유로입니다."
+   },
+   {
+    "start": 35.8,
+    "end": 40.5,
+    "text": "Je vindt ze beide in de showroom van Falcon Automotive en op AutoScout24.be.",
+    "ko": "두 모델 모두 Falcon Automotive 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "쇼룸에서 두 전기차 ID.4와 ID.7 맞대결 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 19.8,
+    "speed": "보통",
+    "summary": "ID.7의 디자인, 배터리(80kWh), 주행거리(618km), 출력(286pk), 가격(€38,990) 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 19.8,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "ID.4의 실내 거주성, 배터리(77kWh), 주행거리(547km), 출력(286pk), 가격(€34,900) 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 35.8,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "쇼룸 전경과 함께 딜러사 및 오토스카우트24 플랫폼 유도"
+   }
+  ],
+  "rules": [
+   "비교 모델 2대를 배터리, 주행거리, 마력, 가격의 동일한 4대 핵심 지표 순서로 제시하여 직관적 비교 유도",
+   "수치 정보(배터리, 주행거리, 마력, 가격)가 음성으로 나올 때마다 눈에 띄는 노란색 상자 스티커와 효과음(톡)을 동기화하여 강조",
+   "화면 분할(3단 분할 샷)을 활용해 정지 사진이나 짧은 시간 내에 차량 전면·실내·후면을 동시 노출",
+   "마지막 컷에서 실제 전시된 딜러 쇼룸과 온라인 매물 플랫폼(AutoScout24)을 연계하여 구매 링크 유도"
+  ]
+ }
+}

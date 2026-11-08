@@ -1,0 +1,527 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/2RcM95bViDM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3284,
+  "candidatesTokenCount": 4109,
+  "totalTokenCount": 7393,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2542
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 27.2,
+   "aspect": "9:16",
+   "car": "BMW X5 xDrive50e",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.2,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "BMW X5\nxDrive50e",
+    "ko": "BMW X5 xDrive50e",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -5.0,
+    "entrance": "바로",
+    "highlight_word": "BMW X5",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.7,
+    "text": "68.277 KM",
+    "ko": "68,277 km",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.0,
+    "text": "panoramadak",
+    "ko": "파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.4,
+    "text": "2023",
+    "ko": "2023년식",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "Verwarmde/gekoelde\nbekerhouders",
+    "ko": "온열/통풍 컵홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "M Sportstuur",
+    "ko": "M 스포츠 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.4,
+    "text": "Automatische\nairco met 4 zones",
+    "ko": "4구역 자동 에어컨",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "text": "memory seats",
+    "ko": "메모리 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "elektrische\ncomfortzetels",
+    "ko": "전동 컴포트 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.9,
+    "text": "489 PK",
+    "ko": "489마력",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.5,
+    "text": "21 inch velgen",
+    "ko": "21인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "text": "Shadow Line\nhoogglans",
+    "ko": "섀도우 라인 하이글로시",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.8,
+    "text": "Plug-in hybride",
+    "ko": "플러그인 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.8,
+    "text": "elektrische\ntrekhaak",
+    "ko": "전동 토우바",
+    "kind": "키워드 스티커",
+    "y_pct": 53.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 25.5,
+    "text": "Kofferruimtepakket",
+    "ko": "트렁크 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.2,
+    "text": "€75.900",
+    "ko": "75,900 유로",
+    "kind": "가격",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 18.7,
+    "type": "딸깍",
+    "event": "충전구 커버 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 토우바 작동 기계음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 리드미컬함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 25.5,
+    "end": 27.2,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 36.0,
+    "entrance": "바로",
+    "purpose": "브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.2,
+    "speed": "빠름",
+    "summary": "차량 모델명 타이틀과 전측면 외관 훅"
+   },
+   {
+    "stage": "사양",
+    "start": 1.2,
+    "end": 13.5,
+    "speed": "빠름",
+    "summary": "주행거리, 연식 및 실내 주요 옵션 디테일 컷"
+   },
+   {
+    "stage": "기능",
+    "start": 13.5,
+    "end": 25.5,
+    "speed": "빠름",
+    "summary": "출력, 휠, 전동 토우바 등 외관 및 편의 옵션 시연"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 25.5,
+    "end": 27.2,
+    "speed": "보통",
+    "summary": "3단 분할 화면과 함께 최종 판매 가격 안내"
+   }
+  ],
+  "rules": [
+   "음성 해설 없이 빠른 템포의 비트 음악에 맞춰 1~2초 단위로 옵션 컷을 리드미컬하게 전환한다",
+   "노란색 붓터치/마름모 스타일의 일관된 스티커 배경에 검은색 볼드 텍스트로 옵션명을 간결하게 표기한다",
+   "토우바 작동, 충전구 열림 등 주요 시연 장면에서는 현장 효과음을 음악과 함께 살린다",
+   "마지막 화면은 3분할 레이아웃으로 전체 요약과 최종 판매 가격을 제시한다"
+  ]
+ }
+}

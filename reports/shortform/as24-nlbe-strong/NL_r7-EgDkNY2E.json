@@ -1,0 +1,547 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/r7-EgDkNY2E",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5381,
+  "candidatesTokenCount": 4508,
+  "totalTokenCount": 10390,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4639
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 501,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.0,
+   "aspect": "9:16",
+   "car": "Kia Picanto",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 7.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 11.4,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 20.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 24.3,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 32.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.4,
+    "end": 39.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.2,
+    "end": 42.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.4,
+    "end": 46.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 51.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "5 REDENEN WAAROM JE DEZE KIA PICANTO NIET MOET KOPEN",
+    "ko": "이 기아 모닝(피칸토)을 사면 안 되는 5가지 이유",
+    "kind": "제목",
+    "y_pct": 11.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KIA PICANTO",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.5,
+    "text": "HEB JIJ GRAAG KOUDE HANDEN",
+    "ko": "손이 차가운 게 좋다면",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KOUDE HANDEN",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "DAN MOET JE DEZE AUTO NIET KOPEN WANT DEZE HEEFT",
+    "ko": "이 차를 사면 안 됩니다, 왜냐하면 이 차는",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NIET KOPEN",
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 7.4,
+    "text": "STUURVERWARMING",
+    "ko": "스티어링 휠 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFDE00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STUURVERWARMING",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.5,
+    "text": "RIJD JIJ GRAAG TEGEN PAALTJES AAN",
+    "ko": "기둥에 부딪히는 걸 좋아한다면",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PAALTJES AAN",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "PARKEERSENSOREN",
+    "ko": "주차 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PARKEERSENSOREN",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.0,
+    "text": "ACHTERUITRIJCAMERA",
+    "ko": "후방 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFDE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ACHTERUITRIJCAMERA",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 24.0,
+    "text": "CRUISE CONTROL\nADAPTIVE CRUISE CONTROL",
+    "ko": "크루즈 컨트롤\n어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFDE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ADAPTIVE",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 32.3,
+    "text": "ELEKTRISCH SCHUIF-\nKANTELDAK",
+    "ko": "전동 썬루프",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFDE00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCH",
+    "sure": true
+   },
+   {
+    "start": 43.5,
+    "end": 45.5,
+    "text": "€ 23.949",
+    "ko": "23,949 유로",
+    "kind": "가격",
+    "y_pct": 14.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€ 23.949",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "톡",
+    "event": "자막 등장 및 차 탑승 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.4,
+    "type": "톡",
+    "event": "트렁크 씬 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.4,
+    "type": "톡",
+    "event": "주차 센서 후면 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "후방 카메라 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "톡",
+    "event": "차량 측면 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 20.4,
+    "type": "톡",
+    "event": "실내 대시보드 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "톡",
+    "event": "선루프 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.4,
+    "type": "딸깍",
+    "event": "키 찾는 장면 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 41.8,
+    "type": "띵",
+    "event": "초록색 체크 마크 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "돈 소리",
+    "event": "가격 박스 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크",
+   "bpm_est": 118,
+   "mood": "경쾌하고 발랄함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 41.5,
+    "end": 43.0,
+    "what": "초록색 체크 아이콘",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 52.0,
+    "y_pct": 8.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "반전 강조(사야 하는 이유)",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.0,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 47.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 브랜드 고지",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Vijf redenen waarom je deze Kia Picanto niet moet kopen.",
+    "ko": "이 기아 피칸토를 사면 안 되는 다섯 가지 이유."
+   },
+   {
+    "start": 2.7,
+    "end": 7.4,
+    "text": "Heb jij graag koude handen? Dan moet je deze auto niet kopen, want deze heeft stuurverwarming.",
+    "ko": "손 시려운 게 좋으신가요? 그렇다면 이 차를 사면 안 됩니다, 열선 스티어링 휠이 있거든요."
+   },
+   {
+    "start": 7.4,
+    "end": 16.5,
+    "text": "En rijd jij graag tegen paaltjes aan? Dan moet je deze auto niet kopen, want deze heeft parkeersensoren en een achteruitrijcamera. Dus parkeren is geen probleem.",
+    "ko": "기둥에 들이박는 걸 좋아하시나요? 그럼 사지 마세요, 주차 센서와 후방 카메라가 있어서 주차가 전혀 문제 없으니까요."
+   },
+   {
+    "start": 16.5,
+    "end": 24.3,
+    "text": "Wil jij continu zelf gas geven en remmen? Dan is deze auto niks voor jou, want deze heeft niet alleen cruise control, maar ook adaptive cruise control.",
+    "ko": "계속 직접 엑셀과 브레이크를 밟고 싶으신가요? 그렇다면 안 맞습니다, 크루즈 컨트롤뿐만 아니라 어댑티브 크루즈 컨트롤까지 있거든요."
+   },
+   {
+    "start": 24.3,
+    "end": 32.4,
+    "text": "En heb jij een hekel aan veel zonlicht en frisse lucht in je auto? Dan moet je deze auto niet kopen, want deze heeft namelijk een elektrisch schuif-kanteldak.",
+    "ko": "차 안에 햇살과 신선한 공기가 들어오는 게 싫으신가요? 그렇다면 사지 마세요, 전동 선루프가 달려 있거든요."
+   },
+   {
+    "start": 32.4,
+    "end": 39.5,
+    "text": "En vind jij het heel fijn om iedere keer je sleutel te zoeken in je tas? Dan moet je hem ook niet kopen, want deze Kia Picanto heeft keyless entry.",
+    "ko": "가방에서 매번 차 키를 뒤적거려 찾는 게 좋으신가요? 그럼 사면 안 되죠, 스마트키(키리스 엔트리)가 있으니까요."
+   },
+   {
+    "start": 39.5,
+    "end": 43.0,
+    "text": "Dus eigenlijk genoeg redenen waarom je deze Kia Picanto wel moet kopen.",
+    "ko": "그러니 사실 이 기아 피칸토를 사야 할 이유가 충분하죠."
+   },
+   {
+    "start": 43.0,
+    "end": 46.5,
+    "text": "De prijs van deze auto is €23.949.",
+    "ko": "이 차의 가격은 23,949유로입니다."
+   },
+   {
+    "start": 46.5,
+    "end": 51.0,
+    "text": "En je vindt hem in de showroom van Auto Cinema en natuurlijk op autoscout24.nl.",
+    "ko": "Auto Cinema 전시장과 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "'사지 말아야 할 5가지 이유'라는 역발상 훅 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 2.7,
+    "end": 7.4,
+    "speed": "보통",
+    "summary": "이유 1: 스티어링 휠 열선 기능 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.4,
+    "end": 16.5,
+    "speed": "보통",
+    "summary": "이유 2: 주차 센서 및 후방 카메라 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 16.5,
+    "end": 24.3,
+    "speed": "보통",
+    "summary": "이유 3: 어댑티브 크루즈 컨트롤 기능 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 24.3,
+    "end": 32.4,
+    "speed": "보통",
+    "summary": "이유 4: 전동 선루프 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 32.4,
+    "end": 39.5,
+    "speed": "보통",
+    "summary": "이유 5: 스마트키(키리스 엔트리) 편의 기능 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 39.5,
+    "end": 43.0,
+    "speed": "빠름",
+    "summary": "결국 사야 할 차라는 긍정 반전 결론"
+   },
+   {
+    "stage": "가격",
+    "start": 43.0,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "실제 판매 가격 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 46.5,
+    "end": 51.0,
+    "speed": "보통",
+    "summary": "쇼룸 위치 및 AutoScout24 웹사이트 안내"
+   }
+  ],
+  "rules": [
+   "부정형 훅('사지 말아야 할 이유')으로 시청자의 호기심을 유발하고 풍자적으로 장점을 극대화함",
+   "각 옵션 소개 시 일상적인 불편함 질문 후 해당 옵션을 보여주는 패턴을 반복함",
+   "핵심 키워드는 굵은 노란색 폰트와 팝업 효과음으로 눈에 띄게 처리함",
+   "후반부에 체크 표시 그래픽으로 반전 포인트를 시각화하며 가격 정보를 즉시 제공함",
+   "마지막에는 공식 플랫폼 브랜드 로고를 화면 중앙에 크게 띄워 행동을 유도함"
+  ]
+ }
+}

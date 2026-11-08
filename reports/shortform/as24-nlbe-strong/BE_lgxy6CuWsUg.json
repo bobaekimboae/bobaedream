@@ -1,0 +1,444 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/lgxy6CuWsUg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2940,
+  "candidatesTokenCount": 3409,
+  "totalTokenCount": 6349,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2198
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 24.2,
+   "aspect": "9:16",
+   "car": "Fiat Topolino",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 5.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 20.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 24.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "45 km/u in stijl",
+    "ko": "스타일리시한 시속 45km",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 74.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 5.8,
+    "text": "16 jaar",
+    "ko": "16세",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.3,
+    "text": "❌ Geen autorijbewijs",
+    "ko": "❌ 자동차 운전면허 필요 없음",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.7,
+    "text": "✅ AM rijbewijs",
+    "ko": "✅ 원동기(AM) 면허",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "45 KM/U",
+    "ko": "시속 45km",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 56.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 15.6,
+    "text": "⚡️ Volledig elektrisch",
+    "ko": "⚡️ 100% 순수 전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.7,
+    "end": 17.0,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 20.0,
+    "text": "€13.900",
+    "ko": "13,900 유로",
+    "kind": "가격",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 62.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.1,
+    "end": 22.2,
+    "text": "AUTO-POINT\n• casier",
+    "ko": "오토 포인트 카지에",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 24.2,
+    "text": "Auto\nScout24",
+    "ko": "오토스카우트24",
+    "kind": "제목",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.6,
+    "type": "톡",
+    "event": "16 jaar 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "톡",
+    "event": "Geen autorijbewijs 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "톡",
+    "event": "AM rijbewijs 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.7,
+    "type": "톡",
+    "event": "Volledig elektrisch 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.7,
+    "type": "톡",
+    "event": "2025 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.1,
+    "type": "띵",
+    "event": "€13.900 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.1,
+    "type": "톡",
+    "event": "AUTO-POINT 딜러 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.3,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Hij gaat maar maximaal 45 km/h en",
+    "ko": "최대 시속 45km까지만 나가고"
+   },
+   {
+    "start": 2.7,
+    "end": 5.7,
+    "text": "in deze auto mag je al rijden vanaf 16 jaar.",
+    "ko": "이 차는 16세부터 운전할 수 있습니다."
+   },
+   {
+    "start": 5.7,
+    "end": 9.2,
+    "text": "Je hebt geen autorijbewijs nodig, maar een AM-rijbewijs.",
+    "ko": "자동차 운전면허는 필요 없고, AM(원동기) 면허만 있으면 됩니다."
+   },
+   {
+    "start": 9.2,
+    "end": 10.9,
+    "text": "Oftewel een scooterrijbewijs.",
+    "ko": "다시 말해 스쿠터 면허증이죠."
+   },
+   {
+    "start": 10.9,
+    "end": 13.5,
+    "text": "Hij gaat maar maximaal 45 km/h en",
+    "ko": "최고 속도는 45km/h에 불과하지만"
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "text": "is volledig elektrisch.",
+    "ko": "100% 전기차입니다."
+   },
+   {
+    "start": 15.5,
+    "end": 16.9,
+    "text": "Hij komt uit 2025",
+    "ko": "2025년식 모델이며"
+   },
+   {
+    "start": 16.9,
+    "end": 19.4,
+    "text": "en hij kost 13.900 euro.",
+    "ko": "가격은 13,900 유로입니다."
+   },
+   {
+    "start": 19.4,
+    "end": 22.2,
+    "text": "Je vindt hem in de showroom van Auto-Point Casier",
+    "ko": "오토포인트 카지에 전시장에서 만나보실 수 있으며"
+   },
+   {
+    "start": 22.2,
+    "end": 24.2,
+    "text": "en op autoscout24.be.",
+    "ko": "autoscout24.be 웹사이트에서도 확인 가능합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "최대 시속 45km 스타일리시 소형 전기차 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 2.7,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "16세부터 스쿠터(AM) 면허로 주행 가능 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 10.9,
+    "end": 16.9,
+    "speed": "보통",
+    "summary": "최고 속도 및 순수 전기, 연식 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 16.9,
+    "end": 20.3,
+    "speed": "보통",
+    "summary": "차량 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 20.3,
+    "end": 24.2,
+    "speed": "보통",
+    "summary": "쇼룸 위치 및 오토스카우트24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "핵심 키워드는 노란색 굵은 직사각형 상자 자막에 검은 글씨로 상단에 강조 표시한다.",
+   "각 핵심 조건(나이, 면허 종류, 전기차, 연식, 가격)이 언급될 때마다 경쾌한 팝 효과음과 함께 스티커 자막을 띄운다.",
+   "음성 대사와 1:1로 매칭되는 자막 텍스트를 하단에 표시하여 정보 전달력을 높인다.",
+   "마지막에는 판매처 및 오토스카우트24 로고를 노출하며 행동 유도(CTA)로 마무리한다."
+  ]
+ }
+}

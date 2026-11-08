@@ -1,0 +1,305 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/cIsMGm3jhOs",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2112,
+  "candidatesTokenCount": 2254,
+  "totalTokenCount": 4603,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1370
+   }
+  ],
+  "thoughtsTokenCount": 237,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 15.6,
+   "aspect": "9:16",
+   "car": "없음",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 8.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.9,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Wat is Belangrijker",
+    "ko": "무엇이 더 중요한가",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E742",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.0,
+    "text": "Meer PK'S",
+    "ko": "더 많은 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "✔ Veel pk's\n✔ Veel veiligheidsopties",
+    "ko": "✔ 많은 마력\n✔ 많은 안전 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 17.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.7,
+    "text": "✔ Meer opties",
+    "ko": "✔ 더 많은 옵션",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E742",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.8,
+    "text": "✔ Veel pk's",
+    "ko": "✔ 많은 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E742",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 4,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.8,
+    "type": "띵",
+    "event": "인터뷰 답변 체크박스 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "띵",
+    "event": "남성 인터뷰 답변 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "띵",
+    "event": "여성 인터뷰 답변 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "휙",
+    "event": "스마트폰 화면 팝업 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 11.8,
+    "end": 13.8,
+    "what": "스마트폰 프레임 속 AutoScout24 앱 옵션 필터링 UI",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 40.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "앱 기능 시연",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.0,
+    "text": "Wij zijn vandaag in Genk en wij vroegen aan de mensen wat ze belangrijker vinden: meer pk of meer opties?",
+    "ko": "우리는 오늘 헹크에 나와 시민들에게 물어봤습니다: 더 높은 마력인가요, 아니면 더 많은 옵션인가요?"
+   },
+   {
+    "start": 5.0,
+    "end": 8.8,
+    "text": "Allebei. Dat is een moeilijke. Veel pk's en veel veiligheidsopties.",
+    "ko": "둘 다요. 어렵네요. 많은 마력과 많은 안전 옵션이요."
+   },
+   {
+    "start": 8.8,
+    "end": 9.8,
+    "text": "Meer opties.",
+    "ko": "더 많은 옵션이요."
+   },
+   {
+    "start": 9.8,
+    "end": 11.8,
+    "text": "Veel pk. Veel pk's.",
+    "ko": "많은 마력이요. 높은 마력."
+   },
+   {
+    "start": 11.8,
+    "end": 15.6,
+    "text": "Filter wat jij belangrijk vindt op de AutoScout24 app.",
+    "ko": "오토스카우트24 앱에서 당신이 중요하게 생각하는 것을 직접 필터링해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.0,
+    "speed": "보통",
+    "summary": "질문 던지며 길거리 인터뷰 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 5.0,
+    "end": 11.8,
+    "speed": "빠름",
+    "summary": "시민들의 다양한 응답(마력 vs 옵션)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 11.8,
+    "end": 15.6,
+    "speed": "보통",
+    "summary": "앱 필터 기능을 활용해 원하는 조건을 검색하라는 콜투액션"
+   }
+  ],
+  "rules": [
+   "질문형 길거리 인터뷰 형식으로 시청자의 호기심 유발 후 앱 필터 기능 솔루션으로 연결",
+   "인터뷰이 답변마다 체크마크가 달린 스티커와 효과음으로 즉각적 시각화",
+   "브랜드 시그니처 옐로우 컬러 박스를 질문과 로고 타이틀에 일관되게 활용"
+  ]
+ }
+}

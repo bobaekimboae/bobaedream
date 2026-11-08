@@ -1,0 +1,506 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/sbgUultk7HQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6302,
+  "candidatesTokenCount": 4276,
+  "totalTokenCount": 10578,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5560
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 61.3,
+   "aspect": "9:16",
+   "car": "Abarth 595 Competizione",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 14.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.9,
+    "end": 27.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 31.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 44.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.0,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.9,
+    "end": 56.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 61.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "BEN JIJ OP",
+    "ko": "당신은 찾고 있나요",
+    "kind": "말 자막",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "BEN",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "RACEWAGEN VOOR EEN",
+    "ko": "레이스카를",
+    "kind": "말 자막",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "RACEWAGEN",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.5,
+    "text": "€25.000",
+    "ko": "25,000유로",
+    "kind": "가격",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€25.000",
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 5.4,
+    "text": "ABARTH IETS VOOR JOU",
+    "ko": "아바스는 당신을 위한 것",
+    "kind": "말 자막",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "외곽선",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "ABARTH",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.9,
+    "text": "ABARTH 595 COMPETIZIONE",
+    "ko": "아바스 595 콤페티치오네",
+    "kind": "제목",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "COMPETIZIONE",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 26.5,
+    "text": "SCHORPIOEN 🦂",
+    "ko": "전갈자리 🦂",
+    "kind": "키워드 스티커",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "SCHORPIOEN",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.5,
+    "text": "STAGE 1 GETUNED ✓",
+    "ko": "스테이지 1 튜닝 완료 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 58.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GETUNED",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 51.0,
+    "text": "2017",
+    "ko": "2017년식",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2017",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 53.5,
+    "text": "43.500 KM",
+    "ko": "43,500 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "43.500",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "톡",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "차량 모델명 타이틀 상자 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.5,
+    "type": "띵",
+    "event": "전갈 스티커 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "톡",
+    "event": "Stage 1 튜닝 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.5,
+    "type": "톡",
+    "event": "연식(2017) 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 51.0,
+    "type": "톡",
+    "event": "주행거리(43.500 KM) 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 일렉트로닉",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 12.5,
+    "end": 14.0,
+    "what": "이탈리아 국기 이모지",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "제작지 강조",
+    "sure": true
+   },
+   {
+    "start": 59.5,
+    "end": 61.3,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 85.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "Ben jij op zoek naar een racewagen voor een prijs lager dan €25.000? Dan is deze Abarth iets voor jou.",
+    "ko": "25,000유로 미만의 레이스카를 찾고 계신가요? 그렇다면 이 아바스가 딱입니다."
+   },
+   {
+    "start": 5.4,
+    "end": 14.0,
+    "text": "Dit is de Abarth 595 Competizione. Wat natuurlijk als eerste opvalt dat is die wrap. Die is echt fantastisch, en die is helemaal custom gemaakt in Italië.",
+    "ko": "이 차는 아바스 595 콤페티치오네입니다. 가장 먼저 눈에 띄는 것은 랩핑이죠. 정말 환상적이고 이탈리아에서 완벽히 커스텀 제작되었습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 20.5,
+    "text": "En wat ik zelf een leuk weetje vind, is je ziet overal schorpioenen terugkomen. Hier op de motorkap, op het dak, maar ook in het interieur.",
+    "ko": "그리고 재미있는 사실 하나는 곳곳에서 전갈 문양을 볼 수 있다는 점입니다. 여기 보닛 위, 루프 위, 실내에서도요."
+   },
+   {
+    "start": 20.5,
+    "end": 27.5,
+    "text": "Maar waarom is dat nu eigenlijk? De oprichter zijn sterrenbeeld is Schorpioen, en daarom zie je dus overal schorpioenen terugkomen.",
+    "ko": "왜 그럴까요? 설립자의 별자리가 전갈자리이기 때문이죠. 그래서 어디서나 전갈을 볼 수 있습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 39.8,
+    "text": "Ik vertel je zo het bouwjaar, de kilometerstand en de prijs van deze auto. Maar kijk eerst even naar het interieur. Je ziet overal carbon accenten terug. Kijk hier in het stuur zie je zelfs de Italiaanse vlag, en ook deze stoelen zijn volledig van carbon gemaakt.",
+    "ko": "곧 연식, 주행거리, 가격을 알려드릴게요. 하지만 먼저 실내를 보세요. 카본 포인트가 곳곳에 있습니다. 스티어링 휠엔 이탈리아 국기까지 있고 시트도 풀 카본입니다."
+   },
+   {
+    "start": 39.8,
+    "end": 49.8,
+    "text": "Deze Abarth is stage 1 getuned en heeft dus meer dan 200 pk. En dat zie je ook terug in de remmen. En kijk even hierin, daar zie je zelfs Abarth staan. Deze auto is echt helemaal af.",
+    "ko": "이 아바스는 스테이지 1 튜닝을 거쳐 200마력 이상을 발휘합니다. 브레이크에서도 확인할 수 있죠. 휠 안쪽을 보시면 아바스 레터링까지 있습니다. 완벽한 튜닝 상태입니다."
+   },
+   {
+    "start": 49.8,
+    "end": 61.3,
+    "text": "Hij komt uit 2017, heeft 43.500 km gelopen en de exacte prijs die vind je in de omschrijving. En je vindt hem in de showroom van Mobimall Pordon en natuurlijk op AutoScout24.nl.",
+    "ko": "2017년식에 43,500km를 주행했으며 정확한 가격은 설명란에서 확인하실 수 있습니다. 모비몰 포르돈 전시장 및 오토스카우트24에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "25,000유로 이하 레이스카 제안"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 27.5,
+    "speed": "보통",
+    "summary": "외관 랩핑 및 전갈 로고 비하인드 스토리 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 27.5,
+    "end": 39.8,
+    "speed": "보통",
+    "summary": "카본 실내 트림 및 버킷 시트 확인"
+   },
+   {
+    "stage": "사양",
+    "start": 39.8,
+    "end": 49.8,
+    "speed": "보통",
+    "summary": "스테이지 1 튜닝(200마력+), 브레이크 디테일"
+   },
+   {
+    "stage": "가격",
+    "start": 49.8,
+    "end": 56.0,
+    "speed": "빠름",
+    "summary": "연식(2017), 주행거리 안내 및 가격 안내 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 56.0,
+    "end": 61.3,
+    "speed": "보통",
+    "summary": "전시장 위치 및 AutoScout24 플랫폼 홍보"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 이동하며 몰입감을 높이고 차량의 특정 디테일(랩핑, 휠, 실내)을 직접 가리킴",
+   "중요한 키워드(가격, 브랜드, 튜닝 사양)는 노란색 배경 박스 자막과 '톡' 효과음으로 강조",
+   "화제 전환 시 'Ik vertel je zo...' 같은 예고 멘트를 넣어 시청 유지율을 방어함",
+   "영상 말미에 연식과 주행거리를 빠르게 자막으로 제시하고 상세 가격은 설명글 확인을 유도함"
+  ]
+ }
+}

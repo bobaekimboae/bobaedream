@@ -1,0 +1,551 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/1z4u1tgaWqo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3473,
+  "candidatesTokenCount": 4512,
+  "totalTokenCount": 8865,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2731
+   }
+  ],
+  "thoughtsTokenCount": 880,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.0,
+   "aspect": "9:16",
+   "car": "Alfa Romeo Giulia Super 2.2 Diesel",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 4.5,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 13.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.5,
+    "end": 31.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Italiaanse klasse",
+    "ko": "이탈리안 클래스",
+    "kind": "제목",
+    "y_pct": 34.0,
+    "x_center_pct": 34.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Italiaanse",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "Italiaanse klasse maar",
+    "ko": "이탈리안 클래스지만",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Italiaanse",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.3,
+    "text": "met een sportief randje",
+    "ko": "스포티한 매력까지",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "sportief",
+    "sure": true
+   },
+   {
+    "start": 2.3,
+    "end": 4.5,
+    "text": "deze Alfa Romeo Giulia combineert elegant",
+    "ko": "이 알파 로메오 줄리아는 우아함을 겸비했습니다",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Alfa",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "design met achterwiel aandrijving en een",
+    "ko": "후륜구동 디자인과",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "achterwiel",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "soepele achttrapsautomaat",
+    "ko": "부드러운 8단 자동변속기",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "achttrapsautomaat",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "text": "De 2.2 diesel levert 160 pk en heeft",
+    "ko": "2.2 디젤은 160마력을 발휘하며",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "160",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.5,
+    "text": "slechts 25.993km gereden. Een",
+    "ko": "주행거리는 겨우 25,993km입니다.",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "25.993km",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "text": "sedan die niet alleen comfortabel is",
+    "ko": "편안할 뿐만 아니라",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "comfortabel",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.5,
+    "text": "maar vooral gemaakt is om met plezier te rijden",
+    "ko": "운전의 즐거움을 위해 만들어진 세단입니다",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "plezier",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 21.8,
+    "text": "Hij komt uit 2021 en hij",
+    "ko": "2021년식 차량이며",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2021",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.5,
+    "text": "€24.750",
+    "ko": "24,750 유로",
+    "kind": "가격",
+    "y_pct": 28.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FEE600",
+    "bg_width_pct": 42.0,
+    "tilt_deg": -3,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.2,
+    "text": "kost 24.750 euro.",
+    "ko": "가격은 24,750 유로입니다.",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "euro",
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 27.5,
+    "text": "Je vindt hem in de showroom van Garage Mullens",
+    "ko": "Garage Mullens 전시장에서 만나보실 수 있으며",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Mullens",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.5,
+    "text": "in Halen en op AutoScout24.be",
+    "ko": "하렌 지점 및 AutoScout24.be에서 확인하세요",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 18.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "진행자가 차 문을 여는 소리",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi Pop Beat",
+   "bpm_est": 110,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 25.2,
+    "end": 27.5,
+    "what": "Garage Mullens 딜러사 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "판매처 소개",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 30.8,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.3,
+    "text": "Italiaanse klasse maar met een sportief randje.",
+    "ko": "이탈리안 클래스에 스포티한 매력까지 갖춘 차량입니다."
+   },
+   {
+    "start": 2.3,
+    "end": 8.7,
+    "text": "Deze Alfa Romeo Giulia combineert elegant design met achterwielaandrijving en een soepele achttrapsautomaat.",
+    "ko": "이 알파 로메오 줄리아는 우아한 디자인에 후륜구동과 부드러운 8단 자동변속기를 결합했습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 14.5,
+    "text": "De 2.2 diesel levert 160 pk en heeft slechts 25.993 km gereden.",
+    "ko": "2.2리터 디젤 엔진은 160마력을 내며 주행거리는 25,993km에 불과합니다."
+   },
+   {
+    "start": 14.5,
+    "end": 19.5,
+    "text": "Een sedan die niet alleen comfortabel is, maar vooral gemaakt is om met plezier te rijden.",
+    "ko": "편안할 뿐만 아니라 운전하는 재미를 위해 만들어진 세단입니다."
+   },
+   {
+    "start": 19.5,
+    "end": 24.2,
+    "text": "Hij komt uit 2021 en hij kost 24.750 euro.",
+    "ko": "2021년식이며 가격은 24,750 유로입니다."
+   },
+   {
+    "start": 24.2,
+    "end": 30.5,
+    "text": "Je vindt hem in de showroom van Garage Mullens in Halen en op AutoScout24.be.",
+    "ko": "하렌의 Garage Mullens 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.3,
+    "speed": "빠름",
+    "summary": "이탈리안 감성과 스포티함을 강조하는 오프닝"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.3,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "분할 화면 및 디테일 컷으로 파워트레인과 변속기 특징 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 8.7,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "엔진 출력 및 주행거리 정보 전달"
+   },
+   {
+    "stage": "기능",
+    "start": 14.5,
+    "end": 19.5,
+    "speed": "보통",
+    "summary": "운전석 탑승 시연 및 드라이빙 감성 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 19.5,
+    "end": 24.2,
+    "speed": "보통",
+    "summary": "연식 및 가격 스티커 노출"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 24.2,
+    "end": 31.0,
+    "speed": "보통",
+    "summary": "딜러사 및 오토스카우트24 플랫폼 구매처 안내"
+   }
+  ],
+  "rules": [
+   "자막의 핵심 키워드는 노란색으로 강조하여 정보 가독성을 높인다",
+   "화면 상단에 노란색 테이프/스티커 형태의 박스 자막으로 타이틀 및 가격을 직관적으로 제시한다",
+   "다양한 내외관 부위를 3분할 및 1초 내외 빠른 인서트 컷으로 다채롭게 보여준다",
+   "진행자가 직접 승하차하며 실내 거주성과 분위기를 체감형으로 연출한다",
+   "마지막에 딜러사 로고와 오토스카우트24 로고를 순차적으로 중앙에 배치해 구매 경로를 명확히 제시한다"
+  ]
+ }
+}

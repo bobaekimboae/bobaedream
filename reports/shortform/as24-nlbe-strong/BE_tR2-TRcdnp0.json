@@ -1,0 +1,438 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/tR2-TRcdnp0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3300,
+  "candidatesTokenCount": 3406,
+  "totalTokenCount": 6902,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2558
+   }
+  ],
+  "thoughtsTokenCount": 196,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 28.8,
+   "aspect": "9:16",
+   "car": "Mazda MX-5",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 6.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 9.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 24.6,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.6,
+    "text": "Wie plezier in het rijden voorop stelt,",
+    "ko": "운전의 재미를 최우선으로 생각한다면,",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "plezier",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 5.0,
+    "text": "Mazda MX-5 €21.450",
+    "ko": "마쓰다 MX-5 21,450유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.5,
+    "text": "hoeft niet verder te zoeken dan de Mazda MX-5.",
+    "ko": "마쓰다 MX-5보다 더 멀리서 찾을 필요가 없습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MX-5",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 12.0,
+    "text": "De kleine Japanner heeft het roadster rijden een nieuw leven ingeblazen aan het begin van de jaren 90 en",
+    "ko": "이 작은 일본차는 90년대 초 로드스터 드라이빙에 새로운 활력을 불어넣었으며,",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Japanner",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "text": "zijn populariteit is sinds dat moment alleen maar gegroeid.",
+    "ko": "그 이후로 그 인기는 오직 커져만 갔습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "populariteit",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "text": "4",
+    "ko": "4",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#111111",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 19.5,
+    "text": "Er zijn 4 generaties van de MX-5,",
+    "ko": "MX-5에는 4세대가 있으며,",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "4",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 24.6,
+    "text": "met verschillende viercilindermotoren en zelfs een versie met een opvouwbare hardtop.",
+    "ko": "다양한 4기통 엔진과 심지어 전동 접이식 하드톱 버전까지 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "viercilinder",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "text": "Maar ze delen allemaal dezelfde filosofie: rijplezier.",
+    "ko": "하지만 이들 모두는 하나의 동일한 철학을 공유합니다: 바로 운전의 즐거움.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "rijplezier",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "엔진 배기음 가속 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.8,
+    "type": "띵",
+    "event": "가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "휙",
+    "event": "일본 국기 흔들기 및 등장 효과",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "띵",
+    "event": "숫자 4 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 110,
+   "mood": "경쾌하고 활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 1.7,
+    "end": 3.4,
+    "what": "스프링 이모티콘 그래픽 3개",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 90.0,
+    "entrance": "톡",
+    "purpose": "배기음 시각화",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 8.5,
+    "what": "일본 국기 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "밀려옴",
+    "purpose": "일본 출신 브랜드 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Wie plezier in het rijden voorop stelt,",
+    "ko": "운전의 재미를 최우선으로 생각한다면,"
+   },
+   {
+    "start": 3.8,
+    "end": 6.6,
+    "text": "hoeft niet verder te zoeken dan de Mazda MX-5.",
+    "ko": "마쓰다 MX-5 이상을 찾을 필요가 없습니다."
+   },
+   {
+    "start": 6.6,
+    "end": 12.3,
+    "text": "De kleine Japanner heeft het roadster rijden een nieuw leven ingeblazen aan het begin van de jaren 90 en",
+    "ko": "이 작은 일본차는 90년대 초 로드스터 주행에 새 생명을 불어넣었고,"
+   },
+   {
+    "start": 12.3,
+    "end": 15.6,
+    "text": "zijn populariteit is sinds dat moment alleen maar gegroeid.",
+    "ko": "그 인기는 그때부터 계속 커져만 왔습니다."
+   },
+   {
+    "start": 15.6,
+    "end": 19.5,
+    "text": "Er zijn 4 generaties van de MX-5,",
+    "ko": "MX-5는 4세대에 걸쳐 존재하며,"
+   },
+   {
+    "start": 19.5,
+    "end": 24.6,
+    "text": "met verschillende viercilindermotoren en zelfs een versie met een opvouwbare hardtop.",
+    "ko": "다양한 4기통 엔진과 접이식 하드톱 모델까지 갖추고 있습니다."
+   },
+   {
+    "start": 24.6,
+    "end": 28.5,
+    "text": "Maar ze delen allemaal dezelfde filosofie: rijplezier.",
+    "ko": "하지만 모두가 공유하는 철학은 하나, 바로 운전의 즐거움입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "빠름",
+    "summary": "운전 재미에 대한 질문과 배기음 사운드 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.4,
+    "end": 6.6,
+    "speed": "보통",
+    "summary": "마쓰다 MX-5 모델명 및 가격 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 6.6,
+    "end": 17.6,
+    "speed": "보통",
+    "summary": "역사와 로드스터 세그먼트 내 위상 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 17.6,
+    "end": 24.6,
+    "speed": "빠름",
+    "summary": "오토스카우트24 앱 매물로 역대 세대 및 파워트레인 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 24.6,
+    "end": 28.8,
+    "speed": "보통",
+    "summary": "핵심 가치(운전의 즐거움) 요약 및 마무리 인사"
+   }
+  ],
+  "rules": [
+   "도입부에 호기심을 유발하는 질문 직후 실제 배기음 클립을 삽입해 시청 지속 시간 확보",
+   "화면 중앙 하단에 핵심 단어에 노란색 강조색을 준 간결한 자막 배치",
+   "중고차 앱(AutoScout24) 화면 녹화본을 전환 컷으로 사용하여 매물 신뢰도와 앱 브랜딩 동시 달성",
+   "주요 키워드(가격, 세대 수 등)는 굵고 큰 그래픽 스티커로 강조"
+  ]
+ }
+}

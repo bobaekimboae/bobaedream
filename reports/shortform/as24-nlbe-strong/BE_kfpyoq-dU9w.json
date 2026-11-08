@@ -1,0 +1,593 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/kfpyoq-dU9w",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5035,
+  "candidatesTokenCount": 5880,
+  "totalTokenCount": 13004,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4293
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 2089,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.0,
+   "aspect": "9:16",
+   "car": "Opel Astra",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.2,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.1,
+    "end": 21.3,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.4,
+    "end": 34.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.1,
+    "end": 36.2,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.2,
+    "end": 43.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 48.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "Interessante daily? OPEL Astra",
+    "ko": "흥미로운 데일리 카? 오펠 아스트라",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "OPEL",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 8.7,
+    "text": "strakke hatchback + sportieve look",
+    "ko": "날렵한 해치백 + 스포티한 룩",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 11.5,
+    "text": "1.2 turbo benzine",
+    "ko": "1.2 터보 가솔린",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.8,
+    "text": "130 PK",
+    "ko": "130 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.2,
+    "text": "Cruise Control",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 82.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.9,
+    "end": 26.5,
+    "text": "Stoel- en stuurverwarming",
+    "ko": "시트 및 스티어링 휠 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 53.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.7,
+    "text": "Achteruitrijcamera + parkeersensoren",
+    "ko": "후방 카메라 + 주차 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 31.4,
+    "text": "Multifunctioneel stuur + schakelflippers",
+    "ko": "다기능 스티어링 휠 + 패들 시프트",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.2,
+    "end": 36.2,
+    "text": "2023",
+    "ko": "2023년식",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 38.6,
+    "text": "49.000 KM",
+    "ko": "49,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 41.2,
+    "text": "€20.950",
+    "ko": "20,950 유로",
+    "kind": "가격",
+    "y_pct": 28.5,
+    "x_center_pct": 51.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFDE00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.6,
+    "type": "톡",
+    "event": "strakke hatchback 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.1,
+    "type": "톡",
+    "event": "1.2 turbo benzine 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "130 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.7,
+    "type": "톡",
+    "event": "Cruise Control 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.9,
+    "type": "톡",
+    "event": "Stoel- en stuurverwarming 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "톡",
+    "event": "Achteruitrijcamera 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.8,
+    "type": "톡",
+    "event": "Multifunctioneel stuur 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.2,
+    "type": "톡",
+    "event": "2023 연식 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.3,
+    "type": "톡",
+    "event": "49.000 KM 주행거리 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "톡",
+    "event": "€20.950 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 / 힙합 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 45.4,
+    "end": 48.0,
+    "what": "AutoScout24 노란색 브러시 텍스트 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 48.0,
+    "y_pct": 39.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 앱 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "text": "Naast mij staat de Opel Astra en ik vertel je waarom dit een interessante daily is.",
+    "ko": "제 옆에는 오펠 아스트라가 서 있고, 왜 이 차가 흥미로운 데일리 카인지 알려드릴게요."
+   },
+   {
+    "start": 5.5,
+    "end": 8.7,
+    "text": "Een strakke hatchback met een sportieve look.",
+    "ko": "스포티한 외관을 지닌 날렵한 해치백이죠."
+   },
+   {
+    "start": 8.8,
+    "end": 14.8,
+    "text": "Onder de kap ligt een 1.2 turbo benzine met 130 pk, dus perfect voor dagelijks gebruik.",
+    "ko": "보닛 아래에는 130마력의 1.2 터보 가솔린 엔진이 탑재되어 데일리 주행에 안성맞춤입니다."
+   },
+   {
+    "start": 14.9,
+    "end": 21.2,
+    "text": "Met opties zoals onder andere cruise control, het is een automaat met verschillende rijmodes,",
+    "ko": "크루즈 컨트롤 등 다양한 옵션과 여러 주행 모드를 지원하는 자동변속기,"
+   },
+   {
+    "start": 21.3,
+    "end": 24.8,
+    "text": "met genoeg opbergvakjes,",
+    "ko": "넉넉한 수납공간,"
+   },
+   {
+    "start": 24.9,
+    "end": 31.4,
+    "text": "stoel- en stuurverwarming, achteruitrijcamera met parkeersensoren, multifunctioneel stuur met schakelflippers.",
+    "ko": "시트 및 핸들 열선, 후방 카메라 및 주차 센서, 패들 시프트가 달린 다기능 스티어링 휠까지 갖췄습니다."
+   },
+   {
+    "start": 31.5,
+    "end": 34.1,
+    "text": "En die strakke voorkant maakt hem best sportief.",
+    "ko": "그리고 날렵한 전면부가 차를 한층 스포티하게 만들어줍니다."
+   },
+   {
+    "start": 34.2,
+    "end": 41.2,
+    "text": "Hij komt uit 2023, heeft 49.000 km gereden en hij kost €20.950.",
+    "ko": "2023년식에 주행거리는 49,000km이며, 가격은 20,950유로입니다."
+   },
+   {
+    "start": 41.3,
+    "end": 43.1,
+    "text": "Zou jij deze rijden?",
+    "ko": "여러분이라면 이 차를 타시겠어요?"
+   },
+   {
+    "start": 43.2,
+    "end": 48.0,
+    "text": "Je vindt deze auto bij CL Cars en op autoscout24.be.",
+    "ko": "이 차량은 CL Cars 매장과 autoscout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "보통",
+    "summary": "진행자가 쇼룸에서 오펠 아스트라를 가리키며 데일리 카로 매력적인 이유를 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 14.8,
+    "speed": "빠름",
+    "summary": "해치백 외관 디자인 및 1.2 터보 가솔린 130마력 파워트레인 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 14.8,
+    "end": 31.4,
+    "speed": "빠름",
+    "summary": "크루즈 컨트롤, 오토 미션, 수납공간, 열선 기능, 카메라, 패들시프트 등 핵심 옵션 연속 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 31.4,
+    "end": 38.6,
+    "speed": "보통",
+    "summary": "3분할 컷 및 차량 외관을 통해 2023년식, 49,000km 주행거리 정보 전달"
+   },
+   {
+    "stage": "가격",
+    "start": 38.6,
+    "end": 41.2,
+    "speed": "보통",
+    "summary": "차량 가격(20,950유로) 노란색 스티커로 강조"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 41.2,
+    "end": 48.0,
+    "speed": "보통",
+    "summary": "시청자 질문 던진 후 딜러사(CL Cars) 및 오토스카우트24 플랫폼 CTA"
+   }
+  ],
+  "rules": [
+   "핵심 스펙(엔진, 옵션명, 연식, 주행거리, 가격)은 오토스카우트 시그니처 옐로우(#FFDE00) 배경의 직사각형 스티커로 시각적 일관성 유지",
+   "각 텍스트 스티커가 나타날 때마다 경쾌하고 짧은 '톡' 효과음(팝 사운드)을 정확히 일치시켜 리듬감 부여",
+   "실내 옵션 소개 시 대사 속도에 맞춰 1~2초 단위로 버튼 조작 클로즈업을 연속 교차 편집해 지루함 방지",
+   "연식 소개 타이밍에 외관 전측면, 스티어링 휠, 후측면을 동시에 보여주는 3단 분할 화면을 활용하여 정보 전달력 극대화",
+   "마지막에는 'Zou jij deze rijden?' 같은 참여 유도 질문과 함께 야외 딜러 매장 간판 및 플랫폼 로고 스티커를 노출하는 정형화된 CTA 구성"
+  ]
+ }
+}

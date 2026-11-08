@@ -1,0 +1,502 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/_4ac1G0vvMM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4833,
+  "candidatesTokenCount": 4056,
+  "totalTokenCount": 9356,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4091
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 467,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 45.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf R 2.0 TSI 4Motion",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.2,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 19.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.4,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.4,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 33.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 39.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 45.0,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.8,
+    "end": 4.8,
+    "text": "Volkswagen Golf R",
+    "ko": "폭스바겐 골프 R",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 42.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Golf",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 8.7,
+    "text": "Volkswagen Golf R\n2.0 tsi 4motion",
+    "ko": "폭스바겐 골프 R 2.0 tsi 4motion",
+    "kind": "제목",
+    "y_pct": 36.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Golf R",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 11.2,
+    "text": "2.0 L",
+    "ko": "2.0 L",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 28.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 13.5,
+    "text": "320 pk",
+    "ko": "320 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.2,
+    "text": "DSG-automaat",
+    "ko": "DSG 자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.8,
+    "text": "DSG\nDirect-Shift Gearbox",
+    "ko": "DSG 다이렉트 시프트 기어박스",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.0,
+    "text": "2021",
+    "ko": "2021년식",
+    "kind": "키워드 스티커",
+    "y_pct": 13.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 28.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.2,
+    "end": 37.5,
+    "text": "89.000 km",
+    "ko": "89,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 13.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "text": "€31.900",
+    "ko": "31,900 유로",
+    "kind": "키워드 스티커",
+    "y_pct": 13.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 42.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.5,
+    "text": "SB Cars",
+    "ko": "SB Cars",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#F7E300",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 9.2,
+    "type": "톡",
+    "event": "2.0L 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.2,
+    "type": "톡",
+    "event": "320 pk 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "DSG-automaat 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "톡",
+    "event": "DSG 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.5,
+    "type": "톡",
+    "event": "2021 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.2,
+    "type": "톡",
+    "event": "89.000 km 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 37.8,
+    "type": "톡",
+    "event": "€31.900 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "톡",
+    "event": "SB Cars 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 일렉트로닉 팝",
+   "bpm_est": 115,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 42.6,
+    "end": 45.0,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 72.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "Wist je dat deze Volkswagen Golf R niet alleen sportief is, maar ook supersnel schakelt?",
+    "ko": "이 폭스바겐 골프 R이 스포티할 뿐만 아니라 기어 변속도 엄청 빠르다는 걸 알고 계셨나요?"
+   },
+   {
+    "start": 4.8,
+    "end": 8.7,
+    "text": "Dit is de Volkswagen Golf R 2.0 TSI 4motion.",
+    "ko": "이 차는 폭스바겐 골프 R 2.0 TSI 4Motion입니다."
+   },
+   {
+    "start": 8.7,
+    "end": 13.5,
+    "text": "Met zijn 2.0L turbobenzinemotor levert hij een vermogen van 320 pk.",
+    "ko": "2.0리터 터보 가솔린 엔진으로 320마력의 출력을 발휘합니다."
+   },
+   {
+    "start": 13.5,
+    "end": 17.2,
+    "text": "En waarom die zo snel schakelt? Dat komt door de DSG-automaat.",
+    "ko": "왜 그렇게 변속이 빠를까요? 바로 DSG 자동변속기 덕분입니다."
+   },
+   {
+    "start": 17.2,
+    "end": 26.6,
+    "text": "DSG staat voor Direct-Shift Gearbox. Het is een automatische versnellingsbak met een dubbele koppeling, waardoor de volgende versnelling al voorbereid wordt terwijl je nog in de andere rijdt.",
+    "ko": "DSG는 Direct-Shift Gearbox의 약자입니다. 듀얼 클러치가 장착된 자동변속기로, 주행 중 다음 기어를 미리 맞물려 준비해 둡니다."
+   },
+   {
+    "start": 26.6,
+    "end": 33.1,
+    "text": "En dankzij de 4motion vierwielaandrijving, zo wordt het vermogen verdeeld over de vier wielen voor extra grip wanneer dat nodig is.",
+    "ko": "그리고 4Motion 사륜구동 덕분에 필요할 때 네 바퀴로 출력이 배분되어 접지력을 극대화합니다."
+   },
+   {
+    "start": 33.1,
+    "end": 39.8,
+    "text": "Hij komt uit 2021, heeft 89.000 km gereden, en hij kost €31.900.",
+    "ko": "2021년식에 주행거리 89,000km, 가격은 31,900유로입니다."
+   },
+   {
+    "start": 39.8,
+    "end": 45.0,
+    "text": "Je vindt hem in de showroom van SB Cars en op AutoScout24.be.",
+    "ko": "SB Cars 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "스포티함과 초고속 변속 질문으로 시청자 관심 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "정확한 모델명 및 외관 익스테리어 컷"
+   },
+   {
+    "stage": "사양",
+    "start": 8.7,
+    "end": 13.5,
+    "speed": "보통",
+    "summary": "2.0L 배기량 및 320마력 스펙 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 13.5,
+    "end": 33.1,
+    "speed": "보통",
+    "summary": "DSG 변속기 원리 및 4Motion 4륜구동 시스템 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 33.1,
+    "end": 39.8,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 판매 가격 고지"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.8,
+    "end": 45.0,
+    "speed": "보통",
+    "summary": "판매 딜러사 및 AutoScout24 플랫폼 안내 콜투액션"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 이동하며 직접 설명하는 브이로그/쇼룸 스타일 진행",
+   "화면 하단 자막은 말하는 단어 단위로 노란색 하이라이트가 따라감",
+   "스펙 수치(배기량, 마력, 연식, 가격 등)는 브랜드 시그니처 색상(노란색 마커 스티커)과 팝 사운드로 강조",
+   "기술 용어(DSG, 4Motion) 설명 시 실내 변속기 노브와 휠 클로즈업 B-roll 교차 편집",
+   "영상 말미에 딜러 위치 및 웹 플랫폼 URL 명시 후 로고 그래픽으로 마무리"
+  ]
+ }
+}

@@ -1,0 +1,428 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/cT6DDmp7Pc4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2026,
+  "candidatesTokenCount": 4000,
+  "totalTokenCount": 7009,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1284
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 983,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 14.8,
+   "aspect": "9:16",
+   "car": "Opel Astra",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.6,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.9,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "Hoeveel pk heeft",
+    "ko": "이 차는 몇 마력일까요",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "pk",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.8,
+    "text": "deze Opel Astra?",
+    "ko": "이 오펠 아스트라는?",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Astra?",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "text": "En nee, ik ga het niet zeggen.",
+    "ko": "그리고 안 알려줄 거예요.",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "ga",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.5,
+    "text": "Hij heeft een 1.2 Turbo,",
+    "ko": "1.2 터보 엔진이 장착되어 있고,",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "1.2",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 6.6,
+    "text": "Hij is sneller dan je denkt,",
+    "ko": "생각보다 빠르지만,",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "sneller",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 8.6,
+    "text": "maar het is geen sportwagen.",
+    "ko": "스포츠카는 아닙니다.",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "geen",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.9,
+    "text": "Meer dan 100 PK,",
+    "ko": "100마력 이상이고,",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "100",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.0,
+    "text": "maar minder dan 200.",
+    "ko": "200마력보다는 적습니다.",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "minder",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "text": "Drop jouw antwoord in de comments.",
+    "ko": "댓글로 정답을 맞혀보세요.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Drop",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "1.2 Turbo 그래픽 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "톡",
+    "event": "Sportwagen 그래픽 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "톡",
+    "event": "+100 PK 그래픽 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "톡",
+    "event": "-200 PK 그래픽 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트/팝",
+   "bpm_est": 110,
+   "mood": "경쾌하고 흥미진진함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "what": "상단 퀴즈 타이틀 배너 (Raad het aantal PK's)",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "바로",
+    "purpose": "영상 주제 제시",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.3,
+    "what": "노란색 브러시 배너 스티커 '1.2 Turbo'",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 45.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "사양 힌트 강조",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 8.6,
+    "what": "노란색 브러시 배너 스티커 'Sport❌wagen'",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "힌트 강조",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.8,
+    "what": "노란색 브러시 배너 스티커 '+100 PK'",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 35.0,
+    "y_pct": 62.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "마력 범위 힌트 강조",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.4,
+    "what": "노란색 브러시 배너 스티커 '-200 PK'",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 35.0,
+    "y_pct": 62.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "마력 범위 힌트 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Hoeveel pk heeft deze Opel Astra?",
+    "ko": "이 오펠 아스트라는 몇 마력일까요?"
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "text": "En nee, ik ga het niet zeggen.",
+    "ko": "안 알려줄 거예요."
+   },
+   {
+    "start": 4.1,
+    "end": 6.5,
+    "text": "Hij heeft een 1.2 Turbo. Hij is sneller dan je denkt,",
+    "ko": "1.2 터보 엔진이고, 생각보다 빠르지만,"
+   },
+   {
+    "start": 6.5,
+    "end": 8.6,
+    "text": "maar het is geen sportwagen.",
+    "ko": "스포츠카는 아닙니다."
+   },
+   {
+    "start": 8.6,
+    "end": 12.0,
+    "text": "Meer dan 100 PK, maar minder dan 200.",
+    "ko": "100마력보다는 크고 200마력보다는 작습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "text": "Drop jouw antwoord in de comments.",
+    "ko": "댓글로 정답을 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "차량 전면에서 마력 맞히기 퀴즈 질문 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 2.8,
+    "end": 6.5,
+    "speed": "보통",
+    "summary": "1.2 터보 엔진 힌트 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 6.5,
+    "end": 8.6,
+    "speed": "보통",
+    "summary": "스포츠카는 아니라는 성능 힌트 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 8.6,
+    "end": 12.0,
+    "speed": "보통",
+    "summary": "100~200 마력 범위 힌트 제시 및 트렁크 개방"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 12.0,
+    "end": 14.8,
+    "speed": "보통",
+    "summary": "트렁크에 걸터앉으며 댓글 참여 유도(CTA)"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 차량 주위를 돌며 퀴즈 형식으로 시청자 참여를 유도함",
+   "브랜드 시그니처인 노란색 페인트 브러시 질감의 스티커 그래픽으로 핵심 힌트를 시각화",
+   "힌트 그래픽이 팝업될 때마다 통통 튀는 효과음(pop)을 삽입하여 집중도 유지",
+   "영상 말미에 트렁크에 편안하게 걸터앉는 자연스러운 행동으로 친근한 CTA 연출"
+  ]
+ }
+}

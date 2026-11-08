@@ -1,0 +1,525 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/vFSJvX2XE2c",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5296,
+  "candidatesTokenCount": 5102,
+  "totalTokenCount": 11538,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4554
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1140,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.4,
+   "aspect": "9:16",
+   "car": "Hongqi E-HS9",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 8.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 20.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 29.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 35.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.3,
+    "end": 40.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 50.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "DEZE CHINESE SUV WEEGT RUIM",
+    "ko": "이 중국산 SUV는 무게가 무려",
+    "kind": "말 자막",
+    "y_pct": 18.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RUIM",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.7,
+    "text": "2600 KG",
+    "ko": "2600 KG",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2600 KG",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.4,
+    "text": "5,2M LANG",
+    "ko": "전장 5.2m",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5,2M",
+    "sure": true
+   },
+   {
+    "start": 12.6,
+    "end": 14.7,
+    "text": "6 ZITPLAATSEN",
+    "ko": "6인승",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6",
+    "sure": true
+   },
+   {
+    "start": 14.9,
+    "end": 16.6,
+    "text": "551 PK 🏁",
+    "ko": "551 마력 🏁",
+    "kind": "키워드 스티커",
+    "y_pct": 36.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "551 PK",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 22.3,
+    "text": "4,9 SECONDEN",
+    "ko": "4.9초",
+    "kind": "키워드 스티커",
+    "y_pct": 71.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4,9",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.0,
+    "text": "E-HS9",
+    "ko": "E-HS9",
+    "kind": "키워드 스티커",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "E-HS9",
+    "sure": true
+   },
+   {
+    "start": 42.2,
+    "end": 44.5,
+    "text": "€54.950",
+    "ko": "54,950 유로",
+    "kind": "가격",
+    "y_pct": 19.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€54.950",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 47.3,
+    "text": "📍 VAN VLIET AUTO",
+    "ko": "📍 판 플리트 오토",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 56.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VAN VLIET AUTO",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.0,
+    "type": "톡",
+    "event": "2600 KG 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "톡",
+    "event": "5,2M LANG 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.6,
+    "type": "톡",
+    "event": "6 ZITPLAATSEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.9,
+    "type": "톡",
+    "event": "551 PK 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.4,
+    "type": "톡",
+    "event": "4,9 SECONDEN 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "스타트 버튼 터치 후 시스템 부팅 비프음",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 40.5,
+    "type": "톡",
+    "event": "E-HS9 모델명 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.2,
+    "type": "돈 소리",
+    "event": "€54.950 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "톡",
+    "event": "딜러샵 위치 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "휙",
+    "event": "오토스카우트24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 / 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "what": "중국 국기 이모지",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 50.0,
+    "y_pct": 12.0,
+    "entrance": "바로",
+    "purpose": "시선 유도 / 차량 출신국 표시",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 50.4,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 50.0,
+    "y_pct": 74.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 / 엔드카드",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Deze Chinese SUV weegt ruim 2600 kilo.",
+    "ko": "이 중국산 SUV는 무게가 무려 2600kg에 달합니다."
+   },
+   {
+    "start": 3.7,
+    "end": 5.9,
+    "text": "En de prijs vertel ik je op het einde van deze video.",
+    "ko": "그리고 가격은 이 영상 끝에서 알려드릴게요."
+   },
+   {
+    "start": 5.9,
+    "end": 8.7,
+    "text": "En hoe snel denk je dat hij van 0 naar 100 gaat?",
+    "ko": "0에서 100까지는 얼마나 빠를 것 같나요?"
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "text": "Dat vertel ik je straks, maar eerst...",
+    "ko": "그건 잠시 후에, 우선은..."
+   },
+   {
+    "start": 10.8,
+    "end": 12.5,
+    "text": "Hij is 5,2 meter lang,",
+    "ko": "길이는 5.2미터이며,"
+   },
+   {
+    "start": 12.5,
+    "end": 14.8,
+    "text": "heeft zes zitplaatsen,",
+    "ko": "6개의 좌석이 있고,"
+   },
+   {
+    "start": 14.8,
+    "end": 17.0,
+    "text": "en hij heeft 551 pk.",
+    "ko": "551마력의 출력을 냅니다."
+   },
+   {
+    "start": 17.0,
+    "end": 22.4,
+    "text": "En daarmee gaat deze zware SUV van 0 naar 100 in slechts 4,9 seconden.",
+    "ko": "덕분에 이 육중한 SUV는 제로백을 단 4.9초 만에 주파합니다."
+   },
+   {
+    "start": 22.4,
+    "end": 29.5,
+    "text": "En kijk, het interieur wil ik jullie ook nog even laten zien, want hier is een startknop, daar druk je op en dan start de auto.",
+    "ko": "그리고 실내도 보여드리고 싶은데요, 여기 시동 버튼을 누르면 차가 켜집니다."
+   },
+   {
+    "start": 29.5,
+    "end": 35.3,
+    "text": "En kijk die schermen hier: voor mij, in het midden, daarnaast en zelfs hier heb je nog een scherm.",
+    "ko": "화면들을 보세요. 제 앞, 가운데, 그 옆, 심지어 여기 아래에도 화면이 있습니다."
+   },
+   {
+    "start": 35.3,
+    "end": 42.1,
+    "text": "Een superluxe auto. Dit merk maakte ook altijd auto's voor Chinese leiders, maar nu dus ook deze E-HS9.",
+    "ko": "초호화 차량이죠. 이 브랜드는 원래 중국 지도자들을 위한 차를 만들던 곳인데, 이제 이 E-HS9도 만들었습니다."
+   },
+   {
+    "start": 42.1,
+    "end": 45.4,
+    "text": "En de prijs is €54.950.",
+    "ko": "가격은 54,950유로입니다."
+   },
+   {
+    "start": 45.4,
+    "end": 50.4,
+    "text": "En je vindt hem in de showroom van Van Vliet Auto en natuurlijk op AutoScout24.nl.",
+    "ko": "반 플리트 오토 쇼룸과 오토스카우트24 웹사이트에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 10.8,
+    "speed": "빠름",
+    "summary": "차량 무게 공개 및 가격/가속력 궁금증 유발"
+   },
+   {
+    "stage": "사양",
+    "start": 10.8,
+    "end": 22.4,
+    "speed": "빠름",
+    "summary": "전장, 좌석수, 마력 및 0-100km/h 가속 성능 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 22.4,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "실내 탑승, 시동 터치, 대형 다중 디스플레이 및 홍치 브랜드 배경 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 40.5,
+    "end": 44.5,
+    "speed": "빠름",
+    "summary": "차량 모델명 및 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 44.5,
+    "end": 50.4,
+    "speed": "보통",
+    "summary": "전시 쇼룸 위치 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "초반 3초 안에 호기심을 끄는 수치(2600kg)와 국기를 전면에 배치해 시선을 사로잡음",
+   "스펙 수치(길이, 마력, 제로백 등)는 간결한 굵은 폰트 스티커와 효과음으로 직관성 극대화",
+   "질문('제로백이 몇 초일까?')을 던져 시청 지속 시간을 유도한 뒤 중간에 해답 제시",
+   "실내 화면의 화려함을 보여주기 위해 연속 컷 및 광각 핸드헬드로 실시간 반응 연출",
+   "영상 말미에 가격과 구매 가능한 플랫폼(AutoScout24)을 배치하여 자연스러운 전환 유도"
+  ]
+ }
+}

@@ -1,0 +1,144 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/boGVgr3KU4w",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1930,
+  "candidatesTokenCount": 1077,
+  "totalTokenCount": 3007,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1188
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 13.9,
+   "aspect": "9:16",
+   "car": "Mazda CX-60",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.7,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 5.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 9.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 11.2,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 11.1,
+    "end": 13.9,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 43.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.2,
+    "speed": "빠름",
+    "summary": "운전자가 시트 위치가 맞지 않아 고민하는 제스처"
+   },
+   {
+    "stage": "기능",
+    "start": 3.2,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "인포테인먼트에서 신장을 선택하자 자동으로 시트와 스티어링 휠이 조절됨"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 9.9,
+    "end": 13.9,
+    "speed": "보통",
+    "summary": "차량 외관 풀샷 및 오토스카우트24 로고 등장"
+   }
+  ],
+  "rules": [
+   "대사 없이 음악 비트와 표정 연기만으로 문제 상황을 제시함",
+   "인포테인먼트의 키 설정 장면을 클로즈업하여 기능의 편리함을 직관적으로 전달함",
+   "좌석과 핸들이 전동으로 자동 조절되는 과정을 원테이크로 담아 신기함을 극대화함",
+   "마지막 컷에서 차량 전체 실루엣과 브랜드 로고로 깔끔하게 마무리함"
+  ]
+ }
+}

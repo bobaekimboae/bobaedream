@@ -1,0 +1,490 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/jl9SeVS-cfk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5015,
+  "candidatesTokenCount": 4603,
+  "totalTokenCount": 10411,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4273
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 793,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 46.9,
+   "aspect": "9:16",
+   "car": "Tesla Model Y",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 13.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 16.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 20.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 26.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 30.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.1,
+    "end": 35.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 40.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 43.6,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 46.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "Tesla Model Y - Wat is er veranderd?",
+    "ko": "테슬라 모델 Y - 무엇이 바뀌었을까?",
+    "kind": "제목",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Tesla",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 16.8,
+    "text": "✓ Modernere uitstraling",
+    "ko": "✓ 더 현대적인 외관",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 58.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 20.8,
+    "text": "Doorlopende lichtsignatuur",
+    "ko": "이어지는 일체형 리어 램프",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 23.8,
+    "text": "Breder\nFuturistischer",
+    "ko": "더 넓고\n더 미래지향적인",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFF00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.8,
+    "text": "Mooier\nLager verbruik",
+    "ko": "더 멋지고\n낮은 전비 소비",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFF00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.3,
+    "text": "Mooiere\nFrissere\nPremium look",
+    "ko": "더 멋지고\n신선한\n프리미엄 룩",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 11.0,
+    "color": "#FFFF00",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 15.2,
+    "type": "톡",
+    "event": "Modernere uitstraling 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.0,
+    "type": "톡",
+    "event": "Doorlopende lichtsignatuur 자막 상자 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.3,
+    "type": "띵",
+    "event": "Breder 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.2,
+    "type": "띵",
+    "event": "Futuristischer 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.9,
+    "type": "띵",
+    "event": "Mooier 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.0,
+    "type": "띵",
+    "event": "Lager verbruik 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "띵",
+    "event": "Mooiere 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.7,
+    "type": "띵",
+    "event": "Frissere 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.7,
+    "type": "띵",
+    "event": "Premium look 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "휙",
+    "event": "NIKOLA BRUSSELS 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Lo-Fi / R&B Beat",
+   "bpm_est": 88,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 41.5,
+    "end": 43.6,
+    "what": "Nikola Brussels 로고 배너",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 21.0,
+    "entrance": "페이드",
+    "purpose": "장소 협찬 및 판매처 안내",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 46.9,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "페이드",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "Zie jij meteen welke van deze twee de allernieuwste Tesla Model Y is?",
+    "ko": "이 둘 중 어떤 게 완전 최신형 테슬라 모델 Y인지 바로 알아보시겠어요?"
+   },
+   {
+    "start": 4.9,
+    "end": 8.9,
+    "text": "Op het eerste gezicht lijken ze wel heel identiek, maar Tesla heeft toch wat dingen aangepast.",
+    "ko": "얼핏 보면 매우 똑같아 보이지만, 테슬라가 몇 가지 부분을 바꿨습니다."
+   },
+   {
+    "start": 8.9,
+    "end": 13.6,
+    "text": "Vooraan krijgt de nieuwe Model Y een volledige lichtbalk die over de hele voorbumper loopt.",
+    "ko": "전면부에는 새로운 모델 Y에 범퍼 전체를 가로지르는 풀 라이트바가 적용됩니다."
+   },
+   {
+    "start": 13.6,
+    "end": 16.8,
+    "text": "Ook de bumper werd hertekend voor een modernere uitstraling.",
+    "ko": "더 현대적인 스타일을 위해 범퍼 형상도 새롭게 다듬어졌습니다."
+   },
+   {
+    "start": 16.8,
+    "end": 20.8,
+    "text": "Achteraan zien we opnieuw een doorlopende lichtsignatuur,",
+    "ko": "후면 역시 가로로 길게 이어지는 테일램프 그래픽이 적용되어,"
+   },
+   {
+    "start": 20.8,
+    "end": 23.8,
+    "text": "waardoor de auto breder en futuristischer oogt.",
+    "ko": "차가 더 넓고 미래지향적으로 보입니다."
+   },
+   {
+    "start": 23.8,
+    "end": 26.6,
+    "text": "Daarnaast zijn ook de aerodynamische details verbeterd.",
+    "ko": "게다가 공기역학 디테일도 개선되었습니다."
+   },
+   {
+    "start": 26.6,
+    "end": 29.8,
+    "text": "Wat niet alleen mooier is, maar ook helpt tegen een lager verbruik.",
+    "ko": "보기에도 좋을 뿐 아니라 전비 효율을 높이는 데도 도움을 줍니다."
+   },
+   {
+    "start": 29.8,
+    "end": 35.3,
+    "text": "Kort samengevat: het is de herkenbare Model Y, maar met een mooiere, frissere en premium look.",
+    "ko": "요약하자면: 친숙한 모델 Y이지만 더 멋지고, 신선하며 프리미엄한 외관을 갖췄습니다."
+   },
+   {
+    "start": 35.3,
+    "end": 40.5,
+    "text": "Wat vind jij? Is de nieuwere variant mooier, of gaat jouw voorkeur toch nog uit naar het oudere model?",
+    "ko": "여러분 생각은 어떠신가요? 신형이 더 예쁜가요, 아니면 구형 모델이 여전히 끌리시나요?"
+   },
+   {
+    "start": 40.5,
+    "end": 46.9,
+    "text": "Je vindt ze beide in de showroom van Nikola Brussels en op AutoScout24.be.",
+    "ko": "두 모델 모두 니콜라 브뤼셀 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.4,
+    "speed": "빠름",
+    "summary": "신구형 모델 Y 구분 질문으로 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.4,
+    "end": 16.8,
+    "speed": "보통",
+    "summary": "전면부 라이트바 및 범퍼 디자인 변경점 비교"
+   },
+   {
+    "stage": "사양",
+    "start": 16.8,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "후면 관통형 램프 및 공기역학 개선을 통한 전비 향상 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 29.8,
+    "end": 35.3,
+    "speed": "보통",
+    "summary": "신형 모델 Y의 디자인 핵심 요약"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 35.3,
+    "end": 46.9,
+    "speed": "보통",
+    "summary": "선호도 댓글 유도 및 구매처(쇼룸, 웹사이트) 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 쇼룸 바닥을 걸어가며 쇼룸 내 실제 차들을 전후면 번갈아 보여주는 워크스루 방식 사용",
+   "화면 상하 분할(Split Screen)을 활용해 구형과 신형의 전면 범퍼 및 라이트 디테일을 직접 1:1 비교",
+   "노란색 포인트 컬러를 일관되게 활용하여 브랜드 아이덴티티와 키워드 자막 가독성 확보",
+   "핵심 단어가 나열될 때 박자에 맞춰 띵/톡 효과음과 함께 텍스트를 순차적으로 팝업 표시",
+   "영상 말미에 구매 및 시승 가능한 쇼룸 로고와 중고차 검색 플랫폼 로고를 차례로 띄워 행동 유도"
+  ]
+ }
+}

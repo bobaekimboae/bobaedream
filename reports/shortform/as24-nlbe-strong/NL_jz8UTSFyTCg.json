@@ -1,0 +1,580 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/jz8UTSFyTCg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7755,
+  "candidatesTokenCount": 4775,
+  "totalTokenCount": 12530,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 7013
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 78.0,
+   "aspect": "9:16",
+   "car": "Maybach 62",
+   "format": "투어",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.9,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 11.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 21.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 27.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 28.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 35.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.1,
+    "end": 43.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.7,
+    "end": 45.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 47.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 50.4,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 50.4,
+    "end": 57.2,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.2,
+    "end": 100.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 100.8,
+    "end": 104.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.9,
+    "end": 106.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 106.6,
+    "end": 115.3,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 115.3,
+    "end": 118.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "€589.000",
+    "ko": "58만 9,000 유로",
+    "kind": "가격",
+    "y_pct": 59.5,
+    "x_center_pct": 49.3,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 74.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 4.1,
+    "text": "2002",
+    "ko": "2002년",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.4,
+    "text": "MAYBACH 62",
+    "ko": "마이바흐 62",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 51.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.8,
+    "text": "6,16M",
+    "ko": "6.16미터",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 42.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.8,
+    "text": "PRIVACY ✔",
+    "ko": "프라이버시 기능 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 47.9,
+    "text": "SCHERMPJES ✔",
+    "ko": "모니터 스크린 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 69.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 57.0,
+    "text": "MASSAGESTOELEN ✔",
+    "ko": "마사지 시트 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 101.5,
+    "text": "SOFT CLOSE ✔",
+    "ko": "소프트 클로징 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 106.6,
+    "end": 109.4,
+    "text": "€77.950",
+    "ko": "7만 7,950 유로",
+    "kind": "가격",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -4.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "돈 소리",
+    "event": "원 신차가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.6,
+    "type": "톡",
+    "event": "연식 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.3,
+    "type": "톡",
+    "event": "차량명 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "휙",
+    "event": "차량 길이 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "띵",
+    "event": "프라이버시 체크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "접이식 테이블 펼치는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "딸깍",
+    "event": "선루프 버튼 누르는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "띵",
+    "event": "스크린 체크 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 59.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 소프트 클로징 작동음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 59.8,
+    "type": "띵",
+    "event": "소프트클로즈 체크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 106.6,
+    "type": "돈 소리",
+    "event": "현재 중고 판매 가격 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "경쾌한 팝 / 비트",
+   "bpm_est": 115,
+   "mood": "호기심을 유발하는 밝고 경쾌한 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 112.5,
+    "end": 115.0,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "589.000 euro kostte deze auto in 2002.",
+    "ko": "이 차는 2002년에 58만 9천 유로였습니다."
+   },
+   {
+    "start": 4.5,
+    "end": 6.2,
+    "text": "En ik begrijp wel waarom.",
+    "ko": "그리고 왜 그랬는지 알 것 같네요."
+   },
+   {
+    "start": 6.2,
+    "end": 11.5,
+    "text": "Dit is de Maybach 62. En bij deze auto draait eigenlijk alles om degene die achterin zit.",
+    "ko": "이 차는 마이바흐 62입니다. 이 차의 모든 것은 뒷좌석 승객을 위해 맞춰져 있죠."
+   },
+   {
+    "start": 11.5,
+    "end": 17.5,
+    "text": "Deze auto is 6,16 meter lang en kijk wat een ruimte dat je daardoor hebt achterin.",
+    "ko": "이 차는 길이가 무려 6.16미터에 달하며, 덕분에 뒷좌석 공간이 이렇게나 넓습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 23.5,
+    "text": "En ik laat je direct even een eerste knopje zien, want kijk, je hebt ook heel veel privacy.",
+    "ko": "첫 번째 버튼을 바로 보여드릴게요. 보세요, 완벽한 프라이버시가 보장됩니다."
+   },
+   {
+    "start": 23.5,
+    "end": 28.5,
+    "text": "Maar daar blijft het niet bij, want kijk: je kunt gewoon heerlijk slapen in deze auto.",
+    "ko": "하지만 여기서 끝이 아닙니다. 이 차에서는 편안하게 누워 잘 수도 있거든요."
+   },
+   {
+    "start": 28.5,
+    "end": 35.0,
+    "text": "Maar niet alleen slapen, ook kun je onderweg gewoon lekker wat eten. Kijk.",
+    "ko": "자는 것뿐만 아니라 이동 중에 편하게 식사를 할 수도 있어요. 보세요."
+   },
+   {
+    "start": 35.0,
+    "end": 45.0,
+    "text": "En wil je graag dat het wat donkerder wordt, dan heb je hier gordijntjes, hier gordijntjes... En dat dak, als je nu niet wilt dat het licht erdoorheen komt, heb je daar gewoon een knopje voor. Tada!",
+    "ko": "실내를 어둡게 하고 싶다면 커튼을 치면 되고, 천장에서 빛이 안 들어오게 하고 싶다면 버튼 하나만 누르면 됩니다. 짜잔!"
+   },
+   {
+    "start": 45.0,
+    "end": 51.0,
+    "text": "Maar je hebt hier natuurlijk ook schermpjes en hier kun je zelfs in de gaten houden hoe hard dat de chauffeur rijdt.",
+    "ko": "물론 개별 모니터도 있고, 기사가 얼마나 빨리 달리는지 여기서 속도를 확인할 수도 있죠."
+   },
+   {
+    "start": 51.0,
+    "end": 57.5,
+    "text": "En je gelooft het niet, maar deze auto uit 2002 heeft massagestoelen, stoelverwarming en stoelventilatie.",
+    "ko": "믿기 어렵겠지만 2002년식인 이 차에 마사지 시트, 열선 시트, 통풍 시트가 다 들어가 있습니다."
+   },
+   {
+    "start": 57.5,
+    "end": 101.5,
+    "text": "En niet te vergeten: soft close.",
+    "ko": "그리고 빼놓을 수 없는 소프트 클로징까지요."
+   },
+   {
+    "start": 101.5,
+    "end": 105.0,
+    "text": "Maar voor deze auto heb je dus wel echt een chauffeur nodig om te genieten van de luxe achterin.",
+    "ko": "하지만 뒷좌석의 이 럭셔리를 누리려면 전담 운전기사가 꼭 필요하겠네요."
+   },
+   {
+    "start": 105.0,
+    "end": 109.0,
+    "text": "Deze Maybach kost nu slechts €77.950.",
+    "ko": "이 마이바흐는 현재 단 77,950유로입니다."
+   },
+   {
+    "start": 109.0,
+    "end": 118.0,
+    "text": "Meer informatie vind je in de omschrijving en je vindt hem natuurlijk op AutoScout24.nl en in de showroom van Iwan van Lankvelt Auto's.",
+    "ko": "자세한 정보는 설명란에서 확인하실 수 있으며, AutoScout24.nl과 전시장 쇼룸에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.9,
+    "speed": "빠름",
+    "summary": "신차가격 공개와 함께 웅장한 뒷좌석 공간을 보여주며 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.9,
+    "end": 11.5,
+    "speed": "보통",
+    "summary": "차량 모델명(마이바흐 62)과 쇼퍼드리븐의 성격을 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 11.5,
+    "end": 17.0,
+    "speed": "보통",
+    "summary": "6.16m에 달하는 엄청난 전장과 레그룸 공간 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 17.0,
+    "end": 101.5,
+    "speed": "빠름",
+    "summary": "프라이버시 글래스, 리클라이닝 시트, 테이블, 전자식 선루프, 마사지 시트, 소프트 도어 등 주요 호화 옵션 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 101.5,
+    "end": 109.0,
+    "speed": "보통",
+    "summary": "현재 감가된 중고차 판매 가격 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 109.0,
+    "end": 118.0,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼 및 판매 딜러십 안내"
+   }
+  ],
+  "rules": [
+   "가격, 치수, 핵심 기능 등 강조할 정보는 노란색 상자(블랙 텍스트)의 볼드 스티커로 순간 팝업",
+   "체크마크(✔)가 포함된 스티커가 등장할 때마다 밝은 띵/플럭 효과음을 매칭하여 직관성 확보",
+   "화면 중앙 하단에는 말하는 단어 단위로 흰색/노란색 자동 자막을 일관되게 배치",
+   "호화 옵션(테이블 펼치기, 도어 소프트 클로징) 작동 시 실제 기계음을 음악보다 부각시켜 현장감 전달",
+   "도입부에 엄청난 과거 신차가격을 던지고 마지막에 파격적으로 감가된 현재 가격을 공개하는 대조 구조"
+  ]
+ }
+}

@@ -1,0 +1,184 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/eUJmKlFyRvw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1651,
+  "candidatesTokenCount": 1524,
+  "totalTokenCount": 3175,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.3,
+   "aspect": "9:16",
+   "car": "Renault 5 E-Tech",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.5,
+    "end": 1.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 1.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.7,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.8,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 7.8,
+    "text": "Renault 5",
+    "ko": "르노 5",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -5,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.3,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "제목",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -6,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "R&B/소울 리믹스",
+   "bpm_est": 85,
+   "mood": "트렌디하고 리드미컬함",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "화면을 분할하며 빠르게 차의 각 부분을 보여주는 도입부"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 5.4,
+    "speed": "보통",
+    "summary": "전면부, 보닛의 5 그래픽, 후면부 디자인 디테일 컷"
+   },
+   {
+    "stage": "가격",
+    "start": 5.4,
+    "end": 7.8,
+    "speed": "보통",
+    "summary": "AutoScout24 앱 내 매물 목록과 가격 화면 스크롤"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.8,
+    "end": 9.3,
+    "speed": "보통",
+    "summary": "AutoScout24 로고와 함께 마무리"
+   }
+  ],
+  "rules": [
+   "도입부 1.7초 동안 3단 가로 분할 형태로 차의 여러 부위를 빠르게 전환하여 시선 집중",
+   "음악의 주요 비트 드롭에 맞춰 전체 화면으로 전환하며 차명 스티커 자막 노출",
+   "브랜드 시그니처 컬러인 노란색 박스 자막 스티커를 살짝 기울여(-5도~-6도) 캐주얼하고 스포티한 느낌 연출",
+   "실제 차량 실물 영상 뒤에 앱 내 검색/가격 리스팅 화면을 직접 연결해 구매 유도",
+   "대사나 내레이션 없이 음악 비트와 화면 전환만으로 짧고 강렬하게 매물 소개"
+  ]
+ }
+}

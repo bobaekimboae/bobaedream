@@ -1,0 +1,588 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/b0cNU0TexdA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4123,
+  "candidatesTokenCount": 5936,
+  "totalTokenCount": 10983,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3381
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 924,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 37.3,
+   "aspect": "9:16",
+   "car": "Toyota Yaris GR Performance",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 4.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 13.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.4,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 24.5,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.9,
+    "end": 31.9,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 37.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "WAAROM KOST DEZE",
+    "ko": "왜 이 차가",
+    "kind": "말 자막",
+    "y_pct": 61.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KOST",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.2,
+    "text": "TOYOTA YARIS GR PERFORMANCE",
+    "ko": "토요타 야리스 GR 퍼포먼스는",
+    "kind": "키워드 스티커",
+    "y_pct": 5.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.2,
+    "text": "BIJNA",
+    "ko": "거의",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BIJNA",
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.9,
+    "text": "€50.000",
+    "ko": "5만 유로일까요?",
+    "kind": "가격",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 6.1,
+    "text": "OP HET EERSTE GEZICHT",
+    "ko": "얼핏 보기에는",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "GEZICHT",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 7.4,
+    "text": "LIJKT HET MISSCHIEN EEN GEWONE TOYOTA YARIS",
+    "ko": "일반 토요타 야리스처럼 보일 수도 있지만",
+    "kind": "말 자막",
+    "y_pct": 61.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 9.4,
+    "text": "MAAR SCHIJN BEDRIEGT",
+    "ko": "겉보기와는 다릅니다",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BEDRIEGT",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.2,
+    "text": "261 PK 🏁",
+    "ko": "261마력 🏁",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.4,
+    "text": "VIERWIELAANDRIJVING ✓",
+    "ko": "4륜 구동 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.4,
+    "end": 16.7,
+    "text": "DE AUTOSPORTAFDELING VAN TOYOTA",
+    "ko": "토요타의 모터스포츠 부서",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTOSPORTAFDELING",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.5,
+    "text": "OOK DE COMPLETE CARROSSERIE IS ANDERS",
+    "ko": "바디 전체도 완전히 다릅니다",
+    "kind": "말 자막",
+    "y_pct": 81.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "CARROSSERIE",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 24.5,
+    "text": "BREDER ✓\n3 DEUREN ✓\nPRESTATIES ALS UITGANGSPUNT ✓",
+    "ko": "더 넓고 ✓ 3도어 ✓ 성능 중심 설계 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 3.6,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 27.9,
+    "text": "EIGENLIJK HEEFT HIJ ALLEEN DE NAAM GEMEEN MET DE GEWONE YARIS",
+    "ko": "사실상 일반 야리스와 이름만 공유합니다",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "GEWONE YARIS",
+    "sure": true
+   },
+   {
+    "start": 27.9,
+    "end": 31.9,
+    "text": "BEN JE BENIEUWD NAAR HET BOUWJAAR EN DE KILOMETERSTAND",
+    "ko": "연식과 주행거리가 궁금하시다면",
+    "kind": "말 자막",
+    "y_pct": 78.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "OMSCHRIJVING",
+    "sure": true
+   },
+   {
+    "start": 31.9,
+    "end": 34.5,
+    "text": "AUTOBEDRIJF GIELEN 📍",
+    "ko": "오토베드라이프 힐런 📍",
+    "kind": "키워드 스티커",
+    "y_pct": 81.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.9,
+    "type": "톡",
+    "event": "Toyota Yaris GR Performance 노란색 스티커 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "돈 소리",
+    "event": "€50.000 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "운전석 문 여는 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "톡",
+    "event": "261 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "딸깍",
+    "event": "VIERWIELAANDRIJVING 스티커 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "휙",
+    "event": "TOYOTA GAZOO RACING 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.5,
+    "type": "톡",
+    "event": "BREDER 체크 스티커 첫 줄 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.6,
+    "type": "톡",
+    "event": "3 DEUREN 체크 스티커 둘째 줄 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "PRESTATIES ALS UITGANGSPUNT 셋째 줄 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.2,
+    "type": "띵",
+    "event": "AUTOBEDRIJF GIELEN 위치 핀 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "쿵",
+    "event": "AutoScout24 대형 로고 그래픽 떨어지며 출연자 숙임",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉",
+   "bpm_est": 118,
+   "mood": "경쾌하고 역동적",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 13.4,
+    "end": 16.7,
+    "what": "Toyota Gazoo Racing GR 로고",
+    "is_3d": false,
+    "size_w_pct": 58.0,
+    "x_pct": 50.0,
+    "y_pct": 91.0,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 37.3,
+    "what": "AutoScout24 로고 (노란색 포스트잇 스타일)",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 48.0,
+    "y_pct": 24.0,
+    "entrance": "밀려옴",
+    "purpose": "엔딩 브랜딩 및 플랫폼 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.9,
+    "text": "Waarom kost deze Toyota Yaris GR Performance bijna €50.000?",
+    "ko": "왜 이 토요타 야리스 GR 퍼포먼스는 거의 5만 유로나 할까요?"
+   },
+   {
+    "start": 4.9,
+    "end": 8.5,
+    "text": "Op het eerste gezicht lijkt het misschien een gewone Toyota Yaris, maar schijn bedriegt.",
+    "ko": "얼핏 보기엔 평범한 토요타 야리스 같지만, 겉보기와는 다릅니다."
+   },
+   {
+    "start": 8.5,
+    "end": 16.7,
+    "text": "Deze Yaris heeft 261 pk, vierwielaandrijving en is ontwikkeld door de autosportafdeling van Toyota.",
+    "ko": "이 야리스는 261마력, 4륜 구동에 토요타의 모터스포츠 부서에서 개발했습니다."
+   },
+   {
+    "start": 16.7,
+    "end": 24.5,
+    "text": "Ook de complete carrosserie is anders: deze is breder, heeft 3 deuren en is gebouwd met prestaties als uitgangspunt.",
+    "ko": "차체 전체도 다릅니다. 더 넓고 3도어이며 고성능을 목표로 설계되었습니다."
+   },
+   {
+    "start": 24.5,
+    "end": 27.9,
+    "text": "Eigenlijk heeft hij alleen de naam gemeen met de gewone Yaris.",
+    "ko": "사실상 일반 야리스와 이름만 같을 뿐입니다."
+   },
+   {
+    "start": 27.9,
+    "end": 32.5,
+    "text": "Ben je benieuwd naar het bouwjaar en de kilometerstand? Kijk dan even in de omschrijving.",
+    "ko": "연식과 주행거리가 궁금하신가요? 설명란을 확인해 보세요."
+   },
+   {
+    "start": 32.5,
+    "end": 37.3,
+    "text": "En je vindt hem in de showroom van Autobedrijf Gielen en natuurlijk op autoscout24.nl.",
+    "ko": "그리고 오토베드라이프 힐런 쇼룸과 autoscout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.9,
+    "speed": "빠름",
+    "summary": "5만 유로라는 비싼 가격에 대한 질문으로 시청자 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.9,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "일반 야리스와 다른 특수 고성능 모델임을 예고"
+   },
+   {
+    "stage": "사양",
+    "start": 9.4,
+    "end": 16.7,
+    "speed": "빠름",
+    "summary": "261마력, 4륜 구동, 가주 레이싱(Gazoo Racing) 개발 스펙 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 16.7,
+    "end": 27.9,
+    "speed": "보통",
+    "summary": "와이드 바디킷, 3도어 전용 섀시 등 일반 모델과의 차별점 설명"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 27.9,
+    "end": 37.3,
+    "speed": "빠름",
+    "summary": "설명란 및 오토스카우트24 플랫폼 매물 확인 유도"
+   }
+  ],
+  "rules": [
+   "노란색(#FFFF00) 바탕에 검은색 글씨 스티커로 핵심 수치(가격, 마력, 특징)를 즉각 시각화한다.",
+   "호기심을 유발하는 질문형 도입부(가격 훅)로 초반 3초 시선을 붙잡는다.",
+   "핵심 스펙마다 체크마크(✓)나 깃발(🏁) 이모지를 곁들여 한눈에 읽히게 구성한다.",
+   "스티커 텍스트와 그래픽이 뜰 때마다 직관적인 팝/클릭/슬라이드 효과음을 매칭한다.",
+   "영상 말미에 브랜드 로고가 화면 위에서 떨어지는 모션과 출연자의 반응 제스처를 결합해 자연스러운 위트를 준다."
+  ]
+ }
+}

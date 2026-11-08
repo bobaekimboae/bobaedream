@@ -1,0 +1,529 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/zGhsHgYO0ac",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2833,
+  "candidatesTokenCount": 5129,
+  "totalTokenCount": 8806,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2091
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 844,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 22.8,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG GLE 53",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 10.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 16.7,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 19.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "Raad het aantal PK's",
+    "ko": "마력(PK) 수를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -5,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "Kun jij raden",
+    "ko": "맞출 수 있나요",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "hoeveel pk deze",
+    "ko": "이 차가 몇 마력인지",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "pk",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "Mercedes-Benz",
+    "ko": "메르세데스-벤츠",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 4.6,
+    "text": "53 AMG heeft",
+    "ko": "53 AMG가 몇 마력인지",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "53",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.5,
+    "text": "Hij komt uit 2022 en is",
+    "ko": "2022년식 모델이며",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2022",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 7.6,
+    "text": "een 3 liter 6",
+    "ko": "3.0리터 6기통에",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "6",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 10.3,
+    "text": "volledig full option",
+    "ko": "완전한 풀옵션 사양으로",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "full option",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 12.0,
+    "text": "van burmester geluidssysteem",
+    "ko": "부메스터 오디오 시스템부터",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "burmester",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "tot zetelventilatie",
+    "ko": "통풍 시트까지",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "zetelventilatie",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.2,
+    "text": "uitgevoerd in green metallic met een",
+    "ko": "그린 메탈릭 외장 컬러에",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "green",
+    "sure": true
+   },
+   {
+    "start": 15.2,
+    "end": 16.7,
+    "text": "360 graden camera",
+    "ko": "360도 카메라 탑재",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "360",
+    "sure": true
+   },
+   {
+    "start": 17.2,
+    "end": 19.8,
+    "text": "€63.900\n€62.750",
+    "ko": "63,900 유로 할인 -> 62,750 유로",
+    "kind": "가격",
+    "y_pct": 38.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 6.5,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€63.900",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "text": "AutoScout24",
+    "ko": "오토스카우트24",
+    "kind": "제목",
+    "y_pct": 15.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#111111",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -4,
+    "entrance": "바로",
+    "highlight_word": "Auto",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.0,
+    "text": "weet jij het",
+    "ko": "정답을 아시나요?",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "laat het weten in de reacties",
+    "ko": "댓글로 알려주세요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "reacties",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 17.2,
+    "type": "톡",
+    "event": "가격 그래픽 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 일렉트로닉 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 17.2,
+    "end": 19.8,
+    "what": "가격 할인 강조 스티커 그래픽",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 12.0,
+    "y_pct": 34.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "할인 가격 안내",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "what": "AutoScout24 로고 타이틀 박스",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 12.0,
+    "entrance": "바로",
+    "purpose": "브랜딩 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "Kun jij raden hoeveel pk deze Mercedes-Benz 53 AMG heeft?",
+    "ko": "이 메르세데스-벤츠 53 AMG가 몇 마력인지 맞출 수 있나요?"
+   },
+   {
+    "start": 4.6,
+    "end": 7.4,
+    "text": "Hij komt uit 2022 en is een 3 liter 6 cilinder.",
+    "ko": "2022년식이며 3.0리터 6기통 엔진입니다."
+   },
+   {
+    "start": 7.4,
+    "end": 13.5,
+    "text": "Volledig full option uitgevoerd, van Burmester geluidssysteem tot zetelventilatie.",
+    "ko": "부메스터 오디오부터 통풍 시트까지 풀옵션으로 장착되어 있습니다."
+   },
+   {
+    "start": 13.5,
+    "end": 16.7,
+    "text": "Uitgevoerd in green metallic met een 360 graden camera.",
+    "ko": "그린 메탈릭 컬러에 360도 카메라가 장착되어 있죠."
+   },
+   {
+    "start": 16.7,
+    "end": 19.8,
+    "text": "En kost €63.900.",
+    "ko": "가격은 63,900유로(할인가 62,750유로)입니다."
+   },
+   {
+    "start": 19.8,
+    "end": 22.8,
+    "text": "Weet jij het? Laat het weten in de reacties.",
+    "ko": "정답을 아시나요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "보통",
+    "summary": "마력 수 맞추기 질문으로 시청자 참여 유도"
+   },
+   {
+    "stage": "사양",
+    "start": 4.6,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "연식 및 엔진 사양 힌트 제공"
+   },
+   {
+    "stage": "기능",
+    "start": 7.4,
+    "end": 16.7,
+    "speed": "빠름",
+    "summary": "부메스터 오디오, 통풍시트, 360도 카메라 등 주요 옵션 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 16.7,
+    "end": 19.8,
+    "speed": "보통",
+    "summary": "할인된 차량 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 19.8,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "댓글 유도(CTA) 및 오토스카우트24 브랜딩 노출"
+   }
+  ],
+  "rules": [
+   "도입부에 호기심을 유발하는 퀴즈형 질문(마력 맞추기)으로 댓글 반응과 시청 유지를 동시에 확보한다.",
+   "핵심 키워드마다 텍스트 강조 색상(노란색)을 부여해 가독성을 높인다.",
+   "가격 안내 시 원가에 취소선을 긋고 할인가를 그래픽 박스로 팝업시켜 시각적 주목도를 높인다.",
+   "영상 말미에 댓글 작성을 직관적으로 유도하는 명확한 CTA 화면을 배치한다."
+  ]
+ }
+}

@@ -1,0 +1,559 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/SKuhQIc8Szw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2754,
+  "candidatesTokenCount": 5506,
+  "totalTokenCount": 9790,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2012
+   }
+  ],
+  "thoughtsTokenCount": 1530,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 22.8,
+   "aspect": "9:16",
+   "car": "르노 4 E-Tech (Renault 4 E-Tech)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 5.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 8.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.7,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.7,
+    "end": 22.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "RAAD HET",
+    "ko": "맞춰보세요",
+    "kind": "말 자막",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FDE047",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RAAD",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 2.0,
+    "text": "MERK & MODEL",
+    "ko": "브랜드 & 모델",
+    "kind": "말 자막",
+    "y_pct": 34.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FDE047",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MERK",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.4,
+    "text": "JE VINDT HEM",
+    "ko": "이 차는 당연히",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FDE047",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.9,
+    "end": 5.6,
+    "text": "IK GEEF JE",
+    "ko": "힌트를 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 6.8,
+    "text": "DE EERSTE VERSIE",
+    "ko": "첫 번째 버전은",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.8,
+    "text": "VAN DEZE AUTO",
+    "ko": "이 차의",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 8.8,
+    "text": "1961",
+    "ko": "1961년",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FDE047",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1961",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 9.8,
+    "text": "EN VAN HET",
+    "ko": "그리고",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 10.9,
+    "text": "ORIGINEEL WAREN ER",
+    "ko": "오리지널 모델은",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "8 MILJOEN EXEMPLAREN VERKOCHT ✔",
+    "ko": "800만 대 이상 판매 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FDE047",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "8 MILJOEN",
+    "sure": true
+   },
+   {
+    "start": 12.9,
+    "end": 13.9,
+    "text": "EN DEZE NIEUWE",
+    "ko": "그리고 이번 신형",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FDE047",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "text": "GENERATIE IS VOLLEDIG",
+    "ko": "세대는 100%",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 17.1,
+    "text": "DUS NU BEN",
+    "ko": "그러니 이제",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 18.1,
+    "text": "JIJ KAN RADEN",
+    "ko": "여러분이 맞출 차례",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.1,
+    "end": 19.3,
+    "text": "MERK & MODEL",
+    "ko": "브랜드 & 모델",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FDE047",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MERK",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.2,
+    "text": "DEZE AUTO IS",
+    "ko": "이 차가 무엇인지",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.2,
+    "text": "WETEN IN EEN",
+    "ko": "댓글로 남겨주시고",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.3,
+    "end": 22.8,
+    "text": "EN VERGEET ONS",
+    "ko": "팔로우 잊지 마세요",
+    "kind": "말 자막",
+    "y_pct": 77.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.3,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.8,
+    "type": "띵",
+    "event": "1961 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "띵",
+    "event": "8 MILJOEN 판매 대수 자막 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.1,
+    "end": 4.8,
+    "what": "AutoScout24 브랜드 로고 박스 그래픽",
+    "is_3d": false,
+    "size_w_pct": 42.0,
+    "x_pct": 50.0,
+    "y_pct": 73.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 15.7,
+    "what": "차량 휀더 엠블럼을 가린 블랙 마스킹 테이프 그래픽",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "바로",
+    "purpose": "퀴즈 정답 블라인드 처리",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Raad het merk en model van deze auto.",
+    "ko": "이 차의 브랜드와 모델명을 맞춰보세요."
+   },
+   {
+    "start": 2.2,
+    "end": 5.6,
+    "text": "Je vindt hem natuurlijk op autoscout24.nl. Ik geef je een paar tips.",
+    "ko": "당연히 autoscout24.nl에서 확인하실 수 있습니다. 몇 가지 힌트를 드릴게요."
+   },
+   {
+    "start": 5.6,
+    "end": 8.8,
+    "text": "De eerste versie van deze auto verscheen al in 1961.",
+    "ko": "이 차의 최초 모델은 무려 1961년에 등장했습니다."
+   },
+   {
+    "start": 8.8,
+    "end": 12.8,
+    "text": "En van het origineel waren er wel meer dan 8 miljoen exemplaren verkocht.",
+    "ko": "그리고 오리지널 모델은 800만 대 이상 팔려나갔죠."
+   },
+   {
+    "start": 12.8,
+    "end": 15.7,
+    "text": "En deze nieuwe generatie is volledig elektrisch.",
+    "ko": "그리고 이번 최신 세대는 순수 100% 전기차입니다."
+   },
+   {
+    "start": 15.7,
+    "end": 20.0,
+    "text": "Dus nu ben ik benieuwd of jij kan raden welk merk en model deze auto is.",
+    "ko": "그럼 이제 여러분이 이 차의 브랜드와 모델을 맞출 수 있을지 궁금하네요."
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "text": "Laat het even weten in een reactie en vergeet ons niet te volgen.",
+    "ko": "댓글로 정답을 남겨주시고 저희 채널 팔로우도 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "전면부 차량을 배경으로 모델 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 2.2,
+    "end": 5.6,
+    "speed": "보통",
+    "summary": "플랫폼 홍보 및 힌트 제공 예고"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.6,
+    "end": 8.8,
+    "speed": "보통",
+    "summary": "힌트 1: 1961년 첫 등장한 역사성 언급 (트렁크에 착석)"
+   },
+   {
+    "stage": "사양",
+    "start": 8.8,
+    "end": 12.8,
+    "speed": "보통",
+    "summary": "힌트 2: 800만 대 이상 판매된 밀리언셀러 (운전석 착석)"
+   },
+   {
+    "stage": "기능",
+    "start": 12.8,
+    "end": 15.7,
+    "speed": "빠름",
+    "summary": "힌트 3: 완전 순수 전기차 신형 모델 (차량 측면 엠블럼 가림)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 15.7,
+    "end": 22.8,
+    "speed": "보통",
+    "summary": "댓글 유도 및 채널 팔로우 요청"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 차량 안팎의 다양한 위치(전면, 트렁크, 운전석 창문, 휀더 앞)를 이동하며 힌트를 제시해 지루함을 방지한다.",
+   "핵심 단서(연도, 판매 수치, 브랜드/모델)는 볼드 옐로우 자막과 팝업 효과음을 동반해 시각적 집중도를 높인다.",
+   "차량의 엠블럼과 레터링 위치를 그래픽 마스킹으로 가려 시청자의 퀴즈 참여 및 댓글 인터랙션을 유도한다."
+  ]
+ }
+}

@@ -1,0 +1,662 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/QIXggwNfBjg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3194,
+  "candidatesTokenCount": 6487,
+  "totalTokenCount": 9681,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2452
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.8,
+   "aspect": "9:16",
+   "car": "Porsche 911 Carrera S Cabriolet (992)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 7.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 11.4,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 16.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 23.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 26.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "€140.000",
+    "ko": "140,000유로",
+    "kind": "가격",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.8,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€140.000",
+    "sure": true
+   },
+   {
+    "start": 0.8,
+    "end": 1.7,
+    "text": "VOOR EEN",
+    "ko": "~를 위한",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 2.7,
+    "text": "PORSCHE 911",
+    "ko": "포르쉐 911",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PORSCHE 911",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 3.7,
+    "text": "DE OPTIES ZIET",
+    "ko": "옵션을 보면",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "OPTIES",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.2,
+    "text": "BEGRIJP JE DIRECT",
+    "ko": "바로 이해하게 됩니다",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.6,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BEGRIJP JE DIRECT",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.3,
+    "text": "SPECIALE VERTEL IK",
+    "ko": "특별한 점을 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "SPECIALE",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.4,
+    "text": "JE OP HET EIND",
+    "ko": "영상 마지막에요",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "EIND",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.2,
+    "text": "OPTIES OP DEZE",
+    "ko": "이 차의 옵션들은",
+    "kind": "말 자막",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "OPTIES",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 9.8,
+    "text": "AUTO KOSTEN",
+    "ko": "비용만 해도",
+    "kind": "말 자막",
+    "y_pct": 80.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AUTO KOSTEN",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.4,
+    "text": "€40.000",
+    "ko": "40,000유로",
+    "kind": "가격",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€40.000",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 12.3,
+    "text": "ONDER ANDERE",
+    "ko": "그중에는",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.4,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.9,
+    "text": "ACHTERASBESTURING ✓",
+    "ko": "후륜 조향 시스템 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.0,
+    "text": "FRONTLIFT ✓",
+    "ko": "프론트 리프트 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.4,
+    "end": 16.6,
+    "text": "LED MATRIX KOPLAMPEN ✓",
+    "ko": "LED 매트릭스 헤드램프 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.0,
+    "text": "DEZE PORSCHE",
+    "ko": "이 포르쉐",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PORSCHE",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.2,
+    "text": "HANDGESCHAKELD MET",
+    "ko": "수동 변속기로",
+    "kind": "말 자막",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "HANDGESCHAKELD",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.6,
+    "text": "7 VERSNELLINGEN ✓",
+    "ko": "7단 수동 기어 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.5,
+    "text": "HEM IN DE",
+    "ko": "그것을",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 23.9,
+    "text": "📍 AUTOVENTURA",
+    "ko": "📍 오토벤투라",
+    "kind": "키워드 스티커",
+    "y_pct": 86.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 46.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 25.1,
+    "text": "EN NATUURLIJK",
+    "ko": "그리고 당연히",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.5,
+    "color": "#FFE500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "돈 소리",
+    "event": "첫 훅 가격 140,000유로 텍스트 등장 시 카칭/금전 등록기 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.9,
+    "type": "돈 소리",
+    "event": "옵션 가격 40,000유로 텍스트 팝업 시 카칭 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.6,
+    "type": "톡",
+    "event": "Achterasbesturing 옵션 체크박스 뱃지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.3,
+    "type": "톡",
+    "event": "Frontlift 옵션 체크박스 뱃지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "LED Matrix koplampen 옵션 체크박스 뱃지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.6,
+    "type": "톡",
+    "event": "7 Versnellingen 체크박스 뱃지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "위치 핀 AutoVentura 뱃지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "톡",
+    "event": "하단 AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "what": "AutoScout24 로고 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 82.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩 및 앱/웹사이트 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "140.000 euro voor een Porsche 911.",
+    "ko": "포르쉐 911이 14만 유로입니다."
+   },
+   {
+    "start": 3.0,
+    "end": 5.5,
+    "text": "En zodra je de opties ziet, begrijp je direct waarom.",
+    "ko": "옵션들을 보시면 왜 그런지 바로 이해하실 겁니다."
+   },
+   {
+    "start": 5.5,
+    "end": 7.4,
+    "text": "En de meest speciale vertel ik je op het eind.",
+    "ko": "가장 특별한 옵션은 마지막에 알려드릴게요."
+   },
+   {
+    "start": 7.4,
+    "end": 11.4,
+    "text": "Alleen al de opties op deze auto kosten 40.000 euro.",
+    "ko": "이 차에 들어간 옵션 가격만 4만 유로에 달합니다."
+   },
+   {
+    "start": 11.4,
+    "end": 13.9,
+    "text": "En dat zijn onder andere achterasbesturing,",
+    "ko": "그중에는 후륜 조향 시스템과,"
+   },
+   {
+    "start": 13.9,
+    "end": 15.2,
+    "text": "frontlift,",
+    "ko": "프론트 리프트,"
+   },
+   {
+    "start": 15.2,
+    "end": 16.7,
+    "text": "de LED matrix koplampen.",
+    "ko": "LED 매트릭스 헤드램프가 있습니다."
+   },
+   {
+    "start": 16.7,
+    "end": 21.6,
+    "text": "Deze Porsche 911 is handgeschakeld met 7 versnellingen.",
+    "ko": "이 포르쉐 911은 무려 7단 수동 변속기 모델입니다."
+   },
+   {
+    "start": 21.6,
+    "end": 24.2,
+    "text": "En je vindt hem in de showroom van AutoVentura,",
+    "ko": "AutoVentura 전시장에서 만나보실 수 있으며,"
+   },
+   {
+    "start": 24.2,
+    "end": 26.8,
+    "text": "en natuurlijk op autoscout24.nl.",
+    "ko": "물론 autoscout24.nl에서도 확인 가능합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "총 차량 가격 제시 및 끝까지 보게 만드는 루프 훅"
+   },
+   {
+    "stage": "가격",
+    "start": 7.4,
+    "end": 11.4,
+    "speed": "보통",
+    "summary": "옵션 가격 40,000유로 강조"
+   },
+   {
+    "stage": "기능",
+    "start": 11.4,
+    "end": 16.6,
+    "speed": "빠름",
+    "summary": "핵심 옵션 3가지 연속 소개 (후륜조향, 리프트, LED)"
+   },
+   {
+    "stage": "사양",
+    "start": 16.6,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "반전 매력인 7단 수동 변속기 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 21.6,
+    "end": 26.8,
+    "speed": "보통",
+    "summary": "전시장 소개 및 AutoScout24 플랫폼 유도 클로징"
+   }
+  ],
+  "rules": [
+   "가격 언급 시 굵은 노란색 볼드 텍스트와 금전 등록기(카칭) 효과음을 결합해 시각·청각 집중도를 극대화함",
+   "옵션 나열 시 노란색 배경의 직사각형 뱃지와 체크마크(✓), 팝 사운드를 일관되게 사용",
+   "'가장 특별한 것은 끝에 공개한다'는 시청 지속 유도 멘트를 초반 훅에 배치",
+   "화자가 직접 걸어가며 손짓으로 차의 해당 부위를 가리키는 직관적인 쇼츠 포맷 활용",
+   "마지막 컷에서 AutoScout24 시그니처 옐로우 그래픽 로고를 띄워 브랜드 브랜딩 완성"
+  ]
+ }
+}

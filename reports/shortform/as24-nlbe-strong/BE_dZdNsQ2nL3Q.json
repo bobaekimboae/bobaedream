@@ -1,0 +1,557 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/dZdNsQ2nL3Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5839,
+  "candidatesTokenCount": 4265,
+  "totalTokenCount": 10104,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5097
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 56.4,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLA 250e / GLC 43 AMG / GLE 53 AMG",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.9,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.9,
+    "end": 14.8,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 20.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 24.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 25.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.7,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 34.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.9,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.1,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 45.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.8,
+    "end": 48.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 51.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 56.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Welke kies jij?",
+    "ko": "어떤 걸 고르시겠어요?",
+    "kind": "제목",
+    "y_pct": 23.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 46.5,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "text": "Mercedes-Benz\nGLA 250e",
+    "ko": "메르세데스-벤츠 GLA 250e",
+    "kind": "키워드 스티커",
+    "y_pct": 8.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "Mercedes-Benz\nGLC 43 AMG",
+    "ko": "메르세데스-벤츠 GLC 43 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 8.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "text": "Mercedes-Benz\nGLE 53 AMG",
+    "ko": "메르세데스-벤츠 GLE 53 AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 8.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 19.9,
+    "text": "€29.980\n€29.450",
+    "ko": "29,980유로 / 29,450유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 69.5,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.2,
+    "end": 34.9,
+    "text": "€37.490\n€36.860",
+    "ko": "37,490유로 / 36,860유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 31.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 51.0,
+    "text": "€63.900\n€62.750",
+    "ko": "63,900유로 / 62,750유로",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 71.0,
+    "text_height_pct": 7.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "제목 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.7,
+    "type": "톡",
+    "event": "GLA 가격표 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.3,
+    "type": "톡",
+    "event": "GLC 가격표 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.4,
+    "type": "톡",
+    "event": "GLE 가격표 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.6,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 인스트루멘탈",
+   "bpm_est": 118,
+   "mood": "경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 54.4,
+    "end": 56.4,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 24.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "앱 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "Als je zou moeten kiezen, ga jij voor de",
+    "ko": "선택해야 한다면 여러분은"
+   },
+   {
+    "start": 2.0,
+    "end": 3.7,
+    "text": "Mercedes-Benz GLA,",
+    "ko": "메르세데스-벤츠 GLA,"
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "GLC,",
+    "ko": "GLC,"
+   },
+   {
+    "start": 4.8,
+    "end": 5.9,
+    "text": "of de GLE?",
+    "ko": "아니면 GLE를 고르실 건가요?"
+   },
+   {
+    "start": 5.9,
+    "end": 10.9,
+    "text": "Deze Mercedes-Benz GLA 250e is een plug-in hybride,",
+    "ko": "이 메르세데스-벤츠 GLA 250e는 플러그인 하이브리드이며,"
+   },
+   {
+    "start": 10.9,
+    "end": 12.9,
+    "text": "komt uit 2022,",
+    "ko": "2022년식이고,"
+   },
+   {
+    "start": 12.9,
+    "end": 14.8,
+    "text": "66.800 km,",
+    "ko": "66,800 km를 주행했으며,"
+   },
+   {
+    "start": 14.8,
+    "end": 16.6,
+    "text": "hij heeft 218 pk,",
+    "ko": "218마력입니다."
+   },
+   {
+    "start": 16.6,
+    "end": 19.9,
+    "text": "en hij kost €29.980.",
+    "ko": "그리고 가격은 29,980유로(할인가 29,450유로)입니다."
+   },
+   {
+    "start": 19.9,
+    "end": 24.1,
+    "text": "Of ga jij voor de Mercedes-Benz GLC 43 AMG?",
+    "ko": "아니면 메르세데스-벤츠 GLC 43 AMG를 고르시겠어요?"
+   },
+   {
+    "start": 24.1,
+    "end": 25.8,
+    "text": "Het is een Biturbo 4MATIC,",
+    "ko": "바이터보 4MATIC 모델이고,"
+   },
+   {
+    "start": 25.8,
+    "end": 28.7,
+    "text": "hij komt uit 2017,",
+    "ko": "2017년식이며,"
+   },
+   {
+    "start": 28.7,
+    "end": 29.9,
+    "text": "hij heeft 367 pk,",
+    "ko": "367마력에,"
+   },
+   {
+    "start": 29.9,
+    "end": 32.7,
+    "text": "en hij heeft 71.300 km op de teller,",
+    "ko": "주행거리는 71,300 km입니다."
+   },
+   {
+    "start": 32.7,
+    "end": 34.9,
+    "text": "en kost €37.490.",
+    "ko": "가격은 37,490유로(할인가 36,860유로)입니다."
+   },
+   {
+    "start": 34.9,
+    "end": 40.5,
+    "text": "Of ga jij all-in en kies je voor de Mercedes-Benz GLE 53 AMG?",
+    "ko": "아니면 올인해서 메르세데스-벤츠 GLE 53 AMG를 선택하시겠습니까?"
+   },
+   {
+    "start": 40.5,
+    "end": 42.1,
+    "text": "Turbo 4MATIC+.",
+    "ko": "터보 4MATIC+ 모델이고,"
+   },
+   {
+    "start": 42.1,
+    "end": 44.0,
+    "text": "Komt uit 2022,",
+    "ko": "2022년식이며,"
+   },
+   {
+    "start": 44.0,
+    "end": 46.5,
+    "text": "heeft 102.000 km gereden,",
+    "ko": "102,000 km를 주행했고,"
+   },
+   {
+    "start": 46.5,
+    "end": 48.7,
+    "text": "heeft 435 pk,",
+    "ko": "435마력입니다."
+   },
+   {
+    "start": 48.7,
+    "end": 51.0,
+    "text": "en hij kost €63.900.",
+    "ko": "가격은 63,900유로(할인가 62,750유로)입니다."
+   },
+   {
+    "start": 51.0,
+    "end": 56.4,
+    "text": "Je vindt ze in de showroom van Falcomotive en op AutoScout24.be.",
+    "ko": "이 차량들은 Falcomotive 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.9,
+    "speed": "빠름",
+    "summary": "벤츠 SUV 3개 모델 선택 질문 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.9,
+    "end": 19.9,
+    "speed": "보통",
+    "summary": "GLA 250e 스펙 및 가격 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 19.9,
+    "end": 34.9,
+    "speed": "보통",
+    "summary": "GLC 43 AMG 스펙 및 가격 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 34.9,
+    "end": 51.0,
+    "speed": "보통",
+    "summary": "GLE 53 AMG 스펙 및 가격 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 51.0,
+    "end": 56.4,
+    "speed": "보통",
+    "summary": "딜러 쇼룸 및 오토스카우트24 플랫폼 구매처 안내"
+   }
+  ],
+  "rules": [
+   "비교할 세 차량을 '외관 전면 -> 트렁크 -> 실내/뒷좌석 -> 최종 가격'의 일관된 시퀀스로 순차 소개함",
+   "기존 가격에 취소선을 긋고 할인된 가격을 함께 보여주며 팝업 효과음을 동기화함",
+   "화면 상단 노란색 칠 박스 그래픽 스티커로 차종명을 명확하게 표시함"
+  ]
+ }
+}

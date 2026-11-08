@@ -1,0 +1,705 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/FirJXevMB8E",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5018,
+  "candidatesTokenCount": 7139,
+  "totalTokenCount": 13239,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4276
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1082,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 47.1,
+   "aspect": "9:16",
+   "car": "Mazda CX-80",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.4,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 10.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 17.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 19.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 24.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.9,
+    "end": 26.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.2,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 30.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 34.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 41.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 47.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "De Mazda CX",
+    "ko": "마쓰다 CX",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Mazda",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 6.4,
+    "text": "-80 is de grootste personenauto die Mazda ooit in Europa heeft uitgebracht.",
+    "ko": "-80은 마쓰다가 유럽에 출시한 가장 큰 승용차입니다.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.4,
+    "end": 10.5,
+    "text": "deze indrukwekkende SUV biedt plaats aan maximaal 7 personen.",
+    "ko": "이 인상적인 SUV는 최대 7인승 공간을 제공합니다.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.8,
+    "text": "heeft een lengte van bijna 5 meter",
+    "ko": "전장이 거의 5미터에 달하며",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 17.1,
+    "text": "en combineert Japans vakmanschap met prestaties en vermogen.",
+    "ko": "일본의 장인정신과 성능 및 출력을 결합했습니다.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.1,
+    "end": 19.3,
+    "text": "Van binnen is die rijk uitgerust met",
+    "ko": "실내는 풍부한 옵션으로 구성되어 있으며",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.9,
+    "text": "Bose geluidssysteem",
+    "ko": "보스 사운드 시스템",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.7,
+    "text": "stuurverwarming, zetelverwarming en zetelventilatie",
+    "ko": "스티어링 휠 열선, 시트 열선 및 통풍 시트",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 24.9,
+    "text": "ook van achter",
+    "ko": "뒷좌석에도 적용",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.9,
+    "end": 26.8,
+    "text": "verschillende rijstanden",
+    "ko": "다양한 주행 모드",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.2,
+    "text": "360 graden camera",
+    "ko": "360도 서라운드 뷰 카메라",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 30.8,
+    "text": "panoramadak",
+    "ko": "파노라마 선루프",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 34.6,
+    "text": "De plug-in hybride levert een gecombineerd vermogen van 326 pk.",
+    "ko": "플러그인 하이브리드는 합산 출력 326마력을 발휘합니다.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.8,
+    "text": "Deze Mazda CX-80 is nieuw uit 2026",
+    "ko": "이 마쓰다 CX-80은 2026년식 신차이며",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 41.5,
+    "text": "en hij kost €56.490",
+    "ko": "가격은 56,490유로입니다.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.4,
+    "text": "Je vindt hem in de showroom van Garage Govaerts",
+    "ko": "가라지 고바에르츠 쇼룸에서 확인하실 수 있으며",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.4,
+    "end": 47.1,
+    "text": "en op AutoScout24.be",
+    "ko": "AutoScout24.be에서도 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "톡",
+    "event": "도입부 모델명/가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "7인승 노란색 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "휙",
+    "event": "전장 5미터 표시 빨간선 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.6,
+    "type": "딸깍",
+    "event": "시트 통풍/열선 물리 버튼 조작",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 39.4,
+    "type": "톡",
+    "event": "가격 스티커(€56.490) 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 42.6,
+    "type": "톡",
+    "event": "딜러사 Govaerts 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "톡",
+    "event": "AutoScout24 노란색 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 118,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.7,
+    "end": 2.1,
+    "what": "Mazda CX-80 €56.490 노란 라벨 배너",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "핵심 스펙 및 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 8.6,
+    "end": 10.5,
+    "what": "숫자 7 노란 라벨 배너",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "7인승 탑승 인원수 시각화",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.8,
+    "what": "차량 전장 5미터 표시 빨간 기준선",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 58.0,
+    "entrance": "밀려옴",
+    "purpose": "차량 전장 길이 시각화",
+    "sure": true
+   },
+   {
+    "start": 39.3,
+    "end": 41.5,
+    "what": "€56.490 가격 노란색 배너",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "판매 가격 고지",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 44.4,
+    "what": "Govaerts Used Cars 로고 배너",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "판매처 정보 안내",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 47.1,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 32.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 CTA 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.4,
+    "text": "De Mazda CX-80 is de grootste personenauto die Mazda ooit in Europa heeft uitgebracht.",
+    "ko": "마쓰다 CX-80은 마쓰다가 유럽에 출시한 역대 승용차 중 가장 큽니다."
+   },
+   {
+    "start": 6.4,
+    "end": 10.6,
+    "text": "Deze indrukwekkende SUV biedt plaats aan maximaal 7 personen.",
+    "ko": "이 인상적인 SUV는 최대 7인승 공간을 제공합니다."
+   },
+   {
+    "start": 10.6,
+    "end": 17.1,
+    "text": "Hij heeft een lengte van bijna 5 meter en combineert Japans vakmanschap met prestaties en vermogen.",
+    "ko": "전장이 약 5미터에 달하며 일본의 장인정신과 뛰어난 성능을 결합했습니다."
+   },
+   {
+    "start": 17.1,
+    "end": 24.8,
+    "text": "Van binnen is die rijk uitgerust met Bose geluidssysteem, stuurverwarming, zetelverwarming en zetelventilatie, ook van achter,",
+    "ko": "실내는 보스 오디오, 스티어링 열선, 통풍 및 열선 시트(후석 포함) 등 풍부한 편의장비가 갖춰져 있고,"
+   },
+   {
+    "start": 24.8,
+    "end": 30.8,
+    "text": "verschillende rijstanden, 360 graden camera, panoramadak.",
+    "ko": "다양한 주행 모드, 360도 카메라, 파노라마 선루프까지 탑재되었습니다."
+   },
+   {
+    "start": 30.8,
+    "end": 34.6,
+    "text": "De plug-in hybride levert een gecombineerd vermogen van 326 pk.",
+    "ko": "플러그인 하이브리드 파워트레인은 326마력의 합산 출력을 냅니다."
+   },
+   {
+    "start": 34.6,
+    "end": 41.5,
+    "text": "Deze Mazda CX-80 is nieuw uit 2026 en hij kost €56.490.",
+    "ko": "이 마쓰다 CX-80은 2026년식 신차이며 가격은 56,490유로입니다."
+   },
+   {
+    "start": 41.5,
+    "end": 47.1,
+    "text": "Je vindt hem in de showroom van Garage Govaerts en op AutoScout24.be.",
+    "ko": "가라지 고바에르츠 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.4,
+    "speed": "빠름",
+    "summary": "유럽 마쓰다 라인업 중 가장 큰 SUV라는 타이틀 제시 및 3분할 컷 활용"
+   },
+   {
+    "stage": "사양",
+    "start": 6.4,
+    "end": 17.1,
+    "speed": "보통",
+    "summary": "7인승 실내 공간과 5미터 전장 길이 시각화"
+   },
+   {
+    "stage": "기능",
+    "start": 17.1,
+    "end": 30.8,
+    "speed": "빠름",
+    "summary": "오디오, 시트 편의기능, 주행모드, 360도 카메라, 선루프 등 옵션 연속 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 30.8,
+    "end": 34.6,
+    "speed": "보통",
+    "summary": "PHEV 출력(326마력) 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 34.6,
+    "end": 41.5,
+    "speed": "보통",
+    "summary": "연식 및 차량 판매 가격 고지"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 41.5,
+    "end": 47.1,
+    "speed": "보통",
+    "summary": "전시장 방문 및 AutoScout24 플랫폼 매물 확인 콜투액션"
+   }
+  ],
+  "rules": [
+   "노란색 포인트 배너 그래픽과 '톡' 효과음을 결합해 주요 키워드와 가격을 즉각 각인시킨다.",
+   "초반 3분할 그리드 컷을 통해 차량의 외관과 실내 전체를 3초 안에 압축하여 보여준다.",
+   "호스트가 직접 3열 시트에 앉아 7인승 거주성을 몸소 검증하며 신뢰감을 준다.",
+   "전장 5m 설명 시 바닥에 붉은색 수평 측정선을 합성하여 시각적 직관성을 극대화한다.",
+   "옵션 소개 시 기능마다 1초 내외의 빠른 인서트 컷 전환으로 지루함을 없앤다."
+  ]
+ }
+}

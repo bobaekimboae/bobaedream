@@ -1,0 +1,195 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/tCLxzHPk6a8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7498,
+  "candidatesTokenCount": 2054,
+  "totalTokenCount": 10101,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6756
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 549,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 75.4,
+   "aspect": "9:16",
+   "car": "없음 (Car-Pass 제도 및 이력 시스템 소개)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 28.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 41.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 62.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.8,
+    "end": 75.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.6,
+    "end": 6.5,
+    "text": "Michel Peelman\nCEO CAR-PASS",
+    "ko": "미셸 필만 / CAR-PASS 대표",
+    "kind": "제목",
+    "y_pct": 52.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#E5A91E",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": "CAR-PASS",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "로파이 라운지/토크쇼 배경음악",
+   "bpm_est": 85,
+   "mood": "차분하고 전문적인 대화 분위기",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 75.4,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 32.0,
+    "x_pct": 18.0,
+    "y_pct": 4.5,
+    "entrance": "바로",
+    "purpose": "브랜드 워터마크",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 41.5,
+    "what": "IN THE DRIVER'S SEAT 스크린 로고",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 18.0,
+    "y_pct": 24.0,
+    "entrance": "바로",
+    "purpose": "쇼 프로그램 타이틀 표시",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 8.0,
+    "text": "Car-Pass bestaat ondertussen 20 jaar. Het is een verplicht document dat je als verkoper aan de koper moet bezorgen.",
+    "ko": "Car-Pass는 이제 20년이 되었습니다. 판매자가 구매자에게 반드시 전달해야 하는 의무 서류입니다."
+   },
+   {
+    "start": 8.1,
+    "end": 22.0,
+    "text": "De initiële doelstelling van Car-Pass was eigenlijk de strijd tegen de tellerfraude, het terugdraaien van de kilometertellers dat eigenlijk een courante praktijk was, laat ons zeggen 20 jaar geleden.",
+    "ko": "Car-Pass의 본래 목적은 계기판 조작, 즉 약 20년 전에 흔했던 주행거리 조작 행위를 방지하는 것이었습니다."
+   },
+   {
+    "start": 22.1,
+    "end": 35.5,
+    "text": "Dus daar wilden we paal en perk aan stellen door die kilometerhistoriek transparant op het document te tonen. Kan je meteen zien van: er staat zoveel kilometer op het dashboard, klopt dat wel met het verleden van die auto?",
+    "ko": "따라서 문서에 주행거리 이력을 투명하게 표시하여 이를 근절하고자 했습니다. 계기판의 주행거리가 차량의 과거 이력과 일치하는지 바로 확인할 수 있습니다."
+   },
+   {
+    "start": 35.6,
+    "end": 47.0,
+    "text": "Maar daarnaast bevat de Car-Pass toch veel andere interessante informatie. Is er nog een terugroepactie lopende op die auto die nog moet uitgevoerd worden? Wat is de Euronorm van die auto?",
+    "ko": "뿐만 아니라 Car-Pass에는 다른 유용한 정보들도 많이 포함되어 있습니다. 아직 처리되지 않은 리콜 조치가 있는지, 해당 차량의 유로 배출가스 기준은 무엇인지 등입니다."
+   },
+   {
+    "start": 47.1,
+    "end": 63.0,
+    "text": "En sinds enkele jaren zijn de garages ook verplicht om te melden welke werken ze hebben uitgevoerd aan de auto. Dus ga je ook een onderhoudshistoriek zien op de Car-Pass die als het ware een soort van digitaal onderhoudsboekje wordt.",
+    "ko": "그리고 몇 년 전부터 정비소는 차량에 어떤 작업을 진행했는지 보고할 의무가 생겼습니다. 따라서 Car-Pass를 통해 일종의 디지털 정비 이력부 형태의 정비 내역도 확인할 수 있습니다."
+   },
+   {
+    "start": 63.1,
+    "end": 75.4,
+    "text": "En sinds dit jaar geven we de verkopers van elektrische voertuigen dus ook de mogelijkheid om de State of Health, dus de gezondheidstoestand van de batterij, op de Car-Pass te vermelden en daaraan een testrapport te koppelen.",
+    "ko": "또한 올해부터는 전기차 판매자가 배터리 상태(SoH)를 Car-Pass에 기재하고 검사 보고서를 연동할 수 있는 기능도 제공하고 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "차 소개",
+    "start": 0.0,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "Car-Pass의 도입 배경과 법적 의무 서류 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 8.1,
+    "end": 35.5,
+    "speed": "보통",
+    "summary": "주행거리 조작 방지 및 투명한 주행거리 이력 확인 기능 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 35.6,
+    "end": 62.8,
+    "speed": "보통",
+    "summary": "리콜 여부, 유로 규격, 정비 이력 등 추가 정보 제공 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 62.9,
+    "end": 75.4,
+    "speed": "보통",
+    "summary": "전기차 배터리 잔존 성능(SoH) 인증 신규 서비스 안내"
+   }
+  ],
+  "rules": [
+   "진행자와 게스트 2인의 토크쇼 스튜디오 형태에서 인서트 컷 대신 단독 클로즈업과 2인 풀샷만을 교차 편집함",
+   "화면 상단 좌측에 항시 브랜드 로고를 고정 노출하여 채널 정체성을 유지함",
+   "화자 소개 자막 외에 부가적인 말 자막은 넣지 않고 오디오와 시선 처리에 집중시키는 정통 인터뷰 컷 구성"
+  ]
+ }
+}

@@ -1,0 +1,791 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/ac9OH4ADDKc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3760,
+  "candidatesTokenCount": 6098,
+  "totalTokenCount": 9858,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3018
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 33.6,
+   "aspect": "9:16",
+   "car": "BYD Seal U DM-i",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.0,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.9,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 26.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 33.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "Raad het Model",
+    "ko": "모델 맞히기",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "kun jij raden",
+    "ko": "맞힐 수 있나요",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.6,
+    "text": "welk model BYD dit is?",
+    "ko": "이 BYD 모델이 무엇인지?",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.0,
+    "text": "Deze plug-in hybride",
+    "ko": "이 플러그인 하이브리드는",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.0,
+    "text": "kan tot wel",
+    "ko": "최대",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "text": "80 KM",
+    "ko": "80 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.8,
+    "text": "elektrisch rijden en",
+    "ko": "전기로 주행 가능하며",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.9,
+    "end": 8.0,
+    "text": "heeft een gecombineerde",
+    "ko": "복합",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.9,
+    "text": "actieradius",
+    "ko": "주행가능거리는",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.2,
+    "end": 9.9,
+    "text": "1080 KM",
+    "ko": "1080 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.2,
+    "text": "Binnenin zit hij",
+    "ko": "실내에는",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.0,
+    "text": "ook vol luxe",
+    "ko": "고급스러운",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "text": "panoramadak",
+    "ko": "파노라마 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.0,
+    "text": "intelligent cruise control",
+    "ko": "인텔리전트 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "stoelverwarming",
+    "ko": "시트 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.8,
+    "text": "stoelventilatie",
+    "ko": "시트 통풍",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.3,
+    "text": "een supergoed geluidssysteem",
+    "ko": "훌륭한 사운드 시스템",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.4,
+    "text": "en ga maar door.",
+    "ko": "등등 다양합니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 22.9,
+    "text": "En kijk een draaiend scherm.",
+    "ko": "그리고 회전형 스크린을 보세요.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.5,
+    "text": "€33.700",
+    "ko": "33,700 유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.5,
+    "text": "Deze BYD kost €33.700 en",
+    "ko": "이 BYD는 33,700유로이며",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.8,
+    "text": "218 PK",
+    "ko": "218 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -3.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.8,
+    "text": "heeft 218 pk.",
+    "ko": "218마력을 냅니다.",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 31.0,
+    "text": "Je vindt hem in de showroom van",
+    "ko": "쇼룸에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.1,
+    "end": 33.6,
+    "text": "en op AutoScout24.be",
+    "ko": "그리고 AutoScout24.be에서요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "제목 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.0,
+    "type": "톡",
+    "event": "80 KM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.2,
+    "type": "톡",
+    "event": "1080 KM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "panoramadak 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "cruise control 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "톡",
+    "event": "stoelverwarming 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.0,
+    "type": "톡",
+    "event": "가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "톡",
+    "event": "218 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 29.5,
+    "end": 31.5,
+    "what": "AUTO-POINT Casier 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "딜러샵 로고 표시",
+    "sure": true
+   },
+   {
+    "start": 31.5,
+    "end": 33.6,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "플랫폼 로고 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "text": "Kun jij raden welk model BYD dit is?",
+    "ko": "이 BYD 모델이 무엇인지 맞힐 수 있나요?"
+   },
+   {
+    "start": 2.7,
+    "end": 6.8,
+    "text": "Deze plug-in hybride kan tot wel 80 km elektrisch rijden en",
+    "ko": "이 플러그인 하이브리드는 최대 80km까지 순수 전기로 주행 가능하며,"
+   },
+   {
+    "start": 6.9,
+    "end": 9.9,
+    "text": "heeft een gecombineerde actieradius van 1080 km.",
+    "ko": "복합 주행거리는 1,080km에 달합니다."
+   },
+   {
+    "start": 10.0,
+    "end": 12.0,
+    "text": "En binnenin zit hij ook vol luxe opties,",
+    "ko": "내부에는 고급 옵션들도 가득 차 있습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "text": "zoals een panoramadak,",
+    "ko": "예를 들어 파노라마 선루프,"
+   },
+   {
+    "start": 13.8,
+    "end": 15.0,
+    "text": "intelligent cruise control,",
+    "ko": "인텔리전트 크루즈 컨트롤,"
+   },
+   {
+    "start": 15.0,
+    "end": 17.5,
+    "text": "stoelverwarming en stoelventilatie,",
+    "ko": "시트 열선 및 통풍 시트,"
+   },
+   {
+    "start": 17.5,
+    "end": 19.3,
+    "text": "een supergoed geluidssysteem,",
+    "ko": "최고급 사운드 시스템,"
+   },
+   {
+    "start": 19.3,
+    "end": 22.9,
+    "text": "en ga maar door. En kijk, een draaiend scherm.",
+    "ko": "등등 다양합니다. 그리고 이것 보세요, 회전형 스크린까지!"
+   },
+   {
+    "start": 23.0,
+    "end": 26.5,
+    "text": "Deze BYD kost €33.700 en",
+    "ko": "이 BYD의 가격은 33,700유로이며,"
+   },
+   {
+    "start": 26.6,
+    "end": 28.8,
+    "text": "heeft 218 pk.",
+    "ko": "218마력을 냅니다."
+   },
+   {
+    "start": 28.9,
+    "end": 33.6,
+    "text": "Je vindt hem in de showroom van Auto-Point Casier en op AutoScout24.be.",
+    "ko": "Auto-Point Casier 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.6,
+    "speed": "빠름",
+    "summary": "차량 모델 맞히기 질문 던지기"
+   },
+   {
+    "stage": "사양",
+    "start": 2.6,
+    "end": 9.9,
+    "speed": "보통",
+    "summary": "PHEV 스펙, 전기 및 복합 주행거리 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 9.9,
+    "end": 22.9,
+    "speed": "빠름",
+    "summary": "선루프, 크루즈 컨트롤, 시트 옵션, 회전 디스플레이 등 실내 옵션 나열"
+   },
+   {
+    "stage": "가격",
+    "start": 22.9,
+    "end": 28.8,
+    "speed": "보통",
+    "summary": "가격 및 마력 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.8,
+    "end": 33.6,
+    "speed": "보통",
+    "summary": "전시장 및 AutoScout24 사이트 안내"
+   }
+  ],
+  "rules": [
+   "노란색(#FFCC00) 배경 박스 스티커를 활용하여 핵심 수치(80 KM, 1080 KM, 가격 등)를 직관적으로 강조",
+   "주요 키워드나 수치 스티커가 팝업될 때마다 짧고 명확한 '톡' 효과음을 동기화",
+   "화자가 직접 차를 둘러보고 기능을 조작하며 설명해 생동감 있는 쇼츠 리뷰 형식 연출",
+   "시작부에 퀴즈형 훅('Raad het Model')을 배치해 끝까지 보게 유도"
+  ]
+ }
+}

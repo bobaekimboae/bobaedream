@@ -1,0 +1,598 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/i1907Sh2Fek",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5024,
+  "candidatesTokenCount": 5977,
+  "totalTokenCount": 12197,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4282
+   }
+  ],
+  "thoughtsTokenCount": 1196,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.0,
+   "aspect": "9:16",
+   "car": "Porsche Cayenne S E-Hybrid Platinum Edition",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 4.6,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 9.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 20.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 21.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.3,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.2,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 28.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.8,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.2,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 33.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 38.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 42.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.1,
+    "end": 44.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "Porsche Cayenne €39.750",
+    "ko": "포르쉐 카이엔 39,750유로",
+    "kind": "제목",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Porsche",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "text": "Dit is de",
+    "ko": "이 차는 바로",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 4.6,
+    "text": "Porsche Cayenne S E-Hybrid platinum Edition",
+    "ko": "포르쉐 카이엔 S E-하이브리드 플래티넘 에디션",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "platinum",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.8,
+    "text": "ligt een 3 liter V6",
+    "ko": "3리터 V6 엔진과",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "3 liter V6",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.1,
+    "text": "gecombineerd met een elektromotor",
+    "ko": "전기모터가 결합되어",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "elektromotor",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.4,
+    "text": "416 pk",
+    "ko": "416마력",
+    "kind": "말 자막",
+    "y_pct": 65.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "416 pk",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.9,
+    "text": "en 590 newtonmeter",
+    "ko": "590Nm 토크",
+    "kind": "말 자막",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "590 newtonmeter",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 17.0,
+    "text": "sprint 0-100 in 5,9 seconden",
+    "ko": "0-100km/h 가속 5.9초",
+    "kind": "말 자막",
+    "y_pct": 64.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "0-100 in",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 20.3,
+    "text": "topsnelheid is 243km/h",
+    "ko": "최고속도는 243km/h",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "243km/h",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.2,
+    "text": "Tiptronic S-automaat",
+    "ko": "팁트로닉 S 자동변속기",
+    "kind": "말 자막",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Tiptronic S-automaat",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 35.0,
+    "text": "2017",
+    "ko": "2017년식",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 18.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "2017",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.6,
+    "text": "heeft 112.233km gereden",
+    "ko": "주행거리 112,233km",
+    "kind": "말 자막",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "112.233km",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 42.1,
+    "text": "€39.750",
+    "ko": "39,750유로",
+    "kind": "가격",
+    "y_pct": 76.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.4,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 26.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "€39.750",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.5,
+    "type": "휙",
+    "event": "3분할 화면 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "휙",
+    "event": "측면 샷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 43.5,
+    "type": "톡",
+    "event": "딜러사 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "트로피컬 하우스 / 일렉트로 팝",
+   "bpm_est": 118,
+   "mood": "경쾌하고 세련된",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "what": "Porsche Cayenne / €39.750 상단 배너",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 10.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "차종 및 핵심 가격 고지",
+    "sure": true
+   },
+   {
+    "start": 43.3,
+    "end": 44.5,
+    "what": "GARAGE SABA 딜러사 로고",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 17.5,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "판매 딜러사 안내",
+    "sure": true
+   },
+   {
+    "start": 44.7,
+    "end": 48.0,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 22.5,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "Dit is de Porsche Cayenne S E-Hybrid Platinum Edition.",
+    "ko": "이 차는 포르쉐 카이엔 S E-하이브리드 플래티넘 에디션입니다."
+   },
+   {
+    "start": 4.6,
+    "end": 9.1,
+    "text": "Onder de motorkap ligt een 3 liter V6 gecombineerd met een elektromotor.",
+    "ko": "보닛 아래에는 3.0리터 V6 엔진과 전기 모터가 탑재되어 있습니다."
+   },
+   {
+    "start": 9.1,
+    "end": 13.9,
+    "text": "Samen goed voor 416 pk en 590 newtonmeter koppel.",
+    "ko": "합산 출력 416마력, 최대 토크 590Nm를 발휘합니다."
+   },
+   {
+    "start": 13.9,
+    "end": 20.3,
+    "text": "Een sprint 0-100 in 5,9 seconden en de topsnelheid is 243 km/h.",
+    "ko": "0-100km/h 가속은 5.9초, 최고 속도는 243km/h입니다."
+   },
+   {
+    "start": 20.3,
+    "end": 27.2,
+    "text": "De Platinum Edition onderscheidt zich met exclusieve details, zoals een luxe interieur, Tiptronic S-automaat.",
+    "ko": "플래티넘 에디션은 고급 인테리어, 팁트로닉 S 자동변속기 등 독점적 디테일이 돋보입니다."
+   },
+   {
+    "start": 27.2,
+    "end": 33.1,
+    "text": "Zo krijg je het comfort van een premium SUV en de sportieve rijeigenschappen waar Porsche bekend om staat.",
+    "ko": "프리미엄 SUV의 안락함과 포르쉐 특유의 스포티한 주행 성능을 동시에 누릴 수 있습니다."
+   },
+   {
+    "start": 33.1,
+    "end": 38.6,
+    "text": "Hij komt uit 2017, heeft 112.233 km gereden.",
+    "ko": "2017년식 모델이며 주행거리는 112,233km입니다."
+   },
+   {
+    "start": 38.6,
+    "end": 42.1,
+    "text": "En hij kost €39.750.",
+    "ko": "가격은 39,750유로입니다."
+   },
+   {
+    "start": 42.1,
+    "end": 48.0,
+    "text": "Je vindt hem in de showroom van Garage Saba en op AutoScout24.be.",
+    "ko": "Garage Saba 전시장과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "보통",
+    "summary": "차명 소개 및 전면/실내/후면 3분할 샷으로 주목도 확보"
+   },
+   {
+    "stage": "사양",
+    "start": 4.6,
+    "end": 20.3,
+    "speed": "빠름",
+    "summary": "파워트레인 스펙(V6 하이브리드, 416마력, 제로백 5.9초, 최고속도) 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 20.3,
+    "end": 33.1,
+    "speed": "빠름",
+    "summary": "플래티넘 에디션 내외관 전용 디테일 및 옵션 인서트 컷 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 33.1,
+    "end": 42.1,
+    "speed": "보통",
+    "summary": "연식(2017), 주행거리(112,233km), 판매 가격(€39,750) 전달"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 42.1,
+    "end": 48.0,
+    "speed": "보통",
+    "summary": "쇼룸 전경을 보여주며 딜러사 및 오토스카우트24 플랫폼 CTA로 마무리"
+   }
+  ],
+  "rules": [
+   "도입부에 모델명과 핵심 가격을 상단 노란색/흰색 박스 그래픽으로 고정 노출하여 즉각적인 구매 관심 유도",
+   "핵심 키워드 및 수치(마력, 제로백, 연식, 가격)는 노란색 강조 폰트 컬러로 시각적 가독성 극대화",
+   "스펙 설명 시 1~2초 단위의 디테일 컷(배기구, 휠, 스티어링 휠, 기어노브)을 빠르게 교차 편집하여 지루함 방지",
+   "영상 말미에 전시장 풀샷과 함께 딜러사 및 플랫폼 로고를 차례로 띄워 신뢰도 높은 행동 유도(CTA) 구성"
+  ]
+ }
+}

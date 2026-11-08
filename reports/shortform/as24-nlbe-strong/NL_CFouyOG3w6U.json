@@ -1,0 +1,502 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/CFouyOG3w6U",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5032,
+  "candidatesTokenCount": 4007,
+  "totalTokenCount": 9039,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4290
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 48.0,
+   "aspect": "9:16",
+   "car": "Volkswagen Tiguan R-Line",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 18.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 21.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 27.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 36.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 37.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 48.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "VOLKSWAGEN TIGUAN",
+    "ko": "폭스바겐 티구안",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.1,
+    "text": "IS AL JAREN",
+    "ko": "수년 동안",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.5,
+    "text": "BEST VERKOCHTE SUV'S",
+    "ko": "가장 많이 팔린 SUV 중 하나",
+    "kind": "말 자막",
+    "y_pct": 13.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.5,
+    "end": 4.5,
+    "text": "VAN EUROPA",
+    "ko": "유럽에서",
+    "kind": "말 자막",
+    "y_pct": 17.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "DAT KOMT OMDAT\nEEN GOEDE MIDDENWEG",
+    "ko": "좋은 절충안을 제시하기 때문",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "HIJ IS MISSCHIEN\nNIET HEEL SPANNEND",
+    "ko": "아주 짜릿하지는 않을지 몰라도",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.2,
+    "text": "MAAR GEWOON OP\nVEEL PUNTEN ERG\nGOED",
+    "ko": "많은 부분에서 기본기가 훌륭합니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.9,
+    "text": "SPORTIEF?\nTE OPVALLEND?",
+    "ko": "스포티한가요? 너무 튀나요?",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 24.5,
+    "text": "GOED EN DEGELIJK ✓",
+    "ko": "견고하고 훌륭한 마감 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 29.8,
+    "text": "VEEL RUIMTE ACHTERIN ✓",
+    "ko": "넓은 2열 공간 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 31.8,
+    "text": "GROTE KOFFERRUIMTE ✓",
+    "ko": "넓은 트렁크 공간 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 88.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 2.8,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "첫 텍스트 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 23.0,
+    "type": "띵",
+    "event": "체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "띵",
+    "event": "체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "띵",
+    "event": "체크마크 자막 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "De Volkswagen Tiguan is al jaren één van de best verkochte SUV's van Europa.",
+    "ko": "폭스바겐 티구안은 수년 동안 유럽에서 가장 많이 팔린 SUV 중 하나입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 11.5,
+    "text": "Dat komt omdat hij veel mensen een goede middenweg biedt. Hij is misschien niet heel spannend, maar gewoon op veel punten erg goed.",
+    "ko": "많은 이들에게 훌륭한 절충안이 되어주기 때문이죠. 엄청 짜릿하진 않아도 모든 면에서 탄탄합니다."
+   },
+   {
+    "start": 11.5,
+    "end": 19.0,
+    "text": "Of ja, niet spannend, dat hoeft niet altijd zo te zijn. Ik ben ook benieuwd wat jij van deze kleur vindt. Vind je hem sportief of juist te opvallend?",
+    "ko": "지루하지 않다는 게 항상 나쁜 건 아니죠. 이 빨간 색상은 어떠신가요? 스포티한가요, 아니면 너무 튀나요?"
+   },
+   {
+    "start": 19.0,
+    "end": 22.0,
+    "text": "Maar waarom kiezen mensen nu zo vaak voor een Volkswagen Tiguan?",
+    "ko": "그렇다면 왜 사람들은 티구안을 이토록 많이 선택할까요?"
+   },
+   {
+    "start": 22.0,
+    "end": 26.5,
+    "text": "De afwerking van het interieur is goed en degelijk. Ook rijdt hij heel comfortabel.",
+    "ko": "인테리어 마감이 훌륭하고 견고하며, 승차감도 매우 편안합니다."
+   },
+   {
+    "start": 26.5,
+    "end": 32.0,
+    "text": "Hij heeft een hoge zit, echt veel ruimte achterin, een grote kofferruimte.",
+    "ko": "높은 시트 포지션, 넉넉한 2열 공간, 넓은 트렁크를 자랑합니다."
+   },
+   {
+    "start": 32.0,
+    "end": 39.5,
+    "text": "En niet onbelangrijk: een Tiguan behoudt zijn waarde heel erg goed. Ze zijn tweedehands heel erg gewild, dus relatief schrijven ze weinig af.",
+    "ko": "그리고 중요한 점: 티구안은 감가가 적습니다. 중고차 시장에서 인기가 높아 잔존가치가 매우 좋습니다."
+   },
+   {
+    "start": 39.5,
+    "end": 48.0,
+    "text": "Het bouwjaar, de kilometerstand en prijs van deze auto vind je in de omschrijving. En ken je nog iemand die een gezinsauto zoekt? Tag hem even in de reacties.",
+    "ko": "연식과 주행거리, 가격은 설명란에서 확인하세요. 패밀리카를 찾는 지인이 있다면 댓글로 태그해주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "유럽 베스트셀링 SUV 티구안 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 19.0,
+    "speed": "보통",
+    "summary": "외관과 강렬한 레드 컬러 리뷰"
+   },
+   {
+    "stage": "기능",
+    "start": 19.0,
+    "end": 32.0,
+    "speed": "빠름",
+    "summary": "실내 마감, 공간성, 승차감 등 핵심 장점 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 32.0,
+    "end": 39.5,
+    "speed": "보통",
+    "summary": "중고차 잔존가치 및 감가율 장점"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.5,
+    "end": 48.0,
+    "speed": "보통",
+    "summary": "차량 정보 확인 안내 및 댓글 태그 유도"
+   }
+  ],
+  "rules": [
+   "호스트가 직접 등장하여 차량의 내외관을 친근하게 설명",
+   "핵심 장점(마감, 공간, 트렁크) 언급 시 체크마크(✓) 자막과 '띵' 효과음을 함께 매칭",
+   "노란색(#FFCC00) 볼드 자막에 검은 외곽선을 둘러 시인성 극대화",
+   "스튜디오 매장 안에서 부드러운 컷 전환과 핸드헬드 무빙을 조합"
+  ]
+ }
+}

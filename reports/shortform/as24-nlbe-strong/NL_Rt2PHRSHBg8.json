@@ -1,0 +1,539 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Rt2PHRSHBg8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5377,
+  "candidatesTokenCount": 4719,
+  "totalTokenCount": 11357,
+  "cachedContentTokenCount": 3552,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4635
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 490
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3062
+   }
+  ],
+  "thoughtsTokenCount": 1261,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 51.5,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf 8 GTI Clubsport",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 11.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 37.6,
+    "part": "옵션 작동",
+    "camera": "손으로 들고",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 49.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.0,
+    "end": 51.5,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "NORMALE GOLF GTI\nGOLF GTI CLUBSPORT",
+    "ko": "일반 골프 GTI\n골프 GTI 클럽스포츠",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.8,
+    "text": "MAAR DAT CLUBSPORT WAT BETEKENT DAT NU PRECIES",
+    "ko": "그런데 클럽스포츠는 정확히 무슨 뜻일까요?",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CLUBSPORT",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 8.8,
+    "text": "DE NAAM CLUBSPORT VERSCHEEN HET EERST IN 2016",
+    "ko": "클럽스포츠라는 이름은 2016년에 처음 등장했습니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2016",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 11.8,
+    "text": "TOEN VOLKSWAGEN 40 JAAR GTI VIERDE",
+    "ko": "폭스바겐이 GTI 40주년을 기념했을 때였죠",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "40 JAAR",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.0,
+    "text": "MAAR DEZE IS EEN STUK NIEUWER",
+    "ko": "하지만 이 차는 훨씬 더 새 모델입니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "NIEUWER",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.6,
+    "text": "DIT IS DE GOLF 8 CLUBSPORT UIT 2024",
+    "ko": "이것은 2024년형 골프 8 클럽스포츠입니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2024",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.0,
+    "text": "OP HET EINDE VERTEL IK JE OOK WAT DIE KOST",
+    "ko": "마지막에 가격도 얼마인지 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KOST",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.8,
+    "text": "EEN NORMALE GTI HEEFT 245 PK",
+    "ko": "일반 GTI는 245마력입니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "245 PK",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.8,
+    "text": "MAAR DEZE CLUBSPORT HEEFT 300 PK",
+    "ko": "하지만 이 클럽스포츠는 300마력입니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "300 PK",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.8,
+    "text": "VOLKSWAGEN PAST NIET ALLEEN DE MOTOR AAN",
+    "ko": "폭스바겐은 엔진만 튜닝한 것이 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MOTOR",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.9,
+    "text": "MAAR HIJ HEEFT OOK EEN ANDER ONDERSTEL EN AERODYNAMICA",
+    "ko": "하체 세팅과 공기역학도 다르게 적용했습니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AERODYNAMICA",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 33.5,
+    "text": "ALLEMAAL VERSCHILLENDE RIJMODUSSEN",
+    "ko": "다양한 주행 모드가 있습니다",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RIJMODUSSEN",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 37.6,
+    "text": "DIE SPECIFIEK IS AFGESTEMD OP RIJDEN OP DE NÜRBURGRING",
+    "ko": "뉘르부르크링 서킷 주행에 특별히 맞춘 모드도 있죠",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "NURBURGRING",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 39.5,
+    "text": "€ 63.950,-",
+    "ko": "63,950 유로",
+    "kind": "가격",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 37.8,
+    "type": "띵",
+    "event": "가격 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 일렉트로닉 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 37.6,
+    "end": 39.5,
+    "what": "가격 표시 배너",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 36.5,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 안내",
+    "sure": true
+   },
+   {
+    "start": 48.8,
+    "end": 51.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 45.0,
+    "entrance": "페이드",
+    "purpose": "엔드카드 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "text": "Je hebt de normale Golf GTI en je hebt de Golf GTI Clubsport. Maar dat Clubsport, wat betekent dat nu precies?",
+    "ko": "일반 골프 GTI가 있고 골프 GTI 클럽스포츠가 있습니다. 그런데 클럽스포츠는 정확히 무슨 뜻일까요?"
+   },
+   {
+    "start": 5.8,
+    "end": 11.8,
+    "text": "De naam Clubsport verscheen het eerst in 2016 toen Volkswagen 40 jaar GTI vierde.",
+    "ko": "클럽스포츠라는 명칭은 2016년 폭스바겐이 GTI 40주년을 기념할 때 처음 등장했습니다."
+   },
+   {
+    "start": 11.8,
+    "end": 18.0,
+    "text": "Maar deze is een stuk nieuwer. Dit is de Golf 8 Clubsport uit 2024. En op het einde vertel ik je ook wat die kost.",
+    "ko": "하지만 이 차량은 훨씬 최신입니다. 바로 2024년형 골프 8 클럽스포츠죠. 마지막에는 가격도 알려드릴게요."
+   },
+   {
+    "start": 18.0,
+    "end": 23.8,
+    "text": "En een normale GTI heeft 245 pk, maar deze Clubsport heeft 300 pk.",
+    "ko": "일반 GTI는 245마력이지만, 이 클럽스포츠는 300마력에 달합니다."
+   },
+   {
+    "start": 23.8,
+    "end": 28.9,
+    "text": "En Volkswagen paste niet alleen de motor aan, maar hij heeft ook een ander onderstel en aerodynamica.",
+    "ko": "폭스바겐은 엔진만 손본 게 아니라 섀시와 공기역학 설계도 다르게 다듬었습니다."
+   },
+   {
+    "start": 28.9,
+    "end": 37.6,
+    "text": "En misschien nog wel het leukste: kijk, hier heb je allemaal verschillende rijmodussen. En deze heeft een rijmodus die specifiek is afgestemd op rijden op de Nürburgring.",
+    "ko": "가장 흥미로운 점은 주행 모드인데요, 뉘르부르크링 서킷 전용으로 특별히 조율된 모드까지 탑재되어 있습니다."
+   },
+   {
+    "start": 37.6,
+    "end": 43.5,
+    "text": "En hij kost... Nu ben ik benieuwd: zou jij kiezen voor de normale GTI of een GTI Clubsport?",
+    "ko": "가격은 이렇습니다. 여러분의 선택이 궁금하네요, 일반 GTI를 고르시겠어요 아니면 GTI 클럽스포츠인가요?"
+   },
+   {
+    "start": 43.5,
+    "end": 51.5,
+    "text": "Laat het even weten in de reacties. Deze Clubsport die vind je in de showroom van Autobedrijf Rijswijk en natuurlijk op autoscout24.nl.",
+    "ko": "댓글로 남겨주세요! 이 클럽스포츠는 Autobedrijf Rijswijk 매장과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.8,
+    "speed": "빠름",
+    "summary": "일반 GTI와 클럽스포츠의 차이점 질문으로 관심 유도"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.8,
+    "end": 18.0,
+    "speed": "보통",
+    "summary": "클럽스포츠의 유래와 2024년형 골프 8 클럽스포츠 외관 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.0,
+    "end": 28.9,
+    "speed": "빠름",
+    "summary": "마력 비교(245pk vs 300pk) 및 섀시/에어로다이내믹스 변경점"
+   },
+   {
+    "stage": "기능",
+    "start": 28.9,
+    "end": 37.6,
+    "speed": "보통",
+    "summary": "실내 디스플레이에서 뉘르부르크링 전용 주행 모드 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 37.6,
+    "end": 39.5,
+    "speed": "빠름",
+    "summary": "차량 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 39.5,
+    "end": 51.5,
+    "speed": "보통",
+    "summary": "시청자 질문(CTA) 및 판매처/AutoScout24 안내"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 차를 소개하며 빠른 템포로 정보를 전달함",
+   "중요한 키워드(마력, 연식, 주행모드)는 볼드 폰트와 노란색 강조 자막을 활용해 가독성을 높임",
+   "외관 디테일(배기구, 엠블럼)과 실내 인포테인먼트 화면을 번갈아 보여주며 지루함을 방지함",
+   "후반부에 가격 공개 후 댓글 참여 유도 및 웹사이트 방문 CTA로 마무리"
+  ]
+ }
+}

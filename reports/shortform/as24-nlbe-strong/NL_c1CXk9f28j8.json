@@ -1,0 +1,445 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/c1CXk9f28j8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3920,
+  "candidatesTokenCount": 4321,
+  "totalTokenCount": 8241,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3178
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.0,
+   "aspect": "9:16",
+   "car": "BMW X3",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 19.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 20.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 26.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 35.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "€36.000",
+    "ko": "36,000유로",
+    "kind": "가격",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 9.9,
+    "text": "VIERWIELAANDRIJVING ✔",
+    "ko": "사륜구동 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "SPORTIEVERE BUMPERS ✔",
+    "ko": "스포티한 범퍼 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.6,
+    "text": "SPORTIEF ONDERSTEL ✔",
+    "ko": "스포티한 서스펜션 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.8,
+    "text": "HEAD-UP DISPLAY ✔\nHARMAN KARDON\nGELUIDSSYSTEEM ✔",
+    "ko": "헤드업 디스플레이 ✔\n하만카돈 오디오 시스템 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.0,
+    "text": "PANORAMADAK ✔",
+    "ko": "파노라마 선루프 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.2,
+    "end": 22.1,
+    "text": "184 PK 🏁",
+    "ko": "184 마력 🏁",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 23.5,
+    "text": "95.000 KM",
+    "ko": "95,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "쿵",
+    "event": "가격 36.000 유로 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.0,
+    "type": "톡",
+    "event": "VIERWIELAANDRIJVING 태그 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "SPORTIEVERE BUMPERS 태그 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "SPORTIEF ONDERSTEL 태그 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "HEAD-UP DISPLAY 태그 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "톡",
+    "event": "PANORAMADAK 태그 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 21.2,
+    "type": "톡",
+    "event": "184 PK 태그 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.1,
+    "type": "톡",
+    "event": "95.000 KM 태그 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "톡",
+    "event": "마지막 AutoScout24 로고 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 경쾌한 전자 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": "일부",
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 4.3,
+    "end": 6.8,
+    "what": "AutoScout24 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.0,
+    "what": "AutoScout24 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔드스크린 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "36.000 euro voor een BMW X3. Wat krijg je daarvoor?",
+    "ko": "BMW X3에 3만 6천 유로. 과연 무엇을 얻을 수 있을까요?"
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "Deze vind je op AutoScout24.nl.",
+    "ko": "이 차는 AutoScout24.nl에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 6.8,
+    "end": 10.0,
+    "text": "Om te beginnen is het een xDrive en heeft dus vierwielaandrijving.",
+    "ko": "먼저 이 차는 xDrive 모델이라 사륜구동이 적용되어 있습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 15.6,
+    "text": "En hij heeft het M-pakket, waardoor hij onder andere sportievere bumpers, een sportief onderstel...",
+    "ko": "그리고 M 패키지가 적용되어 더 스포티한 범퍼와 스포츠 서스펜션..."
+   },
+   {
+    "start": 15.6,
+    "end": 20.9,
+    "text": "en luxe stoelen. Ook heeft hij een head-up display, een Harman Kardon geluidssysteem en een panoramadak.",
+    "ko": "고급 시트가 들어갑니다. 또한 헤드업 디스플레이, 하만카돈 사운드 시스템, 파노라마 선루프까지 갖췄죠."
+   },
+   {
+    "start": 20.9,
+    "end": 26.0,
+    "text": "Hij heeft 184 pk, 95.000 km gelopen en het is een origineel Nederlandse auto.",
+    "ko": "184마력에 95,000km를 주행했고 네덜란드 정식 출고 차량입니다."
+   },
+   {
+    "start": 26.0,
+    "end": 35.0,
+    "text": "Dus ben je op zoek naar een mooie BMW X3? Niet alleen deze, maar meer dan 1.600 X3-modellen vind je op AutoScout24.nl.",
+    "ko": "멋진 BMW X3를 찾고 계신가요? 이 차량뿐만 아니라 1,600대 이상의 X3를 AutoScout24.nl에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "차량 가격 제시 및 관심 유도 질문"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 3.7,
+    "end": 6.8,
+    "speed": "보통",
+    "summary": "플랫폼 AutoScout24 언급 및 로고 노출"
+   },
+   {
+    "stage": "기능",
+    "start": 6.8,
+    "end": 20.9,
+    "speed": "빠름",
+    "summary": "구동방식, M패키지, 실내 편의사양 차례로 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 20.9,
+    "end": 26.0,
+    "speed": "빠름",
+    "summary": "마력, 주행거리, 차량 이력 정보 제공"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 26.0,
+    "end": 35.0,
+    "speed": "보통",
+    "summary": "플랫폼 등록 매물 수 소개 및 방문 유도 CTA"
+   }
+  ],
+  "rules": [
+   "브랜드 시그니처 컬러인 노란색 박스/폰트의 자막을 일관되게 활용한다.",
+   "옵션 및 제원 정보를 읊을 때마다 팝업 사운드와 함께 체크마크 스티커를 띄워 직관성을 높인다.",
+   "진행자가 화면에 직접 등장하여 친근하게 차량을 안내하는 쇼호스트 형식을 취한다.",
+   "시작부와 마무리 부분에 플랫폼 브랜딩 및 CTA를 명확히 배치한다."
+  ]
+ }
+}

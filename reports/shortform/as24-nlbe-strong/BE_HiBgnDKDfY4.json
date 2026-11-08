@@ -1,0 +1,374 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/HiBgnDKDfY4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2650,
+  "candidatesTokenCount": 3665,
+  "totalTokenCount": 6863,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1908
+   }
+  ],
+  "thoughtsTokenCount": 548,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 20.9,
+   "aspect": "9:16",
+   "car": "Fiat 500 / VW Golf / Audi RS Q3 / Porsche Taycan",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 7.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 11.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 15.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Je krijgt €50.000 Welke auto kies jij?",
+    "ko": "5만 유로를 받는다면 어떤 차를 고르시겠어요?",
+    "kind": "제목",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "€50.000",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 6.8,
+    "text": "Ik een nieuwe 500 cabrio een hybride.",
+    "ko": "저는 새 피아트 500 카브리오 하이브리드요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "500 cabrio",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 11.6,
+    "text": "Volkswagen. Ik heb een golf 10 jaar oud, maar ik ben daar nog altijd heel content van.",
+    "ko": "폭스바겐이요. 지금 10년 된 골프가 있는데 여전히 아주 만족해요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "content",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 15.3,
+    "text": "Zou het eigenlijk niet weet, maar toch een hoger een hoger model.",
+    "ko": "잘 모르겠지만, 그래도 좀 더 차고가 높은 모델이요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "hoger model",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "text": "Porsche Taycan, ik leg wel bij.",
+    "ko": "포르쉐 타이칸이요, 차액은 제가 보탤게요.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Porsche Taycan",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 20.9,
+    "text": "die Porsche Taycan is te koop op AutoScout24.be",
+    "ko": "그 포르쉐 타이칸은 AutoScout24.be에서 구매하실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24.be",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.2,
+    "type": "톡",
+    "event": "피아트 500 매물 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.9,
+    "type": "휙",
+    "event": "폭스바겐 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.5,
+    "type": "톡",
+    "event": "골프 GTI 매물 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "톡",
+    "event": "아우디 RS Q3 매물 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "톡",
+    "event": "포르쉐 타이칸 매물 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.1,
+    "type": "휙",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 인스트루멘탈",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.2,
+    "end": 6.8,
+    "what": "AutoScout24 피아트 500 매물 카드 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시민 답변 차량의 앱 내 실제 매물 및 가격 시각화",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 11.5,
+    "what": "AutoScout24 폭스바겐 골프 GTI 매물 카드 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시민 답변 차량의 앱 내 실제 매물 및 가격 시각화",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.4,
+    "what": "AutoScout24 아우디 RS Q3 매물 카드 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시민 답변 차량의 앱 내 실제 매물 및 가격 시각화",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.5,
+    "what": "AutoScout24 포르쉐 타이칸 매물 카드 스티커",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 45.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "시민 답변 차량의 앱 내 실제 매물 및 가격 시각화",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.9,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 아웃트로",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Je krijgt €50.000. Welke auto zou jij dan mee kopen?",
+    "ko": "5만 유로가 생긴다면 어떤 차를 사실 건가요?"
+   },
+   {
+    "start": 2.9,
+    "end": 6.8,
+    "text": "Ik een nieuwe Fiat 500 cabrio, zo'n hybride.",
+    "ko": "저는 새 피아트 500 카브리오, 하이브리드 모델이요."
+   },
+   {
+    "start": 6.9,
+    "end": 11.6,
+    "text": "Volkswagen. Ik heb een Golf, die is al 10 jaar oud, maar ik ben daar nog altijd heel content van.",
+    "ko": "폭스바겐이요. 10년 된 골프가 있는데 여전히 너무 만족스러워요."
+   },
+   {
+    "start": 11.8,
+    "end": 15.3,
+    "text": "Ik zou het eigenlijk niet weten, maar toch een hoger model.",
+    "ko": "글쎄요 잘은 모르겠지만 전 좀 차고가 높은 모델이요."
+   },
+   {
+    "start": 15.5,
+    "end": 17.5,
+    "text": "Porsche Taycan. Ik leg wel bij.",
+    "ko": "포르쉐 타이칸이요. 초과금은 제가 보태죠."
+   },
+   {
+    "start": 17.6,
+    "end": 20.9,
+    "text": "Die Porsche Taycan is te koop op AutoScout24.be.",
+    "ko": "그 포르쉐 타이칸은 AutoScout24.be에서 사실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "5만 유로로 어떤 차를 살 것인지 질문하며 인터뷰 시작"
+   },
+   {
+    "stage": "기타",
+    "start": 2.8,
+    "end": 17.6,
+    "speed": "빠름",
+    "summary": "길거리 시민들의 선호 차량 인터뷰 및 AutoScout24 실제 매물 스티커 노출"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 17.6,
+    "end": 20.9,
+    "speed": "보통",
+    "summary": "해당 매물을 플랫폼 웹사이트에서 찾을 수 있음을 안내하며 마무리"
+   }
+  ],
+  "rules": [
+   "길거리 인터뷰 형식으로 시민들에게 예산 기반의 질문을 던져 공감대를 형성한다.",
+   "시민이 차량을 언급할 때마다 자사 플랫폼(AutoScout24)의 실제 매물 카드 스티커와 가격을 화면 상단에 띄운다.",
+   "매물 카드와 브랜드 로고가 팝업될 때 명확한 효과음(톡/휙)을 삽입하여 시각적 주목도를 높인다.",
+   "마지막 인터뷰이의 답변을 활용해 자연스럽게 자사 플랫폼 홍보 및 콜투액션으로 전환한다."
+  ]
+ }
+}

@@ -1,0 +1,754 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/yfnWYaXf8z4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5212,
+  "candidatesTokenCount": 6023,
+  "totalTokenCount": 11235,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4470
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 49.8,
+   "aspect": "9:16",
+   "car": "Hongqi E-HS9",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 10.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 13.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.6,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.6,
+    "end": 26.9,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.9,
+    "end": 29.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 34.6,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 39.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.0,
+    "end": 45.4,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 49.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.5,
+    "text": "KEN JIJ DIT AUTOMERK?",
+    "ko": "이 자동차 브랜드를 아시나요?",
+    "kind": "제목",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 82.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.8,
+    "text": "MAAR HET BESTAAT AL SINDS 1958",
+    "ko": "하지만 1958년부터 존재했습니다",
+    "kind": "말 자막",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "1958",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "text": "DIT IS DE HONGQI",
+    "ko": "이것은 훙치입니다",
+    "kind": "말 자막",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.6,
+    "text": "LUXE AUTOMERK MET EEN INDRUKWEKKENDE GESCHIEDENIS",
+    "ko": "인상적인 역사를 가진 럭셔리 자동차 브랜드",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.9,
+    "text": "HONGQI BETEKENT LETTERLIJK RODE VLAG",
+    "ko": "훙치는 문자 그대로 붉은 깃발을 의미합니다",
+    "kind": "말 자막",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "RODE VLAG",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.6,
+    "text": "HET MERK BOUWDE OORSPRONKELIJK AUTO'S VOOR CHINESE LEIDERS",
+    "ko": "이 브랜드는 원래 중국 지도자들을 위한 자동차를 만들었습니다",
+    "kind": "말 자막",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "CHINESE LEIDERS",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.7,
+    "text": "EN TEGENWOORDIG BOUWEN ZE DUS DIT",
+    "ko": "그리고 요즘 그들은 이런 차를 만듭니다",
+    "kind": "말 자막",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.6,
+    "text": "VOLLEDIG ELEKTRISCHE E-HS9",
+    "ko": "완전 순수 전기차 E-HS9",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLLEDIG ELEKTRISCHE",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 24.6,
+    "text": "EEN GROTE SUV VAN BIJNA 5,2 METER LANG MET",
+    "ko": "거의 5.2미터 길이에 달하는 대형 SUV",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "GROTE SUV",
+    "sure": true
+   },
+   {
+    "start": 24.7,
+    "end": 26.8,
+    "text": "6 ZITPLAATSEN",
+    "ko": "6개의 좌석",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "6",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.8,
+    "text": "EN DEZE PRESIDENT UITVOERING HEEFT ONDER ANDERE",
+    "ko": "그리고 이 프레지던트 트림은 특히 갖추고 있습니다",
+    "kind": "말 자막",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PRESIDENT",
+    "sure": true
+   },
+   {
+    "start": 29.9,
+    "end": 34.5,
+    "text": "LUCHTVERING PANORAMADAK MASSAGESTOELEN STOELVENTILATIE EN",
+    "ko": "에어 서스펜션, 파노라마 선루프, 마사지 시트, 통풍 시트 및",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "text": "360 GRADEN CAMERA",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.7,
+    "end": 39.7,
+    "text": "EN HET VERMOGEN IS 551 PK",
+    "ko": "그리고 출력은 551 마력입니다",
+    "kind": "말 자막",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "551 PK",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.0,
+    "text": "DE PRIJS HET BOUWJAAR EN DE KILOMETERSTAND",
+    "ko": "가격, 연식, 주행거리는",
+    "kind": "말 자막",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 44.5,
+    "text": "OMSCHRIJVING",
+    "ko": "설명란에서",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.6,
+    "end": 47.0,
+    "text": "VAN VLIET AUTO'S",
+    "ko": "반 플리트 오토 매장",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "톡",
+    "event": "1958 연도 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "훙치 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "중국 국기 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "딸깍",
+    "event": "중국 지도자 체크마크 표시",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.7,
+    "type": "휙",
+    "event": "전기 번개 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.6,
+    "type": "톡",
+    "event": "6 좌석 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "딸깍",
+    "event": "에어 서스펜션 체크마크 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.8,
+    "type": "딸깍",
+    "event": "파노라마 루프 체크마크 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "딸깍",
+    "event": "마사지 시트 체크마크 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "딸깍",
+    "event": "통풍 시트 체크마크 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 34.6,
+    "type": "딸깍",
+    "event": "360도 카메라 체크마크 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.8,
+    "type": "휙",
+    "event": "551마력 깃발 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 애니메이션 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 호기심 유발",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.2,
+    "end": 7.2,
+    "what": "홍치 엠블럼 로고 스티커",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 30.0,
+    "y_pct": 15.0,
+    "entrance": "팝업",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.5,
+    "what": "중국 국기 이모지 스티커",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 46.0,
+    "y_pct": 23.0,
+    "entrance": "팝업",
+    "purpose": "제조국 강조",
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 21.6,
+    "what": "전기 번개 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 12.0,
+    "entrance": "팝업",
+    "purpose": "전기차 특징 강조",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 49.8,
+    "what": "AutoScout24 브랜드 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "확대 전환",
+    "purpose": "엔드카드 브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Grote kans dat je dit automerk nog nooit hebt gezien,",
+    "ko": "이 자동차 브랜드를 한 번도 본 적이 없을 가능성이 큽니다,"
+   },
+   {
+    "start": 2.7,
+    "end": 4.8,
+    "text": "maar het bestaat al sinds 1958.",
+    "ko": "하지만 1958년부터 이미 존재했습니다."
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "Dit is de Hongqi,",
+    "ko": "이 차는 훙치입니다,"
+   },
+   {
+    "start": 6.8,
+    "end": 10.6,
+    "text": "een Chinees luxe automerk met een indrukwekkende geschiedenis.",
+    "ko": "인상적인 역사를 가진 중국의 럭셔리 자동차 브랜드죠."
+   },
+   {
+    "start": 10.6,
+    "end": 12.9,
+    "text": "Hongqi betekent letterlijk rode vlag.",
+    "ko": "훙치는 문자 그대로 붉은 깃발을 의미합니다."
+   },
+   {
+    "start": 12.9,
+    "end": 16.6,
+    "text": "Het merk bouwde oorspronkelijk auto's voor Chinese leiders.",
+    "ko": "이 브랜드는 원래 중국 지도자들을 위한 자동차를 만들었습니다."
+   },
+   {
+    "start": 16.6,
+    "end": 18.7,
+    "text": "En tegenwoordig bouwen ze dus dit,",
+    "ko": "그리고 요즘에는 바로 이런 차를 만듭니다,"
+   },
+   {
+    "start": 18.7,
+    "end": 21.6,
+    "text": "een volledig elektrische E-HS9.",
+    "ko": "완전 순수 전기차인 E-HS9입니다."
+   },
+   {
+    "start": 21.6,
+    "end": 24.6,
+    "text": "Een grote SUV van bijna 5,2 meter lang,",
+    "ko": "거의 5.2미터 길이에 달하는 대형 SUV로,"
+   },
+   {
+    "start": 24.6,
+    "end": 26.9,
+    "text": "met 6 zitplaatsen.",
+    "ko": "6개의 좌석을 갖추고 있습니다."
+   },
+   {
+    "start": 26.9,
+    "end": 29.8,
+    "text": "En deze President uitvoering heeft onder andere",
+    "ko": "그리고 이 프레지던트 사양은 특히"
+   },
+   {
+    "start": 29.8,
+    "end": 34.6,
+    "text": "luchtvering, een panoramadak, massagestoelen, stoelventilatie,",
+    "ko": "에어 서스펜션, 파노라마 루프, 마사지 시트, 시트 통풍,"
+   },
+   {
+    "start": 34.6,
+    "end": 36.6,
+    "text": "en een 360-graden camera.",
+    "ko": "그리고 360도 카메라를 갖추고 있습니다."
+   },
+   {
+    "start": 36.6,
+    "end": 39.8,
+    "text": "En het vermogen van deze auto is 551 pk.",
+    "ko": "그리고 이 차의 출력은 551마력입니다."
+   },
+   {
+    "start": 39.8,
+    "end": 44.5,
+    "text": "De prijs, het bouwjaar en de kilometerstand vind je terug in de omschrijving.",
+    "ko": "가격, 연식, 주행거리는 설명란에서 확인하실 수 있습니다."
+   },
+   {
+    "start": 44.5,
+    "end": 49.8,
+    "text": "Je vindt deze auto in de showroom van Van Vliet Auto en natuurlijk op autoscout24.nl.",
+    "ko": "이 차량은 Van Vliet Auto 전시장과 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "보통",
+    "summary": "생소하지만 유서 깊은 브랜드 질문으로 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 16.7,
+    "speed": "보통",
+    "summary": "브랜드 훙치의 유래와 중국 지도자 전용 역사 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 16.7,
+    "end": 26.9,
+    "speed": "보통",
+    "summary": "전기 SUV E-HS9 차체 크기 및 시트 구성 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 26.9,
+    "end": 39.8,
+    "speed": "빠름",
+    "summary": "프레지던트 트림의 주요 편의 옵션 및 551마력 출력 나열"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 39.8,
+    "end": 49.8,
+    "speed": "보통",
+    "summary": "가격/스펙 확인 안내 및 플랫폼 유도와 엔드카드"
+   }
+  ],
+  "rules": [
+   "호기심 유발 질문 상단 노란 박스 자막 고정 배치",
+   "옵션 나열 시 체크마크 스티커와 효과음 딸깍을 동기화하여 시각적 전달력 극대화",
+   "핵심 키워드 단어는 볼드체 노란색 하이라이트로 가독성 강화",
+   "전시장 안내 후 플랫폼 로고 확대 전환으로 자연스러운 엔드카드 마무리"
+  ]
+ }
+}

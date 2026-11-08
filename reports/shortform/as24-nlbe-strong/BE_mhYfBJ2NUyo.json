@@ -1,0 +1,981 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/mhYfBJ2NUyo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7653,
+  "candidatesTokenCount": 7912,
+  "totalTokenCount": 15838,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6911
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 273,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 76.2,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG GLE 53 Coupe vs Porsche Cayenne S E-Hybrid Coupe",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 8.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 8.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.1,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 16.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 18.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.9,
+    "end": 20.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 22.9,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.1,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 25.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 29.3,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.3,
+    "end": 33.1,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.2,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.2,
+    "end": 41.7,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 44.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 47.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.9,
+    "end": 48.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 51.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.0,
+    "end": 54.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 56.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 57.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.6,
+    "end": 59.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.0,
+    "end": 62.4,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 62.4,
+    "end": 65.6,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 65.6,
+    "end": 68.1,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 68.1,
+    "end": 70.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 73.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 73.8,
+    "end": 76.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "Beide kosten\n€119.000\nWelke SUV kies jij?",
+    "ko": "둘 다 119,000유로\n어떤 SUV를 고르시겠습니까?",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "€119.000",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 8.0,
+    "text": "€ 119.870\nMercedes Benz GLE 53 AMG",
+    "ko": "119,870유로\n메르세데스 벤츠 GLE 53 AMG",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.3,
+    "text": "AMG",
+    "ko": "AMG",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "text": "AMG pakket",
+    "ko": "AMG 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.3,
+    "text": "22 inch velgen",
+    "ko": "22인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.9,
+    "text": "automatische\n9-traps transmissie",
+    "ko": "9단 자동변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.9,
+    "text": "Burmester",
+    "ko": "부메스터 오디오",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.9,
+    "end": 24.1,
+    "text": "Panoramadak",
+    "ko": "파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 25.1,
+    "text": "Head-up display",
+    "ko": "헤드업 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 36.2,
+    "text": "Multicontour stoelen\nMassage functie",
+    "ko": "멀티컨투어 시트\n마사지 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 44.8,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 47.9,
+    "text": "4.766 KM",
+    "ko": "4,766 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 51.0,
+    "text": "€ 119.840\nPorsche Cayenne S\ne-hybrid",
+    "ko": "119,840유로\n포르쉐 카이엔 S\ne-하이브리드",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 52.0,
+    "end": 54.7,
+    "text": "Porsche Active suspension\nmanagement",
+    "ko": "포르쉐 액티브 서스펜션\n매니지먼트 (PASM)",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 56.1,
+    "text": "Elektrisch\nleren stoelen",
+    "ko": "전동 가죽 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.1,
+    "end": 57.6,
+    "text": "Memory functie",
+    "ko": "메모리 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 57.6,
+    "end": 59.0,
+    "text": "Panoramisch\ndak",
+    "ko": "파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 63.5,
+    "end": 65.6,
+    "text": "Bose surround\nsoundsystem",
+    "ko": "보스 서라운드\n사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 65.6,
+    "end": 68.1,
+    "text": "22 inch velgen\nRS Spyder design",
+    "ko": "22인치 휠\nRS 스파이더 디자인",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 68.1,
+    "end": 70.8,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 73.8,
+    "text": "11.268 KM",
+    "ko": "11,268 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#111111",
+    "background": "칠",
+    "bg_color": "#F8E71C",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 8.9,
+    "type": "톡",
+    "event": "AMG 원형 그래픽 및 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "톡",
+    "event": "AMG pakket 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "톡",
+    "event": "22 inch velgen 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "변속기 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "Burmester 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.9,
+    "type": "톡",
+    "event": "Panoramadak 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.1,
+    "type": "톡",
+    "event": "Head-up display 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.1,
+    "type": "톡",
+    "event": "Multicontour stoelen 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.7,
+    "type": "톡",
+    "event": "연식 2025 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "톡",
+    "event": "주행거리 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.0,
+    "type": "톡",
+    "event": "PASM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.7,
+    "type": "톡",
+    "event": "전동시트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.1,
+    "type": "톡",
+    "event": "메모리시트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.6,
+    "type": "톡",
+    "event": "파노라마루프 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 63.5,
+    "type": "톡",
+    "event": "보스 사운드 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 65.6,
+    "type": "톡",
+    "event": "22인치 휠 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 68.1,
+    "type": "톡",
+    "event": "카이엔 연식 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 70.8,
+    "type": "톡",
+    "event": "카이엔 주행거리 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트/팝",
+   "bpm_est": 115,
+   "mood": "리드미컬하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 8.8,
+    "end": 10.3,
+    "what": "AMG 엠블럼 노란색 원형 강조 표시",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "포인트 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.1,
+    "text": "Beide honderdnegentienduizend euro. Voor welke kies jij?",
+    "ko": "둘 다 119,000 유로입니다. 당신은 어느 쪽을 선택하시겠습니까?"
+   },
+   {
+    "start": 4.1,
+    "end": 8.0,
+    "text": "Ga jij voor de Mercedes-Benz GLE 53 AMG?",
+    "ko": "메르세데스-벤츠 GLE 53 AMG를 선택하시겠습니까?"
+   },
+   {
+    "start": 8.0,
+    "end": 13.0,
+    "text": "Het is natuurlijk een AMG. Dat houdt in: hij is volledig uitgerust met een AMG pakket.",
+    "ko": "물론 AMG 모델입니다. 완전히 AMG 패키지가 적용되어 있다는 뜻이죠."
+   },
+   {
+    "start": 13.0,
+    "end": 18.0,
+    "text": "Zoals onder andere 22 inch velgen, AMG voor- en achterbumper.",
+    "ko": "22인치 휠과 AMG 앞뒤 범퍼 등이 포함됩니다."
+   },
+   {
+    "start": 18.0,
+    "end": 25.1,
+    "text": "Hij heeft een automatische 9-traps transmissie, premium soundsysteem van Burmester, een panoramadak en een head-up display.",
+    "ko": "9단 자동변속기, 부메스터 프리미엄 사운드 시스템, 파노라마 루프와 헤드업 디스플레이를 갖췄습니다."
+   },
+   {
+    "start": 25.1,
+    "end": 33.1,
+    "text": "Een 360 graden camera met een 3D-functie. De mogelijkheid om het onderstel volledig aan te passen naar keuze.",
+    "ko": "3D 기능이 있는 360도 카메라와 서스펜션을 원하는 대로 세팅할 수 있는 기능도 있습니다."
+   },
+   {
+    "start": 33.1,
+    "end": 41.7,
+    "text": "Multicontourstoelen met massagefunctie. Heeft ook nog de optie Dynamic Select, dan kun je dus kiezen tussen verschillende rijmodussen.",
+    "ko": "마사지 기능이 있는 멀티컨투어 시트, 그리고 다양한 주행 모드를 선택할 수 있는 다이내믹 셀렉트도 있습니다."
+   },
+   {
+    "start": 41.7,
+    "end": 47.9,
+    "text": "Hij komt uit 2025 en heeft 4.766 km op de teller.",
+    "ko": "2025년식이며 주행거리는 4,766km입니다."
+   },
+   {
+    "start": 47.9,
+    "end": 51.0,
+    "text": "Of ga jij voor de Porsche Cayenne S E-Hybrid?",
+    "ko": "아니면 포르쉐 카이엔 S E-하이브리드를 선택하시겠습니까?"
+   },
+   {
+    "start": 51.0,
+    "end": 59.0,
+    "text": "Hij is uitgevoerd met een Porsche Active Suspension Management, elektrisch leren stoelen met memoryfunctie, panoramisch dak.",
+    "ko": "포르쉐 액티브 서스펜션 매니지먼트, 메모리 기능 전동 가죽 시트, 파노라마 루프가 장착되어 있습니다."
+   },
+   {
+    "start": 59.0,
+    "end": 65.6,
+    "text": "Hij heeft een 360 graden camera met volledige 3D-functie, en hij is uitgevoerd met een Bose surround soundsystem.",
+    "ko": "완벽한 3D 기능의 360도 카메라와 보스 서라운드 사운드 시스템을 탑재했습니다."
+   },
+   {
+    "start": 65.6,
+    "end": 73.8,
+    "text": "22 inch velgen in het RS Spyder design. Hij komt uit 2025 en hij heeft 11.268 km op de teller.",
+    "ko": "22인치 RS 스파이더 디자인 휠이 적용되었고, 2025년식에 주행거리는 11,268km입니다."
+   },
+   {
+    "start": 73.8,
+    "end": 76.2,
+    "text": "Welke zou jij kiezen?",
+    "ko": "당신은 어느 쪽을 선택하시겠습니까?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "보통",
+    "summary": "동일한 119,000유로 예산의 두 SUV 비교 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.1,
+    "end": 8.0,
+    "speed": "보통",
+    "summary": "후보 1: 메르세데스 GLE 53 AMG 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 8.0,
+    "end": 41.7,
+    "speed": "빠름",
+    "summary": "GLE 53 AMG의 익스테리어 패키지 및 인테리어/편의 옵션 세부 확인"
+   },
+   {
+    "stage": "사양",
+    "start": 41.7,
+    "end": 47.9,
+    "speed": "보통",
+    "summary": "GLE 53 AMG의 연식 및 주행거리 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 47.9,
+    "end": 51.0,
+    "speed": "보통",
+    "summary": "후보 2: 포르쉐 카이엔 S E-하이브리드 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 51.0,
+    "end": 68.1,
+    "speed": "빠름",
+    "summary": "카이엔의 서스펜션, 실내 옵션, 사운드, 휠 세부 확인"
+   },
+   {
+    "stage": "사양",
+    "start": 68.1,
+    "end": 73.8,
+    "speed": "보통",
+    "summary": "카이엔의 연식 및 주행거리 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 73.8,
+    "end": 76.2,
+    "speed": "보통",
+    "summary": "시청자에게 최종 선택 질문 콜투액션"
+   }
+  ],
+  "rules": [
+   "동일 가격대의 라이벌 차종 2대를 번갈아 균형 있게 소개하는 A/B 비교 포맷 활용",
+   "각 옵션과 특징이 언급될 때마다 통일된 노란색 브러시 박스 키워드 자막과 '톡' 효과음 동시 삽입",
+   "상단 3분할 샷을 활용하여 전면·실내·후면을 한 화면에서 한눈에 보여주는 모델 요약 그래픽 적용",
+   "각 차량 설명의 마지막에는 반드시 연식과 주행거리(KM)를 노란색 라벨로 표시하여 구매 기준 제공"
+  ]
+ }
+}

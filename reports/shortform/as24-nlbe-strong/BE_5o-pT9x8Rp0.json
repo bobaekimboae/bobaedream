@@ -1,0 +1,551 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/5o-pT9x8Rp0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3395,
+  "candidatesTokenCount": 4285,
+  "totalTokenCount": 7680,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2653
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.8,
+   "aspect": "9:16",
+   "car": "Tesla Roadster",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 16.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 23.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 29.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "Er vliegt letterlijk",
+    "ko": "말 그대로 날아다니고 있어요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "vliegt",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 2.1,
+    "text": "een Tesla Roadster",
+    "ko": "테슬라 로드스터 한 대가",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Tesla",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.7,
+    "text": "tussen de planeten",
+    "ko": "행성들 사이를요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "De Tesla Roadster die in de",
+    "ko": "우주에 떠 있는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "die",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "text": "zweeft is gebaseerd",
+    "ko": "테슬라 로드스터는 기반을 두고 있죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "allereerste product ooit",
+    "ko": "테슬라 역사상 최초의 제품에",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "ooit",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.3,
+    "text": "elektrische sportwagen die",
+    "ko": "이 전기 스포츠카는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "elektrische",
+    "sure": true
+   },
+   {
+    "start": 10.3,
+    "end": 11.8,
+    "text": "in 2008 al op de markt kwam",
+    "ko": "이미 2008년에 출시되었죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2008",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "text": "Allang voordat de",
+    "ko": "훨씬 이전이죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Allang",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.0,
+    "text": "Model S, de Model 3 en",
+    "ko": "모델 S, 모델 3, 그리고 모델 Y가",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "3",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.2,
+    "text": "als iemand zegt dat Tesla pas",
+    "ko": "그러니 누군가 테슬라가 최근에야",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Tesla",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.3,
+    "text": "die onlangs succesvol werd",
+    "ko": "성공했다고 말한다면",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "succesvol",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "text": "in Tesla Roadster",
+    "ko": "테슬라 로드스터 한 대가",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Roadster",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.3,
+    "text": "tussen de planeten",
+    "ko": "행성 사이를 날고 있다고요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.1,
+    "text": "Tesla Roadsters in",
+    "ko": "테슬라 로드스터는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Roadsters",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 27.2,
+    "text": "de showroom van",
+    "ko": "쇼룸에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.8,
+    "text": "24.be",
+    "ko": "AutoScout24.be에서요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "휙",
+    "event": "차량이 위로 떠오르는 합성 효과 시작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "딸깍",
+    "event": "테슬라 모델 라인업 팝업 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 25.3,
+    "type": "쿵",
+    "event": "NIKOLA BRUSSELS 간판 그래픽 낙하 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.3,
+    "type": "톡",
+    "event": "AutoScout24 스티커 로고 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 비트",
+   "bpm_est": 115,
+   "mood": "리드미컬하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.7,
+    "end": 7.0,
+    "what": "공중에 떠오르는 테슬라 로드스터 누끼 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "우주에 떠있는 로드스터 비유 시각화",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 16.0,
+    "what": "모델S, 모델3, 모델Y 쌓여있는 누끼 이미지",
+    "is_3d": false,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "후속 모델 라인업 시각화",
+    "sure": true
+   },
+   {
+    "start": 25.2,
+    "end": 29.8,
+    "what": "NIKOLA BRUSSELS 천장 간판 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "밀려옴",
+    "purpose": "전시장 브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 29.8,
+    "what": "AutoScout24 노란 스티커 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 45.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 브랜딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Er vliegt letterlijk een Tesla Roadster tussen de planeten.",
+    "ko": "행성들 사이로 말 그대로 테슬라 로드스터가 날아다니고 있죠."
+   },
+   {
+    "start": 3.7,
+    "end": 8.7,
+    "text": "De Tesla Roadster die in de ruimte zweeft is gebaseerd op Tesla's allereerste product ooit.",
+    "ko": "우주를 떠도는 테슬라 로드스터는 테슬라의 역사상 첫 제품에 기반을 두고 있습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 11.8,
+    "text": "Een elektrische sportwagen die in 2008 al op de markt kwam.",
+    "ko": "이미 2008년에 출시된 전기 스포츠카죠."
+   },
+   {
+    "start": 11.8,
+    "end": 16.0,
+    "text": "Allang voordat de Model S, de Model 3 en de Model Y bestonden.",
+    "ko": "모델 S, 모델 3, 모델 Y가 나오기 훨씬 전입니다."
+   },
+   {
+    "start": 16.0,
+    "end": 23.3,
+    "text": "Dus als iemand zegt dat Tesla pas onlangs succesvol werd, er vliegt letterlijk een Tesla Roadster tussen de planeten.",
+    "ko": "그러니 누군가 테슬라가 최근에서야 성공했다고 한다면, 행성들 사이로 이미 테슬라 로드스터가 날아다니고 있다고 말해주세요."
+   },
+   {
+    "start": 23.3,
+    "end": 29.8,
+    "text": "Je vindt de Tesla Roadsters in de showroom van Nikola Brussels en op AutoScout24.be.",
+    "ko": "이 테슬라 로드스터는 니콜라 브뤼셀 쇼룸과 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "우주를 날아다니는 테슬라 로드스터 이야기로 흥미 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 16.0,
+    "speed": "보통",
+    "summary": "2008년 출시된 테슬라 최초의 전기 스포츠카 로드스터 역사 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 16.0,
+    "end": 23.3,
+    "speed": "보통",
+    "summary": "테슬라의 초기 성공과 상징성 재강조"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 23.3,
+    "end": 29.8,
+    "speed": "보통",
+    "summary": "쇼룸 위치 및 AutoScout24 매물 탐색 안내"
+   }
+  ],
+  "rules": [
+   "진행자의 말 타이밍에 맞춰 핵심 단어를 노란색(#FFFF00 계열)으로 하이라이트하는 자막 스타일 유지",
+   "설명하는 개념(우주 유영, 후속 차종, 쇼룸)에 맞춰 직관적인 누끼 그래픽과 효과음 동시 삽입",
+   "마지막 컷아웃 및 브랜딩 로고 노출로 플랫폼 유입 CTA 강화"
+  ]
+ }
+}

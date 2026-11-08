@@ -1,0 +1,863 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/c5qWAzsbVco",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6106,
+  "candidatesTokenCount": 6828,
+  "totalTokenCount": 13321,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5364
+   }
+  ],
+  "thoughtsTokenCount": 387,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 58.7,
+   "aspect": "9:16",
+   "car": "Volkswagen T-Roc Cabrio & Audi TT Roadster",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 17.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.4,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.4,
+    "end": 33.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.8,
+    "end": 38.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 43.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 45.4,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 47.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 49.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 52.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 58.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Budget van €30.000? Welke cabrio kies jij?",
+    "ko": "예산 3만 유로? 당신은 어떤 컨버터블을 고르실래요?",
+    "kind": "제목",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "€30.000?",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 5.9,
+    "text": "Volkswagen T-Roc",
+    "ko": "폭스바겐 티록",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "Audi TT Roadster",
+    "ko": "아우디 TT 로드스터",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "text": "R-line pakket",
+    "ko": "R-라인 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.6,
+    "text": "Volledige parkeerhulp rondom",
+    "ko": "전방위 풀 주차 보조",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.0,
+    "text": "Stuur- en zetelverwarming",
+    "ko": "스티어링 휠 및 시트 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 19.4,
+    "text": "150 PK",
+    "ko": "150마력",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.4,
+    "end": 21.6,
+    "text": "2021",
+    "ko": "2021년식",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.8,
+    "text": "52.650 km",
+    "ko": "52,650 km",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 27.6,
+    "text": "€28.490",
+    "ko": "28,490유로",
+    "kind": "가격",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 30.5,
+    "text": "Audi TT Roadster",
+    "ko": "아우디 TT 로드스터",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.1,
+    "text": "Vierwielaandrijving",
+    "ko": "4륜 구동",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.1,
+    "end": 34.8,
+    "text": "S-line interieur",
+    "ko": "S-라인 인테리어",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.7,
+    "text": "230 PK",
+    "ko": "230마력",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 41.7,
+    "end": 43.8,
+    "text": "Maxton Design kit",
+    "ko": "맥스톤 디자인 키트",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 47.1,
+    "text": "2018",
+    "ko": "2018년식",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 49.5,
+    "text": "82.450 km",
+    "ko": "82,450 km",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 45.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 52.8,
+    "text": "€29.990",
+    "ko": "29,990유로",
+    "kind": "가격",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -1.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 58.7,
+    "text": "AutoScout24.be",
+    "ko": "오토스카우트24 벨기에",
+    "kind": "제목",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FDD835",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -2.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 4.5,
+    "type": "톡",
+    "event": "Volkswagen T-Roc 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "Audi TT Roadster 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "톡",
+    "event": "R-line pakket 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "Volledige parkeerhulp 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.6,
+    "type": "톡",
+    "event": "Stuur- en zetelverwarming 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.0,
+    "type": "톡",
+    "event": "150 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.4,
+    "type": "톡",
+    "event": "2021 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.6,
+    "type": "톡",
+    "event": "52.650 km 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.8,
+    "type": "톡",
+    "event": "€28.490 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.6,
+    "type": "톡",
+    "event": "Audi TT Roadster 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.5,
+    "type": "톡",
+    "event": "Vierwielaandrijving 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.1,
+    "type": "톡",
+    "event": "S-line interieur 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "톡",
+    "event": "230 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.7,
+    "type": "톡",
+    "event": "Maxton Design kit 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "톡",
+    "event": "2018 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.1,
+    "type": "톡",
+    "event": "82.450 km 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.5,
+    "type": "톡",
+    "event": "€29.990 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.5,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝/일렉트로닉 비트",
+   "bpm_est": 120,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Wil jij een cabrio voor deze zomer en is jouw budget €30.000?",
+    "ko": "이번 여름 컨버터블을 원하시나요? 예산이 3만 유로인가요?"
+   },
+   {
+    "start": 3.7,
+    "end": 8.7,
+    "text": "Dan is deze Volkswagen T-Roc of deze Audi TT Roadster iets voor jou.",
+    "ko": "그렇다면 이 폭스바겐 티록이나 아우디 TT 로드스터가 딱입니다."
+   },
+   {
+    "start": 8.7,
+    "end": 12.0,
+    "text": "Deze Volkswagen T-Roc is uitgevoerd met het R-line pakket.",
+    "ko": "이 폭스바겐 티록은 R-라인 패키지가 적용되었습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 15.0,
+    "text": "Volledige parkeerhulp rondom, stuur- en zetelverwarming.",
+    "ko": "전방위 풀 주차 보조 기능과 스티어링 휠 및 시트 열선이 장착되었습니다."
+   },
+   {
+    "start": 15.0,
+    "end": 19.4,
+    "text": "Hij heeft een DSG automatische transmissie en is uitgevoerd met 150 PK.",
+    "ko": "DSG 자동 변속기와 150마력의 출력을 갖췄습니다."
+   },
+   {
+    "start": 19.4,
+    "end": 24.8,
+    "text": "Hij komt uit 2021 en heeft 52.650 km op de teller.",
+    "ko": "2021년식이며 주행거리는 52,650 km입니다."
+   },
+   {
+    "start": 24.8,
+    "end": 27.6,
+    "text": "En hij kost €28.490.",
+    "ko": "가격은 28,490유로입니다."
+   },
+   {
+    "start": 27.6,
+    "end": 33.1,
+    "text": "Deze Audi TT Roadster is uitgevoerd met vierwielaandrijving, oftewel Quattro.",
+    "ko": "이 아우디 TT 로드스터는 4륜 구동, 즉 콰트로가 적용되었습니다."
+   },
+   {
+    "start": 33.1,
+    "end": 38.6,
+    "text": "Het S-line interieur, hij heeft stoelverwarming en nekverwarming.",
+    "ko": "S-라인 인테리어에 시트 열선 및 넥 워머 기능이 있습니다."
+   },
+   {
+    "start": 38.6,
+    "end": 41.7,
+    "text": "Het is een automaat en heeft 230 PK.",
+    "ko": "자동변속기이며 230마력입니다."
+   },
+   {
+    "start": 41.7,
+    "end": 45.4,
+    "text": "En hij is voorzien van een Maxton Design kit en 19 inch bronzen velgen.",
+    "ko": "맥스톤 디자인 바디킷과 19인치 브론즈 휠이 장착되어 있습니다."
+   },
+   {
+    "start": 45.4,
+    "end": 49.5,
+    "text": "Hij komt uit 2018, heeft 82.450 km op de teller.",
+    "ko": "2018년식이며 82,450 km를 주행했습니다."
+   },
+   {
+    "start": 49.5,
+    "end": 52.8,
+    "text": "En hij kost €29.990.",
+    "ko": "가격은 29,990유로입니다."
+   },
+   {
+    "start": 52.8,
+    "end": 58.7,
+    "text": "Je vindt ze in de showroom van Garage Vanderveken en op autoscout24.be.",
+    "ko": "차량들은 Garage Vanderveken 매장과 autoscout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 8.7,
+    "speed": "보통",
+    "summary": "예산 3만 유로 컨버터블 2대(티록 vs TT) 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 8.7,
+    "end": 27.6,
+    "speed": "빠름",
+    "summary": "폭스바겐 티록 카브리올레 스펙, 옵션, 연식, 주행거리, 가격 안내"
+   },
+   {
+    "stage": "차 소개",
+    "start": 27.6,
+    "end": 52.8,
+    "speed": "빠름",
+    "summary": "아우디 TT 로드스터 스펙, 콰트로, 바디킷, 연식, 주행거리, 가격 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 52.8,
+    "end": 58.7,
+    "speed": "보통",
+    "summary": "판매처(딜러샵) 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "단어 단위로 싱크가 맞춰지는 팝업 자막과 노란색 직사각형 박스 스티커로 시선 집중",
+   "스펙, 연식, 주행거리, 가격 정보가 멘트와 함께 동일한 타이밍에 팝 효과음과 등장",
+   "화면 분할(3단 샷)을 활용해 차량의 전면, 실내, 후면을 짧은 시간에 한눈에 보여줌",
+   "출연자가 직접 손짓하며 말하는 샷과 디테일 옵션 클로즈업 샷을 빠르게 교차 편집",
+   "두 대의 비교 차량을 동일한 템플릿(옵션 → 파워트레인 → 연식/키로수 → 가격) 순서로 구성해 정보 전달력 극대화"
+  ]
+ }
+}

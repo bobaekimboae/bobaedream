@@ -1,0 +1,481 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Pzc5z1jQJNw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3117,
+  "candidatesTokenCount": 4755,
+  "totalTokenCount": 8905,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2375
+   }
+  ],
+  "thoughtsTokenCount": 1033,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 26.9,
+   "aspect": "9:16",
+   "car": "BMW 2 Serie Gran Coupé",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 20.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 26.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "HEB JIJ EEN BUDGET VAN €25.000",
+    "ko": "25,000유로의 예산이 있으신가요?",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€25.000",
+    "sure": true
+   },
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "text": "BMW 2 SERIE IETS VOOR JOU",
+    "ko": "BMW 2시리즈가 딱입니다",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW 2 SERIE",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "MULTIFUNCTIONEEL STUUR STUURVERWARMING",
+    "ko": "다기능 스티어링 휠, 열선 스티어링",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MULTIFUNCTIONEEL STUUR",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.8,
+    "text": "STOELVERWARMING LEREN STOELEN",
+    "ko": "열선 시트, 가죽 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOELVERWARMING",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.8,
+    "text": "ELEKTRISCH PANORAMADAK",
+    "ko": "전동 파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 12.8,
+    "text": "HET BOUWJAAR EN DE KILOMETERSTAND VERTEL IK JE OP HET EINDE VAN DEZE VIDEO",
+    "ko": "연식과 주행거리는 영상 마지막에 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "text": "19 INCH M VELGEN",
+    "ko": "19인치 M 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "19 INCH M VELGEN",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.8,
+    "text": "136 PK",
+    "ko": "136마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FEE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "136 PK",
+    "sure": true
+   },
+   {
+    "start": 16.8,
+    "end": 18.0,
+    "text": "HIJ KOMT UIT 2022",
+    "ko": "2022년식 모델입니다",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2022",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 20.8,
+    "text": "120.000 KM",
+    "ko": "120,000 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FEE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "120.000 KM",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 24.5,
+    "text": "IN DE SHOWROOM VAN RIJNMOND AUTO'S",
+    "ko": "Rijnmond Auto's 쇼룸에서 만나보세요",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RIJNMOND AUTO'S",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "헤드라인 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.0,
+    "type": "톡",
+    "event": "차량명 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "스티어링 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "시트 옵션 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.8,
+    "type": "톡",
+    "event": "파노라마 루프 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.0,
+    "type": "톡",
+    "event": "리텐션 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "톡",
+    "event": "휠 스펙 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "톡",
+    "event": "출력(PK) 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.8,
+    "type": "톡",
+    "event": "연식 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.0,
+    "type": "톡",
+    "event": "주행거리 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 122,
+   "mood": "경쾌함 / 트렌디",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 24.5,
+    "end": 26.9,
+    "what": "AutoScout24 로고 및 노란색 사각형 박스 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "Heb jij een budget van €25.000?",
+    "ko": "25,000유로의 예산이 있으신가요?"
+   },
+   {
+    "start": 2.1,
+    "end": 4.5,
+    "text": "Dan is deze BMW 2 Serie iets voor jou.",
+    "ko": "그렇다면 이 BMW 2시리즈가 제격입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 9.8,
+    "text": "Hij heeft een multifunctioneel stuur met stuurverwarming, stoelverwarming, leren stoelen en een elektrisch panoramadak.",
+    "ko": "열선 기능이 있는 다기능 스티어링 휠, 열선 시트, 가죽 시트, 전동 파노라마 루프가 탑재되어 있습니다."
+   },
+   {
+    "start": 9.8,
+    "end": 12.8,
+    "text": "Het bouwjaar en de kilometerstand vertel ik je op het einde van deze video.",
+    "ko": "연식과 주행거리는 이 영상 끝에서 알려드릴게요."
+   },
+   {
+    "start": 12.8,
+    "end": 16.8,
+    "text": "Hij heeft 19 inch M velgen, 136 pk.",
+    "ko": "19인치 M 휠과 136마력을 갖췄습니다."
+   },
+   {
+    "start": 16.8,
+    "end": 20.8,
+    "text": "Hij komt uit 2022 en hij heeft bijna 120.000 kilometer gelopen.",
+    "ko": "2022년식이며 약 12만 km를 주행했습니다."
+   },
+   {
+    "start": 20.8,
+    "end": 26.9,
+    "text": "En je vindt hem in de showroom van Rijnmond Auto's en natuurlijk op AutoScout24.nl.",
+    "ko": "Rijnmond Auto's 매장과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "예산 25,000유로 제시 및 BMW 2시리즈 추천"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 9.8,
+    "speed": "빠름",
+    "summary": "스티어링 휠, 열선, 가죽시트, 선루프 등 내부 편의사양 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 9.8,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "시청 지속을 유도하는 리텐션 멘트 후 휠, 마력, 연식, 주행거리 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 20.8,
+    "end": 26.9,
+    "speed": "보통",
+    "summary": "딜러 쇼룸 및 AutoScout24 웹사이트 확인 안내와 아웃트로"
+   }
+  ],
+  "rules": [
+   "초반 3초 안에 구체적인 예산(€25.000)과 추천 차량을 제시해 타깃 시청자를 즉시 훅함",
+   "영상 중반에 '연식과 키로수는 영상 끝에 공개'라는 리텐션 멘트를 넣어 완청률 유도",
+   "화면에 등장하는 핵심 단어마다 노란색/흰색 박스 텍스트와 통통 튀는 효과음(Pop)을 일치시킴",
+   "외관, 실내 옵션 디테일, 휠, 후면을 비트와 대사에 맞춰 1~3초 간격으로 빠르게 전환",
+   "엔딩에 플랫폼 로고와 웹사이트 주소를 명확히 강조해 리드 전환 유도"
+  ]
+ }
+}

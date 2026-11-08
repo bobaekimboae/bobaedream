@@ -1,0 +1,557 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/idhcdQgP-uU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4211,
+  "candidatesTokenCount": 4531,
+  "totalTokenCount": 8742,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3469
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.6,
+   "aspect": "9:16",
+   "car": "Suzuki Alto / Peugeot 107",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 5.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 8.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 18.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 26.2,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 35.0,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "3 STADSAUTO'S VOOR EEN PRIJS LAGER DAN €4.000",
+    "ko": "4,000유로 미만 도심형 자동차 3종",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "LAGER DAN €4.000",
+    "sure": true
+   },
+   {
+    "start": 5.6,
+    "end": 8.7,
+    "text": "SUZUKI ALTO 2010",
+    "ko": "스즈키 알토 2010",
+    "kind": "제목",
+    "y_pct": 6.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "text": "117.000 KM",
+    "ko": "117,000 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 13.0,
+    "text": "€3.750",
+    "ko": "3,750 유로",
+    "kind": "가격",
+    "y_pct": 46.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.8,
+    "text": "PEUGEOT 107 2011",
+    "ko": "푸조 107 2011",
+    "kind": "제목",
+    "y_pct": 6.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 18.2,
+    "text": "170.000 KM",
+    "ko": "170,000 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 20.8,
+    "text": "€3.799",
+    "ko": "3,799 유로",
+    "kind": "가격",
+    "y_pct": 11.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.7,
+    "text": "SUZUKI ALTO 2009",
+    "ko": "스즈키 알토 2009",
+    "kind": "제목",
+    "y_pct": 6.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 26.2,
+    "text": "188.000 KM",
+    "ko": "188,000 KM",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 28.9,
+    "text": "€3.249",
+    "ko": "3,249 유로",
+    "kind": "가격",
+    "y_pct": 11.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3EB1C",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.4,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.6,
+    "type": "톡",
+    "event": "첫 번째 차량 타이틀 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "주행거리 자막 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "돈 소리",
+    "event": "가격 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "두 번째 차량 타이틀 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 18.2,
+    "type": "돈 소리",
+    "event": "두 번째 차량 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "톡",
+    "event": "세 번째 차량 타이틀 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "돈 소리",
+    "event": "세 번째 차량 가격 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.0,
+    "type": "휙",
+    "event": "스마트폰 앱 검색 화면 오버레이 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.6,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 3.4,
+    "end": 5.6,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "what": "3분할 차량 디테일 컷 (외관/실내/후면)",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "차량 상태 전달",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 18.2,
+    "what": "3분할 차량 디테일 컷 (외관/실내/후면)",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "차량 상태 전달",
+    "sure": true
+   },
+   {
+    "start": 23.7,
+    "end": 26.2,
+    "what": "3분할 차량 디테일 컷 (외관/실내/후면)",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "바로",
+    "purpose": "차량 상태 전달",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 35.0,
+    "what": "AutoScout24 모바일 앱 매물 검색 UI 화면",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "밀려옴",
+    "purpose": "앱 기능 및 매물 수 홍보",
+    "sure": true
+   },
+   {
+    "start": 36.6,
+    "end": 38.6,
+    "what": "AutoScout24 로고 텍스트 박스",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "콜투액션",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.6,
+    "text": "Drie stadsauto's voor een prijs lager dan €4.000 die je vindt op autoscout24.nl.",
+    "ko": "autoscout24.nl에서 찾을 수 있는 4,000유로 미만 도심형 자동차 3종입니다."
+   },
+   {
+    "start": 5.6,
+    "end": 13.0,
+    "text": "Deze blauwe Suzuki Alto uit 2010, 117.000 km gelopen en hij kost €3.750.",
+    "ko": "이 2010년식 파란색 스즈키 알토는 주행거리 117,000km에 가격은 3,750유로입니다."
+   },
+   {
+    "start": 13.0,
+    "end": 20.8,
+    "text": "Of deze Peugeot 107 uit 2011, 170.000 km gelopen en hij kost €3.799.",
+    "ko": "아니면 이 2011년식 푸조 107은 주행거리 170,000km에 가격은 3,799유로입니다."
+   },
+   {
+    "start": 20.8,
+    "end": 28.9,
+    "text": "Of hier nog een Suzuki Alto uit 2009, 188.000 km gelopen en hij kost €3.249.",
+    "ko": "또는 여기 2009년식 스즈키 알토, 188,000km 주행에 가격은 3,249유로입니다."
+   },
+   {
+    "start": 28.9,
+    "end": 38.6,
+    "text": "Wist je dat je meer dan 26.000 auto's voor een prijs lager dan €4.000 op AutoScout24 vindt? Dus zoek snel op autoscout24.nl.",
+    "ko": "AutoScout24에는 4,000유로 미만 차량이 26,000대 이상 있다는 사실을 아셨나요? 지금 autoscout24.nl에서 검색해보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.6,
+    "speed": "보통",
+    "summary": "4,000유로 이하 가성비 시티카 3종 소개 주제 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.6,
+    "end": 13.0,
+    "speed": "보통",
+    "summary": "첫 번째 차량 소개 (2010 스즈키 알토)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 13.0,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "두 번째 차량 소개 (2011 푸조 107)"
+   },
+   {
+    "stage": "차 소개",
+    "start": 20.8,
+    "end": 28.9,
+    "speed": "보통",
+    "summary": "세 번째 차량 소개 (2009 스즈키 알토)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.9,
+    "end": 35.0,
+    "speed": "빠름",
+    "summary": "플랫폼 내 해당 가격대 등록 매물 수 강조 (26,000대 이상)"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 35.0,
+    "end": 38.6,
+    "speed": "보통",
+    "summary": "AutoScout24 검색 유도 마무리"
+   }
+  ],
+  "rules": [
+   "호스트가 등장해 차량 앞에서 인트로를 열고 바로 매물 몽타주로 전환한다",
+   "각 차량마다 [차종·연식 -> 3분할 디테일 컷+주행거리 -> 가격 스티커 팝업] 일관된 3단계 템플릿 구조를 반복한다",
+   "가격이 화면에 뜰 때마다 코인/캐시 효과음을 동기화해 주목도를 높인다",
+   "차량 3대 소개 후 앱 실제 인터페이스를 띄워 수만 대의 매물이 있음을 증명하며 신뢰도를 부여한다",
+   "모든 텍스트 박스 디자인을 브랜드 메인 컬러(노란색 배경+검정 텍스트)로 일관되게 적용한다"
+  ]
+ }
+}

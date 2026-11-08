@@ -1,0 +1,757 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/PeoLhvQ3YHk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4472,
+  "candidatesTokenCount": 7560,
+  "totalTokenCount": 12181,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3730
+   }
+  ],
+  "thoughtsTokenCount": 149,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.8,
+   "aspect": "9:16",
+   "car": "Ferrari 308 GTSi",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 5.9,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.9,
+    "end": 9.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.9,
+    "end": 14.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.6,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 19.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 20.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 22.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 25.8,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 32.2,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 36.4,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.4,
+    "end": 40.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "€75.950",
+    "ko": "75,950 유로",
+    "kind": "가격",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -2,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€75.950",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.4,
+    "text": "VOOR EEN FERRARI",
+    "ko": "페라리 한 대 값으로",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.1,
+    "text": "46 JAAR OUD",
+    "ko": "46년 된",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "46 JAAR OUD",
+    "sure": true
+   },
+   {
+    "start": 5.1,
+    "end": 6.3,
+    "text": "WAT KRIJG JE DAARVOOR?",
+    "ko": "그 돈으로 뭘 얻을 수 있을까?",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "WAT",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 7.0,
+    "text": "DIT IS EEN",
+    "ko": "이것은",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.2,
+    "text": "FERRARI 308 GTSI",
+    "ko": "페라리 308 GTSI",
+    "kind": "키워드 스티커",
+    "y_pct": 7.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FERRARI 308 GTSI",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.4,
+    "text": "1980",
+    "ko": "1980년식",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1980",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 12.0,
+    "text": "3L V8 MOTOR",
+    "ko": "3리터 V8 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3L V8 MOTOR",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.5,
+    "text": "EN SCHAKELEN DOE",
+    "ko": "변속은",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "EN",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "text": "JE NOG VOLLEDIG MET EEN",
+    "ko": "전적으로 직접 하는",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "JE",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.6,
+    "text": "HANDGESCHAKELDE VIJFBAK ✓",
+    "ko": "5단 수동 변속기 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 17.8,
+    "text": "EN OFFICIEEL IS",
+    "ko": "그리고 공식적으로는",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "EN",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 19.1,
+    "text": "HET GEEN VOLLEDIGE CABRIO",
+    "ko": "완전한 카브리올레가 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "HET",
+    "sure": true
+   },
+   {
+    "start": 19.1,
+    "end": 20.7,
+    "text": "GTS BETEKENT DAT",
+    "ko": "GTS는 의미합니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "GTS",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 22.8,
+    "text": "UITNEEMBAAR TARGA-DAK ✓",
+    "ko": "탈착식 타르가 탑 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.3,
+    "text": "DIT MIDDELSTE",
+    "ko": "이 중앙의",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DIT",
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.8,
+    "text": "DAKPANEEL KUN JE ER DUS",
+    "ko": "루프 패널을",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DAKPANEEL",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.5,
+    "text": "EN DIT EXEMPLAAR",
+    "ko": "그리고 이 모델은",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "EN",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.7,
+    "text": "IN HET KLASSIEKE",
+    "ko": "클래식한",
+    "kind": "말 자막",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "IN",
+    "sure": true
+   },
+   {
+    "start": 30.7,
+    "end": 32.2,
+    "text": "ZWART LEDEREN INTERIEUR ✓",
+    "ko": "블랙 가죽 인테리어 ✓",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.4,
+    "text": "DE KILOMETERSTAND",
+    "ko": "주행거리는",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DE",
+    "sure": true
+   },
+   {
+    "start": 34.4,
+    "end": 36.4,
+    "text": "EN JE VINDT",
+    "ko": "그리고 찾으실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "EN",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.8,
+    "text": "📍 IWAN VAN LANKVELT AUTO'S",
+    "ko": "📍 이반 반 랑크벨트 오토스",
+    "kind": "키워드 스티커",
+    "y_pct": 85.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "톡",
+    "event": "가격 박스 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.4,
+    "type": "톡",
+    "event": "46 JAAR OUD 스티커 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.0,
+    "type": "톡",
+    "event": "FERRARI 308 GTSI 상단 스티커 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.7,
+    "type": "톡",
+    "event": "1980 연식 스티커 출현",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.4,
+    "type": "톡",
+    "event": "3L V8 MOTOR 스티커 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.8,
+    "type": "톡",
+    "event": "수동변속기 체크 스티커 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.7,
+    "type": "톡",
+    "event": "타르가 탑 체크 스티커 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.7,
+    "type": "톡",
+    "event": "가죽 인테리어 체크 스티커 출현",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.4,
+    "type": "휙",
+    "event": "AutoScout24 로고 등장 트랜지션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 38.6,
+    "type": "톡",
+    "event": "쇼룸 위치 핀 스티커 출현",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 118,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 36.4,
+    "end": 38.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 앱 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.9,
+    "text": "75.950 euro voor een Ferrari van 46 jaar oud. Wat krijg je daarvoor?",
+    "ko": "46년 된 페라리가 75,950유로(약 1억 1천만원). 과연 어떤 구성을 얻을 수 있을까요?"
+   },
+   {
+    "start": 5.9,
+    "end": 9.4,
+    "text": "Dit is een Ferrari 308 GTSi uit 1980.",
+    "ko": "이 차량은 1980년식 페라리 308 GTSi입니다."
+   },
+   {
+    "start": 9.4,
+    "end": 12.0,
+    "text": "Hij heeft een 3 liter V8 motor achterin.",
+    "ko": "뒤쪽에 3.0리터 V8 엔진이 얹혀 있습니다."
+   },
+   {
+    "start": 12.0,
+    "end": 16.6,
+    "text": "En schakelen doe je nog volledig zelf met een handgeschakelde vijfbak.",
+    "ko": "변속은 5단 수동 변속기를 통해 온전히 직접 손으로 해야 합니다."
+   },
+   {
+    "start": 16.6,
+    "end": 22.8,
+    "text": "En officieel is dit geen volledige cabrio. GTS betekent dat hij een uitneembaar targa-dak heeft.",
+    "ko": "공식적으로 완전한 오픈카는 아닙니다. GTS는 탈착 가능한 타르가 탑이 장착되어 있음을 의미합니다."
+   },
+   {
+    "start": 22.8,
+    "end": 26.0,
+    "text": "Dit middelste dakpaneel kun je er dus volledig uithalen.",
+    "ko": "따라서 이 중앙 루프 패널을 완전히 떼어낼 수 있습니다."
+   },
+   {
+    "start": 26.0,
+    "end": 32.2,
+    "text": "En dit exemplaar is natuurlijk uitgevoerd in het klassieke Ferrari rood en een zwart lederen interieur.",
+    "ko": "그리고 이 차량은 클래식한 페라리 레드 색상에 블랙 가죽 인테리어로 마감되어 있습니다."
+   },
+   {
+    "start": 32.2,
+    "end": 40.8,
+    "text": "De kilometerstand van deze auto vind je terug in de omschrijving en je vindt hem natuurlijk op autoscout24.nl en in de showroom van Iwan van Lankvelt Auto's.",
+    "ko": "주행거리는 설명란에서 확인하실 수 있으며, 오토스카우트24와 이반 반 랑크벨트 오토스 쇼룸에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.9,
+    "speed": "빠름",
+    "summary": "가격과 연식을 던지며 '이 가격에 무엇을 얻는가' 질문 던짐"
+   },
+   {
+    "stage": "차 소개",
+    "start": 5.9,
+    "end": 9.4,
+    "speed": "보통",
+    "summary": "1980 페라리 308 GTSi 모델명 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 9.4,
+    "end": 16.6,
+    "speed": "보통",
+    "summary": "3L V8 미드십 엔진 및 5단 수동 변속기 사양"
+   },
+   {
+    "stage": "기능",
+    "start": 16.6,
+    "end": 25.8,
+    "speed": "보통",
+    "summary": "GTS의 의미와 탈착식 타르가 루프 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 25.8,
+    "end": 32.2,
+    "speed": "보통",
+    "summary": "시그니처 레드 컬러 및 블랙 가죽 실내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 32.2,
+    "end": 40.8,
+    "speed": "빠름",
+    "summary": "상세 스펙 확인법, 오토스카우트24 플랫폼 및 전시 딜러십 안내"
+   }
+  ],
+  "rules": [
+   "핵심 스펙(엔진, 변속기, 타르가 탑 등)이 언급될 때 노란색 박스에 체크 표시(✓)가 들어간 스티커 자막을 팝업 SFX와 함께 띄움",
+   "영상 도입부(훅)에서 높은 가격표를 화면 중앙에 크게 배치하여 시청자의 호기심 유발",
+   "호스트가 설명하는 부위(기어봉, 루프 패널, 실내 시트)로 빠르게 컷 전환하여 지루함을 방지",
+   "엔딩에는 브랜드 로고와 오프라인 쇼룸 위치를 노출하여 신뢰도와 전환율 강화"
+  ]
+ }
+}

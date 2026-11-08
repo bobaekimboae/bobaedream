@@ -1,0 +1,485 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/okoibOlHg_M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4120,
+  "candidatesTokenCount": 4151,
+  "totalTokenCount": 8271,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3378
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 37.3,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTI Clubsport",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 18.5,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 25.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 37.3,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "DEZE GOLF HEEFT EEN RIJMODUS",
+    "ko": "이 골프에는 주행 모드가 있습니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "RIJMODUS",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 4.5,
+    "text": "IS VOOR EEN VAN DE BEROEMDSTE CIRCUITS TER WERELD",
+    "ko": "세계에서 가장 유명한 서킷 중 하나를 위한 것입니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "CIRCUITS",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "DIT IS DE GOLF GTI CLUBSPORT",
+    "ko": "이것은 골프 GTI 클럽스포츠입니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "GOLF GTI CLUBSPORT",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 10.4,
+    "text": "HET LEUKE AAN DEZE AUTO IS DAT ER ALLEMAAL VERSCHILLENDE RIJMODUSSEN ZIJN",
+    "ko": "이 차의 장점은 매우 다양한 주행 모드가 있다는 것입니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "RIJMODUSSEN",
+    "sure": true
+   },
+   {
+    "start": 10.4,
+    "end": 12.0,
+    "text": "KIJK IK LAAT HET JE METEEN",
+    "ko": "보세요 바로 보여드릴게요",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 16.0,
+    "text": "ECO COMFORT SPORT SPECIAL",
+    "ko": "에코, 컴포트, 스포츠, 스페셜",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 18.5,
+    "text": "VOOR RIJDEN OP DE NÜRBURGRING",
+    "ko": "뉘르부르크링 주행을 위한",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "NÜRBURGRING",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.8,
+    "text": "MAAR DAT BETEKENT NIET DAT ALLES ALLEEN MAAR GAAT OM HARD EN SPORTIEF RIJDEN",
+    "ko": "하지만 오직 빠르고 스포티하게 달리는 것만을 위한 건 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.5,
+    "text": "2 LITER MOTOR",
+    "ko": "2.0리터 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 25.8,
+    "text": "300 PK",
+    "ko": "300 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 55.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 28.6,
+    "text": "DAT IS BEST SERIEUS VOOR EEN VOORWIEL AANGEDREVEN GOLF",
+    "ko": "전륜구동 골프치고는 꽤 진지한 수치죠",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VOORWIEL AANGEDREVEN",
+    "sure": true
+   },
+   {
+    "start": 28.6,
+    "end": 32.5,
+    "text": "HET BOUWJAAR DE PRIJS EN DE KILOMETERSTAND VAN DEZE AUTO VIND JE IN DE OMSCHRIJVING",
+    "ko": "이 차의 연식, 가격, 주행거리는 설명란에서 확인할 수 있으며",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "BOUWJAAR",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.0,
+    "text": "SHOWROOM VAN AUTOBEDRIJF RIJSWIJK",
+    "ko": "Autobedrijf Rijswijk 전시장과",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.3,
+    "text": "NATUURLIJK OP AUTOSCOUT24.NL",
+    "ko": "당연히 AutoScout24.nl에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "AUTOSCOUT24.NL",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "2 LITER MOTOR 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "톡",
+    "event": "300 PK 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Pop / Upbeat Hip Hop Beat",
+   "bpm_est": 110,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 35.5,
+    "end": 37.3,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "Deze Golf heeft een rijmodus die gemaakt is voor een van de beroemdste circuits ter wereld.",
+    "ko": "이 골프에는 세계에서 가장 유명한 서킷 중 하나를 위해 만들어진 주행 모드가 있습니다."
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "Dit is de Golf GTI Clubsport.",
+    "ko": "이것은 골프 GTI 클럽스포츠입니다."
+   },
+   {
+    "start": 7.3,
+    "end": 11.5,
+    "text": "En het leuke aan deze auto is dat er allemaal verschillende rijmodussen zijn. Kijk, ik laat het je meteen even zien.",
+    "ko": "그리고 이 차의 재미있는 점은 다양한 주행 모드가 있다는 것입니다. 자, 바로 보여드릴게요."
+   },
+   {
+    "start": 11.5,
+    "end": 18.5,
+    "text": "Hier heb je bijvoorbeeld Eco, Comfort, Sport, maar ook een Special. En die is dus speciaal gemaakt voor rijden op de Nürburgring.",
+    "ko": "여기 보시면 에코, 컴포트, 스포츠뿐만 아니라 스페셜 모드도 있습니다. 그리고 이건 뉘르부르크링 주행을 위해 특별히 제작되었죠."
+   },
+   {
+    "start": 18.5,
+    "end": 22.8,
+    "text": "Maar dat betekent niet dat alles alleen maar gaat om hard en sportief rijden.",
+    "ko": "하지만 그렇다고 해서 무조건 빠르고 스포티하게 달리는 것만을 위한 차는 아닙니다."
+   },
+   {
+    "start": 22.8,
+    "end": 28.6,
+    "text": "En dan heb je nog die 2-liter motor met 300 pk. Dat is best serieus voor een voorwielaangedreven Golf.",
+    "ko": "그리고 300마력을 내는 2.0리터 엔진도 있습니다. 전륜구동 골프 치고는 꽤나 강력하죠."
+   },
+   {
+    "start": 28.6,
+    "end": 37.3,
+    "text": "Het bouwjaar, de prijs en de kilometerstand van deze auto vind je in de omschrijving. En je vindt hem in de showroom van Autobedrijf Rijswijk en natuurlijk op AutoScout24.nl.",
+    "ko": "이 차의 연식, 가격, 주행거리는 설명란에서 확인하실 수 있으며, Autobedrijf Rijswijk 전시장과 물론 AutoScout24.nl에서도 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "세계 유명 서킷을 위한 주행 모드 언급으로 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.5,
+    "end": 7.3,
+    "speed": "보통",
+    "summary": "골프 GTI 클럽스포츠 차량 외관 공개"
+   },
+   {
+    "stage": "기능",
+    "start": 7.3,
+    "end": 18.5,
+    "speed": "보통",
+    "summary": "디스플레이를 통한 뉘르부르크링 '스페셜' 주행 모드 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.5,
+    "end": 28.6,
+    "speed": "보통",
+    "summary": "2.0리터 엔진 및 300마력 출력 사양 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 28.6,
+    "end": 37.3,
+    "speed": "보통",
+    "summary": "매물 정보 확인처 및 AutoScout24 홍보"
+   }
+  ],
+  "rules": [
+   "자막 키워드는 노란색 하이라이트 처리를 하여 가독성을 높임",
+   "스펙 수치(엔진, 마력) 등장 시 노란색 박스 자막과 '톡' 효과음을 매칭",
+   "실내 화면 터치 동작과 외관 B-roll을 교차 편집하여 지루함을 방지",
+   "마지막에 플랫폼 로고를 띄우며 명확한 CTA 제공"
+  ]
+ }
+}

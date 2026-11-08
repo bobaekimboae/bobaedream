@@ -1,0 +1,846 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/z--nCclQzIA",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5659,
+  "candidatesTokenCount": 6753,
+  "totalTokenCount": 13219,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4917
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 807,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.0,
+   "aspect": "9:16",
+   "car": "Fiat Topolino Vilebrequin Collector's Edition",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 7.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 13.9,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "part": "기타",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 16.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 18.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 20.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.3,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 28.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.8,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.7,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 44.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.8,
+    "end": 49.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 51.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 55.0,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Dit is niet zomaar een Fiat Topolino",
+    "ko": "이건 평범한 피아트 토폴리노가 아닙니다",
+    "kind": "말 자막",
+    "y_pct": 59.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "een Fiat",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 5.4,
+    "text": "Vilebrequin Collector's Edition",
+    "ko": "빌브레퀸 컬렉터스 에디션",
+    "kind": "키워드 스티커",
+    "y_pct": 19.5,
+    "x_center_pct": 57.0,
+    "text_height_pct": 3.6,
+    "color": "#1A2550",
+    "background": "상자",
+    "bg_color": "#FFE548",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "200 er maar 200 van gemaakt",
+    "ko": "단 200대만 한정 생산되었습니다",
+    "kind": "말 자막",
+    "y_pct": 56.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "er maar 200",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.0,
+    "text": "Volledig elektrisch 🔋",
+    "ko": "완전 전기차 🔋",
+    "kind": "키워드 스티커",
+    "y_pct": 91.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 3.6,
+    "color": "#1A2550",
+    "background": "상자",
+    "bg_color": "#FFE548",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 10.5,
+    "text": "super stylish",
+    "ko": "매우 스타일리시하고",
+    "kind": "말 자막",
+    "y_pct": 52.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "super stylish",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.8,
+    "text": "❌ geen autorijbewijs",
+    "ko": "❌ 운전면허 필요 없음",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#1A2550",
+    "background": "상자",
+    "bg_color": "#FFE548",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.2,
+    "text": "Nu wordt het leuk",
+    "ko": "이제 흥미진진해집니다",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 45.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Nu wordt",
+    "sure": true
+   },
+   {
+    "start": 14.3,
+    "end": 16.5,
+    "text": "Dit is een speciale gelimiteerde editie",
+    "ko": "특별 한정판 에디션입니다",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "gelimiteerde",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 20.3,
+    "text": "ontworpen in samenwerking met het Franse lifestyle zwemkledingmerk",
+    "ko": "프랑스 라이프스타일 수영복 브랜드와의 협업 디자인",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "samenwerking",
+    "sure": true
+   },
+   {
+    "start": 21.7,
+    "end": 23.3,
+    "text": "🩳 Luxe strandkleding",
+    "ko": "🩳 럭셔리 비치웨어",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 3.6,
+    "color": "#1A2550",
+    "background": "상자",
+    "bg_color": "#FFE548",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 27.2,
+    "text": "Hij heeft geen deuren maar touwtjes",
+    "ko": "문 대신 로프가 달려있습니다",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "deuren maar",
+    "sure": true
+   },
+   {
+    "start": 27.3,
+    "end": 29.8,
+    "text": "na een dagje strand vieze voeten?",
+    "ko": "해변에서 놀고 발이 더러워졌나요?",
+    "kind": "말 자막",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "strand vieze",
+    "sure": true
+   },
+   {
+    "start": 32.2,
+    "end": 34.5,
+    "text": "Een kleine mini douche om je goed af te spoelen",
+    "ko": "깨끗하게 씻어낼 작은 미니 샤워기",
+    "kind": "말 자막",
+    "y_pct": 56.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "douche om",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 39.0,
+    "text": "Dit is gewoon een eerbetoon aan de strandwagens uit de jaren 50 en de jaren 60",
+    "ko": "50~60년대 비치 카에 바치는 헌사입니다",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "strandwagens",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.5,
+    "text": "45 KM/U",
+    "ko": "최고 45km/h",
+    "kind": "키워드 스티커",
+    "y_pct": 69.0,
+    "x_center_pct": 63.0,
+    "text_height_pct": 4.5,
+    "color": "#1A2550",
+    "background": "상자",
+    "bg_color": "#FFE548",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 46.8,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 5.0,
+    "color": "#1A2550",
+    "background": "상자",
+    "bg_color": "#FFE548",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 47.5,
+    "end": 49.3,
+    "text": "€13.900",
+    "ko": "13,900유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.5,
+    "color": "#1A2550",
+    "background": "상자",
+    "bg_color": "#FFE548",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.7,
+    "type": "톡",
+    "event": "Vilebrequin Collector's Edition 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "쿵",
+    "event": "200 숫자 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.3,
+    "type": "톡",
+    "event": "Volledig elektrisch 배너 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.7,
+    "type": "띵",
+    "event": "geen autorijbewijs 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.7,
+    "type": "톡",
+    "event": "Luxe strandkleding 배너 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.5,
+    "type": "톡",
+    "event": "Fiat Jolly 클래식카 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "45 KM/U 속도 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "톡",
+    "event": "2025 연식 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.5,
+    "type": "돈 소리",
+    "event": "€13.900 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.8,
+    "type": "톡",
+    "event": "AUTO-POINT Casier 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.8,
+    "type": "톡",
+    "event": "AutoScout24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 펑크",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.4,
+    "end": 6.8,
+    "what": "숫자 200 볼드 텍스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "한정수량 강조",
+    "sure": true
+   },
+   {
+    "start": 39.2,
+    "end": 40.5,
+    "what": "클래식 피아트 졸리 일러스트 사진",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 60.0,
+    "y_pct": 60.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "역사적 모델 비교",
+    "sure": true
+   },
+   {
+    "start": 50.6,
+    "end": 52.5,
+    "what": "AUTO-POINT Casier 로고 배너",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 48.0,
+    "y_pct": 33.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "쇼룸 딜러사 안내",
+    "sure": true
+   },
+   {
+    "start": 52.5,
+    "end": 55.0,
+    "what": "AutoScout24 노란색 브랜딩 로고 배너",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "Dit is niet zomaar een Fiat Topolino.",
+    "ko": "이건 평범한 피아트 토폴리노가 아닙니다."
+   },
+   {
+    "start": 2.7,
+    "end": 5.4,
+    "text": "Dit is de Vilebrequin Collector's Edition.",
+    "ko": "빌브레퀸 컬렉터스 에디션입니다."
+   },
+   {
+    "start": 5.4,
+    "end": 7.0,
+    "text": "En hier zijn er maar 200 van gemaakt.",
+    "ko": "그리고 단 200대만 한정 제작되었습니다."
+   },
+   {
+    "start": 7.0,
+    "end": 9.0,
+    "text": "Hij is volledig elektrisch.",
+    "ko": "완전 전기차이고,"
+   },
+   {
+    "start": 9.0,
+    "end": 10.5,
+    "text": "super stylish.",
+    "ko": "아주 스타일리시하며,"
+   },
+   {
+    "start": 10.5,
+    "end": 12.8,
+    "text": "En je hebt geen autorijbewijs nodig om er in te mogen rijden.",
+    "ko": "운전면허가 없어도 탈 수 있습니다."
+   },
+   {
+    "start": 12.8,
+    "end": 14.0,
+    "text": "Nu wordt het leuk.",
+    "ko": "이제 흥미진진해집니다."
+   },
+   {
+    "start": 14.0,
+    "end": 16.5,
+    "text": "Dit is een speciale gelimiteerde editie,",
+    "ko": "이 차량은 특별 한정판으로,"
+   },
+   {
+    "start": 16.5,
+    "end": 20.3,
+    "text": "ontworpen in samenwerking met het Franse lifestyle zwemkledingmerk Vilebrequin,",
+    "ko": "프랑스 라이프스타일 수영복 브랜드 빌브레퀸과 협업하여 디자인되었습니다."
+   },
+   {
+    "start": 20.3,
+    "end": 24.1,
+    "text": "dat bekend staat om luxe strandkleding en zonnige vibes.",
+    "ko": "고급 비치웨어와 햇살 가득한 무드로 유명하죠."
+   },
+   {
+    "start": 24.1,
+    "end": 27.2,
+    "text": "Hij heeft geen deuren maar touwtjes.",
+    "ko": "도어가 없는 대신 로프가 있습니다."
+   },
+   {
+    "start": 27.2,
+    "end": 29.8,
+    "text": "En heb je na een dagje strand vieze voeten?",
+    "ko": "해변에서 하루를 보낸 후 발이 더러워졌나요?"
+   },
+   {
+    "start": 29.8,
+    "end": 31.8,
+    "text": "Daar heeft deze Topolino ook een oplossing voor.",
+    "ko": "이 토폴리노는 해결책도 준비해 뒀습니다."
+   },
+   {
+    "start": 31.8,
+    "end": 34.7,
+    "text": "Een kleine mini douche om je goed af te spoelen.",
+    "ko": "발을 깨끗이 헹굴 수 있는 미니 샤워기입니다."
+   },
+   {
+    "start": 34.7,
+    "end": 39.0,
+    "text": "Dit is gewoon een eerbetoon aan de strandwagens uit de jaren 50 en de jaren 60,",
+    "ko": "50~60년대 비치 카에 바치는 헌사로,"
+   },
+   {
+    "start": 39.0,
+    "end": 40.5,
+    "text": "zoals de Fiat Jolly.",
+    "ko": "피아트 졸리 같은 모델 말이죠."
+   },
+   {
+    "start": 40.5,
+    "end": 42.5,
+    "text": "Hij gaat maximaal 45 km/h,",
+    "ko": "최고 속도는 45km/h이며,"
+   },
+   {
+    "start": 42.5,
+    "end": 44.5,
+    "text": "en je laadt hem op binnen 4 uurtjes.",
+    "ko": "4시간 이내에 충전할 수 있습니다."
+   },
+   {
+    "start": 44.5,
+    "end": 46.8,
+    "text": "Hij komt uit 2025,",
+    "ko": "2025년식 모델이며,"
+   },
+   {
+    "start": 46.8,
+    "end": 49.3,
+    "text": "en hij kost €13.900.",
+    "ko": "가격은 13,900유로입니다."
+   },
+   {
+    "start": 49.3,
+    "end": 52.0,
+    "text": "Je vindt hem in de showroom van Auto-Point Casier,",
+    "ko": "Auto-Point Casier 쇼룸에서 만나보실 수 있으며,"
+   },
+   {
+    "start": 52.0,
+    "end": 55.0,
+    "text": "en op AutoScout24.be.",
+    "ko": "AutoScout24.be에서도 확인하실 수 있습니다."
+   },
+   {
+    "start": 0.0,
+    "end": 0.0,
+    "text": "",
+    "ko": ""
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.0,
+    "speed": "빠름",
+    "summary": "일반 토폴리노가 아닌 200대 한정 빌브레퀸 에디션임을 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 7.0,
+    "end": 12.8,
+    "speed": "빠름",
+    "summary": "전기차, 무면허 주행 가능(유럽 마이크로카 기준) 특성 전달"
+   },
+   {
+    "stage": "차 소개",
+    "start": 12.8,
+    "end": 24.1,
+    "speed": "보통",
+    "summary": "빌브레퀸 콜라보 디자인 및 실내외 디테일 쇼케이스"
+   },
+   {
+    "stage": "기능",
+    "start": 24.1,
+    "end": 34.7,
+    "speed": "보통",
+    "summary": "로프 도어와 내장형 미니 비치 샤워기 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 34.7,
+    "end": 46.8,
+    "speed": "빠름",
+    "summary": "피아트 졸리 오마주 배경, 최고속도 45km/h, 충전시간 4시간 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 46.8,
+    "end": 49.3,
+    "speed": "빠름",
+    "summary": "차량 판매 가격 13,900유로 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 49.3,
+    "end": 55.0,
+    "speed": "보통",
+    "summary": "딜러 쇼룸 및 AutoScout24 플랫폼 유입 유도"
+   }
+  ],
+  "rules": [
+   "진행자의 신체 액션(지붕으로 머리 내밀기, 샤워기 꺼내기)과 대사를 정확히 일치시켜 몰입도 극대화",
+   "브랜드 시그니처 색상(노란색) 바탕의 둥근 직사각형 키워드 배너를 핵심 스펙마다 팝업으로 노출",
+   "화면 하단 자막에 음성 싱크에 맞춰 주요 단어 색상을 변경하는 노래방 스타일 하이라이트 적용",
+   "독특한 편의 기능(미니 샤워기)은 실제 열고 꺼내는 실연 장면을 클로즈업하여 보여줌",
+   "영상 말미에 판매 가격, 실제 전시 딜러사 로고, 오토스카우트24 플랫폼 로고를 순차적으로 명확히 표시"
+  ]
+ }
+}

@@ -1,0 +1,473 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/OGYPE2qaUGQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2919,
+  "candidatesTokenCount": 4605,
+  "totalTokenCount": 8319,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2177
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 795,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 23.8,
+   "aspect": "9:16",
+   "car": "Tesla Roadster",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 9.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 13.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 17.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.3,
+    "end": 19.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "Wist jij dat er op",
+    "ko": "지금 이 순간",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Wist",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.2,
+    "text": "dit moment",
+    "ko": "태양 주위를 돌고 있는",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "dit",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.0,
+    "text": "een Tesla rond",
+    "ko": "테슬라가 있다는 사실을",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Tesla",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.0,
+    "text": "de zon draait?",
+    "ko": "알고 계셨나요?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "zon",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 6.8,
+    "text": "In 2018 lanceerde de",
+    "ko": "2018년 스페이스X가",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "2018",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "de allereerste Falcon",
+    "ko": "사상 최초의 팰컨",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "allereerste",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 9.1,
+    "text": "Heavyraket.",
+    "ko": "헤비 로켓을 발사했습니다.",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Heavyraket.",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 10.6,
+    "text": "Als testlading stuurde",
+    "ko": "시험 화물로",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "testlading",
+    "sure": true
+   },
+   {
+    "start": 10.6,
+    "end": 12.0,
+    "text": "Elon Musk zijn eigen",
+    "ko": "일론 머스크는 자신의",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Elon",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.8,
+    "text": "Tesla Roadster de ruimte in.",
+    "ko": "테슬라 로드스터를 우주로 보냈죠.",
+    "kind": "말 자막",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "Roadster",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 15.5,
+    "text": "Achter het stuur zit er een pop",
+    "ko": "운전대 뒤에는 마네킹이 앉아 있고",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "pop",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 17.3,
+    "text": "Starman",
+    "ko": "스타맨",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E242",
+    "bg_width_pct": 36,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.3,
+    "end": 19.8,
+    "text": "en op het dashboard staat de boodschap: DON'T PANIC!",
+    "ko": "대시보드에는 당황하지 마세요 라는 메시지가 적혀 있습니다!",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "dashboard",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 23.8,
+    "text": "Zou jij er nog mee durven rijden als die ooit terug op aarde komt?",
+    "ko": "만약 이게 다시 지구로 돌아온다면 운전해 보시겠어요?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "durven",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.5,
+    "type": "휙",
+    "event": "로켓 애니메이션 발사",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.8,
+    "type": "휙",
+    "event": "손으로 우주를 가리키는 제스처",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.5,
+    "type": "톡",
+    "event": "Starman 옐로우 박스 타이틀 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 호기심 유발",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.3,
+    "end": 7.5,
+    "what": "우주로 날아가는 Falcon Heavy 로켓 2D 일러스트",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 85.0,
+    "y_pct": 30.0,
+    "entrance": "밀려옴",
+    "purpose": "설명 보조 시각화",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.0,
+    "what": "우주복 마네킹 Starman 스티커",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 18.0,
+    "y_pct": 70.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "설명 보조 시각화",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.8,
+    "what": "실제 우주 속 테슬라 로드스터 대시보드 화면 인서트",
+    "is_3d": false,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 75.0,
+    "entrance": "바로",
+    "purpose": "자료 화면 인서트",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.0,
+    "text": "Wist jij dat er op dit moment een Tesla rond de zon draait?",
+    "ko": "지금 이 순간 태양 주위를 돌고 있는 테슬라가 있다는 사실을 알고 계셨나요?"
+   },
+   {
+    "start": 4.0,
+    "end": 9.1,
+    "text": "In 2018 lanceerde SpaceX de allereerste Falcon Heavy raket.",
+    "ko": "2018년 스페이스X는 사상 최초의 팰컨 헤비 로켓을 발사했습니다."
+   },
+   {
+    "start": 9.1,
+    "end": 13.8,
+    "text": "Als testlading stuurde Elon Musk zijn eigen Tesla Roadster de ruimte in.",
+    "ko": "시험 화물로 일론 머스크는 자신의 테슬라 로드스터를 우주로 보냈죠."
+   },
+   {
+    "start": 13.8,
+    "end": 17.3,
+    "text": "Achter het stuur zit er een pop met de naam Starman",
+    "ko": "운전대 뒤에는 스타맨이라는 이름의 마네킹이 앉아 있고"
+   },
+   {
+    "start": 17.3,
+    "end": 19.8,
+    "text": "en op het dashboard staat de boodschap: Don't panic!",
+    "ko": "대시보드에는 당황하지 마세요! 라는 메시지가 적혀 있습니다."
+   },
+   {
+    "start": 19.8,
+    "end": 23.8,
+    "text": "Zou jij er nog mee durven rijden als die ooit terug op aarde komt?",
+    "ko": "만약 이게 다시 지구로 돌아온다면 운전해 보시겠어요?"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "보통",
+    "summary": "태양 궤도를 돌고 있는 테슬라 이야기로 호기심 자극"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.0,
+    "end": 13.8,
+    "speed": "보통",
+    "summary": "팰컨 헤비 로켓과 일론 머스크의 로드스터 우주 발사 배경 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 13.8,
+    "end": 19.8,
+    "speed": "빠름",
+    "summary": "탑승 인형 스타맨과 Don't Panic 디스플레이 디테일 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 19.8,
+    "end": 23.8,
+    "speed": "보통",
+    "summary": "지구에 돌아오면 타겠냐는 댓글 유도 질문으로 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 차량 옆을 걸으며 카메라와 시선을 맞추고 대화하듯 전개",
+   "말하는 음성에 맞춰 핵심 단어를 노란색 굵은 글씨로 실시간 하이라이트",
+   "우주 발사·우주인 등 시각적 상상력이 필요한 대목에 즉각적인 스티커 그래픽과 휙 효과음 삽입",
+   "실제 우주 비행 자료화면을 하단 화면 분할로 직접 대조하여 보여줌",
+   "영상의 마지막은 시청자에게 직접 질문을 던져 댓글 소통을 유도"
+  ]
+ }
+}

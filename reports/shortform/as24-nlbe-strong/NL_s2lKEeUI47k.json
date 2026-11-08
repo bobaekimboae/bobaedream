@@ -1,0 +1,520 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/s2lKEeUI47k",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3393,
+  "candidatesTokenCount": 5039,
+  "totalTokenCount": 10136,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2651
+   }
+  ],
+  "thoughtsTokenCount": 1704,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.5,
+   "aspect": "9:16",
+   "car": "Porsche Panamera Sport Turismo",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.2,
+    "end": 6.5,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 17.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 18.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.8,
+    "end": 21.6,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 24.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.1,
+    "end": 29.5,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "NAAST MIJ STAAT",
+    "ko": "내 옆에 서 있는 차는",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "NAAST",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 3.0,
+    "text": "PORSCHE PANAMERA SPORT TURISMO",
+    "ko": "포르쉐 파나메라 스포츠 투리스모",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.1,
+    "text": "2018",
+    "ko": "2018년식",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.2,
+    "text": "145.000 KM",
+    "ko": "145,000 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.7,
+    "text": "463 PK 🏁",
+    "ko": "463 마력 🏁",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "text": "EN DE PRIJS VERTEL IK JE OP HET EIND",
+    "ko": "그리고 가격은 마지막에 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "PRIJS",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.6,
+    "text": "ELEKTRISCH PANORAMADAK ✔\nWARMTEWEREND GLAS ✔\nKNIEAIRBAGS ✔",
+    "ko": "전동 파노라마 루프 ✔\n단열 유리 ✔\n무릎 에어백 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 14.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.8,
+    "text": "21-INCH VELGEN ✔",
+    "ko": "21인치 휠 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.5,
+    "text": "DUBBELE SPORTUITLATEN ✔",
+    "ko": "듀얼 스포츠 배기구 ✔",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 24.0,
+    "text": "€51.950",
+    "ko": "51,950 유로",
+    "kind": "가격",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.5,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.2,
+    "text": "📍 DUTCH CARS EXCLUSIVE",
+    "ko": "📍 더치 카스 익스클루시브",
+    "kind": "키워드 스티커",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFDF00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "톡",
+    "event": "포르쉐 파나메라 자막 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.0,
+    "type": "휙",
+    "event": "2018 연식 자막 등장 및 화면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "딸깍",
+    "event": "145.000 KM 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "쿵",
+    "event": "463 PK 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "띵",
+    "event": "옵션 리스트 첫 번째 항목 체크",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "띵",
+    "event": "옵션 리스트 두 번째 항목 체크",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.3,
+    "type": "띵",
+    "event": "옵션 리스트 세 번째 항목 체크",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "띵",
+    "event": "21인치 휠 옵션 체크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "띵",
+    "event": "스포츠 배기구 옵션 체크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.8,
+    "type": "돈 소리",
+    "event": "가격 51,950 유로 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "휙",
+    "event": "오토스카우트24 로고 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "모던 비트/힙합 인스트루멘탈",
+   "bpm_est": 120,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 27.4,
+    "end": 29.5,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 앱 다운로드 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Naast mij staat een Porsche Panamera Sport Turismo.",
+    "ko": "제 옆에는 포르쉐 파나메라 스포츠 투리스모가 있습니다."
+   },
+   {
+    "start": 3.0,
+    "end": 8.7,
+    "text": "Hij komt uit 2018, heeft 145.000 km gelopen en hij heeft 463 pk.",
+    "ko": "2018년식이고 145,000km를 주행했으며 463마력입니다."
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "text": "En de prijs vertel ik je op het eind.",
+    "ko": "그리고 가격은 마지막에 말씀드릴게요."
+   },
+   {
+    "start": 10.9,
+    "end": 17.6,
+    "text": "En deze auto is niet alleen snel, maar ook luxe. Zo heeft hij een elektrisch panoramadak, warmtewerend glas en zelfs knieairbags.",
+    "ko": "이 차는 빠를 뿐만 아니라 고급스럽기도 합니다. 전동 파노라마 루프, 열차단 유리, 심지어 무릎 에어백까지 갖추고 있습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 21.6,
+    "text": "Hij heeft 21-inch velgen, dubbele sportuitlaten...",
+    "ko": "21인치 휠과 듀얼 스포츠 배기구를 갖추고 있습니다."
+   },
+   {
+    "start": 21.6,
+    "end": 24.1,
+    "text": "En hij kost €51.950.",
+    "ko": "가격은 51,950유로입니다."
+   },
+   {
+    "start": 24.1,
+    "end": 29.5,
+    "text": "En je vindt hem in de showroom van Dutch Cars Exclusive en natuurlijk op AutoScout24.nl.",
+    "ko": "Dutch Cars Exclusive 전시장과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "빠름",
+    "summary": "진행자가 차종을 소개하며 시청자의 이목을 끎"
+   },
+   {
+    "stage": "사양",
+    "start": 3.0,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "연식, 주행거리, 출력 등 핵심 수치 전달"
+   },
+   {
+    "stage": "기능",
+    "start": 8.7,
+    "end": 21.6,
+    "speed": "보통",
+    "summary": "가격 예고 후 실내/외 주요 옵션과 편의기능 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 21.6,
+    "end": 24.1,
+    "speed": "보통",
+    "summary": "차량 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 24.1,
+    "end": 29.5,
+    "speed": "보통",
+    "summary": "판매처 및 AutoScout24 구매 안내와 마무리"
+   }
+  ],
+  "rules": [
+   "브랜드 대표 색상인 노란색(#FFDF00)을 텍스트 및 박스 배경에 일관되게 활용한다.",
+   "주요 옵션을 소개할 때 체크마크(✔)와 '띵' 효과음을 함께 사용하여 직관성을 높인다.",
+   "영상 초반에 '가격은 마지막에 공개한다'는 멘트로 시청 지속 시간을 유도한다.",
+   "숫자 정보(연식, 주행거리, 마력, 가격)는 큰 폰트의 볼드 텍스트로 강조한다.",
+   "실내외 전환을 빠르게 편집하여 지루함을 방지한다."
+  ]
+ }
+}

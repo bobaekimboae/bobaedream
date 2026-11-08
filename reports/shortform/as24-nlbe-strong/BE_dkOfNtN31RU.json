@@ -1,0 +1,518 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/dkOfNtN31RU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3467,
+  "candidatesTokenCount": 5067,
+  "totalTokenCount": 9599,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2725
+   }
+  ],
+  "thoughtsTokenCount": 1065,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 29.9,
+   "aspect": "9:16",
+   "car": "Porsche Cayenne S E-Hybrid",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 5.4,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.4,
+    "end": 7.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 8.7,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 9.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 13.7,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.7,
+    "end": 16.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.2,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 19.9,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 26.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 29.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "Porsche Cayenne S E-Hybrid €119.840",
+    "ko": "포르쉐 카이엔 S E-하이브리드 €119,840",
+    "kind": "제목",
+    "y_pct": 21.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 9.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 2.9,
+    "text": "Ga jij voor de Porsche Cayenne S e-hybrid?",
+    "ko": "포르쉐 카이엔 S E-하이브리드를 선택하시겠어요?",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "Porsche",
+    "sure": true
+   },
+   {
+    "start": 2.9,
+    "end": 3.7,
+    "text": "Hij is uitgevoerd met",
+    "ko": "이 차량에는 탑재되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "Porsche Active suspension management",
+    "ko": "포르쉐 액티브 서스펜션 매니지먼트 (PASM)",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.4,
+    "text": "Elektrisch leren stoelen",
+    "ko": "전동 가죽 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "text": "Memory functie",
+    "ko": "메모리 기능",
+    "kind": "키워드 스티커",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 9.9,
+    "text": "Panoramisch dak",
+    "ko": "파노라믹 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 13.6,
+    "text": "Hij heeft een 360 graden camera met volledige 3D functie",
+    "ko": "완벽한 3D 기능을 갖춘 360도 카메라가 장착되어 있고",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "graden",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 14.8,
+    "text": "uitgevoerd met een",
+    "ko": "탑재된",
+    "kind": "말 자막",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.7,
+    "text": "Bose surround soundsystem",
+    "ko": "보스 서라운드 사운드 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 84.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.9,
+    "text": "22 inch velgen Spider design",
+    "ko": "22인치 RS 스파이더 디자인 휠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 20.8,
+    "text": "Hij komt uit",
+    "ko": "연식은",
+    "kind": "말 자막",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "타자",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 21.8,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 25.5,
+    "text": "11.268 KM",
+    "ko": "11,268 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#F3E500",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "Lo-Fi Pop",
+   "bpm_est": 115,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 26.3,
+    "end": 28.0,
+    "what": "GARAGE PEETERS 딜러 로고",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 12.5,
+    "y_pct": 21.0,
+    "entrance": "바로",
+    "purpose": "판매 딜러 안내",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.9,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 17.5,
+    "y_pct": 25.0,
+    "entrance": "바로",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.0,
+    "text": "Ga jij voor de Porsche Cayenne S E-hybrid?",
+    "ko": "당신은 포르쉐 카이엔 S E-하이브리드를 선택하시겠습니까?"
+   },
+   {
+    "start": 3.0,
+    "end": 5.4,
+    "text": "Hij is uitgevoerd met de Porsche Active Suspension Management,",
+    "ko": "이 차량은 포르쉐 액티브 서스펜션 매니지먼트(PASM)와,"
+   },
+   {
+    "start": 5.4,
+    "end": 8.7,
+    "text": "elektrisch leren stoelen met memory functie,",
+    "ko": "메모리 기능이 포함된 전동 가죽 시트,"
+   },
+   {
+    "start": 8.7,
+    "end": 10.0,
+    "text": "panoramisch dak.",
+    "ko": "파노라믹 루프가 적용되어 있습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 13.8,
+    "text": "Hij heeft een 360 graden camera met volledige 3D-functie,",
+    "ko": "풀 3D 기능이 있는 360도 카메라가 장착되어 있고,"
+   },
+   {
+    "start": 13.8,
+    "end": 17.0,
+    "text": "en hij is uitgevoerd met een Bose surround soundsystem,",
+    "ko": "보스 서라운드 사운드 시스템,"
+   },
+   {
+    "start": 17.0,
+    "end": 20.0,
+    "text": "22 inch velgen in het RS Spyder design.",
+    "ko": "22인치 RS 스파이더 디자인 휠이 들어갔습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 22.0,
+    "text": "Hij komt uit 2025,",
+    "ko": "연식은 2025년식이며,"
+   },
+   {
+    "start": 22.0,
+    "end": 26.0,
+    "text": "en hij heeft 11.268 km op de teller.",
+    "ko": "주행거리는 11,268 km입니다."
+   },
+   {
+    "start": 26.0,
+    "end": 29.9,
+    "text": "Je vindt ze bij Garage Peeters en op autoscout24.be.",
+    "ko": "Garage Peeters 매장과 autoscout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.0,
+    "speed": "보통",
+    "summary": "차량 모델명 및 가격 소개와 질문형 훅"
+   },
+   {
+    "stage": "기능",
+    "start": 3.0,
+    "end": 19.9,
+    "speed": "빠름",
+    "summary": "PASM, 시트, 루프, 360도 카메라, 사운드, 휠 등 핵심 옵션 릴레이 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 19.9,
+    "end": 26.0,
+    "speed": "보통",
+    "summary": "연식(2025)과 주행거리 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 26.0,
+    "end": 29.9,
+    "speed": "보통",
+    "summary": "판매 딜러와 AutoScout24 플랫폼 구매처 안내"
+   }
+  ],
+  "rules": [
+   "브랜드 시그니처 컬러(노란색) 바탕의 브러시 형태 박스를 주요 옵션 및 수치 강조 스티커로 일관되게 활용한다.",
+   "1~2초 간격으로 시트, 버튼, 디스플레이, 휠 등 옵션별 핵심 디테일 클로즈업 컷을 빠른 템포로 연속 배치한다.",
+   "진행자가 화면 안에 직접 등장해 지목하는 핸드 제스처로 시청자의 시선을 해당 옵션으로 유도한다.",
+   "도입부 상단에 모델명과 가격을 명확히 명시하여 스크롤 이탈을 방지한다."
+  ]
+ }
+}

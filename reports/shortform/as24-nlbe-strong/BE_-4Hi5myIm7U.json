@@ -1,0 +1,156 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/-4Hi5myIm7U",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1651,
+  "candidatesTokenCount": 1216,
+  "totalTokenCount": 3597,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 909
+   }
+  ],
+  "thoughtsTokenCount": 730,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.8,
+   "aspect": "9:16",
+   "car": "Tesla Model Y",
+   "format": "차 소개",
+   "person_on_screen": false,
+   "voice": "없음",
+   "language": "기타"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.3,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.3,
+    "end": 4.1,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.7,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.8,
+    "end": 9.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.7,
+    "end": 7.8,
+    "text": "Tesla Model Y €39.990",
+    "ko": "테슬라 모델 Y 39,990유로",
+    "kind": "가격",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Tesla",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "R&B / Hip-hop Instrumental",
+   "bpm_est": 95,
+   "mood": "트렌디하고 감각적인",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 7.8,
+    "end": 9.8,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 25.0,
+    "y_pct": 40.0,
+    "entrance": "바로",
+    "purpose": "브랜드 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "3단 분할 화면으로 디테일과 전체 샷을 동시에 노출"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 7.8,
+    "speed": "보통",
+    "summary": "디스플레이 화면, 휠, 시트, 전체 후측면을 가격 정보와 함께 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.8,
+    "end": 9.8,
+    "speed": "보통",
+    "summary": "차량 트렁크 엠블럼과 AutoScout24 로고 클로징"
+   }
+  ],
+  "rules": [
+   "오프닝에 3분할 프레임을 활용해 시각적 집중도를 높인다.",
+   "별도 음성 없이 트렌디한 비트와 리듬에 맞춰 컷을 전환한다.",
+   "차량명과 가격을 노란색 포인트 박스 자막으로 상단에 고정 노출한다.",
+   "마지막 컷에 브랜드 로고를 중앙 배치하여 구매 플랫폼을 각인시킨다."
+  ]
+ }
+}

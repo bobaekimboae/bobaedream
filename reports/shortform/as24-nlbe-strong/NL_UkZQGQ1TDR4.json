@@ -1,0 +1,294 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/UkZQGQ1TDR4",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4466,
+  "candidatesTokenCount": 3002,
+  "totalTokenCount": 8658,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3724
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1190,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 40.5,
+   "aspect": "9:16",
+   "car": "Volkswagen Golf GTE",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 9.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 15.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 35.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.2,
+    "end": 40.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "ALS JE OP ZOEK BENT NAAR EEN PLUG-IN HYBRIDE",
+    "ko": "플러그인 하이브리드를 찾고 있다면",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "PLUG-IN HYBRIDE",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "KIJK DAN NIET ALLEEN NAAR DE KILOMETERSTAND",
+    "ko": "주행거리만 보지 마세요",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "KILOMETERSTAND",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.0,
+    "text": "MAAR KIJK OOK NAAR DE BATTERIJ",
+    "ko": "배터리 상태도 꼭 확인하세요",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "BATTERIJ",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.8,
+    "text": "STATE OF HEALTH RAPPORT AANVRAGEN",
+    "ko": "배터리 수명 상태(SOH) 리포트를 요청할 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 60,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "STATE OF HEALTH",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "97%",
+    "ko": "97%",
+    "kind": "키워드 스티커",
+    "y_pct": 62,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "97%",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 28.5,
+    "text": "ACCUTEST? STATE OF HEALTH? SOH-RAPPORT",
+    "ko": "배터리 테스트? SOH 리포트가 있는지 물어보세요",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SOH-RAPPORT",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 39.0,
+    "text": "80.000",
+    "ko": "80,000대 이상",
+    "kind": "키워드 스티커",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 8,
+    "color": "#FFEA00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "80.000",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "업비트 일렉트로 팝",
+   "bpm_est": 120,
+   "mood": "경쾌함, 유익함, 모던함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 35.2,
+    "end": 40.5,
+    "what": "AutoScout24 로고 깃발 그래픽",
+    "is_3d": false,
+    "size_w_pct": 55,
+    "x_pct": 25,
+    "y_pct": 10,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 6.8,
+    "text": "Als je op zoek bent naar een plug-in hybride, kijk dan niet alleen naar de kilometerstand, maar kijk ook naar de batterij. Dat is heel belangrijk.",
+    "ko": "플러그인 하이브리드를 찾고 있다면 주행거리만 보지 말고 배터리도 꼭 확인하세요. 매우 중요합니다."
+   },
+   {
+    "start": 6.8,
+    "end": 9.8,
+    "text": "Je kunt namelijk een State of Health rapport aanvragen.",
+    "ko": "배터리 수명 상태(SOH) 리포트를 요청할 수 있거든요."
+   },
+   {
+    "start": 9.8,
+    "end": 18.8,
+    "text": "Bij deze Volkswagen GTE is de State of Health nog 97%. Dat wil dus zeggen dat hij nog 97% van zijn originele accupercentage heeft.",
+    "ko": "이 폭스바겐 GTE의 경우 SOH가 아직 97%입니다. 원래 배터리 용량의 97%가 유지되고 있다는 뜻이죠."
+   },
+   {
+    "start": 18.8,
+    "end": 33.0,
+    "text": "Vraag dus altijd als je een plug-in hybride wilt kopen of er een accutest gedaan is of dat er een State of Health rapport, een SOH-rapport beschikbaar is. Zo weet je of de accu nog goed is, en dat is heel belangrijk bij een plug-in hybride.",
+    "ko": "그러니 플러그인 하이브리드를 살 때는 항상 배터리 테스트나 SOH 리포트가 있는지 확인하세요. 그래야 배터리가 여전히 좋은지 알 수 있으며, 이는 플러그인 하이브리드에서 매우 중요합니다."
+   },
+   {
+    "start": 33.0,
+    "end": 40.5,
+    "text": "En ben je op zoek naar een hybride of een elektrische auto? Op AutoScout24 vind je er meer dan 80.000. Keuze genoeg dus.",
+    "ko": "하이브리드나 전기차를 찾고 계신가요? AutoScout24에는 8만 대 이상의 매물이 있습니다. 선택지가 충분하죠."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 9.8,
+    "speed": "보통",
+    "summary": "플러그인 하이브리드 구매 시 주행거리 외에 배터리 SOH 리포트를 확인해야 하는 이유 제시"
+   },
+   {
+    "stage": "사양",
+    "start": 9.8,
+    "end": 18.8,
+    "speed": "보통",
+    "summary": "실제 폭스바겐 GTE 차량 예시를 들어 97% SOH의 의미 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 18.8,
+    "end": 33.0,
+    "speed": "보통",
+    "summary": "구매 전 딜러에게 SOH 리포트를 요청하라는 구체적 팁 전달"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 33.0,
+    "end": 40.5,
+    "speed": "보통",
+    "summary": "AutoScout24에 8만 대 이상의 친환경차 매물이 있음을 안내하며 마무리"
+   }
+  ],
+  "rules": [
+   "진행자가 운전석에 직접 탑승하여 핵심 구매 팁을 직관적으로 설명한다.",
+   "중요한 키워드(배터리, SOH, 97%, 80,000 등)는 노란색 볼드 텍스트로 시각적 포인트를 준다.",
+   "실제 매물 외관과 계기판 실내 컷을 중간에 교차 편집하여 지루함을 방지한다.",
+   "영상 후반부에는 플랫폼 브랜딩 깃발 로고를 띄워 자연스러운 CTA를 유도한다."
+  ]
+ }
+}

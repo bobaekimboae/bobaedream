@@ -1,0 +1,540 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/rUDi7cAivCM",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4211,
+  "candidatesTokenCount": 4558,
+  "totalTokenCount": 8769,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3469
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.6,
+   "aspect": "9:16",
+   "car": "Jaguar F-Type",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.7,
+    "end": 10.9,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 16.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 23.9,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 29.2,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 32.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 38.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "JAGUAR F-TYPE",
+    "ko": "재규어 F-타입",
+    "kind": "제목",
+    "y_pct": 26.2,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "JAGUAR F-TYPE",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 3.7,
+    "text": "OP HET EINDE VERTEL IK JE WAT DIE KOST",
+    "ko": "마지막에 가격을 알려드릴게요",
+    "kind": "말 자막",
+    "y_pct": 82.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "OP HET EINDE VERTEL IK",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 6.7,
+    "text": "HIER HEB JE EEN HENDEL VOOR DIE 300 PK",
+    "ko": "여기 300마력을 위한 손잡이가 있어요",
+    "kind": "말 자막",
+    "y_pct": 49.3,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "300 PK",
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 10.9,
+    "text": "KIJK ALS JE DE BLAZERS AANZET DAN KOMEN ZE HIER OMHOOG",
+    "ko": "송풍구를 켜면 이렇게 위로 올라옵니다",
+    "kind": "말 자막",
+    "y_pct": 77.2,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AANZET DAN KOMEN ZE HIER",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.0,
+    "text": "MULTIFUNCTIONEEL STUUR",
+    "ko": "다기능 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 70.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.9,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "MULTIFUNCTIONEEL STUUR",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "STUURVERWARMING",
+    "ko": "열선 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 69.8,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STUURVERWARMING",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 15.8,
+    "text": "FLIPPERS",
+    "ko": "패들 시프트",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.9,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "FLIPPERS",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "HIER ZIT EEN KNOPJE",
+    "ko": "여기에 버튼이 있는데",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EEN KNOPJE",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "text": "ALS JE DIE NAAR BOVEN DRUKT HEB JE DE SNEEUW REGEN EN IJS FUNCTIE",
+    "ko": "위로 올리면 눈/비/빙판 모드가 되고",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REGEN EN IJS FUNCTIE",
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 23.8,
+    "text": "EN ALS JE NAAR BENEDEN DRUKT DAN HEB JE DE DYNAMIC FUNCTIE",
+    "ko": "아래로 내리면 다이내믹 모드가 됩니다",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DYNAMIC FUNCTIE",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 29.0,
+    "text": "NATUURLIJK KUN JE HEEL GEMAKKELIJK DE CABRIOKAP SLUITEN EN WEER OPENEN MET EEN DRUK OP DE KNOP",
+    "ko": "물론 버튼 하나로 컨버터블 탑을 쉽게 열고 닫을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 81.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CABRIOKAP",
+    "sure": true
+   },
+   {
+    "start": 29.2,
+    "end": 31.0,
+    "text": "DE PRIJS VAN DEZE JAGUAR IS",
+    "ko": "이 재규어의 가격은",
+    "kind": "말 자막",
+    "y_pct": 79.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "JAGUAR",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.8,
+    "text": "€34.950",
+    "ko": "€34,950",
+    "kind": "가격",
+    "y_pct": 42.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€34.950",
+    "sure": true
+   },
+   {
+    "start": 32.9,
+    "end": 35.8,
+    "text": "JE VINDT HEM IN DE SHOWROOM VAN RIJNMOND AUTO'S",
+    "ko": "Rijnmond Auto's 전시장에서 만나보실 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 79.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "RIJNMOND AUTO'S",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "JAGUAR F-TYPE 타이틀 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.9,
+    "type": "톡",
+    "event": "300 PK 강조 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "에어컨 송풍구 전동 돌출 소리",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "MULTIFUNCTIONEEL STUUR 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "STUURVERWARMING 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "톡",
+    "event": "FLIPPERS 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.8,
+    "type": "딸깍",
+    "event": "주행모드 토글 스위치 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "딸깍",
+    "event": "주행모드 다이내믹 스위치 조작음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "소프트탑 전동 루프 개폐 작동음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "띵",
+    "event": "가격 스티커(€34.950) 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 / 하우스 비트",
+   "bpm_est": 124,
+   "mood": "경쾌하고 스타일리시함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 35.8,
+    "end": 38.6,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 48.0,
+    "y_pct": 73.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜딩 및 앱/웹사이트 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Dit is de Jaguar F-Type. En op het einde vertel ik je wat die kost.",
+    "ko": "재규어 F-타입입니다. 그리고 마지막에 가격을 알려드릴게요."
+   },
+   {
+    "start": 3.7,
+    "end": 6.7,
+    "text": "Hier heb je een hendel voor die 300 pk.",
+    "ko": "여기 300마력을 버티기 위한 손잡이가 있고요."
+   },
+   {
+    "start": 6.7,
+    "end": 10.9,
+    "text": "En kijk, als je de blazers aanzet, dan komen ze hier omhoog.",
+    "ko": "그리고 송풍구를 켜면, 이렇게 위로 올라옵니다."
+   },
+   {
+    "start": 10.9,
+    "end": 16.0,
+    "text": "Hij heeft een multifunctioneel stuur met stuurverwarming en flippers waarmee je kan schakelen.",
+    "ko": "스티어링 열선과 패들 시프트가 포함된 다기능 스티어링 휠이 장착되어 있습니다."
+   },
+   {
+    "start": 16.0,
+    "end": 23.9,
+    "text": "En hier zit een knopje. Als je die naar boven drukt heb je de sneeuw-, regen- en ijsfunctie en als je naar beneden drukt dan heb je de Dynamic-functie.",
+    "ko": "여기에 스위치가 있는데요. 위로 올리면 눈·비·빙판 모드가 되고, 아래로 내리면 다이내믹 모드가 됩니다."
+   },
+   {
+    "start": 23.9,
+    "end": 29.2,
+    "text": "Natuurlijk kun je heel gemakkelijk de cabriokap sluiten en weer openen met één druk op de knop.",
+    "ko": "물론 버튼 하나로 카브리올레 탑을 쉽게 닫고 다시 열 수 있습니다."
+   },
+   {
+    "start": 29.2,
+    "end": 32.8,
+    "text": "En de prijs van deze Jaguar is €34.950.",
+    "ko": "이 재규어의 가격은 34,950유로입니다."
+   },
+   {
+    "start": 32.8,
+    "end": 38.6,
+    "text": "Je vindt hem in de showroom van Rijnmond Auto's en natuurlijk op AutoScout24.nl.",
+    "ko": "Rijnmond Auto's 쇼룸과 AutoScout24.nl에서 확인하실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "차량 모델명 소개 및 마지막에 가격 공개 예고"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 29.2,
+    "speed": "빠름",
+    "summary": "조수석 손잡이, 숨겨진 송풍구, 스티어링 휠 옵션, 주행모드 셀렉터, 전동 소프트탑 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 29.2,
+    "end": 32.8,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 32.8,
+    "end": 38.6,
+    "speed": "보통",
+    "summary": "차량 판매 딜러십 및 AutoScout24 플랫폼 안내"
+   }
+  ],
+  "rules": [
+   "도입부에 모델명을 강조하는 노란색 박스 타이틀과 함께 '마지막에 가격 공개' 멘트로 시청 지속 유도",
+   "기능이나 옵션 시연 시 실제 조작 소리와 전동 메커니즘 사운드를 생생하게 들려줌",
+   "화면 중앙 또는 하단에 노란색 강조 키워드 박스를 리듬감 있게 팝업시켜 시선 집중",
+   "컨버터블 차량의 핵심인 오픈탑 개폐 동작을 타임랩스처럼 매끄럽게 연결해 보여줌",
+   "영상 말미에 가격을 굵은 노란색 박스로 임팩트 있게 노출한 후 플랫폼 로고와 함께 마무리"
+  ]
+ }
+}

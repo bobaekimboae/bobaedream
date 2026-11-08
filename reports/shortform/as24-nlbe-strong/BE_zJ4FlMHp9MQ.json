@@ -1,0 +1,161 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/zJ4FlMHp9MQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1573,
+  "candidatesTokenCount": 1189,
+  "totalTokenCount": 2762,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 831
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.5,
+   "aspect": "9:16",
+   "car": "Tesla Roadster",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.7,
+    "end": 3.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 7.5,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.7,
+    "type": "쿵",
+    "event": "보닛 닫히는 소리",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "리드미컬하고 캐주얼함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 7.5,
+    "end": 9.5,
+    "what": "AutoScout24 로고 엔딩 카드",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 20.0,
+    "y_pct": 35.0,
+    "entrance": "페이드",
+    "purpose": "브랜딩 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.7,
+    "text": "Raad het merk!",
+    "ko": "브랜드를 맞춰보세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.7,
+    "speed": "빠름",
+    "summary": "진행자가 퀴즈를 제시하며 훅 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 1.7,
+    "end": 7.5,
+    "speed": "보통",
+    "summary": "엠블럼을 가린 채 차량의 주요 디테일 노출"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.5,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "AutoScout24 로고 엔딩"
+   }
+  ],
+  "rules": [
+   "로고를 손이나 테이프로 가려 시청자의 댓글 참여를 유도하는 퀴즈 포맷",
+   "고정 타이틀 스티커를 영상 내내 상단에 유지하여 주제 각인",
+   "비트에 맞춘 빠른 컷 전환으로 몰입도 유지"
+  ]
+ }
+}

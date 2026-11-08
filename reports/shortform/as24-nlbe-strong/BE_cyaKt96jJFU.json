@@ -1,0 +1,846 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/cyaKt96jJFU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4478,
+  "candidatesTokenCount": 7097,
+  "totalTokenCount": 11575,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3736
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 41.7,
+   "aspect": "9:16",
+   "car": "BMW 1M Coupe",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.6,
+    "end": 3.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.1,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 9.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 10.9,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 12.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.9,
+    "end": 14.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.7,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 21.8,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 25.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 41.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 3.7,
+    "end": 5.8,
+    "text": "BMW 1M Coupe",
+    "ko": "BMW 1M 쿠페",
+    "kind": "제목",
+    "y_pct": 21.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.1,
+    "text": "Dit is een BMW 1M coupe",
+    "ko": "이것은 BMW 1M 쿠페입니다",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "coupe",
+    "sure": true
+   },
+   {
+    "start": 6.1,
+    "end": 9.4,
+    "text": "en dit is niet zomaar een BMW die je op iedere straat tegenkomt.",
+    "ko": "어느 길거리에서나 마주칠 수 있는 흔한 BMW가 아닙니다.",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "iedere",
+    "sure": true
+   },
+   {
+    "start": 9.4,
+    "end": 11.2,
+    "text": "Wat meteen opvalt zijn de brede wielkasten,",
+    "ko": "바로 눈에 띄는 것은 넓은 휠 아치와",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "wielkasten",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.0,
+    "text": "brede wielkasten",
+    "ko": "넓은 휠 아치",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.9,
+    "text": "de aggressieve bumpers en de,",
+    "ko": "공격적인 범퍼, 그리고",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "bumpers",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.0,
+    "text": "aggressieve bumpers",
+    "ko": "공격적인 범퍼",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.9,
+    "end": 14.5,
+    "text": "compacte carrosserie maar het",
+    "ko": "컴팩트한 차체이지만",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "compacte",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "compacte carrosserie",
+    "ko": "컴팩트한 차체",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.7,
+    "text": "leukste zit natuurlijk onder de motorkap.",
+    "ko": "가장 흥미로운 부분은 당연히 보닛 아래에 있죠.",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "zit",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 21.8,
+    "text": "Daar ligt een 3 liter 6-in-lijn met twee turbo's, goed voor maar liefst 340 pk.",
+    "ko": "거기엔 무려 340마력을 내뿜는 트윈터보 3리터 직렬 6기통 엔진이 탑재되어 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "liefst",
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "3 liter 6-in-lijn",
+    "ko": "3리터 직렬 6기통",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 22.0,
+    "text": "340 pk",
+    "ko": "340마력",
+    "kind": "키워드 스티커",
+    "y_pct": 76.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.8,
+    "end": 23.8,
+    "text": "En met achterwielaandrijving",
+    "ko": "그리고 후륜구동과",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "aandrijving",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.8,
+    "text": "achterwielaandrijving",
+    "ko": "후륜구동",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 25.5,
+    "text": "en een handgeschakelde zesversnellingsbak,",
+    "ko": "6단 수동변속기가 결합되어,",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "handgeschakelde",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.0,
+    "text": "zesversnellingsbak",
+    "ko": "6단 변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 60.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 28.5,
+    "text": "is dit een auto die volledig draait om de rijervaring.",
+    "ko": "오로지 운전의 재미만을 위해 만들어진 자동차입니다.",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "draait",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.8,
+    "text": "Dus ben jij een liefhebber van een compacte sportwagen met karakter,",
+    "ko": "개성 넘치는 컴팩트 스포츠카의 마니아라면,",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "liefhebber",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "text": "compacte sportwagen",
+    "ko": "컴팩트 스포츠카",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 35.5,
+    "text": "dan is deze BMW 1M coupe er echt eentje om te ontdekken.",
+    "ko": "이 BMW 1M 쿠페는 정말 꼭 경험해봐야 할 모델입니다.",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "coupe",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.5,
+    "text": "BMW 1M Coupe",
+    "ko": "BMW 1M 쿠페",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 5.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 38.0,
+    "text": "Je vindt hem in de showroom van SB Cars",
+    "ko": "SB Cars 쇼룸에서 확인하실 수 있으며,",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "vindt",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "text": "SB Cars",
+    "ko": "SB Cars",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 38.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 41.7,
+    "text": "en op AutoScout24.be",
+    "ko": "AutoScout24.be에서도 만나보실 수 있습니다.",
+    "kind": "말 자막",
+    "y_pct": 69.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "AutoScout24",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.7,
+    "text": "AutoScout24",
+    "ko": "AutoScout24",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 7.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFEA00",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 배기음/rev 굉음",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "BMW 1M Coupe 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "톡",
+    "event": "brede wielkasten 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "aggressieve bumpers 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "톡",
+    "event": "compacte carrosserie 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "3 liter 6-in-lijn 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.3,
+    "type": "톡",
+    "event": "340 pk 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "톡",
+    "event": "achterwielaandrijving 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 24.5,
+    "type": "톡",
+    "event": "zesversnellingsbak 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 29.5,
+    "type": "톡",
+    "event": "compacte sportwagen 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "차량 문 닫히는 소리 '쿵'",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 32.5,
+    "type": "톡",
+    "event": "BMW 1M Coupe 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "톡",
+    "event": "SB Cars 노란 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기찬",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 3.7,
+     "what": "도입부 배기 사운드 후 배경음악 본격 시작"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "what": "스피커 3개 일러스트 아이콘",
+    "is_3d": false,
+    "size_w_pct": 55.0,
+    "x_pct": 45.0,
+    "y_pct": 28.0,
+    "entrance": "페이드",
+    "purpose": "배기음 사운드 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 3.7,
+    "end": 6.1,
+    "text": "Dit is een BMW 1M coupe,",
+    "ko": "이것은 BMW 1M 쿠페입니다,"
+   },
+   {
+    "start": 6.1,
+    "end": 9.4,
+    "text": "en dit is niet zomaar een BMW die je op iedere straat tegenkomt.",
+    "ko": "길거리에서 흔하게 마주칠 수 있는 평범한 BMW가 아니죠."
+   },
+   {
+    "start": 9.4,
+    "end": 14.5,
+    "text": "Wat meteen opvalt zijn de brede wielkasten, de aggressieve bumpers en de compacte carrosserie,",
+    "ko": "한눈에 들어오는 넓은 펜더와 공격적인 범퍼, 그리고 컴팩트한 차체이지만,"
+   },
+   {
+    "start": 14.5,
+    "end": 16.7,
+    "text": "maar het leukste zit natuurlijk onder de motorkap.",
+    "ko": "가장 짜릿한 매력은 역시 보닛 아래에 있습니다."
+   },
+   {
+    "start": 16.7,
+    "end": 21.8,
+    "text": "Daar ligt een 3 liter 6-in-lijn met twee turbo's goed voor maar liefst 340 pk.",
+    "ko": "최대 340마력을 발휘하는 트윈터보 3.0리터 직렬 6기통 엔진이 자리잡고 있죠."
+   },
+   {
+    "start": 21.8,
+    "end": 28.5,
+    "text": "En met achterwielaandrijving en een handgeschakelde zesversnellingsbak is dit een auto die volledig draait om de rijervaring.",
+    "ko": "후륜구동과 6단 수동변속기 조합으로 완벽한 운전 재미에 집중한 차량입니다."
+   },
+   {
+    "start": 28.5,
+    "end": 35.5,
+    "text": "Dus ben jij een liefhebber van een compacte sportwagen met karakter, dan is deze BMW 1M coupe er echt eentje om te ontdekken.",
+    "ko": "개성 넘치는 컴팩트 스포츠카 매니아라면 이 BMW 1M 쿠페는 반드시 경험해봐야 합니다."
+   },
+   {
+    "start": 35.5,
+    "end": 41.7,
+    "text": "Je vindt hem in de showroom van SB Cars en op AutoScout24.be.",
+    "ko": "SB Cars 쇼룸 및 AutoScout24.be에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "차량 배기음 사운드 시연으로 청각적 훅 제공"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 14.5,
+    "speed": "보통",
+    "summary": "차량 모델명 소개 및 외관 디자인 특징(휠아치, 범퍼)"
+   },
+   {
+    "stage": "사양",
+    "start": 14.5,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "엔진 스펙(3.0 트윈터보, 340마력), 구동방식, 변속기 및 운전 감성 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 28.5,
+    "end": 41.7,
+    "speed": "보통",
+    "summary": "추천 대상 정리 및 딜러 쇼룸과 오토스카우트 플랫폼 안내(CTA)"
+   }
+  ],
+  "rules": [
+   "도입부 3초 이내에 강렬한 실제 배기음과 귀를 막는 리액션으로 시청자 이탈 방지",
+   "핵심 키워드가 언급될 때마다 '톡' 소리와 함께 노란색 기울어진 상자 스티커 팝업",
+   "화면 하단 자막은 굵은 고딕체에 흰색 폰트 및 현재 발화 단어 노란색 하이라이트 적용",
+   "운전석 탑승 후 문을 닫는 실제 문소리(쿵)를 살려 현장감 전달",
+   "마지막 매물 위치와 플랫폼(AutoScout24) 로고 스티커를 임팩트 있게 노출하여 전환 유도"
+  ]
+ }
+}

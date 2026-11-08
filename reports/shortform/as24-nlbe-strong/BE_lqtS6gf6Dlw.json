@@ -1,0 +1,133 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/lqtS6gf6Dlw",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1650,
+  "candidatesTokenCount": 1096,
+  "totalTokenCount": 3736,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 908
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 990,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.0,
+   "aspect": "9:16",
+   "car": "폭스바겐 티록 카브리올레",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 5.5,
+    "text": "Raad het merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -4.0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.5,
+    "text": "Laat het weten in een reactie! 🔍",
+    "ko": "댓글로 알려주세요! 🔍",
+    "kind": "키워드 스티커",
+    "y_pct": 17.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE500",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "힙합/일렉트로닉 비트",
+   "bpm_est": 125,
+   "mood": "경쾌하고 리듬감 있는",
+   "ducks_under_voice": "아님",
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 7.5,
+    "end": 10.0,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 17.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보 및 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 5.5,
+    "speed": "보통",
+    "summary": "운전자가 스티어링 휠 로고를 손으로 가리고 브랜드를 맞춰보라는 퀴즈 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 5.5,
+    "end": 7.5,
+    "speed": "보통",
+    "summary": "댓글로 정답을 남겨달라는 시청자 참여 유도"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.5,
+    "end": 10.0,
+    "speed": "보통",
+    "summary": "AutoScout24 브랜드 로고 표시 및 마무리"
+   }
+  ],
+  "rules": [
+   "스티어링 휠 로고를 가려 시청자의 궁금증을 자극하고 댓글 참여를 유도하는 숏폼 퀴즈 포맷을 활용한다.",
+   "상단에 브랜드 시그니처 옐로우 컬러 박스 자막을 배치해 시각적 집중도를 높인다.",
+   "별도 음성 없이 경쾌한 비트 음악만으로 10초 이내에 직관적인 메시지를 전달한다."
+  ]
+ }
+}

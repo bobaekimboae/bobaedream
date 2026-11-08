@@ -1,0 +1,518 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/ESp1oXd7W4w",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5377,
+  "candidatesTokenCount": 4102,
+  "totalTokenCount": 10647,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4635
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1168,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "BMW X1",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 8.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 18.2,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 23.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 32.8,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 39.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.5,
+    "end": 46.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.9,
+    "text": "ACHTER MIJ STAAT",
+    "ko": "제 뒤에 있는 차는",
+    "kind": "말 자막",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MIJ",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.9,
+    "text": "BMW X1",
+    "ko": "BMW X1",
+    "kind": "키워드 스티커",
+    "y_pct": 8,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 1.9,
+    "end": 3.8,
+    "text": "€47.950",
+    "ko": "47,950유로",
+    "kind": "가격",
+    "y_pct": 14,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.0,
+    "text": "DE BMW X1",
+    "ko": "BMW X1은",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.0,
+    "text": "IS DE KLEINSTE",
+    "ko": "가장 작은",
+    "kind": "말 자막",
+    "y_pct": 45,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.0,
+    "text": "SUV VAN BMW",
+    "ko": "BMW의 SUV이지만",
+    "kind": "말 자막",
+    "y_pct": 48,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.8,
+    "text": "VERRASSEND VEEL RUIMTE",
+    "ko": "놀라울 정도로 넓은 공간을 제공합니다",
+    "kind": "말 자막",
+    "y_pct": 48,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "text": "491L",
+    "ko": "491리터",
+    "kind": "키워드 스티커",
+    "y_pct": 50,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#FFCC00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.5,
+    "text": "PLUG-IN HYBRIDE",
+    "ko": "플러그인 하이브리드",
+    "kind": "키워드 스티커",
+    "y_pct": 68,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 55,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.5,
+    "text": "326 PK",
+    "ko": "326마력",
+    "kind": "키워드 스티커",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.8,
+    "end": 43.0,
+    "text": "2023",
+    "ko": "2023년식",
+    "kind": "키워드 스티커",
+    "y_pct": 56,
+    "x_center_pct": 50,
+    "text_height_pct": 7,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 45.5,
+    "text": "22.000 KM",
+    "ko": "22,000 km 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 54,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "차량명 및 가격 배너 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "전동 트렁크 열리는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "톡",
+    "event": "491L 용량 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.2,
+    "type": "톡",
+    "event": "플러그인 하이브리드 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.3,
+    "type": "딸깍",
+    "event": "마우스 커서로 AutoScout24 클릭 애니메이션",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 세련됨",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.9,
+    "end": 3.8,
+    "what": "가격 배너 그래픽",
+    "is_3d": false,
+    "size_w_pct": 45,
+    "x_pct": 50,
+    "y_pct": 12,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 안내",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 50.8,
+    "what": "AutoScout24 로고 및 마우스 커서",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 50,
+    "y_pct": 85,
+    "entrance": "밀려옴",
+    "purpose": "웹사이트 검색 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Achter mij staat een BMW X1 voor €47.950.",
+    "ko": "제 뒤에는 47,950유로짜리 BMW X1이 있습니다."
+   },
+   {
+    "start": 3.8,
+    "end": 8.8,
+    "text": "De BMW X1 is de kleinste SUV van BMW, maar hij biedt verrassend veel ruimte.",
+    "ko": "BMW X1은 BMW에서 가장 작은 SUV지만, 놀라울 정도로 넓은 공간을 자랑합니다."
+   },
+   {
+    "start": 8.8,
+    "end": 18.2,
+    "text": "En kijk hoe groot dat deze kofferruimte is, 491 liter, en dat wil dus zeggen dat je zonder moeite een kinderwagen, koffers of een heleboel boodschappen kan meenemen.",
+    "ko": "그리고 이 트렁크가 얼마나 큰지 보세요. 491리터로, 유모차나 캐리어, 장본 짐도 손쉽게 실을 수 있습니다."
+   },
+   {
+    "start": 18.2,
+    "end": 23.3,
+    "text": "En doordat hij compacter is dan de X3 en de X5, is hij natuurlijk ook makkelijker te parkeren.",
+    "ko": "그리고 X3나 X5보다 컴팩트해서 주차하기가 훨씬 수월합니다."
+   },
+   {
+    "start": 23.3,
+    "end": 28.5,
+    "text": "En dit is ook echt een topuitvoering. Het is een plug-in hybride met 326 pk.",
+    "ko": "게다가 이건 최고급 사양입니다. 326마력의 플러그인 하이브리드 모델이죠."
+   },
+   {
+    "start": 28.5,
+    "end": 34.6,
+    "text": "En je boordcomputer en het scherm, dat is gewoon bij elkaar één groot scherm. Kijk hoe mooi dat dat is.",
+    "ko": "계기판과 센터 디스플레이가 하나의 거대한 커브드 스크린으로 이어져 있습니다. 정말 멋지죠."
+   },
+   {
+    "start": 34.6,
+    "end": 39.5,
+    "text": "En wat ik persoonlijk ook heel mooi vind aan die nieuwe modellen van BMW, dat zijn die deurgrepen.",
+    "ko": "그리고 최신 BMW 모델에서 제가 개인적으로 마음에 드는 건 이 매립형 도어 핸들입니다."
+   },
+   {
+    "start": 39.5,
+    "end": 46.0,
+    "text": "En hij is echt zo goed als nieuw, want hij komt uit 2023 en heeft slechts 22.000 km gelopen.",
+    "ko": "2023년식에 주행거리가 22,000km밖에 되지 않아 거의 새 차나 다름없습니다."
+   },
+   {
+    "start": 46.0,
+    "end": 50.8,
+    "text": "En je vindt hem in de showroom van Bouten Automotive en natuurlijk op AutoScout24.nl.",
+    "ko": "Bouten Automotive 전시장과 AutoScout24.nl에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "BMW X1 소개 및 가격 제시"
+   },
+   {
+    "stage": "기능",
+    "start": 3.8,
+    "end": 18.2,
+    "speed": "보통",
+    "summary": "트렁크 용량 및 실용성 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 18.2,
+    "end": 28.5,
+    "speed": "보통",
+    "summary": "주차 편의성 및 파워트레인(PHEV 326마력) 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 28.5,
+    "end": 39.5,
+    "speed": "보통",
+    "summary": "와이드 커브드 디스플레이 및 플러시 도어 핸들 디자인"
+   },
+   {
+    "stage": "사양",
+    "start": 39.5,
+    "end": 46.0,
+    "speed": "빠름",
+    "summary": "연식(2023) 및 실주행거리(22,000km) 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 46.0,
+    "end": 50.8,
+    "speed": "빠름",
+    "summary": "판매 딜러샵 및 AutoScout24 구매 유도"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 말하며 차의 각 핵심 포인트를 빠르게 짚어주는 숏폼 리뷰 구성",
+   "화면 중앙에 굵은 노란색/흰색 볼드 자막과 팝업 스티커를 활용해 시선 집중",
+   "핵심 제원(491L, 326PK, 연식, 주행거리) 등장 시 팝 효과음과 함께 텍스트 강조",
+   "마지막에 마우스 클릭 애니메이션과 함께 AutoScout24 검색 콜투액션 배치"
+  ]
+ }
+}

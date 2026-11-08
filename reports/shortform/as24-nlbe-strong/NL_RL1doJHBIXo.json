@@ -1,0 +1,676 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/RL1doJHBIXo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4828,
+  "candidatesTokenCount": 5457,
+  "totalTokenCount": 10799,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4086
+   }
+  ],
+  "thoughtsTokenCount": 514,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 44.5,
+   "aspect": "9:16",
+   "car": "BMW Z4",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 3.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 7.3,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 12.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 19.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 22.3,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 27.2,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.2,
+    "end": 30.6,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 38.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.4,
+    "end": 41.5,
+    "part": "실내 앞",
+    "camera": "위에서 내려다봄",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "part": "그래픽",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "WAAR STAAT DE",
+    "ko": "무엇을 뜻할까요",
+    "kind": "말 자막",
+    "y_pct": 60.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "WAAR",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.8,
+    "text": "BMW Z4",
+    "ko": "BMW Z4",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 49.5,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 3.0,
+    "end": 4.3,
+    "text": "DE MEESTE MENSEN",
+    "ko": "대부분의 사람들은",
+    "kind": "말 자막",
+    "y_pct": 61.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DE",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 5.7,
+    "text": "MODELNAAM IS",
+    "ko": "모델명일 뿐이라고",
+    "kind": "말 자막",
+    "y_pct": 63.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "MODELNAAM",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.2,
+    "text": "EEN BIJZONDER VERHAAL",
+    "ko": "특별한 이야기가",
+    "kind": "말 자막",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VERHAAL",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "text": "NAMELIJK VOOR HET",
+    "ko": "바로 이",
+    "kind": "말 자막",
+    "y_pct": 64.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VOOR",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.0,
+    "text": "DUITSE WOORD",
+    "ko": "독일어 단어",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 48.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "DUITSE",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.2,
+    "text": "ZUKUNFT",
+    "ko": "ZUKUNFT(미래)",
+    "kind": "키워드 스티커",
+    "y_pct": 67.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZUKUNFT",
+    "sure": true
+   },
+   {
+    "start": 11.3,
+    "end": 12.8,
+    "text": "WAT LETTERLIJK TOEKOMST",
+    "ko": "말 그대로 미래를",
+    "kind": "말 자막",
+    "y_pct": 67.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 74.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "LETTERLIJK",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.3,
+    "text": "BMW GEBRUIKTE DEZE",
+    "ko": "BMW는 이",
+    "kind": "말 자막",
+    "y_pct": 29.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 14.4,
+    "end": 16.5,
+    "text": "SPORTIEVE ROADSTERS",
+    "ko": "스포티 로드스터",
+    "kind": "말 자막",
+    "y_pct": 31.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFCC00",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SPORTIEVE",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.5,
+    "text": "DIE VOORUITSTREVEND",
+    "ko": "시대를 앞서가는",
+    "kind": "말 자막",
+    "y_pct": 32.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 62.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "VOORUITSTREVEND",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 22.0,
+    "text": "DAN SNAP JE",
+    "ko": "바로 이해가",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SNAP",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.5,
+    "text": "WAT SPECIFIEKE",
+    "ko": "몇 가지 세부",
+    "kind": "말 자막",
+    "y_pct": 66.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "SPECIFIEKE",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.0,
+    "text": "2021",
+    "ko": "2021년식",
+    "kind": "키워드 스티커",
+    "y_pct": 10.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2021",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "text": "197 PK",
+    "ko": "197 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 36.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "197 PK",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 33.3,
+    "text": "73.000 KM",
+    "ko": "73,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "73.000 KM",
+    "sure": true
+   },
+   {
+    "start": 33.4,
+    "end": 36.0,
+    "text": "€39.950",
+    "ko": "39,950 유로",
+    "kind": "가격",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€39.950",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.0,
+    "text": "VOOR DE ZOMER",
+    "ko": "여름을 위해",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "ZOMER",
+    "sure": true
+   },
+   {
+    "start": 40.3,
+    "end": 42.0,
+    "text": "OELERS AUTOMOTIVE",
+    "ko": "OELERS AUTOMOTIVE",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOMOTIVE",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "BMW Z4 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.1,
+    "type": "톡",
+    "event": "ZUKUNFT 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "톡",
+    "event": "2021 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "톡",
+    "event": "197 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "톡",
+    "event": "73.000 KM 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.4,
+    "type": "돈 소리",
+    "event": "가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.3,
+    "type": "톡",
+    "event": "딜러사 텍스트 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 42.5,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 댄스",
+   "bpm_est": 124,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 42.0,
+    "end": 44.5,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 60.0,
+    "x_pct": 50.0,
+    "y_pct": 53.0,
+    "entrance": "확대 전환",
+    "purpose": "브랜드 홍보 및 아웃트로",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "Waar staat de Z in de BMW Z4 eigenlijk voor?",
+    "ko": "BMW Z4에서 'Z'는 사실 무엇을 의미할까요?"
+   },
+   {
+    "start": 3.0,
+    "end": 7.2,
+    "text": "De meeste mensen denken dat het alleen een modelnaam is, maar er zit een bijzonder verhaal achter.",
+    "ko": "대부분의 사람들은 단순한 모델명이라고 생각하지만, 특별한 비하인드 스토리가 있습니다."
+   },
+   {
+    "start": 7.3,
+    "end": 12.8,
+    "text": "De Z staat namelijk voor het Duitse woord 'Zukunft', wat letterlijk 'toekomst' betekent.",
+    "ko": "Z는 바로 '미래'를 뜻하는 독일어 단어 'Zukunft'에서 따온 것입니다."
+   },
+   {
+    "start": 13.0,
+    "end": 19.3,
+    "text": "BMW gebruikte deze naam voor een serie sportieve roadsters die vooruitstrevend zijn in design en rijbeleving.",
+    "ko": "BMW는 디자인과 주행 경험 면에서 시대를 앞서가는 스포티 로드스터 라인업에 이 이름을 사용했습니다."
+   },
+   {
+    "start": 19.4,
+    "end": 22.3,
+    "text": "En als je kijkt naar deze BMW Z4, dan snap je meteen waarom.",
+    "ko": "이 BMW Z4를 본다면 왜 그런지 바로 이해하게 될 겁니다."
+   },
+   {
+    "start": 22.4,
+    "end": 27.2,
+    "text": "En nu nog wat specifieke informatie over dit exemplaar. En de prijs vertel ik je op het eind.",
+    "ko": "이제 이 매물에 대한 상세 정보입니다. 가격은 마지막에 알려드릴게요."
+   },
+   {
+    "start": 27.3,
+    "end": 30.6,
+    "text": "2021, 197 pk en het is een M Sport.",
+    "ko": "2021년식, 197마력, 그리고 M 스포츠 패키지입니다."
+   },
+   {
+    "start": 30.7,
+    "end": 36.5,
+    "text": "Hij heeft 73.000 km gelopen, hij kost €39.950.",
+    "ko": "주행거리는 73,000km, 가격은 39,950유로입니다."
+   },
+   {
+    "start": 36.6,
+    "end": 38.5,
+    "text": "En de leukste opties, die lees je terug in de omschrijving.",
+    "ko": "가장 매력적인 옵션들은 설명란에서 확인하세요."
+   },
+   {
+    "start": 38.6,
+    "end": 41.5,
+    "text": "Ben jij klaar voor de zomer? Je koopt deze bij Oelers Automotive.",
+    "ko": "여름 맞이 준비되셨나요? Oelers Automotive에서 구매하실 수 있습니다."
+   },
+   {
+    "start": 41.6,
+    "end": 44.5,
+    "text": "En natuurlijk op AutoScout24.nl.",
+    "ko": "그리고 당연히 AutoScout24.nl에서도요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "BMW Z4의 'Z' 뜻 질문으로 호기심 유발"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 22.3,
+    "speed": "보통",
+    "summary": "'Zukunft(미래)'의 의미와 로드스터 헤리티지 설명"
+   },
+   {
+    "stage": "사양",
+    "start": 22.3,
+    "end": 33.3,
+    "speed": "빠름",
+    "summary": "연식, 출력, 트림(M Sport), 주행거리 안내"
+   },
+   {
+    "stage": "가격",
+    "start": 33.3,
+    "end": 36.5,
+    "speed": "보통",
+    "summary": "차량 판매 가격 공개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 36.5,
+    "end": 44.5,
+    "speed": "보통",
+    "summary": "딜러사 정보 및 AutoScout24 플랫폼 콜투액션"
+   }
+  ],
+  "rules": [
+   "호기심을 유발하는 상식 퀴즈(Z의 의미)로 오프닝을 시작해 시청자 이탈을 방지함",
+   "스펙(연식, 출력, 마일리지, 가격)을 큼직한 노란색/흰색 볼드 텍스트 스티커와 효과음으로 한눈에 전달함",
+   "가격 공개를 후반부로 예고해 영상 완시청률을 유도함",
+   "진행자가 직접 차량에 타고 내리며 컨버터블 특유의 스포티한 매력을 역동적으로 연출함"
+  ]
+ }
+}

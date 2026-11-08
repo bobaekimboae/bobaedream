@@ -1,0 +1,467 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/5G8QQsedJJU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3831,
+  "candidatesTokenCount": 3621,
+  "totalTokenCount": 7452,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3089
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 34.0,
+   "aspect": "9:16",
+   "car": "Aston Martin DBS Superleggera",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 9.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 13.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 17.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 22.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.8,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 30.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF500",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 0.0,
+    "end": 1.1,
+    "text": "Kun jij raden",
+    "ko": "맞출 수 있나요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.1,
+    "end": 2.2,
+    "text": "welke auto dit is?",
+    "ko": "이 차가 무슨 차인지?",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "welke",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "Ik geef je een paar hints",
+    "ko": "몇 가지 힌트를 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "hints",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 6.8,
+    "text": "hij heeft een 5.2l twin turbo V",
+    "ko": "5.2리터 트윈 터보 V",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "5.2l",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 9.7,
+    "text": "12 met maar liefst 725 pk",
+    "ko": "12 기통에 무려 725마력",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "725",
+    "sure": true
+   },
+   {
+    "start": 9.7,
+    "end": 13.9,
+    "text": "Hij gaat van 0 naar 100 in ongeveer 3 punt 4 seconden",
+    "ko": "제로백은 약 3.4초입니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "0",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 17.6,
+    "text": "hij combineert luxe en prestaties als geen ander",
+    "ko": "럭셔리와 퍼포먼스를 다른 어떤 것과도 비교할 수 없게 결합했습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "luxe",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 22.0,
+    "text": "En als je denkt aan een Britse geheime agent weet je dan bijna meteen",
+    "ko": "영국 비밀 요원을 생각하면 거의 바로 알 수 있죠",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Britse",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.6,
+    "text": "Het interieur is voorzien van een",
+    "ko": "인테리어에는 구비되어 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Het",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 25.8,
+    "text": "Bang and Olufsen premium audiosysteem",
+    "ko": "뱅앤올룹슨 프리미엄 오디오 시스템",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Olufsen",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 30.5,
+    "text": "En overal vind je luxe materialen zoals carbon en leer",
+    "ko": "그리고 카본과 가죽 같은 고급 소재를 곳곳에서 볼 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "carbon",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "Weet jij het al? Laat het weten in de reacties",
+    "ko": "이미 알고 계신가요? 댓글로 알려주세요",
+    "kind": "말 자막",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "weet",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 16.3,
+    "type": "쿵",
+    "event": "진행자가 차 루프를 손으로 탁 칠 때",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "스타일리시함, 긴장감",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "Kun jij raden welke auto dit is?",
+    "ko": "이 차가 무슨 차인지 맞출 수 있나요?"
+   },
+   {
+    "start": 2.2,
+    "end": 3.7,
+    "text": "Ik geef je een paar hints.",
+    "ko": "몇 가지 힌트를 드릴게요."
+   },
+   {
+    "start": 3.7,
+    "end": 9.7,
+    "text": "Hij heeft een 5.2l twin turbo V12 met maar liefst 725 pk.",
+    "ko": "5.2리터 트윈터보 V12 엔진에 최고출력 725마력을 냅니다."
+   },
+   {
+    "start": 9.7,
+    "end": 13.9,
+    "text": "Hij gaat van 0 naar 100 in ongeveer 3.4 seconden.",
+    "ko": "0에서 100km/h까지 약 3.4초 만에 도달합니다."
+   },
+   {
+    "start": 13.9,
+    "end": 17.6,
+    "text": "Hij combineert luxe en prestaties als geen ander.",
+    "ko": "남다른 럭셔리와 퍼포먼스를 겸비하고 있죠."
+   },
+   {
+    "start": 17.6,
+    "end": 22.0,
+    "text": "En als je denkt aan een Britse geheime agent, weet je dan bijna meteen.",
+    "ko": "그리고 영국 비밀 요원을 떠올리면 거의 곧바로 알 수 있습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 25.8,
+    "text": "Het interieur is voorzien van een Bang & Olufsen premium audiosysteem.",
+    "ko": "인테리어에는 뱅앤올룹슨 프리미엄 오디오 시스템이 적용되어 있습니다."
+   },
+   {
+    "start": 25.8,
+    "end": 30.5,
+    "text": "En overal vind je luxe materialen zoals carbon en leer.",
+    "ko": "카본과 가죽 등 고급 소재가 곳곳에 쓰였습니다."
+   },
+   {
+    "start": 30.5,
+    "end": 34.0,
+    "text": "Weet jij het al? Laat het weten in de reacties.",
+    "ko": "이미 눈치채셨나요? 댓글로 남겨주세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "차량 퀴즈 제시 및 힌트 예고"
+   },
+   {
+    "stage": "사양",
+    "start": 3.7,
+    "end": 13.9,
+    "speed": "보통",
+    "summary": "엔진, 출력, 제로백 제원 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 13.9,
+    "end": 22.0,
+    "speed": "보통",
+    "summary": "007 제임스 본드 힌트 및 캐릭터 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 22.0,
+    "end": 30.5,
+    "speed": "보통",
+    "summary": "오디오 시스템 및 내장재 특징 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 30.5,
+    "end": 34.0,
+    "speed": "보통",
+    "summary": "댓글 정답 유도 CTA"
+   }
+  ],
+  "rules": [
+   "도입부에 노란색 직사각형 박스 타이틀로 시선 집중 유도",
+   "단어 단위로 하이라이트(노란색) 색상이 바뀌는 싱크 자막 적용",
+   "화자가 직접 차체를 두드리는 동작의 실제 소리를 강조 포인트로 활용",
+   "스펙과 브랜드 힌트를 점진적으로 제공하며 시청자의 댓글 참여(퀴즈 정답 맞히기) 유도"
+  ]
+ }
+}

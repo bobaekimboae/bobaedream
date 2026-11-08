@@ -1,0 +1,129 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/-8aY8q63t3g",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1657,
+  "candidatesTokenCount": 988,
+  "totalTokenCount": 2645,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 915
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 10.3,
+   "aspect": "9:16",
+   "car": "마쓰다 MX-5 미아타 (Mazda MX-5 Miata)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "없음",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 10.3,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "Raad het Merk",
+    "ko": "브랜드를 맞춰보세요",
+    "kind": "제목",
+    "y_pct": 57.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FFEB3B",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "Raad",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.0,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "자동차 경적 소리 울림",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 1.1,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "두 번째 경적 소리",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 95,
+   "mood": "경쾌함, 리듬감",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "아님"
+  },
+  "graphics": [
+   {
+    "start": 7.3,
+    "end": 10.3,
+    "what": "AutoScout24 로고",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 63.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "보통",
+    "summary": "핸들의 엠블럼을 가린 채 경적을 울리며 브랜드 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 7.3,
+    "speed": "보통",
+    "summary": "오픈카 실내와 운전자의 모습을 보여주며 차량 특징 노출"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 7.3,
+    "end": 10.3,
+    "speed": "보통",
+    "summary": "AutoScout24 로고가 오버레이되며 마무리"
+   }
+  ],
+  "rules": [
+   "원테이크 핸드헬드 촬영으로 자연스러운 현장감과 퀴즈 참여 유도",
+   "스티어링 휠 로고를 손으로 가려 시청자의 궁금증 유발",
+   "영상 후반부에 브랜드 로고를 깔끔하게 오버레이하여 마무리"
+  ]
+ }
+}

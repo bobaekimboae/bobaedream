@@ -1,0 +1,658 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/bbc3QXxDxXo",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4201,
+  "candidatesTokenCount": 6688,
+  "totalTokenCount": 12633,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3459
+   }
+  ],
+  "thoughtsTokenCount": 1744,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "Kia Picanto",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 7.4,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.4,
+    "end": 11.2,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 13.9,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.3,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 16.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.2,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 22.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.3,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.1,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 32.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 38.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "KIA PICANTO 30 SECONDEN",
+    "ko": "기아 모닝(피칸토) 30초",
+    "kind": "제목",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "KIA PICANTO",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.5,
+    "text": "VERTELLEN DIE TE KOOP STAAT OP",
+    "ko": "판매 중인 이 차에 대해 소개해 드릴게요",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VERTELLEN",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "text": "OP HET EINDE VERTEL IK OOK WAT HIJ KOST",
+    "ko": "끝에서 가격도 알려드립니다",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WAT HIJ KOST",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 9.9,
+    "text": "2025",
+    "ko": "2025년식",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2025",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 12.0,
+    "text": "10.000KM",
+    "ko": "1만 km 미만 주행",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFFF00",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "10.000KM",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "text": "EN KIJK NAAR DIE LUXE VELGEN",
+    "ko": "이 고급스러운 휠을 보세요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "LUXE VELGEN",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.3,
+    "text": "OOK 5 DEUREN",
+    "ko": "5도어 해치백",
+    "kind": "말 자막",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "5 DEUREN",
+    "sure": true
+   },
+   {
+    "start": 15.3,
+    "end": 16.5,
+    "text": "PARKEERSENSOREN",
+    "ko": "주차 감지 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "PARKEERSENSOREN",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.0,
+    "text": "ACHTERUITRIJCAMERA\nAFNEEMBARE TREKHAAK",
+    "ko": "후방 카메라와 탈부착식 견인 고리",
+    "kind": "키워드 스티커",
+    "y_pct": 63.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ACHTERUITRIJCAMERA",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "text": "WANT HIJ HEEFT OOK KEYLESS ENTRY",
+    "ko": "스마트키 키리스 엔트리까지",
+    "kind": "말 자막",
+    "y_pct": 58.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KEYLESS ENTRY",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 23.3,
+    "text": "ELEKTRISCH SCHUIFDAK",
+    "ko": "전동 선루프",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCH SCHUIFDAK",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.1,
+    "text": "ADAPTIVE CRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ADAPTIVE CRUISE CONTROL",
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.0,
+    "text": "HET IS OOK EEN AUTOMAAT",
+    "ko": "자동변속기 모델이고",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "AUTOMAAT",
+    "sure": true
+   },
+   {
+    "start": 27.0,
+    "end": 29.5,
+    "text": "STUURVERWARMING\nSTOELVERWARMING",
+    "ko": "핸들 열선과 시트 열선",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOELVERWARMING",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.5,
+    "text": "€23.949",
+    "ko": "23,949 유로",
+    "kind": "가격",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€23.949",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 35.0,
+    "text": "EN JE VINDT MEER DAN 2500",
+    "ko": "2,500대 이상의",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2500",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 38.0,
+    "text": "KIA PICANTO'S OP",
+    "ko": "기아 피칸토를 찾을 수 있습니다",
+    "kind": "말 자막",
+    "y_pct": 60.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "KIA PICANTO'S",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 3.8,
+    "type": "휙",
+    "event": "오토스카우트24 로고 스티커 화면 중앙 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "2025 자막 스티커 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "휙",
+    "event": "휠 클로즈업 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "휙",
+    "event": "후면 카메라와 견인고리 장면 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 22.0,
+    "type": "휙",
+    "event": "선루프 개방 컷 전환",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "톡",
+    "event": "시트 인테리어 컷 전환 및 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 29.8,
+    "type": "돈 소리",
+    "event": "가격 자막 €23.949 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "톡",
+    "event": "앱 검색 UI 화면 오버레이 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "신스팝 / 전자음악",
+   "bpm_est": 124,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": "살짝 줄어듦",
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 3.8,
+    "end": 5.8,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 홍보",
+    "sure": true
+   },
+   {
+    "start": 32.6,
+    "end": 34.6,
+    "what": "AutoScout24 모바일 앱 매물 검색 화면",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "앱 내 매물 검색 안내",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.8,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 68.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엔딩 CTA",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 5.8,
+    "text": "Ik ga in 30 seconden zoveel mogelijk over deze Kia Picanto vertellen die te koop staat op AutoScout24.nl.",
+    "ko": "AutoScout24.nl에 등록된 이 기아 피칸토에 대해 30초 동안 최대한 많이 소개해 드릴게요."
+   },
+   {
+    "start": 5.8,
+    "end": 7.8,
+    "text": "En op het einde vertel ik ook wat hij kost.",
+    "ko": "마지막엔 가격도 알려드립니다."
+   },
+   {
+    "start": 7.8,
+    "end": 12.0,
+    "text": "Hij komt uit 2025, heeft minder dan 10.000 km gelopen.",
+    "ko": "2025년식이며 주행거리는 10,000km 미만입니다."
+   },
+   {
+    "start": 12.0,
+    "end": 14.0,
+    "text": "En kijk naar die luxe velgen.",
+    "ko": "그리고 이 고급스러운 휠을 보세요."
+   },
+   {
+    "start": 14.0,
+    "end": 20.0,
+    "text": "Hij heeft ook 5 deuren, parkeersensoren, een achteruitrijcamera en een afneembare trekhaak.",
+    "ko": "5도어에 주차 센서, 후방 카메라, 탈부착 견인 고리까지 갖췄습니다."
+   },
+   {
+    "start": 20.0,
+    "end": 25.1,
+    "text": "Kom snel mee naar binnen want hij heeft ook keyless entry, een elektrisch schuifdak, leren stoelen, adaptive cruise control.",
+    "ko": "실내로 들어가 보면 스마트키 키리스 엔트리, 전동 선루프, 가죽 시트, 어댑티브 크루즈 컨트롤이 있습니다."
+   },
+   {
+    "start": 25.1,
+    "end": 29.5,
+    "text": "Het is ook een automaat met stuurverwarming, stoelverwarming.",
+    "ko": "열선 핸들과 시트 열선이 포함된 자동변속기 차량입니다."
+   },
+   {
+    "start": 29.5,
+    "end": 32.5,
+    "text": "En hij kost €23.949.",
+    "ko": "가격은 23,949유로입니다."
+   },
+   {
+    "start": 32.5,
+    "end": 38.0,
+    "text": "En je vindt meer dan 2.500 Kia Picanto's op AutoScout24.nl.",
+    "ko": "AutoScout24.nl에서 2,500대 이상의 기아 피칸토를 찾아보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 7.4,
+    "speed": "빠름",
+    "summary": "30초 안에 차를 소개하고 끝에 가격을 공개하겠다는 챌린지성 인트로"
+   },
+   {
+    "stage": "사양",
+    "start": 7.4,
+    "end": 12.0,
+    "speed": "빠름",
+    "summary": "연식과 주행거리 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 12.0,
+    "end": 20.2,
+    "speed": "빠름",
+    "summary": "휠, 5도어, 주차 센서, 후방 카메라, 견인 고리 등 외관 옵션 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 20.2,
+    "end": 29.5,
+    "speed": "빠름",
+    "summary": "선루프, 가죽 시트, 크루즈 컨트롤, 오토 미션, 열선 기능 등 실내 옵션 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 29.5,
+    "end": 32.5,
+    "speed": "보통",
+    "summary": "차량 가격 공개 (€23,949)"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 32.5,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "AutoScout24 플랫폼 내 2500대 이상 매물 검색 유도 및 엔딩"
+   }
+  ],
+  "rules": [
+   "도입부에서 '30초 동안 소개하고 끝에 가격 공개'라는 약속을 걸어 끝까지 시청하도록 락인 유도",
+   "화면 상단에 고정 타이틀 박스를 배치하여 스크롤 중에도 어떤 차의 30초 리뷰인지 즉각 인지시킴",
+   "말하는 옵션 키워드마다 1초 안팎의 빠른 컷 전환과 볼드한 옐로우/화이트 자막을 직관적으로 매칭",
+   "주요 포인트(가격, 플랫폼 로고, 전환)마다 팝/휙 효과음을 넣어 빠른 템포감 유지",
+   "마지막에 해당 차종의 플랫폼 내 보유 매물 수를 앱 UI와 함께 제시하여 검색 전환 유도"
+  ]
+ }
+}

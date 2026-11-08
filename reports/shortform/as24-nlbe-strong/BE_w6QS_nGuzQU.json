@@ -1,0 +1,522 @@
+{
+ "country": "BE",
+ "url": "https://youtu.be/w6QS_nGuzQU",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3651,
+  "candidatesTokenCount": 4100,
+  "totalTokenCount": 8875,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2909
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1124,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 31.8,
+   "aspect": "9:16",
+   "car": "BMW i5 Touring",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.4,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 8.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 11.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.0,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 20.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.0,
+    "end": 29.5,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "text": "BMW i5 Touring\n€54.900",
+    "ko": "BMW i5 투어링 / €54,900",
+    "kind": "가격",
+    "y_pct": 23.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BMW",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.4,
+    "text": "M Sportpakket.",
+    "ko": "M 스포츠 패키지",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": -3.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 5.0,
+    "text": "Adaptive LED\nHeadlights",
+    "ko": "어댑티브 LED 헤드라이트",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 70.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.6,
+    "text": "340 pk",
+    "ko": "340 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 8.0,
+    "text": "Adaptieve Cruise\nControl",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -1.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 11.5,
+    "text": "BMW Gesture\nControl",
+    "ko": "BMW 제스처 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 72.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "text": "Sportzetels",
+    "ko": "스포츠 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 1.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 14.5,
+    "text": "2024",
+    "ko": "2024년식",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 50.0,
+    "tilt_deg": -1.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.0,
+    "text": "Surround view 360°\ncamera",
+    "ko": "서라운드 뷰 360° 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 70.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 1.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "text": "Elektrische\ntrekhaak",
+    "ko": "전동 토우바(견인고리)",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 55.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 20.5,
+    "text": "BMW Interaction\nBar",
+    "ko": "BMW 인터랙션 바",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "text": "Front View-camera",
+    "ko": "전방 뷰 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -1.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.5,
+    "text": "Elektrische\nkofferklep",
+    "ko": "전동 테일게이트",
+    "kind": "키워드 스티커",
+    "y_pct": 73.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 1.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.5,
+    "end": 26.5,
+    "text": "19 inch Alu velgen",
+    "ko": "19인치 알루미늄 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -2.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 29.5,
+    "text": "M Carbonschwarz\nmetallic",
+    "ko": "M 카본블랙 메탈릭",
+    "kind": "키워드 스티커",
+    "y_pct": 75.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "칠",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 72.0,
+    "tilt_deg": 1.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.8,
+    "text": "BMW i5 Touring\n€54.900",
+    "ko": "BMW i5 투어링 / €54,900",
+    "kind": "가격",
+    "y_pct": 23.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFE600",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "BMW",
+    "sure": true
+   }
+  ],
+  "sfx": [],
+  "music": {
+   "genre": "일렉트로닉 팝 / 힙합 비트",
+   "bpm_est": 115,
+   "mood": "트렌디하고 리드미컬함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 1.8,
+    "text": "Dit is de BMW i5 Touring.",
+    "ko": "이 차는 BMW i5 투어링입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 1.8,
+    "speed": "빠름",
+    "summary": "쇼룸 진행자의 첫마디와 함께 차량 모델명 및 가격 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 1.8,
+    "end": 6.6,
+    "speed": "빠름",
+    "summary": "M 패키지, LED 헤드라이트, 출력 사양 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 6.6,
+    "end": 24.5,
+    "speed": "보통",
+    "summary": "제스처 컨트롤, 인터랙션 바, 전동 트렁크 및 토우바 등 핵심 옵션 시연"
+   },
+   {
+    "stage": "사양",
+    "start": 24.5,
+    "end": 29.5,
+    "speed": "빠름",
+    "summary": "휠 및 외장 컬러 옵션 정보 전달"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 29.5,
+    "end": 31.8,
+    "speed": "보통",
+    "summary": "차량 전면 샷으로 돌아오며 가격 재표시"
+   }
+  ],
+  "rules": [
+   "도입부에 인물이 차량 앞에 서서 한 문장으로 모델명을 말하고 즉시 빠른 템포의 비트 음악으로 전환한다.",
+   "각 컷(1~2초)마다 노란색 마스킹 테이프 형태의 스티커 자막을 띄워 옵션 명칭과 스펙을 직관적으로 제시한다.",
+   "제스처 컨트롤이나 터치 바 조작처럼 시각적으로 흥미로운 기능은 실제 손동작 시연 영상을 2~3초가량 충분히 보여준다.",
+   "첫 장면과 마지막 장면에 동일한 모델명+가격 배너를 배치하여 시청자의 가격 인지도를 극대화한다."
+  ]
+ }
+}

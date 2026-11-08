@@ -1,0 +1,155 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/vxD7gPrKbmk",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 1646,
+  "candidatesTokenCount": 1224,
+  "totalTokenCount": 3414,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 904
+   }
+  ],
+  "thoughtsTokenCount": 544,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 9.5,
+   "aspect": "9:16",
+   "car": "기아 EV6",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 9.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 3.4,
+    "text": "RAAD HET MERK 👀",
+    "ko": "브랜드를 맞춰보세요 👀",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.4,
+    "end": 9.5,
+    "text": "LAAT HET WETEN IN DE REACTIES!",
+    "ko": "댓글로 알려주세요!",
+    "kind": "말 자막",
+    "y_pct": 66.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.2,
+    "color": "#FFF200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 5.4,
+    "type": "톡",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌함",
+   "ducks_under_voice": false,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 5.4,
+    "end": 9.5,
+    "what": "AutoScout24 브랜드 스티커 로고",
+    "is_3d": false,
+    "size_w_pct": 52.0,
+    "x_pct": 23.0,
+    "y_pct": 42.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "엠블럼 가리기 및 브랜드 노출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.2,
+    "text": "Raad het merk...",
+    "ko": "브랜드를 맞춰보세요..."
+   },
+   {
+    "start": 3.4,
+    "end": 5.8,
+    "text": "...en laat het weten in de reacties!",
+    "ko": "...그리고 댓글로 알려주세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.4,
+    "speed": "보통",
+    "summary": "진행자가 스티어링 휠을 손으로 가리키며 브랜드 맞추기 퀴즈 제시"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 3.4,
+    "end": 9.5,
+    "speed": "보통",
+    "summary": "스티어링 휠 클로즈업과 함께 댓글 참여 유도 및 로고 등장"
+   }
+  ],
+  "rules": [
+   "초반 3초 안에 시청자 참여를 유도하는 질문형 훅 제시",
+   "브랜드 로고를 스티커 그래픽으로 덮어 퀴즈 형태의 인터랙션 유도",
+   "노란색 굵은 외곽선 폰트로 가독성이 높은 텍스트 자막 배치"
+  ]
+ }
+}

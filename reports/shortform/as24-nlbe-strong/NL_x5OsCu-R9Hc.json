@@ -1,0 +1,526 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/x5OsCu-R9Hc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4191,
+  "candidatesTokenCount": 5238,
+  "totalTokenCount": 10721,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3449
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 1292,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 37.6,
+   "aspect": "9:16",
+   "car": "Jaguar F-Type Cabrio V6",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.1,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 8.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 15.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 20.9,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.9,
+    "end": 23.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 26.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 32.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 35.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.6,
+    "end": 37.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "DEZE JAGUAR KOST MINDER DAN JE DENKT",
+    "ko": "이 재규어는 생각보다 저렴합니다",
+    "kind": "제목",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "DEZE JAGUAR",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.8,
+    "text": "EN WACHT MAAR TOTDAT JE DE KILOMETERSTAND ZIET",
+    "ko": "주행거리를 볼 때까지 기다려 보세요",
+    "kind": "말 자막",
+    "y_pct": 82.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "KILOMETERSTAND",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.0,
+    "text": "DIT IS EEN JAGUAR F-TYPE CABRIO",
+    "ko": "이것은 재규어 F-타입 카브리오입니다",
+    "kind": "말 자막",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "JAGUAR F-TYPE CABRIO",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.8,
+    "text": "🐎 340 PK",
+    "ko": "🐎 340마력",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "340 PK",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 10.8,
+    "text": "2014",
+    "ko": "2014년식",
+    "kind": "키워드 스티커",
+    "y_pct": 16.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2014",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 15.5,
+    "text": "✔ VOLLEDIG ONDERHOUDSHISTORIE",
+    "ko": "✔ 전체 정비 이력 보유",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLLEDIG",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.0,
+    "text": "✔ APPLE CARPLAY",
+    "ko": "✔ 애플 카플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 72.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "APPLE CARPLAY",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.3,
+    "text": "36.000 KM",
+    "ko": "36,000 km",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "36.000 KM",
+    "sure": true
+   },
+   {
+    "start": 23.8,
+    "end": 26.0,
+    "text": "€42.750",
+    "ko": "42,750 유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€42.750",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 29.0,
+    "text": "€100.000",
+    "ko": "100,000 유로",
+    "kind": "가격",
+    "y_pct": 26.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€100.000",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 37.6,
+    "text": "📍 DICK LATHOUWERS",
+    "ko": "📍 딕 라타우어스 매장",
+    "kind": "키워드 스티커",
+    "y_pct": 78.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFF00",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "DICK LATHOUWERS",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 6.5,
+    "type": "톡",
+    "event": "340 PK 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "톡",
+    "event": "2014 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.0,
+    "type": "딸깍",
+    "event": "정비이력 체크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "딸깍",
+    "event": "애플 카플레이 체크 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "톡",
+    "event": "36.000 KM 강조 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.8,
+    "type": "돈 소리",
+    "event": "판매 가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.8,
+    "type": "쿵",
+    "event": "신차가격 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "휙",
+    "event": "AutoScout24 로고 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "톡",
+    "event": "매장 위치 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 / 힙합 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 33.2,
+    "end": 35.5,
+    "what": "AutoScout24 로고 그래픽 스티커",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 28.0,
+    "y_pct": 38.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "플랫폼 홍보",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "Deze Jaguar kost minder dan je denkt, en wacht maar totdat je de kilometerstand ziet.",
+    "ko": "이 재규어는 생각보다 저렴하고, 주행거리를 볼 때까지 기다려 보세요."
+   },
+   {
+    "start": 4.1,
+    "end": 8.8,
+    "text": "Dit is een Jaguar F-Type Cabrio V6 met 340 pk.",
+    "ko": "이 차는 340마력 V6 재규어 F-타입 카브리오입니다."
+   },
+   {
+    "start": 8.9,
+    "end": 13.0,
+    "text": "Hij komt uit 2014 en die kilometerstand die verbaasde me echt.",
+    "ko": "2014년식인데 주행거리가 정말 놀라웠어요."
+   },
+   {
+    "start": 13.0,
+    "end": 17.5,
+    "text": "De volledige onderhoudshistorie is bekend, achteraf is Apple CarPlay ingebouwd.",
+    "ko": "전체 정비 이력이 확인되었고 나중에 애플 카플레이가 추가되었습니다."
+   },
+   {
+    "start": 17.5,
+    "end": 20.8,
+    "text": "En dit is precies het type auto waarbij mensen omkijken als je langsrijdt.",
+    "ko": "그리고 지나갈 때 사람들이 뒤돌아보게 만드는 바로 그런 차입니다."
+   },
+   {
+    "start": 20.8,
+    "end": 26.0,
+    "text": "Hij heeft slechts 36.000 km gelopen en hij kost €42.750.",
+    "ko": "주행거리는 겨우 36,000km이며 가격은 42,750유로입니다."
+   },
+   {
+    "start": 26.0,
+    "end": 29.0,
+    "text": "En de nieuwprijs van deze auto lag rond de €100.000.",
+    "ko": "이 차의 신차 출고가는 약 100,000유로에 달했습니다."
+   },
+   {
+    "start": 29.0,
+    "end": 32.5,
+    "text": "Nu ben ik benieuwd: ga jij in de zomer in een mooie cabrio rijden?",
+    "ko": "궁금한데요, 올여름 멋진 컨버터블을 타실 건가요?"
+   },
+   {
+    "start": 32.5,
+    "end": 37.6,
+    "text": "Je vindt hem op AutoScout24.nl en in de showroom van Dick Lathouwers.",
+    "ko": "AutoScout24.nl과 딕 라타우어스 쇼룸에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.0,
+    "speed": "빠름",
+    "summary": "생각보다 저렴한 가격과 주행거리 반전을 예고하며 시청자 시선 확보"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.0,
+    "end": 11.0,
+    "speed": "보통",
+    "summary": "모델명(F-타입 카브리오), V6 340마력 및 연식 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 11.0,
+    "end": 20.8,
+    "speed": "보통",
+    "summary": "완벽한 정비 이력, 카플레이 시공 및 디자인 매력 강조"
+   },
+   {
+    "stage": "가격",
+    "start": 20.8,
+    "end": 29.0,
+    "speed": "빠름",
+    "summary": "놀라운 3.6만km 주행거리 공개, 중고가와 신차가 비교"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 29.0,
+    "end": 37.6,
+    "speed": "보통",
+    "summary": "여름 오픈카 질문 던지며 AutoScout24 및 판매 딜러 안내"
+   }
+  ],
+  "rules": [
+   "초반 3초 안에 '생각보다 저렴한 가격'과 '주행거리 반전'이라는 호기심 유발 후킹을 배치함",
+   "스펙(340 PK, 2014, 36.000 KM)과 가격(€42.750) 등 핵심 숫자는 노란색 볼드 폰트와 팝업 사운드로 임팩트를 줌",
+   "진행자가 직접 차량에 탑승하고 외관을 돌며 설명하여 쇼츠 특유의 현장감과 역동성을 유지함",
+   "신차가격(1억)과 현재 중고가격(4천만원대)을 대비시켜 가성비 매력을 극대화함",
+   "마지막에 질문형 콜투액션(CTA)과 함께 플랫폼 로고와 딜러 위치를 직관적으로 전달함"
+  ]
+ }
+}

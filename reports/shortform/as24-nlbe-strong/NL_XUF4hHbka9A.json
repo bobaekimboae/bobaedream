@@ -1,0 +1,551 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/XUF4hHbka9A",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3935,
+  "candidatesTokenCount": 4266,
+  "totalTokenCount": 8954,
+  "cachedContentTokenCount": 2150,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3193
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "cacheTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 405
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1745
+   }
+  ],
+  "thoughtsTokenCount": 753,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 35.8,
+   "aspect": "9:16",
+   "car": "Volkswagen Polo R-Line",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 6.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 9.1,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.1,
+    "end": 11.2,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 14.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 17.3,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.3,
+    "end": 20.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.3,
+    "end": 23.6,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.6,
+    "end": 31.4,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.4,
+    "end": 35.8,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "€25.950",
+    "ko": "25,950유로",
+    "kind": "가격",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.3,
+    "text": "2022",
+    "ko": "2022년식",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 4.3,
+    "end": 6.6,
+    "text": "30.000 KM",
+    "ko": "30,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 6.6,
+    "end": 7.6,
+    "text": "PARKEERSENSOREN",
+    "ko": "주차 센서",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.2,
+    "text": "17 INCH VELGEN",
+    "ko": "17인치 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 13.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.2,
+    "end": 12.3,
+    "text": "GETINTE RAMEN",
+    "ko": "틴팅 유리",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 13.8,
+    "text": "PANORAMADAK",
+    "ko": "파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 13.8,
+    "end": 14.5,
+    "text": "KEYLESS ENTRY",
+    "ko": "키리스 엔트리",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 16.3,
+    "end": 17.3,
+    "text": "ALCANTARA",
+    "ko": "알칸타라",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 19.3,
+    "end": 20.3,
+    "text": "ADAPTIVE CRUISE CONTROL",
+    "ko": "어댑티브 크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 64.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.3,
+    "text": "APPLE CARPLAY / ANDROID AUTO",
+    "ko": "애플 카플레이 / 안드로이드 오토",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 85.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 22.3,
+    "end": 23.6,
+    "text": "STOELVERWARMING",
+    "ko": "열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 74.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#000000",
+    "background": "상자",
+    "bg_color": "#FFF000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "가격 박스 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "톡",
+    "event": "2022 연식 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.3,
+    "type": "톡",
+    "event": "30.000 KM 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.6,
+    "type": "톡",
+    "event": "Parkeersensoren 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.0,
+    "type": "톡",
+    "event": "17 INCH VELGEN 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "GETINTE RAMEN 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.3,
+    "type": "톡",
+    "event": "PANORAMADAK 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "KEYLESS ENTRY 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.3,
+    "type": "톡",
+    "event": "ALCANTARA 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "톡",
+    "event": "ADAPTIVE CRUISE CONTROL 박스 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 32.8,
+    "end": 35.8,
+    "what": "AutoScout24 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "entrance": "확대 전환",
+    "purpose": "브랜드 엔딩",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "€25.950 kost deze Volkswagen Polo.",
+    "ko": "이 폭스바겐 폴로의 가격은 25,950유로입니다."
+   },
+   {
+    "start": 2.8,
+    "end": 6.6,
+    "text": "Uit 2022 en iets meer dan 30.000 km op de teller.",
+    "ko": "2022년식에 계기판 주행거리는 3만 km를 조금 넘었습니다."
+   },
+   {
+    "start": 6.6,
+    "end": 9.1,
+    "text": "Parkeersensoren en camera, sportief afgewerkt met R-Line en...",
+    "ko": "주차 센서와 후방 카메라, 스포티한 R-Line 마감에..."
+   },
+   {
+    "start": 9.1,
+    "end": 11.2,
+    "text": "17 inch velgen.",
+    "ko": "17인치 휠."
+   },
+   {
+    "start": 11.2,
+    "end": 14.5,
+    "text": "Getinte ramen, vijf deuren, een panoramadak en keyless entry.",
+    "ko": "틴팅 유리, 5도어, 파노라마 선루프와 키리스 엔트리."
+   },
+   {
+    "start": 14.5,
+    "end": 17.3,
+    "text": "Mooie stoelen afgewerkt met Alcantara.",
+    "ko": "알칸타라로 마감된 예쁜 시트."
+   },
+   {
+    "start": 17.3,
+    "end": 20.3,
+    "text": "Het is een automaat en een multifunctioneel stuur met Adaptive Cruise Control.",
+    "ko": "자동변속기와 어댑티브 크루즈 컨트롤이 탑재된 다기능 스티어링 휠."
+   },
+   {
+    "start": 20.3,
+    "end": 23.6,
+    "text": "En ook natuurlijk Apple CarPlay, Android Auto en stoelverwarming.",
+    "ko": "그리고 당연히 애플 카플레이, 안드로이드 오토, 시트 열선도 있습니다."
+   },
+   {
+    "start": 23.6,
+    "end": 31.4,
+    "text": "Ja, en je ziet het hier al achter mij, bij Rijswijk Auto's hebben ze voldoende keuze. Ook heel veel Volkswagen Polo's ook in andere kleuren zoals deze.",
+    "ko": "네, 제 뒤로 보시다시피 Rijswijk Auto's에는 선택지가 풍부합니다. 폭스바겐 폴로도 이런 다른 색상들로 많이 있습니다."
+   },
+   {
+    "start": 31.4,
+    "end": 35.8,
+    "text": "Leuk hè? En natuurlijk vind je ze ook op autoscout24.nl.",
+    "ko": "좋죠? 물론 autoscout24.nl에서도 찾아보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "가격과 차종 제시로 시청자 시선 집중"
+   },
+   {
+    "stage": "사양",
+    "start": 2.8,
+    "end": 11.2,
+    "speed": "보통",
+    "summary": "연식, 주행거리, 외관 R-Line 및 휠 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 11.2,
+    "end": 23.6,
+    "speed": "빠름",
+    "summary": "선루프, 시트, 주행 보조 및 인포테인먼트 옵션 소개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 23.6,
+    "end": 31.4,
+    "speed": "보통",
+    "summary": "매장 보유 매물 다양성 및 다른 컬러 폴로 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 31.4,
+    "end": 35.8,
+    "speed": "보통",
+    "summary": "AutoScout24 웹사이트 방문 유도"
+   }
+  ],
+  "rules": [
+   "첫 화면 상단에 노란색 강조 박스로 핵심 가격을 바로 노출한다.",
+   "핵심 옵션이 호명될 때마다 일치하는 짧은 '톡' 팝업 사운드와 함께 노란색 키워드 배너를 띄운다.",
+   "외관, 휠, 시트, 인포테인먼트 화면으로 카메라 앵글을 빠르게 전환하여 지루함을 방지한다.",
+   "진행자가 직접 차량을 만지거나 걸어 다니며 생동감 있게 설명한다.",
+   "영상 말미에는 딜러 매장의 풍부한 재고를 보여주며 플랫폼 로고로 마무리한다."
+  ]
+ }
+}

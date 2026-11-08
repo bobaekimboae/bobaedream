@@ -1,0 +1,486 @@
+{
+ "country": "NL",
+ "url": "https://youtu.be/Ofog2o9Q2_8",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 2479,
+  "candidatesTokenCount": 4548,
+  "totalTokenCount": 7853,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 1737
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 742
+   }
+  ],
+  "thoughtsTokenCount": 826,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 19.5,
+   "aspect": "9:16",
+   "car": "Volkswagen Polo",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "nl"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 4.0,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.0,
+    "end": 5.7,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 8.8,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 14.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.7,
+    "end": 19.5,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "€7.449",
+    "ko": "7,449유로",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.2,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "€7.449",
+    "sure": true
+   },
+   {
+    "start": 1.4,
+    "end": 2.5,
+    "text": "KOST DEZE",
+    "ko": "이 차의 가격은",
+    "kind": "말 자막",
+    "y_pct": 69.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "바로",
+    "highlight_word": "KOST",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 3.8,
+    "text": "VOLKSWAGEN POLO",
+    "ko": "폭스바겐 폴로",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 68.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "VOLKSWAGEN POLO",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 5.6,
+    "text": "ELEKTRISCH PANORAMADAK",
+    "ko": "전동 파노라마 루프",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 78.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELEKTRISCH PANORAMADAK",
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 6.8,
+    "text": "STOFFEN BEKLEDING",
+    "ko": "직물 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 41.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOFFEN BEKLEDING",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.5,
+    "text": "STOELVERWARMING",
+    "ko": "열선 시트",
+    "kind": "키워드 스티커",
+    "y_pct": 47.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 58.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "STOELVERWARMING",
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 8.7,
+    "text": "ZWARTE VELGEN",
+    "ko": "블랙 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 52.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ZWARTE VELGEN",
+    "sure": true
+   },
+   {
+    "start": 8.9,
+    "end": 9.9,
+    "text": "GETINT GLAS",
+    "ko": "틴팅 글라스",
+    "kind": "키워드 스티커",
+    "y_pct": 43.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GETINT GLAS",
+    "sure": true
+   },
+   {
+    "start": 9.9,
+    "end": 10.8,
+    "text": "CRUISE CONTROL",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 49.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.6,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 54.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "CRUISE CONTROL",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 14.5,
+    "text": "184.000 KM",
+    "ko": "주행거리 184,000km",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#0047BA",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "184.000 KM",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 17.0,
+    "text": "EUROMAX AUTO'S",
+    "ko": "유로맥스 오토스",
+    "kind": "키워드 스티커",
+    "y_pct": 26.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFE600",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 66.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "EUROMAX AUTO'S",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "가격 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.8,
+    "type": "톡",
+    "event": "폭스바겐 폴로 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.1,
+    "type": "톡",
+    "event": "파노라마 루프 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "톡",
+    "event": "직물 시트 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "열선 시트 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "톡",
+    "event": "블랙 휠 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "톡",
+    "event": "틴팅 글라스 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.9,
+    "type": "톡",
+    "event": "크루즈 컨트롤 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "톡",
+    "event": "주행거리 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "톡",
+    "event": "딜러샵 배너 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.2,
+    "type": "휙",
+    "event": "AutoScout24 로고 애니메이션 시작",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "일렉트로닉 팝",
+   "bpm_est": 120,
+   "mood": "경쾌하고 산뜻함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 17.2,
+    "end": 19.5,
+    "what": "AutoScout24 노란색 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 60.0,
+    "entrance": "밀려옴",
+    "purpose": "브랜드 홍보 및 앱 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "7.449 euro kost deze Volkswagen Polo.",
+    "ko": "이 폭스바겐 폴로의 가격은 7,449유로입니다."
+   },
+   {
+    "start": 3.7,
+    "end": 5.6,
+    "text": "Hij heeft een elektrisch panoramadak,",
+    "ko": "전동 파노라마 루프가 장착되어 있고,"
+   },
+   {
+    "start": 5.6,
+    "end": 7.5,
+    "text": "hij heeft stoffen bekleding met stoelverwarming,",
+    "ko": "열선이 내장된 직물 시트와,"
+   },
+   {
+    "start": 7.5,
+    "end": 8.7,
+    "text": "zwarte velgen,",
+    "ko": "블랙 휠,"
+   },
+   {
+    "start": 8.7,
+    "end": 10.8,
+    "text": "getint glas en cruise control.",
+    "ko": "틴팅 글라스 및 크루즈 컨트롤이 탑재되어 있습니다."
+   },
+   {
+    "start": 10.8,
+    "end": 14.6,
+    "text": "En hij komt uit 2011 en heeft 184.000 km gelopen.",
+    "ko": "또한 2011년식 모델로 주행거리는 184,000km입니다."
+   },
+   {
+    "start": 14.6,
+    "end": 17.1,
+    "text": "Je vindt hem in de showroom van Euromax Auto's",
+    "ko": "유로맥스 오토스 전시장에서 만나보실 수 있으며,"
+   },
+   {
+    "start": 17.1,
+    "end": 19.5,
+    "text": "en natuurlijk op AutoScout24.nl.",
+    "ko": "물론 AutoScout24.nl에서도 확인 가능합니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "가격 제시와 함께 차량 소개 시작"
+   },
+   {
+    "stage": "기능",
+    "start": 2.8,
+    "end": 10.9,
+    "speed": "빠름",
+    "summary": "루프, 시트, 휠, 크루즈 컨트롤 등 주요 옵션 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 10.9,
+    "end": 14.7,
+    "speed": "보통",
+    "summary": "연식 및 누적 주행거리 안내"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 14.7,
+    "end": 19.5,
+    "speed": "보통",
+    "summary": "판매 딜러 정보 및 AutoScout24 앱 안내"
+   }
+  ],
+  "rules": [
+   "첫 1초 이내에 차량 가격을 최상단 노란색 볼드 뱃지로 강조하여 후킹한다.",
+   "각 옵션과 사양이 화면에 비칠 때마다 톡 효과음과 함께 검은색 상자 속 노란 볼드 텍스트 뱃지를 띄운다.",
+   "옵션 컷은 1~1.5초 내외의 빠른 템포로 컷 전환을 진행한다.",
+   "마지막에는 제휴 딜러명과 AutoScout24의 브랜드 로고를 중앙에 노출하며 마무리한다."
+  ]
+ }
+}
