@@ -6,9 +6,10 @@ CAR = dict(name='벤츠 GLE 450 4MATIC', gen='W167', year='2024', reg='24년06�
            fuel='가솔린+전기', cc='2,999cc', drive='381마력', price='7,990만원', color='흰색', region='경기')
 HOOK = dict(title='벤츠 GLE 450', line1='4MATIC · 흰색', line2='24년06월 · 20,885km · 7,990만원', size=104)
 # 규격 v1.2(노션 「영상 분석 스킬 조합」 5-1·5-2, 2026-11-08): 35초 안팎 설명형 · 말은 0.2초 안에 시작 · 말 자막 Pretendard ExtraBold 60
-#   흰 글자+검정 외곽선 · y 1050~1220 · 2~4어절 · 강조어 1개 #FFD56A · 부위 라벨 칠 #306BD9(AS24 원본 칠) · 끝 화면 약 2.4초
+#   (2026-11-08 사용자: 자막은 네덜란드·벨기에와 동일) 검정 상자+흰 굵은 글자 · 강조어 파랑 칩(#306BD9) · 톡 튀어나옴 · 높이 65%
+#   (이전 v1.2 외곽선 · y 1050~1220은 cap_style='v12') · 2~4어절 · 강조어 1개 #FFD56A · 부위 라벨 칠 #306BD9(AS24 원본 칠) · 끝 화면 약 2.4초
 #   효과음 최소 팩(스티커·숫자 「톡」, 가격 「띵」, 부위 바뀔 때 「휙」) — v3에서 안 들렸던 문제로 효과음 버스 0.22 → 0.55 · −14 LUFS
-STYLE = dict(stk_bg=(48, 107, 217), stk_fg=(255, 255, 255), hl='chip', cap_cx=540, cap_style='v12',
+STYLE = dict(stk_bg=(48, 107, 217), stk_fg=(255, 255, 255), hl='chip', cap_cx=540, cap_style='nl', cap_cy=1248,
              feat_size=70, big_size=104, pad=(1.6, 2.85), big_pad=(1.1, 2.5), feat_y=780, big_y=760, price_y=470,
              stk_weight='semi', tilt_k=.6, feat_pos='as24', stk_minw=.46, stk_maxw=.70, stk_shape='as24',
              sfx_pack=True, sfx_bus=0.55)
@@ -32,5 +33,5 @@ BLOCKS = [
          caps=['가격은 7,990만 원', '보배드림 앱에서 확인하세요'], shots=[(55.5, 1.0, 0), (2.2, 1.0, 0)],
          stickers=[('7,990만원', 0), ('보배드림 앱', 1)], end=True),
 ]
-MARKS = {'381마력': 'horse.png', '헤드업 디스플레이': '✓', '어라운드뷰': '✓'}
+MARKS = {'헤드업 디스플레이': '✓', '어라운드뷰': '✓'}
 SHOW = {'킬로': 'km', '포매틱,': '4MATIC,'}
