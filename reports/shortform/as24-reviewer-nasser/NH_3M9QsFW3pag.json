@@ -1,0 +1,795 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/3M9QsFW3pag",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6344,
+  "candidatesTokenCount": 6420,
+  "totalTokenCount": 12764,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5181
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 57.0,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz CLA 200 (New Shape vs Old)",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.5,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.5,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.5,
+    "end": 10.5,
+    "part": "엔진룸",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 13.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 14.8,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 18.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.5,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 29.5,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 38.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.5,
+    "end": 42.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.5,
+    "end": 48.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.5,
+    "end": 57.0,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "text": "ناصر",
+    "ko": "나세르",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ناصر",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 2.5,
+    "text": "مرسيدس",
+    "ko": "메르세데스",
+    "kind": "키워드 스티커",
+    "y_pct": 72,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "مرسيدس",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 4.5,
+    "text": "CLA 200 الجديد",
+    "ko": "신형 CLA 200",
+    "kind": "제목",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الجديد",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 8.0,
+    "text": "القديمة",
+    "ko": "구형",
+    "kind": "키워드 스티커",
+    "y_pct": 72,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "القديمة",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "text": "الجديدة",
+    "ko": "신형",
+    "kind": "키워드 스티커",
+    "y_pct": 72,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الجديدة",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "text": "إستهلاك البنزين",
+    "ko": "연비",
+    "kind": "말 자막",
+    "y_pct": 75,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "البنزين",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.0,
+    "text": "المساحات الداخلية",
+    "ko": "실내 공간",
+    "kind": "말 자막",
+    "y_pct": 70,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الداخلية",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "text": "مساحات الشنطة",
+    "ko": "트렁크 공간",
+    "kind": "말 자막",
+    "y_pct": 35,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الشنطة",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.5,
+    "text": "دريكسيون الجديد",
+    "ko": "새로운 스티어링 휠",
+    "kind": "말 자막",
+    "y_pct": 30,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الجديد",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 33.0,
+    "text": "الشاشة الوسطية كبرت جدا",
+    "ko": "중앙 스크린이 매우 커짐",
+    "kind": "말 자막",
+    "y_pct": 35,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "كبرت جدا",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 36.5,
+    "text": "الكراسي الجديدة",
+    "ko": "새로운 시트",
+    "kind": "말 자막",
+    "y_pct": 65,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "الجديدة",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.5,
+    "text": "أوكر POP OUT",
+    "ko": "팝아웃 도어핸들",
+    "kind": "키워드 스티커",
+    "y_pct": 35,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "POP OUT",
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 57.0,
+    "text": "70 شارع النزهة مصر الجديدة",
+    "ko": "헤리오폴리스 노즈하 스트리트 70번지",
+    "kind": "말 자막",
+    "y_pct": 18,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#000000",
+    "bg_width_pct": 70,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "70",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "텍스트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "휙",
+    "event": "화면 전환 및 차량 로고 강조",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "쿵",
+    "event": "엔진 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "톡",
+    "event": "1500cc 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "띵",
+    "event": "마일드 하이브리드 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.5,
+    "type": "톡",
+    "event": "트렁크 안으로 들어가는 장면",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "휙",
+    "event": "실내 디스플레이 장면 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.5,
+    "type": "톡",
+    "event": "터치스크린 기능 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.0,
+    "type": "딸깍",
+    "event": "팝아웃 도어핸들 전개",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 45.0,
+    "type": "띵",
+    "event": "헤드램프 별모양 DRL 점등",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 트렌디함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "what": "르노 엔진 일러스트",
+    "is_3d": false,
+    "size_w_pct": 35,
+    "x_pct": 30,
+    "y_pct": 25,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구형 르노 엔진 장착 설명",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.5,
+    "what": "1500 CC TURBO 엠블럼 그래픽",
+    "is_3d": true,
+    "size_w_pct": 45,
+    "x_pct": 60,
+    "y_pct": 25,
+    "entrance": "톡 튀어나옴",
+    "purpose": "신형 벤츠 엔진 강조",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "what": "MILD HYBRID 번개/주유기 아이콘",
+    "is_3d": false,
+    "size_w_pct": 40,
+    "x_pct": 35,
+    "y_pct": 18,
+    "entrance": "톡 튀어나옴",
+    "purpose": "마일드 하이브리드 연비 개선 설명",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.0,
+    "what": "SUPER SCREEN 글자 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50,
+    "x_pct": 50,
+    "y_pct": 20,
+    "entrance": "톡 튀어나옴",
+    "purpose": "센터 대형 디스플레이 강조",
+    "sure": true
+   },
+   {
+    "start": 40.5,
+    "end": 42.5,
+    "what": "POP OUT 텍스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35,
+    "x_pct": 45,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "팝아웃 핸들 시연 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.5,
+    "text": "أنا ناصر وأخيرا مرسيدس طوروا عربياتهم CLA 200 الشكل الجديد",
+    "ko": "저는 나세르입니다. 드디어 메르세데스가 CLA 200 신형 모델로 차량을 업그레이드했습니다."
+   },
+   {
+    "start": 4.5,
+    "end": 10.5,
+    "text": "نبتدي بأهم حاجة القديمة كانت بتنزل بموتور من رينو إنما الجديدة موتور 1500 تربو من مرسيدس",
+    "ko": "가장 중요한 엔진부터 보면, 구형은 르노 엔진이 들어갔지만 신형은 벤츠의 1500cc 터보 엔진입니다."
+   },
+   {
+    "start": 10.5,
+    "end": 14.0,
+    "text": "وكمان مايلد هايبرد فظبطلك العزم واستهلاك البنزين",
+    "ko": "게다가 마일드 하이브리드라 출력 토크와 연비 효율까지 개선했습니다."
+   },
+   {
+    "start": 14.0,
+    "end": 21.0,
+    "text": "وهي أطول وأعرض وده فرق جدا في المساحات الداخلية وكمان في مساحات الشنطة",
+    "ko": "차체도 더 길고 넓어져 실내 공간과 트렁크 용량에서 큰 차이가 납니다."
+   },
+   {
+    "start": 21.0,
+    "end": 33.5,
+    "text": "القديمة كانت بدأت تقدم عشان كدة طوروها واتملت تكنولوجيا هيد اب ديسبلاي وديجيتال ديسبلاي والشاشة الوسطية كبرت جدا",
+    "ko": "구형은 슬슬 낡아 보이기 시작해서 HUD, 디지털 클러스터, 그리고 거대해진 센터 슈퍼스크린으로 완전히 최신화했습니다."
+   },
+   {
+    "start": 33.5,
+    "end": 38.5,
+    "text": "الكراسي القديمة شكلها رياضي بس الجديدة شكلهم أحلى بكتير وكمان تو تون",
+    "ko": "구형 시트도 스포티했지만 신형은 투톤 컬러가 들어가 훨씬 멋집니다."
+   },
+   {
+    "start": 38.5,
+    "end": 43.0,
+    "text": "وحطولك أوكر بوب أوت من الإي كلاس والاس كلاس",
+    "ko": "그리고 E클래스와 S클래스에 들어가는 팝아웃 도어 핸들을 달아줬습니다."
+   },
+   {
+    "start": 43.0,
+    "end": 48.5,
+    "text": "زمان الـ DRL كانت مسحوبة دلوقتي بقت لوجو مرسيدس ولايت بار بعرض العربية",
+    "ko": "예전 DRL은 평범하게 길었지만, 이제는 벤츠 삼각별 로고 그래픽과 전면 라이트바로 바뀌었습니다."
+   },
+   {
+    "start": 48.5,
+    "end": 57.0,
+    "text": "لو عندك أسئلة هسيبلك أكونت جير أب في الكابشن، هتلاقيهم في 70 شارع النزهة مصر الجديدة",
+    "ko": "궁금한 점은 캡션의 기어업 계정을 확인하세요. 헬리오폴리스 노즈하 스트리트 70번지에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.5,
+    "speed": "빠름",
+    "summary": "신형 CLA 200과 구형 나란히 세워두고 드디어 바뀐 신형 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 4.5,
+    "end": 13.5,
+    "speed": "빠름",
+    "summary": "르노 엔진에서 벤츠 1500cc 마일드 하이브리드로 변경된 파워트레인 비교"
+   },
+   {
+    "stage": "기능",
+    "start": 13.5,
+    "end": 21.0,
+    "speed": "빠름",
+    "summary": "더 넓어진 실내 뒷좌석과 직접 들어가보는 트렁크 용량"
+   },
+   {
+    "stage": "기능",
+    "start": 21.0,
+    "end": 48.5,
+    "speed": "빠름",
+    "summary": "실내 슈퍼스크린, 투톤 시트, 팝아웃 핸들, 삼각별 DRL 라이트바 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 48.5,
+    "end": 57.0,
+    "speed": "보통",
+    "summary": "전시장 위치 안내 및 방문 유도"
+   }
+  ],
+  "rules": [
+   "구형과 신형의 주요 차이점(엔진, 스크린, 손잡이, 조명)을 대비시켜 1:1로 신속하게 시각화함",
+   "화면 중앙 또는 상단에 대형 단어 스티커와 3D 그래픽을 소리와 함께 팝업시킴",
+   "리뷰어가 직접 트렁크 안에 눕거나 좌석에 앉아 공간 크기를 직관적으로 체감시킴"
+  ],
+  "option_highlights": [
+   {
+    "start": 8.0,
+    "end": 10.5,
+    "feature": "1500cc 터보 엔진",
+    "shown_how": "글자 카드",
+    "icon_desc": "3D 황금색 1500cc TURBO 텍스트",
+    "x_pct": 60,
+    "y_pct": 25,
+    "size_w_pct": 45,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 13.0,
+    "feature": "마일드 하이브리드",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "번개 및 주유기 이모티콘",
+    "x_pct": 35,
+    "y_pct": 18,
+    "size_w_pct": 35,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 33.5,
+    "feature": "슈퍼 스크린 및 셀피 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "대시보드 전면을 채운 터치 디스플레이",
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 70,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 34.0,
+    "end": 38.5,
+    "feature": "투톤 스포츠 시트",
+    "shown_how": "확대",
+    "icon_desc": "레드&블랙 투톤 가죽 시트 질감 터치",
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 60,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 42.5,
+    "feature": "플러시 팝아웃 도어 핸들",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "터치 시 돌출되는 매립형 도어 핸들",
+    "x_pct": 55,
+    "y_pct": 45,
+    "size_w_pct": 50,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 48.0,
+    "feature": "삼각별 로고 DRL & 라이트바",
+    "shown_how": "확대",
+    "icon_desc": "벤츠 스타 엠블럼 모양 주간주행등과 관통형 라이트바",
+    "x_pct": 50,
+    "y_pct": 45,
+    "size_w_pct": 65,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "띵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 구형과 신형 CLA 두 대 사이에 서서 마침내 벤츠가 차를 제대로 바꿨다고 선언함",
+   "type": "행동",
+   "text": "أنا ناصر وأخيرا مرسيدس طوروا عربياتهم",
+   "ko": "저는 나세르이고, 마침내 메르세데스가 차를 제대로 바꿨습니다"
+  },
+  "narration_points": [
+   {
+    "t": 6.0,
+    "point": "구형의 르노 엔진 대신 벤츠 자체 제작 1500cc 터보 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 11.5,
+    "point": "마일드 하이브리드 시스템으로 연비와 토크 응답성 향상",
+    "category": "성능"
+   },
+   {
+    "t": 15.0,
+    "point": "차체 확장으로 구형에서 지적받던 뒷좌석 공간 대폭 확대",
+    "category": "공간"
+   },
+   {
+    "t": 19.5,
+    "point": "성인이 누울 정도로 넉넉해진 트렁크 용량",
+    "category": "공간"
+   },
+   {
+    "t": 31.0,
+    "point": "E클래스 스타일의 최신 슈퍼스크린과 내장 셀피 카메라 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 36.0,
+    "point": "고급스러움을 더한 새로운 투톤 스포츠 가죽 시트",
+    "category": "디자인"
+   },
+   {
+    "t": 41.0,
+    "point": "상위 모델에 적용되던 전동 팝아웃 플러시 도어 핸들 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 46.0,
+    "point": "삼각별 그래픽 DRL과 보닛을 가로지르는 풀와이드 라이트바",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 53.0,
+   "text": "70 شارع النزهة مصر الجديدة",
+   "ko": "헤리오폴리스 노즈하 스트리트 70번지 매장 방문",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "엔진룸",
+    "외관 측면",
+    "뒷좌석",
+    "트렁크",
+    "계기판",
+    "센터 화면",
+    "실내 앞",
+    "옵션 작동",
+    "외관 전면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,582 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/W7h03YEkkHI",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 8079,
+  "candidatesTokenCount": 4973,
+  "totalTokenCount": 13052,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6916
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 76.5,
+   "aspect": "9:16",
+   "car": "Mercedes-AMG G63 vs GMC Hummer EV vs Cadillac Escalade",
+   "format": "비교",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.8,
+    "end": 7.9,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 12.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 15.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 20.6,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.6,
+    "end": 22.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 26.6,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 28.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 33.5,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.5,
+    "end": 37.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.2,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.2,
+    "end": 47.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.7,
+    "end": 52.3,
+    "part": "휠",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.3,
+    "end": 55.8,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.8,
+    "end": 59.5,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.5,
+    "end": 64.3,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 64.3,
+    "end": 67.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 67.5,
+    "end": 70.8,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 70.8,
+    "end": 76.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [],
+  "sfx": [
+   {
+    "t": 4.1,
+    "type": "휙",
+    "event": "V8 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "톡",
+    "event": "배터리 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "쿵",
+    "event": "1000hp 수치 강조 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "G바겐 특유의 문 닫히는 묵직한 철컥 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 57.0,
+    "type": "띵",
+    "event": "AP 로열오크 시계 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 4.0,
+    "end": 7.5,
+    "what": "LUXURY LINE AUTOMOTIVE 로고 & V8 577hp 850Nm 제원 텍스트",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "위에서 페이드인",
+    "purpose": "G바겐 출력 스펙 안내",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 12.0,
+    "what": "배터리 충전 아이콘 & 1000hp 10,000Nm 제원 그래픽",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "허머 EV 배터리 및 출력 수치 강조",
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 59.5,
+    "what": "AP ROYAL OAK GREEN DIAL 시계 트래킹 그래픽",
+    "is_3d": false,
+    "size_w_pct": 65.0,
+    "x_pct": 60.0,
+    "y_pct": 35.0,
+    "entrance": "밀려옴",
+    "purpose": "허머와 어울리는 명품 시계 추천",
+    "sure": true
+   },
+   {
+    "start": 71.0,
+    "end": 76.5,
+    "what": "딜러샵 로고 및 연락처 0114 5598 004, 주소",
+    "is_3d": false,
+    "size_w_pct": 85.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "페이드",
+    "purpose": "쇼룸 정보 및 문의 전화번호 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.8,
+    "text": "لو أنت مليونير بيحب المغامرات هتاخد G63 ولا همر EV؟",
+    "ko": "만약 당신이 모험을 즐기는 백만장자라면, G63을 고를까요 아니면 허머 EV를 고를까요?"
+   },
+   {
+    "start": 3.8,
+    "end": 7.9,
+    "text": "الـ G فيها موتور V8 باي تيربو بيطلع 577 حصان",
+    "ko": "G바겐에는 577마력을 내는 V8 바이 터보 엔진이 들어가 있습니다."
+   },
+   {
+    "start": 7.9,
+    "end": 12.5,
+    "text": "بس الهمر كهربا فيها تلات بطاريات بيطلعوا 1000 حصان و 10,000 نيوتن عزم",
+    "ko": "하지만 허머는 전기차로, 3개의 배터리가 1,000마력과 10,000Nm의 토크를 뿜어냅니다."
+   },
+   {
+    "start": 12.5,
+    "end": 15.0,
+    "text": "ومكان الموتور حطولك فرانك أمامي ياخد ناصر مستريح",
+    "ko": "엔진이 있던 앞쪽 프렁크에는 나사르(진행자) 한 명이 편하게 누울 정도의 공간이 있죠."
+   },
+   {
+    "start": 15.0,
+    "end": 26.6,
+    "text": "الـ G من جوه فخمة أكتر... الكراسي تسخين وتبريد ومساج وكاربون فايبر في كل مكان",
+    "ko": "G바겐의 실내는 더 고급스럽습니다. 헤드레스트 조절, 열선/통풍/마사지 시트에 카본 파이버가 가득하죠."
+   },
+   {
+    "start": 26.6,
+    "end": 37.8,
+    "text": "الهمر من جوه أعنف... شاشة أنيميشن من تيم أيرون مان ومراية بتتقلب كاميرا وازاز خلفي بيفتح",
+    "ko": "허머의 실내는 더 강인합니다. 아이언맨 팀이 만든 화면 애니메이션, 카메라 룸미러, 열리는 뒷유리까지 갖췄습니다."
+   },
+   {
+    "start": 37.8,
+    "end": 43.2,
+    "text": "الـ G فيها فتحة سقف، بس الهمر السقف نفسه بيتشال وبيعكس الشمس",
+    "ko": "G바겐엔 썬루프가 있지만, 허머는 루프 패널 자체를 분리할 수 있고 햇빛도 차단합니다."
+   },
+   {
+    "start": 43.2,
+    "end": 47.7,
+    "text": "أشهر حاجة في الـ G هو صوت البيبان ومخارج الهوا",
+    "ko": "G바겐의 가장 유명한 점은 문 닫히는 특유의 소리와 공기 배출구입니다."
+   },
+   {
+    "start": 47.7,
+    "end": 55.8,
+    "text": "والهمر مشهورة إنها أحسن للأوف رود بنظام الـ Air Suspension والكاوتش العملاق",
+    "ko": "그리고 허머는 거대한 에어 서스펜션과 오프로드 타이어로 험로 주파력에서 최고로 꼽힙니다."
+   },
+   {
+    "start": 55.8,
+    "end": 60.0,
+    "text": "ولو هتاخد الهمر خد معاه ساعة AP Royal Oak Green Dial",
+    "ko": "허머를 탄다면 오데마 피게 로열오크 그린 다이얼 시계와 매치해 보세요."
+   },
+   {
+    "start": 60.0,
+    "end": 71.0,
+    "text": "ولو عايز تاخد الحلو من هنا على الحلو من هنا عندك كاديلاك إسكاليد... 7 كراسي ونظام صوت AKG",
+    "ko": "두 차의 장점만 합치고 싶다면 캐딜락 에스컬레이드가 있습니다. 7인승에 AKG 사운드 시스템, 나이트 비전까지 있죠."
+   },
+   {
+    "start": 71.0,
+    "end": 76.5,
+    "text": "وكل الدبابات دي موجودة في مكان واحد بس Luxury Line Automotive",
+    "ko": "이 모든 거대한 머신들은 오직 한 곳, 럭셔리 라인 오토모티브에 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.8,
+    "speed": "빠름",
+    "summary": "G63 vs 허머 EV 백만장자의 선택 질문"
+   },
+   {
+    "stage": "사양",
+    "start": 3.8,
+    "end": 15.0,
+    "speed": "빠름",
+    "summary": "두 차종의 파워트레인 스펙 및 허머 프렁크 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 15.0,
+    "end": 55.8,
+    "speed": "빠름",
+    "summary": "실내 감성, 옵션(루프, 시트, 스크린, 문 소리, 서스펜션) 비교"
+   },
+   {
+    "stage": "차 소개",
+    "start": 55.8,
+    "end": 71.0,
+    "speed": "보통",
+    "summary": "매치 아이템 시계 및 대안 차량 캐딜락 에스컬레이드 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 71.0,
+    "end": 76.5,
+    "speed": "보통",
+    "summary": "딜러샵 정보 및 문의 안내 CTA"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 옵션을 시연하고 몸으로 크기를 체감시키는 액션 중심 연출(프렁크에 눕기, 루프 떼어들기)",
+   "두 대의 비교 차량 뒤에 제3의 대안 차량(에스컬레이드)을 깜짝 등장시켜 시청자 호기심 연장",
+   "차량별 핵심 성능(마력, 토크)은 3D 입체 그래픽으로 전면에 크게 노출"
+  ],
+  "option_highlights": [
+   {
+    "start": 12.5,
+    "end": 15.0,
+    "feature": "프렁크 수납 공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "feature": "디지털 룸미러 카메라 전환",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 43.2,
+    "feature": "탈착식 인피니티 루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 44.0,
+    "end": 47.5,
+    "feature": "도어 래치 및 환기 배출구",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 48.0,
+    "y_pct": 50.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 53.0,
+    "feature": "어댑티브 에어 서스펜션 리프트",
+    "shown_how": "확대",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 G63과 허머 EV 사이를 걸어나오며 백만장자라면 어느 차를 탈 것인지 질문",
+   "type": "질문",
+   "text": "لو أنت مليونير بيحب المغامرات هتاخد G63 ولا همر EV؟",
+   "ko": "모험을 좋아하는 백만장자라면, G63인가요 허머 EV인가요?"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "G63은 577마력 850Nm V8 바이터보 엔진 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 9.5,
+    "point": "허머 EV는 배터리 3개로 1000마력과 10,000Nm 괴물 토크 발휘",
+    "category": "성능"
+   },
+   {
+    "t": 13.5,
+    "point": "성인 남성이 들어갈 정도로 거대한 허머의 전면 프렁크",
+    "category": "공간"
+   },
+   {
+    "t": 18.0,
+    "point": "통풍/열선/마사지 및 리얼 카본 파이버로 도배된 G바겐 실내",
+    "category": "편의"
+   },
+   {
+    "t": 31.0,
+    "point": "아이언맨 그래픽 팀이 디자인한 인포테인먼트와 슈퍼크루즈",
+    "category": "편의"
+   },
+   {
+    "t": 41.0,
+    "point": "차광 기능이 적용되어 탈착 가능한 허머의 모듈러 루프",
+    "category": "편의"
+   },
+   {
+    "t": 44.5,
+    "point": "특유의 묵직한 문 닫힘 소리와 압력 해소 에어 벤트",
+    "category": "디자인"
+   },
+   {
+    "t": 50.0,
+    "point": "차고를 극단적으로 높여주는 에어 서스펜션과 35인치 오프로드 휠",
+    "category": "성능"
+   },
+   {
+    "t": 62.0,
+    "point": "두 차의 타협안으로 제안하는 대형 럭셔리 SUV 캐딜락 에스컬레이드",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 71.0,
+   "text": "0114 5598 004 / Luxury Line Automotive",
+   "ko": "문의 전화 0114 5598 004 / 럭셔리 라인 오토모티브 방문",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "트렁크",
+    "실내 앞",
+    "옵션 작동",
+    "계기판",
+    "옵션 작동",
+    "외관 후면",
+    "옵션 작동",
+    "외관 측면",
+    "휠",
+    "외관 전면",
+    "뒷좌석",
+    "계기판",
+    "외관 전면"
+   ]
+  }
+ }
+}

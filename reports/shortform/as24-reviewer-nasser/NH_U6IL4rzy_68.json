@@ -1,0 +1,857 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/U6IL4rzy_68",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6175,
+  "candidatesTokenCount": 6992,
+  "totalTokenCount": 13167,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5012
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 55.4,
+   "aspect": "9:16",
+   "car": "쉐보레 캡티바 2026 (Chevrolet Captiva 2026)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "페이드",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.3,
+    "end": 9.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 15.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.5,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.0,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 26.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 30.5,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.5,
+    "end": 35.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.8,
+    "end": 39.7,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.7,
+    "end": 44.5,
+    "part": "트렁크",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 48.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.6,
+    "end": 52.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 55.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.4,
+    "end": 2.2,
+    "text": "أرخص 7 SEATER",
+    "ko": "가장 저렴한 7인승",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أرخص",
+    "sure": true
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "text": "CAPTIVA",
+    "ko": "캡티바",
+    "kind": "제목",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "페이드",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.2,
+    "text": "18\"",
+    "ko": "18인치",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.5,
+    "text": "TIRE PRESSURE MONITORING",
+    "ko": "타이어 공기압 감지 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 38.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 80.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.6,
+    "end": 9.3,
+    "text": "DAY RUNNING LIGHTS",
+    "ko": "주간 주행등 (DRL)",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 75.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.5,
+    "text": "CAMERA 360",
+    "ko": "360도 서라운드 뷰 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 65.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "MULTIFUNCTION",
+    "ko": "멀티펑션 스티어링 휠",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "text": "CRUISE CONTROL",
+    "ko": "크루즈 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.2,
+    "text": "1500CC",
+    "ko": "1500cc 터보",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 25.3,
+    "text": "148 HP",
+    "ko": "148 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.3,
+    "end": 26.8,
+    "text": "255 NM",
+    "ko": "255 Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 47.0,
+    "text": "5 سنين / 150,000 KM",
+    "ko": "5년 / 15만 km 보증",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 70.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.5,
+    "end": 55.4,
+    "text": "19020",
+    "ko": "대표번호 19020",
+    "kind": "가격",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF0000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.4,
+    "type": "톡",
+    "event": "7 SEATER 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "18인치 자막 및 휠 반짝임",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "타이어 게이지 아이콘 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.6,
+    "type": "휙",
+    "event": "DRL 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "띵",
+    "event": "360도 카메라 자막 및 3D 카메라 아이콘",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.8,
+    "type": "톡",
+    "event": "카플레이 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "톡",
+    "event": "MULTIFUNCTION 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "톡",
+    "event": "크루즈 컨트롤 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "쿵",
+    "event": "엔진 스펙 수치 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.5,
+    "type": "휙",
+    "event": "시트 이동 화살표 스티커",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.0,
+    "type": "톡",
+    "event": "에어컨 바람 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "벨 및 팔로우 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 44.8,
+    "type": "띵",
+    "event": "보증 뱃지 및 기간 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.5,
+    "type": "띵",
+    "event": "전화번호 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 120,
+   "mood": "에너제틱하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 6.8,
+    "end": 7.5,
+    "what": "타이어 공기압 게이지 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 설명",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "what": "3D 카메라 아이콘",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 45.0,
+    "y_pct": 10.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 설명",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "what": "애플 카플레이 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 40.0,
+    "y_pct": 8.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "인포테인먼트 기능 안내",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 46.5,
+    "what": "5년 워런티 보증 뱃지",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 20.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "품질보증 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.4,
+    "text": "أنا ناصر ودي أرخص 7 SEATER في السوق",
+    "ko": "저는 나사르입니다. 시장에서 가장 저렴한 7인승 모델이죠."
+   },
+   {
+    "start": 2.4,
+    "end": 4.5,
+    "text": "شفروليه كابتيفا 2026",
+    "ko": "쉐보레 캡티바 2026입니다."
+   },
+   {
+    "start": 4.5,
+    "end": 7.3,
+    "text": "عندك جنط جميل مقاس 18، تاير بريشر مونيتورينج",
+    "ko": "멋진 18인치 휠과 공기압 모니터링 시스템이 들어갔고,"
+   },
+   {
+    "start": 7.3,
+    "end": 11.4,
+    "text": "دي رانينج لايتس شكلهم خطير، وأنوار LED وسبليتر أمامي جديد",
+    "ko": "디자인이 멋진 DRL 주간주행등, LED 램프, 새로운 전면 스플리터가 적용되었습니다."
+   },
+   {
+    "start": 11.4,
+    "end": 15.5,
+    "text": "وكاميرات 360 جودتهم كويسة، وعندك أبل كاربلاي وأندرويد أوتو",
+    "ko": "화질 좋은 360도 카메라와 애플 카플레이, 안드로이드 오토를 지원합니다."
+   },
+   {
+    "start": 15.5,
+    "end": 22.0,
+    "text": "ديجيتال ديسبلاي، دركسيون ملتي فانكشن بكروز كنترول، تحكمات في التكييف والمرايا ومساحة تخزين سرية",
+    "ko": "디지털 클러스터, 크루즈 컨트롤 지원 멀티 스티어링 휠, 에어컨 및 미러 조절 버튼, 비밀 수납공간까지 갖췄습니다."
+   },
+   {
+    "start": 22.0,
+    "end": 26.5,
+    "text": "والموتور 1500 تيربو 148 حصان و 255 نيوتن",
+    "ko": "엔진은 1500cc 터보로 148마력, 255토크를 발휘합니다."
+   },
+   {
+    "start": 26.5,
+    "end": 35.8,
+    "text": "والصف الثاني عنده سقف بانوراما، الكرسي بيرجع والضهر بينام، فتحات تكييف، مخرج شاحن وما فيش أي نفق فتيس",
+    "ko": "2열에는 파노라마 선루프가 있고 시트 슬라이딩과 리클라이닝 지원, 송풍구, 충전 포트 및 평평한 바닥 공간을 제공합니다."
+   },
+   {
+    "start": 35.8,
+    "end": 39.7,
+    "text": "وفيه صف تالت للأطفال بمخرج شاحن وكاب هولدرز",
+    "ko": "충전 단자와 컵홀더가 있는 어린이용 3열 시트도 구비되어 있습니다."
+   },
+   {
+    "start": 39.7,
+    "end": 44.5,
+    "text": "وعندك شنطة مساحتها كبيرة جداً وإنت منيم الصف التالت",
+    "ko": "3열을 접으면 엄청나게 넓은 트렁크 적재 공간이 나옵니다."
+   },
+   {
+    "start": 44.5,
+    "end": 55.4,
+    "text": "وبضمان 5 سنين أو 150,000 كم ومن البرماوي يعني أمان الأمان، لو ناوي كلم البرماوي 19020",
+    "ko": "5년 또는 15만 km 보증에 엘 비르마위 매장이면 안심이죠. 관심 있다면 19020으로 문의하세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.4,
+    "speed": "빠름",
+    "summary": "가장 저렴한 7인승 SUV라는 강렬한 키워드로 시작"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.4,
+    "end": 4.5,
+    "speed": "보통",
+    "summary": "쉐보레 캡티바 2026 차량 전면 뷰 노출"
+   },
+   {
+    "stage": "기능",
+    "start": 4.5,
+    "end": 22.0,
+    "speed": "빠름",
+    "summary": "휠, 주간등, 360도 카메라, 디스플레이, 버튼류 등 편의사양 훑기"
+   },
+   {
+    "stage": "사양",
+    "start": 22.0,
+    "end": 26.5,
+    "speed": "빠름",
+    "summary": "1500cc 터보 엔진 스펙 및 출력 전달"
+   },
+   {
+    "stage": "기능",
+    "start": 26.5,
+    "end": 44.5,
+    "speed": "빠름",
+    "summary": "2열 및 3열 거주성, 트렁크 공간 시연"
+   },
+   {
+    "stage": "가격",
+    "start": 44.5,
+    "end": 52.8,
+    "speed": "보통",
+    "summary": "5년 워런티 및 공식 딜러 매장 신뢰도 홍보"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 52.8,
+    "end": 55.4,
+    "speed": "보통",
+    "summary": "전화 문의 핫라인(19020) 안내 및 마무리"
+   }
+  ],
+  "rules": [
+   "말의 템포가 매우 빠르며 언급되는 기능마다 0.5초 단위로 텍스트와 스티커를 일치시켜 띄운다.",
+   "핵심 스펙(배기량, 출력, 휠 크기)은 영문과 굵은 볼드 폰트로 중앙/상단에 크게 띄워 가독성을 높인다.",
+   "실내 공간 설명 시 진행자가 직접 누워보거나 앉으며 직관적인 체감 크기를 시연한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 4.8,
+    "end": 6.5,
+    "feature": "18인치 알로이 휠",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 7.5,
+    "feature": "타이어 공기압 모니터링",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "원형 타이어 압력 게이지",
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.5,
+    "feature": "360도 서라운드 뷰",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "3D 카메라 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.5,
+    "feature": "애플 카플레이 / 안드로이드 오토",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "애플 카플레이 녹색 로고 아이콘",
+    "x_pct": 40.0,
+    "y_pct": 10.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.5,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": null,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 30.5,
+    "feature": "2열 슬라이딩 및 리클라이닝",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "화살표와 텍스트 라벨",
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.5,
+    "feature": "2열 에어컨 송풍구",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "눈꽃 모양 냉기 아이콘",
+    "x_pct": 20.0,
+    "y_pct": 35.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 매장 앞 차량 옆에서 '시장에서 가장 저렴한 7인승'이라며 춤추듯 손동작을 하며 등장",
+   "type": "가격",
+   "text": "أنا ناصر ودي أرخص 7 SEATER في السوق",
+   "ko": "저는 나사르입니다. 시장에서 가장 저렴한 7인승 모델이죠."
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "시장에서 가장 합리적인 7인승 SUV 포지셔닝",
+    "category": "가격·조건"
+   },
+   {
+    "t": 5.0,
+    "point": "18인치 휠 및 TPMS 탑재",
+    "category": "안전"
+   },
+   {
+    "t": 8.0,
+    "point": "스포티한 신형 DRL 주간주행등과 LED 램프",
+    "category": "디자인"
+   },
+   {
+    "t": 12.0,
+    "point": "360도 카메라와 스마트폰 무선 연동",
+    "category": "편의"
+   },
+   {
+    "t": 23.0,
+    "point": "1.5 터보 엔진의 출력(148마력, 255Nm)",
+    "category": "성능"
+   },
+   {
+    "t": 28.0,
+    "point": "2열 파노라마 선루프와 리클라이닝 시트",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "3열 어린이 탑승 공간과 독립 충전 포트",
+    "category": "공간"
+   },
+   {
+    "t": 41.0,
+    "point": "3열 폴딩 시 대용량 트렁크 적재 공간",
+    "category": "공간"
+   },
+   {
+    "t": 45.0,
+    "point": "공식 보증 5년 또는 15만 km 제공",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 53.5,
+   "text": "لو ناوي كلم البرماوي 19020",
+   "ko": "구매를 생각하고 계시다면 엘 비르마위 19020으로 연락주세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "휠",
+    "외관 전면",
+    "센터 화면",
+    "실내 앞",
+    "옵션 작동",
+    "외관 전면",
+    "뒷좌석",
+    "트렁크",
+    "외관 전면"
+   ]
+  }
+ }
+}

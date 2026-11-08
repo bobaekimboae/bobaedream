@@ -1,0 +1,583 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/aRzDV_jJ29k",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 3175,
+  "candidatesTokenCount": 5724,
+  "totalTokenCount": 9418,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 2012
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 519,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 22.6,
+   "aspect": "9:16",
+   "car": "미공개 슈퍼카 (라마다 수수께끼/람보르기니 추정)",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "외관 전면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 4.8,
+    "part": "외관 측면",
+    "camera": "짐벌",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 22.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 7.0,
+    "end": 8.6,
+    "text": "عنيف",
+    "ko": "사나운 (황소/동물)",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 8.0,
+    "color": "#FFD700",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "عنيف",
+    "sure": true
+   },
+   {
+    "start": 8.8,
+    "end": 10.8,
+    "text": "$1,000,000",
+    "ko": "100만 달러",
+    "kind": "가격",
+    "y_pct": 40.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 9.5,
+    "color": "#39FF14",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "$1,000,000",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.6,
+    "text": "ITALY",
+    "ko": "이탈리아",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 26.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "밀려옴",
+    "highlight_word": "ITALY",
+    "sure": true
+   },
+   {
+    "start": 15.7,
+    "end": 16.5,
+    "text": "626 hp",
+    "ko": "626 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 28.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 32.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "626 hp",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 17.4,
+    "text": "+781 hp",
+    "ko": "+781 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "+781 hp",
+    "sure": true
+   },
+   {
+    "start": 17.4,
+    "end": 18.5,
+    "text": "+936 hp",
+    "ko": "+936 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": "+936 hp",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "띵",
+    "event": "라마다 캘리그래피 및 등불 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.2,
+    "type": "휙",
+    "event": "도어 오픈 방향 화살표 그래픽 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.1,
+    "type": "쿵",
+    "event": "'عنيف' 황소/엠블럼 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.9,
+    "type": "돈 소리",
+    "event": "100만 달러 금액 텍스트와 초록색 화면 효과 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 11.0,
+    "type": "휙",
+    "event": "이탈리아 국기 펄럭이는 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.9,
+    "type": "톡",
+    "event": "시트 그래픽 및 맘마미아 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "톡",
+    "event": "분노의 질주 돔&브라이언 이미지 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.8,
+    "type": "딸깍",
+    "event": "마력 수치 1단계 카운트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.6,
+    "type": "딸깍",
+    "event": "마력 수치 2단계 카운트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.5,
+    "type": "딸깍",
+    "event": "마력 수치 3단계 카운트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.3,
+    "type": "딸깍",
+    "event": "팔로잉(Following) 버튼 클릭 애니메이션",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "긴장감 넘치고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.6,
+    "end": 2.5,
+    "what": "라마다 무바라크 아랍어 캘리그래피와 초승달 장식",
+    "is_3d": false,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "시즌 분위기 연출",
+    "sure": true
+   },
+   {
+    "start": 5.0,
+    "end": 6.8,
+    "what": "시저 도어 개폐 방향을 나타내는 곡선 화살표",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 49.0,
+    "y_pct": 65.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "도어 형태 힌트 제공",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "what": "이탈리아 국기 3D 펄럭임 효과",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "제조국 힌트",
+    "sure": true
+   },
+   {
+    "start": 12.9,
+    "end": 14.8,
+    "what": "스포츠 버킷 시트 2개 그래픽",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 22.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "2인승 힌트",
+    "sure": true
+   },
+   {
+    "start": 14.0,
+    "end": 15.6,
+    "what": "영화 분노의 질주 캐릭터 사진 (빈 디젤, 폴 워커)",
+    "is_3d": false,
+    "size_w_pct": 28.0,
+    "x_pct": 20.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "밈/유머 요소",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 21.5,
+    "what": "Following 팔로우 버튼 및 마우스 커서 클릭 UI",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 53.0,
+    "y_pct": 23.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구독/팔로우 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "أنا ناصر، ودي أول عربية في فوازير رمضان",
+    "ko": "저는 나사르입니다. 라마다 수수께끼 첫 번째 차량입니다."
+   },
+   {
+    "start": 2.7,
+    "end": 4.8,
+    "text": "مبدئياً العربية خارقة، خارقة قوي يعني",
+    "ko": "일단 이 차는 슈퍼카예요, 아주 대단한 슈퍼카죠."
+   },
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "text": "الباب بتاعها بيفتح كدة، مش كدة",
+    "ko": "문은 이렇게(위로) 열립니다, 옆으로가 아니고요."
+   },
+   {
+    "start": 6.8,
+    "end": 8.7,
+    "text": "اللوجو بتاعها فيه حيوان عنيف",
+    "ko": "엠블럼 로고에는 사나운 동물이 들어가 있습니다."
+   },
+   {
+    "start": 8.7,
+    "end": 10.9,
+    "text": "تمنها بتاع مليون دولار",
+    "ko": "가격은 대략 100만 달러 정도 합니다."
+   },
+   {
+    "start": 10.9,
+    "end": 12.8,
+    "text": "فعلي طموحك معانا ومن براند إيطالي، ماما ميا",
+    "ko": "기대감을 높여보세요, 이탈리아 브랜드입니다. 맘마미아!"
+   },
+   {
+    "start": 12.8,
+    "end": 15.6,
+    "text": "ما فيهاش غير كرسيين فنقي اللي هيركب معاك",
+    "ko": "좌석은 2개뿐이니 동승자를 잘 골라보세요."
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "text": "الموتور فيه حصنة كتير أكتر من اللي في نزلة السمان نفسها",
+    "ko": "엔진 마력은 나즐렛 엘-세만(피라미드 승마 마을) 말보다 더 많습니다."
+   },
+   {
+    "start": 18.5,
+    "end": 22.6,
+    "text": "ما تنساش تعمل فولو عشان تعرف الفازورة دي وما تفوتكش الفوازير الجديدة طول رمضان",
+    "ko": "이 퀴즈의 정답과 라마단 내내 진행될 퀴즈를 놓치지 않으려면 팔로우 잊지 마세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.7,
+    "speed": "빠름",
+    "summary": "라마다 퀴즈 1탄 소개 및 텐트 천으로 덮인 미스터리 카 공개"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.7,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "도어 개폐 방식(위로 열림)과 사나운 동물 엠블럼 힌트"
+   },
+   {
+    "stage": "가격",
+    "start": 8.7,
+    "end": 10.9,
+    "speed": "보통",
+    "summary": "100만 달러 가격 힌트"
+   },
+   {
+    "stage": "사양",
+    "start": 10.9,
+    "end": 18.5,
+    "speed": "빠름",
+    "summary": "이탈리아 제조국, 2인승 구조, 900마력 이상의 엔진 마력 힌트"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 18.5,
+    "end": 22.6,
+    "speed": "보통",
+    "summary": "정답 확인 및 다음 퀴즈 시청을 위한 팔로우 유도"
+   }
+  ],
+  "rules": [
+   "라마다 시즌 테마 덮개(카이야미야 천)로 차량을 덮어 시각적 호기심과 퀴즈 몰입감을 유도함",
+   "각 힌트(도어 오픈 방향, 가격, 국기, 시트 개수, 마력)마다 1초 이내에 직관적인 모션 그래픽과 싱크 사운드를 삽입함",
+   "화면 전체 컬러 오버레이(달러=초록색 틴트)를 주어 가격 언급 시 임팩트를 극대화함",
+   "수치형 스펙(마력)을 3단계 카운트업 텍스트로 연속 표시하여 파워풀한 성능을 강조함",
+   "마지막 3초에 UI 형태의 팔로우 버튼 그래픽과 함께 강력한 CTA 멘트를 전달함"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.8,
+    "end": 6.8,
+    "feature": "시저 도어 (수직 개폐식 도어)",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "수직 상승 방향을 안내하는 흰색 곡선 화살표 그래픽",
+    "x_pct": 49.0,
+    "y_pct": 65.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 12.8,
+    "end": 14.8,
+    "feature": "2인승 버킷 시트",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "공중에 떠 있는 브라운 컬러의 스포츠 버킷 시트 2개 그래픽",
+    "x_pct": 22.0,
+    "y_pct": 30.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 18.5,
+    "feature": "900마력 오버 고출력 파워트레인",
+    "shown_how": "글자 카드",
+    "icon_desc": "626hp -> +781hp -> +936hp 텍스트 그래픽",
+    "x_pct": 30.0,
+    "y_pct": 20.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전통 라마다 천으로 가려진 미스터리 슈퍼카 앞에서 리포터가 수수께끼의 시작을 알림",
+   "type": "경품·이벤트",
+   "text": "أنا ناصر، ودي أول عربية في فوازير رمضان",
+   "ko": "저는 나사르입니다. 라마다 수수께끼 첫 번째 차량입니다."
+  },
+  "narration_points": [
+   {
+    "t": 3.2,
+    "point": "압도적인 슈퍼카 스펙의 차량",
+    "category": "성능"
+   },
+   {
+    "t": 5.2,
+    "point": "옆이 아닌 위로 열리는 도어(시저 도어)",
+    "category": "디자인"
+   },
+   {
+    "t": 7.3,
+    "point": "사나운 동물이 그려진 엠블럼 브랜드(황소)",
+    "category": "희소성"
+   },
+   {
+    "t": 9.2,
+    "point": "약 100만 달러에 달하는 초고가 차량",
+    "category": "가격·조건"
+   },
+   {
+    "t": 11.5,
+    "point": "이탈리아 슈퍼카 브랜드",
+    "category": "희소성"
+   },
+   {
+    "t": 13.5,
+    "point": "운전석과 조수석만 있는 순수 2인승 구조",
+    "category": "공간"
+   },
+   {
+    "t": 16.5,
+    "point": "936마력 이상을 뿜어내는 고성능 엔진",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 19.0,
+   "text": "ما تنساش تعمل فولو عشان تعرف الفازورة دي",
+   "ko": "이 수수께끼 정답을 확인하려면 팔로우를 잊지 마세요",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면 덮개",
+    "외관 측면 덮개",
+    "도어 측면",
+    "보닛 엠블럼 부위",
+    "보닛 전면"
+   ]
+  }
+ }
+}

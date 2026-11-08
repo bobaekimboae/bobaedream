@@ -1,0 +1,765 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/RU8soo-mfCg",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6630,
+  "candidatesTokenCount": 7948,
+  "totalTokenCount": 15340,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5467
+   }
+  ],
+  "thoughtsTokenCount": 762,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 60.3,
+   "aspect": "9:16",
+   "car": "람보르기니 레부엘토 (Lamborghini Revuelto) & 메르세데스 G클래스(퀴즈 차)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.7,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.9,
+    "part": "엔진룸",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 12.3,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.3,
+    "end": 16.7,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.7,
+    "end": 18.6,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.6,
+    "end": 22.8,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 27.7,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.7,
+    "end": 30.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 32.0,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.7,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 37.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 44.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 44.8,
+    "end": 48.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.3,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.3,
+    "end": 53.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 53.8,
+    "end": 55.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.8,
+    "end": 60.3,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 23.4,
+    "end": 26.2,
+    "text": "V12",
+    "ko": "V12",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.5,
+    "end": 27.5,
+    "text": "1001hp",
+    "ko": "1001마력",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 47.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#9447E8",
+    "bg_width_pct": 42.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 44.8,
+    "text": "شكلها حلو",
+    "ko": "모양은 예쁨",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 4.5,
+    "color": "#E9E56F",
+    "background": "상자",
+    "bg_color": "#FFFFFF",
+    "bg_width_pct": 36.0,
+    "tilt_deg": -10.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.6,
+    "text": "SOFT CLOSE\nKEYLESS ENTRY\nHEADUP DISPLAY",
+    "ko": "소프트 클로징 / 스마트키 / HUD 없음",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 55.7,
+    "text": "$15MIL",
+    "ko": "1500만(EGP)",
+    "kind": "가격",
+    "y_pct": 33.0,
+    "x_center_pct": 38.0,
+    "text_height_pct": 7.0,
+    "color": "#4CE876",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.2,
+    "type": "휙",
+    "event": "보라색 람보르기니 커버 벗겨짐",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.1,
+    "type": "띵",
+    "event": "라마단 장식 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 9.2,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "람보르기니 레부엘토 백파이어 및 배기음 폭발",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "딸깍",
+    "event": "시저도어 열림",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "톡",
+    "event": "3D 하이브리드 엔진 모형 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "휙",
+    "event": "전투기 3D 그래픽 지나감",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.6,
+    "type": "톡",
+    "event": "냉장고 공기역학 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 45.4,
+    "type": "쿵",
+    "event": "군용 헬기 폭파 그래픽 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.3,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "도어 세게 쾅 닫는 소리",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 51.6,
+    "type": "쿵",
+    "event": "레드 X 표시와 빠진 옵션 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.0,
+    "type": "돈 소리",
+    "event": "1500만 달러/파운드 지폐 폭발 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 56.4,
+    "type": "딸깍",
+    "event": "팔로우 버튼 클릭 효과음",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 긴장감 넘침",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 9.0,
+     "what": "배기음 사운드를 위해 음악 볼륨 일시 뮤트"
+    },
+    {
+     "t": 12.0,
+     "what": "비트 재개"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.5,
+    "end": 3.6,
+    "what": "라마단 초승달 및 별 랜턴 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 90.0,
+    "x_pct": 50.0,
+    "y_pct": 10.0,
+    "entrance": "밀려옴",
+    "purpose": "시즌 분위기 연출",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 26.5,
+    "what": "레부엘토 V12 하이브리드 파워트레인 투시 모형 (모터 1, 2, 3)",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 52.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "파워트레인 사양 시각화",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 27.5,
+    "what": "전투기 비행 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 55.0,
+    "y_pct": 25.0,
+    "entrance": "밀려옴",
+    "purpose": "엄청난 스피드/가속감 비유",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 44.5,
+    "what": "냉장고 공기역학 풍동실험 시뮬레이션",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 70.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "각진 벽돌형 차체 공기저항 유머",
+    "sure": true
+   },
+   {
+    "start": 45.0,
+    "end": 47.6,
+    "what": "군용 블랙호크 헬리콥터 및 화염 연기",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 60.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "군용차 태생 설명",
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.6,
+    "what": "빨간색 X 금지 표식",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 47.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "없는 옵션 강조",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 55.7,
+    "what": "흩날리는 지폐와 녹색 폭발 효과",
+    "is_3d": true,
+    "size_w_pct": 95.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "비싼 가격 강조",
+    "sure": true
+   },
+   {
+    "start": 56.0,
+    "end": 58.0,
+    "what": "Follow -> Following 인스타그램/SNS 버튼 애니메이션",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 28.0,
+    "y_pct": 22.0,
+    "entrance": "바로",
+    "purpose": "팔로우 유도",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "text": "أنا ناصر، والفزورة اللي فاتت: لامبورجيني ريفولتو من أوتو بوتيك.",
+    "ko": "저는 나사르입니다. 지난번 수수께끼의 정답은 오토 부티크의 람보르기니 레부엘토였습니다."
+   },
+   {
+    "start": 3.7,
+    "end": 7.9,
+    "text": "عندك إير إنتيك عملاق عشان يبرد الموتور، اللي متغطي بالكامل من الكاربون فايبر وبصوت ينعش الفؤاد.",
+    "ko": "엔진 냉각을 위한 거대한 에어 인테이크가 있고, 엔진룸 전체가 카본 파이버로 덮여 있으며 심장을 뛰게 하는 배기음을 냅니다."
+   },
+   {
+    "start": 7.9,
+    "end": 12.3,
+    "text": "(صوت المحرك)",
+    "ko": "(폭발적인 배기음)"
+   },
+   {
+    "start": 12.3,
+    "end": 18.6,
+    "text": "عشان الأسود غامق جداً والأحمر قدم، ده أجمد لون لامبورجيني في مصر. وعشان الروشنة تكمل، عندك لامبو دورز.",
+    "ko": "블랙은 너무 흔하고 레드는 구식이 되었기에, 이것이 이집트에서 가장 멋진 람보르기니 컬러입니다. 멋의 완성은 역시 람보 도어죠."
+   },
+   {
+    "start": 18.6,
+    "end": 22.8,
+    "text": "واللي هيفرق معاك، هتشوف سبورت ديفيوزر من الكاربون فايبر، وأكتيف وينج عشان يزود الداونفورس.",
+    "ko": "차별화 포인트로 카본 파이버 스포츠 디퓨저와 다운포스를 높여주는 액티브 리어 윙이 장착되어 있습니다."
+   },
+   {
+    "start": 22.8,
+    "end": 27.7,
+    "text": "وتلات بطاريات وموتور 12 سلندر بيخرجوا 1001 حصان، طيارة!",
+    "ko": "3개의 전기모터와 12기통 엔진이 무려 1001마력을 뿜어냅니다. 그냥 전투기예요!"
+   },
+   {
+    "start": 27.7,
+    "end": 33.7,
+    "text": "أروش لوجو في العالم، وباكيت سيتس مش مريحة بس فيهم تسخين، باسينجر سكرين، فلاينج سكرين، ديجيتال ديسبلاي.",
+    "ko": "세상에서 가장 멋진 엠블럼, 승차감은 딱딱하지만 열선이 들어간 버킷 시트, 조수석 디스플레이, 플로팅 스크린, 디지털 계기판."
+   },
+   {
+    "start": 33.7,
+    "end": 39.8,
+    "text": "باديل شيفترز عملاقة على أجمل دركسيون من لامبورجيني ودرايف مود سيليكت. ولو دوست عالزرار ده هيفتحلك السبويلر الخلفي.",
+    "ko": "람보르기니 최고의 스티어링 휠에 장착된 거대한 패들 시프트와 주행 모드 다이얼. 이 버튼을 누르면 리어 스포일러가 올라옵니다."
+   },
+   {
+    "start": 39.8,
+    "end": 44.8,
+    "text": "الفزورة المرة دي سهلة، باين من الخيمة اللي جنب، وبإيرودينامكس تلاجة، بس شكلها حلو أوي يعني.",
+    "ko": "이번 수수께끼는 쉽습니다. 옆 천막 윤곽만 봐도 알 수 있죠. 냉장고 수준의 공기역학이지만 디자인은 정말 예쁩니다."
+   },
+   {
+    "start": 44.8,
+    "end": 51.3,
+    "text": "وكانت عربية معمولة للحرب ودلوقتي أصعب مشوار ليها مراسي مثلاً، والباب بتاعها لو مرزعتوش مش هيقفل، عايزة راجل من الآخر.",
+    "ko": "원래 군용으로 만들어졌지만 지금은 마라시(휴양지) 가는 게 제일 험한 주행이죠. 문은 세게 쾅 닫지 않으면 안 닫힙니다. 진짜 상남자 차예요."
+   },
+   {
+    "start": 51.3,
+    "end": 55.8,
+    "text": "مافيهاش سوفت كلوز، كيليس إنتري، ولا هيد أب ديسبلاي، ومعدية الـ 15 مليون، عربية إيه؟",
+    "ko": "소프트 클로징, 스마트키, HUD도 없는데 가격은 1500만 파운드가 넘습니다. 이 차는 무슨 차일까요?"
+   },
+   {
+    "start": 55.8,
+    "end": 60.3,
+    "text": "ما تنساش تعمل فولو عشان تعرف الفزورة دي وماتفوّتكش الفوازير الجديدة طول رمضان.",
+    "ko": "정답을 확인하고 라마단 내내 이어지는 새 퀴즈를 놓치지 않으려면 지금 바로 팔로우하세요!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.7,
+    "speed": "빠름",
+    "summary": "천막을 벗기며 지난 수수께끼 정답 람보르기니 레부엘토 언베일링"
+   },
+   {
+    "stage": "기능",
+    "start": 3.7,
+    "end": 12.3,
+    "speed": "빠름",
+    "summary": "카본 에어 인테이크 설명 및 강렬한 백파이어 배기음 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 12.3,
+    "end": 22.8,
+    "speed": "빠름",
+    "summary": "퍼플 외장 컬러, 시저 도어, 카본 디퓨저 및 액티브 윙 소개"
+   },
+   {
+    "stage": "사양",
+    "start": 22.8,
+    "end": 27.7,
+    "speed": "빠름",
+    "summary": "3D 그래픽을 활용한 V12 3모터 하이브리드 및 1001마력 스펙 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 27.7,
+    "end": 39.8,
+    "speed": "빠름",
+    "summary": "시트, 디스플레이 3종, 패들 시프트, 가변 스포일러 버튼 등 실내 옵션 리뷰"
+   },
+   {
+    "stage": "차 소개",
+    "start": 39.8,
+    "end": 55.8,
+    "speed": "빠름",
+    "summary": "다음 퀴즈 차량(각진 실루엣의 G바겐)의 특징과 부재 옵션, 1500만 파운드 가격 힌트"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 55.8,
+    "end": 60.3,
+    "speed": "보통",
+    "summary": "팔로우 애니메이션과 함께 정답 확인 및 다음 퀴즈 구독 유도"
+   }
+  ],
+  "rules": [
+   "전통 천막(카야미야)을 활용해 차량을 언베일링하며 명절 분위기와 호기심을 유발한다.",
+   "배기음 감상 구간에서는 배경음악을 완전히 줄여 실제 엔진 사운드에 집중시킨다.",
+   "복잡한 하이브리드 구동계는 3D 엔진 및 모터 그래픽으로 직관적으로 표현한다.",
+   "각진 차체의 공기저항을 냉장고 3D 그래픽으로 유머러스하게 풍자한다.",
+   "차량의 단점이나 빠진 기능(노 옵션)을 반어법적 유머 포인트로 전환한다.",
+   "영상 말미에 차종을 맞히는 퀴즈 형식과 팔로우 유도 버튼을 배치하여 시청자 인터랙션을 극대화한다."
+  ],
+  "option_highlights": [
+   {
+    "start": 15.0,
+    "end": 18.0,
+    "feature": "람보 시저 도어",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "도어가 위로 수직 개폐되는 모습",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 22.8,
+    "feature": "액티브 리어 윙",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "후방 가변 스포일러가 솟아오른 모습",
+    "x_pct": 52.0,
+    "y_pct": 30.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 27.5,
+    "feature": "V12 하이브리드 파워트레인 (3모터)",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "차체 위에 증강현실 형태로 띄운 V12 엔진과 1,2,3 전기모터 구조",
+    "x_pct": 52.0,
+    "y_pct": 28.0,
+    "size_w_pct": 75.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 33.6,
+    "feature": "트리플 스크린 (조수석/센터/계기판)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "조수석 스크린부터 센터 플로팅 디스플레이, 클러스터 순차 촬영",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 70.0,
+    "follows_object": true,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 38.0,
+    "end": 39.8,
+    "feature": "리어 스포일러 수동 조절 버튼",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "외장 버튼을 눌러 스포일러 작동",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "화려한 천막을 걷어내며 강렬한 보라색 람보르기니 레부엘토를 공개하는 장면",
+   "type": "행동",
+   "text": "أنا ناصر، والفزورة اللي فاتت: لامبورجيني ريفولتو",
+   "ko": "저는 나사르입니다. 지난 퀴즈의 정답은 람보르기니 레부엘토!"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "거대한 에어 인테이크와 카본 파이버로 둘러싸인 엔진룸",
+    "category": "디자인"
+   },
+   {
+    "t": 9.5,
+    "point": "가슴을 울리는 폭발적인 레부엘토 순정 배기음",
+    "category": "성능"
+   },
+   {
+    "t": 14.0,
+    "point": "이집트에서 가장 특별한 보라색 컬러와 시저 도어",
+    "category": "디자인"
+   },
+   {
+    "t": 20.5,
+    "point": "카본 리어 디퓨저와 다운포스를 만들어내는 액티브 윙",
+    "category": "성능"
+   },
+   {
+    "t": 24.5,
+    "point": "3개의 전기모터와 V12 엔진이 결합된 합산 1001마력",
+    "category": "성능"
+   },
+   {
+    "t": 31.0,
+    "point": "열선 버킷시트, 조수석 디스플레이 등 첨단 디지털 실내",
+    "category": "편의"
+   },
+   {
+    "t": 42.0,
+    "point": "냉장고 수준의 공기역학을 가진 각진 차체(새 퀴즈 차량)",
+    "category": "디자인"
+   },
+   {
+    "t": 46.5,
+    "point": "군용차 태생으로 세게 쾅 닫아야 닫히는 도어",
+    "category": "희소성"
+   },
+   {
+    "t": 52.0,
+    "point": "스마트키, 소프트클로징, HUD 없이도 1500만 파운드에 달하는 고가",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 56.5,
+   "text": "ما تنساش تعمل فولو عشان تعرف الفزورة دي",
+   "ko": "이 퀴즈의 정답을 알고 싶다면 팔로우를 잊지 마세요",
+   "method": "구독"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "엔진룸",
+    "외관 후면",
+    "옵션 작동",
+    "외관 측면",
+    "외관 후면",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "실내 앞",
+    "외관 후면",
+    "외관 측면",
+    "외관 전면"
+   ]
+  }
+ }
+}

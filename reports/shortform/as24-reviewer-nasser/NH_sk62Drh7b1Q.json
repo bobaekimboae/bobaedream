@@ -1,0 +1,605 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/sk62Drh7b1Q",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5264,
+  "candidatesTokenCount": 5126,
+  "totalTokenCount": 10390,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4101
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 45.4,
+   "aspect": "9:16",
+   "car": "폭스바겐 타우론 / 현대 아반떼 등 다수 중고차",
+   "format": "기타",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.7,
+    "end": 6.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.8,
+    "part": "그래픽",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 20.4,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 24.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 26.8,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 30.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.6,
+    "end": 34.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.6,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 42.6,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 45.4,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.5,
+    "end": 6.8,
+    "text": "-200,000",
+    "ko": "-20만",
+    "kind": "가격",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FF2B2B",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "-200,000",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.5,
+    "text": "2 x فرص",
+    "ko": "2배의 기회",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#7B3FE4",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -10,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2",
+    "sure": true
+   },
+   {
+    "start": 31.8,
+    "end": 34.2,
+    "text": "بيع",
+    "ko": "판매",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#8A3DF0",
+    "bg_width_pct": 20.0,
+    "tilt_deg": -12,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "بيع",
+    "sure": true
+   },
+   {
+    "start": 32.4,
+    "end": 34.2,
+    "text": "شراء",
+    "ko": "구매",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#8A3DF0",
+    "bg_width_pct": 22.0,
+    "tilt_deg": -12,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "شراء",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.2,
+    "text": "تبديل",
+    "ko": "교환(스왑)",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF8A00",
+    "bg_width_pct": 24.0,
+    "tilt_deg": -12,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تبديل",
+    "sure": true
+   },
+   {
+    "start": 37.8,
+    "end": 39.8,
+    "text": "أجهزة كهربائية",
+    "ko": "가전제품",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#6347EA",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -8,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "أجهزة",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 40.5,
+    "text": "عفش البيت",
+    "ko": "가구",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#6347EA",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -8,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "عفش",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.8,
+    "type": "휙",
+    "event": "4swapp 앱 로고와 파플 버블 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.5,
+    "type": "쿵",
+    "event": "-200,000 자막과 불타는 돈 더미 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 11.2,
+    "type": "톡",
+    "event": "3D 스마트폰 화면 트랜지션 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "띵",
+    "event": "AI POWERED 뱃지 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "휙",
+    "event": "판매자-구매자 3D 캐릭터 애니메이션 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 31.8,
+    "type": "톡",
+    "event": "بيع 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.4,
+    "type": "톡",
+    "event": "شراء 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 32.8,
+    "type": "톡",
+    "event": "تبديل 스티커 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 36.3,
+    "type": "돈 소리",
+    "event": "화면 가득 지폐 비 쏟아짐",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 37.8,
+    "type": "쿵",
+    "event": "대형 냉장고 CG 낙하",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 38.8,
+    "type": "쿵",
+    "event": "대형 1인용 소파 CG 낙하",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 팝 비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 역동적임",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.6,
+    "end": 2.5,
+    "what": "4swapp 로고 및 거래 기호 보라색 구체",
+    "is_3d": true,
+    "size_w_pct": 80.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "팝업 확대",
+    "purpose": "앱 브랜딩",
+    "sure": true
+   },
+   {
+    "start": 4.4,
+    "end": 6.8,
+    "what": "불타는 달러 지폐 더미 CG",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 40.0,
+    "entrance": "불꽃 합성",
+    "purpose": "딜러 판매 시 손실액 시각화",
+    "sure": true
+   },
+   {
+    "start": 10.9,
+    "end": 15.6,
+    "what": "앱 화면 띄운 3D 스마트폰 및 AI Powered 뱃지",
+    "is_3d": true,
+    "size_w_pct": 90.0,
+    "x_pct": 45.0,
+    "y_pct": 45.0,
+    "entrance": "회전 슬라이드",
+    "purpose": "앱 UI 및 AI 기능 소개",
+    "sure": true
+   },
+   {
+    "start": 15.8,
+    "end": 20.3,
+    "what": "차량과 보라색 3D 사람 캐릭터 매칭 애니메이션",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "페이드 및 점프",
+    "purpose": "AI 매칭 알고리즘 시각화",
+    "sure": true
+   },
+   {
+    "start": 36.0,
+    "end": 37.6,
+    "what": "하늘에서 쏟아지는 지폐 비 효과",
+    "is_3d": true,
+    "size_w_pct": 100.0,
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "entrance": "낙하",
+    "purpose": "부동산/거래 수익성 강조",
+    "sure": true
+   },
+   {
+    "start": 37.6,
+    "end": 40.2,
+    "what": "하늘에서 떨어지는 거대 냉장고와 1인용 소파 CG",
+    "is_3d": true,
+    "size_w_pct": 65.0,
+    "x_pct": 65.0,
+    "y_pct": 45.0,
+    "entrance": "위에서 바닥으로 낙하",
+    "purpose": "가전·가구 카테고리 강조",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.7,
+    "text": "أنا ناصر وده أول أبلكيشن في مصر يجمع 3 فرص.",
+    "ko": "저는 나사르입니다. 이건 이집트 최초로 3가지 기회를 모은 앱입니다."
+   },
+   {
+    "start": 2.7,
+    "end": 6.8,
+    "text": "إنك تروح لتاجر وتقوله عايز أبيع عربيتي هتخسرك من 100 لـ 200 ألف جنيه.",
+    "ko": "딜러에게 가서 차를 팔겠다고 하면 10만에서 20만 파운드는 손해 봅니다."
+   },
+   {
+    "start": 6.8,
+    "end": 10.9,
+    "text": "الصح إنك تلاقي حد محتاج عربيتك وتديهاله، لا مهي مش سهلة كدة.. لا سهلة!",
+    "ko": "맞는 방법은 내 차를 원하는 사람을 찾아 넘기는 건데, 그게 쉽지 않다고요? 아뇨, 쉽습니다!"
+   },
+   {
+    "start": 10.9,
+    "end": 15.8,
+    "text": "على 4swapp تقدر تبيع عربيتك بكل سهولة، لإنه منصة بتشتغل بالذكاء الاصطناعي في العرض.",
+    "ko": "4swapp에서는 차를 아주 쉽게 팔 수 있습니다. AI 기반으로 매물을 노출하기 때문이죠."
+   },
+   {
+    "start": 15.8,
+    "end": 20.4,
+    "text": "فعربيتك بتظهر للشخص اللي محتاجها، وده طبعاً بيسرع عملية البيع.. بس مش بس كدة!",
+    "ko": "당신의 차가 꼭 필요한 사람에게 직접 노출되어 판매가 빨라집니다. 하지만 그게 다가 아닙니다!"
+   },
+   {
+    "start": 20.4,
+    "end": 24.8,
+    "text": "تقدر تبدل عربيتك من عليه مع حد مهتم، زي ناس كتير عملت كدة.. هفهمك إزاي.",
+    "ko": "관심 있는 사람과 차를 직접 교환(스왑)할 수도 있습니다. 이미 많은 분들이 그렇게 했죠. 설명해 드릴게요."
+   },
+   {
+    "start": 24.8,
+    "end": 30.6,
+    "text": "أنت مثلاً معاك SUV ونفسك في عربية شبابي، وواحد اتجوز جديد ومحتاج عربية عائلية بدل الاسبورت بتاعته.",
+    "ko": "예를 들어 당신은 SUV를 타다가 스포티한 차가 타고 싶고, 갓 결혼한 누군가는 스포츠카 대신 패밀리카가 필요하다면요."
+   },
+   {
+    "start": 30.6,
+    "end": 34.6,
+    "text": "وبكده يبقى بدل الفرصة 3: تبيع، تشتري، أو تبدل عربيتك. شفت؟ مش عايزك تلف أنا.",
+    "ko": "이렇게 기회가 3가지가 됩니다: 판매, 구매, 혹은 차량 교환! 보셨죠? 헛걸음할 필요 없습니다."
+   },
+   {
+    "start": 34.6,
+    "end": 37.6,
+    "text": "ومش عربيات بس، تقدر تشتري وتبيع عقارات...",
+    "ko": "자동차뿐만 아니라 부동산도 사고팔 수 있고..."
+   },
+   {
+    "start": 37.6,
+    "end": 42.6,
+    "text": "وأجهزة كهربائية أو حتى عفش البيت، تقدر تبيع تشتري أو تبدله مع أي حد محتاجه.",
+    "ko": "가전제품이나 집 가구까지, 필요한 누구와든 사고팔고 교환할 수 있습니다."
+   },
+   {
+    "start": 42.6,
+    "end": 45.4,
+    "text": "ودي حكاية بدل الفرصة تلاتة.",
+    "ko": "이게 바로 기회가 3배가 되는 이야기입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 6.8,
+    "speed": "빠름",
+    "summary": "이집트 최초 3가지 기회 앱 소개 및 딜러에게 팔 때 발생하는 금전적 손실 지적"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 6.8,
+    "end": 20.4,
+    "speed": "보통",
+    "summary": "4swapp 앱의 AI 기반 맞춤 노출 알고리즘과 직거래 판매 장점 설명"
+   },
+   {
+    "stage": "기능",
+    "start": 20.4,
+    "end": 34.6,
+    "speed": "빠름",
+    "summary": "SUV와 스포츠카 소유자 간의 차량 맞교환(스왑) 실제 활용 시나리오"
+   },
+   {
+    "stage": "차 소개",
+    "start": 34.6,
+    "end": 42.6,
+    "speed": "빠름",
+    "summary": "차량뿐 아니라 부동산, 대형 가전, 가구 거래 확장성 강조"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 42.6,
+    "end": 45.4,
+    "speed": "보통",
+    "summary": "차 안에서 미소 지으며 1석 3조 거래 플랫폼 핵심 요약 마무리"
+   }
+  ],
+  "rules": [
+   "호스트의 대사 흐름과 제스처에 맞춰 대형 3D 오브젝트와 모션 그래픽이 정확한 타이밍에 팝업됨",
+   "화두를 던질 때마다 직관적인 CG(불타는 돈, 지폐 비, 떨어지는 가전제품)를 합성해 시각적 집중도를 극대화함",
+   "대사의 핵심 키워드(판매/구매/교환/카테고리)만 강렬한 컬러 블록 스티커 자막으로 화면 우상단에 스택 형태로 배치함",
+   "스토리텔링 상황극(결혼식 하객 장면 등)을 중간 컷으로 짧게 삽입해 공감대를 형성함"
+  ],
+  "option_highlights": [
+   {
+    "start": 10.9,
+    "end": 15.6,
+    "feature": "AI 맞춤 매물 노출 알고리즘",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "3D 스마트폰 화면 옆 회전하는 보라색 AI Powered 칩셋 그래픽",
+    "x_pct": 75.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "확대 등장",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 20.4,
+    "end": 34.6,
+    "feature": "차량 맞교환(스왑) 시스템",
+    "shown_how": "글자 카드",
+    "icon_desc": "보라색/주황색 라벨의 판매, 구매, 교환 텍스트 카드",
+    "x_pct": 70.0,
+    "y_pct": 35.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "스택 팝업",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "야외에서 걸어 나오며 '저는 나사르고 3가지 기회를 주는 첫 앱입니다'라고 선언하고 딜러 거래 시 손실 금액을 언급",
+   "type": "숫자·성능",
+   "text": "أنا ناصر وده أول أبلكيشن في مصر يجمع 3 فرص",
+   "ko": "저는 나사르이고 이건 이집트 최초로 3가지 기회를 모은 앱입니다"
+  },
+  "narration_points": [
+   {
+    "t": 3.8,
+    "point": "딜러에게 중고차를 판매하면 10~20만 파운드의 손실이 발생함",
+    "category": "가격·조건"
+   },
+   {
+    "t": 12.5,
+    "point": "AI 기술로 차량이 꼭 필요한 사람에게 직접 피드가 노출됨",
+    "category": "편의"
+   },
+   {
+    "t": 22.0,
+    "point": "단순 매매뿐만 아니라 라이프스타일에 맞춘 차량 맞교환(스왑)이 가능함",
+    "category": "편의"
+   },
+   {
+    "t": 35.5,
+    "point": "자동차 외에도 부동산, 가전, 가구 거래까지 1석 3조 방식으로 지원함",
+    "category": "편의"
+   }
+  ],
+  "cta": {
+   "t": 43.0,
+   "text": "ودي حكاية بدل الفرصة تلاتة",
+   "ko": "이게 바로 기회가 3배가 되는 이야기입니다 (4swapp 활용 권장)",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 측면",
+    "외관 전면",
+    "실내 앞"
+   ]
+  }
+ }
+}
