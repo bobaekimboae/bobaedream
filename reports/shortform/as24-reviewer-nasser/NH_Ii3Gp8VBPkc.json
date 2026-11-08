@@ -1,0 +1,1187 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/Ii3Gp8VBPkc",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7255,
+  "candidatesTokenCount": 12567,
+  "totalTokenCount": 20706,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6092
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 884,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 67.0,
+   "aspect": "9:16",
+   "car": "토요타 랜드크루저 GR 스포츠 (Toyota Land Cruiser GR Sport)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.8,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.5,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.0,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.0,
+    "part": "기타",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.6,
+    "end": 21.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.3,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.8,
+    "part": "센터 화면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.8,
+    "end": 27.5,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 30.9,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 30.9,
+    "end": 36.3,
+    "part": "계기판",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.3,
+    "end": 39.7,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.7,
+    "end": 45.4,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.4,
+    "end": 49.3,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 54.7,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 54.7,
+    "end": 59.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 63.0,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 63.0,
+    "end": 67.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "text": "GR LAND CRUISER",
+    "ko": "GR 랜드크루저",
+    "kind": "제목",
+    "y_pct": 25.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "GR",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.5,
+    "text": "18''",
+    "ko": "18인치",
+    "kind": "키워드 스티커",
+    "y_pct": 14.5,
+    "x_center_pct": 52.0,
+    "text_height_pct": 7.0,
+    "color": "#F5C842",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 15.0,
+    "text": "INDEPENDENT\nDOUBLE WISHBONE",
+    "ko": "독립식 더블 위시본",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 36.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.5,
+    "text": "COIL\nSPRINGS",
+    "ko": "코일 스프링",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "TUNED",
+    "ko": "튜닝 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 18.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#3366FF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 20.8,
+    "end": 22.0,
+    "text": "تسخين ؟؟؟",
+    "ko": "열선 시트 ???",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.0,
+    "color": "#FF7A00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.5,
+    "text": "360°\nCAMERA",
+    "ko": "360도 서라운드 뷰",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.0,
+    "text": "أكتر لوجو اعتمادي في العالم",
+    "ko": "세계에서 가장 신뢰받는 로고",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 27.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 43.5,
+    "text": "JBL",
+    "ko": "JBL 사운드",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#FF2200",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 43.2,
+    "end": 44.5,
+    "text": "HVAC",
+    "ko": "공조 시스템",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 4.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 48.0,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 4.0,
+    "color": "#FF4500",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 49.3,
+    "text": "تبريد",
+    "ko": "통풍",
+    "kind": "키워드 스티커",
+    "y_pct": 68.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 4.0,
+    "color": "#00BFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.5,
+    "end": 53.0,
+    "text": "3rd ROW",
+    "ko": "3열 좌석",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.0,
+    "end": 54.5,
+    "text": "واسعة",
+    "ko": "넓음",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 56.5,
+    "text": "V6",
+    "ko": "V6 트윈터보",
+    "kind": "키워드 스티커",
+    "y_pct": 41.0,
+    "x_center_pct": 18.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 56.5,
+    "end": 58.0,
+    "text": "V6 410hp",
+    "ko": "V6 410마력",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.0,
+    "end": 59.8,
+    "text": "V6 650hp",
+    "ko": "V6 650Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 51.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 5.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 59.8,
+    "end": 61.0,
+    "text": "DST",
+    "ko": "다이렉트 시프트 변속기",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 6.0,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 61.0,
+    "end": 63.0,
+    "text": "10\nسرعات",
+    "ko": "10단",
+    "kind": "키워드 스티커",
+    "y_pct": 27.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFCC00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.4,
+    "type": "톡",
+    "event": "진행자 손 모션에 맞춤",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "GR 랜드크루저 타이틀 그래픽 등장 및 붉은 먼지 폭발",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "휙",
+    "event": "차량 측면 데칼 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 9.8,
+    "type": "띵",
+    "event": "18인치 텍스트 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.5,
+    "type": "휙",
+    "event": "오프로드 산악 주행 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.5,
+    "type": "딸깍",
+    "event": "서스펜션 더블 위시본 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.0,
+    "type": "딸깍",
+    "event": "코일 스프링 그래픽 발광",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "쿵",
+    "event": "사막 모래바람 및 TUNED 텍스트 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 17.6,
+    "type": "휙",
+    "event": "실내 시트 착석 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 21.0,
+    "type": "딸깍",
+    "event": "콘솔 냉장고 덮개 개방",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.3,
+    "type": "딸깍",
+    "event": "무선충전패드 및 드라이브 모드 다이얼 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.0,
+    "type": "딸깍",
+    "event": "센터 디퍼렌셜 락 버튼 누름 및 그래픽 활성화",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "딸깍",
+    "event": "전후륜 디퍼렌셜 락 버튼 조작",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.8,
+    "type": "띵",
+    "event": "360 카메라 화면 활성화 및 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.0,
+    "type": "딸깍",
+    "event": "GR 로고 시동 버튼 터치",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 37.0,
+    "type": "딸깍",
+    "event": "물리 토글 스위치 및 글로브박스 개방",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.0,
+    "type": "띵",
+    "event": "JBL 및 공조 컨트롤 스티커 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 46.5,
+    "type": "딸깍",
+    "event": "뒷좌석 컵홀더 펼침 및 열선/통풍 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 50.0,
+    "type": "딸깍",
+    "event": "2열 시트 텀블 폴딩 레버 당김",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "쿵",
+    "event": "엔진 스펙 V6 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 60.0,
+    "type": "딸깍",
+    "event": "기어 노브 터치 및 변속기 그래픽",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 62.0,
+    "type": "휙",
+    "event": "먼지 덤불 CG가 운전자를 덮치며 날아감",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "비트감 있는 미드템포 힙합/트랩",
+   "bpm_est": 115,
+   "mood": "다이내믹하고 파워풀함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 2.2,
+     "what": "인트로 비트 드롭 시작"
+    },
+    {
+     "t": 63.0,
+     "what": "아웃트로 비트 페이드 아웃"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 4.8,
+    "what": "GR 엠블럼과 LAND CRUISER 입체 텍스트, 붉은 모래 분진 FX",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차명 및 모델 정체성 강조",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.5,
+    "what": "하체 서스펜션 암 및 발광하는 코일 스프링 강조 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 45.0,
+    "y_pct": 40.0,
+    "entrance": "페이드",
+    "purpose": "오프로드 서스펜션 구조 시각화",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.5,
+    "what": "스마트폰 무선 충전 전파 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 20.0,
+    "x_pct": 20.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무선 충전 패드 위치 설명",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "what": "4WD 구동축 및 센터/전/후륜 디퍼렌셜 락 잠김 도식화 그래픽",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 52.0,
+    "y_pct": 45.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "디퍼렌셜 락 작동 메커니즘 설명",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "what": "애플 카플레이 및 안드로이드 오토 3D 앱 아이콘 플로팅",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스마트폰 미러링 지원 표시",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.3,
+    "what": "시트 열선(빨간색 영역/연기) 및 통풍(파란색 영역/눈송이) 오버레이",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 55.0,
+    "y_pct": 65.0,
+    "entrance": "페이드",
+    "purpose": "2열 열선 및 통풍 시트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 61.8,
+    "end": 63.0,
+    "what": "회전초/모래덤불 날아가는 CG 효과",
+    "is_3d": true,
+    "size_w_pct": 60.0,
+    "x_pct": 40.0,
+    "y_pct": 60.0,
+    "entrance": "밀려옴",
+    "purpose": "사막을 주파하는 강력함 위트 있게 표현",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "أنا ناصر، وأخيراً سفينة الصحراء... تويوتا لاندكروزر GR!",
+    "ko": "저는 나사르입니다. 드디어 사막의 배... 토요타 랜드크루저 GR입니다!"
+   },
+   {
+    "start": 4.8,
+    "end": 9.8,
+    "text": "الدتيلز في التفاصيل! ليڤري العربية مستوحى من العمة، عشان العرب مشهورين بحبهم للأوف رود.",
+    "ko": "디테일이 핵심입니다! 차량의 스트라이프는 터번(전통 머리장식)에서 영감을 얻었는데, 아랍인들의 오프로드 사랑을 상징하죠."
+   },
+   {
+    "start": 9.8,
+    "end": 13.0,
+    "text": "حتى الجنط مقاس 18، لإنه أحسنلك في الجبل.",
+    "ko": "휠 사이즈도 18인치인데, 험로 산악 주행에 훨씬 유리하기 때문입니다."
+   },
+   {
+    "start": 13.0,
+    "end": 17.6,
+    "text": "مستوحاه من الرالي، فعندك independent double wishbone، و coil springs tuned عشان تستحمل ضغط الصحراء.",
+    "ko": "랠리에서 영감을 받아 독립식 더블 위시본과 사막의 충격을 견디도록 튜닝된 코일 스프링이 들어갔습니다."
+   },
+   {
+    "start": 17.6,
+    "end": 23.3,
+    "text": "دي المفخرة! عندك سقف تشوف منه السما، الكراسي بتاعتك تسخين وتبريد، وعندك تلاجة.",
+    "ko": "이게 바로 자부심이죠! 하늘을 볼 수 있는 선루프, 열선과 통풍이 들어간 시트, 그리고 냉장고도 있습니다."
+   },
+   {
+    "start": 23.3,
+    "end": 27.5,
+    "text": "شاحن وايرلس، درايف مود سيلكتور، وديف لوك وسطي، ده الأمامي والخلفي.",
+    "ko": "무선 충전기, 드라이브 모드 다이얼, 센터 디프록에 이어 전륜과 후륜 디프록까지 있습니다."
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "text": "ولو دوست هنا هيفتحلك كاميرات تراقب منها العربية.",
+    "ko": "여기를 누르면 차 주변을 모니터링할 수 있는 카메라가 켜집니다."
+   },
+   {
+    "start": 29.8,
+    "end": 36.3,
+    "text": "أكتر لوجو اعتمادي في العالم، عدادات كلاسيك، لوجو GR على الستارت إنجن، شاشة كبيرة فيها أبل كاربلاي وأندرويد أوتو.",
+    "ko": "세계에서 가장 믿음직한 로고, 클래식한 계기판, 스타트 버튼의 GR 로고, 애플 카플레이와 안드로이드 오토가 지원되는 대형 화면까지."
+   },
+   {
+    "start": 36.3,
+    "end": 39.7,
+    "text": "وعشان الشاشات بتبوظ في الصحراء، كل التحكمات مانيوال، وعندك جلاف بوكس عملاق.",
+    "ko": "사막에선 터치스크린이 고장 날 수 있어 주요 조작부는 전부 물리 버튼이고, 거대한 글로브박스도 있습니다."
+   },
+   {
+    "start": 39.7,
+    "end": 45.4,
+    "text": "عندك شاشات تقدر تلعب عليها بلايستيشن، JBL ساوند سيستم، تحكم في التكييف و72 مخرج شحن.",
+    "ko": "플레이스테이션을 즐길 수 있는 후석 모니터, JBL 사운드 시스템, 독립 공조기 조작부와 엄청나게 많은 충전 포트가 있습니다."
+   },
+   {
+    "start": 45.4,
+    "end": 49.3,
+    "text": "اتنين كاب هولدر، والكنبة بتاعتك تسخين وتبريد، فخمة!",
+    "ko": "컵홀더 2개와 뒷좌석까지 지원되는 열선 및 통풍 시트, 아주 고급스럽습니다!"
+   },
+   {
+    "start": 49.3,
+    "end": 54.7,
+    "text": "والمفاجأة، لو شديت دي الكرسي بتاعك بيتطبق عشان تخش الصف التالت اللي أوسع من صف تاني في عربيات كتير.",
+    "ko": "그리고 놀라운 점은, 이걸 당기면 시트가 접혀 들어가며 다른 차들의 2열보다 넓은 3열로 들어갈 수 있다는 것입니다."
+   },
+   {
+    "start": 54.7,
+    "end": 59.8,
+    "text": "والموتور V6 توين تيربو، بيطلع 410 حصان و650 نيوتن.",
+    "ko": "엔진은 V6 트윈터보로 최고출력 410마력과 최대토크 650Nm를 발휘합니다."
+   },
+   {
+    "start": 59.8,
+    "end": 63.0,
+    "text": "متوصل بفتيس دايركت شيفت 10 سرعات، عشان تخترق الصحراء.",
+    "ko": "10단 다이렉트 시프트 자동변속기와 맞물려 거친 사막을 거침없이 뚫고 나아갑니다."
+   },
+   {
+    "start": 63.0,
+    "end": 67.0,
+    "text": "والعربية في Auto Boutique، 63 عمر بن الخطاب، مصر الجديدة.",
+    "ko": "차량은 헬리오폴리스 오마르 이븐 엘 카탑 거리 63번지 '오토 부티크'에 전시되어 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "진행자 인사 후 '사막의 배' 토요타 랜드크루저 GR 전면 등장 및 강렬한 그래픽 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 17.6,
+    "speed": "빠름",
+    "summary": "헤리티지 데칼, 18인치 휠의 오프로드 이점, 랠리 기반 서스펜션 구조 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 17.6,
+    "end": 39.7,
+    "speed": "빠름",
+    "summary": "1열 편의 기능(선루프, 냉장고, 디프록 3종, 360 카메라, 아날로그 버튼과 디스플레이)"
+   },
+   {
+    "stage": "기능",
+    "start": 39.7,
+    "end": 54.7,
+    "speed": "빠름",
+    "summary": "2열 및 3열 공간(모니터, JBL, 열선/통풍, 시트 텀블링 폴딩 기능과 넉넉한 공간)"
+   },
+   {
+    "stage": "사양",
+    "start": 54.7,
+    "end": 63.0,
+    "speed": "빠름",
+    "summary": "V6 트윈터보 엔진 출력과 토크, 10단 자동변속기 성능 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 63.0,
+    "end": 67.0,
+    "speed": "보통",
+    "summary": "차량이 있는 전시 매장(Auto Boutique) 위치 소개 및 엔딩"
+   }
+  ],
+  "rules": [
+   "진행자의 손동작(가리키기, 버튼 누르기)에 맞춰 정확히 3D 그래픽과 사운드 이펙트 팝업",
+   "전문적인 하체/구동계(서스펜션 구조, 3개의 디퍼렌셜 락)는 투시 및 다이어그램 그래픽으로 직관적 시각화",
+   "사막 환경과의 연관성을 강조하는 특수효과(모래 분진 폭발, 날아가는 회전초 CG)를 적재적소에 배치",
+   "사양 정보(마력, 토크, 기어 단수, 휠 인치)는 굵고 가독성 높은 노란색 계열 볼드 폰트로 중앙 상단에 즉각 표기",
+   "한 컷의 호흡을 1~2초 내외로 유지하며 시청자의 이탈을 방지하는 초고속 템포 편집"
+  ],
+  "option_highlights": [
+   {
+    "start": 9.8,
+    "end": 11.5,
+    "feature": "18인치 오프로드 전용 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "노란색 18'' 텍스트가 휠 상단에 나타남",
+    "x_pct": 52.0,
+    "y_pct": 14.5,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 13.0,
+    "end": 16.5,
+    "feature": "더블 위시본 & 랠리 튜닝 코일 스프링 서스펜션",
+    "shown_how": "화면 분할",
+    "icon_desc": "실제 서스펜션 암 위에 흰색 3D 하이라이트 발광 그래픽",
+    "x_pct": 45.0,
+    "y_pct": 35.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.3,
+    "feature": "센터 콘솔 쿨박스(냉장고)",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "손으로 콘솔 암레스트를 열어 내부 냉장 공간 확인",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 24.5,
+    "feature": "무선 스마트폰 충전기",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "무선 와이파이 충전 심볼과 WIRELESS CHARGER 텍스트",
+    "x_pct": 20.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "feature": "트리플 디퍼렌셜 락 (센터, 전륜, 후륜)",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "4바퀴 구동축 다이어그램에서 락 걸린 위치가 빨간색 X와 링크로 표시됨",
+    "x_pct": 52.0,
+    "y_pct": 45.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 29.8,
+    "feature": "360도 어라운드 뷰 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "VIEW 버튼 누름 후 360 CAMERA 볼드 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 33.5,
+    "end": 35.5,
+    "feature": "애플 카플레이 및 안드로이드 오토",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "카플레이 및 안드로이드 오토 입체 로고 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.0,
+    "feature": "후석 엔터테인먼트 모니터",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "1열 시트백에 장착된 모니터 화면에 축구 경기 중계 영상 재생",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 49.3,
+    "feature": "2열 열선 및 통풍 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 방석 및 등받이에 열선(주황)과 통풍(파랑) 영역 발광 및 텍스트",
+    "x_pct": 55.0,
+    "y_pct": 65.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 49.3,
+    "end": 54.0,
+    "feature": "2열 원터치 텀블 폴딩 및 3열 승하차 공간",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "측면 레버 당김으로 시트가 자동으로 접혀 앞으로 구르고 진행자가 3열에 탑승",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 손동작과 함께 인사하고, 화면이 전환되며 붉은 모래바람과 함께 거대한 GR 랜드크루저 3D 로고가 튀어나옴",
+   "type": "감탄·리액션",
+   "text": "أنا ناصر، وأخيراً سفينة الصحراء... تويوتا لاندكروزر GR!",
+   "ko": "저는 나사르입니다. 드디어 사막의 배... 토요타 랜드크루저 GR입니다!"
+  },
+  "narration_points": [
+   {
+    "t": 6.0,
+    "point": "아랍 전통 머리장식에서 착안한 외관 스트라이프 데칼",
+    "category": "디자인"
+   },
+   {
+    "t": 10.5,
+    "point": "오프로드 산악 주행에 최적화된 18인치 전용 휠",
+    "category": "성능"
+   },
+   {
+    "t": 14.0,
+    "point": "랠리 사양의 독립식 더블 위시본과 튜닝 코일 스프링 서스펜션",
+    "category": "성능"
+   },
+   {
+    "t": 20.0,
+    "point": "개방감 높은 선루프와 센터 콘솔 내장 냉장고",
+    "category": "편의"
+   },
+   {
+    "t": 25.5,
+    "point": "센터 및 프론트/리어 3개의 디퍼렌셜 락 탑재",
+    "category": "성능"
+   },
+   {
+    "t": 28.5,
+    "point": "험로 지형 확인을 위한 360도 서라운드 뷰 모니터",
+    "category": "안전"
+   },
+   {
+    "t": 37.0,
+    "point": "사막 환경의 내구성을 고려한 아날로그 물리식 조작 버튼 설계",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "후석 전용 디스플레이, JBL 오디오, 다수의 고속 충전 포트",
+    "category": "편의"
+   },
+   {
+    "t": 47.5,
+    "point": "뒷좌석까지 기본 적용된 열선 및 통풍 시트",
+    "category": "편의"
+   },
+   {
+    "t": 52.0,
+    "point": "원터치 시트 폴딩과 타 차종 2열보다 넓은 3열 레그룸",
+    "category": "공간"
+   },
+   {
+    "t": 57.0,
+    "point": "410마력, 650Nm 토크의 V6 트윈터보 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 61.0,
+    "point": "사막 주파를 위한 10단 다이렉트 시프트 자동변속기",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 64.0,
+   "text": "والعربية في Auto Boutique، 63 عمر بن الخطاب، مصر الجديدة",
+   "ko": "차량은 헬리오폴리스 오마르 이븐 엘 카탑 거리 63번지 'Auto Boutique'에서 만나보실 수 있습니다",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "휠",
+    "서스펜션/하체",
+    "실내 운전석/선루프",
+    "센터콘솔/냉장고",
+    "주행 조작계/디프록",
+    "센터 모니터/스티어링",
+    "물리 버튼류",
+    "2열 모니터/공조기",
+    "2열 시트 편의기능",
+    "3열 공간",
+    "엔진룸/전면 익스테리어",
+    "기어 변속기",
+    "전시장 전경"
+   ]
+  }
+ }
+}

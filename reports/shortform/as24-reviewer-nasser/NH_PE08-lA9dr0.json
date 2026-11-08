@@ -1,0 +1,947 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/PE08-lA9dr0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7730,
+  "candidatesTokenCount": 7885,
+  "totalTokenCount": 16167,
+  "promptTokensDetails": [
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6567
+   },
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   }
+  ],
+  "thoughtsTokenCount": 552,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 73.1,
+   "aspect": "9:16",
+   "car": "GMC Sierra Denali & GMC Yukon Denali",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 9.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.0,
+    "end": 13.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 17.0,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.8,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 20.2,
+    "end": 22.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 26.2,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.2,
+    "end": 27.6,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 29.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 31.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.8,
+    "part": "옵션 작동",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.8,
+    "end": 34.6,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 37.0,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.0,
+    "end": 39.2,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.2,
+    "end": 41.0,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 43.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.6,
+    "end": 47.1,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 52.8,
+    "part": "뒷좌석",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 57.8,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.8,
+    "end": 104.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 104.0,
+    "end": 107.5,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 107.5,
+    "end": 113.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 5.4,
+    "end": 8.8,
+    "text": "8,500,000",
+    "ko": "850만",
+    "kind": "가격",
+    "y_pct": 13,
+    "x_center_pct": 52,
+    "text_height_pct": 6,
+    "color": "#76FF03",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 9.0,
+    "text": "لمحبين الصحراء وإخواتنا العرباوية",
+    "ko": "사막을 사랑하는 분들과 베두인 형제들을 위해",
+    "kind": "키워드 스티커",
+    "y_pct": 27,
+    "x_center_pct": 50,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#C49A45",
+    "bg_width_pct": 80,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.0,
+    "text": "6T",
+    "ko": "6톤 견인력",
+    "kind": "키워드 스티커",
+    "y_pct": 74,
+    "x_center_pct": 20,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 14.0,
+    "text": "2.5T",
+    "ko": "2.5톤 적재량",
+    "kind": "키워드 스티커",
+    "y_pct": 32,
+    "x_center_pct": 53,
+    "text_height_pct": 6,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "text": "سهل عليك الدخول",
+    "ko": "탑승을 쉽게 해줍니다",
+    "kind": "키워드 스티커",
+    "y_pct": 28,
+    "x_center_pct": 75,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#43A047",
+    "bg_width_pct": 40,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.0,
+    "end": 31.5,
+    "text": "PADDLE SHIFTERS MEDIA CONTROL",
+    "ko": "패들 시프트 미디어 컨트롤",
+    "kind": "키워드 스티커",
+    "y_pct": 32,
+    "x_center_pct": 82,
+    "text_height_pct": 4,
+    "color": "#FF5252",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.5,
+    "text": "الكنبة واسعة جداً",
+    "ko": "뒷좌석이 매우 넓습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 39,
+    "x_center_pct": 68,
+    "text_height_pct": 5,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#D32F2F",
+    "bg_width_pct": 35,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 55.0,
+    "end": 57.5,
+    "text": "12,500,000",
+    "ko": "1250만",
+    "kind": "가격",
+    "y_pct": 41,
+    "x_center_pct": 50,
+    "text_height_pct": 6,
+    "color": "#76FF03",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 63.5,
+    "text": "V8 6200 CC 420 HP 620 NM",
+    "ko": "V8 6200cc 420마력 620토크",
+    "kind": "키워드 스티커",
+    "y_pct": 48,
+    "x_center_pct": 50,
+    "text_height_pct": 4,
+    "color": "#FFFFFF",
+    "background": "칠",
+    "bg_color": "#C2185B",
+    "bg_width_pct": 50,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.5,
+    "type": "휙",
+    "event": "캐딜락 로고 사라지며 GMC 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.4,
+    "type": "띵",
+    "event": "시에라 가격 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "쿵",
+    "event": "견인 추 6T 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.5,
+    "type": "띵",
+    "event": "승하차 발판 자막 팝업",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 19.2,
+    "type": "휙",
+    "event": "통풍/열선 시트 불꽃 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 22.8,
+    "type": "톡",
+    "event": "카메라 룸미러 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 24.3,
+    "type": "톡",
+    "event": "카플레이/안드로이드 오토 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 29.0,
+    "type": "톡",
+    "event": "패들시프트 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 30.2,
+    "type": "톡",
+    "event": "무선충전 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 35.8,
+    "type": "톡",
+    "event": "장난감 총 비우비우 효과음",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.5,
+    "type": "톡",
+    "event": "유콘 디스플레이 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 48.0,
+    "type": "톡",
+    "event": "모니터 1번 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 49.0,
+    "type": "톡",
+    "event": "모니터 2번 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 55.0,
+    "type": "돈 소리",
+    "event": "유콘 가격 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 59.0,
+    "type": "쿵",
+    "event": "엔진 V8 제원 스펙 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 105.0,
+    "type": "돈 소리",
+    "event": "돈다발 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 활기찬",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 1.2,
+    "end": 4.5,
+    "what": "GMC, YUKON, SIERRA 3D 네온 텍스트",
+    "is_3d": true,
+    "size_w_pct": 50,
+    "x_pct": 50,
+    "y_pct": 20,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차종 강조",
+    "sure": true
+   },
+   {
+    "start": 10.7,
+    "end": 12.5,
+    "what": "6T 무게추 아이콘",
+    "is_3d": true,
+    "size_w_pct": 25,
+    "x_pct": 20,
+    "y_pct": 70,
+    "entrance": "톡 튀어나옴",
+    "purpose": "견인력 시각화",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "what": "열선 시트 불꽃 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25,
+    "x_pct": 35,
+    "y_pct": 48,
+    "entrance": "페이드",
+    "purpose": "열선 시트 강조",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.5,
+    "what": "카메라 룸미러 3D 아이콘",
+    "is_3d": true,
+    "size_w_pct": 35,
+    "x_pct": 52,
+    "y_pct": 28,
+    "entrance": "톡 튀어나옴",
+    "purpose": "디지털 룸미러 시연",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.8,
+    "what": "무선 충전 표시",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 55,
+    "y_pct": 78,
+    "entrance": "톡 튀어나옴",
+    "purpose": "무선충전 안내",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.5,
+    "what": "뒷좌석 모니터 번호 라벨 (1, 2)",
+    "is_3d": false,
+    "size_w_pct": 30,
+    "x_pct": 60,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "듀얼 모니터 시각화",
+    "sure": true
+   },
+   {
+    "start": 58.5,
+    "end": 63.5,
+    "what": "V8 엔진 스펙 카드",
+    "is_3d": false,
+    "size_w_pct": 45,
+    "x_pct": 50,
+    "y_pct": 48,
+    "entrance": "톡 튀어나옴",
+    "purpose": "파워트레인 스펙 설명",
+    "sure": true
+   },
+   {
+    "start": 110.0,
+    "end": 113.1,
+    "what": "지점 위치 핀 그래픽",
+    "is_3d": true,
+    "size_w_pct": 40,
+    "x_pct": 58,
+    "y_pct": 35,
+    "entrance": "톡 튀어나옴",
+    "purpose": "전시장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.8,
+    "text": "أنا ناصر ولو زهقت من الكاديلاك جبتلك الجديد GMC يوكن وكمان السييرا",
+    "ko": "저는 나사르입니다. 캐딜락이 지겨우셨다면 신형 GMC 유콘과 시에라를 가져왔습니다."
+   },
+   {
+    "start": 4.8,
+    "end": 9.0,
+    "text": "هنبدأ بالسييرا بأقل من 8 مليون ونص، لمحبين الصحراء وإخواتنا العرباوية",
+    "ko": "시에라부터 시작하죠. 850만 이하로, 사막을 사랑하는 분들과 베두인 형제들을 위한 차량입니다."
+   },
+   {
+    "start": 9.0,
+    "end": 13.5,
+    "text": "دي السييرا وهي البيك أب تقدر تجر لحد 6 طن وتشيل لحد 2 ونص",
+    "ko": "이 시에라 픽업은 최대 6톤까지 견인하고 2.5톤까지 적재 가능합니다."
+   },
+   {
+    "start": 13.5,
+    "end": 18.8,
+    "text": "ولو دوست على الزرار ده وده هيفتحلك الشنطة وينزلك عتبة عشان يسهل عليك الدخول",
+    "ko": "이 버튼들을 누르면 테일게이트가 열리고 발판이 내려와 승하차를 쉽게 해줍니다."
+   },
+   {
+    "start": 18.8,
+    "end": 22.8,
+    "text": "دي الدينالي فيها تسخين وتبريد وعندك خشب على التابلوه مساحة تخزين",
+    "ko": "이 드날리는 통풍과 열선 시트, 대시보드 우드 트림 및 수납공간이 있습니다."
+   },
+   {
+    "start": 22.8,
+    "end": 26.2,
+    "text": "المراية بتاعتك قلبوها كاميرا، تاتش سكرين فيها آبل كاربلاي وأندرويد أوتو",
+    "ko": "룸미러는 카메라로 바뀌었고 터치스크린은 애플 카플레이와 안드로이드 오토를 지원합니다."
+   },
+   {
+    "start": 26.2,
+    "end": 31.0,
+    "text": "هيد أب وديجيتال ديسبلاي، دركسيون تسخين بادل شيفترز وتحكم في الميديا",
+    "ko": "HUD와 디지털 계기판, 열선 스티어링 휠, 패들 시프트와 미디어 컨트롤이 적용됐습니다."
+   },
+   {
+    "start": 31.0,
+    "end": 33.0,
+    "text": "شاحن وايرلس مساحة تخزين وواحدة كمان",
+    "ko": "무선 충전기와 넉넉한 수납공간이 곳곳에 있습니다."
+   },
+   {
+    "start": 33.0,
+    "end": 37.0,
+    "text": "الكنبة واسعة جداً وكمان تسخين وعندك مكان تحط فيه البيو بيو بتاعك",
+    "ko": "뒷좌석은 아주 넓고 열선 시트와 비밀 수납공간까지 있습니다."
+   },
+   {
+    "start": 37.0,
+    "end": 39.2,
+    "text": "ولو احتجت أكتر تقدر ترفع الكراسي",
+    "ko": "더 넓은 공간이 필요하면 시트를 접어 올릴 수 있습니다."
+   },
+   {
+    "start": 39.2,
+    "end": 43.6,
+    "text": "ودي اليوكن فيها كل اللي فات ده والشاشة أكبر فيها آبل كاربلاي وأندرويد أوتو وبيلت إن واي فاي",
+    "ko": "그리고 이 유콘은 이전 기능에 더해 더 큰 화면, 카플레이, 안드로이드 오토, 내장 와이파이가 있습니다."
+   },
+   {
+    "start": 43.6,
+    "end": 47.1,
+    "text": "مساحة تخزين، 2 كب هولدرز، شاحن وايرلس وكمان تلاجة",
+    "ko": "수납공간, 컵홀더 2개, 무선 충전기, 그리고 냉장고까지 구비되어 있습니다."
+   },
+   {
+    "start": 47.1,
+    "end": 52.8,
+    "text": "والاختلاف من ورا عندكم شاشتين والكراسي تسخين ومسند للإيد وفيها صف تالت",
+    "ko": "뒷좌석 차이점은 듀얼 모니터, 열선 시트, 팔걸이, 그리고 3열 시트가 있다는 점입니다."
+   },
+   {
+    "start": 52.8,
+    "end": 57.8,
+    "text": "واليوكن مش بـ 15 ولا 14 ولا حتى 13، بأقل من 12 مليون ونص",
+    "ko": "유콘은 1500만도, 1400만도, 1300만도 아닌 1250만 미만입니다."
+   },
+   {
+    "start": 57.8,
+    "end": 64.0,
+    "text": "والموتور V8 6200 سي سي 420 حصان و620 نيوتن حاجة تليق بهيبتك",
+    "ko": "엔진은 V8 6200cc, 420마력에 620토크로 당신의 품격에 걸맞습니다."
+   },
+   {
+    "start": 64.0,
+    "end": 68.0,
+    "text": "العربيتين دينالي بسعر كويس جداً واستلام فوري تدفع تاخد العربية وتمشي",
+    "ko": "두 대 모두 드날리 모델로 훌륭한 가격에 즉시 출고 가능합니다."
+   },
+   {
+    "start": 68.0,
+    "end": 73.1,
+    "text": "كل ده في مكان واحد بس القبطان في فرع التجمع، الشيخ زايد وشنزو آبي",
+    "ko": "이 모든 것을 단 한 곳, 엘 콥탄의 타가모아, 셰이크 자예드, 신조 아베 지점에서 만나보세요."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "캐딜락 대신 GMC 유콘과 시에라를 소개하겠다는 오프닝 훅"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.8,
+    "end": 9.0,
+    "speed": "보통",
+    "summary": "GMC 시에라 외관과 시작 가격 언급"
+   },
+   {
+    "stage": "기능",
+    "start": 9.0,
+    "end": 18.8,
+    "speed": "빠름",
+    "summary": "시에라의 견인력, 적재량 및 멀티프로 테일게이트 스텝 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 18.8,
+    "end": 39.2,
+    "speed": "빠름",
+    "summary": "시에라 실내 옵션, 디스플레이, 무선충전, 2열 수납공간 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 39.2,
+    "end": 52.8,
+    "speed": "빠름",
+    "summary": "GMC 유콘의 냉장고, 더 큰 디스플레이, 듀얼 후석 모니터, 3열 공간 소개"
+   },
+   {
+    "stage": "가격",
+    "start": 52.8,
+    "end": 57.8,
+    "speed": "보통",
+    "summary": "GMC 유콘 가격 공개"
+   },
+   {
+    "stage": "사양",
+    "start": 57.8,
+    "end": 64.0,
+    "speed": "빠름",
+    "summary": "V8 6.2L 엔진 스펙 및 출력 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 64.0,
+    "end": 73.1,
+    "speed": "보통",
+    "summary": "즉시 출고 안내 및 전시장 지점 위치 안내(CTA)"
+   }
+  ],
+  "rules": [
+   "진행자가 빠른 호흡으로 말하면서 언급하는 옵션마다 즉각적인 그래픽과 효과음이 매칭됨",
+   "적재 용량, 견인력, 가격, 엔진 스펙 등 핵심 수치는 굵고 선명한 텍스트 카드로 시각화",
+   "실내 옵션(냉장고, 테일게이트 스텝, 비밀 수납함)을 직접 손으로 여닫고 작동하며 리얼하게 시연",
+   "두 차종(시에라 픽업 vs 유콘 대형 SUV)의 차별화 포인트를 2열 및 센터콘솔 중심으로 비교 전달"
+  ],
+  "option_highlights": [
+   {
+    "start": 13.5,
+    "end": 18.5,
+    "feature": "멀티프로 테일게이트 스텝",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "체크 표시 아이콘과 승하차 용이 텍스트 카드",
+    "x_pct": 75,
+    "y_pct": 28,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 19.0,
+    "end": 21.0,
+    "feature": "통풍 및 열선 시트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "시트 등받이에 불꽃 그래픽 오버레이",
+    "x_pct": 35,
+    "y_pct": 48,
+    "size_w_pct": 25,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.2,
+    "feature": "디지털 카메라 룸미러",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "룸미러 위 빨간 카메라 3D 그래픽",
+    "x_pct": 52,
+    "y_pct": 25,
+    "size_w_pct": 30,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.8,
+    "feature": "스마트폰 무선 충전",
+    "shown_how": "글자 카드",
+    "icon_desc": "WIRELESS CHARGER 영문 텍스트와 전파 파동 아이콘",
+    "x_pct": 55,
+    "y_pct": 80,
+    "size_w_pct": 35,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 44.5,
+    "end": 47.0,
+    "feature": "센터콘솔 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "콘솔 뚜껑을 열고 내부 냉장고를 직접 가리킴",
+    "x_pct": 50,
+    "y_pct": 50,
+    "size_w_pct": 40,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 50.5,
+    "feature": "후석 듀얼 엔터테인먼트 모니터",
+    "shown_how": "글자 카드",
+    "icon_desc": "모니터 위에 1번, 2번 숫자 라벨",
+    "x_pct": 50,
+    "y_pct": 35,
+    "size_w_pct": 30,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "진행자가 카메라를 향해 걸어나오며 캐딜락에 질렸다면 GMC 유콘과 시에라를 보라고 외침",
+   "type": "질문",
+   "text": "أنا ناصر ولو زهقت من الكاديلاك جبتلك الجديد",
+   "ko": "저는 나사르입니다. 캐딜락이 지겨우셨다면 새로운 걸 가져왔습니다."
+  },
+  "narration_points": [
+   {
+    "t": 5.5,
+    "point": "GMC 시에라 850만 파운드 미만의 공격적인 가격 제시",
+    "category": "가격·조건"
+   },
+   {
+    "t": 10.0,
+    "point": "최대 6톤 견인 능력과 2.5톤 적재 용량",
+    "category": "성능"
+   },
+   {
+    "t": 14.5,
+    "point": "스텝으로 변형되는 멀티프로 테일게이트로 탑승 편의 극대화",
+    "category": "편의"
+   },
+   {
+    "t": 20.0,
+    "point": "통풍/열선 시트와 천연 우드 트림의 고급스러운 실내 마감",
+    "category": "디자인"
+   },
+   {
+    "t": 24.5,
+    "point": "디지털 룸미러, 애플 카플레이 및 안드로이드 오토 탑재",
+    "category": "편의"
+   },
+   {
+    "t": 35.0,
+    "point": "2열 시트백 뒤 숨겨진 비밀 수납공간",
+    "category": "공간"
+   },
+   {
+    "t": 45.0,
+    "point": "유콘의 센터콘솔 내장형 냉장고 및 와이파이 핫스팟 지원",
+    "category": "편의"
+   },
+   {
+    "t": 48.5,
+    "point": "2열 독립 듀얼 스크린과 여유로운 3열 좌석 공간",
+    "category": "공간"
+   },
+   {
+    "t": 55.0,
+    "point": "유콘 드날리 1250만 파운드 미만 즉시 출고 가능",
+    "category": "가격·조건"
+   },
+   {
+    "t": 59.0,
+    "point": "V8 6.2L 420마력 620Nm의 강력한 대배기량 자연흡기 파워트레인",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 68.0,
+   "text": "القبطان في فرع التجمع، الشيخ زايد وشنزو آبي",
+   "ko": "엘 콥탄 카 쇼룸(타가모아, 셰이크 자예드, 신조 아베 지점)을 방문하세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 후면",
+    "트렁크",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "뒷좌석",
+    "실내 앞",
+    "센터 화면",
+    "뒷좌석",
+    "외관 전면"
+   ]
+  }
+ }
+}

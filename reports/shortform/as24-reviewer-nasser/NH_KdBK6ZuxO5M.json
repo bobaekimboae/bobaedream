@@ -1,0 +1,1060 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/KdBK6ZuxO5M",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5999,
+  "candidatesTokenCount": 8714,
+  "totalTokenCount": 15483,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4836
+   }
+  ],
+  "thoughtsTokenCount": 770,
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 54.0,
+   "aspect": "9:16",
+   "car": "BLU 골프 카트 (National Motors)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 1.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 1.2,
+    "end": 4.8,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 7.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.4,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.4,
+    "end": 10.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 10.0,
+    "end": 11.8,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "part": "옵션 작동",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.5,
+    "end": 16.6,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.6,
+    "end": 18.0,
+    "part": "외관 후면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.0,
+    "end": 23.4,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.4,
+    "end": 26.6,
+    "part": "트렁크",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.6,
+    "end": 29.8,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 29.8,
+    "end": 32.5,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.5,
+    "end": 34.6,
+    "part": "옵션 작동",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 36.5,
+    "part": "외관 측면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.5,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.5,
+    "end": 43.8,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 43.8,
+    "end": 48.7,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.7,
+    "end": 54.0,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 1.0,
+    "end": 2.1,
+    "text": "ركز معايا",
+    "ko": "집중해 봐요",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#1DA1F2",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 7.0,
+    "text": "عشان الحماية",
+    "ko": "보호를 위해",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.4,
+    "text": "OFF-ROAD SUSPENSION",
+    "ko": "오프로드 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 3.8,
+    "color": "#FF3B30",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "text": "14",
+    "ko": "14인치",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 35.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 20.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "text": "4 CUP HOLDERS",
+    "ko": "컵홀더 4개",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 25.0,
+    "text_height_pct": 4.2,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "4",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.5,
+    "text": "KEYLESS START ENGINE",
+    "ko": "스마트키 시동",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#007AFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "text": "كلاكس خطير",
+    "ko": "강력한 경적",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF2D55",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "text": "LIGHT BAR",
+    "ko": "라이트 바",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.5,
+    "text": "CUP HOLDER",
+    "ko": "컵 홀더",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 82.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 27.5,
+    "text": "مكان فيه شنطك",
+    "ko": "짐 싣는 공간",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#7E828A",
+    "background": "없음",
+    "bg_color": "",
+    "bg_width_pct": 0.0,
+    "tilt_deg": 35.0,
+    "entrance": "페이드",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "text": "SPEAKERS",
+    "ko": "스피커",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.0,
+    "text": "PHONE LINK",
+    "ko": "폰 링크 미러링",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 30.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 41.1,
+    "end": 42.5,
+    "text": "لو جبتها علي R",
+    "ko": "후진 R단 넣으면",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 75.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2C2C2E",
+    "bg_width_pct": 38.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "R",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.8,
+    "text": "مضاد للمياه",
+    "ko": "방수 지원",
+    "kind": "키워드 스티커",
+    "y_pct": 22.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF3B30",
+    "bg_width_pct": 30.0,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 53.5,
+    "text": "فرع الطيران\nالمهندسين\nالأسكندرية",
+    "ko": "타야란 지점\n모한디신 지점\n알렉산드리아 지점",
+    "kind": "말 자막",
+    "y_pct": 18.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#007AFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "텍스트 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "띵",
+    "event": "National Motors 로고 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 7.1,
+    "type": "휙",
+    "event": "오프로드 서스펜션 그래픽 표시",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.5,
+    "type": "톡",
+    "event": "14인치 휠 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 11.8,
+    "type": "톡",
+    "event": "컵홀더 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 13.6,
+    "type": "띵",
+    "event": "키리스 스마트키 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "골프 카트 클랙슨 경적 울림",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "라이트 바 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "톡",
+    "event": "컵홀더 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.0,
+    "type": "딸깍",
+    "event": "수납함/냉장고 덮개 여는 소리",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.5,
+    "type": "톡",
+    "event": "스피커 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "띵",
+    "event": "폰 링크 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 41.2,
+    "type": "톡",
+    "event": "기어 시프트 R 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 47.0,
+    "type": "톡",
+    "event": "방수 텍스트 스티커 등장",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합/일렉트로닉 비트",
+   "bpm_est": 118,
+   "mood": "경쾌하고 활기참",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.0,
+    "end": 4.5,
+    "what": "National Motors 및 BLU 대형 로고 그래픽",
+    "is_3d": false,
+    "size_w_pct": 50.0,
+    "x_pct": 50.0,
+    "y_pct": 25.0,
+    "entrance": "페이드",
+    "purpose": "브랜드 소개",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "what": "14인치 휠 측정/사이즈 타겟 원형 그래픽",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 25.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "스펙 안내",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.5,
+    "what": "스마트키/시동 버튼 UI 그래픽",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 25.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "기능 안내",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "what": "경적 음파 및 손바닥 2D 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 25.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "재미/강조",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.5,
+    "what": "테이크아웃 커피 컵 2D 스티커",
+    "is_3d": false,
+    "size_w_pct": 12.0,
+    "x_pct": 65.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "컵홀더 위치 안내",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "what": "스피커 사운드 아이콘",
+    "is_3d": false,
+    "size_w_pct": 15.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "오디오 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 41.1,
+    "end": 42.5,
+    "what": "수동 기어 시프터 노브 아이콘 (R단 표시)",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 25.0,
+    "y_pct": 16.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "후진 모드 연출",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 1.0,
+    "end": 4.8,
+    "text": "ركز معايا لو عايز جولف كار ناشيونال موتورز وبلو عندهم كل اللي هتحتاجه",
+    "ko": "골프 카트를 찾고 계시다면 집중하세요. 내셔널 모터스와 BLU에 필요한 모든 것이 있습니다."
+   },
+   {
+    "start": 5.0,
+    "end": 9.9,
+    "text": "سيفتي جلاس شيلد عشان الحماية أوف رود سسبنشن وألومنيوم ريمز مقاس 14",
+    "ko": "안전 유리, 보호용 범퍼 실드, 오프로드 서스펜션과 14인치 알루미늄 휠까지 갖췄습니다."
+   },
+   {
+    "start": 10.0,
+    "end": 16.5,
+    "text": "والقعدة قدام مرتاحة جداً عندك 4 كب هولدرز ومساحات تخزين وكي ليس إنتري وستارت إنجن وكلاكس خطير",
+    "ko": "앞좌석은 매우 편안하고요, 4개의 컵홀더, 수납공간, 스마트키 시동, 그리고 강력한 경적도 있습니다."
+   },
+   {
+    "start": 16.6,
+    "end": 23.3,
+    "text": "وبالعتب تقدر تطلع الصف الثالث وعندك لايت بار وكب هولدرز وهاندل زي بتاع الملاهي عشان تمسك نفسك",
+    "ko": "발판을 밟고 3열로 올라갈 수 있고, 라이트 바, 컵홀더, 놀이기구 손잡이 같은 안전 바가 있어 잡기 좋습니다."
+   },
+   {
+    "start": 23.4,
+    "end": 29.8,
+    "text": "ولو مش محتاج الصف الثالث لو قلبت دي هيبقى عندك مكان تحط فيه شنطك وهنا مساحة تخزين وتلاجة",
+    "ko": "3열이 필요 없다면 접어서 트렁크 공간으로 쓰실 수 있고, 안쪽 수납함과 냉장고도 있습니다."
+   },
+   {
+    "start": 30.0,
+    "end": 38.5,
+    "text": "ولو عيلتك أكبر في 6 سيتس بهاندل عشان تمسك نفسك بتتشحن بفيشة البيت وعتبة عشان تسهل الدخول وعندك سبيكرز حجمهم كبير عشان الحفلات",
+    "ko": "가족이 더 많다면 6인승 모델도 있으며 집 콘센트로 바로 충전되고, 사이드 스텝과 파티용 대형 스피커도 내장되어 있습니다."
+   },
+   {
+    "start": 38.6,
+    "end": 43.8,
+    "text": "تاتش سكرين بـ فون لينك ولو جبتها على الـ R هيبقى عندك كاميرا خلفية عشان تساعدك في الركن",
+    "ko": "폰 링크를 지원하는 터치스크린이 있고 후진(R)에 넣으면 주차를 돕는 후방 카메라가 뜹니다."
+   },
+   {
+    "start": 44.0,
+    "end": 48.7,
+    "text": "وما تخافش عليها الخامات الداخلية الشاشة حتى الأرضيات كلهم مضادين للمية",
+    "ko": "걱정 마세요, 내장재부터 스크린, 바닥 매트까지 모두 완벽 방수 처리되어 있습니다."
+   },
+   {
+    "start": 48.8,
+    "end": 53.8,
+    "text": "كل الألوان والمواصفات والأحجام هتلاقيهم في ناشيونال موتورز فرع الطيران المهندسين والأسكندرية",
+    "ko": "모든 색상과 사양, 크기는 내셔널 모터스 타야란, 모한디신, 알렉산드리아 지점에서 만나보실 수 있습니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.8,
+    "speed": "빠름",
+    "summary": "골프 카트를 타고 등장하며 내셔널 모터스 BLU 카트 소개 시작"
+   },
+   {
+    "stage": "사양",
+    "start": 4.8,
+    "end": 10.0,
+    "speed": "빠름",
+    "summary": "안전유리, 범퍼가드, 서스펜션, 14인치 휠 외관 특징 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 10.0,
+    "end": 29.8,
+    "speed": "빠름",
+    "summary": "앞좌석 편의기능, 3열 탑승공간, 폴딩 트렁크 및 빌트인 냉장고 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 29.8,
+    "end": 38.5,
+    "speed": "빠름",
+    "summary": "6인승 모델 소개, 가정용 충전, 대형 사운드바 스피커 시연"
+   },
+   {
+    "stage": "기능",
+    "start": 38.5,
+    "end": 48.7,
+    "speed": "빠름",
+    "summary": "터치스크린, 폰 미러링, 후방 카메라 및 풀 방수 기능 설명"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 48.7,
+    "end": 54.0,
+    "speed": "보통",
+    "summary": "구매 가능한 내셔널 모터스 지점 정보 안내"
+   }
+  ],
+  "rules": [
+   "기능이나 부품을 말할 때마다 핵심 영어/아랍어 키워드 스티커를 화면에 짧게 팝업한다",
+   "스펙(14인치, 4구 컵홀더 등) 숫자는 크고 굵은 볼드 폰트로 시각화한다",
+   "경적이나 수납함 등 작동 요소는 실제 소리와 효과음을 정확하게 매칭한다",
+   "리뷰어가 직접 앉고 타며 좌석 접기나 수납함 개폐를 현장감 있게 시연한다",
+   "영상 말미에 방문 가능한 쇼룸 지점 명칭을 화면 상단 박스 그래픽으로 고정 제시한다"
+  ],
+  "option_highlights": [
+   {
+    "start": 5.0,
+    "end": 6.0,
+    "feature": "세이프티 글래스",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 40.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 7.1,
+    "end": 8.4,
+    "feature": "오프로드 서스펜션",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 60.0,
+    "y_pct": 22.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 8.5,
+    "end": 10.0,
+    "feature": "14인치 알루미늄 휠",
+    "shown_how": "화살표·원 표시",
+    "icon_desc": "타겟 원형 그래픽과 14 숫자",
+    "x_pct": 35.0,
+    "y_pct": 28.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 11.8,
+    "end": 13.5,
+    "feature": "4구 컵홀더 및 수납",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 25.0,
+    "y_pct": 42.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 15.5,
+    "feature": "키리스 엔진 스타트",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "무선 열쇠 및 전원 버튼 아이콘",
+    "x_pct": 30.0,
+    "y_pct": 22.0,
+    "size_w_pct": 45.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.0,
+    "feature": "경적",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "경적 소리 아이콘",
+    "x_pct": 30.0,
+    "y_pct": 26.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 20.0,
+    "feature": "오버헤드 라이트 바",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 70.0,
+    "y_pct": 24.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.5,
+    "feature": "후석 컵홀더",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "커피 컵 아이콘",
+    "x_pct": 82.0,
+    "y_pct": 24.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 24.0,
+    "end": 29.8,
+    "feature": "시트 폴딩 트렁크 및 빌트인 냉장고",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 52.0,
+    "y_pct": 48.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "페이드",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 33.0,
+    "end": 34.6,
+    "feature": "가정용 콘센트 충전 단자",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 0.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.5,
+    "feature": "천장 사운드바 스피커",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "음향 스피커 아이콘",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 41.0,
+    "feature": "폰 링크 터치 디스플레이",
+    "shown_how": "글자 카드",
+    "icon_desc": "와이파이/폰 링크 아이콘",
+    "x_pct": 30.0,
+    "y_pct": 28.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 41.1,
+    "end": 43.8,
+    "feature": "후방 카메라",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "3D 기어 노브",
+    "x_pct": 75.0,
+    "y_pct": 14.0,
+    "size_w_pct": 38.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 47.0,
+    "end": 48.8,
+    "feature": "실내 방수 내장재",
+    "shown_how": "글자 카드",
+    "icon_desc": "",
+    "x_pct": 22.0,
+    "y_pct": 22.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "골프 카트를 몰고 화면 앞으로 전진해 정차한 뒤 '골프 카트를 찾으신다면 주목하세요'라고 외침",
+   "type": "행동",
+   "text": "ركز معايا لو عايز جولف كار",
+   "ko": "골프 카트가 필요하다면 집중하세요"
+  },
+  "narration_points": [
+   {
+    "t": 1.0,
+    "point": "내셔널 모터스에서 판매 중인 BLU 골프 카트 라인업 소개",
+    "category": "조건"
+   },
+   {
+    "t": 5.2,
+    "point": "안전 유리와 프로텍션 범퍼 쉴드 장착",
+    "category": "안전"
+   },
+   {
+    "t": 7.5,
+    "point": "오프로드 서스펜션과 14인치 알루미늄 휠 적용",
+    "category": "성능"
+   },
+   {
+    "t": 11.5,
+    "point": "4구 컵홀더, 스마트키, 버튼 시동, 경적 등 1열 편의 기능",
+    "category": "편의"
+   },
+   {
+    "t": 17.0,
+    "point": "3열 탑승용 보조 발판과 안전 손잡이, 라이트 바",
+    "category": "공간"
+   },
+   {
+    "t": 24.0,
+    "point": "3열 폴딩 시 대형 화물칸 및 내장 냉장고/보랭고 변환",
+    "category": "공간"
+   },
+   {
+    "t": 30.5,
+    "point": "대가족용 6인승 모델 옵션 및 가정용 220V 충전 지원",
+    "category": "편의"
+   },
+   {
+    "t": 37.0,
+    "point": "루프 장착형 대형 사운드바 스피커",
+    "category": "편의"
+   },
+   {
+    "t": 39.5,
+    "point": "폰 링크 지원 인포테인먼트 디스플레이와 후방 카메라",
+    "category": "편의"
+   },
+   {
+    "t": 45.0,
+    "point": "스크린 및 바닥 매트를 포함한 전 좌석 방수 설계",
+    "category": "디자인"
+   },
+   {
+    "t": 49.0,
+    "point": "타야란, 모한디신, 알렉산드리아 매장 안내",
+    "category": "조건"
+   }
+  ],
+  "cta": {
+   "t": 49.0,
+   "text": "فرع الطيران المهندسين والأسكندرية",
+   "ko": "타야란, 모한디신, 알렉산드리아 지점 방문 안내",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "휠",
+    "실내 앞",
+    "뒷좌석",
+    "트렁크",
+    "외관 측면",
+    "실내 앞",
+    "센터 화면",
+    "실내 앞",
+    "외관 전면"
+   ]
+  }
+ }
+}

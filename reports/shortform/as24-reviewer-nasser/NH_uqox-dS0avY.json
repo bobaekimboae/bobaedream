@@ -1,0 +1,712 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/uqox-dS0avY",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 7707,
+  "candidatesTokenCount": 5708,
+  "totalTokenCount": 13415,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 6544
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 71.0,
+   "aspect": "9:16",
+   "car": "다양한 럭셔리카 모음 (Mercedes S500, Maserati Grecale, Rolls-Royce Cullinan, Bentley Bentayga, Brabus 900, Cybertruck 등 Teacher Motors 매장 재고)",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.8,
+    "end": 5.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.7,
+    "end": 7.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.8,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 9.8,
+    "end": 11.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.7,
+    "end": 19.5,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 19.5,
+    "end": 22.0,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.8,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.5,
+    "end": 31.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 34.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 34.6,
+    "end": 39.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 39.8,
+    "end": 42.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.0,
+    "end": 45.6,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 45.6,
+    "end": 48.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 48.0,
+    "end": 51.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 51.8,
+    "end": 55.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.7,
+    "end": 58.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 58.7,
+    "end": 65.4,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 65.4,
+    "end": 71.0,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "لو في الساحل",
+    "ko": "만약 당신이 사헬(해변 휴양지)에 있다면",
+    "kind": "키워드 스티커",
+    "y_pct": 58.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": -5,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 5.8,
+    "end": 7.8,
+    "text": "CULLINAN ROLLS ROYCE",
+    "ko": "롤스로이스 컬리넌",
+    "kind": "키워드 스티커",
+    "y_pct": 43.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.9,
+    "end": 9.8,
+    "text": "BENTAYGA BENTLEY",
+    "ko": "벤틀리 벤테이가",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.0,
+    "text": "S500 TEACHER",
+    "ko": "S500 티처",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.5,
+    "text": "C CLASS TEACHER",
+    "ko": "C클래스 티처",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 5.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 19.5,
+    "text": "S580 MAYBACH",
+    "ko": "S580 마이바흐",
+    "kind": "키워드 스티커",
+    "y_pct": 32.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.0,
+    "text": "B 900 TEACHER MOTORS",
+    "ko": "브라부스 900 티처 모터스",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 45.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 37.5,
+    "end": 39.5,
+    "text": "2000 CC",
+    "ko": "2000cc",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 51.8,
+    "end": 53.8,
+    "text": "CYBERBEAST TESLA",
+    "ko": "사이버비스트 테슬라",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 53.9,
+    "end": 55.7,
+    "text": "YUKON GMC",
+    "ko": "유콘 GMC",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 5.0,
+    "color": "#FFDF00",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 107.0,
+    "end": 111.0,
+    "text": "15078",
+    "ko": "15078",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 60.0,
+    "tilt_deg": 0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.5,
+    "type": "톡",
+    "event": "텍스트 그래픽 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 5.8,
+    "type": "쿵",
+    "event": "컬리넌 자막 및 샷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "휙",
+    "event": "벤테이가 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.5,
+    "type": "띵",
+    "event": "메르세데스 엠블럼 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.8,
+    "type": "휙",
+    "event": "KIT 금지 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.5,
+    "type": "띵",
+    "event": "송장 그래픽 애니메이션",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 52.0,
+    "type": "쿵",
+    "event": "사이버비스트 로고 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 106.8,
+    "type": "띵",
+    "event": "전화번호 15078 그래픽 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 박진감 넘침",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 14.5,
+    "end": 16.0,
+    "what": "골드 Teacher Motors 원형 엠블럼 및 S500",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 48.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "브랜드 강조",
+    "sure": true
+   },
+   {
+    "start": 20.5,
+    "end": 22.0,
+    "what": "금지 표시 원형 KIT 스티커 (레플리카 튜닝 킷 아님을 풍자)",
+    "is_3d": false,
+    "size_w_pct": 30.0,
+    "x_pct": 60.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "정품 강조",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "what": "송장(Invoice)과 펜 일러스트 그래픽",
+    "is_3d": false,
+    "size_w_pct": 40.0,
+    "x_pct": 35.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "정식 수입 영수증 강조",
+    "sure": true
+   },
+   {
+    "start": 58.8,
+    "end": 64.0,
+    "what": "지도 위치 핀 그래픽 (알라메인/마라시 매장)",
+    "is_3d": false,
+    "size_w_pct": 45.0,
+    "x_pct": 48.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.8,
+    "text": "لو في الساحل وعايز تشتري أي عربية",
+    "ko": "만약 북부 해변(사헬)에 계시면서 어떤 차든 사고 싶다면"
+   },
+   {
+    "start": 2.8,
+    "end": 5.7,
+    "text": "لو بتحب الإيطالي مازيراتي جريكالي وبلون مميز",
+    "ko": "이탈리아 감성을 좋아하신다면 특별한 색상의 마세라티 그레칼레"
+   },
+   {
+    "start": 5.7,
+    "end": 7.9,
+    "text": "ملكة الفخامة رولز رويس كولينان",
+    "ko": "럭셔리의 여왕 롤스로이스 컬리넌"
+   },
+   {
+    "start": 7.9,
+    "end": 11.5,
+    "text": "والمنافس القمر بنتلي بينتايجا، وعشان ترويش الصيف في السلينج شوت",
+    "ko": "그리고 환상적인 라이벌 벤틀리 벤테이가, 여름의 낭만을 위한 슬링샷도 있고"
+   },
+   {
+    "start": 11.5,
+    "end": 14.0,
+    "text": "والكانام عشان رايدات البايكرز بالليل",
+    "ko": "밤 라이딩을 위한 캔암도 준비되어 있습니다"
+   },
+   {
+    "start": 14.0,
+    "end": 18.0,
+    "text": "وفي المرسيدس من أول الـ S500 والـ C-Class والـ E-Class بكل الألوان",
+    "ko": "메르세데스는 S500부터 C클래스, E클래스까지 전 색상"
+   },
+   {
+    "start": 18.0,
+    "end": 22.0,
+    "text": "والـ S580 مايباخ، أوريجينال مايباخ فكك من الكتات والجو ده",
+    "ko": "S580 마이바흐까지, 개조 킷이 아닌 진짜 오리지널 마이바흐입니다"
+   },
+   {
+    "start": 24.8,
+    "end": 28.5,
+    "text": "والـ 900 حصان برابوس 900، أوريجينال برابوس بالفاتورة",
+    "ko": "그리고 900마력 브라부스 900, 공식 인보이스가 있는 오리지널 브라부스"
+   },
+   {
+    "start": 51.8,
+    "end": 55.7,
+    "text": "الوحش الأمريكي تسلا سايبر بيست، ولو عايز بنزين جي إم سي يوكن",
+    "ko": "미국의 괴물 테슬라 사이버비스트, 가솔린을 원하시면 GMC 유콘"
+   },
+   {
+    "start": 106.0,
+    "end": 111.0,
+    "text": "اتصل على 15078 وهيجيبولك أي عربية نفسك فيها",
+    "ko": "15078로 전화하시면 당신이 원하는 어떤 차든 가져다 드립니다"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.8,
+    "speed": "빠름",
+    "summary": "사헬에서 차를 사고 싶다면 방문하라는 오프닝"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.8,
+    "end": 58.7,
+    "speed": "빠름",
+    "summary": "슈퍼카, 럭셔리 세단, SUV, 브라부스, 전기차 등 다양한 재고 라인업 빠른 컷 소개"
+   },
+   {
+    "stage": "앱 안내",
+    "start": 58.7,
+    "end": 65.4,
+    "speed": "보통",
+    "summary": "지점 위치(알라메인 마라시 앞 등) 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 65.4,
+    "end": 71.0,
+    "speed": "보통",
+    "summary": "대표 번호 15078을 안내하며 마무리 콜투액션"
+   }
+  ],
+  "rules": [
+   "진행자가 직접 차량 옆에 서서 빠른 템포의 스피치로 1~2초마다 차량을 전환함",
+   "화면 중앙이나 차량 상단에 차종명 및 모델 로고 스티커를 큼직하게 배치",
+   "정품 튜닝/오리지널 수입임을 강조하기 위해 인보이스 및 금지 킷 그래픽을 위트있게 활용",
+   "마지막에 골드 번호판과 핫라인 대표 번호를 크게 띄워 직관적인 CTA 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 18.0,
+    "end": 22.0,
+    "feature": "정품 마이바흐 엠블럼",
+    "shown_how": "확대",
+    "icon_desc": "C필러 마이바흐 오리지널 로고 클로즈업",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 22.0,
+    "end": 24.8,
+    "feature": "럭셔리 VIP 리무진 시트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "오렌지색 전동 VIP 리클라이닝 시트에 탑승하여 제스처",
+    "x_pct": 50.0,
+    "y_pct": 55.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "매장 입구에서 선글라스를 낀 남성이 양손을 벌리며 사헬에서 차를 구하냐며 말을 건넴",
+   "type": "질문",
+   "text": "لو في الساحل وعايز تشتري أي عربية",
+   "ko": "만약 북부 해변(사헬)에서 차를 사고 싶다면?"
+  },
+  "narration_points": [
+   {
+    "t": 3.0,
+    "point": "유니크한 색상의 마세라티 그레칼레",
+    "category": "디자인"
+   },
+   {
+    "t": 6.0,
+    "point": "최고급 럭셔리 SUV 롤스로이스 컬리넌",
+    "category": "희소성"
+   },
+   {
+    "t": 19.0,
+    "point": "바디킷 개조가 아닌 진짜 정품 마이바흐 S580",
+    "category": "상태"
+   },
+   {
+    "t": 25.5,
+    "point": "정식 송장이 포함된 900마력 오리지널 브라부스",
+    "category": "성능"
+   },
+   {
+    "t": 52.0,
+    "point": "테슬라 사이버트럭 사이버비스트 모델",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 68.0,
+   "text": "اتصل على 15078",
+   "ko": "15078로 전화하세요",
+   "method": "전화"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "딜러",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "실내 앞",
+    "외관 후면"
+   ]
+  }
+ }
+}

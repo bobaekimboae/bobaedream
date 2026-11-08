@@ -1,0 +1,939 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/BwVT8zi79Z0",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 5719,
+  "candidatesTokenCount": 7713,
+  "totalTokenCount": 13432,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 4556
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 50.8,
+   "aspect": "9:16",
+   "car": "Mercedes-Benz GLC, C-Class, Land Rover Sport, Porsche 911 Carrera GTS, Taycan, Macan, BMW M4",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "내레이션",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 4.1,
+    "end": 6.5,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.5,
+    "end": 9.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 9.2,
+    "end": 12.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 12.0,
+    "end": 13.9,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 14.8,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.8,
+    "end": 16.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "part": "외관 측면",
+    "camera": "확대",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 17.0,
+    "end": 18.2,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.2,
+    "end": 21.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 23.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.0,
+    "end": 25.1,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.3,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 26.3,
+    "end": 28.9,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.9,
+    "end": 32.1,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.1,
+    "end": 35.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 35.0,
+    "end": 37.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 37.7,
+    "end": 41.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.9,
+    "end": 46.2,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.2,
+    "end": 50.8,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 2.0,
+    "text": "لو عايز عربيات موديل 2027",
+    "ko": "2027년식 차량을 원하신다면",
+    "kind": "말 자막",
+    "y_pct": 14.5,
+    "x_center_pct": 48.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 2.1,
+    "end": 3.2,
+    "text": "في نص 2026",
+    "ko": "2026년 중순에",
+    "kind": "말 자막",
+    "y_pct": 12.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.2,
+    "end": 4.1,
+    "text": "خد بالك....!!",
+    "ko": "주목하세요....!!",
+    "kind": "말 자막",
+    "y_pct": 21.0,
+    "x_center_pct": 72.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.7,
+    "end": 9.2,
+    "text": "أول مرة ينزل السنة",
+    "ko": "올해 처음 출시",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 68.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF0000",
+    "bg_width_pct": null,
+    "tilt_deg": -5.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.5,
+    "end": 11.8,
+    "text": "كل موديلات",
+    "ko": "모든 모델",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 21.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "바로",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.2,
+    "end": 17.0,
+    "text": "CARBON FIBER",
+    "ko": "카본 파이버",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 19.8,
+    "text": "AIR SUSPENSION",
+    "ko": "에어 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.0,
+    "text": "REAR AXLE",
+    "ko": "리어 액슬",
+    "kind": "키워드 스티커",
+    "y_pct": 31.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 25.1,
+    "text": "AERO KIT",
+    "ko": "에어로 킷",
+    "kind": "키워드 스티커",
+    "y_pct": 23.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 7.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 25.2,
+    "end": 26.2,
+    "text": "تسخين",
+    "ko": "열선",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 78.0,
+    "text_height_pct": 5.0,
+    "color": "#FFC000",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.8,
+    "text": "ALCANTARA",
+    "ko": "알칸타라",
+    "kind": "키워드 스티커",
+    "y_pct": 89.0,
+    "x_center_pct": 49.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "text": "العربيات الكهرباء",
+    "ko": "전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 14.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#FF0000",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 41.8,
+    "text": "الإتنين ألمان",
+    "ko": "둘 다 독일산",
+    "kind": "키워드 스티커",
+    "y_pct": 34.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#FF0000",
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 1.0,
+    "type": "휙",
+    "event": "텍스트 트래킹 그래픽 이동",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.1,
+    "type": "톡",
+    "event": "2026 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.2,
+    "type": "톡",
+    "event": "주목 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "띵",
+    "event": "GLC 로고 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 6.5,
+    "type": "휙",
+    "event": "빨간색 GLC 컷 전환",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 7.7,
+    "type": "쿵",
+    "event": "빨간색 텍스트 스티커 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 10.9,
+    "type": "띵",
+    "event": "랜드로버 로고 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.0,
+    "type": "휙",
+    "event": "C클래스 컷 전환 스우시",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 12.9,
+    "type": "띵",
+    "event": "C클래스 로고 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 16.2,
+    "type": "딸깍",
+    "event": "카본파이버 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.5,
+    "type": "톡",
+    "event": "에어서스펜션 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "톡",
+    "event": "리어액슬 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.2,
+    "type": "딸깍",
+    "event": "에어로킷 스티커 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 25.2,
+    "type": "톡",
+    "event": "열선 시트 불꽃 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.5,
+    "type": "딸깍",
+    "event": "알칸타라 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.8,
+    "type": "쿵",
+    "event": "M4 컴페티션 로고 등장",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "Trap / Hip-hop Beat",
+   "bpm_est": 125,
+   "mood": "트렌디하고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "what": "건물 벽면에 트래킹된 3D 텍스트",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 50.0,
+    "y_pct": 15.0,
+    "entrance": "페이드",
+    "purpose": "훅 강조",
+    "sure": true
+   },
+   {
+    "start": 4.5,
+    "end": 6.5,
+    "what": "3D 메르세데스 엠블럼 및 GLC 텍스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   },
+   {
+    "start": 10.5,
+    "end": 12.0,
+    "what": "3D 랜드로버 로고 및 SPORT 텍스트",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.0,
+    "what": "3D 메르세데스 로고 및 C CLASS 텍스트",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 75.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "what": "서스펜션 부품 3D 아이콘 및 리어액슬 일러스트",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 75.0,
+    "y_pct": 12.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "옵션 사양 시각화",
+    "sure": true
+   },
+   {
+    "start": 21.5,
+    "end": 23.0,
+    "what": "3D 포르쉐 엠블럼 및 Carrera GTS 텍스트",
+    "is_3d": true,
+    "size_w_pct": 50.0,
+    "x_pct": 60.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 37.7,
+    "what": "3D BMW M4 Competition 엠블럼 그래픽",
+    "is_3d": true,
+    "size_w_pct": 70.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 모델명 안내",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 50.5,
+    "what": "건물 상공에 뜬 투명 HUD 위치 안내판",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 30.0,
+    "y_pct": 40.0,
+    "entrance": "페이드",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.1,
+    "text": "لو عايز عربيات موديل سبعة وعشرين",
+    "ko": "2027년식 차량을 원하시나요?"
+   },
+   {
+    "start": 2.1,
+    "end": 4.1,
+    "text": "إحنا في نص ستة وعشرين خد بالك",
+    "ko": "우린 지금 26년 중반인데 말이죠, 주목하세요!"
+   },
+   {
+    "start": 4.1,
+    "end": 6.5,
+    "text": "والأشهر في مصر مرسيدس GLC ومكملين",
+    "ko": "이집트에서 가장 인기 있는 메르세데스 GLC부터 시작합니다."
+   },
+   {
+    "start": 6.5,
+    "end": 9.2,
+    "text": "وبكل الألوان، الأحمر ده أول مرة ينزل السنة دي",
+    "ko": "모든 색상이 다 있고, 이 레드 컬러는 올해 처음 출시됐습니다."
+   },
+   {
+    "start": 9.2,
+    "end": 12.0,
+    "text": "وتقدر تستورد كل موديلات رنج روفر زي الإسبورت دي",
+    "ko": "이 스포츠 모델처럼 모든 랜드로버 모델도 수입 가능합니다."
+   },
+   {
+    "start": 12.0,
+    "end": 14.8,
+    "text": "والـ C Class بكل ألوانها، زي الأسود",
+    "ko": "블랙을 포함해 모든 컬러의 C클래스도 있습니다."
+   },
+   {
+    "start": 14.8,
+    "end": 18.2,
+    "text": "واللون الأبيض موجود فيه بكاربون فايبر فرش أبيض والأحمر",
+    "ko": "카본 파이버가 적용된 화이트 모델과 레드 시트도 갖춰져 있죠."
+   },
+   {
+    "start": 18.2,
+    "end": 21.0,
+    "text": "ونادر جداً تلاقي C بـ Air Suspension ومحاور خلفية",
+    "ko": "C클래스에 에어 서스펜션과 리어 액슬이 들어간 건 정말 귀합니다."
+   },
+   {
+    "start": 21.0,
+    "end": 23.2,
+    "text": "كاريرا GTS عشان موسم الصيف والإكزوتيكس",
+    "ko": "여름 시즌과 슈퍼카 감성을 위한 카레라 GTS,"
+   },
+   {
+    "start": 23.2,
+    "end": 25.1,
+    "text": "بالإيرو كيت من غيره بتبقى فاضية",
+    "ko": "에어로 킷이 들어가 있죠, 없으면 밋밋하거든요."
+   },
+   {
+    "start": 25.1,
+    "end": 28.9,
+    "text": "بكراسي تسخين وتبريد، انتيريور أحمر ودريكسيون ألكانتارا عشان الجري",
+    "ko": "통풍·열선 시트, 레드 인테리어, 달리기 위한 알칸타라 스티어링 휠까지."
+   },
+   {
+    "start": 28.9,
+    "end": 32.1,
+    "text": "بورش تايكان باللون الخطير لمحبين العربيات الكهربا",
+    "ko": "전기차 마니아를 위한 치명적인 컬러의 포르쉐 타이칸,"
+   },
+   {
+    "start": 32.1,
+    "end": 35.0,
+    "text": "ولو عندك عيلة، بورش ماكان، كل موديلات بورش موجودة في دويتش",
+    "ko": "패밀리카를 원한다면 마칸까지, 모든 포르쉐는 도이치에 있습니다."
+   },
+   {
+    "start": 35.0,
+    "end": 37.7,
+    "text": "وعربيات الصيف، M4 Competition",
+    "ko": "그리고 여름을 위한 M4 컴페티션도 있습니다."
+   },
+   {
+    "start": 37.7,
+    "end": 42.0,
+    "text": "والعربيات بتيجي على اسم شركة كينج للاستيراد، فهتسأل هنا أو هنا الإتنين أمان",
+    "ko": "모든 차량은 킹 수입 회사를 통해 입고되니 어디에 문의하셔도 안전합니다."
+   },
+   {
+    "start": 42.0,
+    "end": 46.2,
+    "text": "فكده الكينج، يبقى مكتب الاستيراد والمعرض في دمياط ودويتش الموزع والمعرض في القاهرة",
+    "ko": "킹은 두미아트 수입 사무소와 전시장, 도이치는 카이로 공식 유통 전시장입니다."
+   },
+   {
+    "start": 46.2,
+    "end": 50.8,
+    "text": "والعنوان، معرض دويتش فيتالي مول، محور الجامعة الأمريكية بعد بوينت 90",
+    "ko": "위치는 비탈리 몰 도이치 전시장, 포인트 90 지나 AUC 축 도로입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.1,
+    "speed": "빠름",
+    "summary": "건물 외관 트래킹 3D 텍스트와 함께 최신 연식 수입차 홍보로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 4.1,
+    "end": 16.0,
+    "speed": "빠름",
+    "summary": "GLC, 레인지로버 스포츠, C클래스 라인업 신속 순회"
+   },
+   {
+    "stage": "기능",
+    "start": 16.0,
+    "end": 28.9,
+    "speed": "보통",
+    "summary": "카본파이버, 에어서스펜션, 리어액슬 및 포르쉐 911 실내 주요 옵션 디테일 시연"
+   },
+   {
+    "stage": "차 소개",
+    "start": 28.9,
+    "end": 37.7,
+    "speed": "빠름",
+    "summary": "타이칸, 마칸, BMW M4 컴페티션 전시장 소개"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 37.7,
+    "end": 50.8,
+    "speed": "보통",
+    "summary": "수입 대행 파트너사 신뢰도 강조 및 오프라인 쇼룸 위치 HUD 안내"
+   }
+  ],
+  "rules": [
+   "전시장 건물 외벽 또는 공중에 3D 트래킹 모션 그래픽으로 차종명과 위치 정보를 자연스럽게 합성",
+   "화면 속 차량이나 부품이 바뀔 때마다 스우시 효과음과 함께 텍스트 스티커 팝업",
+   "중요한 고급 옵션(카본, 에어서스펜션, 열선 등)은 손가락으로 가리키며 해당 그래픽을 매칭"
+  ],
+  "option_highlights": [
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "feature": "카본 파이버 사이드 미러",
+    "shown_how": "글자 카드",
+    "icon_desc": "손가락으로 카본 패턴 사이드 미러를 가리키며 텍스트 스티커 표시",
+    "x_pct": 70.0,
+    "y_pct": 28.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.0,
+    "feature": "에어 서스펜션 & 리어 액슬 스티어링",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "쇼크업소버 서스펜션 3D 모델 및 구동축 부품 아이콘",
+    "x_pct": 75.0,
+    "y_pct": 18.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 23.2,
+    "end": 25.1,
+    "feature": "에어로 다이내믹 킷",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "노란색 체크 표시와 입체형 AERO KIT 글자",
+    "x_pct": 65.0,
+    "y_pct": 23.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 25.1,
+    "end": 26.2,
+    "feature": "시트 열선/통풍",
+    "shown_how": "2D 아이콘",
+    "icon_desc": "빨간 가죽 버킷시트 위에 뜬 불꽃 모양 아이콘과 열선 텍스트",
+    "x_pct": 78.0,
+    "y_pct": 35.0,
+    "size_w_pct": 20.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 27.5,
+    "end": 28.8,
+    "feature": "알칸타라 스티어링 휠",
+    "shown_how": "글자 카드",
+    "icon_desc": "스티어링 휠 하단에 ALCANTARA 굵은 영문 텍스트",
+    "x_pct": 49.0,
+    "y_pct": 89.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "딸깍",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "전시장 건물 외벽에 트래킹된 거대한 3D 아랍어 텍스트와 함께 최신 연식 수입차를 어필하며 시작",
+   "type": "질문",
+   "text": "لو عايز عربيات موديل 2027",
+   "ko": "2027년형 최신 차량을 찾으시나요?"
+  },
+  "narration_points": [
+   {
+    "t": 4.5,
+    "point": "이집트에서 가장 인기 높은 벤츠 GLC 풀라인업 및 신규 레드 컬러 입고",
+    "category": "디자인"
+   },
+   {
+    "t": 9.5,
+    "point": "레인지로버 스포츠 등 전 라인업 수입 가능",
+    "category": "가격·조건"
+   },
+   {
+    "t": 16.2,
+    "point": "C클래스 카본 파이버 및 레드 인테리어 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 18.5,
+    "point": "C클래스에서 보기 드문 에어서스펜션과 리어액슬 탑재",
+    "category": "희소성"
+   },
+   {
+    "t": 23.2,
+    "point": "포르쉐 911 카레라 GTS 에어로킷 및 알칸타라 레이싱 핸들",
+    "category": "성능"
+   },
+   {
+    "t": 30.0,
+    "point": "전기 스포츠카 타이칸 및 패밀리 SUV 마칸 보유",
+    "category": "편의"
+   },
+   {
+    "t": 41.5,
+    "point": "수입 전문 회사 킹과 공식 판매 전시장 도이치의 안전한 직수입 체계",
+    "category": "가격·조건"
+   }
+  ],
+  "cta": {
+   "t": 46.5,
+   "text": "معرض دويتش فيتالي مول، محور الجامعة الأمريكية",
+   "ko": "AUC 축 도로 포인트 90 지난 비탈리 몰 도이치 전시장으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "외관 전면",
+    "외관 측면",
+    "실내 앞",
+    "휠",
+    "외관 후면",
+    "실내 앞",
+    "외관 전면"
+   ]
+  }
+ }
+}

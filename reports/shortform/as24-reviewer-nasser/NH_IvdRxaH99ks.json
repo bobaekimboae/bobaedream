@@ -1,0 +1,974 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/IvdRxaH99ks",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 4539,
+  "candidatesTokenCount": 7855,
+  "totalTokenCount": 12394,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 3376
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 38.0,
+   "aspect": "9:16",
+   "car": "다양한 신차/수입차 (Auto Center Point 전시 차량들)",
+   "format": "팁",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 6.3,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 6.3,
+    "end": 8.1,
+    "part": "기타",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.1,
+    "end": 12.2,
+    "part": "사람",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 12.2,
+    "end": 16.9,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.9,
+    "end": 20.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 20.7,
+    "end": 23.9,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 23.9,
+    "end": 27.6,
+    "part": "사람",
+    "camera": "고정",
+    "transition_in": "밀기",
+    "sure": true
+   },
+   {
+    "start": 27.6,
+    "end": 32.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 38.0,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "확대 전환",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 1.0,
+    "text": "لو عايز تجيب عربية",
+    "ko": "만약 차를 사고 싶다면",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "عربية",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "text": "فرصة متتفوتش",
+    "ko": "놓칠 수 없는 기회",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 7.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "فرصة",
+    "sure": true
+   },
+   {
+    "start": 2.5,
+    "end": 3.7,
+    "text": "الموزعين المعتمدين",
+    "ko": "공식 딜러들",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 4.8,
+    "text": "المعارض الكبيرة",
+    "ko": "대형 전시장들",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 4.8,
+    "end": 6.1,
+    "text": "المستوردين",
+    "ko": "직수입 업체들",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 6.2,
+    "end": 7.0,
+    "text": "كلهم",
+    "ko": "전부 다",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 7.0,
+    "end": 8.0,
+    "text": "تحت سقف واحد",
+    "ko": "한 지붕 아래에",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 8.2,
+    "end": 9.5,
+    "text": "مفيد جدا ليك",
+    "ko": "당신에게 매우 이득입니다",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 9.6,
+    "end": 10.8,
+    "text": "المنافسة عالية",
+    "ko": "경쟁이 치열하고",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.1,
+    "text": "عايزين يبيعولك انت",
+    "ko": "당신에게 팔고 싶어 하니까요",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 55.0,
+    "text_height_pct": 6.0,
+    "color": "#2ECC71",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 13.9,
+    "text": "سعر نفس العربية",
+    "ko": "동일한 차량의 가격을",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.9,
+    "end": 15.0,
+    "text": "من أكتر من شركة",
+    "ko": "여러 업체로부터",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 15.0,
+    "end": 16.0,
+    "text": "استيراد | وكيل",
+    "ko": "직수입 또는 공식 딜러",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "text": "طرق دفع كتير",
+    "ko": "다양한 결제 방식",
+    "kind": "키워드 스티커",
+    "y_pct": 20.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.8,
+    "text": "بمناسبة الدفع",
+    "ko": "결제 이야기가 나온 김에",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 65.0,
+    "text_height_pct": 5.5,
+    "color": "#2ECC71",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.8,
+    "end": 20.6,
+    "text": "الشريك التمويلي",
+    "ko": "공식 금융 파트너",
+    "kind": "키워드 스티커",
+    "y_pct": 12.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 21.0,
+    "end": 22.8,
+    "text": "عاملين عروض حصرية",
+    "ko": "독점 프로모션 진행",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 22.8,
+    "end": 24.0,
+    "text": "طول فترة المعرض",
+    "ko": "전시 기간 동안 내내",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.2,
+    "end": 26.0,
+    "text": "الشركات اللي هتشارك",
+    "ko": "참가하는 업체들과",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.0,
+    "end": 27.6,
+    "text": "اللي هتستفيد من العروض",
+    "ko": "방문객만이 혜택을 받습니다",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 27.8,
+    "end": 29.5,
+    "text": "بتسمع اعلانات",
+    "ko": "광고만 계속 듣고",
+    "kind": "키워드 스티커",
+    "y_pct": 25.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 29.5,
+    "end": 31.0,
+    "text": "تصدق مين | تروح لفين",
+    "ko": "누굴 믿고 어디로 가야 할지 모른다면",
+    "kind": "키워드 스티커",
+    "y_pct": 35.0,
+    "x_center_pct": 40.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.0,
+    "end": 32.0,
+    "text": "تعال المعرض",
+    "ko": "전시장으로 오세요",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.0,
+    "text": "وشوفهم كلهم",
+    "ko": "전부 한눈에 비교하세요",
+    "kind": "키워드 스티커",
+    "y_pct": 45.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 34.5,
+    "end": 36.5,
+    "text": "طريق السويس",
+    "ko": "수에즈 로드",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#2980B9",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.0,
+    "text": "9/9 - 12/9",
+    "ko": "9월 9일 ~ 9월 12일",
+    "kind": "키워드 스티커",
+    "y_pct": 52.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.0,
+    "color": "#F1C40F",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "'لو عايز تجيب عربية' 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.0,
+    "type": "톡",
+    "event": "'فرصة متتفوتش' 별 스티커와 함께 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.2,
+    "type": "휙",
+    "event": "실내 전시장으로 트랜지션 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 2.5,
+    "type": "톡",
+    "event": "'الموزعين المعتمدين' 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "톡",
+    "event": "'المعارض الكبيرة' 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 4.8,
+    "type": "톡",
+    "event": "'المستوردين' 자막 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 6.2,
+    "type": "휙",
+    "event": "대형 뷰 컷 전환 및 자막",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.1,
+    "type": "휙",
+    "event": "타워 위 리뷰어 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.3,
+    "type": "딸깍",
+    "event": "체크 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 10.8,
+    "type": "돈 소리",
+    "event": "돈다발 그래픽 및 판매 문구 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.2,
+    "type": "휙",
+    "event": "통로 걷는 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.4,
+    "type": "딸깍",
+    "event": "가격 그래픽 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.0,
+    "type": "딸깍",
+    "event": "결제 단말기/카드 아이콘 등장",
+    "level": "작음",
+    "sure": true
+   },
+   {
+    "t": 16.9,
+    "type": "휙",
+    "event": "Valu 건물 외벽 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.7,
+    "type": "휙",
+    "event": "배너 옆 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 23.9,
+    "type": "휙",
+    "event": "문 열고 나오는 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 27.6,
+    "type": "휙",
+    "event": "실내 통로 걷는 컷 전환",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 32.7,
+    "type": "휙",
+    "event": "건물 전경 컷 전환",
+    "level": "보통",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "업비트 힙합 비트",
+   "bpm_est": 110,
+   "mood": "활기차고 경쾌함",
+   "ducks_under_voice": true,
+   "changes": [],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.1,
+    "end": 1.0,
+    "what": "차량 2대 일러스트",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 75.0,
+    "y_pct": 25.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "차량 구매 주제 시각화",
+    "sure": true
+   },
+   {
+    "start": 1.0,
+    "end": 2.2,
+    "what": "노란 별 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 65.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "좋은 기회 강조",
+    "sure": true
+   },
+   {
+    "start": 8.2,
+    "end": 9.5,
+    "what": "초록색 체크 원형 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 25.0,
+    "y_pct": 28.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "유익함 강조",
+    "sure": true
+   },
+   {
+    "start": 10.8,
+    "end": 12.1,
+    "what": "초록색 지폐 다발 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 20.0,
+    "y_pct": 36.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "구매/판매 관련 시각화",
+    "sure": true
+   },
+   {
+    "start": 12.4,
+    "end": 13.9,
+    "what": "동그라미 가격 심볼",
+    "is_3d": false,
+    "size_w_pct": 22.0,
+    "x_pct": 25.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "가격 비교 안내",
+    "sure": true
+   },
+   {
+    "start": 16.0,
+    "end": 17.0,
+    "what": "신용카드와 결제 단말기 아이콘",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 55.0,
+    "y_pct": 14.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "다양한 결제 수단 표시",
+    "sure": true
+   },
+   {
+    "start": 30.8,
+    "end": 32.0,
+    "what": "위치 핀 마커 및 구름 아이콘",
+    "is_3d": false,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "행사장 방문 유도",
+    "sure": true
+   },
+   {
+    "start": 32.0,
+    "end": 33.0,
+    "what": "눈 모양 아이콘",
+    "is_3d": false,
+    "size_w_pct": 20.0,
+    "x_pct": 50.0,
+    "y_pct": 35.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "직접 눈으로 보라는 의미",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "text": "لو عايز تجيب عربية جايبلك فرصة ما تتفوتش",
+    "ko": "차를 사고 싶으시다면 절대 놓쳐선 안 될 기회를 가져왔습니다."
+   },
+   {
+    "start": 2.2,
+    "end": 6.3,
+    "text": "مكان واحد بس فيه الموزعين المعتمدين المعارض الكبيرة والمستوردين",
+    "ko": "공식 딜러, 대형 전시장, 직수입 업체들이 단 한 곳에 모여 있습니다."
+   },
+   {
+    "start": 6.3,
+    "end": 8.1,
+    "text": "كلهم تحت سقف واحد",
+    "ko": "모두가 한 지붕 아래 있습니다."
+   },
+   {
+    "start": 8.1,
+    "end": 12.2,
+    "text": "وده مفيد جداً ليك لأن المنافسة بتبقى عالية وكلهم عايزين يبيعولك أنت",
+    "ko": "이건 여러분께 큰 이득입니다. 경쟁이 치열해서 모두가 여러분에게 팔고 싶어 하니까요."
+   },
+   {
+    "start": 12.2,
+    "end": 16.9,
+    "text": "هنا هتسمع سعر نفس العربية من أكتر من شركة سواء كانت استيراد أو وكيل وبطرق دفع كتير",
+    "ko": "여기서는 같은 차라도 공식이든 수입이든 여러 업체의 가격을 직접 비교하고 다양한 결제 방식을 선택할 수 있습니다."
+   },
+   {
+    "start": 16.9,
+    "end": 20.7,
+    "text": "بمناسبة الدفع شركة Valu هي الشريك التمويلي الحصري للمعرض",
+    "ko": "결제와 관련해서, Valu 사가 이번 전시회의 독점 금융 파트너입니다."
+   },
+   {
+    "start": 20.7,
+    "end": 23.9,
+    "text": "وValu وأوتو سنتر بوينت عاملين عروض حصرية طول فترة المعرض بس",
+    "ko": "Valu와 오토 센터 포인트가 전시 기간 한정 독점 프로모션을 진행합니다."
+   },
+   {
+    "start": 23.9,
+    "end": 27.6,
+    "text": "الناس اللي هتيجي والشركات اللي هتشارك هي بس اللي هتستفيد من العروض",
+    "ko": "방문하시는 분들과 참가 업체들만이 이 특별 혜택을 누릴 수 있습니다."
+   },
+   {
+    "start": 27.6,
+    "end": 32.7,
+    "text": "فبدل ما أنت على طول بتسمع اعلانات ومش عارف تصدق مين ولا تروح لفين، تعالى المعرض وشوفهم كلهم",
+    "ko": "광고만 듣고 누굴 믿고 어디로 갈지 고민하지 마시고, 전시장에 직접 와서 전부 확인해 보세요."
+   },
+   {
+    "start": 32.7,
+    "end": 38.0,
+    "text": "أوتو سنتر بوينت راوند 5 هيبقى في أكسيس مول طريق السويس من 9 لـ 12 تسعة",
+    "ko": "오토 센터 포인트 라운드 5는 수에즈 로드 액시스 몰에서 9월 9일부터 12일까지 열립니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 2.2,
+    "speed": "빠름",
+    "summary": "차 살 기회라는 강렬한 멘트로 시선 집중"
+   },
+   {
+    "stage": "차 소개",
+    "start": 2.2,
+    "end": 8.1,
+    "speed": "보통",
+    "summary": "전시장 내부 차량 전경과 한곳에 모인 업체들 소개"
+   },
+   {
+    "stage": "기능",
+    "start": 8.1,
+    "end": 16.9,
+    "speed": "보통",
+    "summary": "가격 경쟁으로 인한 소비자 이점 및 다양한 결제 수단 설명"
+   },
+   {
+    "stage": "가격",
+    "start": 16.9,
+    "end": 27.6,
+    "speed": "보통",
+    "summary": "금융 파트너 Valu와의 독점 프로모션 혜택 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 27.6,
+    "end": 38.0,
+    "speed": "보통",
+    "summary": "직접 방문 권유 및 전시장 위치/일정(9/9~9/12) 공지"
+   }
+  ],
+  "rules": [
+   "진행자가 화면 중앙에서 걸어오며 관객에게 직접 말하듯 소통한다.",
+   "핵심 단어와 장점마다 강조 스티커 텍스트와 전용 그래픽 아이콘을 팝업 형태로 띄운다.",
+   "트랜지션 컷 전환 시 휙 소리와 화면 줌 전환을 적극 활용하여 속도감을 유지한다.",
+   "장소(액시스 몰, 수에즈 로드)와 일정 같은 최종 정보는 건물 전경 샷에서 박스형 자막으로 명확히 표기한다."
+  ],
+  "option_highlights": [],
+  "hook": {
+   "first_3s": "리뷰어가 건물 앞에서 정면을 향해 걸어오며 차 살 절호의 기회라고 외침",
+   "type": "경품·이벤트",
+   "text": "لو عايز تجيب عربية جايبلك فرصة ما تتفوتش",
+   "ko": "차를 사고 싶으시다면 놓칠 수 없는 기회입니다"
+  },
+  "narration_points": [
+   {
+    "t": 2.2,
+    "point": "공식 딜러, 대형 전시장, 직수입 업체가 한 지붕 아래 모임",
+    "category": "희소성"
+   },
+   {
+    "t": 8.1,
+    "point": "치열한 경쟁으로 인해 구매자에게 가장 유리한 견적 제공",
+    "category": "가격·조건"
+   },
+   {
+    "t": 12.2,
+    "point": "동일 차종에 대해 수입·공식 딜러 간 실시간 가격 및 결제 조건 비교 가능",
+    "category": "가격·조건"
+   },
+   {
+    "t": 16.9,
+    "point": "금융사 Valu 협력으로 전시 기간 한정 금융 프로모션 제공",
+    "category": "가격·조건"
+   },
+   {
+    "t": 32.7,
+    "point": "오토 센터 포인트 5회차는 액시스 몰에서 9월 9일~12일 진행",
+    "category": "희소성"
+   }
+  ],
+  "cta": {
+   "t": 31.0,
+   "text": "تعالى المعرض وشوفهم كلهم",
+   "ko": "전시장에 직접 와서 모두 확인해 보세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "실외",
+    "사람",
+    "기타",
+    "실외"
+   ]
+  }
+ }
+}

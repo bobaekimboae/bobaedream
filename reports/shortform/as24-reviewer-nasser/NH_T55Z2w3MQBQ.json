@@ -1,0 +1,1215 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/T55Z2w3MQBQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6533,
+  "candidatesTokenCount": 10197,
+  "totalTokenCount": 16730,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5370
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 59.8,
+   "aspect": "9:16",
+   "car": "DFSK E5 Plus",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 3.7,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.5,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 5.5,
+    "end": 8.7,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.7,
+    "end": 11.5,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.5,
+    "end": 14.5,
+    "part": "뒷좌석",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 14.5,
+    "end": 16.5,
+    "part": "실내 앞",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 16.5,
+    "end": 18.5,
+    "part": "실내 앞",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.6,
+    "part": "센터 화면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 23.3,
+    "part": "계기판",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.7,
+    "part": "옵션 작동",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.7,
+    "end": 28.7,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 33.7,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 38.6,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.0,
+    "part": "트렁크",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 41.0,
+    "end": 46.5,
+    "part": "휠",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 46.5,
+    "end": 52.8,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 52.8,
+    "end": 57.0,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.0,
+    "end": 59.8,
+    "part": "외관 후면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "text": "7 SEATS",
+    "ko": "7인승",
+    "kind": "키워드 스티커",
+    "y_pct": 39.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7 SEATS",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "text": "توفر في البنزين",
+    "ko": "연비 절약",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.2,
+    "text": "1,5MIL",
+    "ko": "150만",
+    "kind": "가격",
+    "y_pct": 38.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.8,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#28A745",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1,5MIL",
+    "sure": true
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "DFSK E5 PLUS",
+    "ko": "DFSK E5 플러스",
+    "kind": "제목",
+    "y_pct": 24.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#E50914",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "E5 PLUS",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "text": "REEV",
+    "ko": "주행거리 연장형 전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 37.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REEV",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 8.7,
+    "text": "2 RABBITS",
+    "ko": "200만 (이집트 은어)",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2 RABBITS",
+    "sure": true
+   },
+   {
+    "start": 10.1,
+    "end": 11.5,
+    "text": "يبقو مرتاحين",
+    "ko": "편안하게",
+    "kind": "키워드 스티커",
+    "y_pct": 50.0,
+    "x_center_pct": 22.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": -90.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 11.7,
+    "end": 13.0,
+    "text": "لو عندك 5",
+    "ko": "5인 가족이라면",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 13.1,
+    "end": 14.5,
+    "text": "بس الصف التالت موجود",
+    "ko": "하지만 3열도 준비 완료",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 17.5,
+    "end": 18.5,
+    "text": "بـ قيمة فلوسك",
+    "ko": "돈값을 제대로",
+    "kind": "키워드 스티커",
+    "y_pct": 65.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 18.7,
+    "end": 19.8,
+    "text": "360° CAMERAS",
+    "ko": "360도 카메라",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#007BFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "360°",
+    "sure": true
+   },
+   {
+    "start": 19.9,
+    "end": 21.5,
+    "text": "WIRELESS",
+    "ko": "무선 연결",
+    "kind": "키워드 스티커",
+    "y_pct": 21.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#28A745",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "WIRELESS",
+    "sure": true
+   },
+   {
+    "start": 21.6,
+    "end": 22.8,
+    "text": "DIGITAL DISPLAY",
+    "ko": "디지털 디스플레이",
+    "kind": "키워드 스티커",
+    "y_pct": 44.0,
+    "x_center_pct": 18.0,
+    "text_height_pct": 3.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 24.3,
+    "end": 25.7,
+    "text": "الشمس",
+    "ko": "햇빛",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 58.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 26.8,
+    "end": 28.6,
+    "text": "REEV",
+    "ko": "주행거리 연장형 전기차",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "REEV",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 29.8,
+    "text": "موتور بنزين",
+    "ko": "가솔린 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 14.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 30.0,
+    "end": 31.0,
+    "text": "بيشحن البطارية",
+    "ko": "배터리 충전",
+    "kind": "키워드 스티커",
+    "y_pct": 26.0,
+    "x_center_pct": 62.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 31.2,
+    "end": 33.5,
+    "text": "RANGE 1000 KM",
+    "ko": "주행거리 1000km",
+    "kind": "키워드 스티커",
+    "y_pct": 24.0,
+    "x_center_pct": 52.0,
+    "text_height_pct": 5.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#007BFF",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1000 KM",
+    "sure": true
+   },
+   {
+    "start": 33.7,
+    "end": 34.8,
+    "text": "حفلة على البحر",
+    "ko": "해변 파티",
+    "kind": "키워드 스티커",
+    "y_pct": 54.0,
+    "x_center_pct": 48.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 38.6,
+    "text": "V2L",
+    "ko": "V2L 외부 전력 공급",
+    "kind": "키워드 스티커",
+    "y_pct": 48.0,
+    "x_center_pct": 34.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#007BFF",
+    "bg_width_pct": 25.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V2L",
+    "sure": true
+   },
+   {
+    "start": 39.0,
+    "end": 40.5,
+    "text": "ELECTRIC",
+    "ko": "전동 트렁크",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#007BFF",
+    "bg_width_pct": 40.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "ELECTRIC",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 45.5,
+    "text": "INDEPENDENT MACPHERSON",
+    "ko": "독립식 맥퍼슨 서스펜션",
+    "kind": "키워드 스티커",
+    "y_pct": 36.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 3.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#007BFF",
+    "bg_width_pct": 50.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": null,
+    "sure": true
+   },
+   {
+    "start": 49.8,
+    "end": 52.0,
+    "text": "ضمان 7 سنين 150.000 KM",
+    "ko": "보증 7년 / 15만 km",
+    "kind": "키워드 스티커",
+    "y_pct": 40.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 4.0,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#007BFF",
+    "bg_width_pct": 55.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "7 سنين",
+    "sure": true
+   },
+   {
+    "start": 52.9,
+    "end": 54.0,
+    "text": "214 HP",
+    "ko": "214 마력",
+    "kind": "키워드 스티커",
+    "y_pct": 56.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#336699",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "214 HP",
+    "sure": true
+   },
+   {
+    "start": 54.0,
+    "end": 55.0,
+    "text": "330 NM",
+    "ko": "330 Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 60.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#336699",
+    "bg_width_pct": 30.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "330 NM",
+    "sure": true
+   },
+   {
+    "start": 55.2,
+    "end": 56.8,
+    "text": "8s 0-100",
+    "ko": "제로백 8초",
+    "kind": "키워드 스티커",
+    "y_pct": 62.0,
+    "x_center_pct": 32.0,
+    "text_height_pct": 4.5,
+    "color": "#FFFFFF",
+    "background": "외곽선",
+    "bg_color": "#000000",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "8s",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 0.1,
+    "type": "톡",
+    "event": "7시트 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 0.9,
+    "type": "톡",
+    "event": "연비 기름방울 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 1.8,
+    "type": "톡",
+    "event": "가격 인하 화살표 및 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 3.7,
+    "type": "쿵",
+    "event": "차량 모델명 타이틀 및 배기음 임팩트",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 6.8,
+    "type": "톡",
+    "event": "REEV 전력/연료 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 8.0,
+    "type": "톡",
+    "event": "토끼(200만) 이모지 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 18.6,
+    "type": "딸깍",
+    "event": "디스플레이 터치 및 360 카메라 텍스트 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 19.9,
+    "type": "톡",
+    "event": "CarPlay 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 28.7,
+    "type": "톡",
+    "event": "엔진 그래픽 보닛 위 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 30.0,
+    "type": "톡",
+    "event": "배터리 충전 번개 아이콘 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 33.2,
+    "type": "휙",
+    "event": "주유 게이지 바늘 흔들림 및 휘파람 사운드",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 36.2,
+    "type": "톡",
+    "event": "믹서기/TV V2L 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 39.0,
+    "type": "딸깍",
+    "event": "전동 트렁크 버튼 터치",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 43.1,
+    "type": "쿵",
+    "event": "서스펜션 쇼바 3D 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 49.8,
+    "type": "띵",
+    "event": "7년 보증 방패 아이콘 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 53.0,
+    "type": "톡",
+    "event": "214 마력 번호판형 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 54.1,
+    "type": "톡",
+    "event": "330 Nm 토크 카드 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.2,
+    "type": "톡",
+    "event": "스톱워치 제로백 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 57.5,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "급가속하며 타이어 마찰 및 모터 사운드",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합/비트",
+   "bpm_est": 115,
+   "mood": "경쾌하고 스포티함",
+   "ducks_under_voice": true,
+   "changes": [
+    {
+     "t": 0.0,
+     "what": "도입부 빠른 템포 비트 시작"
+    },
+    {
+     "t": 57.0,
+     "what": "가속 효과음과 함께 음악 아웃트로"
+    }
+   ],
+   "cuts_on_beat": "일부"
+  },
+  "graphics": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "what": "공중에 떠 있는 3D 2열 시트 그래픽",
+    "is_3d": true,
+    "size_w_pct": 30.0,
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "entrance": "위에서 떨어짐",
+    "purpose": "7인승 좌석 강조",
+    "sure": true
+   },
+   {
+    "start": 0.9,
+    "end": 1.7,
+    "what": "연료 게이지와 주유 방울 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 22.0,
+    "x_pct": 50.0,
+    "y_pct": 22.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "연비 절감 강조",
+    "sure": true
+   },
+   {
+    "start": 1.8,
+    "end": 3.2,
+    "what": "아래 방향 초록색 화살표",
+    "is_3d": false,
+    "size_w_pct": 18.0,
+    "x_pct": 48.0,
+    "y_pct": 28.0,
+    "entrance": "아래로 튕김",
+    "purpose": "150만 파운드 이하 가격 인하 강조",
+    "sure": true
+   },
+   {
+    "start": 6.8,
+    "end": 8.0,
+    "what": "주유와 번개 충전 서클 아이콘",
+    "is_3d": false,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "페이드",
+    "purpose": "REEV 하이브리드 개념 전달",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.0,
+    "what": "보닛 위에 투시되는 가솔린 엔진 3D 모형",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "발전용 엔진 작동 원리 시각화",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 38.6,
+    "what": "충전구에서 연결되는 대형 모니터 및 믹서기 아이콘",
+    "is_3d": true,
+    "size_w_pct": 40.0,
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "V2L 가전제품 사용성 강조",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 45.5,
+    "what": "타이어 위 3D 쇼크업소버(맥퍼슨 서스펜션)",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "독립 서스펜션 구조 설명",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 3.6,
+    "text": "لو عايز سبعة راكب توفر في البنزين وتحت المليون ونص ركز معايا",
+    "ko": "7인승에 기름값 아끼고 150만 아래를 찾는다면 집중하세요."
+   },
+   {
+    "start": 3.7,
+    "end": 5.4,
+    "text": "DFSK E5 Plus",
+    "ko": "DFSK E5 플러스입니다."
+   },
+   {
+    "start": 5.5,
+    "end": 8.7,
+    "text": "خد بالك سبعة راكب وREEV صعب جداً تجيبهم قبل ما تدفع تو رابيتس اللي هما اتنين مليون",
+    "ko": "7인승에 REEV 구조를 2백만(토끼 2마리) 이하로 구하긴 정말 어렵습니다."
+   },
+   {
+    "start": 8.8,
+    "end": 11.5,
+    "text": "الكنبة واسعة عشان لو عندك أولاد يبقوا مرتاحين",
+    "ko": "시트가 넉넉해서 아이들이 있어도 아주 편안합니다."
+   },
+   {
+    "start": 11.6,
+    "end": 14.5,
+    "text": "ويا لو عندك خمسة مبدئياً كفاية بس الصف التالت موجود",
+    "ko": "5명이어도 충분하지만 3열 시트까지 갖춰져 있죠."
+   },
+   {
+    "start": 14.6,
+    "end": 18.4,
+    "text": "وعندك تبطين وجلد في كل حتة في العربية فهتحس بقيمة فلوسك",
+    "ko": "실내 곳곳에 가죽과 마감재가 들어가 있어 돈값을 제대로 한다고 느낄 겁니다."
+   },
+   {
+    "start": 18.5,
+    "end": 22.8,
+    "text": "عندك كاميرات 360 وايرلس أبل كاربلاي وأندرويد أوتو ديجيتال ديسبلاي",
+    "ko": "360도 카메라, 무선 애플 카플레이, 안드로이드 오토, 디지털 계기판에"
+   },
+   {
+    "start": 22.9,
+    "end": 26.6,
+    "text": "كروز كنترول وبلايند سبوت أسيست وسقف بانوراما الشمس كلت دماغي",
+    "ko": "크루즈 컨트롤, 사각지대 어시스트, 파노라마 선루프까지 (해가 뜨거워 죽겠네요)."
+   },
+   {
+    "start": 26.7,
+    "end": 33.5,
+    "text": "يعني عندك موتور بنزين بيشحن البطارية الكهربا عملولك رينج 1000 كيلو عشان البنزين",
+    "ko": "가솔린 엔진이 배터리를 충전해서 총 주행거리가 1,000km에 달합니다."
+   },
+   {
+    "start": 33.6,
+    "end": 38.5,
+    "text": "ولو عاملين حفلة على البحر حطولك كابل V2L توصل تلفزيون خلاط شواية وعيش بقى",
+    "ko": "바닷가 파티를 할 땐 V2L로 TV, 믹서기, 그릴을 꽂아 마음껏 즐기세요."
+   },
+   {
+    "start": 38.6,
+    "end": 42.5,
+    "text": "ده غير إن الشنطة كهربا وتشيل كويس عشان شنط السفر",
+    "ko": "전동 트렁크에 짐도 넉넉히 실려 여행 가방 넣기 좋습니다."
+   },
+   {
+    "start": 42.6,
+    "end": 46.5,
+    "text": "والساسبينشن بتاعها مريح جداً إندبندنت ماكفرسون كأنك ماشي على زبادي",
+    "ko": "맥퍼슨 독립 서스펜션이라 승차감이 요거트처럼 아주 부드럽습니다."
+   },
+   {
+    "start": 46.6,
+    "end": 52.8,
+    "text": "وعليها ضمان سبع سنين أو 150 ألف كيلو الطارق واثق من نفسه",
+    "ko": "7년 또는 15만 km 보증이 제공됩니다."
+   },
+   {
+    "start": 52.9,
+    "end": 57.0,
+    "text": "موتور 214 حصان و330 نيوتن ومن صفر لمية في حتة التمان ثواني باي باي",
+    "ko": "214마력에 330Nm 토크, 제로백 8초대입니다. 그럼 안녕!"
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 3.6,
+    "speed": "빠름",
+    "summary": "7인승 + 연비 절감 + 150만 파운드 이하 조건 제시"
+   },
+   {
+    "stage": "차 소개",
+    "start": 3.7,
+    "end": 8.7,
+    "speed": "빠름",
+    "summary": "DFSK E5 Plus 소개 및 가성비 REEV 포지셔닝"
+   },
+   {
+    "stage": "기능",
+    "start": 8.8,
+    "end": 26.6,
+    "speed": "보통",
+    "summary": "실내 거주성, 3열 시트, 가죽 마감, 디스플레이 및 편의 사양"
+   },
+   {
+    "stage": "사양",
+    "start": 26.7,
+    "end": 38.5,
+    "speed": "보통",
+    "summary": "REEV 구동 원리, 주행거리 1,000km, V2L 외부 전력 활용"
+   },
+   {
+    "stage": "기능",
+    "start": 38.6,
+    "end": 46.5,
+    "speed": "보통",
+    "summary": "전동 트렁크 용량 및 맥퍼슨 독립 서스펜션 승차감"
+   },
+   {
+    "stage": "가격",
+    "start": 46.6,
+    "end": 52.8,
+    "speed": "보통",
+    "summary": "7년/15만km 보증 프로그램 안내"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 52.9,
+    "end": 59.8,
+    "speed": "빠름",
+    "summary": "출력 제원 및 제로백 언급 후 급가속 출발 퇴장"
+   }
+  ],
+  "rules": [
+   "호기심을 끄는 3대 조건(인승, 연비, 가격)을 3초 이내에 3D 모션 그래픽과 함께 제시",
+   "화두로 던진 옵션이나 부품 이름마다 즉각적인 3D 아이콘/CG를 화면에 띄워 직관성 극대화",
+   "각 그래픽 등장 시점마다 타격감 있는 짧은 '톡' 효과음을 1:1로 매칭",
+   "이집트 특유의 대중적 비유(토끼 2마리=200만, 요거트=부드러운 승차감)를 활용한 친근한 해설",
+   "운전석 창문 밖으로 직접 제원표를 들고 제로백을 외치며 급가속으로 영상 퇴장"
+  ],
+  "option_highlights": [
+   {
+    "start": 0.0,
+    "end": 0.8,
+    "feature": "7인승 시트 구성",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "공중에 회전하며 떠 있는 3D 좌석 시트",
+    "x_pct": 50.0,
+    "y_pct": 28.0,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "위에서 떨어짐",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 18.5,
+    "end": 21.6,
+    "feature": "360도 서라운드 뷰 및 인포테인먼트",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "센터 터치스크린 조작 화면",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 23.3,
+    "end": 25.7,
+    "feature": "파노라마 선루프",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "천장 전체 개방형 유리 루프",
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "size_w_pct": 80.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": null,
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 31.0,
+    "feature": "REEV 가솔린 발전 엔진",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "보닛 상단에 합성된 3D 가솔린 엔진 블록",
+    "x_pct": 50.0,
+    "y_pct": 52.0,
+    "size_w_pct": 35.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 35.7,
+    "end": 38.6,
+    "feature": "V2L 외부 전력 공급",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "충전구 위로 올라오는 대형 모니터 및 믹서기",
+    "x_pct": 55.0,
+    "y_pct": 18.0,
+    "size_w_pct": 40.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 38.6,
+    "end": 41.0,
+    "feature": "스마트 전동 트렁크",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "원터치 전동 트렁크 도어 버튼",
+    "x_pct": 50.0,
+    "y_pct": 45.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "딸깍",
+    "sure": true
+   },
+   {
+    "start": 43.1,
+    "end": 45.5,
+    "feature": "맥퍼슨 독립 서스펜션",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "앞바퀴 휠 하우스 위에 합성된 스프링/쇼바 그래픽",
+    "x_pct": 50.0,
+    "y_pct": 18.0,
+    "size_w_pct": 25.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "쿵",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 걸어나오며 7인승 좌석과 가격 인하 그래픽을 띄우고 강력한 조건 3가지를 빠르게 외침",
+   "type": "가격",
+   "text": "لو عايز سبعة راكب توفر في البنزين وتحت المليون ونص ركز معايا",
+   "ko": "7인승에 기름값 아끼고 150만 이하를 찾는다면 집중하세요!"
+  },
+  "narration_points": [
+   {
+    "t": 0.5,
+    "point": "150만 파운드 이하에서 찾기 힘든 7인승 구성",
+    "category": "가격·조건"
+   },
+   {
+    "t": 6.8,
+    "point": "보통 200만 파운드 이상 줘야 하는 주행거리 연장형 전기차(REEV)",
+    "category": "희소성"
+   },
+   {
+    "t": 11.5,
+    "point": "2열 및 3열 거주성 확보",
+    "category": "공간"
+   },
+   {
+    "t": 15.0,
+    "point": "실내 전반의 고급 가죽 마감 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 19.0,
+    "point": "360도 카메라 및 무선 폰 커넥티비티 지원",
+    "category": "편의"
+   },
+   {
+    "t": 31.0,
+    "point": "엔진 발전 배터리 충전 조합으로 1,000km 주행 가능",
+    "category": "성능"
+   },
+   {
+    "t": 36.0,
+    "point": "캠핑 및 아웃도어용 V2L 외부 전원 출력",
+    "category": "편의"
+   },
+   {
+    "t": 43.5,
+    "point": "독립식 맥퍼슨 서스펜션의 부드러운 승차감",
+    "category": "성능"
+   },
+   {
+    "t": 50.0,
+    "point": "7년 또는 15만 km 품질 보증",
+    "category": "가격·조건"
+   },
+   {
+    "t": 54.0,
+    "point": "214마력, 330Nm 토크 및 제로백 8초대 가속력",
+    "category": "성능"
+   }
+  ],
+  "cta": {
+   "t": 56.5,
+   "text": "باي باي",
+   "ko": "바이 바이 (가속하며 퇴장)",
+   "method": "없음"
+  },
+  "shooting": {
+   "location": "실외",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "뒷좌석",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "옵션 작동",
+    "외관 후면",
+    "외관 전면",
+    "외관 측면",
+    "트렁크",
+    "휠",
+    "외관 후면",
+    "외관 측면"
+   ]
+  }
+ }
+}

@@ -1,0 +1,792 @@
+{
+ "country": "NH",
+ "kind": "reviewer",
+ "url": "https://youtu.be/cg6GUe5G1lQ",
+ "model": "gemini-3.8-flash",
+ "usage": {
+  "promptTokenCount": 6999,
+  "candidatesTokenCount": 6661,
+  "totalTokenCount": 13660,
+  "promptTokensDetails": [
+   {
+    "modality": "TEXT",
+    "tokenCount": 1163
+   },
+   {
+    "modality": "VIDEO",
+    "tokenCount": 5836
+   }
+  ],
+  "serviceTier": "standard"
+ },
+ "analysis": {
+  "basic": {
+   "duration_sec": 64.3,
+   "aspect": "9:16",
+   "car": "BMW M5 (G90) Individual Techno Violet",
+   "format": "차 소개",
+   "person_on_screen": true,
+   "voice": "사람 직접",
+   "language": "ar"
+  },
+  "shots": [
+   {
+    "start": 0.0,
+    "end": 2.2,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 2.2,
+    "end": 4.6,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 4.6,
+    "end": 6.0,
+    "part": "휠",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 6.0,
+    "end": 8.0,
+    "part": "휠",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 8.0,
+    "end": 11.4,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 11.4,
+    "end": 13.6,
+    "part": "엔진룸",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 13.6,
+    "end": 17.4,
+    "part": "외관 전면",
+    "camera": "확대",
+    "transition_in": "확대 전환",
+    "sure": true
+   },
+   {
+    "start": 17.4,
+    "end": 22.1,
+    "part": "외관 측면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 22.1,
+    "end": 25.0,
+    "part": "외관 전면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 28.7,
+    "part": "외관 전면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 28.7,
+    "end": 32.7,
+    "part": "외관 측면",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 32.7,
+    "end": 38.8,
+    "part": "뒷좌석",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 38.8,
+    "end": 42.6,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 42.6,
+    "end": 47.1,
+    "part": "센터 화면",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 47.1,
+    "end": 49.5,
+    "part": "실내 앞",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 49.5,
+    "end": 55.4,
+    "part": "계기판",
+    "camera": "천천히 이동",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.7,
+    "part": "외관 후면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 57.7,
+    "end": 61.3,
+    "part": "사람",
+    "camera": "걸으며 손으로",
+    "transition_in": "바로 컷",
+    "sure": true
+   },
+   {
+    "start": 61.3,
+    "end": 64.3,
+    "part": "외관 전면",
+    "camera": "고정",
+    "transition_in": "바로 컷",
+    "sure": true
+   }
+  ],
+  "captions": [
+   {
+    "start": 4.6,
+    "end": 6.1,
+    "text": "21\"",
+    "ko": "21인치",
+    "kind": "키워드 스티커",
+    "y_pct": 20.5,
+    "x_center_pct": 53.0,
+    "text_height_pct": 10.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "21\"",
+    "sure": true
+   },
+   {
+    "start": 12.5,
+    "end": 14.1,
+    "text": "V8",
+    "ko": "V8 엔진",
+    "kind": "키워드 스티커",
+    "y_pct": 39.5,
+    "x_center_pct": 50.0,
+    "text_height_pct": 6.5,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "V8",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 15.6,
+    "text": "727hp",
+    "ko": "727마력",
+    "kind": "키워드 스티커",
+    "y_pct": 29.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "727hp",
+    "sure": true
+   },
+   {
+    "start": 15.6,
+    "end": 17.4,
+    "text": "1000Nm",
+    "ko": "1000Nm 토크",
+    "kind": "키워드 스티커",
+    "y_pct": 30.0,
+    "x_center_pct": 50.0,
+    "text_height_pct": 8.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "1000Nm",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.0,
+    "text": "0-100KM/h 3.2s",
+    "ko": "제로백 3.2초",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 63.0,
+    "text_height_pct": 9.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#7B1FA2",
+    "bg_width_pct": 45.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "3.2s",
+    "sure": true
+   },
+   {
+    "start": 20.0,
+    "end": 21.9,
+    "text": "ton 2.5",
+    "ko": "공차중량 2.5톤",
+    "kind": "키워드 스티커",
+    "y_pct": 33.0,
+    "x_center_pct": 74.0,
+    "text_height_pct": 8.5,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#9C27B0",
+    "bg_width_pct": 35.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "2.5",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "text": "500M x5",
+    "ko": "500미터 (축구장 5개)",
+    "kind": "키워드 스티커",
+    "y_pct": 28.0,
+    "x_center_pct": 60.0,
+    "text_height_pct": 12.0,
+    "color": "#FFFFFF",
+    "background": "없음",
+    "bg_color": null,
+    "bg_width_pct": null,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "500M",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.2,
+    "text": "تبريد",
+    "ko": "통풍 (쿨링)",
+    "kind": "키워드 스티커",
+    "y_pct": 42.0,
+    "x_center_pct": 70.0,
+    "text_height_pct": 5.0,
+    "color": "#FFFFFF",
+    "background": "상자",
+    "bg_color": "#0288D1",
+    "bg_width_pct": 28.0,
+    "tilt_deg": 0.0,
+    "entrance": "톡 튀어나옴",
+    "highlight_word": "تبريد",
+    "sure": true
+   }
+  ],
+  "sfx": [
+   {
+    "t": 2.2,
+    "type": "쿵",
+    "event": "화면 전환 및 M5 로고 등장",
+    "level": "큼",
+    "sure": true
+   },
+   {
+    "t": 4.6,
+    "type": "톡",
+    "event": "21인치 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 12.5,
+    "type": "톡",
+    "event": "V8 자막 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 14.1,
+    "type": "휙",
+    "event": "727hp 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 15.6,
+    "type": "휙",
+    "event": "1000Nm 텍스트 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 17.8,
+    "type": "띵",
+    "event": "0-100km 가속 수치 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 20.0,
+    "type": "띵",
+    "event": "2.5톤 무게 수치 카드 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 26.6,
+    "type": "휙",
+    "event": "500M 헤드라이트 조사거리 및 축구장 그래픽 등장",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 40.0,
+    "type": "톡",
+    "event": "통풍(눈꽃) 아이콘 및 자막 팝업",
+    "level": "보통",
+    "sure": true
+   },
+   {
+    "t": 55.8,
+    "type": "실제 차 소리(문·엔진·경적)",
+    "event": "배기음 및 가속 사운드",
+    "level": "큼",
+    "sure": true
+   }
+  ],
+  "music": {
+   "genre": "힙합 비트",
+   "bpm_est": 115,
+   "mood": "에너지 넘치고 역동적",
+   "ducks_under_voice": "일부",
+   "changes": [
+    {
+     "t": 55.4,
+     "what": "배기음 시연 구간에 음악 볼륨 일시 감소"
+    }
+   ],
+   "cuts_on_beat": "대부분"
+  },
+  "graphics": [
+   {
+    "start": 2.2,
+    "end": 4.6,
+    "what": "BMW M5 타이틀 백월 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 70.0,
+    "y_pct": 35.0,
+    "entrance": "바로",
+    "purpose": "차량명 브랜딩 강조",
+    "sure": true
+   },
+   {
+    "start": 14.1,
+    "end": 17.4,
+    "what": "3D 입체 텍스트 (마력 및 토크)",
+    "is_3d": true,
+    "size_w_pct": 75.0,
+    "x_pct": 50.0,
+    "y_pct": 30.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "성능 수치 시각적 극대화",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 21.9,
+    "what": "네온 보라색 3D 스펙 카드 (제로백, 무게)",
+    "is_3d": true,
+    "size_w_pct": 45.0,
+    "x_pct": 65.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "충전구 및 차체 옆 수치 강조",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "what": "헤드라이트 조사 빔 및 축구장 3D 그래픽",
+    "is_3d": true,
+    "size_w_pct": 55.0,
+    "x_pct": 60.0,
+    "y_pct": 28.0,
+    "entrance": "밀려옴",
+    "purpose": "조사거리 500m 직관적 비유",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.2,
+    "what": "쿨링 눈꽃 3D 스티커",
+    "is_3d": true,
+    "size_w_pct": 25.0,
+    "x_pct": 70.0,
+    "y_pct": 40.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "통풍 시트 기능 강조",
+    "sure": true
+   },
+   {
+    "start": 61.5,
+    "end": 64.3,
+    "what": "전시장 위치 3D 핀 마커",
+    "is_3d": true,
+    "size_w_pct": 35.0,
+    "x_pct": 50.0,
+    "y_pct": 20.0,
+    "entrance": "톡 튀어나옴",
+    "purpose": "매장 위치 안내",
+    "sure": true
+   }
+  ],
+  "transcript": [
+   {
+    "start": 0.0,
+    "end": 4.6,
+    "text": "أنا ناصر، ودي من اللي بتخاف منها مرسيدس: BMW M5.",
+    "ko": "저는 나사르입니다. 이건 벤츠가 두려워하는 차, 바로 BMW M5입니다."
+   },
+   {
+    "start": 4.6,
+    "end": 11.4,
+    "text": "عندك جنط 21 ورا و20 قدام عشان تزود الثبات وعشان تبرد الفرامل.",
+    "ko": "접지력과 브레이크 냉각을 위해 뒤에는 21인치, 앞에는 20인치 휠이 들어갔습니다."
+   },
+   {
+    "start": 11.4,
+    "end": 17.4,
+    "text": "بيبردوا الموتور الـ V8 توين تيربو، بيخرج 727 حصان و1000 نيوتن، بتطير!",
+    "ko": "V8 트윈터보 엔진을 냉각하며, 727마력과 1000Nm 토크를 뿜어내어 날아갑니다!"
+   },
+   {
+    "start": 17.4,
+    "end": 22.1,
+    "text": "الهايبرد وصلها من صفر لـ 100 في 3.2 ثانية، وزنها 2.5 طن، أنت متخيل؟",
+    "ko": "하이브리드 시스템으로 0-100km를 3.2초 만에 주파합니다. 무게가 2.5톤인데 상상이 되시나요?"
+   },
+   {
+    "start": 22.1,
+    "end": 28.7,
+    "text": "إنديفيديوال سبيك تكنو فايوليت الوحيد في مصر... الهيدلايت ينورلك 500 متر مسافة ملعب كورة.",
+    "ko": "이집트 유일의 인디비주얼 테크노 바이올렛 컬러... 헤드라이트는 축구장 길이인 500미터를 비춥니다."
+   },
+   {
+    "start": 28.7,
+    "end": 32.7,
+    "text": "المرايات والسقف بتاعك كربون فايبر عشان تخفيف الوزن.",
+    "ko": "사이드미러와 루프는 무게 감량을 위해 카본 파이버로 제작되었습니다."
+   },
+   {
+    "start": 32.7,
+    "end": 38.8,
+    "text": "عندك شاشات وتكييف للكراسي وستاير خلفية وجانبية.",
+    "ko": "뒷좌석 공조 제어 및 열선, 후면과 측면 전동 선블라인드가 있습니다."
+   },
+   {
+    "start": 38.8,
+    "end": 43.0,
+    "text": "كراسي M مريحة فيها تسخين وتبريد.",
+    "ko": "열선과 통풍이 지원되는 편안한 M 스포츠 시트입니다."
+   },
+   {
+    "start": 43.0,
+    "end": 47.0,
+    "text": "وعلى التابلوه عندك كربون فايبر وكريستال ودبل سكرين عملاقة.",
+    "ko": "대시보드에는 카본 파이버, 크리스탈 소재, 거대한 커브드 디스플레이가 적용되었습니다."
+   },
+   {
+    "start": 47.0,
+    "end": 51.5,
+    "text": "عندك ساوند سيستم باورز آند ويلكنز، والسقف الكانتارا، دركسيون الأحلام.",
+    "ko": "바워스 앤 윌킨스 오디오와 알칸타라 루프 라이닝, 그리고 환상적인 스티어링 휠이 있습니다."
+   },
+   {
+    "start": 51.5,
+    "end": 57.7,
+    "text": "M1 و M2 وبادل شيفترز عملاقة... ولو دوست هنا!",
+    "ko": "M1, M2 버튼과 대형 패들 시프트... 그리고 시동을 걸면!"
+   },
+   {
+    "start": 57.7,
+    "end": 64.3,
+    "text": "وهتلاقيها عند خالد عبود... والعنوان مكسيم مول أول طريق العين السخنة.",
+    "ko": "이 차는 칼레드 아부드 매장에서 만나보실 수 있습니다. 위치는 막심 몰 아인 소크나 진입로입니다."
+   }
+  ],
+  "structure": [
+   {
+    "stage": "훅",
+    "start": 0.0,
+    "end": 4.6,
+    "speed": "빠름",
+    "summary": "벤츠가 두려워하는 차 BMW M5 도입 멘트"
+   },
+   {
+    "stage": "사양",
+    "start": 4.6,
+    "end": 22.1,
+    "speed": "빠름",
+    "summary": "휠 크기, 에어덕트, V8 트윈터보 출력, 하이브리드 가속력 및 중량 설명"
+   },
+   {
+    "stage": "차 소개",
+    "start": 22.1,
+    "end": 32.7,
+    "speed": "빠름",
+    "summary": "익스테리어 특수 컬러, 키드니 그릴 라이팅, 레이저 헤드라이트, 카본 루프"
+   },
+   {
+    "stage": "기능",
+    "start": 32.7,
+    "end": 57.7,
+    "speed": "빠름",
+    "summary": "뒷좌석 편의장비, M 스포츠 시트, 대시보드 디스플레이, 스티어링 휠 및 배기음"
+   },
+   {
+    "stage": "끝 화면",
+    "start": 57.7,
+    "end": 64.3,
+    "speed": "보통",
+    "summary": "딜러십 소개 및 전시장 위치 안내"
+   }
+  ],
+  "rules": [
+   "첫 3초 안에 시청자의 호기심을 유발하는 라이벌 대립 구도(벤츠 vs BMW) 언급",
+   "스펙 수치(마력, 토크, 제로백, 거리)가 나올 때마다 거대한 3D 타이포그래피 스티커와 효과음 동시 노출",
+   "기능 설명 시 손가락으로 가리키는 부위에 증강현실 느낌의 아이콘(쿨링 눈꽃, 축구장 비교) 매칭",
+   "엔진 배기음을 직접 들려주는 짧은 컷을 중간 클라이맥스로 배치하여 몰입감 유지",
+   "마지막 5초 이내에 매장 위치를 3D 지도 핀과 함께 시각화하여 방문 유도"
+  ],
+  "option_highlights": [
+   {
+    "start": 4.6,
+    "end": 6.1,
+    "feature": "이종 휠 사이즈 (전20/후21)",
+    "shown_how": "글자 카드",
+    "icon_desc": "21인치 텍스트",
+    "x_pct": 53.0,
+    "y_pct": 20.5,
+    "size_w_pct": 30.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 17.8,
+    "end": 20.0,
+    "feature": "플러그인 하이브리드 제로백 (3.2초)",
+    "shown_how": "글자 카드",
+    "icon_desc": "0-100km 가속 퍼플 카드",
+    "x_pct": 63.0,
+    "y_pct": 42.0,
+    "size_w_pct": 45.0,
+    "follows_object": true,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "띵",
+    "sure": true
+   },
+   {
+    "start": 25.0,
+    "end": 26.5,
+    "feature": "아이코닉 글로우 그릴",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "그릴 라이트 점등 시연",
+    "x_pct": 50.0,
+    "y_pct": 50.0,
+    "size_w_pct": 60.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 26.5,
+    "end": 28.5,
+    "feature": "어댑티브 LED 헤드라이트 (500m)",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "축구장 및 500m 가상 그래픽",
+    "x_pct": 60.0,
+    "y_pct": 28.0,
+    "size_w_pct": 55.0,
+    "follows_object": false,
+    "entrance": "밀려옴",
+    "sfx_with": "휙",
+    "sure": true
+   },
+   {
+    "start": 36.5,
+    "end": 38.8,
+    "feature": "전동식 롤러 선블라인드",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "선블라인드 수동 조작 시연",
+    "x_pct": 65.0,
+    "y_pct": 50.0,
+    "size_w_pct": 50.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "없음",
+    "sure": true
+   },
+   {
+    "start": 40.0,
+    "end": 42.2,
+    "feature": "시트 통풍 기능",
+    "shown_how": "3D 아이콘",
+    "icon_desc": "시트 위 눈꽃 모양 쿨링 아이콘",
+    "x_pct": 70.0,
+    "y_pct": 40.0,
+    "size_w_pct": 28.0,
+    "follows_object": false,
+    "entrance": "톡 튀어나옴",
+    "sfx_with": "톡",
+    "sure": true
+   },
+   {
+    "start": 55.4,
+    "end": 57.7,
+    "feature": "스포츠 가변 배기 시스템",
+    "shown_how": "실제 작동 시연",
+    "icon_desc": "후면 머플러 쿼드 팁 배기 사운드",
+    "x_pct": 50.0,
+    "y_pct": 70.0,
+    "size_w_pct": 70.0,
+    "follows_object": false,
+    "entrance": "바로",
+    "sfx_with": "실제 차 소리(문·엔진·경적)",
+    "sure": true
+   }
+  ],
+  "hook": {
+   "first_3s": "리뷰어가 카메라를 향해 걸어나오며 벤츠를 위협하는 차라고 소개",
+   "type": "희귀차",
+   "text": "أنا ناصر، ودي من اللي بتخاف منها مرسيدس",
+   "ko": "저는 나사르입니다. 이건 벤츠가 두려워하는 차입니다."
+  },
+  "narration_points": [
+   {
+    "t": 4.6,
+    "point": "전륜 20인치, 후륜 21인치 휠 및 냉각 에어덕트",
+    "category": "성능"
+   },
+   {
+    "t": 11.4,
+    "point": "V8 트윈터보 기반 727마력, 1000Nm의 강력한 파워트레인",
+    "category": "성능"
+   },
+   {
+    "t": 17.8,
+    "point": "2.5톤의 중량에도 제로백 3.2초를 기록하는 하이브리드 파워",
+    "category": "성능"
+   },
+   {
+    "t": 22.5,
+    "point": "이집트 내 유일한 인디비주얼 테크노 바이올렛 컬러",
+    "category": "희소성"
+   },
+   {
+    "t": 26.5,
+    "point": "500미터 축구장 길이를 비추는 헤드라이트",
+    "category": "안전"
+   },
+   {
+    "t": 29.5,
+    "point": "경량화를 위한 루프 및 사이드미러 카본 파이버 적용",
+    "category": "디자인"
+   },
+   {
+    "t": 34.0,
+    "point": "독립 공조 제어 및 프라이버시 선블라인드 뒷좌석 편의",
+    "category": "편의"
+   },
+   {
+    "t": 39.5,
+    "point": "열선 및 통풍 기능이 적용된 M 스포츠 버킷 시트",
+    "category": "편의"
+   },
+   {
+    "t": 44.0,
+    "point": "카본 파이버 인테리어와 커브드 대형 디스플레이",
+    "category": "디자인"
+   },
+   {
+    "t": 51.5,
+    "point": "M 커스텀 드라이브 모드 버튼과 대형 카본 패들 시프트",
+    "category": "디자인"
+   }
+  ],
+  "cta": {
+   "t": 61.5,
+   "text": "العنوان مكسيم مول أول طريق العين السخنة",
+   "ko": "위치는 막심 몰 아인 소크나 초입 매장으로 오세요",
+   "method": "매장 방문"
+  },
+  "shooting": {
+   "location": "전시장",
+   "person_role": "리뷰어",
+   "part_order": [
+    "사람",
+    "외관 전면",
+    "휠",
+    "엔진룸",
+    "외관 측면",
+    "외관 전면",
+    "뒷좌석",
+    "실내 앞",
+    "센터 화면",
+    "계기판",
+    "외관 후면",
+    "실외"
+   ]
+  }
+ }
+}
